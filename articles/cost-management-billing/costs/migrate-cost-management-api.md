@@ -3,17 +3,17 @@ title: Migrer un Contrat Entreprise vers des API Contrat client Microsoft – Az
 description: Cet article vous aide à comprendre les conséquences de la migration d’un Contrat Entreprise Microsoft vers un Contrat Client Microsoft.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 07/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 9e7d1d08a3d69337cc205bdaf4bf3afc8941dd77
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2d3bae2f6282a4e505e2d5aa9ce2cf3f52b80006
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750296"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762263"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
@@ -42,7 +42,7 @@ Les éléments suivants vous aideront à d’effectuer votre transition vers les
 - Mettez à jour le code de programmation pour [utiliser l’authentification Azure AD](/rest/api/azure/#create-the-request).
 - Mettez à jour le code de programmation pour remplacer les appels d’API EA par les appels d’API MCA.
 - Mettez à jour la gestion des erreurs pour utiliser de nouveaux codes d’erreur.
-- Passez en revue les offres d’intégration supplémentaires, telles que Cloudyn et Power BI, pour d’autres actions requises.
+- Passez en revue les offres d'intégration supplémentaires, telles que Power BI, pour d'autres actions requises.
 
 ## <a name="ea-apis-replaced-with-mca-apis"></a>API EA remplacées par les API MCA
 
@@ -78,7 +78,6 @@ Si vous utilisez déjà des API EA, vous devez les mettre à jour pour prendre e
 
 | Objectif | Ancienne offre | Nouvelle offre |
 | --- | --- | --- |
-| Cloudyn | Cloudyn | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) pack de contenu et connecteur |  [Connecteur Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API pour obtenir le solde et crédits
@@ -515,18 +514,6 @@ Pour obtenir des résumés des réservations avec l’API Reservation Summaries�
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
 
-
-
-## <a name="move-from-cloudyn-to-cost-management"></a>Migrer de Cloudyn à Cost Management
-
-Nous recommandons aux organisations qui utilisent Cloudyn de commencer à utiliser [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) pour répondre à leurs besoins de gestion des coûts. Cost Management est disponible dans le Portail Microsoft Azure sans intégration et avec une latence de huit heures. Pour plus d’informations, consultez la page [Documentation de Cost Management](../index.yml).
-
-Grâce à Azure Cost Management, vous pouvez :
-
-- Afficher les coûts au fil du temps par rapport à un budget prédéfini. Analyser tous les jours des modèles de coûts pour identifier et arrêter les dépenses anormales. Décomposer les coûts par balises, groupe de ressources, service et emplacement.
-- Créer des budgets pour définir des limites d’utilisation et de coûts, mais aussi recevoir une notification lors de l’approche de seuils importants. Automatiser des groupes d’actions pour déclencher des événements personnalisés et appliquer des limites strictes selon vos conditions.
-- Optimiser les coûts et l’utilisation grâce à des suggestions d’Azure Advisor. Découvrir des optimisations d’achat de réservations, éviter la sous-utilisation de vos machines virtuelles et supprimer des ressources inutilisées pour respecter vos budgets.
-- Planifier quotidiennement une exportation de données de coût et d’utilisation pour publier un fichier CSV vers votre compte de stockage. Automatiser l’intégration avec des systèmes externes pour conserver les données de facturation synchronisées et à jour.
 
 ## <a name="power-bi-integration"></a>Intégration Power BI
 

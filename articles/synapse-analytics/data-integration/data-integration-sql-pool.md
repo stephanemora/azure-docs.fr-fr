@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79f0b1a6942f141f0a2d2d38adc5875d82e86d50
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: aa11979d205693cb730cda64debd4430dbb0b43f
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567619"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541965"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingérer les données dans un pool SQL dédié
 
@@ -22,9 +22,11 @@ Cet article explique comment ingérer les données d’un compte de stockage Azu
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte de stockage Azure** : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md) pour découvrir comment procéder.
-* **Azure Synapse Analytics** : Vous utilisez un pool SQL dédié en tant que magasin de données *récepteur*. Si vous ne disposez pas d’une instance Synapse Analytics, consultez [Créer un pool SQL dédié](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour savoir comment procéder.
+- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+- **Compte de stockage Azure** : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md) pour découvrir comment procéder.
+- **Azure Synapse Analytics** : Vous utilisez un pool SQL dédié en tant que magasin de données *récepteur*. 
+    - Si vous n'avez pas d'espace de travail Synapse, consultez [Créer un espace de travail Synapse](../get-started-create-workspace.md).
+    - Si vous n'avez pas de pool SQL dédié, consultez [Créer un pool SQL dédié](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
 
 ## <a name="create-linked-services"></a>Créez des services liés
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 08/03/2021
 ms.author: phjensen
-ms.openlocfilehash: 0eae929d60ce852e7a98f12430de796aa664d86f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5eae527b288570053e1e899bc776d541ffa9e60b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481447"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531673"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Installer l’outil Azure Application Consistent Snapshot Tool
 
@@ -69,9 +69,13 @@ Suivez les instructions pour configurer et exécuter les instantanés et les com
 
 ## <a name="enable-communication-with-storage"></a>Activer la communication avec le stockage
 
-Cette section explique comment activer la communication avec le stockage.
+Cette section explique comment activer la communication avec le stockage.  
 
-### <a name="azure-netapp-files"></a>Azure NetApp Files
+Suivez les instructions pour configurer le stockage pour votre configuration, à savoir :
+1. [Azure NetApp Files (avec machine virtuelle)](#azure-netapp-files-with-virtual-machine) 
+1. [Grande instance Azure (matériel nu)](#azure-large-instance-bare-metal)
+
+### <a name="azure-netapp-files-with-virtual-machine"></a>Azure NetApp Files (avec machine virtuelle)
 
 Créer un principal du service RBAC
 
@@ -114,7 +118,7 @@ Créer un principal du service RBAC
 
 1. Coupez et collez le contenu de la sortie dans un fichier nommé `azureauth.json` stocké sur le même système que la commande `azacsnap` et sécurisez le fichier avec les autorisations système appropriées.
 
-### <a name="azure-large-instance"></a>Instance volumineuse Azure
+### <a name="azure-large-instance-bare-metal"></a>Grande instance Azure (matériel nu)
 
 La communication avec le serveur principal de stockage s’exécute sur un canal SSH chiffré. Les exemples d’étapes suivants fournissent des conseils sur la configuration de SSH pour cette communication.
 

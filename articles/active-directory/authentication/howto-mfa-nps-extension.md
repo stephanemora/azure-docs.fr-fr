@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 08/17/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 29f8e1e3b89ef68c3ead4841cfba7b5e44f09a36
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 04f922d747ef535402baf664f5232e376f43cff2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744644"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527904"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Intégrer votre infrastructure NPS (Network Policy Server) existante à Azure AD Multi-Factor Authentication
 
@@ -117,6 +117,7 @@ En outre, la connectivité aux adresses URL suivantes est nécessaire pour termi
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
 * *https:\//www.powershellgallery.com*
+* *https:\//go.microsoft.com*
 * *https:\//aadcdn.msftauthimages.net*
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
@@ -173,7 +174,7 @@ Si vous devez créer et configurer un compte de test, effectuez les étapes suiv
 
 1. Connectez-vous à [https://aka.ms/mfasetup](https://aka.ms/mfasetup) avec un compte de test.
 2. Suivez les instructions pour configurer une méthode de vérification.
-3. Dans le portail Azure en tant qu’utilisateur administrateur, [créez une stratégie d’accès conditionnel](howto-mfa-getstarted.md#create-conditional-access-policy) afin d’exiger l’authentification multifacteur pour le compte de test.
+3. Dans le portail Azure en tant qu’utilisateur administrateur, [créez une stratégie d’accès conditionnel](howto-mfa-getstarted.md#plan-conditional-access-policies) afin d’exiger l’authentification multifacteur pour le compte de test.
 
 > [!IMPORTANT]
 >

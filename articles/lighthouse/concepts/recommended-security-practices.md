@@ -3,12 +3,12 @@ title: Pratiques de sécurité recommandées
 description: Lorsque vous utilisez Azure Lighthouse, il est important de prendre en compte la sécurité et le contrôle d’accès.
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 897f09c41d550d6200cc3d78743bb3b010f2c402
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419301"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768265"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 
@@ -19,7 +19,7 @@ Lorsque vous utilisez [Azure Lighthouse](../overview.md), il est important de pr
 
 ## <a name="require-azure-ad-multi-factor-authentication"></a>Demander l’authentification multifacteur Azure AD
 
-La fonctionnalité [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (également appelée vérification en deux étapes) permet d'empêcher des attaquants d'accéder à un compte en exigeant plusieurs étapes d'authentification. Vous devez exiger l’application de la solution Microsoft Azure Multi-Factor Authentication à tous les utilisateurs de votre locataire gérant, notamment aux utilisateurs qui auront accès aux ressources déléguées du client.
+La fonctionnalité [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (également appelée vérification en deux étapes) permet d'empêcher des attaquants d'accéder à un compte en exigeant plusieurs étapes d'authentification. Vous devez exiger l'authentification multifacteur Azure AD pour tous les utilisateurs de votre locataire de gestion, y compris les utilisateurs qui auront accès aux ressources client déléguées.
 
 Nous vous recommandons de demander à vos clients d’implémenter également Azure AD Multi-Factor Authentication dans leurs locataires.
 

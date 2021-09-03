@@ -5,13 +5,13 @@ author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.openlocfilehash: e6db49d34c39df2e1863dfa51914e30e9f1e1636
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 06/01/2021
+ms.openlocfilehash: a456db938d1607565525aea7ab2e9b43bc368aeb
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897088"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525851"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
@@ -192,10 +192,7 @@ Dans la préversion publique, la publication des métriques personnalisées n’
 |Région Azure |Préfixe du point de terminaison régional|
 |---|---|
 | Toutes les régions de cloud public | https://<azure_region_code>.monitoring.azure.com |
-| **Azure Government** | |
-| Gouvernement des États-Unis – Arizona | https:\//usgovarizona.monitoring.azure.us |
-| **Chine** | |
-| Chine orientale 2 | https:\//chinaeast2.monitoring.azure.cn |
+
 
 ## <a name="latency-and-storage-retention"></a>Conservation de stockage et latence
 
@@ -234,9 +231,9 @@ Rappelons que cette limite ne s’applique pas à une métrique individuelle, ma
 
 En présence d'une variable dans le nom ou d'une dimension à cardinalité élevée, voici ce qui peut se produire :
 - Les métriques ne sont pas fiables en raison de la limitation
-- Metrics Explorer ne fonctionne pas
+- Metrics Explorer ne fonctionnera pas
 - Les alertes et les notifications deviennent imprévisibles
-- Les coûts peuvent augmenter de façon inattendue. Microsoft ne facture rien tant que les métriques personnalisées comportant des dimensions sont en préversion publique, mais une fois que cela aura changé, vous risquez d’encourir des frais inattendus. Nous prévoyons de facturer la consommation de métriques en fonction du nombre de séries chronologiques supervisées et du nombre d’appels d’API effectués.  
+- Les coûts peuvent augmenter de façon inattendue. Microsoft ne facture rien pour les métriques personnalisées comportant des dimensions lorsque la fonctionnalité est en préversion publique. mais une fois que cela aura changé, vous risquez d’encourir des frais inattendus. Nous prévoyons de facturer la consommation de métriques en fonction du nombre de séries chronologiques supervisées et du nombre d’appels d’API effectués.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez utiliser les métriques personnalisées à partir de différents services : 

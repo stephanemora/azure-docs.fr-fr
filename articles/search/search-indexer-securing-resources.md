@@ -8,16 +8,23 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc89bfcd3d89e6987c2c8b742f5fe2453c273fc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92503485"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532578"
 ---
-# <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Accès de l’indexeur au contenu protégé par les fonctionnalités de sécurité réseau Azure (Recherche cognitive Azure)
+# <a name="indexer-access-to-content-protected-by-azure-network-security-features"></a>Accès de l’indexeur au contenu protégé par les fonctionnalités de sécurité réseau Azure
 
-Les indexeurs Recherche cognitive Azure peuvent effectuer des appels sortants vers différentes ressources Azure lors de l’exécution. Cet article explique les concepts liés à l’accès de l’indexeur au contenu protégé par des pare-feu IP, des points de terminaison privés et d’autres mécanismes de sécurité au niveau du réseau Azure. Un indexeur effectue des appels sortants dans deux situations : la connexion à des sources de données pendant l’indexation et la connexion à du code encapsulé via un ensemble de compétences. Une liste de tous les types de ressources auxquels un indexeur peut accéder dans le cadre d’une exécution classique est répertoriée dans le tableau ci-dessous.
+Les indexeurs Recherche cognitive Azure peuvent effectuer des appels sortants vers différentes ressources Azure lors de l’exécution. Cet article explique les concepts liés à l’accès de l’indexeur au contenu protégé par des pare-feu IP, des points de terminaison privés et d’autres mécanismes de sécurité au niveau du réseau Azure. 
+
+Un indexeur effectue des appels sortants dans deux situations :
+
+- connexion à des sources de données externes pendant l’indexation
+- connexion à du code encapsulé externe via un ensemble de compétences
+
+Une liste de tous les types de ressources auxquels un indexeur peut accéder dans le cadre d’une exécution classique est répertoriée dans le tableau ci-dessous.
 
 | Ressource | Objectif au sein de l’exécution de l’indexeur |
 | --- | --- |
@@ -38,8 +45,8 @@ Les clients peuvent sécuriser ces ressources via plusieurs mécanismes d’isol
 | Ressource | Restriction d’adresse IP | Point de terminaison privé |
 | --- | --- | ---- |
 | Stockage Azure (objets blob, tables, ADLS Gen 2) | Pris en charge uniquement si le compte de stockage et le service de recherche se trouvent dans des régions différentes | Prise en charge |
-| Azure Cosmos DB - API SQL | Prise en charge | Prise en charge |
-| Azure Cosmos DB - API Cassandra, Mongo et Gremlin | Prise en charge | Non pris en charge |
+| Azure Cosmos DB - API SQL | Prise en charge | Pris en charge |
+| Azure Cosmos DB - API MongoDB et Gremlin | Prise en charge | Non pris en charge |
 | Azure SQL Database | Prise en charge | Prise en charge |
 | SQL Server sur les machines virtuelles Azure | Prise en charge | N/A |
 | Instance managée SQL | Prise en charge | N/A |
@@ -48,10 +55,10 @@ Les clients peuvent sécuriser ces ressources via plusieurs mécanismes d’isol
 > [!NOTE]
 > En plus des options répertoriées ci-dessus, pour les comptes Stockage Azure sécurisés sur le réseau, les clients peuvent tirer parti du fait que la Recherche cognitive Azure est un [service Microsoft approuvé](../storage/common/storage-network-security.md#trusted-microsoft-services). Cela signifie qu’un service de recherche spécifique peut contourner les restrictions de réseau virtuel ou d’adresse IP sur le compte de stockage et accéder aux données du compte de stockage moyennant l’activation du contrôle d’accès en fonction du rôle sur ce compte. Pour plus d’informations, consultez [Connexions d’indexeur via une exception de service approuvé](search-indexer-howto-access-trusted-service-exception.md). Cette option peut être privilégiée par rapport à l’itinéraire de restriction d’adresse IP, s’il est impossible de déplacer le compte de stockage ou le service de recherche vers une autre région.
 
-Lorsque vous choisissez le mécanisme d’accès sécurisé qu’un indexeur doit utiliser, prenez en compte les contraintes suivantes :
+Lorsque vous choisissez un mécanisme d’accès sécurisé, prenez en compte les contraintes suivantes :
 
 - Un indexeur ne peut pas se connecter à un [point de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md). Les points de terminaison publics avec des informations d’identification, des points de terminaison privés, un service approuvé et un adressage IP sont les seules méthodologies prises en charge pour les connexions d’indexeur.
-- Un service de recherche ne peut pas être approvisionné dans un réseau virtuel spécifique, car il s’exécute en mode natif sur une machine virtuelle. Cette fonctionnalité n’est pas offerte par Recherche cognitive Azure.
+- Un service de recherche s’exécute dans le cloud et ne peut pas être approvisionné dans un réseau virtuel spécifique, car il s’exécute en mode natif sur une machine virtuelle. Cette fonctionnalité n’est pas offerte par Recherche cognitive Azure.
 - Lorsque les indexeurs utilisent des points de terminaison privés (sortants) pour accéder aux ressources, des [frais de liaison privée](https://azure.microsoft.com/pricing/details/search/) supplémentaires peuvent s’appliquer.
 
 ## <a name="indexer-execution-environment"></a>Environnement d’exécution des indexeurs
@@ -59,6 +66,7 @@ Lorsque vous choisissez le mécanisme d’accès sécurisé qu’un indexeur doi
 Les indexeurs Recherche cognitive Azure peuvent extraire efficacement du contenu à partir de sources de données, en ajoutant des enrichissements au contenu extrait, voire en générant des projections avant d’écrire les résultats dans l’index de recherche. Selon le nombre de responsabilités attribuées à un indexeur, il peut s’exécuter dans l’un des deux environnements suivants :
 
 - Environnement privé pour un service de recherche spécifique. Les indexeurs qui s’exécutent dans de tels environnements partagent des ressources avec d’autres charges de travail (par exemple, l’indexation initiée par le client ou l’interrogation de charges de travail). En général, seuls les indexeurs qui effectuent une indexation textuelle (par exemple, n’utilisant pas d’ensemble de compétences) s’exécutent dans cet environnement.
+
 - Environnement multilocataire hébergeant des indexeurs gourmands en ressources, comme ceux ayant des ensembles de compétences. Cet environnement est utilisé pour décharger le traitement gourmand en calculs, en laissant les ressources spécifiques au service disponibles pour les opérations de routine. Cet environnement multilocataire est géré et sécurisé par Microsoft, sans frais supplémentaires pour le client.
 
 Recherche cognitive Azure détermine l’environnement le plus adapté à l’exécution de d’un indexeur donné. Si vous utilisez un pare-feu IP pour contrôler l’accès aux ressources Azure, la connaissance des environnements d’exécution vous aidera à configurer une plage d’adresses IP qui inclut les deux.
@@ -81,22 +89,25 @@ Pour plus d’informations sur cette option de connectivité, consultez [Connexi
 ## <a name="granting-access-via-private-endpoints"></a>Octroi de l’accès via des points de terminaison privés
 
 Les indexeurs peuvent utiliser [des points de terminaison privés](../private-link/private-endpoint-overview.md) afin d’accéder à des ressources dont l’accès est verrouillé pour sélectionner des réseaux virtuels ou pour lesquels aucun accès public n’est activé.
+
 Cette fonctionnalité est réservée aux services de recherche facturables, avec des limites sur le nombre de points de terminaison privés créés. Pour plus d’informations, consultez [Limites du service](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Étape 1 : Créer un point de terminaison privé vers la ressource sécurisée
 
-Les clients doivent appeler l’opération de gestion de la recherche, l’[API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) sur une **ressource de liaison privée partagée**, afin de créer une connexion de point de terminaison privé à leur ressource sécurisée (par exemple, un compte de stockage). Le trafic qui transite via cette connexion de point de terminaison privé (sortant) provient uniquement du réseau virtuel situé dans l’environnement d’exécution de l’indexeur « privé » spécifique du service de recherche.
+Les clients doivent appeler l’opération de gestion de la recherche, l’[API CreateOrUpdate](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) sur une **ressource de liaison privée partagée**, afin de créer une connexion de point de terminaison privé à leur ressource sécurisée (par exemple, un compte de stockage). Le trafic qui transite via cette connexion de point de terminaison privé (sortant) provient uniquement du réseau virtuel situé dans l’environnement d’exécution de l’indexeur « privé » spécifique du service de recherche.
 
 Recherche cognitive Azure vérifie que les appelants de cette API disposent des autorisations Azure RBAC pour approuver les demandes de connexion de point de terminaison privé à la ressource sécurisée. Par exemple, si vous demandez une connexion de point de terminaison privé à un compte de stockage avec des autorisations en lecture seule, cet appel sera rejeté.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Étape 2 : Approuver la connexion Private Endpoint
 
 Lorsque l’opération (asynchrone) qui crée une ressource de lien privé partagé est terminée, une connexion de point de terminaison privé est créée avec un état « en attente ». Aucun trafic n’est actuellement transmis via la connexion.
+
 Le client est censé localiser cette demande sur sa ressource sécurisée et l’approuver. En règle générale, cette opération peut être effectuée via le portail Azure ou l’[API REST](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### <a name="step-3-force-indexers-to-run-in-the-private-environment"></a>Étape 3 : Forcer l’exécution des indexeurs dans l'environnement privé
 
 Un point de terminaison privé approuvé permet les appels sortants entre le service de recherche et une ressource présentant des restrictions d’accès au niveau du réseau (par exemple, une source de données de compte de stockage configurée pour être uniquement accessible à partir de certains réseaux virtuels).
+
 Cela signifie que tout indexeur capable d’atteindre une telle source de données sur le point de terminaison privé aboutira.
 Si le point de terminaison privé n’est pas approuvé ou si l’indexeur n’utilise pas la connexion au point de terminaison privé, l’exécution de l’indexeur se terminera par `transientFailure`.
 

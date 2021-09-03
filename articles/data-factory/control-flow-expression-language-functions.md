@@ -1,27 +1,30 @@
 ---
-title: Expressions et fonctions dans Azure Data Factory
-description: Cet article fournit des informations sur les expressions et fonctions que vous pouvez utiliser pour la création d’entités de fabrique de données.
+title: Expression et fonctions
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Cet article fournit des informations sur les expressions et les fonctions que vous pouvez utiliser pour créer des entités de pipeline Azure Data Factory et Azure Synapse Analytics.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/28/2021
-ms.openlocfilehash: 275c77107faf8fd639d714b92828ab8efe623f26
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 08/24/2021
+ms.openlocfilehash: aaca4774f6f56d38624b4811375a6661299161cc
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164900"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821769"
 ---
-# <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
+# <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Expressions et fonctions dans Azure Data Factory et Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-functions-variables.md)
-> * [Version actuelle](control-flow-expression-language-functions.md)
+> * [Version actuelle/version de Synapse](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article fournit des détails sur les expressions et fonctions prises en charge par Azure Data Factory. 
+Cet article fournit des détails sur les expressions et fonctions prises en charge par Azure Data Factory et Azure Synapse Analytics. 
 
 ## <a name="expressions"></a>Expressions
 
@@ -60,12 +63,28 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |"\@concat(’Answer is: ’, string(pipeline().parameters.myNumber))"| Retourne la chaîne `Answer is: 42`.|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Retourne la chaîne `Answer is: @{pipeline().parameters.myNumber}`.|  
 
+Dans les activités de flux de contrôle telles que l’activité ForEach, vous pouvez fournir un tableau à itérer pour les éléments de propriété et utiliser  @item() pour itérer sur une énumération unique dans l’activité ForEach. Par exemple, si éléments est un tableau : [1, 2, 3], @item() retourne 1 dans la première itération, 2 dans la deuxième et 3 dans la troisième. Vous pouvez également utiliser @range(0,10) comme expression pour effectuer une itération dix fois commençant par 0 et se terminant par 9.
+
+Vous pouvez utiliser @activity (« nom de l’activité ») pour capturer la sortie de l’activité et prendre des décisions. Prenons l’exemple d’une activité web appelée web1. Pour placer la sortie de la première activité dans le corps de la seconde, l’expression se présente généralement comme suit : @activity(« web1 »).output ou @activity (« web1 »).output.data ou un élément similaire en fonction de l’aspect de la sortie de la première activité. 
+
 ## <a name="examples"></a>Exemples
 
 ### <a name="complex-expression-example"></a>Exemple d’expression complexe
-L’exemple ci-dessous montre un exemple complexe qui fait référence à un sous-champ profond d’une sortie d’activité. Pour faire référence à un paramètre de pipeline qui prend la valeur d’un sous-champ, utilisez la syntaxe [] au lieu de l’opérateur point(.) (comme dans le cas de subfield1 et subfield2)
+L’exemple ci-dessous montre un exemple complexe qui fait référence à un sous-champ profond d’une sortie d’activité. Pour faire référence à un paramètre de pipeline qui s’évalue à partir d’un sous-champ, utilisez la syntaxe [] au lieu de l’opérateur point(.) (comme dans le cas de sous-champ1 et sous-champ2), dans le cadre d’une sortie d’activité.
 
 `@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+Créer des fichiers de façon dynamique et leur attribuer des noms est un modèle commun. Explorons quelques exemples d’attributions de noms de fichiers dynamiques.
+
+  1. Ajouter la date à un nom de fichier :  `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. Ajouter DateHeure dans le fuseau horaire du client : `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. Ajouter l’heure du déclencheur Append :` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. Générer un nom de fichier personnalisé dans un flux de données de mappage lors de la sortie vers un fichier unique avec la date : `'Test_' + toString(currentDate()) + '.csv'`
+
+Dans les cas ci-dessus, 4 noms de fichiers dynamiques sont créés à partir de Test_. 
 
 ### <a name="dynamic-content-editor"></a>Éditeur de contenu dynamique
 
@@ -186,8 +205,7 @@ Baba's book store
 ```
 
 ### <a name="tutorial"></a>Didacticiel
-Cela [tutoriel](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) vous montre comment transmettre des paramètres entre un pipeline et une activité et entre les activités.
-
+Cela [tutoriel](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) vous montre comment transmettre des paramètres entre un pipeline et une activité et entre les activités.  Ce tutoriel présente en particulier les étapes d’un Azure Data Factory, bien que les étapes d’un espace de travail Synapse soient presque équivalentes, mais avec une interface utilisateur légèrement différente.
   
 ## <a name="functions"></a>Fonctions
 

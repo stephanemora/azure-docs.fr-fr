@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/22/2021
 ms.author: v-jansk
-ms.openlocfilehash: 2896c5c78acb98c798f85684ef6f800f82549b06
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ae867a4383b5644eca2cabf2651c2c40797ed49a
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412706"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540597"
 ---
 # <a name="start-translation"></a>Commencer la traduction
 
-Utilisez cette API pour commencer une demande de traduction en bloc (lot) avec le service Traduction de documentation. Chaque demande peut contenir plusieurs documents, et doit contenir un conteneur source et un conteneur de destination pour chaque document.
+Utilisez cette API pour commencer une demande de traduction avec le service Traduction de documents. Chaque demande peut contenir plusieurs documents, et doit contenir un conteneur source et un conteneur de destination pour chaque document.
 
 Les filtres de préfixe et de suffixe (s’ils sont fournis) sont utilisés pour filtrer les dossiers. Le préfixe est appliqué au sous-chemin après le nom du conteneur.
 
@@ -39,7 +39,7 @@ Découvrez comment déterminer votre [nom de domaine personnalisé](../get-start
 > [!IMPORTANT]
 >
 > * **Toutes les requêtes d’API adressées au service Traduction de documentation nécessitent un point de terminaison de domaine personnalisé**.
-> * Vous ne pouvez pas utiliser le point de terminaison qui se trouve dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP au service Traduction de document.
+> * Vous ne pouvez pas utiliser le point de terminaison qui se trouve dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP au service Traduction de documentation.
 
 ## <a name="request-headers"></a>En-têtes de requête
 

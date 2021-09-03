@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: a5ccaa95c8f29395770395076f75f36019a4355c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3ccd5cf9ebc1c5183571dcdfbe3beeabe1b28a63
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737679"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448114"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -37,7 +37,7 @@ Les actions suivantes effectuées par Storage Analytics sont facturables :
 * Demandes de création d'objets blob pour la journalisation.
 * Demandes de création d'entités de table pour les métriques.
 
-Si vous avez configuré une stratégie de rétention des données, vous n'êtes pas facturé pour les transactions de suppression lorsque Storage Analytics supprime les anciennes données de journalisation et de métriques. Toutefois, les transactions de suppression d'un client sont facturables. Pour plus d'informations sur les stratégies de rétention, consultez [Définition d'une stratégie de rétention des données Storage Analytics](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
+Si vous avez configuré une stratégie de rétention des données, vous pouvez réduire les dépenses en supprimant les anciennes données de journalisation et de mesures. Pour plus d'informations sur les stratégies de rétention, consultez [Définition d'une stratégie de rétention des données Storage Analytics](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
 
 ### <a name="understanding-billable-requests"></a>Présentation des demandes facturables
 

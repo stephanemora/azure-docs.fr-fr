@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5e538be52f21d169aefd350aa2781de0065f04f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: c93b0199acf36666fb4c2801f44f21fe314a571b
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632889"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114227945"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure
 
@@ -47,7 +47,7 @@ Pour ajouter des utilisateurs B2B Collaboration au répertoire, procédez comme 
    - **Adresse e-mail (obligatoire)** . Adresse e-mail de l’utilisateur invité.
    - **Message personnel (facultatif)**  : inclure un message d’accueil personnalisé pour l’utilisateur invité.
    - **Groupes** : permet d’ajouter l’utilisateur invité à un ou plusieurs groupes.
-   -  **Rôles**: Si vous devez attribuer des autorisations administratives Azure AD à l’utilisateur, vous pouvez les ajouter à un rôle Azure AD en sélectionnant **Utilisateur** à côté de **Rôles**.  
+   -  **Rôles**: Si vous devez attribuer des autorisations administratives Azure AD à l’utilisateur, vous pouvez les ajouter à un rôle Azure AD en sélectionnant **Utilisateur** à côté de **Rôles**.  [En savoir plus](../../role-based-access-control/role-assignments-external-users.md) sur les rôles Azure des utilisateurs invités externes.
 
    > [!NOTE]
    > Les adresses e-mail de groupe ne sont pas prises en charge. Veuillez entrer des adresses e-mail individuelles. Certains fournisseurs de messagerie permettent aux utilisateurs d’ajouter un signe plus (+) et du texte à leurs adresses e-mail pour faciliter notamment le filtrage de la boîte de réception. Toutefois, Azure AD ne prend pas en charge les signes plus dans les adresses e-mail pour l’instant. Pour éviter les problèmes de livraison, omettez le signe plus (+) et les caractères après celui-ci jusqu’au symbole @.

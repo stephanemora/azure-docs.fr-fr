@@ -10,12 +10,13 @@ ms.topic: reference
 ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2a8aabac6960909f2a3d90fcee01cebb0ad7a832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.custom: b2c-support
+ms.openlocfilehash: 5c27384e58a23501224e279e987115e4981ebf99
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256937"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633606"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Vue d’ensemble de la stratégie personnalisée Azure AD B2C
 
@@ -34,6 +35,8 @@ Le [pack de démarrage](tutorial-create-user-flows.md?pivots=b2c-custom-policy#g
 - **SocialAndLocalAccounts** : vous permet d’utiliser à la fois des comptes locaux et des comptes sociaux. La plupart de nos exemples font référence à cette stratégie.
 - **SocialAndLocalAccountsWithMFA** : active les options social, local et authentification multifacteur.
 
+Dans [Azure AD B2C exemples de GitHub de référentiel](https://github.com/azure-ad-b2c/samples), vous trouverez des exemples pour Azure AD B2C plusieurs parcours utilisateur des identités clients personnalisés, tels que des améliorations de stratégie de compte local, des améliorations de stratégie de compte social, des améliorations de l’authentification multifacteur, des améliorations de l’interface utilisateur, des améliorations génériques, la migration d’applications, la migration des utilisateurs, un accès conditionnel, un test web et CI/CD.
+ 
 ## <a name="understanding-the-basics"></a>Compréhension des concepts de base 
 
 ### <a name="claims"></a>Revendications

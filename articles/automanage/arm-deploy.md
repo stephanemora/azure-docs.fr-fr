@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: alsin
-ms.openlocfilehash: 78cf28903311c542a83c9ace4f794e1cdda9a61c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 34f20a50fc62cff98362380222822ac016b76a48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368440"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563086"
 ---
 # <a name="onboard-a-machine-to-automanage-with-an-azure-resource-manager-arm-template"></a>Intégration d’une machine à Automanage avec un modèle Azure Resource Manager (ARM)
 
@@ -22,8 +22,9 @@ ms.locfileid: "107368440"
 Suivez les étapes ci-dessous pour intégrer une machine pour la gestion automatique des meilleures pratiques avec Automanage. Le modèle ARM ci-dessous crée un objet `configurationProfileAssignment`, qui est la ressource Azure qui représente une machine intégrée à Automanage.
 
 ## <a name="prerequisites"></a>Prérequis
-* Vous devez avoir créé un compte Automanage existant. Consultez [ce document](./automanage-account.md) pour plus d’informations sur le compte Automanage et la procédure à suivre pour en créer un.
-* Vous devez disposer du rôle **contributeur** sur le groupe de ressources contenant les machines que vous souhaitez intégrer à Automanage
+* Vous devez avoir créé un compte Automanage existant et lui avoir attribué les autorisations appropriées. Consultez [ce document](./automanage-account.md) pour plus d’informations sur le compte Automanage et la procédure à suivre pour en créer un et attribuer des autorisations.
+* Si vous disposez déjà d’un compte Automanage avec des autorisations affectées, vous devez également disposer du rôle **Contributeur** sur le groupe de ressources contenant les machines que vous souhaitez intégrer à Automanage.
+
 
 ## <a name="arm-template-overview"></a>Présentation des modèles ARM
 Le modèle ARM suivant intégrera votre machine spécifiée sur les meilleures pratiques d’Azure Automanage. Pour plus d’informations sur le modèle ARM et les étapes de déploiement, reportez-vous à la section Déploiement de modèle ARM [ci-dessous](#arm-template-deployment).
@@ -64,7 +65,7 @@ Les valeurs `configurationProfileAssignment` possibles sont les suivantes :
 * "DevTest"
 
 Suivez ces étapes pour déployer le modèle ARM :
-1. Enregistrez le modèle ARM ci-dessous en tant que `azuredeploy.json`
+1. Enregistrez le modèle ARM ci-dessus en tant que `azuredeploy.json`
 1. Exécutez le déploiement de modèle ARM avec `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`
 1. Fournissez les valeurs pour machineName, automanageAccountName et configurationProfileAssignment lorsque vous y êtes invité
 1. Vous avez terminé !

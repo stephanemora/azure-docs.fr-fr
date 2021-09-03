@@ -1,45 +1,41 @@
 ---
 title: Abonnements Azure Germany | Microsoft Docs
-description: Informations sur la gestion de votre abonnement dans Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: Cet article fournit des informations sur la gestion de votre abonnement dans Azure Germany.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 5b39a9b69afea2efa1ab37c2cce059da3211b70a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 052bbec655c8f888da6d58bf8048fdcd51e85922
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033524"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "122523954"
 ---
 # <a name="manage-and-connect-to-your-subscription-in-azure-germany"></a>Gérer et se connecter à votre abonnement dans Azure Germany
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 Azure Germany offre des URL et points de terminaison uniques pour la gestion de votre environnement. Il est important d’utiliser les connexions appropriées pour gérer votre environnement via le portail Azure ou PowerShell. Une fois que vous êtes connecté à l’environnement Azure Germany, les opérations normales pour la gestion d’un service fonctionnent si le composant a été déployé.
 
-## <a name="connect-by-using-the-portal"></a>Se connecter via le portail
-Le [portail](https://portal.microsoftazure.de) est le principal vecteur via lequel la plupart des gens se connectent à Azure Germany. 
-
-> [!NOTE]
-> Seul le nouveau portail (celui qui utilise le modèle de déploiement Azure Resource Manager) est disponible pour Azure Germany.
+> [!IMPORTANT]
+>
+>Cela s’applique aux clients Azure de Microsoft Cloud Allemagne qui achètent des services Azure directement auprès de Microsoft avec un tarif de paiement à l’accès. 
+>
+>À compter du 14 septembre 2019, un nouveau mandat de l’Union européenne a pris effet et nécessite des paiements par carte de crédit pour passer par un challenge d’authentification client renforcée (SCA). Par conséquent, les clients du tarif du paiement à l’accès ne peuvent pas créer de nouveaux abonnements ni ajouter ou mettre à jour les informations de paiement, jusqu’à ce qu’ils [migrent vers une nouvelle région Azure](./germany-migration-main.md). 
+>
 >
 
-## <a name="create-subscriptions"></a>Création d’abonnements
-Vous pouvez créer des abonnements pour votre compte en vous rendant sur la [page d’accueil du compte](https://account.windowsazure.de).
+## <a name="manage-subscription"></a>Gérer l’abonnement
+Vous pouvez gérer vos ressources Azure et afficher les informations de facturation de l’abonnement dans le [portail Azure](https://portal.microsoftazure.de). 
 
-## <a name="create-a-free-account"></a>Créer un compte gratuit
-Les [comptes gratuits](https://azure.microsoft.com/free/germany/) pour Azure Germany sont disponibles.
-
+## <a name="manage-account"></a>Gérer le compte
+Pour gérer les informations de votre compte, telles que vos coordonnées, visitez le [Centre des comptes](https://account.windowsazure.de).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Germany](https://blogs.msdn.microsoft.com/azuregermany/).
+Découvrez comment [migrer vers une nouvelle région Azure](./germany-migration-main.md).
 
 
 

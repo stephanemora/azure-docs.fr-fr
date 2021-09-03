@@ -1,6 +1,6 @@
 ---
 title: Publication de votre application dans la galerie d'applications Azure Active Directory
-description: Apprendre à lister une application qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory.
+description: Apprendre à lister une application qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory. La publication dans la galerie d'applications permet aux clients de trouver plus facilement votre application et de l'ajouter à leur locataire en toute simplicité.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -8,20 +8,34 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/10/2021
+ms.date: 06/23/2021
 ms.author: kenwith
 ms.reviewer: jeedes
-ms.custom: aaddev
-ms.openlocfilehash: ade77d05e209d65a9d7aa40451362bd66718cf75
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: aaddev, contperf-fy21q4
+ms.openlocfilehash: 7938e8ffbaca3f069016a445775d9c669f1ad144
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033323"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228065"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
-Vous pouvez publier votre application dans la Galerie d’applications Azure AD. Quand votre application est publiée, elle s’affiche comme une option pour les clients quand ils ajoutent des applications à leur locataire. 
+Vous pouvez publier votre application dans la galerie d'applications Azure Active Directory (Azure AD). Une fois publiée, votre application apparaît comme une option pour les clients lorsqu'ils [ajoutent des applications à leur locataire](../manage-apps/add-application-portal.md). 
+
+Les étapes de publication de votre application dans la Galerie d’applications Azure AD sont les suivantes :
+1. Configuration requise
+1. Choisissez la norme d’authentification unique appropriée pour votre application.
+1. Implémentez l’authentification unique dans votre application.
+1. Implémenter l'attribution d'utilisateurs SCIM dans votre application (facultatif)
+1. Créez votre locataire Azure et testez votre application.
+1. Créez et publiez la documentation.
+1. Envoyez votre application.
+1. Rejoignez le Microsoft Partner Network.
+
+## <a name="what-is-the-azure-ad-application-gallery"></a>Qu’est-ce que la galerie d’applications Azure AD ?
+
+La [galerie d'applications Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) est un catalogue de milliers d'applications qui facilitent le déploiement et la configuration de l'authentification unique (SSO) et de l'attribution automatique d'utilisateurs.
 
 Voici quelques-uns des avantages de l’ajout de votre application à la Galerie Azure AD :
 
@@ -30,6 +44,7 @@ Voici quelques-uns des avantages de l’ajout de votre application à la Galerie
 - Une recherche rapide permet de trouver votre application dans la galerie.
 - Les clients Azure AD des abonnements Gratuit, De base et Premium peuvent tous utiliser cette intégration.
 - Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
+- Les clients qui utilisent [SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010) (System for Cross-domain Identity Management) peuvent utiliser le provisionnement pour la même application.
 
 En outre, il existe de nombreux avantages lorsque vos clients utilisent Azure AD comme fournisseur d’identité pour votre application. entres autres :
 
@@ -47,39 +62,18 @@ En outre, il existe de nombreux avantages lorsque vos clients utilisent Azure AD
 - Ajoutez de la sécurité et de la commodité quand les utilisateurs se connectent à des applications à l’aide de l’authentification unique Azure AD et supprimez le besoin d’informations d’identification distinctes.
 
 > [!TIP]
-> Lorsque vous offrez votre application à d’autres entreprises par le biais d’un achat ou d’un abonnement, vous la mettez à disposition des clients au sein de leurs propres locataires Azure. Ceci permet de créer une application multilocataires. Pour un aperçu de ce concept, consultez [Applications multilocataires dans Azure](../../dotnet-develop-multitenant-applications.md) et [Location dans Azure Active Directory](single-and-multi-tenant-apps.md).
+> Lorsque vous offrez votre application à d’autres entreprises par le biais d’un achat ou d’un abonnement, vous la mettez à disposition des clients au sein de leurs propres locataires Azure. Ceci permet de créer une application multilocataires. Pour un aperçu de ce concept, consultez [Location dans Azure Active Directory](single-and-multi-tenant-apps.md).
 
-> [!IMPORTANT]
-> Pour publier votre application dans la Galerie Azure AD, vous devez accepter les conditions générales spécifiques. Avant de commencer, veillez à lire et à accepter les [conditions générales](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
-
-Les étapes de publication de votre application dans la Galerie d’applications Azure AD sont les suivantes :
-1. Choisissez la norme d’authentification unique appropriée pour votre application.
-2. Implémentez l’authentification unique dans votre application.
-3. Créez votre locataire Azure et testez votre application.
-4. Créez et publiez la documentation.
-5. Envoyez votre application.
-6. Rejoignez le Microsoft Partner Network.
-
-## <a name="what-is-the-azure-ad-application-gallery"></a>Qu’est-ce que la galerie d’applications Azure AD ?
-
-- Les clients bénéficient de l’expérience d’authentification unique la meilleure possible.
-- La configuration de l’application est simple et minime.
-- Une recherche rapide permet de trouver votre application dans la galerie.
-- Les clients Azure AD des abonnements Gratuit, De base et Premium peuvent tous utiliser cette intégration.
-- Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
-- Les clients qui utilisent [SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010) (System for Cross-domain Identity Management) peuvent utiliser le provisionnement pour la même application.
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
+Pour publier votre application dans la galerie Azure AD, vous devez d'abord lire et accepter les [conditions générales](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/) spécifiques.
 
 Vous avez besoin d’un compte permanent pour les tests avec au moins deux utilisateurs inscrits.
 
 - Pour des applications fédérées (Open ID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS (Software as a Service, logiciel en tant que service) pour être répertoriée dans la galerie d’applications Azure AD. Les applications de galerie d’entreprise doivent prendre en charge plusieurs configurations client et non pas un client spécifique.
-- Pour Open ID Connect, l’application doit être mutualisée et l’[infrastructure de consentement Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) doit être correctement implémentée pour l’application. L’utilisateur peut envoyer la demande de connexion à un point de terminaison commun de façon à ce que tout client puisse donner son consentement à l’application. Vous pouvez contrôler l’accès utilisateur en fonction de l’ID de locataire et de l’UPN de l’utilisateur, reçus dans le jeton.
+- Pour Open ID Connect, l’application doit être mutualisée et l’[infrastructure de consentement Azure AD](../develop/consent-framework.md) doit être correctement implémentée pour l’application. L’utilisateur peut envoyer la demande de connexion à un point de terminaison commun de façon à ce que tout client puisse donner son consentement à l’application. Vous pouvez contrôler l’accès utilisateur en fonction de l’ID de locataire et de l’UPN de l’utilisateur, reçus dans le jeton.
 - Pour SAML 2.0/WS-Fed, votre application doit pouvoir effectuer l’intégration de l’authentification unique SAML/WS-Fed en mode SP ou IDP. Assurez-vous que cette fonctionnalité fonctionne correctement avant d’envoyer la demande.
 - Pour une authentification unique par mot de passe, assurez-vous que votre application prend en charge l’authentification par formulaire de telle sorte que le mot de passe puisse être stocké dans le coffre pour que le travail d’authentification unique fonctionne comme prévu.
 - Vous avez besoin d’un compte permanent pour les tests avec au moins deux utilisateurs inscrits.
-
-**Comment obtenir Azure AD pour développeurs ?**
 
 Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités Azure AD Premium : 90 jours gratuits qui peuvent être étendus tant que vous l’utilisez pour effectuer des tâches de développement : [Rejoignez le programme développeur de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
@@ -139,7 +133,7 @@ Pour OAuth et OIDC, consultez [conseils sur les modèles d’authentification](v
 
 Pour SAML et WS-Fed, votre application doit pouvoir effectuer l’intégration de l’authentification unique en mode SP ou IDP. Assurez-vous que cette fonctionnalité fonctionne correctement avant d’envoyer la demande.
 
-Pour en savoir plus sur l’authentification, consultez [Qu’est-ce que l’authentification ?](../azuread-dev/v1-authentication-scenarios.md).
+Pour en savoir plus sur l’authentification, consultez [Qu’est-ce que l’authentification ?](authentication-vs-authorization.md).
 
 > [!IMPORTANT]
 > Pour les applications fédérées (OpenID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS (Software as a service). Les applications de la Galerie Azure AD doivent prendre en charge plusieurs configurations clientes et ne doivent pas être spécifiques à un seul client.
@@ -296,6 +290,8 @@ La durée du processus de listing d’une application SAML 2.0 ou WS-Fed dans l
 La durée du processus de listing d’une application OpenID Connect dans la galerie est de 2 à 5 jours ouvrables.
 
 ![Chronologie de listing d’une application OpenID Connect dans la galerie](./media/howto-app-gallery-listing/timeline2.png)
+
+La chronologie du processus de listing d'une application d'approvisionnement SCIM dans la galerie est variable et dépend de nombreux facteurs. 
 
 ### <a name="escalations"></a>Escalades
 

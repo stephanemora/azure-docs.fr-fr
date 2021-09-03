@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/8/2021
+ms.date: 06/30/2021
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ce694be685ff82e73551f792bf96451092423413
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: f55c5096f9205e75904a65724715104fe8bca849
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111809725"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562805"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -28,6 +28,8 @@ Cet article explique comment programmer directement par rapport au protocole dan
 Le flux d’octroi des informations d’identification du client OAuth 2.0 permet à un service web (client confidentiel) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Pour augmenter le niveau d’assurance, la plateforme d’identités Microsoft autorise également le service d’appel à utiliser un certificat (au lieu d’un secret partagé) comme une information d’identification.  Étant donné que les informations d’identification propres à l’application sont utilisées, ces informations d’identification doivent être conservées en toute sécurité. Ne publiez _jamais_ ces informations d’identification dans votre code source, ne les incorporez pas dans des pages web et ne les utilisez pas dans une application native largement distribuée. 
 
 Dans le flux des informations d’identification du client, les autorisations sont accordées directement à l’application elle-même par l’administrateur. Lorsque l’application présente un jeton à une ressource, la ressource impose que l’application elle-même, et non pas l'utilisateur (puisqu’il n’est pas impliqué, ait l’autorisation d’effectuer une action.  Cet article décrit les étapes nécessaires pour [autoriser une application à appeler une API](#application-permissions), ainsi que [comment récupérer les jetons nécessaires pour appeler cette API](#get-a-token).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
@@ -83,9 +85,6 @@ Si vous connectez l’utilisateur à votre application vous pouvez identifier l�
 
 Lorsque vous êtes prêt à demander les autorisations à l’administrateur de l’organisation, vous pouvez rediriger l’utilisateur vers le *point de terminaison de consentement administrateur* de la plateforme d’identités Microsoft.
 
-> [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 // Line breaks are for legibility only.
 
@@ -115,7 +114,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 Si l’administrateur approuve les autorisations pour votre application, la réponse correcte sera :
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
 ```
 
 | Paramètre | Description |
@@ -143,9 +142,6 @@ Une fois que vous avez reçu une réponse correcte du point de terminaison de mi
 
 Une fois que vous avez acquis l’autorisation nécessaire pour votre application, passez à l’acquisition des jetons d’accès pour les API. Pour obtenir un jeton à l’aide de l’octroi des informations d’identification du client, envoyez une demande POST à la plateforme d’identités Microsoft `/token` :
 
-> [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
 
 ```HTTP
@@ -155,7 +151,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=5ampl3Cr3dentia1s
+&client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
 
@@ -195,11 +191,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | Obligatoire | Assertion (jeton Web JSON) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `client_credentials`. |
 
-Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
+Les paramètres pour la requête basée sur le certification ne différent que sur un point de la requête basée sur le secret partagé : le paramètre `client_secret` est remplacé par les paramètres `client_assertion_type` et `client_assertion`.
 
 ### <a name="successful-response"></a>Réponse correcte
 
-Une réponse correcte se présente ainsi :
+Une réponse correcte de l’une des deux méthodes ressemble à ceci :
 
 ```json
 {
@@ -214,6 +210,8 @@ Une réponse correcte se présente ainsi :
 | `access_token` | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web. |
 | `token_type` | Indique la valeur du type de jeton. Le seul type pris en charge par la plateforme d’identités Microsoft est `bearer`. |
 | `expires_in` | Durée de validité du jeton d’accès (en secondes). |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>Réponse d’erreur
 

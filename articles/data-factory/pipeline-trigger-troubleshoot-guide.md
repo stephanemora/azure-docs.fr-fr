@@ -3,16 +3,17 @@ title: Résoudre les problèmes liés à l’orchestration et aux déclencheurs 
 description: Utiliser différentes méthodes pour résoudre des problèmes de déclencheurs de pipeline dans Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 04/01/2021
+ms.date: 08/17/2021
+ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: aaaa9f2e82bb8db0ce4851359d7fb97d475f4e98
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: aed6df814ddfb240093aad8ff981e9b89a6f2f52
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812732"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867569"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -95,7 +96,7 @@ Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFail
 
 **Cause**
 
-Les pipelines peuvent utiliser l’activité web pour appeler les méthodes de l’API REST ADF si et seulement si le rôle contributeur est attribué au membre Azure Data Factory. Vous devez d’abord configurer l’ajout de l’identité gérée Azure Data Factory au rôle de sécurité contributeur. 
+Les pipelines peuvent utiliser l’activité web pour appeler les méthodes de l’API REST ADF si et seulement si le rôle contributeur est attribué au membre Azure Data Factory. Vous devez d’abord configurer et ajouter l’identité gérée Azure Data Factory au rôle de sécurité contributeur. 
 
 **Résolution :**
 
@@ -114,7 +115,7 @@ Azure Data Factory évalue le résultat de toutes les activités au niveau feuil
 
 * Implémentez les contrôles au niveau de l’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Surveiller visuellement le pipeline](./monitor-visually.md)
+* [Surveiller visuellement le pipeline](monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Guide pratique pour surveiller les échecs de pipeline à intervalles réguliers
 
@@ -124,7 +125,9 @@ Vous devrez peut-être surveiller les pipelines Data Factory à intervalles rég
 
 **Résolution :**
 * Vous pouvez configurer une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à votre système de tickets.
-* [Surveiller visuellement le pipeline](./monitor-visually.md)
+* Vous pouvez réexécuter les pipelines et les activités comme décrit [ici](monitor-visually.md#rerun-pipelines-and-activities).
+* Vous pouvez réexécuter les activités si l’activité a été annulée ou si elle a échoué en fonction de l’échec [de l’activité.](monitor-visually.md#rerun-from-failed-activity)
+* [Surveiller visuellement le pipeline](monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>Augmenter le degré de parallélisme n’entraîne pas un débit plus élevé
 
@@ -154,9 +157,12 @@ Faits connus concernant *ForEach*
  
  **Résolution :**
  
-* Limite de concurrenciel : si votre pipeline a une stratégie de concurrencel, vérifiez qu’il n’y a pas d’anciennes exécutions de pipeline en cours. La concurrence de pipeline maximale autorisée dans Azure Data Factory est de 10 pipelines. 
-* Limites de surveillance : accédez au canevas de création ADF, sélectionnez votre pipeline, puis déterminez si une propriété de concurrence lui est assignée. Si c’est le cas, accédez à la page de surveillance et assurez-vous qu’il n’y a aucune exécution en cours sur les 45 derniers jours. Si vous trouvez une exécution en cours, vous pouvez l’annuler. Cela aura pour effet de démarrer la nouvelle exécution de pipeline.
-* Problèmes temporaires : il est possible que votre exécution ait été impactée par un problème réseau temporaire, des échecs des informations d’identification, des interruptions de service, etc.  Dans ce cas, Azure Data Factory possède un processus de récupération interne qui supervise toutes les exécutions et les démarre en cas de problème. Ce processus est exécuté toutes les heures. Si votre exécution reste bloquée pendant plus d’une heure, créez un cas de support.
+* **Limite de concurrence** : si votre pipeline a une stratégie de concurrence, vérifiez qu’il n’y a pas d’anciennes exécutions de pipeline en cours. 
+* **Limites de surveillance** : accédez au canevas de création ADF, sélectionnez votre pipeline, puis déterminez si une propriété de concurrence lui est assignée. Si c’est le cas, accédez à la page de surveillance et assurez-vous qu’il n’y a aucune exécution en cours sur les 45 derniers jours. Si vous trouvez une exécution en cours, vous pouvez l’annuler. Cela aura pour effet de démarrer la nouvelle exécution de pipeline.
+
+* **Problèmes temporaires** : il est possible que votre exécution ait été affectée par un problème réseau temporaire, des échecs des informations d’identification, des interruptions de service, etc. Dans ce cas, Azure Data Factory possède un processus de récupération interne qui supervise toutes les exécutions et les démarre en cas de problème. Vous pouvez réexécuter les pipelines et les activités comme décrit [ici](monitor-visually.md#rerun-pipelines-and-activities). Vous pouvez réexécuter les activités si l’activité a été annulée ou si elle a échoué en fonction de l’échec [de l’activité.](monitor-visually.md#rerun-from-failed-activity) Ce processus est exécuté toutes les heures. Si votre exécution reste bloquée pendant plus d’une heure, créez un cas de support.
+
+
  
 ### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Heures de démarrage plus longues pour les activités dans la copie ADF et Data Flow
 
@@ -166,10 +172,10 @@ Cela peut se produire si vous n’avez pas implémenté la fonctionnalité temps
 
 **Résolution :**
 
-* Si le démarrage de chaque activité de copie prend jusqu’à 2 minutes et que le problème se produit principalement à la jonction du réseau virtuel (plutôt que dans le runtime d’intégration Azure), il peut s’agir d’un problème de performances de copie. Pour passer en revue les étapes de dépannage, accédez à [Amélioration des performances de copie.](./copy-activity-performance-troubleshooting.md)
-* Vous pouvez utiliser la fonctionnalité temps réel pour réduire le temps de démarrage du cluster pour les activités de flux de données. Consultez [Runtime d'intégration Data Flow](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime).
+* Si le démarrage de chaque activité de copie prend jusqu’à 2 minutes et que le problème se produit principalement à la jonction du réseau virtuel (plutôt que dans le runtime d’intégration Azure), il peut s’agir d’un problème de performances de copie. Pour passer en revue les étapes de dépannage, accédez à [Amélioration des performances de copie.](copy-activity-performance-troubleshooting.md)
+* Vous pouvez utiliser la fonctionnalité temps réel pour réduire le temps de démarrage du cluster pour les activités de flux de données. Consultez [Runtime d'intégration Data Flow](control-flow-execute-data-flow-activity.md#data-flow-integration-runtime).
 
- ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Atteinte des problèmes de capacité dans le runtime d'intégration auto-hébergé (SHIR, Self Hosted Integration Runtime)
+ ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Problèmes de capacité dans le runtime d’intégration auto-hébergé (SHIR, Self Hosted Integration Runtime)
  
  **Cause**
  
@@ -177,19 +183,19 @@ Cela peut se produire si vous n’avez pas effectué de scale-up du SHIR en fonc
 
 **Résolution :**
 
-* Si vous rencontrez un problème de capacité provenant du runtime d’intégration auto-hébergé, mettez à niveau la machine virtuelle pour augmenter le nœud afin d’équilibrer les activités. Si vous recevez un message d’erreur relatif à une erreur ou défaillance générale de l’IR auto-hébergé, à une mise à niveau de l’IR auto-hébergé ou à des problèmes de connectivité de l’IR auto-hébergé, ce qui peut générer une longue file d’attente, consultez [Résoudre les problèmes liés au runtime d’intégration auto-hébergé](./self-hosted-integration-runtime-troubleshoot-guide.md).
+* Si vous rencontrez un problème de capacité provenant du runtime d’intégration auto-hébergé, mettez à niveau la machine virtuelle pour augmenter le nœud afin d’équilibrer les activités. Si vous recevez un message d’erreur relatif à une erreur ou défaillance générale de l’IR auto-hébergé, à une mise à niveau de l’IR auto-hébergé ou à des problèmes de connectivité de l’IR auto-hébergé, ce qui peut générer une longue file d’attente, consultez [Résoudre les problèmes liés au runtime d’intégration auto-hébergé](self-hosted-integration-runtime-troubleshoot-guide.md).
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Messages d’erreur dus à des files d’attente longues pour la copie ADF et Data Flow
 
 **Cause**
 
-Des messages d’erreur liés à de longues files d’attente peuvent apparaître pour différentes raisons. 
+Des messages d’erreur liés aux longues files d’attente peuvent apparaître pour différentes raisons. 
 
 **Résolution :**
-* Si vous recevez un message d’erreur de n’importe quelle source ou destination via des connecteurs, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de connecteur](./connector-troubleshoot-guide.md).
-* Si vous recevez un message d’erreur sur le flux de données de mappage, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de flux de données](./data-flow-troubleshoot-guide.md).
-* Si vous recevez un message d’erreur sur d’autres activités, telles que Databricks, les activités personnalisées ou HDI, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’activité](./data-factory-troubleshoot-guide.md).
-* Si vous recevez un message d’erreur sur l’exécution des packages SSIS, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’exécution de package Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) et le [Guide de résolution des problèmes de gestion du runtime d’intégration.](./ssis-integration-runtime-management-troubleshoot.md)
+* Si vous recevez un message d’erreur de n’importe quelle source ou destination via des connecteurs, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de connecteur](connector-troubleshoot-guide.md).
+* Si vous recevez un message d’erreur sur le flux de données de mappage, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de flux de données](data-flow-troubleshoot-guide.md).
+* Si vous recevez un message d’erreur sur d’autres activités, telles que Databricks, les activités personnalisées ou HDI, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’activité](data-factory-troubleshoot-guide.md).
+* Si vous recevez un message d’erreur sur l’exécution des packages SSIS, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’exécution de package Azure-SSIS](ssis-integration-runtime-ssis-activity-faq.yml) et le [Guide de résolution des problèmes de gestion du runtime d’intégration.](ssis-integration-runtime-management-troubleshoot.md)
 
 ### <a name="error-message---codebadrequest-messagenull"></a>Message d’erreur : "code":"BadRequest", "message":"null"
 
@@ -199,15 +205,70 @@ Il s’agit d’une erreur de l’utilisateur, car la charge utile JSON qui att
 
 **Résolution :**
 
-Effectuez le traçage réseau de votre appel d’API à partir du portail ADF à l’aide des **outils de développement** du navigateur Edge ou Chrome. Vous verrez la charge utile JSON incriminée, qui peut être due à des caractères spéciaux (par exemple $), des espaces et d’autres types d’entrées utilisateur. Une fois que vous avez corrigé l’expression de la chaîne, vous continuez avec les autres appels d’utilisation d’ADF dans le navigateur.
+Effectuez le traçage réseau de votre appel d’API à partir du portail ADF à l’aide des **outils de développement** du navigateur Edge ou Chrome. Vous verrez la charge utile JSON incriminée, qui peut être due à un caractère spécial (par exemple $), des espaces et d’autres types d’entrées utilisateur. Une fois que vous avez corrigé l’expression de la chaîne, vous continuez avec les autres appels d’utilisation d’ADF dans le navigateur.
 
+### <a name="foreach-activities-do-not-run-in-parallel-mode"></a>Les activités ForEach ne s’exécutent pas en mode parallèle
+
+**Cause**
+
+Vous exécutez ADF en mode débogage.
+
+**Résolution :**
+
+Exécutez le pipeline en mode déclencheur.
+
+### <a name="cannot-publish-because-account-is-locked"></a>Publication impossible, car le compte est verrouillé
+
+**Cause**
+
+Vous avez apporté des modifications dans la branche de collaboration pour supprimer le déclencheur d’événements de stockage. Vous essayez de publier et de rencontrer un message `Trigger deactivation error`.
+
+**Résolution :**
+
+Cela est dû au fait que le compte de stockage utilisé pour le déclencheur d’événements en cours de verrouillage. Déverrouillez le compte.
+
+### <a name="expression-builder-fails-to-load"></a>Échec du chargement du générateur d’expressions
+
+**Cause**
+
+Le chargement du générateur d’expressions peut échouer en raison de problèmes réseau ou de cache sur le navigateur web.  
+
+**Résolution :**
+
+
+Mettez à niveau le navigateur web vers la dernière version, effacez les cookies du site, puis actualisez la page.
+
+### <a name="codebadrequestmessageerrorcodeflowrunsizelimitexceeded"></a>"Code":"BadRequest","message":"ErrorCode=FlowRunSizeLimitExceeded
+
+**Cause**
+
+Vous avez chaîné de nombreuses activités.
+
+**Résolution :**
+
+Vous pouvez diviser le pipelines en sous-pipelines et les raccorder avec l’activité **ExecutePipeline**. 
+
+###  <a name="how-to-optimize-pipeline-with-mapping-data-flows-to-avoid-internal-server-errors-concurrency-errors-etc-during-execution"></a>Comment optimiser le pipeline avec les flux de données de mappage pour éviter les erreurs internes du serveur, les erreurs de concurrence, etc. pendant l’exécution
+
+**Cause**
+
+Vous n’avez pas optimisé le flux de données de mappage.
+
+**Résolution :**
+
+* Utilisez le calcul à mémoire optimisée pour traiter une grande quantité de données et de transformations.
+* Réduisez la taille du lot pour chaque activité.
+* Mettez à l’échelle vos bases de données et entrepôts pour qu’ils correspondent aux performances de votre ADF. 
+* Utilisez un runtime d’intégration distinct pour les activités qui s’exécutent en parallèle.
+* Ajustez les partitions au niveau de la source et du récepteur en conséquence. 
+* Consultez [Optimizations du flux de données](concepts-data-flow-performance.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page de questions Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)

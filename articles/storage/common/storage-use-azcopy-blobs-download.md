@@ -1,6 +1,6 @@
 ---
-title: Télécharger des blobs à partir de Stockage Blob Azure en utilisant AzCopy v10 | Microsoft Docs
-description: Cet article contient une collection d’exemples de commandes AzCopy qui vous permettent de télécharger des blobs à partir de Stockage Blob Azure.
+title: Télécharger des blobs à partir du Stockage Blob Azure en utilisant AzCopy v10 | Microsoft Docs
+description: Cet article contient une collection d’exemples de commandes AzCopy qui vous permettent de télécharger des blobs à partir du Stockage Blob Azure.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,14 +8,14 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 56bb36cfda9d0cf1a8882950c862a73ad1e77898
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c57744817e26cc79c101246f146d32d3db061ed5
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502944"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361476"
 ---
-# <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>Télécharger des objets blob à partir de Stockage Blob Azure en utilisant AzCopy
+# <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>Télécharger des objets blob à partir du Stockage Blob Azure en utilisant AzCopy
 
 Vous pouvez télécharger des blobs et des répertoires à partir du stockage Blob à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
 
@@ -238,7 +238,7 @@ Vous trouverez plus d’exemples dans ces articles :
 - [Exemples : Charger](storage-use-azcopy-blobs-upload.md)
 - [Exemples : Copie entre comptes](storage-use-azcopy-blobs-copy.md)
 - [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
-- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
 - [Exemples : Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
@@ -247,4 +247,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)
+- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)

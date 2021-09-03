@@ -2,13 +2,13 @@
 title: Vérifier l’intégrité du Registre
 description: Découvrez comment exécuter une commande de diagnostic rapide pour identifier des problèmes courants lors de l’utilisation d’un registre de conteneurs Azure, notamment la configuration locale de Docker et la connectivité au registre
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: fec05efe67f5c502f36ee90eec57ba283b15a4a0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/14/2021
+ms.openlocfilehash: b0a95179e01de63185092c965b3290017dc96dfb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761742"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464300"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Vérifier l’intégrité d’un registre de conteneurs Azure
 
@@ -44,6 +44,14 @@ Pour vérifier l’accès à un registre et vérifier l’environnement local, t
 az acr check-health --name myregistry
 ```
 
+### <a name="check-registry-access-in-a-virtual-network"></a>Vérifier l'accès au registre dans un réseau virtuel
+
+Pour vérifier les paramètres DNS à acheminer vers un point de terminaison privé, transmettez l'ID de ressource ou le nom du réseau virtuel. L'ID de ressource est nécessaire lorsque le réseau virtuel se trouve dans un abonnement ou un groupe de ressources différent de celui du registre.
+
+```azurecli
+az acr check-health --name myregistry --vnet myvnet
+```
+
 ## <a name="error-reporting"></a>Envoie de rapports d’erreurs
 
 La commande enregistre des informations dans la sortie standard. Si un problème est détecté, il fournit un code d’erreur et une description. Pour plus d’informations sur les codes et les solutions possibles, consultez la [référence sur l’erreur](container-registry-health-error-reference.md).
@@ -54,8 +62,8 @@ Par défaut, la commande s’arrête chaque fois qu’elle détecte une erreur. 
 # Check environment only
 az acr check-health --ignore-errors
 
-# Check environment and target registry
-az acr check-health --name myregistry --ignore-errors
+# Check environment and target registry; skip confirmation to pull image
+az acr check-health --name myregistry --ignore-errors --yes
 ```      
 
 Exemple de sortie :
@@ -75,13 +83,11 @@ Fetch refresh token for registry 'myregistry.azurecr.io' : OK
 Fetch access token for registry 'myregistry.azurecr.io' : OK
 ```  
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les codes d’erreur retournés par la commande [az acr check-health][az-acr-check-health], consultez la [référence sur l’erreur de vérification d’intégrité](container-registry-health-error-reference.md).
 
-Consultez la section [FAQ](container-registry-faq.md) pour voir les questions fréquemment posées et d’autres problèmes connus relatifs à Azure Container Registry.
+Consultez la section [FAQ](container-registry-faq.yml) pour voir les questions fréquemment posées et d’autres problèmes connus relatifs à Azure Container Registry.
 
 
 

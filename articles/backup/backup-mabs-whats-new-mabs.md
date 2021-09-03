@@ -2,15 +2,41 @@
 title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore.
 ms.topic: conceptual
-ms.date: 05/24/2020
-ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/27/2021
+ms.openlocfilehash: 8f7c0e8709cd899b9b6a285dcd8c556763869c65
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91332761"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524024"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Nouveautés du serveur de sauvegarde Microsoft Azure (MABS)
+
+## <a name="whats-new-in-mabs-v3-ur2"></a>Nouveautés de MABS v3 UR2
+
+Le serveur de sauvegarde Microsoft Azure (MABS) version 3 UR2 prend en charge les nouvelles fonctionnalités et mises à jour de fonctionnalités suivantes.
+
+Pour plus d’informations sur les correctifs des problèmes de UR2 et les instructions d’installation, consultez l’[article de la base de connaissances](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73).
+
+### <a name="support-for-azure-stack-hci"></a>Support pour Azure Stack HCI
+
+Avec MABS v3 UR2, vous pouvez sauvegarder des machines virtuelles sur Azure Stack HCI. [Plus d’informations](./back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md)
+
+### <a name="support-for-vmware-70"></a>Support pour VMware 7.0
+
+Avec MABS v3 UR2, vous pouvez sauvegarder des machines virtuelles VMware 7.0. [Plus d’informations](./backup-azure-backup-server-vmware.md)
+
+### <a name="support-for-sql-server-failover-cluster-instance-fci-using-cluster-shared-volume-csv"></a>Prise en charge d’instance de cluster de basculement (FCI) SQL Server à l’aide de volume partagé de cluster (CSV)
+
+MABS v3 UR2 prend en charge une instance de cluster de basculement (FCI) SQL Server à l’aide du volume partagé de cluster (CSV). Avec CSV, la gestion de votre instance de SQL Server est simplifiée. Cela vous aide à gérer le stockage sous-jacent à partir de n’importe quel nœud, car il existe une abstraction concernant le nœud propriétaire du disque. [Plus d’informations](./backup-azure-sql-mabs.md)
+
+### <a name="optimized-volume-migration"></a>Migration optimisée de volume
+
+MABS v3 UR2 prend en charge la migration de volume optimisée. La migration optimisée de volume vous permet de déplacer des sources de données vers le nouveau volume beaucoup plus rapidement. Le processus de migration amélioré migre uniquement la copie de sauvegarde active (réplica actif) vers le nouveau volume. Tous les nouveaux points de récupération sont créés sur le nouveau volume, tandis que les points de récupération existants sont conservés sur le volume existant et sont purgés conformément à la stratégie de rétention. [Plus d’informations](/system-center/dpm/volume-to-volume-migration?view=sc-dpm-2019&preserve-view=true)
+
+### <a name="offline-backup-using-azure-data-box"></a>Sauvegarde hors connexion avec Azure Data Box
+
+MABS v3 UR2 prend en charge la sauvegarde en mode hors connexion à l’aide d’Azure Data Box. Avec l’intégration de Microsoft Azure Data Box, vous pouvez surmonter le défi que constitue le déplacement de plusieurs téraoctets de données de sauvegarde de l’environnement local vers le stockage Azure. Azure Data Box vous évite de devoir fournir vos propres disques et connecteurs compatibles avec Azure, ou de devoir provisionner du stockage temporaire en tant qu’emplacement intermédiaire. Microsoft gère également la logistique du transfert de bout en bout, que vous pouvez suivre par le biais du Portail Azure. [Plus d’informations](./offline-backup-azure-data-box-dpm-mabs.md)
 
 ## <a name="whats-new-in-mabs-v3-ur1"></a>Nouveautés de MABS v3 UR1
 
@@ -61,7 +87,7 @@ Avec MABS v3 UR1, une couche supplémentaire d’authentification est ajoutée
 MABS v3 UR1 améliore l’expérience de la sauvegarde hors connexion avec le service Import/Export d’Azure. Vous trouverez plus d’informations sur les étapes mises à jour [ici](./backup-azure-backup-server-import-export.md).
 
 >[!NOTE]
->La mise à jour affiche également la préversion pour la sauvegarde hors connexion à l’aide d’Azure Data Box dans MABS. Pour en savoir plus, contactez [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com).
+>À partir de MABS v3 UR2, MABS peut effectuer une sauvegarde en mode hors connexion à l’aide de Azure Data Box. [Plus d’informations](./offline-backup-azure-data-box-dpm-mabs.md)
 
 ### <a name="new-cmdlet-parameter"></a>Nouveau paramètre de cmdlet
 

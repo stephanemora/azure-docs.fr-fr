@@ -2,14 +2,14 @@
 title: Recevoir des événements à l’aide de l’hôte de processeur d’événements - Azure Event Hubs | Microsoft Docs
 description: Cet article décrit l’hôte de processeur d’événements d’Azure Event Hubs, qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/04/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0e10a472c261c14fcdd3debf1caaf9f00fdeb5e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313417"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524519"
 ---
 # <a name="event-processor-host"></a>Hôte du processeur d’événements
 > [!NOTE]
@@ -84,6 +84,9 @@ Ensuite, créez une instance [EventProcessorHost](/dotnet/api/microsoft.azure.ev
 - **consumerGroupName :** Event Hubs utilise **$Default** comme nom du groupe de consommateurs par défaut, mais il est conseillé de créer un groupe de consommateurs pour votre aspect spécifique du traitement.
 - **eventHubConnectionString :** chaîne de connexion au hub d’événements, qui peut être récupérée à partir du Portail Azure. Cette chaîne de connexion doit disposer d’autorisations d’**écoute** sur le hub d’événements.
 - **storageConnectionString :** compte de stockage utilisé pour la gestion des ressources internes.
+
+> [!IMPORTANT]
+> N’activez pas la fonctionnalité de suppression réversible sur le compte de stockage utilisé comme magasin de points de contrôle. 
 
 Enfin, les consommateurs inscrivent l’instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) auprès du service Event Hubs. L’inscription d’une classe de processeur d’événements avec une instance EventProcessorHost entraîne le démarrage du traitement des événements. L’inscription ordonne au service Event Hubs d’attendre que l’application consommateur consomme les événements provenant de certaines de ses partitions, puis d’appeler le code d’implémentation [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) chaque fois qu’il envoie (push) des événements à consommer. 
 

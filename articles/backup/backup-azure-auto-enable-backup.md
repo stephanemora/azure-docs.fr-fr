@@ -3,12 +3,12 @@ title: Activer automatiquement la sauvegarde lors de la création de machines vi
 description: Article décrivant comment utiliser Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles créées dans une étendue donnée
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe70ba544bb75cee7faf3a4eb3aa2f5ef440909e
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707300"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300607"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
 
@@ -20,13 +20,13 @@ Aujourd’hui, Sauvegarde Azure fournit un ensemble de stratégies intégrées (
 
 Si votre organisation dispose d’une équipe de sauvegarde centrale qui gère les sauvegardes entre les équipes d’applications, vous pouvez utiliser cette stratégie pour configurer la sauvegarde vers un coffre Recovery Services central existant dans le même abonnement et le même emplacement que les machines virtuelles gouvernées. Vous pouvez choisir d’**exclure** de l’étendue de cette stratégie les machines virtuelles qui contiennent une étiquette spécifique.
 
-## <a name="policy-2---preview-configure-backup-on-vms-with-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Stratégie 2 – [Préversion] Configurer une sauvegarde sur des machines virtuelles avec une étiquette donnée vers un coffre Recovery Services existant au même emplacement
+## <a name="policy-2---configure-backup-on-vms-with-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Stratégie 2 : configurer une sauvegarde sur des machines virtuelles avec une étiquette donnée vers un coffre de services de récupération existant au même emplacement
 Cette stratégie fonctionne de la même façon que la stratégie 1 ci-dessus, la seule différence étant que vous pouvez utiliser cette stratégie pour **inclure** dans l’étendue de cette stratégie les machines virtuelles qui contiennent une étiquette spécifique. 
 
-## <a name="policy-3---preview-configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Stratégie 3 – [Préversion] Configurer une sauvegarde sur des machines virtuelles sans étiquette donnée vers un nouveau coffre Recovery Services avec une stratégie par défaut
+## <a name="policy-3---configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Stratégie 3 : configurer une sauvegarde sur des machines virtuelles sans étiquette donnée dans un nouveau coffre de services de récupération avec une stratégie par défaut
 Si vous organisez des applications dans des groupes de ressources dédiés et que vous souhaitez qu’elles soient sauvegardées par le même coffre, cette stratégie vous permet de gérer cette action automatiquement. Vous pouvez choisir d’**exclure** de l’étendue de cette stratégie les machines virtuelles qui contiennent une étiquette spécifique.
 
-## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Stratégie 4 – [Préversion] Configurer une sauvegarde sur des machines virtuelles avec une étiquette donnée vers un nouveau coffre Recovery Services avec une stratégie par défaut
+## <a name="policy-4---configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Stratégie 4 : configurer une sauvegarde sur des machines virtuelles avec une étiquette donnée dans un nouveau coffre de services de récupération avec une stratégie par défaut
 Cette stratégie fonctionne de la même façon que la stratégie 3 ci-dessus, à la seule différence que vous pouvez utiliser cette stratégie pour **inclure** dans l’étendue de cette stratégie les machines virtuelles qui contiennent une étiquette spécifique. 
 
 Outre les stratégies précédentes, Sauvegarde Azure fournit également une stratégie [Auditer uniquement](../governance/policy/concepts/effects.md#audit) – **La Sauvegarde Azure doit être activée pour les machines virtuelles**. Cette stratégie identifie les machines virtuelles pour lesquelles la sauvegarde n’est pas activée, mais elle ne configure pas automatiquement les sauvegardes pour ces machines virtuelles. Cela s’avère utile quand vous cherchez uniquement à évaluer la compatibilité générale des machines virtuelles sans envisager d’agir immédiatement.
@@ -40,8 +40,6 @@ Outre les stratégies précédentes, Sauvegarde Azure fournit également une str
 * Pour les stratégies 1 et 2, l’étendue d’un groupe d’administration n’est pas prise en charge pour le moment.
 
 * Pour les stratégies 1 et 2, le coffre spécifié et les machines virtuelles configurées pour la sauvegarde peuvent se trouver dans des groupes de ressources différents.
-
-* Les stratégies 1, 2, 3 et 4 ne sont actuellement pas prises en charge dans les clouds nationaux.
 
 * Les stratégies 3 et 4 peuvent être attribuées à un seul abonnement à la fois (ou à un groupe de ressources au sein d’un abonnement).
 

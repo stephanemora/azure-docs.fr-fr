@@ -3,17 +3,18 @@ title: Exécuter le package SSIS avec l’activité de procédure stockée - Azu
 description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) dans un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
 author: swinarko
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6260606fe56d4dfc6bac93e04e726b5fd3298777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08c0e844b941a8b8bc9ed110300b6bc3e5c1474c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391505"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531568"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
 
@@ -69,9 +70,10 @@ La première étape consiste à créer une fabrique de données à l’aide du p
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Créer un pipeline avec une activité de procédure stockée
 Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline. Vous ajoutez une activité de procédure stockée au pipeline et vous le configurez pour exécuter le package SSIS à l’aide de la procédure stockée sp_executesql. 
 
-1. Dans la page de prise en main, cliquez sur **Créer un pipeline** : 
+1. Dans la page d'accueil, cliquez sur **Orchestrer** : 
 
-    ![Page de prise en main](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+    ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
+
 2. Dans la boîte à outils **Activités**, développez **Général** et glissez-déplacez l’activité **Procédure stockée** vers la surface du concepteur de pipeline. 
 
     ![Glisser-déplacer l’activité de procédure stockée](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)

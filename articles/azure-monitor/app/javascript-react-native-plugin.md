@@ -1,21 +1,21 @@
 ---
-title: Plug-in Native React pour le SDK JavaScript Application Insights
-description: Comment installer et utiliser le plug-in Native React pour le SDK JavaScript Application Insights.
+title: Plug-in React Native pour le kit de développement logiciel (SDK) JavaScript Application Insights
+description: Comment installer et utiliser le plug-in React Native pour le kit de développement logiciel (SDK) JavaScript Application Insights.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b407fdc0614d94862257ce3bebc0f58f971f9d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593598"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524591"
 ---
-# <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Plug-in Native React pour le SDK JavaScript Application Insights
+# <a name="react-native-plugin-for-application-insights-javascript-sdk"></a>Plug-in React Native pour le kit de développement logiciel (SDK) JavaScript Application Insights
 
-Le plug-in Native React pour le SDK JavaScript Application Insights recueille les informations de l’appareil. Par défaut, ce plug-in collecte automatiquement les renseignements suivants :
+Le plug-in React Native pour le kit de développement logiciel (SDK) JavaScript Application Insights recueille les informations de l’appareil. Par défaut, ce plug-in collecte automatiquement les renseignements suivants :
 
 - **ID d’appareil unique** (également appelé ID d’installation.)
 - **Nom du modèle d’appareil** (par exemple, iPhone X, Samsung Galaxy Fold, Huawei P30 Pro, etc.)

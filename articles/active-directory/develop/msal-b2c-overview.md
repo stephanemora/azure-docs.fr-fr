@@ -13,18 +13,20 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: e11ed0d284e89a9e5f406aade2147b52d139f0ad
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1aa07a4135452ae4303ecfee410b840cc75efffb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953537"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524311"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utiliser la bibliothèque d’authentification Microsoft pour JavaScript pour travailler avec Azure AD B2C
 
 La [bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) permet aux développeurs JavaScript d’authentifier les utilisateurs avec des identités sociales et locales à l’aide d’[Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
-En utilisant Azure AD B2C en tant que service de gestion des identités, vous pouvez personnaliser et contrôler la façon dont vos clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications. Azure AD B2C vous permet également de personnaliser l’interface utilisateur affichée par votre application lors du processus d’authentification.
+En utilisant Azure AD B2C en tant que service de gestion des identités, vous pouvez personnaliser et contrôler la façon dont vos clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications. 
+
+Azure AD B2C vous permet également de personnaliser l’interface utilisateur affichée par votre application lors du processus d’authentification.
 
 ## <a name="supported-app-types-and-scenarios"></a>Types d’applications et scénarios pris en charge
 
@@ -32,8 +34,8 @@ MSAL.js permet aux [applications monopages](../../active-directory-b2c/applicati
 
 - Les utilisateurs **peuvent** s’authentifier avec leur identité sociale et locale.
 - Les utilisateurs **peuvent** être autorisés à accéder aux ressources protégées Azure AD B2C (mais pas aux ressources protégées Azure AD).
-- Les utilisateurs **ne peuvent pas** obtenir de jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
-- Les utilisateurs disposant de privilèges d’administrateur **peuvent** obtenir des jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
+- Les utilisateurs **ne peuvent pas** obtenir de jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](./v2-permissions-and-consent.md#permission-types).
+- Les utilisateurs disposant de privilèges d’administrateur **peuvent** obtenir des jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](./v2-permissions-and-consent.md#permission-types).
 
 Pour plus d’informations, consultez [Utilisation d’Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/working-with-b2c.md).
 
@@ -41,5 +43,5 @@ Pour plus d’informations, consultez [Utilisation d’Azure AD B2C](https://git
 
 Suivez le tutoriel pour :
 
-- [Connecter des utilisateurs avec Azure AD B2C dans une application monopage](../../active-directory-b2c/tutorial-single-page-app.md)
-- [Appeler une API web protégée par Azure AD B2C](../../active-directory-b2c/tutorial-single-page-app-webapi.md)
+- [Connecter des utilisateurs avec Azure AD B2C dans une application monopage](../../active-directory-b2c/configure-authentication-sample-spa-app.md)
+- [Appeler une API web protégée par Azure AD B2C](../../active-directory-b2c/enable-authentication-web-api.md)

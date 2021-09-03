@@ -7,18 +7,18 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/18/2021
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6385f03556d155941139b77333d6f4a25081fe67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fa12eca00bca011107f48c6f1b282dded4f3b5a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103156"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535237"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
@@ -34,7 +34,7 @@ La plupart des applications mobiles utilisent l’authentification interactive. 
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audience pour l'Authentification Windows intégrée, nom d'utilisateur/mot de passe et B2C
 
-Si vous disposez d'une application UWP (Universal Windows Platform), vous pouvez utiliser l'Authentification Windows intégrée pour connecter les utilisateurs. Pour utiliser l'Authentification Windows intégrée ou l'authentification par nom d'utilisateur/mot de passe, votre application doit connecter les utilisateurs dans le locataire de votre développeur d'application métier. Dans le cadre d'un scénario d'éditeur de logiciels indépendant (ISV), votre application peut connecter des utilisateurs dans des organisations Azure Active Directory. Ces flux d’authentification ne sont pas pris en charge pour des comptes Microsoft personnels.
+Si vous disposez d’une application UWP (Universal Windows Platform), vous pouvez utiliser l’Authentification Windows intégrée pour connecter les utilisateurs. Pour utiliser l’Authentification Windows intégrée ou l’authentification par nom d’utilisateur/mot de passe, votre application doit connecter les utilisateurs dans le locataire de votre développeur d’application métier. Dans le cadre d'un scénario d'éditeur de logiciels indépendant (ISV), votre application peut connecter des utilisateurs dans des organisations Azure Active Directory. Ces flux d’authentification ne sont pas pris en charge pour des comptes Microsoft personnels.
 
 Vous pouvez également connecter des utilisateurs à l'aide d'identités sociales qui transmettent une stratégie et une autorité B2C. Pour utiliser cette méthode, vous pouvez uniquement utiliser l'authentification interactive et l'authentification par nom d'utilisateur/mot de passe. Pour le moment, l'authentification par nom d'utilisateur/mot de passe est uniquement prise en charge sur Xamarin.iOS, Xamarin.Android et UWP.
 

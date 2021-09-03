@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/12/2020
 ms.author: jgardner
-ms.openlocfilehash: d58d9ab48fa16fb5258f097ed4567e539e21c72c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cbdc2a43cc4fa3ce18a2ede52a115fd6de580c5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100598933"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471576"
 ---
 # <a name="move-an-azure-workbook-to-another-region"></a>Déplacer un classeur Azure vers une autre région
 
@@ -25,7 +25,7 @@ Cet article explique comment déplacer des ressources de classeur Azure vers une
 
 * Vérifiez que les classeurs sont pris en charge dans la région cible.
 
-* Ces instructions s’appliquent tant aux classeurs partagés (`microsoft.insights/workbooks`) qu’aux classeurs privés (`microsoft.insights/myworkbooks`) enregistrés dans Azure Monitor et sur la plupart des types de ressources.
+* Ces instructions s’appliquent aux classeurs (`microsoft.insights/workbooks`) enregistrés dans Azure Monitor et sur la plupart des types de ressources.
 
   Toutefois, pour les classeurs spécifiquement liés au type de ressource Application Insights, ces classeurs sont stockés dans la région Azure où la ressource Application Insights est enregistrée.
 

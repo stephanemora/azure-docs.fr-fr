@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 0ec16b16c8e71d764fb0fe21520eb407493ed8d7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366349"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105360"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migration de Network Performance Monitor vers Moniteur de connexion
 
@@ -51,7 +51,7 @@ La migration produit les résultats suivants :
 
 Pour migrer les tests de Network Performance Monitor vers Moniteur de connexion, procédez comme suit :
 
-1. Dans Network Watcher, sélectionnez **Moniteur de connexion**, puis sélectionnez l’onglet **Migrer les tests de NPM**. 
+1. Dans Network Watcher, sélectionnez **Moniteur de connexion**, puis sélectionnez l’onglet **Importer des tests de NPM**. 
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migrer des tests de Network Performance Monitor vers le Moniteur de connexion" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
@@ -77,6 +77,23 @@ Après la migration, veillez à effectuer les opérations suivantes :
 * Désactivez manuellement les tests dans NPM. Tant que vous ne le faites pas, vous continuerez d’être facturé pour ceux-ci. 
 * Lorsque vous désactivez NPM, recréez vos alertes sur les tables NWConnectionMonitorTestResult et NWConnectionMonitorPathResult, ou utilisez des métriques. 
 * Migrez les intégrations externes vers les tables NWConnectionMonitorTestResult et NWConnectionMonitorPathResult. Les intégrations externes sont, par exemple, les tableaux de bord dans Power BI et Grafana, ainsi que les intégrations avec les systèmes Security Information and Event Management (SIEM).
+
+## <a name="common-errors-encountered"></a>Erreurs courantes rencontrées
+
+Voici quelques-unes des erreurs courantes rencontrées lors de la migration : 
+
+| Error  |    Motif   |
+|---|---|
+| Aucune configuration NPM valide n’a été trouvée. Accédez à l’interface utilisateur de NPM pour vérifier la configuration     |     Cette erreur se produit lorsque l’utilisateur sélectionne Importer des tests de NPM pour migrer les tests, mais que NPM n’est pas activé dans l’espace de travail   |
+|L'espace de travail sélectionné n'a pas de configuration « Moniteur de connectivité de service »    |       Cette erreur se produit lorsque l’utilisateur effectue une migration des tests du moniteur de connectivité de service de NPM vers le Moniteur de connexion, mais qu’aucun test n’est configuré dans le moniteur de connectivité de service |
+|L'espace de travail sélectionné n'a pas de configuration « Moniteur ExpressRoute »    |     Cette erreur se produit lorsque l’utilisateur migre des tests du moniteur ExpressRoute de NPM vers le Moniteur de connexion, mais qu’aucun test n’est configuré dans ExpressRoute Monitor  |
+|L'espace de travail sélectionné n'a pas de configuration « Moniteur de performances »    |      Cette erreur se produit lorsque l’utilisateur migre des tests de l’analyseur de performances de NPM vers le Moniteur de connexion, mais qu’aucun test n’est configuré dans l’analyseur de performances |
+|L’espace de travail sélectionné n’a pas de test « {0} » valide    |      Cette erreur se produit lorsque l’utilisateur effectue une migration des tests de NPM vers le Moniteur de connexion, mais qu’il n’existe aucun test valide dans la fonctionnalité choisie par l’utilisateur pour la migration  |
+|Avant de tenter une migration, activez l'extension Network Watcher dans l'abonnement de la sélection et l'emplacement de l'espace de travail LA sélectionné      |      Cette erreur se produit lorsque l’utilisateur effectue une migration des tests de NPM vers le Moniteur de connexion et que l’extension de Network Watcher n’est pas activée dans l’espace de travail LA sélectionné. L’utilisateur doit activer l’extension NW avant de migrer des tests |
+|Certains tests {1} contiennent des agents qui ne sont plus actifs. Liste des agents inactifs : {0}. Ces agents ont peut-être été exécutés par le passé, mais ils sont arrêtés/ne sont plus en cours d’exécution. Activez les agents et migrez vers le moniteur de connexion. Cliquez sur Continuer pour migrer les tests qui ne contiennent pas d’agents qui ne sont pas actifs       |    Cette erreur se produit lorsque l’utilisateur effectue une migration des tests de NPM vers le Moniteur de connexion et que certains tests sélectionnés contiennent des agents Network Watcher inactifs ou des agents NW qui ne sont plus actifs, mais qui ont été utilisés par le passé et qui ont été arrêtés. L’utilisateur peut désélectionner ces tests et continuer à sélectionner et à migrer les tests qui ne contiennent pas de tels agents inactifs  |
+|Vos tests {1} contiennent des agents qui ne sont plus actifs. Liste des agents inactifs : {0}. Ces agents ont peut-être été exécutés par le passé, mais ils sont arrêtés/ne sont plus en cours d’exécution. Activez les agents et migrez vers le Moniteur de connexion     | Cette erreur se produit lorsque l’utilisateur effectue une migration des tests de NPM vers le Moniteur de connexion et que des tests sélectionnés contiennent des agents Network Watcher inactifs ou des agents NW qui ne sont plus actifs, mais qui ont été utilisés par le passé et qui ont été arrêtés. L’utilisateur doit activer les agents, puis continuer à migrer ces tests vers le Moniteur de connexion    |
+|Une erreur s’est produite lors de l’importation des tests dans le Moniteur de connexion     |    Cette erreur se produit lorsque l’utilisateur tente de migrer des tests de NPM vers CM, mais en raison d’erreurs, la migration échoue |
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

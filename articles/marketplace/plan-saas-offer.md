@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 92edc1e2e2ae1e359cfd951a239e30d506d2452c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/31/2021
+ms.openlocfilehash: 7afdd852bebc4eeff24671d8d60cb8805f86f29c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692014"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562695"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -27,10 +27,10 @@ Le tableau suivant présente les options de référencement des offres SaaS dans
 
 | Option de référencement | Processus de transaction |
 | ------------ | ------------- |
-| Me contacter | Le client vous contacte directement à partir des informations fournies dans votre référencement.``*`` |
-| Essai gratuit | Le client est redirigé vers votre URL cible via Azure Active Directory (Azure AD).``*`` |
-| Obtenez-en une maintenant (gratuit) | Le client est redirigé vers votre URL cible via Azure AD.``*`` |
-| Vendre via Microsoft  | Les offres vendues par le biais de Microsoft sont qualifiées de _pouvant faire l’objet d’une transaction_. Une offre pouvant faire l’objet d’une transaction est une offre dans laquelle Microsoft facilite l’échange d’argent contre l’acquisition d’une licence logicielle au nom de l’éditeur. Nous facturons les offres SaaS selon le modèle de tarification de votre choix, et vous gérez les transactions client en votre nom. En tant que partenaire, les frais d’utilisation de l’infrastructure Azure vous sont directement facturés. Vous devez tenir compte des frais d’infrastructure dans votre modèle de tarification. Cette procédure est expliquée de façon plus détaillée dans [Facturation de SaaS](#saas-billing).  |
+| Me contacter | Le client vous contacte directement à partir des informations fournies dans votre référencement.``*``<br>Vous pouvez passer à une autre option de mise en vente après la publication de l’offre. |
+| Essai gratuit | Le client est redirigé vers votre URL cible via Azure Active Directory (Azure AD).``*``<br>Vous pouvez passer à une autre option de mise en vente après la publication de l’offre. |
+| Obtenez-en une maintenant (gratuit) | Le client est redirigé vers votre URL cible via Azure AD.``*``<br>Vous pouvez passer à une autre option de mise en vente après la publication de l’offre. |
+| Vendre via Microsoft  | Les offres vendues par le biais de Microsoft sont qualifiées de _pouvant faire l’objet d’une transaction_. Une offre pouvant faire l’objet d’une transaction est une offre dans laquelle Microsoft facilite l’échange d’argent contre l’acquisition d’une licence logicielle au nom de l’éditeur. Nous facturons les offres SaaS selon le modèle de tarification de votre choix, et vous gérez les transactions client en votre nom. En tant que partenaire, les frais d’utilisation de l’infrastructure Azure vous sont directement facturés. Vous devez tenir compte des frais d’infrastructure dans votre modèle de tarification. Cette procédure est expliquée de façon plus détaillée dans [Facturation de SaaS](#saas-billing).<br><br>**Remarque** : vous ne pouvez pas modifier cette option une fois que votre offre est publiée.  |
 |||
 
 ``*`` Les éditeurs sont responsables de la prise en charge de tous les aspects de la transaction de licence logicielle, notamment, la commande, la réalisation, le contrôle, la facturation, le paiement et la collecte.

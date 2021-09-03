@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 62723a0fee6a3f696c517bc642fdac8cfa80a6b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec4f09249bda14eb29d7dc9704a6096848a78557
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557418"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525843"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU AMD sur les machines virtuelles de série N exécutant Windows
 
@@ -33,7 +33,9 @@ Pour obtenir les spécifications de base, les capacités de stockage et les info
 
 | Système d''exploitation | Pilote |
 | -------- |------------- |
-| Windows 10 Entreprise multisession - Build 1909 <br/><br/>Windows 10 - Build 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+| Windows 10 - Build 2009, 2004, 1909 <br/><br/>Windows 10 Enterprise multi-session - Build 2009, 2004, 1909 <br/><br/>Windows Server 2016 (version 1607)<br/><br/>Windows Server 2019 (version 1909) | [21.Q2](https://download.microsoft.com/download/3/4/8/3481cf8d-1706-49b0-aa09-08c9468305ab/AMD-Azure-NVv4-Windows-Driver-21Q2.exe) (.exe) |
+
+La version précédente du pilote pris en charge pour Windows générée jusqu’à 1909 est [20.4e trimestre](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe)
 
  > [!NOTE]
    >  Si vous utilisez le build 1903/1909, vous devrez peut-être mettre à jour la stratégie de groupe suivante pour obtenir des performances optimales. Ces modifications ne sont pas nécessaires pour les autres builds de Windows.
@@ -41,12 +43,12 @@ Pour obtenir les spécifications de base, les capacités de stockage et les info
    >  [Configuration de l’ordinateur->Stratégies->Paramètres Windows->Modèles d’administration->Composants Windows->Services Bureau à distance->Hôte de session Bureau à distance->Session à distance    Environnement], définissez la Stratégie [Utiliser le pilote d’affichage graphique WDDM pour les connexions Bureau à distance] sur Désactivé.
    >  
 
-
+ 
 ## <a name="driver-installation"></a>Installation du pilote
 
 1. Connectez-vous à chaque machine virtuelle série NVv4 à l’aide du Bureau à distance.
 
-2. Si vous devez désinstaller la version précédente du pilote, téléchargez l’utilitaire de nettoyage AMD [ici](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Veuillez ne pas utiliser l’utilitaire fourni avec la version précédente du pilote.
+2. Si vous devez désinstaller la version précédente du pilote, téléchargez [l’utilitaire de nettoyage AMD](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Veuillez ne pas utiliser l’utilitaire fourni avec la version précédente du pilote.
 
 3. Téléchargez et installez la dernière version du pilote.
 

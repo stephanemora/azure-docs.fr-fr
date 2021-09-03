@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ac9708e496fd0ee84d6e225ff8a63807bbe34fcd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7a0ac8a344bc48a9d1ce14b326724236c229d096
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468388"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524554"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexeurs dans Recherche cognitive Azure
 
@@ -62,19 +62,23 @@ Les connexions de l’indexeur aux sources de données distantes peuvent être e
 
 Lors d’une exécution initiale, lorsque l’index est vide, un indexeur lit toutes les données fournies dans la table ou le conteneur. Lors des exécutions suivantes, l’indexeur peut généralement détecter et récupérer uniquement les données qui ont été modifiées. Pour les données blob, la détection des modifications est automatique. Pour d’autres sources de données comme Azure SQL ou Cosmos DB, la détection des modifications doit être activée.
 
-Pour chaque document qu’il reçoit, un indexeur implémente ou coordonne plusieurs étapes, de la récupération du document à un « transfert » vers un moteur de recherche final pour indexation. Si vous le souhaitez, un indexeur peut également opérer de manière instrumentale pour gérer l’exécution d’un ensemble de compétences et des sorties, en supposant qu’un ensemble de compétences est défini.
+Pour chaque document qu’il reçoit, un indexeur implémente ou coordonne plusieurs étapes, de la récupération du document à un « transfert » vers un moteur de recherche final pour indexation. Si vous le souhaitez, un indexeur peut également opérer pour gérer [l’exécution d’un ensemble de compétences et des sorties](cognitive-search-concept-intro.md), en supposant qu’un ensemble de compétences est défini.
 
 :::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Étapes de l'indexeur" border="false":::
 
+<a name="document-cracking"></a>
+
 ### <a name="stage-1-document-cracking"></a>Étape 1 : Décodage du document
 
-Le décodage de document est le processus d’ouverture de fichiers et d’extraction du contenu. Selon le type de source de données, l’indexeur essaiera d’effectuer différentes opérations pour extraire le contenu potentiellement indexable.  
+Le décodage de document est le processus d’ouverture de fichiers et d’extraction du contenu. Le contenu textuel peut être extrait de fichiers sur un service, de lignes dans une table ou d’éléments dans un conteneur ou une collection. Si vous ajoutez une compétence de [compétences](cognitive-search-concept-image-scenarios.md) et d’image à un indexeur, la fissure de document peut également extraire des images et les faire filer pour traitement.
 
-Exemples :  
+Selon la source de données, l’indexeur essaiera différentes opérations pour extraire le contenu potentiellement indexable :
 
-+ Si le document est un enregistrement d’une [source de données Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), l’indexeur extrait chacun des champs de l’enregistrement.
-+ Si le document est un fichier PDF d’une [source de données Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md), l’indexeur extrait le texte, les images et les métadonnées.
-+ Si le document est un enregistrement d’une [source de données Cosmos DB](search-howto-index-cosmosdb.md), l’indexeur extrait les champs et les sous-champs du document Cosmos DB.
++ lorsque le document est un fichier, tel qu’un fichier PDF ou un autre format de fichier pris en charge dans [Azure Blob Stockage](search-howto-indexing-azure-blob-storage.md#supported-document-formats), l’indexeur ouvre le fichier et extrait du texte, des images et des métadonnées. Les indexeurs peuvent également ouvrir des fichiers à partir de [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) et [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats).
+
++ Lorsque le document est un enregistrement dans [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), l’indexeur extrait le contenu non binaire de chaque champ de chaque enregistrement.
+
++ Si le document est un enregistrement dans [Cosmos DB](search-howto-index-cosmosdb.md), l’indexeur extrait le contenu non binaire des champs et les sous-champs du document Cosmos DB.
 
 ### <a name="stage-2-field-mappings"></a>Étape 2 : Mappages de champs 
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/20/2021
 ms.author: v-jansk
-ms.openlocfilehash: 46348fe35f425811e2ff03208feeae6ab7a112bd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: eb8411717d0229b13571284176da7ccc113cf828
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453577"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540737"
 ---
 # <a name="cancel-translation"></a>Annuler la traduction
 
-Annule une opération en cours de traitement ou en file d’attente. Une opération ne sera pas annulée si elle est déjà terminée, a échoué ou est en cours d’annulation. Une requête incorrecte sera retournée. Tous les documents dont la traduction est terminée ne seront pas annulés et seront facturés. Tous les documents en attente seront annulés si possible.
+Annule une opération en cours de traitement ou en file d’attente. Une opération ne sera pas annulée si elle est déjà terminée, si elle a échoué ou si elle est en cours d’annulation. Une requête incorrecte sera retournée. Tous les documents dont la traduction est terminée ne seront pas annulés et seront facturés. Tous les documents en attente seront annulés si possible.
 
 ## <a name="request-url"></a>URL de la demande
 

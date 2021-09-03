@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5b2303b17a525a6ae394996780fe3ebb89388f44
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 5a83e9452b8ce54875c531bd93bb14009f8eeacd
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855115"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607271"
 ---
 # <a name="plan-your-update-management-deployment"></a>Planifier votre déploiement d’Update Management
 
@@ -34,7 +34,7 @@ L’[agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) po
 
 Sur les machines virtuelles Azure, si l’agent Log Analytics n’est pas déjà installé, lorsque vous activez Update Management pour la machine virtuelle, il est automatiquement installé à l’aide de l’extension de machine virtuelle Log Analytics pour [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md). L’agent est configuré pour envoyer ses rapports à l’espace de travail Log Analytics lié au compte Automation dans lequel Update Management est activé.
 
-Pour les machines virtuelles ou les serveurs non Azure, l’agent Log Analytics pour Windows ou Linux doit être installé et envoyer ses rapports à l’espace de travail lié. Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en connectant d’abord votre machine à des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour attribuer la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Linux ou Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec [VM Insights](../../azure-monitor/vm/vminsights-overview.md), utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Pour les machines virtuelles ou les serveurs non Azure, l’agent Log Analytics pour Windows ou Linux doit être installé et envoyer ses rapports à l’espace de travail lié. Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en connectant d’abord votre machine à des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour attribuer la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Linux ou Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec [VM Insights](../../azure-monitor/vm/vminsights-overview.md), utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 Si vous activez une machine actuellement gérée par Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire. Les informations relatives à l’espace de travail sont ajoutées à la configuration des agents lorsque vous connectez le groupe d’administration à l’espace de travail Log Analytics.
 

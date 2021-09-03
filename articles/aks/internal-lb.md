@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser un équilibreur de charge int
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: cbb898d05ecc1f0796f3609adb1368c3d77de2c5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e55ec0b6066b2b2582adf20acd646117c47f8e4
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779738"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666455"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Spécifier une adresse IP
 
-Si vous souhaitez utiliser une adresse IP spécifique avec l’équilibreur de charge interne, ajoutez la propriété *loadBalancerIP* au manifeste YAML de l’équilibreur de charge. Dans ce scénario, l’adresse IP spécifiée doit se trouver dans le même sous-réseau que le cluster AKS et ne doit pas déjà être attribuée à une ressource. Par exemple, vous ne devez pas utiliser une adresse IP dans la plage désignée pour le sous-réseau Kubernetes.
+Si vous souhaitez utiliser une adresse IP spécifique avec l’équilibreur de charge interne, ajoutez la propriété *loadBalancerIP* au manifeste YAML de l’équilibreur de charge. Dans ce scénario, l'adresse IP spécifiée doit se trouver dans le même sous-réseau que le cluster AKS mais ne peut pas être déjà attribuée à une ressource. Par exemple, vous ne devez pas utiliser une adresse IP dans la plage désignée pour le sous-réseau Kubernetes au sein du cluster AKS.
 
 ```yaml
 apiVersion: v1

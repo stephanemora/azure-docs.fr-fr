@@ -4,13 +4,12 @@ ms.author: joshuapa
 ms.service: azure-notebooks
 ms.topic: include
 ms.date: 02/08/2020
-ms.openlocfilehash: bbf834a25c65403933d7576eb059b86e6e22b94c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 646b05e6d6c633c1141745b59288b41df5f55a50
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99987491"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113603637"
 ---
 > [!IMPORTANT]
-> Le 15 janvier 2021, le site en préversion publique d’Azure Notebooks a été remplacé par des services intégrés issus de Visual Studio, Azure et GitHub. Pour créer ou exécuter du contenu de bloc-notes, [apprenez-en davantage](https://aka.ms/aznb-notebooks-at-msft/) sur les autres expériences de bloc-notes de Microsoft.
-
+> Le 15 janvier 2021, le site d'aperçu public Azure Notebooks a été retiré. 

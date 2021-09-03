@@ -10,201 +10,123 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 9bfb125a9906c89fb7c607ce241a9b7696b805bc
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 92ee092f50b334ac1be05ea4d37cf42d3dc91a62
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537603"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361434"
 ---
-# <a name="language-support-for-text-and-speech-translation"></a>Prise en charge linguistique pour la traduction de texte et la traduction vocale
+# <a name="translator-language-support"></a>Prise en charge linguistique de Translator
 
-Utilisez Traducteur pour traduire vers et depuis plus de 90 langues et dialectes de traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
+**Traduction - Cloud :** la traduction dans le cloud est disponible dans toutes les langues pour l'opération Traduire de la fonctionnalité Traduction de texte et pour la fonctionnalité Traduction de documentation. 
 
-Vous pouvez aussi utiliser Translator en association avec Custom Translator pour créer des systèmes de traduction neuronaux qui comprennent la terminologie utilisée dans votre entreprise et votre secteur d’activité, et en association avec le service Microsoft Speech pour ajouter la traduction vocale à votre application.
+**Traduction - Conteneurs :** prise en charge linguistique des conteneurs.
 
-[En savoir plus sur le fonctionnement de la traduction automatique](https://www.microsoft.com/translator/mt.aspx)
+**Custom Translator :** permet de créer des modèles de traduction personnalisés que vous pouvez ensuite utiliser pour personnaliser votre traduction avec les fonctionnalités Traduction de texte ou Traduction de documentation.
 
-## <a name="text-translation"></a>Traduction de texte
-La traduction de texte est disponible à l’aide de l’opération Translate vers ou à partir de l’une des langues disponibles dans Translator. L’API offre également la détection de langue à l’aide de l’opération Detect, la translittération à l’aide de l’opération Transliterate et des dictionnaires bilingues à l’aide des opérations Dictionary Lookup et Dictionary Examples. Les langues disponibles pour chacune de ces opérations sont répertoriées ci-dessous. 
+**Détection automatique de la langue :** détecte automatiquement la langue du texte source lors de l'utilisation des fonctionnalités Traduction de texte ou Traduction de documentation.
 
-### <a name="translate"></a>Translate
+**Dictionnaire :** utilisez les opérations [Recherche dans le dictionnaire](reference/v3-0-dictionary-lookup.md) ou [Exemples de dictionnaire](reference/v3-0-dictionary-examples.md) de la fonctionnalité Traduction de texte pour afficher d'autres traductions depuis ou vers l'anglais ainsi que des exemples de mots en contexte.
 
-Translator prend en charge les langues suivantes pour la traduction de texte en texte. 
-
-[Voir la documentation de référence de l’opération Translate](reference/v3-0-translate.md)
-
-| Langage | Code langue |
-|:-|:-:|
-| Afrikaans | `af` |
-| Albanais | `sq` |
-| Amharique | `am` |
-| Arabe | `ar` |
-| Arménien | `hy` |
-| Assamais | `as` |
-| Azéri | `az` |
-| Bangla | `bn` |
-| Bosniaque (latin) | `bs` |
-| Bulgare | `bg` |
-| Cantonais (traditionnel) | `yue` |
-| Catalan | `ca` |
-| Chinois (simplifié) | `zh-Hans` |
-| Chinois traditionnel | `zh-Hant` |
-| Croate | `hr` |
-| Tchèque | `cs` |
-| Danois | `da` |
-| Dari | `prs` |
-| Néerlandais | `nl` |
-| Anglais | `en` |
-| Estonien | `et` |
-| Fidjien | `fj` |
-| Filipino | `fil` |
-| Finnois | `fi` |
-| Français | `fr` |
-| Français (Canada) | `fr-ca` |
-| Allemand | `de` |
-| Grec | `el` |
-| Goudjrati | `gu` |
-| Créole haïtien | `ht` |
-| Hébreu | `he` |
-| Hindi | `hi` |
-| Hmong blanc | `mww` |
-| Hongrois | `hu` |
-| Islandais | `is` |
-| Indonésien | `id` |
-| Inuktitut | `iu` |
-| Irlandais | `ga` |
-| Italien | `it` |
-| Japonais | `ja` |
-| Kannada | `kn` |
-| Kazakh | `kk` |
-| Khmer | `km` |
-| Klingon | `tlh-Latn` |
-| Klingon (plqaD) | `tlh-Piqd` |
-| Coréen | `ko` |
-| Kurde (central) | `ku` |
-| Kurde (Nord) | `kmr` |
-| Lao | `lo` |
-| Letton | `lv` |
-| Lituanien | `lt` |
-| Malgache | `mg` |
-| Malais | `ms` |
-| Malayalam | `ml` |
-| Maltais | `mt` |
-| Maori | `mi` |
-| Marathi | `mr` |
-| Myanmar | `my` |
-| Népalais | `ne` |
-| Norvégien | `nb` |
-| Odia | `or` |
-| Pachto | `ps` |
-| Persan | `fa` |
-| Polonais | `pl` |
-| Portugais (Brésil) | `pt` |
-| Portugais (Portugal) | `pt-pt` |
-| Pendjabi | `pa` |
-| Queretaro Otomi | `otq` |
-| Roumain | `ro` |
-| Russe | `ru` |
-| Samoan | `sm` |
-| Serbe (cyrillique) | `sr-Cyrl` |
-| Serbe (latin) | `sr-Latn` |
-| Slovaque | `sk` |
-| Slovène | `sl` |
-| Espagnol | `es` |
-| Swahili | `sw` |
-| Suédois | `sv` |
-| Tahitien | `ty` |
-| Tamoul | `ta` |
-| Télougou | `te` |
-| Thaï | `th` |
-| Tigrigna | `ti` |
-| Tonga | `to` |
-| Turc | `tr` |
-| Ukrainien | `uk` |
-| Ourdou | `ur` |
-| Vietnamien | `vi` |
-| Gallois | `cy` |
-| Yucatec Maya | `yua` |
+| Langage | Code langue | Cloud - Traduction de texte et Traduction de documentation| Conteneurs - Traduction de texte|Custom Translator|Détection automatique de la langue|Dictionnaire
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
+| Afrikaans | `af` |✔|✔|✔|✔|✔|
+| Albanais | `sq` |✔|✔||✔||
+| Amharique | `am` |✔|✔||||
+| Arabe | `ar` |✔|✔|✔|✔|✔|
+| Arménien | `hy` |✔|✔||✔||
+| Assamais | `as` |✔|✔||||
+| Azéri | `az` |✔|✔||||
+| Bangla | `bn` |✔|✔|✔||✔|
+| Bosniaque (latin) | `bs` |✔|✔|✔||✔|
+| Bulgare | `bg` |✔|✔|✔|✔|✔|
+| Cantonais (traditionnel) | `yue` |✔|✔||||
+| Catalan | `ca` |✔|✔|✔|✔|✔|
+| Chinois (simplifié) | `zh-Hans` |✔|✔|✔|✔|✔|
+| Chinois traditionnel | `zh-Hant` |✔|✔|✔|✔||
+| Croate | `hr` |✔|✔|✔|✔|✔|
+| Tchèque | `cs` |✔|✔|✔|✔|✔|
+| Danois | `da` |✔|✔|✔|✔|✔|
+| Dari | `prs` |✔|✔||||
+| Néerlandais | `nl` |✔|✔|✔|✔|✔|
+| Anglais | `en` |✔|✔|✔|✔|✔|
+| Estonien | `et` |✔|✔|✔|✔||
+| Fidjien | `fj` |✔|✔|✔|||
+| Filipino | `fil` |✔|✔|✔|||
+| Finnois | `fi` |✔|✔|✔|✔|✔|
+| Français | `fr` |✔|✔|✔|✔|✔|
+| Français (Canada) | `fr-ca` |✔|✔||||
+| Allemand | `de` |✔|✔|✔|✔|✔|
+| Grec | `el` |✔|✔|✔|✔|✔|
+| Goudjrati | `gu` |✔|✔|✔|✔||
+| Créole haïtien | `ht` |✔|✔||✔|✔|
+| Hébreu | `he` |✔|✔|✔|✔|✔|
+| Hindi | `hi` |✔|✔|✔|✔|✔|
+| Hmong blanc | `mww` |✔|✔|||✔|
+| Hongrois | `hu` |✔|✔|✔|✔|✔|
+| Islandais | `is` |✔|✔|✔|✔|✔|
+| Indonésien | `id` |✔|✔|✔|✔|✔|
+| Inuktitut | `iu` |✔|✔|✔|✔||
+| Irlandais | `ga` |✔|✔|✔|✔||
+| Italien | `it` |✔|✔|✔|✔|✔|
+| Japonais | `ja` |✔|✔|✔|✔|✔|
+| Kannada | `kn` |✔|✔|✔|||
+| Kazakh | `kk` |✔|✔||||
+| Khmer | `km` |✔|✔||✔||
+| Klingon | `tlh-Latn` |✔| ||✔|✔|
+| Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Coréen | `ko` |✔|✔|✔|✔|✔|
+| Kurde (central) | `ku` |✔|✔||✔||
+| Kurde (Nord) | `kmr` |✔|✔||||
+| Lao | `lo` |✔|✔||✔||
+| Letton | `lv` |✔|✔|✔|✔|✔|
+| Lituanien | `lt` |✔|✔|✔|✔|✔|
+| Malgache | `mg` |✔|✔|✔|||
+| Malais | `ms` |✔|✔|✔|✔|✔|
+| Malayalam | `ml` |✔|✔||||
+| Maltais | `mt` |✔|✔|✔|✔|✔|
+| Maori | `mi` |✔|✔|✔|||
+| Marathi | `mr` |✔|✔|✔|||
+| Myanmar | `my` |✔|✔||✔||
+| Népalais | `ne` |✔|✔||||
+| Norvégien | `nb` |✔|✔|✔|✔|✔|
+| Odia | `or` |✔|✔||||
+| Pachto | `ps` |✔|✔||✔||
+| Persan | `fa` |✔|✔|✔|✔|✔|
+| Polonais | `pl` |✔|✔|✔|✔|✔|
+| Portugais (Brésil) | `pt` |✔|✔|✔|✔|✔|
+| Portugais (Portugal) | `pt-pt` |✔|✔||||
+| Pendjabi | `pa` |✔|✔|✔|||
+| Queretaro Otomi | `otq` |✔|✔||||
+| Roumain | `ro` |✔|✔|✔|✔|✔|
+| Russe | `ru` |✔|✔|✔|✔|✔|
+| Samoan | `sm` |✔| |✔|||
+| Serbe (cyrillique) | `sr-Cyrl` |✔|✔||✔||
+| Serbe (latin) | `sr-Latn` |✔|✔|✔|✔|✔|
+| Slovaque | `sk` |✔|✔|✔|✔|✔|
+| Slovène | `sl` |✔|✔|✔|✔|✔|
+| Espagnol | `es` |✔|✔|✔|✔|✔|
+| Swahili | `sw` |✔|✔|✔|✔|✔|
+| Suédois | `sv` |✔|✔|✔|✔|✔|
+| Tahitien | `ty` |✔| |✔|✔||
+| Tamoul | `ta` |✔|✔|||✔|
+| Télougou | `te` |✔|✔||||
+| Thaï | `th` |✔| |✔|✔|✔|
+| Tigrigna | `ti` |✔|✔||||
+| Tonga | `to` |✔|✔|✔|||
+| Turc | `tr` |✔|✔|✔|✔|✔|
+| Ukrainien | `uk` |✔|✔|✔|✔|✔|
+| Ourdou | `ur` |✔|✔|✔|✔|✔|
+| Vietnamien | `vi` |✔|✔|✔|✔|✔|
+| Gallois | `cy` |✔|✔|✔|✔|✔|
+| Yucatec Maya | `yua` |✔|✔||✔||
 
 > [!NOTE]
 > Par défaut, le code de langue `pt` sera `pt-br`, Portugais (Brésil).
 
-> [!NOTE]
-> Les langues suivantes ne sont actuellement pas disponibles dans les conteneurs : Samoan, Tahitien, Klingon, Klingon (plqaD) et Thaï.
-
-### <a name="detect"></a>Detect
-
-Translator détecte les langues suivantes pour la traduction et la translittération.
-
-[Voir la documentation de référence de l’opération Detect](reference/v3-0-detect.md)
-
-| Langage | Code langue |
-|:-|:-:|
-| Afrikaans | `af` |
-| Albanais | `sq` |
-| Arabe | `ar` |
-| Bulgare | `bg` |
-| Catalan | `ca` |
-| Chinois (simplifié) | `zh-Hans` |
-| Chinois traditionnel | `zh-Hant` |
-| Croate | `hr` |
-| Tchèque | `cs` |
-| Danois | `da` |
-| Néerlandais | `nl` |
-| Anglais | `en` |
-| Estonien | `et` |
-| Finnois | `fi` |
-| Français | `fr` |
-| Allemand | `de` |
-| Grec | `el` |
-| Goudjrati | `gu` |
-| Créole haïtien | `ht` |
-| Hébreu | `he` |
-| Hindi | `hi` |
-| Hongrois | `hu` |
-| Islandais | `is` |
-| Indonésien | `id` |
-| Inuktitut | `iu` |
-| Irlandais | `ga` |
-| Italien | `it` |
-| Japonais | `ja` |
-| Klingon | `tlh-Latn` |
-| Coréen | `ko` |
-| Kurde (central) | `ku-Arab` |
-| Letton | `lv` |
-| Lituanien | `lt` |
-| Malais | `ms` |
-| Maltais | `mt` |
-| Norvégien | `nb` |
-| Pachto | `ps` |
-| Persan | `fa` |
-| Polonais | `pl` |
-| Portugais | `pt` |
-| Roumain | `ro` |
-| Russe | `ru` |
-| Serbe (cyrillique) | `sr-Cyrl` |
-| Serbe (latin) | `sr-Latn` |
-| Slovaque | `sk` |
-| Slovène | `sl` |
-| Espagnol | `es` |
-| Swahili | `sw` |
-| Suédois | `sv` |
-| Tahitien | `ty` |
-| Thaï | `th` |
-| Turc | `tr` |
-| Ukrainien | `uk` |
-| Ourdou | `ur` |
-| Vietnamien | `vi` |
-| Gallois | `cy` |
-| Yucatec Maya | `yua` |
-
-### <a name="transliterate"></a>Transliterate
-
-La méthode Transliterate prend en charge les langues ci-après. Dans la colonne « Vers/De », le symbole « <--> » indique que la langue peut être translittérée aussi bien à partir des scripts indiqués que vers ces derniers. Le symbole « --> » signifie que la langue peut uniquement être translittérée du premier script vers le second.
-
-[Voir la documentation de référence de l’opération Transliterate](reference/v3-0-translate.md)
-
+## <a name="transliteration"></a>Translittération
+L'[opération Translittérer](reference/v3-0-transliterate.md) de la fonctionnalité Traduction de texte prend en charge les langues suivantes. Dans la colonne « Vers/De », le symbole « <--> » indique que la langue peut être translittérée aussi bien à partir des scripts indiqués que vers ces derniers. Le symbole « --> » signifie que la langue peut uniquement être translittérée du premier script vers le second.
 
 | Langage    | Code langue | Script | Vers/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
@@ -246,224 +168,16 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 |Ukrainien| `uk` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 |Ourdou| `ur` | Arabe `Arab`  | <--> | Latin `Latn` |
 
-### <a name="dictionary"></a>Dictionnaire
+## <a name="other-cognitive-services"></a>Autres services Cognitive Services
+Ajoutez des fonctionnalités supplémentaires à vos applications et workflows en utilisant d'autres services Cognitive Services avec Translator. Les listes de langues des services supplémentaires sont répertoriées ci-dessous.
+* [Vision par ordinateur](../computer-vision/language-support.md) 
+* [Speech](../speech-service/language-support.md) 
+* [Analyse de texte](../text-analytics/language-support.md) 
 
-Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à l’aide des méthodes Lookup et Examples.
+Affichez tous les services [Cognitive Services](../index.yml). 
 
-Consultez la documentation de référence pour les opérations [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) et [Dictionary Examples](reference/v3-0-dictionary-examples.md).
+## <a name="next-steps"></a>Étapes suivantes
+* [Informations de référence sur la traduction de texte](reference/v3-0-reference.md)
+* [Informations de référence sur la traduction de documents](document-translation/reference/rest-api-guide.md)
+* [Présentation de Custom Translator](custom-translator/overview.md)
 
-| Langage    | Code langue |
-|:----------- |:-------------:|
-| Afrikaans      | `af`          |
-| Arabe       | `ar`          |
-| Bangla      | `bn`          |
-| Bosniaque (latin)      | `bs`          |
-| Bulgare      | `bg`          |
-| Catalan      | `ca`          |
-| Chinois (simplifié)      | `zh-Hans`          |
-| Croate      | `hr`          |
-| Tchèque      | `cs`          |
-| Danois      | `da`          |
-| Néerlandais      | `nl`          |
-| Estonien      | `et`          |
-| Finnois      | `fi`          |
-| Français      | `fr`          |
-| Allemand      | `de`          |
-| Grec      | `el`          |
-| Créole haïtien      | `ht`          |
-| Hébreu      | `he`          |
-| Hindi      | `hi`          |
-| Hmong blanc      | `mww`          |
-| Hongrois      | `hu`          |
-| Islandais    | `is`  |
-| Indonésien      | `id`          |
-| Italien      | `it`          |
-| Japonais      | `ja`          |
-| Klingon      | `tlh`          |
-| Coréen      | `ko`          |
-| Letton      | `lv`          |
-| Lituanien      | `lt`          |
-| Malais      | `ms`          |
-| Maltais      | `mt`          |
-| Norvégien      | `nb`          |
-| Persan      | `fa`          |
-| Polonais      | `pl`          |
-| Portugais (Brésil)     | `pt`          |
-| Roumain      | `ro`          |
-| Russe      | `ru`          |
-| Serbe (latin)      | `sr-Latn`          |
-| Slovaque     | `sk`          |
-| Slovène      | `sl`          |
-| Espagnol      | `es`          |
-| Swahili      | `sw`          |
-| Suédois      | `sv`          |
-| Tamoul      | `ta`          |
-| Thaï      | `th`          |
-| Turc      | `tr`          |
-| Ukrainien      | `uk`          |
-| Ourdou      | `ur`          |
-| Vietnamien      | `vi`          |
-| Gallois      | `cy`          |
-
-### <a name="access-the-translator-language-list-programmatically"></a>Accéder par programme à la liste de langues de Translator
-
-Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues prises en charge par Translator. Vous pouvez visualiser la liste par fonctionnalité, par code de langue, ainsi que par le nom de langue en anglais ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
-
-[Visualiser la documentation de référence sur l’opération Languages](reference/v3-0-languages.md)
-
-## <a name="customization"></a>Personnalisation
-
-Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l'anglais à l'aide de [Custom Translator](https://aka.ms/CustomTranslator).
-
-| Langage    | Code langue |
-|:----------- |:-------------:|
-|Afrikaans| `af`|
-| Arabe       | `ar`          |
-| Bangla      | `bn`          |
-| Bosniaque (latin)      | `bs`          |
-| Bulgare      | `bg`          |
-|Catalan|   `ca`    |
-| Chinois (simplifié)      | `zh-Hans`          |
-|Chinois traditionnel|   `zh-Hant`   |
-| Croate      | `hr`          |
-| Tchèque      | `cs`          |
-| Danois      | `da`          |
-| Néerlandais      | `nl`          |
-| Anglais    | `en`     |
-| Estonien      | `et`          |
-|Fidjien|    `fj`    |
-|Filipino|  `fil`   |
-| Finnois      | `fi`          |
-| Français      | `fr`          |
-| Allemand      | `de`          |
-| Grec      | `el`          |
-| Goudjrati| `gu`    |
-| Hébreu      | `he`          |
-| Hindi      | `hi`          |
-| Hongrois      | `hu`          |
-| Islandais | `is` |
-| Indonésien|   `id`    |
-| Inuktitut|    `iu`    |
-| Irlandais | `ga`  |
-| Italien      | `it`          |
-| Japonais      | `ja`          |
-|Kannada|`kn`|
-| Coréen      | `ko`          |
-| Letton      | `lv`          |
-| Lituanien      | `lt`          |
-| Malgache| `mg`    |
-| Malais|    `ms` |
-|Maltais|   `mt`    |
-| Maori| `mi`  |
-| Marathi| `mr`  |
-| Norvégien      | `nb`          |
-| Persan      | `fa`          |
-| Polonais      | `pl`          |
-| Portugais (Brésil) | `pt` |
-| Pendjabi|`pa`|
-| Roumain      | `ro`          |
-| Russe      | `ru`          |
-| Samoan|   `sm`    |
-| Serbe (latin)      | `sr-Latn`          |
-| Slovaque     | `sk`          |
-| Slovène      | `sl`          |
-| Espagnol      | `es`          |
-| Swahili|  `sw`    |
-| Suédois      | `sv`          |
-|Tahitien|  `ty`    |
-| Thaï      | `th`          |
-|Tonga|    `to`    |
-| Turc      | `tr`          |
-| Ukrainien      | `uk`          |
-| Ourdou| `ur`    |
-| Vietnamien      | `vi`          |
-| Gallois | `cy` |
-
-## <a name="speech-translation"></a>Traduction vocale
-La traduction vocale est disponible à l’aide de Translator avec le service Speech de Cognitive Services. Consultez la [documentation du service Speech](../speech-service/index.yml) pour en savoir plus sur l’utilisation de la traduction vocale et pour afficher toutes les [options de langues disponibles](../speech-service/language-support.md).
-
-### <a name="speech-to-text"></a>Reconnaissance vocale
-Convertissez la parole en texte afin d’effectuer la traduction dans la langue textuelle de votre choix. La reconnaissance vocale est utilisée pour la traduction de la voix en texte, ou pour traduire la voix en voix lorsqu’elle est utilisée conjointement avec la synthèse vocale.
-
-| Langage    |
-|:----------- |
-|Arabe|
-|Cantonais (traditionnel)|
-|Catalan|
-|Chinois (simplifié)|
-|Chinois traditionnel|
-|Danois|
-|Néerlandais|
-|Anglais|
-|Finnois|
-|Français|
-|Français (Canada)|
-|Allemand|
-|Goudjrati|
-|Hindi|
-|Italien|
-|Japonais|
-|Coréen|
-|Marathi|
-|Norvégien|
-|Polonais|
-|Portugais (Brésil)|
-|Portugais (Portugal)|
-|Russe|
-|Espagnol|
-|Suédois|
-|Tamoul|
-|Télougou|
-|Thaï|
-|Turc|
-
-### <a name="text-to-speech"></a>Synthèse vocale
-Convertir du texte en parole. La synthèse vocale est utilisée pour ajouter une sortie audible des résultats de la traduction, ou pour traduire la voix en voix lorsqu’elle est utilisée avec la reconnaissance vocale. 
-
-| Langage |
-|:-|
-| Arabe |
-| Bulgare |
-| Cantonais (traditionnel) |
-| Catalan |
-| Chinois (simplifié) |
-| Chinois traditionnel |
-| Croate |
-| Tchèque |
-| Danois |
-| Néerlandais |
-| Anglais |
-| Finnois |
-| Français |
-| Français (Canada) |
-| Allemand |
-| Grec |
-| Hébreu |
-| Hindi |
-| Hongrois |
-| Indonésien |
-| Italien |
-| Japonais |
-| Coréen |
-| Malais |
-| Norvégien |
-| Polonais |
-| Portugais (Brésil) |
-| Portugais (Portugal) |
-| Roumain |
-| Russe |
-| Slovaque |
-| Slovène |
-| Espagnol |
-| Suédois |
-| Tamoul |
-| Télougou |
-| Thaï |
-| Turc |
-| Vietnamien |
-
-## <a name="view-the-language-list-on-the-microsoft-translator-website"></a>Afficher la liste des langues sur le site web de Microsoft Translator
-
-Si vous souhaitez examiner rapidement les langues, le site web de Microsoft Translator présente toutes les langues prises en charge par Translator pour la traduction de texte et par le service Speech pour la traduction vocale. Cette liste ne comporte pas d’informations propres aux développeurs, comme les codes de langue.
-
-[Voir la liste des langues](https://www.microsoft.com/translator/languages.aspx)

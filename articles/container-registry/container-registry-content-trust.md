@@ -1,14 +1,15 @@
 ---
 title: Gérer des images signées
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées. L’approbation de contenu implémente l’approbation de contenu de Docker et est une fonctionnalité du niveau de service Premium.
-ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 238908c0075ffa5d2193eda642175a0cfe75b839
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.topic: how-to
+ms.date: 06/25/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: ddaded0ff733ea717a48bfe2bcaac4a84e102ad8
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784116"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983614"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -80,11 +81,19 @@ Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portai
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter une attribution de rôle**. Sous **Ajouter une attribution de rôle**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
 
-Dans cet exemple, le rôle `AcrImageSigner` a été attribué à deux entités : un principal de service nommé « service-principal » et un utilisateur nommé « Azure User ».
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-![Accorder des autorisations de signature d’image ACR dans le portail Azure][content-trust-02-portal]
+1. Attribuez le rôle suivant. Dans cet exemple, le rôle est attribué à un utilisateur individuel. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | AcrImageSigner |
+    | Attribuer l’accès à | Utilisateur |
+    | Membres | Alain |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 

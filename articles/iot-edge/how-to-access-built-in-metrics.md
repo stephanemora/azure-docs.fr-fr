@@ -2,19 +2,18 @@
 title: Accéder aux métriques intégrées – Azure IoT Edge
 description: Accès à distance aux métriques intégrées à partir des composants du runtime IoT Edge
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
-ms.date: 10/05/2020
+ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a78db821c0fab01ad5d6752216a8f7682fb2c46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ee4c39b7dfc4097480588620465eedd40eba53f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200495"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532406"
 ---
 # <a name="access-built-in-metrics"></a>Accéder aux métriques intégrées
 
@@ -22,11 +21,13 @@ ms.locfileid: "103200495"
 
 Les composants du runtime IoT Edge, le hub IoT Edge Hub et l’agent IoT Edge, produisent des métriques intégrées au [format d’exposition Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Accédez à ces métriques à distance pour analyser et comprendre l’intégrité d’un appareil IoT Edge.
 
+Vous pouvez utiliser votre propre solution pour accéder à ces métriques. Vous pouvez utiliser le [module metrics-collector](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector) qui gère la collecte des métriques intégrées et leur envoi à Azure Monitor ou Azure IoT Hub. Pour plus d’informations, consultez [Collecter et transporter les métriques](how-to-collect-and-transport-metrics.md).
+
 À partir de la version 1.0.10, les métriques sont automatiquement exposées par défaut sur le **port 9600** des modules **edgeHub** et **edgeAgent** (`http://edgeHub:9600/metrics` et `http://edgeAgent:9600/metrics`). Elles ne sont pas mappées au port de l’hôte par défaut.
 
 Accédez aux métriques à partir de l’hôte en exposant et en mappant le port des métriques à partir du paramètre `createOptions` du module. L’exemple ci-dessous mappe le port des métriques par défaut au port 9601 sur l’hôte :
 
-```
+```json
 {
   "ExposedPorts": {
     "9600/tcp": {}
@@ -116,5 +117,6 @@ Le module **edgeAgent** produit les métriques suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Collecter et transporter les métriques](how-to-collect-and-transport-metrics.md)
 * [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md)
 * [Propriétés des jumeaux de module de l’agent IoT Edge et du hub IoT Edge](module-edgeagent-edgehub.md)

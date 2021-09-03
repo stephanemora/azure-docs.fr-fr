@@ -6,15 +6,15 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e53f9e89dd9718111da4f8016bc3e5a7f791627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 452fffa58d9845c1655c8b643dcde54f0b6a7d90
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496573"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459259"
 ---
 # <a name="identity-model"></a>Modèle d’identité
 
@@ -86,3 +86,4 @@ Si vous mettez en cache les jetons d’accès dans un magasin de stockage, nous 
 * Pour une présentation de la gestion des jetons d’accès, consultez [Créer et gérer des jetons d’accès](../quickstarts/access-tokens.md).
 * Pour une présentation de l’authentification, consultez [S’authentifier auprès d’Azure Communication Services](./authentication.md).
 * Pour une présentation de la confidentialité et de la résidence des données, consultez [Disponibilité des régions et résidence des données](./privacy.md).
+* Pour savoir comment créer rapidement des identités à des fins de test, consultez le [démarrage rapide de création rapide d’identité](../quickstarts/identity/quick-create-identity.md).

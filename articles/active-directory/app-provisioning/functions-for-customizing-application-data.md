@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 07/29/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3cd910cac906af54e039e38c9ccdd9d563cd9b8c
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 9736bee99483a7e4fbb5a5f02a3f415a74c9f76f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570312"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524233"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 
@@ -38,7 +38,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 ## <a name="list-of-functions"></a>Liste des fonctions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Ajouter
@@ -55,7 +55,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | **suffix** |Obligatoire |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
 
 
-### <a name="append-constant-suffix-to-user-name"></a>Ajouter un suffixe de constante à un nom d’utilisateur
+#### <a name="append-constant-suffix-to-user-name"></a>Ajouter un suffixe de constante à un nom d’utilisateur
 Exemple : si vous utilisez un bac à sable Salesforce, vous devrez peut-être ajouter un suffixe supplémentaire à tous les noms d’utilisateurs avant de les synchroniser.
 
 **Expression :**  
@@ -66,6 +66,18 @@ Exemple : si vous utilisez un bac à sable Salesforce, vous devrez peut-être aj
 * **ENTRÉE** : (userPrincipalName) : "John.Doe@contoso.com"
 * **SORTIE**:  "John.Doe@contoso.com.test"
 
+---
+### <a name="approleassignmentscomplex"></a>AppRoleAssignmentsComplex
+
+**Fonction :** AppRoleAssignmentsComplex([appRoleAssignments])
+
+**Description :** utilisée pour attribuer plusieurs rôles à un utilisateur Pour plus de détails, consultez [Tutoriel - Personnaliser les mappages d'attributs d'attribution d'utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md#provisioning-a-role-to-a-scim-app).
+
+**Paramètres :** 
+
+| Nom | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Obligatoire |String |Objet **[appRoleAssignments]** . |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -109,6 +121,44 @@ En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits corresp
 Retourne True si les attributs ont la même valeur.
 
 ---
+### <a name="cdate"></a>CDate
+**Fonction :**  
+`CDate(expression)`
+
+**Description :**  
+La fonction CDate renvoie une valeur DateTime UTC à partir d’une chaîne. DateTime n'est pas un type d'attribut natif, mais il peut être utilisé dans des fonctions de date telles que [FormatDateTime](#formatdatetime) et [DateAdd](#dateadd).
+
+**Paramètres :** 
+
+| Nom | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Obligatoire | expression | Toute chaîne valide représentant une date/heure. Pour connaître les formats pris en charge, reportez-vous à [Chaînes de format de date et d'heure personnalisées .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+
+**Remarques :**  
+La chaîne renvoyée est toujours au format UTC **M/j/aaaa h:mm:ss tt**.
+
+**Exemple 1 :** <br> 
+`CDate([StatusHireDate])`  
+**Exemple d’entrée/sortie :** 
+
+* **INPUT** (StatusHireDate): "2020-03-16-07:00"
+* **OUTPUT**:  "3/16/2020 7:00:00 AM" <-- *Notez que l'équivalent UTC de la valeur DateTime ci-dessus est renvoyé*
+
+**Exemple 2 :** <br> 
+`CDate("2021-06-30+08:00")`  
+**Exemple d’entrée/sortie :** 
+
+* **INPUT**: "2021-06-30+08:00"
+* **OUTPUT**:  "6/29/2021 4:00:00 PM" <-- *Notez que l'équivalent UTC de la valeur DateTime ci-dessus est renvoyé*
+
+**Exemple 3 :** <br> 
+`CDate("2009-06-15T01:45:30-07:00")`  
+**Exemple d’entrée/sortie :** 
+
+* **INPUT**: "2009-06-15T01:45:30-07:00"
+* **OUTPUT**:  "6/15/2009 8:45:30 AM" <-- *Notez que l'équivalent UTC de la valeur DateTime ci-dessus est renvoyé*
+
+---
 ### <a name="coalesce"></a>Coalesce
 **Fonction :** Coalesce(source1, source2, ..., defaultValue)
 
@@ -121,7 +171,7 @@ Retourne True si les attributs ont la même valeur.
 | **source1  … sourceN** | Obligatoire | String |Requis, nombre de fois variable. Généralement le nom de l’attribut de l’objet source. |
 | **defaultValue** | Facultatif | String | Valeur par défaut à utiliser lorsque toutes les valeurs sources sont NULL. Peut être une chaîne vide ("").
 
-### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valeur de courrier dynamique si non NULL ; dans le cas contraire, transmission de userPrincipalName
+#### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valeur de courrier dynamique si non NULL ; dans le cas contraire, transmission de userPrincipalName
 Exemple : vous souhaitez transmettre l’attribut de messagerie, s’il est présent. Si ce n’est pas le cas, vous souhaitez transmettre la valeur de userPrincipalName à la place.
 
 **Expression :**  
@@ -198,6 +248,60 @@ Exemple : vous souhaitez transmettre l’attribut de messagerie, s’il est pré
 Renvoie « cn=Joe,dc=contoso,dc=com »
 
 ---
+### <a name="dateadd"></a>AjDate
+**Fonction :**  
+`DateAdd(interval, value, dateTime)`
+
+**Description :**  
+Renvoie une chaîne date/heure qui représente une date à laquelle un intervalle de temps spécifié a été ajouté. La date renvoyée est au format : **M/j/aaaa h:mm:ss tt**.
+
+**Paramètres :** 
+
+| Nom | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **interval** |Obligatoire | String | Intervalle de temps que vous souhaitez ajouter. Voir les valeurs acceptées sous ce tableau. |
+| **value** |Obligatoire | Number | Nombre d’unités que vous souhaitez ajouter. Elle peut être positive (pour obtenir des dates dans le futur) ou négative (pour obtenir des dates dans le passé). |
+| **dateTime** |Obligatoire | DateTime | DateTime représentant la date à laquelle l’intervalle est ajouté. |
+
+La chaîne **interval** doit comporter l'une des valeurs suivantes : 
+ * yyyy Année 
+ * q Trimestre
+ * m Mois
+ * y Jour de l’année
+ * s Jour
+ * w Jour de la semaine
+ * ww Semaine
+ * h Heure
+ * n Minute
+ * s Seconde
+
+**Exemple 1 : Ajouter 7 jours à la date d'embauche**  
+`DateAdd("d", 7, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/23/2012 7:00:00 AM
+
+**Exemple 2 : Obtenir une date 10 jours avant la date d'embauche**  
+`DateAdd("d", -10, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/6/2012 7:00:00 AM
+
+**Exemple 3 : Ajouter 2 semaines à la date d'embauche**  
+`DateAdd("ww", 2, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/30/2012 7:00:00 AM
+
+**Exemple 4 : Ajouter 10 mois à la date d'embauche**  
+`DateAdd("m", 10, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 1/16/2013 7:00:00 AM
+
+**Exemple 5 : Ajouter 2 ans à la date d'embauche**  
+`DateAdd("yyyy", 2, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/16/2014 7:00:00 AM
+
+---
+
 ### <a name="datefromnum"></a>DateFromNum
 **Fonction :** DateFromNum(value)
 
@@ -228,12 +332,12 @@ Retourne une valeur DateTime représentant le 1er janvier 2012 à 23:00.
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
 | **dateTimeStyles** | Facultatif | String | Utilisez ceci pour indiquer les options de mise en forme qui personnalisent l’analyse de chaîne pour certaines méthodes d’analyse de la date et de l’heure. Pour les valeurs prises en charge, consultez le [document DateTimeStyles](/dotnet/api/system.globalization.datetimestyles). Si vous laissez le champs vide, la valeur par défaut utilisée est DateTimeStyles.RoundtripKind; DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite  |
-| **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour les formats pris en charge, consultez [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour connaître les formats pris en charge, consultez [Chaînes de format de date et d'heure personnalisées .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Obligatoire |String |Format de la date de sortie. |
 
 
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
+#### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Exemple : vous souhaitez envoyer des dates à une application SaaS comme ServiceNow dans un format spécifique. Vous pouvez envisager d’utiliser l’expression suivante. 
 
 **Expression :** 
@@ -251,6 +355,31 @@ Exemple : vous souhaitez envoyer des dates à une application SaaS comme Service
 **Fonction :** Guid()
 
 **Description :** La fonction Guid génère un nouveau GUID aléatoire.
+
+**Exemple :** <br>
+`Guid()`<br>
+Exemple de sortie : « 1088051a-cd4b-4288-84F8-e02042ca72bc »
+
+---
+### <a name="ignoreflowifnullorempty"></a>IgnoreFlowIfNullOrEmpty
+**Fonction :** IgnoreFlowIfNullOrEmpty(expression)
+
+**Description :** la fonction IgnoreFlowIfNullOrEmpty indique au service d'approvisionnement d'ignorer l'attribut et de le supprimer du flux si la fonction ou l'attribut inclus est NULL ou vide.
+
+**Paramètres :** 
+
+| Nom | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** | Obligatoire | expression | Expression à évaluer |
+
+**Exemple 1 : Ne pas inclure un attribut dans le flux s'il est Null** <br>
+`IgnoreFlowIfNullOrEmpty([department])` <br>
+L'expression ci-dessus supprimera l'attribut « department » du flux d'approvisionnement s'il est Null ou vide. <br>
+
+**Exemple 2 : Ne pas inclure un attribut dans le flux si le mappage d'expressions correspond à une chaîne vide ou Null** <br>
+Supposons que l'attribut SuccessFactors *prefix* soit mappé à l'attribut *personalTitle* de l'instance locale d'Active Directory à l'aide du mappage d'expressions suivant : <br>
+`IgnoreFlowIfNullOrEmpty(Switch([prefix], "", "3443", "Dr.", "3444", "Prof.", "3445", "Prof. Dr."))` <br>
+L'expression ci-dessus évalue d'abord la fonction [Switch](#switch). Si l'attribut *prefix* ne possède aucune des valeurs répertoriées dans la fonction *Switch*, *Switch* renvoie une chaîne vide et l'attribut *personalTitle* n'est pas inclus dans le flux d'approvisionnement de l'instance locale d'Active Directory.
 
 ---
 ### <a name="iif"></a>IIF
@@ -434,7 +563,7 @@ Renvoie « Joh ».
 | **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
 
-### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
+#### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
 Exemple : vous devez remplacer les caractères accentués par leurs équivalents non accentués.
 
 **Expression :** NormalizeDiacritics([givenName])
@@ -456,6 +585,17 @@ Exemple : vous devez remplacer les caractères accentués par leurs équivalents
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
+
+---
+### <a name="now"></a>maintenant
+**Fonction :** Now()
+
+**Description :**  
+la fonction Now renvoie une chaîne représentant la valeur DateTime UTC actuelle au format **M/j/aaaa h:mm:ss tt**.
+
+**Exemple :** 
+`Now()` <br>
+Exemple de valeur renvoyée : *7/2/2021 3:33:38 PM*
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -527,7 +667,7 @@ Exemple : vous devez remplacer les caractères accentués par leurs équivalents
 | **replacementAttributeName** |Facultatif |String |Nom de l’attribut à utiliser pour la valeur de remplacement. |
 | **template** |Facultatif |String |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
 
-### <a name="replace-characters-using-a-regular-expression"></a>Remplacer des caractères à l’aide d’une expression régulière
+#### <a name="replace-characters-using-a-regular-expression"></a>Remplacer des caractères à l’aide d’une expression régulière
 Exemple : vous devez rechercher des caractères correspondant à une valeur d’expression régulière et les supprimer.
 
 **Expression :** 
@@ -559,7 +699,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |String | Liste des règles de génération de valeur unique à évaluer. |
 
-### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
+#### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
 Exemple : en fonction du prénom, du deuxième prénom et du nom de famille de l’utilisateur, vous devez générer une valeur pour l’attribut UPN et vérifier son caractère unique dans le répertoire AD cible avant d’attribuer la valeur à l’attribut UPN.
 
 **Expression :** 
@@ -607,7 +747,7 @@ Exemple : en fonction du prénom, du deuxième prénom et du nom de famille de l
 | **source** |Obligatoire |String |**source** à mettre à jour. |
 | **délimiteur** |Obligatoire |String |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
 
-### <a name="split-a-string-into-a-multi-valued-array"></a>Fractionner une chaîne en un tableau à valeurs multiples
+#### <a name="split-a-string-into-a-multi-valued-array"></a>Fractionner une chaîne en un tableau à valeurs multiples
 Exemple : vous devez prendre une liste de chaînes délimitées par des virgules, et la fractionner en un tableau pouvant être raccordé à un attribut à valeurs multiples comme l’attribut PermissionSets de Salesforce. Dans cet exemple, une liste des jeux d’autorisations a été remplie dans extensionAttribute5 dans Azure AD.
 
 **Expression :** Split([extensionAttribute5], ",")
@@ -645,7 +785,7 @@ Exemple : vous devez prendre une liste de chaînes délimitées par des virgules
 | **key** |Obligatoire |String |**Key** avec laquelle comparer la valeur **source**. |
 | **value** |Obligatoire |String |Valeur de remplacement pour la **source** correspondant à la clé. |
 
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
+#### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 Exemple : vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD.  Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :**  
@@ -663,6 +803,8 @@ Exemple : vous devez définir le fuseau horaire de l’utilisateur en fonction d
 
 **Description :** prend une valeur de la chaîne *source* et la convertit en minuscules à l’aide des règles de culture spécifiées. Si aucune information de *culture* n'est spécifiée, une culture invariante est utilisée.
 
+Si vous souhaitez que les valeurs existantes du système cible soient en minuscules, [mettez à jour le schéma de votre application cible](./customize-application-attributes.md#editing-the-list-of-supported-attributes) et définissez la propriété caseExact sur « true » pour l'attribut qui vous intéresse. 
+
 **Paramètres :** 
 
 | Nom | Requis / Répétition | Type | Notes |
@@ -670,7 +812,7 @@ Exemple : vous devez définir le fuseau horaire de l’utilisateur en fonction d
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Convertir la valeur userPrincipalName (UPN) générée en minuscules
+#### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Convertir la valeur userPrincipalName (UPN) générée en minuscules
 Exemple : vous souhaitez générer la valeur UPN en concaténant les champs source PreferredFirstName et PreferredLastName et en convertissant tous les caractères en minuscules. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -687,6 +829,8 @@ Exemple : vous souhaitez générer la valeur UPN en concaténant les champs sour
 **Fonction :** ToUpper(source, culture)
 
 **Description :** prend une valeur de la chaîne *source* et la convertit en majuscule à l’aide des règles de culture spécifiées. Si aucune information de *culture* n'est spécifiée, une culture invariante est utilisée.
+
+Si vous souhaitez que les valeurs existantes du système cible soient en majuscules, [mettez à jour le schéma de votre application cible](./customize-application-attributes.md#editing-the-list-of-supported-attributes) et définissez la propriété caseExact sur « true » pour l'attribut qui vous intéresse. 
 
 **Paramètres :** 
 

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 07/09/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,50 +13,40 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b57d675003c1ebeb29927b86338f95cf7dd68090
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdaa91a5ffed9e75666602490b4829a3a95e2782
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96574461"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113597826"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Supprimer des utilisateurs en bloc dans Azure Active Directory.
 
-En utilisant le portail Azure Active Directory (Azure AD), vous pouvez supprimer un grand nombre de membres d’un groupe en utilisant un fichier de valeurs séparées par des virgules (CSV) pour supprimer en bloc les utilisateurs.
+À l'aide du portail Azure Active Directory (Azure AD), vous pouvez supprimer un grand nombre de membres d'un groupe en utilisant un fichier de valeurs séparées par des virgules (CSV) pour supprimer en bloc des utilisateurs.
 
-## <a name="understand-the-csv-template"></a>Comprendre le modèle CSV
+## <a name="csv-template-structure"></a>Structure du modèle CSV
 
-Téléchargez et renseignez le modèle CSV pour vous aider à supprimer les utilisateurs Azure AD en bloc. Le modèle CSV que vous téléchargez peut se présenter comme dans l’exemple suivant :
-
-![Feuille de calcul pour le chargement et les appels expliquant l’objectif et les valeurs de chaque ligne et colonne](./media/users-bulk-delete/understand-template.png)
-
-### <a name="csv-template-structure"></a>Structure du modèle CSV
+![Le fichier CSV contient les noms et les ID des utilisateurs à supprimer.](./media/users-bulk-delete/delete-csv-file.png)
 
 Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
 - **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
-- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `User name [userPrincipalName] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
-- **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
+- **En-têtes de colonne** : `User name [userPrincipalName] Required`. Les anciennes versions du modèle peuvent être différentes.
+- **Exemples de lignes** : nous avons inclus dans le modèle un exemple de valeur acceptable. `Example: chris@contoso.com` Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
 
 ### <a name="additional-guidance"></a>Conseils supplémentaires
 
-- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ni modifiées, sinon, le chargement ne pourra pas être traité.
+- Les deux premières lignes du modèle ne doivent pas être supprimées ou modifiées, sinon le modèle ne pourra pas être traité.
 - Les colonnes obligatoires sont listées en premier.
-- Nous vous déconseillons d’ajouter des colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
-- Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
+- N'ajoutez pas de nouvelles colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
+- Téléchargez la dernière version du modèle CSV avant d'apporter de nouvelles modifications.
 
 ## <a name="to-bulk-delete-users"></a>Pour supprimer des utilisateurs en bloc
 
 1. [Connectez-vous à votre organisation Azure AD](https://aad.portal.azure.com) avec un compte Administrateur d’utilisateurs de celle-ci.
-1. Dans Azure AD, sélectionnez **Utilisateurs** > **Supprimer en bloc**.
-1. Dans la page **Supprimer des utilisateurs en bloc**, sélectionnez **Télécharger** pour recevoir un fichier CSV de propriétés utilisateur valide.
-
-   ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à supprimer](./media/users-bulk-delete/bulk-delete.png)
-
-1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à supprimer. La seule valeur obligatoire est **Nom d’utilisateur principal**. Puis enregistrez le fichier.
-
-   ![Le fichier CSV contient les noms et les ID des utilisateurs à supprimer.](./media/users-bulk-delete/delete-csv-file.png)
-
+1. Dans Azure AD, sélectionnez **Utilisateurs** > **Opérations en bloc** > **Supprimer en bloc**.
+1. Sur la page **Supprimer des utilisateurs en bloc**, sélectionnez **Télécharger** pour télécharger la dernière version du modèle CSV.
+1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à supprimer. La seule valeur obligatoire est **Nom d’utilisateur principal**. Enregistrez le fichier .
 1. Dans la page **Supprimer des utilisateurs en bloc**, sous **Charger votre fichier csv**, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur Envoyer, la validation du fichier CSV démarre.
 1. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
 1. Lorsque votre fichier réussit la validation, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui supprime les utilisateurs.

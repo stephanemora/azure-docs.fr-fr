@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, olhuan
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: fff7512523b50c7bb0e7652832cfa27db688fff0
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 46e256aaac608d65211aa4575fc14faa9824a4bb
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570832"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574063"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -87,6 +87,9 @@ La première fois que l’utilisateur est tenu de partager sa localisation à pa
 Pendant les 24 heures suivantes, si l’utilisateur accède toujours à la ressource et a autorisé l’application à fonctionner en arrière-plan, la localisation de l’appareil est partagée silencieusement une fois par heure. Après 24 heures, l’utilisateur doit ouvrir l’application et approuver la notification. Chaque fois que l’utilisateur partage sa position GPS, l’application effectue une détection de débridage (en utilisant la même logique que le Kit de développement logiciel [SDK] Intune MAM). Si l’appareil est débridé, la localisation n’est pas considérée comme valide et l’accès n’est pas accordé à l’utilisateur. 
 
 Une stratégie d’accès conditionnel avec des emplacements nommés basés sur le GPS en mode rapport seul invite les utilisateurs à partager leur position GPS, même si leur connexion n’est pas bloquée.
+
+> [!IMPORTANT]
+> Les utilisateurs peuvent recevoir des invites toutes les heures les informant que Azure AD vérifie leur emplacement dans l’application Authenticator. La préversion ne doit être utilisée que pour protéger des applications très sensibles lorsque ce comportement est acceptable ou lorsque l’accès doit être limité à un pays ou une région spécifique.
 
 #### <a name="include-unknown-countriesregions"></a>Inclure des pays/régions inconnus
 

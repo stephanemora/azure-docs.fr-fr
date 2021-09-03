@@ -1,7 +1,7 @@
 ---
 title: Nouveautés d’Azure Active Directory B2C (Business-to-Customer)
 description: Documentation et nouvelle et mise à jour pour Azure Active Directory B2C (Business-to-Customer)
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,64 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 1c68040022da094090e3fcd870b8a615fc045dcd
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 2b28828cfd21d6847bcf5ebfe4fce1e5f144c118
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409412"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531491"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés du service B2C, consultez [Nouveautés d’Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="july-2021"></a>Juillet 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Configurer l’authentification dans un exemple d’application Angular monopage à l’aide d’Azure Active Directory B2C](configure-authentication-sample-angular-spa-app.md)
+- [Configurer l’authentification dans un exemple d’application monopage iOS Swift à l’aide d’Azure Active Directory B2C](configure-authentication-sample-ios-app.md)
+- [Configurer les options d’authentification dans une application Angular avec Azure Active Directory B2C](enable-authentication-angular-spa-app-options.md)
+- [Activer l’authentification dans votre propre application Angular à l’aide d’Azure Active Directory B2C](enable-authentication-angular-spa-app.md)
+- [Configurer les options d’authentification dans une application iOS Swift avec Azure Active Directory B2C](enable-authentication-ios-app-options.md)
+- [Activer l’authentification dans votre propre application iOS Swift à l’aide d’Azure Active Directory B2C](enable-authentication-ios-app.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui.md)
+- [Transformations de revendications d’entier](integer-transformations.md)
+- [Activer les versions de mise en page et JavaScript dans Azure Active Directory B2C](javascript-and-page-layout.md)
+- [Superviser Azure AD B2C avec Azure Monitor](azure-monitor.md)
+- [Versions des mises en page](page-layout.md)
+- [Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.](add-password-reset-policy.md)
+
+
+## <a name="june-2021"></a>Juin 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Activer l’authentification dans votre propre API web à l’aide d’Azure Active Directory B2C](enable-authentication-web-api.md)
+- [Activer l’authentification dans votre propre application monopage avec Azure Active Directory B2C](enable-authentication-spa-app.md)
+- [Publier votre application Azure AD B2C dans la galerie d’applications Azure AD](publish-app-to-azure-ad-app-gallery.md)
+- [Configurer l’authentification dans un exemple d’application monopage à l’aide d’Azure Active Directory B2C](configure-authentication-sample-spa-app.md)
+- [Configurer l’authentification dans un exemple d’application web qui appelle une API web à l’aide d’Azure Active Directory B2C](configure-authentication-sample-web-app-with-api.md)
+- [Configurer les options d’authentification dans un exemple d’application monopage à l’aide d’Azure Active Directory B2C](enable-authentication-spa-app-options.md)
+- [Configurer l’authentification dans un exemple d’application web qui appelle une API web à l’aide des options d’Azure Active Directory B2C](enable-authentication-web-app-with-api-options.md)
+- [Activer l’authentification dans votre propre application web qui appelle une API web à l’aide d’Azure Active Directory B2C](enable-authentication-web-app-with-api.md)
+- [Options de connexion dans Azure AD B2C](sign-in-options.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Attributs de profil utilisateur](user-profile-attributes.md)
+- [Configurer l’authentification dans une application web à l’aide d’Azure Active Directory B2C](configure-authentication-sample-web-app.md)
+- [Configurer l’authentification dans une application web à l’aide des options d’Azure Active Directory B2C](enable-authentication-web-application-options.md)
+- [Configurer un flux de connexion dans Azure Active Directory B2C](add-sign-in-policy.md)
+- [Configurer un flux d’inscription et de connexion dans Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
+- [Configurer le fournisseur d’identité d’un compte local](identity-provider-local.md)
+- [Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C](technical-overview.md)
+- [Ajouter des attributs utilisateur et personnaliser l’entrée utilisateur dans Azure Active Directory B2C](configure-user-input.md)
+- [Restrictions et limites du service Azure Active Directory B2C](service-limits.md)
+
 
 ## <a name="may-2021"></a>Mai 2021
 
@@ -50,7 +98,7 @@ Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. C
 
 - [Notes à destination des développeurs pour Azure Active Directory B2C](custom-policy-developer-notes.md)
 - [Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription](add-api-connector.md)
-- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Sécuriser votre connecteur d’API](secure-rest-api.md)
 - [Utiliser des connecteurs d’API pour personnaliser et étendre les flux d’utilisateurs d’inscription](api-connectors-overview.md)
 - [Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C](technical-overview.md)
@@ -60,7 +108,6 @@ Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. C
 - [Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C](tutorial-create-user-flows.md)
 - [Vue d’ensemble de la stratégie personnalisée Azure AD B2C](custom-policy-overview.md)
 - [Vue d’ensemble des flux d’utilisateurs et des stratégies personnalisées](user-flow-overview.md)
-- [Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C](tutorial-single-page-app.md)
 - [Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs](phone-authentication-user-flows.md)
 - [Activer l'authentification multifacteur dans Azure Active Directory B2C](multi-factor-authentication.md)
 - [Versions de flux utilisateur dans Azure Active Directory B2C](user-flow-versions.md)
@@ -95,6 +142,6 @@ Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. C
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Exemples de code Azure Active Directory B2C](code-samples.md)
+- [Exemples de code Azure Active Directory B2C](integrate-with-app-code-samples.md)
 - [Suivre le comportement des utilisateurs dans Azure AD B2C à l’aide d’Application Insights](analytics-with-application-insights.md)
 - [Configurer le comportement de session dans Azure Active Directory B2C](session-behavior.md)

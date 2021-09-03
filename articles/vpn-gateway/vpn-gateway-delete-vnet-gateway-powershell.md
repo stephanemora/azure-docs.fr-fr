@@ -9,12 +9,12 @@ ms.date: 04/29/2021
 ms.author: cherylmc
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 259d5776e6f9a2ce431743fe8dd3d9160b9f657d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: fcce91b5914318157ca4263504d46c992294d153
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671888"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531693"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Nom du réseau virtuel : VNet1<br>
 Nom du groupe de ressources : RG1<br>
 Nom de la passerelle de réseau virtuel : GW1<br>
 
-Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
+Les étapes suivantes s’appliquent au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Récupérez la passerelle de réseau virtuel que vous souhaitez supprimer.
 
@@ -148,7 +148,7 @@ Nom du réseau virtuel : VNet1<br>
 Nom du groupe de ressources : RG1<br>
 Nom de la passerelle de réseau virtuel : GW1<br>
 
-Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
+Les étapes suivantes s’appliquent au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Récupérez la passerelle de réseau virtuel que vous souhaitez supprimer.
 
@@ -236,7 +236,7 @@ Nom du réseau virtuel : VNet1<br>
 Nom du groupe de ressources : RG1<br>
 Nom de la passerelle de réseau virtuel : GW1<br>
 
-Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
+Les étapes suivantes s’appliquent au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 
 >[!NOTE]
@@ -289,7 +289,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Supprimer une passerelle VPN en supprimant le groupe de ressources
 
-Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressources et que vous voulez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Les étapes suivantes s’appliquent uniquement au modèle de déploiement Resource Manager.
+Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressources et que vous voulez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Les étapes suivantes s’appliquent uniquement au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Récupérez la liste des groupes de ressources de votre abonnement.
 

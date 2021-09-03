@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Paramètres de service web - Azure'
-description: Comment utiliser les paramètres de service Web Azure Machine Learning pour modifier le comportement de votre modèle au moment d’accéder au service Web.
+description: Comment utiliser les paramètres de service web Machine Learning pour modifier le comportement de votre modèle au moment d’accéder au service web.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -10,19 +10,20 @@ ms.subservice: studio-classic
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f26a6541fc3c5720043d5b00578bea374cfcb959
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518332"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689504"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Utiliser les paramètres de service web Azure Machine Learning Studio (classique)
+# <a name="use-machine-learning-studio-classic-web-service-parameters"></a>Utiliser les paramètres de service web Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
+Un service web Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
 
 Un exemple courant consiste à configurer le module [Importer des données][reader], afin que l’utilisateur du service web publié puisse spécifier une autre source de données lors de l’accès au service web. Il est également possible de configurer le module [Exporter des données][writer] de façon à spécifier une destination différente. Vous pouvez aussi, par exemple, changer le nombre de bits pour le module [Hachage des caractéristiques][feature-hashing] ou le nombre de caractéristiques souhaitées pour le module [Sélection de caractéristiques par filtrage][filter-based-feature-selection]. 
 
@@ -40,7 +41,7 @@ Vous pouvez décider de définir ou non une valeur par défaut pour le paramètr
 La documentation pour le service Web fournit à l'utilisateur du service Web des informations sur la façon de définir, en les programmant, les paramètres de service web au moment d'accéder au service web.
 
 > [!NOTE]
-> La documentation API pour un service web classique est fournie via le lien **Page d’aide de l’API** dans le service web **TABLEAU DE BORD** dans Machine Learning Studio (classique). La documentation API pour un service web est fournie via le portail des [services web Azure Machine Learning](https://services.azureml.net/Quickstart) des pages **Utiliser** et **API Swagger** de votre service web.
+> La documentation API pour un service web classique est fournie via le lien **Page d’aide de l’API** dans le service web **TABLEAU DE BORD** dans Machine Learning Studio (classique). La documentation API pour un nouveau service web est fournie via le portail des [services web Machine Learning](https://services.azureml.net/Quickstart) des pages **Utiliser** et **API Swagger** de votre service web.
 > 
 > 
 
@@ -69,14 +70,14 @@ Par exemple, supposons que nous avons une expérience avec un module [Exporter d
 7. Cliquez sur **déployer le Service Web** et sélectionnez **déployer le Service Web [standard]** ou **déployer le Service Web [nouveau]** pour déployer le service web.
 
 > [!NOTE] 
-> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez [Gérer un service web à l’aide du portail des services web Machine Learning](manage-new-webservice.md). 
 
 L’utilisateur du service web peut désormais indiquer une nouvelle destination pour le module [Exporter des données][writer] au moment d’accéder au service web.
 
 ## <a name="more-information"></a>Informations complémentaires
 Vous trouverez un exemple plus détaillé en consultant l’entrée [Paramètres de service Web](/archive/blogs/machinelearning/azureml-web-service-parameters) du blog [Machine Learning ](/archive/blogs/machinelearning/azureml-web-service-parameters).
 
-Pour plus d’informations sur l’accès à un service web Machine Learning, consultez [Utilisation d’un service web Azure Machine Learning](consume-web-services.md).
+Pour plus d’informations sur l’accès à un service web Machine Learning, consultez [Comment utiliser un service web Machine Learning](consume-web-services.md).
 
 <!-- Module References -->
 [feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing

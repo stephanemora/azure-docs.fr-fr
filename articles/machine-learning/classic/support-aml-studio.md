@@ -1,6 +1,6 @@
 ---
 title: ML Studio (Classic) – Tutoriel, support et formation – Azure
-description: Bénéficier d'un support et d'une formation, et fournir des commentaires sur Azure Machine Learning Studio (classique)
+description: Bénéficiez d'un support et d'une formation et fournissez des commentaires sur Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -8,21 +8,21 @@ ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: 606229f8baf1016938ed531682d11297d14145fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96b56fecda94d1a2958275dde6f48fc1c3b48cd9
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517465"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580131"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Bénéficier d'un support et d'une formation pour Azure Machine Learning Studio (classique)
+# <a name="get-support-and-training-for-machine-learning-studio-classic"></a>Bénéficier d'un support et d'une formation pour Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![Coche verte.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![X indiquant non.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
-
+**S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Cet article contient des informations sur Azure Machine Learning Studio (classique) et sur le support que vous pouvez obtenir pour résoudre vos problèmes.
+
+
+Cet article contient des informations sur comment en savoir plus sur Machine Learning Studio (classique) et obtenir le support pour résoudre vos problèmes et répondre à vos questions.
 
 ## <a name="learn-more-about-studio-classic"></a>En savoir plus sur Studio (classique)
 
@@ -40,7 +40,7 @@ Pour le support, consultez les ressources suivantes :
 
 + **Support technique pour les clients Azure** : [Envoyer et gérer les demandes de support](../../azure-portal/supportability/how-to-create-azure-support-request.md) via le portail Azure.
 
-+ **Forum utilisateurs** : posez des questions, fournissez des réponses et communiquez avec d’autres utilisateurs sur le [forum de support d’Azure Machine Learning Studio (classique)](/answers/topics/azure-machine-learning.html).
++ **Forum utilisateur** : posez des questions, répondez aux questions et connectez-vous avec d’autres utilisateurs sur le [forum de support Machine Learning Studio (classique)](/answers/topics/azure-machine-learning.html).
 
 + **Stack Overflow** : consultez la page de la communauté Azure Machine Learning sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning), balisée avec « Azure-Machine-Learning ».
 

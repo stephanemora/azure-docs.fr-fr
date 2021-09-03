@@ -4,13 +4,13 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 06/03/2021
-ms.openlocfilehash: cbbecb49acf556dc7a8ce6285d4b1b3581c39b3d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 08/15/2021
+ms.openlocfilehash: 5aa39240b87f86dfaa1fbd44de8b6889939ec64f
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412897"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525848"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -287,6 +287,21 @@ Lorsqu’une métrique présente des fluctuations importantes, les seuils dynami
 3. La métrique présente un comportement irrégulier avec une forte variance (présence de pics ou de creux dans les données).
 
 Lorsque la limite inférieure indique une valeur négative, cela signifie qu’il est plausible que la métrique atteigne une valeur nulle étant donné son comportement irrégulier. Vous pouvez choisir une sensibilité supérieure ou une *plus grande granularité d’agrégation (période)* pour rendre le modèle moins sensible. Vous avez également la possibilité d’utiliser l’option *Ignorer les données avant* pour exclure une irrégularité récente des données historiques utilisées pour générer le modèle.
+
+## <a name="the-dynamic-thresholds-alert-rule-is-too-noisy-fires-too-much"></a>La règle d’alerte de seuils dynamiques est trop bruyante (se déclenche trop)
+Pour réduire la sensibilité de votre règle d’alerte de seuils dynamiques, utilisez l’une des options suivantes :
+1. Seuil de sensibilité - Réglez la sensibilité sur *Faible* afin d'être plus tolérant aux écarts.
+2. Nombre de violations (sous *Paramètres avancés*) : configurez la règle d’alerte pour qu’elle se déclenche uniquement si un certain nombre d’écarts se produisent dans un laps de temps donné. Cela rend la règle moins vulnérable aux écarts temporaires.
+
+
+## <a name="the-dynamic-thresholds-alert-rule-is-too-insensitive-doesnt-fire"></a>La règle d’alerte de seuils dynamiques n’est pas assez sensible (n’est pas déclenchée)
+Parfois, une règle d’alerte ne se déclenche pas même quand une haute sensibilité est configurée. Cela se produit généralement lorsque la distribution de la métrique est très irrégulière.
+Envisagez l’une des possibilités suivantes :
+* Passez à la surveillance d’une mesure complémentaire adaptée à votre scénario (le cas échéant). Par exemple, recherchez les modifications du taux de réussite, plutôt que le taux d’échec.
+* Essayez de sélectionner une granularité d’agrégation différente (période). 
+* Vérifiez si le comportement de mesure a été radicalement modifié au cours des 10 derniers jours (une panne). Une modification soudaine peut avoir un impact sur les seuils supérieur et inférieur calculés pour la mesure et les rendre plus larges. Attendez quelques jours jusqu'à ce que la panne ne soit plus prise en compte dans le calcul des seuils, ou utilisez l'option *Ignorer les données avant* (sous *Paramètres avancés*).
+* Si vos données comportent un caractère saisonnier hebdomadaire, mais que l’historique n’est pas suffisant pour la métrique, les seuils calculés peuvent entraîner des limites supérieures et inférieures. Par exemple, le calcul peut traiter les jours de semaine et les week-ends de la même façon, et créer des bordures larges qui ne correspondent pas toujours aux données. Cela devrait se résoudre une fois qu’un historique des métriques suffisant est disponible. À partir de là, le caractère saisonnier correct sera détecté et les seuils calculés seront mis à jour en conséquence.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

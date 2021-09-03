@@ -8,16 +8,16 @@ author: linda33wj
 ms.author: jingwang
 ms.reviewer: jrasnick
 ms.date: 05/13/2021
-ms.openlocfilehash: f7f697b9df78c44efb7a266d1a92bdd9ffe31753
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 4c1f12d4e61f254f753f3feb59ca46997f88b751
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967688"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257075"
 ---
 # <a name="transform-data-by-using-sql-pool-stored-procedure-activity-in-azure-synapse-analytics"></a>Transformer des données à l’aide de l’activité de procédure stockée de pool SQL dans Azure Synapse Analytics
 
-<Token>**s’applique À :** ![non pris en charge](../media/applies-to/no.png)Azure Data Factory![ pris en charge](../media/applies-to/yes.png) Azure Synapse Analytics</Token> 
+[!INCLUDE[appliesto-xxx-asa-md](../../data-factory/includes/appliesto-xxx-asa-md.md)]
 
 Vous utilisez des activités de transformation de données dans un [pipeline](../../data-factory/concepts-pipelines-activities.md) pour transformer et traiter des données brutes en prévisions et analyses. Cet article s’ajoute à l’article [Transformer des données](../../data-factory/transform-data.md) qui présente une vue d’ensemble de la transformation de données et des activités de transformation prises en charge.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5cc264171c6c2dc5588156af2d3d0deb21e4fe94
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104669302"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228082"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Application web qui appelle des API web : Configuration de code
 
@@ -210,7 +210,7 @@ L'exemple permet actuellement à MSAL.Python de produire l'URL du code d'autoris
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web simplifie votre code en définissant les paramètres corrects d’OpenID Connect, en s’abonnant à l’événement code reçu et en échangeant le code. Aucun code supplémentaire n’est nécessaire pour échanger le code d’autorisation. Pour plus d’informations sur le fonctionnement, consultez [Code source de Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140).
+Microsoft.Identity.Web simplifie votre code en définissant les paramètres corrects d’OpenID Connect, en s’abonnant à l’événement code reçu et en échangeant le code. Aucun code supplémentaire n'est nécessaire pour accepter le code d'autorisation. Pour plus d’informations sur le fonctionnement, consultez [Code source de Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -387,7 +387,7 @@ L'utilisation d'assertions de client est un scénario avancé décrit en détail
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Le tutoriel ASP.NET Core utilise l’injection de dépendances pour vous laisser déterminer l’implémentation du cache de jetons dans le fichier Startup.cs de votre application. Microsoft.Identity.Web est fourni avec des sérialiseurs de cache de jetons prédéfinis décrits dans [Sérialisation du cache de jetons](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Une possibilité intéressante consiste à choisir des [caches en mémoire distribuée](/aspnet/core/performance/caching/distributed#distributed-memory-cache) ASP.NET Core :
+Le tutoriel ASP.NET Core utilise l’injection de dépendances pour vous laisser déterminer l’implémentation du cache de jetons dans le fichier Startup.cs de votre application. Microsoft.Identity.Web est fourni avec des sérialiseurs de cache de jetons prédéfinis décrits dans [Sérialisation du cache de jetons](msal-net-token-cache-serialization.md). Une possibilité intéressante consiste à choisir des [caches en mémoire distribuée](/aspnet/core/performance/caching/distributed#distributed-memory-cache) ASP.NET Core :
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -416,32 +416,60 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Pour plus d’informations sur les fournisseurs de cache de jetons, consultez également l’article relatif à la [sérialisation du cache de jetons de Microsoft.Identity.Web](https://aka.ms/ms-id-web/token-cache-serialization), ainsi que la phase [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) du didacticiel sur les applications web.
+Pour plus d'informations sur les fournisseurs de cache de jetons, consultez également l'article relatif à la [sérialisation du cache de jetons](https://aka.ms/ms-id-web/token-cache-serialization) de Microsoft.Identity.Web et la phase [Tutoriel sur les applications web ASP.NET Core | Caches de jetons](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) du tutoriel consacré aux applications web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 L'implémentation du cache de jetons des applications ou API web est différente de l'implémentation relative aux applications de bureau, qui est souvent [basée sur des fichiers](scenario-desktop-acquire-token.md#file-based-token-cache).
 
-L'implémentation des applications web peut utiliser la session ASP.NET ou la mémoire du serveur. Observez, par exemple, comment l'implémentation du cache est accrochée après la création de l'application MSAL.NET dans [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51) :
+L'implémentation des applications web peut utiliser la session ASP.NET ou la mémoire du serveur. Observez, par exemple, comment l'implémentation du cache est accrochée après la création de l'application MSAL.NET dans [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58) :
+
+
+Tout d'abord, pour utiliser ces implémentations :
+- Ajoutez le package Microsoft.Identity.Web Nuget. Ces sérialiseurs de cache de jetons ne sont pas importés directement dans MSAL.NET pour éviter les dépendances indésirables. En plus d'apporter un niveau supérieur pour ASP.NET Core, Microsoft.Identity.Web fournit des classes qui constituent des aides pour MSAL.NET. 
+- Dans votre code, utilisez l'espace de noms Microsoft.Identity.Web :
+
+  ```csharp
+  #using Microsoft.Identity.Web
+  ```
+- Après avoir créé votre application cliente confidentielle, ajoutez la sérialisation du cache de jetons de votre choix.
 
 ```csharp
 public static class MsalAppBuilder
 {
- // Omitted code
-    public static IConfidentialClientApplication BuildConfidentialClientApplication(ClaimsPrincipal currentUser)
+  private static IConfidentialClientApplication clientapp;
+
+  public static IConfidentialClientApplication BuildConfidentialClientApplication()
+  {
+    if (clientapp == null)
     {
-      IConfidentialClientApplication clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
+      clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
             .WithClientSecret(AuthenticationConfig.ClientSecret)
             .WithRedirectUri(AuthenticationConfig.RedirectUri)
             .WithAuthority(new Uri(AuthenticationConfig.Authority))
             .Build();
 
-      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation.
-      MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
-
-      return clientapp;
+      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache serialization with our implementation
+      clientapp.AddInMemoryTokenCache();
+    }
+    return clientapp;
   }
 ```
+
+Au lieu de `clientapp.AddInMemoryTokenCache()`, vous pouvez également utiliser des implémentations de sérialisation du cache plus avancées telles que Redis, SQL, CosmosDB ou la mémoire distribuée. Voici un exemple pour Redis :
+
+```csharp
+  clientapp.AddDistributedTokenCache(services =>
+  {
+    services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = "localhost";
+        options.InstanceName = "SampleInstance";
+    });
+  });
+```
+
+Pour plus d'informations, consultez [Sérialisation du cache de jetons dans MSAL.NET](./msal-net-token-cache-serialization.md).
 
 # <a name="java"></a>[Java](#tab/java)
 

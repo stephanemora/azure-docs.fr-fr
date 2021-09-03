@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: 56f10ec6178281deaa529e5c94f1cd4b565a381c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0551cf435b732b621ad5493914251afd67f18882
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746606"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707146"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -60,7 +60,7 @@ Vous pouvez configurer votre réseau virtuel pour utiliser la connexion site à 
 
 ## <a name="privacy"></a><a name="privacy"></a>Confidentialité
 
-### <a name="does-the-vpn-service-store-customer-data"></a>Le service VPN stocke-t-il des données client ?
+### <a name="does-the-vpn-service-store-or-process-customer-data"></a>Le service VPN stocke-t-il ou traite-t-il les données client ?
 
 Non.
 
@@ -77,6 +77,10 @@ Les passerelles basées sur des stratégies implémentent des VPN basés sur des
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>Qu’est-ce qu’une passerelle basée sur l’itinéraire (routage dynamique) ?
 
 Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou les sélecteurs de trafic pour les VPN basés sur l’itinéraire sont configurés comme universels (ou en caractères génériques).
+
+### <a name="can-i-specify-my-own-policy-based-traffic-selectors"></a>Puis-je spécifier mes propres sélecteurs de trafic basés sur des stratégies ?
+
+Oui, les sélecteurs de trafic peuvent être définis par l'attribut *trafficSelectorPolicies* sur une connexion via la commande PowerShell [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy). Pour que le sélecteur de trafic spécifié prenne effet, vérifiez que l'option [Utiliser des sélecteurs de trafic basés sur des stratégies](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) est activée.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
 
@@ -245,6 +249,10 @@ Oui, ceci est pris en charge. Pour plus d’informations, consultez [Configurer 
 ### <a name="can-i-configure-forced-tunneling"></a>Puis-je configurer un tunneling forcé ?
 
 Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
+
+## <a name="nat"></a><a name="nat"></a>NAT
+
+[!INCLUDE [vpn-gateway-faq-nat-include](../../includes/vpn-gateway-faq-nat-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Connectivité entre locaux et machines virtuelles
 

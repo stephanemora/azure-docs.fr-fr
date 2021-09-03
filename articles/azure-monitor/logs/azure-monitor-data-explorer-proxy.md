@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 498fc101f257b05d24826cead8906b513ec34ccd
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419420"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527735"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Requête inter-ressources Azure Data Explorer à l’aide d’Azure Monitor
 Azure Monitor prend en charge les requêtes inter-services entre Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) et [Log Analytics](../logs/data-platform-logs.md). Vous pouvez ensuite interroger votre cluster Azure Data Explorer à l'aide des outils Log Analytics/Application Insights et y faire référence dans une requête inter-services. L’article montre comment effectuer une requête inter-services.
@@ -55,6 +55,15 @@ union customEvents, CL1 | take 10
 
 > [!Tip]
 > Le format de raccourci est autorisé : *ClusterName*/*InitialCatalog*. Par exemple, `adx('help/Samples')` est translaté par `adx('help.kusto.windows.net/Samples')`.
+
+>[!Note]
+> 
+>* À l’aide de l’opérateur [`join`](/azure/data-explorer/kusto/query/joinoperator), plutôt que l’union, vous avez besoin d’utiliser un [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) pour combiner les données dans le cluster Azure Data Explorer avec l’espace de travail Log Analytics.
+>* Utilisez Hint.remote = {Direction de l’espace de travail Log Analytics}, par exemple :
+>```kusto
+>AzureDiagnostics
+>| join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
+>```
 
 ## <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Joindre les données d’un cluster Azure Data Explorer dans un locataire avec une ressource Azure Monitor située dans un autre
 

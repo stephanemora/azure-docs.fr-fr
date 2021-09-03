@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2744a1dd36751175e7bd421210bdb5b92b53dfe5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3eb0ab8ac6ca4c0ceddd9e3ebf84b8c2ddd5a9f4
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456918"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301309"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -193,7 +193,9 @@ Consultez cet exemple d’évaluation d’alerte sans état :
 | 00:15 | true  | L’alerte se déclenche et les groupes d’actions sont appelés. Nouvel état d'alerte ACTIF.
 | 00:20 | false | L'alerte ne se déclenche pas. Aucune action n’est appelée. L'état d'alerte précédent reste ACTIF.
 
-Les alertes avec état se déclenchent une fois par incident et se résolvent. Cette fonctionnalité est actuellement en préversion dans le cloud public Azure. Vous pouvez définir cette option à l’aide de **Résoudre automatiquement les alertes** dans la section Détails de l’alerte.
+Les alertes avec état se déclenchent une fois par incident et se résolvent. La règle d’alerte est résolue lorsque la condition d’alerte n’est pas remplie pendant 30 minutes pour une période d’évaluation spécifique (pour tenir compte du retard d’ingestion du journal) et pour trois évaluations consécutives afin de réduire le bruit s’il y a des conditions de bagottement. Par exemple, avec une fréquence de 5 minutes, l’alerte est résolue au bout de 40 minutes ou avec une fréquence de 1 minute, l’alerte est résolue au bout de 32 minutes. La notification de résolution est envoyée par le biais de Webhooks ou d’un e-mail, l’état de l’instance d’alerte (appelé état de l’analyse) dans le Portail Azure est également défini comme résolu.
+
+La fonctionnalité des alertes avec état est actuellement en préversion dans le cloud public Azure. Vous pouvez définir cette option à l’aide de **Résoudre automatiquement les alertes** dans la section Détails de l’alerte.
 
 ## <a name="location-selection-in-log-alerts"></a>Sélection de l’emplacement dans les alertes de journal
 

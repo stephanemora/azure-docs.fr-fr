@@ -3,14 +3,14 @@ title: Présentation de la fonctionnalité Suivi des modifications et inventaire
 description: Cet article présente la fonctionnalité Change Tracking and Inventory, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 05/06/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 062e4cdeae9560bc5be58d8245390d4a538f5722
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1ecf963f965fe215a510c7d24d2ecffc9027baf7
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783906"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608735"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -20,7 +20,7 @@ Cet article présente Suivi des modifications et inventaire dans Azure Automatio
 - Logiciel Linux (packages)
 - Fichiers Windows et Linux
 - Clés de Registre Windows
-- Services Microsoft
+- Services Windows
 - Démons Linux
 
 > [!NOTE]
@@ -29,14 +29,14 @@ Cet article présente Suivi des modifications et inventaire dans Azure Automatio
 Suivi des modifications et inventaire utilise le [Monitoring d’intégrité de fichier (FIM) dans Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md) pour examiner les fichiers de système d’exploitation et d’application, ainsi que le Registre Windows. Bien que FIM surveille ces entités, Suivi des modifications et inventaire suit en mode natif :
 
 - Modifications de logiciel
-- Services Microsoft
+- Services Windows
 - Démons Linux
 
 L’activation des complètes de Suivi des modifications et inventaire peut entraîner des frais supplémentaires. Avant de continuer, passez en revue [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/) et [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Suivi des modifications et inventaire transfère les données vers des journaux Azure Monitor, et les données collectées sont stockées dans un espace de travail Log Analytics. La fonctionnalité FIM (File Integrity Monitoring) est disponible uniquement lorsque **Azure Defender pour les serveurs** est activé. Consultez [Tarification d’Azure Security Center](../../security-center/security-center-pricing.md) pour en savoir plus. FIM charge des données dans le même espace de travail Log Analytics que celui créé pour stocker des données à partir de Suivi des modifications et inventaire. Nous vous recommandons de surveiller votre espace de travail Log Analytics lié pour effectuer le suivi de votre utilisation exacte. Pour plus d'informations sur l'analyse de l'utilisation des données des journaux d'activité Azure Monitor, consultez [Gérer l'utilisation et les coûts](../../azure-monitor/logs/manage-cost-storage.md).
 
-Les machines connectées à des espaces de travail Log Analytics utilisent l’[agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) pour collecter des données sur les modifications apportées aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows, ainsi qu’aux démons Linux sur les serveurs analysés. Lorsque des données sont disponibles, l’agent les envoie aux journaux Azure Monitor pour traitement. Les journaux Azure Monitor appliquent une logique aux données reçues, les enregistrent et les rendent disponibles pour analyse.
+Les machines connectées à l’espace de travail Log Analytics utilisent l’[agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) pour collecter des données sur les modifications apportées aux logiciels installés, aux services Windows, au registre et aux fichiers Windows, ainsi qu’aux démons Linux sur les serveurs analysés. Lorsque des données sont disponibles, l’agent les envoie aux journaux Azure Monitor pour traitement. Les journaux Azure Monitor appliquent une logique aux données reçues, les enregistrent et les rendent disponibles pour analyse.
 
 > [!NOTE]
 > Le suivi des modifications et inventaire vous demande d’établir une liaison entre un espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [Mappages Azure Workspace](../how-to/region-mappings.md). Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région depuis votre compte Automation.
@@ -67,7 +67,7 @@ Pour les limites qui s’appliquent à Suivi des modifications et inventaire, co
 
 Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Pour obtenir la liste des versions de système d’exploitation Windows et Linux que l’agent Log Analytics prend actuellement en charge, consultez [Systèmes d’exploitation pris en charge](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
-Pour comprendre la configuration requise du client pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Pour comprendre les exigences client du protocole TLS 1.2, consultez [TLS 1.2 pour Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 
 ### <a name="python-requirement"></a>Exigence relative à Python
 
@@ -89,7 +89,7 @@ Vous pouvez activer Suivi des modifications et inventaire en procédant de l’u
 
 - À partir de votre [compte Automation](enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure.
 
-- Manuellement pour les machines non-Azure, notamment les machines ou les serveurs inscrits auprès de [serveurs activés par Azure Arc](../../azure-arc/servers/overview.md). Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre ordinateur à des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc *Linux* ou *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez de surveiller également les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+- Manuellement pour les machines non-Azure, notamment les machines ou les serveurs inscrits auprès de [serveurs activés par Azure Arc](../../azure-arc/servers/overview.md). Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre ordinateur à des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour affecter la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc *Linux* ou *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez de surveiller également les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 - Pour une machine virtuelle Azure unique à partir de la [page Machine virtuelle](enable-from-vm.md) dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles Linux et Windows.
 
@@ -150,7 +150,7 @@ Le tableau suivant indique la fréquence de collecte des données pour les types
 | Registre Windows | 50 minutes |
 | Fichier Windows | 30 minutes |
 | Fichier Linux | 15 minutes |
-| Services Microsoft | 10 secondes à 30 minutes</br> Valeur par défaut : 30 minutes |
+| Services Windows | 10 secondes à 30 minutes</br> Valeur par défaut : 30 minutes |
 | Démons Linux | 5 minutes |
 | Logiciels Windows | 30 minutes |
 | Logiciels Linux | 5 minutes |
@@ -168,11 +168,11 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Sui
 
 La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
-### <a name="microsoft-service-data"></a>Données de services Microsoft
+### <a name="windows-services-data"></a>Données services Windows
 
-Pour les services Microsoft, la fréquence de collecte par défaut est de 30 minutes. Vous pouvez configurer la fréquence à l’aide d’un curseur sous l’onglet **Services Microsoft** sous **Modifier les paramètres**.
+Pour les services Windows, la fréquence de collecte par défaut est de 30 minutes. Vous pouvez configurer la fréquence à l’aide d’un curseur sous l’onglet **Services Windows** sous **Modifier les paramètres**.
 
-![Curseur de services Microsoft](./media/overview/windowservices.png)
+![Curseur des services Windows](./media/overview/windowservices.png)
 
 Pour optimiser les performances, l’agent Log Analytics effectue uniquement le suivi des modifications. Quand un seuil élevé est défini, certaines modifications peuvent être omises si le service revient à son état d’origine. Le fait de définir une fréquence moins élevée vous permet d’intercepter les modifications susceptibles d’être omises.
 

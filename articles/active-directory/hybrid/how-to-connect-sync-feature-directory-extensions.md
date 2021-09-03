@@ -12,22 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 08/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2415ad3109863a9cd80df413723b317e880a7063
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97976875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532860"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](/graph/extensibility-overview
 ). Vous pouvez voir les attributs disponibles à l’aide de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser cette fonctionnalité pour créer des groupes dynamiques dans Azure AD.
 
 Actuellement, aucune charge de travail Microsoft 365 n’utilise ces attributs.
+
+>[!IMPORTANT]
+>Si vous avez exporté une configuration qui contient une règle personnalisée utilisée pour synchroniser les attributs d’extension d’annuaire et que vous tentez d’importer cette règle dans une installation, nouvelle ou non, d’Azure AD Connect, la règle est créée lors de l’importation, mais les attributs d’extension d’annuaire ne sont pas mappés.  Vous devez resélectionner les attributs d’extension d’annuaire et les réassocier à la règle ou recréer entièrement la règle pour résoudre le problème.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Personnaliser les attributs à synchroniser avec Azure AD
 

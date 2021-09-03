@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 869693765463589c3e94aef9a1cee17867117c5d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 1244959bac7a2c530444e3d4b36691d4f760529a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072669"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531766"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatiser la gestion des incidents dans Azure Sentinel à l’aide de règles d’automatisation
 
@@ -42,7 +42,7 @@ Les règles d’automatisation sont constituées de plusieurs composants :
 
 Les règles d’automatisation sont déclenchées par la création d’un incident. 
 
-Pour révision : les incidents sont créés à partir d’alertes déclenchées par des règles d’analytique. Il existe plusieurs types de règles, comme l’explique le tutoriel [Détection des menaces avec des règles d’analytique intégrées dans Azure Sentinel](tutorial-detect-threats-built-in.md).
+Pour révision : les incidents sont créés à partir d’alertes déclenchées par des règles d’analytique. Il existe plusieurs types de règles, comme l’explique le tutoriel [Détection des menaces avec des règles d’analytique intégrées dans Azure Sentinel](detect-threats-built-in.md).
 
 ### <a name="conditions"></a>Conditions
 
@@ -54,7 +54,7 @@ Vous pouvez définir des actions peuvent à exécuter quand les conditions (voir
 
 - Modification de l’état d’un incident, maintien à jour de votre flux de travail.
 
-  - Lors du passage à « fermé », spécification de la [raison de la fermeture](tutorial-investigate-cases.md#closing-an-incident) et ajout d’un commentaire. Cela vous permet d’effectuer le suivi de vos performances et de votre efficacité, ainsi que de régler précisément pour réduire les [faux positifs](false-positives.md).
+  - Lors du passage à « fermé », spécification de la [raison de la fermeture](investigate-cases.md#closing-an-incident) et ajout d’un commentaire. Cela vous permet d’effectuer le suivi de vos performances et de votre efficacité, ainsi que de régler précisément pour réduire les [faux positifs](false-positives.md).
 
 - Modification de la gravité d’un incident : vous pouvez réévaluer et ré-hiérarchiser en fonction de la présence, de l’absence, des valeurs ou des attributs des entités impliquées dans l’incident.
 
@@ -122,7 +122,14 @@ Vous pouvez ajouter automatiquement des étiquettes en texte libre à des incide
 
 Les règles d’automatisation sont exécutées de façon séquentielle, en fonction de l’ordre que vous déterminez. Chaque règle d’automatisation est exécutée une fois l’exécution de la règle précédente terminée. Dans une règle d’automatisation, toutes les actions sont exécutées de façon séquentielle dans l’ordre dans lequel elles sont définies.
 
-Pour les actions de playbook, un délai de deux minutes s’écoule entre le début d’une action de playbook et l’action suivante sur la liste.
+Les actions du playbook au sein d’une règle d’automatisation peuvent être traitées différemment dans certaines circonstances, en fonction des critères suivants :
+
+| Temps d’exécution du playbook | La règle d’automatisation passe à l’action suivante... |
+| ----------------- | --------------------------------------------------- |
+| Inférieur à une seconde | Immédiatement après l’exécution du playbook |
+| Moins de deux minutes | Jusqu’à deux minutes après le début de l’exécution du playbook,<br>mais pas plus de 10 secondes après la fin du playbook |
+| Moins de deux minutes | Deux minutes après le début de l’exécution du playbook,<br>qu’il soit ou non terminé |
+|
 
 ### <a name="permissions-for-automation-rules-to-run-playbooks"></a>Autorisations de règles d’automatisation pour l’exécution de playbooks
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c9be8958dada7acc5d53e6c99c79527e10142121
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d92591e335a24aa50de081c5a001801f22c92dba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463087"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532775"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis"></a>Ajouter des réplicas à Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache avec des réplicas supplémentaires à l’aide du portail Azure.
@@ -43,10 +43,14 @@ Pour créer un cache, procédez comme suit :
 1. Dans la page **Avancé**, choisissez **Nombre de réplicas**.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Nombre de réplicas.":::
+    
+    > [!NOTE]
+    > Actuellement, vous ne pouvez pas utiliser la persistance AOF (append-only file) ou la géo-réplication avec plusieurs réplicas (plusieurs réplicas).
+    >
 
 1. Conservez les paramètres par défaut pour les autres options. 
 
-1. Cliquez sur **Créer**.
+1. Sélectionnez **Create** (Créer).
    
     La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
 

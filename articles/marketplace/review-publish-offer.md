@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: eb50a6418c296e98b12af481df33509af3f0a06d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: a7dfe0b24143b9a92c10d1b1c876eabb200f2270
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536578"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598249"
 ---
 # <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Consulter et publier une offre sur la place de marché commerciale
 
@@ -30,7 +30,7 @@ Vous pouvez consulter l’état de votre offre dans l’onglet **Vue d’ensembl
 | Attention requise | Nous avons découvert un problème critique au cours de la certification ou au cours d’une autre phase de publication. |
 | PRÉVERSION | L’offre a été certifiée par Microsoft et doit maintenant faire l’objet d’une vérification finale par l’éditeur. Sélectionnez **Mise en ligne** pour proposer l’offre en direct. |
 | En direct | L’offre est également disponible en direct dans la Place de marché. Des clients peuvent la voir et l’acheter. |
-| Arrêt de la vente en attente | L’éditeur a sélectionné « Arrêter la vente » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
+| Arrêt de la distribution en attente | L'éditeur a sélectionné « Arrêter la distribution » sur l'offre ou le plan, mais l'action n'est pas encore terminée. |
 | Non disponible dans la Place de marché | Une offre publiée sur la place de marché a été supprimée. |
 |
 
@@ -128,7 +128,7 @@ L’offre est testée sur différentes plateformes et différentes versions afin
 
 Si votre offre ne passe pas l’une des vérifications de référencement, techniques ou de politique, ou si vous n’êtes pas qualifié pour soumettre une offre de ce type, un rapport d’échec de certification est généré et vous est envoyé par e-mail.
 
-Ce rapport contient des descriptions de toutes les stratégies ayant échoué, ainsi que des remarques sur les vérifications. Passez en revue ce rapport par e-mail, résolvez tous les problèmes, en mettant à jour votre offre si nécessaire, puis soumettez de nouveau l’offre à l’aide du [portail de la place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans l’Espace partenaires. (Vous pouvez soumettre l’offre autant de fois que nécessaire jusqu’à ce que la certification réussisse).
+Ce rapport contient des descriptions de toutes les stratégies ayant échoué, ainsi que des remarques sur les vérifications. Passez en revue ce rapport par e-mail, résolvez tous les problèmes, en mettant à jour votre offre si nécessaire, puis soumettez de nouveau l’offre à l’aide du [portail de la place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165935) dans l’Espace partenaires. (Vous pouvez soumettre l’offre autant de fois que nécessaire jusqu’à ce que la certification réussisse).
 
 ## <a name="preview-creation-phase"></a>Phase de création de la préversion
 
@@ -214,8 +214,8 @@ Pour afficher l’historique de votre offre :
 |Offre créée    |L’offre a été créée dans Espace partenaires. Un utilisateur a sélectionné le type d’offre, l’ID d’offre et l’alias d’offre dans **Marketplace commercial** > **Vue d’ensemble**.    |
 |Plan créé : *nom du plan*    |Un utilisateur a créé un nouveau plan en entrant l’ID et le nom du plan dans l’onglet **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
 |Plan supprimé    |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Initiation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a initié un plan de fin de vente en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Annulation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a annulé un plan de fin de vente en sélectionnant **Annuler la fin de vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Initiation d'un plan de fin de distribution : *nom du plan*    |Un utilisateur a initié un plan de fin de distribution en sélectionnant **Arrêter la distribution** sur la page **Vue d'ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Reprendre la distribution : *nom du plan*    |Un utilisateur a annulé un plan de fin de distribution en sélectionnant **Reprendre la distribution** sur la page **Vue d'ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
 |Offre soumise à la préversion    |Un utilisateur a soumis l’offre à la préversion en sélectionnant **Publier** dans la page **Vérifier et publier**.    |
 |Annulation de la soumission initiée à la préversion    |Un utilisateur a demandé l’annulation de la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
 |Annulation de la soumission à la préversion    |Un utilisateur a annulé la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
@@ -223,7 +223,7 @@ Pour afficher l’historique de votre offre :
 |Annulation de la publication initiée sur le marketplace    |Un utilisateur a demandé l’annulation de la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
 |Annulation de la publication sur le marketplace commercial    |Un utilisateur a annulé la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
 |Synchronisation des audiences privées    |Un utilisateur a mis à jour et synchronisé l’audience privée en sélectionnant **Synchroniser l’audience privée** dans la page **Vue d’ensemble du plan** dans la page **Tarification et disponibilité du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans privés*.    |
-|Arrêt de la vente du plan    |Un utilisateur a interrompu la vente de l’offre en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble de l’offre**.    |
+|Cesser de distribuer une offre    |Un utilisateur a interrompu la vente de l'offre en sélectionnant **Arrêter la distribution** sur la page **Vue d'ensemble de l'offre**.    |
 
 > [!NOTE]
 > La page Historique n’indique pas quand un brouillon d’offre a été enregistré.

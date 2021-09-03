@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8b25f1d92fb1ba7e7caa79ed3f4a31bdf9fa60fd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b0f67862352f2354dbdb5439542229dbee67ae00
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746306"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107466"
 ---
 # <a name="connect-to-an-internal-virtual-network-using-azure-api-management"></a>Se connecter à un réseau virtuel interne à l’aide de la Gestion des API Azure 
 Avec les réseaux virtuels (VNET) Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet au moyen de plusieurs technologies VPN permettant d’établir la connexion. Vous pouvez déployer la Gestion des API via le mode [externe](./api-management-using-with-vnet.md) ou interne. Dans cet article, vous allez apprendre à déployer la Gestion des API en mode VNET interne.
@@ -32,7 +32,7 @@ Lorsque la Gestion des API se déploie en mode VNET interne, vous pouvez uniquem
 
 Utilisez la Gestion des API en mode interne pour :
 
-* Rendre les API hébergées dans votre centre de données privé accessibles de manière sécurisée à des tiers, en utilisant des connexions site à site ou des connexions Azure VPN ExpressRoute.
+* Rendre les API hébergées dans votre centre de données privé accessibles de l’extérieur en toute sécurité à des tiers à l’aide de connexions Azure VPN ou Azure ExpressRoute.
 * Activer les scénarios de cloud hybride en exposant vos API cloud et sur site par le biais d’une passerelle commune.
 * Gérer vos API hébergées dans plusieurs localisations géographiques à l’aide d’un seul point de terminaison de passerelle.
 
@@ -44,7 +44,7 @@ Utilisez la Gestion des API en mode interne pour :
 
 + **Un abonnement Azure actif**. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **Une instance du service Gestion des API Azure**. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
++ **Une instance de gestion des API Azure (références SKU prises en charge : Développeur, Premium et Isolé)** . Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 

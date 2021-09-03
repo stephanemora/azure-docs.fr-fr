@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/07/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91fd04f24989df64aa294690fdedfd472c79f379
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c69e8a5030717dd76a887968f40034595b9cd939
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677246"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532168"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage
 
@@ -24,7 +24,7 @@ La communication entre une application cliente et un compte de stockage Azure es
 
 Le stockage Azure prend en charge trois versions du protocole TLS : 1.0, 1.1 et 1.2. Le service Stockage Azure utilise le protocole TLS 1.2 sur les points de terminaison HTTP publics, mais les protocoles TLS 1.0 et TLS 1.1 sont toujours pris en charge à des fins de compatibilité descendante.
 
-Par défaut, les comptes de stockage Azure permettent aux clients d’envoyer et de recevoir des données avec la version la plus ancienne de TLS, TLS 1.0 et les versions ultérieures. Pour appliquer des mesures de sécurité plus strictes, vous pouvez configurer votre compte de stockage afin d’exiger que les clients envoient et reçoivent des données avec une version plus récente du protocole TLS. Si un compte de stockage nécessite une version minimale du protocole TLS, les demandes effectuées avec une version antérieure échouent.
+Les comptes de stockage Azure permettent aux clients d’envoyer et de recevoir des données avec la version la plus ancienne de TLS, TLS 1.0 et les versions ultérieures. Pour appliquer des mesures de sécurité plus strictes, vous pouvez configurer votre compte de stockage afin d’exiger que les clients envoient et reçoivent des données avec une version plus récente du protocole TLS. Si un compte de stockage nécessite une version minimale du protocole TLS, les demandes effectuées avec une version antérieure échouent.
 
 Cet article explique comment utiliser une infrastructure DRAG (détection, correction, audit, gouvernance) pour gérer en continu le protocole TLS sécurisé pour vos comptes de stockage.
 
@@ -94,7 +94,9 @@ Lorsque vous êtes certain que le trafic provenant de clients utilisant des vers
 
 Pour configurer la version minimale de TLS pour un compte de stockage, définissez la version **minimumTlsVersion** pour le compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations sur le modèle de déploiement Azure Resource Manager, consultez [Vue d’ensemble du compte de stockage](storage-account-overview.md).
 
-La propriété **MinimumTlsVersion** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement.  Si la valeur de la propriété est **null**, le compte de stockage autorise les demandes envoyées avec TLS version 1.0 ou ultérieure.
+La valeur par défaut de la propriété **MinimumTlsVersion** est différente selon la façon dont vous la définissez. Lorsque vous créez un compte de stockage avec le portail Azure, la version TLS minimale est définie sur 1.2 par défaut. Lorsque vous créez un compte de stockage avec PowerShell, Azure CLI ou un modèle de Azure Resource Manager, la propriété **MinimumTlsVersion** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement.
+
+Lorsque la propriété **MinimumTlsVersion** n'est pas définie, sa valeur peut être affichée sous forme de chaîne **nulle** ou vide, selon le contexte. Le compte de stockage autorise les demandes envoyées avec TLS version 1.0 ou ultérieure si la propriété n’est pas définie.
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
@@ -103,7 +105,7 @@ Lorsque vous créez un compte de stockage avec le portail Azure, la version TLS 
 Pour configurer la version TLS minimale pour un compte de stockage existant avec le portail Azure, effectuez les étapes suivantes :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
-1. Sous **Paramètres**, sélectionnez la **Configuration**.
+1. Sous **Paramètres**, sélectionnez **Configuration**.
 1. Sous **Version TLS minimale**, utilisez la liste déroulante pour sélectionner la version minimale de TLS nécessaire pour accéder aux données de ce compte de stockage.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Capture d’écran montrant comment configurer la version minimale de TLS sur le portail Azure." lightbox="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png":::
@@ -121,7 +123,7 @@ $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
@@ -131,7 +133,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.

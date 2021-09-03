@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea2a127ffbf966b024322ab5a908466dec1cc8a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: afedf72e1d6fa52bbcccefe5a3d15ec203251c51
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935632"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524992"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
@@ -236,4 +236,4 @@ Ensuite, consultez la documentation de référence d’API appropriée, explorez
 - [Documentation de référence sur les instantanés (SDK .NET)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Exemple d’instantané Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Ajouter des visages](how-to-add-faces.md)
-- [Détecter des visages sur une image](HowtoDetectFacesinImage.md)
+- [Appeler l’API de détection](HowtoDetectFacesinImage.md)

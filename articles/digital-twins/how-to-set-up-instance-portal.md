@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2, subject-rbac-steps
-ms.openlocfilehash: 203c53daf07949e343e9aa7e5cf56e89a7b07b1f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f520ed1054c5d0d9dd6c053e22a984a813840131
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474540"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468773"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -22,42 +22,34 @@ ms.locfileid: "110474540"
 Cet article explique comment **configurer une nouvelle instance Azure Digital Twins**, notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide du portail Azure. Le portail Azure est une console web unifiée qui offre une alternative aux outils en ligne de commande.
-* Pour suivre ces étapes manuellement à l’aide de CLI, consultez la version CLI de cet article : [Guide pratique : Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md) .
-* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [Guide pratique : Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md) .
+* Pour suivre ces étapes manuellement à l’aide de CLI, consultez la version CLI de cet article : [Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md).
+* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Créer l’instance Azure Digital Twins
 
-Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital Twins** à l’aide du [portail Azure](https://ms.portal.azure.com/). Accédez au portail et connectez-vous avec vos informations d’identification.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-Une fois dans le portail, commencez par sélectionner _Créer une ressource_ dans le menu de la page d’accueil des services Azure.
+3. Sur la page **Créer une ressource**, renseignez les valeurs ci-dessous :
+    * **Abonnement**: Abonnement Azure que vous utilisez.
+      - **Groupe de ressources** : Groupe de ressources dans lequel déployer l’instance. Si vous n’avez pas de groupe de ressources existant à l’esprit, vous pouvez en créer un ici en sélectionnant le lien *Créer* et en entrant un nom pour le nouveau groupe de ressources.
+    * **Emplacement** : Région prenant en charge Azure Digital Twins pour le déploiement. Pour plus d’informations sur la prise en charge régionale, visitez [Produits Azure disponibles par région (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins) .
+    * **Nom de la ressource** : Nom de votre instance Azure Digital Twins. Si votre abonnement a une autre instance Azure Digital Twins dans la région qui utilise déjà le nom spécifié, vous êtes invité à choisir un autre nom.
+    * **Accorder l’accès à la ressource** : Cochez la case de cette section pour autoriser votre compte Azure à accéder aux données de l’instance et à les gérer. Si vous êtes la personne qui gérera l’instance, vous devez cocher cette case maintenant. Si elle est grisée parce que vous n’avez pas l’autorisation dans l’abonnement, vous pouvez continuer à créer la ressource et demander ultérieurement à une personne ayant les autorisations requises de vous accorder le rôle. Pour plus d’informations sur ce rôle et l’attribution de rôles à votre instance, consultez la section suivante : [Configurer les autorisations d’accès utilisateur](#set-up-user-access-permissions).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Capture d’écran du portail Azure, mettant en évidence l’icône « Créer une ressource » de la page d’accueil":::
+    :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Capture d’écran du processus de création de ressources pour Azure Digital Twins dans le portail Azure. Les valeurs décrites sont renseignées.":::
 
-Recherchez *Azure Digital Twins* dans la zone de recherche, puis choisissez le service **Azure Digital Twins** dans les résultats. Sélectionnez le bouton _Créer_ pour créer une instance du service.
+4. Lorsque vous avez terminé, vous pouvez sélectionner **Vérifier + créer** si vous ne souhaitez pas configurer d’autres paramètres pour votre instance. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés, avant d’appuyer sur **Créer**. 
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Capture d’écran du portail Azure, mettant en évidence le bouton « Créer » dans la page du service Azure Digital Twins":::
-
-Sur la page **Créer une ressource**, renseignez les valeurs ci-dessous :
-* **Abonnement**: Abonnement Azure que vous utilisez.
-  - **Groupe de ressources** : Groupe de ressources dans lequel déployer l’instance. Si vous n’avez pas de groupe de ressources existant à l’esprit, vous pouvez en créer un ici en sélectionnant le lien *Créer* et en entrant un nom pour le nouveau groupe de ressources.
-* **Emplacement** : Région prenant en charge Azure Digital Twins pour le déploiement. Pour plus d’informations sur la prise en charge régionale, visitez [Produits Azure disponibles par région (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins) .
-* **Nom de la ressource** : Nom de votre instance Azure Digital Twins. Si votre abonnement a une autre instance Azure Digital Twins dans la région qui utilise déjà le nom spécifié, vous êtes invité à choisir un autre nom.
-* **Accorder l’accès à la ressource** : Cochez la case de cette section pour autoriser votre compte Azure à accéder aux données de l’instance et à les gérer. Si vous êtes la personne qui gérera l’instance, vous devez cocher cette case maintenant. Si elle est grisée parce que vous n’avez pas l’autorisation dans l’abonnement, vous pouvez continuer à créer la ressource et demander ultérieurement à une personne ayant les autorisations requises de vous accorder le rôle. Pour plus d’informations sur ce rôle et l’attribution de rôles à votre instance, consultez la section suivante : [Configurer les autorisations d’accès utilisateur](#set-up-user-access-permissions).
-
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Capture d’écran du processus de création de ressources pour Azure Digital Twins dans le portail Azure. Les valeurs décrites sont renseignées.":::
-
-Lorsque vous avez terminé, vous pouvez sélectionner **Vérifier + créer** si vous ne souhaitez pas configurer d’autres paramètres pour votre instance. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés, avant d’appuyer sur **Créer**. 
-
-Si vous ne souhaitez pas configurer d’autres détails pour votre instance, la section suivante décrit les autres onglets d’installation.
+    Si vous ne souhaitez pas configurer d’autres détails pour votre instance, la section suivante décrit les autres onglets d’installation.
 
 ### <a name="additional-setup-options"></a>Options d’installation supplémentaires
 
 Voici les options supplémentaires que vous pouvez configurer lors de l’installation en utilisant les autres onglets du processus **Créer une ressource**.
 
-* **Réseau** : Dans cet onglet, vous pouvez activer des points de terminaison privés avec [Azure Private Link](../private-link/private-link-overview.md) afin d’éliminer l’exposition au réseau public pour votre instance. Pour obtenir des instructions, consultez [Procédure : Activer l’accès privé avec Private Link (préversion)](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation) .
-* **Avancé** : Dans cet onglet, vous pouvez activer une identité managée par le système pour votre instance, qui peut être utilisée lors du transfert d’événements vers des [points de terminaison](concepts-route-events.md). Pour plus d’informations sur l’utilisation d’identités gérées par le système avec Azure Digital Twins, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
+* **Réseau** : Dans cet onglet, vous pouvez activer des points de terminaison privés avec [Azure Private Link](../private-link/private-link-overview.md) afin d’éliminer l’exposition au réseau public pour votre instance. Pour obtenir des instructions, consultez [Activer l’accès privé avec Private Link (préversion)](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
+* **Avancé** : Dans cet onglet, vous pouvez activer une identité managée par le système pour votre instance, qui peut être utilisée lors du transfert d’événements vers des [points de terminaison](concepts-route-events.md). Pour plus d’informations sur l’utilisation d’identités gérées par le système avec Azure Digital Twins, consultez [Sécurité pour les solutions Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
 * **Étiquettes** : Dans cet onglet, vous pouvez ajouter des balises à votre instance pour vous aider à les organiser parmi vos ressources Azure. Pour plus d’informations sur les balises de ressources Azure, consultez [Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Vérifier la réussite de l’exécution et collecter les valeurs importantes
@@ -135,7 +127,7 @@ Vous disposez maintenant d’une instance Azure Digital Twins prête à l’empl
 
 Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Concepts : Ensemble de commandes CLI Azure Digital Twins](concepts-cli.md)
+* [Ensemble de commandes CLI Azure Digital Twins](concepts-cli.md)
 
 Vous pouvez également découvrir comment connecter une application cliente à votre instance avec un code d’authentification :
-* [Guide pratique : Écrire le code d’authentification de l’application](how-to-authenticate-client.md)
+* [Écrire le code d’authentification de l’application](how-to-authenticate-client.md)

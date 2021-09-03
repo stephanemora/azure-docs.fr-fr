@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/04/2021
-ms.openlocfilehash: c0767ffd85e6d6e93f922f4d27e5d41167282b1c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 06/23/2021
+ms.openlocfilehash: 54a3e933cda054b8bd3f9e86f2db775fca7342f7
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555431"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964425"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ Cet article détaille les limites de ressources des pools élastiques Azure SQL 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 
-Chaque réplica en lecture seule a ses propres ressources, comme les vCores, la mémoire, les E/S par seconde sur les données, TempDB, les workers et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources détaillées plus loin dans cet article.
+Chaque réplica en lecture seule d’un pool élastique a ses propres ressources, comme les vCores, la mémoire, les IOPS de données, TempDB, les workers et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources du pool élastique détaillées plus loin dans cet article.
 
 Vous pouvez définir le niveau de service, la taille de calcul (objectif de service) et la quantité de stockage via :
 
@@ -548,17 +548,29 @@ Si tous les vCore d’un pool élastique sont occupés, chaque base de données 
 
 ## <a name="database-properties-for-pooled-databases"></a>Propriétés de base de données pour les bases de données mises en pool
 
-Le tableau suivant décrit les propriétés des bases de données mises en pool.
+Pour chaque pool élastique, vous pouvez éventuellement spécifier le nombre minimal et maximal de vCores par base de données pour modifier les modèles de consommation de ressources dans le pool. Les valeurs mini et maxi spécifiées s’appliquent à toutes les bases de données du pool. La personnalisation des vCores mini et maxi pour des bases de données individuelles dans le pool n’est pas prise en charge. 
 
-> [!NOTE]
-> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul (objectif de service). Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
+Vous pouvez également définir un stockage maximal par base de données, par exemple pour empêcher une base de données de consommer tout le stockage du pool. Ce paramètre peut être configuré indépendamment pour chaque base de données.
+
+La table suivante décrit les propriétés de base de données pour les bases de données mises en pool. 
 
 | Propriété | Description |
 |:--- |:--- |
-| Nombre maximal de vCore par base de données |Nombre maximal de vCore pouvant être utilisés par une des bases de données du pool en fonction du nombre de vCore utilisés par les autres bases de données du pool. Le nombre maximal de vCore par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Définissez un nombre maximal de vCore par base de données suffisamment élevé pour gérer les pics d’utilisation des bases de données. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données, dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation.|
-| Nombre minimal de vCore par base de données |Nombre minimal de vCore garanti pour chaque base de données du pool. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Le nombre minimal de vCore par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen de vCore utilisés par base de données. Le produit du nombre de bases de données du pool et du nombre minimal de vCore par base de données ne peut pas dépasser le nombre de vCore par pool.|
-| Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Les bases de données mises en pool se partagent l’espace de stockage du pool alloué. Par conséquent, la taille qu’une base de données peut atteindre est limitée au stockage de pool minimal restant et à la taille de base de données. La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux. |
+| Nombre maximal de vCore par base de données |Nombre maximal de vCore pouvant être utilisés par une des bases de données du pool en fonction du nombre de vCore utilisés par les autres bases de données du pool. Le nombre maximal de vCore par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Si la charge de travail de chaque base de données n’a pas besoin de toutes les ressources de pool disponibles pour s’exécuter correctement, envisagez de définir le nombre maximal de vCores par base de données pour empêcher qu’une base de données unique monopolise les ressources du pool. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données, dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. |
+| Nombre minimal de vCore par base de données |Nombre minimal de vCores réservés pour toute base de données dans le pool. Envisagez de définir un nombre minimal de vCores par base de données lorsque vous souhaitez garantir la disponibilité des ressources pour chaque base de données, quelle que soit la consommation des ressources par les autres bases de données du pool. Le nombre minimal de vCore par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen de vCore utilisés par base de données.|
+| Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Les bases de données mises en pool se partagent le stockage du pool alloué. Par conséquent, la taille qu’une base de données peut atteindre est limitée au stockage de pool minimal restant et à la taille maximale de la base de données. La taille maximale de la base de données fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par le fichier journal. |
 |||
+
+> [!IMPORTANT]
+> Étant donné que les ressources d’un pool élastique sont limitées, l’affectation de vCores mini par base de données à une valeur supérieure à 0 limite implicitement l’utilisation des ressources par chaque base de données. Si, à un moment donné, la plupart des bases de données d’un pool sont inactives, les ressources réservées pour satisfaire la garantie de vCores mini ne sont pas disponibles pour les bases de données actives à ce moment précis.
+>
+> En outre, le paramétrage de vCores mini par base de données sur une valeur supérieure à 0 limite implicitement le nombre de bases de données qui peuvent être ajoutées au pool. Par exemple, si vous définissez les vCores mini sur 2 dans un pool de 20 vCores, cela signifie que vous ne pourrez pas ajouter plus de 10 bases de données au pool, car 2 vCores sont réservées pour chaque base de données.
+> 
+
+Même si les propriétés par base de données sont exprimées en vCores, elles régissent également la consommation d’autres types de ressources, comme les E/S de données, les E/S de journal et les threads de travail. Lorsque vous ajustez les valeurs min et max de vCores par base de données, les réservations et les limites de tous les types de ressources sont ajustées proportionnellement.
+
+> [!NOTE]
+> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul (objectif de service). Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

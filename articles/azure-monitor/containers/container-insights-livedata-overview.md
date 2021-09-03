@@ -4,12 +4,12 @@ description: Cet article décrit la vue en temps réel des journaux, métriques 
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5277f5051e291e9058255d8920ac0be950389704
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 9c1cbaf09d8f0b0cfe23f7014c1b5046efc5aab9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203196"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532203"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 
@@ -47,7 +47,7 @@ Vous pouvez voir les données de journal en temps réel, à mesure qu’elles so
 4. Sélectionnez un objet dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives**. Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
 
     >[!NOTE]
-    >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).
+    >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Comment interroger les journaux à partir des informations sur les conteneurs](container-insights-log-query.md).
 
 Une fois l’authentification réussie, le volet de la console Live Data apparaît sous la grille des données de performances, dans laquelle vous pouvez voir des données de journal en flux continu. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
 
@@ -68,7 +68,7 @@ Vous pouvez voir les données d’événement en temps réel, à mesure qu’ell
 4. Sélectionnez un objet dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives**. Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
 
     >[!NOTE]
-    >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).
+    >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Comment interroger les journaux à partir des informations sur les conteneurs](container-insights-log-query.md).
 
 Une fois l’authentification réussie, le volet de la console Live Data apparaît sous la grille des données de performances. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
 
@@ -95,7 +95,7 @@ Vous pouvez voir les données de métrique en temps réel, à mesure qu’elles 
 4. Sélectionnez un objet **Pod** dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives**. Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
 
     >[!NOTE]
-    >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).
+    >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez [Comment interroger les journaux à partir des informations sur les conteneurs](container-insights-log-query.md).
 
 Une fois l’authentification réussie, le volet de la console Live Data apparaît sous la grille des données de performances. Les données de métriques sont récupérées, et leur envoi en streaming vers votre console commence pour leur présentation dans les deux graphiques. Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
 
@@ -131,4 +131,4 @@ Pour suspendre le défilement automatique, et contrôler le comportement du vole
 
 - Pour continuer à découvrir comment utiliser Azure Monitor et surveiller les autres aspects de votre cluster AKS, consultez [Connaître l’état d’Azure Kubernetes Service](container-insights-analyze.md).
 
-- Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.
+- Consultez [Comment interroger les journaux à partir des informations sur les conteneurs](container-insights-log-query.md) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.

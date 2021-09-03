@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 883bef7f38765d45bab0f505e4ce0184dfa59356
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100369643"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110454"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
 
@@ -44,10 +44,10 @@ L’authentification unique transparente s’active via Azure AD Connect comme i
 - La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts Active Directory, chaque compte d’ordinateur a sa propre clé de déchiffrement Kerberos unique.
 
 >[!IMPORTANT]
-> Pour des raisons de sécurité, le compte d’ordinateur `AZUREADSSOACC` doit être fortement protégé. Seuls des administrateurs de domaine doivent être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose d’autorisations de délégation sur le compte d’ordinateur `AZUREADSSOACC`. Stockez le compte d’ordinateur dans une unité d’organisation (UO) où il sera protégé contre les suppressions accidentelles et à laquelle seuls des administrateurs de domaine ont accès. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
+> Pour des raisons de sécurité, le compte d’ordinateur `AZUREADSSOACC` doit être fortement protégé. Seuls des administrateurs de domaine doivent être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose d’autorisations de délégation sur le compte d’ordinateur `AZUREADSSOACC`. Stockez le compte d’ordinateur dans une unité d’organisation (UO) où il sera protégé contre les suppressions accidentelles et à laquelle seuls des administrateurs de domaine ont accès. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.yml) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
 
 >[!IMPORTANT]
-> L’authentification unique transparente prend en charge les types de chiffrement AES256_HMAC_SHA1, AES128_HMAC_SHA1 et RC4_HMAC_MD5 pour Kerberos. Il est recommandé de définir le type de chiffrement du compte AzureADSSOAcc$ sur AES256_HMAC_SHA1 ou l’un des types AES plutôt que sur RC4 pour plus de sécurité. Le type de chiffrement est stocké dans l’attribut msDS-SupportedEncryptionTypes du compte de votre annuaire Active Directory.  Si le type de chiffrement du compte AzureADSSOAcc$ a la valeur RC4_HMAC_MD5 et que vous voulez le remplacer par l’un des types de chiffrement AES, veillez d’abord à remplacer la clé de déchiffrement Kerberos du compte AzureADSSOAcc$, comme expliqué dans les [questions fréquentes (FAQ)](how-to-connect-sso-faq.md), sous la question concernée, sans quoi l’authentification unique transparente ne se produira pas.
+> L’authentification unique transparente prend en charge les types de chiffrement `AES256_HMAC_SHA1`, `AES128_HMAC_SHA1` et `RC4_HMAC_MD5` pour Kerberos. Il est recommandé de définir le type de chiffrement du compte `AzureADSSOAcc$` sur `AES256_HMAC_SHA1` ou un des types AES contre RC4 pour obtenir une sécurité accrue. Le type de chiffrement est stocké dans l’attribut `msDS-SupportedEncryptionTypes` du compte de votre Active Directory.  Si le `AzureADSSOAcc$`type de chiffrement du compte est défini sur `RC4_HMAC_MD5` et que vous voulez le remplacer par l’un des types de chiffrement AES, veillez d’abord à remplacer la clé de déchiffrement Kerberos du compte `AzureADSSOAcc$` comme expliqué dans le [document FAQ](how-to-connect-sso-faq.yml), sous la question concernée, sans quoi l’authentification unique transparente ne se produira pas.
 
 Une fois la configuration terminée, l’authentification unique transparente fonctionne de la même façon que n’importe quelle autre connexion utilisant l’authentification Windows intégrée (IWA).
 
@@ -60,7 +60,7 @@ Le flux de connexion dans un navigateur web est le suivant :
 3. L’utilisateur tape son nom d’utilisateur dans la page de connexion Azure AD.
 
    >[!NOTE]
-   >Pour [certaines applications](./how-to-connect-sso-faq.md), les étapes 2 et 3 ne sont pas nécessaires.
+   >Pour [certaines applications](./how-to-connect-sso-faq.yml), les étapes 2 et 3 ne sont pas nécessaires.
 
 4. En utilisant JavaScript en arrière-plan, Azure AD demande au client, via une réponse 401 Non autorisé, de fournir un ticket Kerberos.
 5. À son tour, le navigateur demande un ticket à Active Directory pour le compte d’ordinateur `AZUREADSSOACC` (qui représente Azure AD).
@@ -99,6 +99,6 @@ Le schéma suivant illustre tous les composants et les étapes impliquées dans 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
-- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.yml) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

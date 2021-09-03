@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2bf603d29b5e949ef83c872017bae49e71b2fcb0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 3e8c2846b58499e5aabdec80f8fcd75cab3e6eb5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531688"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -21,7 +21,7 @@ Cet article vous explique comment connecter des réseaux virtuels avec une conne
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagramme de réseau virtuel à réseau virtuel":::
 
-Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Azure Resource Manager et font appel au portail Azure. Vous pouvez créer cette configuration avec un outil ou un modèle de déploiement différent en utilisant les options décrites dans les articles suivants :
+Les étapes mentionnées dans cet article s’appliquent au [modèle de déploiement Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) et font appel au portail Azure. Vous pouvez créer cette configuration avec un outil ou un modèle de déploiement différent en utilisant les options décrites dans les articles suivants :
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -87,10 +87,10 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
 * **Paramètres de passerelle de réseau virtuel**
   * **Name** : VNet1GW
   * **Groupe de ressources** : USA Est
-  * **Génération** : Génération 1
+  * **Génération :** Génération 2
   * **Type de passerelle** : Sélectionnez **VPN**.
-  * **Type de VPN** : Sélectionnez **Route*based**.
-  * **Référence (SKU)** : VpnGw1
+  * **Type de VPN** : sélectionnez **Route-based**.
+  * **Référence SKU :** VpnGw2
   * **Réseau virtuel** : VNet1
   * **Plage d’adresses de sous-réseau de la passerelle** : 10.1.255.0/27
   * **Adresse IP publique** : Création
@@ -115,10 +115,10 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
 * **Paramètres de passerelle de réseau virtuel**
   * **Name** : VNet4GW
   * **Groupe de ressources** : USA Ouest
-  * **Génération** : Génération 1
+  * **Génération :** Génération 2
   * **Type de passerelle** : Sélectionnez **VPN**.
-  * **Type de VPN** : Sélectionnez **Route-based**.
-  * **Référence (SKU)** : VpnGw1
+  * **Type de VPN** : sélectionnez **Route-based**.
+  * **Référence SKU :** VpnGw2
   * **Réseau virtuel** : VNet4
   * **Plage d’adresses de sous-réseau de la passerelle** : 10.41.255.0/27
   * **Adresse IP publique** : Création
@@ -146,7 +146,10 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Pour créer une passerelle de réseau virtuel
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle. La création et le déploiement complets d’une passerelle peuvent prendre 45 minutes ou plus. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -161,10 +164,10 @@ Lorsque les passerelles de réseau virtuel pour VNet1 et VNet4 sont terminées, 
 1. Dans le portail Azure, sélectionnez **Toutes les ressources**, entrez *passerelle de réseau virtuel* dans la recherche de zone, puis accédez à la passerelle de votre réseau virtuel. Par exemple, **VNet1GW**. Sélectionnez la passerelle pour ouvrir la page **Passerelle de réseau virtuel**.
 1. Sur la page Passerelle, accédez à **Paramètres -> Connexions**. Sélectionnez ensuite **Ajouter**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Page Connexions":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Capture d’écran montrant la page connexions." border="false":::
 1. La page **Ajouter une connexion** s’ouvre.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Ajouter une connexion":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Capture d’écran montrant la page Ajouter une connexion.":::
 
    Sur la page **Ajouter une connexion**, renseignez les valeurs correspondant à votre connexion :
 
@@ -176,7 +179,7 @@ Lorsque les passerelles de réseau virtuel pour VNet1 et VNet4 sont terminées, 
 
    * **Deuxième passerelle de réseau virtuel** : Ce champ correspond à la passerelle de réseau virtuel sur laquelle vous souhaitez créer une connexion. Sélectionnez **Choisir une autre passerelle de réseau virtuel** pour ouvrir la page **Choisir la passerelle de réseau virtuel**.
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Choisir une passerelle":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Capture d’écran montrant la page choisir une passerelle de réseau virtuel avec une autre passerelle sélectionnée.":::
 
      * Cette page répertorie les différentes passerelles de réseau virtuel disponibles. Notez que seules les passerelles de réseau virtuel incluses dans votre abonnement sont répertoriées. Si vous souhaitez vous connecter à une passerelle de réseau virtuel qui ne se trouve pas dans votre abonnement, utilisez [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
@@ -194,10 +197,10 @@ Créez ensuite une connexion de VNet4 à VNet1. Dans le portail, recherchez la p
 1. Recherchez la passerelle de réseau virtuel dans le portail Azure. 
 1. Sur la page **Passerelle de réseau virtuel**, sélectionnez **Connexion** pour afficher la page **Connexion** de la passerelle de réseau virtuel. Une fois la connexion établie, la valeur d’**État** devient **Connecté**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Vérifier les connexions":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Capture d’écran montrant la page connexions pour vérifier les connexions." border="false":::
 1. Dans la colonne **Nom**, sélectionnez l’une des connexions pour afficher plus d’informations. Lorsque les données commencent à circuler, des valeurs apparaissent pour **Données entrantes** et **Données sortantes**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Capture d’écran montrant un groupe de ressources contenant des valeurs pour les données entrantes et les données sortantes":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Capture d’écran montrant un groupe de ressources contenant des valeurs pour les données entrantes et les données sortantes" border="false":::
 
 ## <a name="add-additional-connections"></a>Ajouter des connexions supplémentaires
 

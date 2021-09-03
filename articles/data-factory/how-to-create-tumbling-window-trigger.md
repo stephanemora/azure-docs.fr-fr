@@ -1,18 +1,21 @@
 ---
-title: Créer des déclencheurs de fenêtre bascule dans Azure Data Factory
-description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline sur une fenêtre bascule.
+title: Créer des déclencheurs de fenêtre bascule
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment créer un déclencheur dans Azure Data Factory ou Azure Synapse Analytics qui exécute un pipeline sur une fenêtre bascule.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2020
-ms.openlocfilehash: ad397b62adcbcf6a0e117950c0dc3be33e6522db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: b4a2e86c66584f555dd88dfd8e3d3b8b0fac5858
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779815"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822732"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 
@@ -22,13 +25,19 @@ Cet article décrit les étapes permettant de créer, de démarrer et d’effect
 
 Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas. Un déclencheur de fenêtre bascule a une relation un à un avec un pipeline et ne peut référencer qu’un seul pipeline. Le déclencheur de fenêtre bascule est une alternative plus lourde au déclencheur de planification qui offre une suite de fonctionnalités pour les scénarios complexes ([dépendance d’autres déclencheurs de fenêtre bascule](#tumbling-window-trigger-dependency), [réexécution d’une tâche ayant échoué](tumbling-window-trigger-dependency.md#monitor-dependencies) et [définition de nouvelle tentative utilisateur pour les pipelines](#user-assigned-retries-of-pipelines)). Pour mieux comprendre la différence entre le déclencheur de planification et le déclencheur de fenêtre bascule, rendez-vous [ici](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## <a name="data-factory-ui"></a>IU de la fabrique de données
+## <a name="ui-experience"></a>Expérience de l’interface utilisateur
 
-1. Pour créer un déclencheur de fenêtre bascule dans l’interface utilisateur de Data Factory, sélectionnez l’onglet **Déclencheurs**, puis **Nouveau**. 
+1. Pour créer un déclencheur de fenêtre bascule dans l’interface utilisateur, sélectionnez l’onglet **Déclencheurs**, puis **Nouveau**. 
 1. Une fois le volet Configuration du déclencheur ouvert, sélectionnez **Fenêtre bascule**, puis définissez les propriétés du déclencheur de votre fenêtre bascule. 
 1. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
-![Création d’un déclencheur de fenêtre bascule dans le Portail Azure](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png" alt-text="Création d’un déclencheur de fenêtre bascule dans le Portail Azure":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger-synapse.png" alt-text="Création d’un déclencheur de fenêtre bascule dans le Portail Azure":::
+
+---
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propriétés de type de déclencheur de fenêtre bascule
 
@@ -168,11 +177,27 @@ Vous pouvez annuler des exécutions pour un déclencheur de fenêtre bascule si 
 * Si la fenêtre est dans l’état **En cours d’exécution**, annulez l’_exécution de pipeline_ associée, et l’exécution du déclencheur sera marquée comme _Annulée_ après
 * Si la fenêtre se trouve dans l’état **En attente** ou **En attente de dépendance**, vous pouvez annuler la fenêtre à partir de Surveillance :
 
-![Annuler un déclencheur de fenêtre bascule à partir d’une page Surveillance](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png" alt-text="Annuler un déclencheur de fenêtre bascule à partir d’une page Surveillance":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger-synapse.png" alt-text="Annuler un déclencheur de fenêtre bascule à partir d’une page Surveillance":::
+
+---
 
 Vous pouvez également réexécuter une fenêtre annulée. La réexécution prendra les _dernières_ définitions publiées du déclencheur, et les dépendances de la fenêtre spécifiée seront _réévaluées_ lors de la nouvelle exécution
 
-![Réexécuter un déclencheur de fenêtre bascule pour des exécutions précédemment annulées](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png" alt-text="Réexécuter un déclencheur de fenêtre bascule pour des exécutions précédemment annulées":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger-synapse.png" alt-text="Réexécuter un déclencheur de fenêtre bascule pour des exécutions précédemment annulées":::
+
+---
 
 ## <a name="sample-for-azure-powershell"></a>Exemple pour Azure PowerShell
 

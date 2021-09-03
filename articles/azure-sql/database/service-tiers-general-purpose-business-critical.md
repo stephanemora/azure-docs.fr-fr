@@ -11,51 +11,49 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 12/14/2020
-ms.openlocfilehash: 1ccf83fa98ec7024e74bd9829e241b8596b1fbf6
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 7/7/2021
+ms.openlocfilehash: 56bd4dcc121b5ebd2ac48f772bd0793dffccd50d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693206"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289915"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database et Azure SQL Managed Instance sont basés sur une architecture de moteur de base de données SQL Server qui est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de défaillance d’infrastructure. Deux niveaux de service sont utilisés par Azure SQL Database et Azure SQL Managed Instance, chacun doté d’un modèle architectural distinct. Ces niveaux de service sont les suivants :
+ Deux niveaux de service [vCore](service-tiers-vcore.md) sont disponibles dans Azure SQL Database et Azure SQL Managed Instance :
 
-- [Usage général](service-tier-general-purpose.md), conçu pour les charges de travail axées sur le budget.
-- [Critique pour l’entreprise](service-tier-business-critical.md), conçu pour les charges de travail à faible latence avec une haute résilience aux défaillances et des basculements rapides.
+- Le niveau [Usage général](service-tier-general-purpose.md), le plus économique, est conçu pour la plupart des charges de travail présentant des exigences communes en matière de performances et de disponibilité.
+- Le niveau [Critique pour l'entreprise](service-tier-business-critical.md) est conçu pour les charges de travail sensibles aux performances qui ont des exigences strictes en matière de disponibilité.
 
-Azure SQL Database a un niveau de service supplémentaire : 
+Azure SQL Database fournit également le niveau de service Hyperscale : 
 
-- [Hyperscale](service-tier-hyperscale.md), conçu pour la plupart des charges de travail métier, offrant un stockage hautement scalable, un scale-out en lecture et des fonctionnalités de restauration rapide de base de données.
-
-Cet article présente les différences entre les niveaux de service, les considérations relatives au stockage et à la sauvegarde pour les niveaux de service Usage général et Critique pour l’entreprise dans le modèle d’achat vCore.
+- Conçu pour la plupart des charges de travail métier, le niveau [Hyperscale](service-tier-hyperscale.md) offre des fonctionnalités de stockage hautement évolutif, d'échelle horizontale en lecture, de mise à l'échelle rapide et de restauration rapide de base de données.
 
 ## <a name="service-tier-comparison"></a>Comparaison des niveaux de service
 
-Le tableau suivant décrit les principales différences entre les niveaux de service pour la dernière génération (Gen5). Notez que les caractéristiques des niveaux de service peuvent être différentes dans SQL Database et SQL Managed Instance.
+Le tableau suivant décrit les principales différences entre les niveaux de service.
 
-|-| Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
+|-| Type de ressource | Usage général | Hyperscale | Critique pour l’entreprise |
 |:---:|:---:|:---:|:---:|:---:|
 | **Idéal pour** | |  Offre des options de calcul et de stockage équilibrées et économiques. | La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale du calcul, restauration rapide de la base de données. | Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
-|  **Disponible dans le type de ressource :** ||SQL Database / SQL Managed Instance | Base de données Azure SQL unique | SQL Database / SQL Managed Instance |
-| **Taille de calcul**| SQL Database | 1 à 80 cœurs virtuels | 1 à 80 vCores | 1 à 80 cœurs virtuels |
+| **Disponible dans le type de ressource :** ||SQL Database / SQL Managed Instance | Base de données Azure SQL unique | SQL Database / SQL Managed Instance |
+| **Taille de calcul**| SQL Database | 1 à 80 cœurs virtuels | 1 à 80 vCores | 1 à 128 vCores |
 | | Instance managée SQL | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | | Pools SQL Managed Instance | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | N/A |
-| **Type de stockage** | Tous | Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
-| **Taille de la base de données** | SQL Database | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
+| **Type de stockage** | Tous | Stockage étendu | Stockage SSD distant et local hiérarchisé | Stockage SSD local |
+| **Taille de la base de données** | SQL Database | 1 Go - 4 To | 40 Go - 100 To | 1 Go - 4 To |
 | | Instance managée SQL  | 32 Go - 8 To | N/A | 32 Go - 4 To |
-| **Taille de stockage** | SQL Database | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
+| **Taille de stockage** | SQL Database | 1 Go - 4 To | 40 Go - 100 To | 1 Go - 4 To |
 | | Instance managée SQL  | 32 Go - 8 To | N/A | 32 Go - 4 To |
-| **Taille de TempDB** | SQL Database | [32 Go par vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 Go par vCore](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 Go par vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
+| **Taille de TempDB** | SQL Database | [32 Go par vCore](resource-limits-vcore-single-databases.md) | [32 Go par vCore](resource-limits-vcore-single-databases.md) | [32 Go par vCore](resource-limits-vcore-single-databases.md) |
 | | Instance managée SQL  | [24 Go par vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | Jusqu’à 4 To - [limité par taille de stockage](../managed-instance/resource-limits.md#service-tier-characteristics) |
-| **Débit d’écriture des journaux** | SQL Database | [1,875 Mo/s par vCore (30 Mo/s max)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 Mo/s | [6 Mo/s par vCore (96 Mo/s max)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
+| **Débit d’écriture des journaux** | SQL Database | Bases de données uniques : [4,5 Mo/s par vCore (max 50 Mo/s)](resource-limits-vcore-single-databases.md) <br> Pools élastiques : [6 Mo/s par vCore (max 62,5 Mo/s)](resource-limits-vcore-elastic-pools.md)| 100 Mo/s | Bases de données uniques : [12 Mo/s par vCore (max 96 Mo/s)](resource-limits-vcore-single-databases.md) <br> Pools élastiques : [15 Mo/s par vCore (max 120 Mo/s)](resource-limits-vcore-elastic-pools.md)|
 | | Instance managée SQL | [3 Mo/s par vCore (22 Mo/s max)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | [4 Mo/s par vCore (48 Mo/s max)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Disponibilité**|Tous| 99,99 % |  [99,95 % avec un réplica secondaire, 99,99 % avec d’autres réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995 % avec base de données unique et redondante dans une zone](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut) La durée de rétention pour le niveau De base est de 7 jours maximum. | RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
-|**OLTP en mémoire** | | N/A | N/A | Disponible |
+|**Disponibilité**|Tous| 99,99 % |  [99,95 % avec un réplica secondaire, 99,99 % avec d’autres réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99,99 % <br/> [99,995 % avec base de données unique et redondante dans une zone](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Sauvegardes**|Tous|RA-GRS, 1 à 35 jours (7 jours par défaut) | RA-GRS, 7 jours, récupération rapide jusqu'à une date et heure (PITR) | RA-GRS, 1 à 35 jours (7 jours par défaut) |
+|**OLTP en mémoire** | | N/A | Prise en charge partielle. Les types de tables optimisées en mémoire, les variables de table et les modules compilés en mode natif sont pris en charge. | Disponible |
 |**Réplicas en lecture seule**| | 0 intégré <br> 0 à 4 utilisant la [géoréplication](active-geo-replication-overview.md) | 0 à 4 intégrés | 1 intégré et inclus dans le prix <br> 0 à 4 utilisant la [géoréplication](active-geo-replication-overview.md) |
 |**Tarification/facturation** | SQL Database | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. | [vCore pour chaque réplica et le stockage utilisé](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>IOPS non encore facturées. | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. |
 || Instance managée SQL | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/managed/) sont facturés. <br/>Les IOPS ne sont pas facturées.| N/A | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/managed/) sont facturés. <br/>Les IOPS ne sont pas facturées.| 
@@ -64,42 +62,37 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 Pour plus d’informations, consultez les détails des différences entre les niveaux de service dans les pages [Azure SQL Database (vCore)](resource-limits-vcore-single-databases.md), [Base de données unique Azure SQL (DTU)](resource-limits-dtu-single-databases.md), [Base de données Azure SQL mise en pool (DTU)](resource-limits-dtu-single-databases.md) et [Azure SQL Managed Instance](../managed-instance/resource-limits.md).
 
 > [!NOTE]
-> Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat vCore, consultez [Niveau de service hyperscale](service-tier-hyperscale.md). Pour obtenir une comparaison du modèle d’achat vCore avec le modèle d’achat DTU, consultez [Ressources et modèles d’achat](purchasing-models.md).
+> Pour plus d'informations sur le niveau de service Hyperscale, consultez [Niveau de service Hyperscale](service-tier-hyperscale.md). Pour obtenir une comparaison du modèle d’achat vCore avec le modèle d’achat DTU, consultez [Ressources et modèles d’achat](purchasing-models.md).
 
 ## <a name="data-and-log-storage"></a>Stockage des données et des journaux
 
-Les facteurs suivants affectent la quantité de stockage utilisée pour les fichiers de données et les fichiers journaux, et s’appliquent aux niveaux Usage général et Critique pour l’entreprise. Pour plus d’informations sur le stockage des données et des journaux dans Hyperscale, consultez [Niveau de service Hyperscale](service-tier-hyperscale.md).
+Les facteurs suivants affectent la quantité de stockage utilisée pour les fichiers de données et les fichiers journaux, et s'appliquent aux niveaux Usage général et Critique pour l'entreprise. Pour plus d’informations sur le stockage des données et des journaux dans Hyperscale, consultez [Niveau de service Hyperscale](service-tier-hyperscale.md).
 
-- Le stockage alloué est utilisé par les fichiers de données (MDF) et les fichiers journaux (LDF).
-- Chaque taille de calcul d’une base de données unique accepte une taille de base de données maximale, qui correspond, par défaut, à 32 Go.
-- Lorsque vous configurez la taille de base de données unique nécessaire (la taille du fichier MDF), 30 pour cent de stockage supplémentaire sont automatiquement ajoutés pour prendre en charge les fichiers LDF.
-- Vous pouvez choisir n’importe quelle taille de base de données unique située entre 10 Go et la taille maximale prise en charge.
-  - Pour le stockage des niveaux de service Standard et Usage général, augmentez ou diminuez la taille par incrément de 10 Go.
-  - Pour le stockage des niveaux de service premium et critique pour l’entreprise, augmentez ou diminuez la taille par incrément de 250 Go.
-- Dans le niveau de service usage général, `tempdb` utilise un disque SSD attaché et le coût de ce stockage est inclus dans le prix du modèle vCore.
-- Dans le niveau de service Critique pour l’entreprise, `tempdb` partage le disque SSD attaché avec les fichiers MDF et LDF, et le coût du stockage `tempdb` est inclus dans le prix du modèle vCore.
-- Dans le niveau de service Premium DTU, `tempdb` partage le disque SSD attaché avec les fichiers MDF et LDF.
-- La taille de stockage d’une instance managée SQL doit être spécifiée en multiples de 32 Go.
-
+- Chaque taille de calcul accepte une taille de données maximale, qui correspond, par défaut, à 32 Go.
+- Lorsque vous configurez la taille maximale des données, un espace de stockage supplémentaire de 30 % est automatiquement ajouté pour les fichiers journaux.
+- Vous pouvez sélectionner une taille de données maximale comprise entre 1 Go et la taille de stockage maximale prise en charge, par incréments de 1 Go.
+- Au niveau de service Usage général, `tempdb` utilise un disque SSD local et le coût de ce stockage est inclus dans le prix du modèle vCore.
+- Au niveau de service Critique pour l'entreprise, `tempdb` partage le disque SSD local avec les données et les fichiers journaux, et le coût du stockage `tempdb` est inclus dans le prix du modèle vCore.
+- La taille de stockage maximale d'une instance de SQL Managed Instance doit être spécifiée en multiples de 32 Go.
 
 > [!IMPORTANT]
-> Le stockage total alloué aux fichiers MDF et LDF vous est facturé.
+> Aux niveaux Usage général et Critique pour l'entreprise, vous êtes facturé en fonction de la taille de stockage maximale configurée pour une base de données, un pool élastique ou une instance gérée. Au niveau Hyperscale, vous êtes facturé en fonction du stockage de données alloué.
 
-Pour surveiller la taille totale actuelle de vos fichiers MDF et LDF, utilisez [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Pour surveiller la taille actuelle de chaque fichier MDF et LDF, utilisez [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Pour surveiller la taille de stockage de données actuellement allouée et utilisée dans SQL Database, utilisez respectivement les [métriques](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) Azure Monitor *allocated_data_storage* et *storage*. Pour surveiller la taille totale de stockage d'instance consommée pour SQL Managed Instance, utilisez la [métrique](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlmanagedinstances) *storage_space_used_mb*. Pour surveiller la taille de stockage actuellement allouée et utilisée par les données individuelles et les fichiers journaux dans une base de données à l'aide de T-SQL, utilisez la vue [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) et la fonction [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql).
 
-> [!IMPORTANT]
+> [!TIP]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 
 ## <a name="backups-and-storage"></a>Sauvegardes et stockage
 
-Du stockage pour les sauvegardes de base de données est alloué afin de prendre en charge les fonctionnalités de récupération jusqu’à une date et heure (PITR) et de [conservation à long terme (LTR)](long-term-retention-overview.md) de SQL Database et SQL Managed Instance. Ce stockage est alloué séparément pour chaque base de données. De plus, les fonctionnalités Limite de restauration dans le temps et Conservation à long terme sont, elles aussi, facturées séparément.
+Du stockage est alloué pour les sauvegardes de base de données afin de prendre en charge les fonctionnalités de [récupération jusqu'à une date et heure (PITR)](recovery-using-backups.md) et de [conservation à long terme (LTR)](long-term-retention-overview.md) de SQL Database et SQL Managed Instance. Ce stockage, distinct du stockage des données et des fichiers journaux, est facturé séparément.
 
-- **Limite de restauration dans le temps** : les sauvegardes de bases de données individuelles sont automatiquement copiées vers le [stockage géographiquement redondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md). La taille de stockage augmente dynamiquement avec chaque nouvelle création de sauvegarde. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux qui sont copiés toutes les 5 minutes. La consommation du stockage dépend du taux de change de la base de données et de la période de conservation pour les sauvegardes. Vous pouvez configurer une période de conservation distincte pour chaque base de données, allant de 7 à 35 jours. Un volume de stockage minimal égal à 100 pour cent (1x) de la taille de la base de données est fourni sans frais supplémentaires. Pour la plupart des bases de données, cette quantité est suffisante pour stocker l’équivalent de 7 jours de sauvegardes.
-- **Conservation à long terme** : vous pouvez également configurer la conservation à long terme des sauvegardes complètes pendant 10 ans maximum [pour SQL Managed Instance](long-term-retention-overview.md). Si vous configurez une stratégie de conservation à long terme, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de conservation pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La configuration que vous choisissez détermine la quantité de stockage utilisée pour les sauvegardes de conservation à long terme. Pour estimer le coût du stockage de conservation à long terme, vous pouvez utiliser la calculatrice de prix LTR. Pour plus d’informations, consultez [Conservation à long terme de SQL Database](long-term-retention-overview.md).
+- **Récupération jusqu'à une date et heure (PITR)**  : aux niveaux Usage général et Critique pour l'entreprise, les sauvegardes de bases de données individuelles sont automatiquement copiées vers le [stockage géographiquement redondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md). La taille de stockage augmente dynamiquement avec chaque nouvelle création de sauvegarde. Le service est utilisé par les sauvegardes complètes, les sauvegardes différentielles et les sauvegardes de fichiers journaux. La consommation du stockage dépend du taux de change de la base de données et de la période de rétention configurée pour les sauvegardes. Vous pouvez configurer une période de rétention distincte pour chaque base de données : de 1 à 35 jours pour SQL Database, et de 0 à 35 jours pour SQL Managed Instance. Une quantité de stockage de sauvegarde égale à la taille maximale des données configurées est fournie sans frais supplémentaires.
+- **Conservation à long terme (LTR)**  : vous pouvez également configurer la conservation à long terme des sauvegardes complètes pendant 10 ans maximum. Si vous configurez une stratégie de conservation à long terme, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de conservation pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La configuration que vous choisissez détermine la quantité de stockage utilisée pour les sauvegardes de conservation à long terme. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les tailles de calcul et de stockage spécifiques disponibles dans les niveaux de service Usage général et Critique pour l’entreprise, consultez : 
+Pour plus de détails sur les tailles de calcul et de stockage spécifiques disponibles selon les niveaux de service vCore, consultez : 
 
 - [Limites de ressources vCore pour Azure SQL Database](resource-limits-vcore-single-databases.md)
 - [Limites de ressources vCore pour les bases de données mises en pool dans Azure SQL Database](resource-limits-vcore-elastic-pools.md).

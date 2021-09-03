@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.collection: windows
 ms.date: 03/19/2020
-ms.openlocfilehash: 62ad5ca5d3b150aef5a83eaa4d5231e7bb5a6a62
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 679682ed0a268306bfb6c7afcf9abbd94a4d45b7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100177"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562814"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption pour Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -134,6 +134,8 @@ Utilisation de `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
+Remarque : toutes les valeurs respectent la casse.
+
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | Date |
@@ -156,7 +158,7 @@ Utilisation de `AADClientCertificate`:
 
 Pour voir un exemple de déploiement de modèle basé sur le schéma v2.2, consultez le modèle de démarrage rapide Azure [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad).
 
-Pour un exemple de déploiement de modèle basé sur le schéma v1.1, consultez le modèle de démarrage rapide Azure [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+Pour un exemple de déploiement de modèles basé sur le schéma v1.1, consultez le modèle de démarrage rapide Azure [encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm).
 
 >[!NOTE]
 > Par ailleurs, si le paramètre `VolumeType` a la valeur All, les disques de données ne sont chiffrés que s’ils sont correctement formatés.

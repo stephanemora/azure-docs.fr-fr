@@ -2,25 +2,27 @@
 title: Explorer les visualisations organisées – Azure IoT Edge
 description: Utiliser les workbooks Azure pour visualiser et explorer les métriques intégrées IoT Edge
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0ca0d1fb7890f1a1a94419f58587f3a98957f41c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 7be7260e993f9cc95b542406767d6794f18836f8
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904420"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533036"
 ---
 # <a name="explore-curated-visualizations-preview"></a>Explorer les visualisations organisées (Préversion)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Vous pouvez visualiser et explorer les métriques collectées depuis l’appareil IoT Edge, directement dans le portail Azure à l’aide des workbooks Azure Monitor. Les workbooks de supervision organisés pour les appareils IoT Edge sont fournis sous forme de modèles publics auxquels vous pouvez accéder à partir du panneau **IoT Hub** de la page **Workbooks** (sous la section Supervision).
+Vous pouvez visualiser et explorer les métriques collectées depuis l’appareil IoT Edge, directement dans le portail Azure à l’aide des workbooks Azure Monitor. Les workbooks de surveillance organisés pour les appareils IoT Edge sont fournis sous forme de modèles publics :
+
+* Pour les appareils connectés au hub IoT, dans le panneau **hub IoT** du portail Azure, accédez à la page **Workbooks** dans la section **Surveillance**.
+* Pour les appareils connectés à IoT Central, dans le panneau **IoT Central** du portail Azure, accédez à la page **Workbooks** dans la section **Surveillance**.
 
 Les workbooks organisés utilisent des [métriques intégrées](how-to-access-built-in-metrics.md) provenant du runtime IoT Edge. Ces vues n’ont pas besoin d’instrumentation de métriques à partir des modules de charge de travail.
 
@@ -30,15 +32,15 @@ Les workbooks Azure Monitor pour IoT constituent un ensemble de modèles dont vo
 
 Pour accéder aux workbooks organisés, suivez ces étapes :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre hub IoT ou à votre application IoT Central.
 
 1. Sélectionnez **Workbooks** dans la section **Supervision** du menu.
 
 1. Choisissez le workbook que vous souhaitez explorer dans la liste des modèles publics :
 
-   * **Vue de la flotte IoT Edge** : supervisez votre flotte d’appareils et explorez des appareils particuliers pour un instantané d’intégrité.
-   * **Détails d’un appareil IoT Edge** : visualisez les détails d’un appareil au niveau de la messagerie, des modules et des composants hôtes sur un appareil IoT Edge.
-   * **Instantané d’intégrité IoT Edge** : affichez l’intégrité d’un appareil basée sur six métriques de performances courantes. Pour accéder au workbook d’instantané d’intégrité, démarrez dans le workbook des vues de la flotte et sélectionnez l’appareil particulier que vous souhaitez consulter. Le workbook des vues de la flotte transmet certains paramètres nécessaires à la vue d’instantané d’intégrité.
+  * **Vue de la flotte IoT Edge** : supervisez votre flotte d’appareils et explorez des appareils particuliers pour un instantané d’intégrité.
+  * **Détails d’un appareil IoT Edge** : visualisez les détails d’un appareil au niveau de la messagerie, des modules et des composants hôtes sur un appareil IoT Edge.
+  * **Instantané d’intégrité IoT Edge** : affichez l’intégrité d’un appareil basée sur six métriques de performances courantes. Pour accéder au workbook d’instantané d’intégrité, démarrez dans le workbook des vues de la flotte et sélectionnez l’appareil particulier que vous souhaitez consulter. Le workbook des vues de la flotte transmet certains paramètres nécessaires à la vue d’instantané d’intégrité.
 
 Vous pouvez explorer les workbooks par vous-même ou utiliser les sections suivantes pour obtenir un aperçu du type de données et des visualisations qu’offre chaque workbook.
 
@@ -55,7 +57,7 @@ Vous pouvez basculer entre les vues à l’aide des onglets situés en haut du w
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="Section Appareils du workbook des vues de la flotte." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
-Consultez la vue d’ensemble des appareils actifs qui envoient des métriques dans la vue **Appareils**. Cette vue montre les appareils associés à l’instance IoT Hub actuel.
+Consultez la vue d’ensemble des appareils actifs qui envoient des métriques dans la vue **Appareils**. Cet affichage montre les appareils associés au hub IoT ou à l’application IoT Central en cours.
 
 À droite, la liste des appareils contient des barres composites qui indiquent les messages locaux et en amont envoyés. Vous pouvez filtrer la liste par nom d’appareil et cliquer sur le lien du nom de l’appareil pour afficher ses métriques détaillées.
 
@@ -65,7 +67,7 @@ Consultez la vue d’ensemble des appareils actifs qui envoient des métriques d
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="Section des alertes dans le workbook des vues de la flotte." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
 
-Consultez les alertes générées à partir des [règles d’alerte créées au préalable](how-to-create-alerts.md) dans la vue **Alertes**. Cette vue vous permet d’afficher les alertes provenant de plusieurs hubs IoT.
+Consultez les alertes générées à partir des [règles d’alerte créées au préalable](how-to-create-alerts.md) dans la vue **Alertes**. Cette vue vous permet de voir les alertes de plusieurs hubs IoT ou applications IoT Central.
 
 À gauche, la liste des niveaux de gravité des alertes, avec leur nombre d’alertes. À droite, une carte indiquant le nombre total d’alertes par région.
 
@@ -147,7 +149,7 @@ Ces signaux sont mesurés par rapport à des seuils configurables permettant de 
 
 ## <a name="customize-workbooks"></a>Personnaliser les workbooks
 
-Les [workbooks Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) sont extrêmement personnalisables. Vous pouvez modifier les modèles publics pour répondre à vos besoins. Toutes les visualisations sont pilotées par des requêtes [KQL](https://aka.ms/kql) axées sur les ressources dans la table [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics). Consultez l’exemple ci-dessous qui modifie les seuils d’intégrité.
+Les [workbooks Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) sont extrêmement personnalisables. Vous pouvez modifier les modèles publics pour répondre à vos besoins. Toutes les visualisations sont pilotées par des requêtes [KQL](/azure/data-explorer/kusto/query/) axées sur les ressources dans la table [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics). Consultez l’exemple ci-dessous qui modifie les seuils d’intégrité.
 
 Pour démarrer la personnalisation d’un workbook, commencez par passer en mode édition. Sélectionnez le bouton **Modifier** dans la barre de menus du workbook.
 

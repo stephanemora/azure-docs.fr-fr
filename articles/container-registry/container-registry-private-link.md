@@ -2,69 +2,144 @@
 title: Configurer un point de terminaison privé avec liaison privée
 description: Configurez un point de terminaison privé sur un registre de conteneurs et activez l’accès sur une liaison privée dans un réseau virtuel local. L’accès à la liaison privée est une fonctionnalité du niveau de service Premium.
 ms.topic: article
-ms.date: 03/31/2021
-ms.openlocfilehash: d3c7c573b0ffc08a85f5cbe5cc62d3f7c052f0af
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/14/2021
+ms.openlocfilehash: 25a45f0e1f4115fce623deef919368ecdf479ead
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781430"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471500"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link
-
 
 Limitez l’accès à un registre en attribuant des adresses IP privées de réseau virtuel aux points de terminaison du registre et en utilisant [Azure Private Link](../private-link/private-link-overview.md). Le trafic entre les clients du réseau virtuel et les points de terminaison privés du registre traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine toute exposition sur l’Internet public. Azure Private Link permet également un accès privé au registre à partir d’un emplacement local par le biais d’un Peering privé [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou d’une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 Vous pouvez [configurer des paramètres DNS](../private-link/private-endpoint-overview.md#dns-configuration) pour les points de terminaison privés du registre afin que les paramètres résolvent l’adresse IP privée allouée au registre. Avec la configuration DNS, les clients et les services du réseau peuvent continuer à accéder au registre avec le nom de domaine complet du registre, tel que *myregistry.azurecr.io*. 
 
-Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Actuellement, un maximum de dix points de terminaison privés peuvent être configurés pour un registre. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
+Cet article explique comment configurer un point de terminaison privé pour votre registre à l’aide du Portail Azure (recommandé) ou du d’Azure CLI. Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
+> [!NOTE]
+> Actuellement, un maximum de dix points de terminaison privés peuvent être configurés pour un registre. 
+
 ## <a name="prerequisites"></a>Prérequis
 
+* Réseau virtuel et sous-réseau dans lequel configurer le point de terminaison privé. Vous pouvez également [créer un nouveau réseau virtuel et un sous-réseau](../virtual-network/quick-create-portal.md).
+* Pour le test, il est recommandé de configurer une machine virtuelle dans le réseau virtuel. Pour connaître les étapes de création d’une machine virtuelle de test pour accéder à votre registre, consultez [Créer une machine virtuelle compatible à Docker](container-registry-vnet.md#create-a-docker-enabled-virtual-machine). 
 * Pour utiliser les étapes Azure CLI décrites dans cet article, il est recommandé d’utiliser Azure CLI version 2.6.0 ou ultérieure. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli]. Ou exécutez cela dans [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * Si vous ne disposez pas d’un registre de conteneurs, créez-en un (niveau Premium requis) et [importez](container-registry-import-images.md) un exemple d’image publique comme `mcr.microsoft.com/hello-world` à partir de Microsoft Container Registry. Par exemple, utilisez le [portail Azure][quickstart-portal] ou [Azure CLI][quickstart-cli] pour créer un registre.
-* Pour configurer l’accès au registre à l’aide d’une liaison privée dans un autre abonnement Azure, vous devez inscrire le fournisseur de ressources pour Azure Container Registry dans cet abonnement. Par exemple :
 
-  ```azurecli
-  az account set --subscription <Name or ID of subscription of private link>
+### <a name="register-container-registry-resource-provider"></a>Inscrire le fournisseur de ressources du registre de conteneurs
 
-  az provider register --namespace Microsoft.ContainerRegistry
-  ``` 
+Pour configurer l’accès au registre à l’aide d’une liaison privée dans un autre abonnement ou abonné Azure, vous devez [inscrire le fournisseur de ressources](../azure-resource-manager/management/resource-providers-and-types.md) pour Azure Container Registry dans cet abonnement. Utilisez le portail Azure, Azure CLI ou d’autres outils.
 
-Les exemples Azure CLI fournis dans cet article utilisent les variables d’environnement suivantes. Remplacez les valeurs par celles appropriées pour votre environnement. Tous les exemples sont mis en forme pour l’interpréteur de commandes Bash :
+Exemple :
+
+```azurecli
+az account set --subscription <Name or ID of subscription of private link>
+
+az provider register --namespace Microsoft.ContainerRegistry
+``` 
+
+## <a name="set-up-private-endpoint---portal-recommended"></a>Configurer un point de terminaison privé - portail (recommandé)
+
+Configurez un point de terminaison privé quand vous créez un registre ou ajoutez un point de terminaison privé à un registre existant. 
+
+### <a name="create-a-private-endpoint---new-registry"></a>Créer un point de terminaison privé (nouveau registre)
+
+1. Quand vous créez un registre dans le portail, sous l’onglet **De base**, dans **SKU**, sélectionnez **Premium**.
+1. Sélectionnez l’onglet **Réseau**.
+1. Dans **Connectivité réseau**, sélectionnez **Point de terminaison privé** >  **+ Ajouter**.
+1. Entrez ou sélectionnez les informations suivantes :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Resource group | Entrez le nom d’un groupe existant ou créez-en un nouveau.|
+    | Nom | Entrez un nom unique. |
+    | Sous-ressource du Registre |Sélectionnez le **registre**.|
+    | **Mise en réseau** | |
+    | Réseau virtuel| Sélectionnez le réseau virtuel pour le point de terminaison privé. Exemple : *myDockerVMVNET*. |
+    | Subnet | Sélectionnez le sous-réseau pour le point de terminaison privé. Exemple : *myDockerVMSubnet*. |
+    |**Intégration à un DNS privé**||
+    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
+    |Zone DNS privée |Sélectionnez *(Nouveau) privatelink.azurecr.io* |
+    |||
+1. Configurez les paramètres de registre restants, puis sélectionnez **Évaluer + créer**.
+  
+:::image type="content" source="media/container-registry-private-link/private-link-create-portal.png" alt-text="Créer un registre avec un point de terminaison privé":::
+
+
+
+Votre liaison privée est désormais configurée et prête à être utilisée.
+
+### <a name="create-a-private-endpoint---existing-registry"></a>Créer un point de terminaison privé (registre existant)
+
+1. Dans le portail, accédez à votre registre de conteneurs.
+1. Sous **Paramètres**, sélectionnez **Mise en réseau**.
+1. Sous l’onglet **Points de terminaison privés**, sélectionnez **+ Point de terminaison privé**.
+    :::image type="content" source="media/container-registry-private-link/private-endpoint-existing-registry.png" alt-text="Ajouter un point de terminaison privé au registre":::
+
+1. Sous l’onglet **Informations de base**, entrez ou sélectionnez les informations suivantes :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Détails du projet** | |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Resource group | Entrez le nom d’un groupe existant ou créez-en un nouveau.|
+    | **Détails de l’instance** |  |
+    | Nom | Entrez un nom. |
+    |Région|Sélectionnez une région.|
+    |||
+1. Sélectionnez **Suivant : Ressource**.
+1. Entrez ou sélectionnez les informations suivantes :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    |Méthode de connexion  | Pour cet exemple, sélectionnez **Se connecter à une ressource Azure dans mon répertoire**.|
+    | Abonnement| Sélectionnez votre abonnement. |
+    | Type de ressource | Sélectionnez **Microsoft.ContainerRegistry/registries**. |
+    | Ressource |Sélectionnez le nom de votre registre.|
+    |Sous-ressource cible |Sélectionnez le **registre**.|
+    |||
+1. Sélectionnez **Suivant : Configuration**.
+1. Entrez ou sélectionnez les informations :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    |**Mise en réseau**| |
+    | Réseau virtuel| Sélectionnez le réseau virtuel pour le point de terminaison privé |
+    | Subnet | Sélectionnez le sous-réseau pour le point de terminaison privé |
+    |**Intégration à un DNS privé**||
+    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
+    |Zone DNS privée |Sélectionnez *(Nouveau) privatelink.azurecr.io* |
+    |||
+
+1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
+1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+
+### <a name="confirm-endpoint-configuration"></a>Confirmer la configuration du point de terminaison
+
+Une fois le point de terminaison privé créé, les paramètres DNS dans la zone privée apparaissent avec les paramètres **Points de terminaison privés** dans le portail :
+
+1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau**.
+1. Sous l’onglet **Points de terminaison privés**, sélectionnez le point de terminaison privé que vous avez créé. 
+1. Sélectionner **Configuration DNS**.
+1. Consultez les paramètres de la liaison et les paramètres DNS personnalisés.
+
+:::image type="content" source="media/container-registry-private-link/private-endpoint-overview.png" alt-text="Paramètres DNS du point de terminaison dans le portail":::
+## <a name="set-up-private-endpoint---cli"></a>Configurer le point de terminaison privé - CLI
+
+Les exemples Azure CLI fournis dans cet article utilisent les variables d’environnement suivantes. Vous devez disposer des noms d’un registre de conteneurs, d’un réseau virtuel et d’un sous-réseau pour configurer un point de terminaison privé. Remplacez les valeurs par celles appropriées pour votre environnement. Tous les exemples sont mis en forme pour l’interpréteur de commandes Bash :
 
 ```bash
 REGISTRY_NAME=<container-registry-name>
 REGISTRY_LOCATION=<container-registry-location> # Azure region such as westeurope where registry created
-RESOURCE_GROUP=<resource-group-name>
-VM_NAME=<virtual-machine-name>
+RESOURCE_GROUP=<resource-group-name> # Resource group for your existing virtual network and subnet
+NETWORK_NAME=<virtual-network-name>
+SUBNET_NAME=<subnet-name>
 ```
-
-[!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
-
-## <a name="set-up-private-link---cli"></a>Configurer une liaison privée – interface de ligne de commande
-
-### <a name="get-network-and-subnet-names"></a>Obtenir les noms de réseau et de sous-réseau
-
-Si vous ne les avez pas déjà, vous aurez besoin des noms d’un réseau virtuel et d’un sous-réseau pour configurer une liaison privée. Dans cet exemple, vous utilisez le même sous-réseau pour la machine virtuelle et le point de terminaison privé du registre. Toutefois, dans de nombreux scénarios, il convient de configurer le point de terminaison dans un sous-réseau distinct. 
-
-Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM*, le nom de réseau virtuel par défaut est *myDockerVMVNET*, avec un sous-réseau nommé *myDockerVMSubnet*. Définissez ces valeurs dans les variables d’environnement en exécutant la commande [az network vnet list][az-network-vnet-list] :
-
-```azurecli
-NETWORK_NAME=$(az network vnet list \
-  --resource-group $RESOURCE_GROUP \
-  --query '[].{Name: name}' --output tsv)
-
-SUBNET_NAME=$(az network vnet list \
-  --resource-group $RESOURCE_GROUP \
-  --query '[].{Subnet: subnets[0].name}' --output tsv)
-
-echo NETWORK_NAME=$NETWORK_NAME
-echo SUBNET_NAME=$SUBNET_NAME
-```
-
 ### <a name="disable-network-policies-in-subnet"></a>Désactiver les stratégies réseau dans le sous-réseau
 
 [Désactivez les stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) telles que les groupes de sécurité réseau dans le sous-réseau pour le point de terminaison privé. Mettez à jour votre configuration de sous-réseau avec [az network vnet subnet update][az-network-vnet-subnet-update] :
@@ -128,7 +203,7 @@ az network private-endpoint create \
 
 ### <a name="get-endpoint-ip-configuration"></a>Obtenir la configuration IP du point de terminaison
 
-Pour configurer les enregistrements DNS, récupérez la configuration IP du point de terminaison privé. Deux adresses IP privées sont associées à l’interface réseau du point de terminaison privé dans cet exemple pour le registre de conteneurs : une pour le registre proprement dit et l’autre pour le point de terminaison de données du registre. 
+Pour configurer les enregistrements DNS, récupérez la configuration IP du point de terminaison privé. Deux adresses IP privées sont associées à l’interface réseau du point de terminaison privé dans cet exemple pour le registre de conteneurs : une pour le registre proprement dit et l’autre pour le point de terminaison de données du registre. Si votre registre est géo-répliqué, une adresse IP supplémentaire est associée à chaque réplica.
 
 Tout d’abord, exécutez [az network private-endpoint show][az-network-private-endpoint-show] pour interroger le point de terminaison privé afin d’obtenir l’ID d’interface réseau :
 
@@ -140,7 +215,7 @@ NETWORK_INTERFACE_ID=$(az network private-endpoint show \
   --output tsv)
 ```
 
-Les commandes [az network nic show][az-network-nic-show] suivantes obtiennent les adresses IP privées pour le registre de conteneurs et le point de terminaison de données du registre :
+Les commandes [az network nic show][az-network-nic-show] suivantes obtiennent les adresses IP privées et les noms de domaine complet pour le registre de conteneurs et le point de terminaison de données du registre :
 
 ```azurecli
 REGISTRY_PRIVATE_IP=$(az network nic show \
@@ -166,15 +241,25 @@ DATA_ENDPOINT_FQDN=$(az network nic show \
   --output tsv)
 ```
 
-> [!NOTE]
-> Si votre registre est [géorépliqué](container-registry-geo-replication.md), interrogez le point de terminaison de données supplémentaire pour chaque réplica du registre.
+#### <a name="additional-endpoints-for-geo-replicas"></a>Points de terminaison supplémentaires pour les géo-réplicas
 
+Si votre registre est [géorépliqué](container-registry-geo-replication.md), interrogez le point de terminaison de données supplémentaire pour chaque réplica du registre. Par exemple, dans la région *eastus* : 
+
+```azurecli
+REPLICA_LOCATION=eastus
+GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
+  --ids $NETWORK_INTERFACE_ID \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIpAddress" \
+  --output tsv) 
+
+GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
+  --ids $NETWORK_INTERFACE_ID \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateLinkConnectionProperties.fqdns" \
+  --output tsv)
+```
 ### <a name="create-dns-records-in-the-private-zone"></a>Créer des enregistrements DNS dans la zone privée
 
 Les commandes suivantes créent des enregistrements DNS dans la zone privée pour le point de terminaison du registre et son point de terminaison de données. Par exemple, si vous avez un registre nommé *myregistry* dans la région *westeurope*, les noms des points de terminaison sont `myregistry.azurecr.io` et `myregistry.westeurope.data.azurecr.io`. 
-
-> [!NOTE]
-> Si votre registre est [géorépliqué](container-registry-geo-replication.md), créez des enregistrements DNS supplémentaires pour l’adresse IP du point de terminaison de données de chaque réplica.
 
 Tout d’abord, exécutez [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] pour créer des jeux d’enregistrements A vides pour le point de terminaison du registre et le point de terminaison de données :
 
@@ -191,7 +276,7 @@ az network private-dns record-set a create \
   --resource-group $RESOURCE_GROUP
 ```
 
-Exécutez [az network private-dns record-set a add-record][az-network-private-dns-record-set-a-add-record] pour créer les enregistrements A pour le point de terminaison du registre et le point de terminaison de données :
+Exécutez la commande [az network private-dns record-set a add-record][az-network-private-dns-record-set-a-add-record] pour créer les enregistrements A pour le point de terminaison du registre et le point de terminaison de données :
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -208,115 +293,47 @@ az network private-dns record-set a add-record \
   --ipv4-address $DATA_ENDPOINT_PRIVATE_IP
 ```
 
+#### <a name="additional-records-for-geo-replicas"></a>Enregistrements supplémentaires pour les géo-réplicas
+
+Si votre registre est géo-répliqué, créez des paramètres DNS supplémentaires pour chaque réplica. Poursuivre l’exemple dans la région *eastus* :
+
+```azurecli
+az network private-dns record-set a create \
+  --name ${REGISTRY_NAME}.${REPLICA_LOCATION}.data \
+  --zone-name privatelink.azurecr.io \
+  --resource-group $RESOURCE_GROUP
+
+az network private-dns record-set a add-record \
+  --record-set-name ${REGISTRY_NAME}.${REPLICA_LOCATION}.data \
+  --zone-name privatelink.azurecr.io \
+  --resource-group $RESOURCE_GROUP \
+  --ipv4-address $GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP
+```
+
 La liaison privée est désormais configurée et prête à être utilisée.
-
-## <a name="set-up-private-link---portal"></a>Configurer une liaison privée – portail
-
-Configurez un lien privé quand vous créez un registre ou ajoutez un lien privé à un registre existant. Les étapes suivantes supposent que vous disposez déjà d’un réseau virtuel et d’un sous-réseau configurés avec une machine virtuelle à des fins de test. Vous pouvez également [créer un réseau virtuel et un sous-réseau](../virtual-network/quick-create-portal.md).
-
-### <a name="create-a-private-endpoint---new-registry"></a>Créer un point de terminaison privé (nouveau registre)
-
-1. Quand vous créez un registre dans le portail, sous l’onglet **De base**, dans **SKU**, sélectionnez **Premium**.
-1. Sélectionnez l’onglet **Réseau**.
-1. Dans **Connectivité réseau**, sélectionnez **Point de terminaison privé** >  **+ Ajouter**.
-1. Entrez ou sélectionnez les informations suivantes :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Resource group | Entrez le nom d’un groupe existant ou créez-en un nouveau.|
-    | Nom | Entrez un nom unique. |
-    | Sous-ressource |Sélectionnez le **registre**.|
-    | **Mise en réseau** | |
-    | Réseau virtuel| Sélectionnez le réseau virtuel où votre machine virtuelle est déployée, tel que *myDockerVMVNET*. |
-    | Subnet | Sélectionnez un sous-réseau, tel que *myDockerVMSubnet*, où votre machine virtuelle est déployée. |
-    |**Intégration à un DNS privé**||
-    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
-    |Zone DNS privée |Sélectionnez *(Nouveau) privatelink.azurecr.io* |
-    |||
-1. Configurez les paramètres de registre restants, puis sélectionnez **Vérifier + créer**.
-
-  ![Créer un registre avec un point de terminaison privé](./media/container-registry-private-link/private-link-create-portal.png)
-
-### <a name="create-a-private-endpoint---existing-registry"></a>Créer un point de terminaison privé (registre existant)
-
-1. Dans le portail, accédez à votre registre de conteneurs.
-1. Sous **Paramètres**, sélectionnez **Mise en réseau**.
-1. Sous l’onglet **Points de terminaison privés**, sélectionnez **+ Point de terminaison privé**.
-1. Sous l’onglet **Informations de base**, entrez ou sélectionnez les informations suivantes :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | **Détails du projet** | |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Resource group | Entrez le nom d’un groupe existant ou créez-en un nouveau.|
-    | **Détails de l’instance** |  |
-    | Nom | Entrez un nom. |
-    |Région|Sélectionnez une région.|
-    |||
-5. Sélectionnez **Suivant : Ressource**.
-6. Entrez ou sélectionnez les informations suivantes :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    |Méthode de connexion  | Sélectionnez **Se connecter à une ressource Azure dans mon répertoire**.|
-    | Abonnement| Sélectionnez votre abonnement. |
-    | Type de ressource | Sélectionnez **Microsoft.ContainerRegistry/registries**. |
-    | Ressource |Sélectionnez le nom de votre registre.|
-    |Sous-ressource cible |Sélectionnez le **registre**.|
-    |||
-7. Sélectionnez **Suivant : Configuration**.
-8. Entrez ou sélectionnez les informations :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    |**Mise en réseau**| |
-    | Réseau virtuel| Sélectionnez le réseau virtuel où votre machine virtuelle est déployée, tel que *myDockerVMVNET*. |
-    | Subnet | Sélectionnez un sous-réseau, tel que *myDockerVMSubnet*, où votre machine virtuelle est déployée. |
-    |**Intégration à un DNS privé**||
-    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
-    |Zone DNS privée |Sélectionnez *(Nouveau) privatelink.azurecr.io* |
-    |||
-
-1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
-2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
-
-Une fois le point de terminaison privé créé, les paramètres DNS dans la zone privée apparaissent dans la page **Points de terminaison privés** dans le portail :
-
-1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau**.
-1. Sous l’onglet **Points de terminaison privés**, sélectionnez le point de terminaison privé que vous avez créé.
-1. Dans la page **Vue d’ensemble**, passez en revue les paramètres de la liaison et les paramètres DNS personnalisés.
-
-  ![Paramètres DNS du point de terminaison](./media/container-registry-private-link/private-endpoint-overview.png)
-
-Votre liaison privée est désormais configurée et prête à être utilisée.
 
 ## <a name="disable-public-access"></a>Désactiver l’accès public
 
 Pour de nombreux scénarios, désactivez l’accès au registre à partir de réseaux publics. Cette configuration empêche les clients situés en dehors du réseau virtuel d’atteindre les points de terminaison du registre. 
-
-### <a name="disable-public-access---cli"></a>Désactiver l’accès public (CLI)
-
-Pour désactiver l’accès public à l’aide d’Azure CLI, exécutez [az acr update][az-acr-update] et définissez `--public-network-enabled` avec `false`. 
-
-> [!NOTE]
-> L’argument `public-network-enabled` nécessite Azure CLI 2.6.0 ou ultérieur. 
-
-```azurecli
-az acr update --name $REGISTRY_NAME --public-network-enabled false
-```
-
 
 ### <a name="disable-public-access---portal"></a>Désactiver l’accès public (portail)
 
 1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau**.
 1. Sous l’onglet **Accès public**, dans **Autoriser l’accès au réseau public**, sélectionnez **Désactivé**. Ensuite, sélectionnez **Enregistrer**.
 
+### <a name="disable-public-access---cli"></a>Désactiver l’accès public (CLI)
+
+Pour désactiver l’accès public à l’aide d’Azure CLI, exécutez [az acr update][az-acr-update] et définissez `--public-network-enabled` avec `false`. 
+
+```azurecli
+az acr update --name $REGISTRY_NAME --public-network-enabled false
+```
+
 ## <a name="validate-private-link-connection"></a>Valider la connexion de liaison privée
 
 Vous devez vérifier que les ressources contenues dans le sous-réseau du point de terminaison privé se connectent à votre registre via une adresse IP privée, et qu’elles sont intégrées à la zone DNS privée appropriée.
 
-Pour valider la connexion de liaison privée, utilisez SSH sur la machine virtuelle que vous avez configurée dans le réseau virtuel.
+Pour valider la connexion de liaison privée, connectez-vous à la machine virtuelle que vous avez configurée dans le réseau virtuel.
 
 Exécutez un utilitaire tel que `nslookup` ou `dig` pour rechercher l’adresse IP de votre registre via la liaison privée. Par exemple :
 
@@ -410,15 +427,16 @@ Pour certains scénarios, vous devrez peut-être configurer manuellement les enr
 > [!IMPORTANT]
 > Si vous ajoutez par la suite un nouveau réplica, vous devez ajouter manuellement un nouvel enregistrement DNS pour le point de terminaison de données dans cette région. Par exemple, si vous créez un réplica *myregistry* dans l’emplacement northeurope, ajoutez un enregistrement pour `myregistry.northeurope.data.azurecr.io`.
 
-Les noms de domaine complets et les adresses IP privées dont vous avez besoin pour créer des enregistrements DNS sont associés à l’interface réseau du point de terminaison privé. Vous pouvez obtenir ces informations à l’aide d’Azure CLI ou à partir du portail :
+Les noms de domaine complets et les adresses IP privées dont vous avez besoin pour créer des enregistrements DNS sont associés à l’interface réseau du point de terminaison privé. Vous pouvez obtenir ces informations à l’aide du Portail Azure ou Azure CLI.
 
+* Dans le portail, accédez à votre point de terminaison privé, puis sélectionnez **Configuration DNS**. 
 * À l’aide d’Azure CLI, exécutez la commande [az network nic show][az-network-nic-show]. Pour obtenir des exemples de commandes, consultez [Obtenir la configuration IP du point de terminaison](#get-endpoint-ip-configuration) plus haut dans cet article.
-
-* Dans le portail, accédez à votre point de terminaison privé, puis sélectionnez **Configuration DNS**.
 
 Après avoir créé les enregistrements DNS, vérifiez que les noms de domaine complets du registre sont correctement résolus en leurs adresses IP privées respectives.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Pour nettoyer vos ressources dans le portail, accédez à votre groupe de ressources. Une fois le groupe de ressources chargé, cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources et les ressources à cet endroit.
 
 Si vous avez créé toutes les ressources Azure dans le même groupe de ressources et que vous n’en avez plus besoin, vous pouvez éventuellement supprimer les ressources à l’aide d’une seule commande [az group delete](/cli/azure/group) :
 
@@ -426,11 +444,11 @@ Si vous avez créé toutes les ressources Azure dans le même groupe de ressourc
 az group delete --name $RESOURCE_GROUP
 ```
 
-Pour nettoyer vos ressources dans le portail, accédez à votre groupe de ressources. Une fois le groupe de ressources chargé, cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources et les ressources à cet endroit.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur Liaison privée (Private Link), consultez la documentation [Azure Private Link](../private-link/private-link-overview.md).
+
+* Pour vérifier les paramètres DNS dans le réseau virtuel qui achemine vers un point de terminaison privé, exécutez la commande [az acr check-health](/cli/azure/acr#az_acr_check_health) avec le paramètre `--vnet`. Pour plus d’informations, consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md) 
 
 * Si vous devez configurer des règles d’accès au registre derrière un pare-feu client, consultez [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](container-registry-firewall-access-rules.md).
 

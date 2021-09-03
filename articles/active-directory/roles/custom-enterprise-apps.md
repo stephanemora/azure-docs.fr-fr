@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db22b44e032261d138d74e34340dca6fcaf75779
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bf49cfd4d1e0e9b3e65354c9f6c89dd7efd71970
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524764"
 ---
 # <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Créer des rôles personnalisés pour gérer les applications d’entreprise dans Azure Active Directory
 
@@ -27,9 +27,9 @@ Cet article explique comment créer un rôle personnalisé avec des autorisation
 ## <a name="prerequisites"></a>Prérequis
 
 - Licence Azure AD Premium P1 ou P2
-- Administrateur de rôle privilégié ou administrateur général
-- Module AzureADPreview lors de l’utilisation de PowerShell
-- Consentement de l’administrateur lors de l’utilisation de l’Explorateur graphique pour l’API Microsoft Graph
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureADPreview avec PowerShell
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
 
 Pour plus d’informations, consultez [Configuration requise pour l’utilisation de PowerShell ou de l’Explorateur graphique](prerequisites.md).
 
@@ -54,8 +54,9 @@ L’octroi de l’autorisation de mise à jour s’effectue en deux étapes :
 >[!NOTE]
 > Les rôles personnalisés sont créés et gérés au niveau de l’organisation, et sont uniquement disponibles à partir de la page Vue d’ensemble de l’organisation.
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
-1. Sélectionnez **Azure Active Directory**, **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
 
     ![Ajouter un rôle personnalisé à partir de la liste des rôles dans Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -73,8 +74,10 @@ L’octroi de l’autorisation de mise à jour s’effectue en deux étapes :
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-portal"></a>Attribuer le rôle à un utilisateur à l’aide du portail Azure
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
-1. Sélectionnez **Azure Active Directory**, puis **Rôles et administrateurs**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Rôles et administrateurs**.
+
 1. Sélectionnez le rôle **Octroyer des autorisations pour gérer les attributions d’utilisateurs et de groupes**.
 
     ![Ouvrir Rôles et administrateurs et rechercher le rôle personnalisé](./media/custom-enterprise-apps/select-custom-role.png)

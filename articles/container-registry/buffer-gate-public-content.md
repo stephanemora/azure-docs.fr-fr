@@ -4,13 +4,13 @@ description: Pratiques et workflows dans Azure Container Registry pour gérer le
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 11/20/2020
-ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/17/2021
+ms.openlocfilehash: 806cb6b49824db65744bc653c6c467c7a816a21e
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95024736"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983695"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gérer le contenu public à l’aide d’Azure Container Registry
 
@@ -85,9 +85,16 @@ az acr import \
 
 En fonction des besoins de votre organisation, vous pouvez importer vers un registre dédié ou vers un référentiel dans un registre partagé.
 
-## <a name="automate-application-image-updates"></a>Automatiser les mises à jour des images d’application
+## <a name="update-image-references"></a>Mettre à jour les références d’image
 
-Les développeurs d’images d’application doivent s’assurer que leur code fait référence au contenu local sous leur contrôle. Par exemple, une instruction `Docker FROM` dans un Dockerfile doit faire référence à une image dans un registre privé d’images de base au lieu d’un registre public. 
+Les développeurs d’images d’application doivent s’assurer que leur code fait référence au contenu local sous leur contrôle.
+
+* Mettez à jour les références d’image pour utiliser le registre privé. Par exemple, mettez à jour une instruction `FROM baseimage:v1` dans un Dockerfile pour `FROM myregistry.azurecr.io/mybaseimage:v1`
+* Configurez les informations d’identification ou un mécanisme d’authentification pour utiliser le registre privé. Le mécanisme exact dépend des outils que vous utilisez pour accéder au registre et de la façon dont vous gérez l’accès des utilisateurs.
+    * Si vous utilisez un cluster Kubernetes ou Azure Kubernetes Service pour accéder au registre, consultez les [scénarios d’authentification](authenticate-kubernetes-options.md).
+    * En savoir plus sur les [options d’authentification](container-registry-authentication.md) avec un registre de conteneurs Azure.
+
+## <a name="automate-application-image-updates"></a>Automatiser les mises à jour des images d’application
 
 En plus de l’importation d’images, configurez une [tâche Azure Container Registry](container-registry-tasks-overview.md) pour automatiser les versions d’image d’application lorsque les images de base sont mises à jour. Une tâche de génération automatisée peut effectuer le suivi des [mises à jour d’image de base](container-registry-tasks-base-images.md) et des [mises à jour du code source](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
@@ -97,7 +104,6 @@ Pour obtenir un exemple détaillé, consultez [Comment utiliser et gérer le con
 > Une seule tâche préconfigurée peut régénérer automatiquement chaque image d’application qui fait référence à une image de base dépendante. 
  
 ## <a name="next-steps"></a>Étapes suivantes
- 
 * En savoir plus sur [ACR Tasks](container-registry-tasks-overview.md) pour générer, exécuter, envoi (push) et corriger des images conteneur dans Azure.
 * Consultez [Comment utiliser et gérer le contenu public à l’aide d’Azure Container Registry Tasks](tasks-consume-public-content.md) pour obtenir un workflow de contrôle automatisé afin de mettre à jour les images de base dans votre environnement. 
 * Pour plus d’exemples sur l’automatisation des versions d’images et des mises à jour, consultez les [tutoriels relatifs à ACR Tasks](container-registry-tutorial-quick-task.md).

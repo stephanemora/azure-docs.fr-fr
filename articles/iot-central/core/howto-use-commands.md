@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a0a7b24c2d28e27c44a130383e852838950abe49
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d6a1d252a6b9068697fe738d4d2b1c6bbf6ceeb5
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733190"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588270"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Utilisation des commandes dans une solution Azure IoT Central
 
@@ -39,7 +39,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 
 | Champ             |Description|
 |-------------------|-----------|
-|Nom d’affichage       |Valeur de commande utilisée dans les tableaux de bord et formulaires.|
+|Nom d’affichage       |Valeur de commande utilisée sur les mosaïques de tableaux de bord et formulaires d’appareil.|
 | Nom            | Nom de la commande. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique. Le code de l'appareil utilise cette valeur **Name**.|
 | Type de fonctionnalité | Commande.|
 | Mettre en file d'attente si hors connexion | Indique si cette commande doit être transformée en commande *hors connexion*. |

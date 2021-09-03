@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: fbd3d9c3607a0326e7ad9403c8e69d20dafc952a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5b86fb3d1c84ce453c05c1d1f81528ca27543a56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740300"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461655"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -104,7 +104,7 @@ Tout ce qui est postérieur à l’API version 2020-06-01 prend en charge les di
 ## <a name="limitations"></a>Limites
 - Les diagnostics de démarrage managés sont uniquement disponibles pour les machines virtuelles Azure Resource Manager. 
 - Les diagnostics de démarrage managé ne prennent pas en charge les machines virtuelles utilisant des disques de système d’exploitation non managés.
-- Les diagnostics de démarrage ne prennent pas en charge les comptes de stockage Premium. Si un compte de stockage Premium est utilisé pour les diagnostics de démarrage, les utilisateurs recevront une erreur `StorageAccountTypeNotSupported` lors du démarrage de la machine virtuelle. 
+- Les diagnostics de démarrage ne prennent pas en charge les types de comptes Stockage Premium ou Stockage redondant interzone. Si l'un des deux est utilisé pour les diagnostics de démarrage, les utilisateurs recevront une erreur `StorageAccountTypeNotSupported` lors du démarrage de la machine virtuelle. 
 - Les comptes de stockage managés sont pris en charge dans l’API Resource Manager version « 2020-06-01 » et ultérieures.
 - La console série Azure est actuellement incompatible avec un compte de stockage managé pour les diagnostics de démarrage. Découvrez-en plus sur la [console série Azure](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - Le portail prend en charge l’utilisation de diagnostics de démarrage uniquement avec un compte de stockage managé pour les machines virtuelles à instance unique.

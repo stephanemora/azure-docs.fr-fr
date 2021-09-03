@@ -4,15 +4,17 @@ description: Décrit les différents modèles d’utilisation du cache et la man
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 07/12/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7e1b11fd15cca9b11fc627222318f08d31743336
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: b623bd074b327d8139082d3060a6cdb120c8acbb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719184"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294913"
 ---
+<!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
+
 # <a name="understand-cache-usage-models"></a>Comprendre les modèles d’utilisation du cache
 
 Les modèles d’utilisation du cache vous permettent de personnaliser la façon dont Azure HPC Cache stocke les fichiers pour accélérer votre workflow.
@@ -21,7 +23,7 @@ Les modèles d’utilisation du cache vous permettent de personnaliser la façon
 
 La mise en cache des fichiers correspond à la façon dont Azure HPC Cache accélère les demandes des clients. Il utilise les pratiques de base suivantes :
 
-* **Mise en cache en lecture** : Azure HPC Cache conserve une copie des fichiers que les clients demandent au système de stockage. La prochaine fois qu’un client demande le même fichier, le cache HPC peut fournir la version présente dans son cache au lieu de devoir aller le chercher à nouveau dans le système de stockage back-end.
+* **Mise en cache en lecture** : Azure HPC Cache conserve une copie des fichiers que les clients demandent au système de stockage. La prochaine fois qu'un client demandera le même fichier, HPC Cache pourra fournir la version présente dans son cache au lieu de devoir aller le chercher à nouveau dans le système de stockage back-end.
 
 * **Mise en cache en écriture** : En option, Azure HPC Cache peut stocker une copie de tous les fichiers modifiés envoyés par les ordinateurs clients. Si plusieurs clients apportent des modifications au même fichier sur une courte période, le cache peut rassembler toutes les modifications dans le cache au lieu de devoir écrire chaque modification individuellement dans le système de stockage back-end.
 
@@ -55,7 +57,7 @@ Voici les options de modèle d’utilisation :
 
 * **Opérations d’écriture supérieures à 15 %**  : cette option accélère les performances de lecture et d’écriture. Quand vous utilisez cette option, tous les clients doivent accéder aux fichiers par le biais d’Azure HPC Cache au lieu de monter le stockage backend directement. Les fichiers mis en cache auront des modifications récentes qui n’ont pas encore été copiées dans le back end.
 
-  Dans ce modèle d’utilisation, les fichiers figurant dans le cache ne sont vérifiés par rapport aux fichiers se trouvant dans le stockage principal que toutes les huit heures. La version mise en cache du fichier est supposée être plus récente. Un fichier modifié dans le cache est écrit dans le système de stockage back-end après être resté dans le cache pendant 20 minutes<!-- an hour --> sans autre modification.
+  Dans ce modèle d’utilisation, les fichiers figurant dans le cache ne sont vérifiés par rapport aux fichiers se trouvant dans le stockage principal que toutes les huit heures. La version mise en cache du fichier est supposée être plus récente. Un fichier modifié dans le cache est écrit dans le système de stockage back-end après qu’il est resté dans le cache pendant une heure sans aucune modification supplémentaire.
 
 * **Les clients écrivent dans la cible NFS en ignorant le cache** : choisissez cette option si des clients dans votre workflow écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache, ou si vous voulez optimiser la cohérence des données. Les fichiers que les clients demandent sont mis en cache (lecture), mais les modifications apportées à ces fichiers par le client (écriture) ne sont pas mises en cache. Elles sont transmises directement au système de stockage back-end.
 
@@ -78,28 +80,22 @@ Ce tableau récapitule les différences entre les modèles d’utilisation :
 
 Si vous avez des questions sur le modèle d’utilisation le mieux adapté à votre workflow Azure HPC Cache, contactez votre représentant Azure ou ouvrez une demande de support pour obtenir de l’aide.
 
-## <a name="know-when-to-remount-clients-for-nlm"></a>Savoir quand remonter les clients pour NLM
+## <a name="change-usage-models"></a>Modifier les modèles d'utilisation
 
-Dans certains cas, vous devrez peut-être remonter les clients si vous modifiez le modèle d’utilisation d’une cible de stockage. Ceci est nécessaire en raison de la façon dont les différents modèles d’utilisation gèrent les demandes du gestionnaire de verrous réseau (NLM).
+Vous pouvez modifier les modèles d'utilisation en changeant la cible de stockage, mais certaines modifications ne sont pas autorisées car elles entraînent un faible risque de conflit de versions de fichier.
 
-Le cache HPC se situe entre les clients et le système de stockage principal. En règle générale, le cache transfère les demandes NLM par le biais du système de stockage principal, mais dans certains cas, le cache lui-même reconnaît la demande NLM et retourne une valeur au client. Dans Azure HPC Cache, cela se produit uniquement lorsque vous utilisez le modèle d’utilisation **Lecture intensive, écritures peu fréquentes** (ou dans une cible de stockage d’objets blob standard, qui ne dispose pas de modèles d’utilisation configurables).
+Vous ne pouvez pas effectuer de modifications **vers** ou **depuis** le modèle **Lectures intensives, écritures peu fréquentes**. Pour remplacer une cible de stockage par ce modèle d'utilisation, ou pour passer de ce modèle à un autre modèle d'utilisation, vous devez supprimer la cible de stockage d'origine et en créer une nouvelle.
 
-Il y a un risque de conflit de fichiers si vous passez d’un modèle d’utilisation à des **Écritures fortes, peu fréquentes** à un modèle d’utilisation différent. Il n’existe aucun moyen de transférer l’état NLM actuel du cache vers le système de stockage, ou vice versa. L’état du verrou du client est donc inexact.
+Cette restriction s'applique également au modèle d'utilisation **Lectures intensives, vérification du serveur de sauvegarde toutes les 3 heures**, qui est moins couramment utilisé. En outre, vous pouvez passer d'un modèle d'utilisation « Lectures intensives... » à l'autre, mais pas à un style de modèle d'utilisation différent.
 
-Remontez les clients pour vous assurer qu’ils disposent du bon état NLM avec le nouveau gestionnaire de verrous.
+Cette restriction est nécessaire en raison de la façon dont les différents modèles d'utilisation gèrent les demandes du gestionnaire de verrous réseau (NLM). Azure HPC Cache se situe entre les clients et le système de stockage back-end. En règle générale, le cache transfère les demandes NLM par le biais du système de stockage back-end, mais dans certains cas, le cache lui-même accuse réception de la demande NLM et renvoie une valeur au client. Dans Azure HPC Cache, cela se produit uniquement lorsque vous utilisez le modèle d'utilisation **Lecture intensive, écritures peu fréquentes** ou **Lectures intensives, vérification du serveur de sauvegarde toutes les 3 heures**, ou lorsque vous utilisez une cible de stockage d'objets blob standard, qui ne dispose pas de modèles d'utilisation configurables.
 
-Si vos clients envoient une demande NLM alors que le modèle d’utilisation ou le stockage principal ne la prend pas en charge, ils recevront une erreur.
-
-### <a name="disable-nlm-at-client-mount-time"></a>Désactiver NLM au moment du montage du client
-
-Il n’est pas toujours facile de savoir si vos systèmes clients vont envoyer des requêtes NLM.
-
-Vous pouvez désactiver NLM lorsque les clients montent le cluster à l’aide de l’option ``-o nolock`` de la commande ``mount``.
-
-Le comportement exact de l’option ``nolock`` dépend du système d’exploitation client. Vous devez donc vérifier la documentation de montage (manuel 5 NFS) de votre système d’exploitation client. Dans la plupart des cas, il déplace le verrou localement sur le client. Soyez prudent si votre application verrouille des fichiers sur plusieurs clients.
+Si vous passez d'un modèle **Lecture intensive, écritures peu fréquentes** à un autre modèle d'utilisation, il n'y a aucun moyen de transférer l'état NLM actuel du cache vers le système de stockage ou vice versa. L’état du verrou du client est donc inexact.
 
 > [!NOTE]
-> ADLS-NFS ne prend pas en charge le NLM. Vous devez désactiver le NLM avec l’option de montage précédente lors de l’utilisation d’une cible de stockage ADLS-NFS.
+> ADLS-NFS ne prend pas en charge le NLM. Vous devez désactiver le NLM lorsque les clients montent le cluster pour accéder à une cible de stockage ADLS-NFS.
+>
+> Utilisez l'option ``-o nolock`` dans la commande ``mount``. Consultez la documentation de montage de votre système d'exploitation client (man 5 NFS) afin de connaître le comportement exact de l'option ``nolock`` pour vos clients.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

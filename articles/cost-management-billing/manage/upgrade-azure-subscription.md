@@ -8,15 +8,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 07/15/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56d0116217f8db76131ccecc884312fb5296d1ed
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: ad09c97b784dcfabfe0dfa3e531fc789ba6fc956
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331715"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297355"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Mettre à niveau votre compte gratuit Azure ou votre compte Azure for Students Starter
 
@@ -25,6 +25,9 @@ Vous pouvez mettre à niveau votre [compte gratuit Azure](https://azure.microsof
 Si vous avez un [compte Microsoft Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) et que vous êtes éligible à l’offre de [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez le mettre à niveau pour passer à un [compte gratuit Azure](https://azure.microsoft.com/free/). Vous obtiendrez un crédit Azure de 200 dollars US dans votre devise de facturation et 12 mois de services gratuits à la mise à niveau. Si vous n’êtes pas éligible à un compte gratuit, vous pouvez passer à des [tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) en adressant une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 Si vous avez un compte [Microsoft Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/), vous pouvez passer à des [tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) en adressant une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+>[!NOTE]
+>Si vous utilisez des ressources payantes et que votre abonnement est désactivé parce que vous n'avez plus de crédit, puis que vous mettez votre abonnement à niveau, les ressources sont activées après la mise à niveau. Dans ce cas, vous êtes facturé pour les ressources utilisées.
 
 <a id="freetrial"></a>
 

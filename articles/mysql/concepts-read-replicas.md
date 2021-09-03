@@ -5,16 +5,18 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: c380a3edb556adb72d067cb2910c8afbf66b99a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89cb9122da21887165b2330f75dd316c184de823
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250262"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563159"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour MySQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur source vers cinq réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -48,7 +50,38 @@ Vous pouvez disposer d’un serveur source dans toute [région Azure Database po
 
 Vous pouvez créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur source. Les régions de réplica universelles prises en charge sont les suivantes :
 
-Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
+| Région | Disponibilité des réplicas | 
+| --- | --- | 
+| Australie Est | :heavy_check_mark: | 
+| Sud-Est de l’Australie | :heavy_check_mark: | 
+| Brésil Sud | :heavy_check_mark: | 
+| Centre du Canada | :heavy_check_mark: |
+| Est du Canada | :heavy_check_mark: |
+| USA Centre | :heavy_check_mark: | 
+| USA Est | :heavy_check_mark: | 
+| USA Est 2 | :heavy_check_mark: |
+| Asie Est | :heavy_check_mark: | 
+| Japon Est | :heavy_check_mark: | 
+| OuJapon Est | :heavy_check_mark: | 
+| Centre de la Corée | :heavy_check_mark: |
+| Corée du Sud | :heavy_check_mark: |
+| Europe Nord | :heavy_check_mark: | 
+| Centre-Nord des États-Unis | :heavy_check_mark: | 
+| États-Unis - partie centrale méridionale | :heavy_check_mark: | 
+| Asie Sud-Est | :heavy_check_mark: | 
+| Sud du Royaume-Uni | :heavy_check_mark: | 
+| Ouest du Royaume-Uni | :heavy_check_mark: | 
+| Centre-USA Ouest | :heavy_check_mark: | 
+| USA Ouest | :heavy_check_mark: | 
+| USA Ouest 2 | :heavy_check_mark: | 
+| Europe Ouest | :heavy_check_mark: | 
+| Inde Centre* | :heavy_check_mark: | 
+| France Centre* | :heavy_check_mark: | 
+| Émirats arabes unis Nord* | :heavy_check_mark: | 
+| Afrique du Sud Nord* | :heavy_check_mark: |
+
+> [!Note] 
+> *Régions où Azure Database pour MySQL dispose d’un stockage à usage général V2 en préversion publique  <br /> *Pour ces régions Azure, vous aurez la possibilité de créer un serveur à la fois dans le stockage à usage général v1 et v2. Pour les serveurs créés avec stockage à usage général v2 dans la préversion publique, vous êtes limité à la création d’un serveur réplica uniquement dans les régions Azure qui prennent en charge le stockage à usage général v2.
 
 ### <a name="paired-regions"></a>Régions jumelées
 
@@ -141,11 +174,18 @@ Les paramètres serveur suivants sont disponibles pour la configuration du GTID�
 |`enforce_gtid_consistency`|Applique la cohérence GTID en autorisant uniquement l'exécution des instructions qui peuvent être consignées de manière sécurisée sur le plan transactionnel. Cette valeur doit être définie sur `ON` avant d'activer la réplication GTID. |`OFF`|`OFF` : Toutes les transactions sont autorisées à enfreindre la cohérence GTID.  <br> `ON` : Aucune transaction n'est autorisée à enfreindre la cohérence GTID. <br> `WARN` : Toutes les transactions sont autorisées à enfreindre la cohérence GTID, mais un avertissement est généré. | 
 
 > [!NOTE]
-> Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique. 
+> * Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique. 
+>
+> * La modification de la valeur d’un GTID ne peut être effectuée qu’une étape à la fois dans l’ordre croissant des modes. Par exemple, si gtid_mode est défini sur OFF_PERMISSIVE, il est possible de le changer en ON_PERMISSIVE mais pas sur ON.
+>
+> * Pour assurer la cohérence de la réplication, vous ne pouvez pas le mettre à jour pour un serveur maître/de réplication.
+>
+> * Il est recommandé de définir enforce_gtid_consistency sur ON avant de définir gtid_mode=ON
+
 
 Pour activer le GTID et configurer le comportement de cohérence, mettez à jour les paramètres serveur `gtid_mode` et `enforce_gtid_consistency` à l'aide du [portail Azure](howto-server-parameters.md), d'[Azure CLI](howto-configure-server-parameters-using-cli.md) ou de [PowerShell](howto-configure-server-parameters-using-powershell.md).
 
-Si le GTID est activé sur un serveur source (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur les serveurs sources ou réplicas.
+Si le GTID est activé sur un serveur source (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour garantir que la réplication est cohérente, `gtid_mode` ne peut pas être changé une fois que le ou les serveurs maîtres ou de réplication sont créés avec le GTID activé. 
 
 ## <a name="considerations-and-limitations"></a>Observations et limitations
 

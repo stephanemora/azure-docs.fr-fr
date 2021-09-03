@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a448c5b7ecb69c79c05c28c03593058e4c5ab87a
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568798"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540993"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Créer des rapports interactifs VM Insights avec des classeurs
 
@@ -23,22 +23,30 @@ Les classeurs sont utiles pour les scénarios tels que les suivants :
 * Partager les résultats d’une expérimentation de redimensionnement de votre machine virtuelle avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérimentation avec du texte, puis montrer chaque métrique d’utilisation et des requêtes analytiques utilisées pour évaluer l’expérimentation, en vous aidant de légendes claires indiquant si chaque métrique se situe au-dessus ou en dessous de la cible.
 * Créer des rapports relatifs à l’impact d’une panne sur l’utilisation de votre machine virtuelle, en combinant des données, une explication du texte et une présentation des étapes suivantes pour éviter à l’avenir d’éventuelles interruptions.
 
-Le tableau suivant récapitule les classeurs qu’inclut VM Insights pour vous aider à commencer.
+## <a name="vm-insights-workbooks"></a>Classeurs d’insights de machines virtuelles
+Les insights de machines virtuelles incluent les classeurs suivants. Vous pouvez utiliser ces classeurs ou vous en servir comme point de départ pour créer des classeurs personnalisés et répondre à vos besoins spécifiques.
 
-| Classeur | Description | Étendue |
-|----------|-------------|-------|
-| Performances | Fournit une version personnalisable de notre Liste des N premiers et la vue Graphiques dans un classeur unique qui exploite tous les compteurs de performances Log Analytics que vous avez activés.| Plusieurs machines virtuelles |
-| Compteurs de performance | Vue de graphique N premiers sur un vaste ensemble de compteurs de performances. | Plusieurs machines virtuelles |
-| Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles supervisées. | Plusieurs machines virtuelles |
-| Ports actifs | Fournit une liste des processus qui sont liés aux ports sur les machines virtuelles supervisées et à leur activité dans la plage de temps choisie. | Plusieurs machines virtuelles |
-| Ouvrir des ports | Fournit le nombre de ports ouverts sur vos machines virtuelles supervisées et les détails concernant ces ports. | Plusieurs machines virtuelles |
-| Connexions ayant échoué | Permet d’afficher le nombre de connexions ayant échoué sur vos machines virtuelles supervisées, la tendance des échecs et si le pourcentage d’échecs augmente au fil du temps. | Plusieurs machines virtuelles |
-| Sécurité et audit | Analyse de votre trafic TCP/IP qui génère des rapports sur les connexions globales et les connexions malveillantes, où les points de terminaison IP se trouvent partout dans le monde entier.  Pour activer toutes les fonctionnalités, vous devez activer la Détection de la sécurité. | Plusieurs machines virtuelles |
-| Trafic TCP | Rapport classé concernant vos machines virtuelles supervisées et leur trafic réseau envoyé, reçu et total dans une grille et affiché sous forme de courbe de tendance. | Plusieurs machines virtuelles |
-| Comparaison du trafic | Ce classeur vous permet de comparer les tendances du trafic réseau pour une seule machine ou un groupe de machines. | Plusieurs machines virtuelles |
-| Performances | Fournit une version personnalisable de notre vue Performances qui exploite tous les compteurs de performances Log Analytics que vous avez activés. | Machine virtuelle unique | 
-| Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles. | Machine virtuelle unique |
- 
+### <a name="single-virtual-machine"></a>une seule machine virtuelle
+
+| Classeur | Description |
+|----------|-------------|
+| Performances | Fournit une version personnalisable de notre affichage des données de performances qui exploite tous les compteurs de performances Log Analytics que vous avez activés. | 
+| Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles. | 
+
+### <a name="multiple-virtual-machines"></a>Plusieurs machines virtuelles
+
+| Classeur | Description |
+|----------|-------------|
+| Performances | Fournit une version personnalisable de notre Liste des N premiers et de l’affichage Graphiques dans un classeur unique qui exploite tous les compteurs de performances Log Analytics que vous avez activés.|
+| Compteurs de performance | Vue de graphique N premiers sur un vaste ensemble de compteurs de performances. |
+| Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles supervisées. |
+| Ports actifs | Fournit une liste des processus qui sont liés aux ports sur les machines virtuelles supervisées et à leur activité dans la plage de temps choisie. |
+| Ouvrir des ports | Fournit le nombre de ports ouverts sur vos machines virtuelles supervisées et les détails concernant ces ports. |
+| Connexions ayant échoué | Permet d’afficher le nombre de connexions ayant échoué sur vos machines virtuelles supervisées, la tendance des échecs et si le pourcentage d’échecs augmente au fil du temps. |
+| Sécurité et audit | Analyse de votre trafic TCP/IP qui génère des rapports sur les connexions globales et les connexions malveillantes, où les points de terminaison IP se trouvent partout dans le monde entier.  Pour activer toutes les fonctionnalités, vous devez activer la Détection de la sécurité. |
+| Trafic TCP | Rapport classé concernant vos machines virtuelles supervisées et leur trafic réseau envoyé, reçu et total dans une grille et affiché sous forme de courbe de tendance. |
+| Comparaison du trafic | Ce classeur vous permet de comparer les tendances du trafic réseau pour une seule machine ou un groupe de machines. |
+
 ## <a name="creating-a-new-workbook"></a>Création d’un classeur
 
 Un classeur est composé de sections comprenant des graphiques, des tableaux, du texte et des commandes de saisie modifiables de manière indépendante. Pour mieux comprendre les classeurs, commençons par ouvrir un modèle et décrivons la procédure à suivre pour créer un classeur personnalisé. 

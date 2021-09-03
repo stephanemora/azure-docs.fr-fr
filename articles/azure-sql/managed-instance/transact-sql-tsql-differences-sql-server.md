@@ -9,14 +9,14 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 3/16/2021
+ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 8c3ab997aeb179754e4c365dc41b795cf5c3bdc7
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 005984260532ddf0a349380f290a65313e371336
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528555"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527768"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -470,8 +470,8 @@ Pour plus d’informations sur les instructions de restauration, consultez [Inst
 
 L’échange de messages Service Broker entre les instances est pris en charge uniquement entre des instances Azure SQL Managed Instances :
 
-- `CREATE ROUTE` : vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` autre que `LOCAL` ou le nom DNS d’une autre Managed instance SQL.
-- `ALTER ROUTE` : vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` autre que `LOCAL` ou le nom DNS d’une autre Managed instance SQL.
+- `CREATE ROUTE` : vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` autre que `LOCAL` ou le nom DNS d’une autre Managed instance SQL. Le port est toujours 4022.
+- `ALTER ROUTE` : vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` autre que `LOCAL` ou le nom DNS d’une autre Managed instance SQL. Le port est toujours 4022.
 
 La sécurité du transport est prise en charge, pas la sécurité du dialogue :
 - `CREATE REMOTE SERVICE BINDING`n’est pas pris en charge.
@@ -491,6 +491,8 @@ Service Broker est activé par défaut et ne peut pas être désactivé. Les opt
   - `remote data archive`
   - `remote proc trans`
   - `scan for startup procs`
+- Les options [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) suivantes sont ignorées et n'ont aucun effet : 
+  - `Ole Automation Procedures`
 - `sp_execute_external_scripts` n’est pas pris en charge. Consultez [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` n’est pas pris en charge. Consultez [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - Les `Extended stored procedures`, à savoir `sp_addextendedproc` et `sp_dropextendedproc`, ne sont pas pris en charge. Cette fonctionnalité n’est pas prise en charge, car elle est en voie de dépréciation pour SQL Server. Pour plus de détails, consultez [Procédures stockées étendues](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).

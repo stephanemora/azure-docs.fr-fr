@@ -6,24 +6,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 05/28/2021
+ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8f1997c4cc25ab02e58ab43d38311885dc3bb74f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6931f33c303e1e42af75b34cb7a72d7a37c702cd
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110709250"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598186"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Mettre à jour des offres existantes dans le marketplace commercial
 
-Cet article explique comment mettre à jour les offres et les plans existants et comment supprimer une offre du marketplace commercial. Vous pouvez afficher vos offres dans l’onglet **Vue d’ensemble** du [portail du marketplace commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans Espace partenaires.
+Cet article explique comment mettre à jour les offres et les plans existants et comment supprimer une offre du marketplace commercial. Vous pouvez afficher vos offres sur le [portail du marketplace commercial](https://go.microsoft.com/fwlink/?linkid=2165935.) de l'Espace partenaires.
 
 ## <a name="update-a-published-offer"></a>Mettre à jour une offre publiée
 
 Procédez comme suit pour mettre à jour une offre qui a été publiée en préversion ou qui est active.
 
-1. Sélectionnez le nom de l’offre à mettre à jour. L’état de l’offre peut être répertorié comme suit : **Préversion**, **Activée**, **Publication en cours**, **Brouillon**, **Attention requise** ou **Non disponible** (si vous avez précédemment choisi d’arrêter de vendre l’offre). Une fois sélectionnée, la page **Vue d’ensemble de l’offre** de cette offre s’ouvre.
+1. Sélectionnez le nom de l’offre à mettre à jour. L'état de l'offre peut être répertorié comme suit : **Préversion**, **Activée**, **Publication en cours**, **Brouillon**, **Attention requise** ou **Non disponible** (si vous avez précédemment choisi d'arrêter de distribuer l'offre). Une fois sélectionnée, la page **Vue d’ensemble de l’offre** de cette offre s’ouvre.
 1. Sélectionnez la page de l’offre que vous souhaitez mettre à jour, par exemple **Propriétés**, **Liste des offres** ou **Préversion** (ou sélectionnez **Mise à jour** dans la carte appropriée sur la page **Vue d’ensemble de l’offre**).
 1. Apportez vos modifications, puis sélectionnez **Enregistrer le brouillon**. Répétez ce processus jusqu'à ce que toutes vos modifications soient terminées.
 1. Passez en revue les modifications apportées à la page **[Comparer](#compare-changes-to-your-offer)** .
@@ -58,6 +58,21 @@ Procédez comme suit pour apporter des modifications au plan d’une offre que v
 1. Si vous êtes prêt à publier vos mises à jour, sélectionnez **Passer en revue et publier**. La page **[Examiner et publier](review-publish-offer.md)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
 1. Sélectionnez **Publier** pour envoyer le plan mis à jour en vue de sa publication. Nous vous enverrons un e-mail quand une préversion de l’offre mise à jour sera disponible pour examen et approbation.
 
+## <a name="update-image-versions-for-an-existing-vm-offer"></a>Mettre à jour les versions d'images pour une offre de machine virtuelle existante
+
+Procédez comme suit pour mettre à jour les images disponibles dans un plan pour une offre que vous avez déjà publiée.
+
+1. Ouvrez la page **Vue d'ensemble de l'offre** de votre offre existante et choisissez le plan que vous souhaitez modifier. Si le plan n’est pas accessible à partir de la liste **Vue d’ensemble du plan**, sélectionnez **Voir tous les plans**.
+1. Dans la navigation en mode Focus, sélectionnez **Configuration technique**.
+1. Pour ajouter une nouvelle version, sélectionnez **+ Ajouter une image de machine virtuelle**.
+1. Pour supprimer une version, sélectionnez **Déprécier**. Notez que vous ne pouvez pas déprécier la dernière machine virtuelle du plan.
+1. Une fois vos modifications apportées, sélectionnez **Enregistrer le brouillon**.
+1. Si vous êtes prêt à publier vos mises à jour, sélectionnez **Passer en revue et publier**. La [page Passer en revue et publier](review-publish-offer.md) apparaît avec l'état d'achèvement de vos mises à jour.
+1. Sélectionnez **Publier** pour envoyer le plan mis à jour en vue de sa publication. Nous vous enverrons un e-mail quand une préversion de l’offre mise à jour sera disponible pour examen et approbation.
+
+> [!NOTE]
+> Un plan doit présenter au moins une version d'image. Si vous souhaitez cesser de proposer le plan, dépréciez-le.
+
 ## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Offrir un plan d’ordinateur virtuel à un nouveau prix
 
 Après la publication d’un plan d’ordinateur virtuel, son prix ne peut pas être modifié. Pour offrir le même plan à un prix différent, vous devez masquer celui-ci et en créer un nouveau avec le tarif mis à jour. Tout d’abord, masquez le plan avec le prix que vous souhaitez modifier :
@@ -71,7 +86,7 @@ Maintenant que vous avez masqué le plan avec l’ancien prix, créez une copie 
 2. Sélectionnez **Créer un plan**. Entrez un **ID de plan** et un **Nom de plan**, puis sélectionnez **Créer**.
 1. Pour réutiliser la configuration technique du plan que vous avez masqué, activez la case à cocher **Réutiliser la configuration technique**. Pour en savoir plus, consultez [Créer des plans pour une offre de machine virtuelle](azure-vm-create-plans.md).
     > [!IMPORTANT]
-    > Si vous sélectionnez **Ce plan réutilise la configuration technique d’un autre plan**, vous ne pourrez pas arrêter la vente du plan parent ultérieurement. N’utilisez pas cette option si vous souhaitez arrêter la vente du plan parent.
+    > Si vous sélectionnez **Ce plan réutilise la configuration technique d'un autre plan**, il vous sera ensuite impossible de cesser de distribuer le plan parent. N'utilisez pas cette option si vous souhaitez cesser de distribuer le plan parent.
 3. Renseignez toutes les sections requises pour le nouveau plan, y compris le nouveau prix.
 1. Sélectionnez **Enregistrer le brouillon**.
 1. Une fois que vous avez terminé toutes les sections requises pour le nouveau plan, sélectionnez **Vérifier et publier**. Cela permet d’envoyer votre offre à des fins de révision et de publication. Lisez [Consulter et publier une offre sur la place de marché commerciale](review-publish-offer.md) pour plus d’informations.
@@ -125,21 +140,21 @@ Si vous avez des modifications en préversion qui ne sont pas en direct, vous po
 
 Pensez à republier votre offre après avoir apporté des mises à jour pour que les modifications prennent effet.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Arrêter la vente d’une offre ou d’un plan
+## <a name="stop-distribution-of-an-offer-or-plan"></a>Cesser de distribuer une offre ou un plan
 
 Vous pouvez supprimer des listes et des plans d’offres du marketplace commercial de Microsoft, ce qui empêchera les nouveaux clients de les trouver et de les acheter. Les clients ayant déjà acquis l’offre ou le plan peuvent continuer à les utiliser, et ils peuvent les télécharger à nouveau si nécessaire. Toutefois, ils ne recevront pas les mises à jour si vous décidez de republier l’offre ou le plan ultérieurement.
 
-- Pour arrêter la vente d’une offre après sa publication, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble de l’offre**. Dans les quelques heures qui suivent votre confirmation, l’offre n’est plus visible sur le marketplace commercial.
+- Pour cesser de distribuer une offre après sa publication, sélectionnez **Cesser la distribution** sur la page **Vue d'ensemble de l'offre**. Dans les quelques heures qui suivent votre confirmation, l’offre n’est plus visible sur le marketplace commercial.
 
-- Pour arrêter de vendre un plan, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble du plan**. L’option d’arrêt d’un plan est uniquement disponible si l’offre contient plus d’un plan. Vous pouvez choisir d’arrêter la vente d’un seul plan sans influer sur les autres plans au sein de votre offre.
+- Pour cesser de distribuer un plan, sélectionnez **Cesser la distribution** sur la page **Vue d'ensemble du plan**. L'option permettant de cesser de distribuer un plan est uniquement disponible si l'offre contient plus d'un plan. Vous pouvez choisir de cesser de distribuer un plan sans influer sur les autres plans contenus dans votre offre.
      >[!NOTE]
-     > Une fois que vous avez confirmé vouloir arrêter la vente du plan, vous devez republier l’offre pour que la modification prenne effet.
+     > Après avoir confirmé que vous vouliez cesser de distribuer le plan, vous devez republier l'offre pour que la modification prenne effet.
 
-Une fois que vous avez cessé de vendre une offre ou un plan, vous les voyez toujours dans Espace partenaires avec un état **Non disponible**. Si vous décidez de référencer ou de vendre à nouveau cette offre ou ce plan, suivez les instructions pour [mettre à jour une offre publiée](#update-a-published-offer). N’oubliez pas que vous devrez **publier** à nouveau l’offre ou le plan après y avoir apporté des modifications.
+Une fois la distribution d'une offre ou d'un plan arrêtée, ceux-ci restent visibles dans l'Espace partenaires, mais leur état passe à **Non disponible**. Si vous décidez de référencer ou de vendre à nouveau cette offre ou ce plan, suivez les instructions pour [mettre à jour une offre publiée](#update-a-published-offer). N’oubliez pas que vous devrez **publier** à nouveau l’offre ou le plan après y avoir apporté des modifications.
 
 ## <a name="remove-offers-from-existing-customers"></a>Supprimer des offres de clients existants
 
-Pour supprimer des offres de clients existants, [enregistrez une demande de support](https://aka.ms/marketplacepublishersupport). Dans la liste des rubriques du support, sélectionnez **Marketplace commercial** > **Déréférencement, suppression ou arrêt d’une offre ou d’une application** et envoyez la demande. L’équipe de support vous guidera tout au long du processus de suppression de l’offre.
+Pour supprimer des offres de clients existants, [enregistrez une demande de support](https://go.microsoft.com/fwlink/?linkid=2165533). Dans la liste des rubriques du support, sélectionnez **Marketplace commercial** > **Déréférencement, suppression ou arrêt d’une offre ou d’une application** et envoyez la demande. L’équipe de support vous guidera tout au long du processus de suppression de l’offre.
 
 Lorsque la suppression de l’offre est lancée par le serveur de publication, le serveur de publication est propriétaire de la communication de la suppression au client.
 

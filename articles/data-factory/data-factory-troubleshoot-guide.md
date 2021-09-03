@@ -1,27 +1,30 @@
 ---
-title: Résoudre les problèmes rencontrés dans Azure Data Factory | Microsoft Docs
-description: Découvrez comment résoudre les problèmes liés aux activités de contrôle externes dans Azure Data Factory.
+title: Résolution de problèmes générale
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment résoudre les problèmes liés aux activités de contrôle externe dans les pipelines Azure Data Factory et Azure Synapse Analytics.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: troubleshooting
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 06/18/2021
 ms.author: abnarain
-ms.openlocfilehash: 3011309da477dcfad2285e5832dfa163f69cc419
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7ae441bde7dc6196b01bb285f0ebf65e5c9f4e83
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108183539"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641366"
 ---
-# <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
+# <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Résoudre les problèmes liés aux pipelines Azure Data Factory et Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article présente des méthodes couramment employées pour résoudre les problèmes liés aux activités de contrôle externes dans Azure Data Factory.
+Cet article présente des méthodes couramment employées pour résoudre les problèmes liés aux activités de contrôle externes dans Azure Data Factory et Synapse.
 
 ## <a name="connector-and-copy-activity"></a>Activité de copie et connecteur
 
-Pour des problèmes de connecteur, tels qu’une erreur lors de l’utilisation d’une activité de copie, consultez [Résoudre les problèmes liés aux connecteurs dans Azure Data Factory](connector-troubleshoot-guide.md).
+Pour des problèmes de connecteur, tels qu’une erreur lors de l’utilisation d’une activité de copie, reportez-vous à l’article [Résoudre les problèmes liés aux connecteurs](connector-troubleshoot-guide.md).
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -157,7 +160,7 @@ Le tableau suivant s’applique à U-SQL.
 
 - **Cause** : Cette erreur est provoquée par une limitation dans Data Lake Analytics.
 
-- **Recommandation** : Réduisez le nombre de travaux soumis à Data Lake Analytics. Vous pouvez modifier les déclencheurs Data Factory et les paramètres de concurrence sur les activités ou augmenter les limites sur Data Lake Analytics.
+- **Recommandation** : Réduisez le nombre de travaux soumis à Data Lake Analytics. Vous pouvez modifier les déclencheurs et les paramètres de concurrence sur les activités ou augmenter les limites sur Data Lake Analytics.
 
 <br/> 
 
@@ -165,7 +168,7 @@ Le tableau suivant s’applique à U-SQL.
 
 - **Cause** : Cette erreur est provoquée par une limitation dans Data Lake Analytics.
 
-- **Recommandation** : Réduisez le nombre de travaux soumis à Data Lake Analytics. Vous pouvez modifier les déclencheurs Data Factory et les paramètres de concurrence sur les activités ou augmenter les limites sur Data Lake Analytics.
+- **Recommandation** : Réduisez le nombre de travaux soumis à Data Lake Analytics. Vous pouvez modifier les déclencheurs et les paramètres de concurrence sur les activités ou augmenter les limites sur Data Lake Analytics.
 
 ### <a name="error-code-2705"></a>Code d’erreur : 2705
 
@@ -231,7 +234,7 @@ Le tableau suivant s’applique à U-SQL.
 
 - **Message** : `Response Content is not a valid JObject.`
 
-- **Cause** : La fonction Azure qui a été appelée n’a pas retourné de charge utile JSON dans sa réponse. L’activité de fonction Azure Data Factory (ADF) Azure prend uniquement en charge le contenu de la réponse JSON.
+- **Cause** : La fonction Azure qui a été appelée n’a pas retourné de charge utile JSON dans sa réponse. L’activité de fonction Azure des pipelines Azure Data Factory et Synapse prend uniquement en charge le contenu de la réponse JSON.
 
 - **Recommandation** : Mettez à jour la fonction Azure pour retourner une charge utile JSON valide car une fonction C# doit retourner `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
@@ -407,14 +410,6 @@ Le tableau suivant s’applique à U-SQL.
 
 - **Recommandation** : Accédez au Portail Azure, recherchez votre stockage, copiez et collez la chaîne de connexion dans votre service lié, puis réessayez.
 
-### <a name="error-code-2108"></a>Code d’erreur : 2108
-
-- **Message** : `Error calling the endpoint '%url;'. Response status code: '%code;'`
-
-- **Cause** : La requête a échoué en raison d’un problème sous-jacent, par exemple un problème de connectivité réseau, un échec de DNS, un problème de validation de certificat de serveur ou l’expiration d’un délai.
-
-- **Recommandation** : Utilisez Fiddler/Postman pour valider la requête.
-
 ### <a name="error-code-2110"></a>Code d’erreur : 2110
 
 - **Message** : `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
@@ -438,14 +433,6 @@ Le tableau suivant s’applique à U-SQL.
 - **Cause** : Le type de cloud n’est pas pris en charge ou n’a pas pu être déterminé pour le stockage à partir du EndpointSuffix.
 
 - **Recommandation** : Utilisez un stockage dans un autre cloud et réessayez.
-
-### <a name="error-code-2128"></a>Code d’erreur : 2128
-
-- **Message** : `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
-
-- **Cause** : Connectivité réseau, échec de DNS, validation de certificat de serveur ou délai d’expiration.
-
-- **Recommandation** : Vérifiez que le point de terminaison que vous essayez d’atteindre répond aux requêtes. Vous pouvez utiliser des outils tels que Fiddler/Postman.
 
 ## <a name="custom"></a>Custom
 
@@ -569,7 +556,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Recommandation** : Il peut s’agir d’un problème de connectivité générale HDInsight ou d’un problème de connectivité réseau. Tout d’abord, vérifiez que l’interface utilisateur Ambari HDInsight est accessible à partir de n’importe quel navigateur. Vérifiez alors que vos informations d’identification sont toujours valides.
    
-   Si vous utilisez le runtime d’intégration (IR) auto-hébergé, veillez à utiliser la machine virtuelle ou l’ordinateur où celui-ci est installé. Ensuite, renvoyez le travail à partir de Data Factory.
+   Si vous utilisez le runtime d’intégration (IR) auto-hébergé, veillez à utiliser la machine virtuelle ou l’ordinateur où celui-ci est installé. Ensuite, soumettez à nouveau le travail.
 
    Pour plus d’informations, lisez [Interface utilisateur web d’Ambari](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
@@ -602,7 +589,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Cause** : Lorsque le message d’erreur contient un message similaire à `Unable to service the submit job request as templeton service is busy with too many submit job requests` ou `Queue root.joblauncher already has 500 applications, cannot accept submission of application`, un trop grand nombre de travaux sont envoyées à HDInsight en même temps.
 
-- **Recommandation** : Limitez le nombre de travaux concurrents soumis à HDInsight. Renseignez-vous sur la simultanéité des activités Data Factory si les travaux sont envoyés par la même activité. Modifiez les déclencheurs pour que les exécutions de pipeline simultanées soient réparties au fil du temps.
+- **Recommandation** : Limitez le nombre de travaux concurrents soumis à HDInsight. Référez-vous à la concurrence des activités si les travaux sont envoyés par la même activité. Modifiez les déclencheurs pour que les exécutions de pipeline simultanées soient réparties au fil du temps.
 
    Reportez-vous à la [documentation HDInsight](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md) pour ajuster `templeton.parallellism.job.submit` comme le suggère l’erreur.
 
@@ -612,9 +599,9 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Cause** : Le service ou le cluster HDInsight présente des problèmes.
 
-- **Recommandation** : Cette erreur survient lorsque ADF ne reçoit pas de réponse de la part du cluster HDInsight lorsqu’il tente de demander le statut du travail en cour d’exécution. Le problème doit se situé sur le cluster lui-même ou le service HDInsight doit être en panne.
+- **Recommandation** : cette erreur survient lorsque le service ne reçoit pas de réponse de la part du cluster HDInsight lorsqu’il tente de demander l’état du travail en cour d’exécution. Le problème doit se situé sur le cluster lui-même ou le service HDInsight doit être en panne.
 
-   Consultez la documentation Résolution des problèmes HDInsight sur https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide ou contactez le support client pour obtenir de l’aide.
+   Consultez la [documentation sur la résolution des problèmes HDInsight](../hdinsight/hdinsight-troubleshoot-guide.md) ou contactez le support Microsoft pour obtenir de l’aide.
 
 ### <a name="error-code-2302"></a>Code d’erreur : 2302
 
@@ -672,7 +659,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
-- **Cause** : Les informations de connexion pour le cluster HDI sont incorrectes. L’utilisateur spécifié n’est pas autorisé à effectuer l’action requise ou le service HDInsight a rencontré des problèmes en répondant aux requêtes d’ADF.
+- **Cause** : les informations de connexion pour le cluster HDI sont incorrectes. L’utilisateur spécifié n’est pas autorisé à effectuer l’action requise ou le service HDInsight a rencontré des problèmes en répondant aux requêtes du service.
 
 - **Recommandation** : Vérifiez que les informations de l’utilisateur sont correctes et que l’interface utilisateur Ambari pour le cluster HDI peut être ouvert dans un navigateur depuis la machine virtuelle ou l’IR est installé (pour un IR auto-hébergé) ou qu’elle peut être ouverte à partir de n’importe quel ordinateur (s’il s’agit d’un IR Azure).
 
@@ -690,19 +677,19 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `Failed to submit Spark job. Error: '%message;'`
 
-- **Cause** : ADF a tenté de créer un lot sur un cluster Spark à l’aide de l’API Livy (livy/batch), mais a reçu une erreur.
+- **Cause** : le service a tenté de créer un lot sur un cluster Spark à l’aide de l’API Livy (livy/batch), mais a reçu une erreur.
 
-- **Recommandation** : Suivez le message d'erreur pour résoudre le problème. Si vous ne disposez pas d’informations suffisantes pour résoudre le problème, contactez l’équipe HDI et indiquez-lui les ID de lot et de travail qui se trouvent dans la sortie de l’exécution de l’activité, dans la page de supervision d’ADF. Pour poursuivre la résolution des problèmes, collectez le journal complet du traitement par lots.
+- **Recommandation** : Suivez le message d'erreur pour résoudre le problème. Si vous ne disposez pas d’informations suffisantes pour résoudre le problème, contactez l’équipe HDI et indiquez-lui les ID de lot et de travail qui se trouvent dans la sortie de l’exécution d’activité, dans la page d’analyse du service. Pour poursuivre la résolution des problèmes, collectez le journal complet du traitement par lots.
 
    Pour plus d’informations sur la collecte de l’intégralité du journal, consultez [Obtenir le journal complet d’un programme de traitement par lots](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### <a name="error-code-2312"></a>Code d’erreur : 2312
 
-- **Message** : `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **Message** : `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from the service Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **Cause** : Le travail a échoué sur le cluster HDInsight Spark.
 
-- **Recommandation** : Suivez les liens figurant dans la sortie de l’exécution de l’activité (dans la page de supervision d’ADF) pour résoudre le problème d’exécution sur le cluster HDInsight Spark. Contactez l’équipe du support technique HDInsight pour obtenir une aide supplémentaire.
+- **Recommandation** : suivez les liens figurant dans la sortie de l’exécution de l’activité dans la page d’analyse du service pour résoudre le problème d’exécution sur le cluster HDInsight Spark. Contactez l’équipe du support technique HDInsight pour obtenir une aide supplémentaire.
 
    Pour plus d’informations sur la collecte de l’intégralité du journal, consultez [Obtenir le journal complet d’un programme de traitement par lots](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
@@ -764,7 +751,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Recommandation** : 
     1. Vérifiez que les informations d’identification sont correctes en ouvrant l’interface utilisateur Ambari du cluster HDInsight dans un navigateur.
-    1. Si le cluster se trouve dans un réseau virtuel (VNet) et que le runtime d’intégration auto-hébergé est en cours d’utilisation, l’URL HDI doit être l’URL privée dans les réseaux virtuels, ce qui signifie que le nom du cluster doit être suivi de « -int ».
+    1. Si le cluster se trouve dans un réseau virtuel (VNet) et que l’IR auto-hébergé est en cours d’utilisation, l’URL HDI doit être l’URL privée dans les réseaux virtuels, ce qui signifie que le nom du cluster doit être suivi de `-int`.
     
        Par exemple, remplacez `https://mycluster.azurehdinsight.net/` par `https://mycluster-int.azurehdinsight.net/`. Notez le `-int` après `mycluster`, mais avant `.azurehdinsight.net`
     1. Si le cluster se trouve dans un réseau virtuel, que le runtime d’intégration auto-hébergé est en cours d’utilisation, que l’URL privée a été utilisée et que la connexion a encore échoué, cela signifie que la machine virtuelle sur laquelle l’IR est installé a rencontré des problèmes de connexion à HDI. 
@@ -772,7 +759,7 @@ Le tableau suivant s’applique à Azure Batch.
        Connectez-vous à la machine virtuelle où l’IR est installé et ouvrez l’interface utilisateur Ambari dans un navigateur. Utilisez l’URL privée pour le cluster. Cette connexion doit fonctionner à partir du navigateur. Dans le cas contraire, contactez l’équipe du support technique HDInsight pour obtenir une aide supplémentaire.
     1. Si l’IR auto-hébergée n’est pas utilisée, le cluster HDI doit être accessible publiquement. Ouvrez l’interface utilisateur Ambari dans un navigateur et vérifiez qu’elle est ouverte. En cas de problème avec le cluster ou les services correspondants, contactez l’équipe du support technique HDInsight pour obtenir de l’aide.
 
-       L’URL du cluster HDI utilisé dans le service lié ADF doit être accessible à l’IR ADF (auto-hébergée ou Azure) afin que la connexion test passe et que les exécutions fonctionnent. Cet état peut être vérifié en ouvrant l’URL à partir du navigateur soit à partir de la machine virtuelle, soit à partir d’un ordinateur public.
+       L’URL du cluster HDI utilisé dans le service lié doit être accessible à l’IR (auto-hébergée ou Azure) afin que la connexion test passe et que les exécutions fonctionnent. Cet état peut être vérifié en ouvrant l’URL à partir du navigateur soit à partir de la machine virtuelle, soit à partir d’un ordinateur public.
 
 ### <a name="error-code-2343"></a>Code d’erreur : 2343
 
@@ -786,7 +773,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `Failed to read the content of the hive script. Error: '%message;'`
 
-- **Cause** : Le fichier script n’existe pas ou ADF ne peut pas se connecter à l’emplacement du script.
+- **Cause** : le fichier script n’existe pas ou le service ne peut pas se connecter à l’emplacement du script.
 
 - **Recommandation** : Vérifiez que le script existe et que le service lié associé dispose des informations d’identification correctes pour la connexion.
 
@@ -794,7 +781,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
-- **Cause** : ADF a essayé d’établir une connexion ODBC (Open Database Connectivity) au cluster HDI et a échoué avec une erreur.
+- **Cause** : le service a essayé d’établir une connexion ODBC (Open Database Connectivity) au cluster HDI et a échoué avec une erreur.
 
 - **Recommandation** : 
 
@@ -814,7 +801,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `Hive execution through ODBC failed with error message '%message;'.`
 
-- **Cause** : ADF a envoyé le script Hive pour exécution au cluster HDI par le biais d’une connexion ODBC et le script a échoué sur HDI.
+- **Cause** : le service a envoyé le script de ruche pour exécution au cluster HDI par le biais d’une connexion ODBC et le script a échoué sur HDI.
 
 - **Recommandation** : 
 
@@ -844,7 +831,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Cause** : Les informations d’identification spécifiées pour la connexion au stockage qui doit héberger les fichiers sont incorrectes, ou les fichiers n’existent pas à cet emplacement.
 
-- **Recommandation** : Cette erreur se produit lorsque ADF prépare les activités HDI et tente de copier des fichiers vers le stockage principal avant de soumettre le travail à HDI. Vérifiez que les fichiers existent à l’emplacement spécifié et que la connexion au stockage est correcte. Les activités HDI d’ADF ne prennent pas en charge l’authentification MSI sur les comptes de stockage associés aux activités HDI. Assurez-vous donc que ces services liés disposent de clés complètes ou utilisent Azure Key Vault.
+- **Recommandation** : cette erreur se produit lorsque le service prépare les activités HDI et tente de copier des fichiers vers le stockage principal avant de soumettre le travail à HDI. Vérifiez que les fichiers existent à l’emplacement spécifié et que la connexion au stockage est correcte. Les activités HDI ne prennent pas en charge l’authentification MSI sur les comptes de stockage associés aux activités HDI. Assurez-vous donc que ces services liés disposent de clés complètes ou utilisent Azure Key Vault.
 
 ### <a name="error-code-2351"></a>Code d’erreur : 2351
 
@@ -946,7 +933,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
-- **Cause** : La création du cluster a échoué, et ADF n’a pas reçu d’erreur du service HDInsight.
+- **Cause** : la création du cluster a échoué et le service n’a pas reçu d’erreur du service HDInsight.
 
 - **Recommandation** : Ouvrez le Portail Azure, recherchez la ressource HDI avec le nom spécifié et vérifiez l’état du provisionnement. Contactez l’équipe du support technique HDInsight pour obtenir une aide supplémentaire.
 
@@ -958,7 +945,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Recommandation** : Spécifiez un compte de stockage blob Azure en tant que stockage supplémentaire pour le service lié HDInsight à la demande.
 
-### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Erreur SSL pendant que le service lié ADF utilisait le cluster ESP HDInsight
+### <a name="ssl-error-when-linked-service-using-hdinsight-esp-cluster"></a>Erreur SSL pendant que le service lié utilisait le cluster ESP HDInsight
 
 - **Message** : `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
 
@@ -976,7 +963,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Cause** : Ce problème est dû à une connectivité réseau, à une défaillance DNS, à une validation de certificat de serveur ou à un délai d’attente.
 
-- **Recommandation** : Vérifiez que le point de terminaison que vous essayez d’atteindre répond aux requêtes. Vous pouvez utiliser des outils tels que **Fiddler/Postman**.
+- **Recommandation** : Vérifiez que le point de terminaison que vous essayez d’atteindre répond aux requêtes. Vous pouvez utiliser des outils tels que **Fiddler/Postman/Netmon/Wireshark**.
 
 ### <a name="error-code-2108"></a>Code d’erreur : 2108
 
@@ -984,7 +971,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Cause** : La requête a échoué en raison d’un problème sous-jacent, par exemple un problème de connectivité réseau, un échec de DNS, un problème de validation de certificat de serveur ou l’expiration d’un délai.
 
-- **Recommandation** : Utilisez Fiddler/Postman pour valider la requête.
+- **Recommandation** : utilisez Fiddler/Postma/Netmon/Wireshark pour valider la requête.
 
 #### <a name="more-details"></a>Détails supplémentaires
 Pour utiliser **Fiddler** en vue de créer une session HTTP de l’application web supervisée :
@@ -1031,7 +1018,7 @@ Si vous remarquez que l’exécution de l’activité dure beaucoup plus longtem
 
 **Message d’erreur :** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause :** La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, du ou des jeux de données associés et du ou des services liés le cas échéant, ainsi qu’une petite partie des propriétés système générées par type d’activité. La limite de taille de cette charge utile est de 896 Ko (cf. section [Limites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)).
+**Cause :** La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, du ou des jeux de données associés et du ou des services liés le cas échéant, ainsi qu’une petite partie des propriétés système générées par type d’activité. La limite de la taille d’une telle charge utile est de 896 Ko, tel que mentionné dans la documentation sur les limites Azure pour [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) et [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
 
 **Recommandation :** Vous atteignez cette limite probablement parce que vous transmettez une ou plusieurs grandes valeurs de paramètres à partir de la sortie d’une activité en amont ou d’un élément externe, surtout si vous transmettez des données réelles entre les activités dans le flux de contrôle. Vérifiez si vous pouvez réduire la taille des valeurs de paramètres élevées. Sinon, paramétrez votre logique de pipeline de façon à gérer ces valeurs à l’intérieur de l’activité plutôt que de les transmettre entre les activités.
 
