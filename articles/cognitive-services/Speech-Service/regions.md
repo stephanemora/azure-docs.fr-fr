@@ -3,20 +3,20 @@ title: Régions – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Liste des régions et points de terminaison disponibles pour le service Speech, incluant la reconnaissance vocale, la synthèse vocale et la traduction vocale.
 services: cognitive-services
-author: mahilleb-msft
+author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 07/01/2021
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: ab3e61a9c6593f8ee3075dd0ef6f0dee62c3a9c2
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 002f8ce7311d59a101f676908453fb1493b6dd39
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315252"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710410"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -29,6 +29,9 @@ Gardez à l’esprit les points suivants lorsque vous envisagez les régions :
 * Si votre application utilise un [SDK Speech](speech-sdk.md), vous fournissez l’identificateur de région, tel que `westus`, quand vous créez une configuration de reconnaissance vocale.
 * Si votre application utilise l’une des [API REST](./overview.md#reference-docs) du service Speech, la région fait partie de l’URI de point de terminaison que vous utilisez pour effectuer des requêtes.
 * Les clés créées pour une région sont valides uniquement dans cette région. Si vous essayez de les utiliser avec d’autres régions, des erreurs d’authentification se produisent.
+
+> [!NOTE]
+> Le service Speech ne stocke/traite pas les données client en dehors de la région dans laquelle le client déploie l'instance de service.
 
 ## <a name="speech-sdk"></a>Kit de développement logiciel (SDK) de reconnaissance vocale
 

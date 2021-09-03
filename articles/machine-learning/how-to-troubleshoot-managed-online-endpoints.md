@@ -10,12 +10,13 @@ ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: f493cfc21ff3f5e2aa122bbbc08f24e1a759558e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: devplatv2
+ms.openlocfilehash: 8a68538657762417c5b6e23e455efa43fed0450a
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480942"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122564010"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)
 
@@ -33,9 +34,9 @@ La section [Codes d’état HTTP](#http-status-codes) explique comment les erreu
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+* Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli).
-* [L’installation, la configuration et l’utilisation de l’interface CLI 2.0 (préversion)](how-to-configure-cli.md).
+* [L’installation, la configuration et l’utilisation de l’interface CLI (v2) (préversion)](how-to-configure-cli.md).
 
 ## <a name="deploy-locally"></a>Déploiement local
 
@@ -51,7 +52,7 @@ Le déploiement local inclut les étapes suivantes :
 - Docker génère une nouvelle image conteneur ou tire (pull) une image existante du cache Docker local. Si une image existante correspond à la partie environnement du fichier de spécification, elle est utilisée.
 - Docker démarre un nouveau conteneur avec les artefacts locaux montés tels que les fichiers de code et de modèle.
 
-Pour plus d’informations, consultez [Déployer localement dans Déployer et scorer un modèle Machine Learning avec un point de terminaison en ligne managé (préversion)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints).
+Pour plus d’informations, consultez [Déployer localement dans Déployer et scorer un modèle Machine Learning avec un point de terminaison en ligne managé (préversion)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 ## <a name="get-container-logs"></a>Obtenir les journaux de conteneur
 
@@ -96,6 +97,10 @@ Vous trouverez ci-dessous une liste des erreurs de déploiement courantes signal
 Avant de déployer un modèle, vous devez disposer d’un quota de calcul suffisant. Ce quota définit le nombre de vCores disponibles par abonnement, par espace de travail, par référence SKU et par région. Chaque déploiement puise dans le quota disponible (qu’il rétablit après la suppression) en fonction du type de référence SKU.
 
 Pour atténuer le risque de quota insuffisant, vous pouvez notamment vérifier s’il existe des déploiements inutilisés qui pourraient être supprimés. Vous pouvez également envoyer une [demande d’augmentation du quota](./how-to-manage-quotas.md).
+
+### <a name="err_1101-out-of-capacity"></a>ERR_1101 : capacité insuffisante
+
+La taille de machine virtuelle spécifiée n’a pas pu être approvisionnée en raison d’un manque de capacité Azure Machine Learning. Réessayez ultérieurement ou essayez d’effectuer le déploiement dans une autre région.
 
 ### <a name="err_1200-unable-to-download-user-container-image"></a>ERR_1200 : Impossible de télécharger l’image conteneur utilisateur
 
@@ -150,6 +155,10 @@ Pour obtenir des informations plus détaillées sur cette erreur, exécutez :
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
 
+### <a name="err_1350-unable-to-download-user-model-not-enough-space-on-the-disk"></a>ERR_1350 : Impossible de télécharger le modèle utilisateur, espace insuffisant sur le disque
+
+Ce problème se produit lorsque la taille du modèle est supérieure à l’espace disque disponible. Essayez une référence SKU dotée de plus d’espace disque.
+
 ### <a name="err_2100-unable-to-start-user-container"></a>ERR_2100 : Impossible de démarrer le conteneur utilisateur
 
 Pour exécuter le code `score.py` fourni dans le cadre du déploiement, Azure crée un conteneur qui comprend toutes les ressources qui lui sont nécessaires, puis exécute le script de scoring sur ce conteneur.
@@ -196,8 +205,7 @@ Quand vous accédez à des points de terminaison en ligne managés avec des requ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le déploiement :
-
-* [Déployer et scorer un modèle Machine Learning avec un point de terminaison en ligne managé (préversion)](how-to-deploy-managed-online-endpoints.md)
-* [Déploiement sûr pour les points de terminaison en ligne (préversion)](how-to-safely-rollout-managed-endpoints.md)
+- [Déployer et scorer un modèle de machine learning avec un point de terminaison en ligne managé (préversion)](how-to-deploy-managed-online-endpoints.md)
+- [Déploiement sûr pour les points de terminaison en ligne (préversion)](how-to-safely-rollout-managed-endpoints.md)
+- [Informations de référence YAML sur les points de terminaison en ligne managés (préversion)](reference-yaml-endpoint-managed-online.md)
 

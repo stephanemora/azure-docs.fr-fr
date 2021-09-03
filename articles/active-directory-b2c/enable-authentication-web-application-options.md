@@ -7,32 +7,34 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 08/12/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 3335e035a2d36cc7830d8bc93db82a7d318d26b3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 126bdd850d29d716433b7854c71d02269b95ec2e
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563454"
 ---
-# <a name="configure-authentication-in-a-sample-web-application-using-azure-active-directory-b2c-options"></a>Configurer l’authentification dans une application web à l’aide des options d’Azure Active Directory B2C
+# <a name="configure-authentication-options-in-a-web-application-using-azure-active-directory-b2c"></a>Configurer les options d’authentification dans une application web avec Azure Active Directory B2C 
 
-Cet article décrit les méthodes permettant de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application Web. Avant de commencer, familiarisez-vous avec les articles suivants : [Configurer l’authentification dans un exemple d’application Web](configure-authentication-sample-web-app.md) ou [Activer l’authentification dans votre application Web](enable-authentication-web-application.md).
+Cet article décrit les méthodes permettant de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application Web. Avant de commencer, il est important de vous familiariser avec les articles suivants : [Configurer l’authentification dans un exemple d’application web](configure-authentication-sample-web-app.md) ou [Activer l’authentification dans votre application web](enable-authentication-web-application.md).
 
-## <a name="use-a-custom-domain"></a>Utiliser un domaine personnalisé
+[!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-L’utilisation d’un [domaine personnalisé](custom-domain.md) dans l’URL de redirection de votre application offre une expérience utilisateur plus transparente. Du point de vue de l’utilisateur, il reste dans votre domaine pendant le processus de connexion au lieu de rediriger vers le domaine par défaut Azure AD B2C .b2clogin.com.
+Pour utiliser un domaine personnalisé et l’ID de votre locataire dans l’URL d’authentification, suivez les instructions fournies dans [Activer les domaines personnalisés](custom-domain.md). Dans le dossier racine du projet, ouvrez le fichier `appsettings.json`. Ce fichier contient des informations sur votre fournisseur d’identité Azure AD B2C. 
 
-Pour utiliser un domaine personnalisé, suivez les instructions dans [Activer les domaines personnalisés](custom-domain.md). Dans le dossier racine du projet, ouvrez le fichier `appsettings.json`. Ce fichier contient des informations sur votre fournisseur d’identité Azure AD B2C. Mettez à jour l'entrée `Instance` avec votre domaine personnalisé.
+- Mettez à jour l'entrée `Instance` avec votre domaine personnalisé.
+- Mettez à jour l'entrée `Domain` avec votre [ID de locataire](tenant-management.md#get-your-tenant-id). Pour plus d’informations, consultez [Utiliser l’ID de locataire](custom-domain.md#optional-use-tenant-id).
 
 Le code JSON suivant montre les paramètres de l’application avant la modification : 
 
 ```JSon
 "AzureAdB2C": {
   "Instance": "https://contoso.b2clogin.com",
+  "Domain": "tenant-name.onmicrosoft.com",
   ...
 }
 ```  
@@ -42,29 +44,6 @@ Le code JSON suivant montre les paramètres de l’application après la modific
 ```JSon
 "AzureAdB2C": {
   "Instance": "https://login.contoso.com",
-  ...
-}
-``` 
-
-## <a name="use-your-tenant-id"></a>Utiliser votre ID de locataire
-
-Vous pouvez remplacer le nom de votre locataire B2C dans l’URL par le GUID d’ID de votre locataire pour supprimer toutes les références à « b2c » dans l’URL.  Par exemple, vous pouvez remplacer `https://account.contosobank.co.uk/contosobank.onmicrosoft.com/` par `https://account.contosobank.co.uk/<tenant ID GUID>/`
-
-Pour utiliser l’ID de locataire, suivez les instructions [Activer les domaines personnalisés](custom-domain.md#optional-use-tenant-id). Dans le dossier racine du projet, ouvrez le fichier `appsettings.json`. Ce fichier contient des informations sur votre fournisseur d’identité Azure AD B2C. Mettez à jour l'entrée `Domain` avec votre domaine personnalisé.
-
-Le code JSON suivant montre les paramètres de l’application avant la modification : 
-
-```JSon
-"AzureAdB2C": {
-  "Domain": "tenant-name.onmicrosoft.com",
-  ...
-}
-```  
-
-Le code JSON suivant montre les paramètres de l’application après la modification :
-
-```JSon
-"AzureAdB2C": {
   "Domain": "00000000-0000-0000-0000-000000000000",
   ...
 }
@@ -105,14 +84,10 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *OnRedirectToIdentityProvider* à l’aide de paramètres de contexte. 
 
 
-## <a name="prepopulate-the-sign-in-name"></a>Préremplir le nom de connexion
+[!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
-Pendant le parcours utilisateur pour la connexion, votre application peut cibler un utilisateur spécifique. Quand vous ciblez un utilisateur, une application peut spécifier, dans la demande d’autorisation, le paramètre de requête `login_hint` avec le nom de connexion de l’utilisateur. Azure AD B2C remplit automatiquement le nom de connexion, et l’utilisateur n’a que le mot de passe à fournir. 
-
-Pour préremplir le nom de connexion, procédez comme suit :
-
-1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios) .
 1. Si vous utilisez une stratégie personnalisée, ajoutez la revendication d’entrée requise comme décrit dans [Configurer la connexion directe](direct-signin.md#prepopulate-the-sign-in-name). 
+1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
     
     ```csharp
@@ -125,14 +100,10 @@ Pour préremplir le nom de connexion, procédez comme suit :
     }
     ```
 
-## <a name="redirect-sign-in-to-an-external-identity-provider"></a>Rediriger la connexion à un fournisseur d’identité externe
+[!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
-Si vous avez configuré la procédure de connexion pour votre application afin d’inclure des comptes de réseaux sociaux comme Facebook, LinkedIn ou Google, vous pouvez spécifier le paramètre `domain_hint`. Ce paramètre de requête fournit un indicateur à Azure AD B2C concernant le fournisseur d’identité sociale qui doit être utilisé pour la connexion. Par exemple, si l’application spécifie `domain_hint=facebook.com`, le flux de connexion accède directement à la page de connexion Facebook. 
-
-Pour rediriger la connexion à un fournisseur d’identité externe, procédez comme suit :
-
-1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Vérifiez le nom de domaine de votre fournisseur d’identité externe. Pour plus d’informations, consultez [Rediriger la connexion vers un fournisseur social](direct-signin.md#redirect-sign-in-to-a-social-provider). 
+1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Dans la fonction *OnRedirectToIdentityProviderFunc*, ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
     
     ```csharp
@@ -145,12 +116,10 @@ Pour rediriger la connexion à un fournisseur d’identité externe, procédez c
     }
     ```
 
-## <a name="specify-the-ui-language"></a>Spécifier la langue de l’interface utilisateur
 
-La personnalisation de la langue dans Azure AD B2C permet à votre flux d’utilisateur de prendre en charge plusieurs langues pour répondre aux besoins de votre client. Consultez [Personnalisation linguistique](language-customization.md) pour plus d'informations.
+[!INCLUDE [active-directory-b2c-app-integration-ui-locales](../../includes/active-directory-b2c-app-integration-ui-locales.md)]
 
-Pour établir le langage préféré, suivez ces étapes :
-
+1. [Configurez la personnalisation de la langue](language-customization.md).
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
 
@@ -164,13 +133,9 @@ Pour établir le langage préféré, suivez ces étapes :
     }
     ```
 
-## <a name="pass-a-custom-query-string-parameter"></a>Passer un paramètre de chaîne de requête personnalisé
+[!INCLUDE [active-directory-b2c-app-integration-custom-parameters](../../includes/active-directory-b2c-app-integration-custom-parameters.md)]
 
-Avec les stratégies personnalisées, vous pouvez passer un paramètre de chaîne de requête personnalisé, par exemple lorsque vous souhaitez [modifier dynamiquement le contenu de la page](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri).
-
-
-Pour passer un paramètre de chaîne de requête personnalisé, procédez comme suit :
-
+1. Configurez l’élément [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
     
@@ -184,11 +149,8 @@ Pour passer un paramètre de chaîne de requête personnalisé, procédez comme 
     }
     ```
 
-## <a name="pass-id-token-hint"></a>Transmission d’indicateur de jeton d’ID
 
-Azure AD B2C permet aux applications par partie de confiance d’envoyer un jeton JWT entrant dans le cadre de la demande d’autorisation OAuth2. Le jeton JWT peut être émis par une application de partie de confiance ou un fournisseur d’identité, et il peut transmettre une indication sur l’utilisateur ou la demande d’autorisation. Azure AD B2C valide la signature, le nom de l’émetteur et l’audience du jeton, puis extrait la revendication du jeton entrant.
-
-Pour inclure un indicateur de jeton d’ID dans la requête d’authentification, procédez comme suit : 
+[!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Dans votre stratégie personnalisée, définissez un [indicateur de jeton d’ID de profil technique](id-token-hint.md).
@@ -209,7 +171,11 @@ Pour inclure un indicateur de jeton d’ID dans la requête d’authentification
 
 Si vous souhaitez personnaliser les actions de **connexion**, **d’inscription** ou de **déconnexion**, vous êtes encouragé à créer votre propre contrôleur. Le fait de disposer de votre propre contrôleur vous permet de transmettre des paramètres entre votre contrôleur et la bibliothèque d’authentification. Le `AccountController` fait partie du package NuGet `Microsoft.Identity.Web.UI`, qui gère les actions de connexion et de déconnexion. Vous pouvez trouver son implémentation dans la [bibliothèque Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
 
-L’extrait de code suivant montre un `MyAccountController` personnalisé avec l’action de **SignIn**. L’action transmet un paramètre nommé `campaign_id` à la bibliothèque d’authentification.
+### <a name="add-the-account-controller"></a>Ajouter le contrôleur de compte
+
+Dans le projet Visual Studio, cliquez avec le bouton droit sur le dossier **Contrôleurs** et ajoutez un nouveau **Contrôleur**. Sélectionnez **MVC - Contrôleur vide** et fournissez le nom **MyAccountController.cs**.
+
+L’extrait de code suivant montre un `MyAccountController` personnalisé avec l’action de **SignIn**.
 
 ```csharp
 using System;
@@ -237,34 +203,145 @@ namespace mywebapp.Controllers
             scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
             var redirectUrl = Url.Content("~/");
             var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-            properties.Items["campaign_id"] = "1234";
             return Challenge(properties, scheme);
         }
 
     }
 }
-
 ```
 
 Dans l’affichage `_LoginPartial.cshtml`, modifiez le lien de connexion à votre contrôleur
 
-```
+```html
 <form method="get" asp-area="MicrosoftIdentity" asp-controller="MyAccount" asp-action="SignIn">
 ```
 
-Dans le `OnRedirectToIdentityProvider` dans les appels `Startup.cs`, vous pouvez lire le paramètre personnalisé :
+### <a name="pass-the-azure-ad-b2c-policy-id"></a>Transmettre l’ID de stratégie Azure AD B2C
+
+L’extrait de code suivant montre un `MyAccountController` personnalisé avec les actions **SignIn** et **SignUp**. L’action transmet un paramètre nommé `policy` à la bibliothèque d’authentification. Cela vous permet de fournir l’ID de stratégie Azure AD B2C qui convient pour l’action spécifique.
+
+```csharp
+public IActionResult SignIn([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignIn";
+    return Challenge(properties, scheme);
+}
+
+public IActionResult SignUp([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignUp";
+    return Challenge(properties, scheme);
+}
+```
+
+Dans la vue `_LoginPartial.cshtml`, remplacez la valeur `asp-controller` par `MyAccountController` pour tous les autres liens d’authentification, tels que l’inscription ou la modification du profil.
+
+### <a name="pass-custom-parameters"></a>Transmettre les paramètres personnalisés
+
+L’extrait de code suivant montre un `MyAccountController` personnalisé avec l’action de **SignIn**. L’action transmet un paramètre nommé `campaign_id` à la bibliothèque d’authentification.
+
+```csharp
+public IActionResult SignIn([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignIn";
+    properties.Items["campaign_id"] = "1234";
+    return Challenge(properties, scheme);
+}
+```
+
+Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios). Ensuite, dans la méthode `OnRedirectToIdentityProvider`, lisez le paramètre personnalisé :
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 {
     // Read the custom parameter
-    var campaign_id = (context.Properties.Items.ContainsKey("campaign_id"))
-    
+    var campaign_id = context.Properties.Items.FirstOrDefault(x => x.Key == "campaign_id").Value;
+
     // Add your custom code here
+    if (campaign_id != null)
+    {
+        // Send parameter to authentication request
+        context.ProtocolMessage.SetParameter("campaign_id", campaign_id);
+    }
     
     await Task.CompletedTask.ConfigureAwait(false);
 }
 ```
+
+## <a name="secure-your-logout-redirect"></a>Sécuriser la redirection de déconnexion
+
+Après la déconnexion, l’utilisateur est redirigé vers l’URI spécifié dans le paramètre `post_logout_redirect_uri`, quelles que soient les URL de réponse qui ont été spécifiées pour l’application. Cependant, si un `id_token_hint` valide est transmis et que l’option [Exiger un jeton d’ID dans les demandes de déconnexion](session-behavior.md#secure-your-logout-redirect) est activée, Azure AD B2C vérifie que la valeur de `post_logout_redirect_uri` correspond à l’un des URI de redirection configurés de l’application avant d’effectuer la redirection. Si aucune URL de réponse correspondante n’a été configurée pour l’application, un message d’erreur s’affiche et l’utilisateur n’est pas redirigé.
+
+Pour prendre en charge une redirection de déconnexion sécurisée dans votre application, suivez d’abord les étapes décrites dans les sections [Contrôleur de compte](enable-authentication-web-application-options.md#add-the-account-controller) et [Prendre en charge les scénarios avancés](#support-advanced-scenarios). Suivez ensuite les étapes ci-dessous :
+
+1. Dans le contrôleur `MyAccountController.cs`, ajoutez une action **SignOut** à l’aide de l’extrait de code suivant :
+
+    ```csharp
+    [HttpGet("{scheme?}")]
+    public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
+    {
+        scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+
+        //obtain the id_token
+        var idToken = await HttpContext.GetTokenAsync("id_token");
+        //send the id_token value to the authentication middleware
+        properties.Items["id_token_hint"] = idToken;            
+
+        return SignOut(properties,CookieAuthenticationDefaults.AuthenticationScheme,scheme);
+    }
+    ```
+
+1. Dans la classe **Startup.cs**, analysez la valeur `id_token_hint` et ajoutez la valeur à la demande d’authentification. L’extrait de code suivant montre comment transmettre la valeur `id_token_hint` à la demande d’authentification :
+
+    ```csharp
+    private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
+    {
+        var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
+        if (id_token_hint != null)
+        {
+            // Send parameter to authentication request
+            context.ProtocolMessage.SetParameter("id_token_hint", id_token_hint);
+        }
+
+        await Task.CompletedTask.ConfigureAwait(false);
+    }
+    ```
+
+1. Dans la fonction `ConfigureServices`, ajoutez l’option `SaveTokens` pour permettre aux **contrôleurs** d’accéder à la valeur `id_token` : 
+
+    ```csharp
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(options =>
+        {
+            Configuration.Bind("AzureAdB2C", options);
+            options.Events ??= new OpenIdConnectEvents();        
+            options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
+            options.SaveTokens = true;
+        });
+    ```
+
+1. Dans le fichier de configuration **appsettings.json**, ajoutez le chemin d’accès de l’URI de redirection de déconnexion à la clé `SignedOutCallbackPath`.
+
+    ```json
+    "AzureAdB2C": {
+      "Instance": "https://<your-tenant-name>.b2clogin.com",
+      "ClientId": "<web-app-application-id>",
+      "Domain": "<your-b2c-domain>",
+      "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
+      "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
+    }
+    ```
+
+Dans l’exemple ci-dessus, le **post_logout_redirect_uri** qui est passé dans la demande de déconnexion sera au format `https://your-app.com/signout/<your-sign-up-in-policy>`. Cette URL doit être ajoutée à l’URL de réponse de l’inscription d’application.
 
 ## <a name="role-based-access-control"></a>Contrôle d'accès en fonction d'un rôle
 

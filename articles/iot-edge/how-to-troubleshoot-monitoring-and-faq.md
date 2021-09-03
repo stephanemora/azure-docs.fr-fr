@@ -2,7 +2,6 @@
 title: Résolution des problèmes de supervision et questions fréquentes – Azure IoT Edge
 description: Résolution des problèmes d’intégration à Azure Monitor et questions fréquentes
 author: veyalla
-manager: philmea
 ms.author: veyalla
 ms.date: 06/09/2021
 ms.topic: conceptual
@@ -10,12 +9,12 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
-ms.openlocfilehash: 09475cf4ee2c78596e3c93f408fc88c16e1a751e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9d3e89ee74dd1f0274ad742cae4a9706f54b7780
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904431"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533015"
 ---
 # <a name="faq-and-troubleshooting"></a>FAQ et résolution des problèmes
 
@@ -31,22 +30,26 @@ Lorsque les modules ne s’exécutent pas dans le même espace de noms réseau, 
 
 ### <a name="verify-that-httpsettings__enabled-environment-variable-isnt-set-to-false"></a>Vérifier que la variable d’environnement *httpSettings__enabled* n’a pas la valeur *false*
 
-Les points de terminaison de métriques intégrés utilisent le protocole HTTP. Ils ne sont pas disponibles, même au sein du réseau du module, si le protocole HTTP est explicitement désactivé via le paramètre de la variable d’environnement.
+Les points de terminaison de métriques intégrés exposés par les modules système IoT Edge utilisent le protocole http. Ils ne sont pas disponibles, même au sein du réseau du module, si le protocole HTTP est explicitement désactivé via le paramètre de la variable d’environnement sur les modules Edge Hub ou Edge Agent.
 
 ### <a name="set-no_proxy-environment-variable-if-using-http-proxy-server"></a>Définir la variable d’environnement *NO_PROXY* si vous utilisez un serveur proxy HTTP
 
 Pour plus d’informations, consultez [Considérations relatives au proxy](how-to-collect-and-transport-metrics.md#proxy-considerations).
 
+### <a name="update-moby-engine"></a>Mettre à jour Moby-Engine
+
+Sur les hôtes Linux, assurez-vous que vous utilisez une version récente du moteur de conteneur. Nous vous recommandons d’effectuer la mise à jour vers la dernière version en suivant les [instructions d’installation](how-to-install-iot-edge.md#install-a-container-engine).
+
 ## <a name="how-do-i-collect-logs-along-with-metrics"></a>Comment collecter les journaux avec les métriques ?
 
-Vous pouvez utiliser [les fonctionnalités intégrées d’extraction de journaux](how-to-retrieve-iot-edge-logs.md). Un exemple de solution utilisant les fonctionnalités intégrées de récupération des journaux est disponible sur [ **https://aka.ms/iot-elms** ](https://aka.ms/iot-elms).
+Vous pouvez utiliser [les fonctionnalités intégrées d’extraction de journaux](how-to-retrieve-iot-edge-logs.md). Un exemple de solution utilisant les fonctionnalités intégrées de récupération des journaux est disponible sur [ **https://aka.ms/iot-elms**](https://aka.ms/iot-elms).
 
 ## <a name="why-cant-i-see-device-metrics-in-the-metrics-page-in-azure-portal"></a>Pourquoi je ne vois pas les métriques de l’appareil dans la page Métriques du portail Azure ?
 
 Pour le moment, la technologie des [métriques natives](../azure-monitor/essentials/data-platform-metrics.md) d’Azure Monitor ne prend pas en charge directement le format de données Prometheus. Les métriques figurant dans les journaux sont actuellement mieux adaptées pour les métriques IoT Edge de par :
 
 * La prise en charge native du format des métriques Prometheus via la table *InsightsMetrics* standard.
-* Le traitement des données via [KQL](https://aka.ms/kql) pour les visualisations et les alertes.
+* Le traitement des données via [KQL](/azure/data-explorer/kusto/query/) pour les visualisations et les alertes.
 
 L’utilisation de Log Analytics en tant que base de données des métriques est la raison pour laquelle les métriques s’affichent dans la page des **Journaux** du portail Azure plutôt que dans celle des **Métriques**.
 
@@ -86,7 +89,7 @@ Si vous ne parvenez pas à trouver le problème, créez un [incident de support 
 
 ## <a name="my-device-isnt-showing-up-in-the-monitoring-workbook"></a>Mon appareil n’apparaît pas dans le workbook de supervision
 
-Le workbook s’appuie sur la liaison existant entre les métriques de l’appareil et le hub IoT approprié au moyen de *ResourceId*. Vérifiez que le collecteur de métriques est [configuré](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) avec le *ResourceId* adéquat.
+Le workbook s’appuie sur la liaison existant entre les métriques de l’appareil et l’application IoT Central ou le hub IoT approprié au moyen de *ResourceId*. Vérifiez que le collecteur de métriques est [configuré](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) avec le *ResourceId* adéquat.
 
 À l’aide des journaux du module du collecteur de métriques, contrôlez l’envoi de métriques par l’appareil pendant l’intervalle de temps sélectionné.
 
@@ -100,7 +103,7 @@ Le modèle des workbooks est [disponible publiquement sur GitHub](https://github
 
 ## <a name="i-cannot-see-the-workbooks-in-the-public-templates"></a>Je ne vois pas les workbooks dans les modèles publics
 
-Veillez à consulter la page **Workbooks** dans la page de votre hub IoT dans le portail, et non dans votre espace de travail Log Analytics.
+Veillez à consulter la page **Workbooks** dans la page de votre application IoT Central ou votre hub IoT dans le portail, et non dans votre espace de travail Log Analytics.
 
 Si vous ne voyez toujours pas les workbooks, essayez d’utiliser l’environnement de préproduction du portail Azure : [`https://ms.portal.azure.com`](https://ms.portal.azure.com). Parfois, les mises à jour de workbook prennent plus de temps pour s’afficher dans l’environnement de production, mais elles sont disponibles en préproduction.
 

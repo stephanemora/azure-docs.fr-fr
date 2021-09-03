@@ -3,13 +3,13 @@ title: Effectuer une rotation des certificats dans Azure Kubernetes Service (AKS
 description: Découvrez comment assurer la rotation de vos certificats dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/15/2019
-ms.openlocfilehash: b3ab6074dcbf79df8b2b0ff3369b94006343a2a6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 7/13/2021
+ms.openlocfilehash: ea488e281e52949eeb53fdeffb1dc26afb5a9b5e
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089863"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533040"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Effectuer une rotation des certificats dans Azure Kubernetes Service (AKS)
 
@@ -33,17 +33,32 @@ AKS génère et utilise les certificats, autorités de certification et comptes 
 * Le client `kubectl` dispose d’un certificat pour communiquer avec le cluster AKS.
 
 > [!NOTE]
-> Les clusters AKS créés avant le mois de mars 2019 possèdent des certificats qui expirent au bout de deux ans. Tout cluster créé après mars 2019, et tout cluster dont la rotation des certificats a été effectuée, dispose de certificats d’autorité de certification de cluster qui expirent au bout de 30 ans. Tous les autres certificats expirent au bout de deux ans. Pour vérifier à quel moment votre cluster a été créé, utilisez `kubectl get nodes` pour afficher l’*âge* de vos pools de nœuds.
+> Les clusters AKS créés avant le mois de mai 2019 possèdent des certificats qui expirent au bout de deux ans. Tout cluster créé après mai 2019, et tout cluster dont la rotation des certificats a été effectuée, dispose de certificats d’autorité de certification de cluster qui expirent au bout de 30 ans. Tous les autres certificats AKS, qui utilisent l’autorité de certification de cluster pour la signature, expirent au bout de deux ans et sont automatiquement renouvelés pendant la mise à niveau de la version AKS. Pour vérifier à quel moment votre cluster a été créé, utilisez `kubectl get nodes` pour afficher l’*âge* de vos pools de nœuds.
 > 
-> En outre, vous pouvez vérifier la date d’expiration du certificat de votre cluster. Par exemple, la commande Bash suivante affiche les détails du certificat pour le cluster *myAKSCluster*.
+> En outre, vous pouvez vérifier la date d’expiration du certificat de votre cluster. Par exemple, la commande Bash suivante affiche les détails du certificat pour le cluster *myAKSCluster* dans le groupe de ressources *rg*.
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+> kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
+
+* Vérifier la date d’expiration du certificat apiserver
+```console
+curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
+```
+
+* Vérifier la date d’expiration du certificat sur le nœud de l’agent VMAS
+```console
+az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
+
+* Vérifier la date d’expiration du certificat sur un nœud de l’agent VMSS
+```console
+az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
 
 ## <a name="rotate-your-cluster-certificates"></a>Procéder à la rotation de vos certificats de cluster
 
 > [!WARNING]
-> La rotation de vos certificats à l’aide de `az aks rotate-certs` peut entraîner jusqu’à 30 minutes d’interruption pour votre cluster AKS.
+> La rotation de vos certificats à l’aide de `az aks rotate-certs` va recréer tous vos nœuds et peut entraîner jusqu’à 30 minutes d’interruption pour votre cluster AKS.
 
 Utilisez [az aks get-credentials][az-aks-get-credentials] pour vous connecter à votre cluster AKS. Cette commande télécharge et configure également le certificat client `kubectl` sur votre machine locale.
 

@@ -4,13 +4,13 @@ description: L’expression app est utilisée dans une requête de journal Azure
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 08/11/2021
+ms.openlocfilehash: 1c7659d8b566649291e135c68c677b3f3a074d9f
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283556"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122528035"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expression app() dans une requête Azure Monitor
 
@@ -41,7 +41,7 @@ L'expression `app` est utilisée dans une requête Azure Monitor afin de récup�
 * Vous devez disposer d’un accès en lecture à l’application.
 * L’identification d’une application par son nom suppose que celui-ci soit unique parmi tous les abonnements accessibles. Si plusieurs applications portent le nom spécifié, la requête échoue en raison de l’ambiguïté. Dans ce cas, vous devez utiliser l’un des autres identificateurs.
 * Utilisez l’expression associée [workspace](../logs/workspace-expression.md) pour interroger plusieurs espaces de travail Log Analytics.
-* L’expression app() n’est pas prise en charge actuellement dans la requête de recherche quand vous utilisez le portail Azure pour créer une [règle d’alerte de recherche de journal personnalisée](../alerts/alerts-log.md), sauf si une application Application Insights est utilisée en tant que ressource pour la règle d’alerte.
+* L’expression app() n’est pas prise en charge actuellement dans la requête de recherche quand vous utilisez le portail Azure pour créer une [règle d’alerte de requête de journal personnalisée](../alerts/alerts-log.md), sauf si une application Application Insights est utilisée en tant que ressource pour la règle d’alerte.
 
 ## <a name="examples"></a>Exemples
 

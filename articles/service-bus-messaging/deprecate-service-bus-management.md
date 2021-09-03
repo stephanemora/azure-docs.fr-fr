@@ -2,17 +2,17 @@
 title: Services de messagerie Azure – Service Manager vers Resource Manager
 description: Cet article fournit un mappage de l’API REST Azure Service Manager et des cmdlets PowerShell déconseillées à l’API REST Resource Manager et aux cmdlets PowerShell.
 ms.topic: article
-ms.date: 04/13/2021
-ms.openlocfilehash: 68b4327f1b7b698b379b0b380b79dffbe240b781
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 08/31/2021
+ms.openlocfilehash: 3ae280b6b8491129f2300c938cc5ec121241fa72
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412562"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303142"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Dépréciation de la prise en charge d’Azure Service Manager pour Azure Service Bus, Relay et Event Hubs
 
-Resource Manager, notre nouvelle génération de pile d’infrastructure cloud, remplace entièrement le modèle de management des services Azure « classique » (modèle de déploiement classique). Par conséquent, les API REST du modèle de déploiement classique et la prise en charge de Service Bus, Relay et Event Hubs seront mises hors service le 1er novembre 2021. Cette dépréciation a été annoncée pour la première fois lors d’une [annonce de la communauté Microsoft Tech](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), mais nous avons récemment décidé de prolonger la période de dépréciation de deux années supplémentaires à compter de l’annonce d’origine. Pour faciliter l’identification, ces API ont `management.core.windows.net` dans leur URI. Reportez-vous au tableau suivant pour obtenir la liste des API déconseillées et de leur version d’API Azure Resource Manager que vous devez désormais utiliser.
+Resource Manager, notre nouvelle génération de pile d’infrastructure cloud, remplace entièrement le modèle de management des services Azure « classique » (modèle de déploiement classique). Par conséquent, les API REST du modèle de déploiement classique et la prise en charge de Service Bus, Relay et Event Hubs seront mises hors service le 1er novembre 2021. Cette désapprobation a été annoncée pour la première fois sur une [annonce Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909). Pour faciliter l’identification, ces API ont `management.core.windows.net` dans leur URI. Reportez-vous au tableau suivant pour obtenir la liste des API déconseillées et de leur version d’API Azure Resource Manager que vous devez désormais utiliser.
 
 Pour continuer à utiliser Service Bus, Relay et Event Hubs, passez à Resource Manager avant le 31 octobre 2021. Nous encourageons tous les clients qui utilisent encore les anciennes API à passer rapidement à la nouvelle version afin de profiter des avantages supplémentaires de Resource Manager, notamment le regroupement de ressources, les balises, un processus de déploiement et de gestion rationalisé et un contrôle d'accès affiné grâce au Contrôle d'accès en fonction du rôle Azure (Azure RBAC).
 
@@ -59,7 +59,7 @@ Service Bus/Event Hub/Relay<br/>```PUT https://management.core.windows.net/{subs
 | [Get-AzureSBNamespace](/powershell/module/servicemanagement/azure.service/get-azuresbnamespace) | [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace) | [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace) |
 | [New-AzureSBAuthorizationRule](/powershell/module/servicemanagement/azure.service/new-azuresbauthorizationrule) | [New-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusauthorizationrule) | [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule) |
 | [New-AzureSBNamespace](/powershell/module/servicemanagement/azure.service/new-azuresbnamespace) | [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace) | [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace) |
-| [Remove-AzureRmRelayAuthorizationRule](/powershell/module/azurerm.relay/remove-azurermrelayauthorizationrule) | [Remove-AzureRmEventHubAuthorizationRule](/powershell/module/azurerm.eventhub/remove-azurermeventhubauthorizationrule) | [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) |
+| [Remove-AzureSBAuthorizationRule](/powershell/module/servicemanagement/azure.service/remove-azuresbauthorizationrule0) | [Remove-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/remove-azurermservicebusauthorizationrule) | [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) |
 | [Remove-AzureSBNamespace](/powershell/module/servicemanagement/azure.service/remove-azuresbnamespace) | [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) | [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace) |
 | [Set-AzureSBAuthorizationRule](/powershell/module/servicemanagement/azure.service/set-azuresbauthorizationrule) | [Set-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusauthorizationrule) | [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule) |
 

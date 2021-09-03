@@ -11,52 +11,155 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/14/2021
+ms.date: 8/20/2021
 ms.author: gunnarc
-ms.openlocfilehash: a516fd1706fdd07ad3c28a0a9e3058de5603cd40
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ae216b15b766cce9602d3274051fab9cc914760f
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078633"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606865"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
-## <a name="june-2021-guest-os"></a>Système d’exploitation invité, juin 2021
+## <a name="august-2021-guest-os"></a>Système d’exploitation invité, août 2021
 
 >[!NOTE] 
 
->Le système d’exploitation invité de juin est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de juin. Cette liste est susceptible d’être modifiée. 
+>Le système d’exploitation invité d’août est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’août. Cette liste est susceptible d’être modifiée. 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 21-06 |  [5003646]  |  Dernière mise à jour cumulative (LCU) | 6.32 | 8 juin 2021 |
-|  Version 21-06 |  [4580325]  |  Mise à jour de Flash | 3.98, 4.91, 5.56, 6.32 | 13 octobre 2020 |
-|  Version 21-06 |  [5003636]  |  Mises à jour cumulatives d’IE | 2.111, 3.98, 4.91 | 8 juin 2021 |
-|  Version 21-06 |  [5003638]  |  Dernière mise à jour cumulative (LCU) | 5.56 | 8 juin 2021 |
-|  Version 21-06 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 2.111 | 13 octobre 2020 |
-|  Version 21-06 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 2.111 | 13 octobre 2020 |
-|  Version 21-06 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 4,91 | 13 octobre 2020 |
-|  Version 21-06 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 4,91 | 13 octobre 2020 |
-|  Version 21-06 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 3,98 | 13 octobre 2020 |
-|  Version 21-06 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | 3,98 | 13 octobre 2020 |
-|  Version 21-06 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | 6.32 | 9 février 2021 |
-|  Version 21-06 |  [5003667]  |  Correctif cumulatif mensuel  | 2.111 | 8 juin 2021 |
-|  Version 21-06 |  [5003697]  |  Correctif cumulatif mensuel  | 3,98 | 8 juin 2021 |
-|  Version 21-06 |  [5003671]  |  Correctif cumulatif mensuel  | 4,91 | 8 juin 2021 |
-|  Version 21-06 |  [5001401]  |  Mise à jour de la pile de maintenance  | 3,98 | 13 avril 2021 |
-|  Version 21-06 |  [5001403]  |  Mise à jour de la pile de maintenance  | 4,91 | 13 avril 2021 |
-|  Version 21-06 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | 4,91 | 19 août 2020 |
-|  Version 21-06 |  [5001402]  |  Mise à jour de la pile de maintenance  | 5.56 | 13 avril 2021 |
-|  Version 21-06 |  [4592510]  |  Mise à jour de la pile de maintenance  | 2.111 | 8 décembre 2020 |
-|  Version 21-06 |  [5003711]  |  Mise à jour de la pile de maintenance  | 6.32 | 8 juin 2021 |
-|  Version 21-06 |  [4494175]  |  Microcode  | 5.56 | 1er septembre 2020 |
-|  Version 21-06 |  [4494174]  |  Microcode  | 6.32 | 1er septembre 2020 |
-|  Version 21-06 |  [4052623]  |  Mise à jour de la plateforme de logiciel anti-programme malveillant de Microsoft Defender | 6.32, 5.56 | 13 mai 2021 |
+|  Version 21-08 |  [5005030]  |  Dernière mise à jour cumulative (LCU) | 6.34 | 10 août 2021 |
+|  Version 21-08 |  [5005036]  |  Mises à jour cumulatives d’IE | 2.113, 3.100, 4.93 | 10 août 2021 |
+|  Version 21-08 |  [5004238]  |  Dernière mise à jour cumulative (LCU) | 5.58 | 13 juillet 2021 |
+|  Version 21-08 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 2.113 | 16 février 2021 |
+|  Version 21-08 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 2.113 | 8 juin 2021 |
+|  Version 21-08 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 4.93 | 16 février 2021 |
+|  Version 21-08 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 4.93 | 16 février 2021 |
+|  Version 21-08 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 3.100 | 16 février 2021 |
+|  Version 21-08 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | 3.100 | 16 février 2021 |
+|  Version 21-08 |  [5004335]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | 6.34 | 10 août 2021 |
+|  Version 21-08 |  [5005088]  |  Correctif cumulatif mensuel  | 2.113 | 10 août 2021 |
+|  Version 21-08 |  [5005099]  |  Correctif cumulatif mensuel  | 3.100 | 10 août 2021 |
+|  Version 21-08 |  [5005076]  |  Correctif cumulatif mensuel  | 4.93 | 10 août 2021 |
+|  Version 21-08 |  [5001401]  |  Mise à jour de la pile de maintenance  | 3.100 | 13 avril 2021 |
+|  Version 21-08 |  [5001403]  |  Mise à jour de la pile de maintenance  | 4.93 | 13 avril 2021 |
+|  Version 21-08 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | 4.93 | 19 août 2020 |
+|  Version 21-08 |  [5001402]  |  Mise à jour de la pile de maintenance  | 5.58 | 13 avril 2021 |
+|  Version 21-08 |  [5004378]  |  Mise à jour de la pile de maintenance  | 2.113 | 13 juillet 2021 |
+|  Version 21-08 |  [5005112]  |  Mise à jour de la pile de maintenance  | 6.34 | 10 août 2021 |
+|  Version 21-08 |  [4494175]  |  Microcode  | 5.58 | 1er septembre 2020 |
+|  Version 21-08 |  [4494174]  |  Microcode  | 6.34 | 1er septembre 2020 |
+
+[5005030]: https://support.microsoft.com/kb/5005030
+[5005036]: https://support.microsoft.com/kb/5005036
+[5004238]: https://support.microsoft.com/kb/5004238
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
+[5005088]: https://support.microsoft.com/kb/5005088
+[5005099]: https://support.microsoft.com/kb/5005099
+[5005076]: https://support.microsoft.com/kb/5005076
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[5004378]: https://support.microsoft.com/kb/5004378
+[5005112]: https://support.microsoft.com/kb/5005112
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="july-2021-guest-os"></a>Système d’exploitation invité, juillet 2021
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 21-07 |  [5004244]  |  Dernière mise à jour cumulative (LCU) | [6.33] | 13 juillet 2021 |
+|  Version 21-07 |  [5004233]  |  Mises à jour cumulatives d’IE | [2.112], [3.99], [4.92] | 13 juillet 2021 |
+|  Version 21-07 |  [5004238]  |  Dernière mise à jour cumulative (LCU) | [5.57] | 13 juillet 2021 |
+|  Version 21-07 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2.112] | 13 octobre 2020 |
+|  Version 21-07 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [2.112] | 13 octobre 2020 |
+|  Version 21-07 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [4.92] | 13 octobre 2020 |
+|  Version 21-07 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [4.92] | 13 octobre 2020 |
+|  Version 21-07 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [3.99] | 13 octobre 2020 |
+|  Version 21-07 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | [3.99] | 13 octobre 2020 |
+|  Version 21-07 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | [6.33] | 9 février 2021 |
+|  Version 21-07 |  [5004289]  |  Correctif cumulatif mensuel  | [2.112] | 13 juillet 2021 |
+|  Version 21-07 |  [5004294]  |  Correctif cumulatif mensuel  | [3.99] | 13 juillet 2021 |
+|  Version 21-07 |  [5004298]  |  Correctif cumulatif mensuel  | [4.92] | 13 juillet 2021 |
+|  Version 21-07 |  [5001401]  |  Mise à jour de la pile de maintenance  | [3.99] | 13 avril 2021 |
+|  Version 21-07 |  [5001403]  |  Mise à jour de la pile de maintenance  | [4.92] | 13 avril 2021 |
+|  Version 21-07 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | [4.92] | 19 août 2020 |
+|  Version 21-07 |  [5001402]  |  Mise à jour de la pile de maintenance  | [5.57] | 13 avril 2021 |
+|  Version 21-07 |  [5004378]  |  Mise à jour de la pile de maintenance  | [2.112] | 13 juillet 2021 |
+|  Version 21-07 |  [5003711]  |  Mise à jour de la pile de maintenance  | [6.33] | 8 juin 2021 |
+|  Version 21-07 |  [4494175]  |  Microcode  | [5.57] | 1er septembre 2020 |
+|  Version 21-07 |  [4494174]  |  Microcode  | [6.33] | 1er septembre 2020 |
+
+[5004244]: https://support.microsoft.com/kb/5004244
+[5004233]: https://support.microsoft.com/kb/5004233
+[5004238]: https://support.microsoft.com/kb/5004238
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5004289]: https://support.microsoft.com/kb/5004289
+[5004294]: https://support.microsoft.com/kb/5004294
+[5004298]: https://support.microsoft.com/kb/5004298
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[5004378]: https://support.microsoft.com/kb/5004378
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.112]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.99]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.92]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.57]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.33]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## <a name="june-2021-guest-os"></a>Système d’exploitation invité, juin 2021
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 21-06 |  [5003646]  |  Dernière mise à jour cumulative (LCU) | [6.32] | 8 juin 2021 |
+|  Version 21-06 |  4580325  |  Mise à jour de Flash | [3.98], [4.91], [5.56], [6.32] | 13 octobre 2020 |
+|  Version 21-06 |  [5003636]  |  Mises à jour cumulatives d’IE | [2.111], [3.98], [4.91] | 8 juin 2021 |
+|  Version 21-06 |  [5003638]  |  Dernière mise à jour cumulative (LCU) | [5.56] | 8 juin 2021 |
+|  Version 21-06 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2.111] | 13 octobre 2020 |
+|  Version 21-06 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [2.111] | 13 octobre 2020 |
+|  Version 21-06 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [4,91] | 13 octobre 2020 |
+|  Version 21-06 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [4,91] | 13 octobre 2020 |
+|  Version 21-06 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [3,98] | 13 octobre 2020 |
+|  Version 21-06 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | [3,98] | 13 octobre 2020 |
+|  Version 21-06 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | [6.32] | 9 février 2021 |
+|  Version 21-06 |  [5003667]  |  Correctif cumulatif mensuel  | [2.111] | 8 juin 2021 |
+|  Version 21-06 |  [5003697]  |  Correctif cumulatif mensuel  | [3,98] | 8 juin 2021 |
+|  Version 21-06 |  [5003671]  |  Correctif cumulatif mensuel  | [4,91] | 8 juin 2021 |
+|  Version 21-06 |  [5001401]  |  Mise à jour de la pile de maintenance  | [3,98] | 13 avril 2021 |
+|  Version 21-06 |  [5001403]  |  Mise à jour de la pile de maintenance  | [4,91] | 13 avril 2021 |
+|  Version 21-06 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | [4,91] | 19 août 2020 |
+|  Version 21-06 |  [5001402]  |  Mise à jour de la pile de maintenance  | [5.56] | 13 avril 2021 |
+|  Version 21-06 |  [4592510]  |  Mise à jour de la pile de maintenance  | [2.111] | 8 décembre 2020 |
+|  Version 21-06 |  [5003711]  |  Mise à jour de la pile de maintenance  | [6.32] | 8 juin 2021 |
+|  Version 21-06 |  [4494175]  |  Microcode  | [5.56] | 1er septembre 2020 |
+|  Version 21-06 |  [4494174]  |  Microcode  | [6.32] | 1er septembre 2020 |
+|  Version 21-06 |  [4052623]  |  Mise à jour de la plateforme de logiciel anti-programme malveillant de Microsoft Defender | [6.32], [5.56] | 13 mai 2021 |
 
 [5003646]: https://support.microsoft.com/kb/5003646
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5003636]: https://support.microsoft.com/kb/5003636
 [5003638]: https://support.microsoft.com/kb/5003638
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -78,6 +181,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
 [4052623]: https://support.microsoft.com/kb/4052623
+[2.111]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,98]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,91]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.56]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.32]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="may-2021-guest-os"></a>Système d’exploitation invité, mai 2021
 
@@ -85,7 +193,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 21-05 |  [5003171]  |  Dernière mise à jour cumulative (LCU) | [6.31] | 11 mai 2021 |
-|  Version 21-05 |  [4580325]  |  Mise à jour de Flash | [3.97], [4.90], [5.55], [6.31] | 13 octobre 2020 |
+|  Version 21-05 |  4580325  |  Mise à jour de Flash | [3.97], [4.90], [5.55], [6.31] | 13 octobre 2020 |
 |  Version 21-05 |  [5003165]  |  Mises à jour cumulatives d’IE | [2.110], [3.97], [4.90] | 11 mai 2021 |
 |  Version 21-05 |  [5003197]  |  Dernière mise à jour cumulative (LCU) | [5.55] | 11 mai 2021 |
 |  Version 21-05 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2.110] | 13 octobre 2020 |
@@ -108,7 +216,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 21-05 |  [4494174]  |  Microcode  | [6.31] | 1er septembre 2020 |
 
 [5003171]: https://support.microsoft.com/kb/5003171
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5003165]: https://support.microsoft.com/kb/5003165
 [5003197]: https://support.microsoft.com/kb/5003197
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -141,7 +249,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 21-04 |  [5001342]  |  Dernière mise à jour cumulative (LCU) | [6,30] | 13 avril 2021 |
-|  Version 21-04 |  [4580325]  |  Mise à jour de Flash | [3.96], [4.89], [5.54], [6.30] | 13 octobre 2020 |
+|  Version 21-04 |  4580325  |  Mise à jour de Flash | [3.96], [4.89], [5.54], [6.30] | 13 octobre 2020 |
 |  Version 21-04 |  [5000800]  |  Mises à jour cumulatives d’IE | [2.109], [3.96], [4.89] | 9 mars 2021 |
 |  Version 21-04 |  [5001347]  |  Dernière mise à jour cumulative (LCU) | [5.54] | 13 avril 2021 |
 |  Version 21-04 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2,109] | 13 octobre 2020 |
@@ -164,7 +272,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 21-04 |  [4494174]  |  Microcode  | [6,30] | 1er septembre 2020 |
 
 [5001342]: https://support.microsoft.com/kb/5001342
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5000800]: https://support.microsoft.com/kb/5000800
 [5001347]: https://support.microsoft.com/kb/5001347
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -197,7 +305,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 21-03 |  [5000822]  |  Dernière mise à jour cumulative (LCU) | [6.29] | 9 mars 2021 |
-|  Version 21-03 |  [4580325]  |  Mise à jour de Flash | [3.95], [4.88], [5.53], [6.29] | 13 octobre 2020 |
+|  Version 21-03 |  4580325  |  Mise à jour de Flash | [3.95], [4.88], [5.53], [6.29] | 13 octobre 2020 |
 |  Version 21-03 |  [5000800]  |  Mises à jour cumulatives d’IE | [2.108], [3.95], [4.88] | 9 mars 2021 |
 |  Version 21-03 |  [5000803]  |  Dernière mise à jour cumulative (LCU) | [5.53] | 9 mars 2021 |
 |  Version 21-03 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2.108] | 13 octobre 2020 |
@@ -219,7 +327,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 21-03 |  [4494174]  |  Microcode  | [6.29] | 1er septembre 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5000800]: https://support.microsoft.com/kb/5000800
 [5000803]: https://support.microsoft.com/kb/5000803
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -251,7 +359,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 21-02 |  [4601345]  |  Dernière mise à jour cumulative (LCU) | [6,28] | 9 février 2021 |
-|  Version 21-02 |  [4580325]  |  Mise à jour de Flash | [3.94], [4.87], [5.52], [6.28] | 13 octobre 2020 |
+|  Version 21-02 |  4580325  |  Mise à jour de Flash | [3.94], [4.87], [5.52], [6.28] | 13 octobre 2020 |
 |  Version 21-02 |  [4586768]  |  Mises à jour cumulatives d’IE | [2.107], [3.94], [4.87] | 10 novembre 2020 |
 |  Version 21-02 |  [4601318]  |  Dernière mise à jour cumulative (LCU) | [5,52] | 9 février 2021 |
 |  Version 21-02 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [2.107] | 12 janvier 2021 |
@@ -274,7 +382,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 21-02 |  [4494174]  |  Microcode | [6,28] | 1er septembre 2020 |
 
 [4601345]: https://support.microsoft.com/kb/4601345
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4601318]: https://support.microsoft.com/kb/4601318
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -307,7 +415,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 21-01 |  [4598230]  |  Dernière mise à jour cumulative (LCU) | [6.27] | 12 janvier 2021 |
-|  Version 21-01 |  [4580325]  |  Mise à jour de Flash | [3.93], [4.86], [5.51], [6.27] | 13 octobre 2020 |
+|  Version 21-01 |  4580325  |  Mise à jour de Flash | [3.93], [4.86], [5.51], [6.27] | 13 octobre 2020 |
 |  Version 21-01 |  [4586768]  |  Mises à jour cumulatives d’IE | [2.106], [3.93], [4.86] | 10 novembre 2020 |
 |  Version 21-01 |  [4598243]  |  Dernière mise à jour cumulative (LCU) | [5.51] | 12 janvier 2021 |
 |  Version 21-01 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [2.106] | 12 janvier 2021 |
@@ -330,7 +438,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 21-01 |  [4494174]  |  Microcode | [6.27] | 3 septembre 2020 |
 
 [4598230]: https://support.microsoft.com/kb/4598230
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4598243]: https://support.microsoft.com/kb/4598243
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -362,7 +470,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 20-12 |  [4592440]  |  Dernière mise à jour cumulative | [6.26] | 8 décembre 2020 |
-|  Version 20-12 |  [4580325]  |  Mise à jour de Flash | [3.92], [4.85], [5.50], [6.26] | 13 octobre 2020 |
+|  Version 20-12 |  4580325  |  Mise à jour de Flash | [3.92], [4.85], [5.50], [6.26] | 13 octobre 2020 |
 |  Version 20-12 |  [4586768]  |  Mises à jour cumulatives d’IE | [2.105], [3.92], [4.85] | 10 novembre 2020 |
 |  Version 20-12 |  [4593226]  |  Dernière mise à jour cumulative | [5.50] | 8 décembre 2020 |
 |  Version 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | 13 décembre 2020 |
@@ -386,7 +494,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 20-12 |  [4494174]  |  Microcode | [6.26] | 3 septembre 2020 |
 
 [4592440]: https://support.microsoft.com/kb/4592440
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4593226]: https://support.microsoft.com/kb/4593226
 [4052623]: https://support.microsoft.com/kb/4052623
@@ -420,7 +528,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | --- | --- | --- | --- | --- |
 |  Version 20-11 OOB |  [4594442]  |  Dernière mise à jour cumulative | [6.25] | 17 novembre 2020 |
 |  Version 20-11 OOB |  [4594441]  |  Dernière mise à jour cumulative | [5.49] | 19 novembre 2020 |
-|  Version 20-11 |  [4580325]  |  Mise à jour de Flash | [3.91], [4.84], [5.49], [6.25] | 13 octobre 2020 |
+|  Version 20-11 |  4580325  |  Mise à jour de Flash | [3.91], [4.84], [5.49], [6.25] | 13 octobre 2020 |
 |  Version 20-11 |  [4586768]  |  Mise à jour cumulative d’IE | [2.104], [3.91], [4.84] | 10 novembre 2020 |
 |  Version 20-11 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [2.104] | 10 novembre 2020 |
 |  Version 20-11 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [2.104] | 10 novembre 2020 |
@@ -443,7 +551,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 [4594442]: https://support.microsoft.com/kb/4594442
 [4594441]: https://support.microsoft.com/kb/4594441
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
@@ -476,7 +584,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 |  Version 20-10 |  [4577010]  |  Mise à jour cumulative d’IE | [2.103], [3.90], [4.83] | 8 septembre 2020 |
-|  Version 20-10 |  [4580325]  |  Mise à jour de Flash | [3.90], [4.83], [5.48], [6.24] | 13 octobre 2020 |
+|  Version 20-10 |  4580325  |  Mise à jour de Flash | [3.90], [4.83], [5.48], [6.24] | 13 octobre 2020 |
 |  Version 20-10 |  [4577668]  |  Dernière mise à jour cumulative | [6.24] | 13 octobre 2020 |
 |  Version 20-10 |  [4580346]  |  Dernière mise à jour cumulative | [5.48] | 13 octobre 2020 |
 |  Version 20-10 |  [4580970]  |  Mise à jour de la pile de maintenance | [2.103] | 13 octobre 2020 |
@@ -500,7 +608,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4577668]: https://support.microsoft.com/kb/4577668
 [4580346]: https://support.microsoft.com/kb/4580346
 [4580970]: https://support.microsoft.com/kb/4580970
@@ -1045,11 +1153,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 10-19   |  [4516055]  |  Non relatif à la sécurité   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512939]  |  SSU   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 septembre 2019  |
-|  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4516067]  |  Non liée à la sécurité   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512938]  |  SSU   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 septembre 2019  |
-|  Version 10-19   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512574]  |  SSU   |  [5.36]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512577]  |  SSU   |  [6.12]  |  10 septembre 2019  |
 
@@ -2970,7 +3078,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
+[3038314]:https://support.microsoft.com/en-us/topic/ms15-018-cumulative-security-update-for-internet-explorer-march-10-2015-ebbad1d0-8db0-4639-a143-10213c78afb5
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

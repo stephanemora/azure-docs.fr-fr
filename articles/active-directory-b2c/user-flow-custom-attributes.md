@@ -7,27 +7,27 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836802e65c8eb76f17bbf053e54ed9dbedf54049
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607915"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532224"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Dans l’article [Ajouter des revendications et personnaliser une entrée d’utilisateur à l’aide de stratégies personnalisées](configure-user-input.md), vous apprenez à utiliser des [attributs de profil utilisateur](user-profile-attributes.md) intégrés. Dans cet article, vous allez activer un attribut personnalisé dans votre annuaire Azure Active Directory B2C (Azure AD B2C). Plus tard, vous pourrez utiliser le nouvel attribut simultanément en tant que revendication personnalisée dans les [flux d’utilisateurs](user-flow-overview.md) ou les [stratégies personnalisées](custom-policy-get-started.md) .
+Dans l’article [Ajouter des revendications et personnaliser une entrée d’utilisateur à l’aide de stratégies personnalisées](configure-user-input.md), vous apprenez à utiliser des [attributs de profil utilisateur](user-profile-attributes.md) intégrés. Dans cet article, vous allez activer un attribut personnalisé dans votre annuaire Azure Active Directory B2C (Azure AD B2C). Plus tard, vous pourrez utiliser le nouvel attribut simultanément en tant que revendication personnalisée dans les [flux d’utilisateurs](user-flow-overview.md) ou les [stratégies personnalisées](user-flow-overview.md) .
 
 Votre annuaire Azure AD B2C comprend un [ensemble intégré d’attributs](user-profile-attributes.md). Toutefois, vous devez souvent créer vos propres attributs pour gérer votre scénario spécifique, par exemple dans les cas suivants :
 
-* Une application côté client a besoin de conserver un attribut tel que **LoyaltyId**.
+* Une application côté client a besoin de conserver un attribut tel que **loyaltyId**.
 * Un fournisseur d’identité a un identificateur d’utilisateur unique, **uniqueUserGUID**, qui doit être enregistré.
 * Un parcours utilisateur personnalisé doit enregistrer l’état de l’utilisateur, **migrationStatus**, pour que d’autres logiques fonctionnent dessus.
 
@@ -68,7 +68,24 @@ Une fois que vous avez créé un utilisateur à l’aide d’un flux d’utilisa
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Application d’extensions Azure AD B2C
 
-Les attributs d’extension ne peuvent être inscrits que pour un objet application, même s’ils peuvent contenir les données d’un utilisateur. L’attribut d’extension est attaché à l’application appelée `b2c-extensions-app`. Ne modifiez pas cette application, car elle est utilisée par Azure AD B2C pour le stockage des données utilisateurs. Vous trouverez cette application sous Azure AD B2C, inscriptions d’applications. Obtenir les propriétés de l’application :
+Les attributs d’extension ne peuvent être inscrits que pour un objet application, même s’ils peuvent contenir les données d’un utilisateur. L’attribut d’extension est attaché à l’application appelée `b2c-extensions-app`. Ne modifiez pas cette application, car elle est utilisée par Azure AD B2C pour le stockage des données utilisateurs. Vous trouverez cette application sous Azure AD B2C, inscriptions d’applications. 
+
+::: zone pivot="b2c-user-flow"
+
+Pour récupérer l’ID de l’application :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez **Toutes les applications**.
+1. Sélectionner l’application `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
+1. Copiez **l’ID de l’application**. Exemple : `11111111-1111-1111-1111-111111111111`.
+ 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Obtenir les propriétés de l’application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
@@ -78,8 +95,6 @@ Les attributs d’extension ne peuvent être inscrits que pour un objet applicat
 1. Copiez les identificateurs suivants dans le Presse-papiers, puis enregistrez-les :
     * **ID de l’application**. Exemple : `11111111-1111-1111-1111-111111111111`.
     * **ID objet**. Exemple : `22222222-2222-2222-2222-222222222222`.
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="modify-your-custom-policy"></a>Modifier votre stratégie personnalisée
 

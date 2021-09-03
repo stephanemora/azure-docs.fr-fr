@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: b297e47e3b1cb890312b6f7a566eb4f033e6612a
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 07/28/2021
+ms.openlocfilehash: 0beaad10d588de56bcdf2c458863893e1da8f896
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824118"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641555"
 ---
 # <a name="load-data-into-azure-synapse-analytics-using-azure-data-factory-or-a-synapse-pipeline"></a>Charger des données dans Azure Synapse Analytics à l’aide d’Azure Data Factory ou un pipeline Synapse
 

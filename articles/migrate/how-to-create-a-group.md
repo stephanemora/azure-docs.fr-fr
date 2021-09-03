@@ -6,18 +6,18 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/17/2019
-ms.openlocfilehash: 0570ed73b86223025b250e269d7e2f358473f004
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ffa031a9058eb6864298c5c9387402955a84968
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563094"
 ---
 # <a name="create-a-group-for-assessment"></a>Créer un groupe pour l’évaluation
 
 Cet article décrit comment créer des groupes de serveurs à évaluer avec Azure Migrate : Découverte et évaluation.
 
-[Azure Migrate](migrate-services-overview.md) vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers. 
+[Azure Migrate](migrate-services-overview.md) vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers.
 
 ## <a name="grouping-servers"></a>Regroupement de serveurs
 
@@ -47,12 +47,13 @@ Si vous souhaitez créer un groupe manuellement en dehors de la création d’un
 
     ![Créer un groupe](./media/how-to-create-a-group/create-group.png)
 
-Vous pouvez maintenant utiliser ce groupe lorsque vous [créez une évaluation de machine virtuelle Azure](how-to-create-assessment.md), [une évaluation Azure VMware Solution (AVS)](how-to-create-azure-vmware-solution-assessment.md) ou [une évaluation Azure SQL](how-to-create-azure-sql-assessment.md).
+Vous pouvez maintenant utiliser ce groupe lorsque vous [créez une évaluation de machine virtuelle Azure](how-to-create-assessment.md), [une évaluation Azure VMware Solution (AVS)](how-to-create-azure-vmware-solution-assessment.md), [une évaluation Azure SQL](how-to-create-azure-sql-assessment.md) ou [une évaluation Azure App Service](how-to-create-azure-app-service-assessment.md).
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Affiner un groupe avec un mappage des dépendances
 
 Le mappage des dépendances vous permet de visualiser les dépendances entre les serveurs. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les groupes de serveurs avec un niveau de confiance plus élevé.
-- Il vous aide à vérifier les dépendances des serveurs avant d’exécuter une évaluation. 
+
+- Il vous aide à vérifier les dépendances des serveurs avant d’exécuter une évaluation.
 - Il vous aide également à planifier efficacement votre migration vers Azure, en vous assurant que rien n’est oublié et en évitant ainsi les interruptions surprises durant la migration.
 - Vous pouvez découvrir les systèmes interdépendants qui doivent migrer en même temps et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration.
 
@@ -84,7 +85,6 @@ Si vous avez déjà [configuré le mappage des dépendances](how-to-create-group
     - Seuls les serveurs qui ont été découverts peuvent être ajoutés.
     - L’ajout et la suppression de serveurs au sein d’un groupe invalide ses évaluations passées.
     - Vous pouvez, si vous le souhaitez, créer une nouvelle évaluation lorsque vous modifiez le groupe.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

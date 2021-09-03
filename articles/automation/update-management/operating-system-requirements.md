@@ -3,14 +3,14 @@ title: Clients Azure Automation Update Management pris en charge
 description: Cet article décrit les systèmes d’exploitation Windows et Linux pris en charge avec Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: b25cc49846f7cd7cba1bb121fcbb8ba93f3a9b02
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e335f9b0e6e63cc96a487ef32b8b3b728b95d739
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895871"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608668"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>Systèmes d’exploitation pris en charge par Update Management
 
@@ -20,6 +20,8 @@ Cet article détaille les systèmes d’exploitation Windows et Linux pris en ch
 
 Le tableau suivant liste les systèmes d’exploitation pris en charge pour les évaluations des mises à jour et les mises à jour correctives. Une mise à jour corrective nécessite un Runbook Worker hybride système, qui est automatiquement installé quand vous activez la machine virtuelle ou le serveur à des fins de gestion par Update Management. Pour plus d’informations sur la configuration requise du Runbook Worker hybride, consultez [Déploiement d’un Runbook Worker hybride Windows](../automation-windows-hrw-install.md#prerequisites) et [Déploiement d’un Runbook Worker hybride Linux](../automation-linux-hrw-install.md#prerequisites).
 
+Tous les systèmes d’exploitation sont censés être x64. L’architecture x86 n’est prise en charge pour aucun système d’exploitation.
+
 > [!NOTE]
 > L’évaluation des mises à jour des machines Linux est prise en charge uniquement dans certaines régions, comme listé dans la [table de mappages](../how-to/region-mappings.md#supported-mappings) du compte Automation et de l’espace de travail Log Analytics.
 
@@ -27,10 +29,11 @@ Le tableau suivant liste les systèmes d’exploitation pris en charge pour les 
 |---------|---------|
 |Windows Server 2019 (Datacenter/Standard incluant Server Core)<br><br>Windows Server 2016 (Datacenter/Standard incluant Server Core)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM et SP1 Standard)| Update Management prend uniquement en charge les évaluations et les mises à jour correctives pour ce système d’exploitation. La fonctionnalité [Runbook Worker hybride](../automation-windows-hrw-install.md) est prise en charge pour Windows Server 2008 R2. |
-|CentOS 6, 7 et 8 (x64)      | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6, 7 et 8 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
-|SUSE Linux Enterprise Server 12, 15 et 15.1 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.     |
-|Ubuntu 14.04 LTS, 16.04 LTS et 18.04 LTS (x64)      |Les agents Linux nécessitent un accès à un référentiel de mise à jour.         |
+|CentOS 6, 7 et 8       | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
+|Oracle Linux 6.x, 7.x, 8x | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
+|Red Hat Enterprise 6, 7 et 8      | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
+|SUSE Linux Enterprise Server 12, 15, 15.1 et 15.2      | Les agents Linux nécessitent un accès à un référentiel de mise à jour.     |
+|Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS et 20.04 LTS       |Les agents Linux nécessitent un accès à un référentiel de mise à jour.         |
 
 > [!NOTE]
 > Update Management ne permet pas d’automatiser de manière sécurisée la gestion des mises à jour sur toutes les instances d’un groupe de machines virtuelles identiques Azure. Les [mises à niveau automatiques de l’image de système d’exploitation](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) constituent la méthode recommandée pour gérer les mises à niveau des images de système d’exploitation sur le groupe identique.
@@ -47,7 +50,7 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 
 ## <a name="system-requirements"></a>Configuration requise
 
-Les informations suivantes décrivent la configuration requise propre au système d’exploitation. Pour obtenir des conseils supplémentaires, consultez [Planification réseau](plan-deployment.md#ports). Pour comprendre la configuration requise pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Les informations suivantes décrivent la configuration requise propre au système d’exploitation. Pour obtenir des conseils supplémentaires, consultez [Planification réseau](plan-deployment.md#ports). Pour comprendre les exigences du protocole TLS 1.2, consultez [TLS 1.2 pour Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 
 ### <a name="windows"></a>Windows
 
@@ -57,7 +60,7 @@ Configuration logicielle requise :
 - Windows PowerShell 5.1 est requis ([Télécharger Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).)
 - La fonctionnalité Update Management dépend du rôle de système Runbook Worker hybride. Vérifiez la [configuration requise](../automation-windows-hrw-install.md#prerequisites).
 
-Les agents Windows Update doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services). Sinon, ils doivent pouvoir accéder à Microsoft Update. Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre machine à [Azure Arc enabled servers](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous prévoyez de superviser les machines avec VM Insights, utilisez plutôt l’initiative [Activation de VM Insights](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Les agents Windows Update doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services). Sinon, ils doivent pouvoir accéder à Microsoft Update. Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre machine aux [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour affecter la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous prévoyez de superviser les machines avec VM Insights, utilisez plutôt l’initiative [Activation de VM Insights](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 Vous pouvez utiliser Update Management avec Microsoft Endpoint Configuration Manager. Pour en savoir plus sur les scénarios d’intégration, consultez [Intégrer Update Management à Windows Endpoint Configuration Manager](mecmintegration.md). L’[agent Log Analytics pour Windows](../../azure-monitor/agents/agent-windows.md) est nécessaire aux serveurs Windows gérés par les sites dans votre environnement Configuration Manager.
 
@@ -77,7 +80,7 @@ Configuration logicielle requise :
 > [!NOTE]
 > L’évaluation des mises à jour des machines Linux est uniquement prise en charge dans certaines régions. Consultez la [table des mappages](../how-to/region-mappings.md#supported-mappings) du compte Automation et de l’espace de travail Log Analytics.
 
-Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Linux en connectant d’abord votre machine à [Azure Arc enabled servers](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Linux](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Linux en connectant d’abord votre machine aux [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour affecter la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc Linux](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

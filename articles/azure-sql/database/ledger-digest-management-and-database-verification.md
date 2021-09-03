@@ -1,27 +1,27 @@
 ---
 title: Gestion des synthèses et vérification de base de données
 description: Cet article fournit des informations sur la gestion des synthèses et la vérification de base de données dans Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: e133ee1c8492bf63cbfd4702e795743009abfdc7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8e6fbbdcb4b6db8ed7e9549b8776010cf01894e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080090"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562989"
 ---
 # <a name="digest-management-and-database-verification"></a>Gestion des synthèses et vérification de base de données
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans la région USA Centre-Ouest.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
 
 Le registre Azure SQL Database fournit une forme d’intégrité des données appelée *forward integrity*, qui donne la preuve de la falsification des données dans vos tables de registre. Par exemple, si une transaction bancaire sur une table de registre met à jour le solde sur la valeur `x` et qu’un attaquant modifie les données par la suite, entraînant le remplacement de la valeur `x` par `y`, la vérification de base de données détectera cette activité de falsification.  
 
@@ -39,14 +39,14 @@ Le processus de vérification et l’intégrité de la base de données dépende
 
 ### <a name="automatic-generation-and-storage-of-database-digests"></a>Génération et stockage automatiques des synthèses de base de données
 
-Le registre Azure SQL Database s’intègre à la [fonctionnalité de stockage immuable du Stockage Blob Azure](../../storage/blobs/storage-blob-immutable-storage.md) et au [Registre confidentiel Azure](../../confidential-ledger/index.yml). Cette intégration fournit des services de stockage sécurisé dans Azure afin de protéger les synthèses de base de données contre toute éventuelle falsification. Cette intégration fournit un moyen simple et économique aux utilisateurs d’automatiser la gestion des synthèses sans se soucier de leur disponibilité et de la réplication géographique. 
+Le registre Azure SQL Database s’intègre à la [fonctionnalité de stockage immuable du Stockage Blob Azure](../../storage/blobs/immutable-storage-overview.md) et au [Registre confidentiel Azure](../../confidential-ledger/index.yml). Cette intégration fournit des services de stockage sécurisé dans Azure afin de protéger les synthèses de base de données contre toute éventuelle falsification. Cette intégration fournit un moyen simple et économique aux utilisateurs d’automatiser la gestion des synthèses sans se soucier de leur disponibilité et de la réplication géographique. 
 
 Vous pouvez configurer la génération et le stockage automatiques des synthèses de base de données par le biais du portail Azure, de PowerShell ou d’Azure CLI. Lorsque vous configurez la génération et le stockage automatiques, les synthèses de base de données sont générées selon un intervalle prédéfini de 30 secondes et chargées dans le service de stockage sélectionné. Si aucune transaction ne se produit dans le système durant l’intervalle de 30 secondes, aucune synthèse de base de données n’est générée ni chargée. Ce mécanisme garantit que les synthèses de base de données sont générées seulement quand des données ont été mises à jour dans votre base de données.
 
 :::image type="content" source="media/ledger/automatic-digest-management.png" alt-text="Capture d’écran montrant les sélections permettant d’activer le stockage de synthèse."::: 
 
 > [!IMPORTANT]
-> Configurez une [stratégie d’immuabilité](../../storage/blobs/storage-blob-immutability-policies-manage.md) sur votre conteneur après le provisionnement, afin de garantir la protection des synthèses de base de données contre la falsification.
+> Configurez une [stratégie d’immuabilité](../../storage/blobs/immutable-policy-configure-version-scope.md) sur votre conteneur après le provisionnement, afin de garantir la protection des synthèses de base de données contre la falsification.
 
 ### <a name="manual-generation-and-storage-of-database-digests"></a>Génération et stockage manuels des synthèses de base de données
 
@@ -134,6 +134,7 @@ EXECUTE sp_verify_database_ledger N'
         "digest_time":  "2020-11-12T18:43:30.4701575"
     }
 ]
+'
 ```
 
 Les codes de retour de `sp_verify_database_ledger` et `sp_verify_database_ledger_from_digest_storage` sont `0` (réussite) ou `1` (échec).

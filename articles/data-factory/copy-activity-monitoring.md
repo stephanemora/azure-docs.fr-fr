@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 03/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: b8f3de9a986c491de6bfd2b507755abe4face534
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: edff28779c18e56bb7ee2e5ff3d222823a038f7d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822399"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641474"
 ---
 # <a name="monitor-copy-activity"></a>Superviser une activité de copie
 

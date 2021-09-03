@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: fcc7ac002c9d1024abc17dc26ba0b231213ceb53
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/18/2021
+ms.openlocfilehash: 731fe8f29fc4e67e2d74d46702768e642928ae09
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385451"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535372"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>Modifier les paramètres de l’hôte et de l’application pour les applications logiques dans Azure Logic Apps monolocataire
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur la configuration de vos applications logiques pou
 
 Dans Visual Studio Code, au niveau de la racine de votre projet d’application logique, le fichier **local.settings.json** contient des options de configuration globale qui affectent *tous les workflows* de cette application logique en cours d’exécution dans votre environnement de développement local. Lorsque vos workflows s’exécutent localement, ces paramètres sont accessibles en tant que variables d’environnement locales et leurs valeurs peuvent souvent changer entre les différents environnements dans lesquels vous exécutez vos workflows. Pour afficher et gérer ces paramètres, consultez [Gérer les paramètres d’application - local.settings.json](#manage-app-settings).
 
-Les paramètres de l’application dans Azure Logic Apps fonctionnent de la même façon que les paramètres de l’application dans Azure Functions ou Azure Web Apps. Si vous avez déjà utilisé ces autres services, vous connaissez peut-être déjà les paramètres d’application. Pour plus d’informations, consultez [Référence des paramètres d’application pour Azure Functions](../azure-functions/functions-app-settings.md) et [Utiliser Azure Functions Core Tools - Fichier de paramètres local](../azure-functions/functions-run-local.md#local-settings-file).
+Les paramètres de l’application dans Azure Logic Apps fonctionnent de la même façon que les paramètres de l’application dans Azure Functions ou Azure Web Apps. Si vous avez déjà utilisé ces autres services, vous connaissez peut-être déjà les paramètres d’application. Pour plus d’informations, consultez [Référence des paramètres d’application pour Azure Functions](../azure-functions/functions-app-settings.md) et [Utiliser Azure Functions Core Tools - Fichier de paramètres local](../azure-functions/functions-develop-local.md#local-settings-file).
 
 | Paramètre | Valeur par défaut | Description |
 |---------|---------------|-------------|
@@ -295,6 +295,7 @@ Ces paramètres affectent le débit et la capacité d’Azure Logic Apps monoloc
 
 | Paramètre | Valeur par défaut | Description |
 |---------|---------------|-------------|
+| `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Définit le délai d’attente pour l’envoi de messages avec l’opération Service Bus intégrée. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` expéditeurs de messages | Définit le nombre d’expéditeurs de messages Azure Service Bus par cœur de processeur à utiliser dans le pool d’expéditeurs de messages. |
 ||||
 

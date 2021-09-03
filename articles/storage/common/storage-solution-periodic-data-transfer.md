@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 07/21/2021
 ms.author: alkohli
-ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a649383ab6998715de9a696cc1abd86926c81432
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96573916"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122564012"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
  
@@ -30,11 +30,13 @@ Les options recommandées pour le transfert périodique de données se divisent 
     - **AzCopy** – utilisez cet outil en ligne de commande pour copier facilement des données vers et à partir du Stockage Blob, Fichier et Table Azure avec des performances optimales. Il prend en charge la concurrence et le parallélisme, ainsi que la possibilité de reprendre les opérations de copie après une interruption.
     - **API/kits SDK Stockage Azure** – lorsque vous créez une application, vous pouvez la développer par rapport à l’API REST Stockage Azure et utiliser les kits SDK Azure proposés dans plusieurs langues. Les API REST peuvent également tirer parti de la bibliothèque de déplacement des données du Stockage Azure, conçue spécialement pour la copie de données hautes performances vers et à partir d’Azure.
 
-- **Outils d’ingestion continue des données** – pour l’ingestion continue des données, vous pouvez sélectionner un des appareils de transfert en ligne Data Box ou Azure Data Factory. Ces outils, configurés par des professionnels de l’informatique, peuvent automatiser en toute transparence le transfert de données.
+- **Outils d’ingestion continue des données** : pour l’ingestion continue des données, vous pouvez sélectionner l’une des options suivantes.
 
+    - **Réplication d’objets** : la réplication d'objets copie de manière asynchrone des objets blob de blocs entre conteneurs dans un compte de stockage source et un compte de destination. Utilisez la réplication d’objets à des fins de synchronisation des conteneurs dans deux comptes de stockage différents.
     - **Azure Data Factory** - Data Factory doit être utilisé pour effectuer un scale-out d’une opération de transfert, et lorsque des fonctionnalités d'orchestration et de supervision de qualité professionnelle sont requises. Avec Azure Data Factory, vous pouvez configurer un pipeline de cloud qui transfère régulièrement des fichiers entre plusieurs services Azure, en local ou les deux. Azure Data Factory permet d’orchestrer des workflows pilotés par les données qui ingèrent des données provenant de différents magasins de données et d’automatiser le déplacement et la transformation des données.
     - **Famille Azure Data Box pour les transferts en ligne** – Data Box Edge et Data Box Gateway sont des appareils réseau en ligne capables de déplacer des données vers et à partir d’Azure. Data Box Edge utilise un système de computing en périphérie compatible avec l’intelligence artificielle (IA) pour prétraiter les données avant le chargement. Data Box Gateway est une version virtuelle de l’appareil, offrant les mêmes fonctionnalités de transfert de données.
 
+L’appareil de transfert en ligne Data Box ou Azure Data Factory sont configurés par des professionnels de l’informatique qui peuvent automatiser en toute transparence le transfert de données.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparaison des fonctionnalités clés
 

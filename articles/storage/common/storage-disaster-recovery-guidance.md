@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2fdbdcfd847c33bc6d948d12b14f468233b4cf19
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 383757cf20c7ac508aa396b947640c3a1221052d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901490"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563207"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -97,7 +97,9 @@ L’accès en écriture est restauré pour les comptes géoredondants une fois q
 
 Les données étant écrites de façon asynchrone de la région primaire vers la région secondaire, il y a toujours un délai avant qu’une écriture dans la région primaire soit copiée vers la région secondaire. Si la région primaire devient indisponible, il se peut que les écritures les plus récentes n’aient pas encore été copiées vers la région secondaire.
 
-Quand vous forcez un basculement, toutes les données dans la région primaire sont perdues car la région secondaire devient la nouvelle région primaire et le compte de stockage est configuré pour être localement redondant. Toutes les données déjà copiées vers la région secondaire sont conservées quand le basculement se produit. En revanche, les données écrites dans la région primaire mais qui n’ont pas encore été copiées vers la région secondaire sont définitivement perdues.
+Lorsque vous forcez un basculement, toutes les données de la région primaire sont perdues, car la région secondaire devient la nouvelle région primaire. La nouvelle région primaire est configurée pour être redondante localement après le basculement.
+
+Toutes les données déjà copiées vers la région secondaire sont conservées quand le basculement se produit. En revanche, les données écrites dans la région primaire mais qui n’ont pas encore été copiées vers la région secondaire sont définitivement perdues.
 
 La propriété **Dernière heure de synchronisation** indique l’heure la plus récente à laquelle il est garanti que les données de la région primaire ont été écrites dans la région secondaire. Toutes les données écrites avant la dernière heure de synchronisation sont disponibles dans la région secondaire. Quant aux données écrites après la dernière heure de synchronisation, il y a un risque qu’elles n’aient pas été écrites dans la région secondaire et qu’elles soient perdues. Utilisez cette propriété en cas de panne pour estimer la perte de données que peut entraîner un basculement de compte.
 
@@ -107,11 +109,13 @@ Pour plus d’informations sur la vérification de la propriété **Heure de la 
 
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Faire attention lors de la restauration automatique vers la région primaire
 
-Après le basculement de la région primaire vers la région secondaire, votre compte de stockage est configuré pour être localement redondant dans la nouvelle région primaire. Vous pouvez ensuite configurer à nouveau le compte pour la géo-redondance. Quand le compte est reconfiguré pour la géoredondance après un basculement, la nouvelle région primaire commence immédiatement la copie des données vers la nouvelle région secondaire, qui était la région primaire avant le basculement d’origine. Toutefois, il peut s’écouler un certain temps avant que les données existantes dans la région primaire soient entièrement copiées vers la nouvelle région secondaire.
+Après le basculement de la région primaire vers la région secondaire, votre compte de stockage est configuré pour être localement redondant dans la nouvelle région primaire. Vous pouvez ensuite configurer le compte pour la géo-redondance dans la nouvelle région primaire. Quand le compte est configuré pour la géo-redondance après un basculement, la nouvelle région primaire commence immédiatement la copie des données vers la nouvelle région secondaire, qui était la région primaire avant le basculement d’origine. Toutefois, il peut s’écouler un certain temps avant que les données existantes dans la nouvelle région primaire soient entièrement copiées vers la nouvelle région secondaire.
 
-Une fois le compte de stockage reconfiguré pour la géoredondance, il est possible de lancer un autre basculement de la nouvelle région primaire vers la nouvelle région secondaire. Dans ce cas, la région primaire d’origine avant le basculement redevient la région primaire, et est configurée pour être localement redondante. Toutes les données dans la région primaire post-basculement (la région secondaire d’origine) sont alors perdues. Si la plupart des données dans le compte de stockage n’ont pas été copiées vers la nouvelle région secondaire avant la restauration automatique, vous risquez de subir une perte de données majeure.
+Une fois le compte de stockage reconfiguré pour la géo-redondance, il est possible de lancer une restauration automatique de la nouvelle région primaire vers la nouvelle région secondaire. Dans ce cas, la région primaire d’origine avant le basculement redevient la région primaire, et elle est configurée pour être redondante localement ou redondante dans une zone, selon que la configuration de la région primaire d’origine était de type GRS/RA-GRS ou GZRS/RA-GZRS. Toutes les données dans la région primaire post-basculement (la région secondaire d’origine) sont perdues durant la restauration automatique. Si la plupart des données dans le compte de stockage n’ont pas été copiées vers la nouvelle région secondaire avant la restauration automatique, vous risquez de subir une perte de données majeure.
 
-Pour éviter toute perte de données majeure, vérifiez la valeur de la propriété **Dernière heure de synchronisation** avant de procéder à la restauration automatique. Comparez la dernière heure de synchronisation aux dernières heures où ces données ont été écrites dans la nouvelle région primaire afin d’évaluer la perte de données attendue. 
+Pour éviter toute perte de données majeure, vérifiez la valeur de la propriété **Dernière heure de synchronisation** avant de procéder à la restauration automatique. Comparez la dernière heure de synchronisation aux dernières heures où ces données ont été écrites dans la nouvelle région primaire afin d’évaluer la perte de données attendue.
+
+Après une opération de restauration automatique, vous pouvez configurer la nouvelle région primaire de manière à ce qu’elle soit à nouveau géo-redondante. Si la région primaire d’origine était configurée sur LRS, vous pouvez la configurer sur GRS ou RA-GRS. Si la région primaire d’origine était configurée sur ZRS, vous pouvez la configurer sur GZRS ou RA-GZRS. Pour des options supplémentaires, consultez [Modifier la manière dont un compte de stockage est répliqué](redundancy-migration.md).
 
 ## <a name="initiate-an-account-failover"></a>Initier un basculement de compte
 
@@ -159,7 +163,7 @@ Les fonctionnalités et services suivants ne sont pas pris en charge pour le bas
 - Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.
 - Les comptes de stockage dans lesquels est activé un espace de noms hiérarchique (comme Data Lake Storage Gen2) ne sont pas pris en charge pour l’instant.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
-- Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
+- Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/immutable-storage-overview.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
 
