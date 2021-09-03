@@ -1,24 +1,27 @@
 ---
 title: Capturer une trace de navigateur pour la résolution des problèmes
 description: Capturer des informations réseau à partir d’une trace de navigateur pour résoudre les problèmes liés au portail Azure.
-ms.date: 03/25/2021
+ms.date: 08/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d1db82c9671879c435a6dba73929d9a4eb183f7f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563483"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534753"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturer une trace de navigateur pour la résolution des problèmes
 
 Si vous comptez résoudre un problème lié au portail Azure et avez besoin de contacter le support Microsoft, nous vous recommandons de commencer par capturer une trace de navigateur, ainsi que quelques informations supplémentaires. Les données collectées peuvent fournir des informations importantes sur l’état du portail au moment où le problème s’est produit. Suivez les étapes de cet article concernant les outils de développement dans le navigateur que vous utilisez : Google Chrome ou Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari ou Firefox.
 
+> [!IMPORTANT]
+> Le support Microsoft utilise ces traces à des fins de résolution des problèmes uniquement. Gardez à l’esprit que vous partagez vos traces, car ils peuvent contenir des informations sensibles sur votre environnement.
+
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome et Microsoft Edge (Chromium)
 
 Google Chrome et Microsoft Edge (Chromium) sont tous les deux basés sur le [projet open source Chromium](https://www.chromium.org/Home). Les étapes suivantes montrent comment utiliser les outils de développement, qui sont très similaires dans ces deux navigateurs. Pour plus d’informations, consultez [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) et [Outils de développement Microsoft Edge (Chromium)](/microsoft-edge/devtools-guide-chromium).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Il est important de vous connecter _avant_ de démarrer la trace. De cette façon, la trace ne contiendra pas d’informations sensibles relatives à votre connexion. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Il est important de vous connecter _avant_ de démarrer la trace. De cette façon, la trace ne contiendra pas d’informations sensibles relatives à votre connexion.
 
 1. Commencez l’enregistrement des actions que vous effectuez dans le portail, à l’aide de l’[Enregistreur d’actions](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
@@ -164,7 +167,7 @@ Les étapes suivantes montrent comment utiliser les outils de développement d�
 
 Les étapes suivantes montrent comment utiliser les outils de développement dans Firefox. Pour plus d’informations, consultez [Outils de développement Firefox](https://developer.mozilla.org/docs/Tools).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Il est important de vous connecter _avant_ de démarrer la trace. De cette façon, la trace ne contiendra pas d’informations sensibles relatives à votre connexion. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Il est important de vous connecter _avant_ de démarrer la trace. De cette façon, la trace ne contiendra pas d’informations sensibles relatives à votre connexion.
 
 1. Commencez l’enregistrement des actions que vous effectuez dans le portail. Utilisez [Enregistreur d’actions](https://support.microsoft.com/help/22878/windows-10-record-steps) sur Windows ou consultez [Comment enregistrer l’écran sur votre Mac](https://support.apple.com/HT208721).
 
@@ -204,4 +207,5 @@ Les étapes suivantes montrent comment utiliser les outils de développement dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Présentation du portail Azure](azure-portal-overview.md)
+- En savoir plus sur le [Portail Azure](azure-portal-overview.md).
+- Découvrez comment [ouvrir une demande de support](supportability/how-to-create-azure-support-request.md) dans le Portail Azure.

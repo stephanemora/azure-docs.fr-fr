@@ -4,12 +4,12 @@ description: Recherchez des réponses à certaines des questions les plus fréqu
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8feda70f346347a3559e2696d2912d2a976b0a63
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 612493d55adddea82e3e8d1e3d169eee963bfda2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890302"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531475"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -63,7 +63,7 @@ AKS s’appuie sur différentes ressources de l'infrastructure Azure, notamment 
 Pour permettre cette architecture, chaque déploiement AKS s’étend sur deux groupes de ressources :
 
 1. Vous créez le premier groupe de ressources. Ce groupe contient uniquement la ressource de service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second groupe de ressources au cours du déploiement. Un exemple du second groupe de ressources est *MC_myResourceGroup_myAKSCluster_eastus*. Pour obtenir des informations sur la façon de spécifier le nom de ce second groupe de ressources, consultez la section suivante.
-1. Le second groupe de ressources, nommé *groupe de ressources de nœud*, contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Par défaut, le nom du groupe de ressources de nœud ressemble à ceci : *MC_myResourceGroup_myAKSCluster_eastus*. AKS supprime automatiquement la ressource de nœud à chaque fois que le cluster est supprimé. Cette ressource doit donc être utilisée uniquement pour les ressources qui partagent le cycle de vie du cluster.
+1. Le second groupe de ressources, nommé *groupe de ressources de nœud*, contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Par défaut, le nom du groupe de ressources de nœud ressemble à ceci : *MC_myResourceGroup_myAKSCluster_eastus*. AKS supprime automatiquement le groupe de ressources de nœud à chaque fois que le cluster est supprimé. Cette ressource doit donc être utilisée uniquement pour les ressources qui partagent le cycle de vie du cluster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Puis-je nommer mon groupe de ressources d’infrastructure AKS comme je le veux ?
 
@@ -286,6 +286,11 @@ Le problème a été résolu par Kubernetes v1.20. Pour plus d’informations, c
 ## <a name="can-i-use-fips-cryptographic-libraries-with-deployments-on-aks"></a>Puis-je utiliser des bibliothèques cryptographiques FIPS avec des déploiements sur AKS ?
 
 Les nœuds compatibles FIPS sont actuellement disponibles en préversion sur les pools de nœuds basés sur Linux. Pour plus d’informations, consultez [Ajouter un pool de nœuds compatibles FIPS (préversion)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
+
+## <a name="can-i-configure-nsgs-with-aks"></a>Puis-je configurer les groupe de sécurité réseau avec AKS ?
+
+Si vous fournissez votre propre sous-réseau, vous devez gérer les groupes de sécurité réseau (NSG) associés à ce sous-réseau. AKS modifie uniquement les groupes de sécurité réseau au niveau de la carte réseau et ne modifie pas les groupes de sécurité réseau associés à ce sous-réseau. Si vous utilisez CNI, vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du Pod. Si vous utilisez kubenet, vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du pod.
+
 
 <!-- LINKS - internal -->
 

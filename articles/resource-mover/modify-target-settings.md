@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 936a667948c888f3ca7c53eaa5be9cc97facf5f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7044414d47f685062331bc4aceb1b538d6f9a062
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375355"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461588"
 ---
 # <a name="modify-destination-settings"></a>Modifier les paramètres de destination
 
@@ -21,25 +21,23 @@ Cet article explique comment modifier les paramètres de destination à l'occasi
 
 ## <a name="modify-vm-settings"></a>Modifier les paramètres de machine virtuelle
 
-Au moment de déplacer des machines virtuelles Azure et les ressources associées, vous pouvez modifier les paramètres de destination. 
+Vous pouvez modifier les paramètres de destination lorsque vous déplacez des machines virtuelles Azure et les ressources associées. Nous recommandons les actions suivantes :
 
-- Nous vous recommandons de ne modifier les paramètres de destination qu'une fois la collection de déplacement validée.
-- Nous vous recommandons de modifier les paramètres avant de préparer les ressources, car certaines propriétés de destination risquent de ne plus pouvoir être modifiées à l'issue de la préparation.
-
-Toutefois :
-- Si vous déplacez la ressource source, vous pouvez généralement modifier les paramètres de destination tant que vous n'avez pas lancé le processus de déplacement.
-- Si vous attribuez une ressource existante dans la région source, vous pouvez modifier les paramètres de destination tant que la validation du déplacement n'est pas terminée.
+- De ne modifier les paramètres de destination qu’une fois la collection de déplacement validée. Toutefois :
+    - Si vous déplacez la ressource source, vous pouvez généralement modifier ces paramètres tant que vous n’avez pas lancé le processus de déplacement.
+    - Si vous attribuez une ressource existante dans la région source, vous pouvez modifier les paramètres de destination tant que la validation du déplacement n'est pas terminée.
+- De modifier les paramètres avant de préparer les ressources, car certaines propriétés de destination risquent de ne plus pouvoir être modifiées à l’issue de la préparation.
 
 ### <a name="settings-you-can-modify"></a>Paramètres que vous pouvez modifier
 
 Les paramètres de configuration que vous pouvez modifier sont résumés dans le tableau.
 
 **Ressource** | **Options** 
---- | --- | --- 
-**Nom de la machine virtuelle** | Options :<br/><br/> - Créer une nouvelle machine virtuelle sous le même nom dans la région de destination<br/><br/> - Créer une nouvelle machine virtuelle sous un nom différent dans la région de destination<br/><br/> - Utiliser une machine virtuelle existante dans la région de destination<br/><br/> Si vous créez une nouvelle machine virtuelle, mis à part les paramètres que vous modifiez, la nouvelle machine virtuelle de destination hérite des mêmes paramètres que la source.
+--- | --- 
+**Nom de la machine virtuelle** | Options de destination :<br/><br/> - Créer une nouvelle machine virtuelle sous le même nom dans la région de destination<br/><br/> - Créer une nouvelle machine virtuelle sous un nom différent dans la région de destination<br/><br/> - Utiliser une machine virtuelle existante dans la région de destination<br/><br/> Si vous créez une nouvelle machine virtuelle, mis à part les paramètres que vous modifiez, la nouvelle machine virtuelle de destination hérite des mêmes paramètres que la source.
 **Zone de disponibilité de la machine virtuelle** | Zone de disponibilité dans laquelle la machine virtuelle de destination sera placée. Sélectionnez **Non applicable** si vous ne voulez pas modifier les paramètres de la source ou si vous ne souhaitez pas placer la machine virtuelle dans une zone de disponibilité.
 **Référence de la machine virtuelle** | [Type de machine virtuelle](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponible dans la région de destination) qui sera utilisé pour la machine virtuelle de destination.<br/><br/> La taille de la machine virtuelle de destination sélectionnée ne doit pas être inférieure à celle de la machine virtuelle source.
-**Groupe à haute disponibilité de machines virtuelles | Groupe à haute disponibilité dans lequel la machine virtuelle de destination sera placée. Sélectionnez **Non applicable** si vous ne voulez pas modifier les paramètres de la source ou si vous ne souhaitez pas placer la machine virtuelle dans un groupe à haute disponibilité.
+**Groupe à haute disponibilité de machines virtuelles** | Groupe à haute disponibilité dans lequel la machine virtuelle de destination sera placée. Sélectionnez **Non applicable** si vous ne voulez pas modifier les paramètres de la source ou si vous ne souhaitez pas placer la machine virtuelle dans un groupe à haute disponibilité.
 **Coffre de clés de machine virtuelle** | Coffre de clés associé lorsque Azure Disk Encryption est activé sur une machine virtuelle.
 **Jeu de chiffrement de disque** | Jeu de chiffrement de disque associé si la machine virtuelle utilise une clé gérée par le client pour le chiffrement côté serveur.
 **Groupe de ressources** | Groupe de ressources dans lequel la machine virtuelle de destination sera placée.
@@ -50,7 +48,7 @@ Les paramètres de configuration que vous pouvez modifier sont résumés dans le
 
 ### <a name="edit-vm-destination-settings"></a>Modifier les paramètres de destination des machines virtuelles
 
-Si vous ne souhaitez déplacer des ressources dépendantes de la région source vers la destination, d'autres possibilités s'offrent à vous :
+Si vous ne souhaitez déplacer des ressources dépendantes de la région source vers la destination, d’autres possibilités s’offrent à vous :
 
 - Créez une nouvelle ressource dans la région de destination. À moins de spécifier des paramètres différents, la nouvelle ressource aura les mêmes paramètres que la ressource source.
 - Utilisez une ressource existante dans la région de destination.
@@ -92,6 +90,37 @@ Pour modifier les paramètres de destination d'une ressource Azure SQL Database,
 
 1. Dans **Entre les régions**, pour la ressource que vous souhaitez modifier, cliquez sur l'entrée **Configuration de la destination**.
 2. Dans **Paramètres de configuration**, spécifiez les paramètres de destination résumés dans le tableau ci-dessus.
+
+
+## <a name="modify-settings-in-powershell"></a>Modifier les paramètres dans PowerShell
+
+Vous pouvez modifier les paramètres dans PowerShell.
+
+1)  Récupérez la ressource de déplacement dont vous souhaitez modifier les propriétés. Par exemple, pour récupérer une machine virtuelle, exécutez :
+
+    ```azurepowershell
+    $moveResourceObj = Get-AzResourceMoverMoveResource -MoveCollectionName "PS-centralus-westcentralus-demoRMS1" -ResourceGroupName "RG-MoveCollection-demoRMS" -Name "PSDemoVM"
+    ```
+2)  Copiez le paramètre de ressource sur un objet de paramètre de ressource cible.
+
+    ```azurepowershell
+    $TargetResourceSettingObj = $moveResourceObj.ResourceSetting
+    ```
+
+3)  Définissez le paramètre dans l’objet de paramètre de ressource cible. Par exemple, pour modifier le nom de la machine virtuelle de destination :
+
+    ```azurepowershell
+    $TargetResourceSettingObj.TargetResourceName="PSDemoVM-target"
+    ```
+
+4)  Mettez à jour les paramètres de destination de la ressource de déplacement. Dans cet exemple, nous changeons le nom de la machine virtuelle *PSDemoVM* en *PSDemoVMTarget*.
+
+    ```azurepowershell
+    Update-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -SourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/PSDemoRM/providers/Microsoft.Compute/virtualMachines/PSDemoVM" -Name "PSDemoVM" -ResourceSetting $TargetResourceSettingObj
+    ```
+    **Sortie**
+    ![Sortie de texte après la modification des paramètres de destination](./media/modify-target-settings/update-settings.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

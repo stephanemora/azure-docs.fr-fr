@@ -7,12 +7,12 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.date: 08/03/2020
-ms.openlocfilehash: e1b96293db0389201fdab3340d8f0e74fefc4c52
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7a11dde69554ae732590ddf36f8cf65929197fd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532075"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensions et fonctionnalités des machines virtuelles Azure
 Les extensions sont de petites applications qui proposent une configuration post-déploiement et une automatisation sur les machines virtuelles Azure. La plateforme Azure héberge de nombreuses extensions, notamment des applications de configuration, de surveillance, de sécurité et utilitaires de machine virtuelle. Les éditeurs prennent une application, l’enveloppent dans une extension et simplifient l’installation. Il vous suffit de définir les paramètres obligatoires. 
@@ -33,7 +33,9 @@ Certaines applications d’extensions de machine virtuelle individuelle peuvent 
 
 ## <a name="troubleshoot-extensions"></a>Résoudre les problèmes liés aux extensions
 
-Vous trouverez des informations pour résoudre les problèmes liés à chaque extension dans la section **Résolution des problèmes et support** de la vue d’ensemble de l’extension. Voici la liste des informations disponibles pour résoudre les problèmes :
+Si vous recherchez des étapes générales de résolution des problèmes pour les extensions de machine virtuelle Windows, veuillez vous reporter à la section [Dépannage des échecs d’extension de machine virtuelle Windows dans Azure](troubleshoot.md).
+
+Autrement, vous trouverez des informations de dépannage supplémentaires spécifiques pour chaque extension dans la section **Résolution des problèmes et support** de la vue d’ensemble de l’extension. Voici la liste des informations disponibles pour résoudre les problèmes :
 
 | Espace de noms | Dépannage |
 |-----------|-----------------|

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: cf3d8fd1566f3d71541aab7648680063e85079bf
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b353409ed1cacfabc8ac407e4ad17f4b1e167fe8
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121827"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727442"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Résolution des problèmes d’Application Insights Agent (anciennement appelé Status Monitor v2)
 
@@ -123,10 +123,27 @@ Consultez la [documentation de référence de l’API](status-monitor-v2-api-ref
 
 ### <a name="troubleshooting-running-processes"></a>Résolution des problèmes liés aux processus en cours d’exécution
 
-Vous pouvez inspecter les processus sur l’ordinateur instrumenté pour déterminer si toutes les DLL sont chargées.
+Vous pouvez inspecter les processus sur l’ordinateur instrumenté pour déterminer si toutes les DLL sont chargées et si des variables d’environnement sont définies.
 Si la surveillance fonctionne, au moins 12 DLL doivent être chargées.
 
-Utilisez la commande `Get-ApplicationInsightsMonitoringStatus -InspectProcess` pour vérifier les DLL.
+* Utilisez la commande `Get-ApplicationInsightsMonitoringStatus -InspectProcess` pour vérifier les DLL.
+* Utilisez la commande `(Get-Process -id {PID}).StartInfo.EnvironmentVariables` pour vérifier les variables d’environnement. Voici les variables d’environnement définis dans le processus de travail ou le processus de base dotnet :
+
+```
+COR_ENABLE_PROFILING=1
+COR_PROFILER={324F817A-7420-4E6D-B3C1-143FBED6D855}
+COR_PROFILER_PATH_32=Path to MicrosoftInstrumentationEngine_x86.dll
+COR_PROFILER_PATH_64=Path to MicrosoftInstrumentationEngine_x64.dll
+MicrosoftInstrumentationEngine_Host={CA487940-57D2-10BF-11B2-A3AD5A13CBC0}
+MicrosoftInstrumentationEngine_HostPath_32=Path to Microsoft.ApplicationInsights.ExtensionsHost_x86.dll
+MicrosoftInstrumentationEngine_HostPath_64=Path to Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
+MicrosoftInstrumentationEngine_ConfigPath32_Private=Path to Microsoft.InstrumentationEngine.Extensions.config
+MicrosoftInstrumentationEngine_ConfigPath64_Private=Path to Microsoft.InstrumentationEngine.Extensions.config
+MicrosoftAppInsights_ManagedHttpModulePath=Path to Microsoft.ApplicationInsights.RedfieldIISModule.dll
+MicrosoftAppInsights_ManagedHttpModuleType=Microsoft.ApplicationInsights.RedfieldIISModule.RedfieldIISModule
+ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
+DOTNET_STARTUP_HOOKS=Path to Microsoft.ApplicationInsights.StartupHook.dll
+```
 
 Consultez la [documentation de référence de l’API](status-monitor-v2-api-reference.md) pour obtenir une description détaillée de l’utilisation de cette cmdlet.
 
@@ -142,7 +159,7 @@ Consultez la [documentation de référence de l’API](status-monitor-v2-api-ref
     - **Compresser**
     - **Fusionner**
     - **Symbol Collection .NET**
-5. Définissez-les **fournisseurs supplémentaires** suivants : `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Définissez-les **fournisseurs supplémentaires** suivants : `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,252e28f4-43f9-5771-197a-e8c7e750a984,f9c04365-1d1f-5177-1cdc-a0b0554b6903`
 
 
 #### <a name="collecting-logs"></a>Collecte des journaux d’activité

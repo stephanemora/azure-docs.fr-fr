@@ -1,18 +1,20 @@
 ---
 title: Transformer des données à l’aide de l’activité Spark
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment transformer des données en exécutant des programmes Spark à partir d’un pipeline Azure Data Factory et à l’aide de l’activité de Spark.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 06/09/2021
-ms.openlocfilehash: 3f9b330e4e0cadd073a60293991066f74d8521c3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 702c1a5208fae42e3704e345713f540b0e05d900
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903178"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534906"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Spark dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -127,5 +129,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
+* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

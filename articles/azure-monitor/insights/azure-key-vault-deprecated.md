@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c12cb6c344554f4d18af28dd563b7c96358ea2ee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4702a91154a4aa93a504597a02a915d1fb26ea0f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095137"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531471"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solution Azure Key Vault Analytics dans Azure Monitor
 
@@ -75,7 +75,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 | Azure |  |  |&#8226; |  |  | à l'arrivée |
 
 ## <a name="use-azure-key-vault"></a>Utiliser Azure Key Vault
-Une fois la [solution installée](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), affichez les données Key Vault en cliquant sur la vignette **Key Vault Analytics** située dans la page **Vue d’ensemble** d’Azure Monitor. Ouvrez cette page à partir du menu **Azure Monitor** en cliquant sur **Plus** sous la section **Insights**. 
+Une fois la solution installée, affichez les données Key Vault en cliquant sur la vignette **Key Vault Analytics** située dans la page **Vue d’ensemble** d’Azure Monitor. Ouvrez cette page à partir du menu **Azure Monitor** en cliquant sur **Plus** sous la section **Insights**. 
 
 ![Capture d’écran de la vignette Key Vault Analytics sur la page Vue d’ensemble d’Azure Monitor montrant un graphe du volume dans le temps des opérations dans le coffre de clés.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -150,4 +150,3 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [Requêtes de journal dans Azure Monitor](../logs/log-query-overview.md) pour afficher des données Azure Key Vault détaillées.
-

@@ -5,13 +5,13 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: c8d625095fc979151ed904fb355b5953e41309b4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 07/28/2021
+ms.openlocfilehash: 852bbd93fe7ac1524201db1f96a6a43c7ff60bdb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078704"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562694"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation (migrer vers des machines virtuelles Azure)
 
@@ -29,9 +29,10 @@ Une évaluation réalisée à l’aide de l’outil Découverte et évaluation m
 Il existe trois types d’évaluations que vous pouvez créer à l’aide d’Azure Migrate : Découverte et évaluation.
 
 ***Type d’évaluation** | **Détails**
---- | --- 
+--- | ---
 **Microsoft Azure** | Évaluations pour migrer vos serveurs locaux vers des machines virtuelles Azure. Ce type d’évaluation vous permet d’évaluer vos serveurs locaux dans un environnement [VMware](how-to-set-up-appliance-vmware.md) et [Hyper-V](how-to-set-up-appliance-hyper-v.md), ainsi que vos [serveurs physiques](how-to-set-up-appliance-physical.md) pour une migration vers des machines virtuelles Azure.
 **Azure SQL** | Évaluations pour migrer vos serveurs SQL Server locaux de votre environnement VMware vers Azure SQL Database ou Azure SQL Managed Instance.
+**Azure App Service** | Évaluations pour migrer des applications web locales depuis votre environnement VMware vers Azure App Service.
 **Azure VMware Solution (AVS)** | Évaluations pour migrer vos serveurs locaux vers [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Vous pouvez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) locales pour la migration vers Azure VMware Solution (AVS) avec ce type d’évaluation. [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -41,7 +42,7 @@ Les évaluations que vous créez avec Azure Migrate sont une capture instantané
 
 **Type d’évaluation** | **Détails** | **Données**
 --- | --- | ---
-**Basée sur les performances** | Évaluations qui donnent des recommandations en fonction des données de performances collectées | La recommandation de taille de machine virtuelle est basée sur les données d’utilisation de l’UC et de la RAM.<br/><br/> La recommandation de type de disque est basée sur les opérations d’entrée/sortie par seconde (IOPS) et le débit des disques locaux. Les types de disques sont HDD Standard Azure, SSD Standard Azure et Azure Premium.
+**Basée sur les performances** | Évaluations qui donnent des recommandations en fonction des données de performances collectées | La recommandation de taille de machine virtuelle est basée sur les données d’utilisation de l’UC et de la RAM.<br/><br/> La recommandation de type de disque est basée sur les opérations d’entrée/sortie par seconde (IOPS) et le débit des disques locaux. Les types de disques sont HDD Standard Azure, SSD Standard Azure et les disques Azure Premium et les disques Azure Ultra.
 **Telle quelle locale** | Évaluations qui n’utilisent pas de données de performances pour formuler des recommandations | La recommandation de taille de machine virtuelle est basée sur la taille du serveur local.<br/><br> Le type de disque recommandé est basé sur le type de stockage sélectionné pour l’évaluation.
 
 ## <a name="how-do-i-run-an-assessment"></a>Comment exécuter une évaluation ?
@@ -122,8 +123,8 @@ Voici le contenu d’une évaluation de machine virtuelle Azure :
 **Propriété** | **Détails**
 --- | ---
 **Emplacement cible** | Emplacement vers lequel vous souhaitez migrer. L’évaluation prend actuellement en charge les régions Azure cibles suivantes :<br/><br/> Allemagne Centre, Allemagne Nord-Est, Asie Est, Asie Sud-Est, Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, Chine Est, Chine Nord, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, Inde Centre, Inde Ouest, Inde Sud, Japon Est, Japon Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, US Gov Arizona, US Gov Texas, US Gov Virginie, USA Centre, USA Centre Nord, USA Centre-Ouest, USA Centre Sud, USA Est, USA Est 2, USA Ouest et USA Ouest 2.
-**Disque de stockage cible (dimensionnement tel quel)** | Type de disque à utiliser pour le stockage dans Azure. <br/><br/> Spécifie le disque de stockage cible en tant que disque managé Premium, disque managé SSD Standard ou disque managé HDD Standard.
-**Disque de stockage cible (dimensionnement basé sur les performances)** | Spécifie le type du disque de stockage cible en tant que disque automatique, managé Premium, managé HDD Standard ou managé SSD Standard.<br/><br/> **Automatique** : La recommandation de disque est basée sur les données de performances des disques, c’est-à-dire les IOPS et le débit.<br/><br/>**Premium ou Standard** :  L’évaluation recommande une référence SKU de disque au sein du type de stockage sélectionné.<br/><br/> Si vous souhaitez un contrat de niveau de service (SLA) de machine virtuelle à une seule instance de 99,9 %, envisagez d’utiliser des disques managés Premium. Cette utilisation permet de s’assurer que tous les disques de l’évaluation sont recommandés comme disques managés Premium.<br/><br/> Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
+**Disque de stockage cible (dimensionnement tel quel)** | Type de disque à utiliser pour le stockage dans Azure. <br/><br/> Spécifie le disque de stockage cible en tant que disque managé Premium, disque managé SSD Standard, disque managé HDD Standard ou disque Ultra.
+**Disque de stockage cible (dimensionnement basé sur les performances)** | Spécifie le type du disque de stockage cible en tant que disque automatique, managé Premium, managé HDD Standard, managé SSD Standard ou disque Ultra.<br/><br/> **Automatique** : La recommandation de disque est basée sur les données de performances des disques, c’est-à-dire les IOPS et le débit.<br/><br/>**Disque Premium ou Standard ou Ultra** : l’évaluation recommande une référence SKU de disque au sein du type de stockage sélectionné.<br/><br/> Si vous souhaitez un contrat de niveau de service (SLA) de machine virtuelle à une seule instance de 99,9 %, envisagez d’utiliser des disques managés Premium. Cette utilisation permet de s’assurer que tous les disques de l’évaluation sont recommandés comme disques managés Premium.<br/><br/> Si vous envisagez d’exécuter des charges de travail intensives en données nécessitant un débit élevé, une valeur IOPS élevée et un stockage sur disque à faible latence homogène, envisagez d’utiliser des disques Ultra.<br/><br/> Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 **Azure Reserved VM Instances** | Spécifie des [instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Quand vous sélectionnez « Instances réservées », les propriétés « Remise (%) » et « Durée de fonctionnement de la machine virtuelle » ne sont pas applicables.<br/><br/> Azure Migrate prend actuellement en charge Azure Reserved VM Instances uniquement pour les offres de paiement à l’utilisation.
 **Critère de dimensionnement** | Utilisé pour le dimensionnement adéquat de la machine virtuelle Azure.<br/><br/> Utilise le dimensionnement tel quel ou le dimensionnement basé sur les performances.
 **Historique des performances** | Utilisé avec le dimensionnement basé sur les performances. L’historique des performances spécifie la durée utilisée lors de l’évaluation des données de performances.
@@ -160,7 +161,7 @@ Propriété | Détails | État de préparation pour Azure
 **Type de démarrage** | Azure prend en charge les machines virtuelles avec un type de démarrage BIOS, et non UEFI. | Préparé pour Azure sous condition si le type de démarrage est UEFI
 **Cœurs** | Chaque serveur ne doit pas comporter plus de 128 cœurs, ce qui correspond au nombre maximal qu’une machine virtuelle Azure prend en charge.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés pour la comparaison. Si les paramètres de l’évaluation spécifient le facteur de confort, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués pour appliquer le facteur de confort. | Préparé pour Azure si le nombre de cœurs est dans la limite
 **RAM** | Chaque serveur ne doit pas avoir plus de 3 892 Go de RAM, ce qui correspond à la taille maximale qu’une machine virtuelle Standard_M128m de série M Azure&nbsp;<sup>2</sup> prend en charge. [Plus d’informations](../virtual-machines/sizes.md)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la RAM utilisée pour la comparaison. Si un facteur de confort est spécifié, la RAM utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la RAM allouée est utilisée pour appliquer un facteur de confort.<br/><br/> | Préparé pour Azure si la quantité de RAM est comprise dans la limite
-**Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 32 To. Bien qu’Azure prenne en charge des disques de 64 To avec des disques SSD Ultra Azure, l’évaluation vérifie actuellement que la taille de disque ne dépasse pas 32 To, car il ne prend pas encore en charge les disques SSD Ultra. <br/><br/> Le nombre de disques attachés à l’ordinateur, y compris le disque du système d’exploitation, doit être inférieur ou égal à 65. | Préparé pour Azure si la taille et le nombre de disques sont dans les limites
+**Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 64 To.<br/><br/> Le nombre de disques attachés à l’ordinateur, y compris le disque du système d’exploitation, doit être inférieur ou égal à 65. | Préparé pour Azure si la taille et le nombre de disques sont dans les limites
 **Mise en réseau** | Une machine ne doit pas avoir plus de 32 interfaces réseau (NIC) associées. | Préparé pour Azure si le nombre d’interfaces réseau est dans la limite
 
 ### <a name="guest-operating-system"></a>Système d’exploitation invité
@@ -199,7 +200,7 @@ Une fois que le serveur est marqué comme prêt pour Azure, l’évaluation effe
  Si vous utilisez le dimensionnement local tel quel, l’évaluation ne prend pas en compte l’historique des performances des machines virtuelles et des disques dans le cadre de l’évaluation de machine virtuelle Azure.
 
 - **Dimensionnement du calcul** : l’évaluation alloue une référence SKU de machine virtuelle Azure basée sur la taille allouée localement.
-- **Dimensionnement du stockage et du disque** : l’évaluation examine le type de stockage spécifié dans les propriétés d’évaluation et recommande le type de disque en conséquence. Les types de stockage possibles sont HDD Standard, SSD Standard et Premium. Le type de stockage par défaut est Premium.
+- **Dimensionnement du stockage et du disque** : l’évaluation examine le type de stockage spécifié dans les propriétés d’évaluation et recommande le type de disque en conséquence. Les types de stockage possibles sont HDD Standard, SSD Standard, Premium et Ultra. Le type de stockage par défaut est Premium.
 - **Dimensionnement du réseau** : l’évaluation prend en compte la carte réseau sur le serveur local.
 
 ### <a name="calculate-sizing-performance-based"></a>Calculer le dimensionnement (basé sur les performances)
@@ -216,12 +217,27 @@ Pour le dimensionnement du stockage dans le cadre d’une évaluation de machine
 
 1. L’évaluation ajoute les IOPS de lecture et d’écriture d’un disque pour obtenir le nombre total d’IOPS requis. De même, il ajoute les valeurs de débit de lecture et d’écriture pour obtenir le débit total de chaque disque. Dans le cas des évaluations basées sur l’importation, vous avez la possibilité de fournir le nombre total d’IOPS, le débit total et le nombre total de disques dans le fichier importé sans spécifier de paramètres de disque individuels. Si vous procédez ainsi, le dimensionnement de disque individuel est ignoré et les données fournies sont utilisées directement pour calculer le dimensionnement puis sélectionner une référence SKU de machine virtuelle appropriée.
 
-1. Si vous avez spécifié le type de stockage sur automatique, le type sélectionné est basé sur les valeurs réelles d’IOPS et de débit. L’évaluation détermine si le disque doit être mappé à un disque HDD Standard, SSD Standard ou Premium dans Azure. Si le type de stockage est défini sur l’un de ces types de disques, l’évaluation tente de trouver une référence SKU de disque au sein du type de stockage sélectionné.
+1. Si vous avez spécifié le type de stockage sur automatique, le type sélectionné est basé sur les valeurs réelles d’IOPS et de débit. L’évaluation détermine si le disque doit être mappé à un disque HDD Standard, SSD Standard, à un disque Premium ou à un disque Ultra dans Azure. Si le type de stockage est défini sur l’un de ces types de disques, l’évaluation tente de trouver une référence SKU de disque au sein du type de stockage sélectionné.
 1. Les disques sont sélectionnés comme suit :
     - Si l’évaluation ne parvient pas à trouver un disque avec les IOPS et le débit nécessaires, elle marque le serveur comme ne convenant pas pour Azure.
     - Si l’évaluation trouve un ensemble de disques adaptés, elle sélectionne ceux qui prennent en charge l’emplacement spécifié dans les paramètres d’évaluation.
     - S’il existe plusieurs disques éligibles, l’évaluation sélectionne le disque dont le coût est le plus faible.
     - Si les données de performances d’un disque ne sont pas disponibles, la taille du disque de configuration est utilisée pour trouver un disque SSD Standard dans Azure.
+
+##### <a name="ultra-disk-sizing"></a>Dimensionnement de disque Ultra
+
+Pour les disques Ultra, il existe une plage d’IOPS et de débits qui est autorisée pour une taille de disque spécifique. Par conséquent, la logique utilisée dans le dimensionnement est différente de celle des disques Standard et Premium :
+1. Trois tailles de disque Ultra sont calculées : 
+    - Un disque (Disque 1) capable de satisfaire les exigences en termes de taille de disque
+    - Un disque (Disque 2) capable de satisfaire les exigences en termes d’IOPS total
+        - IOPS à provisionner = (débit du disque source) *1024/256
+    - Un disque (Disque 3) capable de satisfaire les exigences en termes de débit total
+1. Sur les trois disques, l’un avec la taille de disque maximale est trouvé et est arrondi à la prochaine [offre de disque Ultra](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-size) disponible. Il s’agit de la taille de disque Ultra provisionnée.
+1. La valeur IOPS provisionnée est calculée à l’aide de la logique suivante :
+    - Si le débit source découvert se trouve dans la plage autorisée pour la taille du disque Ultra, la valeur IOPS provisionnée est égale à la valeur IOPS du disque source
+    - Sinon, la valeur IOPS provisionnée est calculée à l’aide de la valeur IOPS à provisionner (débit de disque source) *1024/256
+1. La plage de débit provisionnée dépend de la valeur IOPS provisionnée
+
 
 #### <a name="calculate-network-sizing"></a>Calculer le dimensionnement du réseau
 
@@ -288,21 +304,36 @@ Voici quelques raisons pour lesquelles une évaluation peut avoir un niveau de c
 
 Une fois les recommandations de dimensionnement terminées, une évaluation de machine virtuelle Azure dans Azure Migrate calcule les coûts de calcul et de stockage après la migration.
 
-- **Calcul de coût** : Azure Migrate utilise la taille de machine virtuelle Azure recommandée et l’API de facturation Azure pour calculer le coût mensuel du serveur.
+### <a name="compute-cost"></a>Coût de calcul
+Azure Migrate utilise la taille de machine virtuelle Azure recommandée et l’API de facturation Azure pour calculer le coût mensuel du serveur.
 
-    Le calcul prend en compte les éléments suivants :
-    - Système d’exploitation
-    - Software Assurance
-    - Instances réservées
-    - Durée de fonctionnement de la machine virtuelle
-    - Emplacement
-    - Paramètres de devise
+Le calcul prend en compte les éléments suivants :
+- Système d’exploitation
+- Software Assurance
+- Instances réservées
+- Durée de fonctionnement de la machine virtuelle
+- Emplacement
+- Paramètres de devise
 
-    L’évaluation agrège le coût de tous les serveurs pour calculer le coût de calcul mensuel total.
+L’évaluation agrège le coût de tous les serveurs pour calculer le coût de calcul mensuel total.
 
-- **Coût de stockage** : le coût de stockage mensuel d’un serveur est calculé en additionnant le coût mensuel de tous les disques qui y sont attachés.
+### <a name="storage-cost"></a>Coût de stockage
+Le coût de stockage mensuel d’un serveur est calculé en additionnant le coût mensuel de tous les disques qui y sont attachés.
 
-    L’évaluation calcule les coûts totaux mensuels du stockage en additionnant les coûts de stockage de tous les serveurs. Actuellement, le calcul ne prend pas en compte les offres spécifiées dans les paramètres d’évaluation.
+#### <a name="standard-and-premium-disk"></a>Disque Standard et Premium
+Le coût de disques Standard ou Premium est calculé en fonction de la taille de disque sélectionnée/recommandée. 
+
+#### <a name="ultra-disk"></a>Disque Ultra 
+
+Le coût d’un disque Ultra est calculé en fonction de la taille provisionnée, des IOPS provisionnées et du débit provisionné. [En savoir plus](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+Le coût est calculé à l’aide de la logique suivante : 
+- Le coût de la taille du disque est calculé en multipliant la taille de disque provisionnée par le prix horaire de la capacité du disque.
+- Le coût des IOPS provisionnées est calculé en multipliant les IOPS provisionnées par le prix des IOPS provisionnées par heure
+- Le coût du débit provisionné est calculé en multipliant le débit provisionné par le prix du débit provisionné par heure
+- Les frais de réservation de machine virtuelle de disque Ultra ne sont pas ajoutés au coût total. [En savoir plus](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+L’évaluation calcule les coûts totaux mensuels du stockage en additionnant les coûts de stockage de tous les serveurs. Actuellement, le calcul ne prend pas en compte les offres spécifiées dans les paramètres d’évaluation.
 
 Les coûts sont affichés dans la devise spécifiée dans les paramètres d’évaluation.
 

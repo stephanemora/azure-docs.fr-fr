@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7654e3a405d8baeb2e8fc598d49cc7fff014efed
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: c2006c71a9ba9ff24662f27a9f2e4015786197e7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653917"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562943"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 
@@ -24,15 +24,15 @@ Cet article explique comment effectuer des tâches d’administration, telles qu
 
 À gauche, le panneau **Redémarrer** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cette fonctionnalité de redémarrage vous permet de tester votre application pour garantir la résilience en cas de panne d’un nœud de cache.
 
-![Capture d’écran qui met en évidence l’option de menu Redémarrer.](./media/cache-administration/redis-cache-administration-reboot.png)
+:::image type="content" source="media/cache-administration/cache-administration-reboot-2.png" alt-text="Capture d’écran qui met en évidence l’option de menu Redémarrer":::
 
 Sélectionnez les nœuds à relancer, puis sélectionnez **Redémarrer**.
 
-![Capture d’écran montrant les nœuds que vous pouvez redémarrer.](./media/cache-administration/redis-cache-reboot.png)
+:::image type="content" source="media/cache-administration/redis-cache-reboot-2.png" alt-text="Capture d’écran montrant les nœuds que vous pouvez redémarrer":::
 
 Si vous avez un cache premium avec activation du clustering, vous pouvez sélectionner les partitions du cache à redémarrer.
 
-![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
+:::image type="content" source="media/cache-administration/redis-cache-reboot-cluster-2.png" alt-text="capture d’écran des options de partition":::
 
 Pour redémarrer un ou plusieurs nœuds de votre cache, sélectionnez les nœuds concernés, puis sélectionnez **Redémarrer**. Si vous disposez d’un cache Premium avec clustering, sélectionnez les partitions à redémarrer, puis sélectionnez **Redémarrer**. Après quelques minutes, les nœuds sélectionnés sont redémarrés et sont de nouveau en ligne.
 
@@ -83,11 +83,11 @@ Sur la gauche, **Planifier les mises à jour** vous permet de choisir une fenêt
 > Actuellement, aucune option n’est disponible pour configurer un redémarrage ou des mises à jour planifiées d’un cache de niveau Entreprise.
 >
 
-![Planifier les mises à jour](./media/cache-administration/redis-schedule-updates.png)
+:::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="Capture d’écran montrant Planifier les mises à jour":::
 
 Pour spécifier une fenêtre de maintenance, cochez les jours qui vous intéressent et indiquez l’heure de début de la fenêtre de maintenance pour chaque jour. Ensuite, sélectionnez **OK**. L’heure de la maintenance est au format UTC.
 
-La fenêtre de maintenance minimale et par défaut pour les mises à jour est de cinq heures. Cette valeur n’est pas configurable à partir du portail Azure, mais vous pouvez la configurer dans PowerShell à l’aide du paramètre `MaintenanceWindow` de l’applet de commande [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry). Pour plus d'informations, consultez Puis-je gérer les mises à jour planifiées à l'aide de PowerShell, de l'interface CLI ou de tout autre outil de gestion ?
+La fenêtre de maintenance minimale et par défaut pour les mises à jour est de cinq heures. Cette valeur n’est pas configurable à partir du portail Azure, mais vous pouvez la configurer dans PowerShell à l’aide du paramètre `MaintenanceWindow` de l’applet de commande [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry). Pour plus d’informations, voir [Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 ## <a name="schedule-updates-faq"></a>Forum aux questions de la planification des mises à jour
 

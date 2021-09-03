@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 4fb4025d10990c0f499a16bbb6bc308eb74c00cf
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f9c6f8cc3c973d3172166514815018979f744173
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532468"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Supprimer les protocoles TLS 1.0 et 1.1 de l’utilisation avec Azure Cache pour Redis
 
@@ -23,7 +23,7 @@ Dans le cadre de cet effort, nous apportons les modifications suivantes dans le 
 * **Phase 2 :** Nous mettrons fin à la prise en charge des versions 1.1 et 1.0 de TLS. Après cette modification, votre application devra utiliser TLS 1.2 ou une version ultérieure pour communiquer avec votre cache. Le service Azure Cache pour Redis devrait être disponible pendant que nous le migrons pour prendre en charge uniquement TLS 1.2 ou une version ultérieure.
 
   > [!NOTE]
-  > Il est prévu que la phase 2 commence au plus tôt le 31 décembre 2020. Toutefois, nous vous recommandons vivement de commencer à planifier cette modification dès maintenant et de mettre à jour de manière proactive les clients pour qu’ils prennent en charge TLS 1.2 ou une version ultérieure. 
+  > La phase 2 est reportée pour cause de la COVID-19. Nous vous recommandons vivement de commencer à planifier cette modification dès maintenant et de mettre à jour de manière proactive les clients pour qu’ils prennent en charge TLS 1.2 ou version ultérieure. 
   >
 
 Dans le cadre de cette modification, nous allons également supprimer la prise en charge des anciennes suites de chiffrement qui ne sont pas sécurisées. Nos suites de chiffrement prises en charge sont limitées aux suites suivantes lorsque le cache est au minimum configuré avec TLS 1.2 :
@@ -43,7 +43,7 @@ Les dates d'entrée en vigueur de ces modifications sont les suivantes :
 | Azure China 21Vianet |  13 mars 2020    | Reportée pour cause de COVID-19  |
 
 > [!NOTE]
-> Il est prévu que la phase 2 commence au plus tôt le 31 décembre 2020. Cet article sera mis à jour lorsque des dates spécifiques seront définies.
+> La phase 2 est reportée pour cause de la COVID-19. Cet article sera mis à jour lorsque des dates spécifiques seront définies.
 >
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Vérifier si votre application est déjà conforme

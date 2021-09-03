@@ -11,23 +11,23 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2020
+ms.date: 07/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f862299dfb677a4b459611050832f602ff5598eb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 15ce4cabc1a9bc44fcd6cc00a365007900ff4ebe
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412490"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968537"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
 
 Dans cet article, nous allons examiner l’architecture de stockage pour le déploiement de SAP HANA sur Azure (grandes instances) (également appelée infrastructure BareMetal). 
 
-La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Pour plus d’informations sur les instructions, consultez [Conditions de stockage SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Pour plus d’informations sur les instructions, consultez [Conditions de stockage SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).
 
-La grande instance HANA de classe Type I est livrée avec quatre fois le volume de mémoire et le volume de stockage. Ce n’est pas le cas de la classe Type II des unités de grande instance HANA, qui est fournie avec un volume destiné à stocker les sauvegardes des journaux de transactions HANA. Pour plus d’informations, consultez [Installer et configurer SAP HANA (grandes instances) sur Azure](hana-installation.md).
+Les grandes instances HANA de classe Type I présentent 4 fois plus de capacité mémoire que de volume de stockage. La classe Type II des unités de grande instance HANA, est fournie avec un volume destiné à stocker les sauvegardes des journaux de transactions HANA. Pour plus d’informations, consultez [Installer et configurer SAP HANA (grandes instances) sur Azure](hana-installation.md).
 
 Pour plus d’informations sur l’allocation de stockage, consultez le tableau suivant. La table indique la capacité approximative des volumes fournis avec les diverses unités de grande instance HANA.
 
@@ -121,9 +121,9 @@ Les exemples suivants montrent à quoi cela peut ressembler en exécutant plusie
 Il existe d’autres variantes. 
 
 ## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
-Le stockage pour la grande instance HANA utilise un chiffrement transparent pour les données lorsqu’elles sont stockées sur les disques. Dans les déploiements antérieurs à la fin de 2018, vous pouvez choisir de chiffrer les volumes. Si vous avez choisi de ne pas utiliser cette option, vous pouvez demander à obtenir les volumes chiffrés en ligne. Le passage d’un volume non chiffré à un volume chiffré est transparent et ne requiert aucun temps d’arrêt. 
+Le stockage pour la grande instance HANA utilise un chiffrement transparent pour les données lorsqu’elles sont stockées sur les disques. Dans les déploiements antérieurs à la fin de 2018, vous pouvez chiffrer les volumes. Si vous avez choisi de ne pas utiliser cette option, vous pouvez obtenir les volumes chiffrés en ligne. Le passage d’un volume non chiffré à un volume chiffré est transparent et ne requiert aucun temps d’arrêt. 
 
-Avec les références SKU de classe Type I, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans les tampons HANA Grande instance Révision 3, à l’aide de la classe Type II des références SKU HANA Grande instance, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. Dans les tampons HANA Grande instance Révision 4, à l’aide des unités Type II, le volume dans lequel le numéro d’unité logique de démarrage est stocké et est chiffré au repos par défaut. 
+Avec les références SKU de classe Type I d’une grande instance HANA, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans les tampons HANA Grande instance Révision 3, à l’aide de la classe Type II des références SKU, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. Dans les tampons HANA Grande instance Révision 4, à l’aide la classe Type II des références SKU, le volume dans lequel le numéro d’unité logique de démarrage est stocké et est chiffré au repos par défaut. 
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Paramètres requis pour des plus instances HANA plus grandes sur de grandes Instances HANA
 

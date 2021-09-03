@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 0d5b67bb25f6f2425016824e5b73783a8db8e806
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d2ab2609338daff846797834be7694a8b1f220e6
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072151"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600936"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurer des clusters HDInsight avec une base de données Ambari personnalisée
 
@@ -62,19 +62,25 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --parameters azuredeploy.parameters.json
 ```
 
-## <a name="database-sizing"></a>Taille de la base de données
+
+> [!WARNING]
+> Utilisez la machine virtuelle de nœud principal et la base de données SQL suivantes recommandées pour votre cluster HDInsight. N’utilisez pas la base de données Ambari DB par défaut (S0) pour un environnement de production. 
+>
+
+
+## <a name="database-and-headnode-sizing"></a>Dimensionnement de la base de données et du nœud principal
 
 Le tableau suivant fournit des instructions sur le niveau de base Azure SQL à sélectionner en fonction de la taille de votre cluster HDInsight.
 
-| Nombre de nœuds Worker | Niveau de base de données requis |
-|---|---|
-| <=4 | S0 |
-| >4 && <=8 | S1 |
-| >8 && <=16 | S2 |
-| >16 && <=32 | S3 |
-| >32 && <=64 | S4 |
-| >64 && <=128 | P2 |
-| >128 | Contacter le support technique |
+| Nombre de nœuds Worker | Niveau de base de données requis | Machine virtuelle de nœud principal requise |
+|---|---|---|
+| <=4 | S0 | 4 cœurs/28 Go de RAM ou plus |
+| >4 && <=8 | S1 | 4 cœurs/28 Go de RAM ou plus |
+| >8 && <=16 | S2 | 4 cœurs/28 Go de RAM ou plus |
+| >16 && <=32 | S3 | 8 cœurs/56 Go de RAM ou plus |
+| >32 && <=64 | S4 | 8 cœurs/56 Go de RAM ou plus |
+| >64 && <=128 | P2 | 16 cœurs/112 Go de RAM ou plus |
+| >128 | Contacter le support technique | Contacter le support technique |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

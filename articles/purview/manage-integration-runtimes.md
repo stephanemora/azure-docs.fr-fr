@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 73144611e835ac1bea20ab92212e52941af84eef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1709171793d6e4941a62aebe47a9b4125bf68e67
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463738"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122566131"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Création et gestion d’un runtime d’intégration auto-hébergé
 
@@ -20,6 +20,9 @@ Cet article explique comment créer et gérer un runtime d’intégration auto-h
 
 > [!NOTE]
 > Le runtime d’intégration Purview ne peut pas être partagé avec un runtime d’intégration Azure Synapse Analytics ou Azure Data Factory sur la même machine. Il doit être installé sur une machine distincte.
+
+> [!IMPORTANT]
+> Si vous avez créé votre compte Azure Purview après le 18 août 2021, veillez à télécharger et à installer la dernière version du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
@@ -52,6 +55,38 @@ Cet article explique comment créer et gérer un runtime d’intégration auto-h
 6. Une fois le runtime d’intégration auto-hébergé inscrit, la fenêtre suivante s’affiche :
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="Inscription réussie":::
+
+## <a name="networking-requirements"></a>Configuration requise du réseau
+
+Votre machine de runtime d’intégration auto-hébergé doit se connecter à plusieurs ressources pour fonctionner correctement :
+
+* Les sources que vous souhaitez analyser à l’aide du runtime d’intégration auto-hébergé.
+* Tout Azure Key Vault utilisé pour stocker des informations d’identification de la ressource Purview.
+* Le compte Stockage managé et les ressources Event Hub créées par Purview.
+
+Les ressources Stockage et Event Hub managées sont accessibles dans votre abonnement sous un groupe de ressources contenant le nom de votre ressource Purview. Azure Purview utilise ces ressources pour ingérer les résultats de l’analyse, entre autres choses, afin que le runtime d’intégration auto-hébergé puisse être en mesure de se connecter directement à ces ressources.
+
+Voici les domaines et les ports qui doivent être autorisés via des pare-feu d’entreprise et d’ordinateur.
+
+> [!NOTE]
+> Pour les domaines listés avec « \<managed Purview storage account> », vous devez ajouter le nom du compte de stockage managé associé à votre ressource Purview. Vous pouvez trouver cette ressource dans le portail. Recherchez dans vos groupes de ressources un groupe nommé : managed-rg-\<your Purview Resource name>. Par exemple : managed-rg-contosoPurview. Vous allez utiliser le nom du compte de stockage dans ce groupe de ressources.
+> 
+> Pour les domaines listés avec « \<managed Event Hub resource> », vous devez ajouter le nom du Event Hub managé associé à votre ressource Purview. Vous pouvez le trouver dans le même groupe de ressources que le compte de stockage managé.
+
+| Noms de domaine                  | Ports sortants | Description                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `*.servicebus.windows.net` | 443            | L’infrastructure globale que Purview utilise pour exécuter ses analyses. Caractère générique requis, car il n’existe aucune ressource dédiée. |
+| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Purview utilise cette valeur pour se connecter au service bus associé. Il sera couvert par l’autorisation du domaine ci-dessus, mais si vous utilisez des points de terminaison privés, vous devrez tester l’accès à ce domaine unique.|
+| `*.frontend.clouddatahub.net` | 443            | L’infrastructure globale que Purview utilise pour exécuter ses analyses. Caractère générique requis, car il n’existe aucune ressource dédiée. |
+| `<managed Purview storage account>.core.windows.net`          | 443            | Utilisé par le runtime d’intégration auto-hébergé pour se connecter au compte de stockage Azure managé.|
+| `<managed Purview storage account>.queue.core.windows.net` | 443            | Files d’attente utilisées par Purview pour exécuter le processus d’analyse. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | Obligatoire si des informations d’identification sont stockées dans Azure Key Vault. |
+| `download.microsoft.com` | 443           | Facultatif pour les mises à jour SHIR. |
+| Différents domaines | Dépendant          | Domaines pour toutes les autres sources auxquelles le SHIR se connectera. |
+  
+  
+> [!IMPORTANT]
+> Dans la plupart des environnements, vous devrez également vérifier que votre DNS est correctement configuré. Confirmer que vous pouvez utiliser **nslookup** depuis votre machine SHIR pour vérifier la connectivité à chacun des domaines susmentionnés. Chaque nslookup doit renvoyer l’adresse IP de la ressource. Si vous utilisez des [points de terminaison](catalog-private-link.md), c’est l’adresse IP privée qui doit être retournée et non l’adresse IP publique. Si aucune adresse IP n’est retournée, ou si, lors de l’utilisation de points de terminaison privés, l’adresse IP publique est retournée, vous devez gérer votre association DNS/VNET ou votre association point de terminaison privé/réseau virtuel.
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Gestion d’un runtime d’intégration auto-hébergé
 

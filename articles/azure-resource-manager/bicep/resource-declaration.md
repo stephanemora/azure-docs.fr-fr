@@ -4,13 +4,13 @@ description: Explique comment déclarer des ressources en vue de les déployer d
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: f62c790f1cb4f0613e17d2bbb3e4fc13e39d8e39
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/16/2021
+ms.openlocfilehash: a540a30cd93d9f1dc54f77355f2f6560444131c1
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963464"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563692"
 ---
 # <a name="resource-declaration-in-bicep"></a>Déclaration de ressources dans Bicep
 
@@ -23,12 +23,12 @@ Lorsque vous ajoutez une ressource à votre fichier Bicep, commencez par défin
 L’exemple suivant montre comment définir le type de ressource et la version de l’API pour un compte de stockage. L’exemple n’affiche pas la déclaration de ressource complète.
 
 ```bicep
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
 }
 ```
 
-Vous définissez un nom symbolique pour la ressource. Dans l’exemple précédent, le nom symbolique est `myStorageAccount` . Vous pouvez utiliser n’importe quelle valeur pour le nom symbolique, mais elle ne peut pas être celle d’une autre ressource, d’un paramètre ou d’une variable du fichier Bicep. Le nom symbolique n’est pas le même que le nom de la ressource. Vous utiliserez le nom symbolique pour référencer facilement la ressource dans d’autres parties de votre fichier Bicep.
+Vous définissez un nom symbolique pour la ressource. Dans l’exemple précédent, le nom symbolique est `stg` . Vous pouvez utiliser n’importe quelle valeur pour le nom symbolique, mais elle ne peut pas être celle d’une autre ressource, d’un paramètre ou d’une variable du fichier Bicep. Le nom symbolique n’est pas le même que le nom de la ressource. Vous utiliserez le nom symbolique pour référencer la ressource dans d’autres parties de votre fichier Bicep.
 
 Bicep ne prend pas en charge `apiProfile`, qui est disponible dans le [JSON des modèles Azure Resource Manager (modèles ARM)](../templates/syntax.md).
 
@@ -104,6 +104,40 @@ az provider show \
 
 Vous pouvez appliquer des étiquettes à une ressource pendant le déploiement. Les étiquettes vous aident à organiser logiquement vos ressources déployées. Pour obtenir des exemples de différentes façons de spécifier les étiquettes, consultez [Étiquettes de modèle ARM](../management/tag-resources.md#arm-templates).
 
+## <a name="set-managed-identities-for-azure-resources"></a>Définir des identités managées pour les ressources Azure
+
+Certaines ressources prennent en charge des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Ces ressources ont un objet Identité au niveau racine de la déclaration de ressource. 
+
+Vous pouvez utiliser des identités attribuées par le système ou attribuées par l’utilisateur.
+
+L’exemple suivant montre comment configurer une identité attribuée par le système pour un cluster Azure Kubernetes Service.
+
+```bicep
+resource aks 'Microsoft.ContainerService/managedClusters@2020-09-01' = {
+  name: clusterName
+  location: location
+  tags: tags
+  identity: {
+    type: 'SystemAssigned'
+  }
+```
+
+L’exemple suivant montre comment configurer une identité attribuée par l’utilisateur pour une machine virtuelle.
+
+```bicep
+param userAssignedIdentity string
+
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  name: vmName
+  location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${userAssignedIdentity}': {}
+    }
+  }
+```
+
 ## <a name="set-resource-specific-properties"></a>Définir des propriétés spécifiques d’une ressource
 
 Les propriétés précédentes sont génériques pour la plupart des types de ressources. Après avoir défini ces valeurs, vous devez définir les propriétés qui sont spécifiques du type de ressource que vous déployez.
@@ -127,13 +161,13 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 ## <a name="set-resource-dependencies"></a>Définir des dépendances de ressources
 
-Quand vous déployez des ressources, vous devez éventuellement vous assurer que certaines ressources existent au préalable avant d’autres ressources. Par exemple, vous avez besoin d’un serveur SQL logique avant de déployer une base de données. Vous établissez cette relation en marquant une seule ressource (.resource) comme dépendante de l’autre ressource. L’ordre de déploiement des ressources peut être influencé de deux manières : une [dépendance implicite](#implicit-dependency) et une [dépendance explicite](#explicit-dependency)
+Quand vous déployez des ressources, vous devez éventuellement vous assurer que certaines ressources existent au préalable avant d’autres ressources. Par exemple, vous avez besoin d’un serveur SQL logique avant de déployer une base de données. Vous établissez cette relation en marquant une seule ressource comme dépendante de l’autre ressource. L’ordre de déploiement des ressources peut être influencé de deux manières : une [dépendance implicite](#implicit-dependency) et une [dépendance explicite](#explicit-dependency)
 
 Azure Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Vous devez uniquement définir des dépendances pour les ressources qui sont déployées dans un même fichier Bicep.
 
 ### <a name="implicit-dependency"></a>Dépendance implicite
 
-Une dépendance implicite est créée lorsqu’une déclaration de ressource référence l’identificateur d’une autre déclaration de ressource dans une expression. Par exemple, dans l’exemple suivant, *dnsZone* est référencé par la deuxième définition de ressource :
+Une dépendance implicite est créée lorsqu’une déclaration de ressource référence une autre ressource dans le même déploiement. Par exemple, dans l’exemple suivant, *dnsZone* est référencé par la deuxième définition de ressource :
 
 ```bicep
 resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
@@ -164,20 +198,24 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
 }
 ```
 
-Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants dans Bicep](./child-resource-name-type.md).
+Lorsqu’il existe une dépendance implicite, **n’ajoutez pas de dépendance explicite**.
+
+Pour plus d’informations sur les ressources imbriquées, consultez [Définir le nom et le type des ressources enfants dans Bicep](./child-resource-name-type.md).
 
 ### <a name="explicit-dependency"></a>Dépendance explicite
 
-Une dépendance explicite est déclarée via la propriété `dependsOn` dans la déclaration de ressource. La propriété accepte un tableau d’identificateurs de ressources. Voici un exemple d’une zone DNS dépendant d’une autre zone DNS de manière explicite :
+Une dépendance explicite est déclarée avec la propriété `dependsOn`. La propriété accepte un tableau d’identificateurs de ressource, ce qui vous permet de spécifier plusieurs dépendances. 
+
+L’exemple suivant montre une zone DNS nommée `otherZone` qui dépend d’une zone DNS nommée `dnsZone` :
 
 ```bicep
 resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
-  name: 'myZone'
+  name: 'demoeZone1'
   location: 'global'
 }
 
 resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
-  name: 'myZone'
+  name: 'demoZone2'
   location: 'global'
   dependsOn: [
     dnsZone
@@ -187,33 +225,42 @@ resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
 
 Vous pouvez être tenté d’utiliser `dependsOn` pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, `dependsOn` n’est pas la bonne approche. Vous ne pouvez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément `dependsOn` après le déploiement. La définition de dépendances inutiles ralentit le temps de déploiement, Resource Manager ne pouvant pas déployer ces ressources en parallèle.
 
-Les dépendances explicites sont rarement nécessaires. Dans la plupart des cas, vous disposez d’une référence symbolique qui permet de supposer la dépendance entre les ressources. Si vous vous retrouvez à utiliser dependsOn, essayez de voir si vous pouvez le remplacer par autre chose.
+Les dépendances explicites sont rarement nécessaires. Dans la plupart des cas, vous pouvez utiliser un nom symbolique pour supposer la dépendance entre les ressources. Si vous vous retrouvez à définir des dépendances explicites, vous devez vous demander s’il existe un moyen de les supprimer.
 
 ### <a name="visualize-dependencies"></a>Visualiser les dépendances
 
-Visual Studio Code fournit un outil qui permet de visualiser les dépendances. Ouvrez un fichier Bicep dans Visual Studio Code, puis sélectionnez le bouton du visualiseur dans le coin supérieur gauche.  La capture d’écran suivante montre les dépendances d’une ressource de machine virtuelle qui sont définies dans le fichier Bicep.
+Visual Studio Code fournit un outil qui permet de visualiser les dépendances. Ouvrez un fichier Bicep dans Visual Studio Code, puis sélectionnez le bouton du visualiseur dans le coin supérieur gauche.  La capture d’écran suivante montre les dépendances d’une machine virtuelle.
 
 :::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Capture d’écran du visualiseur de ressources Bicep dans Visual Studio Code":::
 
 ## <a name="reference-existing-resources"></a>Référencer des ressources existantes
 
-Vous pouvez ajouter des références et accéder aux propriétés d’exécution de ressources situées en dehors du fichier actuel en utilisant le mot clé `existing` dans une déclaration de ressource. Cela équivaut à utiliser la [fonction reference()](../templates/template-functions-resource.md#reference) des modèles ARM.
+Pour référencer une ressource qui ne se trouve pas dans le fichier Bicep actuel, utilisez le mot clé `existing` dans une déclaration de ressource.
 
-Lorsque vous utilisez le mot clé `existing`, vous devez fournir le nom (`name`) de la ressource et éventuellement définir la propriété `scope` pour accéder à une ressource située dans une autre étendue. Pour plus d’informations sur l’utilisation de la propriété Scope, consultez [Étendues des ressources](./deploy-to-resource-group.md).
+Si vous utilisez le mot clé `existing`, indiquez le `name` de la ressource. L’exemple suivant montre l’obtention d’un compte de stockage existant dans le même groupe de ressources que le déploiement actuel.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
-  name: 'exampleStorage'
+  name: 'examplestorage'
 }
 
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
 
-L’exemple précédent ne déploie pas le compte de stockage, mais la déclaration fournit l’accès aux propriétés de la ressource existante. À l’aide du nom symbolique « stg », vous pouvez accéder aux propriétés du compte de stockage.
+Vous pouvez éventuellement définir la propriété `scope` pour accéder à une ressource dans une étendue différente. L’exemple suivant référence un compte de stockage existant dans un autre groupe de ressources.
 
-Les exemples suivants montrent comment spécifier la propriété `scope` :
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+  name: 'examplestorage'
+  scope: resourceGroup(exampleRG)
+}
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = { name: 'exampleStorage' scope: resourceGroup(mySub, myRg) }
+output blobEndpoint string = stg.properties.primaryEndpoints.blob
+```
+
+Pour plus d’informations sur la définition de l’étendue, consultez [Fonctions d’étendue pour Bicep](bicep-functions-scope.md).
+
+Les exemples précédents ne déploient pas le compte de stockage. Au lieu de cela, vous pouvez accéder aux propriétés de la ressource existante en utilisant le nom symbolique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Langages pris en charge dans Azure Functions
 description: Découvrez les langues prises en charge (GA) et celles qui sont en préversion, ainsi que les méthodes d’extension du développement des fonctions dans d’autres langages.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02a416fa669cd71702e991c79677575bd4563bfb
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98108549"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113493228"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -26,6 +26,14 @@ Il y a deux niveaux de prise en charge :
 [Trois versions du runtime Azure Functions](functions-versions.md) sont disponibles. Le tableau suivant montre les langages qui sont pris en charge dans chaque version du runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+### <a name="language-major-version-support"></a>Prise en charge de la version principale de langage
+
+Azure Functions offre une garantie de prise en charge des versions principales des langages de programmation pris en charge. Pour la plupart des langages, des versions mineures ou correctives sont publiées pour mettre à jour une version principale prise en charge. Exemples de versions mineures ou correctives : Python 3.9.1 et Node 14.17. Une fois les nouvelles versions mineures des langages pris en charge disponibles, les versions mineures utilisées par vos applications de fonction sont automatiquement mises à niveau vers ces versions mineures ou correctives plus récentes. 
+
+> [!NOTE]
+>Étant donné qu’Azure Functions peut supprimer la prise en charge des anciennes versions mineures à tout moment après lorsqu’une nouvelle version mineure devient disponible, vous ne devez pas lier vos applications de fonction à une version mineure/corrective spécifique d’un langage de programmation.  
+>
 
 ## <a name="custom-handlers"></a>Gestionnaires personnalisés
 

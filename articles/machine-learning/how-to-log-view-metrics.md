@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: ce8fe90a88795c7c08708d6a77246d36f3079e4c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 4cb94dab1576e6fdb422fc640ae6edfdcdaad119
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889139"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446218"
 ---
 # <a name="log--view-metrics-and-log-files"></a>Journaliser et afficher les métriques et les fichiers journaux
 
@@ -38,7 +38,7 @@ Les journaux peuvent vous aider à diagnostiquer les erreurs et les avertissemen
 
 Vous pouvez journaliser plusieurs types de données, notamment des valeurs scalaires, des listes, des tableaux, des images, des répertoires, etc. Pour plus d’informations et pour obtenir des exemples de code Python pour différents types de données, consultez la [page Exécuter la référence de classe](/python/api/azureml-core/azureml.core.run%28class%29).
 
-### <a name="logging-run-metrics"></a>Journalisation des métriques d’exécution 
+## <a name="logging-run-metrics"></a>Journalisation des métriques d’exécution 
 
 Utilisez les méthodes suivantes dans les API de journalisation pour influencer les visualisations des métriques. Notez les [limites de service](./resource-limits-quotas-capacity.md#metrics) pour ces métriques journalisées. 
 
@@ -50,29 +50,43 @@ Utilisez les méthodes suivantes dans les API de journalisation pour influencer 
 |Journaliser un table avec 2 colonnes numériques|`run.log_table(name='Sine Wave', value=sines)`|Graphique en courbes à deux variables|
 |Journaliser une image|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|Utilisez cette méthode pour consigner un fichier image ou un tracé matplotlib dans l’exécution. Ces images seront visibles et comparables dans l’enregistrement d’exécution.|
 
-### <a name="logging-with-mlflow"></a>Journalisation avec MLflow
-Utilisez MLFlowLogger pour enregistrer les métriques.
+## <a name="logging-with-mlflow"></a>Journalisation avec MLflow
 
-```python
-from azureml.core import Run
-# connect to the workspace from within your running code
-run = Run.get_context()
-ws = run.experiment.workspace
+Nous vous recommandons de journaliser vos modèles, métriques et artefacts avec MLflow, car il est open source et prend en charge le mode local pour la portabilité du cloud. Le tableau et les exemples de code suivants montrent comment utiliser MLflow pour journaliser des métriques et des artefacts à partir de vos exécutions de formation. 
+[En savoir plus sur les méthodes de journalisation et les modèles de conception de MLflow](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
 
-# workspace has associated ml-flow-tracking-uri
-mlflow_url = ws.get_mlflow_tracking_uri()
+Veillez à installer les packages pip `mlflow` et `azureml-mlflow` dans votre espace de travail. 
 
-#Example: PyTorch Lightning
-from pytorch_lightning.loggers import MLFlowLogger
-
-mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
-mlf_logger._run_id = run.id
+```conda
+pip install mlflow
+pip install azureml-mlflow
 ```
 
-## <a name="view-run-metrics"></a>Afficher les métriques d’exécution
+Définissez l’URI de suivi MLflow pour qu’il pointe vers le back-end Azure Machine Learning afin de vous assurer que vos métriques et vos artefacts sont journalisés dans votre espace de travail. 
 
-## <a name="via-the-sdk"></a>Via le kit SDK
-Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Reportez-vous à l’exemple ci-dessous. 
+```python
+from azureml.core import Workspace
+import mlflow
+from mlflow.tracking import MlflowClient
+
+ws = Workspace.from_config()
+mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
+
+mlflow.create_experiment("mlflow-experiment")
+mlflow.set_experiment("mlflow-experiment")
+mlflow_run = mlflow.start_run()
+```
+
+|Valeur connectée|Exemple de code| Notes|
+|----|----|----|
+|Journaliser une valeur numérique (int ou float) | `mlfow.log_metric('my_metric', 1)`| |
+|Journaliser une valeur booléenne | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Journaliser une chaîne | `mlfow.log_text('foo', 'my_string')`| Journalisé en tant qu’artefact|
+|Journaliser les métriques numpy ou les objets d’image PIL|`mlflow.log_image(img, 'figure.png')`||
+|Journaliser un fichier image ou un tracé matlotlib|` mlflow.log_figure(fig, "figure.png")`||
+
+## <a name="view-run-metrics-via-the-sdk"></a>Afficher les métriques d’exécution via le kit SDK
+Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de `run.get_metrics()`. 
 
 ```python
 from azureml.core import Run
@@ -80,16 +94,41 @@ run = Run.get_context()
 run.log('metric-name', metric_value)
 
 metrics = run.get_metrics()
-# metrics is of type Dict[str, List[float]] mapping mertic names
+# metrics is of type Dict[str, List[float]] mapping metric names
 # to a list of the values for that metric in the given run.
 
 metrics.get('metric-name')
 # list of metrics in the order they were recorded
 ```
 
+Vous pouvez également accéder aux informations d’exécution à l’aide de MLflow via les propriétés d’informations et les données de l’objet d’exécution. Pour plus d’informations, consultez la documentation [Objet MLflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run). 
+
+Une fois l’exécution terminée, vous pouvez la récupérer à l’aide de MlFlowClient().
+
+```python
+from mlflow.tracking import MlflowClient
+
+# Use MlFlow to retrieve the run that was just completed
+client = MlflowClient()
+finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+```
+
+Vous pouvez afficher les métriques, les paramètres et les balises pour l’exécution dans le champ de données de l’objet d’exécution.
+
+```python
+metrics = finished_mlflow_run.data.metrics
+tags = finished_mlflow_run.data.tags
+params = finished_mlflow_run.data.params
+```
+
+>[!NOTE]
+> Le dictionnaire des métriques sous `mlflow.entities.Run.data.metrics` ne retourne que la dernière valeur journalisée pour un nom de métrique donné. Par exemple, si vous journalisez, dans l’ordre, 1, puis 2, puis 3, puis 4 sur une métrique appelée `sample_metric`, seule la valeur 4 est présente dans le dictionnaire des métriques pour `sample_metric`.
+> 
+> Pour obtenir toutes les mesures journalisées pour un nom de métrique spécifique, vous pouvez utiliser [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history).
+
 <a name="view-the-experiment-in-the-web-portal"></a>
 
-## <a name="view-run-metrics-in-aml-studio-ui"></a>Afficher les métriques d’exécution dans l’interface utilisateur du studio AML
+## <a name="view-run-metrics-in-the-studio-ui"></a>Afficher les métriques d’exécution dans l’IU du studio
 
 Vous pouvez parcourir les enregistrements d’exécution terminés, notamment les mesures journalisées, dans le [studio Azure Machine Learning](https://ml.azure.com).
 

@@ -10,9 +10,11 @@ ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 10/23/2020
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-En tant que développeur, vous pouvez utiliser [l’API REST](/rest/api/media/) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
+En tant que développeur, vous pouvez utiliser des bibliothèques clientes (.NET, Python, Node.js, Java, Go et Ruby) qui vous permettent d’interagir avec l’API REST afin de créer, de gérer et de maintenir facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
 Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
 
 ## <a name="accessing-the-azure-media-services-api"></a>Accéder à l'API Azure Media Services
 
@@ -51,12 +53,11 @@ Dans la figure suivante, les nombres représentent le flux des requêtes dans l�
 ### <a name="samples"></a>Exemples
 
 Les exemples suivants montrent comment se connecter à un principal de service Azure AD :
-
-* [Se connecter avec REST](setup-postman-rest-how-to.md)  
-* [Se connecter avec Java](configure-connect-java-howto.md)
 * [Se connecter avec .NET](configure-connect-dotnet-howto.md)
 * [Se connecter avec Node.js](configure-connect-nodejs-howto.md)
 * [Se connecter avec Python](configure-connect-python-howto.md)
+* [Se connecter avec Java](configure-connect-java-howto.md)
+* [Se connecter avec REST](setup-postman-rest-how-to.md)  
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
@@ -128,7 +129,7 @@ AMSE est un projet Open Source, son support est assuré par la Communauté (les 
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
-Consultez [Filtrage, tri et pagination des entités Azure Media Services](filter-order-page-entitites-how-to.md).
+Consultez [Filtrage, tri et pagination des entités Azure Media Services](filter-order-page-entities-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

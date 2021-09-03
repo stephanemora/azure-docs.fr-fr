@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 61f10707231e88130cffbfffa1c06f33084bfbbd
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 14b11cca3eca6f3d0b89889a4eb1abf3f04f5715
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792136"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487648"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -77,7 +77,7 @@ Avant d’attribuer l’accès à l’identité managée Purview, commencez par 
 
 :::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Modèle d’autorisation Azure Key Vault"::: 
 
-### <a name="option-1---assign-access-using-using-key-vault-access-policy"></a>Option 1 : Attribuer l’accès à l’aide de la stratégie d’accès au coffre de clés  
+### <a name="option-1---assign-access-using-key-vault-access-policy"></a>Option 1 : Attribuer l’accès à l’aide de la stratégie d’accès Key Vault  
 
 Suivez ces étapes uniquement si le modèle d’autorisation dans votre ressource Azure Key Vault est défini sur **Stratégie d’accès au coffre** :
 

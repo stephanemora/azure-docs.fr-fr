@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: cb4f074cb9487c22fc340b2e7b2941cd7b69ca98
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 272c146c71e9caf6d7ba6a1ba165a6157f5b6de0
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459050"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527960"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Requêtes de journal dans Azure Monitor
 Azure Monitor Logs repose sur Azure Data Explorer, et les requêtes de journal sont écrites à l’aide du même langage de requête Kusto (KQL). Il s’agit d’un langage riche conçu pour être facile à lire et écrire. Vous pourrez donc commencer écrire des requêtes avec un minimum de conseils.
@@ -22,7 +22,7 @@ Dans Azure Monitor, vous utiliserez les zones suivantes pour créer des requête
 - [Classeurs](../visualize/workbooks-overview.md). Incluez les résultats des requêtes de journal en utilisant différentes visualisations dans les rapports visuels interactifs du portail Azure.
 - [Tableaux de bord Azure](../visualize/tutorial-logs-dashboards.md). Épinglez les résultats de n’importe quelle requête dans un tableau de bord Azure afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez.
 - [Logic Apps](../logs/logicapp-flow-connector.md).  Utilisez les résultats d’une requête de journal dans un workflow automatisé à l’aide de Logic Apps.
-- [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Utilisez les résultats d’une requête de journal dans un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise Get-AzOperationalInsightsSearchResults.
+- [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery). Utilisez les résultats d’une requête de journal dans un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise Invoke-AzOperationalInsightsQuery.
 - [API Journaux d’activité Azure Monitor](https://dev.loganalytics.io). Récupérez les données de journal de l’espace de travail à partir de n’importe quel client API REST.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
 
 ## <a name="getting-started"></a>Prise en main

@@ -1,24 +1,26 @@
 ---
-title: Architecture de la récupération d’urgence des machines virtuelles VMware dans Azure Site Recovery
-description: Cet article offre une vue d’ensemble de l’architecture et des composants utilisés pour configurer la reprise d’activité de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
+title: Architecture de la récupération d’urgence des machines virtuelles VMware dans Azure Site Recovery - Classic
+description: Cet article offre une vue d’ensemble de l’architecture et des composants utilisés pour configurer la reprise d’activité de machines virtuelles VMware locales sur Azure avec Azure Site Recovery- Classic
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.openlocfilehash: 24333ccc5096e7f04f016444de2b0a7e13ae7bfa
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 08/19/2021
+ms.openlocfilehash: 87bfbad2993bb1eee4c20990082a892cf8e46fd1
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579812"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535260"
 ---
-# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture---classic"></a>Architecture pour la reprise d’activité de VMware sur Azure - Classic
 
-Cet article décrit l’architecture et les processus utilisés quand vous déployez la réplication et le basculement pour la reprise d’activité de machines virtuelles VMware entre un site VMware local et Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
+Cet article décrit l’architecture et les processus utilisés quand vous déployez la réplication et le basculement pour la reprise d’activité de machines virtuelles VMware entre un site VMware local et Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md) - Classic.
+
+Pour plus d’informations sur l’architecture en préversion, [consultez cet article](vmware-azure-architecture-preview.md)
 
 
 ## <a name="architectural-components"></a>Composants architecturaux
 
-Le tableau et le graphique suivants présentent une vue générale des composants utilisés pour la reprise d’activité de VMware sur Azure.
+Le tableau et le graphique suivants présentent une vue générale des composants utilisés pour la reprise d’activité des machines virtuelles VMware/des machines physiques sur Azure.
 
 **Composant** | **Prérequis** | **Détails**
 --- | --- | ---
@@ -55,7 +57,7 @@ Pour obtenir une liste exhaustive des URL à filtrer pour la communication entre
     - Pour les machines virtuelles VMware, la réplication se fait au niveau du bloc, presque en continu, à l’aide de l’agent du service Mobilité en cours d’exécution sur la machine virtuelle.
     - Tous les paramètres de la stratégie de réplication sont appliqués :
         - **Seuil d’objectif de point de récupération**. Ce paramètre n’affecte pas la réplication. Il aide à la supervision. Un événement est déclenché, et un e-mail peut être envoyé, si le RPO en cours dépasse le seuil spécifié.
-        - **Rétention des points de récupération**. Ce paramètre spécifie le moment auquel vous souhaitez revenir lors d’une interruption. La durée maximale de rétention sur le stockage premium est de 24 heures. Sur le stockage standard, elle est de 72 heures. 
+        - **Rétention des points de récupération**. Ce paramètre spécifie le moment auquel vous souhaitez revenir lors d’une interruption. La durée maximale de rétention sur le stockage premium est de 24 heures. Sur le stockage standard, elle est de 72 heures.
         - **Instantanés de cohérence d’application**. Un instantané de cohérence des applications peut être pris toutes les 1 à 12 heures, en fonction de vos besoins en applications. Les instantanés sont des instantanés d’objet blob Azure standard. L’agent Mobilité en cours d’exécution sur une machine virtuelle demande un instantané VSS conformément à ce paramètre, et insère un signet à ce point dans le temps pour en faire un point de cohérence avec l’application dans le flux de réplication.
 
 2. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. L’autre solution consiste à utiliser Azure ExpressRoute avec [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
@@ -66,7 +68,7 @@ Pour obtenir une liste exhaustive des URL à filtrer pour la communication entre
     - Le serveur de configuration orchestre la réplication avec Azure sur le port HTTPS 443 sortant.
     - Les machines virtuelles envoient des données de réplication au serveur de traitement (s’exécutant sur l’ordinateur du serveur de configuration) sur le port HTTPS 9443 entrant. Ce port peut être modifié.
     - Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.
-5. Les données de réplication se trouvent tout d’abord dans un compte de stockage de cache dans Azure. Ces journaux sont traités et les données sont stockées dans un disque managé Azure (appelé disque seed asr). Les points de récupération sont créés sur ce disque.
+5. Les données de réplication se trouvent tout d’abord dans un compte de stockage de cache dans Azure. Ces journaux sont traités et les données sont stockées dans un disque managé Azure (appelé disque seed Azure Site Recovery). Les points de récupération sont créés sur ce disque.
 
 ![Diagramme montrant le processus de réplication VMware vers Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
@@ -82,7 +84,7 @@ Pour obtenir une liste exhaustive des URL à filtrer pour la communication entre
 6. Si la resynchronisation par défaut échoue en dehors des heures de bureau et qu’une intervention manuelle est nécessaire, une erreur est générée sur la machine spécifique dans le portail Azure. Vous pouvez résoudre l’erreur et déclencher la resynchronisation manuellement.
 7. Une fois la resynchronisation terminée, la réplication des modifications différentielles reprend.
 
-## <a name="replication-policy"></a>Stratégie de réplication 
+## <a name="replication-policy"></a>Stratégie de réplication
 
 Par défaut, lorsque vous activez la réplication de machines virtuelles Azure, Site Recovery crée une stratégie de réplication avec les paramètres par défaut qui sont répertoriés dans le tableau.
 
@@ -99,7 +101,7 @@ Vous pouvez gérer et modifier les paramètres des stratégies de réplication p
 
 ### <a name="multi-vm-consistency"></a>Cohérence multimachine virtuelle
 
-Si vous souhaitez que plusieurs machines virtuelles soient répliquées en même temps et que celles-ci partagent les mêmes points de récupération de cohérence des applications et de cohérence en cas d’incident au moment du basculement, vous pouvez les rassembler dans un groupe de réplication. La cohérence multimachine virtuelle impacte les performances des charges de travail, et doit uniquement être utilisée pour les machines virtuelles qui exécutent des charges de travail nécessitant la cohérence de toutes les machines. 
+Si vous souhaitez que plusieurs machines virtuelles soient répliquées en même temps et que celles-ci partagent les mêmes points de récupération de cohérence des applications et de cohérence en cas d’incident au moment du basculement, vous pouvez les rassembler dans un groupe de réplication. La cohérence multimachine virtuelle impacte les performances des charges de travail, et doit uniquement être utilisée pour les machines virtuelles qui exécutent des charges de travail nécessitant la cohérence de toutes les machines.
 
 
 
@@ -128,7 +130,7 @@ Un instantané de cohérence en cas d’incident capture les données qui se tro
 
 **Description** | **Détails** | **Recommandation**
 --- | --- | ---
-Les points de récupération de cohérence des applications sont créés à partir d’instantanés de cohérence des applications.<br/><br/> Un instantané de cohérence des applications contient toutes les informations d’un instantané de cohérence en cas d’incident ainsi que toutes les données en mémoire et les transactions en cours. | Les instantanés de cohérence des applications utilisent le service de cliché instantané de volume (VSS) :<br/><br/>   1) Azure Site Recovery utilise la méthode de sauvegarde de copie uniquement (VSS_BT_COPY) qui ne change pas le numéro de séquence et l’heure de la sauvegarde de fichier journal de Microsoft SQL </br></br> 2) Lorsqu’un instantané est lancé, le service VSS effectue une opération de copie pour écriture sur le volume.<br/><br/>   3) Avant d’effectuer l’opération de copie pour écriture, le service VSS informe chaque application de l’ordinateur qu’il a besoin de vider ses données résidant en mémoire sur le disque.<br/><br/>   4) VSS permet ensuite à l’application de sauvegarde ou de récupération d’urgence (ici, Site Recovery) de lire les données d’instantanés et de poursuivre. | Les instantanés de cohérence des applications sont réalisés selon la fréquence que vous avez spécifiée. Cette fréquence doit toujours être inférieure à celle que vous définissez pour conserver les points de récupération. Par exemple, si vous conservez les points de récupération à l’aide du paramètre par défaut (24 heures), vous devez définir une fréquence inférieure à 24 heures.<br/><br/>Ces instantanés sont plus complexes et plus longs à réaliser que les instantanés de cohérence en cas d’incident.<br/><br/> Ils affectent les performances des applications qui s’exécutent sur les machines virtuelles où est activée la réplication. 
+Les points de récupération de cohérence des applications sont créés à partir d’instantanés de cohérence des applications.<br/><br/> Un instantané de cohérence des applications contient toutes les informations d’un instantané de cohérence en cas d’incident ainsi que toutes les données en mémoire et les transactions en cours. | Les instantanés de cohérence des applications utilisent le service de cliché instantané de volume (VSS) :<br/><br/>   1) Azure Site Recovery utilise la méthode de sauvegarde de copie uniquement (VSS_BT_COPY) qui ne change pas le numéro de séquence et l’heure de la sauvegarde de fichier journal de Microsoft SQL </br></br> 2) Lorsqu’un instantané est lancé, le service VSS effectue une opération de copie pour écriture sur le volume.<br/><br/>   3) Avant d’effectuer l’opération de copie pour écriture, le service VSS informe chaque application de l’ordinateur qu’il a besoin de vider ses données résidant en mémoire sur le disque.<br/><br/>   4) VSS permet ensuite à l’application de sauvegarde ou de récupération d’urgence (ici, Site Recovery) de lire les données d’instantanés et de poursuivre. | Les instantanés de cohérence des applications sont réalisés selon la fréquence que vous avez spécifiée. Cette fréquence doit toujours être inférieure à celle que vous définissez pour conserver les points de récupération. Par exemple, si vous conservez les points de récupération à l’aide du paramètre par défaut (24 heures), vous devez définir une fréquence inférieure à 24 heures.<br/><br/>Ces instantanés sont plus complexes et plus longs à réaliser que les instantanés de cohérence en cas d’incident.<br/><br/> Ils affectent les performances des applications qui s’exécutent sur les machines virtuelles où est activée la réplication.
 
 ## <a name="failover-and-failback-process"></a>Processus de basculement et de restauration automatique
 
@@ -149,8 +151,8 @@ Après avoir configuré la réplication et exécuté une simulation de reprise a
     - Étape 1 : Reprotégez les machines virtuelles Azure afin qu’elles répliquent à partir d’Azure vers les machines virtuelles VMware locales.
     -  Étape 2 : Exécutez un basculement vers le site local.
     - Étape 3 : Une fois les charges de travail automatiquement restaurées, vous réactivez la réplication pour les machines virtuelles locales.
-    
- 
+
+
 
 ![Diagramme montrant la restauration automatique VMware à partir d’Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 

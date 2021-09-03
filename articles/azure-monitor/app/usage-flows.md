@@ -1,17 +1,16 @@
 ---
-title: Les flux d’utilisateurs d’Azure Application Insights analysent les flux de navigation
+title: Les flux d’utilisateurs d’Application Insights analysent les flux de navigation
 description: Analysez la façon dont vos utilisateurs naviguent entre les pages et les fonctionnalités de votre application web.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: a31ab24b96fa44787d08801a0680f94ff98bb5a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: 875e3ba35003459e9e7558af4f7c668250521251
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87309267"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562583"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analyser les modèles de navigation utilisateur avec User Flows dans Azure Application Insights
 

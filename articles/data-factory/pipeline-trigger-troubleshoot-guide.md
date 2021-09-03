@@ -8,12 +8,12 @@ ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: aed6df814ddfb240093aad8ff981e9b89a6f2f52
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 29aff19ee900c8683249241725904e5509eced8b
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867569"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527977"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -160,7 +160,7 @@ Faits connus concernant *ForEach*
 * **Limite de concurrence** : si votre pipeline a une stratégie de concurrence, vérifiez qu’il n’y a pas d’anciennes exécutions de pipeline en cours. 
 * **Limites de surveillance** : accédez au canevas de création ADF, sélectionnez votre pipeline, puis déterminez si une propriété de concurrence lui est assignée. Si c’est le cas, accédez à la page de surveillance et assurez-vous qu’il n’y a aucune exécution en cours sur les 45 derniers jours. Si vous trouvez une exécution en cours, vous pouvez l’annuler. Cela aura pour effet de démarrer la nouvelle exécution de pipeline.
 
-* **Problèmes temporaires** : il est possible que votre exécution ait été affectée par un problème réseau temporaire, des échecs des informations d’identification, des interruptions de service, etc. Dans ce cas, Azure Data Factory possède un processus de récupération interne qui supervise toutes les exécutions et les démarre en cas de problème. Vous pouvez réexécuter les pipelines et les activités comme décrit [ici](monitor-visually.md#rerun-pipelines-and-activities). Vous pouvez réexécuter les activités si l’activité a été annulée ou si elle a échoué en fonction de l’échec [de l’activité.](monitor-visually.md#rerun-from-failed-activity) Ce processus est exécuté toutes les heures. Si votre exécution reste bloquée pendant plus d’une heure, créez un cas de support.
+* **Problèmes temporaires** : il est possible que votre exécution ait été affectée par un problème réseau temporaire, des échecs des informations d’identification, des interruptions de service, etc. Dans ce cas, Azure Data Factory possède un processus de récupération interne qui supervise toutes les exécutions et les démarre en cas de problème. Vous pouvez réexécuter les pipelines et les activités comme décrit [ici](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities). Vous pouvez réexécuter les activités si l’activité a été annulée ou si elle a échoué en fonction de l’échec [de l’activité.](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity) Ce processus est exécuté toutes les heures. Si votre exécution reste bloquée pendant plus d’une heure, créez un cas de support.
 
 
  
@@ -233,7 +233,7 @@ Cela est dû au fait que le compte de stockage utilisé pour le déclencheur d�
 
 Le chargement du générateur d’expressions peut échouer en raison de problèmes réseau ou de cache sur le navigateur web.  
 
-**Résolution :**
+**Résolution**
 
 
 Mettez à niveau le navigateur web vers la dernière version, effacez les cookies du site, puis actualisez la page.
@@ -268,7 +268,7 @@ Vous n’avez pas optimisé le flux de données de mappage.
 Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
+*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page de questions Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)

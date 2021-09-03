@@ -7,33 +7,33 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: b828d9e5765a180e1b42de9b96a0ee06eab085f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "92320213"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524491"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Résolution des problèmes des groupes de serveurs PostgreSQL Hyperscale
 Cet article décrit quelques techniques permettant de résoudre les problèmes d’un groupe de serveurs. En plus de cet article, vous pouvez apprendre à utiliser [Kibana](monitor-grafana-kibana.md) pour effectuer des recherches dans les journaux ou [Grafana](monitor-grafana-kibana.md) pour visualiser les métriques relatives à votre groupe de serveurs. 
 
-## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Récupération d’informations supplémentaires sur l’exécution d’une commande azdata
-Le paramètre **--debug** peut être ajouté à n’importe quelle commande azdata. Il permet d’afficher sur la console des informations supplémentaires sur l’exécution de cette commande, pour mieux comprendre son comportement.
+## <a name="getting-more-details-about-the-execution-of-a-cli-command"></a>Récupération d’informations supplémentaires sur l’exécution d’une commande CLI
+Vous pouvez ajouter le paramètre **--debug** à n’importe quelle commande CLI que vous exécutez. Il permet d’afficher sur la console des informations supplémentaires sur l’exécution de cette commande, pour mieux comprendre son comportement.
 Par exemple, vous pouvez exécuter :
-```console
-azdata arc postgres server create -n postgres01 -w 2 --debug
+```azurecli
+az postgres arc-server create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
 ```
 
 or
-```console
-azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
+```azurecli
+az postgres arc-server edit -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
 ```
 
-Par ailleurs, vous pouvez utiliser le paramètre --help sur n’importe quelle commande azdata pour afficher de l’aide ou la liste des paramètres d’une commande spécifique. Par exemple :
-```console
-azdata arc postgres server create --help
+Par ailleurs, vous pouvez utiliser le paramètre --help sur n’importe quelle commande CLI pour afficher de l’aide ou la liste des paramètres d’une commande spécifique. Par exemple :
+```azurecli
+az postgres arc-server create --help
 ```
 
 
@@ -43,33 +43,22 @@ Lisez l’article [Récupération des journaux pour les services de données com
 
 
 ## <a name="interactive-troubleshooting-with-jupyter-notebooks-in-azure-data-studio"></a>Résolution interactive des problèmes liés aux notebooks Jupyter dans Azure Data Studio
+
 Les blocs-notes peuvent documenter des procédures en incluant un contenu Markdown pour décrire la procédure à suivre. Ils peuvent également fournir du code exécutable pour automatiser une procédure.  Ce modèle est utile pour tout, des procédures d’exploitation standard aux guides de dépannage.
 
 Par exemple, résolvons les problèmes liés à un groupe de serveurs PostgreSQL Hyperscale, qui peuvent survenir lors de l’utilisation d’Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ### <a name="install-tools"></a>Installer des outils
 
-Installez Azure Data Studio, `kubectl` et [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], sur l’ordinateur client que vous utilisez pour exécuter le bloc-notes dans Azure Data Studio. Pour ce faire, suivez les instructions fournies dans [Installer les outils clients](install-client-tools.md)
+Installez Azure Data Studio, `kubectl`, et Azure (`az`) CLI avec l’extension `arcdata` sur l’ordinateur client que vous utilisez pour exécuter le notebook dans Azure Data Studio. Pour ce faire, suivez les instructions fournies dans [Installer les outils clients](install-client-tools.md)
 
 ### <a name="update-the-path-environment-variable"></a>Mettre à jour la variable d’environnement PATH
 
 Assurez-vous que ces outils peuvent être appelés à partir de n’importe quel emplacement sur cet ordinateur client. Par exemple, sur un ordinateur client Windows, mettez à jour la variable d’environnement système PATH et ajoutez le dossier dans lequel vous avez installé kubectl.
-
-### <a name="sign-in-with-azure-data-cli-azdata"></a>Connectez-vous avec [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
-
-Connectez-vous à votre contrôleur de données Arc à partir de cet ordinateur client et avant de lancer Azure Data Studio. Pour ce faire, exécutez une commande telle que :
-
-```console
-azdata login --endpoint https://<IP address>:<port>
-```
-
-Remplacez `<IP address>` par l’adresse IP de votre cluster Kubernetes, et `<port>` par le port que Kubernetes écoute. Vous êtes invité à entrer un nom d’utilisateur et un mot de passe. Pour plus de détails, exécutez :_
-
-```console
-azdata login --help
-```
 
 ### <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Connectez-vous à votre cluster Kubernetes avec kubectl
 
@@ -97,7 +86,7 @@ Implémentez les étapes décrites dans [033-manage-Postgres-with-AzureDataStudi
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio – Ouvrir le bloc-notes de résolution des problèmes PostgreSQL":::
 
-La fenêtre **TSG100 – Bloc-notes de l’outil de résolution des problèmes de PostgreSQL Hyperscale activé avec par Azure Arc** s’ouvre : :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio – Utiliser le bloc-notes de résolution des problèmes de PostgreSQL":::
+La fenêtre **TSG100 – Notebook de l’outil de résolution des problèmes de PostgreSQL Hyperscale compatible avec Azure Arc** s’ouvre : :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Utiliser le notebook de résolution des problèmes PostgreSQL":::
 
 #### <a name="run-the-scripts"></a>Exécuter les scripts
 Sélectionnez le bouton « Exécuter tout » en haut pour exécuter tout le bloc-notes en une seule fois, ou parcourez et exécutez chaque cellule de code une par une.
@@ -107,7 +96,7 @@ Affichez la sortie de l’exécution des cellules de code pour tout problème po
 Nous ajouterons des détails au bloc-notes au fil du temps afin d’identifier les problèmes courants et la manière de les résoudre.
 
 ## <a name="next-step"></a>Étape suivante
-- En savoir plus sur l’[obtention de journaux pour les services de données activés par Azure Arc](troubleshooting-get-logs.md)
+- En savoir plus sur l’[obtention de journaux pour les services de données compatibles avec Azure Arc](troubleshooting-get-logs.md)
 - En savoir plus sur la [recherche dans les journaux avec Kibana](monitor-grafana-kibana.md)
 - En savoir plus sur la [surveillance avec Grafana](monitor-grafana-kibana.md)
 - Créer vos propres blocs-notes

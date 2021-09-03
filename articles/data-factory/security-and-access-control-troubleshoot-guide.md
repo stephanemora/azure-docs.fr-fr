@@ -1,17 +1,20 @@
 ---
 title: Résoudre les problèmes de sécurité et de contrôle d’accès
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment résoudre les problèmes de sécurité et de contrôle d’accès dans Azure Data Factory.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 07/28/2021
 ms.author: lle
-ms.openlocfilehash: ff95f5c3f8d978d58146529825adee94f82eaf07
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d5824e4b7ffcdf8acab2ccfad9efdf4850f160b6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782890"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641343"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Résoudre les problèmes de sécurité et de contrôle d’accès dans Azure Data Factory
 
@@ -189,6 +192,37 @@ ADF peut toujours utiliser le runtime d’intégration de réseau virtuel manag�
 - Le point de terminaison privé étant activé sur la source et également côté récepteur lors de l’utilisation du runtime d’intégration de réseau virtuel managé.
 - Si vous souhaitez toujours utiliser le point de terminaison public, vous pouvez basculer vers le runtime d’intégration public uniquement au lieu d’utiliser le runtime d’intégration de réseau virtuel managé pour la source et le récepteur. Même si vous revenez au runtime d’intégration public, ADF peut continuer à utiliser le runtime d’intégration de réseau virtuel managé si le runtime d’intégration de réseau virtuel managé est toujours présent.
 
+### <a name="internal-error-while-trying-to-delete-adf-with-customer-managed-key-cmk-and-user-assigned-managed-identity-ua-mi"></a>Erreur interne lors de la tentative de suppression de ADF avec une clé gérée par le client (CMK) et une identité managée attribuée par l’utilisateur (UA-MI)
+
+#### <a name="symptoms"></a>Symptômes
+`{\"error\":{\"code\":\"InternalError\",\"message\":\"Internal error has occurred.\"}}`
+
+#### <a name="cause"></a>Cause
+
+Si vous effectuez une opération liée à CMK, vous devez d’abord effectuer toutes les opérations ADF associées, puis les opérations externes (telles que les identités managées ou les opérations Key Vault). Par exemple, si vous souhaitez supprimer toutes les ressources, vous devez d’abord supprimer la fabrique, puis le coffre de clés, si vous le faites dans un ordre différent, l’appel ADF échouera, car il ne pourra plus lire les objets associés et ne sera pas en mesure de vérifier si la suppression est possible ou non. 
+
+#### <a name="solution"></a>Solution
+
+Il existe trois moyens possibles de résoudre ce problème. Les voici :
+
+* Vous avez révoqué l’accès ADF au coffre de clés dans lequel la clé CMK a été stockée. 
+Vous pouvez réattribuer l’accès à Data Factory avec les autorisations suivantes : **Obtenir, Ne pas inclure la clé et Inclure la clé**. Ces autorisations sont requises pour activer des clés gérées par le client dans Data Factory. Reportez-vous à [Octroyer l’accès à ADF](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault). Une fois l’autorisation fournie, vous devriez pouvoir supprimer ADF.
+ 
+* Le client a supprimé Key Vault/CMK avant de supprimer ADF. CMK dans ADF doit disposer des options « Suppression réversible » et « Protection contre la suppression définitive contre la purge » activées présentant par défaut la stratégie de rétention de 90 jours. Vous pouvez restaurer la clé supprimée.  
+ Consultez [Récupérer une clé supprimée](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) et [Valeur de la clé supprimée](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).
+
+* L’identité managée attribuée par l’utilisateur (UA-MI) a été supprimée avant ADF. Vous pouvez effectuer une récupération à l’aide d’appels d’API REST. Pour ce faire, vous pouvez utiliser le client http de votre choix dans n’importe quel langage de programmation. Si vous n’avez pas encore configuré d’appels d’API REST avec l’authentification Azure, le plus simple consiste à utiliser POSTMAN/Fiddler. Procédez comme suit.
+
+   1.  Effectuez un appel GET vers la fabrique à l’aide de la méthode : GET Url like   `https://management.azure.com/subscriptions/YourSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourFactoryName?api-version=2018-06-01`
+
+   2. Vous devez créer une identité managée par l’utilisateur avec un nom différent (le même nom peut fonctionner, mais il est plus sûr d’opter pour un autre nom que celui de la réponse GET).
+
+   3. Modifiez les propriétés encryption.identity et identity.userassignedidentities de manière à ce qu’elles pointent vers l’identité managée nouvellement créée. Supprimez clientId et principalId de l’objet userAssignedIdentity. 
+
+   4.  Effectuez un appel PUT vers la même URL de fabrique transmettant le nouveau corps. Il est très important que vous transmettiez ce que vous avez obtenu dans la réponse GET et ne modifiiez que l’identité. Dans le cas contraire, ces éléments remplaceront d’autres paramètres. 
+
+   5.  Lorsque l’appel aboutit, vous pouvez voir les entités à nouveau et retenter la suppression. 
+
 ## <a name="sharing-self-hosted-integration-runtime"></a>Utilisation du runtime d’intégration auto-hébergé
 
 ### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>Le partage de l’IR auto-hébergé à partir d’un autre locataire n’est pas pris en charge 
@@ -200,6 +234,7 @@ Vous pouvez remarquer d’autres fabriques de données (sur différents locatair
 #### <a name="cause"></a>Cause
 
 L’IR auto-hébergé ne peut pas être partagé entre plusieurs locataires.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

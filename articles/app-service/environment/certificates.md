@@ -7,22 +7,24 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 604adeb3eeb716027ba821b4e230285602680e00
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962041"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433163"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
-
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 L’environnement ASE (App Service Environment) est un déploiement du service Azure App Service qui s’exécute dans votre réseau virtuel Azure (VNet). Il peut être déployé avec un point de terminaison d’application accessible par Internet ou un point de terminaison d’application qui se trouve dans votre réseau virtuel. Si vous déployez l’environnement ASE avec un point de terminaison accessible par Internet, ce déploiement est appelé ASE externe. Si vous déployez l’environnement ASE avec un point de terminaison de votre réseau virtuel, ce déploiement est appelé ASE ILB. Vous pouvez en savoir plus sur l’environnement ASE ILB dans le document [Créer et utiliser un équilibreur de charge interne avec un environnement App Service](./create-ilb-ase.md).
 
 L’environnement ASE est un système monolocataire. De ce fait, il y a des fonctionnalités qui sont disponibles uniquement avec un environnement ASE et qui ne le sont pas dans le service App Service multilocataire. 
 
 ## <a name="ilb-ase-certificates"></a>Certificats ASE ILB 
 
-Si vous utilisez un environnement ASE externe, vous pouvez accéder à vos applications sur [nomapp].[nomase].p.azurewebsites.net. Par défaut, tous les environnements ASE, même les environnements ASE ILB, sont créés avec des certificats qui suivent ce format. Si vous avez un environnement ASE ILB, vous pouvez accéder aux applications en fonction du nom de domaine que vous spécifiez quand vous créez l’environnement ASE ILB. Pour permettre aux applications de prendre en charge TLS, vous devez charger des certificats. Vous pouvez vous procurer un certificat TLS/SSL valide auprès d’autorités de certification internes, en achetant un certificat à un émetteur externe ou en utilisant un certificat auto-signé. 
+Si vous utilisez un environnement ASE externe, vous pouvez accéder à vos applications sur &lt;nomapp&gt;.&lt;nomase&gt;.p.azurewebsites.net. Par défaut, tous les environnements ASE, même les environnements ASE ILB, sont créés avec des certificats qui suivent ce format. Si vous avez un environnement ASE ILB, vous pouvez accéder aux applications en fonction du nom de domaine que vous spécifiez quand vous créez l’environnement ASE ILB. Pour permettre aux applications de prendre en charge TLS, vous devez charger des certificats. Vous pouvez vous procurer un certificat TLS/SSL valide auprès d’autorités de certification internes, en achetant un certificat à un émetteur externe ou en utilisant un certificat auto-signé. 
 
 Deux options vous permettent de configurer des certificats avec votre environnement ASE ILB.  Vous pouvez définir un certificat par défaut avec caractères génériques pour l’environnement ASE ILB ou définir des certificats sur chaque application web de l’environnement ASE.  Quel que soit votre choix, les attributs de certificat suivants doivent être configurés correctement :
 
@@ -35,7 +37,7 @@ Troisième variante, vous pouvez créer un certificat ASE ILB qui inclut les nom
 
 Une fois que vous avez créé un environnement ASE ILB dans le portail, vous devez définir le certificat pour cet environnement. Tant que le certificat n’est pas défini, l’environnement ASE affiche une bannière indiquant que le certificat n’a pas été défini.  
 
-Le certificat que vous chargez doit être un fichier .pfx. Une fois que le certificat est chargé, l’environnement ASE procède à une opération d’échelle pour définir le certificat. 
+Le certificat que vous chargez doit être un fichier .pfx. Une fois le certificat chargé, il y a un délai d’environ 20 minutes avant que le certificat puisse être utilisé. 
 
 Vous ne pouvez pas créer l’environnement ASE et charger le certificat en une seule action dans le portail ni même dans un modèle. Vous pouvez charger le certificat à l’aide d’un modèle dans une action séparée, comme décrit dans le document [Créer un environnement ASE à partir d’un modèle](./create-from-template.md).  
 

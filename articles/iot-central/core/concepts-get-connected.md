@@ -7,17 +7,16 @@ ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: fb9c9f460b46f8dec741f4c22460cbe9d44c6a0e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aebee9b2511e3616a9170d5ed84be3acf391b6ad
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791118"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525568"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -30,7 +29,7 @@ Cet article explique comment les appareils se connectent à une application Azur
 IoT Central prend en charge les deux scénarios d’inscription d’appareil suivants :
 
 - *Inscription automatique*. L’appareil est automatiquement inscrit lorsqu’il se connecte pour la première fois. Ce scénario permet également aux OEM de fabriquer en masse des appareils qui peuvent se connecter sans avoir été inscrits. Un OEM génère des informations d’identification appropriées et configure les appareils en usine. Vous pouvez également demander à un opérateur d’approuver l’appareil avant qu’il ne commence à envoyer des données. Ce scénario implique que vous configuriez une _inscription de groupe_ X.509 ou SAP dans votre application.
-- *Inscription manuelle*. Les opérateurs inscrivent les appareils individuels sur la page **Appareils** ou [importent un fichier CSV](howto-manage-devices.md#import-devices) pour inscrire des appareils en bloc. Dans ce scénario, vous pouvez utiliser l’_inscription de groupe_ X.509 ou SAP ou l’_inscription individuelle_ X.509 ou SAP.
+- *Inscription manuelle*. Les opérateurs inscrivent les appareils individuels sur la page **Appareils** ou [importent un fichier CSV](howto-manage-devices-in-bulk.md#import-devices) pour inscrire des appareils en bloc. Dans ce scénario, vous pouvez utiliser l’_inscription de groupe_ X.509 ou SAP ou l’_inscription individuelle_ X.509 ou SAP.
 
 Les appareils qui se connectent à IoT Central doivent suivre les *conventions IoT Plug-and-Play*. L’une de ces conventions implique qu’un appareil envoie l’_ID de modèle_ du modèle d’appareil qu’il implémente lorsqu’il se connecte. L’ID de modèle permet à l’application IoT Central d’associer l’appareil au modèle d’appareil qui convient.
 
@@ -157,9 +156,9 @@ L’application IoT Central utilise l’ID de modèle envoyé par l’appareil p
 
 ### <a name="bulk-register-devices-in-advance"></a>Inscrire à l’avance des appareils en bloc
 
-Pour inscrire un grand nombre d’appareils avec votre application IoT Central, utilisez un fichier CSV pour [importer les ID et les noms des appareils](howto-manage-devices.md#import-devices).
+Pour inscrire un grand nombre d’appareils avec votre application IoT Central, utilisez un fichier CSV pour [importer les ID et les noms des appareils](howto-manage-devices-in-bulk.md#import-devices).
 
-Si vos appareils utilisent des jetons SAP pour s’authentifier, [exportez un fichier CSV à partir de votre application IoT Central](howto-manage-devices.md#export-devices). Le fichier CSV exporté inclut les ID des appareils et les clés SAS.
+Si vos appareils utilisent des jetons SAP pour s’authentifier, [exportez un fichier CSV à partir de votre application IoT Central](howto-manage-devices-in-bulk.md#export-devices). Le fichier CSV exporté inclut les ID des appareils et les clés SAS.
 
 Si vos appareils utilisent des certificats X.509 pour s’authentifier, générez des certificats feuilles X.509 pour vos appareils à l’aide du certificat racine ou intermédiaire que vous avez chargé dans votre groupe d’inscription X.509. Utilisez les ID des appareils que vous avez importés en tant que valeur `CNAME` dans les certificats feuilles.
 
@@ -180,7 +179,7 @@ IoT Central associe automatiquement un appareil à un modèle d’appareil lorsq
 
 1. Si le modèle d’appareil est déjà publié dans l’application IoT Central, l’appareil est associé au modèle d’appareil.
 1. Si le modèle d’appareil n’est pas encore publié dans l’application IoT Central, cette dernière le recherche dans le [référentiel de modèles public](https://github.com/Azure/iot-plugandplay-models). Si IoT Central trouve le modèle, il l’utilise pour générer un modèle d’appareil de base.
-1. Si IoT Central ne trouve pas le modèle dans le référentiel de modèles public, l’appareil est marqué comme **non associé**. Un opérateur peut créer un modèle d’appareil pour l’appareil, puis migrer l’appareil non associé vers le nouveau modèle d’appareil.
+1. Si IoT Central ne trouve pas le modèle dans le référentiel de modèles public, l’appareil est marqué comme **non associé**. Un opérateur peut soit créer un modèle d’appareil pour l’appareil, puis migrer l’appareil non associé vers le nouveau modèle d’appareil, soit [générer automatiquement un modèle d’appareil](howto-set-up-template.md#autogenerate-a-device-template) en fonction des données que l’appareil envoie.
 
 La capture d’écran suivante montre comment afficher l’ID d’un modèle d’appareil dans IoT Central. Dans un modèle d’appareil, sélectionnez un composant, puis **Modifier l’identité** :
 
@@ -214,11 +213,14 @@ Quand un appareil réel se connecte à votre application IoT Central, son état 
     Un opérateur peut associer un appareil à un modèle d’appareil sur la page **Appareils** en utilisant le bouton **Migrer**.
 
 ## <a name="device-connection-status"></a>État de la connexion d’appareil
-Quand un appareil ou un périphérique de périmètre se connecte à l’aide du protocole MQTT, les événements _connecté_ et _déconnecté_ sont affichés pour l’appareil. Ces événements ne sont pas envoyés par l’appareil, ils sont générés en interne par IoT Central.
 
-Le diagramme suivant montre comment, lorsqu’un appareil se connecte, la connexion est inscrite à la fin d’une fenêtre de temps. Si plusieurs événements de connexion et de déconnexion se produisent, IoT Central inscrit celui qui est le plus proche de la fin de la fenêtre de temps. Par exemple, si un appareil se déconnecte et se reconnecte dans la fenêtre de temps, IoT Central inscrit l’événement de connexion. Actuellement, la fenêtre de temps est d’environ une minute.
+Quand un appareil ou un appareil de périphérie se connecte à l’aide du protocole MQTT, les événements _connecté_ et _déconnecté_ pour l’appareil sont générés. Ces événements ne sont pas envoyés par l’appareil, ils sont générés en interne par IoT Central.
+
+Le diagramme suivant montre comment, lorsqu’un appareil se connecte, la connexion est inscrite à la fin d’une fenêtre de temps. Si plusieurs événements de connexion et de déconnexion se produisent, IoT Central inscrit celui qui est le plus proche de la fin de la fenêtre de temps. Par exemple, si un appareil se déconnecte et se reconnecte dans la fenêtre de temps, IoT Central inscrit l’événement de connexion. Actuellement, la fenêtre de temps est d’environ une minute.
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagramme montrant la fenêtre d’événements pour les événements connecté et déconnecté." border="false":::
+
+Vous pouvez afficher les événements connecté et déconnecté dans la vue **Données brutes** d’un appareil : :::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="Capture d’écran de la vue Données brutes filtrée pour afficher les événements connecté d’un appareil.":::
 
 Vous pouvez inclure des événements de connexion et de déconnexion dans les [exportations à partir d’IoT Central](howto-export-data.md#set-up-data-export). Pour plus d’informations, consultez [Réagir aux événements IoT Hub > Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

@@ -11,18 +11,18 @@ ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fb9f90e93ed13faf64703cb511cd540f9af685ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9e61065e209a22d3ded08cf205350a737f7fe94f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562463"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770169"
 ---
 # <a name="configure-authentication-in-a-sample-wpf-desktop-application-using-azure-active-directory-b2c"></a>Configurer l’authentification dans un exemple d’application de bureau WPF à l’aide d’Azure Active Directory B2C
 
-Cet article utilise un exemple d’application [de bureau WPF](/visualstudio/designers/getting-started-with-wpf.md) pour illustrer l’ajout d’une authentification Azure Active Directory B2C (Azure AD B2C) à vos applications de bureau.
+Cet article utilise un exemple d’application [de bureau WPF](/visualstudio/designers/getting-started-with-wpf) pour illustrer l’ajout d’une authentification Azure Active Directory B2C (Azure AD B2C) à vos applications de bureau.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0, que vous pouvez utiliser pour connecter de façon sécurisée un utilisateur à une application. Cet exemple d’application de bureau utilise la bibliothèque [MSAL](../active-directory/develop/msal-overview.md) avec le flux PKCE du code d'autorisation d’OpenID Connect. La bibliothèque MSAL est une bibliothèque fournie par Microsoft qui simplifie l’ajout d’une prise en charge de l’authentification et de l’autorisation aux applications de bureau. 
 
@@ -154,7 +154,7 @@ public static string ApiEndpoint = "https://contoso.azurewebsites.net/hello";
 
 ## <a name="step-6-run-and-test-the-desktop-app"></a>Étape 6 : Exécuter et tester l’application de bureau
 
-1. [Restaurez les packages NuGet](/nuget/consume-packages/package-restore.md).
+1. [Restaurez les packages NuGet](/nuget/consume-packages/package-restore).
 1. Appuyez sur **F5** pour générer et exécuter l’exemple.
 1. Sélectionnez **Connexion**. Puis inscrivez-vous ou connectez-vous avec votre compte Azure AD B2C local ou avec un compte social.
 

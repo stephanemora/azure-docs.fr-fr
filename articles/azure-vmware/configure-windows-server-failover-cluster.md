@@ -3,12 +3,12 @@ title: Configurer un cluster de basculement Windows Server sur un vSAN Azure VMw
 description: Découvrez comment configurer Cluster de basculement Windows Server sur un vSAN Azure VMware Solution avec disques partagés natifs.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: f2fc9e712d3f56aeddc6e66c12837794dceb9abe
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fcde65b98b3774ee1ef9b15bfa6da3836aaa8a1b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954491"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534957"
 ---
 # <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configurer un cluster de basculement Windows Server sur un vSAN Azure VMware Solution
 
@@ -31,9 +31,9 @@ Vous pouvez héberger le cluster WSFC sur différentes instances d'Azure VMware 
 
 Il est important de déployer une configuration WSFC prise en charge. Votre solution devra être prise en charge sur vSphere et avec Azure VMware Solution. VMware fournit un document détaillé consacré à WSFC sur vSphere 6.7, [Configuration du clustering de basculement et du service de cluster Microsoft](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf).
 
-Cet article se concentre sur WSFC sous Windows Server 2016 et Windows Server 2019. Les versions antérieures de Windows Server n'entrent pas dans le cadre du [support standard](https://support.microsoft.com/lifecycle/search?alpha=windows%20server) et ne sont donc pas prises en compte ici.
+Cet article se concentre sur WSFC sous Windows Server 2016 et Windows Server 2019. Malheureusement, les versions antérieures de Windows Server n’entrent pas dans le cadre du [support standard](https://support.microsoft.com/lifecycle/search?alpha=windows%20server) et ne sont donc pas prises en compte ici.
 
-Vous devez d'abord [créer un cluster WSFC](/windows-server/failover-clustering/create-failover-cluster). Utilisez les informations fournies dans cet article pour en savoir plus sur les spécificités d'un déploiement WSFC sur Azure VMware Solution.
+Vous devez d’abord [créer un cluster WSFC](/windows-server/failover-clustering/create-failover-cluster). Ensuite, utilisez les informations fournies dans cet article pour spécifier un déploiement WSFC sur Azure VMware Solution.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,11 +42,11 @@ Vous devez d'abord [créer un cluster WSFC](/windows-server/failover-clustering/
 
 ## <a name="reference-architecture"></a>Architecture de référence
 
-Azure VMware Solution offre une prise en charge native de la fonctionnalité WSFC virtualisée. La solution prend en charge les réservations persistantes SCSI-3 (SCSI3PR) au niveau du disque virtuel. Cette prise en charge est nécessaire pour permettre à WSFC d'arbitrer l'accès à un disque partagé entre les nœuds. La prise en charge des réservations SCSI3PR permet de configurer WSFC avec une ressource de disque partagée par les différentes machines virtuelles en mode natif sur les magasins de données vSAN.
+Azure VMware Solution offre une prise en charge native de la fonctionnalité WSFC virtualisée. La solution prend en charge les réservations persistantes SCSI-3 (SCSI3PR) au niveau du disque virtuel. WSFC requiert cette prise en charge pour arbitrer l’accès à un disque partagé entre les nœuds. La prise en charge des réservations SCSI3PR permet de configurer WSFC avec une ressource de disque partagée par les différentes machines virtuelles en mode natif sur les magasins de données vSAN.
 
 Le diagramme suivant illustre l'architecture des nœuds virtuels WSFC sur un cloud privé Azure VMware Solution. Il montre où réside Azure VMware Solution, serveurs virtuels WSFC (encadré rouge) compris, par rapport à la plateforme Azure au sens large. Ce diagramme illustre une architecture hub-and-spoke classique, mais une configuration similaire est possible en utilisant Azure Virtual WAN. Ces deux configurations sont équivalentes en termes de valeur ajoutée apportée par les autres services Azure.
 
-:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagramme d'architecture des nœuds virtuels d'un cluster de basculement Windows Server sur un cloud privé Azure VMware Solution." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagramme des nœuds virtuels d’un cluster de basculement Windows Server sur un cloud privé Azure VMware Solution." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 
@@ -71,7 +71,7 @@ Actuellement, les configurations prises en charge sont les suivantes :
 | Carte d'interface réseau virtuelle | Carte d'interface réseau paravirtualisée VMXNET3 ; activez la  fonctionnalité RSS (Receive Side Scaling) de Windows sur la carte d'interface réseau virtuelle. |
 | Mémoire | Utilisez la totalité de la mémoire de réservation des machines virtuelles pour les nœuds du cluster WSFC. |
 | Augmentez le délai d'expiration E/S de chaque nœud WSFC. | Remplacez HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Services\Disk\TimeOutValueSet par 60 secondes ou plus. (Si vous recréez le cluster, cette valeur peut être réinitialisée sur sa valeur par défaut ; par conséquent, vous devez à nouveau la modifier). |
-| Analyse du fonctionnement du cluster Windows | La valeur du paramètre SameSubnetThreshold de l'analyse du fonctionnement du cluster Windows doit être modifiée pour autoriser au moins 10 pulsations manquées. Il s'agit de [la valeur par défaut dans Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/tuning-failover-cluster-network-thresholds/ba-p/371834). Cette recommandation s'applique à toutes les applications qui utilisent WSFC, y compris aux disques partagés et non partagés. |
+| Analyse du fonctionnement du cluster Windows | La valeur du paramètre SameSubnetThreshold de l'analyse du fonctionnement du cluster Windows doit être modifiée pour autoriser au moins 10 pulsations manquées. Il s’agit de [la valeur par défaut dans Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/tuning-failover-cluster-network-thresholds/ba-p/371834). Cette recommandation s'applique à toutes les applications qui utilisent WSFC, y compris aux disques partagés et non partagés. |
 
 ### <a name="wsfc-node---boot-disks-configuration-parameters"></a>Nœud WSFC - Paramètres de configuration des disques de démarrage
 
@@ -94,7 +94,7 @@ Actuellement, les configurations prises en charge sont les suivantes :
 | Indicateur « Multi-writer » | Non utilisé |
 | Format de disque | Allocation statique. (EZT (Eager Zeroed Thick) non requis avec vSAN). |
 
-:::image type="content" source="media/windows-server-failover-cluster/edit-settings-virtual-hardware.png" alt-text="Capture d'écran de la page Modifier les paramètres du matériel virtuel":::
+:::image type="content" source="media/windows-server-failover-cluster/edit-settings-virtual-hardware.png" alt-text="Capture d’écran de la page Modifier les paramètres du matériel virtuel.":::
 
 ## <a name="non-supported-scenarios"></a>Scénario non pris en charge
 
@@ -126,13 +126,13 @@ Les activités suivantes ne sont pas prises en charge et peuvent entraîner un b
 
 1. Assurez-vous qu'un environnement Active Directory est disponible.
 2. Créez des machines virtuelles sur le magasin de données vSAN.
-3. Mettez toutes les machines virtuelles sous tension, configurez le nom d'hôte et les adresses IP, joignez toutes les machines virtuelles à un domaine Active Directory, et installez les dernières mises à jour disponibles du système d'exploitation.
+3. Mettez toutes les machines virtuelles sous tension, configurez le nom d’hôte et les adresses IP, joignez toutes les machines virtuelles à un domaine Active Directory, et installez les dernières mises à jour disponibles du système d’exploitation.
 4. Installez les outils VMware les plus récents.
 5. Activez et configurez la fonctionnalité Windows Server Failover Cluster sur chaque machine virtuelle.
 6. Configurez un témoin de cluster pour le quorum (un témoin de partage de fichiers fonctionne très bien).
 7. Mettez tous les nœuds du cluster WSFC hors tension.
 8. Ajoutez un ou plusieurs contrôleurs SCSI paravirtuels (quatre maximum) à chaque machine virtuelle du cluster WSFC. Utilisez les paramètres fournis aux paragraphes précédents.
-9. Sur le premier nœud de cluster, ajoutez tous les disques partagés nécessaires via **Ajouter un périphérique** > **Disque dur**. Le paramètre Partage de disque doit rester défini sur **Non spécifié** (par défaut) et le paramètre Mode Disque sur **Indépendant - Persistant**. Attachez-le au(x) contrôleur(s) créé(s) précédemment.
+9. Sur le premier nœud de cluster, ajoutez tous les disques partagés nécessaires via **Ajouter un périphérique** > **Disque dur**. Laissez le paramètre Partage de disque défini sur **Non spécifié** (par défaut) et le paramètre Mode Disque sur **Indépendant - Persistant**. Ensuite, attachez-le au(x) contrôleur(s) créé(s) précédemment.
 10. Passez ensuite aux nœuds WSFC restants. Ajoutez les disques créés à l'étape précédente en sélectionnant **Ajouter un périphérique** > **Disque dur existant**. Conservez les mêmes identifiants SCSI de disque sur tous les nœuds WSFC.
 11. Mettez le premier nœud WSFC sous tension ; connectez-vous et ouvrez la console de gestion des disques (MMC). Vérifiez que les disques partagés ajoutés peuvent être gérés par le système d'exploitation et qu'ils sont initialisés. Formatez les disques et attribuez-leur une lettre de lecteur.
 12. Mettez les autres nœuds WSFC sous tension.
@@ -144,9 +144,9 @@ Les activités suivantes ne sont pas prises en charge et peuvent entraîner un b
 
        - **Valider la réservation persistante des espaces de stockage**. Si vous n'utilisez pas d'espaces de stockage avec votre cluster (par exemple, sur Azure VMware Solution vSAN), ce test n'est pas applicable. Vous pouvez ignorer tous les résultats du test Valider la réservation persistante des espaces de stockage, y compris cet avertissement. Pour éviter les avertissements, vous pouvez exclure ce test.
         
-      - **Valider la communication réseau**. Le test Validation du cluster génère un avertissement indiquant qu'une seule interface réseau est disponible par nœud de cluster. Vous pouvez ignorer cet avertissement. Azure VMware Solution fournit la disponibilité et les performances requises, car les nœuds sont connectés à l'un des segments NSX-T. Toutefois, conservez cet élément dans le cadre du test de validation du cluster, car il validera d'autres aspects de la communication réseau.
+      - **Valider la communication réseau**. Le test Validation du cluster affiche un avertissement indiquant qu’une seule interface réseau est disponible par nœud de cluster. Vous pouvez ignorer cet avertissement. Azure VMware Solution fournit la disponibilité et les performances requises, car les nœuds sont connectés à l'un des segments NSX-T. Toutefois, conservez cet élément dans le cadre du test de validation du cluster, car il valide d’autres aspects de la communication réseau.
 
-16. Créez une règle DRS (Data Replication Service) pour placer les machines virtuelles WSFC sur les mêmes nœuds Azure VMware Solution. Pour ce faire, une règle d'affinité est nécessaire entre l'hôte et la machine virtuelle. Les nœuds de cluster s'exécuteront ainsi sur le même hôte Azure VMware Solution. Pour rappel, cette configuration est fournie en tant que projet pilote jusqu'à ce que les stratégies de positionnement soient disponibles.
+16. Créez une règle DRS (Data Replication Service) pour placer les machines virtuelles WSFC sur les mêmes nœuds Azure VMware Solution. Pour ce faire, une règle d'affinité est nécessaire entre l'hôte et la machine virtuelle. Les nœuds de cluster s'exécuteront ainsi sur le même hôte Azure VMware Solution. Pour rappel, cette configuration est fournie en tant que projet pilote jusqu’à ce que les stratégies de positionnement soient disponibles.
 
     >[!NOTE]
     > Pour cela, vous devez créer un ticket de demande de support. Le support Azure sera en mesure de vous aider.
@@ -165,5 +165,5 @@ Maintenant que vous savez configurer un cluster WSFC dans Azure VMware Solution,
 
 - Configuration de votre nouveau cluster WSFC en ajoutant d'autres applications pour lesquelles la fonctionnalité WSFC est requise. Par exemple, SQL Server et SAP ASCS.
 - Configuration d'une solution de sauvegarde.
-  - [Configuration d'un serveur de sauvegarde Azure pour Azure VMware Solution](../backup/backup-azure-microsoft-azure-backup.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)
-  - [Solutions de sauvegarde pour les machines virtuelles Azure VMware Solution](../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)
+  - [Configuration d'un serveur de sauvegarde Azure pour Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md)
+  - [Solutions de sauvegarde pour les machines virtuelles Azure VMware Solution](backup-azure-vmware-solution-virtual-machines.md)

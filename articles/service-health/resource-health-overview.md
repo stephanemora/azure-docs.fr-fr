@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Resource Health
 description: Découvrez comment Azure Resource Health vous aide à diagnostiquer et à obtenir un support pour les problèmes de service qui affectent vos ressources Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 903a86d216e118f783411b38ef7ad75ad004df7f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 532c7001b12efb2917c906f7607fef33bac194ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786253"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562332"
 ---
 # <a name="resource-health-overview"></a>Vue d’ensemble de Resource Health
  
@@ -76,7 +76,7 @@ Vous pouvez consulter jusqu’à 30 jours d’historique dans la section **Hist
 
 ## <a name="root-cause-information"></a>Informations sur la cause racine
 
-Si Azure dispose d’informations supplémentaires sur la cause racine d’une indisponibilité lancée par la plateforme, ces informations peuvent être publiées dans Resource Health jusqu’à 72 heures après l’indisponibilité initiale. Ces informations sont disponibles uniquement pour l’usinage virtuel à l’heure actuelle. 
+Si Azure dispose d’informations supplémentaires sur la cause racine d’une indisponibilité lancée par la plateforme, ces informations peuvent être publiées dans Resource Health jusqu’à 72 heures après l’indisponibilité initiale. Ces informations ne sont disponibles que pour les machines virtuelles pour le moment. 
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -96,4 +96,4 @@ Vous pouvez également accéder à Resource Health en sélectionnant **Tous les 
 
 Pour en savoir plus sur Resource Health, consultez les références suivantes :
 -  [Types de ressources et les contrôles d’intégrité dans Azure Resource Health](resource-health-checks-resource-types.md)
--  [Forum aux questions sur Azure Resource Health](resource-health-faq.md)
+-  [Forum aux questions sur Azure Resource Health](resource-health-faq.yml)

@@ -3,13 +3,13 @@ title: Reprise d’activité après sinistre de VMware avec Azure Site Recovery
 description: Cet article fournit une vue d’ensemble de la reprise d’activité de machines virtuelles VMware sur Azure à l’aide du service Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 8e72d66bcf8398946b8901ef86666aa9aba34105
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 08/19/2021
+ms.openlocfilehash: 12a8adc3e68f4d4bed2aad6b64b057258fadc2aa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579075"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535261"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>À propos de la reprise d’activité de machines virtuelles VMware sur Azure
 
@@ -17,10 +17,10 @@ Cet article fournit une vue d’ensemble de la reprise d’activité de machines
 
 ## <a name="what-is-bcdr"></a>Qu’est-ce que la continuité d’activité et reprise d’activité (BCDR) ?
 
-Une stratégie de continuité d’activité et reprise d’activité (BCDR) vous aide à maintenir votre entreprise opérationnelle. Pendant des temps d’arrêt planifiés et des interruptions inattendues, une stratégie BCDR préserve la sécurité et la disponibilité des données, et veille à ce que les applications continuent de fonctionner. En plus des fonctionnalités de continuité d’activité et reprise d’activité (BCDR) de plateforme telles que les homologations régionales et le stockage haute disponibilité, Azure fournit Recovery Services en tant que partie intégrante de votre solution BCDR. Microsoft Azure Recovery Services inclut les services suivants : 
+Une stratégie de continuité d’activité et reprise d’activité (BCDR) vous aide à maintenir votre entreprise opérationnelle. Pendant des temps d’arrêt planifiés et des interruptions inattendues, une stratégie BCDR préserve la sécurité et la disponibilité des données, et veille à ce que les applications continuent de fonctionner. En plus des fonctionnalités de continuité d’activité et reprise d’activité (BCDR) de plateforme telles que les homologations régionales et le stockage haute disponibilité, Azure fournit Recovery Services en tant que partie intégrante de votre solution BCDR. Microsoft Azure Recovery Services inclut les services suivants :
 
-- [Sauvegarde Azure](../backup/backup-overview.md) : sauvegarde vos données locales et de machines virtuelles Azure. Vous pouvez sauvegarder un fichier, des dossiers, des charges de travail spécifiques ou une machine virtuelle entière. 
-- [Azure Site Recovery](site-recovery-overview.md) : assure la résilience et la reprise d’activité d’applications et charges de travail exécutées sur des machines locales ou des machines virtuelles Azure IaaS. Le service Site Recovery orchestre la réplication et gère le basculement vers Azure en cas d’interruption. Il gère également la récupération à partir d’Azure sur votre site principal. 
+- [Sauvegarde Azure](../backup/backup-overview.md) : sauvegarde vos données locales et de machines virtuelles Azure. Vous pouvez sauvegarder un fichier, des dossiers, des charges de travail spécifiques ou une machine virtuelle entière.
+- [Azure Site Recovery](site-recovery-overview.md) : assure la résilience et la reprise d’activité d’applications et charges de travail exécutées sur des machines locales ou des machines virtuelles Azure IaaS. Le service Site Recovery orchestre la réplication et gère le basculement vers Azure en cas d’interruption. Il gère également la récupération à partir d’Azure sur votre site principal.
 
 > [!NOTE]
 > Site Recovery ne déplace pas et ne stocke pas les données client en dehors de la région cible dans laquelle la récupération d’urgence a été configurée pour les ordinateurs sources. S’ils le souhaitent, les clients peuvent sélectionner un coffre Recovery Services dans une autre région. Le coffre Recovery Services contient des métadonnées, mais pas de données client réelles.
@@ -29,7 +29,7 @@ Une stratégie de continuité d’activité et reprise d’activité (BCDR) vous
 
 1. Après avoir préparé Azure et votre site local, vous configurez et activez la réplication pour vos machines locales.
 2. Site Recovery orchestre la réplication initiale des machines, conformément aux paramètres de votre stratégie.
-3. Après la réplication initiale, Site Recovery réplique les modifications d’ordre différentiel sur Azure. 
+3. Après la réplication initiale, Site Recovery réplique les modifications d’ordre différentiel sur Azure.
 4. Lorsque la réplication fonctionne comme prévu, vous exécutez une simulation de reprise d’activité.
     - Cette simulation vous aide à vérifier que le basculement fonctionnera comme prévu en cas de réelle nécessité.
     - La simulation effectue un test de basculement n’affectant pas votre environnement de production.
@@ -89,16 +89,17 @@ Une fois vos infrastructures Azure et locale en place, vous pouvez configurer la
 
 1. Pour comprendre les composants que vous allez devoir déployer, examinez l’[Architecture VMware vers Azure](vmware-azure-architecture.md) et l’[Architecture de serveur physique vers Azure](physical-azure-architecture.md). Étant donné qu’il existe plusieurs composants, il est important de comprendre comment ils s’assemblent.
 2. **Environnement source** : la première étape du déploiement consiste à configurer votre environnement source de réplication. Sélectionnez ce que vous voulez répliquer et l’emplacement de la réplication.
-3. **Serveur de configuration** : vous devez configurer un serveur de configuration dans votre environnement source local :
+3. **Serveur de configuration** (applicable à Classique) : vous devez configurer un serveur de configuration dans votre environnement source local :
     - Le serveur de configuration est une simple machine locale. Pour la reprise d’activité de VMware, nous vous recommandons de déployer une machine virtuelle VMware à partir d’un modèle OVF téléchargeable.
     - Le serveur de configuration coordonne les communications entre les machines locale et Azure.
     - Deux autres composants s’exécutent sur la machine serveur de configuration.
         - Le serveur de processus reçoit, optimise et envoie les données de réplication au compte de stockage de cache dans Azure. Il gère également l’installation automatique du service Mobilité sur les machines que vous souhaitez répliquer, et effectue la détection automatique des machines virtuelles sur les serveurs VMware.
         - Le serveur cible maître gère les données de réplication pendant la restauration automatique à partir d’Azure.
     - La configuration inclut l’inscription du serveur de configuration dans le coffre, le téléchargement du serveur MySQL et de VMware PowerCLI, ainsi que la spécification des comptes créés pour la détection automatique et l’installation du service Mobilité.
-4. **Environnement cible** : vous configurez votre environnement Azure cible en spécifiant vos paramètres d’abonnement et de réseau Azure.
-5. **Stratégie de réplication** : vous spécifiez la manière dont la réplication doit avoir lieu. Les paramètres définissent la fréquence à laquelle les points de récupération sont créés et stockés, et si des instantanés de cohérence d’application doivent être créés.
-6. **Activer la réplication**. Vous activez la réplication pour les machines locales. Si vous avez créé un compte pour installer le service Mobilité, il sera installé lorsque vous activerez la réplication pour une machine. 
+4. **Appliance de réplication Azure Site Recovery** (applicable à Préversion) : vous devez configurer une appliance de réplication dans votre environnement source local. L’appliance est le bloc de construction de base de toute l’infrastructure Azure Site Recovery locale. Pour la récupération d’urgence VMware, nous vous recommandons de [déployer en tant que machine virtuelle VMware](deploy-vmware-azure-replication-appliance-preview.md#create-azure-site-recovery-replication-appliance) à partir d’un modèle OVF téléchargeable.  En savoir plus sur l’appliance de réplication [ici](vmware-azure-architecture-preview.md).   
+5. **Environnement cible** : vous configurez votre environnement Azure cible en spécifiant vos paramètres d’abonnement et de réseau Azure.
+6. **Stratégie de réplication** : vous spécifiez la manière dont la réplication doit avoir lieu. Les paramètres définissent la fréquence à laquelle les points de récupération sont créés et stockés, et si des instantanés de cohérence d’application doivent être créés.
+7. **Activer la réplication**. Vous activez la réplication pour les machines locales. Si vous avez créé un compte pour installer le service Mobilité, il sera installé lorsque vous activerez la réplication pour une machine.
 
 *Besoin de plus d’aide ?*
 
@@ -122,4 +123,4 @@ Une fois vos infrastructures Azure et locale en place, vous pouvez configurer la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-La réplication étant désormais en place, vous devriez [exécuter une simulation de reprise d’activité](tutorial-dr-drill-azure.md) pour vous assurer que le basculement fonctionne comme prévu. 
+La réplication étant désormais en place, vous devriez [exécuter une simulation de reprise d’activité](tutorial-dr-drill-azure.md) pour vous assurer que le basculement fonctionne comme prévu.

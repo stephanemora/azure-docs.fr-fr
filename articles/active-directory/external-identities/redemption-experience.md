@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80de2d30055d5a78f4a0105d33f01b4fabfbcd47
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 766228eb291776c0ba4162f78238d6336d9194ae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955089"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525061"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -24,7 +24,9 @@ Cet article décrit les différentes façons dont les utilisateurs invités peuv
 Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance**. Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté**, et les pages de consentement ne sont plus présentées à l’invité.
 
    > [!IMPORTANT]
-   > - **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+   >
+   > - **À partir du 12 juillet 2021**, si les clients Azure AD B2B configurent de nouvelles intégrations Google pour une utilisation avec l’inscription en libre-service pour leurs applications métier ou personnalisées, l’authentification avec des identités Google ne fonctionne pas tant que les authentifications ne sont pas déplacées vers les vues web système. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+   > - **À partir du 30 septembre 2021**, Google [déprécie la prise en charge de la connexion à la vue web intégrée](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue web intégrée et que vous utilisez la fédération Google avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations d’utilisateurs externes](google-federation.md) ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne pourront pas s’authentifier. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
    > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md), qui est maintenant en disponibilité générale.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Acceptation et connexion via un point de terminaison commun
@@ -62,16 +64,16 @@ Lorsque vous ajoutez un utilisateur invité à votre annuaire en [utilisant le p
 
 ## <a name="redemption-limitation-with-conflicting-contact-object"></a>Limitation d’échange avec objet contact en conflit
 Parfois, l’e-mail de l’utilisateur externe invité peut être en conflit avec un [Objet de contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) existant, ce qui entraîne la création de l’utilisateur invité sans proxyAddress. Il s’agit d’une limitation connue qui empêche les utilisateurs invités de faire ce qui suit : 
-- Échanger une invitation via un lien direct à l’aide d’un fournisseur d’identité [SAML/WS-FED](/azure/active-directory/external-identities/direct-federation), de [comptes Microsoft](/azure/active-directory/external-identities/microsoft-account), de la [fédération Google](/azure/active-directory/external-identities/google-federation) ou d’un compte à [Code secret à usage unique d’e-mail](/azure/active-directory/external-identities/one-time-passcode). 
-- Échanger une invitation via un lien d’échange d’e-mail d’invitation à l’aide d’un fournisseur d’identité [SAML/WS-FED](/azure/active-directory/external-identities/direct-federation) et d’un compte à [Code secret à usage unique d’e-mail](/azure/active-directory/external-identities/one-time-passcode).
-- Se reconnecter à une application après l’échange à l’aide des comptes [IdP SAML/WS-FED](/azure/active-directory/external-identities/direct-federation) et de [fédération Google](/azure/active-directory/external-identities/google-federation).
+- Échanger une invitation via un lien direct à l’aide d’un fournisseur d’identité [SAML/WS-FED](./direct-federation.md), de [comptes Microsoft](./microsoft-account.md), de la [fédération Google](./google-federation.md) ou d’un compte à [Code secret à usage unique d’e-mail](./one-time-passcode.md). 
+- Échanger une invitation via un lien d’échange d’e-mail d’invitation à l’aide d’un fournisseur d’identité [SAML/WS-FED](./direct-federation.md) et d’un compte à [Code secret à usage unique d’e-mail](./one-time-passcode.md).
+- Se reconnecter à une application après l’échange à l’aide des comptes [IdP SAML/WS-FED](./direct-federation.md) et de [fédération Google](./google-federation.md).
 
 Pour débloquer des utilisateurs qui ne peuvent pas échanger une invitation en raison d’un conflit avec un [Objet de contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), procédez comme suit :
 1. Supprimez l’objet de contact conflictuel.
 2. Supprimez l’utilisateur invité dans le portail Azure (la propriété « Invitation acceptée » de l’utilisateur doit être dans un état d’attente).
 3. Réinvitez l’utilisateur.
-4. Attendez que l’utilisateur échange l’invitation
-5. Rajoutez l’e-mail de contact de l’utilisateur dans Exchange et toutes les listes de distribution auxquelles il doit faire partie
+4. Attendez que l’utilisateur accepte l’invitation.
+5. Rajoutez l’e-mail de contact de l’utilisateur dans Exchange et toutes les listes de distribution dont il doit faire partie.
 
 ## <a name="invitation-redemption-flow"></a>Flux d’acceptation d’invitation
 
@@ -126,7 +128,12 @@ Lorsqu’un invité se connecte la première fois pour accéder aux ressources d
 
    ![Capture d’écran montrant le panneau d’accès des applications](media/redemption-experience/myapps.png) 
 
-Dans votre annuaire, la valeur de **Invitation acceptée** de l’invité passe à **Oui**. Si un MSA a été créé, la **Source** de l’invité affiche **Compte Microsoft**. Pour plus d’informations sur les propriétés du compte d’utilisateur invité, consultez [Propriétés d’un utilisateur B2B Collaboration Azure AD](user-properties.md). 
+> [!NOTE]
+> L’expérience de consentement s’affiche uniquement une fois que l’utilisateur se connecte et non avant. Dans certains cas, l’expérience de consentement ne sera pas affichée pour l’utilisateur, par exemple :
+> - L’utilisateur a déjà accepté l’expérience de consentement
+> - L’administrateur [accorde à une application le consentement administrateur à l’échelle du locataire](../manage-apps/grant-admin-consent.md)
+
+Dans votre annuaire, la valeur de **Invitation acceptée** de l’invité passe à **Oui**. Si un MSA a été créé, la **Source** de l’invité affiche **Compte Microsoft**. Pour plus d’informations sur les propriétés du compte d’utilisateur invité, consultez [Propriétés d’un utilisateur B2B Collaboration Azure AD](user-properties.md). Si vous voyez une erreur qui requiert le consentement administrateur lors de l’accès à une application, consultez [comment accorder le consentement administrateur aux applications](../develop/v2-admin-consent.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

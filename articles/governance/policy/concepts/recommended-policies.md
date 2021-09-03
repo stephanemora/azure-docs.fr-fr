@@ -1,21 +1,21 @@
 ---
 title: Stratégies recommandées pour les services Azure
 description: Décrit comment rechercher et appliquer les stratégies recommandées pour les services Azure, tels que Machines virtuelles Azure.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: generated
-ms.openlocfilehash: a505a94e580b24c19a96ea86b1237870e49a6442
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 06f68dec2c2a1ec8fa717dc721916c070a653b10
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752612"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534951"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Stratégies recommandées pour les services Azure
 
 Les clients qui débutent avec Azure Policy recherchent souvent des définitions de stratégies communes pour gérer et régir leurs ressources. Les **stratégies recommandées** d’Azure Policy fournissent une liste ciblée des définitions de stratégies courantes avec lesquelles commencer. L’expérience des **stratégies recommandées** pour une ressource prise en charge est incorporée dans l’expérience du portail pour cette ressource.
 
-Pour obtenir des éléments intégrés Azure Policy supplémentaires, consultez [Définitions intégrées d’Azure Policy](../samples/built-in-policies.md).
+Pour plus d’informations sur les éléments intégrés Azure Policy supplémentaires, consultez [Définitions intégrées d’Azure Policy](../samples/built-in-policies.md).
 
 ## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 

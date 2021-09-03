@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 07/21/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 7890d87730aa65e09e3bbc5a79fd22eb68610939
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 649bf52c48867f4508a7071cb1443b62eae36010
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532914"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent
 
@@ -57,8 +57,8 @@ Pour inscrire votre machine virtuelle SQL Server auprès de l’extension SQL Ia
 
 1. Ouvrez le portail Azure et accédez à **Tous les services**.
 1. Accédez à **Abonnements** et sélectionnez l’abonnement qui vous intéresse.
-1. Dans la page **Abonnements**, accédez à **Extensions**.
-1. Entrez **sql** dans le filtre pour afficher les extensions liées à SQL.
+1. Sur la page **Abonnements**, sélectionnez **Fournisseurs de ressources** sous **Paramètres**.
+1. Entrez **sql** dans le filtre pour afficher les fournisseurs de ressources liées à SQL.
 1. Sélectionnez **Inscrire**, **Réinscrire** ou **Désinscrire** pour le fournisseur **Microsoft.SqlVirtualMachine**, en fonction de l’action souhaitée.
 
    ![Modifier le fournisseur](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
@@ -167,9 +167,11 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
-## <a name="verify-mode"></a>Vérifier le mode
+## <a name="check-extension-mode"></a>Vérifier le mode d’extension
 
-Vous pouvez afficher le mode actuel de votre agent SQL Server IaaS en utilisant Azure PowerShell :
+Utilisez Azure PowerShell pour vérifier le mode dans lequel se trouve votre extension de l’agent IaaS SQL Server. 
+
+Pour vérifier le mode de l’extension, utilisez cette cmdlet Azure PowerShell : 
 
 ```powershell-interactive
 # Get the SqlVirtualMachine
@@ -189,7 +191,7 @@ Les machines virtuelles SQL Server qui ont inscrit l’extension en mode *léger
 Pour mettre à niveau l’extension en mode complet à l’aide du portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Accédez à votre ressource [machines virtuelles SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource).
+1. Accédez à votre ressource [machines virtuelles SQL](manage-sql-vm-portal.md#access-the-resource).
 1. Sélectionnez votre machine virtuelle SQL Server, puis choisissez **Vue d’ensemble**.
 1. Pour les machines virtuelles SQL Server avec les modes IaaS NoAgent ou léger, sélectionnez le message **Seules les mises à jour de type de licence et d’édition sont disponibles avec l’extension IaaS SQL**.
 
@@ -239,6 +241,8 @@ Pour vérifier l’état d’inscription à l’aide du portail Azure, procédez
 
    ![Vérifier l’état avec l’inscription avec le fournisseur de ressources SQL](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
 
+Vous pouvez également vérifier l’état en sélectionnant **Réparer** dans le volet **Support + dépannage** de la ressource **Machine virtuelle SQL**. L’état de provisionnement de l’extension de l’agent IaaS SQL peut être **Réussite** ou **Échec**. 
+
 ### <a name="command-line"></a>Ligne de commande
 
 Vérifiez l’état d’inscription actuel d’une machine virtuelle SQL Server à l’aide d’Azure CLI ou d’Azure PowerShell. `ProvisioningState` affichera `Succeeded` si l’inscription a réussi.
@@ -262,6 +266,23 @@ Pour vérifier l’état d’inscription à l’aide d’Azure PowerShell, exéc
 ---
 
 Une erreur indique que la machine virtuelle SQL Server n’a pas été inscrite auprès de l’extension.
+
+## <a name="repair-extension"></a>Réparer l’extension
+
+Il est possible que votre extension de l’agent IaaS SQL soit dans un état d’échec. Utilisez le portail Azure pour réparer l’extension de l’agent IaaS SQL. Pour ce faire, procédez comme suit : 
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à vos [machines virtuelles SQL Server](manage-sql-vm-portal.md).
+1. Sélectionnez votre machine virtuelle SQL Server dans la liste. Si votre machine virtuelle SQL Server n’est pas listée ici, il est probable qu’elle n’a pas été inscrite auprès de l’extension SQL IaaS Agent.
+1. Sélectionnez **Réparer** sous **Support + dépannage** dans la page de la ressource **Machine virtuelle SQL**. 
+
+   :::image type="content" source="media/sql-agent-extension-manually-register-single-vm/repair-extension.png" alt-text="Sélectionnez **Réparer** sous **Support + dépannage** dans la page de la ressource **Machine virtuelle SQL**":::   
+
+1. Si votre état de provisionnement indique **Échec**, sélectionnez **Réparer** pour réparer l’extension. Si votre état est **Réussite**, vous pouvez cocher la case en regard de **Forcer la réparation** pour réparer l’extension, quel que soit l’état. 
+
+   ![Si votre état de provisionnement indique **Échec**, sélectionnez **Réparer** pour réparer l’extension. Si votre état est **Réussite**, vous pouvez cocher la case en regard de **Forcer la réparation** pour réparer l’extension, quel que soit l’état.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
+
+
 
 ## <a name="unregister-from-extension"></a>Désinscrire de l’extension
 

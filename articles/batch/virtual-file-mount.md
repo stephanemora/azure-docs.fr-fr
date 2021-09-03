@@ -3,13 +3,13 @@ title: Monter un système de fichiers virtuel sur un pool
 description: Découvrez comment monter un système de fichiers virtuel sur un pool Batch.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 03/26/2021
-ms.openlocfilehash: 460501e30b5afd2eb7a1f67b1162b9820830454a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/18/2021
+ms.openlocfilehash: 7057a982fb3a4b59b8716a373c2ed5172e392cb2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968149"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564057"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
@@ -78,11 +78,16 @@ new PoolAddParameter
 
 ### <a name="azure-blob-container"></a>Conteneur de blobs Azure
 
-Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès du compte de stockage](../storage/common/storage-account-keys-manage.md) ou [Accorder un accès limité aux ressources de stockage Azure à l’aide de signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). Pour plus d’informations et des conseils sur l’utilisation de blobfuse, consultez le blobfuse .
+Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey`, une `SasKey` ou une `Managed Identity` avec l’accès à votre compte de stockage.
+
+Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès du compte de stockage](../storage/common/storage-account-keys-manage.md), [Accorder un accès limité aux ressources de stockage Azure à l’aide de signatures d’accès partagé (SAS)](../storage/common/storage-sas-overview.md) et [Configurer des identités managées dans des pools Batch](managed-identity-pools.md). Pour plus d’informations et des conseils sur l’utilisation de blobfuse, consultez le [projet blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Pour plus d’informations et de conseils sur l’utilisation de blobfuse, consultez la [FAQ sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Vous pouvez également consulter les [Problèmes GitHub dans le référentiel blobfuse](https://github.com/Azure/azure-storage-fuse/issues) pour vérifier les problèmes actuels de blobfuse et leur résolution.
+
+> [!NOTE]
+> L’exemple ci-dessous montre `AccountKey`, `SasKey` et `IdentityReference`, mais ils s’excluent mutuellement ; un seul peut être spécifié.
 
 ```csharp
 new PoolAddParameter
@@ -98,6 +103,7 @@ new PoolAddParameter
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
                 SasKey = "SasKey",
+                IdentityReference = new ComputeNodeIdentityReference("/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"),
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -105,6 +111,9 @@ new PoolAddParameter
     }
 }
 ```
+
+> [!TIP]
+>Si vous utilisez une identité managée, assurez-vous que l’identité a été [attribuée au pool](managed-identity-pools.md) pour qu’elle soit disponible sur la machine virtuelle qui effectue le montage. L’identité doit avoir le rôle `Storage Blob Data Contributor` pour fonctionner correctement.
 
 ### <a name="network-file-system"></a>Système de gestion de fichiers en réseau
 
@@ -160,7 +169,7 @@ Si une configuration de montage échoue, le nœud de calcul dans le pool échoue
 
 Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-task-output-files.md) pour télécharger les fichiers `*.log`. Les fichiers `*.log` contiennent des informations sur le montage du système de fichiers à l’emplacement `AZ_BATCH_NODE_MOUNTS_DIR`. Les fichiers journaux de montage ont le format : `<type>-<mountDirOrDrive>.log` pour chaque montage. Par exemple, un montage `cifs` dans un répertoire de montage nommé `test` aura un fichier journal de montage nommé `cifs-test.log`.
 
-## <a name="support-matrix"></a>Tableau de prise en charge
+## <a name="support-matrix"></a>Matrice de prise en charge
 
 Azure Batch prend en charge les types de systèmes de fichiers virtuels suivants pour les agents de nœud produits pour leur éditeur et offre respectifs.
 

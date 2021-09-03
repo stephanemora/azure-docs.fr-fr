@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b3433031beba287d1412d0c2254941b7a3e9e118
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4970ef21be1e5c440acc871f5ca5583da1916f52
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968408"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728504"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiver les journaux et créer des rapports sur la gestion des droits d’utilisation Azure AD dans Azure Monitor
 
@@ -76,14 +76,15 @@ Utilisez la procédure suivante pour voir les événements :
 
 1. Sélectionnez le classeur nommé *Activité du package d’accès*. 
 
-1. Dans ce classeur, sélectionnez une plage de temps (changez-la en **Tout** si vous n’êtes pas sûr), puis sélectionnez un ID de package d’accès dans la liste déroulante de tous les packages d’accès ayant eu de l’activité pendant cette période. Les événements liés au package d’accès qui se sont produits pendant l’intervalle de temps sélectionné s’affichent.  
+1. Dans ce classeur, sélectionnez une plage de temps (changez-la en **Tout** si vous n’êtes pas sûr), puis sélectionnez un ID de package d’accès dans la liste déroulante de tous les packages d’accès ayant eu une activité pendant cette période. Les événements liés au package d’accès qui se sont produits pendant l’intervalle de temps sélectionné s’affichent.
 
     ![Visualiser les événements du package d’accès](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
 
-    Chaque ligne comprend l’heure, l’ID de package d’accès, le nom de l’opération, l’ID d’objet, l’UPN et le nom d’affichage de l’utilisateur qui a démarré l’opération.  Des détails supplémentaires sont inclus dans le JSON.   
+    Chaque ligne comprend l’heure, l’ID de package d’accès, le nom de l’opération, l’ID d’objet, l’UPN et le nom complet de l’utilisateur qui a démarré l’opération.  Des détails supplémentaires sont inclus dans le JSON.
 
-1. Pour voir si des modifications ont été apportées aux attributions de rôle d’application non destinées aux attributions de package d’accès (par un administrateur général attribuant directement des rôles d’application à un utilisateur, par exemple), vous pouvez sélectionner le classeur nommé *Activité d’attribution de rôle d’application*.
+1. Pour voir si des modifications ont été apportées aux attributions de rôle d’application non destinées aux attributions de package d’accès (par un administrateur général attribuant directement un rôle d’application à un utilisateur, par exemple), vous pouvez sélectionner le classeur nommé *Activité d’attribution de rôle d’application*.
 
+    ![Afficher les attributions de rôle d’application](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Créer des requêtes Azure Monitor personnalisées à l’aide du portail Azure
 Vous pouvez créer vos propres requêtes sur les événements d’audit Azure AD, y compris les événements de gestion des droits d’utilisation.  
@@ -163,7 +164,7 @@ $subs | ft
  
 Vous pouvez réauthentifier votre session PowerShell et l’associer à cet abonnement à l’aide d’une commande telle que `Connect-AzAccount –Subscription $subs[0].id`. Pour en savoir plus sur l’authentification sur Azure à partir de PowerShell, y compris de manière non interactive, consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-Si vous avez plusieurs espaces de travail Log Analytics dans cet abonnement, l’applet de commande [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retourne la liste des espaces de travail. Vous pouvez alors trouver celui qui contient les journaux Azure AD. Le champ `CustomerId` retourné par cette applet de commande est identique à la valeur de l’« ID d’espace de travail » affichée dans le portail Azure, dans la vue d’ensemble de l’espace de travail Log Analytics.
+Si vous avez plusieurs espaces de travail Log Analytics dans cet abonnement, l’applet de commande [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retourne la liste des espaces de travail. Vous pouvez alors trouver celui qui contient les journaux Azure AD. Le champ `CustomerId` retourné par cette cmdlet est identique à la valeur de l’« ID d’espace de travail » affichée dans le Portail Azure, dans la vue d’ensemble de l’espace de travail Log Analytics.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace

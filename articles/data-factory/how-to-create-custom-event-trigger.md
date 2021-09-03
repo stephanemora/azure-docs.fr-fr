@@ -2,19 +2,20 @@
 title: Créer des déclencheurs d’événements personnalisés dans Azure Data Factory
 description: Apprenez à créer dans Azure Data Factory un déclencheur qui exécute un pipeline en réponse à un événement personnalisé publié dans Event Grid.
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: d91e1f52f0844317b049086489bda25c079ee9be
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 046d94202769845f58c7f528bddb37e29e0c312a
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634290"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122527985"
 ---
-# <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory-preview"></a>Créer un déclencheur d'événements personnalisé pour exécuter un pipeline dans Azure Data Factory (préversion)
+# <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory"></a>Créer un déclencheur d’événements personnalisé pour exécuter un pipeline dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -93,6 +94,39 @@ Data Factory s'attend à ce que les événements suivent le [schéma d'événeme
 
 1. Après avoir entré les paramètres, sélectionnez **OK**.
 
+## <a name="advanced-filtering"></a>Filtrage avancé
+
+Le déclencheur d’événements personnalisé prend en charge des fonctionnalités de filtrage avancées, similaires au [filtrage avancé Event Grid](../event-grid/event-filtering.md#advanced-filtering). Ces filtres conditionnels permettent aux pipelines d’être déclenchés en fonction des _valeurs_ de la charge utile d’événement. Par exemple, vous pouvez avoir un champ dans la charge utile d’événement, nommée _Department, et le pipeline doit se déclencher uniquement si _Department_ est égal à _Finance_. Vous pouvez également spécifier une logique complexe, telle que le champ _date_ dans la liste [1, 2, 3, 4, 5], le champ _month_ qui __n’est pas__ dans la liste [11, 12], le champ _tag_ qui contient l’un des éléments de [’Fiscal Year 2021’, ’FiscalYear2021’, ’FY2021’].
+
+ :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Capture d’écran de la définition de filtres avancés pour le déclencheur d’événement client":::
+
+À partir d’aujourd’hui, le déclencheur d’événement personnalisé supporte un __sous-ensemble__ d’[opérateurs de filtrage avancés](../event-grid/event-filtering.md#advanced-filtering) dans Event Grid. Les conditions de filtre suivantes sont prises en charge :
+
+* NumberIn
+* NumberNotIn
+* NumberLessThan
+* NumberGreaterThan
+* NumberLessThanOrEquals
+* NumberGreaterThanOrEquals
+* BoolEquals
+* StringContains
+* StringBeginsWith
+* StringEndsWith
+* StringIn
+* StringNotIn
+
+Cliquez sur **+Nouveau** pour ajouter de nouvelles conditions de filtre. 
+
+En outre, les déclencheurs d’événements personnalisés obéissent aux [mêmes limitations que la grille d’événements](../event-grid/event-filtering.md#limitations), notamment :
+
+* 5 filtres avancés et 25 valeurs de filtre pour tous les filtres par déclencheur d’événements personnalisé
+* 512 caractères par valeur de type chaîne
+* 5 valeurs pour les opérateurs dans et pas dans
+* les clés ne peuvent pas comporter de caractère `.` (point), par exemple, `john.doe@contoso.com`. Actuellement, les caractères d’échappement ne sont pas pris en charge dans les clés.
+* La même clé peut être utilisée dans plusieurs filtres.
+
+Data Factory s’appuie sur la dernière version en _disponibilité générale_ de l’[API Event Grid](../event-grid/whats-new.md). À mesure que les nouvelles versions d’API sont en phase de mise à la disposition générale, Data Factory étend sa prise en charge pour les opérateurs de filtrage plus avancés.
+
 ## <a name="json-schema"></a>Schéma JSON
 
 Le tableau suivant donne une vue d’ensemble des éléments de schéma associés à des déclencheurs d’événements personnalisés :
@@ -101,12 +135,13 @@ Le tableau suivant donne une vue d’ensemble des éléments de schéma associé
 |---|----------------------------|---|---|---|
 | `scope` | ID de ressource Azure Resource Manager de la rubrique Event Grid. | String | ID d’Azure Resource Manager | Oui |
 | `events` | Type des événements qui entraîne l’activation de ce déclencheur. | Tableau de chaînes    |  | Oui, au moins une valeur est attendue. |
-| `subjectBeginsWith` | Le champ `subject` doit commencer par le modèle fourni pour que le déclencheur s'active. Par exemple, *factories* active uniquement le déclencheur pour les sujets d'événement qui commencent par *factories*. | String   | | Non |
+| `subjectBeginsWith` | Le champ `subject` doit commencer par le modèle fourni pour que le déclencheur s'active. Par exemple, _factories_ active uniquement le déclencheur pour les sujets d’événement qui commencent par *factories*. | String   | | Non |
 | `subjectEndsWith` | Le champ `subject` doit se terminer par le modèle fourni pour que le déclencheur s'active. | String   | | Non |
+| `advancedFilters` | Liste d’objets blob JSON, chacun spécifiant une condition de filtre. Chaque objet blob spécifie `key`, `operatorType` et `values`. | Liste d’objets blob JSON | | Non |
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Azure Data Factory utilise Azure RBAC pour interdire les accès non autorisés. Pour fonctionner correctement, Data Factory a besoin d'un accès lui permettant d'effectuer les tâches suivantes :
+Azure Data Factory utilise le contrôle d’accès en fonction du rôle (RBAC) Azure pour interdire tout accès non autorisé. Pour fonctionner correctement, Data Factory a besoin d'un accès lui permettant d'effectuer les tâches suivantes :
 - Écouter les événements
 - S’abonner aux mises à jour des événements
 - Déclencher des pipelines liés à des événements personnalisés

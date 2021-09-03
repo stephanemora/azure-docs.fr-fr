@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6922eaec624141c8acab2d8d8e133db5becd66d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d4f48f8a8c573ac03f5637b74b740c5710af92b3
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950053"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597680"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -49,9 +49,6 @@ Le trafic des disques de machine virtuelle (notamment les opérations de montage
 Les comptes de stockage Classic ne prennent pas en charge les pare-feux et les réseaux virtuels.
 
 Vous pouvez utiliser des disques non managés dans les comptes de stockage avec des règles de réseau appliquées à la sauvegarde et la restauration de machines virtuelles en créant une exception. Ce processus est décrit dans la section [Gérer les exceptions](#manage-exceptions) de cet article. Les exceptions de pare-feu ne sont pas applicables avec disques managés dans la mesure où ils sont déjà managés par Azure.
-
-> [!IMPORTANT] 
-> Si vous supprimez le sous-réseau qui a été inclus dans une règle de réseau, veillez à supprimer ce sous-réseau de la règle de réseau. Dans le cas contraire, si vous créez un sous-réseau portant le même nom, vous ne pourrez pas utiliser ce sous-réseau dans les règles de réseau de tous les comptes de stockage. 
 
 ## <a name="change-the-default-network-access-rule"></a>Changer la règle d’accès réseau par défaut
 
@@ -128,6 +125,9 @@ Vous pouvez configurer des comptes de stockage pour autoriser l’accès uniquem
 Activez un [point de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md) pour le stockage Azure dans le réseau virtuel. Le point de terminaison de service achemine le trafic à partir du réseau virtuel via un chemin d’accès optimal vers le service Stockage Azure. Les identités du sous-réseau et du réseau virtuel sont également transmises avec chaque demande. Les administrateurs peuvent ensuite configurer des règles de réseau pour le compte de stockage qui autorisent la réception des demandes à partir de sous-réseaux spécifiques d’un réseau virtuel. Les clients qui obtiennent un accès par le biais de ces règles de réseau doivent continuer à respecter les exigences d’autorisation du compte de stockage pour accéder aux données.
 
 Chaque compte de stockage prend en charge jusqu’à 200 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
+
+> [!IMPORTANT] 
+> Si vous supprimez un sous-réseau qui a été inclus dans une règle réseau, il sera supprimé des règles réseau pour le compte de stockage. Si vous créez un sous-réseau portant le même nom, il n’aura pas accès au compte de stockage. Pour autoriser l’accès, vous devez autoriser explicitement le nouveau sous-réseau dans les règles réseau du compte de stockage.
 
 ### <a name="available-virtual-network-regions"></a>Régions de réseau virtuel disponibles
 
@@ -378,9 +378,9 @@ Vous pouvez gérer les règles de réseau IP pour les comptes de stockage via le
 
 ## <a name="grant-access-from-azure-resource-instances-preview"></a>Accorder l’accès à partir d’instances de ressource Azure (préversion)
 
-Dans certains cas, une application peut dépendre de ressources Azure qui ne peuvent pas être isolées par le biais d’une règle de réseau virtuel ou d’adresse IP. Toutefois, vous souhaitez toujours sécuriser et limiter l’accès au compte de stockage aux seules ressources Azure de votre application. Vous pouvez configurer les comptes de stockage pour permettre l’accès à des instances de ressource spécifiques de certains services Azure en créant une règle d’instance de ressource. 
+Dans certains cas, une application peut dépendre de ressources Azure qui ne peuvent pas être isolées par le biais d’une règle de réseau virtuel ou d’adresse IP. Toutefois, vous souhaitez toujours sécuriser et limiter l’accès au compte de stockage aux seules ressources Azure de votre application. Vous pouvez configurer les comptes de stockage pour permettre l’accès à des instances de ressource spécifiques de certains services Azure en créant une règle d’instance de ressource.
 
-Les types d’opérations qu’une instance de ressource peut effectuer sur les données du compte de stockage sont déterminés par les [attributions de rôle Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) de l’instance de ressource. Les instances de ressource doivent provenir du même locataire que votre compte de stockage, mais elles peuvent appartenir à n’importe quel abonnement dans le locataire.
+Les types d’opérations qu’une instance de ressource peut effectuer sur les données du compte de stockage sont déterminés par les attributions de rôle Azure de l’instance de ressource. Les instances de ressource doivent provenir du même locataire que votre compte de stockage, mais elles peuvent appartenir à n’importe quel abonnement dans le locataire.
 
 > [!NOTE]
 > Cette fonctionnalité est en préversion publique et est disponible dans toutes les régions de cloud public.
@@ -586,9 +586,9 @@ Les ressources de certains services, **quand ils sont inscrits dans votre abonne
 
 ### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Accès approuvé basé sur l’identité managée affectée par le système
 
-Le tableau suivant répertorie les services qui peuvent avoir accès aux données de votre compte de stockage si les instances de ressource de ces services reçoivent l’autorisation appropriée. 
+Le tableau suivant répertorie les services qui peuvent avoir accès aux données de votre compte de stockage si les instances de ressource de ces services reçoivent l’autorisation appropriée.
 
-Si la fonctionnalité d’espace de noms hiérarchique n’est pas activée sur votre compte, vous pouvez accorder l’autorisation en [attribuant explicitement un rôle Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à l’[identité managée affectée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour chaque instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée. 
+Si la fonctionnalité d’espace de noms hiérarchique n’est pas activée sur votre compte, vous pouvez accorder l’autorisation en attribuant explicitement un rôle Azure à l’[identité managée affectée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour chaque instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
 
 Vous pouvez utiliser la même technique pour un compte sur lequel la fonctionnalité d’espace de noms hiérarchique est activée. Toutefois, vous n’êtes pas obligé d’attribuer un rôle Azure si vous ajoutez l’identité managée affectée par le système à la liste de contrôle d’accès (ACL, access-control list) d’un répertoire ou d’un blob contenu dans le compte de stockage. Dans ce cas, l’étendue de l’accès pour l’instance correspond au répertoire ou au fichier auquel l’identité managée affectée par le système a été autorisée à accéder. Vous pouvez également combiner des rôles Azure et des ACL. Pour en savoir plus sur la façon de les combiner pour accorder l’accès, consultez [Modèle de contrôle d’accès dans Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 

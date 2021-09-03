@@ -2,23 +2,22 @@
 title: Extraire du texte à partir des images
 titleSuffix: Azure Cognitive Search
 description: Traitez et extrayez du texte et d’autres informations d’images dans des pipelines Recherche cognitive Azure.
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68186c5294c0a3a2f376a93ef1902307780f48bb
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 2591e3468999bfb48fc125bd6edfe17da8eecefd
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538287"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728141"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 
-La Recherche cognitive Azure intègre plusieurs fonctionnalités pour l’utilisation d’images et de fichiers image. Pendant le décodage d’un document, vous pouvez utiliser le paramètre *imageAction* pour extraire du texte de photos ou d’images contenant du texte alphanumérique, tel que le mot « STOP » dans le panneau de signalisation d’arrêt. D’autres scénarios incluent la génération d’une représentation textuelle d’une image, telle que « pissenlit » pour une photo de pissenlit ou la couleur « jaune ». Vous pouvez également extraire des métadonnées de l’image, telles que sa taille.
+La Recherche cognitive Azure intègre plusieurs fonctionnalités pour l’utilisation d’images et de fichiers image. Pendant le *craquage de document*, vous pouvez utiliser le paramètre [imageAction](search-indexer-overview.md#document-cracking) pour extraire du texte de photos ou d’images contenant du texte alphanumérique, tel que le mot « STOP » dans le panneau de signalisation d’arrêt. D’autres scénarios incluent la génération d’une représentation textuelle d’une image, telle que « pissenlit » pour une photo de pissenlit ou la couleur « jaune ». Vous pouvez également extraire des métadonnées de l’image, telles que sa taille.
 
 Cet article couvre plus en détail le traitement d’image et fournit des conseils pour l’utilisation d’images dans un pipeline d’enrichissement de l’IA.
 

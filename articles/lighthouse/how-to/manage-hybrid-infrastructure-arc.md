@@ -3,12 +3,12 @@ title: Gérer une infrastructure hybride à grande échelle avec Azure Arc
 description: Azure Lighthouse vous permet de gérer efficacement les machines et les clusters Kubernetes des clients en dehors d’Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: edb9553288ff909e5a5f51bf1440c29914672cb9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 926ec6d3fdca6b31ee5296832e12a63a2dfa9d65
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082079"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534754"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gérer une infrastructure hybride à grande échelle avec Azure Arc
 
@@ -46,7 +46,7 @@ Vous pouvez également surveiller les clusters connectés avec Azure Monitor et 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Explorez les démarrages rapides et les exemples dans le [référentiel GitHub d’Azure Arc](https://github.com/microsoft/azure_arc).
-- En savoir plus sur les [scénarios pris en charge pour les serveurs avec Azure Arc](../../azure-arc/servers/overview.md#supported-scenarios).
+- En savoir plus sur les [scénarios pris en charge pour les serveurs avec Azure Arc](../../azure-arc/servers/overview.md#supported-cloud-operations).
 - En savoir plus sur les [distributions Kubernetes prises en charge par Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
 - Découvrez comment [déployer une stratégie à grande échelle](policy-at-scale.md).
 - Découvrez comment [utiliser des journaux Azure Monitor à grande échelle](monitor-at-scale.md).

@@ -1,23 +1,24 @@
 ---
 title: Guide sur les performances et la scalabilité de l’activité de copie
-description: Découvrez les facteurs clés ayant des répercussions sur les performances du déplacement de données dans Azure Data Factory lorsque vous utilisez l’activité de copie.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez les facteurs clés ayant des répercussions sur les performances du déplacement de données dans Azure Data Factory et les pipelines Azure Synapse Analytics lorsque vous utilisez l’activité de copie.
 services: data-factory
 documentationcenter: ''
 ms.author: jianleishen
 author: jianleishen
 manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/15/2020
-ms.openlocfilehash: 473f0c2c33fff48f945079ad1bd948c35c0826c4
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 2a2708c3d84dd83b752db2a0ae56843ae068aabe
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482594"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822426"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 
@@ -29,27 +30,27 @@ ms.locfileid: "109482594"
 
 Parfois, vous souhaitez effectuer une migration de données à grande échelle d’un lac de données ou un entrepôt de données d’entreprise (EDW) vers Azure. Dans d’autres cas, vous souhaiterez ingérer dans Azure de grandes quantités de données provenant de différentes sources pour l’analytique du Big Data. Dans chaque cas, il est essentiel d’obtenir des performances et une scalabilité optimales.
 
-Azure Data Factory fournit un mécanisme permettant d’ingérer des données. Azure Data Factory présente les avantages suivants :
+Les pipelines Azure Data Factory et Azure Synapse Analytics propose un mécanisme d’ingestion des données offrant les avantages suivants :
 
 * Gère de grandes quantités de données
 * Est très performant
 * Est économique
 
-Ces avantages font d’Azure Data Factory une solution idéale pour les ingénieurs de données qui souhaitent créer des pipelines d’ingestion de données évolutifs et très performants.
+Ces avantages en font une solution idéale pour les ingénieurs de données qui souhaitent créer des pipelines d’ingestion de données évolutifs et très performants.
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-* Quel niveau de performance et de scalabilité puis-je obtenir à l’aide de l’activité de copie ADF pour les scénarios de migration de données et d’ingestion de données ?
-* Quelles sont les étapes à suivre pour régler les performances de l’activité de copie ADF ?
-* Quels sont les leviers d’optimisation des performances ADF que je peux utiliser pour optimiser les performances d’une exécution d’activité de copie unique ?
-* Quels sont les autres facteurs hors d’ADF à prendre en compte lors de l’optimisation des performances de copie ?
+* Quel niveau de performance et de scalabilité puis-je obtenir à l’aide de l’activité de copie pour les scénarios de migration de données et d’ingestion de données ?
+* Quelles sont les étapes à suivre pour régler les performances de l’activité de copie ?
+* Quelles optimisations de performances puis-je utiliser pour une seule exécution d’activité de copie ?
+* Quels sont les autres facteurs externes à prendre en compte lors de l’optimisation des performances de copie ?
 
 > [!NOTE]
 > Si vous n’êtes pas familiarisé avec l’activité de copie, consultez la [vue d’ensemble de l’activité de copie](copy-activity-overview.md) avant de lire cet article.
 
-## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Scalabilité et performances de l’activité de copie réalisables avec ADF
+## <a name="copy-performance-and-scalability-achievable-using-azure-data-factory-and-synapse-pipelines"></a>Performances et évolutivité de copie accessibles à l’aide de pipelines Azure Data Factory et Synapse
 
-Azure Data Factory offre une architecture serverless qui permet un parallélisme à différents niveaux.
+Les pipelines Azure Data Factory et Synapse offrent une architecture serverless qui permet le parallélisme à différents niveaux.
 
 Cette architecture vous permet de développer des pipelines qui optimisent le débit des déplacements de données pour votre environnement. Ces pipelines utilisent pleinement les ressources suivantes :
 
@@ -65,7 +66,7 @@ Cette utilisation complète signifie que vous pouvez estimer le débit global en
 Le tableau ci-dessous montre le calcul de la durée du déplacement des données. La durée dans chaque cellule est calculée en fonction d’un réseau donné et de la bande passante de la banque de données, ainsi que d’une taille de charge utile donnée.
 
 > [!NOTE]
-> La durée fournie ci-dessous vise à représenter des performances atteignables dans une solution d’intégration de données de bout en bout implémentée à l’aide d’ADF, à l’aide d’une ou de plusieurs techniques d’optimisation des performances décrites dans [Fonctionnalités d’optimisation des performances de copie](#copy-performance-optimization-features), notamment l’utilisation de ForEach pour partitionner et générer plusieurs activités de copie simultanées. Nous vous recommandons de suivre les étapes indiquées dans [Procédure de réglage des performances](#performance-tuning-steps) pour optimiser les performances de copie pour votre jeu de données et votre configuration système spécifiques. Vous devez utiliser les nombres obtenus dans vos tests de réglage des performances pour la planification du déploiement de la production, la planification de la capacité et la projection de la facturation.
+> La durée fournie ci-dessous vise à représenter des performances atteignables dans une solution d’intégration de données de bout en bout, à l’aide d’une ou de plusieurs techniques d’optimisation des performances décrites dans [Fonctionnalités d’optimisation des performances de copie](#copy-performance-optimization-features), notamment l’utilisation de ForEach pour partitionner et générer plusieurs activités de copie simultanées. Nous vous recommandons de suivre les étapes indiquées dans [Procédure de réglage des performances](#performance-tuning-steps) pour optimiser les performances de copie pour votre jeu de données et votre configuration système spécifiques. Vous devez utiliser les nombres obtenus dans vos tests de réglage des performances pour la planification du déploiement de la production, la planification de la capacité et la projection de la facturation.
 
 &nbsp;
 
@@ -81,11 +82,11 @@ Le tableau ci-dessous montre le calcul de la durée du déplacement des données
 | **10 Po**                   | 647,3 mois   | 323,6 mois  | 64,7 mois   | 31.6 mois  | 6,5 mois   | 3,2 mois   | 0,6 mois    |
 | | |  | | |  | | |
 
-La copie ADF est scalable à différents niveaux :
+La copie est évolutive à différents niveaux :
 
-![Mise à l’échelle de la copie ADF](media/copy-activity-performance/adf-copy-scalability.png)
+![Mise à l’échelle de la copie](media/copy-activity-performance/adf-copy-scalability.png)
 
-* Le flux de contrôle ADF peut démarrer plusieurs activités de copie en parallèle, par exemple [Pour chaque boucle](control-flow-for-each-activity.md).
+* Le flux de contrôle peut démarrer plusieurs activités de copie en parallèle, par exemple [Pour chaque boucle](control-flow-for-each-activity.md).
 
 * Une seule activité de copie peut tirer parti de plusieurs ressources de calcul évolutives.
   * Quand vous utilisez le runtime d’intégration Azure, vous pouvez spécifier [jusqu’à 256 unités d’intégration de données (DIU)](#data-integration-units) pour chaque activité de copie de manière serverless.
@@ -97,7 +98,7 @@ La copie ADF est scalable à différents niveaux :
 
 ## <a name="performance-tuning-steps"></a>Procédure de réglage des performances
 
-Procédez comme suit pour régler les performances de votre service Azure Data Factory avec l’activité de copie :
+Procédez comme suit pour régler les performances de votre service avec l’activité de copie :
 
 1. **Choisir un jeu de données de test et établir une base de référence.**
 
@@ -127,7 +128,7 @@ Procédez comme suit pour régler les performances de votre service Azure Data F
 
 3. **Comment optimiser le débit agrégé en exécutant plusieurs copies simultanément :**
 
-    Vous avez désormais optimisé les performances d’une seule activité de copie. Si vous n’avez pas encore atteint les limites supérieures de débit de votre environnement, vous pouvez exécuter plusieurs activités de copie en parallèle. Vous pouvez les exécuter en parallèle à l’aide des constructions de flux de contrôle d’Azure Data Factory. L’une de ces constructions est la [boucle For Each](control-flow-for-each-activity.md). Pour plus d’informations, consultez les articles suivants relatifs aux modèles de solution :
+    Vous avez désormais optimisé les performances d’une seule activité de copie. Si vous n’avez pas encore atteint les limites supérieures de débit de votre environnement, vous pouvez exécuter plusieurs activités de copie en parallèle. Vous pouvez les exécuter en parallèle à l’aide des constructions de flux de contrôle. L’une de ces constructions est la [boucle For Each](control-flow-for-each-activity.md). Pour plus d’informations, consultez les articles suivants relatifs aux modèles de solution :
 
     * [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md)
     * [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md)
@@ -139,11 +140,11 @@ Procédez comme suit pour régler les performances de votre service Azure Data F
 
 ## <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
-Suivez la [procédure de réglage des performances](#performance-tuning-steps) pour planifier et effectuer un test de performances pour votre scénario. Et découvrez comment résoudre les problèmes de performances de chaque exécution d’activité de copie dans Azure Data Factory dans [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md).
+Suivez la [procédure de réglage des performances](#performance-tuning-steps) pour planifier et effectuer un test de performances pour votre scénario. Et découvrez comment résoudre les problèmes de performances de chaque exécution d’activité de copie dans [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md).
 
 ## <a name="copy-performance-optimization-features"></a>Fonctionnalités d’optimisation des performances de copie
 
-Azure Data Factory fournit les fonctionnalités d’optimisation des performances suivantes :
+Le service fournit les fonctionnalités d’optimisation des performances suivantes :
 
 * [Unités d’intégration de données](#data-integration-units)
 * [Extensibilité du runtime d’intégration auto-hébergé](#self-hosted-integration-runtime-scalability)
@@ -152,7 +153,7 @@ Azure Data Factory fournit les fonctionnalités d’optimisation des performance
 
 ### <a name="data-integration-units"></a>Unités d’intégration de données
 
-Une unité d’intégration de données (DIU) est une mesure qui représente la puissance d’une seule unité dans Azure Data Factory. La puissance est une combinaison de l’allocation des ressources du processeur, de la mémoire et du réseau. Une DIU s’applique uniquement au [runtime d’intégration Azure](concepts-integration-runtime.md#azure-integration-runtime). Une DIU ne s’applique pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime). [En savoir plus ici](copy-activity-performance-features.md#data-integration-units).
+Une unité d’intégration de données (DIU) est une mesure qui représente la puissance d’une seule unité dans Azure Data Factory et les pipelines Synapse. La puissance est une combinaison de l’allocation des ressources du processeur, de la mémoire et du réseau. Une DIU s’applique uniquement au [runtime d’intégration Azure](concepts-integration-runtime.md#azure-integration-runtime). Une DIU ne s’applique pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime). [En savoir plus ici](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Extensibilité du runtime d’intégration auto-hébergé
 

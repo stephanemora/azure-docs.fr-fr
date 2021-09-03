@@ -1,7 +1,6 @@
 ---
 title: Azure AD Connect - Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect | Microsoft Docs
 description: Détails opérationnels sur la gestion des approbations Azure AD par Azure AD Connect.
-keywords: AD FS, ADFS, gestion AD FS, AAD Connect, Connect, Azure AD, approbation, AAD, revendication, règles de revendication, émission, transformation, règles, sauvegarde, restauration
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
@@ -18,22 +17,23 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8fea0133b7aa93b16a7e65e9e573723e7e21bae
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85360093"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460285"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure AD Connect peut gérer la fédération entre le service de fédération Active Directory (AD FS) local et Azure AD. Cet article fournit une vue d’ensemble des éléments suivants :
+Lorsque vous fédérez votre environnement local avec Azure AD, vous établissez une relation de confiance entre le fournisseur d’identité local et Azure AD.  Azure AD Connect peut gérer la fédération entre le service de fédération Active Directory (AD FS) local et Azure AD. Cet article fournit une vue d’ensemble des éléments suivants :
 
 * divers paramètres configurés sur l’approbation par Azure AD Connect ;
 * règles de transformation d’émission (règles de revendication) définies par Azure AD Connect ;
 * procédures de sauvegarde et de restauration des règles de revendication entre les mises à niveau et les mises à jour de configuration. 
+* Meilleures pratiques pour la sécurisation et la supervision de l’approbation AD FS avec Azure AD
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Paramètres contrôlés par Azure AD Connect
 
@@ -118,6 +118,11 @@ Vous pouvez restaurer les règles de transformation d’émission à l’aide de
 
 > [!NOTE]
 > Assurez-vous que vos autres règles n’entrent pas en conflit avec les règles configurées par Azure AD Connect.
+
+## <a name="best-practice-for-securing-and-monitoring-the-ad-fs-trust-with-azure-ad"></a>Meilleures pratiques pour la sécurisation et la supervision de l’approbation AD FS avec Azure AD
+Lorsque vous fédérez votre AD FS avec Azure AD, il est essentiel que la configuration de la fédération (relation d’approbation configurée entre AD FS et Azure AD) soit supervisée de près et que toute activité inhabituelle ou suspecte soit capturée. Pour ce faire, nous vous recommandons de configurer des alertes et de recevoir une notification chaque fois que des modifications sont apportées à la configuration de la fédération. Pour savoir comment configurer des alertes, consultez [Superviser les modifications apportées à la configuration de la fédération](how-to-connect-monitor-federation-changes.md). 
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect](how-to-connect-fed-management.md)

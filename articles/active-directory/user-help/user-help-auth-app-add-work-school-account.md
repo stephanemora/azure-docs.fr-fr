@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/11/2021
+ms.date: 08/09/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 329ddb32282d91ec5e990753057aea606622a266
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 276590a295b59465184a9afa2f7ce5efea7bb8eb
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535182"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534739"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Ajouter votre compte professionnel ou scolaire dans l’application Microsoft Authenticator
 
@@ -45,9 +45,9 @@ Pour ajouter un compte en vous connectant à votre compte professionnel ou scola
 
    - Si vous ne disposez pas de suffisamment de méthodes d'authentification sur votre compte pour obtenir un jeton d'authentification renforcée, vous ne pouvez pas procéder à l'ajout d'un compte.
 
-   - Si vous recevez le message `You might be signing in from a location that is restricted by your admin`, cela signifie que votre administrateur n'a pas activé cette fonctionnalité pour vous. Vous pouvez essayer de configurer votre compte en scannant un code QR sur la page **Vérification de sécurité supplémentaire** ou dans [Informations de sécurité](https://mysignins.microsoft.com/security-info).
+   - Si vous recevez le message `You might be signing in from a location that is restricted by your admin`, cela signifie que votre administrateur n’a pas activé cette fonctionnalité pour vous et que vous avez probablement configuré une stratégie d’accès conditionnel d’enregistrement des informations de sécurité. Contactez l’administrateur de votre compte professionnel ou scolaire pour utiliser cette méthode d’authentification.
 
-1. Si votre administrateur vous autorise à utiliser la connexion par téléphone à l'aide de l'application Authenticator, vous pourrez procéder à l'inscription de l'appareil afin de configurer la connexion par téléphone sans mot de passe et l'authentification multifacteur Azure (MFA). Mais vous pourrez toujours configurer l'authentification multifacteur, que vous ayez activé ou non la connexion par téléphone.
+1. Si votre administrateur vous autorise à utiliser la connexion par téléphone à l’aide de l’application Authenticator, vous pourrez procéder à l’inscription de l’appareil afin de configurer la connexion par téléphone sans mot de passe et l’authentification multifacteur (MFA) Azure AD. Mais vous pourrez toujours configurer l’authentification multifacteur, que vous ayez activé ou non la connexion par téléphone.
 
 1. À ce stade, vous pouvez être invité à scanner un code QR fourni par votre organisation pour configurer un compte local avec authentification multifacteur dans l’application. Vous ne devez effectuer cette opération que si votre organisation utilise un serveur MFA local.
 
@@ -69,7 +69,10 @@ Pour ajouter un compte en scannant un code QR, procédez comme suit :
 1. Ouvrez l’application Microsoft Authenticator, sélectionnez ![l’icône plus sur les appareils iOS ou Android](media/user-help-auth-app-add-work-school-account/plus-icon.png) et sélectionnez **Ajouter un compte**, choisissez **Compte professionnel ou scolaire**, puis **Scanner un code QR**.
    Si vous n’avez pas de compte configuré dans l’application d’authentification, vous verrez un grand bouton bleu intitulé **Ajouter un compte**.
 
-Si vous n’êtes pas invité à utiliser votre appareil photo pour scanner un code QR, dans les paramètres de votre téléphone, assurez-vous que l’application d’authentification a accès à l’appareil photo du téléphone.
+Si vous n’êtes pas invité à utiliser votre appareil photo pour scanner un code QR, dans les paramètres de votre téléphone, assurez-vous que l’application d’authentification a accès à l’appareil photo du téléphone. Après avoir ajouté votre compte à l’aide d’un code QR, vous pouvez configurer la connexion par téléphone. Si vous recevez le message « Vous vous êtes peut-être déjà inscrit à partir d’un emplacement restreint par votre administrateur », cela signifie que votre administrateur n’a pas activé cette fonctionnalité pour vous et que vous avez probablement configuré une stratégie d’accès conditionnel d’enregistrement des informations de sécurité. Contactez l’administrateur de votre compte professionnel ou scolaire pour utiliser cette méthode d’authentification. Si votre administrateur *vous* autorise à utiliser la connexion par téléphone à l’aide de l’application Authenticator, vous pourrez procéder à l’inscription de l’appareil afin de configurer la connexion par téléphone sans mot de passe et l’authentification multifacteur Azure (MFA).
+
+>[!Note]
+> Pour les organisations gouvernementales américaines, le seul moyen d’ajouter un compte de connexion par téléphone consiste à le faire à l’aide de l’option [Sign in with your credentials](#sign-in-with-your-credentials) (Se connecter avec vos informations d’identification) au lieu d’effectuer une mise à niveau à partir d’un compte à code QR.
 
 ## <a name="sign-in-on-a-remote-computer"></a>Se connecter sur un ordinateur distant
 
@@ -77,7 +80,7 @@ De nombreuses applications vous permettent de vous authentifier en saisissant un
 
 1. Ouvrez l'application Microsoft Authenticator, sélectionnez le bouton **+** &gt; **Ajouter un compte professionnel ou scolaire** &gt; **Se connecter**.
 1. Sélectionnez **Connexion à partir d’un autre appareil**.
-1. Sur l'écran distant, ouvrez la page [**Connectez-vous à votre compte** ](https://microsoft.com/devicelogin) et entrez le code fourni dans votre application Authenticator.
+1. Sur l'écran distant, ouvrez la page [**Connectez-vous à votre compte**](https://microsoft.com/devicelogin) et entrez le code fourni dans votre application Authenticator.
 1. Sur votre écran distant, connectez-vous à l'aide des informations d'identification de votre compte professionnel ou scolaire. Le cas échéant, vous pouvez vous connecter à l’aide d’un mot de passe d'accès temporaire (TAP).
 1. Une fois authentifié sur l'écran distant, revenez à l'application Authenticator pour finaliser l'installation.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 64edffaebf5194e6e8c48466d46cbfc9fd953c92
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 93383fa4b681dd7f0768f5ea30c24e64e9dcb2b9
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113798781"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123036589"
 ---
 # <a name="understanding-total-azure-virtual-desktop-deployment-costs"></a>Estimer le coût total d'un déploiement Azure Virtual Desktop
 
@@ -113,3 +113,4 @@ Avec les autorisations [Azure RBAC](../../role-based-access-control/rbac-and-dir
 Si vous souhaitez vous faire une idée plus précise du coût de certaines parties de votre déploiement, consultez les articles suivants :
 
 - [Compréhension de la tarification des licences et de l’accès par utilisateur](licensing.md)
+- [Estimer les coûts de diffusion d’application par utilisateur pour Azure Virtual Desktop](streaming-costs.md)

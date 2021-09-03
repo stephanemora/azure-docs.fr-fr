@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: e7c1c8532a3f77054755eb040fceff1bf8cf273e
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b998f2876e323ad224d4ecb8afddd4c4f7d5f118
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440229"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532299"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -89,13 +89,13 @@ Pour plus d’informations, consultez [Points de terminaison de service de rése
 
 Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé. 
 
-Cette fonctionnalité fonctionne actuellement pour toutes les références SKU prises en charge par le réseau virtuel Windows dans le plan dédié (App Service) et pour le plan Premium. Le plan Consommation n’est pas pris en charge. Pour savoir comment configurer une fonction avec un compte de stockage limité à un réseau privé, consultez [Restreindre votre compte de stockage à un réseau virtuel](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+Cette fonctionnalité est prise en charge par toutes les références SKU prises en charge par le réseau virtuel Windows dans le plan dédié (App Service) et pour le plan Premium. Elle est également pris en charge avec le DNS privé pour les références SKU prises en charge par le réseau virtuel Linux. Le plan de consommation et les plans DNS personnalisés sur Linux ne sont pas pris en charge. Pour savoir comment configurer une fonction avec un compte de stockage limité à un réseau privé, consultez [Restreindre votre compte de stockage à un réseau virtuel](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## <a name="use-key-vault-references"></a>Utiliser des références Key Vault
 
 Vous pouvez utiliser des références Azure Key Vault pour utiliser des secrets d’Azure Key Vault dans votre application Azure Functions, sans avoir à modifier le code. Azure Key Vault est un service qui fournit une gestion centralisée des secrets, avec un contrôle total sur les stratégies d’accès et l’historique d’audit.
 
-Actuellement, les [références Key Vault](../app-service/app-service-key-vault-references.md) ne fonctionnent pas si votre coffre de clés est sécurisé à l’aide de points de terminaison de service. Pour vous connecter à un coffre de clés en utilisant l’intégration de réseau virtuel, vous devez appeler le coffre de clés dans le code de votre application.
+Si l’intégration du réseau virtuel est configurée pour l’application, les [références Key Vault](../app-service/app-service-key-vault-references.md) peuvent être utilisées pour récupérer les secrets d’un coffre avec restrictions de réseau.
 
 ## <a name="virtual-network-triggers-non-http"></a>Déclencheurs de réseau virtuel (non HTTP)
 
@@ -172,7 +172,7 @@ Les API suivantes vous permettent de gérer par programmation les intégrations 
 Pour en savoir plus sur la mise en réseau et Azure Functions :
 
 * [Tutoriel pour bien démarrer avec l’intégration de réseau virtuel](./functions-create-vnet.md)
-* [Lire les questions fréquentes (FAQ) sur la mise en réseau de Functions](./functions-networking-faq.md)
+* [Lire les questions fréquentes (FAQ) sur la mise en réseau de Functions](./functions-networking-faq.yml)
 * [En savoir plus sur l’intégration de réseau virtuel avec App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
 * [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)
 * [Activer davantage de fonctionnalités de réseau et plus de contrôle avec Azure App Service Environment](../app-service/environment/intro.md)

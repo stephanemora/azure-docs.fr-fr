@@ -5,14 +5,15 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: bcc10ccde73f5036e50d1717528933a49ccd69cd
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 07/30/2021
+ms.openlocfilehash: 81649565955d1de031e4eefca548c5d58f7e28c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904943"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531741"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -95,7 +96,19 @@ Une fois les propriétés d’utilisateur créées, vous pouvez les superviser d
 
 ![Liste des exécutions d’activités avec colonnes pour les propriétés d’utilisateur](media/monitor-visually/view-user-properties.png)
 
+
 ## <a name="rerun-pipelines-and-activities"></a>Réexécuter des pipelines et activités
+ 
+ Le comportement de réexécution des activités de conteneur est le suivant :
+ 
+- `Wait` : l’activité se comporte comme avant.
+- `Set Variable` : l’activité se comporte comme avant.
+- `Filter` : l’activité se comporte comme avant.
+- L’activité `Until` évalue l’expression et exécute une boucle jusqu’à ce que la condition soit satisfaite. Les activités internes peuvent toujours être ignorées en fonction des règles de réexécution.
+- L’activité `Foreach` exécute toujours une boucle sur les éléments qu’elle reçoit. Les activités internes peuvent toujours être ignorées en fonction des règles de réexécution.
+- `If and switch` : les conditions sont toujours évaluées. Les activités internes peuvent toujours être ignorées en fonction des règles de réexécution.
+- `Execute pipeline activity` : le pipeline enfant est déclenché, mais toutes les activités du pipeline enfant peuvent quand même être ignorées en fonction des règles de réexécution.
+
 
 Pour réexécuter un pipeline depuis le début, pointez dessus, puis sélectionnez **Réexécuter**. Si vous sélectionnez plusieurs pipelines, vous pouvez utiliser le bouton **Réexécuter** pour les exécuter tous.
 

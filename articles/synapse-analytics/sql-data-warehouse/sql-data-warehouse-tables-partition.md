@@ -1,5 +1,5 @@
 ---
-title: Partitionnement de tables
+title: Partitionnement de tables dans le pool SQL dédié
 description: Recommandations et exemples relatifs à l’utilisation de partitions de tables dans un pool SQL dédié
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 08/19/2021
 ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.reviewer: igorstan, wiassaf
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed9a5c63fa86e1fac6abd9ac023bb48abd2f196d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ea941ae782e7da33cc07932d4b0c79613790b2e8
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459645"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122528011"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partitionnement de tables dans le pool SQL dédié
 
@@ -134,6 +134,8 @@ GROUP BY    s.[name]
 Le pool SQL dédié prend en charge le fractionnement, la fusion et le basculement de partition. Chacune de ces fonctions est exécutée à l’aide de l’instruction [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Pour faire basculer une partition d’une table à une autre, vous devez vous assurer que les partitions s’alignent sur leurs limites respectives et que les définitions de tables correspondent. Comme aucune contrainte de validation n’est disponible pour appliquer la plage de valeurs dans une table, la table source doit contenir les mêmes limites de partition que la table cible. Si les limites de partition sont différentes, le basculement de la partition échoue, car les métadonnées de celle-ci ne sont pas synchronisées.
+
+Un fractionnement de partition nécessite que la partition respective (pas nécessairement la table entière) soit vide si la table a un index columnstore en cluster (CCI). D’autres partitions de la même table peuvent contenir des données. Une partition qui contient des données ne peut pas être fractionnée. elle génère une erreur : `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` Comme solution de contournement permettant de fractionner une partition contenant des données, consultez [Fractionnement d’une partition contenant des données](#how-to-split-a-partition-that-contains-data). 
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Fractionnement d’une partition contenant des données
 
@@ -278,6 +280,11 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ```
 
 ### <a name="table-partitioning-source-control"></a>Contrôle de code source dans le cadre du partitionnement d’une table
+
+> [!NOTE]
+> Si votre outil de contrôle de code source n’est pas configuré pour ignorer les schémas de partition, la modification du schéma d’une table en vue de mettre à jour les partitions peut entraîner la suppression et la recréation d’une table dans le cadre du déploiement, ce qui peut être irréalisable. Une solution personnalisée permettant d’implémenter une telle modification, comme décrit ci-dessous, peut s’avérer nécessaire. Vérifiez que votre outil d’intégration continue et livraison continue (CI/CD) le permet. Dans les Paramètres de publication avancés de SQL Server Data Tools (SSDT), recherchez « Ignorer les schémas de partition » pour éviter l’exécution d’un script généré qui entraîne la suppression d’une table et la recréation de celle-ci.
+
+Cet exemple est utile lors de la mise à jour des schémas de partition d’une table vide. Pour déployer en continu des modifications de partition sur une table avec des données, suivez les étapes décrites dans [Fractionnement d’une partition contenant des données](#how-to-split-a-partition-that-contains-data) avec le déploiement pour déplacer temporairement des données de chaque partition avant d’appliquer la plage de fractionnement de partition. Cela est nécessaire, car l’outil CI/CD ne tient pas compte des partitions qui contiennent des données.
 
 Pour éviter la **détérioration** de la définition de votre table dans le système de contrôle du code source, vous pouvez envisager l’approche suivante :
 

@@ -2,19 +2,19 @@
 title: Bonnes pratiques pour utiliser Azure Key Vault Managed HSM
 description: Ce document décrit certaines des meilleures pratiques à employer pour utiliser Key Vault.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.author: ambapat
-ms.openlocfilehash: a7cccecc47973d372453ce86d0d5d12c8d773b3a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/21/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 99a313f64e9f5bafd13dbbf45a6881e1c6e2f275
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413966"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459693"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Meilleures pratiques d’utilisation du HSM managé
 
@@ -44,6 +44,13 @@ Le HSM managé est un service cloud qui protège les clés de chiffrement. Ces d
 
 - Le [suppression réversible](soft-delete-overview.md) est activée par défaut. Vous pouvez choisir une période de conservation comprise entre 7 et 90 jours.
 - Activez la protection contre le vidage pour empêcher la suppression immédiate permanente de module HSM ou de clés. Lorsque la protection contre le vidage est activée, un module HSM ou des clés demeurent dans l’état Supprimé tant que les jours de conservation ne sont pas écoulés.
+
+## <a name="generate-and-import-keys-from-on-premise-hsm"></a>Générer et importer des clés à partir d’un module HSM local
+
+> [!NOTE]
+> Les clés créées ou importées dans un module HSM managé ne sont pas exportables.
+
+- Pour garantir la portabilité à long terme et la durabilité des clés, générez des clés dans votre module HSM local et [importez-les dans le module HSM managé](hsm-protected-keys-byok.md). Une copie de votre clé est stockée en toute sécurité dans votre module HSM local pour une utilisation ultérieure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

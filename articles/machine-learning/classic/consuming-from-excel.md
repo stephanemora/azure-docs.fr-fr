@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Utiliser le service web dans Excel – Azure'
-description: Azure Machine Learning Studio (classique) permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
+description: Machine Learning Studio (classique) permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,18 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: e8e7404a2b643cf90866253e5a7453381b66f73e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52fe23315bc6f455460e8e3727d263e14799b186
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517856"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582831"
 ---
-# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Utilisation d’un service web Azure Machine Learning Studio (classique) depuis Excel
+# <a name="consuming-an-machine-learning-studio-classic-web-service-from-excel"></a>Utilisation d’un service web Machine Learning Studio (classique) depuis Excel
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-Azure Machine Learning Studio (classique) permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
+Machine Learning Studio (classique) permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
 
 Si vous utilisez Excel 2013 (ou une version ultérieure) ou Excel Online, nous vous recommandons d’utiliser la [macro complémentaire Excel](excel-add-in-for-web-services.md).
 
@@ -40,7 +40,7 @@ Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES**
 
 **Nouveau service web**
 
-1. Dans le portail Service web Azure Machine Learning, sélectionnez **Consommer**.
+1. Dans le portail Service web Machine Learning, sélectionnez **Consommer**.
 2. Dans la page Consommer, dans les **options de consommation de service Web** cliquez sur l’icône Excel.
 
 **Utilisation du classeur**

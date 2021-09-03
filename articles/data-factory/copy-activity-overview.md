@@ -1,19 +1,22 @@
 ---
-title: Activité de copie dans Azure Data Factory
-description: En savoir plus sur l’activité de copie dans Azure Data Factory. Vous pouvez l’utiliser pour copier des données à partir d’un magasin de données source pris en charge vers un magasin de données de récepteur pris en charge.
+title: Activité de copie
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez l’activité de copie dans Azure Data Factory et Azure Synapse Analytics Vous pouvez l’utiliser pour copier des données à partir d’un magasin de données source pris en charge vers un magasin de données de récepteur pris en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 6/1/2021
 ms.author: jianleishen
-ms.openlocfilehash: 944e5fb05298c91e4405088c1179e0720173dde0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a8ceba1174a678f2c677c8c36785996bdbb4454a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746144"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641576"
 ---
-# <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
+# <a name="copy-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de copie dans Azure Data Factory et Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version de Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
@@ -21,7 +24,7 @@ ms.locfileid: "111746144"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des banques de données locales et dans cloud. Une fois que vous avez copié les données, vous pouvez utiliser d’autres activités pour les transformer et les analyser ultérieurement. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
+Dans Azure Data Factory et les pipelines Synapse, vous pouvez utiliser l’activité de copie pour copier des données entre des banques de données locales et dans le cloud. Une fois que vous avez copié les données, vous pouvez utiliser d’autres activités pour les transformer et les analyser ultérieurement. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
 ![Rôle de l’activité de copie](media/copy-activity-overview/copy-activity.png)
 
@@ -58,13 +61,13 @@ Vous pouvez utiliser l’activité de copie pour copier des fichiers en l'état 
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Le service qui permet l’activité de copie est disponible mondialement, dans les régions et zones géographiques répertoriées dans [Emplacements du runtime d’intégration Azure](concepts-integration-runtime.md#integration-runtime-location). La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez [Produits par région](https://azure.microsoft.com/regions/#services) pour vérifier la disponibilité de Data Factory et le déplacement des données dans une région spécifique.
+Le service qui permet l’activité de copie est disponible mondialement, dans les régions et zones géographiques répertoriées dans [Emplacements du runtime d’intégration Azure](concepts-integration-runtime.md#integration-runtime-location). La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez [Produits par région](https://azure.microsoft.com/regions/#services) pour vérifier la disponibilité de Data Factory, les espaces de travail Synapse et le déplacement des données dans une région spécifique.
 
 ## <a name="configuration"></a>Configuration
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En règle générale, pour utiliser l’activité de copie dans Azure Data Factory, vous devez :
+En règle générale, pour utiliser l’activité de copie dans Azure Data Factory ou les pipelines Synapse, vous devez :
 
 1. **Créer des services liés pour le magasin de données source et le magasin de données récepteur.** Vous trouverez la liste des connecteurs pris en charge dans la section [Magasins de données et formats pris en charge](#supported-data-stores-and-formats) dans cet article. Reportez-vous à la section « Propriétés du service lié » de l’article relatif au connecteur pour obtenir des informations sur la configuration et les propriétés prises en charge. 
 2. **Créer des jeux de données pour la source et le récepteur.** Pour plus d’informations sur la configuration et les propriétés prises en charge, reportez-vous aux sections « Propriétés du jeu données » des articles relatifs au connecteur source et récepteur.
@@ -139,15 +142,15 @@ Le modèle suivant d’activité de copie contient une liste complète des propr
 
 ## <a name="monitoring"></a>Surveillance
 
-Vous pouvez surveiller l’exécution de l’activité de copie dans Azure Data Factory visuellement ou par programmation. Pour plus d’informations, consultez [Surveiller l’activité de copie](copy-activity-monitoring.md).
+Vous pouvez surveiller l’exécution de l’activité de copie dans Azure Data Factory et les pipelines Synapse visuellement ou par programmation. Pour plus d’informations, consultez [Surveiller l’activité de copie](copy-activity-monitoring.md).
 
 ## <a name="incremental-copy"></a>Copie incrémentielle
 
-Data Factory vous permet de copier de façon incrémentielle des données delta d’un magasin de données source vers un magasin de données récepteur. Pour plus d’informations, consultez [Didacticiel : Copier les données de façon incrémentielle](tutorial-incremental-copy-overview.md).
+Data Factory et les pipelines Synapse vous permettent de copier de façon incrémentielle des données delta d’un magasin de données source vers un magasin de données récepteur. Pour plus d’informations, consultez [Didacticiel : Copier les données de façon incrémentielle](tutorial-incremental-copy-overview.md).
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 
-L’expérience de [surveillance de l’activité de copie](copy-activity-monitoring.md) affiche les statistiques des performances de copie pour chaque exécution d’activité. Le [Guide des performances et de l’évolutivité de l’activité de copie](copy-activity-performance.md) décrit les facteurs clés qui affectent les performances du déplacement des données par le biais de l’activité de copie dans Azure Data Factory. Il répertorie également les valeurs de performances observées pendant le test et explique comment optimiser les performances de l’activité de copie.
+L’expérience de [surveillance de l’activité de copie](copy-activity-monitoring.md) affiche les statistiques des performances de copie pour chaque exécution d’activité. Le [Guide des performances et de l’évolutivité de l’activité de copie](copy-activity-performance.md) décrit les facteurs clés qui affectent les performances du déplacement des données par le biais de l’activité de copie. Il répertorie également les valeurs de performances observées pendant le test et explique comment optimiser les performances de l’activité de copie.
 
 ## <a name="resume-from-last-failed-run"></a>Reprendre à partir de la dernière exécution ayant échoué
 
@@ -260,7 +263,7 @@ Par défaut, l’activité de copie arrête la copie des données et retourne un
 
 ## <a name="data-consistency-verification"></a>Vérification de la cohérence des données
 
-Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie d’Azure Data Factory vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. Consultez [Vérification de la cohérence des données dans l’activité de copie](copy-activity-data-consistency.md) pour plus d’informations.
+Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. Consultez [Vérification de la cohérence des données dans l’activité de copie](copy-activity-data-consistency.md) pour plus d’informations.
 
 ## <a name="session-log"></a>Journal de session
 Vous pouvez journaliser les noms de fichiers copiés, ce qui peut vous aider à mieux vous assurer que les données sont non seulement bien copiées du magasin source vers le magasin de destination, mais qu’elles sont également cohérentes entre les deux magasins en examinant les journaux de session de l’activité de copie. Consultez [Journal de session dans l’activité de copie](copy-activity-log.md) pour plus de détails.

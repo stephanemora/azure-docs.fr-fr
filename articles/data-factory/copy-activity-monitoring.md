@@ -1,39 +1,50 @@
 ---
 title: Superviser une activité de copie
-description: Découvrez comment surveiller l’activité de copie dans Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment surveiller l’activité de copie dans Azure Data Factory et Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1382d92b09bef59a7b9e79a758c41c6bbaec7343
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b8f3de9a986c491de6bfd2b507755abe4face534
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482630"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822399"
 ---
-# <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
+# <a name="monitor-copy-activity"></a>Superviser une activité de copie
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment surveiller l’activité de copie dans Azure Data Factory. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment surveiller l’activité de copie dans Azure Data Factory et les pipelines Synapse. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="monitor-visually"></a>Surveiller visuellement
 
-Une fois que vous avez créé et publié un pipeline dans Azure Data Factory, vous pouvez l’associer à un déclencheur ou lancer manuellement une exécution ad hoc. Vous pouvez surveiller l’ensemble de vos exécutions de pipeline en mode natif dans l’expérience utilisateur d’Azure Data Factory. Pour plus d'informations sur la surveillance Azure Data Factory en général, consultez [Surveiller visuellement Azure Data Factory](monitor-visually.md).
+Une fois que vous avez créé et publié un pipeline, vous pouvez l’associer à un déclencheur ou lancer manuellement une exécution ad hoc. Vous pouvez superviser l’ensemble de vos exécutions de pipeline en mode natif dans l’expérience utilisateur. Pour plus d'informations sur la surveillance en général, consultez [Surveiller visuellement Azure Data Factory et les pipelines Synapse](monitor-visually.md).
 
-Pour surveiller visuellement l’exécution de l’activité de copie, accédez à l'IU **Créer et surveiller** de votre fabrique de données. Dans la liste des exécutions de pipeline qui s'affiche sous l'onglet **Surveiller**, cliquez sur le lien correspondant au **nom du pipeline** pour accéder à la liste des exécutions d’activités dans l’exécution de pipeline.
+Pour surveiller l’exécution de l’activité de copie, accédez à l’interface utilisateur **Data Factory Studio** ou **Azure Synapse Studio** pour votre instance de service. Dans la liste des exécutions de pipeline qui s'affiche sous l'onglet **Surveiller**, cliquez sur le lien correspondant au **nom du pipeline** pour accéder à la liste des exécutions d’activités dans l’exécution de pipeline.
+
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
 ![Surveillance de l’exécution du pipeline](./media/copy-activity-overview/monitor-pipeline-run.png)
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+![Surveillance de l’exécution du pipeline](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+
+---
 
 À ce niveau, vous pouvez voir des liens pour copier l’entrée, la sortie d'activité et des erreurs (en cas d’échec d’exécution de l’activité de copie), ainsi que des statistiques telles que durée/état. Cliquez sur le bouton **Détails** (lunettes) en regard du nom de l’activité de copie pour consulter de plus amples informations sur l'exécution de l'activité de copie. 
 
 ![Surveiller une exécution d'activité de copie](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-Dans cette vue de surveillance graphique, Azure Data Factory vous présente les informations d’exécution de l’activité de copie, notamment le volume de données lues/écrites, le nombre de fichiers/lignes de données copiés de la source au récepteur, le débit, les configurations appliquées pour votre scénario de copie, les étapes de l’activité de copie avec les durées et les détails correspondants, et bien plus. Reportez-vous à [cette table](#monitor-programmatically) pour chaque mesure possible et sa description détaillée. 
+Dans cette vue de surveillance graphique, le service vous présente les informations d’exécution de l’activité de copie, notamment le volume de données lues/écrites, le nombre de fichiers/lignes de données copiés de la source au récepteur, le débit, les configurations appliquées pour votre scénario de copie, les étapes de l’activité de copie avec les durées et les détails correspondants, et bien plus. Reportez-vous à [cette table](#monitor-programmatically) pour chaque mesure possible et sa description détaillée. 
 
-Dans certains scénarios, lorsque vous exécutez une activité de copie dans Data Factory, vous voyez des **« Conseils sur le réglage des performances »** en haut de l'affichage de surveillance de l’activité de copie, comme indiqué dans l’exemple suivant. Les conseils vous indiquent le goulot d’étranglement identifié par ADF pour l’exécution de copie spécifique, de même que des suggestions sur ce qui doit être modifié afin d'améliorer le débit de copie. Apprenez-en davantage sur les [conseils de réglage automatique des performances](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+Dans certains scénarios, lorsque vous exécutez une activité de copie, vous voyez des **« Conseils sur le réglage des performances »** en haut de l'affichage de surveillance de l’activité de copie, comme indiqué dans l’exemple suivant. Les conseils vous indiquent le goulot d’étranglement identifié par le service pour l’exécution de copie spécifique, de même que des suggestions sur ce qui doit être modifié afin d'améliorer le débit de copie. Apprenez-en davantage sur les [conseils de réglage automatique des performances](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 La partie inférieure **Détails et durées d’exécution** décrit les étapes clés de l’activité de copie, ce qui est particulièrement utile pour résoudre les problèmes de performances de copie. Le goulot d’étranglement de votre exécution de copie correspond à celui dont la durée est la plus longue. Reportez-vous à [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md) pour connaître chaque étape et obtenir des instructions de dépannage détaillées.
 
@@ -43,7 +54,7 @@ La partie inférieure **Détails et durées d’exécution** décrit les étapes
 
 ## <a name="monitor-programmatically"></a>Surveiller par programmation
 
-Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans la section **Résultat d’exécution de l’activité de copie** > section **Sortie**, utilisée pour afficher la surveillance IU. Voici une liste complète des propriétés qui peuvent être retournées. Vous ne verrez que les propriétés qui s’appliquent à votre scénario de copie. Pour plus d’informations sur la surveillance des exécutions d’activités par programmation en général, consultez [Surveiller par programmation une fabrique de données Azure](monitor-programmatically.md).
+Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans la section **Résultat d’exécution de l’activité de copie** > section **Sortie**, utilisée pour afficher la surveillance IU. Voici une liste complète des propriétés qui peuvent être retournées. Vous ne verrez que les propriétés qui s’appliquent à votre scénario de copie. Pour plus d’informations sur la surveillance des exécutions d’activités par programmation en général, consultez [Surveiller par programmation une fabrique de données Azure ou un pipeline Synapse](monitor-programmatically.md).
 
 | Nom de la propriété  | Description | Unité en sortie |
 |:--- |:--- |:--- |
