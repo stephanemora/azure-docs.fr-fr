@@ -2,15 +2,15 @@
 title: Résoudre des problèmes de runbook Azure Automation
 description: Cet article explique comment dépanner et résoudre des problèmes liés aux runbooks Azure Automation.
 services: automation
-ms.date: 02/11/2021
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 7964bc62aefc912a0f61744841784600575c98de
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a7711d30a71cc5b637a1fc755609d3f5c48683d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831219"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524707"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -39,7 +39,7 @@ Lorsque des erreurs surviennent pendant l’exécution de runbooks dans Azure Au
 1. En cas d’échec inattendu ou d’interruption du runbook :
 
     * [Renouvelez le certificat](../manage-runas-account.md#cert-renewal) si le compte d’identification a expiré.
-    * [Renouvelez le webhook](../automation-webhooks.md#renew-a-webhook) si vous essayez d’utiliser un webhook expiré pour démarrer le runbook.
+    * [Renouvelez le webhook](../automation-webhooks.md#update-a-webhook) si vous essayez d’utiliser un webhook expiré pour démarrer le runbook.
     * [Vérifiez les états des travaux](../automation-runbook-execution.md#job-statuses) pour déterminer les états de runbook actuels et des causes possibles du problème.
     * [Ajoutez une sortie supplémentaire](../automation-runbook-output-and-messages.md#working-with-message-streams) au runbook pour identifier ce qui se passe avant l'interruption du runbook.
     * [Gérez les exceptions](../automation-runbook-execution.md#exceptions) qui sont levées par votre travail.
@@ -47,6 +47,22 @@ Lorsque des erreurs surviennent pendant l’exécution de runbooks dans Azure Au
 1. Effectuez cette étape si le travail ou l’environnement du runbook sur Runbook Worker hybride ne répond pas.
 
     Si vous exécutez vos runbooks sur un Runbook Worker hybride plutôt que dans Azure Automation, vous devez peut-être [résoudre les problèmes du worker hybride](hybrid-runbook-worker.md).
+
+## <a name="scenario-access-blocked-to-azure-storage-or-azure-key-vault-or-azure-sql"></a>Scénario : accès bloqué au stockage Azure ou Azure Key Vault ou SQL Azure
+
+Ce scénario utilise [Azure Storage](../../storage/common/storage-network-security.md) comme exemple ; cependant, les informations sont également applicables à [Azure Key Vault](../../key-vault/general/network-security.md) et [Azure SQL](../../azure-sql/database/firewall-configure.md).
+
+### <a name="issue"></a>Problème
+
+Toute tentative d’accès à stockage Azure à partir d’un Runbook provoque une erreur similaire au message suivant : `The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation.`
+
+### <a name="cause"></a>Cause
+
+Le pare-feu Azure sur stockage Azure est activé.
+
+### <a name="resolution"></a>Résolution
+
+L'activation du pare-feu Azure sur [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md) ou [Azure SQL](../../azure-sql/database/firewall-configure.md) bloque l'accès à partir des runbooks Azure Automation pour ces services. L’accès sera bloqué même lorsque l’exception de pare-feu pour autoriser les services Microsoft approuvés est activée, car Automation ne fait pas partie de la liste des services approuvés. Avec un pare-feu activé, l’accès ne peut être effectué qu’à l’aide d’un Runbook Worker hybride et d’un [point de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Scénario : Un runbook échoue avec une erreur 403 Aucune autorisation ou Interdit
 
@@ -470,7 +486,7 @@ Le webhook que vous tentez d’appeler est désactivé ou a expiré.
 
 ### <a name="resolution"></a>Résolution
 
-Si le webhook est désactivé, vous pouvez le réactiver via le portail Azure. Si le webhook a expiré, vous devez le supprimer puis le recréer. Vous pouvez uniquement [renouveler un webhook](../automation-webhooks.md#renew-a-webhook) s’il n’a pas déjà expiré. 
+Si le webhook est désactivé, vous pouvez le réactiver via le portail Azure. Si le webhook a expiré, vous devez le supprimer puis le recréer. Vous pouvez uniquement [renouveler un webhook](../automation-webhooks.md#update-a-webhook) s’il n’a pas déjà expiré. 
 
 ## <a name="scenario-429-the-request-rate-is-currently-too-large"></a><a name="429"></a>Scénario : 429 : Le taux de requêtes est actuellement trop important
 

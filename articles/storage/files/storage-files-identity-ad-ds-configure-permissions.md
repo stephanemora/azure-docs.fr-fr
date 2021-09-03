@@ -7,18 +7,25 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88a8df21d1161351a97434b3bf70656a09ea2ae
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470765"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731041"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB 
 
 Avant de commencer à lire cet article, veillez à parcourir l’article précédent, intitulé [Attribuer des autorisations au niveau du partage à une identité](storage-files-identity-ad-ds-assign-permissions.md) pour vous assurer que vos autorisations de partage sont définies.
 
 Une fois que vous avez attribué des autorisations au niveau du partage avec Azure RBAC, vous devez configurer les ACL Windows appropriées au niveau du fichier, du répertoire ou de la racine pour tirer parti du contrôle d’accès granulaire. Considérez les autorisations Azure RBAC au niveau du partage comme un gardien de niveau supérieur qui détermine si un utilisateur peut accéder au partage. En revanche, les ACL Windows fonctionnent à un niveau plus granulaire pour déterminer les opérations que l’utilisateur peut effectuer au niveau du répertoire ou du fichier. Les autorisations au niveau du partage et au niveau du fichier/répertoire sont appliquées lorsqu’un utilisateur tente d’accéder à un fichier/répertoire. Par conséquent, s’il existe une différence entre ces deux niveaux, seules les autorisations dont le niveau est le plus restrictif sont appliquées. Par exemple, si un utilisateur dispose d’un accès en lecture/écriture au niveau du fichier, mais uniquement en lecture au niveau du partage, il peut uniquement lire ce fichier. Il en va de même dans le cas contraire : si un utilisateur avait un accès en lecture/écriture au niveau du partage, mais uniquement en lecture au niveau du fichier, il ne peut toujours que lire le fichier.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="azure-rbac-permissions"></a>Autorisations Azure RBAC
 
@@ -34,7 +41,7 @@ Le tableau suivant contient les autorisations Azure RBAC associées à cette con
 |     |  Lire et exécuter |  Lire et exécuter |
 |     |  Lire           |  Lire    |
 |     |  Write          |  Write   |
-|Contributeur élevé de partage SMB de données de fichier de stockage | Contrôle total  |  Modifier, Lire, Écrire, Édition, Exécuter |
+|Contributeur élevé de partage SMB de données de fichier de stockage | Contrôle total  |  Modifier, Lire, Écrire, Éditer (Modifier les autorisations), Exécuter |
 |     |  Modifier          |  Modifier |
 |     |  Lire et exécuter  |  Lire et exécuter |
 |     |  Lire            |  Lire   |

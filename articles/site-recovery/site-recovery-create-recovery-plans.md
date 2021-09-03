@@ -3,12 +3,12 @@ title: Créer et personnaliser des plans de récupération dans Azure Site Recov
 description: Découvrez comment créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee7386b07c93182bb8703702e2ce63e10626457d
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009719"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666156"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
 
@@ -34,6 +34,7 @@ Cet article décrit la création et la personnalisation d’un plan de récupér
     - Un plan de récupération peut contenir des ordinateurs ayant les mêmes source et cible.
     - Vous pouvez inclure des machines virtuelles VMware et Hyper-V gérées par VMM dans le même plan.
     - Les machines virtuelles VMware et les serveurs physiques peuvent se trouver dans le même plan.
+    - Toutes les machines virtuelles d'un plan de récupération doivent être répliquées dans le même abonnement. Si vous souhaitez répliquer différentes machines virtuelles vers différents abonnements, utilisez plusieurs plans de récupération (un ou plusieurs pour chaque abonnement cible).
 
 4. Dans **Sélectionner les machines virtuelles**, sélectionnez les ordinateurs (ou le groupe de réplication) que vous voulez ajouter au plan. Cliquez ensuite sur **OK**.
     - Les ordinateurs sont ajoutés au groupe par défaut (Groupe 1) dans le plan. Après le basculement, tous les ordinateurs dans ce groupe démarrent en même temps.

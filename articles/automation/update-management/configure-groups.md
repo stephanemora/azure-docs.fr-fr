@@ -3,14 +3,14 @@ title: Utilisation de groupes dynamiques avec Azure Automation Update Management
 description: Cet article décrit le fonctionnement des groupes dynamiques avec Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 06/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 318b5498c826b1e29baa35850594cebca72c4f3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b09def53b32d9616ddab541b3448f863b6ec781a
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575934"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112520529"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utiliser des groupes dynamiques avec Update Management
 
@@ -46,6 +46,9 @@ Pour afficher un aperçu des résultats de votre requête de groupe dynamique, c
 Un groupe dynamique pour les machines non-Azure utilise des recherches enregistrées, également appelées groupes d’ordinateurs. Pour apprendre à créer une recherche enregistrée, consultez [Création d’un groupe d’ordinateurs](../../azure-monitor/logs/computer-groups.md#creating-a-computer-group). Une fois votre recherche enregistrée créée, vous pouvez la sélectionner dans la liste des recherches enregistrées au niveau de **Gestion des mises à jour** dans le portail Azure. Cliquez sur **Aperçu** pour afficher un aperçu des ordinateurs figurant dans la recherche enregistrée.
 
 ![Capture d’écran montrant la page Sélectionner des groupes pour les machines non Azure (préversion) et le volet de visualisation sur le côté droit.](./media/configure-groups/select-groups-2.png)
+
+> [!NOTE]
+> Une recherche enregistrée qui [interroge les données stockées dans plusieurs espaces de travail Log Analytics](../../azure-monitor/logs/cross-workspace-query.md) n'est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

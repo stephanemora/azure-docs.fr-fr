@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccd3de1b05c416ea25f7636c683f887dccc76898
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 4fcd11f88cb25ef3afb199b147856d0a0140e44c
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713789"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491980"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -141,7 +141,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 1. Une fois que vous avez sélectionné toutes les organisations connectées, cliquez sur **Sélectionner**.
 
     > [!NOTE]
-    > Tous les utilisateurs des organisations connectées sélectionnées pourront demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’organisation, à moins que ces domaines soient bloqués par la liste d’autorisation ou de refus d’Azure B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../external-identities/allow-deny-list.md).
+    > Tous les utilisateurs des organisations connectées sélectionnées pourront demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l'organisation, sauf si ces domaines sont bloqués par la liste d'autorisation ou de refus d'Azure B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../external-identities/allow-deny-list.md).
 
 1. Si vous souhaitez exiger une approbation, suivez les étapes décrites dans [Modifier les paramètres d'approbation d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD](entitlement-management-access-package-approval-policy.md) pour configurer les paramètres d'approbation.
  
@@ -198,11 +198,17 @@ Pour modifier les paramètres de demande et d’approbation d’un package d’a
 
 1. Cliquez sur **Suivant**.
 
-1. Si vous souhaitez exiger que les demandeurs fournissent des informations supplémentaires lors de la demande d’accès à un package d’accès, utilisez les étapes fournies dans [Modifier les paramètres d’approbation et d’informations sur le demandeur (préversion) d’un package d’accès dans la fonctionnalité de gestion des droits d’utilisation Azure AD](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) pour configurer les informations du demandeur (préversion).
+1. Si vous souhaitez exiger que les demandeurs fournissent des informations supplémentaires lors de la demande d'accès à un package d'accès, utilisez les étapes fournies dans [Modifier les paramètres d'approbation et d'informations sur le demandeur d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval) pour configurer les informations du demandeur.
 
 1. Configurez les paramètres de cycle de vie.
 
 1. Si vous modifiez une stratégie, cliquez sur **Mettre à jour**. Si vous ajoutez une nouvelle stratégie, cliquez sur **Créer**.
+
+## <a name="prevent-requests-from-users-with-incompatible-access-preview"></a>Empêcher les demandes des utilisateurs dont l'accès est incompatible (préversion)
+
+Outre les vérifications de stratégie portant sur les personnes autorisées à effectuer des demandes, vous pouvez restreindre davantage l'accès afin d'éviter qu'un utilisateur qui dispose déjà d'un accès (par le biais d'un groupe ou d'un autre package d'accès) ne bénéficie d'un accès excessif.
+
+Si, dans le cadre de votre configuration, vous souhaitez empêcher un utilisateur de demander un package d'accès, s'il est déjà affecté à un autre package d'accès ou s'il est membre d'un groupe, suivez la procédure décrite dans [Configurer les vérifications de séparation des tâches pour un package d'accès](entitlement-management-access-package-incompatible.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,22 +1,22 @@
 ---
 title: Conformité avec Azure Policy
-description: Attribuer des stratégies intégrées dans Azure Policy pour auditer la conformité de vos registres de conteneurs Azure
+description: Attribuer des définitions de stratégie intégrée dans Azure Policy pour auditer la conformité de vos registres de conteneurs Azure
 ms.topic: article
-ms.date: 03/01/2021
-ms.openlocfilehash: 62a1fd8d3c996fd3a0bac3cadf77fc7e7ace0ce3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 08/10/2021
+ms.openlocfilehash: d8f986a3a857f622248daa75d0402f1abfbf8a7b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784170"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531388"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditer la conformité des registres de conteneurs Azure à l’aide d’Azure Policy
 
-[Azure Policy](../governance/policy/overview.md) est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise.
+[Azure Policy](../governance/policy/overview.md) est un service dans Azure, que vous utilisez pour créer, affecter et gérer des définitions de stratégie. Ces définitions de stratégie appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise.
 
-Cet article présente les stratégies intégrées pour Azure Container Registry. Utilisez ces stratégies pour auditer la conformité des registres nouveaux et existants.
+Cet article présente les définitions de stratégie intégrée pour Azure Container Registry. Utilisez ces définitions pour auditer la conformité des registres nouveaux et existants.
 
-L’utilisation d’Azure Policy est gratuite.
+L’utilisation d’Azure Policy n’est pas facturée.
 
 ## <a name="built-in-policy-definitions"></a>Définitions de stratégie intégrées
 
@@ -24,14 +24,14 @@ Les définitions de stratégies intégrées suivantes sont spécifiques à Azure
 
 [!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
-## <a name="assign-policies"></a>Attribuer des stratégies
+## <a name="create-policy-assignments"></a>Créer des affectations de stratégies
 
-* Attribuez des stratégies à l’aide du [Portail Azure](../governance/policy/assign-policy-portal.md), d’[Azure CLI](../governance/policy/assign-policy-azurecli.md), d’un [modèle Resource Manager](../governance/policy/assign-policy-template.md) ou des Kits de développement logiciel (SDK) Azure Policy.
+* Créez des affectations de stratégie à l’aide du [portail Azure](../governance/policy/assign-policy-portal.md), d’[Azure CLI](../governance/policy/assign-policy-azurecli.md), d’un [modèle Resource Manager](../governance/policy/assign-policy-template.md) ou des Kits de développement logiciel (SDK) Azure Policy.
 * Étendez une attribution de stratégie à un groupe de ressources, à un abonnement ou à un [groupe d’administration Azure](../governance/management-groups/overview.md). Les attributions de stratégies de registre de conteneurs s’appliquent aux registres de conteneurs existants et nouveaux au sein de l’étendue.
 * Activez ou désactivez l’[application de la stratégie](../governance/policy/concepts/assignment-structure.md#enforcement-mode) à tout moment.
 
 > [!NOTE]
-> Une fois que vous avez attribué ou mis à jour une stratégie, l’application de l’attribution aux ressources de l’étendue définie prend un certain temps. Consultez les informations relatives aux [déclencheurs d’évaluation de la stratégie](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> Une fois que vous avez créé ou mis à jour une affectation de stratégie, l’évaluation de l’attribution aux ressources de l’étendue définie prend un certain temps. Consultez les informations relatives aux [déclencheurs d’évaluation de la stratégie](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="review-policy-compliance"></a>Vérifier la conformité de la stratégie
 

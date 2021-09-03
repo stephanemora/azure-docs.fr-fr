@@ -4,15 +4,15 @@ description: Créer des plans pour une offre de machine virtuelle sur la Place 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 05/20/2021
-ms.openlocfilehash: f0e05f06258cc30253fefdc7113fce045009f500
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 07/26/2021
+ms.openlocfilehash: a974bf12873d46b7835d861b8c4d7007fb7e72ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527619"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525105"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
@@ -31,7 +31,7 @@ Une fois que vous avez créé vos plans, sélectionnez l’onglet **Vue d’ense
 Les actions disponibles dans ce volet varient selon l’état actuel de votre plan.
 
 - Si l’état du plan est Brouillon, sélectionnez **Supprimer le brouillon**.
-- Si l’état du plan est Publié, sélectionnez **Arrêter la vente du plan** ou **Synchroniser le public privé**.
+- Si l’état du plan est Publié, sélectionnez **Déprécier un plan** ou **Synchroniser le public privé**.
 
 ## <a name="create-a-new-plan"></a>Créer un plan
 
@@ -149,7 +149,7 @@ Si vous comptez utiliser votre machine virtuelle uniquement de manière indirect
 
 Tout client Azure peut déployer l’offre à l’aide de PowerShell ou de l’interface CLI.  Si vous souhaitez mettre cette offre à disposition d’un nombre limité de clients, définissez le plan sur **Privé**. 
 
-Les plans masqués ne génèrent pas de liens d’aperçu. Toutefois, vous pouvez les tester [en procédant comme suit](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
+Les plans masqués ne génèrent pas de liens d’aperçu. Toutefois, vous pouvez les tester [en procédant comme suit](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
 
 Si vous effectuez des modifications, sélectionnez **Enregistrer le brouillon** avant de passer à l’onglet suivant du menu de navigation gauche **Configuration technique**.
 
@@ -179,7 +179,23 @@ Ajoutez des ports publics ou privés sur une machine virtuelle déployée.
 
 ### <a name="properties"></a>Propriétés
 
-Indiquez si votre machine virtuelle **prend en charge les performances réseau accélérées**. Pour plus d’informations, consultez [Performances réseau accélérées](https://go.microsoft.com/fwlink/?linkid=2124513).
+Voici une liste des propriétés qui peuvent être sélectionnées pour votre machine virtuelle.
+
+- **Prend en charge la sauvegarde** : activez cette propriété si vos images prennent en charge la sauvegarde de machine virtuelle Azure. Apprenez-en davantage sur la [sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms-introduction.md).
+
+- **Prend en charge la mise en réseau accélérée** : activez cette propriété si les images de machine virtuelle pour ce plan prennent en charge la virtualisation d’e/s d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui permet une faible latence et un débit élevé sur l’interface réseau. En savoir plus sur la [mise en réseau accélérée](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+- **Prend en charge la configuration Cloud-init** : activez cette propriété si les images de ce plan prennent en charge les scripts de publication Cloud-init. En savoir plus sur la [configuration cloud-init](../virtual-machines/linux/using-cloud-init.md).
+
+- **Prend en charge hotpatch** : Windows Server Azure editions prend en charge la mise à jour corrective à chaud. En savoir plus sur la [correction à chaud](../automanage/automanage-hotpatch.md).
+
+- **Prend en charge les extensions** : activez cette propriété si les images de ce plan prennent en charge les extensions. Les extensions sont de petites applications qui proposent une configuration post-déploiement et une automatisation sur les machines virtuelles Azure. En savoir plus sur les [extensions de machines virtuelles Azure](./azure-vm-create-certification-faq.yml#vm-extensions).
+
+- **Est une appliance virtuelle réseau** : activez cette propriété si ce produit est une appliance virtuelle réseau. Une appliance virtuelle réseau est un produit qui exécute une ou plusieurs fonctions réseau, telles qu’un équilibreur de charge, une passerelle VPN, un pare-feu ou une passerelle d’application. En savoir plus sur les [appliances virtuelles réseau](https://go.microsoft.com/fwlink/?linkid=2155373).
+
+- **Bureau à distance ou SSH désactivé** : activez cette propriété si les ordinateurs virtuels déployés avec ces images n’autorisent pas les clients à y accéder à l’aide du bureau à distance ou SSH. En savoir plus sur les [images de VM verrouillées](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer).
+
+- **Nécessite un modèle ARM personnalisé pour le déploiement** : activez cette propriété si les images de ce plan peuvent uniquement être déployées à l’aide d’un modèle ARM personnalisé. Pour plus d’informations, consultez la [section modèles personnalisés de résoudre les problèmes de certification des machines virtuelles](./azure-vm-create-certification-faq.yml#custom-templates).
 
 ### <a name="generations"></a>Générations
 

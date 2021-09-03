@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 977284ba735eef4f02907d63ee1ae65332d7990f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98916148"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778439"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sécuriser vos ports de gestion avec un accès juste-à-temps
 
@@ -33,11 +33,11 @@ Cette page vous explique comment inclure l’accès JAT dans votre programme de
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Disponibilité générale (GA)|
+|État de sortie :|Disponibilité générale|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
-|Machines virtuelles prises en charge :|![Oui](./media/icons/yes-icon.png) Machines virtuelles déployées via Azure Resource Manager.<br>![Non](./media/icons/no-icon.png) Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).<br>![Non](./media/icons/no-icon.png) Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](../firewall-manager/overview.md)|
-|Rôles et autorisations obligatoires :|Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.<br>Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Machines virtuelles prises en charge :|:::image type="icon" source="./media/icons/yes-icon.png"::: Machines virtuelles déployées via Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](../firewall-manager/overview.md)|
+|Rôles et autorisations obligatoires :|Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.<br>Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png":::National/Souverain (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -53,7 +53,7 @@ Chacune de ces options est expliquée dans un onglet séparé ci-dessous.
 
 ### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Activer l’accès JAT sur vos machines virtuelles à partir d’Azure Security Center <a name="jit-asc"></a>
 
-:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configuration d’un accès aux machines virtuelles juste-à-temps dans Azure Security Center":::
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configuration d’un accès aux machines virtuelles juste-à-temps dans Azure Security Center.":::
 
 À partir de Security Center, vous pouvez activer et configurer l’accès JAT à la machine virtuelle.
 
@@ -107,11 +107,11 @@ Vous pouvez modifier la configuration juste-à-temps d’une machine virtuelle e
 
 Pour modifier les règles JAT existantes pour une machine virtuelle :
 
-1. Ouvrez le tableau de bord Azure Defender et, dans la zone de protection avancée, sélectionnez **Contrôles d’application adaptatifs**.
+1. Ouvrez le tableau de bord Azure Defender et, dans la zone de protection avancée, sélectionnez **Accès juste-à-temps aux machines virtuelles**.
 
 1. Dans l’onglet **Configuré**, cliquez avec le bouton droit sur la machine virtuelle à laquelle vous souhaitez ajouter un port, puis sélectionnez Modifier. 
 
-    ![Modification d’une configuration d’accès JAT à la machine virtuelle dans Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+    ![Modification d’une configuration d’accès JAT à la machine virtuelle dans Azure Security Center.](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
 1. Sous **JIT VM access configuration** (Configuration de l’accès juste-à-temps à la machine virtuelle), vous pouvez soit modifier les paramètres existants d’un port déjà protégé, soit ajouter un nouveau port personnalisé.
 
@@ -125,7 +125,7 @@ Pour modifier les règles JAT existantes pour une machine virtuelle :
 
 Vous pouvez activer l’accès JAT sur une machine virtuelle à partir des pages des machines virtuelles Azure sur le portail Azure.
 
-![Configuration d’un accès JAT aux machines virtuelles dans les machines virtuelles Azure](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
+![Configuration d’un accès JAT aux machines virtuelles dans les machines virtuelles Azure.](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
 
 > [!TIP]
 > Si l’accès juste-à-temps est déjà activé sur une machine virtuelle, vous pouvez le voir quand vous accédez à sa page de configuration, et vous pouvez utiliser le lien pour ouvrir la page Accès JAT aux machines virtuelles dans Security Center afin d’afficher et de modifier les paramètres.
@@ -155,7 +155,7 @@ Vous pouvez activer l’accès JAT sur une machine virtuelle à partir des page
 
     1. Dans l’onglet **Configuré**, cliquez avec le bouton droit sur la machine virtuelle à laquelle vous souhaitez ajouter un port, puis sélectionnez Modifier. 
 
-        ![Modification d’une configuration d’accès JAT à la machine virtuelle dans Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+        ![Modification d’une configuration d’accès JAT à la machine virtuelle dans Azure Security Center.](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
     1. Sous **JIT VM access configuration** (Configuration de l’accès juste-à-temps à la machine virtuelle), vous pouvez soit modifier les paramètres existants d’un port déjà protégé, soit ajouter un nouveau port personnalisé.
 
@@ -241,7 +241,7 @@ Chacune de ces options est expliquée dans un onglet séparé ci-dessous.
 
 Quand l’accès JAT est activé pour une machine virtuelle, vous devez demander l’accès pour vous y connecter. Vous pouvez demander l’accès selon l’une des méthodes prises en charge, quelle que soit la façon dont vous avez activé l’accès JAT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Demande d’accès JAT à partir de Security Center":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Demande d’accès JAT à partir de Security Center.":::
 
 1. Dans la page **Accès JAT aux machines virtuelles**, sélectionnez l’onglet **Configuré**.
 
@@ -268,7 +268,7 @@ Quand l’accès JAT est activé pour une machine virtuelle, vous devez demande
 
 Quand l’accès JAT est activé pour une machine virtuelle, vous devez demander l’accès pour vous y connecter. Vous pouvez demander l’accès selon l’une des méthodes prises en charge, quelle que soit la façon dont vous avez activé l’accès JAT.
 
-  >![demande juste-à-temps JAT](./media/security-center-just-in-time/jit-request-vm.png)
+  >![demande juste-à-temps JAT.](./media/security-center-just-in-time/jit-request-vm.png)
 
 
 Pour demander l’accès à partir de machines virtuelles Azure :
@@ -333,13 +333,6 @@ Pour en savoir plus, consultez [Stratégies d’accès réseau JAT](/rest/api/se
 
 ---
 
-
-
-
-
-
-
-
 ## <a name="audit-jit-access-activity-in-security-center"></a>Auditer l’activité d’accès JIT dans Security Center
 
 Vous pouvez obtenir des informations sur les activités des machines virtuelles à l’aide de la recherche dans les journaux. Comment afficher les journaux d’activité :
@@ -350,7 +343,7 @@ Vous pouvez obtenir des informations sur les activités des machines virtuelles 
  
 1. Sélectionnez **Journal d’activité** dans le menu.
 
-   ![Sélectionner le journal d’activité JAT juste-à-temps](./media/security-center-just-in-time/jit-select-activity-log.png)
+   ![Sélectionner le journal d’activité JAT juste-à-temps.](./media/security-center-just-in-time/jit-select-activity-log.png)
 
    Le journal d’activité fournit une vue filtrée des opérations précédentes pour cette machine virtuelle, ainsi que l’abonnement, la date et l’heure.
 
@@ -358,14 +351,9 @@ Vous pouvez obtenir des informations sur les activités des machines virtuelles 
 
 
 
-
-
-
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à configurer et à utiliser l’accès juste-à-temps aux machines virtuelles. Pour en savoir plus sur les raisons pour lesquelles l’accès JAT doit être utilisé, consultez l’article conceptuel expliquant les menaces contre lesquelles il défend les machines virtuelles :
+Dans cet article, vous avez appris _comment_ configurer et utiliser l’accès juste-à-temps aux machines virtuelles. Pour en savoir plus sur les _raisons_ pour lesquelles l’accès JAT doit être utilisé, consultez l’article conceptuel expliquant les menaces contre lesquelles il défend les machines virtuelles :
 
 > [!div class="nextstepaction"]
 > [Explication de JAT](just-in-time-explained.md)

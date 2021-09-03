@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 638b78f0304a9bbba8521ed523dffa1deda03c7c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 314c52384910728c0250101e72501de0ae0b89a1
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480794"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554999"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Intégration de données dans Azure Synapse Analytics par rapport à Azure Data Factory
 
@@ -33,7 +33,7 @@ Vérifiez la disponibilité des fonctionnalités dans le tableau ci-dessous :
 |                          | Durée de vie | ✓ | ✗ |
 | **Activités des pipelines** | Activité de package SSIS | ✓ | ✗ |
 |                          | Prise en charge de l’activité de Power Query | ✓ | ✗ |
-| **Galerie de modèles et Centre de connaissances** | Modèles de solution | ✓<br><small>*Galerie de modèles Azure Data Factory* | ✓<br><small>*Centre de connaissances de l’espace de travail Synapse* |
+| **Galerie de modèles et Centre des connaissances** | Modèles de solution | ✓<br><small>*Galerie de modèles Azure Data Factory* | ✓<br><small>*Centre des connaissances de l'espace de travail Synapse* |
 | **Intégration du dépôt GIT** | Intégration de GIT | ✓ | ✓ |
 | **Surveillance**           | Surveillance des travaux Spark pour Data Flow | ✗ | ✓<br><small>*Tirer parti des pools Synapse Spark* |
 |                          | Intégration avec Azure Monitor | ✓ | ✗ |

@@ -4,13 +4,13 @@ description: Créer un fichier de paramètres pour transmettre des valeurs penda
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: eab3052b55b1dc1033139c734605e72b5494b174
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 06/16/2021
+ms.openlocfilehash: 4628b7d6a04bdec2a7ec4273536bf895dc23a5d9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026289"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292228"
 ---
 # <a name="create-bicep-parameter-file"></a>Créer un fichier de paramètres Bicep
 
@@ -35,31 +35,7 @@ Un fichier de paramètres utilise le format suivant :
 }
 ```
 
-Notez que le fichier de paramètre stocke les valeurs de paramètre sous forme de texte brut. Cette approche fonctionne pour les valeurs qui ne sont pas sensibles, comme la référence SKU pour une ressource. Le texte brut ne fonctionne pas pour les valeurs sensibles, telles que les mots de passe. Si vous devez passer un paramètre qui contient une valeur sensible, stockez cette dernière dans un coffre de clés. Vous pouvez ensuite référencer le coffre de clés dans votre fichier de paramètres. La valeur sensible est récupérée en toute sécurité pendant le déploiement.
-
-Le fichier de paramètres suivant comprend une valeur de texte brut et une valeur sensible stockée dans un coffre de clés.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "<first-parameter-name>": {
-      "value": "<first-value>"
-    },
-    "<second-parameter-name>": {
-      "reference": {
-        "keyVault": {
-          "id": "<resource-id-key-vault>"
-        },
-        "secretName": "<secret-name>"
-      }
-    }
-  }
-}
-```
-
-Pour plus d’informations sur l’utilisation de valeurs d’un coffre de clés, consultez la page [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
+Notez que le fichier de paramètre stocke les valeurs de paramètre sous forme de texte brut. Cette approche fonctionne pour les valeurs qui ne sont pas sensibles, comme la référence SKU pour une ressource. Le texte brut ne fonctionne pas pour les valeurs sensibles, telles que les mots de passe. Si vous devez passer un paramètre qui contient une valeur sensible, stockez cette dernière dans un coffre de clés. Au lieu d'ajouter la valeur sensible à votre fichier de paramètres, récupérez-la avec la [fonction getSecret](bicep-functions-resource.md#getsecret). Pour plus d'informations, consultez [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement Bicep](key-vault-parameter.md).
 
 ## <a name="define-parameter-values"></a>Définissez des valeurs de paramètre
 
@@ -183,7 +159,7 @@ L’exemple suivant illustre les formats de différents types de paramètres : 
 
 ## <a name="deploy-bicep-file-with-parameter-file"></a>Déployer le fichier Bicep avec le fichier de paramètres
 
-À partir d’Azure CLI, vous transmettez un fichier de paramètres local à l’aide de `@` et du nom de fichier du paramètre. Par exemple : `@storage.parameters.json`.
+À partir d'Azure CLI, transmettez un fichier de paramètres local à l'aide de `@` et du nom de fichier de paramètres. Par exemple : `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
@@ -195,7 +171,7 @@ az deployment group create \
 
 Pour plus d'informations, consultez [Déployer des ressources à l'aide de Bicep et d'Azure CLI](./deploy-cli.md#parameters). Pour déployer des fichiers _.bicep_, vous devez disposer d’Azure CLI version 2.20 ou ultérieure.
 
-À partir d’Azure PowerShell vous transmettez un fichier de paramètres local à l’aide du paramètre `TemplateParameterFile`.
+À partir d'Azure PowerShell, transmettez un fichier de paramètres local à l'aide du paramètre `TemplateParameterFile`.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -224,4 +200,4 @@ Si votre fichier Bicep inclut un paramètre utilisant le même nom que l'un des 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d'informations sur la définition des paramètres dans un fichier Bicep, consultez [Paramètres dans Bicep](./parameters.md).
-- Pour plus d’informations sur l’utilisation de valeurs d’un coffre de clés, consultez la page [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
+- Pour obtenir des valeurs sensibles, consultez [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).

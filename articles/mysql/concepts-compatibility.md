@@ -6,22 +6,24 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f6d0e9b303f12beb7cac22bf94d7ae34b36b77b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 269656068d01e2db1e222ec58e5f9b40f34f0d53
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958761"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532680"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Pilotes MySQL et outils de gestion compatibles avec Azure Database pour MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Cet article décrit les pilotes et outils de gestion compatibles avec Azure Database pour MySQL – Serveur unique.
 
->[!NOTE]
->Cet article s’applique uniquement à Azure Database pour MySQL – Serveur unique afin de garantir que les pilotes sont compatibles avec l’[architecture de connectivité](concepts-connectivity-architecture.md) du service Serveur unique. [Azure Database pour MySQL – Serveur flexible](./flexible-server/overview.md) est compatible avec tous les pilotes et outils pris en charge et compatibles avec l’édition de la communauté MySQL. 
+> [!NOTE]
+> Cet article s’applique uniquement à Azure Database pour MySQL – Serveur unique afin de garantir que les pilotes sont compatibles avec l’[architecture de connectivité](concepts-connectivity-architecture.md) du service Serveur unique. [Azure Database pour MySQL – Serveur flexible](./flexible-server/overview.md) est compatible avec tous les pilotes et outils pris en charge et compatibles avec l’édition de la communauté MySQL. 
 
 ## <a name="mysql-drivers"></a>Pilotes MySQL
-En termes de base de données MySQL, Azure Database pour MySQL utilise la version community edition la plus populaire au monde. Par conséquent, elle est compatible avec un large éventail de langages de programmation et de pilotes. L’objectif est de prendre en charge les trois versions les plus récentes de pilotes MySQL, et de poursuivre les efforts avec les auteurs de la Communauté open source, afin d’améliorer en permanence les fonctionnalités et la facilité d’utilisation des pilotes MySQL. Une liste de pilotes testés et détectés compatibles avec Azure Database pour MySQL 5.6 et 5.7 est fournie dans le tableau suivant :
+En termes de base de données MySQL, Azure Database pour MySQL utilise la version community edition la plus populaire au monde. Ainsi, elle est compatible avec un large éventail de langages de programmation et de pilotes. L’objectif est de prendre en charge les trois versions les plus récentes de pilotes MySQL, et de poursuivre les efforts avec les auteurs de la Communauté open source, afin d’améliorer en permanence les fonctionnalités et la facilité d’utilisation des pilotes MySQL. Une liste de pilotes testés et détectés compatibles avec Azure Database pour MySQL 5.6 et 5.7 est fournie dans le tableau suivant :
 
 | **Langage de programmation** | **Driver** | **Liens** | **Versions compatibles** | **Versions incompatibles** | **Remarques** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
@@ -35,7 +37,7 @@ En termes de base de données MySQL, Azure Database pour MySQL utilise la versio
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3+ | 0.9.0 - 0.9.2 (régression dans web2py) | |
 | Java | Connecteur MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 et versions antérieures | | 
 | Java | Connecteur MySQL/J | https://github.com/mysql/mysql-connector-j | 5.1.21+, utiliser 8.0.17+ avec MySQL 8.0 | 5.1.20 et versions antérieures | |
-| C | Connecteur MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2+ | | |
+| C | Connecteur MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/c-api/5.7/en/c-api-implementations.html | 6.0.2+ | | |
 | C | Connecteur MySQL/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
 | C++ | Connecteur MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9+ | 1.1.3 et versions antérieures | | 
 | C++ | MySQL++| https://github.com/tangentsoft/mysqlpp | 3.2.3+ | | |

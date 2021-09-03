@@ -4,12 +4,12 @@ description: Découvrez comment configurer un cluster Service Fabric sécurisé 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3f3d76b1cea2e1ed06f50bbdfbf4343972bc3945
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7323f6762fe6c55f1ab548f1c8196ee761014a2d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671029"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463870"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -57,16 +57,14 @@ Utilisez les commandes suivantes pour créer un cluster sécurisé avec un certi
 
 ### <a name="use-the-default-cluster-template-that-ships-in-the-module"></a>Utiliser le modèle de cluster par défaut qui est fourni dans le module
 
-Utiliser la commande suivante pour créer un cluster rapidement, en spécifiant des paramètres minimums et en utilisant le modèle par défaut.
+Vous pouvez utiliser les commandes PowerShell ou Azure CLI suivantes pour créer rapidement un cluster à l'aide du modèle par défaut.
 
-Le modèle utilisé est disponible dans les [exemples de modèles Azure Service Fabric : modèle Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) et le [modèle Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Le modèle par défaut utilisé est disponible ici pour [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) et ici pour [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-La commande suivante peut créer des clusters Windows ou Linux, vous devez spécifier le système d’exploitation. Les commandes PowerShell/CLI génèrent également le certificat dans *CertificateOutputFolder* spécifié. Vérifiez toutefois que le dossier Certificat est déjà créé. La commande accepte d’autres paramètres comme Référence de la machine virtuelle.
+Les commandes suivantes peuvent créer des clusters Windows ou Linux selon la façon dont le paramètre du système d'exploitation est spécifié. Les deux commandes PowerShell/CLI génèrent le certificat dans le dossier *CertificateOutputFolder* spécifié (assurez-vous que l'emplacement du dossier de certificat que vous spécifiez existe déjà avant d'exécuter la commande !).
 
 > [!NOTE]
-> La commande PowerShell suivante fonctionne uniquement avec le module Azure PowerShell `Az`. Pour vérifier la version actuelle de PowerShell Azure Resource Manager, exécutez la commande PowerShell « Get-Module Az ». Suivez [ce lien](/powershell/azure/install-Az-ps) pour mettre à niveau votre version de PowerShell Azure Resource Manager. 
->
->
+> La commande PowerShell suivante fonctionne uniquement avec le module Azure PowerShell `Az`. Pour vérifier la version actuelle de PowerShell Azure Resource Manager, exécutez la commande PowerShell « Get-Module Az ». Suivez [ce lien](/powershell/azure/install-Az-ps) pour mettre à niveau votre version de PowerShell Azure Resource Manager.
 
 Déployer le cluster à l’aide de PowerShell :
 
@@ -158,12 +156,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="create-a-new-cluster-using-your-own-x509-certificate"></a>Créer un cluster à l’aide de votre propre certificat X.509
 
-Utilisez la commande suivante pour créer un cluster, si vous disposez d’un certificat que vous souhaitez utiliser pour sécuriser votre cluster.
+Vous pouvez utiliser la commande suivante pour spécifier un certificat existant avec lequel créer et sécuriser un nouveau cluster.
 
 S’il s’agit d’un certificat signé d’une autorité de certification que vous allez également utiliser à d’autres fins, il est recommandé de fournir un groupe de ressources distinct pour votre coffre de clés. Nous vous recommandons de placer ce coffre de clés dans son propre groupe de ressources. Vous pouvez ainsi supprimer les groupes de ressources de calcul et de stockage, y compris le groupe de ressources contenant votre cluster Service Fabric, sans risquer de perdre vos clés et secrets. **Le groupe de ressources qui contient votre coffre de clés *doit se trouver dans la même région* que le cluster qui l’utilise.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Utiliser le modèle de type de nœud Node 1 5 par défaut qui est fourni dans le module
-Le modèle utilisé est disponible dans les [exemples Azure : modèle Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) et le [modèle Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+
+Le modèle par défaut utilisé est disponible ici pour [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) et ici pour [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
 Déployer le cluster à l’aide de PowerShell :
 
@@ -285,7 +284,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 Pour connaître la syntaxe JSON et les propriétés à utiliser dans un modèle, consultez les informations de référence sur les modèles [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
+[azure-powershell]:/powershell/azure/install-Az-ps
+[azure-CLI]:/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md
