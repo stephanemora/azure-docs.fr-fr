@@ -13,25 +13,25 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d1d5e1b9a159d8084c3bf93d00611af72f2b21
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 38b6ee8181f24601a66df7205d44256604834c10
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085866"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228632"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Attribuer un rôle à un groupe à l’aide de Privileged Identity Management
 
 Cet article décrit la procédure d’attribution d’un rôle Azure Active Directory (Azure AD) à un groupe à l’aide d’Azure AD Privileged Identity Management (PIM).
 
 > [!NOTE]
-> Vous devez utiliser une version mise à jour de Privileged Identity Management pour pouvoir attribuer au groupe un rôle Azure AD via PIM. Vous êtes peut-être sur une version antérieure de PIM si votre organisation Azure AD exploite l'API Privileged Identity Management. Le cas échéant, contactez l’alias pim_preview@microsoft.com pour déplacer votre organisation et mettre à jour votre API. Pour en savoir plus, consultez [Fonctionnalités et rôles Azure AD dans PIM](../privileged-identity-management/azure-ad-roles-features.md).
+> Vous devez utiliser une version mise à jour de Privileged Identity Management pour pouvoir attribuer au groupe un rôle Azure AD via PIM. Vous êtes peut-être sur une version antérieure de PIM si votre organisation Azure AD exploite l'API Privileged Identity Management. Le cas échéant, contactez l’alias pim_preview@microsoft.com pour déplacer votre organisation et mettre à jour votre API. Pour en savoir plus, consultez [Fonctionnalités et rôles Azure AD dans PIM](../privileged-identity-management/pim-configure.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Licence Azure AD Premium P2.
 - Administrateur de rôle privilégié ou Administrateur général
-- Module AzureADPreview (avec PowerShell)
+- Module AzureADPreview avec PowerShell
 - Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
 
 Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
@@ -84,7 +84,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser des groupes cloud pour gérer les attributions de rôles](groups-concept.md)
-- [Résolution des problèmes des rôles attribués aux groupes cloud](groups-faq-troubleshooting.md)
+- [Utiliser des groupes Azure AD pour gérer les attributions de rôles](groups-concept.md)
+- [Résoudre les problèmes de rôles Azure AD attribués aux groupes](groups-faq-troubleshooting.yml)
 - [Configurer les paramètres des rôles d’administrateur Azure AD dans Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Attribuer des rôles de ressources Azure dans Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

@@ -10,16 +10,23 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 37f3d7a8ff56ea16f6004516c43ac33989263023
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 465109f42a0f5608c6b0a4b030476c915c3514df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669839"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562107"
 ---
 # <a name="monitoring-azure-files"></a>Supervision d’Azure Files
 
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par Azure Files et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser les alertes sur ces données.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 ## <a name="monitor-overview"></a>Présentation de Monitor
 
@@ -62,7 +69,7 @@ Pour obtenir la liste des opérations SMB et REST journalisées, consultez [Opé
 
 ## <a name="creating-a-diagnostic-setting"></a>Création d’un paramètre de diagnostic
 
-Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager.
+Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager ou Azure Policy.
 
 > [!NOTE]
 > Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
@@ -263,6 +270,10 @@ Voici un exemple :
 ### <a name="template"></a>[Modèle](#tab/template)
 
 Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour Stockage Azure](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+Vous pouvez créer un paramètre de diagnostic en utilisant une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Consultez [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
 
 ---
 
@@ -465,6 +476,10 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
 ```
 
 # <a name="template"></a>[Modèle](#tab/template)
+
+N/A.
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 N/A.
 

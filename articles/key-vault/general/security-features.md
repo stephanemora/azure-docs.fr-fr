@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: cb3c503000e895344368f09dfdceac1156628bb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dd32e421b678b9cfc6277bdc593a06f93fab447f
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969976"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136109"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
@@ -40,18 +40,6 @@ Le service Azure Private Link vous permet d’accéder à Azure Key Vault et aux
 - Le protocole HTTPS permet au client de participer à la négociation TLS. **Les clients peuvent appliquer la version la plus récente de TLS** et, chaque fois qu’un client le fait, l’ensemble de la connexion utilise le niveau de protection correspondant. Le fait que Key Vault prenne toujours en charge les anciennes versions de TLS ne nuit pas à la sécurité des connexions utilisant des versions plus récentes de TLS.
 - Malgré les vulnérabilités connues du protocole TLS, il n’existe aucune attaque connue qui permettrait à un agent malveillant d’extraire des informations de votre coffre de clés lorsque l’attaquant établit une connexion avec une version de TLS qui présente des vulnérabilités. L’attaquant doit toujours s’authentifier et s’autoriser et, tant que les clients légitimes se connectent toujours avec des versions récentes de TLS, il est impossible que des informations d’identification aient pu être divulguées à partir de vulnérabilités d’anciennes versions de TLS.
 
-## <a name="identity-management"></a>Gestion des identités
-
-Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Toute personne qui essaie de gérer ou de récupérer le contenu d’un coffre doit être authentifiée par Azure AD. Dans les deux cas, les applications peuvent accéder au coffre de clés de trois manières :
-
-- **Application uniquement** : L’application représente un principal du service ou une identité managée. Cette identité est le scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, la propriété `objectId` de l’application doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
-- **Utilisateur uniquement** : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, la propriété `objectId` de l’utilisateur doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
-- **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. `applicationId` identifie l’application requise et `objectId` identifie l’utilisateur. Actuellement, cette option n’est pas disponible pour le plan de données Azure RBAC.
-
-Pour tous les types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-vs-authorization.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
-
-Pour plus d’informations, consultez [Concepts de base de l’authentification Key Vault](/azure/key-vault/general/authentication.md).
-
 ## <a name="key-vault-authentication-options"></a>Options d’authentification Key Vault
 
 Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Tous les appelants dans les deux plans doivent s’inscrire auprès de ce locataire et s’authentifier pour accéder au coffre de clés. Dans les deux cas, les applications peuvent accéder au coffre de clés de trois manières :
@@ -68,6 +56,8 @@ Le modèle d’un mécanisme d’authentification unique auprès des deux plans 
 - Si un utilisateur part, il perd instantanément l’accès à tous les coffres de clés de l’organisation.
 - Les organisations peuvent personnaliser l’authentification à l’aide des options dans Azure AD, par exemple pour activer l’authentification multifacteur afin de renforcer la sécurité.
 
+Pour plus d’informations, consultez [Concepts de base de l’authentification Key Vault](authentication.md).
+
 ## <a name="access-model-overview"></a>Vue d’ensemble du modèle d’accès
 
 L’accès à un coffre de clés est contrôlé par le biais de deux interfaces : le **plan de gestion** et le **plan de données**. Le plan de gestion vous permet de gérer le coffre de clés. Dans ce plan, vous pouvez notamment créer et supprimer des coffres de clés, récupérer des propriétés Key Vault et mettre à jour des stratégies d’accès. Le plan de données vous permet d’utiliser les données stockées dans un coffre de clés. Vous pouvez ajouter, supprimer et modifier des clés, des secrets et des certificats.
@@ -82,7 +72,7 @@ Un principal de sécurité est un objet qui représente un utilisateur, un group
 - Un principal de sécurité **groupe** identifie un ensemble d’utilisateurs créés dans Azure Active Directory. Tous les rôles et autorisations attribués au groupe sont accordés à tous les utilisateurs du groupe.
 - Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client**, lui sert de nom d’utilisateur. La **clé secrète client** ou le **certificat** du principal de service fonctionne comme un mot de passe. De nombreux services Azure prennent en charge l’attribution de l’[identité managée](../../active-directory/managed-identities-azure-resources/overview.md) avec la gestion automatisée de l’**ID client** et du **certificat**. L’identité managée est l’option la plus sécurisée et recommandée pour l’authentification dans Azure.
 
-Pour plus d’informations sur l’authentification pour Key Vault, consultez [S’authentifier auprès d’Azure Key Vault](authentication.md)
+Pour plus d’informations sur l’authentification sur Key Vault, consultez [S’authentifier auprès d’Azure Key Vault](authentication.md).
 
 ## <a name="privileged-access"></a>Accès privilégié
 

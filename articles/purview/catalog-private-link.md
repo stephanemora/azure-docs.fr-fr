@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: 37600a101c44f556eed3678910254f9832f77366
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: b65820ab72c0a20953a7e3e9e4a2ee964df51e07
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535392"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831610"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Utiliser des points de terminaison privés pour votre compte Azure Purview
 
@@ -29,7 +29,7 @@ Vous pouvez déployer des points de terminaison privés _d’ingestion_ si vous 
 
 :::image type="content" source="media/catalog-private-link/purview-private-link-overview.png" alt-text="Capture d’écran montrant Azure Purview avec des points de terminaison privés."::: 
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de déployer des points de terminaison privés pour le compte Azure Purview, vérifiez que vous respectez les prérequis suivants :
 
@@ -64,15 +64,17 @@ Pour les scénarios où le point de terminaison privé _d’ingestion_ est utili
 |Azure SQL Managed Instance | Runtime d’intégration auto-hébergé| Authentification SQL|
 |Azure Cosmos DB| Runtime d’intégration auto-hébergé| Clé du compte|
 |SQL Server | Runtime d’intégration auto-hébergé| Authentification SQL|
+|Azure Synapse Analytics | Runtime d’intégration auto-hébergé| Principal de service|
+|Azure Synapse Analytics | Runtime d’intégration auto-hébergé| Authentification SQL|
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions  
+## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)  
 
 Pour consulter les questions fréquentes relatives aux déploiements de points de terminaison privés dans Azure Purview, consultez le [Forum aux questions sur les points de terminaison privés Azure Purview](./catalog-private-link-faqs.md).
  
 ## <a name="troubleshooting-guide"></a>Guide de résolution des problèmes 
 Pour résoudre les problèmes de configuration de point de terminaison privé pour les comptes Purview, consultez [Résolution des problèmes de configuration de point de terminaison privé pour les comptes Purview](./catalog-private-link-troubleshoot.md).
 
-## <a name="known-limitations"></a>Limitations connues
+## <a name="known-limitations"></a>Limites connues
 Pour afficher la liste des limitations actuelles liées aux points de terminaison privés Azure Purview, consultez [Limitations connues des points de terminaison privés Azure Purview](./catalog-private-link-troubleshoot.md#known-limitations).
 
 ## <a name="next-steps"></a>Étapes suivantes

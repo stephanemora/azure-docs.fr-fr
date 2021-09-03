@@ -1,18 +1,18 @@
 ---
 title: Configurer l’accès à un compte Azure Cosmos à partir d’un réseau virtuel
 description: Ce document décrit les étapes nécessaires pour configurer un point de terminaison de service de réseau virtuel pour Azure Cosmos DB.
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
-ms.author: mjbrown
+ms.date: 07/07/2021
+ms.author: thweiss
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 39b134b77fbb98c79fe163b7a36f087ab8a27116
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 42e38162409c5762f43807f483b091fbb88638af
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681771"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113493276"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configurer l’accès à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -47,6 +47,9 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 1. Sélectionnez **l’abonnement** à partir duquel vous souhaitez ajouter un réseau virtuel Azure. Sélectionnez les **Réseaux virtuels** et **Sous-réseaux** Azure auxquels vous voulez fournir l’accès à votre compte Azure Cosmos DB. Ensuite, sélectionnez **Activer** pour activer les réseaux sélectionnés avec les points de terminaison de service pour « Microsoft.AzureCosmosDB ». Une fois terminé, sélectionnez **Ajouter**.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Sélectionner un réseau virtuel et un sous-réseau":::
+
+   > [!NOTE]
+   > La configuration d’un point de terminaison de service VNET peut prendre jusqu’à 15 minutes pour se propager et le point de terminaison peut présenter un comportement incohérent pendant cette période.
 
 1. Lorsque le compte Azure Cosmos DB se voit autoriser l’accès à partir d’un réseau virtuel, il autorise uniquement le trafic provenant de ce sous-réseau. Le réseau virtuel et le sous-réseau que vous avez ajoutés devraient se présenter comme dans la capture d’écran suivante :
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2021
-ms.openlocfilehash: 4ffbca8e4e70a5201b374d4fac9bdb136c860573
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7c3a2a00c0323bc9e80b1d94d445f873d5b86d34
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144958"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541335"
 ---
 # <a name="how-to-get-featured-in-microsoft-appsource-and-azure-marketplace"></a>Guide pratique pour être référencé dans AppSource et dans la Place de marché Azure
 
@@ -38,7 +38,7 @@ Vous pouvez effectuer les actions suivantes pour améliorer votre score :
 Les promotions Applications proposées fonctionne séparément de l’algorithme de recherche.
 
 >[!Note]
->Si votre solution n’apparaît pas correctement dans les résultats de la recherche, envoyez un ticket de support par le biais du menu Aide dans l’[Espace partenaires](https://partner.microsoft.com/).
+>Si votre solution n’apparaît pas correctement dans les résultats de la recherche, envoyez un **[ticket de support](https://go.microsoft.com/fwlink/?linkid=2165533)** dans l’Espace partenaires.
 
 Votre prise en charge GTM inclut également une bibliothèque complète de modèles d’auto-assistance, de contenu web, de formation et d’outils pour vous aider à promouvoir davantage vos annonces et votre entreprise.
 
@@ -46,6 +46,4 @@ Votre prise en charge GTM inclut également une bibliothèque complète de modè
 
 Apprenez-en plus sur les [avantages de la place de marché commerciale](gtm-your-marketplace-benefits.md).
 
-Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.
-
----
+Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) pour créer et configurer votre offre. Si vous n’êtes pas encore inscrit à l’Espace partenaires, [créez un compte](create-account.md).

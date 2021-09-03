@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Créer des points de terminaison de service web – Azure'
-description: Créez des points de terminaison de service web dans Azure Machine Learning Studio (classique). Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
+description: Créez des points de terminaison de service web dans Machine Learning Studio (classique). Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 36eb6a67aa2a8da80894c27937994afd4f263ecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a050425cec6062bdf4d62c6ace3c61d84eaede5d
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517108"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582813"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Créer des points de terminaison pour les services web Azure Machine Learning Studio (classique) déployés
+# <a name="create-endpoints-for-deployed-machine-learning-studio-classic-web-services"></a>Créer des points de terminaison pour les services web Machine Learning Studio (classique) déployés
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -29,23 +29,23 @@ Chaque point de terminaison du service web est adressé, limité et géré de fa
 
 ## <a name="add-endpoints-to-a-web-service"></a>Ajouter des points de terminaison à un service web
 
-Vous pouvez ajouter un point de terminaison à un service web à l’aide du portail des services web Azure Machine Learning. Une fois le point de terminaison créé, vous pouvez l’exploiter via des API synchrones, des API de lot et des feuilles de calcul Microsoft Excel.
+Vous pouvez ajouter un point de terminaison à un service web à l’aide du portail des services web Machine Learning. Une fois le point de terminaison créé, vous pouvez l’exploiter via des API synchrones, des API de lot et des feuilles de calcul Microsoft Excel.
 
 > [!NOTE]
 > Si vous avez ajouté des points de terminaison au service web, vous ne pouvez pas supprimer le point de terminaison par défaut.
 
 1. Dans la colonne de navigation de gauche de Machine Learning Studio (classique), cliquez sur Services web.
-2. En bas du tableau de bord du service web, cliquez sur **Gérer les points de terminaison**. Le portail des services web Azure Machine Learning s’ouvre sur la page des points de terminaison pour le service web.
+2. En bas du tableau de bord du service web, cliquez sur **Gérer les points de terminaison**. Le portail des services web Machine Learning s’ouvre sur la page des points de terminaison pour le service web.
 3. Cliquez sur **Nouveau**.
 4. Tapez un nom et une description pour le point de terminaison. Les noms de point de terminaison doivent compter au maximum 24 caractères, et doivent être composés de lettres minuscules ou de chiffres. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).
 
 ## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a> Mettre à l’échelle un service web en ajoutant des points de terminaison supplémentaires
 
-Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes. Azure Machine Learning Studio (classique) optimise automatiquement ce paramètre pour améliorer les performances de votre service web et la valeur de portail est ignorée.
+Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes.  Machine Learning Studio (classique) optimise automatiquement ce paramètre pour améliorer les performances de votre service web et la valeur de portail est ignorée.
 
 Si vous envisagez d’appeler l’API avec une charge supérieure à ce que le nombre maximal d’appels simultanés (200) prend en charge, vous devez créer plusieurs points de terminaison sur le même service web. Vous pouvez ensuite répartir la charge entre tous de façon aléatoire.
 
-La mise à l’échelle d’un service web est une tâche courante. Parmi les raisons d’effectuer une mise à l’échelle figurent la nécessité de prendre en charge plus de 200 demandes simultanées, d’augmenter la disponibilité via plusieurs points de terminaison, ou de fournir des points de terminaison distincts pour le service web. Vous pouvez augmenter l’échelle en ajoutant des points de terminaison supplémentaires pour le même service web via le portail du [service web Azure Machine Learning](https://services.azureml.net/).
+La mise à l’échelle d’un service web est une tâche courante. Parmi les raisons d’effectuer une mise à l’échelle figurent la nécessité de prendre en charge plus de 200 demandes simultanées, d’augmenter la disponibilité via plusieurs points de terminaison, ou de fournir des points de terminaison distincts pour le service web. Vous pouvez augmenter l’échelle en ajoutant des points de terminaison supplémentaires pour le même service web via le portail du [service web Machine Learning](https://services.azureml.net/).
 
 N’oubliez pas que l’utilisation d’un nombre élevé d’accès concurrentiels peut être préjudiciable si vous n’appelez pas l’API avec un taux tout aussi élevé. Vous pouvez constater des délais d’attente et/ou des pics de latence sporadiques si vous placez une charge relativement faible sur une API configurée pour une charge élevée.
 
@@ -53,4 +53,4 @@ Les API synchrones sont généralement utilisées dans les situations où vous s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utilisation d’un service web Azure Machine Learning](consume-web-services.md).
+[Comment consommer un service web Machine Learning](consume-web-services.md).

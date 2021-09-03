@@ -1,22 +1,50 @@
 ---
-title: Nouveautés de l’agent des serveurs activés par Azure Arc
-description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
+title: Nouveautés de l’agent des serveurs avec Azure Arc
+description: Cet article contient des notes de publication pour l’agent des serveurs avec Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 05/24/2021
-ms.openlocfilehash: 35822fb47add5c355ad9461b09e8e910f0a5a1fd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 07/16/2021
+ms.openlocfilehash: d53ebd32c870ce8ec26bca7bcb811fbdd45c58b2
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480371"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114392371"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs avec Azure Arc
 
-L’agent Connected Machine des serveurs activés par Azure Arc reçoit des améliorations de manière continue. Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
+L’agent Connected Machine des serveurs avec Azure Arc reçoit des améliorations de manière continue. Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
 - Versions les plus récentes
 - Problèmes connus
 - Résolution des bogues
+
+## <a name="july-2021"></a>Juillet 2021
+
+Version 1.8
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Amélioration de la fiabilité lors de l’installation de l’extension de l’agent Azure Monitor sur les systèmes Red Hat et CentOS
+- Ajout de la mise en œuvre côté agent de la longueur maximale du nom de la ressource (54 caractères)
+- Améliorations de la stratégie de configuration d’invité (Guest Configuration) :
+  - Ajout de la prise en charge des stratégies de configuration d’invité basées sur PowerShell sur les systèmes d’exploitation Linux
+  - Ajout de la prise en charge de plusieurs attributions de la même stratégie de configuration d’invité sur le même serveur
+  - Mise à niveau de PowerShell Core vers la version 7.1 sur les systèmes d’exploitation Windows
+
+### <a name="fixed"></a>Fixe
+
+- L’agent continue de s’exécuter s’il ne parvient pas à écrire les événements de démarrage/d’arrêt du service dans le journal des événements de l’application Windows
+
+## <a name="june-2021"></a>Juin 2021
+
+Version 1.7
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Amélioration de la fiabilité lors de l’intégration :
+  - Amélioration de la logique de nouvelle tentative quand HIMDS n’est pas disponible
+  - Désormais, l’intégration se poursuit au lieu de s’arrêter si les informations du système d’exploitation ne peuvent pas être obtenues
+- Amélioration de la fiabilité lors de l’installation de l’extension de l’agent OMS sur les systèmes Red Hat et CentOS
 
 ## <a name="may-2021"></a>Mai 2021
 
@@ -35,22 +63,23 @@ Version 1.6
 
 Version 1.5
 
-### <a name="new-feature"></a>Nouvelle fonctionnalité
+### <a name="new-features"></a>Nouvelles fonctionnalités
 
 - Ajout de la prise en charge de Red Hat Enterprise Linux 8 et CentOS Linux 8.
 - Nouveau paramètre `-useStderr` pour diriger l’erreur et la sortie détaillée vers stderr.
 - Nouveau paramètre `-json` pour diriger les résultats de sortie au format JSON (en cas d’utilisation avec -useStderr).
-- Collecter d’autres métadonnées d’instance : fabricant, modèle, si SQL Server est installé (booléen) et ID de ressource de cluster (pour les nœuds Azure Stack HCI).
+- Collecter d’autres métadonnées d’instance : fabricant, modèle et ID de la ressource de cluster (pour les nœuds Azure Stack HCI).
  
 ## <a name="march-2021"></a>Mars 2021
 
 Version 1.4
 
-### <a name="new-feature"></a>Nouvelle fonctionnalité
+### <a name="new-features"></a>Nouvelles fonctionnalités
 
 - Ajout de la prise en charge des points de terminaison privés, actuellement en préversion limitée.
 - Liste élargie des codes de sortie pour azcmagent.
 - Les paramètres de configuration de l’agent peuvent maintenant être lus à partir d’un fichier avec le paramètre `--config`.
+- Collecter de nouvelles métadonnées d’instance pour déterminer si Microsoft SQL Server est installé sur le serveur
 
 ### <a name="fixed"></a>Fixe
 
@@ -60,7 +89,7 @@ Les vérifications des points de terminaison réseau sont maintenant plus rapide
 
 Version : 1.3
 
-### <a name="new-feature"></a>Nouvelle fonctionnalité
+### <a name="new-features"></a>Nouvelles fonctionnalités
 
 Ajout de la prise en charge de Windows Server 2008 R2 SP1.
 
@@ -95,10 +124,10 @@ Version : 1.0 (Disponibilité générale)
 
 - La prise en charge des agents en préversion (toutes les versions antérieures à 1.0) sera supprimée dans une prochaine mise à jour de service.
 - Suppression de la prise en charge du point de terminaison de secours `.azure-automation.net`. Si vous avez un proxy, vous devez autoriser le point de terminaison `*.his.arc.azure.com`.
-- Si Azure Connected Machine Agent est installé sur une machine virtuelle hébergée dans Azure, il n’est pas possible d’installer ou de modifier des extensions de machine virtuelle à partir de la ressource Serveurs activés par Arc. Cela permet d’éviter les opérations d’extension conflictuelles effectuées à partir des ressources **Microsoft.Compute** et **Microsoft.HybridCompute** de l’ordinateur virtuel. Utilisez la ressource **Microsoft.Compute** pour l’ordinateur pour toutes les opérations d’extension.
+- Si l’agent Connected Machine est installé sur une machine virtuelle hébergée dans Azure, il n’est pas possible d’installer ou de modifier les extensions de machine virtuelle à partir de la ressource des serveurs avec Arc. Cela permet d’éviter les opérations d’extension conflictuelles effectuées à partir des ressources **Microsoft.Compute** et **Microsoft.HybridCompute** de l’ordinateur virtuel. Utilisez la ressource **Microsoft.Compute** pour l’ordinateur pour toutes les opérations d’extension.
 - Le nom du processus Configuration des invité a changé, passant de *gcd* à *gcad* sur Linux, et de *gcservice* à *gcarcservice* sur Windows.
 
-### <a name="new-feature"></a>Nouvelle fonctionnalité
+### <a name="new-features"></a>Nouvelles fonctionnalités
 
 - Ajout de l’option `azcmagent logs` pour collecter des informations à des fins de support.
 - Ajout de l’option `azcmagent license` pour afficher le CLUF.
@@ -129,4 +158,6 @@ Si vous utilisez une version antérieure de l’agent Linux et qu’elle est con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avant d'évaluer ou d'activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d'ensemble d'Azure Connected Machine Agent](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l'agent, ainsi que sur les méthodes de déploiement.
+- Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
+
+- Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.

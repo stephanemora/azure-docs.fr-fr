@@ -1,18 +1,21 @@
 ---
 title: Générateur d’expressions dans un flux de données de mappage
-description: Générer des expressions à l’aide du Générateur d’expressions dans des flux de données de mappage dans Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Générer des expressions à l’aide du Générateur d’expressions dans des flux de données de mappage dans Azure Data Factory et Azure Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.openlocfilehash: e335176b5cd7c6c35477ac9318cf20ce4b64b82d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 32f5a7d845f979f50cea35ae6e2145ca65fa4e17
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291007"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641211"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
@@ -20,7 +23,7 @@ ms.locfileid: "108291007"
 
 Dans un flux de données de mappage, de nombreuses propriétés de transformation sont entrées en tant qu’expressions. Ces expressions sont composées de valeurs de colonne, de paramètres, de fonctions, d’opérateurs et de littéraux qui correspondent à un type de données Spark au moment de l’exécution. Le mappage des flux de données a une expérience dédiée visant à vous aider à créer ces expressions, appelée **Générateur d’expressions**. Utilisant [IntelliSense](/visualstudio/ide/using-intellisense) pour la mise en surbrillance, la vérification de la syntaxe et la saisie semi-automatique, le générateur d’expressions est conçu pour faciliter la création de flux de données. Cet article explique comment utiliser le générateur d’expressions pour créer efficacement votre logique métier.
 
-![Générateur d’expressions](media/data-flow/expresion-builder.png "Générateur d’expressions")
+:::image type="content" source="media/data-flow/expresion-builder.png" alt-text="Générateur d’expressions":::
 
 ## <a name="open-expression-builder"></a>Générateur d’expressions ouvert
 
@@ -173,7 +176,7 @@ toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd 
 ### <a name="data-flow-time-evaluation"></a>Évaluation de la durée du flux de données
 
 Le flux de données est traité jusqu’aux millisecondes. Pour *2018-07-31T20:00:00.2170000*, la sortie est *2018-07-31T20:00:00.217*.
-Sur le portail ADF, l’horodateur est affiché dans le **paramètre de navigateur actuel**. La partie des millisecondes (217) n’y figure pas toujours, mais elle est traitée lorsque le workflow est exécuté de bout en bout. Vous pouvez utiliser toString(myDateTimeColumn) comme expression pour prévisualiser les données avec une précision complète. Traitez DateHeure comme DateHeure plutôt que comme chaîne à toutes fins pratiques.
+Sur le portail du service, l’horodateur est affiché dans le **paramètre de navigateur actuel**. La partie des millisecondes (217) n’y figure pas toujours, mais elle est traitée lorsque le workflow est exécuté de bout en bout. Vous pouvez utiliser toString(myDateTimeColumn) comme expression pour prévisualiser les données avec une précision complète. Traitez DateHeure comme DateHeure plutôt que comme chaîne à toutes fins pratiques.
  
 
 ## <a name="next-steps"></a>Étapes suivantes

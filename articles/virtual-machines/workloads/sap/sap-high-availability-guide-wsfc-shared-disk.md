@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 07/29/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c903cf06981e1336ae30942775de11d09bb1299b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fca86017b69d20ae71af94b4cabe76c5236815f
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675347"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527804"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure
 
@@ -190,6 +190,38 @@ _Configuration du clustering de basculement Windows dans Azure avec SIOS DataKee
 > [!NOTE]
 > Avec certains SGBD, tels que SQL Server, vous n’avez pas besoin de disques partagés pour atteindre une haute disponibilité. SQL Server AlwaysOn assure la réplication des données et des fichiers de journaux du SGBD à partir du disque local d’un nœud du cluster vers le disque local d’un autre nœud du cluster. Dans ce cas, la configuration du cluster Windows ne nécessite pas de disque partagé.
 >
+## <a name="optional-configurations"></a>Configurations facultatives
+
+Les diagrammes suivants montrent plusieurs instances SAP sur des machines virtuelles Azure exécutant le cluster de basculement Microsoft Windows pour réduire le nombre total de machines virtuelles.
+
+Il peut s’agir de serveurs d’applications SAP locaux sur un cluster ASCS/SCS SAP ou d’un rôle de cluster ASCS/SCS SAP sur des nœuds Always On Microsoft SQL Server.
+
+> [!IMPORTANT]
+> L’installation d’un serveur d’applications SAP local sur un nœud Always On SQL Server n’est pas prise en charge.
+>
+
+ASCS/SCS SAP et la base de données Microsoft SQL Server sont tous deux des points de défaillance uniques (SPOF). Pour les protéger dans un environnement Windows, WSFC est utilisé.
+
+Bien que la consommation de ressources ASCS/SCS SAP soit relativement faible, il est recommandé de réduire de 2 Go la configuration de la mémoire pour SQL Server ou le serveur d’applications SAP.
+
+### <a name="sap-application-servers-on-wsfc-nodes-using-sios-datakeeper"></a>Serveurs d’applications SAP sur des nœuds WSFC utilisant SIOS DataKeeper
+
+![Figure 6 : configuration du clustering de basculement Windows Server dans Azure avec SIOS DataKeeper et le serveur d’applications SAP installé localement][sap-ha-guide-figure-1003]
+
+> [!NOTE]
+> Étant donné que les serveurs d’applications SAP sont installés localement, il n’est pas nécessaire de configurer des synchronisations comme le montre l’image.
+>
+### <a name="sap-ascsscs-on-sql-server-always-on-nodes-using-sios-datakeeper"></a>ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant SIOS DataKeeper
+
+![Figure 7 : ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant SIOS DataKeeper][sap-ha-guide-figure-1005]
+
+[Configuration facultative pour les serveurs d’applications SAP sur des nœuds WSFC utilisant Windows SOFS][optional-fileshare]
+
+[Configuration facultative pour les serveurs d’applications SAP sur des nœuds WSFC utilisant NetApp Files SMB][optional-smb]
+
+[Configuration facultative pour ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant Windows SOFS][optional-fileshare-sql]
+
+[Configuration facultative pour ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant NetApp Files SMB][optional-smb-sql]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -253,7 +285,9 @@ _Configuration du clustering de basculement Windows dans Azure avec SIOS DataKee
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
-[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/1002-wsfc-sios-on-azure-ilb.png
+[sap-ha-guide-figure-1003]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios-as.png
+[sap-ha-guide-figure-1005]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sios.png
+[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios.png
 [sap-ha-guide-figure-2000]:./media/virtual-machines-shared-sap-high-availability-guide/2000-wsfc-sap-as-ha-on-azure.png
 [sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
 [sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
@@ -347,12 +381,16 @@ _Configuration du clustering de basculement Windows dans Azure avec SIOS DataKee
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[optional-smb]:high-availability-guide-windows-netapp-files-smb.md#5121771a-7618-4f36-ae14-ccf9ee5f2031 (Configuration facultative pour les serveurs d’applications SAP sur des nœuds WSFC utilisant NetApp Files SMB)
+[optional-fileshare]:sap-high-availability-guide-wsfc-file-share.md#86cb3ee0-2091-4b74-be77-64c2e6424f50 (Configuration facultative pour les serveurs d’applications SAP sur des nœuds WSFC utilisant Windows SOFS)
+[optional-smb-sql]:high-availability-guide-windows-netapp-files-smb.md#01541cf2-0a03-48e3-971e-e03575fa7b4f (Configuration facultative pour ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant NetApp Files SMB)
+[optional-fileshare-sql]:sap-high-availability-guide-wsfc-file-share.md#db335e0d-09b4-416b-b240-afa18505f503 (Configuration facultative pour ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant Windows SOFS)
