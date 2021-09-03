@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 7ef3e07eb1585aaa87986fd682b4db00c53e66f3
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 3601cd6f7580a4d87dda7488826e25ca85b233c9
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810675"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110654183"
 ---
 # <a name="get-facial-pose-events"></a>Obtenir des événements de pose faciale
 
@@ -27,26 +27,36 @@ ms.locfileid: "109810675"
 Un _visème_ est la description visuelle d’un phonème dans le langage parlé.
 Il définit la position du visage et de la bouche quand vous prononcez un mot.
 Chaque visème représente les caractéristiques principales du visage pour un ensemble spécifique de phonèmes.
-Il n’existe pas de correspondance un-à-un entre les visèmes et les phonèmes.
-Souvent, plusieurs phonèmes correspondent à un seul visème, car plusieurs phonèmes semblent identiques sur le visage lors de leur production, comme `s` et `z`.
-Consultez la [table de mappage entre visèmes et phonèmes](#map-phonemes-to-visemes).
+Le visème peut être utilisé pour contrôler le déplacement de modèles d’avatars 2D et 3D, avec correspondance parfaite entre les mouvements de la bouche et la parole synthétique.
 
-À l’aide de visèmes, vous pouvez créer un assistant de diffusion d’informations plus naturel et intelligent, des personnages de jeu et de dessin animé plus interactifs, ainsi que des vidéos d’apprentissage linguistique plus intuitives. Les sourds et malentendants peuvent également repérer les sons visuellement et « lire sur les lèvres » du contenu qui affiche des visèmes sur un visage animé.
+Les visèmes facilitent l’utilisation et le contrôle des avatars. Grâce aux visèmes, vous pouvez :
 
-## <a name="get-viseme-events-with-the-speech-sdk"></a>Recevoir des événements de visème avec le kit de développement logiciel (SDK) Speech
+ * créer un **assistant vocal virtuel animé** pour les kiosques intelligents en générant des services intégrés multimode pour vos clients ;
+ * générer des **diffusions d’actualités immersives** et améliorer les expériences des auditeurs avec des mouvements naturels du visage et de la bouche ;
+ * générer plus **d’avatars de gaming et personnages de dessins animés** qui peuvent parler avec un contenu dynamique ;
+ * produire des **vidéos d’apprentissage de langue plus efficaces** qui aident les étudiants à comprendre les mouvements de la bouche pour chaque mot et phonème.
+ * Les sourds et malentendants peuvent également repérer les sons visuellement et **lire sur les lèvres** le contenu de la parole qui affiche des visèmes sur un visage animé.
 
-Pour créer des événements de visème, le service TTS convertit le texte d’entrée en un ensemble de séquences de phonème et leurs séquences de visème correspondantes.
-Ensuite, le point de départ de chaque visème est estimé dans l’audio parlé.
-Les événements de visème contiennent une séquence d’ID de visème, chacun avec un décalage dans l’audio où ce visème apparaît.
-Ces événements peuvent conduire à des animations de bouche qui simulent une personne prononçant le texte d’entrée.
+Consultez [la vidéo d’introduction](https://youtu.be/ui9XT47uwxs) sur les visèmes.
+> [!VIDEO https://www.youtube.com/embed/ui9XT47uwxs]
+
+## <a name="azure-neural-tts-can-produce-visemes-with-speech"></a>La synthèse vocale neuronale Azure peut produire des visèmes avec la parole
+
+Une voix neuronal transforme le texte entré ou le langage SSML (speech synthesis Markup Language) en voix synthétique. La sortie audio vocale peut être accompagnée d’ID de visèmes et de leurs horodateurs de décalage. Chaque ID de visème indique une pose spécifique dans la parole observée, telle que la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier. À l’aide d’un moteur de rendu 2D ou 3D, vous pouvez utiliser ces événements de visèmes pour animer votre avatar.
+
+Le workflow global du visème est représenté dans l’organigramme ci-dessous.
+
+![Workflow global du visème](media/text-to-speech/viseme-structure.png)
 
 | Paramètre | Description |
 |-----------|-------------|
-| ID de visème | Nombre entier qui spécifie un visème. En anglais (États-Unis), nous proposons 22 visèmes différents pour représenter les formes de bouche pour un ensemble spécifique de phonèmes. Consultez la [table de mappage entre ID de visème et phonèmes](#map-phonemes-to-visemes).  |
+| ID de visème | Nombre entier qui spécifie un visème. En anglais (États-Unis), nous proposons 22 visèmes différents pour représenter les formes de bouche pour un ensemble spécifique de phonèmes. Il n’existe pas de correspondance un-à-un entre les visèmes et les phonèmes. Souvent, plusieurs phonèmes correspondent à un seul visème, car plusieurs phonèmes semblent identiques sur le visage lors de leur production, comme `s` et `z`. Consultez la [table de mappage entre ID de visème et phonèmes](#map-phonemes-to-visemes).  |
 | Décalage audio | Temps au début de chaque visème, en cycles (100 nanosecondes). |
 
-Pour accéder aux événements de visème, abonnez-vous à l’événement `VisemeReceived` dans le SDK Speech.
-Les extraits de code suivants montrent comment s’abonner à l’événement de visème.
+## <a name="get-viseme-events-with-the-speech-sdk"></a>Recevoir des événements de visème avec le kit de développement logiciel (SDK) Speech
+
+Pour accéder au visème avec votre message synthétique, inscrivez-vous à l’événement `VisemeReceived` du kit de développement logiciel (SDK) Speech.
+Les extraits de code suivants montrent comment s’inscrire à l’événement de visème.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -148,6 +158,26 @@ SPXSpeechSynthesizer *synthesizer =
 ```
 
 ::: zone-end
+
+Voici un exemple de sortie de visème.
+
+```text
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```
+
+Après avoir obtenu la sortie de visème, vous pouvez utiliser ces événements pour piloter l’animation des personnages. Vous pouvez créer vos propres personnages et les animer automatiquement.
+
+Pour les personnages 2D, vous pouvez concevoir un personnage adapté à votre scénario et utiliser SVG (Scalable Vector Graphics) pour chaque ID de visème pour obtenir une position du visage basée sur le temps. Avec les étiquettes temporelles fournies dans l’événement de visème, ces SVG bien conçus sont traités avec des modifications de lissage et fournissent une animation robuste aux utilisateurs. Par exemple, la figure ci-dessous illustre un personnage aux lèvres rouges conçu pour l’apprentissage du langage.
+
+![Exemple de rendu 2D](media/text-to-speech/viseme-demo-2D.png)
+
+Pour les personnages en 3D, considérez les comme des marionnettes de chaîne. Le marionnettiste extrait les chaînes d’un état à un autre et les lois de la physique effectuent le reste et conduisent la marionnette pour qu’elle se déplace de façon fluide. La sortie de visème agit comme un marionnettiste pour fournir une chronologie d’actions. Le moteur d’animation définit les lois de la physique de l’action. En interpolant des cadres avec des algorithmes d’accélération, le moteur peut générer davantage d’animations de haute qualité.
 
 ## <a name="map-phonemes-to-visemes"></a>Mapper les phonèmes à des visèmes
 
