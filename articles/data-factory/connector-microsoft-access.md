@@ -1,18 +1,20 @@
 ---
 title: Copier des données vers et à partir de Microsoft Access
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment copier des données vers ou à partir de Microsoft Access à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: chez
+author: chez-charlie
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: 75159291f383b4d8ed5752cbae0907a6c21c26ec
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/20/2021
+ms.openlocfilehash: c4c5a619bb6c76b6f1fd339bfa18f9281e39d7fe
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488480"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598418"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-using-azure-data-factory"></a>Copier des données vers ou à partir de Microsoft Access à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -36,7 +38,7 @@ Pour utiliser ce connecteur Microsoft Access, vous devez :
 - Installez le pilote ODBC Microsoft Access pour le magasin de données sur la machine exécutant le runtime d’intégration.
 
 >[!NOTE]
->La version 2016 du pilote ODBC de Microsoft Access ne fonctionne pas avec ce connecteur. Utilisez plutôt la version de pilote 2013 ou 2010.
+>La version 2016 du pilote ODBC de Microsoft Access ne fonctionne pas avec ce connecteur. Utilisez Microsoft Access 2013 ou version 2010 du pilote ODBC à la place.
 
 ## <a name="getting-started"></a>Prise en main
 

@@ -9,15 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 5d0617412fcfef3846670d5ff5e957dad8e98ee8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af787dbb441a455392af3515edbe6176b9e301b0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524882"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695600"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 ## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
 Découvrez comment créer un modèle de régression simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants 4. Nous allons dessiner un modèle de régression avec des données cibles.
