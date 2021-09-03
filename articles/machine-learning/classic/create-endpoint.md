@@ -9,20 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: a050425cec6062bdf4d62c6ace3c61d84eaede5d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: c4cfe742789576a4aaf61cd3194af64ede849aa7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582813"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695009"
 ---
 # <a name="create-endpoints-for-deployed-machine-learning-studio-classic-web-services"></a>Créer des points de terminaison pour les services web Machine Learning Studio (classique) déployés
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-> [!NOTE]
-> Cette rubrique décrit les techniques applicables à un service web Machine Learning **classique**.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Après le déploiement d’un service web, un point de terminaison par défaut est créé pour ce service. Le point de terminaison par défaut peut être appelé à l’aide de sa clé API. Vous pouvez ajouter des points de terminaison supplémentaires avec leurs propres clés à partir du portail de Services Web.
 Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante. Chaque point de terminaison est une URL unique, avec clé d’autorisation que vous pouvez distribuer à vos clients.

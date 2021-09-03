@@ -4,12 +4,12 @@ description: Cet article offre une vue d’ensemble de l’architecture et des c
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/19/2021
-ms.openlocfilehash: 999c2c74c92c6e6106bc6e1e36ff4f62e29e6e1c
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 47e7c9f56ad458a3f02019717b1232840e1ec945
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272783"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535315"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture---preview"></a>Architecture pour la reprise d’activité de VMware sur Azure - Préversion
 
@@ -25,7 +25,7 @@ Pour plus d’informations sur l’architecture de Azure Site Recovery dans l’
 
 Le tableau et le graphique suivants présentent une vue générale des composants utilisés pour la reprise d’activité des machines virtuelles VMware/des machines physiques sur Azure.
 
-[![Architecture VMware vers Azure](./media/vmware-azure-architecture-preview/architecture-preview.png)](./media/vmware-azure-architecture-preview/architecture-preview.png#lightbox)
+![Architecture VMware vers Azure](./media/vmware-azure-architecture-preview/architecture-preview.png)
 
 **Composant** | **Prérequis** | **Détails**
 --- | --- | ---

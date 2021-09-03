@@ -3,12 +3,12 @@ title: Développer et exécuter des fonctions Azure Functions en local
 description: Apprenez à coder et à tester des fonctions Azure Functions sur votre ordinateur local avant de les exécuter dans Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 9a1c760eb2630ddf1c6175625b53b86db9cabc34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4568cd1befc31cbec30758a3117c30762e7de406
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562416"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830854"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -22,9 +22,9 @@ La façon dont vous développez des fonctions sur votre ordinateur local dépend
 
 |Environnement                              |Languages         |Description|
 |-----------------------------------------|------------|---|
-|[Visual Studio Code](functions-develop-vs-code.md)| [C# (bibliothèque de classes)](functions-dotnet-class-library.md)<br/>[Processus isolé C# (.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](./create-first-function-vs-code-powershell.md)<br/>[Python](functions-reference-python.md) | L’[extension Azure Functions pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) ajoute la prise en charge de Functions à VS Code. Requiert les outils de base. Prend en charge le développement sur Linux, macOS et Windows, lorsque vous utilisez la version 2.x des outils de base. Pour en savoir plus, voir [Créer votre première fonction à l’aide de Visual Studio Code](./create-first-function-vs-code-csharp.md). |
-| [Invite de commandes terminal](functions-run-local.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md)<br/>[Processus isolé C# (.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](functions-reference-powershell.md)<br/>[Python](functions-reference-python.md) | [Azure Functions Core Tools] fournit le runtime et les modèles principaux de création de fonctions, ce qui permet le développement local. La version 2.x prend en charge le développement sur Linux, macOS et Windows. Tous les environnements s’appuient sur les outils de base pour le runtime Functions local. |
-| [Visual Studio 2019](functions-develop-vs.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md)<br/>[Processus isolé C# (.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs) | Les outils Azure Functions sont inclus dans la charge de travail de **développement Azure** de [Visual Studio 2019](https://www.visualstudio.com/vs/) et des versions ultérieures. Vous permet de compiler les fonctions dans une bibliothèque de classes et de publier le fichier .dll dans Azure. Inclut les principaux outils pour effectuer des test en local. Pour en savoir plus, voir [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C# (bibliothèque de classes)](functions-dotnet-class-library.md)<br/>[Processus isolé C# (.NET 5.0)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](./create-first-function-vs-code-powershell.md)<br/>[Python](functions-reference-python.md) | L’[extension Azure Functions pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) ajoute la prise en charge de Functions à VS Code. Requiert les outils de base. Prend en charge le développement sur Linux, macOS et Windows, lorsque vous utilisez la version 2.x des outils de base. Pour en savoir plus, voir [Créer votre première fonction à l’aide de Visual Studio Code](./create-first-function-vs-code-csharp.md). |
+| [Invite de commandes terminal](functions-run-local.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md)<br/>[Processus isolé C# (.NET 5.0)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](functions-reference-powershell.md)<br/>[Python](functions-reference-python.md) | [Azure Functions Core Tools] fournit le runtime et les modèles principaux de création de fonctions, ce qui permet le développement local. La version 2.x prend en charge le développement sur Linux, macOS et Windows. Tous les environnements s’appuient sur les outils de base pour le runtime Functions local. |
+| [Visual Studio 2019](functions-develop-vs.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md)<br/>[Processus isolé C# (.NET 5.0)](dotnet-isolated-process-guide.md) | Les outils Azure Functions sont inclus dans la charge de travail de **développement Azure** de [Visual Studio 2019](https://www.visualstudio.com/vs/) et des versions ultérieures. Vous permet de compiler les fonctions dans une bibliothèque de classes et de publier le fichier .dll dans Azure. Inclut les principaux outils pour effectuer des test en local. Pour en savoir plus, voir [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md). |
 | [Maven](./create-first-function-cli-java.md) (divers) | [Java](functions-reference-java.md) | L’archétype Maven prend en charge les outils de base pour permettre le développement de fonctions Java. La version 2.x prend en charge le développement sur Linux, macOS et Windows. Pour en savoir plus, consultez [Créer votre première fonction dans Azure avec Java et Maven](./create-first-function-cli-java.md). Prend également en charge le développement en utilisant [Eclipse](functions-create-maven-eclipse.md) et [IntelliJ IDEA](functions-create-maven-intellij.md) |
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
@@ -86,7 +86,7 @@ Les paramètres d’application suivants peuvent être inclus dans le tableau **
 + Pour en savoir plus sur le développement local de fonctions C# précompilées à l’aide de Visual Studio 2019, consultez [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md).
 + Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, consultez l’article de prise en main de Visual Studio Code pour votre langage préféré :
     + [Bibliothèque de classes C#](create-first-function-vs-code-csharp.md)
-    + [Processus isolé C# (.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)
+    + [Processus isolé C# (.NET 5.0)](create-first-function-vs-code-csharp.md?tabs=isolated-process)
     + [Java](create-first-function-vs-code-java.md)
     + [JavaScript](create-first-function-vs-code-node.md)
     + [PowerShell](create-first-function-vs-code-powershell.md)
