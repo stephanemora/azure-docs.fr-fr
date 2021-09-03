@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 0510292b27d61c9142edd710e903ebad74b3d244
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c65c860e54d327c4ec24474658968577387fbc49
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228925"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562387"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Supprimer une passerelle de réseau virtuel à l’aide du portail
 
@@ -29,7 +29,7 @@ Cet article explique comment supprimer une passerelle de réseau virtuel. Deux a
 * Si vous souhaitez conserver certaines ressources de votre groupe de ressources, la suppression d’une passerelle de réseau virtuel devient légèrement plus complexe. Avant de supprimer la passerelle de réseau virtuel, vous devez commencer par supprimer toutes les ressources qui dépendent de la passerelle. Les étapes à suivre dépendent du type de connexions que vous avez créées et des ressources dépendantes de chaque connexion.
 
 > [!IMPORTANT]
-> Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager. Pour supprimer une passerelle VPN déployée à l'aide du modèle de déploiement classique, suivez les étapes de l'article [Supprimer une passerelle : classique](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
+> Les étapes mentionnées dans cet article s’appliquent au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md). Pour supprimer une passerelle VPN déployée à l'aide du modèle de déploiement classique, suivez les étapes de l'article [Supprimer une passerelle : classique](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
 
 ## <a name="delete-a-vpn-gateway"></a>Supprimer une passerelle VPN
 
@@ -61,7 +61,7 @@ Les étapes suivantes vous permettent de supprimer toutes les ressources qui ne 
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>Supprimer une passerelle VPN en supprimant le groupe de ressources
 
-Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressources et que vous voulez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Les étapes suivantes s’appliquent uniquement au modèle de déploiement Resource Manager.
+Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressources et que vous voulez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Les étapes suivantes s’appliquent uniquement au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 1. Sous **Toutes les ressources**, recherchez le groupe de ressources et cliquez pour ouvrir le panneau.
 1. Cliquez sur **Supprimer**. Dans le panneau Supprimer, affichez les ressources affectées. Vérifiez que vous voulez supprimer toutes ces ressources. Si ce n'est pas le cas, utilisez les étapes disponibles sous Supprimer une passerelle VPN en haut de cet article.

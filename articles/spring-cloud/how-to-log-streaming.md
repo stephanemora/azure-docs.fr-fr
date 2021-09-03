@@ -1,18 +1,18 @@
 ---
 title: Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 description: Comment utiliser la diffusion en continu des journaux pour afficher instantanément les journaux des applications
-author: MikeDodaro
-ms.author: barbkess
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b87f3221e62db6999dd67f475055f699a74c4c2a
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: cc34e87823e11b2c80d669edb0afe50703e38527
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495157"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533022"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 
@@ -31,18 +31,24 @@ Azure Spring Cloud active la diffusion en continu de journaux dans Azure CLI 
 ## <a name="use-cli-to-tail-logs"></a>Utiliser l’interface CLI pour les dernières lignes des journaux
 
 Pour éviter de spécifier à plusieurs reprises le nom de votre groupe de ressources et de votre instance de service, définissez le nom du groupe de ressources et le nom du cluster par défaut.
+
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
+
 Dans les exemples suivants, le groupe de ressources et le nom du service sont omis dans les commandes.
 
 ### <a name="tail-log-for-app-with-single-instance"></a>Dernières lignes du journal pour l’application avec une seule instance
+
 Si une application nommée « auth-service » ne dispose que d’une seule instance, vous pouvez afficher le journal de l’instance de l’application à l’aide de la commande suivante :
+
 ```azurecli
 az spring-cloud app logs -n auth-service
 ```
+
 Des journaux seront retournés :
+
 ```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
@@ -54,13 +60,15 @@ Des journaux seront retournés :
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>Dernières lignes du journal pour l’application avec une seule instance
-Si plusieurs instances existent pour l’application nommée `auth-service`, vous pouvez afficher le journal des instances à l’aide de l’option `-i/--instance`. 
+
+Si plusieurs instances existent pour l’application nommée `auth-service`, vous pouvez afficher le journal des instances à l’aide de l’option `-i/--instance`.
 
 Tout d’abord, vous pouvez récupérer les noms des instances de l’application à l’aide de la commande suivante.
 
 ```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
+
 Avec les résultats :
 
 ```output
@@ -69,7 +77,8 @@ Name                                         Status    DiscoveryStatus
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
-``` 
+```
+
 Ensuite, vous pouvez diffuser en continu des journaux d’une instance d’application avec l’option `-i/--instance` :
 
 ```azurecli
@@ -79,14 +88,17 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 Vous pouvez également obtenir des informations sur les instances d’application à partir du portail Azure.  Après avoir sélectionné **Applications** dans le volet de navigation gauche de votre service Azure Spring Cloud, sélectionnez **instances de l’application**.
 
 ### <a name="continuously-stream-new-logs"></a>Diffuser en continu de nouveaux journaux
-Par défaut, `az spring-cloud app logs` imprime uniquement les journaux existants diffusés en continu à la console d’application, puis se ferme. Si vous souhaitez diffuser de nouveaux journaux, ajoutez la lettre  f (--Follow) :  
+
+Par défaut, `az spring-cloud app logs` imprime uniquement les journaux existants diffusés en continu à la console d’application, puis se ferme. Si vous souhaitez diffuser de nouveaux journaux, ajoutez la lettre  f (--Follow) :
 
 ```azurecli
 az spring-cloud app logs -n auth-service -f
-``` 
+```
+
 Pour vérifier toutes les options de journalisation prises en charge :
+
 ```azurecli
-az spring-cloud app logs -h 
+az spring-cloud app logs -h
 ```
 
 ### <a name="format-json-structured-logs"></a>Formater les journaux structurés JSON
@@ -117,11 +129,13 @@ Disable delta property : false
 Single vip registry refresh property : null
 ```
 
-> Le format par défaut utilisé est
-> ```
+> Le format par défaut utilisé est :
+>
+> ```format
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](./quickstart-logs-metrics-tracing.md)
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)

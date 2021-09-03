@@ -2,24 +2,22 @@
 title: Créer des collections pour les portails Mes applications dans Azure Active Directory | Microsoft Docs
 description: Utilisez des collections Mes applications pour personnaliser les pages Mes applications afin de simplifier l’expérience Mes applications pour vos utilisateurs finaux. Organisez les applications en groupes avec des onglets distincts.
 services: active-directory
-documentationcenter: ''
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: mtillman
-ms.reviewer: kasimpso
+ms.author: davidmu
+ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239bd084a1a593211a544b86ba8b24ed9c13624a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e47e7900fd6d678e07b4fb4ccfe02b17f734c67f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562290"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Créer des collections sur le portail Mes applications
 
@@ -71,15 +69,13 @@ Pour créer une collection, vous devez disposer d’une licence Azure AD Premium
 
 11. Sélectionnez **Vérifier + créer**. Les propriétés de la nouvelle collection s’affichent.
 
-
 ## <a name="view-audit-logs"></a>Afficher les journaux d’audit
 
 Les journaux d’audit enregistrent les opérations de collection de Mes applications, y compris les actions de création de collection effectuées par l’utilisateur final. Les événements suivants sont générés pour ces actions à partir de Mes applications :
 
-* Créer une collection
-* Modifier une collection
-* Supprimer une collection
-* Lancer une application (utilisateur final)
+* Créer un regroupement d’administration
+* Modifier un regroupement d’administration
+* Supprimer un regroupement d’administration
 * Ajouter des applications en libre-service (utilisateur final)
 * Supprimer une application libre-service (utilisateur final)
 
@@ -89,11 +85,12 @@ Vous pouvez accéder aux journaux d’audit dans le [portail Azure](https://port
 
 À partir de la page Mes applications, un utilisateur peut sélectionner **Mon compte** > **Afficher mon compte** pour ouvrir ses paramètres de compte. Sur la page **Mon compte** Azure AD, les utilisateurs peuvent gérer leurs informations de sécurité, appareils, mots de passe, etc. Ils peuvent également accéder à leurs paramètres de compte Office.
 
-Si vous devez envoyer une demande de support pour un problème lié à la page du compte Azure AD ou à la page du compte Office, procédez comme suit afin de permettre son bon acheminement : 
+Si vous devez envoyer une demande de support pour un problème lié à la page du compte Azure AD ou à la page du compte Office, procédez comme suit afin de permettre son bon acheminement :
 
 * Pour les problèmes liés à la page **« Mon compte » Azure AD**, ouvrez une demande de support depuis le portail Azure. Accédez à **Portail Azure** > **Azure Active Directory** > **Nouvelle demande de support**.
 
-* Pour les problèmes liés à la page **« Mon compte » Office**, ouvrez une demande de support depuis le Centre d’administration Microsoft 365. Accédez au **Centre d'administration Microsoft 365** > **Support**. 
+* Pour les problèmes liés à la page **« Mon compte » Office**, ouvrez une demande de support depuis le Centre d’administration Microsoft 365. Accédez au **Centre d'administration Microsoft 365** > **Support**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory](end-user-experiences.md)

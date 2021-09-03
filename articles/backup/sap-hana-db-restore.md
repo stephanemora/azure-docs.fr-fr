@@ -2,13 +2,13 @@
 title: Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 description: Dans cet article, découvrez comment restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
-ms.date: 11/7/2019
-ms.openlocfilehash: d0b1af610ffa19f2a7708ee6f96de335a1886f78
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.date: 08/06/2021
+ms.openlocfilehash: c6ad108cc0377411c144fade97b3fec2c5a8b633
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279979"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531576"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -254,7 +254,7 @@ Si vous avez sélectionné **Complète et différentielle** comme type de restau
 
 parmi les options de restauration, la restauration entre régions (CRR) vous permet de restaurer des bases de données SAP HANA hébergées sur des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure.
 
-Pour intégrer la fonctionnalité à la préversion, lisez la [section Avant de commencer](./backup-create-rs-vault.md#set-cross-region-restore).
+Pour commencer à utiliser la fonctionnalité, consultez la section [Avant de commencer](./backup-create-rs-vault.md#set-cross-region-restore).
 
 Pour voir si la CRR est activée, suivez les instructions indiquées dans [Configurer la restauration interrégion](backup-create-rs-vault.md#configure-cross-region-restore)
 
@@ -274,19 +274,15 @@ Si la CRR est activée, vous pouvez afficher les éléments de sauvegarde dans l
 
 ### <a name="restore-in-secondary-region"></a>Restaurer dans la région secondaire
 
-L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire.
+L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire. Un coffre doit exister dans la région secondaire et le serveur SAP HANA doit être inscrit dans le coffre dans la région secondaire.
 
 ![Où et comment restaurer](./media/sap-hana-db-restore/restore-secondary-region.png)
-
->[!NOTE]
->Le réseau virtuel de la région secondaire doit être attribué de manière unique et ne peut être utilisé pour aucune autre machine virtuelle de ce groupe de ressources.
 
 ![Déclencher la notification de restauration en cours](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 >[!NOTE]
->
 >* Une fois la restauration déclenchée et au cours de la phase de transfert des données, le travail de restauration ne peut pas être annulé.
->* Les rôles Azure nécessaires à la restauration dans la région secondaire sont les mêmes que ceux de la région primaire.
+>* Les niveaux rôle/accès requis pour effectuer l’opération de restauration inter-régions sont le rôle _Opérateur de sauvegarde_ dans l’abonnement et l’accès _Contributeur(écriture)_ sur les machines virtuelles source et cible. Pour afficher les tâches de sauvegarde, _ Backup reader_ est la permission minimale requise dans l’abonnement.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Surveillance des travaux de restauration de la région secondaire
 

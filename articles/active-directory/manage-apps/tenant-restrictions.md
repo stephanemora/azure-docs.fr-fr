@@ -2,22 +2,22 @@
 title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux applications SaaS - Azure AD
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/2/2021
-ms.author: mtillman
-ms.reviewer: hpsin
+ms.date: 7/30/2021
+ms.author: davidmu
+ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c443f3084c465e1a8f2358c1b8db365e576b04f5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: d013d383192b206fdc05f36f320b01fe57526bb8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082232"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524649"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -53,7 +53,7 @@ Deux étapes sont nécessaires pour bien démarrer avec les restrictions liées 
 
 ### <a name="urls-and-ip-addresses"></a>URL et adresses IP
 
-Pour utiliser les restrictions liées au locataire, vos locataires doivent être en mesure de se connecter aux URL AD Azure suivantes pour s’authentifier : [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) et [login.windows.net](https://login.windows.net/). En outre, pour accéder à Office 365, vos locataires doivent également être en mesure de se connecter aux noms de domaine complets (FQDN)/URL et adresses IP définis dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Pour utiliser les restrictions liées au locataire, vos locataires doivent être en mesure de se connecter aux URL AD Azure suivantes pour s’authentifier : [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) et [login.windows.net](https://login.windows.net/). En outre, pour accéder à Office 365, vos locataires doivent également être en mesure de se connecter aux noms de domaine complets (FQDN)/URL et adresses IP définis dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ### <a name="proxy-configuration-and-requirements"></a>Configuration du proxy et conditions requises
 
@@ -81,9 +81,9 @@ Les éléments suivants doivent être inclus dans les en-têtes :
 - Pour *Restrict-Access-Context*, utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à ceci : `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  Vous **devez** utiliser votre propre ID de répertoire à cet endroit afin d’obtenir des journaux pour ces authentifications.
 
 > [!TIP]
-> Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**. 
+> Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**.
 >
-> Pour vérifier qu’un ID de répertoire ou un nom de domaine fait référence au même locataire, utilisez cet ID ou ce domaine à la place de <tenant> dans cette URL : `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si les résultats avec le domaine et l’ID sont identiques, ils font référence au même locataire. 
+> Pour vérifier qu’un ID de répertoire ou un nom de domaine fait référence au même locataire, utilisez cet ID ou ce domaine à la place de <tenant> dans cette URL : `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si les résultats avec le domaine et l’ID sont identiques, ils font référence au même locataire.
 
 Pour empêcher les utilisateurs d’insérer leur propre en-tête HTTP avec des locataires non approuvés, le proxy doit remplacer l’en-tête *Restrict-Access-To-Tenants* si celui-ci est déjà présent dans la requête entrante.
 
@@ -111,11 +111,11 @@ Bien que la configuration des restrictions liées au locataire est effectuée su
 
 L’administrateur du locataire spécifié en tant que locataire Restricted-Access-Context peut utiliser ce rapport pour afficher les connexions bloquées en raison de la stratégie de restrictions liées au locataire, notamment l’identité utilisée et l’ID du répertoire cible. Les connexions sont incluses si le client définissant la restriction est le client de l’utilisateur, ou le client de la ressource pour la connexion.
 
-Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, comme le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires ("{PII Removed}@domain.com" ou 00000000-0000-0000-0000-000000000000 à la place des noms d’utilisateur et des ID d’objet, le cas échéant). 
+Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, comme le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires ("{PII Removed}@domain.com" ou 00000000-0000-0000-0000-000000000000 à la place des noms d’utilisateur et des ID d’objet, le cas échéant).
 
 Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes**, vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
 
-- **Utilisateur** : des données personnelles peuvent être supprimées dans ce champ, il sera alors défini sur `00000000-0000-0000-0000-000000000000`. 
+- **Utilisateur** : des données personnelles peuvent être supprimées dans ce champ, il sera alors défini sur `00000000-0000-0000-0000-000000000000`.
 - **Application**
 - **État**
 - **Date**
@@ -133,7 +133,7 @@ Les applications Microsoft 365 doivent répondre à deux critères pour prendre
 1. Le locataire utilisé prend en charge l’authentification moderne.
 2. L’authentification moderne est activée comme protocole d’authentification par défaut pour le service cloud.
 
-Consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour) pour plus d’informations sur les clients Office qui prennent actuellement en charge l’authentification moderne. Cette page inclut également des liens vers des instructions relatives à l’activation de l’authentification moderne sur des clients Exchange Online et Skype Entreprise Online spécifiques. SharePoint Online active déjà l’authentification moderne par défaut.
+Consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour) pour plus d’informations sur les clients Office qui prennent actuellement en charge l’authentification moderne. Cette page inclut également des liens vers des instructions relatives à l’activation de l’authentification moderne sur des clients Exchange Online et Skype Entreprise Online spécifiques. SharePoint Online active déjà l’authentification moderne par défaut. Teams prend uniquement en charge l’authentification moderne et pas l’authentification héritée, ce problème ne s’applique donc pas à Teams. 
 
 Les applications Microsoft 365 basées sur navigateur (Portail Office, Yammer, sites SharePoint, Outlook sur le web, etc.) prennent actuellement en charge les restrictions liées au locataire. Les locataires lourds (Outlook, Skype Entreprise, Word, Excel, PowerPoint, etc.) peuvent appliquer des restrictions liées au locataire uniquement lorsque vous utilisez l’authentification moderne.  
 
@@ -157,7 +157,7 @@ Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour captu
 
    1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
 
-   2. Ajoutez les lignes suivantes au début de la fonction `OnBeforeRequest`. Remplacez \<List of tenant identifiers\> (domaine du locataire) par un domaine inscrit auprès de votre locataire (par exemple, `contoso.onmicrosoft.com`). Remplacez \<directory ID\> par l’identificateur GUID Azure AD de votre locataire.  Vous **devez** inclure l’identificateur GUID correct afin que les journaux apparaissent dans votre locataire. 
+   2. Ajoutez les lignes suivantes au début de la fonction `OnBeforeRequest`. Remplacez \<List of tenant identifiers\> (domaine du locataire) par un domaine inscrit auprès de votre locataire (par exemple, `contoso.onmicrosoft.com`). Remplacez \<directory ID\> par l’identificateur GUID Azure AD de votre locataire.  Vous **devez** inclure l’identificateur GUID correct afin que les journaux apparaissent dans votre locataire.
 
    ```JScript.NET
     // Allows access to the listed tenants.

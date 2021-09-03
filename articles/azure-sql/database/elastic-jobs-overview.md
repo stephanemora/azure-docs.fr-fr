@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: 35e13b483141e841d9cca5a2e5d3aa3c77ee7b4a
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: aacb8863fcb26f5551459e0fe7ad2d4faeede4e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017610"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532465"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Créer, configurer et gérer des travaux élastiques (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -85,18 +85,18 @@ Définissez le nombre de bases de données simultanées sur lesquelles un travai
 ### <a name="idempotent-scripts"></a>Scripts idempotents
 Les scripts T-SQL d’un travail doivent être [idempotents](https://en.wikipedia.org/wiki/Idempotence). **Idempotent** signifie que si le script réussit et qu’il est réexécuté, le résultat est le même. Un script peut échouer en raison de problèmes réseau provisoires. Dans ce cas, le travail va automatiquement refaire des tentatives d’exécution du script un nombre prédéfini de fois. Un script idempotent a le même résultat, même s’il a été correctement exécuté deux fois (ou plus).
 
-Une tactique simple consiste à tester l’existence d’un objet avant de créer ce dernier.
-
+Une tactique simple consiste à tester l’existence d’un objet avant de créer ce dernier. Un exemple hypothétique est présenté ci-dessous :
 
 ```sql
-IF NOT EXISTS (some_object)
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE [name] = N'some_object')
+    print 'Object does not exist'
     -- Create the object
+ELSE
+    print 'Object exists'
     -- If it exists, drop the object before recreating it.
 ```
 
 De même, un script doit être capable d’exécuter avec succès par une vérification logique et s’adapter aux conditions qu’il rencontre.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

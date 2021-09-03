@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 06/17/2021
 ms.author: b-juche
-ms.openlocfilehash: effca5e663f91489bc534934d26faec8c18e7460
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 44a1dd3e5d95e8ab31c9a7716f5026ceb429e084
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090620"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287890"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurer un client NFS pour Azure NetApp Files
 
@@ -249,7 +249,11 @@ Les étapes suivantes sont facultatives.  Vous devez effectuer les étapes uniqu
 
     `base dc=contoso,dc=com uri ldap://10.20.0.4:389/ ldap_version 3 rootbinddn cn=admin,cn=Users,dc=contoso,dc=com pam_password ad`   
 
-2. Pour redémarrer et activer le service, exécutez la commande suivante :
+2. Vérifiez que votre fichier `/etc/nsswitch.conf` a les entrées `ldap` suivantes :   
+    `passwd:    compat systemd ldap`   
+    `group:     compat systemd ldap`
+
+3. Pour redémarrer et activer le service, exécutez la commande suivante :
 
     `sudo systemctl restart nscd && sudo systemctl enable nscd`   
 

@@ -3,19 +3,19 @@ title: Déployer Horizon sur Azure VMware Solution
 description: Découvrez comment déployer VMware Horizon sur Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: c34d0ac7806f8284e893cf3ad4f3c82dd404ff41
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d99c8dc76dcab1866d0c536be7fc505c2eec0cb6
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181395"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563873"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Déployer Horizon sur Azure VMware Solution 
 
 >[!NOTE]
 >Ce document se concentre sur le produit VMware Horizon, anciennement connu sous le nom d'Horizon 7. Horizon est une solution différente d’Horizon Cloud sur Azure, bien qu’il existe des composants partagés. Les principaux avantages d'Azure VMware Solution sont les suivants : méthode de dimensionnement plus simple et intégration de la gestion VMware Cloud Foundation sur le portail Azure.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)® est une plateforme de bureaux virtuels et d'applications qui s'exécute dans le centre de données et offre une gestion simple et centralisée. Elle fournit des bureaux virtuels et des applications sur tous types d'appareils, où qu'ils se trouvent. Horizon vous permet de créer et de répartir des connexions à des bureaux virtuels Windows et Linux, à des applications hébergées par les services Bureau à distance (RDS), à des appareils de bureau et à des ordinateurs physiques.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)® est une plateforme de bureaux virtuels et d'applications s’exécutant dans le centre de données et offrant une gestion simple et centralisée. Elle fournit des bureaux virtuels et des applications sur tous types d'appareils, où qu'ils se trouvent. Horizon vous permet de créer et de répartir des connexions à des bureaux virtuels Windows et Linux, à des applications hébergées par les services Bureau à distance (RDS), à des appareils de bureau et à des ordinateurs physiques.
 
 Ici, nous nous concentrons spécifiquement sur le déploiement d’Horizon sur Azure VMware Solution. Pour obtenir des informations générales sur VMware Horizon, reportez-vous à la documentation de production d’Horizon :
 
@@ -27,22 +27,22 @@ Ici, nous nous concentrons spécifiquement sur le déploiement d’Horizon sur A
 
 Avec l’introduction d’Horizon sur Azure VMware Solution, il existe désormais deux solutions d’infrastructure de bureau virtuel sur la plateforme Azure. Le diagramme suivant résume les principales différences à un haut niveau.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Horizon sur Azure VMware Solution et Horizon Cloud sur Azure" border="false":::
+:::image type="content" source="media/vmware-horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diagramme montrant les différences entre Horizon sur Azure VMware Solution et Horizon Cloud sur Azure." border="false":::
 
-Horizon 2006 et versions ultérieures sur la série de versions Horizon 8 prend en charge le déploiement local et le déploiement de solutions VMware Azure. Il existe quelques fonctionnalités d’Horizon qui sont prises en charge localement, mais pas sur Azure VMware Solution. D’autres produits de l’écosystème Horizon sont également pris en charge. Pour plus d’informations, consultez [Parité des fonctionnalités et interopérabilité](https://kb.vmware.com/s/article/80850).
+Horizon 2006 et versions ultérieures sur la série de versions Horizon 8 prend en charge le déploiement en local et Azure VMware Solution. Il existe quelques fonctionnalités d’Horizon qui sont prises en charge localement, mais pas sur Azure VMware Solution. D’autres produits de l’écosystème Horizon sont également pris en charge. Pour plus d’informations, consultez [Parité des fonctionnalités et interopérabilité](https://kb.vmware.com/s/article/80850).
 
 ## <a name="deploy-horizon-in-a-hybrid-cloud"></a>Déployer Horizon dans un cloud hybride
 
-Vous pouvez déployer Horizon dans un environnement cloud hybride lorsque vous utilisez l'architecture CPA (Cloud Pod Architecture) d'Horizon pour interconnecter des centres de données locaux et des centres de données Azure. L'architecture CPA effectue un scale-up de votre déploiement, crée un cloud hybride et assure la redondance pour la continuité d'activité et la reprise d'activité.  Pour plus d'informations, consultez [Extension des environnements Horizon 7 existants](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+Vous pouvez déployer Horizon dans un environnement cloud hybride à l’aide de l'architecture CPA (Cloud Pod Architecture) d'Horizon pour interconnecter des centres de données locaux et des centres de données Azure. L'architecture CPA effectue un scale-up de votre déploiement, crée un cloud hybride et assure la redondance pour la continuité d'activité et la reprise d'activité.  Pour plus d'informations, consultez [Extension des environnements Horizon 7 existants](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
 
 >[!IMPORTANT]
 >La CPA n’est pas un déploiement étendu ; chaque pod est distinct, et tous les serveurs de connexion appartenant à chacun des pods individuels doivent être situés dans un emplacement unique et s’exécuter sur le même domaine de diffusion du point de vue du réseau.
 
-À l’instar d’un centre de données local ou privé, Horizon peut être déployé dans un cloud privé Azure VMware Solution. Dans les sections suivantes, nous examinerons les principales différences entre le déploiement d'Horizon en local et sur Azure VMware Solution.
+À l’instar d’un centre de données local ou privé, vous pouvez déployer Horizon dans un cloud privé Azure VMware Solution. Dans les sections suivantes, nous examinerons les principales différences entre le déploiement d'Horizon en local et Azure VMware Solution.
 
-Le cloud privé Azure est identique dans le concept au SDDC (centre de données défini par logiciel) de VMware, un terme généralement utilisé dans la documentation d’Horizon. Le reste de ce document utilise les termes cloud privé Azure et SDDC VMware de façon interchangeable.
+Le _cloud privé Azure_ est identique dans le concept au _SDDC (centre de données défini par logiciel) de VMware_, un terme généralement utilisé dans la documentation Horizon. Le reste de ce document utilise les deux termes de manière interchangeable.
 
-Le connecteur Horizon Cloud est requis pour Horizon sur Azure VMware Solution pour gérer les licences d’abonnement. Le connecteur cloud peut être déployé dans un réseau virtuel Azure avec des serveurs de connexion Horizon.
+Le connecteur Horizon Cloud est requis pour Horizon sur Azure VMware Solution pour gérer les licences d’abonnement. Vous pouvez déployer le connecteur cloud dans un réseau virtuel Azure avec des serveurs de connexion Horizon.
 
 >[!IMPORTANT]
 >La prise en charge du plan de contrôle d’Horizon sur Azure VMware Solution n’est pas encore disponible. Veillez à télécharger la version VHD du connecteur Horizon Cloud.
@@ -86,7 +86,7 @@ Compte tenu de la limite maximale du cloud privé Azure et du SDDC, nous vous re
 
 La connexion entre le réseau virtuel Azure et les clouds privés Azure/SDDC doit être configurée avec ExpressRoute FastPath. Le diagramme suivant illustre un déploiement de pod Horizon de base.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Déploiement standard d’un pod à l’aide d’ExpressPath FastPath" border="false":::
+:::image type="content" source="media/vmware-horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Diagramme montrant le déploiement standard d’un pod à l’aide d’ExpressPath FastPath." border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Connectivité réseau pour mettre à l’échelle Horizon sur Azure VMware Solution
 
@@ -94,7 +94,7 @@ Cette section présente l'architecture réseau à un niveau élevé, avec des ex
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod Horizon unique sur Azure VMware Solution
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Pod Horizon unique sur Azure VMware Solution" border="false":::
+:::image type="content" source="media/vmware-horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diagramme montrant un pod Horizon unique sur Azure VMware Solution." border="false":::
 
 Le scénario de déploiement d'un pod Horizon unique est le plus simple, car vous ne déployez qu'un seul pod Horizon dans la région USA Est.  Comme chaque cloud privé/SDDC peut gérer 4 000 sessions de bureau, vous déployez la taille maximale du pod Horizon.  Vous pouvez au maximum planifier le déploiement de trois clouds privés/SDDC.
 
@@ -112,17 +112,17 @@ Une variante de l'exemple de base pourrait consister à prendre en charge la con
 
 Le diagramme montre comment prendre en charge la connectivité pour les ressources locales. Pour connecter votre réseau d'entreprise au Réseau virtuel Azure, vous aurez besoin d'un circuit ExpressRoute.  Vous devrez également connecter votre réseau d'entreprise à chacun des cloud privés et des SDDC à l'aide d'ExpressRoute Global Reach.  Celui-ci permet la connectivité entre le SDDC et le circuit ExpressRoute et les ressources locales. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Connectez votre réseau d’entreprise à un réseau virtuel Azure" border="false":::
+:::image type="content" source="media/vmware-horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagramme montrant la connexion d’un réseau d’entreprise à un réseau virtuel Azure." border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Plusieurs modules Horizon sur Azure VMware Solution dans plusieurs régions
 
 Un autre scénario consiste à procéder à la mise à l'échelle d'Horizon sur plusieurs pods.  Dans ce scénario, vous déployez deux pods Horizon dans deux régions différentes et les fédérez à l'aide de l'architecture CPA. La configuration réseau est semblable à celle de l'exemple précédent, mais avec quelques liaisons supplémentaires entre les régions. 
 
-Vous connecterez le Réseau virtuel Azure de chaque région aux clouds privés/SDDC de l'autre région. Cela permettra aux serveurs de connexion Horizon qui font partie de la fédération CPA de se connecter à tous les appareils de bureau sous gestion. L'ajout de clouds privés/SDDC supplémentaires à cette configuration vous permettrait de passer à 24 000 sessions au total. 
+Vous connecterez le Réseau virtuel Azure de chaque région aux clouds privés/SDDC de l'autre région. Cela permettra aux serveurs de connexion Horizon qui font partie de la fédération CPA de se connecter à tous les appareils de bureau sous gestion. L'ajout de clouds privés/SDDC supplémentaires à cette configuration vous permettrait de passer à un total de 24 000 sessions. 
 
 Les mêmes principes s'appliquent si vous déployez deux pods Horizon dans la même région.  Veillez à déployer le deuxième pod Horizon sur un *Réseau virtuel Azure distinct*. Comme dans l'exemple à pod unique, vous pouvez connecter votre réseau d'entreprise et votre pod local à cet exemple de pods multiples/région à l'aide d'ExpressRoute et de Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Plusieurs modules Horizon sur Azure VMware Solution dans plusieurs régions" border="false":::
+:::image type="content" source="media/vmware-horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Diagramme montrant plusieurs modules Horizon sur Azure VMware Solution dans plusieurs régions." border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Dimensionnement des hôtes Azure VMware Solution pour les déploiements Horizon 
 
@@ -205,13 +205,13 @@ Deux licences sont disponibles pour une utilisation avec Azure VMware Solution, 
 
 Si vous ne prévoyez de déployer qu’Horizon sur Azure VMware Solution dans un avenir proche, utilisez la licence d’abonnement Horizon, car elle est moins coûteuse.
 
-S'il est déployé sur Azure VMware Solution et localement, comme dans un cas d'usage de récupération d'urgence, choisissez la licence d'abonnement universelle Horizon. Celle-ci comprend une licence vSphere pour le déploiement local, ce qui se traduit par un coût plus élevé.
+S'il est déployé sur Azure VMware Solution et localement, choisissez la licence d'abonnement universelle Horizon en tant que cas d’usage de récupération d’urgence. Celle-ci comprend cependant une licence vSphere pour le déploiement local, ce qui se traduit par un coût plus élevé.
 
 Collaborez avec votre équipe commerciale VMware EUC pour déterminer le coût des licences Horizon en fonction de vos besoins.
 
 ### <a name="azure-instance-types"></a>Types d’instances Azure
 
-Pour comprendre les tailles de machine virtuelle Azure qui sont nécessaires pour l’infrastructure Horizon, reportez-vous aux instructions de VMware qui se trouvent [ici](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+Pour comprendre les tailles de machine virtuelle Azure requises pour l’infrastructure Horizon, consultez [Installation d’Horizon sur Azure VMware Solution](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
 ## <a name="references"></a>References
 [Configuration système requise pour l’agent Horizon pour Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)

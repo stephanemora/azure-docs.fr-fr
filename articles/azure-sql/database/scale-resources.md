@@ -7,21 +7,21 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
-ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 818a783a85fd9117738f8199e612d97a0fb95b99
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035640"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562410"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database et SQL Managed Instance vous permet d’ajouter de manière dynamique plus de ressources à votre base de données avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/sql-database) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative.
+Azure SQL Database et SQL Managed Instance vous permet d’ajouter de manière dynamique plus de ressources à votre base de données avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/azure-sql-database) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -29,7 +29,7 @@ Lorsque la demande ciblant votre application s’accroît de quelques appareils 
 
 Vous pouvez limiter les problèmes de performances dus à une utilisation croissante de votre application qui ne peuvent être résolus en utilisant des méthodes de réécriture de requête ou d’indexation. L’ajout de ressources vous permet de réagir rapidement lorsqu’une base de données atteint la limite de ressources actuelles et a besoin de plus de puissance pour gérer les charges entrantes. Azure SQL Database vous permet aussi de diminuer la taille des ressources lorsqu’elles ne sont pas nécessaires afin de réduire les coûts.
 
-Vous n’avez pas à vous inquiéter de l’achat de matériel et du changement de l’infrastructure sous-jacente. La mise à l'échelle d’une base de données peut être effectuée en toute simplicité via le portail Azure à l’aide d’un curseur.
+Vous n’avez pas à vous inquiéter de l’achat de matériel et du changement d’infrastructure sous-jacente. La mise à l'échelle d’une base de données peut être effectuée en toute simplicité via le portail Azure à l’aide d’un curseur.
 
 ![Performances de SQL Database](./media/scale-resources/scale-performance.svg)
 

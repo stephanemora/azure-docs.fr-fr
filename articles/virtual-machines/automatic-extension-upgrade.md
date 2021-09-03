@@ -6,22 +6,22 @@ ms.service: virtual-machines
 ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 08/10/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a239b362cc7d85b45a5ae0c4f102471ae46cc450
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6af80da8c05df4f56fe04ae45169c5e1a63fcd9c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673581"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525336"
 ---
-# <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Aperçu : Mise à niveau automatique des extensions pour les machines virtuelles et les groupes identiques dans Azure
+# <a name="automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Mise à niveau automatique des extensions pour les machines virtuelles et les groupes identiques dans Azure
 
-La mise à niveau automatique des extensions est disponible en préversion pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Lorsque la mise à niveau automatique des extensions est activée sur une machine virtuelle ou un groupe identique, l’extension est automatiquement mise à niveau chaque fois que l’éditeur de l’extension publie une nouvelle version pour cette extension.
+La mise à niveau automatique des extensions est disponible pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Lorsque la mise à niveau automatique des extensions est activée sur une machine virtuelle ou un groupe identique, l’extension est automatiquement mise à niveau chaque fois que l’éditeur de l’extension publie une nouvelle version pour cette extension.
 
  La mise à niveau automatique des extensions présente les fonctionnalités suivantes :
-- Prise en charge pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Les groupes de machines virtuelles identiques de Service Fabric ne sont actuellement pas pris en charge.
+- Prise en charge pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure.
 - Les mises à niveau sont appliquées dans un modèle de déploiement selon le principe de première disponibilité (détaillé ci-dessous).
 - Pour un groupe de machines virtuelles identiques, au maximum 20 % des machines virtuelles du groupe identique seront mises à niveau par lot. La taille de lot minimale est d’une machine virtuelle.
 - Fonctionne pour toutes les tailles de machine virtuelle et pour les extensions tant Windows que Linux.
@@ -29,13 +29,6 @@ La mise à niveau automatique des extensions est disponible en préversion pour 
 - La mise à niveau automatique des extensions peut être activée sur un groupe de machines virtuelles identiques de n’importe quelle taille.
 - Chaque extension prise en charge est inscrite individuellement, et vous pouvez choisir les extensions à mettre à niveau automatiquement.
 - Prise en charge dans toutes les régions du cloud public.
-
-
-> [!IMPORTANT]
-> La mise à niveau automatique des extensions est actuellement en Préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>Comment fonctionne la mise à niveau automatique des extensions ?
 Le processus de mise à niveau d’extension remplace la version existante de l’extension sur une machine virtuelle par une nouvelle version lors de la publication de celle-ci par l’éditeur de l’extension. L’intégrité de la machine virtuelle est analysée après l’installation de la nouvelle extension. Si la machine virtuelle n’est pas dans un état sain dans les cinq minutes suivant la fin de la mise à niveau, la version précédente est restaurée.
@@ -54,8 +47,8 @@ Pour un groupe de machines virtuelles en cours de mise à jour, la plateforme Az
 - La réussite d’une mise à jour est mesurée par le suivi de l’intégrité d’une machine virtuelle après sa mise à jour. L’intégrité de la machine virtuelle est suivie via les indicateurs d’intégrité de la plateforme pour la machine virtuelle. Pour des groupes de machines virtuelles identiques, l’intégrité des machines virtuelles est suivie à l’aide de sondes d’intégrité d’application ou de l’extension Intégrité de l’application si elle est appliquée au groupe identique.
 
 **Dans une région :**
-- Les machines virtuelles de différentes Zones de disponibilité ne sont pas mises à jour simultanément.
-- Les machines virtuelles individuelles ne faisant pas partie d’un groupe à haute disponibilité sont traitées par lot dans la mesure du possible afin d’éviter les mises à jour simultanées de toutes les machines virtuelles d’un abonnement.  
+- Les machines virtuelles de différentes Zones de disponibilité ne sont pas mises à jour simultanément avec la même mise à jour.
+- Les machines virtuelles uniques ne faisant pas partie d’un groupe à haute disponibilité sont traitées par lot dans la mesure du possible afin d’éviter les mises à jour simultanées de toutes les machines virtuelles d’un abonnement.  
 
 **Dans un « groupe » :**
 - Toutes les machines virtuelles d’un même groupe à haute disponibilité ou groupe identique ne sont pas mises à jour simultanément.  
@@ -76,75 +69,16 @@ Le processus ci-dessus se poursuit jusqu’à ce que toutes les instances dans l
 L’orchestrateur de mise à niveau du groupe identique vérifie l’intégrité de tout le groupe identique avant de procéder à la mise à niveau de chaque lot. Durant la mise à niveau d’un lot, il peut arriver que d’autres activités de maintenance planifiées ou non planifiées aient lieu en même temps et aient un impact sur l’intégrité des machines virtuelles de votre groupe identique. Si c’est le cas et que plus de 20 % des instances du groupe identique passent à l’état non sain, la mise à niveau du groupe identique s’arrête à la fin du lot en cours.
 
 ## <a name="supported-extensions"></a>Extensions prises en charge
-La préversion de la mise à niveau automatique des extensions prend en charge les extensions suivantes (et d’autres sont ajoutées régulièrement) :
-- Dependency Agent – [Windows](./extensions/agent-dependency-windows.md) et [Linux](./extensions/agent-dependency-linux.md)
-- [Extension Intégrité de l’application](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Windows et Linux
-
-
-## <a name="enabling-preview-access"></a>Activation de l’accès en préversion
-L’activation de la fonctionnalité en préversion requiert une inscription unique pour la fonctionnalité **AutomaticExtensionUpgradePreview** par abonnement, comme indiqué ci-dessous.
-
-### <a name="rest-api"></a>API REST
-L’exemple suivant décrit comment activer la préversion pour votre abonnement :
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview/register?api-version=2015-12-01`
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview?api-version=2015-12-01`
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2020-06-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli"></a>Azure CLI
-Utilisez [az feature register](/cli/azure/feature#az_feature_register) pour activer la préversion pour votre abonnement.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+La mise à niveau automatique des extensions prend en charge les extensions suivantes (et d’autres sont ajoutées régulièrement) :
+- Dependency Agent – [Linux](./extensions/agent-dependency-linux.md) et [Windows](./extensions/agent-dependency-windows.md)
+- [Extension Intégrité de l’application](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) - Linux et Windows
+- [Extension Configuration d’invité](./extensions/guest-configuration.md) - Linux et Windows
+- Key Vault - [Linux](./extensions/key-vault-linux.md) et [Windows](./extensions/key-vault-windows.md)
 
 
 ## <a name="enabling-automatic-extension-upgrade"></a>Activation de la mise à niveau automatique des extensions
-Pour activer la mise à niveau automatique des extensions pour une extension, vous devez vous assurer que la propriété *enableAutomaticUpgrade* est définie sur *true* et ajoutée à chaque définition d’extension individuellement.
 
+Pour activer la mise à niveau automatique des extensions pour une extension, vous devez vous assurer que la propriété `enableAutomaticUpgrade`est définie sur `true` et ajoutée à chaque définition d’extension individuellement.
 
 ### <a name="rest-api-for-virtual-machines"></a>API REST pour les machines virtuelles
 Pour activer la mise à niveau automatique des extensions pour une extension (dans cet exemple, l’extension Dependency Agent) sur une machine virtuelle Azure, utilisez la commande suivante :

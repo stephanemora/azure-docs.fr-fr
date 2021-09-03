@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 77b35d776b8fcd71f26278a6fda8a102113bd570
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 13fe269431a84a00a8af073849cbd17d188c5175
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109844967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531476"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
@@ -78,6 +78,16 @@ Lors de la création d’un cluster avec des attributs spécifiques, vous avez b
 | `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | Requises si vous utilisez un sous-réseau associé à une table de routes dans un autre groupe de ressources, tel qu’un réseau virtuel personnalisé avec une table de routes personnalisée. Requises pour vérifier si un sous-réseau existe déjà pour le sous-réseau dans l’autre groupe de ressources. |
 | `Microsoft.Network/virtualNetworks/subnets/read` | Requise si vous utilisez un équilibreur de charge interne dans un autre groupe de ressources. Requise pour vérifier si un sous-réseau existe déjà pour l’équilibreur de charge interne dans le groupe de ressources. |
 | `Microsoft.Network/privatednszones/*` | Requise si vous utilisez une zone DNS privée dans un autre groupe de ressources, tel qu’une privateDNSZone personnalisée. |
+
+## <a name="aks-node-access"></a>Accès au nœud AKS
+
+Par défaut, l’accès au nœud n’est pas requis pour AKS.  L’accès suivant est nécessaire pour le nœud en cas d’utilisation d’un composant spécifique.
+
+| Access | Motif |
+|---|---|
+| `kubelet` | Requis pour que le client accorde l’accès MSI à ACR. |
+| `http app routing` | Obligatoire pour l’autorisation d’écriture sur « Nom aléatoire ».aksapp.io. |
+| `container insights` | Obligatoire pour que le client accorde l’autorisation à l’espace de travail Log Analytics. |
 
 ## <a name="kubernetes-rbac"></a>Contrôle RBAC Kubernetes
 

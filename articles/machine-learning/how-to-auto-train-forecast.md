@@ -8,14 +8,14 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021
-ms.openlocfilehash: d2c4f759f6b2f7ef769148c99dfcbfb738b19f5e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 87ee8e4b5d28628ae09eec83d7f72f44e762e34f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030861"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563622"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Configurer AutoML pour effectuer l’apprentissage d’un modèle de prévision de série chronologique avec Python
 
@@ -32,6 +32,7 @@ Pour une expérience à faible code, consultez le [Tutoriel : Prévoir la deman
 
 Contrairement aux méthodes classiques de séries chronologiques, dans Machine Learning automatisé, les valeurs des séries chronologiques sont ajoutées à un tableau croisé dynamique pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Cette approche intègre plusieurs variables contextuelles et les relations qu’elles entretiennent au cours de l’apprentissage. Dans la mesure où plusieurs facteurs peuvent influencer une prévision, cette méthode s’aligne bien sur les scénarios de prévision du monde réel. Par exemple, lors de la prévision des ventes, les interactions entre les tendances historiques, les taux de change et les prix déterminent conjointement le résultat des ventes. 
 
+
 ## <a name="prerequisites"></a>Prérequis
 
 Pour cet article, vous avez besoin des éléments suivants : 
@@ -40,6 +41,7 @@ Pour cet article, vous avez besoin des éléments suivants :
 
 * Cet article suppose une connaissance de base en matière de configuration d’une expérience de Machine Learning automatisé. Suivez le [didacticiel](tutorial-auto-train-models.md) ou les [procédures](how-to-configure-auto-train.md) pour connaître les principaux modèles de conception des expériences de Machine Learning automatisé.
 
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 ## <a name="preparing-data"></a>Préparation des données
 
 La principale différence entre un type de tâche de régression de prévision et un type de tâche de régression au sein de ML automatisé consiste à intégrer une fonctionnalité dans vos données qui représente une série chronologique valide. Une série chronologique normale a une fréquence cohérente et bien définie et a une valeur à chaque point de l’exemple dans un intervalle de temps continu. 
@@ -115,7 +117,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
-En savoir plus sur la façon dont AutoML applique la validation croisée afin [d’empêcher les modèles de surajustement](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+En savoir plus sur la façon dont AutoML applique la validation croisée afin [d’empêcher les modèles de surajustement](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## <a name="configure-experiment"></a>Configurer une expérience
 
@@ -364,19 +366,28 @@ best_run, fitted_model = local_run.get_output()
 
 Utilisez la meilleure itération de modèle pour prévoir les valeurs du jeu de données de test.
 
-La fonction `forecast()` permet de spécifier quand les prédictions doivent démarrer, contrairement à la `predict()`, qui est généralement utilisée pour les tâches de classification et de régression.
+La fonction [forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset) permet de spécifier quand les prédictions doivent démarrer, contrairement à la méthode `predict()`, qui est généralement utilisée pour les tâches de classification et de régression. La méthode forecast_quantiles() génère par défaut une prévision de point ou une prévision moyenne/médiane dénuée de cône d’incertitude. 
 
-Dans l’exemple suivant, vous commencez par remplacer toutes les valeurs dans `y_pred` par `NaN`. L’origine de la prévision sera à la fin des données de formation dans ce cas. Toutefois, si vous avez remplacé uniquement le second semestre de `y_pred` par `NaN`, la fonction laisserait les valeurs numériques du premier semestre inchangées, mais prévoirait les valeurs `NaN` au second semestre. La fonction retourne à la fois les valeurs prédites et les fonctionnalités alignées.
+Dans l’exemple suivant, vous commencez par remplacer toutes les valeurs dans `y_pred` par `NaN`. L’origine de la prévision se situe à la fin dans ce cas. Toutefois, si vous avez remplacé uniquement le second semestre de `y_pred` par `NaN`, la fonction laisserait les valeurs numériques du premier semestre inchangées, mais prévoirait les valeurs `NaN` au second semestre. La fonction retourne à la fois les valeurs prédites et les fonctionnalités alignées.
 
-Vous pouvez également utiliser le paramètre `forecast_destination` dans la fonction `forecast()` pour prévoir les valeurs jusqu’à une date spécifiée.
+Vous pouvez également utiliser le paramètre `forecast_destination` dans la fonction `forecast_quantiles()` pour prévoir les valeurs jusqu’à une date spécifiée.
 
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_model.forecast(
+label_fcst, data_trans = fitted_model.forecast_quantiles(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
+Souvent, les clients souhaitent comprendre les prévisions à un quantile spécifique de la distribution. Par exemple, lorsque la prévision est utilisée pour contrôler un inventaire composé d’article d’épicerie ou de machines virtuelles pour un service cloud. Dans ce cas, le point de contrôle ressemble généralement à « nous voulons que l’élément soit en stock et non 99 % du temps ». L’exemple suivant montre comment spécifier les quantiles que vous souhaitez afficher pour vos prévisions, comme le 50e ou 95e centile. Si vous ne spécifiez pas de quantile, comme dans l’exemple de code ci-dessus, seules les prévisions du 50e centile sont générées. 
+
+```python
+# specify which quantiles you would like 
+fitted_model.quantiles = [0.05,0.5, 0.9]
+fitted_model.forecast_quantiles(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+```
+ 
 Calculez l’erreur quadratique moyenne (REQM) entre les valeurs `actual_labels` réelles et les valeurs prédites dans `predict_labels`.
 
 ```python
@@ -386,7 +397,8 @@ from math import sqrt
 rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
-
+ 
+ 
 Maintenant que la précision du modèle global a été déterminée, l’étape suivante la plus réaliste consiste à utiliser le modèle pour prévoir des valeurs futures inconnues. 
 
 Fournissez un jeu de données au même format que le jeu de test `test_data`, mais avec des dates/heures futures, et le leu de prédiction résultant correspond aux valeurs prédites pour chaque étape de la série chronologique. Supposons que les derniers enregistrements de la série chronologique dans le jeu de données aient été datés du 31/12/2018. Pour prévoir la demande pour le jour suivant (ou d’autant de périodes pour lesquelles vous avez besoin d’effectuer des prévisions, < = `forecast_horizon`), créez un seul enregistrement de série chronologique pour chaque magasin pour le 01/01/2019.
@@ -397,13 +409,13 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-Répétez les étapes nécessaires pour charger ces données futures dans une trame de données, puis exécutez `best_run.forecast(test_data)` pour prédire les valeurs futures.
+Répétez les étapes nécessaires pour charger ces données futures dans une trame de données, puis exécutez `best_run.forecast_quantiles(test_data)` pour prédire les valeurs futures.
 
 > [!NOTE]
 > Les prédictions de l’exemple ne sont pas prises en charge pour les prévisions avec le ML automatisé lorsque `target_lags` et/ou `target_rolling_window_size` sont activés.
 
-
 ## <a name="example-notebooks"></a>Exemples de notebooks
+
 Consultez les [exemples de notebooks de prévision](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, notamment :
 
 * [Détection et personnalisation de congé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
@@ -416,5 +428,4 @@ Consultez les [exemples de notebooks de prévision](https://github.com/Azure/Mac
 
 * Découvrez plus d’informations sur [comment et où déployer un modèle](how-to-deploy-and-where.md).
 * Découvrez l’[interprétabilité : explications des modèles en machine learning automatisé (préversion)](how-to-machine-learning-interpretability-automl.md). 
-* Découvrez comment effectuer l’apprentissage de plusieurs modèles avec AutoML dans l’article [Many Models Solution Accelerator](https://aka.ms/many-models) (Accélérateur de solution de nombreux modèles).
 * Suivez le [Tutoriel : Effectuer l’apprentissage de modèles de régression](tutorial-auto-train-models.md) pour voir un exemple de bout en bout de création d’expériences avec le Machine Learning automatisé.

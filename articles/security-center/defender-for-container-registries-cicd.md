@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6cfa74ea6b92597734158cb2de0bad24b0336b16
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: eb7309f067c350eac0d9455767b137377caf588b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890543"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532014"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>Identifier les images conteneur vulnérables dans vos workflows CI/CD
 
@@ -33,7 +33,7 @@ Vous obtiendrez des informations de traçabilité, telles que le workflow GitHub
 |----|:----|
 |État de sortie :| **Cette intégration CI/CD est en préversion.**<br>Nous vous recommandons de l’expérimenter uniquement sur les workflows hors production.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Prix :|**Azure Defender pour les registres de conteneurs** est facturé conformément aux [tarifs de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Souverain (Azure Government, Azure China 21Vianet)|
 |||
 
 ## <a name="prerequisites"></a>Prérequis
@@ -101,7 +101,7 @@ Pour activer les analyses de vulnérabilité des images dans vos workflows GitHu
 
 1. Pour voir les résultats, accédez à la page **Recommandations**. Si des problèmes sont trouvés, la recommandation **Les vulnérabilités des images Azure Container Registry doivent être corrigées** s’affiche.
 
-    ![Recommandation de correction des problèmes ](media/monitor-container-security/acr-finding.png)
+    ![Recommandation de correction des problèmes](media/monitor-container-security/acr-finding.png)
 
 1. Sélectionnez la recommandation. 
 
@@ -109,27 +109,27 @@ Pour activer les analyses de vulnérabilité des images dans vos workflows GitHu
 
 1. Ouvrez la liste des **ressources affectées** et sélectionnez un registre non sain pour afficher dans celui-ci les dépôts qui contiennent des images vulnérables.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-registry.png" alt-text="Sélectionner un registre non sain":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/select-registry.png" alt-text="Sélectionnez un registre non sain.":::
 
     La page de détails du registre s’ouvre et présente la liste des référentiels affectés.
 
 1. Sélectionnez un référentiel pour afficher les référentiels qui contiennent des images vulnérables.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-repository.png" alt-text="Sélectionner un dépôt non sain":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/select-repository.png" alt-text="Sélectionnez un dépôt non sain.":::
 
     La page de détails du référentiel s’ouvre. Elle liste les images vulnérables, accompagnées d’une évaluation de la gravité des vulnérabilités détectées.
 
 1. Sélectionnez une image pour voir les vulnérabilités.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-image.png" alt-text="Sélectionner une image non saine":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/select-image.png" alt-text="Sélectionnez une image non saine.":::
 
     La liste des résultats pour l’image sélectionnée s’affiche.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-scan-results.png" alt-text="Résultats de l’analyse de l’image":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-scan-results.png" alt-text="Résultats de l’analyse de l’image.":::
 
 1. Pour en apprendre davantage sur le workflow GitHub qui envoie ces images vulnérables, sélectionnez la bulle d’informations :
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="Résultats CI/CD sur des branches et des validations GitHub spécifiques":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="Résultats CI/CD sur des branches et des validations GitHub spécifiques.":::
 
 
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: bde1b1f84847c3ebf05f14312b89ae8227908948
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 5a2b51573e4b639c80fd36b69cef667b9ea6eff5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562963"
 ---
 # <a name="delete-resources-from-azure"></a>Supprimer des ressources d’Azure
 
@@ -48,7 +48,6 @@ Dans certains cas, il se peut que vous deviez supprimer manuellement les ressour
     - [Supprimer des ressources de contrôleur de données Azure Arc à l’aide d’Azure CLI](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
     - [Supprimer un groupe de ressources à l’aide d’Azure CLI](#delete-a-resource-group-using-the-azure-cli)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="delete-an-entire-resource-group"></a>Supprimer un groupe de ressources entier
 

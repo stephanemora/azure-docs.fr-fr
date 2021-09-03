@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8160a2fdb35062c678fc1a9f2e629cca7885224d
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 65fbc643b1d8cef189e5f8b3e33f580a13380c8f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438975"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532812"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingérer des données de télémétrie IoT Hub dans Azure Digital Twins
 
@@ -26,11 +26,11 @@ Ce document explique le processus d’écriture d’une fonction pouvant ingére
 
 Avant de poursuivre avec cet exemple, vous devez mettre en place les ressources suivantes en guise de conditions préalables :
 * **Un hub IoT**. Pour obtenir des instructions, consultez la section *Créer un hub IoT* de [ce démarrage rapide d’IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
-* **Une instance Azure Digital Twins** qui recevra la télémétrie de votre appareil. Pour obtenir des instructions, consultez [Procédure : Configurer une instance Azure Digital Twins et l’authentification](./how-to-set-up-instance-portal.md).
+* **Une instance Azure Digital Twins** qui recevra la télémétrie de votre appareil. Pour obtenir des instructions, consultez [Configurer une instance Azure Digital Twins et l’authentification](./how-to-set-up-instance-portal.md).
 
 Cet article utilise également **Visual Studio**. Vous pouvez télécharger la dernière version à partir de la page [Téléchargements de Visual Studio](https://visualstudio.microsoft.com/downloads/).
 
-### <a name="example-telemetry-scenario"></a>Exemple de scénario de télémétrie
+## <a name="example-telemetry-scenario"></a>Exemple de scénario de télémétrie
 
 Cet article explique comment envoyer des messages entre IoT Hub et Azure Digital Twins à l’aide d’une fonction dans Azure. Pour envoyer des messages, il existe de nombreuses configurations et stratégies possibles. Cependant, l’exemple de cet article contient les éléments suivants :
 * Un thermostat situé dans IoT Hub, ayant un ID d’appareil connu
@@ -80,32 +80,30 @@ Lorsque le jumeau est créé, la sortie CLI de la commande doit ressembler à c
 
 Dans cette section, vous allez créer une fonction Azure pour accéder à Azure Digital Twins et mettre à jour des jumeaux en fonction des événements de télémétrie IoT qu’elle reçoit. Suivez les étapes ci-dessous pour créer et publier la fonction.
 
-#### <a name="step-1-create-a-function-app-project"></a>Étape 1 : Créer un projet d’application de fonction
+1. Tout d’abord, créez un projet d’application de fonction dans Visual Studio. Pour obtenir des instructions sur la façon de procéder, consultez [Développer des Azure Functions à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
-Tout d’abord, créez un projet d’application de fonction dans Visual Studio. Pour obtenir des instructions sur la façon de procéder, consultez la section [Créer une application de fonction dans Visual Studio](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
+2. Ajoutez les packages suivants à votre projet :
+    * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+    * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+    * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-#### <a name="step-2-fill-in-function-code"></a>Étape 2 : Renseigner le code de la fonction
+3. Renommez l’exemple de fonction *Function1.cs* que Visual Studio a généré en *IoTHubtoTwins.cs*. Remplacez le code du fichier par le code suivant :
 
-Ajoutez les packages suivants à votre projet :
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
-* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
-* [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
-Renommez l’exemple de fonction *Function1.cs* que Visual Studio a généré en *IoTHubtoTwins.cs*. Remplacez le code du fichier par le code suivant :
+    Enregistrez le code de votre fonction.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
+4. Publiez le projet avec la fonction *IoTHubtoTwins.cs* dans une application de fonction dans Azure. Pour obtenir des instructions sur la façon de procéder, consultez [Développer des Azure Functions à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-Enregistrez le code de votre fonction.
+[!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
 
-#### <a name="step-3-publish-the-function-app-to-azure"></a>Étape 3 : Publier l’application de fonction dans Azure
+Pour accéder à Azure Digital Twins, votre application de fonction devra disposer d’une identité managée par le système avec les autorisations nécessaires pour accéder à votre instance d’Azure Digital Twins. Vous allez maintenant configurer cela.
 
-Publiez le projet avec la fonction *IoTHubtoTwins.cs* dans une application de fonction dans Azure.
+### <a name="configure-the-function-app"></a>Configurer l’application de fonction
 
-Pour obtenir des instructions sur la façon de procéder, consultez la section [Publier l’application de fonction dans Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) de l’article *Guide pratique : configurer une fonction pour le traitement des données*.
+Ensuite, **attribuez un rôle d’accès** à la fonction et **configurez les paramètres de l’application** afin qu’elle puisse accéder à votre instance d’Azure Digital Twins.
 
-#### <a name="step-4-configure-the-function-app"></a>Étape 4 : Configurer l’application de fonction
-
-Ensuite, **attribuez un rôle d’accès** à la fonction et **configurez les paramètres de l’application** afin qu’elle puisse accéder à votre instance d’Azure Digital Twins. Pour obtenir des instructions sur la façon de procéder, consultez la section [Configurer l’accès de sécurité pour l’application de fonction](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
+[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
 
 ## <a name="connect-your-function-to-iot-hub"></a>Connecter votre fonction à IoT Hub
 
@@ -140,7 +138,7 @@ Sélectionnez le bouton _Créer_ pour créer l’abonnement aux événements.
 
 ## <a name="send-simulated-iot-data"></a>Envoyer des données IoT simulées
 
-Pour tester votre nouvelle fonction d’entrée, utilisez le simulateur d’appareil à partir du [Tutoriel : Connecter une solution de bout en bout](./tutorial-end-to-end.md). Ce tutoriel est piloté par [cet exemple de projet de bout en bout Azure Digital Twins écrit en C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vous utiliserez le projet **DeviceSimulator** dans ce référentiel.
+Pour tester votre nouvelle fonction d’entrée, utilisez le simulateur d’appareil à partir de [Connecter une solution de bout en bout](./tutorial-end-to-end.md). Ce tutoriel est piloté par [cet exemple de projet de bout en bout Azure Digital Twins écrit en C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vous utiliserez le projet **DeviceSimulator** dans ce référentiel.
 
 Dans ce tutoriel intégral, vous allez effectuer les étapes suivantes :
 1. [Inscrire l’appareil simulé auprès d’IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -179,4 +177,4 @@ Pour voir la modification de la valeur, exécutez à plusieurs reprises la comma
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’entrée et la sortie de données avec Azure Digital Twins :
-* [Concepts : Entrée et sortie de données](concepts-data-ingress-egress.md)
+* [Entrée et sortie de données](concepts-data-ingress-egress.md)

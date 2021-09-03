@@ -4,15 +4,15 @@ description: 'Services Go-To-Market : les ressources Microsoft que les éditeur
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/09/2021
+ms.date: 07/01/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: f0f75a305a411e49a29124599dfa90aa0aee9056
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: dcd7c7c64c0a686abe88b9e0d5810ff84aab27f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524871"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -28,13 +28,13 @@ Le programme crée une boucle de rétroaction positive : les avantages à chaqu
 
 Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](determine-your-listing-type.md).
 
-Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité.
+Selon votre éligibilité, vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active.
 
-Pour les partenaires Transact, vous débloquez des avantages supplémentaires par niveau à mesure que vous augmentez vos ventes facturées par le biais de la plateforme du marketplace commercial.
+Les offres de liste et d’essai reçoivent des avantages à usage unique. Les offres de transaction sont éligibles à un engagement d’avantages persistant. En tant que partenaires de transaction, lorsque vous augmentez vos ventes facturées par le biais de la place de marché commerciale, vous déverrouillez les avantages par niveau de vente facturée (ou de sièges vendus).
 
-La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
+La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur la place de marché commerciale en tant que plateforme.
 
-Vous bénéficierez d’une aide pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [consulter vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Vous bénéficierez d’une aide pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [consulter vous-même](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!1039&ithint=file%2cdocx&authkey=!AFs7CHF5_XGje3k).
 
 Vous trouverez une description détaillée de tous les avantages du programme dans cette [présentation du programme Marketplace Rewards](https://aka.ms/marketplacerewards).
 
@@ -50,20 +50,20 @@ Vous trouverez une description détaillée de tous les avantages du programme da
     1. Une fois que vous avez mis à jour le contact marketing, sélectionnez **Activer** pour l’avantage que vous souhaitez commencer à utiliser. Une fois que vous avez activé un avantage, votre contact marketing sera contacté par un membre de l’équipe Récompenses dans un délai d’une semaine.
 
 > [!NOTE]
-> Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes.<br><br>Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, envoyez un ticket de support à l’équipe [Aide et support](https://go.microsoft.com/fwlink/?linkid=2165533).
+> Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre. Pour ce faire, accédez à l’Espace partenaires et vérifiez les contacts répertoriés. L’un de ces contacts doit présenter la communication et les étapes suivantes.<br><br>Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, envoyez un ticket de support à l’équipe [Aide et support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur le marketplace commercial. Toutes les offres reçoivent un niveau de base de recommandations d’optimisation et de promotion dans le cadre d’un e-mail en libre-service de ressources et de meilleures pratiques.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Avantages des listes, des versions d’évaluation et du conseil
 
-Chaque fois que vous publiez sur Microsoft AppSource ou sur la Place de marché Azure, vous avez accès à un nouvel ensemble d’avantages. Une fois votre offre active, accédez à [l’Espace partenaires](https://partner.microsoft.com/dashboard) pour activer les avantages marketing, commerciaux et techniques auxquels vous avez droit.
+Chaque fois que vous publiez sur Microsoft AppSource ou sur la Place de marché Azure, vous avez accès à un nouvel ensemble d’avantages en termes de marketing, de ventes et techniques. Une fois votre offre active, accédez à [l’Espace partenaires](https://partner.microsoft.com/dashboard) pour activer les avantages auxquels vous êtes éligibles.
 
 > [!IMPORTANT]
 > Tous les avantages Essai et Conseil expirent au bout de trois mois.
 
 Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offres Liste, Version d’essai et Conseil :
 
-![Avantages de la mise sur le marché](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
+[![Avantages de la mise sur le marché](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png#lightbox)
 
 Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
@@ -72,29 +72,27 @@ Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du
 Lorsque vous publiez votre offre négociable sur Microsoft AppSource ou Place de marché Azure, vous pouvez accéder à des avantages supplémentaires à mesure que vous augmentez le nombre de transactions facturées ou de postes vendus sur le marketplace commercial.
 
 >[!NOTE]
->Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS comportant des intégrations à Microsoft Teams, Office, Outlook ou SharePoint), et les avantages doivent avoir été utilisés avant le 30 juin 2021.
+>Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS comportant des intégrations à Microsoft Teams, Office, Outlook ou SharePoint), et les avantages doivent avoir été utilisés avant le 30 juin 2022.
 
 Ces avantages sont conçus pour vous aider dans vos activités de marketing, de ventes et techniques. Ils vous aident donc à obtenir davantage de visiteurs, à recevoir plus de prospects et à convertir davantage d’entreprises.
 
-Tous les partenaires qui disposent d’une offre publiée peuvent travailler avec un responsable de l’engagement dédié pour choisir les activités à plus forte valeur ajoutée pour votre portefeuille d’offres sur le marketplace commercial. Cet engagement est persistant pour chaque offre, ce qui signifie que vous pouvez choisir vos activités et le calendrier de ces activités pour l’adapter à la planification des stratégies de vente et de marketing générales de votre entreprise.
+Tous les partenaires qui disposent d’une offre avec transaction publiée peuvent travailler avec un responsable de l’engagement dédié pour choisir les activités à plus forte valeur ajoutée pour votre portefeuille d’offres sur le marketplace commercial. Cet engagement est persistant pour chaque offre, ce qui signifie que vous pouvez choisir vos activités et le calendrier de ces activités pour l’adapter à la planification des stratégies de vente et de marketing générales de votre entreprise.
 
 ### <a name="marketing-benefits-for-transact-offers"></a>Avantages marketing pour les offres de transaction
 
-![Avantages marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+[![Avantages marketing](media/marketplace-publishers-guide/marketing-benefit.png)](media/marketplace-publishers-guide/marketing-benefit.png#lightbox)
 
 ### <a name="sales-benefits-for-transact-offers"></a>Avantages commerciaux pour les offres de transaction
 
-![Avantages commerciaux](./media/marketplace-publishers-guide/sales-benefit.png)
+[![Avantages commerciaux](media/marketplace-publishers-guide/sales-benefit.png)](media/marketplace-publishers-guide/sales-benefit.png#lightbox)
 
 ### <a name="technical-benefits-for-transact-offers"></a>Avantages techniques pour les offres de transaction
 
-![Avantages techniques](./media/marketplace-publishers-guide/technical-benefit.png)
-
- Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS comportant des intégrations à Microsoft Teams, Office, Outlook ou SharePoint), et les avantages doivent avoir été utilisés avant le 30 juin 2021.
+[![Avantages techniques](media/marketplace-publishers-guide/technical-benefit.png)](media/marketplace-publishers-guide/technical-benefit.png#lightbox)
 
 Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
-En plus des avantages en matière de récompenses, les partenaires d’applications professionnelles avec des offres Dynamics publiées sur Microsoft AppSource ont une programmation supplémentaire disponible via [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Cela comprend le support technique, marketing et commercial, spécialisé pour les besoins des partenaires d’applications professionnelles.
+En plus des avantages en matière de récompenses de la place de marché, les partenaires d’applications professionnelles avec des offres Dynamics publiées sur Microsoft AppSource ont une programmation supplémentaire disponible via [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Cela comprend le support technique, marketing et commercial, spécialisé pour les besoins des partenaires d’applications professionnelles.
 
 ## <a name="marketplace-rewards-requirements-and-restrictions"></a>Exigences et restrictions relatives aux récompenses de la place de marché
 
@@ -121,7 +119,7 @@ Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de Ma
 
 ### <a name="offer-availability"></a>Disponibilité de l’offre
 
-Cette offre est proposée en anglais pour tous les partenaires disposant d’une offre publiée sur la place de marché Azure ou Microsoft AppSource.
+Cette offre est proposée en anglais pour tous les partenaires disposant d’une offre publiée sur Microsoft AppSource ou la Place de marché Azure.
 
 Les transactions reconnues frauduleuses ne seront pas comptabilisées dans le niveau du programme de vente facturé d’un éditeur, comme indiqué dans la section [Liste, version d’évaluation et conseil](#list-trial-and-consulting-benefits) et la section [Avantages des partenaires de transaction](#marketplace-rewards-for-transact-partners). Microsoft affectera les partenaires aux niveaux d’éligibilité en fonction de leurs ventes réelles, après la suppression de la fraude.
 

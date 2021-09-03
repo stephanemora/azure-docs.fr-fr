@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5a7b125ef89d5d598e22fc4458b5b1c7f8c4a41c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 8c9ddff536c74182e1c13d51dde2900f07fb7470
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289351"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562380"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure
 
@@ -22,6 +22,12 @@ Cet article vous permet de configurer des clients pour l’utilisation du **prot
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour votre passerelle VPN. Pour plus d’informations, consultez [Configurer OpenVPN pour la passerelle VPN Azure](vpn-gateway-howto-openvpn.md).
+
+## <a name="vpn-client-configuration-files"></a>Fichiers de configuration de client VPN
+
+Vous pouvez générer et télécharger des fichiers de configuration de client VPN à partir du portail ou à l’aide de PowerShell. L’une ou l’autre des méthodes retourne le même fichier zip. Décompressez le fichier pour afficher le dossier OpenVPN.
+
+:::image type="content" source="./media/howto-openvpn-clients/download.png" alt-text="Capture d’écran du téléchargement du client VPN en surbrillance." :::
 
 [!INCLUDE [configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-clients.md)]
 

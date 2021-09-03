@@ -3,27 +3,30 @@ title: Demander un quota hôte pour Azure VMware Solution
 description: Découvrez comment demander un quota ou une capacité d’hôte pour Azure VMware Solution. Vous pouvez également demander plus d’hôtes dans un cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 05/13/2021
-ms.openlocfilehash: ceb32d7e09e6c595a6cddf844c713093253b8994
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 08/06/2021
+ms.openlocfilehash: 92ebc79193525802c1e7c7ede9287e3300799a10
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421649"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563830"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Demander un quota hôte pour Azure VMware Solution
 
-Dans le cadre de ce guide pratique, vous allez demander un quota ou une capacité d’hôte pour [Azure VMware Solution](introduction.md). Vous allez soumettre un ticket de support pour que vos hôtes soient alloués. Si vous avez un cloud privé Azure VMware Solution et que vous voulez que davantage d’hôtes vous soient alloués, vous allez suivre le même processus.
+Dans le cadre de ce guide pratique, vous allez demander un quota ou une capacité d’hôte pour [Azure VMware Solution](introduction.md). Vous allez soumettre un ticket de support pour que vos hôtes soient alloués, qu’il s’agisse d’un nouveau déploiement ou d’un déploiement existant. 
+
+Si vous avez un cloud privé Azure VMware Solution et que vous voulez que davantage d’hôtes vous soient alloués, vous allez suivre le même processus.
 
 >[!IMPORTANT]
->L’allocation des hôtes peut prendre quelques jours, en fonction du nombre demandé.  Demandez donc l’approvisionnement nécessaire, de façon à ne pas devoir demander souvent une augmentation du quota.
+>L’allocation des hôtes peut prendre jusqu’à cinq jours ouvrables, en fonction du nombre demandé.  Demandez donc l’approvisionnement nécessaire, de façon à ne pas devoir demander souvent une augmentation du quota.
 
 ## <a name="eligibility-criteria"></a>Critères d’éligibilité
 
-Vous devez disposer d’un compte Azure dans un abonnement Azure. L’abonnement Azure doit remplir un des critères suivants :
+Vous devez disposer d’un compte Azure dans un abonnement Azure qui adhère à l’un des critères suivants :
 
 - Un abonnement régi par un [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) conclu avec Microsoft.
 - Un abonnement managé par un fournisseur de solutions cloud (CSP) dans le cadre d’un plan Azure ou d’un contrat d’offres Azure CSP.
+- Un [contrat commercial moderne](../cost-management-billing/understand/mca-overview.md) auprès de Microsoft.
 
 ## <a name="request-host-quota-for-ea-customers"></a>Demander un quota d’hôte pour des clients Contrat Entreprise
 
@@ -62,11 +65,11 @@ Accédez au portail Azure en utilisant la procédure **Administrateur pour le co
 
    1. Dans l’**Espace partenaires**, sélectionnez **CSP** pour accéder à la zone **Clients** .
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Zone Clients de l’Espace partenaires Microsoft" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Capture d’écran montrant la zone client de l’espace partenaires Microsoft." lightbox="media/pre-deployment/csp-customers-screen.png":::
    
    1. Sélectionnez votre client, puis **Ajouter des produits**.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Espace partenaires Microsoft" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Capture d’écran montrant le plan Azure sélectionné dans l’espace partenaires Microsoft." lightbox="media/pre-deployment/csp-partner-center.png":::
    
    1. Sélectionnez **Plan Azure**, puis **Ajouter au panier**. 
    
@@ -105,5 +108,4 @@ Accédez au portail Azure en utilisant la procédure **Administrateur pour le co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avant de pouvoir déployer le service VMware Azure Solution, vous devez [inscrire le fournisseur de ressources](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) auprès de votre abonnement pour activer le service.   
-
+Avant de déployer le service VMware Azure Solution, vous devez [inscrire le fournisseur de ressources](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) auprès de votre abonnement pour activer le service.   

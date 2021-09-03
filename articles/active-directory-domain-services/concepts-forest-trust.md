@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
-ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d7c3eeb184f7ceb09541ca9533203f4b45194bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620203"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562425"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Fonctionnement des relations d’approbation pour les forêts de ressources dans Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Le flux des communications sécurisées sur les approbations conditionne l’él
 
 Le flux de la communication sur les approbations est déterminé par le sens de l’approbation. Les approbations peuvent être unidirectionnelles ou bidirectionnelles, transitives ou non transitives.
 
-Le schéma suivant montre que tous les domaines de l’*arborescence 1* et de l’*arborescence 2* présentent des relations d’approbation transitive par défaut. Ainsi, les utilisateurs de l’*arborescence 1* peuvent accéder aux ressources des domaines de l’*arborescence 2*, et les utilisateurs de l’*arborescence 1* peuvent accéder aux ressources de l’*arborescence 2*, lorsque les autorisations appropriées sont affectées au niveau de la ressource.
+Le schéma suivant montre que tous les domaines de l’*arborescence 1* et de l’*arborescence 2* présentent des relations d’approbation transitive par défaut. Ainsi, les utilisateurs de l’*arborescence 1* peuvent accéder aux ressources des domaines de l’*arborescence 2*, et les utilisateurs de l’*arborescence 2* peuvent accéder aux ressources de l’*arborescence 1*, lorsque les autorisations appropriées sont affectées au niveau de la ressource.
 
 ![Diagramme des relations d’approbation entre deux forêts](./media/concepts-forest-trust/trust-relationships.png)
 
@@ -108,7 +108,7 @@ Avant de pouvoir créer une approbation de forêt, vous devez vérifier que vous
 
 Pour créer une approbation de forêt, vous devez être membre du groupe Admins du domaine (dans le domaine racine de la forêt), ou du groupe Administrateurs de l’entreprise dans Active Directory. Chaque approbation se voit attribuer un mot de passe que les administrateurs des deux forêts doivent connaître. Les membres administrateurs de l’entreprise dans les deux forêts peuvent créer les approbations dans les deux forêts à la fois et, dans ce scénario, un mot de passe aléatoire par chiffrement est généré et écrit automatiquement pour les deux forêts.
 
-L’approbation de forêt sortante pour Azure AD Domain Services est créée dans le portail Azure. Vous ne créez pas l’approbation manuellement avec le domaine managé proprement dit. L’approbation de forêt entrante doit être configurée par un utilisateur disposant des privilèges précédemment indiqués dans l’instance Active Directory locale.
+Une forêt de ressources de domaine managé prend en charge jusqu’à cinq approbations de forêt sortante unidirectionnelle vers des forêts locales. L’approbation de forêt sortante pour Azure AD Domain Services est créée dans le portail Azure. Vous ne créez pas l’approbation manuellement avec le domaine managé proprement dit. L’approbation de forêt entrante doit être configurée par un utilisateur disposant des privilèges précédemment indiqués dans l’instance Active Directory locale. 
 
 ## <a name="trust-processes-and-interactions"></a>Interactions et processus d’approbation
 

@@ -11,18 +11,18 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 2711950a875542b36ce95f3b77387feeb7f00648
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 75ee1ca92fb687975dabe0011ce8a95b8c03172b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536999"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562138"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurer une application Java pour Azure App Service
 
 Azure App Service permet aux développeurs Java de rapidement générer, déployer et mettre à l’échelle leurs applications web Java SE, Tomcat et JBoss EAP sur un service complètement managé. Déployez des applications avec les plug-ins Maven à partir de la ligne de commande ou dans des éditeurs comme IntelliJ, Eclipse ou Visual Studio Code.
 
-Ce guide fournit les concepts et instructions clés aux développeurs Java qui utilisent App Service. Si vous n’avez jamais utilisé Azure App Service, commencez par lire [Démarrage rapide avec Java](quickstart-java.md). Des questions générales sur l’utilisation d’App Service qui ne sont pas spécifiques au développement Java sont traitées dans [Questions fréquentes (FAQ) sur App Service](faq-configuration-and-management.md).
+Ce guide fournit les concepts et instructions clés aux développeurs Java qui utilisent App Service. Si vous n’avez jamais utilisé Azure App Service, commencez par lire [Démarrage rapide avec Java](quickstart-java.md). Des questions générales sur l’utilisation d’App Service qui ne sont pas spécifiques au développement Java sont traitées dans [Questions fréquentes (FAQ) sur App Service](faq-configuration-and-management.yml).
 
 ## <a name="show-java-version"></a>Afficher la version de Java
 
@@ -69,7 +69,7 @@ Sinon, votre méthode de déploiement dépend du type de votre archive :
 Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/zipdeploy/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#rest). 
 
 > [!NOTE]
->  Vous devez nommer votre application. jar `app.jar` pour qu’App Service puisse identifier et exécuter votre application. Le plug-in Maven (mentionné ci-dessus) renomme automatiquement votre application pendant le déploiement. Si vous ne souhaitez pas renommer votre JAR en *app.jar*, vous pouvez charger un script d’interpréteur de commandes avec la commande pour exécuter votre application .jar. Collez le chemin d’accès absolu à ce script dans la zone de texte [Fichier de démarrage](faq-app-service-linux.md#built-in-images), dans la section Configuration du portail. Le script de démarrage ne s’exécute pas dans le répertoire dans lequel il est placé. Par conséquent, utilisez toujours des chemins d’accès absolus pour référencer les fichiers dans votre script de démarrage (par exemple : `java -jar /home/myapp/myapp.jar`).
+>  Vous devez nommer votre application. jar `app.jar` pour qu’App Service puisse identifier et exécuter votre application. Le plug-in Maven (mentionné ci-dessus) renomme automatiquement votre application pendant le déploiement. Si vous ne souhaitez pas renommer votre JAR en *app.jar*, vous pouvez charger un script d’interpréteur de commandes avec la commande pour exécuter votre application .jar. Collez le chemin d’accès absolu à ce script dans la zone de texte [Fichier de démarrage](/azure/app-service/faq-app-service-linux#built-in-images), dans la section Configuration du portail. Le script de démarrage ne s’exécute pas dans le répertoire dans lequel il est placé. Par conséquent, utilisez toujours des chemins d’accès absolus pour référencer les fichiers dans votre script de démarrage (par exemple : `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -81,7 +81,7 @@ Pour déployer des fichiers .war sur Tomcat, utilisez le point de terminaison `/
 
 Pour déployer des fichiers .war sur JBoss, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-war-file).
 
-Pour déployer des fichiers .ear, [utilisez FTP](deploy-ftp.md). Votre application. ear sera déployée à la racine du contexte définie dans la configuration de votre application. Par exemple, si la racine du contexte de votre application est `<context-root>myapp</context-root>`, vous pouvez parcourir le site dans le chemin `/myapp` suivant : `http://my-app-name.azurewebsites.net/myapp`. Si vous souhaitez que l’application web soit servie dans le chemin racine, assurez-vous que votre application définit la racine du contexte sur le chemin racine : `<context-root>/</context-root>`. Pour plus d’informations, consultez le document [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
+Pour déployer des fichiers .ear, [utilisez FTP](deploy-ftp.md). Votre application .ear sera déployée à la racine du contexte définie dans la configuration de votre application. Par exemple, si la racine du contexte de votre application est `<context-root>myapp</context-root>`, vous pouvez parcourir le site dans le chemin `/myapp` suivant : `http://my-app-name.azurewebsites.net/myapp`. Si vous souhaitez que l’application web soit servie dans le chemin racine, assurez-vous que votre application définit la racine du contexte sur le chemin racine : `<context-root>/</context-root>`. Pour plus d’informations, consultez le document [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -126,7 +126,7 @@ Tous les runtimes Java sur App Service qui utilisent des JVM Azul sont fournis a
 
 #### <a name="timed-recording"></a>Enregistrement chronométré
 
-Pour effectuer un enregistrement programmé, vous aurez besoin du PID (ID de processus) de l’application Java. Pour rechercher le PID, ouvrez un navigateur sur le site GCL de votre application web à l’adresse https://<votre-nom-de-site>.scm.azurewebsites.net/ProcessExplorer/. Cette page affiche les processus en cours d’exécution dans votre application web. Recherchez le processus nommé « java » dans le tableau et copiez le PID (ID de processus) correspondant.
+Pour effectuer un enregistrement programmé, vous aurez besoin du PID (ID de processus) de l’application Java. Pour rechercher le PID, ouvrez un navigateur sur le site SCM de votre application web à l’adresse `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. Cette page affiche les processus en cours d’exécution dans votre application web. Recherchez le processus nommé « java » dans le tableau et copiez le PID (ID de processus) correspondant.
 
 Ouvrez ensuite la **Console de débogage** dans la barre d’outils supérieure du site GCL et exécutez la commande suivante. Remplacez `<pid>` par l’ID de processus que vous avez copié précédemment. Cette commande démarre un enregistrement de 30 secondes du profileur de votre application Java et génère un fichier nommé `timed_recording_example.jfr` dans le répertoire `D:\home`.
 
@@ -197,7 +197,7 @@ Azure App Service pour Linux prend en charge le réglage et la personnalisation 
 
 - [Configurer les paramètres d’application](configure-common.md#configure-app-settings)
 - [Configurer un nom de domaine personnalisé](app-service-web-tutorial-custom-domain.md)
-- [Configurer des liaisons SSL](configure-ssl-bindings.md)
+- [Configurer des liaisons TLS/SSL](configure-ssl-bindings.md)
 - [Ajouter un CDN](../cdn/cdn-add-to-web-app.md)
 - [Configurer le site Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
@@ -206,7 +206,7 @@ Azure App Service pour Linux prend en charge le réglage et la personnalisation 
 
 Pour définir la mémoire allouée ou d’autres options de runtime JVM, créez un [paramètre d’application](configure-common.md#configure-app-settings) nommé `JAVA_OPTS` avec les options. App Service transmet ce paramètre comme variable d’environnement au runtime Java quand il démarre.
 
-Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` qui contient les paramètres supplémentaires tels que `-Xms512m -Xmx1204m`.
+Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` pour Java SE ou `CATALINA_OPTS` pour Tomcat qui contient les paramètres supplémentaires tels que `-Xms512m -Xmx1204m`.
 
 Pour configurer le paramètre d’application à partir du plug-in Maven, ajoutez des étiquettes paramètre/valeur dans la section du plug-in Azure. L’exemple suivant définit une taille de segment de mémoire Java minimale et maximale spécifique :
 
@@ -269,7 +269,7 @@ Les applications Java exécutées dans App Service exigent les mêmes [bonnes pr
 
 ### <a name="authenticate-users-easy-auth"></a>Authentifier les utilisateurs (authentification facile)
 
-Configurez l’authentification de l’application dans le portail Azure avec l’option **Authentification et autorisation**. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md) et les articles connexes sur d’autres fournisseurs d’identités. Si vous devez activer plusieurs fournisseurs de connexion, suivez les instructions de l’article [Personnaliser l’authentification App Service](app-service-authentication-how-to.md).
+Configurez l’authentification de l’application dans le portail Azure avec l’option **Authentification et autorisation**. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md) et les articles connexes sur d’autres fournisseurs d’identités. Si vous devez activer plusieurs fournisseurs de connexion, suivez les instructions de l’article [Personnaliser les connexions et les déconnexions](configure-authentication-customize-sign-in-out.md).
 
 #### <a name="java-se"></a>Java SE
 
@@ -297,7 +297,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Pour déconnecter les utilisateurs, utilisez le chemin `/.auth/ext/logout`. Pour effectuer d’autres actions, consultez la documentation sur l’[authentification et les autorisations App Service](./app-service-authentication-how-to.md). Il existe également une documentation officielle sur l’[interface HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) de Tomcat et ses méthodes. Les méthodes servlet suivantes sont également alimentées en fonction de la configuration de votre App Service :
+Pour déconnecter les utilisateurs, utilisez le chemin `/.auth/ext/logout`. Pour effectuer d’autres actions, consultez la documentation relative à la [Personnalisation des connexions et des déconnexions](configure-authentication-customize-sign-in-out.md). Il existe également une documentation officielle sur l’[interface HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) de Tomcat et ses méthodes. Les méthodes servlet suivantes sont également alimentées en fonction de la configuration de votre App Service :
 
 ```java
 public boolean isSecure()
@@ -311,7 +311,7 @@ Pour désactiver cette fonctionnalité, créez un paramètre d’application nom
 
 ### <a name="configure-tlsssl"></a>Configurer TLS/SSL
 
-Suivez les instructions dans [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](configure-ssl-bindings.md) pour télécharger un certificat SSL existant et le lier au nom de domaine de votre application. Par défaut, votre application autorisera toujours les connexions HTTP. Suivez les étapes spécifiques du tutoriel pour appliquer SSL et TLS.
+Suivez les instructions dans [Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service](configure-ssl-bindings.md) pour charger un certificat TLS/SSL existant et le lier au nom de domaine de votre application. Par défaut, votre application autorisera toujours les connexions HTTP. Suivez les étapes spécifiques du didacticiel pour appliquer TLS/SSL.
 
 ### <a name="use-keyvault-references"></a>Utiliser des références KeyVault
 
@@ -337,7 +337,7 @@ Une configuration supplémentaire peut être nécessaire pour chiffrer votre con
 
 #### <a name="initialize-the-java-key-store"></a>Initialiser le magasin de clés Java
 
-Pour initialiser l’objet `import java.security.KeyStore`, chargez le fichier de magasin de clés avec le mot de passe. Le mot de passe par défaut pour les deux magasins de clés est « changeit ».
+Pour initialiser l’objet `import java.security.KeyStore`, chargez le fichier de magasin de clés avec le mot de passe. Le mot de passe par défaut pour les deux magasins de clés est `changeit`.
 
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
@@ -369,11 +369,11 @@ Azure Monitor Application Insights est un service de surveillance des applicatio
 
 #### <a name="azure-portal"></a>Portail Azure
 
-Pour activer Application Insights à partir du portail Azure, accédez à **Application Insights** dans le menu de gauche, puis sélectionnez **Activer Application Insights**. Par défaut, une nouvelle ressource Application Insights du même nom que votre application web est utilisée. Vous pouvez choisir d’utiliser une ressource Application Insights existante ou de modifier le nom. Cliquez sur **Appliquer** en bas
+Pour activer Application Insights à partir du portail Azure, accédez à **Application Insights** dans le menu de gauche, puis sélectionnez **Activer Application Insights**. Par défaut, une nouvelle ressource Application Insights du même nom que votre application web est utilisée. Vous pouvez choisir d’utiliser une ressource Application Insights existante ou de modifier le nom. Cliquez sur **Appliquer** en bas
 
 #### <a name="azure-cli"></a>Azure CLI
 
-Pour activer Application Insights via Azure CLI, vous devez créer une ressource Application Insights et définir deux paramètres d’application sur le portail pour connecter Application Insights à votre application web.
+Pour activer Application Insights via Azure CLI, vous devez créer une ressource Application Insights et définir deux paramètres d’application sur le portail Azure pour connecter Application Insights à votre application web.
 
 1. Activer l’extension Application Insights
 
@@ -558,6 +558,8 @@ Vous pouvez utiliser un script de démarrage pour effectuer des actions avant le
 2. Copier Tomcat localement.
 3. Apporter les modifications de configuration requises.
 4. Indiquer que la configuration a été correctement effectuée.
+
+Pour les sites Windows, créez un fichier nommé `startup.cmd` ou `startup.ps1` dans le répertoire `wwwroot`. Ce sera automatiquement exécuté avant le démarrage du serveur Tomcat.
 
 Voici un script PowerShell qui effectue ces étapes :
 
@@ -856,7 +858,7 @@ Ensuite, déterminez si la source de données doit être mise à la disposition 
 
 #### <a name="shared-server-level-resources"></a>Ressources au niveau du serveur partagées
 
-Pour ajouter une source de données partagée au niveau du serveur, vous devez modifier le fichier server.xml de Tomcat. Tout d’abord, téléchargez un [script de démarrage](faq-app-service-linux.md#built-in-images) et définissez le chemin d’accès au script dans **Configuration** > **Commande de démarrage**. Vous pouvez télécharger le script de démarrage à l’aide de [FTP](deploy-ftp.md).
+Pour ajouter une source de données partagée au niveau du serveur, vous devez modifier le fichier server.xml de Tomcat. Tout d’abord, téléchargez un [script de démarrage](/azure/app-service/faq-app-service-linux#built-in-images) et définissez le chemin d’accès au script dans **Configuration** > **Commande de démarrage**. Vous pouvez télécharger le script de démarrage à l’aide de [FTP](deploy-ftp.md).
 
 Votre script de démarrage crée une [transformation xsl](https://www.w3schools.com/xml/xsl_intro.asp) sur le fichier server.xml et génère le fichier xml résultant sur `/usr/local/tomcat/conf/server.xml`. Le script de démarrage doit installer libxslt via apk. Votre fichier xsl et votre script de démarrage peuvent être téléchargés via FTP. Vous trouverez ci-dessous un exemple de script de démarrage.
 
@@ -986,14 +988,14 @@ Il existe trois étapes de base lors de l’[inscription d’une source de donn�
     data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
     ```
 
-1. Créez un script de démarrage, `startup_script.sh`, qui appelle les commandes d’interface de ligne de commande JBoss. L’exemple ci-dessous montre comment appeler `jboss-cli-commands.cli`. Plus tard, vous allez configurer App Service pour exécuter ce script au démarrage du conteneur. 
+1. Créez un script de démarrage, `startup_script.sh`, qui appelle les commandes d’interface de ligne de commande JBoss. L’exemple ci-dessous montre comment appeler `jboss-cli-commands.cli`. Plus tard, vous allez configurer App Service pour exécuter ce script au démarrage du conteneur. 
 
     ```bash
     $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
     ```
 
 1. À l’aide d’un client FTP de votre choix, chargez votre pilote JDBC, `jboss-cli-commands.cli`, `startup_script.sh` et la définition du module dans `/site/deployments/tools/`.
-2. Configurez votre site pour qu’il exécute `startup_script.sh` au démarrage du conteneur. Dans le portail Azure, accédez à **Configuration** > **Paramètres généraux** > **Commande de démarrage**. Définissez le champ de commande de démarrage sur `/home/site/deployments/tools/startup_script.sh`. **Enregistrez** les changements apportés.
+2. Configurez votre site pour qu’il exécute `startup_script.sh` au démarrage du conteneur. Dans le portail Azure, accédez à **Configuration** > **Paramètres généraux** > **Commande de démarrage**. Définissez le champ de commande de démarrage sur `/home/site/deployments/tools/startup_script.sh`. **Enregistrez** les changements apportés.
 
 Pour confirmer que la source de source a été ajoutée au serveur JBoss, connectez-vous avec SSH dans votre application web et exécutez `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Une fois que vous êtes connecté à JBoss, exécutez `/subsystem=datasources:read-resource` pour imprimer la liste des sources de données.
 
@@ -1020,11 +1022,11 @@ JBoss EAP est disponible uniquement sur les types de plans App Service Premium v
 
 ### <a name="jdk-versions-and-maintenance"></a>Versions JDK et maintenance
 
-Le kit de développement Java (JDK) pris en charge d’Azure est [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fourni par [Azul Systems](https://www.azul.com/). Les builds Azul Zulu Enterprise d’OpenJDK sont une distribution gratuite, multiplateforme et prête pour la production d’OpenJDK pour Azure et Azure Stack pris en charge par Microsoft et Azul Systems. Elles contiennent tous les composants nécessaires pour générer et exécuter des applications Java SE. Vous pouvez installer le JDK à partir de l’[installation du JDK Java](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Le kit de développement Java (JDK) pris en charge d’Azure est [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fourni par [Azul Systems](https://www.azul.com/). Les builds Azul Zulu Enterprise d’OpenJDK sont une distribution gratuite, multiplateforme et prête pour la production d’OpenJDK pour Azure et Azure Stack pris en charge par Microsoft et Azul Systems. Elles contiennent tous les composants nécessaires pour générer et exécuter des applications Java SE. Vous pouvez installer le JDK à partir de l’[installation du JDK Java](/azure/developer/java/fundamentals/java-support-on-azure).
 
 Les mises à jour de la version majeure sont fournies via de nouvelles options de runtime dans Azure App Service. Les clients effectuent une mise à jour avec ces versions plus récentes de Java en configurant leur déploiement App Service et doivent s’occuper des tests et de s’assurer que la mise à jour majeure répond à leurs besoins.
 
-Les kits JDK pris en charge sont automatiquement mis à jour tous les trimestres, en janvier, avril, juillet et octobre de chaque année. Pour plus d’informations sur Java sur Azure, consultez [ce document de support](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Les kits JDK pris en charge sont automatiquement mis à jour tous les trimestres, en janvier, avril, juillet et octobre de chaque année. Pour plus d’informations sur Java sur Azure, consultez [ce document de support](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### <a name="security-updates"></a>Mises à jour de sécurité
 
@@ -1049,4 +1051,5 @@ La prise en charge produit du [kit JDK Zulu d’Azul pris en charge par Azure](h
 
 Visitez le centre [Azure pour les développeurs Java](/java/azure/) pour trouver des guides de démarrage rapide Azure, des tutoriels et la documentation de référence Java.
 
-Des questions générales sur l’utilisation d’App Service pour Linux qui ne sont pas spécifiques au développement Java sont traitées dans [Questions fréquentes (FAQ) sur App Service Linux](faq-app-service-linux.md).
+- [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
+- [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

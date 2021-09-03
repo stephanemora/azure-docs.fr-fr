@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0262cdd348c03dafd378af95374beacf2bc77c23
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5e38cfeae5ad8593e5ee69059f4bdb903b04aa42
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679267"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533128"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure
 
 Chaque demande sécurisée adressée à un compte Stockage Azure doit être autorisée. Par défaut, les demandes peuvent être autorisées soit avec des informations d’identification Azure Active Directory (Azure AD), soit à l’aide de la clé d’accès au compte pour l’autorisation avec clé partagée. Entre ces deux types d’autorisation, Azure AD offre une sécurité et une facilité d’utilisation supérieures par rapport à une clé partagée, et est recommandé par Microsoft. Pour exiger des clients qu’ils utilisent Azure AD pour autoriser les demandes, vous pouvez désactiver les demandes adressées au compte de stockage qui sont autorisées avec une clé partagée.
 
-Lorsque vous désactivez l’autorisation avec clé partagée pour un compte de stockage, le service Stockage Azure rejette toutes les demandes ultérieures adressées à ce compte, qui sont autorisées avec les clés d’accès au compte. Seules les demandes sécurisées autorisées avec Azure AD aboutissent. Pour plus d’informations sur l’utilisation d’Azure AD, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](storage-auth-aad.md).
+Lorsque vous désactivez l’autorisation avec clé partagée pour un compte de stockage, le service Stockage Azure rejette toutes les demandes ultérieures adressées à ce compte, qui sont autorisées avec les clés d’accès au compte. Seules les demandes sécurisées autorisées avec Azure AD aboutissent. Pour plus d’informations sur l’utilisation d’Azure AD, consultez [Autoriser l’accès aux données dans le stockage Azure](authorize-data-access.md).
 
 Cet article explique comment détecter les demandes envoyées avec une autorisation avec clé partagée, et comment corriger l’autorisation avec clé partagée pour votre compte de stockage.
 
@@ -107,7 +107,7 @@ Vous pouvez également configurer une règle d’alerte basée sur cette requêt
 
 ## <a name="remediate-authorization-via-shared-key"></a>Corriger une autorisation via une clé partagée
 
-Une fois que vous avez analysé la manière dont les demandes adressées à votre compte de stockage sont autorisées, vous pouvez agir pour empêcher l’accès via une clé partagée. Mais tout d’abord, vous devez mettre à jour les applications qui utilisent l’autorisation avec clé partagée pour utiliser Azure AD à la place. Pour suivre la transition, vous pouvez surveiller les journaux et les métriques, comme décrit dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications). Pour plus d’informations sur l’utilisation d’Azure AD avec des données de blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](storage-auth-aad.md).
+Une fois que vous avez analysé la manière dont les demandes adressées à votre compte de stockage sont autorisées, vous pouvez agir pour empêcher l’accès via une clé partagée. Mais tout d’abord, vous devez mettre à jour les applications qui utilisent l’autorisation avec clé partagée pour utiliser Azure AD à la place. Pour suivre la transition, vous pouvez surveiller les journaux et les métriques, comme décrit dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications). Pour plus d’informations sur l’utilisation d’Azure AD pour accéder aux données dans un compte de stockage, consultez [Autoriser l’accès aux données dans le stockage Azure](authorize-data-access.md).
 
 Lorsque vous êtes certain de pouvoir rejeter en toute sécurité des demandes autorisées avec clé partagée, vous pouvez définir la propriété **AllowSharedKeyAccess** pour le compte de stockage sur la valeur **false**.
 
@@ -247,6 +247,6 @@ La désactivation de l’accès avec clé partagée pour un compte de stockage n
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Autorisation de l’accès aux données dans Stockage Azure](storage-auth.md)
-- [Autorisation de l’accès aux blobs et aux files d’attente à l’aide d’Azure Active Directory](storage-auth-aad.md)
+- [Autorisation de l’accès aux données dans le stockage Azure](./authorize-data-access.md)
+- [Autorisation de l’accès aux blobs et aux files d’attente à l’aide d’Azure Active Directory](authorize-data-access.md)
 - [Autoriser avec une clé partagée](/rest/api/storageservices/authorize-with-shared-key)
