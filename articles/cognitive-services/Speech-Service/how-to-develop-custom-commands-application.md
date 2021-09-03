@@ -3,19 +3,19 @@ title: 'Procédure : Développer des applications de commandes personnalisées 
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment développer et personnaliser des applications de commandes. Ces applications de commandes vocales sont les plus adaptées à la réalisation de tâches ou aux scénarios de commande et de contrôle.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: trbye
-ms.openlocfilehash: 84253f897e8b85029ea4425a7919be4bf71028ed
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: lajanuar
+ms.openlocfilehash: 62f8c726a4ba8cec07ef2898d132f9aa3d526785
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451942"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535354"
 ---
 # <a name="develop-custom-commands-applications"></a>Développer des applications de commandes personnalisées
 
@@ -97,7 +97,7 @@ Pour plus d’informations sur les règles et les règles d’exécution, consul
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nom**       | `ConfirmationResponse`                  | Nom décrivant l’objectif de la règle          |
     | **Conditions** | None                                     | Conditions déterminant le moment où la règle peut s’exécuter    |
-    | **Actions**    | **Envoyer une réponse vocale** > **Éditeur simple** > **Première variation** > `Ok, turning the tv on` | Action à exécuter lorsque la condition de la règle est remplie |
+    | **Actions**    | **Envoyer une réponse vocale** > **Éditeur simple** > `Ok, turning the tv on` | Action à exécuter lorsque la condition de la règle est remplie |
 
    > [!div class="mx-imgBorder"]
    > ![Capture d'écran montrant où créer une réponse vocale.](media/custom-commands/create-speech-response-action.png)
@@ -153,7 +153,7 @@ Essayez les exemples d’énoncés suivants à l’aide de la voix ou du texte :
 - La réponse attendue est : OK, régler une alarme pour 9 h demain matin
 
 > [!div class="mx-imgBorder"]
-> ![Capture d’écran montrant le test dans une interface de conversation web.](media/custom-commands/create-basic-test-chat.png)
+> ![Capture d’écran montrant le test dans une interface de conversation web.](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 > [!TIP]
 > Dans le panneau de test, vous pouvez sélectionner **Activer les détails** pour obtenir plus d’informations sur la manière dont cette entrée vocale/texte a été traitée.
@@ -167,9 +167,9 @@ Dans cette section, vous apprendrez à ajouter des paramètres à vos commandes.
 Commencez par modifier la commande `TurnOn` existante pour activer et désactiver plusieurs appareils.
 
 1. Maintenant que la commande pourra gérer un scénario d’activation et de désactivation, renommez-la *TurnOnOff*.
-   1. Dans le volet de gauche, sélectionnez la commande **TurnOn**. Ensuite, en regard de **Nouvelle commande** en haut du volet, sélectionnez le bouton représentant des points de suspension ( **...** ).
+   1. Dans le volet de gauche, sélectionnez la commande **TurnOn**. Ensuite, en regard de **Nouvelle commande** en haut du volet, sélectionnez le bouton de modification.
 
-   1. Sélectionnez **Renommer**. Dans la fenêtre **Renommer la commande**, remplacez le nom par *TurnOnOff*.
+   1. Dans la fenêtre **Renommer la commande**, remplacez le nom par *TurnOnOff*.
 
 1. Ajoutez un nouveau paramètre à la commande. Le paramètre indique si l’utilisateur souhaite activer ou désactiver l’appareil.
    1. En haut du volet central, sélectionnez **Ajouter**. Dans le menu déroulant, sélectionnez **Paramètre**.
@@ -186,7 +186,6 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
        | Configuration      | Valeur suggérée     | Description                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **Nom**               | `OnOff`           | Nom descriptif du paramètre.                                                                           |
-       | **Est global**          | Non sélectionné       | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes de l'application.|
        | **Obligatoire**           | Volumes sélectionnés         | Case à cocher indiquant si une valeur de ce paramètre est nécessaire pour exécuter la commande. |
        | **Réponse pour le paramètre obligatoire**      |**Éditeur simple** > `On or Off?`      | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue. |
        | **Type**               | **Chaîne**          | Type du paramètre, par exemple Nombre, Chaîne, Date/heure ou Zone géographique.   |
@@ -209,7 +208,6 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
     | Paramètre            | Valeur suggérée       |
     | ------------------ | --------------------- |
     | **Nom**               | `SubjectDevice`         |
-    | **Est global**          | Non sélectionné             |
     | **Obligatoire**           | Volumes sélectionnés               |
     | **Réponse pour le paramètre obligatoire**     | **Éditeur simple** > `Which device do you want to control?`    | 
     | **Type**               | **Chaîne**                |     
@@ -276,11 +274,11 @@ Une fois la formation terminée, sélectionnez **Tester**. Une fenêtre **Tester
 
 Modifiez la commande `SetTemperature` pour lui permettre de régler la température comme indiqué par l’utilisateur.
 
-Ajoutez un paramètre `Temperature`. Utilisez la configuration suivante :
+Ajoutez un paramètre `TemperatureValue`. Utilisez la configuration suivante :
 
 | Configuration      | Valeur suggérée     |
 | ------------------ | ----------------|
-| **Nom**               | `Temperature`           |
+| **Nom**               | `TemperatureValue`           |
 | **Obligatoire**           | Volumes sélectionnés         |
 | **Réponse pour le paramètre obligatoire**      | **Éditeur simple** > `What temperature would you like?`
 | **Type**               | `Number`          |
@@ -289,8 +287,8 @@ Ajoutez un paramètre `Temperature`. Utilisez la configuration suivante :
 Remplacez les exemples d’énoncés suivants par les valeurs suivantes.
 
 ```
-set the temperature to {Temperature} degrees
-change the temperature to {Temperature}
+set the temperature to {TemperatureValue} degrees
+change the temperature to {TemperatureValue}
 set the temperature
 change the temperature
 ```
@@ -299,8 +297,8 @@ Modifiez les règles d’exécution existantes. Utilisez la configuration suivan
 
 | Configuration      | Valeur suggérée     |
 | ------------------ | ----------------|
-| **Conditions**         | **Paramètre obligatoire** > **Température**           |
-| **Actions**           | **Envoyer une réponse vocale** > `Ok, setting temperature to {Temperature} degrees` |
+| **Conditions**         | **Paramètre obligatoire** > **TemperatureValue**           |
+| **Actions**           | **Envoyer une réponse vocale** > `Ok, setting temperature to {TemperatureValue} degrees` |
 
 ### <a name="configure-parameters-for-a-setalarm-command"></a>Configurer les paramètres d’une commande SetAlarm
 
@@ -462,26 +460,26 @@ Pour ajouter une confirmation, utilisez la commande `SetTemperature` . Pour obte
 
     1. Modifiez la règle d’interaction **Confirmer la commande** à l’aide de la configuration suivante :
         1. Remplacez le nom par **Confirmer la température**.
-        1. Ajouter une nouvelle condition : **Paramètres obligatoires** > **Température**.
-        1. Ajouter une nouvelle action : **Type** > **Envoyer une réponse vocale** > **Voulez-vous vraiment définir la température sur {Temperature} degrés ?**
+        1. La condition **Tous les paramètres obligatoires** a déjà été ajoutée.
+        1. Ajouter une nouvelle action : **Type** > **Envoyer une réponse vocale** > **Voulez-vous vraiment définir la température sur {TemperatureValue} degrés ?**
         1. Dans la section **Attentes**, conservez la valeur par défaut **Attente de confirmation de l'utilisateur**.
 
          > [!div class="mx-imgBorder"]
-         > ![Capture d'écran montrant comment créer la réponse pour le paramètre obligatoire.](media/custom-speech-commands/add-validation-set-temperature.png)
+         > ![Capture d'écran montrant comment créer la réponse pour le paramètre obligatoire.](media/custom-speech-commands/add-confirmation-set-temperature.png)
 
 
     1. Modifiez la règle d'interaction **Confirmation réussie** pour gérer une confirmation réussie (l’utilisateur a répondu oui).
 
           1. Remplacez le nom par **Confirmation de la température réussie**.
           1. Conservez la condition existante **Confirmation réussie**.
-          1. Ajouter une nouvelle condition : **Type** > **Paramètres obligatoires** > **Température**.
+          1. Ajoutez une nouvelle condition : **Type** > **Paramètres obligatoires** > **TemperatureValue**.
           1. Conservez la valeur par défaut de **État après exécution** sur **Exécuter les règles d’exécution**.
 
     1. Modifiez la règle d’interaction **Confirmation refusée** pour gérer les scénarios où une confirmation est refusée (l’utilisateur a répondu non).
 
           1. Remplacez le nom par **Confirmation de la température refusée**.
           1. Conservez la condition existante **Confirmation refusée**.
-          1. Ajouter une nouvelle condition : **Type** > **Paramètres obligatoires** > **Température**.
+          1. Ajoutez une nouvelle condition : **Type** > **Paramètres obligatoires** > **TemperatureValue**.
           1. Ajouter une nouvelle action : **Type** > **Envoyer une réponse vocale** > **Aucun problème. Quelle température ?** .
           1. Modifiez la valeur par défaut de **État après exécution** sur **Attente d'entrée de l'utilisateur**.
 
@@ -587,7 +585,6 @@ Modifiez la commande `TurnOnOff` pour ajouter un nouveau paramètre. Utilisez la
 | Paramètre            | Valeur suggérée       |
 | ------------------ | --------------------- |
 | **Nom**               | `SubjectContext`         |
-| **Est global**          | Non sélectionné             |
 | **Obligatoire**           | Non sélectionné               |
 | **Type**               | **Chaîne**                |
 | **Valeur par défaut**      | `all` |

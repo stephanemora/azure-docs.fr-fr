@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/30/2021
-ms.openlocfilehash: 82a5135f23293d0fe9bbaaf0eeb0543b4fdb598f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 81bae18cdc4a977ef03ddf807f9277037d939bd0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744770"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563676"
 ---
 # <a name="troubleshooting-common-issues-with-shared-private-link-resources"></a>Résolution des problèmes courants liés aux ressources de liaison privée partagée
 
@@ -23,7 +23,7 @@ Les ressources de liaison privée partagée permettent à Recherche cognitive Az
 
 Quatre étapes distinctes sont impliquées dans la création d’une ressource de liaison privée partagée :
 
-1. Le client appelle l’[API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) du plan de gestion sur le fournisseur de ressources (RP) de recherche avec les détails de la ressource de liaison privée partagée à créer.
+1. Le client appelle l’[API CreateOrUpdate](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) du plan de gestion sur le fournisseur de ressources (RP) de recherche avec les détails de la ressource de liaison privée partagée à créer.
 
 2. La recherche de RP valide la requête et si la validation est concluante, une opération Azure Resource Manager asynchrone (dont la progression peut être interrogée par le client) est lancée
 
@@ -70,15 +70,15 @@ Les ressources marquées avec « (préversion) » sont uniquement disponibles 
 | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
 | Azure Functions (préversion) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
 
-En outre, le `groupId` spécifié doit être valide pour le type de ressource spécifié. Par exemple, le « blob » `groupId` est valide pour le type « Microsoft.Storage/storageAccounts ». Il ne peut pas être utilisé avec un autre type de ressource. Pour une version d’API de gestion de recherche donnée, les clients peuvent découvrir les détails des types de ressources et `groupId` pris en charge en utilisant l’ [API Répertorier les ressources prises en charge](/rest/api/searchmanagement/privatelinkresources/listsupported).
+En outre, le `groupId` spécifié doit être valide pour le type de ressource spécifié. Par exemple, le « blob » `groupId` est valide pour le type « Microsoft.Storage/storageAccounts ». Il ne peut pas être utilisé avec un autre type de ressource. Pour une version d’API de gestion de recherche donnée, les clients peuvent découvrir les détails des types de ressources et `groupId` pris en charge en utilisant l’ [API Répertorier les ressources prises en charge](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 + Application de la limite de quota : les services de recherche ont des quotas imposés sur le nombre de ressources de liaison privée partagée qui peuvent être créées et le nombre de différents types de ressources cibles qui sont utilisés (selon `groupId`). Ceux-ci sont documentés dans la [section Limites de ressources de liaison privée partagée](search-limits-quotas-capacity.md#shared-private-link-resource-limits) de la page Limites du service Recherche cognitive Azure.
 
 ### <a name="azure-resource-manager-deployment-failures"></a>Échecs de déploiement Azure Resource Manager
 
-Une fois que la recherche a accepté la demande de création d’une ressource de liaison privée partagée, le déploiement Azure Resource Manager qu’il lance peut également échouer pour plusieurs raisons. Dans tous les cas, lorsque les clients interrogent l’état de l’opération asynchrone (décrite [ici](search-indexer-howto-access-private.md#step-1-create-a-shared-private-link-resource-to-the-storage-account)), un message d’erreur approprié et tous les détails disponibles s’affichent.
+Un service de recherche lance la demande de création d’un lien privé partagé, mais Azure Resource Manager effectue le travail réel. Vous pouvez [vérifier l'état du déploiement](search-indexer-howto-access-private.md#step-3-check-the-status-of-the-private-endpoint-creation) dans le portail ou par requête, et corriger les erreurs qui pourraient se produire.
 
-Les ressources de liaison privée partagée qui ont échoué lors du déploiement d’Azure Resource Manager s’afficheront dans les appels d’API [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) et [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get), mais auront un « État d’approvisionnement » de `Failed`. Une fois la raison de l’échec du déploiement d’Azure Resource Manager constatée, supprimez la ressource `Failed`, puis recréez-la après avoir appliqué la résolution appropriée à partir du tableau ci-dessous.
+Les ressources de liaison privée partagée qui ont échoué lors du déploiement d’Azure Resource Manager s’afficheront dans les appels d’API [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) et [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get), mais auront un « État d’approvisionnement » de `Failed`. Une fois la raison de l’échec du déploiement d’Azure Resource Manager constatée, supprimez la ressource `Failed`, puis recréez-la après avoir appliqué la résolution appropriée à partir du tableau suivant.
 
 | Raison de l’échec de déploiement | Description | Résolution |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Si vous constatez que la ressource de liaison privée partagée n’a pas été 
 
 ## <a name="updating-a-shared-private-link-resource"></a>Mise à jour d’une ressource de liaison privée partagée
 
-Une ressource de liaison privée partagée existante peut être mise à jour à l’aide de l’[API de création ou de mise à jour](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). La recherche de RP n’autorise que les mises à jour restrictives de la ressource de liaison privée partagée. Seul le message de demande peut être modifié par le biais de cette API.
+Une ressource de liaison privée partagée existante peut être mise à jour à l’aide de l’[API de création ou de mise à jour](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). La recherche de RP n’autorise que les mises à jour restrictives de la ressource de liaison privée partagée. Seul le message de demande peut être modifié par le biais de cette API.
 
 + Il n’est pas possible de mettre à jour les propriétés « principales » d’une ressource de liaison privée partagée existante (comme `privateLinkResourceId` ou `groupId`), et cette opération ne sera jamais prise en charge. Si une autre propriété en plus du message de demande doit être modifiée, nous conseillons aux clients de supprimer et recréer la ressource de liaison privée partagée.
 
@@ -105,7 +105,7 @@ Une ressource de liaison privée partagée existante peut être mise à jour à 
 
 ## <a name="deleting-a-shared-private-link-resource"></a>Suppression d’une ressource de liaison privée partagée
 
-Les clients peuvent supprimer une ressource de liaison privée partagée existante via l’[API de suppression](/rest/api/searchmanagement/sharedprivatelinkresources/delete). Comme avec le processus de création (ou de mise à jour), il s’agit d’une opération asynchrone en quatre étapes :
+Les clients peuvent supprimer une ressource de liaison privée partagée existante via l’[API de suppression](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/delete). Comme avec le processus de création (ou de mise à jour), il s’agit d’une opération asynchrone en quatre étapes :
 
 1. Le client demande au RP de recherche de supprimer la ressource de liaison privée partagée.
 
@@ -113,7 +113,7 @@ Les clients peuvent supprimer une ressource de liaison privée partagée existan
 
 3. Recherchez les requêtes pour la fin de l’opération (qui prend généralement quelques minutes). À ce stade, la ressource de liaison privée partagée a un état d’approvisionnement « Suppression ».
 
-4. Une fois l’opération terminée avec succès, le point de terminaison privé de sauvegarde et les mappages DNS associés sont supprimés. La ressource n’apparaît pas dans le cadre de l’opération [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) et la tentative d’une opération [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get) sur cette ressource entraîne l’affichage d’une erreur 404 introuvable.
+4. Une fois l’opération terminée avec succès, le point de terminaison privé de sauvegarde et les mappages DNS associés sont supprimés. La ressource n’apparaît pas dans le cadre de l’opération [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) et la tentative d’une opération [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) sur cette ressource entraîne l’affichage d’une erreur 404 introuvable.
 
 ![Étapes impliquées dans la suppression de ressources de liaison privée partagée ](media\troubleshoot-shared-private-link-resources\shared-private-link-delete-states.png)
 
@@ -131,4 +131,4 @@ Certaines erreurs courantes qui se produisent pendant la phase de suppression so
 En savoir plus sur les ressources de liaison privée partagée et sur leur utilisation pour sécuriser l’accès au contenu protégé.
 
 + [Accès au contenu protégé par le biais d’indexeurs](search-indexer-howto-access-private.md)
-+ [Référence d’API REST](/rest/api/searchmanagement/sharedprivatelinkresources)
++ [Référence d’API REST](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources)

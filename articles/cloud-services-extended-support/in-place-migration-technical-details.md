@@ -1,28 +1,26 @@
 ---
 title: Détails techniques et configuration requise pour la migration vers Azure Cloud Services (support étendu)
 description: Décrit les détails techniques et la configuration requise pour la migration d’Azure Cloud Services (classique) vers Azure Cloud Services (support étendu)
-author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore
-ms.openlocfilehash: 4898c0ec17766d0bcbd89176194aec9dee7157ea
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+author: hirenshah1
+ms.author: hirshah
+ms.openlocfilehash: 55ce5305962562876a97dfd7677e6af5e1eb9e3a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293041"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532637"
 ---
 # <a name="technical-details-of-migrating-to-azure-cloud-services-extended-support"></a>Détails techniques de la migration vers Azure Cloud Services (support étendu)   
 
 Cet article présente les détails techniques relatifs à l’outil de migration, en ce qui concerne Azure Cloud Services (classique). 
 
-> [!IMPORTANT]
-> La migration d’Azure Cloud Services (classique) vers Azure Cloud Services (support étendu) à l’aide de l’outil de migration est actuellement disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="details-about-feature--scenarios-supported-for-migration"></a>Détails sur les fonctionnalités/scénarios pris en charge pour la migration 
+
 
 ### <a name="extensions-and-plugin-migration"></a>Migration des extensions et des plug-ins 
 - Toutes les extensions activées et prises en charge seront migrées. 
@@ -63,6 +61,39 @@ Cet article présente les détails techniques relatifs à l’outil de migration
 - Dans le cadre de la migration, Azure crée automatiquement un nouveau Key Vault, et migre tous les certificats vers celui-ci. L’outil ne vous permet pas d’utiliser un Key Vault existant. 
 - Azure Cloud Services (support étendu) requiert un Key Vault situé dans les mêmes région et abonnement. Ce Key Vault est créé automatiquement dans le cadre de la migration. 
 
+## <a name="resources-and-features-not-available-for-migration"></a>Ressources et fonctionnalités non disponibles pour la migration
+Il s’agit de scénarios principaux impliquant des combinaisons de ressources, de fonctionnalités et de services cloud. Cette liste n’est pas exhaustive. 
+
+| Ressource | Étapes suivantes/solution de contournement | 
+|---|---|
+| Règles de mise à l’échelle automatique | La migration s’effectue mais les règles sont supprimées. [Recréez les règles ](./configure-scaling.md) après la migration sur les services cloud (support étendu). | 
+| Alertes | La migration s’effectue mais les alertes sont supprimées. [Recréez les règles](./enable-alerts.md) après la migration sur les services cloud (support étendu). | 
+| Passerelle VPN | Supprimez la passerelle VPN avant de commencer la migration, puis recréez la passerelle VPN une fois la migration terminée. | 
+| Passerelles ExpressRoute (dans le même abonnement que le réseau virtuel uniquement) | Supprimez la passerelle ExpressRoute avant de commencer la migration, puis recréez la passerelle une fois la migration terminée. | 
+| Quota  | Le quota n’est pas migré. [Demandez un nouveau quota](../azure-resource-manager/templates/error-resource-quota.md#solution) sur Azure Resource Manager avant la migration pour que la validation réussisse. | 
+| Groupe d'affinités | Non pris en charge. Supprimez les groupes d’affinités avant la migration.  | 
+| Réseaux virtuels utilisant l’[appairage de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md)| Avant de migrer un réseau virtuel appairé à un autre réseau virtuel, supprimez l’appairage, migrez le réseau virtuel vers Resource Manager et recréez l’appairage. Cela peut entraîner un temps d’arrêt en fonction de l’architecture. | 
+| Réseaux virtuels contenant des environnements App Service | Non pris en charge | 
+| Réseaux virtuels contenant des services HDInsight | Non pris en charge. 
+| Réseaux virtuels contenant des déploiements Gestion des API Azure | Non pris en charge. <br><br> Pour migrer le réseau virtuel, modifiez le réseau virtuel du déploiement Gestion des API. Il s’agit d’une opération sans temps d’arrêt. | 
+| Circuits Express Route classiques | Non pris en charge. <br><br>Ces circuits doivent migrer vers Azure Resource Manager avant le début de la migration PaaS. Pour en savoir plus, consultez [Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](../expressroute/expressroute-howto-move-arm.md). |  
+| Contrôle d’accès en fonction du rôle | Après la migration, l’URI des modifications de ressource de `Microsoft.ClassicCompute` vers les stratégies RBAC `Microsoft.Compute` doit être mis à jour après la migration. | 
+| Application Gateway | Non pris en charge. <br><br> Supprimez la passerelle applicative Application Gateway avant de commencer la migration, puis recréez-la une fois la migration vers Azure Resource Manager terminée. | 
+
+## <a name="unsupported-configurations--migration-scenarios"></a>Configurations/scénarios de migration non pris en charge
+
+| Configuration/scénario  | Étapes suivantes/solution de contournement | 
+|---|---|
+| Migration de certains déploiements plus anciens qui ne sont pas dans un réseau virtuel | Certains déploiements de service cloud qui ne se trouvent pas dans un réseau virtuel ne sont pas pris en charge pour la migration. <br><br> 1. Utilisez l’API Validate pour vérifier si le déploiement est éligible à la migration. <br> 2. S’il est éligible, les déploiements sont déplacés vers Azure Resource Manager sous un réseau virtuel avec le préfixe « DefaultRdfeVnet ». | 
+| Migration de déploiements contenant à la fois le déploiement d’emplacements de production et de préproduction à l’aide d’adresses IP dynamiques | La migration d’un service cloud à deux emplacements nécessite la suppression de l’emplacement de préproduction. Une fois l’emplacement de préproduction supprimé, migrez l’emplacement de production en tant que service cloud indépendant (support étendu) dans Azure Resource Manager. Ensuite, redéployez l’environnement intermédiaire en tant que nouveau service cloud (support étendu) et rendez-le remplaçable par le premier. | 
+| Migration de déploiements contenant à la fois le déploiement d’emplacements de production et de préproduction à l’aide d’adresses IP réservées | Non pris en charge. | 
+| Migration du déploiement de production et de préproduction dans un réseau virtuel différent|La migration d’un service cloud à deux emplacements nécessite la suppression de l’emplacement de préproduction. Une fois l’emplacement de préproduction supprimé, migrez l’emplacement de production en tant que service cloud indépendant (support étendu) dans Azure Resource Manager. Un nouveau déploiement de services cloud (support étendu) peut ensuite être lié au déploiement migré avec la propriété remplaçable activée. Les fichiers de déploiement de l’ancien déploiement d’emplacement de préproduction peuvent être réutilisés pour créer ce nouveau déploiement remplaçable. | 
+| Migration d’un service cloud vide (service cloud sans déploiement) | Non pris en charge. | 
+| Migration d’un déploiement contenant le plug-in Bureau à distance et les extensions Bureau à distance | Option 1 : supprimez le plug-in Bureau à distance avant la migration. Cela nécessite de modifier les fichiers de déploiement. La migration va ensuite se poursuivre. <br><br> Option 2 : supprimez l’extension Bureau à distance et migrez le déploiement. Après la migration, supprimez le plug-in et installez l’extension. Cela nécessite de modifier les fichiers de déploiement. <br><br> Supprimez le plug-in et l’extension avant la migration. Les [plug-ins ne sont pas recommandés](./deploy-prerequisite.md#required-service-definition-file-csdef-updates) pour une utilisation sur les services cloud (support étendu).| 
+| Réseaux virtuels avec un déploiement PaaS et IaaS |Non pris en charge <br><br> Déplacez les déploiements PaaS ou IaaS vers un autre réseau virtuel. Cela va entraîner un temps d’arrêt. | 
+Déploiements de service cloud utilisant des tailles de rôle héritées (telles que Small ou ExtraLarge). | La migration s’effectue, mais les tailles de rôle sont mises à jour pour utiliser les tailles de rôle modernes. Il n’y a aucune modification des propriétés de coût ou de référence et la machine virtuelle n’est pas redémarrée pour cette modification. Mettez à jour tous les artefacts de déploiement pour qu’ils fassent référence à ces nouvelles tailles de rôle modernes. Pour plus d’informations, consultez [Tailles de machines virtuelles disponibles](available-sizes.md).|
+| Migration du service cloud vers un autre réseau virtuel | Non pris en charge <br><br> 1. Déplacez le déploiement vers un autre réseau virtuel classique avant la migration. Cela va entraîner un temps d’arrêt. <br> 2. Migrez le nouveau réseau virtuel vers Azure Resource Manager. <br><br> ou <br><br> 1. Migrez le réseau virtuel vers Azure Resource Manager. <br>2. Déplacez le service cloud vers un nouveau réseau virtuel. Cela va entraîner un temps d’arrêt. | 
+| Service cloud dans un réseau virtuel, mais sans sous-réseau explicite attribué | Non pris en charge. L’atténuation implique le déplacement du rôle dans un sous-réseau, ce qui nécessite un redémarrage du rôle (et donc un temps d’arrêt). | 
 
 ## <a name="translation-of-resources-and-naming-convention-post-migration"></a>Traduction des ressources et convention d’affectation de noms post-migration
 Dans le cadre de la migration, les noms de ressources sont modifiés, et peu de fonctionnalités des services cloud sont exposées en tant que ressources Azure Resource Manager. Le tableau récapitule les modifications spécifiques à la migration des services cloud.
@@ -70,14 +101,14 @@ Dans le cadre de la migration, les noms de ressources sont modifiés, et peu de 
 | Services cloud (classiques) <br><br> Nom de la ressource | Services cloud (classiques) <br><br> Syntaxe| Cloud Services (support étendu) <br><br> Nom de la ressource| Cloud Services (support étendu) <br><br> Syntaxe | 
 |---|---|---|---|
 | Service cloud | `cloudservicename` | Non associé| Non associé |
-| Déploiement (créé par le portail) <br><br> Déploiement (non créé par le portail)  | `deploymentname` | Cloud Services (support étendu) | `deploymentname` |  
-| Réseau virtuel | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Non associé |  Réseau virtuel (non créé par le portail) <br><br> Réseau virtuel (créé par le portail) <br><br> Réseaux virtuels (par défaut) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
-| Non associé | Non associé | Key Vault | `cloudservicename` | 
+| Déploiement (créé par le portail) <br><br> Déploiement (non créé par le portail)  | `deploymentname` | Cloud Services (support étendu) | `cloudservicename` |  
+| Réseau virtuel | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Non associé |  Réseau virtuel (non créé par le portail) <br><br> Réseau virtuel (créé par le portail) <br><br> Réseaux virtuels (par défaut) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `VNet-cloudservicename`|
+| Non associé | Non associé | Key Vault | `KV-cloudservicename` | 
 | Non associé | Non associé | Groupe de ressources pour déploiements de service cloud | `cloudservicename-migrated` | 
 | Non associé | Non associé | Groupe de ressources pour réseau virtuel | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
 | Non associé | Non associé | Adresse IP publique (dynamique) | `cloudservicenameContractContract` | 
 | Nom de l’adresse IP réservée | `reservedipname` | Adresse IP réservée (non créée par le portail) <br><br> Adresse IP réservée (créée par le portail) | `reservedipname` <br><br> `group-resourcegroupname-reservedipname` | 
-| Non associé| Non associé | Load Balancer | `deploymentname-lb`|
+| Non associé| Non associé | Load Balancer | `LB-cloudservicename`|
 
 
 
@@ -101,3 +132,6 @@ Dans le cadre de la migration, les noms de ressources sont modifiés, et peu de 
 
 ### <a name="how-much-time-can-the-operations-takebr"></a>Combien de temps les opérations peuvent-elles prendre ?<br>
 La validation est conçue pour être rapide. La préparation est plus longue et prend un certain temps en fonction du nombre total d’instances de rôle migrées. L’abandon et la validation peuvent également prendre du temps, mais moins que la préparation. Toutes les opérations expirent au bout de 24 heures.
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour obtenir de l’aide sur la migration de votre déploiement de services cloud (classique) vers les services cloud (prise en charge étendue), consultez notre page d’accueil [Support et résolution des problèmes](support-help.md).

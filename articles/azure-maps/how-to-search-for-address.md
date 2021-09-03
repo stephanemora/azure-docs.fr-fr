@@ -7,13 +7,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de8acfbf4d4930f5c029aaa71300af770a274194
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532848"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Rechercher un emplacement à l’aide des services Search d’Azure Maps
 
@@ -22,7 +21,7 @@ Le [service de recherche](/rest/api/maps/search) d’Azure Maps est un ensemble 
 
 Dans cet article, vous allez apprendre à :
 
-* Demander des coordonnées de latitude et de longitude pour une adresse (emplacement de l’adresse géocodée) à l’aide de l’[API de recherche d’adresse]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
+* Demander des coordonnées de latitude et de longitude pour une adresse (emplacement de l’adresse géocodée) à l’aide de l’[API de recherche d’adresse](/rest/api/maps/search/getsearchaddress).
 * Rechercher une adresse ou un point d’intérêt (POI) à l’aide de l’[API de recherche approximative](/rest/api/maps/search/getsearchfuzzy).
 * Créer une [recherche d’adresse inversée](/rest/api/maps/search/getsearchaddressreverse) pour traduire les coordonnées de l’emplacement en adresse postale.
 * Traduisez l’emplacement des coordonnées en une intersection compréhensible en utilisant de l’[API Search Address Reverse Cross Street](/rest/api/maps/search/getsearchaddressreversecrossstreet).  Le plus souvent, cela est nécessaire dans les applications de suivi qui reçoivent le flux GPS d’un appareil ou d’une ressource et qui souhaitent connaître l’emplacement auquel correspondent les coordonnées.
@@ -41,25 +40,23 @@ Dans cet exemple, nous utilisons l’[API Get Search Address](/rest/api/maps/sea
 >[!TIP]
 >Si vous avez un ensemble d’adresses à géocoder, vous pouvez utiliser l’[API Post Search Address Batch](/rest/api/maps/search/postsearchaddressbatch) pour envoyer un lot de requêtes en un seul appel d’API.
 
-1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.  Nommez la collection puis sélectionnez le bouton **Create** (Créer). Vous utiliserez ce regroupement pour le reste des exemples de ce document.
+1. Dans l’application Postman,sélectionnez **Nouveau** pour créer la demande. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
-
-3. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Dans cette requête, nous recherchons une adresse spécifique : `400 Braod St, Seattle, WA 98109`. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
+2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Dans cette requête, nous recherchons une adresse spécifique : `400 Braod St, Seattle, WA 98109`. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-4. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les données d’un emplacement unique.
+3. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les données d’un emplacement unique.
 
-5. À présent, nous allons rechercher une adresse qui a plusieurs emplacements possibles. Dans la section **Params**, remplacez la clé `query` par `400 Broad, Seattle`. Cliquez sur le bouton bleu **Envoyer**.
+4. À présent, nous allons rechercher une adresse qui a plusieurs emplacements possibles. Dans la section **Params**, remplacez la clé `query` par `400 Broad, Seattle`. Cliquez sur le bouton bleu **Envoyer**.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Rechercher une adresse":::
 
-6. Ensuite, essayez de définir la clé `query` sur `400 Broa`.
+5. Ensuite, essayez de définir la clé `query` sur `400 Broa`.
 
-7. Cliquez sur le bouton **Envoyer**. Vous pouvez maintenant voir que la réponse comprend des réponses réparties dans plusieurs pays. Pour adapter des résultats en fonction de la zone pertinente pour vos utilisateurs, ajoutez toujours un maximum de détails sur l’emplacement dans la requête.
+6. Cliquez sur le bouton **Envoyer**. Vous pouvez maintenant voir que la réponse comprend des réponses réparties dans plusieurs pays. Pour adapter des résultats en fonction de la zone pertinente pour vos utilisateurs, ajoutez toujours un maximum de détails sur l’emplacement dans la requête.
 
 ## <a name="using-fuzzy-search-api"></a>Utilisation de l’API Recherche approximative
 
@@ -75,7 +72,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
 >[!IMPORTANT]
 >Pour adapter les résultats géographiques en fonction de la zone pertinente pour vos utilisateurs, ajoutez toujours un maximum de détails sur l’emplacement. Pour plus d’informations, consultez [Meilleures pratiques pour la recherche](how-to-use-best-practices-for-search.md#geobiased-search-results).
 
-1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Dans l’application Postman,sélectionnez **Nouveau** pour créer la demande. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
@@ -113,7 +110,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Rechercher une adresse postale à l’aide d’une recherche d’adresse inverse
 
-L’[API Get Search Address Reverse]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) d’Azure Maps traduit les coordonnées en adresses lisibles. Cette API est souvent utilisée pour les applications qui utilisent des flux GPS et qui souhaitent découvrir les adresses de points de coordonnées spécifiques.
+L’[API Get Search Address Reverse](/rest/api/maps/search/getsearchaddressreverse) d’Azure Maps traduit les coordonnées en adresses lisibles. Cette API est souvent utilisée pour les applications qui utilisent des flux GPS et qui souhaitent découvrir les adresses de points de coordonnées spécifiques.
 
 >[!IMPORTANT]
 >Pour adapter les résultats géographiques en fonction de la zone pertinente pour vos utilisateurs, ajoutez toujours un maximum de détails sur l’emplacement. Pour plus d’informations, consultez [Meilleures pratiques pour la recherche](how-to-use-best-practices-for-search.md#geobiased-search-results).
@@ -123,7 +120,7 @@ L’[API Get Search Address Reverse]( https://docs.microsoft.com/rest/api/maps/s
 
 Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de quelques-uns des paramètres facultatifs disponibles. Pour obtenir la liste complète des paramètres facultatifs, consultez [Paramètres de recherche inversée](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
 
-1. Dans l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la première section ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Dans l’application Postman,sélectionnez **Nouveau** pour créer la demande. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale. La requête doit ressembler à l’URL suivante :
 
@@ -159,7 +156,7 @@ Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de
 
 Dans cet exemple, nous allons rechercher une intersection en nous basant sur les coordonnées d’une adresse.
 
-1. Dans l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la première section ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Dans l’application Postman,sélectionnez **Nouveau** pour créer la demande. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale. La requête doit ressembler à l’URL suivante :
   

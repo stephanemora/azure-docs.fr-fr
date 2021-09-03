@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60743cdbc48d695c0c98c6e34273a0c407fef546
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87543450"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524994"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -175,22 +175,22 @@ Pour **supprimer** vos paramètres utilisateur que Cloud Shell enregistre pour v
 >[!Note]
 > Si vous supprimez vos paramètres utilisateur, le partage Azure Files proprement dit n’est pas supprimé. Accédez à Azure Files pour effectuer cette action.
 
-1. [![Image représentant un bouton libellé Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Lancez Cloud Shell ou un interpréteur de commandes local avec Azure PowerShell ou Azure CLI installé.
 
 2. Exécutez les commandes suivantes dans Bash ou PowerShell :
 
 Bash :
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
 PowerShell :
 
   ```powershell
-  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## <a name="azure-government-limitations"></a>Limitations d’Azure Government
 Azure Cloud Shell dans Azure Government est accessible uniquement par le biais du Portail Azure.

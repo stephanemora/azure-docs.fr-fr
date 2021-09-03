@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez les fonctionnalités et le rôle d’Azure Digital Twins Explorer
 author: baanders
 ms.author: baanders
-ms.date: 4/28/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a0ecf0200b56b602468f1ca6c3dbfe19a5860c60
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 873e1a9fc0fdda5c331112d02a1b6111e336193e
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966378"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534862"
 ---
 # <a name="azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer (préversion)
 
@@ -27,15 +27,15 @@ Voici une vue de la fenêtre de l’Explorateur, présentant des modèles et des
 
 L’interface visuelle est un outil formidable pour l’exploration et la compréhension de la forme de votre graphe et de votre jeu de modèles, ainsi que pour apporter des modifications ponctuelles et précises à des jumeaux et des relations spécifiques.
 
-Cet article contient des informations supplémentaires sur Azure Digital Twins Explorer, notamment ses cas d’usage et une vue d’ensemble de ses fonctionnalités. Pour obtenir des instructions détaillées sur l’utilisation de chaque fonctionnalité, consultez [Guide pratique pour utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+Cet article contient des informations supplémentaires sur Azure Digital Twins Explorer, notamment ses cas d’usage et une vue d’ensemble de ses fonctionnalités. Pour obtenir des instructions détaillées sur l’utilisation de chaque fonctionnalité, consultez [Utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
 
 ## <a name="when-to-use"></a>Quand l’utiliser
 
 Azure Digital Twins Explorer est un outil visuel conçu pour les utilisateurs qui souhaitent explorer leur graphe de jumeaux et modifier les jumeaux et les relations dans le contexte de leur graphe.
 
 Les développeurs trouveront cet outil particulièrement utile dans les scénarios suivants :
-* **Exploration** : utilisez l’Explorateur pour en savoir plus sur Azure Digital Twins et la façon dont il représente votre environnement réel. Importez des exemples de modèles et de graphes que vous pouvez afficher et modifier pour vous familiariser avec le service. Pour connaître les étapes à suivre pour commencer à utiliser Azure Digital Twins Explorer, consultez [Démarrage rapide : Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
-* **Développement** : utilisez l’Explorateur pour afficher et valider votre graphe de jumeaux, ainsi que pour examiner des propriétés spécifiques des modèles, jumeaux et relations. Apportez des modifications ad hoc à votre graphe et à ses données. Pour obtenir des instructions détaillées sur l’utilisation de chaque fonctionnalité, consultez [Guide pratique pour utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
+* **Exploration** : utilisez l’Explorateur pour en savoir plus sur Azure Digital Twins et la façon dont il représente votre environnement réel. Importez des exemples de modèles et de graphes que vous pouvez afficher et modifier pour vous familiariser avec le service. Pour connaître les étapes à suivre pour commencer à utiliser Azure Digital Twins Explorer, consultez [Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
+* **Développement** : utilisez l’Explorateur pour afficher et valider votre graphe de jumeaux, ainsi que pour examiner des propriétés spécifiques des modèles, jumeaux et relations. Apportez des modifications ad hoc à votre graphe et à ses données. Pour obtenir des instructions détaillées sur l’utilisation de chaque fonctionnalité, consultez [Utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
 L’objectif principal de l’Explorateur est de vous aider à visualiser et à comprendre votre graphe, et à le mettre à jour en fonction des besoins. Pour les solutions à grande échelle et pour le travail qui doit être répété ou automatisé, utilisez plutôt les [API et les kits SDK](./concepts-apis-sdks.md) pour interagir avec votre instance par le biais de code.
 
@@ -53,7 +53,7 @@ Les sections de l’Explorateur sont les suivantes :
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png" alt-text="Capture d’écran d’Azure Digital Twins Explorer mettant en évidence chacun des panneaux décrits ci-dessus." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png":::
 
-Pour obtenir des instructions détaillées sur l’utilisation de chaque fonctionnalité, consultez [Guide pratique pour utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
+Pour obtenir des instructions détaillées sur l’utilisation de chaque fonctionnalité, consultez [Utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
 ## <a name="how-to-contribute"></a>Marche à suivre pour contribuer
 
@@ -77,4 +77,4 @@ Azure Digital Twins Explorer est un outil gratuit qui permet d’interagir avec 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-Découvrez comment utiliser les fonctionnalités d’Azure Digital Twins Explorer en détail : [Guide pratique pour utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+Découvrez comment utiliser les fonctionnalités d’Azure Digital Twins Explorer en détail : [Utiliser Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).

@@ -3,12 +3,12 @@ title: Supervision Kubernetes avec Container Insights | Microsoft Docs
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Container Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2751d96a0527328a78030cba618d2026059f04fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124310"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562883"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Superviser les performances de votre cluster Kubernetes avec Container Insights
 
@@ -141,7 +141,7 @@ Vous pouvez [fractionner](../essentials/metrics-charts.md#apply-splitting) une m
 
 Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), un volet des propriétés s’affiche automatiquement à droite de la page. Il présente les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Lorsqu’un nœud Linux est sélectionné, la section **Capacité du disque Local** qui représente également l’espace disque disponible et le pourcentage utilisé pour chaque disque présenté au nœud. Sélectionnez le lien **>>** dans le volet pour afficher ou masquer celui-ci.
 
-Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Depuis le volet, vous pouvez également afficher les journaux de conteneur Kubernetes (stdout/stderror), les événements et les mesures pod en sélectionnant le lien **Afficher les données actives (préversion)** en haut du volet. Pour plus d’informations sur la configuration requise pour accorder et contrôler l’accès à l’affichage de ces données, consultez [Setup the Live Data (preview)](container-insights-livedata-setup.md) (Configurer les données actives [préversion]). Lorsque vous consultez des ressources de cluster, vous pouvez voir ces informations en temps réel. Pour plus d’informations sur cette fonctionnalité, consultez [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md) (Comment afficher les journaux, les événements et les mesures pod Kubernetes en temps réel). Pour afficher les données de journal Kubernetes stockées dans votre espace de travail en fonction de recherches de journal prédéfinies, sélectionnez **Afficher les journaux d’activité du conteneur** dans la liste déroulante **Afficher dans Analytics**. Pour plus d’informations sur ce sujet, consultez [Rechercher des journaux d’activité pour analyser les données](container-insights-log-search.md#search-logs-to-analyze-data).
+Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Depuis le volet, vous pouvez également afficher les journaux de conteneur Kubernetes (stdout/stderror), les événements et les mesures pod en sélectionnant le lien **Afficher les données actives (préversion)** en haut du volet. Pour plus d’informations sur la configuration requise pour accorder et contrôler l’accès à l’affichage de ces données, consultez [Setup the Live Data (preview)](container-insights-livedata-setup.md) (Configurer les données actives [préversion]). Lorsque vous consultez des ressources de cluster, vous pouvez voir ces informations en temps réel. Pour plus d’informations sur cette fonctionnalité, consultez [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md) (Comment afficher les journaux, les événements et les mesures pod Kubernetes en temps réel). Pour afficher les données de journal Kubernetes stockées dans votre espace de travail en fonction de recherches de journal prédéfinies, sélectionnez **Afficher les journaux d’activité du conteneur** dans la liste déroulante **Afficher dans Analytics**. Pour plus d’informations sur cette rubrique, consultez [Comment interroger des journaux à partir de Container Insights](container-insights-log-query.md).
 
 Utilisez l’option **+ Ajouter un filtre** en haut de la page pour filtrer les résultats de la vue par **Service**, **Nœud** ou **Espace de noms** ou **Pool de nœuds**. Après avoir sélectionné l’étendue de filtre, sélectionnez l’une des valeurs affichées dans le champ **Select value(s)** (Sélectionner une ou plusieurs valeurs). Une fois que le filtre est configuré, il est appliqué globalement lors de l’affichage de n’importe quel point de vue du cluster AKS. La formule prend uniquement en charge le signe égal. Vous pouvez ajouter des filtres supplémentaires au-dessus du premier pour affiner davantage vos résultats. Par exemple, si vous spécifiez un filtre par **Nœud**, vous pouvez uniquement sélectionner **Service** ou **Espace de noms** pour le deuxième filtre.
 
@@ -297,13 +297,13 @@ Azure Network Policy Manager comprend des métriques Prometheus informatives qui
 
 ## <a name="workbooks"></a>Workbooks
 
-Les classeurs regroupent du texte, des requêtes de journal, des métriques et des paramètres au sein de rapports interactifs complets qui vous permettent d’analyser les performances des clusters. Consultez [Classeurs dans Container Insights](../insights/container-insights-reports.md) pour obtenir une description des classeurs disponibles dans Container insights.
+Les classeurs regroupent du texte, des requêtes de journal, des métriques et des paramètres au sein de rapports interactifs complets qui vous permettent d’analyser les performances des clusters. Consultez [Classeurs dans Container Insights](container-insights-reports.md) pour obtenir une description des classeurs disponibles dans Container insights.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [Créer des alertes de performances avec Container Insights](./container-insights-log-alerts.md) pour savoir comment créer les alertes pour une utilisation élevée du processeur et de la mémoire, afin de prendre en charge vos procédures et processus opérationnels ou DevOps.
 
-- Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
+- Consultez les [exemples de requêtes de journal](container-insights-log-query.md) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
 
 - Consultez [Superviser l’intégrité des clusters](./container-insights-overview.md) pour en savoir plus sur l’affichage de l’état d’intégrité de votre cluster Kubernetes.

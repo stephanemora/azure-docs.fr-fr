@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: c0694e7d136b7fd339362145179939d350eb23ef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1040c05b081c6edb181d349d00468d1ba0aac3a7
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475962"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535361"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Concepts et définitions de commandes personnalisées
 
@@ -51,12 +51,24 @@ Notez que si vous avez configuré un **paramètre obligatoire** pour avoir une *
 ### <a name="type"></a>Type
 Les commandes personnalisées prennent en charge les types de paramètres suivants :
 
+* Age
+* Devise
 * DateTime
+* Dimension
+* E-mail
 * Geography
 * Number
-* String
+* Ordinal
+* Pourcentage
+* PersonName
+* PhoneNumber
+* Chaîne
+* Température
+* Url
 
-Tous ces types de paramètre, à l’exception de Geography, prennent en charge la configuration de la valeur par défaut, que vous pouvez configurer à partir du portail.
+Chaque paramètre régional prend en charge le type de paramètre « String », mais la disponibilité de tous les autres types diffère selon les paramètres régionaux. Les commandes personnalisées utilisant la résolution d’entité prédéfinie de LUIS, la disponibilité d’un type de paramètre dans des paramètres régionaux dépend de la prise en charge des entités prédéfinies de LUIS dans ces paramètres régionaux. Vous trouverez [plus d’informations sur la prise en charge des entités prédéfinies par les paramètres régionaux de Luis](/azure/cognitive-services/luis/luis-reference-prebuilt-entities).
+
+Certains types de paramètres comme Nombre, Chaîne et DateHeure prennent en charge la configuration de valeurs par défaut, que vous pouvez configurer à partir du portail.
 
 ### <a name="configuration"></a>Configuration
 Configuration est une propriété de paramètre définie uniquement pour le type Chaîne. Les valeurs suivantes sont admises :

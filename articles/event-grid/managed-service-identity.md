@@ -3,12 +3,12 @@ title: Remise d’événement, identité de service géré et liaison privée
 description: Cet article explique comment activer une identité de service managé pour une rubrique Azure Event Grid. Utilisez-la pour transférer des événements vers des destinations prises en charge.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 76f10b4627dc9578b1e616a868eab03431b59b69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f1f80f23fe108415daa6e0526b651c7269d6b1b3
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625272"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634086"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Remise d’événement avec une identité managée
 Cet article explique comment utiliser une [identité de service managé](../active-directory/managed-identities-azure-resources/overview.md) pour un domaine, une rubrique personnalisée ou une rubrique système de grille d’événements Azure. Utilisez-le pour transférer des événements vers des destinations prises en charge, telles que des files d’attente et rubriques Service Bus, des concentrateurs d’événements et des comptes de stockage.
@@ -16,7 +16,7 @@ Cet article explique comment utiliser une [identité de service managé](../acti
 
 
 ## <a name="prerequisites"></a>Prérequis
-1. Assignez une identité affectée par le système à une rubrique système, à une rubrique personnalisée ou à un domaine. 
+1. Assignez une identité attribuée par le système ou une identité attribuée par l’utilisateur à une rubrique système, à une rubrique personnalisée ou à un domaine. 
     - Pour les rubriques personnalisées et les domaines, consultez [Activer une identité managée pour les domaines et les rubriques personnalisées](enable-identity-custom-topics-domains.md). 
     - Pour les rubriques système, consultez [Activer une identité managée pour les rubriques système](enable-identity-system-topics.md).
 1. Ajouter l’identité à un rôle approprié (par exemple, expéditeur de données Service Bus) sur la destination (par exemple, une file d’attente Service Bus). Pour obtenir des instructions détaillées, consultez [Ajouter une identité à des rôles Azure sur des destinations](add-identity-roles.md).
@@ -28,13 +28,24 @@ Cet article explique comment utiliser une [identité de service managé](../acti
 Quand vous disposez d’un domaine, d’une rubrique système ou d’une rubrique personnalisée de grille d’événements avec une identité managée par le système et que vous avez ajouté l’identité au rôle approprié sur la destination, vous êtes prêt à créer des abonnements qui utilisent l’identité. 
 
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
-Lors de la création d’un abonnement à des événements, une option permet d’activer l’utilisation d’une identité affectée par le système pour un point de terminaison dans la section **DÉTAILS DES POINTS DE TERMINAISON**. 
+Lors de la création d’un abonnement à des événements, une option permet d’activer l’utilisation d’une identité attribuée par le système ou d’une identité attribuée par l’utilisateur pour un point de terminaison dans la section **DÉTAILS DES POINTS DE TERMINAISON**. 
+
+Voici un exemple d’activation de l’identité attribuée par le système lors de la création d’un abonnement à des événements avec une file d’attente Service Bus en tant que destination. 
 
 ![Activer une identité lors de la création d’un abonnement à des événements pour une file d’attente Service Bus](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
 Vous pouvez également activer l’utilisation d’une identité affectée par le système pour la mise en file d’attente de lettres mortes sous l’onglet **Fonctionnalités supplémentaires**. 
 
 ![Activer une identité attribuée par le système pour la mise en file d'attente de lettres mortes](./media/managed-service-identity/enable-deadletter-identity.png)
+
+Vous pouvez également activer une identité managée sur un abonnement à des événements après sa création. Sur la page **Abonnement à des événements** de l’abonnement à des événements, basculez vers l’onglet **Fonctionnalités supplémentaires** pour voir l’option. 
+
+![Activer une identité attribuée par le système sur un abonnement à des événements existant](./media/managed-service-identity/event-subscription-additional-features.png)
+
+Si vous aviez activé des identités attribuées par l’utilisateur pour la rubrique, l’option identité attribuée par l’utilisateur est activée dans la liste déroulante **Type d’identité managée**. Si vous sélectionnez **Attribuée par l’utilisateur** pour **Type d’identité managée**, vous pouvez sélectionner l’identité attribuée par l’utilisateur que vous souhaitez utiliser pour distribuer les événements. 
+
+![Activer une identité attribuée par l’utilisateur sur un abonnement à des événements](./media/managed-service-identity/event-subscription-user-identity.png)
+
 
 ### <a name="use-the-azure-cli---service-bus-queue"></a>Utilisation d’Azure CLI – File d’attente Service Bus 
 Cette section explique comment utiliser Azure CLI afin d’activer l’utilisation d’une identité affectée par le système pour remettre des événements à une file d’attente Service Bus. L’identité doit être un membre du rôle **Expéditeur de données Azure Service Bus**. Elle doit également être membre du rôle **Contributeur aux données Blob du stockage** sur le compte de stockage utilisé pour la mise en file d'attente de lettres mortes. 

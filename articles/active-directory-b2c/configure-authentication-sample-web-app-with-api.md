@@ -11,12 +11,12 @@ ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fec8af9d4153736738cf658e7e77bb1e9506fedd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9c417d3eda3a9d037855a43736362d45f96b09ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770177"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641328"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Configurer l’authentification dans un exemple d’application web qui appelle une API web à l’aide d’Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Cet article utilise un exemple d’application web ASP.NET qui appelle une API w
 > [!IMPORTANT]
 > L’exemple d’application web ASP.NET référencé dans cet article est utilisé pour appeler une API web avec un jeton du porteur. Pour une application web qui n’appelle pas d’API web, consultez [Configurer l’authentification dans un exemple d’application web à l’aide d’Azure AD B2C](configure-authentication-sample-web-app.md).  
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0. Vous pouvez utiliser OIDC pour connecter de façon sécurisée un utilisateur à une application. Cet exemple d’application web utilise [Microsoft Identity Web](https://www.nuget.org/packages/Microsoft.Identity.Web). Microsoft Identity Web est un ensemble de bibliothèques ASP.NET Core qui simplifie l’ajout d’une prise en charge de l’authentification et de l’autorisation aux applications web qui peuvent appeler une API web sécurisée. 
 
@@ -216,7 +216,7 @@ Votre fichier config final doit ressembler au JSON suivant :
 ## <a name="step-6-run-the-sample-web-app"></a>Étape 6 : Exécuter l’exemple d’application web
 
 1. Générez et exécutez le projet.
-1. Accédez à `https://localhost:5000`. 
+1. Accédez à [https://localhost:5000](https://localhost:5000) . 
 1. Terminez le processus d’inscription ou de connexion.
 
 Une fois l’authentification réussie, votre nom d’affichage s’affiche dans la barre de navigation. Pour afficher les revendications que le jeton d’Azure AD B2C renvoie à votre application, sélectionnez **TodoList**.

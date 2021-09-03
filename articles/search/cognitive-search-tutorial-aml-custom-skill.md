@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9a3c76cb931a5683cf6fd52a806979c430f3f72
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98745632"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580923"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Exemple : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Deux jeux de données sont fournis. Si vous souhaitez effectuer l’apprentissag
 > * Ingérer la sortie du modèle déployé en tant que compétence personnalisée
 
 > [!IMPORTANT] 
-> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le SDK .NET n’est actuellement pas pris en charge.
+> Cette fonctionnalité est en préversion publique et soumise à des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L'[API REST en préversion](/rest/api/searchservice/index-preview) prend en charge cette compétence.
 
 ## <a name="prerequisites"></a>Prérequis
 

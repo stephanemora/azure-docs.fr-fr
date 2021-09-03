@@ -3,12 +3,12 @@ title: Comment... dans Azure Application Insights | Microsoft Docs
 description: FAQ dans Application Insights
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: c889c0890f8e6d193b7e36a525470fc18bef494d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c74add1d426a6d1e383ed90388bb319a8244e05
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060829"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616313"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -160,7 +160,7 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 ![Ouvrez votre ressource Application Insights et cliquez sur Serveurs.](./media/how-do-i/121-servers.png)
 
 ### <a name="if-you-see-no-performance-counter-data"></a>Si aucune donnée de compteur de performances ne s’affiche
-* **Serveur IIS** sur votre propre ordinateur ou sur une machine virtuelle. [Installer Status Monitor](./monitor-performance-live-website-now.md).
+* **Serveur IIS** sur votre propre ordinateur ou sur une machine virtuelle. [Installez l’agent Azure Monitor Application Insights](./status-monitor-v2-overview.md).
 * **Site Web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
 * **Serveur Unix** - [installer collectd](java-2x-collectd.md)
 

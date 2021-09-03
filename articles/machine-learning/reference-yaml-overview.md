@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 08/03/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 33d8bb83b172e913abc13804d61c9b158e86e78c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 4d98ebbebbb25e2ab903e06162114f8fa026fbda
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768507"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525243"
 ---
 # <a name="cli-v2-yaml-schemas"></a>Schémas YAML CLI (v2)
 
@@ -25,7 +25,7 @@ La CLI (v2) Azure Machine Learning, une extension d’Azure CLI, utilise souvent
 
 ## <a name="assets"></a>Éléments multimédias
 
-Informations de référence | URI
+Référence | URI
 - | -
 [Espace de travail](reference-yaml-workspace.md) | https://azuremlschemas.azureedge.net/latest/workspace.schema.json
 [Calcul](reference-yaml-compute.md) | https://azuremlschemas.azureedge.net/latest/compute.schema.json
@@ -35,7 +35,7 @@ Informations de référence | URI
 
 ## <a name="datastores"></a>Magasins de données
 
-Informations de référence | URI
+Référence | URI
 - | -
 [Blob Azure](reference-yaml-datastore-blob.md) | https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
 [Azure Files](reference-yaml-datastore-files.md) | https://azuremlschemas.azureedge.net/latest/azureFile.schema.json
@@ -44,14 +44,14 @@ Informations de référence | URI
 
 ## <a name="jobs"></a>travaux
 
-Informations de référence | URI
+Référence | URI
 - | -
 [Commande](reference-yaml-job-command.md) | https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 [Sweep](reference-yaml-job-sweep.md) | https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json
 
 ## <a name="endpoints"></a>Points de terminaison
 
-Informations de référence | URI
+Référence | URI
 - | -
 [Managé en ligne (en temps réel)](reference-yaml-endpoint-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
 [Lot managé](reference-yaml-endpoint-managed-batch.md) | https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json
@@ -59,11 +59,11 @@ Informations de référence | URI
 
 ## <a name="deployments"></a>Déploiements
 
-Informations de référence | URI
+Référence | URI
 - | -
 [Managé en ligne (en temps réel)](reference-yaml-deployment-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 [Lot managé](reference-yaml-deployment-managed-batch.md) | https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
-[Kubernetes (k8s) en ligne (en temps réel)](reference-yaml-deployment-k8s-online.md) | https://azuremlschemas.azureedge.net/latest/k8sOnlineDeployment.schema.json
+[Kubernetes (k8s) en ligne (en temps réel)](reference-yaml-deployment-k8s-online.md) | https://azuremlschemas.azureedge.net/latest/k8sOnelineDeployment.schema.json
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da2f34014f3c789762cc2743b971aa76ad1049a9
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200729"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574431"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Traçabilité des données dans le client Data Catalog Azure Purview
 
@@ -43,7 +43,7 @@ L’exemple suivant est un cas d’utilisation typique de migration de données 
 
 ## <a name="lineage-granularity"></a>Granularité de la traçabilité
 
-Cette section couvre les détails relatifs à la granularité dont les informations de traçabilité sont collectées par un catalogue de données. Cette granularité peut varier en fonction des systèmes de données.
+La section suivante couvre les détails relatifs à la granularité dont les informations de traçabilité sont collectées par Purview. Cette granularité peut varier en fonction des systèmes de données pris en charge dans Purview.
 
 ### <a name="entity-level-lineage-sources--process--targets"></a>Traçabilité au niveau de l’entité : Source(s) > Processus > Cible(s) 
 

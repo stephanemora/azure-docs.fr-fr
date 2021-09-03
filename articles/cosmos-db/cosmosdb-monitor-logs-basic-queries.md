@@ -8,20 +8,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 51ab68d77e6d5f7e69701b7bc36eaf58f51bf48d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9f863760130b0748405cb30d4257864482b679f0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966362"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106237"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a> Résoudre les problèmes liés aux requêtes de diagnostic
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Dans cet article, nous allons aborder l’écriture de requêtes simples pour vous aider à résoudre les problèmes liés à votre compte Azure Cosmos DB à l’aide des journaux de diagnostic envoyés à **AzureDiagnostics (hérité)** et aux tables **spécifiques aux ressources (préversion)** .
 
 Pour les tables Diagnostics Azure, toutes les données sont écrites dans une seule table et les utilisateurs doivent spécifier la catégorie à interroger.
 
-Pour les tables spécifiques aux ressources (actuellement en préversion pour l’API SQL), les données sont écrites dans des tables individuelles pour chaque catégorie de la ressource. Nous recommandons ce mode, car il simplifie considérablement l’utilisation des données, fournit une meilleure détectabilité des schémas et améliore les performances de la latence et des délais d’interrogation de l’ingestion.
+Pour les tables spécifiques aux ressources, les données sont écrites dans des tables individuelles pour chaque catégorie de la ressource (non disponible pour l’API de table). Nous recommandons ce mode, car il simplifie considérablement l’utilisation des données, fournit une meilleure détectabilité des schémas et améliore les performances de la latence et des délais d’interrogation de l’ingestion.
 
 ## <a name="azurediagnostics-queries"></a><a id="azure-diagnostics-queries"></a> Requêtes AzureDiagnostics
 
@@ -328,7 +329,7 @@ Pour les tables spécifiques aux ressources (actuellement en préversion pour l�
    | summarize by OperationName 
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes 
 * Pour plus d’informations sur la procédure de création de paramètres de diagnostic pour Cosmos DB, consultez l’article [Création de paramètres de diagnostic](cosmosdb-monitor-resource-logs.md).
 
 * Pour plus d’informations sur la procédure de création d’un paramètre de diagnostic à l’aide du Portail Azure, de l’interface CLI ou de PowerShell, consultez l’article [Créer un paramètre de diagnostic pour collecter les journaux et les indicateurs de performance de la plateforme dans Azure](../azure-monitor/essentials/diagnostic-settings.md).

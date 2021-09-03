@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: fbdfec42038f48eefb707c85e54c1788841dd42d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012074"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524383"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Durcissement de la sécurité du système d’exploitation hôte du nœud de l’agent AKS
 
@@ -21,7 +21,7 @@ En tant que service sécurisé, Azure Kubernetes Service (AKS) est conforme aux 
 > [!Note]
 > Ce document se limite aux agents Linux dans AKS uniquement.
 
-Les clusters AKS sont déployés sur des machines virtuelles hôtes, qui exécutent un système d’exploitation doté d’une sécurité optimisée et utilisée pour les conteneurs en cours d’exécution sur AKS. Ce système d’exploitation hôte est basé sur une image **Ubuntu 16.04.LTS** ayant fait l’objet d’un [durcissement de la sécurité](#security-hardening-features) et d’optimisations.
+Les clusters AKS sont déployés sur des machines virtuelles hôtes, qui exécutent un système d’exploitation doté d’une sécurité optimisée et utilisée pour les conteneurs en cours d’exécution sur AKS. Ce système d’exploitation hôte est basé sur une image **Ubuntu 18.04.5.LTS** ayant fait l’objet d’un [durcissement de la sécurité](#security-hardening-features) et d’optimisations.
 
 L’objectif du système d’exploitation hôte avec un durcissement de la sécurité est de réduire la surface d’attaque et d’optimiser le déploiement de conteneurs de manière sécurisée.
 
