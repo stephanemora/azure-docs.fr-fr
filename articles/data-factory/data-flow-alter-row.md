@@ -1,19 +1,21 @@
 ---
 title: Transformation de modification de ligne dans le flux de données de mappage
-description: Guide pratique pour mettre à jour la cible de base de données à l’aide de la transformation de modification de ligne dans le flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Procédure de mise à jour de la cible de base de données à l’aide de la transformation de modification de ligne dans le flux de données de mappage dans les pipelines Azure Data Factory et Azure Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 7fe220315f7cccb749fe0974e822f157cf54ca36
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82982647"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821715"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Transformation de modification de ligne dans le flux de données de mappage
 
@@ -23,7 +25,7 @@ Utiliser la transformation de Alter Row pour définir des stratégies insert, de
 
 ![Paramètres d’Alter Row](media/data-flow/alter-row1.png "Paramètres d’Alter Row")
 
-Les transformations Alter Row ne fonctionnent que sur les récepteurs de base de données ou CosmosDB de votre flux de données. Les actions que vous affectez aux lignes (insert, update, delete, upsert) n’ont pas lieu au cours des sessions de débogage. Exécutez une activité Exécuter un flux de données dans un pipeline pour activer les stratégies de modification de ligne sur vos tables de base de données.
+Les transformations Alter Row ne fonctionnent que sur les récepteurs de base de données, REST ou CosmosDB de votre flux de données. Les actions que vous affectez aux lignes (insert, update, delete, upsert) n’ont pas lieu au cours des sessions de débogage. Exécutez une activité Exécuter un flux de données dans un pipeline pour activer les stratégies de modification de ligne sur vos tables de base de données.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
@@ -57,15 +59,15 @@ Le comportement par défaut est d’autoriser uniquement les insertions. Pour au
 
 La transformation du récepteur requiert une clé unique ou une série de clés pour l’identification de ligne unique dans votre base de données cible. Pour les récepteurs SQL, définissez les clés sous l’onglet Paramètres du récepteur. Pour CosmosDB, définissez la clé de partition dans les paramètres et définissez également le champ système CosmosDB « ID » dans votre mappage de récepteur. Pour CosmosDB, il est obligatoire d’inclure la colonne système « ID » pour les mises à jour, les opérations upserts et les suppressions.
 
-## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Fusionne et effectue une opération upsert avec Azure SQL Database et Synapse
+## <a name="merges-and-upserts-with-azure-sql-database-and-azure-synapse"></a>Fusionne et fait un upsert avec Azure SQL Database et Azure Synapse
 
-Les Data Flows ADF prennent en charge les fusions par rapport au pool de bases de données Azure SQL Database et Synapse (entrepôt de données) avec l’option upsert.
+Les Data Flows prennent en charge les fusions par rapport au pool de base de données Azure SQL Database et Azure Synapse (base de données de l’entrepôt de données) avec l’option upsert.
 
-Toutefois, vous pouvez rencontrer des scénarios dans lesquels votre schéma de base de données cible utilisait la propriété d’identité des colonnes clés. ADF vous oblige à identifier les clés que vous allez utiliser pour faire correspondre les valeurs de ligne des mises à jour et des opérations upsert. Toutefois, si la propriété d’identité est définie pour la colonne cible et que vous utilisez la stratégie upsert, la base de données cible ne vous autorisera pas à écrire dans la colonne. Vous pouvez également rencontrer des erreurs lorsque vous essayez d’utiliser une opération upsert par rapport à la colonne de distribution d’une table distribuée.
+Toutefois, vous pouvez rencontrer des scénarios dans lesquels votre schéma de base de données cible utilisait la propriété d’identité des colonnes clés. Le service vous oblige à identifier les clés que vous allez utiliser pour faire correspondre les valeurs de ligne des mises à jour et des opérations upsert. Toutefois, si la propriété d’identité est définie pour la colonne cible et que vous utilisez la stratégie upsert, la base de données cible ne vous autorisera pas à écrire dans la colonne. Vous pouvez également rencontrer des erreurs lorsque vous essayez d’utiliser une opération upsert par rapport à la colonne de distribution d’une table distribuée.
 
 Voici comment résoudre ce problème :
 
-1. Accédez aux paramètres de transformation du récepteur et définissez « Ignorer l’écriture des colonnes clés ». Cela indique à ADF de ne pas écrire la colonne que vous avez sélectionnée comme valeur de clé pour votre mappage.
+1. Accédez aux paramètres de transformation du récepteur et définissez « Ignorer l’écriture des colonnes clés ». Cela indique au service de ne pas écrire la colonne que vous avez sélectionnée comme valeur de clé pour votre mappage.
 
 2. Si cette colonne clé n’est pas la colonne qui est à l’origine du problème pour les colonnes d’identité, vous pouvez utiliser l’option SQL de prétraitement de transformation du récepteur : ```SET IDENTITY_INSERT tbl_content ON```. Ensuite, désactivez-la à l’aide de la propriété SQL postérieure au traitement : ```SET IDENTITY_INSERT tbl_content OFF```.
 
@@ -89,7 +91,7 @@ Voici comment résoudre ce problème :
 
 L’exemple ci-dessous est une transformation de modification de ligne nommée `CleanData` qui prend un flux entrant `SpecifyUpsertConditions` et crée trois conditions de modification de ligne. Dans la transformation précédente, une colonne nommée `alterRowCondition` est calculée pour déterminer si une ligne est ou n’est pas insérée, mise à jour ou supprimée dans la base de données. Si la valeur de la colonne a une valeur de chaîne qui correspond à la règle de modification de ligne, cette stratégie lui est affectée.
 
-Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
+Dans l’IU, cette transformation se présente comme dans l’image ci-dessous :
 
 ![Exemple de modification de ligne](media/data-flow/alter-row4.png "Exemple de modification de ligne")
 

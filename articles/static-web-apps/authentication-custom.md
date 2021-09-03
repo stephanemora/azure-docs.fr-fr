@@ -7,12 +7,12 @@ ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: e4583c6474872cc1de909d86d812aa9ac9630536
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: b09d1f6d6cdd5838f4c43e7cb05f63d8efd3e7f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854573"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562148"
 ---
 # <a name="custom-authentication-in-azure-static-web-apps"></a>Authentification personnalisée dans Azure Static Web Apps
 
@@ -35,25 +35,31 @@ Pour éviter de placer des secrets dans le contrôle de code source, la configur
 
 ### <a name="configuration"></a>Configuration
 
-Les tableaux suivants contiennent les différentes options de configuration pour chaque fournisseur.
+Pour configurer l’authentification personnalisée, vous devez référencer quelques secrets stockés en tant que [paramètres d’application](./application-settings.md). 
 
 # <a name="azure-active-directory"></a>[Azure Active Directory](#tab/aad)
 
-| Chemin de champ                             | Description                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `registration.openIdIssuer`            | Point de terminaison de la configuration OpenID du locataire AAD.                                                  |
-| `registration.clientIdSettingName`     | Nom du paramètre d’application contenant l’ID d’application (client) pour l’inscription d’application d’Azure AD. |
-| `registration.clientSecretSettingName` | Nom du paramètre d’application contenant la clé secrète client pour l’inscription d’application d’Azure AD.           |
+Les fournisseurs Azure Active Directory sont disponibles dans deux versions différentes. La version 1 définit explicitement le `userDetailsClaim`, qui permet à la charge utile de retourner des informations utilisateur. Inversement, la version 2 renvoie des informations utilisateur par défaut, et est désignée par `v2.0` dans l’URL `openIdIssuer`.
+
+Pour créer l’inscription, commencez par créer les paramètres d’application suivants :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `AAD_CLIENT_ID` | ID d’application (client) pour l’inscription de votre application Azure AD. |
+| `AAD_CLIENT_SECRET` | Clé secrète client d’inscription d’application Azure AD. |
+
+#### <a name="azure-active-directory-version-1"></a>Version 1 Azure Active Directory
 
 ```json
 {
   "auth": {
     "identityProviders": {
       "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-          "clientIdSettingName": "<AAD_CLIENT_ID>",
-          "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+          "clientIdSettingName": "AAD_CLIENT_ID",
+          "clientSecretSettingName": "AAD_CLIENT_SECRET"
         }
       }
     }
@@ -61,23 +67,43 @@ Les tableaux suivants contiennent les différentes options de configuration pour
 }
 ```
 
-Azure Active Directory comporte des points de terminaison versionnés qui affectent le mode de configuration de votre inscription. Si vous utilisez AAD v1 (le point de terminaison de l’émetteur ne se termine pas par « /v2.0 »), vous devez ajouter l’entrée `userDetailsClaim` suivante à votre configuration dans l’objet `"azureActiveDirectory"`.
+Assurez-vous de remplacer la valeur `<TENANT_ID>` par l’ID de locataire Azure Active Directory.
+
+#### <a name="azure-active-directory-version-2"></a>Version 2 Azure Active Directory
 
 ```json
-"azureActiveDirectory": {
-  "registration": { ... },
-  "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+{
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
+          "clientIdSettingName": "AAD_CLIENT_ID",
+          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+        }
+      }
+    }
+  }
 }
 ```
 
+Assurez-vous de remplacer la valeur `<TENANT_ID>` par l’ID de locataire Azure Active Directory.
+
 Pour plus d’informations sur la configuration d’Azure Active Directory, consultez la [documentation relative à l’authentification et à l’autorisation d’App Service](../app-service/configure-authentication-provider-aad.md).
+
+> [!NOTE]
+> Tandis que la section de configuration pour Azure Active Directory est `azureActiveDirectory`, la plateforme prend l’alias de `aad` dans l’URL pour la connexion, la déconnexion et la purge des informations utilisateur. Consultez la section [authentification et autorisation](authentication-authorization.md) pour plus d’informations.
 
 # <a name="apple"></a>[Apple](#tab/apple)
 
-| Chemin de champ                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | Nom du paramètre d’application contenant l’ID client.                                       |
-| `registration.clientSecretSettingName` | Nom du paramètre d’application contenant la clé secrète client.                                   |
+Pour créer l’inscription, commencez par créer les paramètres d’application suivants :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `APPLE_CLIENT_ID` | ID client Apple. |
+| `APPLE_CLIENT_SECRET` | Clé secrète client Apple. |
+
+Ensuite, utilisez l’exemple suivant pour configurer le fournisseur.
 
 ```json
 {
@@ -85,8 +111,8 @@ Pour plus d’informations sur la configuration d’Azure Active Directory, co
     "identityProviders": {
       "apple": {
         "registration": {
-          "clientIdSettingName": "<APPLE_CLIENT_ID>",
-          "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+          "clientIdSettingName": "APPLE_CLIENT_ID",
+          "clientSecretSettingName": "APPLE_CLIENT_SECRET"
         }
       }
     }
@@ -98,10 +124,14 @@ Pour plus d’informations sur la configuration d’Apple en tant que fournisseu
 
 # <a name="facebook"></a>[Facebook](#tab/facebook)
 
-| Chemin de champ                          | Description                                                                            |
-| ----------------------------------- | -------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | Nom du paramètre d’application contenant l’ID d’application.                             |
-| `registration.appSecretSettingName` | Nom du paramètre d’application contenant le secret de l’application.                         |
+Pour créer l’inscription, commencez par créer les paramètres d’application suivants :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `FACEBOOK_APP_ID` | ID d'application Facebook. |
+| `FACEBOOK_APP_SECRET` | Secret d'application Facebook. |
+
+Ensuite, utilisez l’exemple suivant pour configurer le fournisseur.
 
 ```json
 {
@@ -109,8 +139,8 @@ Pour plus d’informations sur la configuration d’Apple en tant que fournisseu
     "identityProviders": {
       "facebook": {
         "registration": {
-          "appIdSettingName": "<FACEBOOK_APP_ID>",
-          "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+          "appIdSettingName": "FACEBOOK_APP_ID",
+          "appSecretSettingName": "FACEBOOK_APP_SECRET"
         }
       }
     }
@@ -122,10 +152,15 @@ Pour plus d’informations sur la configuration de Facebook en tant que fourniss
 
 # <a name="github"></a>[GitHub](#tab/github)
 
-| Chemin de champ                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | Nom du paramètre d’application contenant l’ID client.                                |
-| `registration.clientSecretSettingName` | Nom du paramètre d’application contenant la clé secrète client.                            |
+
+Pour créer l’inscription, commencez par créer les paramètres d’application suivants :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `GITHUB_CLIENT_ID` | ID client GitHub. |
+| `GITHUB_CLIENT_SECRET` | Clé secrète client GitHub. |
+
+Ensuite, utilisez l’exemple suivant pour configurer le fournisseur.
 
 ```json
 {
@@ -133,8 +168,8 @@ Pour plus d’informations sur la configuration de Facebook en tant que fourniss
     "identityProviders": {
       "github": {
         "registration": {
-          "clientIdSettingName": "<GITHUB_CLIENT_ID>",
-          "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+          "clientIdSettingName": "GITHUB_CLIENT_ID",
+          "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
         }
       }
     }
@@ -144,10 +179,15 @@ Pour plus d’informations sur la configuration de Facebook en tant que fourniss
 
 # <a name="google"></a>[Google](#tab/google)
 
-| Chemin de champ                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | Nom du paramètre d’application contenant l’ID client.                                |
-| `registration.clientSecretSettingName` | Nom du paramètre d’application contenant la clé secrète client.                            |
+
+Pour créer l’inscription, commencez par créer les paramètres d’application suivants :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `GOOGLE_CLIENT_ID` | ID de client Google. |
+| `GOOGLE_CLIENT_SECRET` | Clé secrète client Google. |
+
+Ensuite, utilisez l’exemple suivant pour configurer le fournisseur.
 
 ```json
 {
@@ -155,8 +195,8 @@ Pour plus d’informations sur la configuration de Facebook en tant que fourniss
     "identityProviders": {
       "google": {
         "registration": {
-          "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
-          "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+          "clientIdSettingName": "GOOGLE_CLIENT_ID",
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
         }
       }
     }
@@ -168,10 +208,14 @@ Pour plus d’informations sur la configuration de Google en tant que fournisseu
 
 # <a name="twitter"></a>[Twitter](#tab/twitter)
 
-| Chemin de champ                               | Description                                                                                        |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | Nom du paramètre d’application contenant la clé du consommateur.                                   |
-| `registration.consumerSecretSettingName` | Nom du paramètre d’application contenant le secret du consommateur.                                |
+Pour créer l’inscription, commencez par créer les paramètres d’application suivants :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `TWITTER_CONSUMER_KEY` | Clé du client Twitter. |
+| `TWITTER_CONSUMER_SECRET` | Secret du client Twitter. |
+
+Ensuite, utilisez l’exemple suivant pour configurer le fournisseur.
 
 ```json
 {
@@ -179,8 +223,8 @@ Pour plus d’informations sur la configuration de Google en tant que fournisseu
     "identityProviders": {
       "twitter": {
         "registration": {
-          "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
-          "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
+          "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
         }
       }
     }
@@ -204,12 +248,19 @@ Cette section vous montre comment configurer Azure Static Web Apps pour utili
 
 Vous devez enregistrer les détails de votre application auprès d’un fournisseur d’identité. Vérifiez auprès du fournisseur les étapes nécessaires à la génération d’un **ID client** et d’une **clé secrète client** pour votre application.
 
+Une fois l’application inscrite auprès du fournisseur d’identité, créez les secrets d’application suivants dans les [paramètres d’application](application-settings.md) de l’application web statique :
+
+| Nom du paramètre | Valeur |
+| --- | --- |
+| `MY_PROVIDER_CLIENT_ID` | L’ID client généré par le fournisseur d’authentification pour votre application web statique. |
+| `MY_PROVIDER_CLIENT_SECRET` | La clé secrète client générée par l’inscription personnalisée du fournisseur d’authentification pour votre application web statique. |
+
+Si vous inscrivez des fournisseurs supplémentaires, chacun d’entre eux a besoin d’un ID client et d’un magasin de clé secrète client associés dans les paramètres de l’application.
+
 > [!IMPORTANT]
 > Les secrets d’application sont des informations d’identification de sécurité sensibles. Ne partagez ce secret avec personne, ne le distribuez pas dans une application cliente et ne l’archivez pas dans le contrôle de code source.
 
 Une fois que vous disposez des informations d’identification de l’inscription, procédez comme suit pour créer une inscription personnalisée.
-
-1. Ajoutez l’ID client et la clé secrète client comme [paramètres d’application](application-settings.md) pour l’application, en utilisant les noms de paramètres de votre choix. Prenez note de ces noms pour plus tard. L’ID client peut également être inclus dans le fichier config.
 
 1. Vous avez besoin des métadonnées OpenID Connect pour le fournisseur. Ces informations sont souvent exposées via un [document de métadonnées de configuration](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), qui est l’_URL d’émetteur_ du fournisseur avec le suffixe `/.well-known/openid-configuration`. Notez cette URL de configuration.
 
@@ -222,9 +273,9 @@ Une fois que vous disposez des informations d’identification de l’inscriptio
          "customOpenIdConnectProviders": {
            "myProvider": {
              "registration": {
-               "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID_SETTING_NAME>",
+               "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
                "clientCredential": {
-                 "clientSecretSettingName": "<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>"
+                 "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
                },
                "openIdConnectConfiguration": {
                  "wellKnownOpenIdConfiguration": "https://<PROVIDER_ISSUER_URL>/.well-known/openid-configuration"
@@ -242,16 +293,9 @@ Une fois que vous disposez des informations d’identification de l’inscriptio
    }
    ```
 
-  Modifiez les jetons de remplacement suivants dans le code avec vos valeurs.
-
-  | Remplacez ceci… | par… |
-  | --- | --- |
-  | `<MY_PROVIDER_CLIENT_ID_SETTING_NAME>` | Nom du paramètre d’application associé à l’ID client généré par votre inscription personnalisée. |
-  | `<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>` | Nom du paramètre d’application associé à la clé secrète client générée par votre inscription personnalisée. |
-  | `<PROVIDER_ISSUER_URL>` | Chemin d’accès à l’_URL de l’émetteur_ du fournisseur. |
-
-- Le nom du fournisseur, `myProvider` dans cet exemple, est l’identifiant unique utilisé par Azure Static Web Apps.
-- L’objet `login` vous permet de fournir des valeurs pour : des étendues personnalisées, des paramètres de connexion ou des revendications personnalisées.
+  - Le nom du fournisseur, `myProvider` dans cet exemple, est l’identifiant unique utilisé par Azure Static Web Apps.
+  - Assurez-vous de remplacer `<PROVIDER_ISSUER_URL>` par le chemin de l’_URL de l’émetteur_ du fournisseur.
+  - L’objet `login` vous permet de fournir des valeurs pour : des étendues personnalisées, des paramètres de connexion ou des revendications personnalisées.
 
 ### <a name="login-logout-and-purging-user-details"></a>Connexion, déconnexion et suppression définitive des détails de l’utilisateur
 
@@ -263,14 +307,18 @@ Pour utiliser un fournisseur OIDC personnalisé, utilisez les modèles d’URL 
 | Logout             | `/.auth/logout`                          |
 | Suppression définitive des détails de l’utilisateur | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
+Si vous utilisez Azure Active Directory, utilisez `aad` comme valeur de l’espace réservé `<AUTHENTICATION_PROVIDER_NAME>`.
+
 ### <a name="authentication-callbacks"></a>Rappels d’authentification
 
-Les fournisseurs d’authentification ont besoin d’une URL de redirection pour terminer la demande de connexion ou de déconnexion. Les points de terminaison suivants sont disponibles comme destinations de redirection.
+Les fournisseurs OIDC personnalisés ont besoin d’une URL de redirection pour terminer la requête de connexion ou de déconnexion. Les points de terminaison suivants sont disponibles comme destinations de redirection.
 
 | Type   | Modèle d’URL                                                 |
 | ------ | ----------------------------------------------------------- |
 | Connexion  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
 | Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
+
+Si vous utilisez Azure Active Directory, utilisez `aad` comme valeur de l’espace réservé `<AUTHENTICATION_PROVIDER_NAME>`.
 
 > [!Note]
 > Ces URL sont fournies par Azure Static Web Apps pour recevoir la réponse du fournisseur d’authentification ; vous n’avez pas besoin de créer des pages sur ces itinéraires.

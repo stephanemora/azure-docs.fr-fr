@@ -3,22 +3,22 @@ title: Guide de référence pour les fonctions dans les expressions
 description: Guide de référence sur les fonctions dans les expressions pour Azure Logic Apps et Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: 71a8dc9c72672ae0bee18be159631daba3d88a39
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/16/2021
+ms.openlocfilehash: 74bfdabbbd145e7409d070e9bb432ad4f62759d5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061999"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866579"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
-Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Power Automate](/flow/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de votre flux de travail. Pour référencer ou traiter ces valeurs dans ces expressions, vous pouvez faire appel à des *fonctions* fournies par le [Langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md).
+Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Power Automate](/power-automate/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de votre flux de travail. Pour référencer ou traiter ces valeurs dans ces expressions, vous pouvez faire appel à des *fonctions* fournies par le [Langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Cette page de référence s’applique à Azure Logic Apps et à Power Automate, mais apparaît dans la documentation Azure Logic Apps. Bien que cette page se rapporte spécifiquement aux applications logiques, ces fonctions fonctionnement pour les flux et les applications logiques. Pour plus d’informations sur les fonctions et expressions dans Power Automate, consultez [Utiliser des expressions dans des conditions](/flow/use-expressions-in-conditions).
+> Cette page de référence s’applique à Azure Logic Apps et à Power Automate, mais apparaît dans la documentation Azure Logic Apps. Bien que cette page se rapporte spécifiquement aux workflows des applications logiques, ces fonctions fonctionnement pour les workflows de flux et d’applications logiques. Pour plus d’informations sur les fonctions et expressions dans Power Automate, consultez [Utiliser des expressions dans des conditions](/power-automate/use-expressions-in-conditions).
 
 Par exemple, vous pouvez calculer des valeurs à l’aide de fonctions mathématiques, telles que la fonction [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), lorsque vous souhaitez obtenir la somme d’entiers ou de nombres décimaux. Voici d’autres exemples de tâches que vous pouvez réaliser avec les fonctions :
 
@@ -62,9 +62,11 @@ Vous pouvez également obtenir les valeurs de chaîne à partir des paramètres.
 
 Dans les deux cas, le résultat est affecté à la propriété `customerName`.
 
-Voici d’autres remarques sur les fonctions dans les expressions :
+## <a name="considerations-for-using-functions"></a>Considérations relatives à l'utilisation des fonctions
 
 * Les paramètres de fonction sont évalués de gauche à droite.
+
+* Le concepteur n’évalue pas les expressions de runtime utilisées en tant que paramètres de fonction au moment de la conception. Le concepteur exige que toutes les expressions puissent être entièrement évaluées au moment de la conception.
 
 * Dans la syntaxe des définitions de paramètres, un point d’interrogation (?) affiché après un paramètre signifie que ce paramètre est facultatif. Par exemple, consultez [getFutureTime()](#getFutureTime).
 
@@ -202,7 +204,7 @@ Logic Apps effectue automatiquement ou implicitement l’encodage ou le décodag
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> Si vous ajoutez manuellement l’une de ces fonctions à votre flux de travail par le biais du Concepteur d’application logique, par exemple, en utilisant l’éditeur d’expressions, que vous quittez le concepteur et que vous y revenez, la fonction disparaît du concepteur, ne laissant que les valeurs des paramètres. Ce comportement se produit également si vous sélectionnez un déclencheur ou une action qui utilise cette fonction sans modifier les valeurs des paramètres de la fonction. Ce résultat affecte uniquement la visibilité de la fonction et non son effet. En mode Code, la fonction n’est pas affectée. Toutefois, si vous modifiez les valeurs des paramètres de la fonction, la fonction et ses effets sont supprimés du mode Code, ne laissant que les valeurs des paramètres de la fonction.
+> Si vous ajoutez manuellement l’une de ces fonctions à votre concepteur de workflow, directement avec un déclencheur ou une action ou par le biais de l’éditeur d’expressions, quittez le concepteur puis y revenez, la fonction disparaît du concepteur, ne laissant que les valeurs des paramètres. Ce comportement se produit également si vous sélectionnez un déclencheur ou une action qui utilise cette fonction sans modifier les valeurs des paramètres de la fonction. Ce résultat affecte uniquement la visibilité de la fonction et non son effet. En mode Code, la fonction n’est pas affectée. Toutefois, si vous modifiez les valeurs des paramètres de la fonction, la fonction et ses effets sont supprimés du mode Code, ne laissant que les valeurs des paramètres de la fonction.
 
 <a name="math-functions"></a>
 
@@ -1044,7 +1046,7 @@ Et retourne ce résultat : `"hello"`
 
 ### <a name="binary"></a>binary
 
-Retourne la version binaire d’une chaîne.
+Retourne la version binaire encodée en base64 d’une chaîne.
 
 ```
 binary('<value>')
@@ -1057,20 +1059,12 @@ binary('<value>')
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | Version binaire de la chaîne spécifiée |
+| <*binary-for-input-value*> | String | Version binaire encodée en Base64 de la chaîne spécifiée |
 ||||
 
 *Exemple*
 
-Cet exemple illustre la conversion d’une chaîne « hello » en chaîne binaire :
-
-```
-binary('hello')
-```
-
-Et retourne ce résultat :
-
-`"0110100001100101011011000110110001101111"`
+Par exemple, vous utilisez une action HTTP qui retourne un fichier image ou vidéo. Vous pouvez utiliser `binary()` pour convertir la valeur en modèle d’enveloppe de contenu encodé en Base64. Ensuite, vous pouvez réutiliser l’enveloppe de contenu dans d’autres actions, comme `Compose`.
 
 <a name="body"></a>
 
@@ -1226,6 +1220,9 @@ concat('Hello', 'World')
 ```
 
 Et retourne ce résultat : `"HelloWorld"`
+  
+> [!NOTE]
+> La longueur du résultat ne doit pas dépasser 104 857 600 caractères.
 
 <a name="contains"></a>
 
@@ -2703,6 +2700,9 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 Et retourne ce résultat : `"a.b.c"`
+  
+> [!NOTE]
+> La longueur du résultat ne doit pas dépasser 104 857 600 caractères.
 
 <a name="last"></a>
 
@@ -3324,6 +3324,9 @@ range(1, 4)
 ```
 
 Et retourne ce résultat : `[1, 2, 3, 4]`
+  
+> [!NOTE]
+> La valeur du paramètre `count` doit être un entier positif qui ne dépasse pas 100 000. La somme des valeurs `startIndex` et `count` ne doit pas dépasser 2 147 483 647.
 
 <a name="replace"></a>
 

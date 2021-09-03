@@ -1,112 +1,135 @@
 ---
-title: Comment analyser des espaces de travail Azure Synapse
-description: Découvrez comment analyser un espace de travail Synapse dans votre catalogue de données Azure Purview.
+title: Comment analyser des espaces de travail Azure Synapse Analytics
+description: Découvrez comment analyser un espace de travail Azure Synapse dans votre catalogue de données Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/11/2021
-ms.openlocfilehash: 20ad72a1c0e464c8d34442dd2d7056d3f7b4eea7
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 06/18/2021
+ms.openlocfilehash: a74e88d72d1e7109b6e0acfa81485476eed9e00b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060945"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562430"
 ---
-# <a name="register-and-scan-azure-synapse-workspaces"></a>Inscrire et analyser des espaces de travail Azure Synapse
+# <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Inscrire et analyser des espaces de travail Azure Synapse Analytics
 
-Cet article explique comment inscrire un espace de travail Azure Synapse dans Purview et configurer une analyse sur celui-ci.
+Cet article explique comment inscrire un espace de travail Azure Synapse dans Azurez Purview et configurer une analyse sur celui-ci.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Les analyses d’espaces de travail Azure Synapse prennent en charge la capture de métadonnées et de schémas pour les bases de données SQL dédiées et serverless qu’ils contiennent. Il classe également les données automatiquement selon des règles de classification système et personnalisées.
+Les analyses d’espaces de travail Azure Synapse Analytics prennent en charge la capture de métadonnées et de schémas pour les bases de données SQL dédiées et serverless qu’ils contiennent. Ces analyses permettent également de classer les données automatiquement selon des règles de classification système et personnalisées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
-- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
-- Vous devez être administrateur de la source de données Azure Purview.
-- Configuration de l’authentification comme décrit dans les sections ci-dessous
+- Avant d’inscrire vos sources de données, créez un compte Azure Purview. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
+- Vérifiez que vous êtes bien administrateur de la source de données Azure Purview.
+- Configurez l’authentification comme décrit dans les sections suivantes.
 
-## <a name="steps-to-register-and-scan-a-synapse-workspace"></a>Étapes pour inscrire et analyser un espace de travail Synapse
+## <a name="register-and-scan-an-azure-synapse-workspace"></a>Inscrire et analyser un espace de travail Azure Synapse
+
+> [!IMPORTANT]
+> Pour analyser correctement votre espace de travail, procédez comme suit et appliquez les autorisations exactement telles qu’elles sont décrites dans les sections suivantes.
+
+### <a name="step-1-register-your-source"></a>**Étape 1** : inscription de votre source
 
 > [!NOTE]
-> Vous **devez** effectuer ces étapes dans l’ordre exact indiqué et appliquer les autorisations exactes spécifiées à chaque étape, le cas échéant, pour analyser correctement votre espace de travail.
-
-### <a name="step-1-register-your-source-a-user-with-at-least-reader-role-on-the-synapse-workspace-who-is-also-a-data-source-admin-in-purview-can-carry-out-this-step"></a>**Étape 1** : inscrire votre source (un utilisateur qui dispose au minimum du rôle Lecteur sur l’espace de travail Synapse et qui est également un administrateur de source de données dans Purview peut effectuer cette étape)
+> Seuls les utilisateurs disposant d’au moins un rôle *Lecteur* sur l’espace de travail Azure Synapse et qui sont également *administrateurs de source de données* dans Azure Purview peuvent mener à bien cette étape.
 
 Pour inscrire une nouvelle source Azure Synapse dans votre catalogue de données, procédez comme suit :
 
-1. Accédez à votre compte Purview.
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
-1. Sélectionnez **Inscrire**.
-1. Sur **Inscrire des sources**, sélectionnez **Azure Synapse Analytics (multiple)** .
-1. Sélectionnez **Continue** (Continuer)
+1. Accédez à votre compte Azure Purview.
+1. Dans le volet gauche, sélectionnez **Sources**.
+1. Sélectionnez **Inscription**.
+1. Sous **Inscrire des sources**, sélectionnez **Azure Synapse Analytics (multiple)** .
+1. Sélectionnez **Continuer**.
 
-   :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source.png" alt-text="Configurer une source Azure Synapse":::
+   :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source.png" alt-text="Capture d’écran d’une sélection de sources dans Azure Purview, incluant Azure Synapse Analytics.":::
 
-Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez comme suit :
+1. Sur la page **Inscrire les sources (Azure Synapse Analytics)** , procédez comme suit :
 
-1. Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.
-1. Si vous le souhaitez, choisissez un **abonnement** pour filtrer les valeurs.
-1. **Sélectionnez un nom d’espace de travail Synapse** dans la liste déroulante. Les points de terminaison SQL sont automatiquement renseignés en fonction de votre espace de travail sélectionné. 
-1. Sélectionnez une **collection** ou créez-en une (facultatif)
-1. **Terminez** l’inscription de la source de données
+    a. Entrez un **Nom**. Il sera utilisé pour répertorier la source de données dans le catalogue.  
+    b. Si vous le souhaitez, choisissez un **abonnement** pour filtrer les valeurs.  
+    c. Dans la liste déroulante **Nom de l’espace de travail**, sélectionnez l’espace de travail que vous utilisez.  
+    d. Dans les listes déroulantes des points de terminaison, les points de terminaison SQL sont renseignés automatiquement en fonction de la sélection de votre espace de travail.  
+    e. Dans la liste déroulante **Sélectionner une collection**, choisissez la collection que vous utilisez ou, si vous le souhaitez, créez-en une.  
+    f. Ensuite, sélectionnez **Inscrire** pour inscrire la source de données.
+    
+    :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Capture d’écran de la page « Inscrire les sources (Azure Synapse Analytics) » qui permet de saisir des informations sur la source Azure Synapse.":::
 
-    :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Renseigner les détails de la source Azure Synapse":::
 
+### <a name="step-2-apply-permissions-to-enumerate-the-contents-of-the-azure-synapse-workspace"></a>**Étape 2** : application des autorisations pour énumérer les contenus de l’espace de travail Azure Synapse
 
-### <a name="step-2-applying-permissions-to-enumerate-the-contents-of-the-workspace"></a>**Étape 2** : Application des autorisations pour énumérer le contenu de l’espace de travail
+#### <a name="set-up-authentication-for-enumerating-dedicated-sql-database-resources"></a>Configurer l’authentification pour l’énumération des ressources de bases de données SQL dédiées
 
-#### <a name="setting-up-authentication-for-enumerating-dedicated-sql-database-resources-under-a-synapse-workspace"></a>Configuration de l’authentification pour l’énumération des ressources de bases de données SQL dédiées dans un espace de travail Synapse
+1. Dans le portail Azure, accédez à la ressource de l’espace de travail Azure Synapse.  
+1. Dans le volet gauche, sélectionnez  **Contrôle d’accès (IAM)** . 
 
-1. Accédez à la ressource de l’espace de travail Azure Synapse dans le portail Azure.  
-1. Sélectionnez  **Access Control (IAM)**  dans le menu de navigation de gauche 
-1. Vous devez être le propriétaire ou l’administrateur de l’accès utilisateur pour ajouter un rôle à la ressource. Cliquez sur le bouton *+Ajouter*. 
-1. Définissez le rôle de **Lecteur** et entrez le nom de votre compte Azure Purview (il s’agit de son fichier MSI) dans la zone d’entrée Sélectionner. Cliquez sur *Enregistrer* pour terminer l’attribution de rôle.
+   > [!NOTE]
+   > Vous devez être le *propriétaire* ou l’*administrateur de l’accès utilisateur* pour ajouter un rôle à la ressource.
+   
+1. Sélectionnez le bouton **Ajouter**.   
+1. Définissez le rôle de **Lecteur** et entrez le nom de votre compte Azure Purview, qui représente son identité de service managé (ou MSI, pour « Managed Service Identity »).
+1. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle.
 
 > [!NOTE]
-> Le rôle peut également être attribué à partir d’un niveau supérieur, tel qu’un **groupe de ressources** ou un **abonnement**, si vous envisagez d’inscrire et d’analyser plusieurs espaces de travail Azure Synapse dans votre compte Azure Purview. 
+> Si vous prévoyez d’inscrire et d’analyser plusieurs espaces de travail Azure Synapse dans votre compte Azure Purview, vous pouvez aussi attribuer le rôle à partir d’un niveau supérieur, tel qu’un groupe de ressources ou un abonnement. 
 
-#### <a name="setting-up-authentication-for-enumerating-serverless-sql-database-resources-under-a-synapse-workspace"></a>Configuration de l’authentification pour l’énumération des ressources de bases de données SQL serverless dans un espace de travail Synapse
+#### <a name="set-up-authentication-for-enumerating-serverless-sql-database-resources"></a>Configurer l’authentification pour l’énumération des ressources de bases de données SQL serverless
 
-> [!NOTE]
-> Pour exécuter ces commandes, vous devez être un **administrateur Synapse** sur l’espace de travail. Pour en savoir plus sur les autorisations Synapse, cliquez [ici](../synapse-analytics/security/how-to-set-up-access-control.md).
+Pour que Purview puisse énumérer vos ressources de base de données SQL serverless, vous devrez définir l’authentification pour trois emplacements : l’espace de travail Synapse, le stockage associé et les bases de données serverless. Pour ce faire, procédez comme suit :
 
-1. Accédez à votre espace de travail Synapse.
-1. Accédez à la section **Données** et à l’une de vos bases de données SQL serverless.
-1. Cliquez sur l’icône de sélection et démarrer un nouveau script SQL.
-1. Ajoutez le MSI du compte Azure Purview (représenté par le nom du compte) comme **db_datareader** sur les bases de données SQL serverless en exécutant la commande ci-dessous dans votre script SQL :
+1. Dans le portail Azure, accédez à la ressource de l’espace de travail Azure Synapse.  
+1. Dans le volet gauche, sélectionnez  **Contrôle d’accès (IAM)** . 
+
+   > [!NOTE]
+   > Vous devez être le *propriétaire* ou l’*administrateur de l’accès utilisateur* pour ajouter un rôle à la ressource.
+   
+1. Sélectionnez le bouton **Ajouter**.   
+1. Définissez le rôle de **Lecteur** et entrez le nom de votre compte Azure Purview, qui représente son identité de service managé (ou MSI, pour « Managed Service Identity »).
+1. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle.
+1. Dans le portail Azure, accédez au **groupe de ressources** ou à l’**abonnement** dans lequel se trouve l’espace de travail Azure Synapse.
+1. Dans le volet gauche, sélectionnez  **Contrôle d’accès (IAM)** . 
+
+   > [!NOTE]
+   > Vous devez être le *propriétaire* ou l’*administrateur de l’accès utilisateur* pour ajouter un rôle dans le champ **Groupe de ressources** ou **Abonnement**. 
+
+1. Sélectionnez le bouton **Ajouter**. 
+1. Définissez le rôle **Lecteur des données blob du stockage**, puis entrez le nom de votre compte Azure Purview (qui représente sa MSI) dans la zone **Sélectionner**. 
+1. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle.
+1. Accédez à votre espace de travail Azure Synapse et ouvrez Synapse Studio.
+1. Sélectionnez l’onglet **Données** sur la gauche.
+1. Sélectionnez l’icône de points de suspension ( **...** ) placée à côté d’une de vos bases de données, puis démarrez un nouveau script SQL.
+1. Ajoutez la MSI du compte Azure Purview (représentée par le nom du compte) aux bases de données SQL serverless. Pour ce faire, exécutez la commande suivante dans votre script SQL :
     ```sql
     CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
-    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
-    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
-> [!NOTE]
-> Répétez l’étape précédente pour toutes les bases de données SQL serverless dans votre espace de travail Synapse. 
 
+### <a name="step-3-apply-permissions-to-scan-the-contents-of-the-workspace"></a>**Étape 3** : application des autorisations pour analyser les contenus de l’espace de travail
 
-1. Dans le portail Azure, accédez au **groupe de ressources** ou à l’**abonnement** dans lequel se trouve l’espace de travail Synapse.
-1. Sélectionnez  **Access Control (IAM)**  dans le menu de navigation de gauche 
-1. Vous devez être le **propriétaire** ou l’**administrateur de l’accès utilisateur** pour ajouter un rôle à l’abonnement ou au groupe de ressources. Cliquez sur le bouton *+Ajouter*. 
-1. Définissez le rôle **Lecteur des données blob du stockage** et entrez le nom de votre compte Azure Purview (qui représente son MSI) dans la zone d’entrée Sélectionner. Cliquez sur *Enregistrer* pour terminer l’attribution de rôle.
+Vous pouvez configurer l’authentification pour une source Azure Synapse de deux manières :
 
-### <a name="step-3-applying-permissions-to-scan-the-contents-of-the-workspace"></a>**Étape 3** : Application des autorisations pour analyser le contenu de l’espace de travail
+- Utiliser une identité managée
+- Utiliser un principal de service
 
-Il existe deux façons de configurer l’authentification pour une source Azure Synapse :
-
-- Identité managée
-- Principal de service
+> [!IMPORTANT]
+> Ces étapes pour les bases de données serverless ne s’appliquent **pas** aux bases de données répliquées. Actuellement, dans Synapse, les bases de données serverless qui sont répliquées à partir des bases de données Spark sont en lecture seule. Pour en savoir plus, consultez [cette page](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-is-not-allowed-for-a-replicated-database).
 
 > [!NOTE]
-> Vous devez configurer l’authentification sur chaque base de données SQL dédiée dans votre espace de travail Synapse que vous souhaitez inscrire et analyser. Les autorisations mentionnées ci-dessous pour la base de données SQL serverless s’appliquent à toutes les bases de données de votre espace de travail, c’est-à-dire que vous ne devrez l’exécuter qu’une seule fois.
+> Vous devez configurer l’authentification sur chaque base de données SQL dédiée dans votre espace de travail Azure Synapse que vous souhaitez inscrire et analyser. Les autorisations mentionnées dans les sections suivantes pour une base de données SQL serverless s’appliquent à toutes les bases de données dans votre espace de travail. Autrement dit, vous ne devez configurer l’authentification qu’une seule fois.
 
-#### <a name="using-managed-identity-for-dedicated-sql-databases"></a>Utilisation d’une identité managée pour les bases de données SQL dédiées
+#### <a name="use-a-managed-identity-for-dedicated-sql-databases"></a>Utiliser une identité managée pour les bases de données SQL dédiées
 
-1. Accédez à votre **espace de travail Synapse**.
-1. Accédez à la section **Données** et à l’une de vos bases de données SQL dédiées.
-1. Cliquez sur l’icône de sélection et démarrer un nouveau script SQL.
-1. Ajoutez la MSI du compte Azure Purview (représentée par le nom du compte) comme **db_datareader** sur la base de données SQL dédiée en exécutant la commande ci-dessous dans votre script SQL :
+1. Accédez à votre espace de travail Azure Synapse.
+1. Accédez à la section **Données**, puis à l’une de vos bases de données SQL dédiées.
+1. Sélectionnez l’icône de points de suspension ( **...** ) placée à côté, puis démarrez un nouveau script SQL.
+
+   > [!NOTE]
+   > Pour exécuter les commandes de la procédure suivante, vous devez être *administrateur Azure Synapse* sur l’espace de travail. Pour plus d’informations sur les autorisations Azure Synapse Analytics, consultez la page [Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse](../synapse-analytics/security/how-to-set-up-access-control.md).
+
+1. Ajoutez la MSI du compte Azure Purview (représentée par le nom du compte) comme **db_datareader** sur la base de données SQL dédiée. Pour ce faire, exécutez la commande suivante dans votre script SQL :
 
     ```sql
     CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
@@ -115,32 +138,26 @@ Il existe deux façons de configurer l’authentification pour une source Azure 
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
-> [!NOTE]
-> Répétez l’étape précédente pour toutes les bases de données SQL dédiées dans votre espace de travail Synapse. 
+#### <a name="use-a-managed-identity-for-serverless-sql-databases"></a>Utiliser une identité managée pour les bases de données SQL serverless
 
-#### <a name="using-managed-identity-for-serverless-sql-databases"></a>Utilisation d’une identité managée pour les bases de données SQL serverless
-
-1. Accédez à votre **espace de travail Synapse**.
-1. Accédez à la section **Données** et à l’une de vos bases de données SQL serverless.
-1. Cliquez sur l’icône de sélection et démarrer un nouveau script SQL.
-1. Ajoutez le MSI du compte Azure Purview (représenté par le nom du compte) comme **db_datareader** sur les bases de données SQL serverless en exécutant la commande ci-dessous dans votre script SQL :
+1. Accédez à votre espace de travail Azure Synapse.
+1. Accédez à la section **Données** et procédez comme suit pour **chaque base de données que vous souhaitez analyser**.
+1. Sélectionnez l’icône de points de suspension ( **...** ) placée à côté de votre base de données, puis démarrez un nouveau script SQL.
+1. Ajoutez la MSI du compte Azure Purview (représentée par le nom du compte) comme **db_datareader** sur les bases de données SQL serverless. Pour ce faire, exécutez la commande suivante dans votre script SQL :
     ```sql
-    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
-> [!NOTE]
-> Répétez l’étape précédente pour toutes les bases de données SQL serverless dans votre espace de travail Synapse. 
 
-#### <a name="using-service-principal-for-dedicated-sql-databases"></a>Utilisation d’un principal de service pour les bases de données SQL dédiées
+#### <a name="use-a-service-principal-for-dedicated-sql-databases"></a>Utiliser un principal de service pour les bases de données SQL dédiées
 
 > [!NOTE]
-> Vous devez d’abord configurer les nouvelles **informations d’identification** de type Principal de service en suivant les instructions fournies [ici](manage-credentials.md).
+> Vous devez d’abord configurer de nouvelles *informations d’identification* de type *Principal de service* en suivant les instructions de la page [Informations d'identification pour l'authentification des sources dans Azure Purview](manage-credentials.md).
 
-1. Accédez à votre **espace de travail Synapse**.
-1. Accédez à la section **Données** et à l’une de vos bases de données SQL dédiées.
-1. Cliquez sur l’icône de sélection et démarrer un nouveau script SQL.
-1. Ajoutez l’**ID du principal de service** comme **db_datareader** sur la base de données SQL dédiée en exécutant la commande ci-dessous dans votre script SQL :
+1. Accédez à votre **espace de travail Azure Synapse**.
+1. Accédez à la section **Données**, puis à l’une de vos bases de données SQL dédiées.
+1. Sélectionnez l’icône de points de suspension ( **...** ) placée à côté, puis démarrez un nouveau script SQL.
+1. Ajoutez l’**ID du principal de service** comme **db_datareader** sur la base de données SQL dédiée. Pour ce faire, exécutez la commande suivante dans votre script SQL :
 
     ```sql
     CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
@@ -152,81 +169,87 @@ Il existe deux façons de configurer l’authentification pour une source Azure 
 > [!NOTE]
 > Répétez l’étape précédente pour toutes les bases de données SQL dédiées dans votre espace de travail Synapse. 
 
-#### <a name="using-service-principal-for-serverless-sql-databases"></a>Utilisation d’un principal de service pour les bases de données SQL serverless
+#### <a name="use-a-service-principal-for-serverless-sql-databases"></a>Utiliser un principal de service pour les bases de données SQL serverless
 
-1. Accédez à votre **espace de travail Synapse**.
-1. Accédez à la section **Données** et à l’une de vos bases de données SQL serverless.
-1. Cliquez sur l’icône de sélection et démarrer un nouveau script SQL.
-1. Ajoutez le MSI du compte Azure Purview (représenté par le nom du compte) comme **db_datareader** sur les bases de données SQL serverless en exécutant la commande ci-dessous dans votre script SQL :
+1. Accédez à votre espace de travail Azure Synapse.
+1. Accédez à la section **Données**, puis à l’une de vos bases de données SQL serverless.
+1. Sélectionnez l’icône de points de suspension ( **...** ) placée à côté, puis démarrez un nouveau script SQL.
+1. Ajoutez l’**ID de principal de service** sur les bases de données SQL serverless. Pour ce faire, exécutez la commande suivante dans votre script SQL :
     ```sql
-    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
-    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
-    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    CREATE LOGIN [ServicePrincipalID] FROM EXTERNAL PROVIDER;
     ```
-> [!NOTE]
-> Répétez l’étape précédente pour toutes les bases de données SQL serverless dans votre espace de travail Synapse. 
+    
+1. Ajoutez l’**ID de principal de service** en tant que **db_datareader** sur chaque base de données SQL serverless que vous voulez analyser. Pour ce faire, exécutez la commande suivante dans votre script SQL :
+   ```sql
+    CREATE USER [ServicePrincipalID] FOR LOGIN [ServicePrincipalID];
+    ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
+    ```
 
-### <a name="step-4-setting-up-synapse-workspace-firewall-access"></a>**Étape 4** : Configuration de l’accès à l’espace de travail Synapse dans le pare-feu
+### <a name="step-4-set-up-azure-synapse-workspace-firewall-access"></a>**Étape 4** : configuration de l’accès à l’espace de travail Synapse dans le pare-feu
 
-1. Dans le portail Azure, accédez à l’espace de travail Synapse. 
+1. Dans le portail Azure, accédez à l’espace de travail Azure Synapse. 
 
-3. Sélectionnez Pare-feu dans le volet de navigation gauche.
+1. Dans le volet gauche, sélectionnez **Pare-feux**.
 
-4. Cliquez sur **ON** pour **Autoriser les services et ressources Azure à accéder à cet espace de travail**.
+1. Cliquez sur **ON** (Activer) pour **Autoriser les services et ressources Azure à accéder à cet espace de travail**.
 
-5. Cliquez sur Enregistrer.
+1. Sélectionnez **Enregistrer**.
 
-### <a name="step-5-setting-up-a-scan-on-the-workspace"></a>**Étape 5** : Configuration d’une analyse sur l’espace de travail
+### <a name="step-5-set-up-a-scan-on-the-workspace"></a>**Étape 5** : configuration d’une analyse sur l’espace de travail
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Accédez à la section **Sources**.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
 
 1. Sélectionnez la source de données que vous avez inscrite.
 
-1. Cliquez sur Afficher les détails, puis sélectionnez **+ Nouvelle analyse** ou utilisez l’icône d’action rapide d’analyse sur la vignette source
+1. Sélectionnez **Afficher les détails**, puis l'onglet **Nouvelle analyse**. Vous pouvez également sélectionner l’icône d’action rapide **Analyse** sur la mosaïque source.
 
-1. Renseignez le *nom* et sélectionnez tous les types de ressources que vous souhaitez analyser dans cette source. **Base de données SQL** est le seul type que nous prenons en charge actuellement dans un espace de travail Synapse.
+1. Dans le volet d’informations **Analyse**, dans la zone **Nom**, entrez un nom pour l’analyse.
+1. Dans la liste déroulante **Type**, sélectionnez les types de ressources que vous souhaitez analyser au sein de cette source. **Base de données SQL** est le seul type que nous prenons en charge actuellement dans un espace de travail Azure Synapse.
    
-    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Analyse d’une source Azure Synapse":::
+    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Capture d’écran du volet d’informations de l’analyse de source Azure Synapse.":::
 
-1. Sélectionnez les **informations d’identification** pour vous connecter aux ressources dans votre source de données. 
+1. Dans la liste déroulante **Informations d’identification**, sélectionnez vos informations d’identification pour vous connecter aux ressources dans votre source de données. 
   
 1. Dans chaque type, vous pouvez choisir d’analyser toutes les ressources ou un sous-ensemble par nom.
-1.  Cliquez sur **Continuer** pour continuer. 
 
-1.  Sélectionnez un **ensemble de règles d’analyse** de type Azure Synapse SQL. Vous pouvez également créer des ensembles de règles d’analyse inline.
+1.  Sélectionnez **Continuer** pour poursuivre. 
 
-1. Choisissez votre déclencheur d’analyse. Vous pouvez planifier une exécution **hebdomadaire/mensuelle** ou **unique**
+1.  Sélectionnez **Ensemble de règles d’analyse**, puis le type **Azure Synapse SQL**. Vous pouvez également créer des ensembles de règles d’analyse inline.
 
-1. Vérifiez votre analyse et sélectionnez Enregistrer pour terminer la configuration   
+1. Choisissez votre déclencheur d’analyse. Vous pouvez planifier une exécution **hebdomadaire, mensuelle** ou **unique**.
 
-#### <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
+1. Vérifiez votre analyse, puis sélectionnez **Enregistrer** pour terminer la configuration.   
 
-1. Pour afficher les détails de la source, cliquez sur **afficher les détails** dans la vignette sous la section Sources. 
+#### <a name="view-your-scans-and-scan-runs"></a>Afficher vos analyses et exécutions d’analyse
 
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-source-details.png" alt-text="Détails de la source Azure Synapse"::: 
+1. Pour afficher les détails de la source, sélectionnez **Afficher les détails** dans la mosaïque située sous la section Sources. 
+
+      :::image type="content" source="media/register-scan-synapse-workspace/synapse-source-details.png" alt-text="Capture d’écran de la page Détails de la source Azure Synapse Analytics."::: 
 
 1. Pour afficher les détails de l’exécution de l’analyse, accédez à la page **Détails de l’analyse**.
-    1. La *barre d’état* présente un bref résumé de l’état d’exécution des ressources enfants. Elle s’affiche sur l’analyse au niveau de l’espace de travail.
-    1. Le vert indique que l’opération a réussi, tandis que le rouge indique qu’elle a échoué. Le gris indique que l’analyse est en cours
-    1. Vous pouvez cliquer sur chaque analyse pour afficher plus de détails
 
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Détails de l’analyse Azure Synapse" lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
+    * La **barre d’état** présente un bref résumé de l’état d’exécution des ressources enfants. L’état de l’analyse de l’espace de travail est affiché.  
+    * Le vert indique une exécution de l’analyse réussie, le rouge indique l’échec de l’analyse et le gris indique que l’exécution de l’analyse est toujours en cours.  
+    * Vous pouvez afficher des informations plus détaillées sur les exécutions d’analyse en cliquant dessus.
 
-1. Affichez un résumé des exécutions d’analyse récentes qui ont échoué en bas de la page Détails de la source. Vous pouvez également cliquer pour afficher des détails plus précis sur ces exécutions.
+      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Capture d’écran de la page de détails de l’analyse Azure Synapse Analytics." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
-#### <a name="manage-your-scans---edit-delete-or-cancel"></a>Gérer vos analyses : modifier, supprimer ou annuler
-Pour gérer ou supprimer une analyse, procédez comme suit :
+    * En bas de la page de **détails de la source**, vous pouvez consulter un résumé des exécutions d’analyse récentes ayant échoué. Ici aussi, vous pouvez cliquer sur les exécutions d’analyse pour accéder à des informations plus détaillées sur ces dernières.
 
-- Accédez au centre d’administration. Sélectionnez Sources de données sous la section Sources et analyse, puis sélectionnez la source de données souhaitée.
+#### <a name="manage-your-scans"></a>Gestion de vos analyses
 
-- Sélectionnez l’analyse que vous souhaitez gérer. Vous pouvez modifier l’analyse en sélectionnant Modifier.
+Pour modifier, supprimer ou annuler une analyse, procédez comme suit :
 
-- Vous pouvez supprimer votre analyse en sélectionnant Supprimer.
-- Si une analyse est en cours d’exécution, il est également possible de l’annuler.
+1. Accédez au centre de gestion. Dans la section **Sources et analyse**, sélectionnez **Sources de données**, puis la source de données que vous souhaitez gérer.
+
+1. Sélectionnez l’analyse que vous souhaitez gérer, puis sélectionnez **Modifier**.
+
+   - Pour supprimer votre analyse, sélectionnez **Supprimer**.
+   - Si une analyse est en cours d’exécution, vous pouvez l’annuler.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Naviguer dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
 - [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)   

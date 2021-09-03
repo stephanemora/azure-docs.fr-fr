@@ -4,13 +4,13 @@ description: Découvrez comment configurer l’authentification Azure Active Dir
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: b1254e7db0e62d08ea2a3d6d30f2abd379675c55
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 2404d8af682f119b68c78d6dc5cacc3d30201c17
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078313"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563947"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
@@ -149,7 +149,7 @@ Vous pouvez maintenant [demander un jeton d’accès à l’aide de l’ID clien
 1. Sous **Autorisations d’application**, choisissez le rôle d’application que vous avez créé précédemment, puis sélectionnez **Ajouter des autorisations**.
 1. Veillez à cliquer sur **Accorder un consentement administrateur** pour autoriser l’application cliente à demander l’autorisation.
 1. Comme pour le scénario précédent (avant l’ajout de rôles), vous pouvez maintenant [demander un jeton d’accès](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) pour la même `resource` cible, et le jeton d’accès inclut une revendication `roles` contenant les rôles d’application qui ont été autorisés pour l’application cliente.
-1. Dans le code de l’App Service ou de l’application de fonction cibles, vous pouvez désormais vérifier que les rôles attendus sont présents dans le jeton (cela n’est pas effectué par la fonction Authentification/autorisation App Service). Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](app-service-authentication-how-to.md#access-user-claims).
+1. Dans le code de l’App Service ou de l’application de fonction cibles, vous pouvez désormais vérifier que les rôles attendus sont présents dans le jeton (cela n’est pas effectué par la fonction Authentification/autorisation App Service). Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 Vous avez maintenant configuré une application cliente démon qui peut accéder à votre application App Service en utilisant sa propre identité.
 

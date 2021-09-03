@@ -1,18 +1,20 @@
 ---
 title: Copier des données depuis ou vers Azure Data Explorer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment copier des données vers ou depuis Azure Data Explorer à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
-ms.author: orspodek
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 606d10694b6806b62871ddf24afd259d7bc224bc
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 07/19/2020
+ms.openlocfilehash: 5914dbfc49f8cbef5d0fdd1dc4ba058b421accfd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482972"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641456"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
@@ -55,7 +57,8 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 Le connecteur Azure Data Explorer prend en charge les types d’authentification suivants. Consultez les sections correspondantes pour plus d’informations :
 
 - [Authentification d’un principal du service](#service-principal-authentication)
-- [Identités managées pour authentifier les ressources Azure](#managed-identity)
+- [Authentification via une identité managée affectée par le système](#managed-identity)
+- [Authentification via une identité managée affectée par l’utilisateur](#user-assigned-managed-identity-authentication)
 
 ### <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
@@ -108,9 +111,11 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
+### <a name="system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Authentification via une identité managée affectée par le système
 
-Pour utiliser des identités managées afin d’authentifier des ressources Azure, procédez comme suit pour accorder des autorisations :
+Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+Pour utiliser l’authentification via une identité managée affectée par le système, procédez comme suit pour accorder les autorisations :
 
 1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’**ID d’objet d’identité managée** générée en même temps que votre fabrique.
 
@@ -131,7 +136,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 | database | Nom de base de données. | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
-**Exemple : Utilisation de l’authentification d’identité managée**
+**Exemple : utiliser l’authentification via une identité managée affectée par le système**
 
 ```json
 {
@@ -141,6 +146,46 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
         "typeProperties": {
             "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
+        }
+    }
+}
+```
+
+### <a name="user-assigned-managed-identity-authentication"></a>Authentification via une identité managée affectée par l’utilisateur
+Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md)
+
+Pour utiliser l’authentification via une identité managée affectée par l’utilisateur, procédez comme suit :
+
+1. [Créez une ou plusieurs identités managées affectées par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) et accordez une autorisation dans Azure Data Explorer. Consultez [Gérer les autorisations de base de données d’Azure Data Explorer](/azure/data-explorer/manage-database-permissions) pour obtenir des informations détaillées sur les rôles et les autorisations, ainsi que la gestion des autorisations. En règle générale, vous devez :
+
+    - **En tant que source**, accorder au moins le rôle **Observateur de base de données** à votre base de données
+    - **En tant que récepteur**, accorder au moins le rôle **Ingéreur de base de données** à votre base de données
+     
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur.
+
+Les propriétés suivantes sont prises en charge pour le service lié Azure Data Explorer :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété **type** doit être définie sur **AzureDataExplorer**. | Oui |
+| endpoint | URL de point de terminaison du cluster Azure Data Explorer, avec le format `https://<clusterName>.<regionName>.kusto.windows.net`. | Oui |
+| database | Nom de base de données. | Oui |
+| credentials | Spécifiez l’identité managée affectée par l’utilisateur en tant qu’objet d’informations d’identification. | Oui |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+
+**Exemple : utiliser l’authentification via une identité managée affectée par l’utilisateur**
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         }
     }
 }

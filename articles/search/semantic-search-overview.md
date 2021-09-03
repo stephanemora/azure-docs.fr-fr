@@ -7,33 +7,36 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: c55ca73d63fb380dece0350de482dcc9087bd315
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1b50fbbdd38d1bb24c1732c465784c3ddb757e3f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744806"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454779"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
 > [!IMPORTANT]
-> La recherche sémantique est en préversion publique, disponible via l’API REST en préversion et le portail. Les fonctionnalités en préversion sont proposées telles quelles, sous des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), et ne sont pas garanties d’avoir la même implémentation lors de la mise à la disposition générale. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarifs](semantic-search-overview.md#availability-and-pricing).
+> La recherche sémantique est en préversion publique sous [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, la préversion de l’API REST et les Kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
 
 La recherche sémantique est une collection de fonctionnalités de requête qui ajoutent une pertinence sémantique et une compréhension linguistique aux résultats de recherche. Cet article est une présentation générale de la recherche sémantique dans son ensemble, avec des descriptions de chaque fonctionnalité et de la manière dont elles fonctionnent collectivement. La vidéo intégrée décrit la technologie, et la section à la fin couvre la disponibilité et la tarification.
 
 La recherche sémantique est une fonctionnalité Premium. Nous vous recommandons cet article pour vous familiariser avec le sujet, mais si vous préférez commencer sans plus attendre, procédez comme suit :
 
-1. [Vérifiez les exigences régionales et de niveau de service](#availability-and-pricing).
-1. [Inscrivez-vous au programme en préversion](https://aka.ms/SemanticSearchPreviewSignup). Le traitement de la demande peut prendre jusqu’à deux jours ouvrables.
-1. Une fois accepté, créez ou modifiez des requêtes pour renvoyer [des légendes et des surlignages sémantiques](semantic-how-to-query-request.md).
-1. Ajoutez quelques propriétés de requête supplémentaires pour renvoyer également des [réponses sémantiques](semantic-answers.md).
-1. Vous pouvez également inclure une propriété de [vérification orthographique](speller-how-to-add.md) pour optimiser la précision et le rappel.
+> [!div class="checklist"]
+> * [Vérifiez les exigences régionales et de niveau de service](#availability-and-pricing).
+> * [Inscrivez-vous au programme en préversion](https://aka.ms/SemanticSearchPreviewSignup). Le traitement de la demande peut prendre jusqu’à deux jours ouvrables.
+> * Une fois accepté, créez ou modifiez des requêtes pour [renvoyer des légendes et des surlignages sémantiques](semantic-how-to-query-request.md).
+> * Ajoutez quelques propriétés de requête supplémentaires pour renvoyer également des [réponses sémantiques](semantic-answers.md).
+> * Vous pouvez éventuellement appeler la [vérification orthographique](speller-how-to-add.md) pour optimiser la précision et le rappel.
 
 ## <a name="what-is-semantic-search"></a>Qu’est-ce que la recherche sémantique ?
 
-La recherche sémantique est une couche facultative d’IA liée aux requêtes. Lorsqu’elle est activée sur votre service de recherche, elle étend le pipeline d’exécution de requête classique de deux manières. Tout d’abord, elle ajoute un modèle facultatif de classement sémantique. Puis, elle renvoie des légendes et des réponses dans la réponse.
+La recherche sémantique est un ensemble de fonctionnalités qui améliorent la qualité des résultats de recherche. Lorsqu’elle est activée sur votre service de recherche, elle étend le pipeline d’exécution de requêtes de deux manières. Tout d’abord, elle ajoute le classement secondaire sur un jeu de résultats initial, en promouvant les résultats les plus sémantiquement pertinents en haut de la liste. Deuxièmement, elle extrait et retourne des légendes et des réponses dans la réponse, que vous pouvez afficher sur une page de recherche pour améliorer l’expérience de recherche de l’utilisateur.
+
+## <a name="how-semantic-ranking-works"></a>Fonctionnement du classement sémantique
 
 Le *classement sémantique* recherche le contexte et la relation entre les termes, en élevant les correspondances plus significatives en fonction de la requête. La compréhension du langage recherche des résumés ou des *légendes* et des *réponses* dans votre contenu et les inclut dans la réponse, qui peut ensuite être affichée sur une page de résultats de recherche pour une expérience de recherche plus productive.
 
@@ -45,9 +48,9 @@ La vidéo suivante fournit une vue des fonctionnalités.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## <a name="feature-description-and-workflow"></a>Description de la fonctionnalité et workflow
+## <a name="features-in-semantic-search"></a>Fonctionnalités de la recherche sémantique
 
-La recherche sémantique améliore la précision et le rappel avec l’ajout des fonctionnalités suivantes :
+La recherche sémantique améliore la précision et le rappel grâce à ces nouvelles fonctionnalités :
 
 | Fonctionnalité | Description |
 |---------|-------------|
@@ -74,31 +77,31 @@ Pour utiliser les fonctionnalités sémantiques dans des requêtes, vous devez a
 
 ## <a name="semantic-capabilities-and-limitations"></a>Fonctionnalités et limitations sémantiques
 
-La recherche sémantique étant une technologie assez récente, il est important de définir des attentes quant à ce qu’elle peut et ne peut pas faire.
+La recherche sémantique étant une technologie assez récente, il est important de définir des attentes quant à ce qu’elle peut et ne peut pas faire. Elle améliore la qualité des résultats de recherche de deux manières :
 
-Elle améliore la qualité des résultats de recherche de deux manières. Tout d’abord, la promotion de documents sémantiquement plus proches de l’intention de la requête d’origine est un avantage significatif. Deuxièmement, les résultats sont plus rapidement exploitables quand des légendes, voire des réponses, figurent sur la page. À tout moment, le moteur utilise un contenu existant. Les modèles linguistiques utilisés dans la recherche sémantique sont conçus pour extraire une chaîne intacte qui ressemble à une réponse, mais ne tentent pas de composer une nouvelle chaîne en guise de réponse à une requête, ou de légende pour un document correspondant.
+* Tout d’abord, elle promeut des correspondances qui sont sémantiquement plus proches de l’intention de la requête d’origine.
 
-La recherche sémantique n’étant pas un moteur logique, elle n’infère pas d’informations à partir d’éléments de contenu au sein d’un document ou d’un corpus de documents. Par exemple, si une requête cherche des « hôtels situés dans le désert » sans fournir la moindre indication géographique, le moteur ne trouve aucun hôtel situé en Arizona ou au Nevada, même si ces deux États ont des hôtels et des déserts. De même, si la requête comprend la clause « au cours des 5 dernières années », le moteur ne calcule pas un intervalle de temps en fonction de la date du jour.
+* Deuxièmement, les résultats sont plus faciles à utiliser lorsque les légendes et les réponses éventuelles sont présentes sur la page.
 
-Dans le service Recherche cognitive, les mécanismes qui peuvent être utiles pour les scénarios ci-dessus incluent des [cartes de synonymes](search-synonyms.md) qui vous permettent de créer des associations entre des termes apparemment différents, ou des [filtres de date](search-query-odata-filter.md) spécifiés sous la forme d’une expression OData.
+La recherche sémantique n’est pas avantageuse dans tous les scénarios, et avant de poursuivre, assurez-vous que vous disposez d’un contenu qui peut utiliser ses fonctionnalités. Les modèles de langage dans la recherche sémantique fonctionnent mieux sur le contenu pouvant faire l’objet d’une recherche, riche en informations et structuré comme PROSE. Par exemple, lors de l’évaluation de votre contenu pour les réponses, les modèles recherchent et extraient une chaîne verbatim ressemblant à une réponse, mais ne composent pas de nouvelles chaînes en tant que réponses à une requête ou en tant que légendes pour un document correspondant. Pour répondre à la question « Quelle voiture a le meilleur kilométrage », un index doit avoir des expressions telles que « Les voitures hybrides offrent le meilleur kilométrage des voitures sur le marché ».
+
+La recherche sémantique ne peut pas mettre en corrélation ni déduire des informations à partir d’éléments de contenu différents au sein d’un document ou d’un corpus de documents. Par exemple, si une requête cherche des « hôtels situés dans le désert » sans fournir la moindre indication géographique, le moteur ne trouve aucun hôtel situé en Arizona ou au Nevada, même si ces deux États ont des hôtels et des déserts. De même, si la requête comprend la clause « au cours des 5 dernières années », le moteur ne calcule pas un intervalle de temps en fonction de la date du jour. Dans le service Recherche cognitive, les mécanismes qui peuvent être utiles pour les scénarios ci-dessus incluent des [cartes de synonymes](search-synonyms.md) qui vous permettent de créer des associations entre des termes apparemment différents, ou des [filtres de date](search-query-odata-filter.md) spécifiés sous la forme d’une expression OData.
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-La recherche sémantique est disponible via [l’enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup). Dans le cadre du lancement de la préversion, du 2 mars à début juillet, des fonctionnalités sémantiques sont proposées gratuitement.
+La recherche sémantique est disponible via [l’enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup). Il existe une inscription pour la recherche sémantique et la vérification orthographique.
 
-| Fonctionnalité | Niveau | Région | Inscription | Tarification projetée |
+| Fonctionnalité | Niveau | Région | Inscription | Tarifs |
 |---------|------|--------|---------------------|-------------------|
-| Recherche sémantique (légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | À compter de début juin, la tarification prévue est de 500 USD par mois pour les 250 000 premières requêtes, puis de 2 USD par tranche de 1 000 requêtes supplémentaires.  |
+| Recherche sémantique (légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | [Page de tarification de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/)  |
 | Vérification orthographique | Quelconque | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | Aucun (gratuit) |
 
-Il existe un [enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup) pour les fonctionnalités sémantiques et la vérification orthographique. 
+Vous pouvez utiliser la vérification orthographique sans la recherche sémantique et ce, gratuitement. Des frais de recherche sémantique sont prélevés lorsque les demandes de requête incluent `queryType=semantic` et que la chaîne de recherche n’est pas vide (par exemple, `search=pet friendly hotels in new york`). La recherche vide (requêtes where `search=*`) n’est pas facturée, même si QueryType a la valeur `semantic`.
 
-Vous pouvez utiliser la vérification orthographique sans la recherche sémantique et ce, gratuitement. Des frais de recherche sémantique sont prélevés lorsque les demandes de requête incluent `queryType=semantic` et que la chaîne de recherche n’est pas vide (par exemple, `search=pet friendly hotels in new york`). La recherche vide (requêtes où `search=*`) n’est pas facturée.
-
-Vous trouverez des informations de tarification détaillées sur la [page de tarification de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/) et dans [Estimer et gérer les coûts](search-sku-manage-costs.md).
+Si vous ne souhaitez pas la fonctionnalité de recherche sémantique sur votre service de recherche, vous pouvez [désactiver la recherche sémantique](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) pour éviter toute utilisation et facturation accidentelles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Inscrivez-vous](https://aka.ms/SemanticSearchPreviewSignup) à la préversion sur un service de recherche conforme aux exigences de niveau et de région indiquées dans la section précédente.
 
-Le traitement de la demande peut prendre jusqu’à deux jours ouvrables. Une fois votre service prêt, [créez une requête sémantique](semantic-how-to-query-request.md) pour voir le classement sémantique en action.
+Le traitement de la demande peut prendre jusqu’à deux jours ouvrables. Une fois votre service prêt, [créez une requête sémantique](semantic-how-to-query-request.md) pour évaluer son niveau de performance sur votre contenu.

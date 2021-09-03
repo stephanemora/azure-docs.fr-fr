@@ -1,14 +1,24 @@
 ---
-ms.openlocfilehash: 5208f497fc5423cd0e9c2343af2a5757088399b1
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 14d2372defc67b5cd619c888a43d09b5b10af846
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111449761"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635818"
 ---
 Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. 
 
 Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.
+
+## <a name="download-link"></a>Télécharger le lien
+Vous pouvez télécharger la dernière version de l’agent en utilisant [ce lien](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+
+## <a name="115820"></a>1.1.582.0
+
+8 août, 2021-publiée en téléchargement
+
+>[!NOTE] 
+>Il s’agit d’une version de mise à jour de sécurité de Azure AD Connect. Cette version corrige une vulnérabilité, comme décrit dans[cette CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). Pour plus d’informations au sujet de cette vulnérabilité, reportez-vous à cette CVE.
 
 ## <a name="113590"></a>1.1.359.0
 

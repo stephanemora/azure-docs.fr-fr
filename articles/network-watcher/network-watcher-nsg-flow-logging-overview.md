@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 4f46dc092776e73556a67fee705a98fa883dfbc6
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 23960e112dd03a711027c2364f648f60f23d0c8e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810693"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562911"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -66,7 +66,7 @@ Les journaux de flux sont la source fidèle pour toute activité réseau au sein
 - - Les règles NSG de refus sont avec fin d’exécution. Le groupe de sécurité réseau qui refuse le trafic le consigne dans les journaux de flux, et dans ce cas le traitement s’arrête dès qu’un groupe de sécurité réseau refuse le trafic. 
 - - Les règles NSG d’autorisation sont sans fin d’exécution, ce qui signifie que même si un groupe de sécurité réseau l’autorise, le traitement se poursuit jusqu’au groupe de sécurité réseau suivant. Le dernier groupe de sécurité réseau autorisant le trafic consigne le trafic dans les journaux de flux.
 - Les journaux de flux de groupe de sécurité réseau sont écrits dans des comptes de stockage à partir desquels ils sont accessibles.
-- Vous pouvez exporter, traiter, analyser et visualiser les journaux de flux à l’aide d’outils tels que TA, Splunk, Grafana, StealthWatch, etc.
+- Vous pouvez exporter, traiter, analyser et visualiser les journaux de flux à l’aide d’outils tels que Traffic Analytics, Splunk, Grafana, StealthWatch, etc.
 
 ## <a name="log-format"></a>Format de journal
 
@@ -374,6 +374,8 @@ En outre, lorsqu’un groupe de sécurité réseau est supprimé, la ressource d
 
 **Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
 
+**NSG sur le sous-réseau de passerelle ExpressRoute** : il n’est pas recommandé de consigner les flux sur le sous-réseau de passerelle ExpressRoute, car le trafic peut contourner la passerelle de routage Express (par exemple : [FastPath](../expressroute/about-fastpath.md)). Par conséquent, si un NSG est lié à un sous-réseau de passerelle ExpressRoute et que les journaux de flux NSG sont activés, les flux sortants vers les machines virtuelles peuvent ne pas être capturés. Ces flux doivent être capturés au niveau du sous-réseau ou de la carte d’interface réseau de la machine virtuelle. 
+
 **Problème avec le groupe de sécurité réseau du sous-réseau d’Application Gateway v2** : La journalisation de flux sur le groupe de sécurité réseau du sous-réseau d’Application Gateway v2 [n’est pas prise en charge](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actuellement. Ce problème ne concerne pas Application Gateway v1.
 
 **Services incompatibles** : En raison des limitations actuelles de la plateforme, un petit ensemble de services Azure n’est pas pris en charge par les journaux de flux NSG. La liste actuelle des services incompatibles est
@@ -415,7 +417,7 @@ Il peut arriver que les journaux ne s’affichent pas parce que vos machines vir
 
 **Je souhaite automatiser les Journaux de flux NSG**
 
-La prise en charge de l’automation via des modèles ARM n’est actuellement pas disponible pour les Journaux de flux NSG. Pour plus d’informations, lisez l’[annonce relative à la fonctionnalité](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/).
+La prise en charge de l’automatisation par le biais de modèles ARM est désormais disponible pour les journaux de flux NSG. Lisez l’[annonce de fonctionnalité](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) et le [Démarrage rapide du document de modèle ARM](quickstart-configure-network-security-group-flow-logs-from-arm-template.md) pour plus d’informations.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

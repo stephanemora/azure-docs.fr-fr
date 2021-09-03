@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 63b02b66b68e40ae9ae209979d6464d97c30caf3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a5191533b336d9d0cbefcf9b58f56d6648a60df
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967912"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456151"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Échec de la demande de service. État : 403 (Interdit)
 
@@ -86,12 +86,12 @@ Ensuite, sélectionnez *Autorisations de l’API* dans la barre de menus pour v�
 
 #### <a name="fix-issues"></a>Corriger les problèmes
 
-Si l’un de ces éléments semble différent de ce qui est décrit, suivez les instructions de configuration d’une inscription d’application dans [Guide pratique : Créer une inscription d’application](./how-to-create-app-registration-portal.md).
+Si l’un de ces éléments semble différent de ce qui est décrit, suivez les instructions de configuration d’une inscription d’application dans [Créer une inscription d’application](./how-to-create-app-registration-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lisez les étapes de configuration relatives à la création et à l’authentification d’une nouvelle instance Azure Digital Twins :
-* [Guide pratique : Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md) .
+* [Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md)
 
 En savoir plus sur la sécurité et les autorisations sur Azure Digital Twins :
-* [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md)
+* [Sécurité pour les solutions Azure Digital Twins](concepts-security.md)

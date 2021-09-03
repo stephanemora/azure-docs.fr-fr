@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 050b4011dbc46b6b6567965ed94847dbaf3560c6
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94616890"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982309"
 ---
 # <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
@@ -29,13 +29,12 @@ Azure RBAC peut être assigné à une ressource Custom Vision. Pour accorder l�
    > [!NOTE]
    > Vous pouvez également configurer Azure RBAC pour des groupes de ressources, des abonnements ou des groupes d’administration complets. Pour ce faire, sélectionnez le niveau d’étendue souhaité, puis accédez à l’élément de votre choix (par exemple, en sélectionnant **Groupes de ressources** puis en cliquant sur le groupe de ressources souhaité).
 1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de navigation de gauche.
-1. Sélectionnez l’onglet **Attributions de rôles** afin d’afficher les attributions de rôles pour cette étendue.
 1. Sélectionnez **Ajouter** -> **Ajouter une attribution de rôle**.
-1. Dans la liste déroulante **Rôle**, sélectionnez un rôle à ajouter.
-1. Dans la liste **Sélectionner**, sélectionnez un utilisateur, un groupe, un principal de service ou une identité gérée. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone Sélectionner pour rechercher des noms complets, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
-1. Sélectionnez **Enregistrer** pour attribuer le rôle.
+1. Dans l’onglet **Rôle** de l’écran suivant, sélectionnez le rôle que vous souhaitez ajouter.
+1. Dans l’onglet **Membres**, sélectionnez un utilisateur, un groupe, un principal de service ou une identité managée.
+1. Dans l’onglet **Passer en revue + affecter**, sélectionnez **Passer en revue + affecter** pour affecter le rôle.
 
-Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée.
+Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée. Pour recevoir del’aide relative à ces étapes, consultez [Attribuer des rôles Azure à l’aide du Portail Azure](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="custom-vision-role-types"></a>Types de rôles Custom Vision
 

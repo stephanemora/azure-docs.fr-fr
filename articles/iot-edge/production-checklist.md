@@ -2,7 +2,6 @@
 title: Préparer le déploiement en production d’une solution - Azure IoT Edge
 description: Découvrez comment faire passer votre solution Azure IoT Edge du développement à la production, et notamment comment configurer vos appareils avec les certificats nécessaires et élaborer un plan de déploiement des futures mises à jour du code.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -11,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 964c3f0bb346b3c2606af1227b558d06071bfe20
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031126"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531649"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -144,33 +143,9 @@ Lors du passage de scénarios de test à des scénarios de production, pensez à
 ## <a name="container-management"></a>Gestion de conteneur
 
 * **Important**
-  * Gérer l’accès au registre de conteneurs
   * Utiliser des balises pour gérer les versions
 * **Utile**
   * Stocker les conteneurs Runtime dans votre registre privé
-
-### <a name="manage-access-to-your-container-registry"></a>Gérer l’accès au registre de conteneurs
-
-Avant de déployer des modules sur des appareils IoT Edge en production, veillez à contrôler l’accès à votre registre de conteneurs pour éviter que des intrus ne puissent accéder à vos images conteneur ou les modifier. Utilisez un registre de conteneurs privé, et non public, pour gérer les images conteneur.
-
-Dans les tutoriels et autres documents, nous prescrivons d’utiliser les mêmes informations d’identification de registre de conteneur sur l’appareil IoT Edge que sur l’ordinateur de développement. Ces instructions, qui ne sont destinées qu’à aider à configurer plus facilement les environnements de test et de développement, ne doivent pas être suivies dans un scénario de production.
-
-Pour un accès plus sécurisé à votre Registre, vous avez le choix entre plusieurs [options d’authentification](../container-registry/container-registry-authentication.md). Une authentification populaire et recommandée consiste à utiliser un principal de service Active Directory adapté aux applications ou aux services pour extraire des images de conteneur de manière automatisée ou sans assistance (headless/sans périphérique de contrôle), comme le font les appareils IoT Edge.
-
-Pour créer un principal de service, exécutez les deux scripts comme décrit dans [Créer un principal de service](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Ces scripts effectuent les tâches suivantes :
-
-* Le premier script crée le principal du service. Il génère l’ID du principal de service et le mot de passe du principal de service. Conservez ces valeurs en lieu sûr dans vos dossiers.
-
-* Le deuxième script crée des attributions de rôles à accorder au principal de service, qui peuvent être exécutées ultérieurement si nécessaire. Nous vous recommandons d’appliquer le rôle d’utilisateur **acrPull** pour le paramètre `role`. Pour obtenir la liste des rôles, consultez [Autorisations et rôles Azure Container Registry](../container-registry/container-registry-roles.md).
-
-Pour vous authentifier à l’aide d’un principal de service, fournissez l’ID et le mot de passe du principal de service que vous avez obtenus grâce au premier script. Spécifiez ces informations d’identification dans le manifeste de déploiement.
-
-* Pour le nom d’utilisateur ou l’ID client, spécifiez l’ID du principal de service.
-
-* Pour le mot de passe ou la clé secrète client, spécifiez le mot de passe du principal de service.
-
-> [!NOTE]
-> Après avoir implémenté une authentification de sécurité renforcée, désactivez le paramètre **Utilisateur administrateur** afin que l’accès par défaut avec le nom d’utilisateur/le mot de passe ne soit plus possible. Dans le Registre de conteneurs du portail Azure, dans le menu du volet gauche sous **Paramètres**, sélectionnez **Clés d’accès**.
 
 ### <a name="use-tags-to-manage-versions"></a>Utiliser des balises pour gérer les versions
 
@@ -257,6 +232,7 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 * **Utile**
   * Configurer les journaux d’activité et les diagnostics
+  * Placer les limites de taille de journal
   * Prendre en compte les tests et les pipelines CI/CD
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux d’activité et les diagnostics
@@ -373,6 +349,43 @@ Vous pouvez le faire dans **createOptions** au sein de chaque module. Par exempl
 ### <a name="consider-tests-and-cicd-pipelines"></a>Prendre en compte les tests et les pipelines CI/CD
 
 Pour maximiser l’efficacité du scénario de déploiement IoT Edge, intégrez votre déploiement de production dans vos pipelines de tests et CI/CD. Azure IoT Edge prend en charge plusieurs plateformes CI/CD, notamment Azure DevOps. Pour plus d’informations, voir [Intégration continue et déploiement continu sur Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
+
+## <a name="security-considerations"></a>Considérations relatives à la sécurité
+
+* **Important**
+  * Gérer l’accès au registre de conteneurs
+  * Limiter l’accès du conteneur aux ressources hôtes
+
+### <a name="manage-access-to-your-container-registry"></a>Gérer l’accès au registre de conteneurs
+
+Avant de déployer des modules sur des appareils IoT Edge en production, veillez à contrôler l’accès à votre registre de conteneurs pour éviter que des intrus ne puissent accéder à vos images conteneur ou les modifier. Utilisez un registre de conteneurs privé pour gérer les images conteneur.
+
+Dans les tutoriels et autres documents, nous prescrivons d’utiliser les mêmes informations d’identification de registre de conteneur sur l’appareil IoT Edge que sur l’ordinateur de développement. Ces instructions, qui ne sont destinées qu’à aider à configurer plus facilement les environnements de test et de développement, ne doivent pas être suivies dans un scénario de production.
+
+Pour un accès plus sécurisé à votre Registre, vous avez le choix entre plusieurs [options d’authentification](../container-registry/container-registry-authentication.md). Une authentification populaire et recommandée consiste à utiliser un principal de service Active Directory adapté aux applications ou aux services pour extraire des images de conteneur de manière automatisée ou sans assistance (headless/sans périphérique de contrôle), comme le font les appareils IoT Edge.
+
+Pour créer un principal de service, exécutez les deux scripts comme décrit dans [Créer un principal de service](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Ces scripts effectuent les tâches suivantes :
+
+* Le premier script crée le principal du service. Il génère l’ID du principal de service et le mot de passe du principal de service. Conservez ces valeurs en lieu sûr dans vos dossiers.
+
+* Le deuxième script crée des attributions de rôles à accorder au principal de service, qui peuvent être exécutées ultérieurement si nécessaire. Nous vous recommandons d’appliquer le rôle d’utilisateur **acrPull** pour le paramètre `role`. Pour obtenir la liste des rôles, consultez [Autorisations et rôles Azure Container Registry](../container-registry/container-registry-roles.md).
+
+Pour vous authentifier à l’aide d’un principal de service, fournissez l’ID et le mot de passe du principal de service que vous avez obtenus grâce au premier script. Spécifiez ces informations d’identification dans le manifeste de déploiement.
+
+* Pour le nom d’utilisateur ou l’ID client, spécifiez l’ID du principal de service.
+
+* Pour le mot de passe ou la clé secrète client, spécifiez le mot de passe du principal de service.
+
+> [!NOTE]
+> Après avoir implémenté une authentification de sécurité renforcée, désactivez le paramètre **Utilisateur administrateur** afin que l’accès par défaut avec le nom d’utilisateur/le mot de passe ne soit plus possible. Dans le Registre de conteneurs du portail Azure, dans le menu du volet gauche sous **Paramètres**, sélectionnez **Clés d’accès**.
+
+### <a name="limit-container-access-to-host-resources"></a>Limiter l’accès du conteneur aux ressources hôtes
+
+Pour équilibrer les ressources hôtes partagées entre les modules, nous vous recommandons de limiter la consommation des ressources par module. Ces limites garantissent qu’un module ne peut pas consommer trop de mémoire ou d’utilisation du processeur et empêchent d’autres processus de s’exécuter sur l’appareil. La plateforme IoT Edge ne limite pas les ressources pour les modules par défaut, car la connaissance de la quantité de ressources qu’un module donné doit exécuter de façon optimale nécessite un test.
+
+Docker fournit des contraintes que vous pouvez utiliser pour limiter les ressources telles que la mémoire et l’utilisation de l’UC. Pour plus d’informations, consultez [Options d’exécution avec la mémoire, processeurs et GPU](https://docs.docker.com/config/containers/resource_constraints/).
+
+Ces contraintes peuvent être appliquées à des modules individuels à l’aide des options de création des manifestes de déploiement. Pour en savoir plus, consultez [Guide pratique pour configurer les options de création de conteneur pour les modules IoT Edge](how-to-use-create-options.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

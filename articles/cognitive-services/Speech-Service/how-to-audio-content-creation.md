@@ -3,19 +3,19 @@ title: Création de contenu audio - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Création de contenu audio est un outil en ligne qui vous permet de personnaliser et d’affiner le résultat de la conversion de texte par synthèse vocale de Microsoft pour vos applications et vos produits.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: trbye
-ms.openlocfilehash: 94e060176b921529a42e28e8c735b0f1cdda5293
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 087459b5831aa69c6e30e1dbe824d1902facbc2d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075075"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535145"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Améliorer la synthèse avec l’outil de création de contenu audio
 
@@ -103,7 +103,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>
@@ -141,9 +141,10 @@ Procédez comme suit pour ajouter un utilisateur à une ressource Speech afin qu
 2. Cliquez sur **Contrôle d’accès (IAM)** . Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
     :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Onglet d’attribution de rôle":::
 3. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle. Dans la liste déroulante Rôle, sélectionnez le rôle **Utilisateur du service cognitif**. Si vous souhaitez attribuer à l’utilisateur la propriété de cette ressource Speech, vous pouvez sélectionner le rôle **Propriétaire**.
-4. Sélectionnez un utilisateur dans la liste. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone Sélectionner pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire. Si l'utilisateur ne se trouve pas dans ce répertoire, vous pouvez entrer le [compte Microsoft](https://account.microsoft.com/account) de l'utilisateur (qui est approuvé par Azure Active Directory).
-5. Cliquez sur **Enregistrer** pour attribuer le rôle. L’utilisateur va recevoir une invitation par e-mail. Acceptez l’invitation en cliquant sur **Accepter l’invitation** > **Accepter de rejoindre Azure** dans l’e-mail. L’utilisateur est ensuite redirigé vers le portail Azure. L’utilisateur n’a pas besoin d’effectuer autre chose dans le portail Azure.
-6. Après quelques instants, l’utilisateur se voit attribuer le rôle Utilisateur du service cognitif au niveau de l’étendue de la ressource Speech. L’utilisateur peut visiter ou actualiser la page [Création de contenu audio](https://aka.ms/audiocontentcreation), puis choisir la ressource vocale pour démarrer. 
+4. Tapez l’adresse de messagerie de l’utilisateur et sélectionnez l’utilisateur dans l’annuaire. L’adresse e-mail doit être un **compte Microsoft**, auquel Azure Active Directory fait confiance. Les utilisateurs peuvent facilement s’inscrire à un [compte Microsoft](https://account.microsoft.com/account) en utilisant une adresse e-mail personnelle. 
+5. Cliquez sur **Enregistrer** pour attribuer le rôle. 
+6. L’utilisateur va recevoir une invitation par e-mail. Acceptez l’invitation en cliquant sur **Accepter l’invitation** > **Accepter de rejoindre Azure** dans l’e-mail. L’utilisateur est ensuite redirigé vers le portail Azure. L’utilisateur n’a pas besoin d’effectuer une autre action dans le portail Microsoft Azure. Après quelques instants, l’utilisateur se voit attribuer le rôle au niveau de l’étendue de la ressource vocale et aura accès à cette ressource vocale. Si l’utilisateur n’a pas reçu l’e-mail d’invitation, vous pouvez rechercher le compte de l’utilisateur sous « Attributions de rôle » et accéder au sein du profil de l’utilisateur. Recherchez « Identité » -> « Invitation acceptée » et cliquez sur **(gérer)** pour renvoyer l’invitation d’e-mail. Vous pouvez également copier le lien d’invitation vers les utilisateurs. 
+7. L’utilisateur accède à présent à la page du produit [Création de contenu audio](https://aka.ms/audiocontentcreation) ou l’actualise et se connecte avec le compte Microsoft de l’utilisateur. Sélectionnez le bloc **Création de contenu audio** parmi les produits vocaux. Choisissez la ressource vocale dans la fenêtre contextuelle ou dans les paramètres dans le coin supérieur droit de la page. Si l’utilisateur ne peut pas trouver la ressource vocale disponible, vérifiez si vous êtes dans le répertoire approprié. Pour vérifier le répertoire approprié, cliquez sur le profil de compte dans le coin supérieur droit, puis cliquez sur **Basculer** en regard du « répertoire actif ». Si plusieurs répertoires sont disponibles, cela signifie que vous avez accès à plusieurs répertoires. Basculez vers d’autres répertoires et accédez à Paramètres pour voir si la bonne ressource vocale est disponible. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Boîte de dialogue Ajouter un rôle":::
 
@@ -162,9 +163,9 @@ Les utilisateurs qui se trouvent dans la même ressource Speech voient le travai
 Si vous souhaitez qu’un des utilisateurs puisse donner l’accès à d’autres utilisateurs, vous devez lui attribuer le rôle Propriétaire pour la ressource Speech et définir l’utilisateur en tant que lecteur de répertoires Azure.
 1. Ajoutez l’utilisateur en tant que propriétaire de la ressource Speech. Consultez [Comment ajouter des utilisateurs à une ressource Speech](#add-users-to-a-speech-resource).
     :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="Champ Propriétaire du rôle":::
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le menu réduit dans le coin supérieur gauche. Cliquez sur **Azure Active Directory**, puis sur **Utilisateurs**.
-1. Recherchez le compte Microsoft de l’utilisateur et accédez à la page de détails de l’utilisateur. Cliquez sur **Rôles affectés**.
-1. Cliquez sur **Ajouter des affectations** -> **Lecteurs de répertoires**.
+2. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le menu réduit dans le coin supérieur gauche. Cliquez sur **Azure Active Directory**, puis sur **Utilisateurs**.
+3. Recherchez le compte Microsoft de l’utilisateur et accédez à la page de détails de l’utilisateur. Cliquez sur **Rôles affectés**.
+4. Cliquez sur **Ajouter des affectations** -> **Lecteurs de répertoires**. Si le bouton « Ajouter des affectations » est grisé, cela signifie que vous n’avez pas accès. Seul l’administrateur général de cet annuaire peut ajouter des attributions aux utilisateurs.
 
 ## <a name="see-also"></a>Voir aussi
 

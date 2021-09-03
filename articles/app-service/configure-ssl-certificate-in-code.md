@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 795353c88853d53864edb2968c757d14f106ee3f
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 3e5aab3d38e4f981e27ceb59db1511c54ed89381
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585388"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532903"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Utiliser un certificat TLS/SSL dans votre code dans Azure App Service
 
@@ -184,4 +184,5 @@ Pour savoir comment charger un certificat TLS/SSL à partir d'un fichier dans No
 * [Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service](configure-ssl-bindings.md)
 * [Appliquer le protocole HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FORUM AUX QUESTIONS : App Service Certificates](./faq-configuration-and-management.md)
+* [FORUM AUX QUESTIONS : App Service Certificates](./faq-configuration-and-management.yml)
+* [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

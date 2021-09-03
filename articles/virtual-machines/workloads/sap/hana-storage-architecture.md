@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 07/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15ce4cabc1a9bc44fcd6cc00a365007900ff4ebe
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: f53eb460d6b131dce607c0dd99f97babd758de35
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968537"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603411"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
 
 Dans cet article, nous allons examiner l’architecture de stockage pour le déploiement de SAP HANA sur Azure (grandes instances) (également appelée infrastructure BareMetal). 
 
-La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Pour plus d’informations sur les instructions, consultez [Conditions de stockage SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).
+La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Pour plus d’informations sur les instructions, consultez [Conditions de stockage SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
 Les grandes instances HANA de classe Type I présentent 4 fois plus de capacité mémoire que de volume de stockage. La classe Type II des unités de grande instance HANA, est fournie avec un volume destiné à stocker les sauvegardes des journaux de transactions HANA. Pour plus d’informations, consultez [Installer et configurer SAP HANA (grandes instances) sur Azure](hana-installation.md).
 

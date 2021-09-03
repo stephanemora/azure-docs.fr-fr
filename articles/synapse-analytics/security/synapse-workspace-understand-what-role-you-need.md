@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d913d0312b75542fa52e73e68170e9a3b91cf5d
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 56337e349cf2cfad792cecbec11503a4fd866095
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823343"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534861"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Comprendre les rôles requis pour effectuer des tâches courantes dans Synapse
 
@@ -76,7 +76,7 @@ Gérer (suspendre, mettre à l’échelle ou supprimer) un pool SQL dédié|Prop
 Créer un script SQL</br>|Utilisateur Synapse, ou </br>Propriétaire ou Contributeur Azure sur l’espace de travail, </br>*Des autorisations SQL supplémentaires sont requises pour exécuter un script SQL ou pour publier ou valider des modifications*|
 Répertorier et ouvrir tout script SQL publié| Utilisateur d'artefact Synapse, Éditeur d’artefacts, Contributor Synapse|artifacts/read
 Exécuter un script SQL sur un pool SQL serverless|Autorisations SQL sur le pool (accordées automatiquement à un Administrateur Synapse)|aucun
-Exécuter un script SQL sur un pool SQL dédié|Autorisations SQL sur le pool (accordées automatiquement à un Administrateur Synapse)|aucun
+Exécuter un script SQL sur un pool SQL dédié|Autorisations SQL sur le pool|aucun
 Publier un script SQL nouveau, mis à jour ou supprimé|Éditeur d’artefacts Synapse, Contributor Synapse|sqlScripts/write, delete
 Valider les modifications apportées à un script SQL dans le référentiel Git|Nécessite des autorisations Git sur le référentiel|
 Attribuer des droits Administrateur Active Directory sur l’espace de travail (via les propriétés de l’espace de travail dans le portail Azure)|Propriétaire ou Contributeur Azure sur l’espace de travail |

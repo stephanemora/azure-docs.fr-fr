@@ -2,17 +2,18 @@
 title: Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 description: Découvrez comment joindre un runtime d’intégration Azure-SSIS à un réseau virtuel Azure.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0df96e2c1e238beafabb60aaa00c668f521d0c70
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 55ad870da1b89e24777647613f607038089863e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670166"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562844"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 
@@ -55,7 +56,7 @@ Lorsque vous joignez votre Azure-SSIS IR à un réseau virtuel, rappelez-vous ce
 
 - Si un réseau virtuel classique est déjà connecté à votre réseau local, à un autre emplacement que celui de votre runtime d’intégration Azure-SSIS IR, vous devez créer un [réseau virtuel Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) pour le runtime d’intégration Azure-SSIS IR à joindre. Ensuite, configurez une connexion du type [réseau virtuel classique vers Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
  
-- Si un réseau virtuel Azure Resource Manager est déjà connecté à votre réseau local, à un autre emplacement que celui de votre runtime d’intégration Azure-SSIS IR, vous devez commencer par créer un [réseau virtuel Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) pour le runtime d’intégration Azure-SSIS IR à joindre. Ensuite, configurez une connexion du type réseau virtuel Azure Resource Manager vers Azure Resource Manager. 
+- Si un réseau virtuel Azure Resource Manager est déjà connecté à votre réseau local, à un autre emplacement que celui de votre runtime d’intégration Azure-SSIS IR, vous devez commencer par créer un [réseau virtuel Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) pour le runtime d’intégration Azure-SSIS IR à joindre. Ensuite, configurez une connexion [du type réseau virtuel Azure Resource Manager vers Azure Resource Manager](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). 
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>Hébergement du catalogue SSIS dans SQL Database
 
@@ -72,7 +73,7 @@ Si vos packages SSIS accèdent à des ressources Azure qui prennent en charge de
 Si vos packages SSIS accèdent à des magasins de données/ressources qui n’autorisent que certaines adresses IP publiques statiques et que vous souhaitez sécuriser l’accès à ces ressources à partir du runtime d’intégration Azure-SSIS IR, vous pouvez associer des [adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md) à Azure-SSIS IR tout en le joignant à un réseau virtuel, puis ajouter une règle de pare-feu IP aux ressources appropriées pour autoriser l’accès à partir de ces adresses IP. Il existe deux autres façons d’effectuer cette opération : 
 
 - Quand vous créez Azure-SSIS IR, vous pouvez apporter vos propres adresses IP publiques et les spécifier par le biais de l’[interface utilisateur Data Factory ou du SDK](#join-the-azure-ssis-ir-to-a-virtual-network). Seule la connectivité Internet sortante d’Azure-SSIS IR utilise vos adresses IP publiques fournies. Les autres appareils du sous-réseau ne les utilisent pas.
-- Vous pouvez également configurer une [NAT de réseau virtuel](../virtual-network/nat-overview.md) pour le sous-réseau qu’Azure-SSIS IR va rejoindre et toutes les connexions sortantes de ce sous-réseau vont utiliser vos adresses IP publiques spécifiées.
+- Vous pouvez également configurer une [NAT de réseau virtuel](../virtual-network/nat-gateway/nat-overview.md) pour le sous-réseau qu’Azure-SSIS IR va rejoindre et toutes les connexions sortantes de ce sous-réseau vont utiliser vos adresses IP publiques spécifiées.
 
 Dans tous les cas, le réseau virtuel peut être déployé uniquement par le biais du modèle de déploiement Azure Resource Manager.
 

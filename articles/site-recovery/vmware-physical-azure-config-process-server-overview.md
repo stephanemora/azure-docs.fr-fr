@@ -2,17 +2,19 @@
 title: Informations sur les serveurs configuration/processus/cible maître Azure Site Recovery
 description: Cet article offre une vue d’ensemble sur l’utilisation des serveurs de configuration, des serveurs de processus et des serveurs cible maîtres lors de la configuration de la récupération d’urgence de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/19/2021
+ms.openlocfilehash: ad8cdbdf9d051ac9b0e5a7fd47660811e4a285e3
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80062092"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535336"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Informations sur les composants Site Recovery (configuration, processus, cible maître)
 
-Cet article décrit les serveurs de configuration, les serveurs de processus et les serveurs cibles maîtres utilisés par le service [Site Recovery](site-recovery-overview.md) pour répliquer les machines virtuelles VMware et les serveurs physiques sur Azure.
+Cet article décrit les serveurs de configuration, les serveurs de processus et les serveurs cibles maîtres utilisés par le service [Site Recovery](site-recovery-overview.md) pour répliquer les machines virtuelles VMware et les serveurs physiques sur Azure. Cet article s’applique aux versions Classic.
+
+Dans la préversion, pour répliquer des machines virtuelles, vous devez créer et utiliser un serveur de réplication Azure Site Recovery. Pour plus d’informations sur le serveur de réplication Azure Site Recovery et ses composants, consultez [cet article](vmware-azure-architecture-preview.md).
 
 ## <a name="configuration-server"></a>Serveur de configuration
 

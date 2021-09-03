@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e46f9c5e3d59c4f30d0a9a0a9dddcf98cd636e40
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048254"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524541"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gestion de l’accès sécurisé aux ressources dans les réseaux virtuels en étoile pour les clients VPN d’utilisateur
 
@@ -77,7 +77,7 @@ Pour configurer les clients avec accès à distance, utilisez le profil téléch
 
 ## <a name="connect-the-spoke-vnet"></a><a name="connect-spoke"></a>Connexion du réseau virtuel en étoile
 
-Dans cette section, vous allez attacher le réseau virtuel en étoile au hub Virtual WAN.
+Dans cette section, vous créez une connexion entre votre hub et le réseau virtuel en étoile.
 
 [!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 96d9e64a7b3443b4c2e835bfe824bd7d9197cb1c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0af9aeb9efe3b652f52b01e3b45307253e810742
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752154"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563979"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
@@ -44,7 +44,7 @@ Les abonnements source et de destination de l’espace de travail doivent existe
 > - Si vous avez déjà déplacé l’espace de travail, désactivez toutes les règles actives dans **Analytics**, puis réactivez-les après cinq minutes. Cette solution s’avère efficace la plupart du temps, mais pour rappel, elle n’est pas prise en charge et relève de votre propre responsabilité.
 > 
 > **Recréer des alertes**
-> - Toutes les alertes doivent être recréées après une opération visant à déplacer ou à renommer un espace de travail, car les autorisations sont basées sur l’ID de ressource Azure de l’espace de travail, qui change lors du déplacement ou du renommage d’un espace de travail.
+> - Toutes les alertes doivent être recréées car les autorisations sont basées sur l’ID de ressource de l’espace de travail, qui change lors du déplacement d’un espace de travail ou de la modification du nom de ressource. Les alertes dans les espaces de travail créés après le 1er juin 2019, ou dans les espaces de travail qui ont été [mis à niveau à partir de l’API d’alerte Log Analytics héritée vers l’API scheduledQueryRules](../alerts/alerts-log-api-switch.md) peuvent être exportées dans le modèle et déployées après le déplacement. Vous pouvez [vérifier si l’API scheduledQueryRules est utilisée pour les alertes dans votre espace de travail](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Vous pouvez également configurer manuellement les alertes dans l’espace de travail cible.
 >
 > **Mettre à jour les chemins d’accès aux ressources**
 > - Après le déplacement d’un espace de travail, toutes les ressources Azure ou externes qui pointent vers l’espace de travail doivent être examinées et mises à jour pour pointer vers le nouveau chemin cible des ressources.

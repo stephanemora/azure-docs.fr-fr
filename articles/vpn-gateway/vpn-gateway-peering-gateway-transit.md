@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1fe78687b8cd200bce6eb0ce75f54fb603aa13ae
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d4eef7e7470e9dbdd37613165f0ea5cb3b295762
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671854"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531687"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 
@@ -22,7 +22,7 @@ Cet article explique comment configurer le transit par passerelle pour le peerin
 
 ![Diagramme : Transit par passerelle](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-Dans le diagramme, le transit par passerelle permet aux réseaux virtuels homologués d’utiliser la passerelle VPN du réseau virtuel Hub-RM. La connectivité disponible sur la passerelle VPN, notamment les connexions S2S, P2S et de réseau virtuel à réseau virtuel, s’applique aux trois réseaux virtuels. L'option de transit est disponible pour le peering entre des modèles de déploiement identiques ou différents. Si vous configurez le transit entre des modèles de déploiement différents, le réseau virtuel hub et la passerelle de réseau virtuel doivent se trouver dans le modèle de déploiement Resource Manager, et non dans le modèle de déploiement classique.
+Dans le diagramme, le transit par passerelle permet aux réseaux virtuels homologués d’utiliser la passerelle VPN du réseau virtuel Hub-RM. La connectivité disponible sur la passerelle VPN, notamment les connexions S2S, P2S et de réseau virtuel à réseau virtuel, s’applique aux trois réseaux virtuels. L'option de transit est disponible pour le peering entre des modèles de déploiement identiques ou différents. Si vous configurez le transit entre des modèles de déploiement différents, le réseau virtuel hub et la passerelle de réseau virtuel doivent se trouver dans le [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md) et non dans le modèle de déploiement classique.
 >
 
 Dans l’architecture réseau hub-and-spoke, le transit par passerelle permet aux réseaux virtuels spoke d’exploiter la passerelle VPN du hub, évitant ainsi d’avoir à déployer des passerelles VPN dans chaque réseau virtuel spoke. Les itinéraires vers les réseaux locaux ou les réseaux virtuels connectés à la passerelle sont propagés aux tables de routage pour les réseaux virtuels homologués à l’aide du transit par passerelle. Vous pouvez désactiver la propagation automatique des itinéraires à partir de la passerelle VPN. Créez une table de routage avec l’option **Désactiver la propagation des itinéraires BGP** et associez la table de routage aux sous-réseaux afin d’empêcher la distribution des itinéraires à ces derniers. Pour plus d’informations, consultez [Virtual network routing table](../virtual-network/manage-route-table.md) (Table de routage de réseau virtuel).

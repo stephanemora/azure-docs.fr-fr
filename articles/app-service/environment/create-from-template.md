@@ -7,16 +7,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 654ab2aaa76de849089388ccc87b9da27278cb3e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 49ebcf06d0e01fb6b97e606bbcb5c3068eb0e727
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034550"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433289"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
 ## <a name="overview"></a>Vue d’ensemble
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -154,7 +157,7 @@ Cependant, comme pour les applications qui s’exécutent sur le service mutuali
 ## <a name="app-service-environment-v1"></a>Environnement App Service v1 ##
 App Service Environment est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2.
 
-Dans ASEv1, vous gérez toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir effectuer un scale-out de votre plan App Service, vous devez commencer par effectuer un scale-out du pool de workers dans lequel vous voulez héberger le plan.
+Dans ASEv1, vous gérez toutes les ressources manuellement. Celles-ci incluent les front ends, les workers et les adresses IP utilisées pour la liaison TLS/SSL basée sur IP. Pour pouvoir effectuer un scale-out de votre plan App Service, vous devez commencer par effectuer un scale-out du pool de workers dans lequel vous voulez héberger le plan.
 
 Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charge de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 
@@ -164,10 +167,10 @@ Pour créer un ASEv1 à l’aide d’un modèle Resource Manager, voir [Comment 
 <!--Links-->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
-[quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/201-web-app-ase-ilb-configure-default-ssl
+[quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl
 [quickstartwebapponasev2create]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev2-create
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md

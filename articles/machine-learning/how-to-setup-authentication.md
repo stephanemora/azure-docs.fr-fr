@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/27/2021
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2
-ms.openlocfilehash: 5f8f2c1f6d48a5c1b128643258af083b1811570e
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
+ms.openlocfilehash: dcd4b21214439e03d3c2ba9bc9d46474bdadc48f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854627"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534997"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -140,9 +140,17 @@ Le moyen le plus simple de créer un principal de service et de lui accorder l�
 
 1. Activer une [Identité managée affectée par le système pour les ressources Azure sur la machine virtuelle](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-1. Depuis le [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail, puis sélectionnez __Access Control (IAM)__ , __Ajouter une attribution de rôle__ et sélectionnez __Machine virtuelle__ dans la liste déroulante __attribuer l’accès à__. Enfin, sélectionnez l’identité de votre machine virtuelle.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail, puis __Contrôle d’accès (IAM)__ .
+1. Sélectionnez __Ajouter__, __Ajouter une attribution de rôle__ pour ouvrir la __page Ajouter une attribution de rôle__.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-1. Sélectionnez le rôle à affecter à cette identité. Par exemple, le rôle de contributeur ou un rôle personnalisé. Pour plus d’informations, consultez [Contrôler l’accès aux ressources](how-to-assign-roles.md).
+    | Paramètre | Valeur |
+    | ----- | ----- |
+    | Role | Rôle que vous voulez attribuer. |
+    | Attribuer l’accès à | Identité managée |
+    | Membres | Identité managée que vous avez créée précédemment |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="managed-identity-with-compute-cluster"></a>Identité managée avec cluster de calcul
 
@@ -229,7 +237,8 @@ from azureml.core import Workspace
 
 ws = Workspace.get(name="ml-example",
                    auth=sp,
-                   subscription_id="your-sub-id")
+                   subscription_id="your-sub-id",
+                   resource_group="your-rg-name")
 ws.get_details()
 ```
 

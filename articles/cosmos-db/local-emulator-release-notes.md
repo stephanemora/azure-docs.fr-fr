@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 31b051c37d4fbf1c73c8711e3e9a330cacc1c26d
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 23abc9cd391548a4a97622e6cb7110de828498f2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904331"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533238"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos DB – Notes de publication et informations sur le téléchargement
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,18 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos D
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2142-12-august-2021"></a>2.14.2 (12 août 2021)
+
+ - Cette version met à jour le contenu de l’Explorateur de données locales vers la dernière version du Portail Azure et réinitialise la base de l’image de l’assistant Docker de l’émulateur Linux Cosmos.
+
+### <a name="2141-18-june-2021"></a>2.14.1 (18 juin 2021)
+
+ - Cette version améliore le temps de démarrage de l’émulateur tout en réduisant l’empreinte de ses données sur le disque. Cette nouvelle optimisation est activée par l’argument « /EnablePreview ».
+
+### <a name="2140-15-june-2021"></a>2.14.0 (15 juin 2021)
+
+ - Cette version met à jour le contenu de l’Explorateur de données locales vers la dernière version du Portail Azure ; dans cette version, nous répondons à un problème connu lors de l’importation de plusieurs éléments de document à l’aide de la fonctionnalité de téléchargement de fichiers JSON.
 
 ### <a name="21113-21-april-2021"></a>2.11.13 (21 avril 2021)
 

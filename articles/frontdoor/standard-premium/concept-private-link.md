@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 38bd02f478ebe34f3c5708e1df9cc7da1e885058
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 53c719bb451b6bc8239fbd0f68bb6ad423b37b11
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715211"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607137"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Sécuriser votre origine avec Private Link dans Azure Front Door Standard/Premium (préversion)
 
@@ -51,5 +51,6 @@ Les points de terminaison privés Azure Front Door sont managés par la platefor
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour connecter Azure Front Door Premium à votre application web via un service Private Link, consultez [Se connecter à une application web à l’aide d’un point de terminaison privé](../../private-link/tutorial-private-endpoint-webapp-portal.md).
-* Pour connecter Azure Front Door Premium à votre compte de stockage via un service de liaison privée, consultez [Se connecter à un compte de stockage avec un point de terminaison privé](../../private-link/tutorial-private-endpoint-storage-portal.md).
+* Pour connecter Azure Front Door Premium à votre application web via un service Private Link, consultez [Connecter Azure Front Door Premium à une origine d’application web avec Private Link](../../frontdoor/standard-premium/how-to-enable-private-link-web-app.md).
+* Pour connecter Azure Front Door Premium à votre compte de stockage via un service de liaison privée, consultez [Connecter Azure Front Door Premium à une origine de compte de stockage avec Private Link](../../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md).
+* Pour connecter Azure Front Door Premium à une origine d’équilibreur de charge interne avec le service Private Link, consultez [Connecter Azure Front Door Premium à une origine d’équilibreur de charge avec Private Link](../../frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer.md).

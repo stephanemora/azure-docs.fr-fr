@@ -1,6 +1,6 @@
 ---
 title: Principes fondamentaux de l’authentification NIST et Azure Active Directory
-description: Explication de la terminologie et des facteurs d’authentification pour NIST.
+description: Cet article définit la terminologie, et décrit les Modules de plateforme sécurisée (TPM) et les facteurs d'authentification NIST.
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,101 +13,107 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 028ce5fc6ae3cef586803e1b04948006b58fd17e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: eacdb19dcd5121f1d7fecdf6a3cefbafd609c9a9
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293986"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889829"
 ---
-# <a name="nist-authentication-basics"></a>Principe fondamentaux de l’authentification NIST 
+# <a name="nist-authentication-basics"></a>Principe fondamentaux de l'authentification NIST 
 
-Pour comprendre les instructions du NIST, vous devez connaître la terminologie, ainsi que les concepts des modules de plateforme sécurisée (TPM) et des facteurs d’authentification.
+Pour comprendre les directives du National Institute of Standards and Technology (NIST), vous devez vous familiariser avec la terminologie. Vous devez également comprendre la technologie TPM et les facteurs d'authentification. Ces informations sont fournies dans le présent article. 
 
 ## <a name="terminology"></a>Terminologie
 
-La terminologie suivante est utilisée dans ces articles relatifs à NIST.
+La terminologie suivante est utilisée dans ces articles NIST.
 
-|Terme| Définition : les termes *en italique* sont définis dans ce tableau|
+|Terme| Définition. Les termes *en italique* sont définis dans ce tableau.|
 | - | - |
-| Assertion| Instruction d’un *vérificateur* à destination d’une *partie de confiance* contenant des informations sur l'*abonné*. Peut contenir des attributs vérifiés. |
+| Assertion| Instruction d'un *vérificateur* à destination d'une *partie de confiance* qui contient des informations sur l'*abonné*. Une assertion peut contenir des attributs vérifiés. |
 |Authentification| Processus de vérification de l’identité d’un *sujet*. |
-| Facteur d’authentification| Quelque chose que vous connaissez, que vous avez ou que vous êtes : chaque *authentificateur* possède un ou plusieurs facteurs d’authentification. |
-| Authenticator| Quelque chose que le *demandeur* possède et contrôle, et utilisé pour authentifier l’identité de ce *demandeur*. |
-| Demandeur| Un *objet* dont l’identité doit être vérifiée à l’aide d’un ou de plusieurs protocoles d’authentification. |
+| Facteur d’authentification| L'authentification peut porter sur quelque chose que vous connaissez, quelque chose que vous avez ou quelque chose que vous êtes. Chaque *authentificateur* possède un ou plusieurs facteurs d'authentification. |
+| Authenticator| L'authentificateur correspond à quelque chose que le *demandeur* possède et contrôle, et qui est utilisé pour authentifier l'identité de ce *demandeur*. |
+| Demandeur| *Sujet* dont l'identité doit être vérifiée par le biais d'un ou plusieurs protocoles d'*authentification*. |
 |Informations d'identification| Un sujet ou une structure de données qui lie de manière forcée une identité à au moins un *authentificateur* détenu et contrôlé par un *abonné*. |
-| Fournisseur de services d’informations d’identification (CSP)| Entité approuvée qui émet ou inscrit des *authentificateurs d’abonnés* et émet des *informations d’identification* électroniques aux *abonnés*. |
-|Partie de confiance| Entité qui s’appuie sur *l’assertion d’un vérificateur*, ou sur les *authentificateurs* et les *informations d’identification* d’un demandeur, généralement pour accorder l’accès à un système. |
+| Fournisseur de services d'informations d'identification (CSP)| Entité approuvée qui émet ou inscrit des *authentificateurs d’abonnés* et émet des *informations d’identification* électroniques aux *abonnés*. |
+|Partie de confiance| Entité qui s'appuie sur l'*assertion d'un vérificateur*, ou sur les *authentificateurs* et les *informations d'identification* d'un demandeur, généralement pour accorder l'accès à un système. |
 |  Objet| Personne, organisation, appareil, matériel, réseau, logiciel ou service. |
 | Abonné| Tiers ayant reçu des *informations d’identification* ou un *authentificateur* de la part d’un *fournisseur de services d’informations d’identification*. |
 |Module de plateforme sécurisée  | Un module TPM est un module inviolable qui effectue des opérations de chiffrement, y compris la génération de clés. |
 |  Vérificateur| Entité qui vérifie l’identité du *demandeur* en vérifiant la propriété et le contrôle des *authentificateurs* du demandeur. |
 
 
-## <a name="about-trusted-platform-modules"></a>À propos des modules TPM 
+## <a name="about-trusted-platform-module-technology"></a>À propos de la technologie de Module de plateforme sécurisée (TPM)
 
-La technologie de module de plateforme sécurisée (TPM, Trusted Platform Module) est conçue dans le but d’assurer des fonctions matérielles de sécurité. Une puce TPM, ou un module TPM matériel, est un processeur de chiffrement sécurisé qui vous aide à effectuer des actions telles que la génération, le stockage des clés de chiffrement et leur limitation d’utilisation. 
+La technologie de Module de plateforme sécurisée (TPM, Trusted Platform Module) est conçue pour fournir des fonctions de sécurité basées sur le matériel. Une puce TPM (ou module TPM matériel) est un processeur de chiffrement sécurisé qui vous permet d'effectuer des actions telles que la génération de clés de chiffrement, leur stockage et la limitation de l'utilisation de celles-ci. 
 
-Microsoft fournit des informations importantes sur le fonctionnement des modules TPM avec Microsoft Windows. Pour plus d’informations, consultez cet article relatif au [module de plateforme sécurisée (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
+Microsoft fournit des informations importantes sur le fonctionnement des modules TPM avec Windows. Pour plus d'informations, consultez [Module de plateforme sécurisée (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
 
-Un TPM logiciel est un émulateur qui reproduit cette fonctionnalité. 
+Un module TPM logiciel est un émulateur qui reproduit la fonctionnalité d'un module TPM matériel. 
 
  ## <a name="authentication-factors-and-their-strengths"></a>Facteurs d’authentification et points forts
 
-Les facteurs d’authentification peuvent être regroupés en trois catégories. Le tableau suivant présente des exemples de types de facteurs sous chaque regroupement.
+Les facteurs d'authentification se décomposent en trois catégories :
 
-![Représentation graphique de quelque chose que vous connaissez, quelque chose que vous avez ou quelque chose que vous êtes.](media/nist-authentication-basics/nist-authentication-basics-0.png)
+![Graphique fournissant des exemples de facteurs d'authentification, regroupés en trois catégories : quelque chose que vous connaissez, quelque chose que vous avez, et quelque chose que vous êtes.](media/nist-authentication-basics/nist-authentication-basics-0.png)
 
-La force d’un facteur d’authentification dépend de la manière dont nous pouvons être certain qu’il s’agit de quelque chose que seul l’abonné connaît, a ou est.
+La force d'un facteur d'authentification est déterminée par la certitude que vous pouvez avoir qu'il s'agit d'une chose que seul l'abonné connaît, possède ou est.
 
-Les recommandations relatives à la force relative des facteurs d’authentification sont limitées dans NIST. Chez Microsoft, nous évaluons les points forts comme indiqué ci-dessous. 
+Le NIST fournit des indications limitées sur la force relative des facteurs d'authentification. La suite de cette section décrit la façon dont nous évaluons ces points forts chez Microsoft. 
 
-**Quelque chose que connaissez** : les mots de passe, la chose la plus courante que vous connaissez, représentent la plus grande surface d’attaque. Les atténuations suivantes améliorent la confiance en termes d’affinité envers l’abonné et s’appliquent à la prévention des attaques de mot de passe telles que les attaques par force brute, l’écoute clandestine et l’ingénierie sociale :
+**Quelque chose que vous connaissez**. Les mots de passe (*la chose la plus courante que vous connaissez*) représentent la plus grande surface d'attaque. Les mesures d'atténuation suivantes améliorent la confiance dans l'affinité avec l'abonné. Elles sont efficaces pour prévenir les attaques par mot de passe comme les attaques par force brute, l'écoute clandestine et le piratage psychologique :
 
 * [Exigences en termes de « complexité » du mot de passe](https://www.microsoft.com/research/wp-content/uploads/2016/06/Microsoft_Password_Guidance-1.pdf)
 
-* [Mots de passe interdits](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-configure-custom-password-protection)
+* [Mots de passe interdits](../authentication/tutorial-configure-custom-password-protection.md)
 
-* [Informations d'identification fuitées](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+* [Informations d'identification fuitées](../identity-protection/overview-identity-protection.md)
 
 * [Stockage haché sécurisé](https://aka.ms/AADDataWhitepaper)
 
-* [Verrouillage de compte](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
+* [Verrouillage de compte](../authentication/howto-password-smart-lockout.md)
 
-**Quelque chose que vous avez** : la force de quelque chose que vous avez repose sur la probabilité que l’abonné conserve cette chose et la difficulté pour un pirate à y accéder. Par exemple, un appareil mobile personnel ou une clé matérielle présentera une affinité plus élevée et, dès lors, se révélera plus sécurisé qu’un ordinateur de bureau à des fins de protection contre les menaces internes.
+**Quelque chose que vous avez**. La force de la catégorie *quelque chose que vous avez* repose sur la probabilité que l'abonné garde cette chose en sa possession et sur la difficulté pour un attaquant d'y accéder. Par exemple, lorsque vous essayez de vous protéger contre les menaces internes, un appareil mobile personnel ou une clé matérielle aura une plus grande affinité. Il sera donc plus sûr qu'un ordinateur situé dans un bureau.
 
-**Quelque chose que vous êtes** : la facilité avec laquelle une personne malveillante peut obtenir une copie de ce que vous êtes ou usurper un élément biométrique, est importante. NIST élabore une infrastructure pour la biométrie. Aujourd’hui, NIST n’accepte pas la biométrie comme méthode d’authentification distincte. Il doit s’agir d’un facteur dans le cadre d’une authentification multifacteur. Et ce, en raison du fait que la biométrie est, par nature, probabiliste. Autrement dit, elle utilise des algorithmes qui déterminent la probabilité qu’il s’agit de la même personne. Contrairement à un mot de passe, il ne s’agit pas nécessairement d’une correspondance exacte. Consultez ce document relatif à la [Force de la fonction pour les authentificateurs – Biométrie](https://pages.nist.gov/SOFA/SOFA.html) (SOFA-B). SOFA-B tente de présenter une infrastructure pour la quantité de valeur de la biométrie en termes de taux de fausse correspondance, de taux d’échec, de détection d’attaque de présentation et d’effort requis pour lancer une attaque. 
+**Quelque chose que vous êtes**. La facilité avec laquelle un attaquant peut obtenir une copie de *quelque chose que vous êtes* ou usurper un élément biométrique, est importante. NIST élabore une infrastructure pour la biométrie. Pour le moment, le NIST n'accepte pas la biométrie comme méthode d'authentification distincte. Il doit s’agir d’un facteur dans le cadre d’une authentification multifacteur. Cette précaution est en place parce que les données biométriques sont de nature probabiliste. Autrement dit, elles utilisent des algorithmes qui déterminent la probabilité d'affinité. Les données biométriques ne fournissent pas nécessairement une correspondance exacte, comme le font les mots de passe. Pour plus d'informations, consultez [Force de la fonction pour les authentificateurs – Biométrie](https://pages.nist.gov/SOFA/SOFA.html) (SOFA-B). 
+
+SOFA-B tente de présenter un cadre permettant de quantifier la force de la biométrie pour ce qui suit :
+- Taux de fausses correspondances
+- Taux de faux échecs
+- Taux d'erreurs de détection des attaques de présentation
+- Effort nécessaire pour mener une attaque 
 
 ## <a name="single-factor-authentication"></a>‎Authentification monofacteur
 
-L’authentification monofacteur peut être obtenue à l’aide d’un authentificateur monofacteur correspondant à quelque chose que vous connaissez ou quelque chose que vous avez. Bien qu’un facteur d’authentification correspondant à « quelque chose que vous êtes » soit accepté en tant que facteur d’authentification, il ne l’est pas en tant qu’authentificateur. 
+Vous pouvez implémenter l'authentification monofacteur en utilisant un authentificateur monofacteur qui vérifie *quelque chose que vous connaissez* ou *quelque chose que vous êtes*. Un facteur correspondant à *quelque chose que vous êtes* est accepté en tant que facteur d'authentification, mais pas en tant qu'authentificateur proprement dit. 
 
-![Image conceptuelle de l’authentification monofacteur.](media/nist-authentication-basics/nist-authentication-basics-1.png)
+![Graphique illustrant le fonctionnement de l'authentification monofacteur.](media/nist-authentication-basics/nist-authentication-basics-1.png)
 
-## <a name="multi-factor-authentication"></a>Authentification multifacteur
+## <a name="multifactor-authentication"></a>Authentification multifacteur
 
-L’authentification multifacteur peut être obtenue soit par un authentificateur multifacteur, soit par une combinaison de deux authentificateurs monofacteurs. Un authentificateur multifacteur requiert deux facteurs d’authentification pour exécuter une seule transaction d’authentification.
+Vous pouvez implémenter l'authentification multifacteur à l'aide d'un ou deux authentificateurs monofacteurs. Un authentificateur multifacteur requiert deux facteurs d'authentification pour accomplir une seule transaction d'authentification.
 
-### <a name="multi-factor-authentication-using-two-single-factor-authenticators"></a>Authentification multifacteur utilisant deux authentificateurs monofacteurs
+### <a name="multifactor-authentication-by-using-two-single-factor-authenticators"></a>Authentification multifacteur à l'aide de deux authentificateurs monofacteurs
 
-L’authentification multifacteur requiert deux facteurs d’authentification distincts. Il peut s’agir de deux authentificateurs indépendants, tels que : 
+L'authentification multifacteur requiert deux facteurs d'authentification distincts. Il peut s'agir d'authentificateurs indépendants. Par exemple : 
 
-* Secret mémorisé [mot de passe] et hors bande [SMS]
+* Secret mémorisé (mot de passe) et hors bande (SMS)
 
-* Secret mémorisé [mot de passe] et mot de passe à usage unique [matériel ou logiciel]
+* Secret mémorisé (mot de passe) et mot de passe à usage unique (matériel ou logiciel)
 
-Ces méthodes effectuent deux transactions d’authentification indépendantes avec Azure AD.
+Ces méthodes accomplissent deux transactions d'authentification indépendantes avec Azure Active Directory (Azure AD).
 
-![Image conceptuelle de l’authentification multifacteur à l’aide de deux authentificateurs distincts.](media/nist-authentication-basics/nist-authentication-basics-2.png)
+![Graphique décrivant l'authentification multifacteur via deux authentificateurs distincts.](media/nist-authentication-basics/nist-authentication-basics-2.png)
 
 
-### <a name="multi-factor-authentication-using-a-single-multi-factor-authenticator"></a>Authentification multifacteur à l’aide d’un seul authentificateur multifacteur
+### <a name="multifactor-authentication-by-using-a-single-multifactor-authenticator"></a>Authentification multifacteur à l'aide d'un seul authentificateur multifacteur
 
-L’authentification multifacteur requiert un facteur d’authentification (quelque chose que vous connaissez ou quelque chose que vous êtes) pour déverrouiller un deuxième facteur d’authentification. Il s’agit généralement d’une expérience utilisateur plus simple que l’utilisation de plusieurs authentificateurs indépendants.
+L'authentification multifacteur requiert un facteur d'authentification (*quelque chose que vous connaissez* ou *quelque chose que vous êtes*) pour déverrouiller un deuxième facteur d'authentification. L'expérience utilisateur est généralement plus simple qu'avec plusieurs authentificateurs indépendants.
 
-![Image conceptuelle de l’authentification multifacteur avec un seul authentificateur multifacteur.](media/nist-authentication-basics/nist-authentication-basics-3a.png)
+![Graphique illustrant l'authentification multifacteur à l'aide d'un seul authentificateur multifacteur.](media/nist-authentication-basics/nist-authentication-basics-3a.png)
 
-Par exemple, l’application Microsoft Authenticator utilisée en mode sans mot de passe. Avec cette méthode, l’utilisateur tente d’accéder à une ressource sécurisée (partie de confiance) et reçoit une notification sur son application d’authentification. L’utilisateur répond à une notification en fournissant un élément biométrique (quelque chose que vous êtes) ou un code PIN (quelque chose que vous connaissez), qui déverrouille la clé de chiffrement sur le téléphone (quelque chose que vous avez), qui est ensuite validée par le vérificateur.
+Par exemple, l'application Microsoft Authenticator utilisée en mode sans mot de passe. Avec cette méthode, l'utilisateur tente d'accéder à une ressource sécurisée (partie de confiance) et reçoit une notification sur l'application Authenticator. L'utilisateur répond à la notification en fournissant des données biométriques (*quelque chose que vous êtes*) ou un code PIN (*quelque chose que vous connaissez*). Ce facteur déverrouille la clé de chiffrement du téléphone (*quelque chose que vous avez*), que le vérificateur valide ensuite.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
@@ -119,8 +125,8 @@ Par exemple, l’application Microsoft Authenticator utilisée en mode sans mot 
 
 [Types d'authentificateurs NIST](nist-authenticator-types.md)
 
-[Atteindre le niveau AAL1 NIST avec Azure AD](nist-authenticator-assurance-level-1.md)
+[Atteindre le niveau AAL1 NIST à l'aide d'Azure Active Directory](nist-authenticator-assurance-level-1.md)
 
-[Atteindre le niveau AAL2 NIST avec Azure AD](nist-authenticator-assurance-level-2.md)
+[Atteindre le niveau AAL2 NIST à l’aide d’Azure Active Directory](nist-authenticator-assurance-level-2.md)
 
-[Atteindre le niveau AAL3 NIST avec Azure AD](nist-authenticator-assurance-level-3.md) 
+[Atteindre le niveau AAL3 NIST à l'aide d’Azure Active Directory](nist-authenticator-assurance-level-3.md)

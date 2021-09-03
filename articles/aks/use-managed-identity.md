@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les identités managées dans Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: a5bf71a654afd122aad682df732e5a6c9dcd9538
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: dbc02f8b65235a47fc523665ea6337774a6eb557
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476191"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527661"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -35,8 +35,8 @@ AKS utilise plusieurs identités managées pour les services intégrés et les m
 
 | Identité                       | Nom    | Cas d’utilisation | Autorisations par défaut | Apportez votre propre identité
 |----------------------------|-----------|----------|
-| Plan de contrôle | non visible | Utilisé par les composants du plan de contrôle AKS pour gérer les ressources de cluster, notamment les équilibreurs de charge d’entrée et les IP publiques gérées par AKS, ainsi que les opérations de mise à l’échelle automatique | Rôle Contributeur pour le groupe de ressources du nœud | Prise en charge
-| Kubelet | Nom du cluster AKS - agentpool | Authentification avec Azure Container Registry (ACR) | NA (pour kubernetes v1.15+) | Prise en charge (préversion)
+| Plan de contrôle | Nom du cluster AKS | Utilisé par les composants du plan de contrôle AKS pour gérer les ressources de cluster, notamment les équilibreurs de charge d’entrée et les adresses IP publiques gérées par AKS, la mise à l’échelle automatique des clusters, les pilotes Azure Disk et CSI de fichiers | Rôle Contributeur pour le groupe de ressources du nœud | Prise en charge
+| Kubelet | Nom du cluster AKS - agentpool | Authentification avec Azure Container Registry (ACR) | NA (pour kubernetes v1.15+) | Pris en charge
 | Composant additionnel | AzureNPM | Aucune identité requise | N/D | Non
 | Composant additionnel | Analyse du réseau AzureCNI | Aucune identité requise | N/D | Non
 | Composant additionnel | azure-policy (gatekeeper) | Aucune identité requise | N/D | Non
@@ -82,7 +82,8 @@ Vous pouvez désormais mettre à jour un cluster AKS actuellement utilisé avec 
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
-> Une fois les identités affectées par le système ou par l’utilisateur mises à jour avec l’identité managée, effectuez une opération `az aks nodepool upgrade --node-image-only` sur vos nœuds pour terminer la mise à jour de l’identité managée.
+> Après la mise à jour, le plan de contrôle de votre cluster et les pods des modules complèmentaires basculeront pour utiliser l’identité managée, mais kubelet CONTINUERA À UTILISER LE PRINCIPAL DE SERVICE tant que vous n’aurez pas mis à niveau votre agentpool. Effectuez une `az aks nodepool upgrade --node-image-only` sur vos nœuds pour terminer la mise à jour de l’identité managée. 
+
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>Obtenir et utiliser l’identité managée affectée par le système pour votre cluster AKS
 
@@ -127,8 +128,7 @@ Une identité de plan de contrôle personnalisé permet d’accorder l’accès 
 Vous devez avoir installé Azure CLI 2.15.1 ou une version ultérieure.
 
 ### <a name="limitations"></a>Limites
-* Azure Government n’est pas pris en charge.
-* Azure China 21Vianet n’est pas pris en charge.
+* US DoD-Central, US DoD-Est, USGov Iowa dans Azure Government ne sont actuellement pas pris en charge.
 
 Si vous n’avez pas encore d’identité managée, vous devez en créer une, par exemple à l’aide de la commande CLI [az identity][az-identity-create].
 
@@ -170,7 +170,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <identity-id> \
+    --assign-identity <identity-id>
 ```
 
 Un cluster créé à l’aide de vos propres identités managées contient les informations de profil userAssignedIdentities :
@@ -189,39 +189,18 @@ Un cluster créé à l’aide de vos propres identités managées contient les i
  },
 ```
 
-## <a name="bring-your-own-kubelet-mi-preview"></a>Apportez votre propre MI kubelet (préversion)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## <a name="bring-your-own-kubelet-mi"></a>Apportez votre propre MI kubelet
 
 Une identité Kubelet permet d’accorder l’accès à l’identité existante avant la création du cluster. Cette fonctionnalité permet des scénarios tels que la connexion à ACR avec une identité gérée pré-créée.
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Vous devez avoir installé Azure CLI 2.21.1 ou une version ultérieure.
-- Vous devez avoir installé aks-preview, version 0.5.10 ou une version ultérieure.
+- Vous devez avoir installé Azure CLI version 2.26.0 ou une version ultérieure.
 
 ### <a name="limitations"></a>Limites
 
 - Fonctionne uniquement avec un cluster managé affecté par l’utilisateur.
-- Azure China 21Vianet n’est pas pris en charge.
-
-Tout d’abord, enregistrez l’indicateur de fonctionnalité pour l’identité Kubelet :
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
-```
-
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- Chine Est, Chine Nord dans Azure China 21Vianet ne sont pas pris en charge actuellement.
 
 ### <a name="create-or-obtain-managed-identities"></a>Créer ou obtenir des identités managées
 
@@ -292,7 +271,7 @@ az aks create \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
     --assign-identity <identity-id> \
-    --assign-kubelet-identity <kubelet-identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
 ```
 
 La réussite de la création d’un cluster à l’aide de votre propre identité managée kubelet contient la sortie suivante :

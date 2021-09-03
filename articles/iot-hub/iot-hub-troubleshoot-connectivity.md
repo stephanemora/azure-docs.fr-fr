@@ -15,22 +15,28 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 19094b6d2c10a77e5e99b698f2e7f5170677110b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 22c1658740af7ef7eccbeca02c6f98485ec11222
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061381"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378301"
 ---
-# <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Analyser et résoudre les problèmes de déconnexion avec Azure IoT Hub
+# <a name="monitor-diagnose-and-troubleshoot-azure-iot-hub-disconnects"></a>Analyser, diagnostiquer et résoudre les problèmes de déconnexion avec Azure IoT Hub 
 
 Les problèmes de connectivité des appareils IoT sont parfois difficiles à résoudre, car il existe de nombreux points de défaillance possibles. La logique d’application, les réseaux physiques, les protocoles, le matériel, IoT Hub et d'autres services cloud sont tous susceptibles d’occasionner des problèmes. La possibilité de détecter et d’identifier la source d’un problème est essentielle. Cela étant, une solution IoT à grande échelle peut impliquer des milliers d’appareils et il n'est pas pratique de vérifier chaque appareil individuellement. IoT Hub intègre deux services Azure pour vous aider à :
 
-* **Azure Monitor** Pour vous aider à détecter, diagnostiquer et résoudre ces problèmes à grande échelle, utilisez les fonctionnalités de supervision offertes par IoT Hub via Azure Monitor. Cela comprend la configuration des alertes pour déclencher des notifications et des actions lorsque des déconnexions se produisent, et la configuration des journaux que vous pouvez utiliser pour découvrir les conditions qui ont provoqué ces déconnexions.
+* **Azure Monitor** Azure Monitor vous permet de collecter, d’analyser et d’agir sur la télémétrie à partir de IoT Hub. Pour vous aider à détecter, diagnostiquer et résoudre ces problèmes à grande échelle, utilisez les fonctionnalités de supervision offertes par IoT Hub via Azure Monitor. Cela comprend la configuration des alertes pour déclencher des notifications et des actions lorsque des déconnexions se produisent, et la configuration des journaux que vous pouvez utiliser pour découvrir les conditions qui ont provoqué ces déconnexions.
 
-* **Azure Event Grid** : pour l’infrastructure critique et les déconnexions par appareil, utilisez Azure Event Grid pour vous abonner aux événements de connexion et de déconnexion des appareils émis par IoT Hub.
+* **Azure Event Grid** : pour l’infrastructure critique et les déconnexions par appareil, utilisez Azure Event Grid pour vous abonner aux événements de connexion et de déconnexion des appareils émis par IoT Hub. Azure Event Grid vous permet d’utiliser l’un des gestionnaires d’événements suivants :
 
-Dans les deux cas, ces fonctionnalités se limitant à ce que IoT Hub peut observer, nous vous recommandons également de suivre les meilleures pratiques de supervision pour vos appareils et autres services Azure.
+  - Azure Functions
+  - Logic Apps
+  - Azure Automation
+  - WebHooks
+  - Stockage File d’attente
+  - les connexions hybrides
+  - Event Hubs
 
 ## <a name="event-grid-vs-azure-monitor"></a>Event Grid ou Azure Monitor
 
@@ -44,11 +50,9 @@ Tenez compte des éléments suivants lorsque vous décidez d’utiliser Event Gr
 
 * Installation simplifiée : Les alertes de métrique Azure Monitor fournissent une expérience d’installation simplifiée qui ne nécessite pas d’intégration avec d’autres services pour envoyer des notifications par courrier électronique, SMS, voix et autres notifications.  Avec Event Grid, vous devez intégrer d’autres services Azure pour remettre des notifications. Ces deux services peuvent s’intégrer à d’autres services pour déclencher des actions plus complexes.
 
-En raison de ses capacités de faible latence par appareil, pour les environnements de production, nous vous recommandons fortement d’utiliser Event Grid afin de surveiller les connexions. Bien entendu, ce choix n’est pas exclusif et vous pouvez utiliser les alertes de métrique Azure Monitor et Event Grid. Quel que soit votre choix pour le suivi des déconnexions, vous utiliserez probablement des journaux de ressources Azure Monitor pour vous aider à résoudre les problèmes de déconnexions inattendues d’appareils. Les sections suivantes décrivent chacune de ces étapes plus en détail.
+## <a name="event-grid-monitor-connect-and-disconnect-events"></a>Event Grid : analyser des événements de connexion et de déconnexion
 
-## <a name="event-grid-monitor-device-connect-and-disconnect-events"></a>Event Grid : Superviser des événements de connexion et de déconnexion des appareils
-
-Pour surveiller les événements de connexion et de déconnexion des appareils dans les environnements de production, nous vous recommandons de vous abonner aux [événements **DeviceConnected** et **DeviceDisconnected**](iot-hub-event-grid.md#event-types) sur Event Grid pour déclencher des alertes et suivre l’état de connexion de l’appareil. Event Grid offre une latence bien moindre à celle d’Azure Monitor, et vous pouvez assurer une supervision par appareil et non sur le nombre total d’appareils connectés. Ces aspects font d’Event Grid la méthode recommandée pour la supervision des appareils critiques et de l’infrastructure.
+Pour surveiller les événements de connexion et de déconnexion des appareils dans les environnements de production, nous vous recommandons de vous abonner aux [événements **DeviceConnected** et **DeviceDisconnected**](iot-hub-event-grid.md#event-types) sur Event Grid pour déclencher des alertes et suivre l’état de connexion de l’appareil. Event Grid offre une latence bien moindre que celle d’Azure Monitor. Vous pouvez l’analyser sur une base par appareil. Ces aspects font d’Event Grid la méthode recommandée pour la supervision des appareils critiques et de l’infrastructure.
 
 Lorsque vous utilisez Event Grid pour surveiller ou déclencher des alertes en cas de déconnexion d’un appareil, veillez à créer une méthode de filtrage des déconnexions périodiques dues à un renouvellement de jeton SAS sur les appareils qui utilisent les kits de développement logiciel (SDK) Azure IoT. Pour plus d’informations, consultez [Comportement de déconnexion d’appareil MQTT avec les kits de développement logiciel (SDK) Azure IoT](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 
@@ -72,7 +76,7 @@ Nous vous recommandons de créer un paramètre de diagnostic le plus tôt possib
 
 Pour en savoir plus sur le routage des journaux vers une destination, consultez [Collecte et routage](monitor-iot-hub.md#collection-and-routing). Pour obtenir des instructions détaillées sur la création d’un paramètre de diagnostic, consultez le tutoriel [Utiliser les métriques et les journaux](tutorial-use-metrics-and-diags.md).
 
-## <a name="azure-monitor-set-up-metric-alerts-for-device-disconnect-at-scale"></a>Azure Monitor : Configurer des alertes de métrique en cas de déconnexion d'appareils à grande échelle
+## <a name="azure-monitor-set-up-metric-alerts-for-device-disconnects"></a>Azure Monitor : configurer des alertes de métrique en cas de déconnexion d'appareils de l’appareil
 
 Vous pouvez configurer des alertes basées sur les métriques de plateforme émises par IoT Hub. Les alertes de métrique vous permettent d’avertir les utilisateurs qu’une condition importante s’est produite et de déclencher des actions pour répondre automatiquement à cette condition.
 
@@ -80,13 +84,13 @@ La métrique [*Appareils connectés (préversion)*](monitor-iot-hub-reference.md
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Paramètres de logique d’alerte pour la métrique des appareils connectés.":::
 
-Vous pouvez utiliser des règles d’alerte de métrique pour surveiller les anomalies de déconnexion d’appareil à grande échelle. Autrement dit, lorsqu’un nombre significatif d’appareils se déconnectent de façon inattendue. Quand une telle occurrence est détectée, vous pouvez consulter les journaux pour vous aider à résoudre le problème. Toutefois, vous devez utiliser Event Grid pour surveiller les déconnexions par appareil et les déconnexions d’appareils critiques. Event Grid offre également une meilleure expérience en temps réel que les métriques Azure.
+Vous pouvez utiliser des règles d’alerte de métrique pour surveiller les anomalies de déconnexion d’appareil à grande échelle. Autrement dit, utilisez des alertes lorsqu’un nombre significatif d’appareils se déconnectent de façon inattendue. Quand cela est détecté, vous pouvez consulter les journaux pour vous aider à résoudre le problème. Toutefois, vous devez utiliser Event Grid pour analyser les déconnexions par appareil et les déconnexions d’appareils critiques presque en temps réel.
 
 Pour en savoir plus sur les alertes avec IoT Hub, consultez [Alertes dans Superviser IoT Hub](monitor-iot-hub.md#alerts). Pour obtenir une procédure pas à pas de création d’alertes dans IoT Hub, consultez le tutoriel [Utiliser les métriques et les journaux](tutorial-use-metrics-and-diags.md). Pour obtenir une vue d’ensemble plus détaillée des alertes, consultez [vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) dans la documentation Azure Monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor : utiliser les journaux pour résoudre les erreurs de connectivité
 
-Lorsque vous détectez des déconnexions d’appareils, que ce soit avec des alertes de métrique Azure Monitor ou avec Event Grid, vous pouvez utiliser les journaux pour résoudre le problème. Cette section décrit comment examiner les problèmes courants dans Azure Monitor Logs. La procédure ci-dessous part du principe que vous avez déjà créé un [paramètre de diagnostic](#azure-monitor-route-connection-events-to-logs) pour envoyer les journaux des connexions IoT Hub à un espace de travail Log Analytics.
+Lorsque vous détectez des déconnexions d’appareils, que ce soit avec des alertes de métrique Azure Monitor ou Event Grid, vous pouvez utiliser les journaux pour résoudre le problème. Cette section décrit comment examiner les problèmes courants dans Azure Monitor Logs. La procédure ci-dessous part du principe que vous avez déjà créé un [paramètre de diagnostic](#azure-monitor-route-connection-events-to-logs) pour envoyer les journaux des connexions IoT Hub à un espace de travail Log Analytics.
 
 Une fois que vous avez créé un paramètre de diagnostic pour acheminer des journaux de ressources IoT Hub vers Azure Monitor Logs, procédez comme suit pour afficher les journaux dans le portail Azure.
 
@@ -101,11 +105,11 @@ Une fois que vous avez créé un paramètre de diagnostic pour acheminer des jou
     | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Si des résultats s’affichent, recherchez les éléments `OperationName`, `ResultType` (code d’erreur) et `ResultDescription` (message d’erreur) pour obtenir plus de détails sur l’erreur.
+1. Si des résultats s’affichent, recherchez les éléments `OperationName`, `ResultType` (code d’erreur) et `ResultDescription` (message d’erreur) pour obtenir plus de détails.
 
    ![Exemple de journal des erreurs](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-Une fois que vous avez identifié l’erreur, suivez les guides de résolution des problèmes pour obtenir de l’aide sur les erreurs les plus courantes :
+Suivez les guides de résolution des problèmes ci-dessous pour les erreurs les plus courantes :
 
 * [400027 ConnectionForcefullyClosedOnNewConnection](iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md)
 
@@ -127,10 +131,10 @@ Par défaut, la durée de vie des jetons est de 60 minutes pour tous les kits d
 
 | Kit SDK | Durée de vie des jetons | Renouvellement des jetons | Comportement du renouvellement |
 |-----|----------|---------------------|---------|
-| .NET | 60 minutes, configurable | 85 % de la durée de vie, configurable | Le kit de développement logiciel (SDK) se connecte et se déconnecte dès la fin de vie du jeton plus une période de grâce de 10 minutes. Événements d’information et erreurs générés dans les journaux. |
-| Java | 60 minutes, configurable | 85 % de la durée de vie, non configurable | Le kit de développement logiciel (SDK) se connecte et se déconnecte dès la fin de vie du jeton plus une période de grâce de 10 minutes. Événements d’information et erreurs générés dans les journaux. |
-| Node.js | 60 minutes, configurable | configurable | Le SDK se connecte et se déconnecte lors du renouvellement du jeton. Seuls les événements d’information sont générés dans les journaux. |
-| Python | 60 minutes, non configurable | -- | Le SDK se connecte et se déconnecte à la fin de la durée de vie du jeton. |
+| .NET | 60 minutes, configurable | 85 % de la durée de vie, configurable | Le kit de développement logiciel (SDK) se déconnecte et se reconnecte dès la fin de vie du jeton plus une période de grâce de 10 minutes. Événements d’information et erreurs générés dans les journaux. |
+| Java | 60 minutes, configurable | 85 % de la durée de vie, non configurable | Le kit de développement logiciel (SDK) se déconnecte et se reconnecte dès la fin de vie du jeton plus une période de grâce de 10 minutes. Événements d’information et erreurs générés dans les journaux. |
+| Node.js | 60 minutes, configurable | configurable | Le kit de développement logiciel (SDK) se déconnecte et se reconnecte lors du renouvellement du jeton. Seuls les événements d’information sont générés dans les journaux. |
+| Python | 60 minutes, configurable | 120 secondes avant l’expiration | Le kit de développement logiciel (SDK) se déconnecte et se reconnecte pendant la durée de vie des jetons. |
 
 Les captures d’écran suivantes montrent le comportement de renouvellement des jetons dans les journaux Azure Monitor pour différents kits de développement logiciel (SDK). La durée de vie et le seuil de renouvellement des jetons ont été modifiés par rapport à leurs valeurs par défaut, comme indiqué.
 
@@ -146,7 +150,7 @@ Les captures d’écran suivantes montrent le comportement de renouvellement des
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Comportement d’erreur pour le renouvellement de jetons via MQTT dans Azure Monitor Logs avec le kit de développement logiciel (SDK) Node.":::
 
-La requête suivante a été utilisée pour collecter les résultats. La requête extrait le nom et la version du kit de développement logiciel (SDK) à partir du conteneur de propriétés. Pour plus d’informations, consultez [Version du kit de développement logiciel dans les journaux IoT Hub](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
+La requête suivante a été utilisée pour collecter les résultats. La requête extrait le nom et la version du kit de développement logiciel (SDK) du conteneur de propriétés. Pour en savoir plus, consultez [Version du kit de développement logiciel dans les journaux IoT Hub](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
 
 ```kusto
 AzureDiagnostics
@@ -160,7 +164,7 @@ AzureDiagnostics
 
 En tant que développeur ou opérateur de solutions IoT, vous devez être conscient de ce comportement afin d’interpréter les événements de connexion/déconnexion et les erreurs associées consignées dans les journaux. Si vous souhaitez modifier la durée de vie ou le comportement de renouvellement des jetons pour les appareils, vérifiez que l’appareil implémente un paramètre de jumeau d’appareil ou une méthode d’appareil qui rend cela possible.
 
-Si vous surveillez les connexions d’appareils avec Event Hub, assurez-vous de créer une méthode de filtrage des déconnexions périodiques dues à un renouvellement de jeton SAP, par exemple en ne déclenchant pas d’actions basées sur des déconnexions tant que l’événement de déconnexion est suivi d’un événement de connexion dans un intervalle de temps donné.
+Si vous analysez des connexions d’appareils d’analyse avec Event Hub, assurez-vous de générer de façon à filtrer les déconnexions périodiques dues au renouvellement des jetons SAS. Par exemple, ne déclenchez pas d’actions basées sur des déconnexions tant que l’événement de déconnexion est suivi d’un événement de connexion dans un intervalle de temps donné.
 
 > [!NOTE]
 > IoT Hub ne prend en charge qu’une seule connexion MQTT active par appareil. Toute nouvelle connexion MQTT au nom du même ID d’appareil entraîne l’interruption de la connexion existante par IoT Hub.

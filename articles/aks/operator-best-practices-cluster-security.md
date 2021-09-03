@@ -5,12 +5,12 @@ description: Découvrir les meilleures pratiques de l’opérateur relatives à 
 services: container-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 5cb103d843aafbb7f72c03d65b45fe3a84f8d1cd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7560e9aaabf8b21729e1e9d8e008c0b6a0e8cefb
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782978"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453319"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -279,38 +279,19 @@ Vous pouvez ensuite mettre à niveau votre cluster AKS à l’aide de la command
 
 Pour plus d’informations sur les mises à niveau dans AKS, consultez [Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)][aks-supported-versions] et [Mise à jour d’un cluster Azure Kubernetes Service (AKS)][aks-upgrade].
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Traiter les mises à jour et les redémarrages de nœuds Linux avec kured
+## <a name="process-linux-node-updates"></a>Traiter les mises à jour des nœuds Linux
 
-> **Conseils sur les bonnes pratiques** 
-> 
-> AKS télécharge et installe automatiquement les correctifs de sécurité sur chacun des nœuds Linux, mais ne les redémarre pas automatiquement. 
-> 1. Utilisez `kured` pour surveiller les redémarrages en attente.
-> 1. Bouclez et drainez le nœud de manière sécurisée, afin de lui permettre de redémarrer.
-> 1. Appliquez les mises à jour.
-> 1. Appliquez les mesures de sécurité les plus strictes possible en ce qui concerne le système d’exploitation. 
+Chaque soir, les nœuds Linux dans AKS obtiennent les correctifs de sécurité par le biais de leur canal de mise à jour de distribution. Ce comportement est configuré automatiquement à mesure que les nœuds sont déployés dans un cluster AKS. Pour minimiser les perturbations et l’impact potentiel sur les charges de travail en cours d’exécution, les nœuds ne sont pas automatiquement redémarrés si un correctif de sécurité ou mise à jour du noyau l’exige. Pour plus d’informations sur le traitement des redémarrages de nœud, consultez la section[Appliquer des mises à jour de sécurité et du noyau à des nœuds dans AKS][aks-kured].
 
-Pour les nœuds Windows Server, effectuez régulièrement une opération de mise à niveau AKS pour isoler et drainer de façon sécurisée les pods et déployer les nœuds mis à jour.
+### <a name="node-image-upgrades"></a>Mises à niveau d’images de nœud
 
-Chaque soir, les nœuds Linux dans AKS obtiennent les correctifs de sécurité par le biais de leur canal de mise à jour de distribution. Ce comportement est configuré automatiquement à mesure que les nœuds sont déployés dans un cluster AKS. Pour minimiser les perturbations et l’impact potentiel sur les charges de travail en cours d’exécution, les nœuds ne sont pas automatiquement redémarrés si un correctif de sécurité ou mise à jour du noyau l’exige.
+Les mises à niveau sans assistance appliquent les mises à jour au système d'exploitation du nœud Linux, mais l'image utilisée pour créer les nœuds de votre cluster reste inchangée. Si un nouveau nœud Linux est ajouté à votre cluster, l'image d'origine est utilisée pour créer le nœud. Ce nouveau nœud recevra toutes les mises à jour de sécurité et du noyau disponibles lors de la vérification automatique chaque nuit, mais restera non corrigé jusqu'à ce que toutes les vérifications et tous les redémarrages soient terminés. Vous pouvez utiliser la mise à niveau des images de nœud pour rechercher et mettre à jour les images de nœud utilisées par votre cluster. Pour plus d'informations sur la mise à niveau des images de nœud, consultez [Mise à niveau des images de nœud Azure Kubernetes Service (AKS)][node-image-upgrade].
 
-Le projet [kured (KUbernetes REboot Daemon)][kured] open source de Weaveworks surveille les redémarrages de nœud en attente. Quand un nœud Linux applique des mises à jour qui nécessitent un redémarrage, le nœud est isolé et drainé de manière sécurisée pour déplacer et planifier les pods sur d’autres nœuds du cluster. Après le redémarrage du nœud, ce dernier est de nouveau ajouté au cluster, et Kubernetes reprend la planification des pods. Pour limiter les perturbations, un seul nœud à la fois est autorisé à être redémarré par `kured`.
+## <a name="process-windows-server-node-updates"></a>Traiter les mises à jour des nœuds Windows Server
 
-![Le processus de redémarrage du nœud AKS à l’aide de kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
-
-Si vous souhaitez contrôler encore davantage les redémarrages, `kured` peut s’intégrer à Prometheus afin d’éviter les redémarrages si d’autres événements de maintenance ou problèmes de cluster sont en cours. Cette intégration réduit les complications en redémarrant les nœuds pendant que vous résolvez de façon active les autres problèmes.
-
-Pour plus d’informations sur le traitement des redémarrages de nœud, consultez la section[Appliquer des mises à jour de sécurité et du noyau à des nœuds dans AKS][aks-kured].
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Cet article était dédié à la sécurisation de votre cluster AKS. Pour implémenter quelques-unes de ces pratiques, consultez les articles suivants :
-
-* [Intégrer Azure Active Directory à AKS][aks-aad]
-* [Mettre à jour un AKS avec la dernière version de Kubernetes][aks-upgrade]
-* [Appliquer des mises à jour de sécurité et les redémarrages de nœud à l’aide de kured][aks-kured]
+Pour les nœuds Windows Server, effectuez régulièrement une opération de mise à niveau des images de nœud pour isoler et drainer de façon sécurisée les pods et déployer les nœuds mis à jour.
 
 <!-- EXTERNAL LINKS -->
-[kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
 [seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -330,3 +311,4 @@ Cet article était dédié à la sécurisation de votre cluster AKS. Pour implé
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
 [security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
+[node-image-upgrade]: node-image-upgrade.md

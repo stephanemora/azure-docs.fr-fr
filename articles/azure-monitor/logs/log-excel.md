@@ -4,24 +4,24 @@ description: Obtenir une requête Log Analytics dans Excel et actualiser les ré
 ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
-ms.date: 11/03/2020
-ms.openlocfilehash: f2834e9bd91ecbbf32e0321179c2359862a5b605
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/10/2021
+ms.openlocfilehash: 7cfe8ac2badd292b73b77dd13d7e7ca4bf24a428
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041108"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474122"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Intégrer Log Analytics et Excel
 
-Vous pouvez intégrer Azure Monitor Log Analytics et Microsoft Excel à l’aide d’une requête M et de l’API Log Analytics. Cette intégration vous permet d’envoyer jusqu’à 500 000 enregistrements à Excel, à condition que le volume total des résultats ne dépasse pas 61 Mio.
+Vous pouvez intégrer Azure Monitor Log Analytics et Microsoft Excel à l’aide d’une requête M et de l’API Log Analytics. Cette intégration vous permet d’envoyer un certain nombre d’enregistrements et de Mo de données. Ces limites sont documentées dans [Limites de l’espace de travail Log Analytics Azure Monitor](../service-limits.md#log-analytics-workspaces) dans la section du Portail Azure. 
 
 > [!NOTE]
 > Excel étant une application cliente locale, les limitations matérielles et logicielles locales ont un impact sur ses performances et sa capacité à traiter de grands ensembles de données.
 
 ## <a name="create-your-m-query-in-log-analytics"></a>Créer votre requête M dans Log Analytics 
 
-1. **Créez et exécutez votre requête** dans Log Analytics comme vous le feriez normalement. Ne vous inquiétez pas si vous atteignez la limite de 10 000 enregistrements dans l’interface utilisateur.  Nous vous recommandons d’utiliser des dates relatives, telles que la fonction « ago » ou le sélecteur d’heure de l’interface utilisateur. Ainsi, Excel actualise le jeu de données approprié.
+1. **Créez et exécutez votre requête** dans Log Analytics comme vous le feriez normalement. Ne vous inquiétez pas si vous atteignez la limite des enregistrements dans l’interface utilisateur.  Nous vous recommandons d’utiliser des dates relatives, telles que la fonction « ago » ou le sélecteur d’heure de l’interface utilisateur. Ainsi, Excel actualise le jeu de données approprié.
   
 2. **Exporter une requête** : Une fois que vous êtes satisfait de la requête et de ses résultats, exportez la requête vers M en utilisant le choix de menu **Exporter vers Power BI (requête M)** de Log Analytics sous le menu *Exporter* :
 

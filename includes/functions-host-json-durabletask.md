@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier Include
 author: ggailey777
 ms.service: azure-functions
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e0605b5a882dcfa09b2435476a37d116f8c47286
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2c49bfee8f3b694ea635c836e06bfbe99ba9d758
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111350445"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112425932"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -110,7 +110,7 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |maxConcurrentActivityFunctions | **Plan de consommation** : 10 <br> **Plan dédié/Premium** : 10 fois le nombre de processeurs présents sur l’ordinateur actuel|Nombre maximal de fonctions d’activité pouvant être traitées simultanément sur une seule instance d’hôte.|
 |maxConcurrentOrchestratorFunctions | **Plan de consommation** : 5 <br> **Plan dédié/Premium** : 10 fois le nombre de processeurs présents sur l’ordinateur actuel |Nombre maximal de fonctions d’orchestrateur pouvant être traitées simultanément sur une seule instance d’hôte.|
 |maxQueuePollingInterval|30 secondes|Intervalle d’interrogation de la file d’attente des éléments de travail et de contrôle maximum, indiqué au format *hh:mm:ss*. Des valeurs plus élevées peuvent entraîner une plus grande latence lors du traitement des messages. Des valeurs plus faibles peuvent entraîner des coûts de stockage plus importants, suite à un nombre plus important de transactions de stockage.|
-|azureStorageConnectionStringName |AzureWebJobsStorage|Nom du paramètre d’application qui contient la chaîne de connexion de stockage Azure utilisée pour gérer les ressources de stockage Azure sous-jacentes.|
+|connectionStringName (2.x)<br/>azureStorageConnectionStringName (1.x) |AzureWebJobsStorage|Nom du paramètre d’application qui contient la chaîne de connexion de stockage Azure utilisée pour gérer les ressources de stockage Azure sous-jacentes.|
 |trackingStoreConnectionStringName||Nom d’une chaîne de connexion à utiliser pour les tables d’historique et d’instances. S’il n’est pas spécifié, la connexion `connectionStringName` (Durable 2.x) ou `azureStorageConnectionStringName` (Durable 1.x) est utilisée.|
 |trackingStoreNamePrefix||Préfixe à utiliser pour les tables d’historique et d’instances lorsque le paramètre `trackingStoreConnectionStringName` est spécifié. S’il n’est pas défini, la valeur du préfixe par défaut correspond à `DurableTask`. Si le paramètre `trackingStoreConnectionStringName` n’est pas spécifié, les tables d’historique et d’instances utilisent la valeur `hubName` en tant que préfixe, et tous les paramètres relatifs à `trackingStoreNamePrefix` sont ignorés.|
 |traceInputsAndOutputs |false|Valeur indiquant s’il faut tracer les entrées et sorties des appels de fonction. Lors du traçage d’événements d’exécution de fonctions, le nombre d’octets est inclus par défaut dans les entrées et les sorties sérialisées pour les appels de fonction. Ce comportement fournit un minimum d’informations sur l’apparence des entrées et sorties, sans encombrer les journaux d’activité ni exposer accidentellement des informations sensibles. La définition de cette propriété sur True amène la journalisation de la fonction par défaut à consigner la totalité du contenu des entrées et sorties de fonction.|

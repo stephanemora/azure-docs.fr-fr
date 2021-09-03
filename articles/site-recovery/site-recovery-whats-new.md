@@ -2,13 +2,13 @@
 title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 23cc7c98b4d45adf9507ef857bda1c605eb6d558
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/28/2021
+ms.openlocfilehash: a9e0d9c462c494fdc1d0c50bc4faf3694f3b4cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026774"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562111"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -22,6 +22,7 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 **Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Rollup 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [Rollup 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
 [Rollup 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [Rollup 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
@@ -33,6 +34,21 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 [En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
 
+## <a name="updates-july-2021"></a>Mises à jour (juillet 2021)
+
+### <a name="update-rollup-56"></a>Correctif cumulatif 56
+
+Le [correctif cumulatif 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) fournit les mises à jour suivantes :
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et fournisseurs de Site Recovery comme décrites dans l’article de la base de connaissances du correctif cumulatif.
+**Correctifs/améliorations** | Un nombre de correctifs et d’améliorations comme détaillé dans l’article de la base de connaissances du correctif cumulatif.
+
+**Service Azure Site Recovery** | Améliorations apportées pour que les opérations de réplication et de reprotection soient 46 % plus rapides.
+**Portail Azure Site Recovery** | La réplication peut désormais être activée entre deux régions Azure à travers le monde. Vous n’êtes plus limité à l’activation de la réplication au sein de votre continent.
+
+
 ## <a name="updates-april-2021"></a>Mises à jour (avril 2021)
 
 ### <a name="update-rollup-55"></a>Correctif cumulatif 55
@@ -42,7 +58,7 @@ Le [correctif cumulatif 55](https://support.microsoft.com/topic/b19c8190-5f88-4
 **Mettre à jour** | **Détails**
 --- | ---
 **Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery comme décrit dans le correctif cumulatif.
-**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif. 
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif.
 **Récupération d’urgence de machine virtuelle Azure** | Ajout de la prise en charge de la récupération d'urgence transcontinentale des machines virtuelles Azure.<br/><br/> Prise en charge de l'API Rest pour la protection de VMSS Flex.<br/><br/> Prise en charge des machines virtuelles exécutant Oracle Linux 8.2 et 8.3.
 **Récupération d’urgence des machines virtuelles VMware physiques sur Azure** | Ajout de la prise en charge de l'utilisation d'Ubuntu-20.04 lors de la configuration du serveur cible principal.<br/><br/> Prise en charge des machines virtuelles exécutant Oracle Linux 8.2 et 8.3.
 
@@ -56,7 +72,7 @@ Le [correctif cumulatif 54](https://support.microsoft.com/topic/update-rollup-5
 **Mettre à jour** | **Détails**
 --- | ---
 **Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery comme décrit dans le correctif cumulatif.
-**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif. 
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif.
 **Récupération d’urgence de machine virtuelle Azure** | La reprise d’activité de zone à zone à l’aide d’Azure Site Recovery est désormais en disponibilité générale dans quatre régions supplémentaires : Europe Nord, USA Est, USA Centre et USA Ouest 2.<br/>
 **Récupération d’urgence des machines virtuelles VMware physiques sur Azure** | La mise à jour comprend une prise en charge du portail pour la sélection des groupes de placement de proximité pour les machines physiques et VMware après l’activation de la réplication.<br/><br/> La protection des machines VMware avec un disque de données d'une taille maximale de 32 To est désormais prise en charge.
 **Reprise d’activité après sinistre Hyper-V vers Azure** | La mise à jour comprend une prise en charge du portail pour la sélection des groupes de placement de proximité pour les machines Hyper-V après l’activation de la réplication.
@@ -71,7 +87,7 @@ Le [correctif cumulatif 53](https://support.microsoft.com/topic/update-rollup-5
 **Mettre à jour** | **Détails**
 --- | ---
 **Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery comme décrit dans le correctif cumulatif.
-**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif. 
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif.
 **Récupération d’urgence de machine virtuelle Azure** | La réplication des balises est désormais prise en charge. Toutes les balises ajoutées aux machines virtuelles Azure, aux disques et aux cartes réseau dans la région source sont répliquées sur les machines de la région cible.<br/><br/> Les machines virtuelles Azure exécutant Debian 10 sont désormais prises en charge pour la réplication.
 **Récupération d’urgence des machines virtuelles VMware physiques sur Azure** | Cette mise à jour comprend des améliorations de la journalisation pour la réplication de machines virtuelles VMware vers Azure et une meilleure messagerie des erreurs.<br/><br/> Les machines virtuelles VMware et les machines physiques exécutant Debian 10 sont désormais prises en charge pour la réplication.
 

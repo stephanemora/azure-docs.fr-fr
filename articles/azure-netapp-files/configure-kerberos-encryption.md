@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 07/15/2021
 ms.author: b-juche
-ms.openlocfilehash: 2b920b7a5794e1ee56b8ccc2c1d3aef45a1b5fe2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a12df50ac6fe2e1dc2bf793316538a90ba0f901d
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483818"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361332"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurer le chiffrement Kerberos NFSv4.1 pour Azure NetApp Files
 
@@ -31,10 +31,11 @@ La configuration requise suivante s’applique au chiffrement client NFSv4.1 :
 
 * Connexion Active Directory Domain Services (AD DS) ou Azure Active Directory Domain Services (AADDS) pour faciliter la gestion des tickets Kerberos 
 * Création d’un enregistrement DNS A/PTR pour les adresses IP du client et du serveur NFS Azure NetApp Files
-* Un client Linux  
-    Cet article propose des conseils pour les clients RHEL et Ubuntu.  Les autres clients fonctionneront avec des étapes de configuration similaires. 
-* Accès au serveur NTP  
-    Vous pouvez utiliser un des contrôleurs de domaine Active Directory (AD DC) les plus utilisés.
+* Client Linux : cet article fournit des conseils pour les clients RHEL et Ubuntu.  Les autres clients fonctionneront avec des étapes de configuration similaires. 
+* Accès au serveur NTP : vous pouvez utiliser un des contrôleurs de domaine Active Directory Domain Controller (AD DC) couramment utilisés.
+* Assurez-vous que les noms d'utilisateur principaux des comptes d'utilisateur ne se terminent *pas* par un symbole `$` (par exemple, utilisateur$@REALM.COM). <!-- Not using 'contoso.com' in this example; per Mark, A customers REALM namespace may be different from their AD domain name space. -->   
+    Pour les [comptes de services gérés de groupe](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts) (gMSA), vous devez supprimer le `$` de fin du nom d'utilisateur principal pour que le compte puisse être utilisé avec la fonctionnalité Azure NetApp Files Kerberos.
+
 
 ## <a name="create-an-nfs-kerberos-volume"></a>Créer un volume NFS Kerberos
 

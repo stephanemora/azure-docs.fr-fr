@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db4b08b4403345d7926ec07e94f75cc779fce843
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92057618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532087"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessions de débogage dans Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ Si le pipeline d’enrichissement ne contient pas d’erreur, une session de dé
 
 ## <a name="creating-a-debug-session"></a>Création d’une session de débogage
 
-Pour démarrer une session de débogage, vous devez disposer d’un pipeline d’enrichissement par IA existant, incluant : une source de données, un ensemble de compétences, un indexeur et un index. Pour configurer une session de débogage, vous devez nommer la session et fournir un compte de stockage à usage général qui sera utilisé pour mettre en cache les exécutions de compétences lors de l’exécution de l’indexeur. Vous devrez également sélectionner l’indexeur qui sera exécuté. L’indexeur contient des références stockées dans la source de données, dans l’ensemble de compétences et dans l’index. La session de débogage utilise par défaut le premier document de la source de données. Sinon, vous pouvez spécifier le document à parcourir dans la source de données.
+Vous pouvez créer une session de débogage sur la page **de présentation** de votre service de recherche dans le Portail Azure. Pour démarrer une session de débogage, vous devez disposer d’un pipeline d’enrichissement par IA existant, incluant : une source de données, un ensemble de compétences, un indexeur et un index. Pour configurer une session de débogage, vous devez nommer la session et fournir un compte de stockage à usage général qui sera utilisé pour mettre en cache les exécutions de compétences lors de l’exécution de l’indexeur. Vous devrez également sélectionner l’indexeur qui sera exécuté. L’indexeur contient des références stockées dans la source de données, dans l’ensemble de compétences et dans l’index. La session de débogage utilise par défaut le premier document de la source de données. Sinon, vous pouvez spécifier le document à parcourir dans la source de données.
 
 > :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Création d’une session de débogage":::
 
@@ -85,7 +85,7 @@ Cette fenêtre affiche toutes les erreurs et les avertissements produits par l�
 
 ## <a name="limitations"></a>Limites
 
-Les sessions de débogage fonctionnent avec toutes les sources de données généralement disponibles et la plupart des sources de données en préversion. Les API MongoDB et Cassandra de Cosmos DB (toutes deux en préversion) ne sont actuellement pas prises en charge.
+Les sessions de débogage fonctionnent avec toutes les sources de données généralement disponibles et la plupart des sources de données en préversion. Les API MongoDB (préversion) et Cosmos DB ne sont actuellement pas prises en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

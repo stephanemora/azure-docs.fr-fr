@@ -2,14 +2,14 @@
 title: Envoyer un grand nombre de tâches dans un travail Batch
 description: Découvrez comment envoyer efficacement un très grand nombre de tâches dans un même travail Azure Batch.
 ms.topic: how-to
-ms.date: 12/30/2020
+ms.date: 08/25/2021
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 825bee374ec006708b4b0b38e7d101554b3a9c25
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: c3b9612dd485c531c3a25bfe80758cf73c17123d
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525472"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965240"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envoyer un grand nombre de tâches dans un travail Batch
 

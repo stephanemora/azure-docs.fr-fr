@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e62e320e2fac2b34e970f983965f9809d62e2103
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614902"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562885"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -420,7 +420,7 @@ Le paramètre `tagOverrides` définit `operation_Id` sur l’ID d'appel de la fo
 
 ## <a name="http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP
 
-Les déclencheurs HTTP et webhook ainsi que les liaisons de sortie HTTP utilisent les objets de requête et de réponse pour représenter la messagerie HTTP.  
+Les déclencheurs HTTP et webhook ainsi que les liaisons de sortie HTTP utilisent les objets de requête et de réponse pour représenter la messagerie HTTP.
 
 ### <a name="request-object"></a>Objet Requête
 
@@ -491,6 +491,8 @@ Quand vous utilisez des déclencheurs HTTP, de nombreuses méthodes vous permett
     context.done(null, res);   
     ```  
 
+Notes que les clés de requête et de réponse sont en lettres minuscules.
+
 ## <a name="scaling-and-concurrency"></a>Mise à l’échelle et accès concurrentiel
 
 Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Node.js, si nécessaire. Functions utilise des seuils intégrés (non configurables par l’utilisateur) pour différents types de déclencheurs pour décider quand ajouter des instances, comme l’ancienneté des messages et la taille de la file d’attente pour QueueTrigger. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](event-driven-scaling.md).
@@ -522,6 +524,8 @@ Pour les applications de fonction Linux, exécutez la commande Azure CLI suivant
 ```bash
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
+
+Pour en savoir plus sur la stratégie de support du runtime Azure Functions, veuillez consulter cet [article](./language-support-policy.md)
 
 ## <a name="dependency-management"></a>Gestion des dépendances
 Pour utiliser les bibliothèques de communauté dans votre code JavaScript, comme indiqué dans l’exemple ci-dessous, vous devez vérifier que toutes les dépendances sont installées sur votre application de fonction dans Azure.
@@ -689,7 +693,7 @@ Dans cet exemple, il est important de noter que même si un objet est en cours d
 
 Avec le paramètre de démarrage `--inspect`, un processus Node.js écoute un client de débogage sur le port spécifié. Dans Azure Functions 2.x, vous pouvez spécifier des arguments à transmettre au processus Node.js qui exécute votre code en ajoutant la variable d’environnement ou le paramètre d’application `languageWorkers:node:arguments = <args>`. 
 
-Pour déboguer localement, ajoutez `"languageWorkers:node:arguments": "--inspect=5858"` sous `Values` dans votre fichier [local.settings.json](./functions-run-local.md#local-settings-file) et associez un débogueur au port 5858.
+Pour déboguer localement, ajoutez `"languageWorkers:node:arguments": "--inspect=5858"` sous `Values` dans votre fichier [local.settings.json](./functions-develop-local.md#local-settings-file) et associez un débogueur au port 5858.
 
 Lorsque vous déboguez à l’aide de VS Code, le paramètre `--inspect` est automatiquement ajouté à l’aide de la valeur `port` au fichier launch.json du projet.
 
