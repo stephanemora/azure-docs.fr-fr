@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, vanto
-ms.date: 02/25/2021
-ms.openlocfilehash: 4a24c40abc938d63ed94c9b8b23654c619b776f1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.reviewer: mathoma, bonova, vanto
+ms.date: 08/20/2021
+ms.openlocfilehash: 3acd77d986d22af08ac7042da751a6aa8c7fc24b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688981"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607578"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connecter votre application à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,9 +28,13 @@ Vous pouvez choisir le cloud en utilisant Azure App Service ou certaines options
 
 Quel que soit le choix effectué, vous pouvez le connecter à Azure SQL Managed Instance. 
 
+Cet article explique comment connecter une application à Azure SQL Managed Instance dans plusieurs scénarios d’application différents depuis l’intérieur du réseau virtuel. 
+
+> [!IMPORTANT]
+> Vous pouvez également activer l’accès aux données à votre instance gérée à partir de l’extérieur d’un réseau virtuel. Vous pouvez accéder à votre instance gérée à partir de services Azure multi-tenant (multi-locataires) comme Power BI, Azure App Service ou un réseau local qui ne sont pas connectés à un VPN à l’aide du point de terminaison public sur une instance gérée. Vous devez activer le point de terminaison public sur l’instance gérée et autoriser le trafic du point de terminaison public sur le groupe de sécurité réseau associé au sous-réseau de l’instance gérée. Pour en savoir plus, consultez [Configurer un point de terminaison public dans Azure SQL Managed Instance](./public-endpoint-configure.md). 
+
 ![Haute disponibilité](./media/connect-application-instance/application-deployment-topologies.png)
 
-Cet article explique comment connecter une application à Azure SQL Managed Instance dans plusieurs scénarios d’application différents. 
 
 ## <a name="connect-inside-the-same-vnet"></a>Connexion à l’intérieur du même réseau virtuel
 
@@ -48,11 +52,11 @@ Il existe deux options pour connecter des réseaux virtuels :
 Le peering est préférable car il utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. L’appairage de réseaux virtuels est pris en charge entre les réseaux d’une même région. L’appairage de réseaux virtuels mondiaux est également pris en charge avec la limitation décrite dans la remarque ci-dessous.  
 
 > [!IMPORTANT]
-> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+> [Le 22/09/2020, l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés a été annoncé](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. Afin de pouvoir utiliser l’appairage de réseaux virtuels mondiaux pour les instances managées SQL depuis les clusters virtuels créés avant la date de l’annonce, prévoyez de configurer la [fenêtre de maintenance](../database/maintenance-window.md) sur les instances, car elles seront déplacées sur de nouveaux clusters virtuels prenant en charge l’appairage de réseaux virtuels mondiaux.
 
 ## <a name="connect-from-on-premises"></a>Connexion en local 
 
-Vous pouvez également connecter votre application locale à SQL Managed Instance. SQL Managed Instance est uniquement accessible par le biais d’une adresse IP privée. Afin d’y accéder localement, vous devez établir une connexion de site à site entre l’application et le réseau virtuel SQL Managed Instance.
+Vous pouvez également connecter votre application locale à SQL Managed Instance via un réseau virtuel (adresse IP privée). Afin d’y accéder localement, vous devez établir une connexion de site à site entre l’application et le réseau virtuel SQL Managed Instance. Pour accéder aux données de votre instance gérée à partir de l’extérieur d’un réseau virtuel, consultez [Configurer un point de terminaison public dans Azure SQL Managed Instance](./public-endpoint-configure.md).
 
 Vous avez deux options pour la connexion locale à un réseau virtuel Azure :
 
@@ -63,7 +67,9 @@ Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas �
 
 ## <a name="connect-the-developer-box"></a>Connexion de la box de développeur
 
-Il est également possible de connecter votre box de développeur à SQL Managed Instance. SQL Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir de votre box de développeur, vous devez d’abord établir une connexion entre cette dernière et le réseau virtuel SQL Managed Instance. Pour cela, configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native. Pour plus d’informations, consultez [Configurer une connexion point à site pour se connecter à Azure SQL Managed Instance à partir d’un ordinateur local](point-to-site-p2s-configure.md).
+Il est également possible de connecter votre box de développeur à SQL Managed Instance. Pour y accéder à partir de votre box de développeur en passant par un réseau virtuel, vous devez d’abord établir une connexion entre votre box de développeur et le réseau virtuel SQL Managed Instance. Pour cela, configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native. Pour en savoir plus, consultez la page [Démarrage rapide : Configurer une connexion point à site à Azure SQL Managed Instance à partir d’un emplacement local](point-to-site-p2s-configure.md).
+
+Pour accéder aux données de votre instance gérée à partir de l’extérieur d’un réseau virtuel, consultez [Configurer un point de terminaison public dans Azure SQL Managed Instance](./public-endpoint-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Connexion avec un peering de réseaux virtuels
 
@@ -78,9 +84,9 @@ Une fois que vous avez configuré l’infrastructure de base, vous devez modifie
 
 ## <a name="connect-azure-app-service"></a>Connexion d’Azure App Service 
 
-Vous pouvez également connecter une application hébergée par Azure App Service. SQL Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir d’Azure App Service, vous devez d’abord établir une connexion entre l’application et le réseau virtuel SQL Managed Instance. Consultez [Intégrer une application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md).  
+Vous pouvez également connecter une application hébergée par Azure App Service. Afin d’y accéder depuis Azure App Service en passant par un réseau virtuel, vous devez d’abord établir une connexion entre l’application et le réseau virtuel SQL Managed Instance. Consultez [Intégrer une application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md). Pour accéder aux données de votre instance gérée à partir de l’extérieur d’un réseau virtuel, consultez [Configurer un point de terminaison public dans Azure SQL Managed Instance](./public-endpoint-configure.md). 
 
-Pour résoudre les problèmes, consultez [Résolution des problèmes liés aux réseaux virtuels et aux applications](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si aucune connexion ne peut être établie, essayez de [synchroniser la configuration de la mise en réseau](azure-app-sync-network-configuration.md).
+Pour résoudre les problèmes d’accès à Azure App Service en passant par un réseau virtuel, consultez la section [Dépannage de la page Intégrer votre application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si aucune connexion ne peut être établie, essayez de [synchroniser la configuration de la mise en réseau](azure-app-sync-network-configuration.md).
 
 L’intégration d’Azure App Service à un réseau homologué avec un réseau virtuel SQL Managed Instance constitue un cas spécial de connexion entre Azure App Service et le réseau virtuel SQL Managed Instance. Ce cas nécessite la configuration suivante :
 
@@ -101,7 +107,7 @@ Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
 - Si vous ne parvenez pas à vous connecter à SQL Managed Instance à partir d’une machine virtuelle Azure au sein du même réseau virtuel, mais que vous y parvenez à partir d’un autre sous-réseau, vérifiez si un groupe de sécurité réseau défini sur le sous-réseau de machine virtuelle bloque l’accès. De plus, ouvrez la connexion sortante sur le port SQL 1433 ainsi que les ports de la plage 11000-11999, car ceux-ci sont nécessaires pour la connexion via la redirection à l’intérieur de la limite Azure.
 - Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé**.
-- Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indiquent qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
+- Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indique qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
 
    ![Chiffres d’entrée et de sortie](./media/connect-application-instance/ingress-egress-numbers.png)
 

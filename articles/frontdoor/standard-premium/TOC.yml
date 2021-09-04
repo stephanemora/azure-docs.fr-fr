@@ -39,6 +39,8 @@
           href: concept-rule-set-actions.md
         - name: Redirection d’URL et réécriture d’URL
           href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: Filtrage géographique
+      href: geo-filtering.md
     - name: Sondes d’intégrité
       href: concept-health-probes.md
     - name: Liaison privée

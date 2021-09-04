@@ -407,6 +407,14 @@
         - name: Transmettre des valeurs sensibles
           displayname: key vault
           href: key-vault-parameter.md
+    - name: Exporter des modèles
+      items:
+        - name: Azure CLI
+          href: export-template-cli.md
+        - name: Portail
+          href: export-template-portal.md
+        - name: PowerShell
+          href: export-template-powershell.md
     - name: Tester les modèles
       items:
         - name: Kit de ressources de test
@@ -431,12 +439,6 @@
           href: add-template-to-azure-pipelines.md
         - name: Déployer – GitHub Actions
           href: deploy-github-actions.md
-    - name: Découvrir les propriétés de modèle
-      items:
-        - name: Exporter un modèle
-          href: export-template-portal.md
-        - name: Découvrir des ressources
-          href: view-resources.md
     - name: Utiliser des outils de création
       items:
         - name: Visual Studio

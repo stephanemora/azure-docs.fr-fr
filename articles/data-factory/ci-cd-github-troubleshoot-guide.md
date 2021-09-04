@@ -1,18 +1,21 @@
 ---
 title: Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Utilisez différentes méthodes pour résoudre les problèmes liés à CI-CD dans ADF.
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
+ms.subservice: ci-cd
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/27/2021
-ms.openlocfilehash: 72f58258f427c5a9414bd7627d4d121c6a89c365
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 06/27/2021
+ms.openlocfilehash: 774f1dddf7c0b4cdecd9d6b45e6918b57bc17318
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060855"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642057"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
@@ -24,13 +27,13 @@ Si vous avez des questions ou des problèmes lors de l’utilisation de techniqu
 
 - Reportez-vous à [Contrôle de code source dans ADF](source-control.md) pour savoir comment le contrôle de code source est utilisé dans ADF. 
 - Reportez-vous à  [CI-CD dans ADF](continuous-integration-deployment.md) pour en savoir plus sur la façon dont DevOps CI-CD est utilisé dans ADF.
- 
+
 ## <a name="common-errors-and-messages"></a>Erreurs et messages courants
 
 ### <a name="connect-to-git-repository-failed-due-to-different-tenant"></a>Échec de la connexion au référentiel Git en raison d’un locataire différent
 
 #### <a name="issue"></a>Problème
-    
+
 Vous rencontrez parfois des problèmes d’authentification, par exemple l’état HTTP 401. En particulier, si vous avez plusieurs locataires avec un compte invité, les choses peuvent devenir plus compliquées.
 
 #### <a name="cause"></a>Cause
@@ -65,7 +68,7 @@ L’erreur se produit parce qu’il arrive souvent qu’un déclencheur, qui est
 
 Le pipeline de mise en production CI/CD échoue avec l’erreur suivante :
 
-`
+```output
 2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
 2020-07-06T09:50:50.8760242Z ##[error]At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
 2020-07-06T09:50:50.8771655Z ##[error]Details:
@@ -73,7 +76,7 @@ Le pipeline de mise en production CI/CD échoue avec l’erreur suivante :
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
-`
+```
 
 #### <a name="cause"></a>Cause
 
@@ -81,10 +84,10 @@ Cette erreur est due à la présence d’un runtime d’intégration portant le 
 
 #### <a name="recommendation"></a>Recommandation
 
-- Reportez-vous aux meilleures pratiques ci-dessous pour CI/CD :
+- Consultez les [meilleures pratiques de CI/CD](continuous-integration-deployment.md#best-practices-for-cicd).
 
-    https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
 - Les runtimes d’intégration ne changent pas souvent et sont similaires dans toutes les phases de CI/CD. Ainsi, Data Factory s’attend à ce que vous ayez le même nom et le même type de runtime d’intégration dans toutes les phases de CI/CD. Si le nom, les types et les propriétés diffèrent, assurez-vous qu’ils correspondent à la configuration du runtime d’intégration source et cible, puis déployez le pipeline de mise en production.
+
 - Si vous voulez partager les runtimes d’intégration dans toutes les phases, envisagez d’utiliser une fabrique ternaire qui contiendra uniquement les runtimes d’intégration partagés. Vous pouvez utiliser cette fabrique partagée dans tous vos environnements en tant que type de runtime d’intégration lié.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Échec de la création ou de la mise à jour du document en raison d’une référence non valide
@@ -157,17 +160,17 @@ Jusqu’à récemment, la seule manière de publier un pipeline ADF pour les dé
 
 #### <a name="resolution"></a>Résolution
 
-Le processus CI/CD a été amélioré. La fonctionnalité **Publication automatisée** prend, valide et exporte toutes les fonctionnalités du modèle ARM à partir de l’expérience utilisateur d’ADF. Elle rend la logique consommable par le biais d’un package npm disponible publiquement [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Cette méthode vous permet de déclencher ces actions programmatiquement et de ne pas avoir à accéder à l’interface utilisateur d’ADF, puis à cliquer sur un bouton. Elle confère à vos pipelines de CI/CD une **véritable** expérience d’intégration continue. Pour plus d’informations, suivez les [améliorations apportées au processus de publication pour CI/CD ADF](./continuous-integration-deployment-improvements.md). 
+Le processus CI/CD a été amélioré. La fonctionnalité **Publication automatisée** prend, valide et exporte toutes les fonctionnalités du modèle ARM à partir de l’expérience utilisateur d’ADF. Elle rend la logique consommable par le biais d’un package npm disponible publiquement [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Cette méthode vous permet de déclencher ces actions programmatiquement et de ne pas avoir à accéder à l’interface utilisateur d’ADF, puis à cliquer sur un bouton. Elle confère à vos pipelines de CI/CD une **véritable** expérience d’intégration continue. Pour en savoir plus, suivez les [améliorations apportées au processus de publication pour CI/CD ADF](./continuous-integration-deployment-improvements.md). 
 
 ###  <a name="cannot-publish-because-of-4-mb-arm-template-limit"></a>Publication impossible en raison de la limite de 4 Mo du modèle ARM  
 
 #### <a name="issue"></a>Problème
 
-Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite Azure Resource Manager de 4 Mo pour la taille totale du modèle. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
+Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite de 4 Mo fixée pour la taille totale du modèle Azure Resource Manager. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
 
 #### <a name="cause"></a>Cause
 
-Azure Resource Manager limite la taille du modèle à 4 Mo. Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions de ressources itératives et les valeurs des variables et des paramètres. Toutefois, vous avez franchi la limite. 
+Azure Resource Manager limite la taille du modèle à 4 Mo. Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. Toutefois, vous avez franchi la limite. 
 
 #### <a name="resolution"></a>Résolution
 
@@ -182,11 +185,11 @@ Vous ne pouvez pas vous connecter à GIT Enterprise en raison de problèmes d’
 #### <a name="cause"></a>Cause
 
 * Vous n’avez pas configuré Oauth pour l’ADF. 
-* Votre URL est mal configurée.
+* Votre URL est mal configurée. Le type de repoConfiguration doit être [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true).
 
-##### <a name="resolution"></a>Résolution
+#### <a name="resolution"></a>Résolution 
 
-D’abord, vous accordez l’accès Oauth à l’ADF. Ensuite, vous devez utiliser l’URL correcte pour vous connecter à GIT Enterprise. La configuration doit être définie sur la ou les organisations clientes. Par exemple, ADF essaiera d’abord *https://hostname/api/v3/search/repositories?q=user%3<customer credential>...* et échouera. Ensuite, il tentera *https://hostname/api/v3/orgs/<org>/<repo>...* , et réussira. 
+D’abord, vous accordez l’accès Oauth à l’ADF. Ensuite, vous devez utiliser l’URL correcte pour vous connecter à GIT Enterprise. La configuration doit être définie sur la ou les organisations clientes. Par exemple, ADF essaiera d’abord *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* et échouera. Ensuite, il tentera  *https://hostname/api/v3/orgs/&lt;org&gt;/&lt; repo&gt;...* , et réussira.  
  
 ### <a name="cannot-recover-from-a-deleted-data-factory"></a>Impossible de récupérer à partir d’une fabrique de données supprimée
 
@@ -248,13 +251,43 @@ Désélectionnez l’option **Inclure dans le modèle ARM** et déployez les pa
 ### <a name="extra--left--displayed-in-published-json-file"></a>« [ » gauche supplémentaire affiché dans le fichier JSON publié
 
 #### <a name="issue"></a>Problème
-Lors de la publication d’ADF avec DevOps,un « [ » gauche supplémentaire est affiché. ADF ajoute automatiquement un caractère « [ » gauche supplémentaire dans ARMTemplate dans DevOps. 
+Lors de la publication d’ADF avec DevOps,un « [ » gauche supplémentaire est affiché. ADF ajoute automatiquement un caractère « [ » gauche supplémentaire dans ARMTemplate dans DevOps. Vous verrez une expression telle que "[[" dans le fichier JSON.
 
 #### <a name="cause"></a>Cause
 Étant donné que « [ » est un caractère réservé pour ARM, un « [ » supplémentaire est ajouté automatiquement pour échapper « [ ».
 
 #### <a name="resolution"></a>Résolution
 Il s’agit d’un comportement normal lors du processus de publication d’ADF pour CI/CD.
+ 
+### <a name="perform-cicd-during--progressqueued-stage-of-pipeline-run"></a>Exécuter **CI/CD** lors de la progression/mise en file d’attente de l’exécution du pipeline
+
+#### <a name="issue"></a>Problème
+Vous souhaitez exécuter CI/CD lors de la progression et de la mise en file d’attente de l’exécution du pipeline.
+
+#### <a name="cause"></a>Cause
+Lorsque le pipeline est en progression/file d’attente, vous devez d’abord le monitorer, ainsi que ses activités. Ensuite, vous pouvez décider d’attendre la fin de l’exécution du pipeline ou d’annuler cette exécution. 
+ 
+#### <a name="resolution"></a>Résolution
+Vous pouvez également monitorer le pipeline à l’aide du **Kit de développement logiciel (SDK)** , d’**Azure Monitor** ou d’[ADF Monitor](./monitor-visually.md). Pour obtenir d’autres conseils, référez-vous aux [meilleures pratiques ADF CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
+
+### <a name="perform-unit-testing-during-adf-development-and-deployment"></a>Effectuer des **tests unitaires** pendant le développement et le déploiement ADF
+
+#### <a name="issue"></a>Problème
+Vous souhaitez effectuer des tests unitaires pendant le développement et le déploiement de pipelines ADF.
+
+#### <a name="cause"></a>Cause
+Pendant les cycles de développement et de déploiement, vous souhaiterez peut-être effectuer un test unitaire de votre pipeline avant de publier manuellement ou automatiquement votre pipeline. L’automatisation des tests vous permet d’en exécuter davantage, plus rapidement, avec une répétabilité garantie. En retestant automatiquement tous vos pipelines ADF avant le déploiement, vous bénéficiez d’une protection contre les erreurs de régression. Le test automatisé est un composant clé des approches de développement de logiciels CI/CD : l’inclusion de tests automatisés dans des pipelines de déploiement CI/CD pour Azure Data Factory peut améliorer considérablement la qualité. Les artefacts de pipeline ADF testés sont réutilisés à long terme, pour vous permettre d’économiser du temps et de l’argent.  
+ 
+#### <a name="resolution"></a>Résolution
+Étant donné que les clients peuvent avoir des exigences différentes en matière de tests unitaires avec des ensembles de compétences différents, la pratique habituelle consiste à procéder comme suit :
+
+1. Configurez un projet Azure DevOps CI/CD ou développez une stratégie de test pilotée par un Kit de développement logiciel (SDK) de type .NET/PYTHON/REST.
+2. Pour CI/CD, créez un artefact de build contenant tous les scripts, puis déployez des ressources dans le pipeline de mise en production. Pour une approche pilotée par un Kit de développement logiciel (SDK), développez des unités de test avec PyTest dans Python, C# **Nunit** à l’aide d’un SDK .NET, etc.
+3. Exécutez des tests unitaires dans le cadre d’un pipeline de mise en production ou indépendamment avec un Kit de développement logiciel (SDK) Python/PowerShell/.NET/REST. 
+
+Par exemple, si vous souhaitez supprimer des doublons dans un fichier, puis stocker le fichier organisé sous forme de table dans une base de données : pour tester le pipeline, configurez un projet CI/CD en utilisant Azure DevOps.
+Configurez une étape de pipeline « TEST » où vous déployez votre pipeline développé. Configurez l’étape « TEST » pour exécuter des tests Python afin de vérifier que les données de la table sont celles que vous attendiez. Si vous n’utilisez pas CI/CD, utilisez **Nunit** pour déclencher des pipelines déployés avec les tests de votre choix. Lorsque vous êtes satisfait des résultats, vous pouvez enfin publier le pipeline dans une fabrique de données de production. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
