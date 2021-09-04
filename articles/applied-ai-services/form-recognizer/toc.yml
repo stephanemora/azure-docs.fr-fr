@@ -57,12 +57,11 @@
         - name: Configurer des conteneurs
           href: containers/form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Étiquettes des images conteneur
+          href: containers/form-recognizer-container-image-tags.md
         - name: Utiliser des instances de conteneur
           maintainContext: true
           href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-        - name: Documentation sur tous les conteneurs Cognitive Services
-          href: ../../cognitive-services/containers/index.yml
-          maintainContext: true
     - name: Sauvegarder et récupérer des modèles
       href: disaster-recovery.md
     - name: Préparation pour l’entreprise

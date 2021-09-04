@@ -2,13 +2,14 @@
 title: Ajouter un utilisateur en tant que créateur de laboratoire dans Azure Lab Services
 description: Cet article explique comment ajouter un utilisateur au rôle Créateur de laboratoire pour un compte lab dans Azure Lab Services. Les créateurs de laboratoire peuvent créer des labos au sein de ce compte lab.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: a2135ab6580d39d6c63f7e948a29f0f0ede4efd6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435958"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634192"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Ajouter des créateurs de laboratoire à un compte lab dans Azure Lab Services
 Cet article explique comment ajouter des utilisateurs en tant que créateurs de laboratoire à un compte lab dans Azure Lab Services. Ces utilisateurs peuvent alors créer des labos dans le compte de labo. 
@@ -16,14 +17,25 @@ Cet article explique comment ajouter des utilisateurs en tant que créateurs de 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Ajouter un compte d’utilisateur Microsoft au rôle Créateur de laboratoire
 Pour configurer un laboratoire de classe dans un compte de laboratoire, l’utilisateur doit être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer le compte de laboratoire est automatiquement ajouté à ce rôle. Si vous envisagez d’utiliser le même compte d’utilisateur pour créer un laboratoire de classe, vous pouvez ignorer cette étape. Pour utiliser un autre compte d’utilisateur pour créer un laboratoire de classe, procédez comme suit : 
 
-Pour donner aux formateurs l’autorisation de créer des laboratoires pour leurs classes, ajoutez-les au rôle **Créateur de laboratoire** :
+Pour donner aux formateurs l’autorisation de créer des laboratoires pour leurs classes, ajoutez-les au rôle **Créateur de laboratoire**. Pour en savoir plus sur cette opération, consultez la page [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-1. Dans la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle** dans la barre d’outils. 
 
-    ![Contrôle d’accès -> bouton Ajouter une attribution de rôle](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. Dans la page **Ajouter une attribution de rôle**, sélectionnez **Créateur lab** pour **Rôle**, sélectionnez l’utilisateur à ajouter au rôle Créateur lab, puis sélectionnez **Enregistrer**. 
+1. Sur la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)**
 
-    ![Ajouter un créateur lab](./media/tutorial-setup-lab-account/add-lab-creator.png)
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle (préversion)** .
+
+    ![Page Contrôle d’accès (IAM) avec le menu Ajouter une attribution de rôle ouvert.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. Dans l’onglet **Rôle**, sélectionnez le rôle **Créateur de laboratoire**.
+
+    ![Page Ajouter une attribution de rôle avec l’onglet Rôle sélectionné.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. Sous l’onglet **Membres**, sélectionnez l’utilisateur auquel vous souhaitez ajouter le rôle Créateur de laboratoire.
+
+1. Dans l’onglet **Passer en revue + affecter**, sélectionnez **Passer en revue + affecter** pour affecter le rôle.
+
+
+
 
     > [!NOTE]
     > Si vous ajoutez un utilisateur de compte non Microsoft en tant que créateur de laboratoire, consultez la section [Ajouter un utilisateur de compte non Microsoft en tant que créateur de laboratoire](#add-a-non-microsoft-account-user-as-a-lab-creator). 

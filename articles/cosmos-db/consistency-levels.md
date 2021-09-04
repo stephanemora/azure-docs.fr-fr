@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 31c5be9ce48ffea8ebd23e893e2d77e6365d2327
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4d0197e76659e864ab0f5553317b64b2d74b867d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467661"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562225"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ Les niveaux de cohérence sont indépendants des régions et garantis pour toute
 
 ## <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
-Azure Cosmos DB fournit la prise en charge native des API compatibles avec les protocoles filaires pour les bases de données les plus courantes. Ces bases de données incluent le stockage Table Azure, MongoDB, Apache Cassandra et Gremlin. Pour les API Gremlin et Table, le niveau de cohérence configuré par défaut sur le compte Azure Cosmos est utilisé. Pour plus d’informations sur le mappage des niveaux de cohérence entre l’API Cassandra ou l’API pour MongoDB et les niveaux de cohérence d’Azure Cosmos DB, consultez [Mappage de cohérence pour l’API Cassandra](cassandra-consistency.md) et [Mappage de cohérence pour l’API MongoDB](mongodb-consistency.md).
+Azure Cosmos DB fournit la prise en charge native des API compatibles avec les protocoles filaires pour les bases de données les plus courantes. Ces bases de données incluent le stockage Table Azure, MongoDB, Apache Cassandra et Gremlin. Pour les API Gremlin et Table, le niveau de cohérence configuré par défaut sur le compte Azure Cosmos est utilisé. Pour plus d’informations sur le mappage des niveaux de cohérence entre l’API Cassandra ou l’API pour MongoDB et les niveaux de cohérence d’Azure Cosmos DB, consultez [Mappage de cohérence pour l’API Cassandra](cassandra/apache-cassandra-consistency-mapping.md) et [Mappage de cohérence pour l’API MongoDB](mongodb/consistency-mapping.md).
 
 ## <a name="scope-of-the-read-consistency"></a>Étendue de la cohérence de lecture
 
@@ -43,6 +43,9 @@ La cohérence de lecture s’applique à une même opération de lecture dans un
 ## <a name="configure-the-default-consistency-level"></a>Configurer le niveau de cohérence par défaut
 
 Vous pouvez configurer le niveau de cohérence par défaut sur votre compte Azure Cosmos DB à tout moment. Le niveau de cohérence par défaut configuré sur votre compte s’applique à toutes les bases de données Azure Cosmos et tous les conteneurs sous ce compte. Toutes les lectures et requêtes émises vers un conteneur ou une base de données utilisent le niveau de cohérence par défaut spécifié. Pour en savoir plus, consultez [Configurer le niveau de cohérence par défaut](how-to-manage-consistency.md#configure-the-default-consistency-level). Vous pouvez également remplacer le niveau de cohérence par défaut pour une requête spécifique. Pour plus d’informations, consultez [Guide pratique pour remplacer le niveau de cohérence par défaut](how-to-manage-consistency.md?#override-the-default-consistency-level).
+
+> [!TIP]
+> Le remplacement du niveau de cohérence par défaut s’applique uniquement aux lectures au sein du client de Kit de développement logiciel (SDK). Un compte configuré pour une cohérence forte par défaut continuera à écrire et à répliquer les données de façon synchrone dans chaque région du compte. Lorsque la requête ou l’instance du client de Kit de développement logiciel (SDK) remplace cette opération par une cohérence de session ou une cohérence plus faible, les lectures sont effectuées en utilisant un seul réplica. Pour en savoir plus, consultez [Niveaux de cohérence et débit](consistency-levels.md#consistency-levels-and-throughput).
 
 > [!IMPORTANT]
 > Il est nécessaire de recréer une instance de Kit de développement logiciel (SDK) après avoir modifié le niveau de cohérence par défaut. Pour ce faire, vous pouvez redémarrer l’application. Cela garantit que le Kit de développement logiciel (SDK) utilise le nouveau niveau de cohérence par défaut.

@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: b795e4b0df35d731181934bdec6966fc1af0b94c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 699bc3b15c47e1dc80dbb8a4defd27adad298ba0
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026738"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535380"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
 > [!IMPORTANT]
-> Le connecteur AS2 d’origine est déconseillé. Veillez à utiliser le connecteur **AS2 (v2)** à la place, sauf si vous avez besoin de capacités de suivi. À l’exception du suivi, le connecteur v2 offre les mêmes capacités que la version d’origine, est natif du runtime Logic Apps et apporte d’importantes améliorations des performances en ce qui concerne le débit, la taille et la latence des messages. De plus, le connecteur v2 ne nécessite pas la création d’une connexion à votre compte d’intégration. Comme indiqué dans les prérequis; assurez-vous plutôt de lier votre compte d’intégration à l’application logique dans laquelle vous envisagez d’utiliser le connecteur.
+> Le connecteur AS2 d’origine est déconseillé. Veillez à utiliser le connecteur **AS2 (v2)** à la place, sauf si vous avez besoin de capacités de suivi. À l’exception du suivi, le connecteur v2 offre de meilleures performances, les mêmes capacités que la version d’origine, est natif du runtime Azure Logic Apps et apporte d’importantes améliorations des performances en ce qui concerne le débit, la taille et la latence des messages. De plus, le connecteur v2 ne nécessite pas la création d’une connexion à votre compte d’intégration. Comme indiqué dans les prérequis; assurez-vous plutôt de lier votre compte d’intégration à l’application logique dans laquelle vous envisagez d’utiliser le connecteur.
 
 Pour utiliser des messages AS2 dans Azure Logic Apps, vous pouvez vous servir du connecteur AS2, qui fournit des déclencheurs et des actions qui prennent en charge et gèrent la communication AS2 (version 1.2). Par exemple, pour garantir la sécurité et la fiabilité lors de la transmission des messages, vous pouvez utiliser ces actions :
 
@@ -115,7 +115,7 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 
 ## <a name="sample"></a>Exemple
 
-Pour déployer une application logique totalement opérationnelle dans le cadre d’un exemple de scénario AS2, consultez le [scénario et le modèle d’application logique AS2](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive).
+Pour déployer une application logique totalement opérationnelle dans le cadre d’un exemple de scénario AS2, consultez le [scénario et le modèle d’application logique AS2](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

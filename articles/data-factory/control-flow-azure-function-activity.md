@@ -1,22 +1,25 @@
 ---
-title: Activité de fonction Azure dans Azure Data Factory
-description: Découvrir comment utiliser l’activité de fonction Azure pour exécuter une fonction Azure dans un pipeline Data Factory
+title: Activité de fonction Azure
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment utiliser l’activité Azure Function pour exécuter Azure Functions dans un pipeline Azure Data Factory ou Azure Synapse Analytics
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 202cf30ae0f620789f300404b26ba04582ea3300
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 4e62ea4c57e00695b2a2f969b9fd4f80f8298681
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906725"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824082"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Activité de fonction Azure dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-L’activité de fonction Azure vous permet d’exécuter [Azure Functions](../azure-functions/functions-overview.md) dans un pipeline Data Factory. Pour exécuter une fonction Azure, vous devez créer une connexion de service lié et une activité qui spécifie la fonction Azure que vous envisagez d’exécuter.
+L’activité Azure Function vous permet d’exécuter [Azure Functions](../azure-functions/functions-overview.md) dans un pipeline Azure Data Factory ou Azure Synapse Analytics. Pour exécuter une fonction Azure, vous devez créer une connexion de service lié et une activité qui spécifie la fonction Azure que vous envisagez d’exécuter.
 
 Pour une présentation de huit minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
 
@@ -24,7 +27,11 @@ Pour une présentation de huit minutes et la démonstration de cette fonctionnal
 
 ## <a name="azure-function-linked-service"></a>Service lié de fonction Azure
 
+
 Le type de retour de la fonction Azure doit être un `JObject` valide (n’oubliez pas que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) est *pas* un `JObject`). Tout type de retour autre que `JObject` échoue et génère l’erreur utilisateur *Le contenu de la réponse n’est pas un JObject valide*.
+
+La clé de fonction permet un accès sécurisé aux noms de fonctions, chacune d’entre elles disposant de clés uniques distinctes ou d’une clé principale au sein d’une application de fonction. L’identité managée fournit un accès sécurisé à l’ensemble de l’application de fonction. L’utilisateur doit fournir une clé pour accéder au nom de la fonction. Pour plus d’informations sur la [clé d’accès aux fonctions](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#configuration), consultez la documentation sur les fonctions
+
 
 | **Propriété** | **Description** | **Obligatoire** |
 | --- | --- | --- |
@@ -63,8 +70,8 @@ Plus d’informations sur Durable Functions dans [cet article](../azure-function
 
 ## <a name="sample"></a>Exemple
 
-Vous trouverez un exemple de fabrique de données Data Factory qui utilise une fonction Azure pour extraire le contenu d’un fichier tar [ici](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
+Un exemple où Azure Function est utilisé pour extraire le contenu d’un fichier tar est disponible [ici](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur les activités dans Data Factory dans [Pipelines et activités dans Azure Data Factory](concepts-pipelines-activities.md).
+Pour en savoir plus sur les activités prises en charge, consultez la page [Pipelines et activités](concepts-pipelines-activities.md).

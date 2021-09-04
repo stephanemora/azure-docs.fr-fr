@@ -2,13 +2,13 @@
 title: Configurer des identités managées dans des pools Batch
 description: Découvrez comment activer des identités managées affectées par l’utilisateur sur des pools Batch et comment utiliser des identités managées dans les nœuds.
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 243cf375b3ebf8bd64d73022ba44c3224b58872d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/18/2021
+ms.openlocfilehash: 903e173a6028e6bb574dfba618661da802702c2d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457767"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564092"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurer des identités managées dans des pools Batch
 
@@ -53,10 +53,10 @@ var poolParameters = new Pool(name: "yourPoolName")
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
+            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
             {
                 ["Your Identity Resource Id"] =
-                    new BatchPoolIdentityUserAssignedIdentitiesValue()
+                    new UserAssignedIdentities()
             }
         }
     };
@@ -71,7 +71,14 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 
 ## <a name="use-user-assigned-managed-identities-in-batch-nodes"></a>Utiliser des identités managées affectées par l’utilisateur dans des nœuds Batch
 
-Une fois que vous avez créé vos pools, vos identités managées affectées par l’utilisateur peuvent accéder aux nœuds des pools via Secure Shell (SSH) ou Bureau à distance (RDP). Vous pouvez également configurer vos tâches afin que les identités managées puissent accéder directement aux [ressources Azure qui prennent en charge les identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+De nombreuses technologies Azure Batch qui accèdent à d’autres ressources Azure, comme le service Stockage Azure ou Azure Container Registry, prennent en charge les identités managées. Pour en savoir plus sur l’utilisation des identités managées avec Azure Batch, consultez les liens suivants :
+
+- [Fichiers de ressources](resource-files.md)
+- [Fichiers de sortie](batch-task-output-files.md#specify-output-files-using-managed-identity)
+- [Azure Container Registry](batch-docker-container-workloads.md#managed-identity-support-for-acr)
+- [Système de fichiers du conteneur d’objets BLOB Azure](virtual-file-mount.md#azure-blob-container)
+
+Vous pouvez également configurer vos tâches manuellement afin que les identités managées puissent accéder directement aux [ressources Azure qui prennent en charge les identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 Dans les nœuds Batch, vous pouvez obtenir des jetons d’identité managée et les utiliser pour vous authentifier par l’intermédiaire de l’authentification Azure AD via [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 
