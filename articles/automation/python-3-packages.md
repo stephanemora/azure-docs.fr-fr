@@ -3,22 +3,39 @@ title: Gérer des packages Python 3 dans Azure Automation
 description: Cet article explique comment gérer des packages Python 3 (préversion) dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/19/2021
+ms.date: 06/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd4d8ee92b670bc2544619a0dce16a26d9342c13
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.custom: has-adal-ref
+ms.openlocfilehash: 22278efa99e1777267b6ffdf00011ef843a6dfa6
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122032"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535199"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Gérer des packages Python 3 (préversion) dans Azure Automation
 
-Azure Automation vous permet d’exécuter des runbooks Python 3 (préversion) dans Azure et sur des runbooks Worker hybrides Linux. Pour aider à simplifier les runbooks, vous pouvez utiliser des packages Python afin d’importer les modules dont vous avez besoin. Pour importer un package unique, consultez [Importer un package](#import-a-package). Pour importer un package avec plusieurs packages, consultez [Importer un package avec des dépendances](#import-a-package-with-dependencies). Cet article décrit comment gérer et utiliser les packages Python 3 (préversion) dans Azure Automation.
+Azure Automation vous permet d’exécuter des runbooks Python 3 (préversion) dans un environnement de bac à sable Azure et sur des runbooks Worker hybrides Linux. Pour aider à simplifier les runbooks, vous pouvez utiliser des packages Python afin d’importer les modules dont vous avez besoin. Pour importer un package unique, consultez [Importer un package](#import-a-package). Pour importer un package avec plusieurs packages, consultez [Importer un package avec des dépendances](#import-a-package-with-dependencies). Cet article décrit comment gérer et utiliser les packages Python 3 (préversion) dans Azure Automation.
+
+## <a name="packages-as-source-files"></a>Packages en tant que fichiers sources
+
+Azure Automation prend en charge uniquement un package Python qui contient uniquement du code Python et qui n’inclut pas des extensions dans d’autres langages ou du code dans d’autres langages. Toutefois, il est possible que l’environnement de bac à sable Azure ne soit pas doté des compilateurs requis pour les fichiers binaires C/C++. Nous vous recommandons donc d’utiliser à la place des [fichiers wheel](https://pythonwheels.com/). [Python Package Index](https://pypi.org/) (PyPI) est un référentiel de logiciels pour le langage de programmation Python. Lorsque vous sélectionnez un package Python 3 à importer dans votre compte Automation à partir de PyPI, notez les parties suivantes du nom de fichier :
+
+| Partie du nom de fichier | Description |
+|---|---|
+|cp38|Automation prend en charge **Python 3.8.x** pour les tâches cloud.|
+|amd64|Les processus du bac à sable Azure correspondent à l’architecture **Windows 64 bits**.|
+
+Par exemple, si vous souhaitez importer Pandas, vous pouvez sélectionner un fichier wheel portant un nom similaire à `pandas-1.2.3-cp38-win_amd64.whl`.
+
+Certains packages Python disponibles sur PyPI ne fournissent pas de fichier wheel. Dans ce cas, téléchargez le fichier source (.zip ou .tar.gz), puis générez le fichier wheel en utilisant `pip`. Par exemple, suivez cette procédure en utilisant un ordinateur 64 bits avec Python 3.8. x et le package wheel installé :
+
+1. Téléchargez le fichier source `pandas-1.2.4.tar.gz`.
+1. Exécutez pip pour récupérer le fichier wheel avec la commande suivante : `pip wheel --no-deps pandas-1.2.4.tar.gz`.
 
 ## <a name="import-a-package"></a>Importer un package
 
-Dans votre compte Automation, sélectionnez **Packages Python** sous **Ressources partagées**. Sélectionnez **+ Ajouter un package Python**.
+Dans votre compte Automation, sélectionnez **Packages Python** sous **Ressources partagées**. Puis sélectionnez **+ Add a Python package** (Ajouter un package Python).
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Capture d’écran de la page des packages Python 3 montrant les packages Python 3 dans le menu de gauche et Ajouter un package Python 2 mis en évidence":::
 
@@ -26,7 +43,7 @@ Dans la page **Ajouter un package Python**, sélectionnez **Python 3** comme **V
 
 :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Capture d’écran montrant la page Ajouter un package Python 3 avec un fichier tar.gz chargé sélectionné":::
 
-Une fois qu’un package a été importé, il est listé dans la page Packages Python de votre compte Automation, sous l’onglet **Packages Python 3 (préversion)** . Pour supprimer un package, intervenez sur sa page, sélectionnez-le, puis cliquez sur **Supprimer**.
+Une fois qu’un package a été importé, il est répertorié dans la page Packages Python de votre compte Automation, sous l’onglet **Packages Python 3 (préversion)** . Pour supprimer un package, sélectionnez-le, puis cliquez sur **Supprimer**.
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Capture d’écran montrant la page Packages Python 3 après l’importation d’un package":::
 

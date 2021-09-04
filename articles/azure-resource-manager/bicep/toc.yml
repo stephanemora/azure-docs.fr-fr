@@ -22,13 +22,10 @@
     - name: Microsoft Learn - Bicep
       href: learn-bicep.md
 - name: Procédures
-  expanded: true
   items:
     - name: Auteur
-      expanded: true
       items:
         - name: Ressources
-          expanded: true
           items:
             - name: Déclaration de ressource
               href: resource-declaration.md

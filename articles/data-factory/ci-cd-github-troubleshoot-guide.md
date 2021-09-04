@@ -10,12 +10,12 @@ ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 06/27/2021
-ms.openlocfilehash: 774f1dddf7c0b4cdecd9d6b45e6918b57bc17318
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f94e6b0e4afd06a68263efb0d78f3962bbd8560
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642057"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866399"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
@@ -294,7 +294,7 @@ Configurez une étape de pipeline « TEST » où vous déployez votre pipeline
 Pour plus d’informations sur la résolution des problèmes, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)
