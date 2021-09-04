@@ -608,8 +608,6 @@
       href: search-data-sources-terms-of-use.md
     - name: Mises à jour Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: Forum de commentaires (UserVoice)
-      href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Conformité et certifications
       href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
     - name: Liens vers la documentation (enrichissement de l’IA)

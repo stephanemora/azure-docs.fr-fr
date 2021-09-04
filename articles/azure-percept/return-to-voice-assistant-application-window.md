@@ -1,24 +1,24 @@
 ---
-title: Revenir à la fenêtre de votre application d’assistant vocal dans Azure Percept Audio
+title: Trouver l’application d’Assistant vocal dans Azure Percept Studio
 description: Cet article explique comment revenir sur une fenêtre d’application d’assistant vocal créée précédemment.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c106c7f892ab003380288eb8c2d5e0a62ac8da93
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c639c7d6f50b4d0396423c2e49274436d6e0308
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563292"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222899"
 ---
-# <a name="return-to-your-voice-assistant-application-window-in-azure-percept-studio"></a>Revenir à la fenêtre de votre application d’assistant vocal dans Azure Percept Studio
+# <a name="find-your-voice-assistant-application-in-azure-percept-studio"></a>Trouver l’application d’Assistant vocal dans Azure Percept Studio
 
 Ce guide pratique indique comment revenir à une application d’assistant vocal créée précédemment.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - [Créer une application de démonstration d’assistant vocal](./tutorial-no-code-speech.md)
 - Votre Azure Percept DK est alimenté et l’accessoire Azure Percept Audio est connecté à l’aide d’un câble USB.
