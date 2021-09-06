@@ -9,20 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 293643ab5354c51142baaf281b1845cfc9fa6f23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2897507270d5f87be01bc87173f48e713b1b791b
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518026"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581373"
 ---
-# <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gérer les services web Azure Machine Learning Studio (classique) à l’aide de Gestion des API
+# <a name="manage-machine-learning-studio-classic-web-services-using-api-management"></a>Gérer les services web Machine Learning Studio (classique) à l’aide de Gestion des API
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>Vue d’ensemble
-Ce guide décrit la prise en main rapide de la gestion de vos services web Azure Machine Learning Studio (classique) grâce à Gestion des API.
+Ce guide décrit la prise en main rapide de la gestion de vos services web Machine Learning Studio (classique) grâce à Gestion des API.
 
 ## <a name="what-is-azure-api-management"></a>Qu’est-ce que Gestion des API Azure ?
 Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Pour plus d’informations, rendez-vous sur le [site de Gestion des API Azure](https://azure.microsoft.com/services/api-management/). Pour prendre en main Gestion des API Azure, consultez [le guide d’importation et de publication](../../api-management/import-and-publish.md). Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
@@ -36,7 +36,7 @@ Pour utiliser ce guide, il vous faut :
 
 ## <a name="create-an-api-management-instance"></a>Création d'une instance Gestion des API
 
-Vous pouvez gérer votre service web Azure Machine Learning au moyen d’une instance Gestion des API.
+Vous pouvez gérer votre service web Machine Learning au moyen d’une instance Gestion des API.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **+ Créer une ressource**.

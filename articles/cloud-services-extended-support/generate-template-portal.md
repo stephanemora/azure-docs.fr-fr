@@ -8,12 +8,12 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: ''
-ms.openlocfilehash: a4f206d68df3cd8dd4dd5b1b411d316e7aacde92
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 6654d1e167eefea1544262dab279b15b87b6b2ba
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077099"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460292"
 ---
 # <a name="generate-arm-template-for-cloud-services-extended-support-using-the-azure-portal"></a>Générer un modèle ARM pour les services cloud (prise en charge étendue) à l’aide du portail Azure
 
@@ -34,6 +34,6 @@ Cet article explique comment télécharger le modèle ARM et le fichier de param
     :::image type="content" source="media/download-template-portal-2.png" alt-text="L’image montre les paramètres de l’URI SAS de package et de l’URI SAS de configuration dans le portail Azure.":::
   
 ## <a name="next-steps"></a>Étapes suivantes 
-- Consultez les [questions fréquentes (FAQ)](faq.md) concernant Cloud Services (support étendu).
+- Consultez les [questions fréquentes (FAQ)](faq.yml) concernant Cloud Services (support étendu).
 - Déployer un service cloud Azure (support étendu) à l’aide du [portail Azure](deploy-portal.md)
   

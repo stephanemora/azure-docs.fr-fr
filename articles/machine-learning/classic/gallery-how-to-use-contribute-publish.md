@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 935d0149a4a6b33c5272e57aab5f1cc9c3bb2924
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85b905019d822d20873c241cc887d7b5cf723fb3
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519845"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581409"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 
-**S’APPLIQUE À :**  ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article s’applique à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**S’APPLIQUE À**   ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article ne s’applique pas à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -30,7 +30,7 @@ La galerie contient diverses ressources que vous pouvez utiliser pour développe
 
 Azure AI Gallery contient un certain nombre de ressources différentes qui ont été fournies par Microsoft et des membres de la communauté de science des données. notamment :
 
-* **Expériences** : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio (classique). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
+* **Expériences** : la galerie contient une grande variété d’expériences qui ont été développées dans Machine Learning Studio (classique). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 * **Tutoriels** : une série de tutoriels est disponible pour vous guider à travers les concepts et les technologies de machine learning, ou pour décrire les méthodes avancées de résolution des divers problèmes de machine learning.
 * **Collections** : une collection vous permet de regrouper des expériences, des API et d’autres ressources de la galerie qui répondent à une solution ou à un concept spécifiques.
 * **Modules personnalisés** : vous pouvez télécharger des modules personnalisés dans votre espace de travail Studio (classique) à utiliser dans vos propres expériences.

@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Exportation et suppression de données – Azure'
-description: Les données intégrées au produit stockées par Azure Machine Learning Studio (classique) sont disponibles pour l’exportation et la suppression via le portail Azure, ainsi que via des API REST authentifiées. Les données de télémétrie sont accessibles via le portail de confidentialité Azure. Cet article vous montre comment procéder.
+description: Les données intégrées au produit stockées par Machine Learning Studio (classique) sont disponibles pour l’exportation et la suppression via le Portail Azure, ainsi que via des API REST authentifiées. Les données de télémétrie sont accessibles via le portail de confidentialité Azure. Cet article vous montre comment procéder.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: b2d797cc6cb45a76a61a235e7c4c66ac6f243580
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47ca53ac4fa6aa30ae67fdaf9be3cf6eb3f489bb
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519862"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581499"
 ---
-# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exporter et supprimer d’Azure Machine Learning Studio (classique) des données utilisateur intégrées dans le produit
+# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio-classic"></a>Exporter et supprimer de Machine Learning Studio (classique) des données utilisateur intégrées dans le produit
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
 
-Vous pouvez supprimer ou exporter des données intégrées au produit stockées par Azure Machine Learning Studio (classique) en utilisant le portail Azure, l’interface de Studio (classique), PowerShell et des API REST authentifiées. Cet article vous explique comment procéder. 
+Vous pouvez supprimer ou exporter des données intégrées au produit stockées par Machine Learning Studio (classique) en utilisant le Portail Azure, l’interface de Studio (classique), PowerShell et des API REST authentifiées. Cet article vous explique comment procéder. 
 
 Les données de télémétrie sont accessibles via le portail de confidentialité Azure. 
 
@@ -74,8 +74,8 @@ Les utilisateurs peuvent également supprimer tout leur espace de travail :
 ![Supprimer un espace de travail gratuit dans Machine Learning Studio (classique)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>Exporter des données de Studio (classique) avec PowerShell
-Utilisez PowerShell pour exporter toutes vos informations sous un format portable à partir d'Azure Machine Learning Studio (classique) à l'aide des commandes. Pour plus d’informations, consultez l’article [Module PowerShell pour Azure Machine Learning Studio (classique)](powershell-module.md).
+Utilisez PowerShell pour exporter toutes vos informations sous un format portable à partir de Machine Learning Studio (classique) à l'aide des commandes. Pour plus d’informations, consultez l’article [Module PowerShell pour Machine Learning Studio (classique)](powershell-module.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une documentation portant sur les services web et la tarification du plan d’engagement, consultez [Référence d’API REST d’Azure Machine Learning Studio (classique)](/rest/api/machinelearning/).
+Pour obtenir une documentation portant sur les services web et la tarification du plan d’engagement, consultez [Référence d’API REST de Machine Learning Studio (classique)](/rest/api/machinelearning/).

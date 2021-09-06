@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a95f83dbfa0574aa88b964538f329c7d9075a50b
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: d0bed89f56d41c6613080e84d743d245243bb507
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111594276"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336329"
 ---
 Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
 
@@ -82,6 +82,6 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
 - Ils ne prennent pas en charge les instantanés de disque, l’exportation de disque, le changement de type de disque, les images de machine virtuelle, les groupes à haute disponibilité, Azure Dedicated Host ni Azure Disk Encryption.
 - Ils ne prennent pas en charge l’intégration aux services Sauvegarde Azure ou Azure Site Recovery.
 - Ils prennent uniquement en charge les lectures non mises en cache et les écritures non mises en cache.
-- À l’heure actuelle, le nombre limite d’IOPS sur les machines virtuelles en disponibilité générale est de 80 000.
+- La limite maximale actuelle pour les IOPS pour une seule machine virtuelle dans les tailles généralement disponibles est de 80 000. Les disques Ultra avec un plus grand IOPS peuvent être utilisés en tant que disques partagés pour prendre en charge plusieurs machines virtuelles.
 
 Les disques Ultra Azure offrent jusqu’à 32 Tio par région et par abonnement par défaut, mais ils prennent en charge une plus grande capacité par demande. Pour demander une augmentation de la capacité, demandez une augmentation du quota ou contactez le support Azure.

@@ -1,21 +1,22 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 12/16/2020
+ms.date: 05/19/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 198f1594722aa2e0853fa19de59bea6507d481d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83a42f7a68dc34770106e258b4ed5949feb48c8d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99531652"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471488"
 ---
 > [!IMPORTANT]
-> * Azure Security Center ne peut pas effectuer actuellement l’[analyse des vulnérabilités des images](../articles/security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés et aux adresses IP. 
-> * Les instances de services Azure, notamment Azure DevOps Services, Web Apps et Azure Container Instances, ne peuvent pas non plus accéder à un registre de conteneurs dont l’accès réseau est restreint. 
-> * Certaines autres instances de service Azure peuvent accéder en toute sécurité à un registre de conteneurs dont l’accès réseau est restreint. Pour plus d’informations, consultez [Permettre à des services de confiance d’accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint](../articles/container-registry/allow-access-trusted-services.md).
+> Certaines fonctionnalités peuvent ne pas être disponibles ou nécessitent une configuration supplémentaire dans un registre de conteneurs qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. 
+> * Lorsque l’accès réseau public à un registre est désactivé, l’accès au registre par certains [services approuvés](../articles/container-registry/allow-access-trusted-services.md), y compris Azure Security Center nécessite l’activation d’un paramètre réseau pour contourner les règles de réseau.
+> * Les instances de certains services Azure, notamment Azure DevOps Services et Azure Container Instances, ne peuvent pas accéder au registre de conteneurs pour le moment.
+> * Si le registre dispose d’un point de terminaison privé approuvé et que l’accès au réseau public est désactivé, les référentiels et les étiquettes ne peuvent pas être listés en dehors du réseau virtuel à l’aide du Portail Azure, d’Azure CLI ou d’autres outils.

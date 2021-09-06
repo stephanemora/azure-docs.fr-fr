@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 6abe0ed88adbdf8263aa27d340fb2fff156d98e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edb3b0bdcd5d8e9f80493267cad3ccbfa07a576f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90089341"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665207"
 ---
 # <a name="drawing-tool-events"></a>Événements des outils de dessin
 
@@ -24,6 +24,7 @@ Il est utile de réagir à certains événements quand l’utilisateur utilise l
 | `drawingchanged` | Se déclenche en cas d’ajout ou de modification d’une coordonnée dans une forme. | 
 | `drawingchanging` | Se déclenche lorsqu’une coordonnée d’aperçu d’une forme est affichée. Par exemple, cet événement se déclenche plusieurs fois en cas de glisser-déposer d’une coordonnée. | 
 | `drawingcomplete` | Se déclenche lorsqu’une forme vient d’être dessinée ou sort du mode d’édition. |
+| `drawingerased` | Se déclenche lorsqu’une forme est effacée du gestionnaire de dessins en mode `erase-geometry`. |
 | `drawingmodechanged` | Se déclenche lorsque le mode de dessin change. Le nouveau mode de dessin est passé dans le gestionnaire d’événements. |
 | `drawingstarted` | Se déclenche lorsque l’utilisateur commence à dessiner une forme ou en met une en mode d’édition.  |
 

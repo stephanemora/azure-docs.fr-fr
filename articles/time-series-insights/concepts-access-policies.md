@@ -3,24 +3,28 @@ title: Configurer la sécurité pour accorder l’accès aux données - Azure Ti
 description: Découvrez comment configurer la sécurité, les autorisations et gérer des stratégies d’accès aux données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: shipra1mishra
-ms.author: shmishr
+author: tedvilutis
+ms.author: tvilutis
 manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 84b973dfa016b069b18fda47a4336fe952f73b3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebbb3c02263d860822482e2e19293d9a032274ef
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780856"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135358"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 
 Cet article décrit les deux types de stratégies d’accès d’Azure Time Series Insights.
+
+> [!Warning]
+> Les stratégies d’accès accordent aux utilisateurs et/ou groupes Azure AD l’accès au plan de données de votre environnement Time Series Insights.
+> Un répertoire Azure Active Directory est lié à un locataire. Par conséquent, si vous décidez de déplacer votre abonnement entre les locataires, veillez à suivre la procédure décrite dans [la section ci-dessous](#procedure-for-when-the-subscription-is-moved-across-tenants).
 
 ## <a name="sign-in-to-azure-time-series-insights"></a>Connectez-vous à Azure Time Series Insights
 
@@ -119,6 +123,29 @@ Suivez ces étapes pour que l’accès invité à un environnement Azure Time Se
     Il dispose désormais de toutes les fonctionnalités associées au rôle que vous lui avez fourni à l’**étape 5**.
 
     [![L’utilisateur invité sélectionne votre locataire Azure dans la liste déroulante](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
+
+## <a name="procedure-for-when-the-subscription-is-moved-across-tenants"></a>Procédure de déplacement de l’abonnement entre les locataires
+
+Les stratégies d’accès aux données Time Series Insights sont associées à Azure Active Directory, puis liées à un locataire Azure dans lequel l’abonnement réside.
+
+Les objets Azure AD auxquels vous accordez des stratégies d’accès aux données et l’environnement Time Series Insights doivent figurer sous le même locataire. Si ce n’est pas le cas, ces objets n’ont pas accès à l’environnement.
+
+Si vous envisagez de déplacer l’abonnement dans lequel réside l’environnement dans un autre locataire, vous devez vous assurer que les stratégies d’accès aux données sont mises à jour pour refléter les objets de Azure AD sous le nouveau locataire.
+
+Pour rendre ce processus plus lisse, suivez les étapes ci-dessous.
+
+### <a name="before-moving-a-subscription-to-another-tenant"></a>Avant de déplacer un abonnement vers un autre locataire
+
+- Veillez à conserver une liste des affectations de stratégies d’accès aux données actuelles à partir de l’environnement tant que les données sont dans le locataire source.
+- Assurez-vous que les utilisateurs, les groupes ou les applications dont vous souhaitez maintenir l’accès à l’environnement après l’abonnement sont migrés vers Active Directory dans le locataire cible.
+- Assurez-vous de disposer d’une personne possédant un accès contributeur (au moins) à l’abonnement après qu’il a été déplacé. Les stratégies d’accès aux données peuvent ainsi être réappliquées dans l’environnement du locataire cible.
+
+### <a name="after-moving-a-subscription-to-another-tenant"></a>Après avoir déplacé un abonnement vers un autre locataire
+
+Si vous avez un accès contributeur à l’abonnement dans le locataire cible, vous pouvez
+
+- Supprimer toutes les stratégies d’accès aux données qui ont été migrées avec l’environnement, car elles appartiennent au locataire source.
+- Réattribuer les stratégies d’accès à l’environnement à l’aide des étapes ci-dessus, en pointant à présent sur les objets Azure AD dans le locataire cible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

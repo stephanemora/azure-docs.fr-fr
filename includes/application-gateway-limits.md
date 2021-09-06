@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 1166585c7291c4fe0d78cbc9540e3f08f985db6c
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 3e2b9ab4eaf794e5cf64861d7c641b82f18b64dc
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107589970"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201221"
 ---
 | Ressource | Limite | Remarque |
 | --- | --- | --- |
@@ -38,9 +38,9 @@ ms.locfileid: "107589970"
 | Connexions WebSocket simultanées |Passerelles moyennes 20 000<sup>2</sup><br> Grandes passerelles 50 000<sup>2</sup>| |
 | Longueur maximale d’URL|32 Ko| |
 | Taille d’en-tête maximale pour HTTP/2 |16 Ko| |
-| Taille de téléchargement maximale Standard |2 Go | |
-| Taille de téléchargement maximale WAF |Passerelles v1 WAF moyennes, 100 Mo<br>Grandes passerelles v1 WAF, 500 Mo<br>WAF v2, 750 Mo| |
-| Limite de taille de corps de WAF, sans les fichiers|128 Ko||
+| Taille de téléchargement maximale (SKU Standard) |V2 - 4 Go<br>V1 - 2 Go | |
+| Taille de téléchargement maximale (SKU WAF) |V1 moyenne - 100 Mo<br>V1 volumineuse - 500 Mo<br>V2 - 750 Mo<br>V2 (avec CRS 3.2 ou version ultérieure) - 4 Go| |
+| Limite de taille de corps de WAF (sans les fichiers)|V1 ou V2 (avec CRS 3.1 et versions antérieures) - 128 Ko<br>V2 (avec CRS 3.2 ou version ultérieure) - 2 Mo| |
 | Règles personnalisées WAF maximales|100||
 | Exclusions WAF maximales par passerelle applicative|40||
 

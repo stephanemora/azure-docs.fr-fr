@@ -7,40 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 07/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 48aa91d4ba68b1a69e46019ced7c5bbb69d9029f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: c3e6112c1bee8e42f411eaa8d12d873db2657142
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786788"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726457"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Vue d’ensemble de la sécurité dans Recherche cognitive Azure
 
-Cet article décrit les fonctionnalités de sécurité de Recherche cognitive Azure qui protègent le contenu et les opérations.
+Cet article décrit les fonctionnalités de sécurité de Recherche cognitive Azure qui protègent les données et les opérations.
 
-Pour des demandes entrantes adressées à un service de recherche, il existe une progression des mesures de sécurité protégeant le point de terminaison du service de recherche : des clés API sur la demande aux règles de trafic entrant dans le pare-feu, puis aux points de terminaison privés qui protègent intégralement votre service de l’Internet public.
+## <a name="network-traffic-patterns"></a>Modèles de trafic réseau
 
-Pour les demandes sortantes adressées à d’autres services, la demande prédominante est effectuée par des indexeurs qui lisent du contenu à partir de sources externes. Vous pouvez fournir des informations d’identification sur la chaîne de connexion. Vous pouvez également configurer une identité managée pour effectuer une recherche dans un service approuvé lors de l’accès à des données des services Stockage Azure, Azure SQL, Cosmos DB ou d’autres sources de données Azure. Une identité managée est un substitut pour les informations d’identification ou les clés d’accès sur la connexion. Pour plus d’informations sur cette fonctionnalité, consultez [Se connecter à une source de données en utilisant une identité managée](search-howto-managed-identities-data-sources.md).
+Un service de recherche est hébergé sur Azure et généralement accessible via des connexions de réseau public. La compréhension des modèles d’accès du service peut vous aider à concevoir une stratégie de sécurité qui empêche efficacement l’accès non autorisé au contenu pouvant faire l’objet d’une recherche.
 
-Les opérations d’écriture dans des services externes sont peu nombreuses : un service de recherche écrit dans des fichiers journaux et dans le service Stockage Azure lors de la création de bases de connaissances, ainsi que de la conservation d’enrichissements mis en cache et de sessions de débogage. D’autres appels de service à service, tels que Cognitive Services, sont effectués sur le réseau interne.
+Recherche cognitive a trois modèles de trafic réseau de base :
 
-Regardez cette vidéo rapide pour obtenir une vue d’ensemble de l’architecture de la sécurité et de chaque catégorie de fonctionnalités.
++ Demandes entrantes effectuées par un client au service de recherche (modèle prédominant)
++ Demandes sortantes émises par le service de recherche pour d’autres services sur Azure et ailleurs
++ Demandes de service à service internes sur le réseau principal Microsoft sécurisé
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
+Les demandes entrantes vont de la création d’objets, au chargement et à l’interrogation des données. Pour l’accès entrant aux données et aux opérations, vous pouvez implémenter une progression des mesures de sécurité, en commençant par les clés API sur la demande. Vous pouvez ensuite compléter avec des règles de trafic entrant dans un pare-feu IP ou créer des points de terminaison privés qui protègent entièrement votre service de l’Internet public.
+
+Les demandes sortantes peuvent inclure des opérations de lecture et d’écriture. L’agent principal d’un appel sortant est un indexeur et un composant d’ensembles de compétences. Pour les indexeurs, les opérations de lecture incluent le [craquage de documents](search-indexer-overview.md#document-cracking) et l’ingestion de données. Un indexeur peut également écrire dans stockage Azure lors de la création de bases de connaissances, de la persistance des enrichissements mis en cache et de la persistance des sessions de débogage. Enfin, une compétence peut également inclure des compétences personnalisées qui exécutent du code externe, par exemple dans Azure Functions ou dans une application Web.
+
+Les demandes internes incluent des appels de service à service pour des tâches telles que la journalisation des diagnostics, le chiffrement, l’authentification et l’autorisation via Azure Active Directory, les connexions de point de terminaison privées et les demandes adressées à Cognitive Services pour les compétences intégrées.
 
 ## <a name="network-security"></a>Sécurité du réseau
 
 <a name="service-access-and-authentication"></a>
 
-Les fonctionnalités de sécurité du trafic entrant protègent le point de terminaison du service de recherche via des niveaux croissants de sécurité et de complexité. Premièrement, toutes les demandes nécessitent une clé API pour l’accès authentifié. Deuxièmement, vous avez la possibilité de définir des règles de pare-feu qui limitent l’accès à des adresses IP spécifiques. Pour une protection avancée, une troisième option consiste à activer Azure Private Link pour protéger votre point de terminaison de service de tout le trafic Internet.
+Les fonctionnalités de sécurité du trafic entrant protègent le point de terminaison du service de recherche via des niveaux croissants de sécurité et de complexité. Recherche cognitive utilise [l’authentification basée sur les clés](search-security-api-keys.md), où toutes les demandes requièrent une clé API pour l’accès authentifié.
 
-### <a name="public-access-using-api-keys"></a>Accès public avec des clés API
+Si vous le souhaitez, vous pouvez implémenter des couches supplémentaires de contrôle en définissant des règles de pare-feu qui limitent l’accès à des adresses IP spécifiques. Pour une protection avancée, vous pouvez activer Azure Private Link pour protéger votre point de terminaison de service de tout le trafic Internet.
 
-Par défaut, un service de recherche est accessible via le cloud public, en utilisant une authentification basée sur des clés pour l’administration ou l’accès aux requêtes au point de terminaison du service de recherche. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. L’authentification basée sur une clé est traitée dans la section suivante.
+### <a name="connect-over-the-public-internet"></a>Connecter par le biais de l’Internet public
 
-### <a name="configure-ip-firewalls"></a>Configurer des pare-feu IP
+Par défaut, un point de terminaison de service de recherche est accessible via le cloud public, en utilisant une authentification basée sur des clés pour l’administration ou l’accès aux requêtes au point de terminaison du service de recherche. Des clés sont requises. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. L’authentification basée sur une clé est traitée dans la section suivante. Sans clés d’API, vous obtiendrez les réponses 401 et 404 sur la demande.
+
+### <a name="connect-through-ip-firewalls"></a>Connecter par le biais de pare-feu IP
 
 Pour contrôler davantage l’accès à votre service de recherche, vous pouvez créer des règles de pare-feu de trafic entrant qui autorisent l’accès à une adresse IP spécifique ou à une plage d’adresses IP. Toutes les connexions clientes doivent être effectuées via une adresse IP autorisée, sans quoi la connexion est refusée.
 
@@ -48,9 +56,9 @@ Pour contrôler davantage l’accès à votre service de recherche, vous pouvez 
 
 Vous pouvez utiliser le portail pour [configurer l’accès du trafic entrant](service-configure-firewall.md).
 
-Vous pouvez aussi utiliser les API REST de gestion. À compter de la version 13-03-2020 de l’API avec le paramètre [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule), vous pouvez limiter l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, qui doivent pouvoir accéder à votre service de recherche.
+Vous pouvez aussi utiliser les API REST de gestion. À compter de la version 13-03-2020 de l’API avec le paramètre [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule), vous pouvez limiter l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, qui doivent pouvoir accéder à votre service de recherche.
 
-### <a name="network-isolation-through-a-private-endpoint-no-internet-traffic"></a>Isolement réseau via un point de terminaison privé (aucun trafic Internet)
+### <a name="connect-to-a-private-endpoint-network-isolation-no-internet-traffic"></a>Connecter à un point de terminaison privé (isolement réseau, aucun trafic Internet)
 
 Vous pouvez établir un [point de terminaison privé](../private-link/private-endpoint-overview.md) pour le service Recherche cognitive Azure afin de permettre à un client sur un [réseau virtuel](../virtual-network/virtual-networks-overview.md) d’accéder de façon sécurisée aux données d’un index de recherche via une [liaison privée](../private-link/private-link-overview.md).
 
@@ -60,9 +68,19 @@ Le points de terminaison privé utilise une adresse IP de l’espace d’adressa
 
 Bien que cette solution soit la plus sécurisée, l’utilisation de services supplémentaires représente un coût supplémentaire : veillez donc à avoir une compréhension claire des avantages avant de la mettre en place. Pour plus d’informations sur les coûts, consultez la [page Tarification](https://azure.microsoft.com/pricing/details/private-link/). Pour plus d’informations sur la façon dont ces composants fonctionnent ensemble, regardez la vidéo en haut de cet article. L’option du point de terminaison privé est présentée à partir de 5:48 dans la vidéo. Pour obtenir des instructions sur la configuration du point de terminaison, consultez [Créer un point de terminaison privé pour Recherche cognitive Azure](service-create-private-endpoint.md).
 
-## <a name="authentication"></a>Authentification
+### <a name="outbound-connections-to-external-services"></a>Connexions sortantes vers des services externes
 
-Pour les demandes entrantes adressées au service de recherche, l’authentification s’effectue à l’aide d’une [clé API obligatoire](search-security-api-keys.md) (chaîne composée de chiffres et de lettres générés de manière aléatoire) qui prouve que la demande émane d’une source digne de confiance. Le service Recherche cognitive ne prend pas actuellement en charge l’authentification Azure Active Directory pour les demandes entrantes.
+Les indexeurs et les ensembles de compétences sont des objets qui peuvent établir des connexions externes. Vous fournissez des informations de connexion dans le cadre de la définition de l’objet, à l’aide de l’un de ces mécanismes.
+
++ Informations d’identification dans la chaîne de connexion
+
++ Identité managée dans la chaîne de connexion
+
+  Vous pouvez configurer une identité managée pour effectuer une recherche dans un service approuvé lors de l’accès à des données des services Stockage Azure, Azure SQL, Cosmos DB ou d’autres sources de données Azure. Une identité managée est un substitut pour les informations d’identification ou les clés d’accès sur la connexion. Pour plus d’informations sur cette fonctionnalité, consultez [Se connecter à une source de données en utilisant une identité managée](search-howto-managed-identities-data-sources.md).
+
+## <a name="authentication"></a>Authentication
+
+Pour les demandes entrantes adressées au service de recherche, l’authentification s’effectue à l’aide d’une [clé API](search-security-api-keys.md) (chaîne composée de chiffres et de lettres générés de manière aléatoire) qui prouve que la demande émane d’une source digne de confiance. En guise d’alternative, il existe une nouvelle prise en charge de l’authentification Azure Active Directory et de l’autorisation basée sur les rôles, [actuellement en version préliminaire](search-security-rbac.md).
 
 Les demandes sortantes effectuées par un indexeur sont soumises à une authentification par le service externe. Le sous-service d’indexeur du service Recherche cognitive peut être un service approuvé sur Azure qui se connecte à d’autres services à l’aide d’une identité managée. Pour plus d’informations, consultez [Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée](search-howto-managed-identities-data-sources.md).
 
@@ -80,13 +98,16 @@ L’autorisation d’accès au contenu et aux opérations liées au contenu est 
 
 Dans le code de l’application, vous spécifiez le point de terminaison et une clé API pour autoriser l’accès au contenu et aux options. Un point de terminaison peut être le service proprement dit, la collection d’index, un index spécifique, une collection de documents ou un document spécifique. Quand ils sont chaînés, le point de terminaison, l’opération (par exemple, une demande de création ou de mise à jour) et le niveau d’autorisation (droits complets ou de lecture seule en fonction de la clé) constituent ensemble la formule de sécurité qui protège le contenu et les opérations.
 
+> [!NOTE]
+> L’autorisation pour les opérations de plan de données à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure est désormais en préversion. Vous pouvez utiliser cette fonctionnalité en préversion si vous souhaitez [utiliser des attributions de rôles au lieu de clés API](search-security-rbac.md).
+
 ### <a name="controlling-access-to-indexes"></a>Contrôle de l’accès aux index
 
 Dans Recherche cognitive Azure, les index individuels ne sont pas des objets sécurisables. Au lieu de cela, l’accès à un index est déterminé au niveau de la couche de service (accès en lecture ou en écriture en fonction de la clé API que vous fournissez), avec le contexte d’une opération.
 
-Pour l’accès en lecture seule, vous pouvez structurer les demandes de requête pour qu’elles se connectent à l’aide d’une [clé de requête](search-security-rbac.md) et incluent l’index spécifique que votre application utilise. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
+Pour l’accès en lecture seule, vous pouvez structurer les demandes de requête pour qu’elles se connectent à l’aide d’une [clé de requête](search-security-api-keys.md) et incluent l’index spécifique que votre application utilise. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
 
-Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une [clé d’administration](search-security-rbac.md) pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche cognitive Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
+Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une [clé d’administration](search-security-api-keys.md) pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche cognitive Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
 
 Pour les solutions d’architecture mutualisée qui nécessitent des limites de sécurité au niveau des index, ces solutions incluent généralement un niveau intermédiaire, que les clients utilisent pour gérer l’isolation des index. Pour plus d’informations sur les cas d’usage d’architecture mutualisée, consultez [Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure](search-modeling-multitenant-saas-applications.md).
 
@@ -107,7 +128,7 @@ Parmi les solutions de contournement pour les solutions qui nécessitent une «�
 
 Les opérations de management des services sont autorisées via un [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../role-based-access-control/overview.md). Le RBAC Azure est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. 
 
-Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles Azure déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](/rest/api/searchmanagement/search-howto-management-rest-api).
+Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles Azure déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](/rest/api/searchmanagement).
 
 [Trois rôles de base](search-security-rbac.md) sont définis pour l’administration du service de recherche. Les attributions de rôles peuvent être effectuées à l’aide de toute méthodologie prise en charge (portail, PowerShell, etc.) et sont honorées dans l’ensemble du service. Les rôles Propriétaire et Contributeur peuvent exercer toute une série de fonctions d’administration. Vous pouvez attribuer le rôle Lecteur à des utilisateurs qui ne voient que des informations essentielles.
 
@@ -169,6 +190,12 @@ Pour la conformité, vous pouvez utiliser [Azure Policy](../governance/policy/ov
 Azure Policy est une capacité intégrée à Azure qui vous permet de gérer la conformité de plusieurs normes, y compris celles d’Azure Security Benchmark. Pour les critères de référence bien connus, Azure Policy fournit des définitions intégrées qui fournissent à la fois des critères et une réponse actionnable en cas de non-conformité.
 
 Pour Recherche cognitive Azure, il existe actuellement une définition intégrée. Elle concerne la journalisation des diagnostics. Grâce à cette intégration, vous pouvez attribuer une stratégie qui identifie tout service de recherche auquel il manque la journalisation des diagnostics, puis l’active. Pour plus d’informations, consultez [Contrôles de conformité réglementaire d’Azure Policy pour Recherche cognitive Azure](security-controls-policy.md).
+
+## <a name="watch-this-video"></a>Regardez cette vidéo
+
+Regardez cette vidéo rapide pour obtenir une vue d’ensemble de l’architecture de la sécurité et de chaque catégorie de fonctionnalités.
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
 ## <a name="see-also"></a>Voir aussi
 

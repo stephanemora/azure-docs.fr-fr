@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee850765006af15d8e323831d70dfcd7849d1287
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5dec171c299bdd8ea6c5989794539b6c79e7d3fe
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145958"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229686"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Synchronisation d’objets uniques Azure AD Connect 
 
@@ -56,7 +56,9 @@ Le rapport HTML contient les éléments suivants :
 
 ## <a name="prerequisites"></a>Prérequis 
 
-Pour pouvoir utiliser l’outil de synchronisation d’objets uniques, vous devez utiliser la version de mars 2021 d’Azure AD Connect ou une version ultérieure. 
+Pour pouvoir utiliser l’outil de synchronisation d’objets uniques, vous devez utiliser ce qui suit :  
+ - Version de mars 2021 ([1.6.4.0](reference-connect-version-history.md#1640)) de Azure AD Connect ou version ultérieure.
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
 
 ### <a name="run-the-single-object-sync-tool"></a>Exécuter l’outil de synchronisation d’objets uniques 
 

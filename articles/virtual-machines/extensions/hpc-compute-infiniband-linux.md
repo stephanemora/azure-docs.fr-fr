@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cef84415deb9b108dce4016fc76265f077695898
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 18e7132d6c767ecd1a7cd085d5b563a89d6af300
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662811"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446082"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extension du pilote InfiniBand pour Linux
 
 Cette extension permet d’installer les pilotes OFED InfiniBand sur des machines virtuelles de la [série H](../sizes-hpc.md) et de la [série N](../sizes-gpu.md) compatibles SR-IOV et InfiniBand [tailles « r »] sous Linux. En fonction de la famille de machines virtuelles, l’extension installe les pilotes appropriés pour la carte réseau Connect-X.
 
-Des instructions sur l’installation manuelle des pilotes OFED sont disponibles [ici](../workloads/hpc/enable-infiniband.md#manual-installation).
+Des instructions sur l’installation manuelle des pilotes OFED sont disponibles dans [Activer InfiniBand sur des machines virtuelles HPC](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 Une extension est également disponible pour installer les pilotes InfiniBand pour les [machines virtuelles Windows](hpc-compute-infiniband-windows.md).
 

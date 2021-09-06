@@ -3,27 +3,29 @@ title: Qu'est-ce que BareMetal Infrastructure sur Azure ?
 description: Fournit une vue d'ensemble de BareMetal Infrastructure sur Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.openlocfilehash: c0f3303f02332e9fc7766b1c73c9bbfa607a30c1
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.date: 07/13/2021
+ms.openlocfilehash: 135de43f26b969d3df79f6ec7348d295493e5134
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653270"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765807"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>Qu'est-ce que BareMetal Infrastructure sur Azure ?
 
-Microsoft Azure offre une infrastructure cloud qui englobe un large éventail de services cloud intégrés permettant de répondre aux besoins de votre entreprise. Mais dans certains cas, vous pouvez être amené à exécuter des services sur des serveurs nus sans couche de virtualisation. Et vous pouvez avoir besoin d'un accès racine, ainsi que d'un contrôle sur le système d'exploitation. Afin de répondre à ce besoin, Azure propose BareMetal Infrastructure pour différentes applications stratégiques et à forte valeur ajoutée.
+Microsoft Azure offre une infrastructure cloud qui englobe un large éventail de services cloud intégrés permettant de répondre aux besoins de votre entreprise. Mais dans certains cas, vous pouvez être amené à exécuter des services sur des serveurs nus sans couche de virtualisation. Et vous pouvez avoir besoin d'un accès racine ainsi que d'un contrôle sur le système d'exploitation. Afin de répondre à ce besoin, Azure propose BareMetal Infrastructure pour différentes applications stratégiques à forte valeur ajoutée.
 
-L’infrastructure BareMetal est constituée d’instances BareMetal dédiées (instances de calcul). Elle dispose d'un stockage hautes performances et adapté aux applications (NFS, ISCSI et Fibre Channel), ainsi que d'un ensemble de réseaux locaux virtuels (VLAN) spécifiques aux fonctions au sein d'un environnement isolé. Le stockage peut être partagé entre plusieurs instances BareMetal pour bénéficier de fonctionnalités telles que des clusters scale-out ou des paires haute disponibilité avec STONITH.
+L’infrastructure BareMetal est constituée d’instances BareMetal dédiées (instances de calcul). Il permet d'effectuer les tâches suivantes :
+- Stockage hautes performances adapté à l’application (NFS, ISCSI et Fibre Channel). Le stockage peut également être partagé entre plusieurs instances BareMetal pour bénéficier de fonctionnalités telles que des clusters scale-out ou des paires haute disponibilité avec STONITH. 
+- Ensemble de réseaux locaux virtuels (VLAN) spécifiques aux fonctions dans un environnement isolé. 
  
 Cet environnement dispose également de réseaux VLAN spéciaux auxquels vous pouvez accéder si vous exécutez des machines virtuelles sur un ou plusieurs réseaux virtuels (VNet) Azure dans le cadre de votre abonnement Azure. L'ensemble de l'environnement est représenté sous forme de groupe de ressources dans votre abonnement Azure.
 
-BareMetal Infrastructure se décompose en une trentaine de références SKU, avec des serveurs de 2 à 24 sockets et une mémoire allant de 1,5 à 24 To. Un large éventail de références SKU est également disponible avec la mémoire Octane. Azure propose la plus large gamme d'instances nues disponibles dans un cloud hyperscale.
+BareMetal Infrastructure se décompose en une trentaine de références SKU, avec des serveurs de 2 à 24 sockets et une mémoire allant de 1,5 à 24 To. Un large éventail de références SKU est également disponible avec la mémoire Octane. Azure propose la plus large gamme d'instances nues disponibles dans un cloud hyperscale.
 
 ## <a name="why-baremetal-infrastructure"></a>Qu'est-ce que BareMetal Infrastructure ?  
 
-Certaines charges de travail centrales de l'entreprise sont constituées de technologies qui ne sont tout simplement pas conçues pour s'exécuter dans un environnement de cloud virtualisé classique. Elles requièrent une architecture spéciale, du matériel certifié ou des dimensions hors norme. Bien que ces technologies disposent des fonctionnalités de protection des données et de continuité de l'activité les plus sophistiquées, celles-ci ne sont pas conçues pour le cloud virtualisé. Elles sont plus sensibles aux latences et aux voisins bruyants, et elles exigent beaucoup plus de contrôle en termes de gestion des changements et d'activités de maintenance.
+Certaines charges de travail de l'entreprise sont constituées de technologies qui ne sont tout simplement pas conçues pour s'exécuter dans un environnement de cloud virtualisé classique. Elles requièrent une architecture spéciale, du matériel certifié ou des dimensions hors norme. Bien que ces technologies disposent des fonctionnalités de protection des données et de continuité de l'activité les plus sophistiquées, celles-ci ne sont pas conçues pour le cloud virtualisé. Elles sont plus sensibles aux latences et aux voisins bruyants, et exigent plus de contrôle en termes de gestion des changements et d'activités de maintenance.
 
 BareMetal Infrastructure est conçu, certifié et testé pour une sélection d'applications. Azure, qui a été le premier à proposer de telles solutions, garde une longueur d'avance sur la concurrence en proposant le plus large portefeuille et les systèmes les plus sophistiqués.
 
@@ -53,7 +55,7 @@ BareMetal Infrastructure offre les avantages suivants :
 L’infrastructure BareMetal offre plusieurs références SKU certifiées pour les charges de travail spécialisées. Utilisez les références SKU spécifiques aux charges de travail pour répondre à vos besoins.
 
 - Grandes instances (systèmes de deux à quatre sockets)  
-- Très grandes instances (systèmes de quatre à vingt sockets) 
+- Très grandes instances (systèmes de 4 à 20 sockets). 
 
 BareMetal Infrastructure pour les charges de travail spécialisées est disponible dans les régions Azure suivantes :
 - Europe Ouest
@@ -70,11 +72,11 @@ BareMetal Infrastructure pour les charges de travail spécialisées est disponib
 
 ## <a name="managing-baremetal-instances-in-azure"></a>Gestion des instances BareMetal dans Azure 
 
-En fonction de vos besoins, les topologies d'application de BareMetal Infrastructure peuvent être complexes. Vous pouvez déployer plusieurs instances, vers un ou plusieurs emplacements avec un stockage partagé ou dédié, et des connexions LAN et WAN spécialisées. Ainsi, pour BareMetal Infrastructure, Azure propose une capture consultative de ces informations par un CSA/GBB sur un portail d'approvisionnement. 
+En fonction de vos besoins, les topologies d'application de BareMetal Infrastructure peuvent être complexes. Vous pouvez déployer plusieurs instances vers un ou plusieurs emplacements. Les instances peuvent avoir un stockage partagé ou dédié, ainsi que des connexions LAN et WAN spécialisées. Pour l’infrastructure BareMetal, Azure propose une consultation par un CSA/GBB dans le domaine pour travailler avec vous. 
 
 Une fois l’infrastructure Bare Metal approvisionnée, le SE, les réseaux, les volumes de stockage, les placements dans les zones et régions, et les connexions WAN entre les emplacements sont déjà préconfigurés. Vous êtes prêt à enregistrer vos licences de SE (BYOL), à configurer le SE et à installer la couche application.
 
-Toutes les ressources BareMetal Infrastructure, ainsi que leurs états et attributs, sont visibles sur le portail Azure. Vous pouvez également utiliser les instances, et ouvrir des demandes de service et des tickets de support à partir de là. 
+Toutes les ressources BareMetal Infrastructure, ainsi que leurs états et attributs, sont visibles sur le Portail Azure. Vous pouvez également utiliser les instances, et ouvrir des demandes de service et des tickets de support à partir de là. 
 
 ## <a name="operational-model"></a>Modèle opérationnel
 
@@ -158,7 +160,7 @@ L’architecture présentée est divisée en trois sections :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L'étape suivante consiste à identifier les instances BareMetal et à interagir avec elles par le biais du portail Azure.
+Découvrez comment identifier et interagir avec les instances BareMetal par le biais du Portail Azure.
 
 > [!div class="nextstepaction"]
 > [Gérer les instances nues via le portail Azure](connect-baremetal-infrastructure.md)

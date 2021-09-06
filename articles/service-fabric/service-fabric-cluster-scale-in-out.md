@@ -4,12 +4,12 @@ description: Augmentez ou diminuez la taille des instances d’un cluster Servic
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb7e668a5b50e73d5aee8aa3bcbb2ea6b1d4bac7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: bf54e6efe6de64bc02a9ba43dfae3f91c0b4ec7b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677419"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294136"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
@@ -65,7 +65,7 @@ Lorsque vous effectuez un scale-out, vous ajoutez des instances de machines virt
 > 
 
 ### <a name="add-vms-using-a-template"></a>Ajouter de machines virtuelles à l’aide d’un modèle
-Suivez les exemples/instructions dans la [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) pour modifier le nombre de machines virtuelles dans chaque type de nœud. 
+Suivez les exemples/instructions dans la [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-scale-existing) pour modifier le nombre de machines virtuelles dans chaque type de nœud. 
 
 ### <a name="add-vms-using-powershell-or-cli-commands"></a>Ajouter des machines virtuelles à l’aide des commandes PowerShell ou CLI
 Le code suivant obtient un groupe identique par son nom et augmente de 1 sa **capacité**.

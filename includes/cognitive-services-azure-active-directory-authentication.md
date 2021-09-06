@@ -4,18 +4,17 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8bf27b704db27192dcbf3b36c5fba614e310957
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102510727"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113503058"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>S’authentifier à l’aide d’Azure Active Directory
 
 > [!IMPORTANT]
-> 1. Actuellement, **seule** l’API Vision par ordinateur, l’API Visage, l’API Analyse de texte, le Lecteur immersif, Form Recognizer, le Détecteur d’anomalies, QnA Maker et tous les services Bing, à l’exception de Recherche personnalisée Bing, prennent en charge l’authentification avec Azure Active Directory (AAD).
-> 2. L’authentification AAD doit être toujours utilisée avec le nom de sous-domaine personnalisé de votre ressource Azure. Les [points de terminaison régionaux](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) ne prennent pas en charge l’authentification AAD.
+> L’authentification AAD doit être toujours utilisée avec le nom de sous-domaine personnalisé de votre ressource Azure. Les [points de terminaison régionaux](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) ne prennent pas en charge l’authentification AAD.
 
 Dans les sections précédentes, nous vous avons montré comment vous authentifier auprès d’Azure Cognitive Services en utilisant une clé d’abonnement monoservice ou multiservice. Bien que ces clés offrent un moyen simple et rapide de démarrer le développement, elles ne conviennent pas dans des scénarios plus complexes qui nécessitent le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Voyons ce qui est nécessaire pour s’authentifier avec Azure Active Directory (AAD).
 

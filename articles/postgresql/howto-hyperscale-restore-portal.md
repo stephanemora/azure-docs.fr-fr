@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/14/2021
-ms.openlocfilehash: 99e507fed35e5b74aa44bc2713550f7cf9d7b2e5
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/09/2021
+ms.openlocfilehash: fc52bac390763418d21cb001e5ae224acbaaa906
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518879"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595522"
 ---
 # <a name="point-in-time-restore-of-a-hyperscale-citus-server-group"></a>Restauration à un point dans le temps d’un groupe de serveurs Hyperscale (Citus)
 
@@ -27,7 +27,7 @@ Procédez comme suit pour restaurer votre groupe de serveurs Hyperscale (Citus) 
 2.  Cliquez sur **Vue d’ensemble** dans le volet gauche, puis cliquez sur **Redémarrer**.
 
     > [!IMPORTANT]
-    > Si le bouton **Restaurer** n’est pas encore présent pour votre groupe de serveurs, ouvrez une demande de support Azure.
+    > Si le bouton **Restaurer** n’est pas encore présent pour votre groupe de serveurs, ouvrez une demande de support Azure pour restaurer le groupe de serveurs.
 
 3.  La page Restaurer vous demande de choisir entre le point de restauration **Le plus ancien** et le point de restauration **Personnalisé**, et affiche la date la plus ancienne.
 
@@ -50,7 +50,7 @@ Procédez comme suit pour restaurer votre groupe de serveurs Hyperscale (Citus) 
 2.  Cliquez sur **Vue d’ensemble** dans le volet gauche, puis cliquez sur **Redémarrer**
 
     > [!IMPORTANT]
-    > Si le bouton **Restaurer** n’est pas encore présent pour votre groupe de serveurs, ouvrez une demande de support Azure.
+    > Si le bouton **Restaurer** n’est pas encore présent pour votre groupe de serveurs, ouvrez une demande de support Azure pour restaurer le groupe de serveurs.
 
 3.  La page Restaurer vous demande de choisir entre le point de restauration **Le plus ancien** et le point de restauration **Personnalisé**, et affiche la date la plus ancienne.
 

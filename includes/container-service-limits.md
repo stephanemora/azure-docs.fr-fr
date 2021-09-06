@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: da22991b9a1c4b69d3a3d6eb6f76b0925a6ad3d4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d9566564c168e37477d8a0a8238c93dfb8be054d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107799805"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336153"
 ---
 | Ressource                                                                                                           | Limite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,6 +26,9 @@ ms.locfileid: "107799805"
 | Module complémentaire AKS OSM (Open Service Mesh) AKS (préversion)                                                                          | Version du cluster Kubernetes : 1.19+<sup>1</sup><br />Contrôleurs OSM par cluster : 1<sup>1</sup><br />Nombre de pods par contrôleur OSM : 500<sup>1</sup><br />Comptes de service Kubernetes managés par OSM : 50<sup>1</sup> |
 
 <sup>1</sup> Le module complémentaire OSM pour AKS est en préversion et fera l’objet d’améliorations supplémentaires avant sa mise en disponibilité générale. Pendant la phase de préversion, nous vous recommandons de ne pas dépasser les limites indiquées.<br />
+
+> [!IMPORTANT]
+> Nous recommandons aux clients d’activer le niveau Contrat SLA de durée de fonctionnement pour les charges de travail de production et de test de charge et de performances. Le niveau Contrat SLA de durée de fonctionnement permet la mise à l’échelle automatique du plan de contrôle Kubernetes et est requis pour prendre en charge les clusters avec des charges de travail de production dans [le Contrat SLA de durée de fonctionnement](../articles/aks/uptime-sla.md).
 
 <!-- LINKS - Internal -->
 

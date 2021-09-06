@@ -2,17 +2,17 @@
 title: Rapports Azure Front Door Standard/Premium (préversion)
 description: Cet article explique comment fonctionne la création de rapports dans Azure Front Door.
 services: frontdoor
-author: duongau
+author: jessie-jyy
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 07/07/2021
 ms.author: yuajia
-ms.openlocfilehash: 9670d8204d04fc770bf3fe98a270a3f6ccbf234b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e43bf01be44c8d82bb8b5f9d466552fc9d7ad17
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101097836"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595000"
 ---
 # <a name="azure-front-door-standardpremium-preview-reports"></a>Rapports Azure Front Door Standard/Premium (préversion)
 
@@ -27,7 +27,7 @@ Les rapports d’analytique Azure Front Door Standard/Premium fournissent une vu
 |---------|---------|
 | Vue d’ensemble des métriques clés | Affiche les données globales envoyées depuis les périphéries Azure Front Door vers les clients<br/>- Bande passante maximale<br/>- Demandes <br/>- Taux de succès du cache<br/> - Latence totale<br/>- Taux d’erreur 5XX |
 | Trafic par domaine | - Fournit une vue d’ensemble de tous les domaines sous le profil<br/>- Répartition des données transférées à partir de la périphérie AFD vers le client<br/>- Nombre total de demandes<br/>- Code de réponse 3XX/4XX/5XX par domaine |
-| Trafic par localisation | - Affiche une vue cartographique de la demande et de l’utilisation selon les principaux pays<br/>- Vue de la tendance des principaux pays |
+| Trafic par localisation | - Affiche une vue cartographique de la demande et de l’utilisation selon les principaux pays/régions<br/>- Vue de la tendance des principaux pays/régions |
 | Usage | - Affiche le transfert de données sortant depuis la périphérie Azure Front Door vers les clients<br/>- Transfert de données sortant depuis l’origine vers la périphérie AFD<br/>- Bande passante depuis la périphérie AFD vers les clients<br/>- Bande passante depuis l’origine vers périphérie AFD<br/>- Demandes<br/>- Latence totale<br/>- Tendance du nombre de demandes par code d’état HTTP |
 | Mise en cache | - Affiche le taux de succès du cache par nombre de demandes<br/>- Vue de la tendance des demandes aboutissant à un succès/défaut |
 | URL principale | - Affiche le nombre de demandes <br/>- Données transférées <br/>- taux de succès du cache <br/>- Distribution du code d’état de la réponse pour les 50 actifs multimédias les plus demandés. |
@@ -37,7 +37,7 @@ Les rapports d’analytique Azure Front Door Standard/Premium fournissent une vu
 | Rapports de sécurité | Détails |
 |---------|---------|
 | Vue d’ensemble des métriques clés | - Affiche les règles WAF mises en correspondance<br/>- Règles OWASP mises en correspondance<br/>-Règles BOT mises en correspondance<br/>- Règles personnalisées mises en correspondance |
-| Métriques par dimensions | - Répartition de la tendance des règles WAF mises en correspondance par action<br/>- Graphique en anneau des événements par type d’ensemble de règles et par groupe de règles<br/>- Liste de répartition des principaux événements par ID de règle, pays, adresse IP, URL et agent utilisateur  |
+| Métriques par dimensions | - Répartition de la tendance des règles WAF mises en correspondance par action<br/>- Graphique en anneau des événements par type d’ensemble de règles et par groupe de règles<br/>- Liste de répartition des principaux événements par ID de règle, pays/régions, adresse IP, URL et agent utilisateur  |
 
 > [!NOTE]
 > Les rapports de sécurité sont uniquement disponibles avec la référence SKU Azure Front Door Premium.
@@ -84,7 +84,7 @@ Les rapports prennent en charge toute plage de dates sélectionnée au cours des
 
         Vous pouvez toujours utiliser la fonction d’agrégation pour changer la précision d’agrégation par défaut. Remarque : la précision de 5 minutes ne fonctionne pas pour les plages de données de plus de 14 jours. 
 
-    1. **Localisation** : sélectionnez une ou plusieurs localisations clientes par pays. Les pays sont regroupés en six régions : Amérique du Nord, Asie, Europe, Afrique, Océanie et Amérique du Sud. Reportez-vous à la [correspondance région/pays](https://en.wikipedia.org/wiki/Subregion). Par défaut, tous les pays sont sélectionnés.
+    1. **Localisation** : sélectionnez une ou plusieurs localisations clientes par pays/régions. Les pays/régions sont regroupés en six régions : Amérique du Nord, Asie, Europe, Afrique, Océanie et Amérique du Sud. Reportez-vous au [mappage des pays/régions](https://en.wikipedia.org/wiki/Subregion). Par défaut, tous les pays sont sélectionnés.
     
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Capture d’écran des rapports pour la dimension de localisation":::
    
@@ -152,15 +152,15 @@ Ce rapport présente les tendances de trafic et de code d’état de la réponse
 
 ## <a name="traffic-by-location"></a>Trafic par localisation
 
-Ce rapport affiche les 50 principales localisations, correspondant aux pays des visiteurs qui accèdent le plus à votre actif multimédia. Le rapport fournit également une répartition des métriques par pays et vous donne une vue globale des pays où la plupart du trafic est généré. Enfin, vous pouvez voir quel pays a un taux de succès du cache plus élevé ou des codes d’erreur 4XX/5XX.
+Ce rapport affiche les 50 principales localisations, correspondant aux pays/régions des visiteurs qui accèdent le plus à votre actif multimédia. Le rapport fournit également une répartition des métriques par pays/régions et vous donne une vue globale des pays/régions où la plupart du trafic est généré. Enfin, vous pouvez voir quel pays/régions ont un taux de succès du cache plus élevé ou des codes d’erreur 4XX/5XX.
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Capture d’écran de Rapports par localisation" lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
 
 Les éléments suivants sont inclus dans les rapports :
 
-* Vue cartographique mondiale des 50 premiers pays par données transférées ou demandes de votre choix.
-* Vue des tendances dans deux graphiques en courbes des cinq premiers pays par données transférées et demandes de votre choix. 
-* Une grille des principaux pays indiquant, pour chacun, les données transférées depuis AFD vers les clients, le pourcentage de données transférées, les demandes, le pourcentage de demandes, le taux de succès du cache, le code de réponse 4XX et le code de réponse 5XX.
+* Vue cartographique mondiale des 50 premiers pays/régions par données transférées ou demandes de votre choix.
+* Vue des tendances dans deux graphiques en courbes des cinq premiers pays/régions par données transférées et demandes de votre choix. 
+* Une grille des principaux pays/régions indiquant, pour chacun, les données transférées depuis AFD vers les clients, le pourcentage de données transférées, les demandes, le pourcentage de demandes, le taux de succès du cache, le code de réponse 4XX et le code de réponse 5XX.
 
 ## <a name="caching"></a>Mise en cache
 
@@ -259,7 +259,7 @@ Ce rapport vous permet d’afficher des graphiques et des statistiques sur les m
 | Événements par groupe de règles | Graphique en anneau de la distribution des demandes WAF par groupe de règles. |
 | Demandes par actions | Tableau des demandes par actions, dans l’ordre décroissant. |
 | Demandes par ID de règle principale | Tableau des demandes en fonction des ID des 50 règles principales, dans l’ordre décroissant. |
-| Demandes en fonction des pays principaux |  Tableau des demandes en fonction des 50 pays principaux, dans l’ordre décroissant. |
+| Demandes en fonction des pays/régions principaux |  Tableau des demandes en fonction des 50 pays/régions principaux, dans l’ordre décroissant. |
 | Demandes en fonction des IP principales de client |  Tableau des demandes en fonction des 50 IP principales, dans l’ordre décroissant. |
 | Requêtes par URL de requête principale |  Tableau des demandes en fonction des 50 URL principales, dans l’ordre décroissant. |
 | Demandes en fonctions des noms d’hôte principaux | Tableau des demandes en fonction des 50 noms d’hôte principaux, dans l’ordre décroissant. |
@@ -281,7 +281,7 @@ Chaque rapport CSV comprend des informations générales et les informations son
 | StartDateUTC | Début de la plage de dates pour laquelle vous avez généré le rapport, en temps universel coordonné (UTC) |
 | EndDateUTC | Fin de la plage de dates pour laquelle vous avez généré le rapport, en temps universel coordonné (UTC) |
 | GeneratedTimeUTC | Date et heure auxquelles vous avez généré le rapport, en temps universel coordonné (UTC) |
-| Emplacement | Liste des pays d’où proviennent les demandes du client. La valeur est ALL (TOUS) par défaut. Non applicable au rapport de sécurité. |
+| Emplacement | Liste des pays/régions d’où proviennent les demandes du client. La valeur est ALL (TOUS) par défaut. Non applicable au rapport de sécurité. |
 | Protocole | Protocole de la demande : HTTP ou HTTPs. Non applicable à l’URL principale et au trafic par agent utilisateur dans le rapport Rapports et sécurité. |
 | Agrégation | Précision de l’agrégation des données dans chaque ligne : toutes les 5 minutes, toutes les heures et tous les jours. Non applicable au trafic par domaine, à l’URL principale et au trafic par agent utilisateur dans le rapport Rapports et sécurité. |
 
@@ -364,7 +364,7 @@ Il y a sept tableaux, contenant tous les mêmes champs ci-dessous.
 * CustomRuleRequests 
 * BotRequests 
 
-Les sept tableaux concernent l’heure, l’ID de règle, le pays, l’adresse IP, l’URL, le nom d’hôte et l’agent utilisateur. 
+Les sept tableaux concernent l’heure, l’ID de règle, les pays/régions, l’adresse IP, l’URL, le nom d’hôte et l’agent utilisateur. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
