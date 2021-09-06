@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0d9c849ce7454e2875c4f00e73cc3b3edc37ad7e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b1ca1b1caa1da1c38e0a7af8ec714c3734ca1191
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971565"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110292"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
@@ -26,7 +26,7 @@ Pour plus d’informations sur ce qu’est une version d’évaluation **héberg
 
 Un modèle de déploiement contient toutes les ressources Azure constituant votre solution. Les produits adaptés à ce scénario utilisent uniquement des ressources Azure. Définissez les propriétés suivantes dans l’Espace partenaires :
 
-- **Régions** (obligatoire) : à l’heure actuelle, vous pouvez mettre votre version d’évaluation à disposition dans 26 régions Azure. En règle générale, vous devez rendre votre version d’évaluation disponible dans les régions où vous prévoyez le plus grand nombre de clients, de sorte qu’ils puissent sélectionner la région la plus proche pour des performances optimales. Vous devez vous assurer que votre abonnement a l’autorisation de déployer toutes les ressources nécessaires dans chacune des régions sélectionnées.
+- **Régions** (obligatoire) : à l’heure actuelle, vous pouvez mettre votre version d’évaluation à disposition dans 26 régions Azure. Pour de meilleures performances, nous vous recommandons de choisir une région dans laquelle vous vous attendez à trouver le plus grand nombre de clients. Vous devez vous assurer que votre abonnement a l’autorisation de déployer toutes les ressources nécessaires dans chacune des régions sélectionnées.
 
 - **Instances** : sélectionnez le type (chaud ou froid) et le nombre d’instances disponibles, qui seront multipliés par le nombre de régions où votre offre sera disponible.
 
@@ -194,9 +194,9 @@ Vous trouverez des informations supplémentaires sur les règles et les restrict
 
 ### <a name="deployment-location"></a>Emplacement de déploiement
 
-Vous pouvez rendre votre version d’évaluation disponible dans plusieurs régions Azure. L’idée est de permettre à un utilisateur de choisir la région la plus proche, afin de fournir la meilleure expérience utilisateur possible.
+Vous pouvez rendre votre version d’évaluation disponible dans plusieurs régions Azure.
 
-Quand la version d’évaluation crée une instance du laboratoire, elle crée toujours un groupe de ressources dans la région choisie par un utilisateur et elle exécute ensuite votre modèle de déploiement dans le contexte de ce groupe. Par conséquent, votre modèle doit choisir l’emplacement de déploiement à partir du groupe de ressources :
+Lorsque la version d’évaluation crée une instance du laboratoire, elle crée toujours un groupe de ressources dans l’une des régions sélectionnées, puis exécute votre modèle de déploiement dans le contexte de ce groupe. Par conséquent, votre modèle doit choisir l’emplacement de déploiement à partir du groupe de ressources :
 
 ```JSON
 "variables": {

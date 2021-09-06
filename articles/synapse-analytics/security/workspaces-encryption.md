@@ -5,15 +5,15 @@ author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 11/19/2020
+ms.date: 07/14/2021
 ms.author: nanditav
-ms.reviewer: jrasnick
-ms.openlocfilehash: 71249534c6a088088213659b5a45e042229721c7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: cc57f4af28aad79b9348cbbb4e939825daba06ea
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813179"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203559"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Chiffrement pour les espaces de travail Azure Synapse Analytics
 
@@ -49,11 +49,11 @@ Les espaces de travail peuvent être configurés pour activer le double chiffrem
 > [!IMPORTANT]
 > Le paramètre de configuration pour le double chiffrement ne peut pas être modifié après la création de l’espace de travail.
 
-:::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Ce diagramme montre l’option qui doit être sélectionnée pour activer un espace de travail pour le double chiffrement avec une clé gérée par le client.":::
+:::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Ce diagramme montre l’option qui doit être sélectionnée pour activer un espace de travail pour le double chiffrement avec une clé gérée par le client." lightbox="./media/workspaces-encryption/workspaces-encryption.png":::
 
 ### <a name="key-access-and-workspace-activation"></a>Accès aux clés et activation de l’espace de travail
 
-Le modèle de chiffrement Azure Synapse avec des clés gérées par le client implique que l’espace de travail accède aux clés dans Azure Key Vault pour chiffrer et déchiffrer si nécessaire. Les clés sont rendues accessibles à l’espace de travail par le biais d’une stratégie d’accès ou d’un [accès RBAC Azure Key Vault](../../key-vault/general/rbac-guide.md). Lorsque vous accordez des autorisations via une stratégie d’accès Azure Key Vault, choisissez l’option [« Application uniquement](../../key-vault/general/security-features.md#key-vault-authentication-options)  » lors de la création de la stratégie (sélectionnez l’identité managée par l’espace de travail et ne l’ajoutez pas comme application autorisée).
+Le modèle de chiffrement Azure Synapse avec des clés gérées par le client implique que l’espace de travail accède aux clés dans Azure Key Vault pour chiffrer et déchiffrer si nécessaire. Les clés sont rendues accessibles à l’espace de travail par le biais d’une stratégie d’accès ou d’un [accès RBAC Azure Key Vault](../../key-vault/general/rbac-guide.md). Lorsque vous accordez des autorisations via une stratégie d’accès Azure Key Vault, choisissez l’option [« Application uniquement »](../../key-vault/general/security-features.md#key-vault-authentication-options) lors de la création de la stratégie (sélectionnez l’identité managée par l’espace de travail et ne l’ajoutez pas comme application autorisée).
 
  L’identité managée par l’espace de travail doit avoir les autorisations nécessaires sur le coffre de clés pour que l’espace de travail puisse être activé. Cette approche progressive de l’activation de l’espace de travail garantit le chiffrement des données dans l’espace de travail avec la clé gérée par le client. Notez que le chiffrement peut être activé ou désactivé pour les Pools SQL dédiés. Par défaut, chaque pool n’est pas activé pour le chiffrement.
 
@@ -68,14 +68,14 @@ Pour chiffrer ou déchiffrer des données au repos, l’identité gérée de l�
 
 Une fois que votre espace de travail (avec double chiffrement activé) est créé, il reste dans un état « En attente » tant que l’activation n’a pas été effectuée. L’espace de travail doit être activé pour que vous puissiez utiliser pleinement toutes les fonctionnalités. Par exemple, vous ne pouvez créer un pool SQL dédié qu’une fois l’activation effectuée. Accordez à l’identité managée par l’espace de travail l’accès au coffre de clés, puis cliquez sur le lien d’activation dans la bannière du Portail Azure de l’espace de travail. Une fois l’activation terminée, votre espace de travail est prêt à être utilisé avec l’assurance que toutes les données qu’il contient sont protégées par votre clé gérée par le client. Comme indiqué précédemment, le coffre de clés doit avoir la protection contre le vidage activée pour que l’activation aboutisse.
 
-:::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="Ce diagramme montre la bannière avec le lien d’activation de l’espace de travail.":::
+:::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="Ce diagramme montre la bannière avec le lien d’activation de l’espace de travail." lightbox="./media/workspaces-encryption/workspace-activation.png":::
 
 
 ### <a name="manage-the-workspace-customer-managed-key"></a>Gérer la clé gérée par le client de l’espace de travail 
 
 Vous pouvez modifier la clé gérée par le client utilisée pour chiffrer les données à partir de la page **Chiffrement** dans le Portail Azure. Ici aussi, vous pouvez choisir une nouvelle clé à l’aide d’un identificateur de clé ou sélectionner des coffres de clés auxquels vous avez accès dans la même région que l’espace de travail. Si vous choisissez une clé dans un coffre de clés différent de ceux utilisés précédemment, accordez les autorisations « Get », « Wrap » et « Unwrap » de l’identité managée par l’espace de travail sur le nouveau coffre de clés. L’espace de travail validera son accès au nouveau coffre de clés et toutes les données de l’espace de travail seront à nouveau chiffrées avec la nouvelle clé.
 
-:::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Ce diagramme montre la section de chiffrement de l’espace de travail dans le Portail Azure.":::
+:::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Ce diagramme montre la section de chiffrement de l’espace de travail dans le Portail Azure." lightbox="./media/workspaces-encryption/workspace-encryption-management.png":::
 
 >[!IMPORTANT]
 >Lorsque vous modifiez la clé de chiffrement d’un espace de travail, conservez la clé jusqu’à ce que vous la remplaciez dans l’espace de travail par une nouvelle clé. Cela permet d’autoriser le déchiffrement des données avec l’ancienne clé avant qu’elle ne soit rechiffrée avec la nouvelle clé.

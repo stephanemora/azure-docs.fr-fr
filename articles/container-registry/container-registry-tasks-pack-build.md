@@ -2,14 +2,14 @@
 title: Créer une image avec Cloud Native Buildpack
 description: Utilisez la commande AZ ACR Pack Build pour créer une image conteneur à partir d’une application et effectuer une transmission de type envoi (push) vers Azure Container Registry, sans utiliser de fichier dockerfile.
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 06/24/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 28630c46ea56bd4df1a43e5e377b3051f9cdd966
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780926"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913959"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -29,19 +29,19 @@ Au minimum, spécifiez les éléments suivants lorsque vous exécutez `az acr pa
 * Un registre de conteneurs Azure dans lequel vous exécutez la commande
 * Un nom d’image et étiquette pour l’image résultante
 * L’un des [emplacements de contexte pris en charge](container-registry-tasks-overview.md#context-locations) pour les tâches ACR, comme un répertoire local, un GitHub référentiel ou un tarball distant
-* Le nom d’une image de générateur Buildpack appropriée pour votre application. Azure Container Registry met en cache des images de générateur telles que `cloudfoundry/cnb:0.0.34-cflinuxfs3` pour accélérer les builds.  
+* Le nom d’une image de générateur Buildpack appropriée pour votre application. S’il n’est pas mis en cache par Azure Container Registry, l’image du générateur doit être extraite à l’aide du paramètre `--pull`.  
 
 `az acr pack build` prend en charge d’autres fonctionnalités des commandes de tâches ACR, notamment les [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables) et les [journaux d’exécution des tâches](container-registry-tasks-logs.md) qui sont diffusés en continu et également enregistrés pour une récupération ultérieure.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemple : générer une image Node.js avec le générateur Cloud Foundry
 
-L’exemple suivant génère une image conteneur à partir d’une application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) à l’aide du générateur `cloudfoundry/cnb:0.0.34-cflinuxfs3`. Ce générateur étant mis en cache par Azure Container Registry, aucun paramètre `--pull` n’est requis :
+L’exemple suivant génère une image conteneur à partir d’une application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) à l’aide du générateur `cloudfoundry/cnb:cflinuxfs3`.
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
-    --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
+    --image node-app:1.0 \
+    --pull --builder cloudfoundry/cnb:cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
@@ -65,7 +65,7 @@ Accédez à `localhost:1337` dans votre navigateur favori pour voir l’exemple 
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Exemple : générer une image Java avec le générateur Heroku
 
-L’exemple suivant génère une image conteneur à partir de l’application Java dans le référentiel [buildpack/sample-java-App](https://github.com/buildpack/sample-java-app), à l’aide du générateur `heroku/buildpacks:18`. Le paramètre `--pull` spécifie que la commande doit extraire la dernière image du générateur. 
+L’exemple suivant génère une image conteneur à partir de l’application Java dans le référentiel [buildpack/sample-java-App](https://github.com/buildpack/sample-java-app), à l’aide du générateur `heroku/buildpacks:18`. 
 
 ```azurecli
 az acr pack build \

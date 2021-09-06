@@ -3,23 +3,23 @@ title: Résoudre les problèmes d’accès au portail Azure EA
 description: Cet article décrit certains problèmes courants qui peuvent se produire avec un Contrat Entreprise Azure (EA) dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/26/2021
+ms.date: 07/26/2021
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 852fb85607318772870a8b6826c934997b84ff6d
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: e18c4707a0de97c696aa4ca93ce4c3ca818eb929
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726463"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707533"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Résoudre les problèmes d’accès au portail Azure EA
 
 Cet article décrit certains problèmes courants qui peuvent se produire avec un Contrat Entreprise Azure (EA). Le portail Azure EA permet de gérer les utilisateurs et les coûts d’un contrat Entreprise. Vous pouvez rencontrer ces problèmes lors de la configuration ou de la mise à jour de l’accès au portail Azure EA.
 
-## <a name="issues-adding-an-admin-to-an-enrollment"></a>Problèmes lors de l’ajout d’un administrateur à une inscription
+## <a name="issues-adding-a-user-to-an-enrollment"></a>Problèmes liés à l’ajout d’un utilisateur à une inscription
 
 Il existe différents types de niveaux d’authentification pour les inscriptions Entreprise. Lorsque les niveaux d’authentification sont appliqués de manière incorrecte, vous pouvez rencontrer des problèmes lorsque vous essayez de vous connecter au portail Azure EA.
 

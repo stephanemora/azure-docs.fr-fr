@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/13/2021
+ms.date: 07/16/2021
 ms.author: v-miegge
-ms.openlocfilehash: 009a29a4e296c8aa03163dd954cd242eec040027
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 57e9f35acc482c1d2d6d08dd1adce9780d706778
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470743"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114393001"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Résoudre les problèmes de connexion à l’abonnement Azure
 
@@ -80,4 +80,4 @@ Autres articles sur la résolution des problèmes liés à la facturation et aux
 
 ## <a name="contact-us-for-help"></a>Contactez-nous pour obtenir de l'aide
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou si vous avez besoin d’aide mais que vous ne pouvez pas vous connecter au Portail Azure, [créez une demande de support](https://support.microsoft.com/oas/?prid=15470).

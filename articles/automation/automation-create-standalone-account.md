@@ -3,18 +3,18 @@ title: Création d’un compte Azure Automation autonome
 description: Cet article explique comment créer un compte Azure Automation autonome et un compte d’identification Classic.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/07/2021
+ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0088fb129e9c6558de7539ba754a45e067dc3d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 27f393fbfaa9ed423cae1ae8a9df79f556d0d724
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576835"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675364"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
-Cet article vous montre comment créer un compte Azure Automation dans le portail Azure. Vous pouvez utiliser le compte Automation du portail pour évaluer Automation et vous familiariser avec la solution sans recourir à des fonctionnalités de gestion supplémentaires ou à une intégration aux journaux Azure Monitor. Vous pouvez ajouter de fonctionnalités de gestion ou procéder à une intégration avec les journaux Azure Monitor pour une supervision avancée des tâches de runbook ultérieurement.
+Cet article vous montre comment créer un compte Azure Automation à l’aide du portail Azure. Vous pouvez utiliser le compte Automation pour évaluer Automation et vous familiariser avec la solution sans recourir à des fonctionnalités de gestion supplémentaires ou à une intégration aux journaux Azure Monitor. Vous pouvez ajouter des fonctionnalités de gestion ou procéder à une intégration avec les journaux Azure Monitor pour une supervision avancée des tâches de runbook ultérieurement.
 
 Avec un compte Automation, vous pouvez authentifier des runbooks en gérant des ressources dans Azure Resource Manager ou dans le modèle de déploiement classique. Un compte Automation peut gérer les ressources sur toutes les régions et abonnements pour un locataire donné.
 
@@ -31,13 +31,13 @@ Grâce à ce compte créé pour vous, vous pouvez rapidement commencer à créer
 Pour créer ou mettre à jour un compte Automation et effectuer les tâches décrites dans cet article, vous devez disposer des privilèges et autorisations suivants :
 
 * Pour créer un compte Automation, votre compte d'utilisateur Azure AD doit être ajouté à un rôle disposant d'autorisations équivalentes à celles du rôle Propriétaire des ressources `Microsoft.Automation`. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
-* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Paramètres utilisateur**, si **Inscriptions d’applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** indique **Non**, l’utilisateur qui effectue cette action doit avoir au moins le rôle Développeur d’applications dans Azure AD.
+* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Paramètres utilisateur**, si **Inscriptions d’applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** indique **Non**, l’utilisateur qui effectue cette action doit au moins être membre du rôle Développeur d’applications dans Azure AD.
 
-Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant de recevoir le rôle d’Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, le volet Ajouter un compte Automation affiche ce message : `You do not have permissions to create.`
+Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant de recevoir le rôle d’Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, la page **Ajouter un compte Automation** affiche le message : `You do not have permissions to create.`
 
-Si un utilisateur reçoit d'abord le rôle d'Administrateur général/Coadministrateur, vous pouvez le supprimer de l'instance Active Directory de l'abonnement. Vous pouvez réattribuer le rôle d'Utilisateur à l'utilisateur dans Active Directory. Pour vérifier les rôles d’utilisateur :
+Si un utilisateur reçoit d’abord le rôle d’Administrateur général/Coadministrateur, vous pouvez le supprimer de l’instance Active Directory de l’abonnement. Vous pouvez réattribuer le rôle d'Utilisateur à l'utilisateur dans Active Directory. Pour vérifier les rôles d’utilisateur :
 
-1. Sur le portail Azure, accédez au volet Azure Active Directory.
+1. Sur le portail Azure, accédez à la page Azure Active Directory.
 1. Sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Tous les utilisateurs**.
 1. Après avoir sélectionné un utilisateur spécifique, sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
@@ -46,7 +46,7 @@ Si un utilisateur reçoit d'abord le rôle d'Administrateur général/Coadminist
 
 Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes suivantes :
 
-1. Connectez-vous au portail Azure avec un compte membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement.
+1. Connectez-vous au portail Azure avec un compte membre du rôle Administrateurs des abonnements et Coadministrateur de l’abonnement.
 1. Sélectionnez **+ Créer une ressource**.
 1. Recherchez **Automation**. Dans les résultats de recherche, sélectionnez **Automation**.
 
@@ -57,11 +57,11 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
    ![Ajouter un compte Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
    > [!NOTE]
-   > Si le message suivant s'affiche dans le volet Ajouter un compte Automation, votre compte ne dispose pas du rôle d'Administrateur ou de Coadministrateur de l'abonnement.
+   > Si le message suivant s’affiche sur la page **Ajouter un compte Automation**, votre compte ne dispose pas du rôle d’Administrateur ou de Coadministrateur de l’abonnement.
    >
    > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Capture d’écran de l’invite « Vous ne disposez pas des autorisations pour créer un compte d'identification dans Azure Active Directory ».":::
 
-1. Dans le volet Ajouter un compte Automation, entrez un nom pour votre nouveau compte Automation dans le champ **Nom**. Une fois choisi, ce nom n'est pas modifiable. 
+1. Sur la page **Ajouter un compte Automation**, entrez un nom pour votre nouveau compte Automation dans le champ **Nom**. Une fois choisi, ce nom n'est pas modifiable. 
 
     > [!NOTE]
     > Les noms de compte Automation sont spécifiques à une région et à un groupe de ressources. Les noms des comptes Automation supprimés peuvent ne pas être immédiatement disponibles.
@@ -72,7 +72,7 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
 1. Pour l'option **Créer un compte d'identification Azure**, assurez-vous que l'option **Oui** est sélectionnée, puis cliquez sur **Créer**.
 
    > [!NOTE]
-   > Si vous choisissez de ne pas créer le compte d'identification en sélectionnant **Non** pour l'option **Créer un compte d'identification Azure**, un message s'affiche dans le volet Ajouter un compte Automation. Bien que le compte soit créé dans le portail Azure, il ne possède pas d’identité d’authentification correspondante au sein de votre abonnement du modèle de déploiement classique ou dans le service d’annuaire de l’abonnement Azure Resource Manager. Par conséquent, le compte Automation n’a pas accès aux ressources de votre abonnement. Cela empêche tous les Runbooks faisant référence à ce compte de pouvoir s’authentifier et d’effectuer des tâches sur les ressources de ces modèles de déploiement.
+   > Si vous choisissez de ne pas créer le compte d’identification en sélectionnant **Non** pour l’option **Créer un compte d’identification Azure**, un message s’affiche sur la page **Ajouter un compte Automation**. Bien que le compte soit créé dans le portail Azure, il ne possède pas d’identité d’authentification correspondante au sein de votre abonnement du modèle de déploiement classique ou dans le service d’annuaire de l’abonnement Azure Resource Manager. Par conséquent, le compte Automation n’a pas accès aux ressources de votre abonnement. Cela empêche tous les Runbooks faisant référence à ce compte de pouvoir s’authentifier et d’effectuer des tâches sur les ressources de ces modèles de déploiement.
    >
    > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Capture d’écran de l’invite avec le message « Vous avez choisi de ne pas créer un compte d'identification ».":::
    >

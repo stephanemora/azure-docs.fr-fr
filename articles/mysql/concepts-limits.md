@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: f71084e9c13bd1a30f5d5f01a04172671074db03
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 5ba7559cdcfbb4f02ee99be6dce7997d7451f3e1
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525207"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674415"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
 
 ## <a name="server-parameters"></a>Paramètres de serveur
@@ -58,7 +61,8 @@ Les éléments suivants ne sont pas pris en charge :
 - `LOAD_FILE(file_name)`: Pas de prise en charge dans le service.
 
 ### <a name="supported"></a>Prise en charge
-- `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB).
+- `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB). En outre, si vous utilisez une version du client MySQL >= 8.0, vous devez inclure le paramètre `-–local-infile=1` dans votre chaîne de connexion.
+
 
 ## <a name="functional-limitations"></a>Limitations fonctionnelles
 
@@ -66,8 +70,8 @@ Les éléments suivants ne sont pas pris en charge :
 - La mise à l’échelle dynamique vers et depuis les niveaux tarifaires de base n’est pas prise en charge pour le moment.
 - La diminution de la taille de stockage du serveur n’est pas prise en charge.
 
-### <a name="server-version-upgrades"></a>Mises à niveau de la version du serveur
-- La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment. Si vous souhaitez mettre à niveau vers la version principale suivante, effectuez une [sauvegarde et une restauration](./concepts-migrate-dump-restore.md) vers un serveur créé avec la nouvelle version du moteur.
+### <a name="major-version-upgrades"></a>Mises à niveau des versions principales
+- [La mise à niveau de version principale est prise en charge pour les mises à niveau v5.6 vers v5.7 uniquement](how-to-major-version-upgrade.md). Les mises à niveau vers v 8.0 ne sont pas encore prises en charge.
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 - Lorsque vous utilisez la fonctionnalité PITR, le nouveau serveur est créé avec la même configuration que le serveur sur lequel il est basé.
@@ -77,7 +81,7 @@ Les éléments suivants ne sont pas pris en charge :
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
 ### <a name="storage-size"></a>Taille de stockage
-- Veuillez vous reporter aux [niveaux tarifaires](concepts-pricing-tiers.md) pour les limites de taille de stockage par niveau tarifaire.
+- Veuillez vous reporter aux [niveaux tarifaires](concepts-pricing-tiers.md#storage) pour les limites de taille de stockage par niveau tarifaire.
 
 ## <a name="current-known-issues"></a>Problèmes connus
 - L’instance de serveur MySQL affiche la mauvaise version de serveur une fois la connexion établie. Pour obtenir la version de moteur correcte de l’instance de serveur, utilisez la commande `select version();`.

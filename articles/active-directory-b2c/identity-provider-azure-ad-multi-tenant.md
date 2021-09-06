@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 06/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 56a2eff6a39f879de4e9d968eb470243014cb430
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 474bb5582011c9e701a188f227a54238a9f19b57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982031"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285568"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Cet article explique comment autoriser la connexion d’utilisateurs à l’aide
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-## <a name="register-an-application"></a>Inscrire une application
+## <a name="register-an-azure-ad-app"></a>Inscrire une application Azure AD
 
 Pour autoriser la connexion des utilisateurs avec un compte Azure AD dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Inscrire une application auprès de la plateforme d’identités Microsoft](../active-directory/develop/quickstart-register-app.md).
 
@@ -63,7 +63,7 @@ Pour autoriser la connexion des utilisateurs avec un compte Azure AD dans Azure 
 1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
 1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter**. Enregistrez la **Valeur** du secret pour l’utiliser à une étape ultérieure.
 
-## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
+### <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
 Si vous souhaitez obtenir les revendications `family_name` et `given_name` d’Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l’interface utilisateur du portail Azure ou dans le manifeste de l’application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
@@ -75,6 +75,10 @@ Si vous souhaitez obtenir les revendications `family_name` et `given_name` d’A
 1. Dans **Type de jeton**, sélectionnez **ID**.
 1. Sélectionnez les revendications facultatives à ajouter, `family_name` et `given_name`.
 1. Cliquez sur **Add**.
+
+## <a name="optional-verify-your-app-authenticity"></a>[Facultatif] Vérifier l’authenticité de votre application
+
+La [vérification de l’éditeur](../active-directory/develop/publisher-verification-overview.md) permet aux utilisateurs de s’assurer de l’authenticité de l’application que vous avez [inscrite](#register-an-azure-ad-app). Une application vérifiée signifie que l’éditeur de l’application a [vérifié](/partner-center/verification-responses) son identité à l’aide de son Microsoft Partner Network (MPN). Apprenez à [marquer votre application avec la mention « éditeur vérifié »](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
@@ -201,8 +205,6 @@ Si le processus de connexion réussit, votre navigateur est redirigé vers `http
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous utilisez des stratégies personnalisées, vous pouvez parfois avoir besoin d’informations supplémentaires lors du dépannage d’une stratégie pendant son développement.
-
-Pour faciliter le diagnostic des problèmes, vous pouvez placer temporairement la stratégie en « mode développeur » et collecter des journaux avec Azure Application Insights. Pour savoir comment procéder, consultez [Azure Active Directory B2C : collecte des journaux](troubleshoot-with-application-insights.md).
+Découvrez comment [transmettre le jeton Azure AD à votre application](idp-pass-through-user-flow.md).
 
 ::: zone-end

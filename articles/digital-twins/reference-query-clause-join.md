@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 7dc6827f7ebd7b034ffc00906629bafe04036fbd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6e018985b231e67e519968c0057754c7f3383ee4
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789566"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731939"
 ---
 # <a name="azure-digital-twins-query-language-reference-join-clause"></a>Informations de référence sur le langage de requête Azure Digital Twins : clause JOIN
 
@@ -23,9 +23,9 @@ La clause `JOIN` est utilisée dans le langage de requête Azure Digital Twins d
 Cette clause est facultative lors de l’interrogation.
 
 ## <a name="core-syntax-join--related"></a>Syntaxe principale : JOIN ... RELATED 
-Dans Azure Digital Twins, les relations faisant partie de jumeaux numériques, et non d’entités indépendantes, le mot clé `RELATED` est utilisé dans les requêtes `JOIN` pour référencer l’ensemble de relations d’un certain type à partir de la collection de jumeaux. Un nom de collection peut être attribué à cet ensemble de relations.
+Dans Azure Digital Twins, les relations faisant partie de jumeaux numériques, et non d’entités indépendantes, le mot clé `RELATED` est utilisé dans les requêtes `JOIN` pour référencer l’ensemble de relations d’un certain type à partir de la collection de jumeaux (le type est spécifié à l’aide du champ **nom** de la relation dans sa [définition DTDL](concepts-models.md#basic-relationship-example)). Un nom de collection peut être attribué à l’ensemble de relations dans la requête.
 
-La requête doit ensuite utiliser la clause `WHERE` pour spécifier le ou les jumeaux spécifiques utilisés pour prendre en charge la requête de relation. Pour ce faire, vous devez filtrer la valeur `$dtId` du jumeau source ou cible.
+La requête doit ensuite utiliser la clause `WHERE` pour spécifier le ou les jumeaux spécifiques utilisés pour prendre en charge la requête de relation, ce qui est effectué en filtrant sur la valeur `$dtId` du jumeau source ou cible.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -58,7 +58,7 @@ Les limites suivantes s’appliquent aux requêtes utilisant `JOIN`.
 * [Aucune sémantique OUTER JOIN](#no-outer-join-semantics)
 * [Jumeau source requis](#twins-required)
 
-Pour plus d’informations, consultez les sections ci-dessous.
+Pour plus d’informations, consultez les sections suivantes.
 
 ### <a name="depth-limit-of-five"></a>Limite de profondeur de cinq
 
@@ -66,13 +66,13 @@ La profondeur de la traversée du graphe est restreinte à cinq niveaux `JOIN` 
 
 #### <a name="example"></a>Exemple
 
-La requête suivante illustre le nombre maximal de `JOINs` possibles dans une requête Azure Digital Twins. Elle obtient toutes les LightBulbs du Bâtiment 1.
+La requête suivante illustre le nombre maximal de clauses `JOIN` possibles dans une requête Azure Digital Twins. Elle obtient toutes les LightBulbs du Bâtiment 1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MaxJoinExample":::
 
 ### <a name="no-outer-join-semantics"></a>Aucune sémantique OUTER JOIN
 
-La sémantique `OUTER JOIN` n’est pas prise en charge, ce qui signifie que si la relation a un rang égal à zéro, la « ligne » entière sera éliminée du jeu de résultats de sortie.
+Les sémantiques `OUTER JOIN` ne sont pas prises en charge, ce qui signifie que si la relation a un rang égal à zéro, la « ligne » entière sera éliminée du jeu de résultats de sortie.
 
 #### <a name="example"></a>Exemple
 
@@ -84,6 +84,6 @@ Si Building1 ne contient aucun étage, cette requête renvoie un jeu de résulta
 
 ### <a name="twins-required"></a>Jumeaux requis
 
-Les relations dans Azure Digital Twins ne peuvent pas être interrogées en tant qu’entités indépendantes. Vous devez également fournir des informations sur le jumeau source à partir duquel provient la relation. Elle est incluse dans le cadre de l'utilisation `JOIN` par défaut dans Azure Digital Twins via le mot clé `RELATED`. 
+Les relations dans Azure Digital Twins ne peuvent pas être interrogées en tant qu’entités indépendantes. Vous devez également fournir des informations sur le jumeau source à partir duquel provient la relation. Cette fonction est incluse dans le cadre de l'utilisation `JOIN` par défaut dans Azure Digital Twins via le mot clé `RELATED`. 
 
 Les requêtes dotées d’une clause `JOIN` doivent également filtrer par propriété `$dtId` de jumeau dans la clause `WHERE` afin de clarifier le ou les jumeaux utilisés pour prendre en charge la requête de relation.

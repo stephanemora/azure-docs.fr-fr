@@ -10,12 +10,12 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 296d45fae4d59553b54a1b68923c91be4168d3a5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 48df3f834601410caf83d818ac75b1b7b7e68dc2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829383"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468240"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Modifier des runbooks textuels dans Azure Automation
 
@@ -26,6 +26,9 @@ L’éditeur de texte inclut une fonctionnalité permettant d’insérer du code
 Dans Azure Automation, chaque runbook existe en deux versions : un brouillon et une version publiée. Vous devez modifier le brouillon du runbook, puis le publier afin qu’il puisse être exécuté. La version publiée ne peut pas être modifiée. Pour plus d’informations, consultez [Publier un runbook](manage-runbooks.md#publish-a-runbook).
 
 Cet article fournit des instructions détaillées pour effectuer différentes fonctions avec cet éditeur. Elles ne s’appliquent pas aux [runbooks graphiques](automation-runbook-types.md#graphical-runbooks). Pour utiliser ces runbooks, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
+
+> [!IMPORTANT] 
+> N’incluez pas le mot clé « AzureRm » dans un script conçu pour être exécuté avec le module Az. L’inclusion de ce mot clé, même dans un commentaire, peut entraîner le chargement d’AzureRm, puis un conflit avec le module Az.
 
 ## <a name="edit-a-runbook-with-the-azure-portal"></a>Pour modifier un runbook via le portail Azure
 

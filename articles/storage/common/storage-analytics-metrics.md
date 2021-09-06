@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 63c1e21b95971abf74abe47e07619c257f13e499
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714729"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665104"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Mesures Azure Storage Analytics (classique)
 
@@ -80,7 +80,7 @@ Si vous utilisez un outil Explorateur Stockage pour télécharger ces données d
 ## <a name="billing-on-storage-metrics"></a>Facturation sur les métriques de stockage
 Les demandes d’écriture pour créer des entités de table pour les métriques sont facturées au tarif standard applicable à toutes les opérations Azure Storage.  
 
-Les demandes de lecture et de suppression formulées par un client sur des données de métriques sont aussi facturées au tarif standard. Si vous avez configuré une stratégie de conservation des données, vous n’êtes pas facturé quand le stockage Azure supprime les anciennes données de mesures. Toutefois, si vous supprimez des données analytiques, les opérations de suppression sont facturées à votre compte.  
+Les demandes de lecture formulées par un client sur des données de métriques sont aussi facturées au tarif standard. 
 
 La capacité utilisée par les tables de métriques est également facturable. Utilisez les informations suivantes pour estimer la capacité utilisée pour stocker les données de mesures :  
 

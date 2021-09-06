@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: albecker1
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: c0c170fefe85393fb3c8b443a96aaddbb98eb65e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 0ae0fa18c2d3d223435656d871bd0d5be00627e4
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528314"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113356943"
 ---
 ### <a name="on-demand-bursting-preview"></a>Bursting à la demande (préversion)
 
@@ -69,9 +69,17 @@ Pour les disques SSD Premium, le bursting basé sur les crédits est disponible 
 Le bursting au niveau des machines virtuelles utilise uniquement le modèle basé sur les crédits pour le bursting, il est activé par défaut pour toutes les machines virtuelles qui le prennent en charge.
 
 Le bursting au niveau des machines virtuelles est activé dans toutes les régions du cloud public Azure sur les tailles prises en charge suivantes : 
+- [Série Dsv4](../articles/virtual-machines/dv4-dsv4-series.md)
+- [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md)
+- [Série Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Série Esv4](../articles/virtual-machines/ev4-esv4-series.md)
+- [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md)
+- [Série Edsv4](../articles/virtual-machines/edv4-edsv4-series.md)
+- [Série B](../articles/virtual-machines/sizes-b-series-burstable.md)
+- [Série Fsv2](../articles/virtual-machines/fsv2-series.md)
+- [Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
+- [Série Esv3](../articles/virtual-machines/ev3-esv3-series.md)
 - [Série Lsv2](../articles/virtual-machines/lsv2-series.md)
-- [Séries Dv3 et Dsv3](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Séries Ev3 et Esv3](../articles/virtual-machines/ev3-esv3-series.md)
 
 ## <a name="bursting-flow"></a>Flux de rafale
 
@@ -121,7 +129,7 @@ L’application doit ensuite effectuer un traitement par lots nécessitant 192 M
     - Maximum de Mo/s en rafale : 1 280
 - Disque de système d’exploitation P50
     - Mo/s approvisionnés : 250 
-- 2 disques de données P10 
+- 2 disques de données P50 
     - Mo/s approvisionnés : 250
 
  Après le démarrage initial, une application est exécutée sur la machine virtuelle, dont la charge de travail n’est pas critique. Cette charge de travail nécessite un débit de 30 Mo/s qui est réparti uniformément entre tous les disques.

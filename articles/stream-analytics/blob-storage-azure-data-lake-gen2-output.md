@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2021
-ms.openlocfilehash: 348cd594ae515503c870c1b96eb64aa7117ea26b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/7/2021
+ms.openlocfilehash: 92361142fa2ac7758b16e26faa5e5df8f1da9bf6
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786751"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506868"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Sortie de stockage d’objets blob et Azure Data Lake Gen2 à partir d’Azure Stream Analytics
 
@@ -67,5 +67,5 @@ Pour obtenir la taille maximale du message, consultez [Limites de stockage Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser une identité managée (préversion) pour authentifier votre tâche Azure Stream Analytics auprès du Stockage Blob Azure](blob-output-managed-identity.md)
+* [Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans le stockage Blob Azure](blob-output-managed-identity.md)
 * [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)

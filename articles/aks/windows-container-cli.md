@@ -3,13 +3,13 @@ title: Création d’un conteneur Windows Server sur un cluster AKS à l’aide
 description: Découvrez comment créer rapidement un cluster Kubernetes et déployer une application dans un conteneur Windows Server dans Azure Kubernetes Service (AKS) à l’aide d’Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 50b5d0a46c97cfd816b80c3fb7c8f8667e3e89d7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/06/2021
+ms.openlocfilehash: 29f010bd9067236e1e07ab79f7a8fbec436ffd85
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379368"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531902"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -93,7 +93,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
-    --kubernetes-version 1.20.2 \
+    --kubernetes-version 1.20.7 \
     --network-plugin azure
 ```
 
@@ -121,13 +121,13 @@ az aks nodepool add \
 
 La commande ci-dessus crée un pool de nœuds nommé *npwin* et l’ajoute à *myAKSCluster*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
 
-### <a name="add-a-windows-server-node-pool-with-containerd-preview"></a>Ajouter un pool de nœuds Windows Server avec `containerd` (préversion)
+## <a name="optional-using-containerd-with-windows-server-node-pools-preview"></a>Facultatif : utilisation de `containerd` avec des pools de nœuds Windows Server (préversion)
 
 Depuis Kubernetes version 1.20, vous pouvez spécifier `containerd` comme runtime de conteneur pour des pools de nœuds Windows Server 2019.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Vous aurez besoin de l’extension Azure CLI *aks-preview*. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]. Ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update].
+Vous aurez besoin de la version 0.5.24 ou d’une version ultérieure de l’extension Azure CLI *aks-preview*. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]. Ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update].
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -136,6 +136,12 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
+> [!IMPORTANT]
+> Lors de l’utilisation `containerd` de avec des pools de nœuds Windows Server 2019 :
+> - Le plan de contrôle et les pools de nœuds Windows Server 2019 doivent utiliser Kubernetes version 1.20 ou ultérieure.
+> - Lors de la création ou de la mise à jour d’un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de *node-vm-size* est *Standard_D2s_v3*, soit la taille minimale recommandée pour des pools de nœuds Windows Server 2019 antérieurs à Kubernetes version 1.20. La taille minimale recommandée pour des pools de nœuds Windows Server 2019 utilisant `containerd` est *Standard_D4s_v3*. Si vous définissez le paramètre *node-vm-size*, consultez la liste des [tailles de machines virtuelles limitées][restricted-vm-sizes].
+> - Il est fortement recommandé d’utiliser [des teintes ou des étiquettes][aks-taints] avec vos pools de nœuds Windows Server 2019 exécutant `containerd`, et des tolérances ou des sélecteurs de nœud avec vos déploiements pour garantir que vos charges de travail sont correctement planifiées.
 
 Inscrivez l’indicateur de fonctionnalité `UseCustomizedWindowsContainerRuntime` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
@@ -155,7 +161,9 @@ Quand vous êtes prêt, actualisez l’inscription du fournisseur de ressources 
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Utilisez la commande `az aks nodepool add` pour ajouter un pool de nœuds pouvant exécuter des conteneurs Windows Server avec le runtime `containerd`.
+### <a name="add-a-windows-server-node-pool-with-containerd-preview"></a>Ajouter un pool de nœuds Windows Server avec `containerd` (préversion)
+
+Utilisez la commande `az aks nodepool add` pour ajouter un pool de nœuds supplémentaire pouvant exécuter des conteneurs Windows Server avec le runtime `containerd`.
 
 > [!NOTE]
 > Si vous ne spécifiez pas l’en-tête personnalisé *WindowsContainerRuntime=containerd*, le pool de nœuds utilise Docker comme runtime de conteneur.
@@ -167,19 +175,42 @@ az aks nodepool add \
     --os-type Windows \
     --name npwcd \
     --node-vm-size Standard_D4s_v3 \
-    --kubernetes-version 1.20.2 \
+    --kubernetes-version 1.20.5 \
     --aks-custom-headers WindowsContainerRuntime=containerd \
     --node-count 1
 ```
 
 La commande ci-dessus crée un pool de nœuds Windows Server en utilisant `containerd` en tant que runtime nommé *npwcd*, et l’ajoute à *myAKSCluster*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
 
-> [!IMPORTANT]
-> Lors de l’utilisation `containerd` de avec des pools de nœuds Windows Server 2019 :
-> - Le plan de contrôle et les pools de nœuds Windows Server 2019 doivent utiliser Kubernetes version 1.20 ou ultérieure.
-> - Il est impossible de mettre à niveau des pools de nœuds Windows Server 2019 existants utilisant Docker en tant que runtime de conteneur de façon à ce qu’ils utilisent `containerd`. Vous devez créer un pool de nœuds.
-> - Lors de la création d’un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de *node-vm-size* est *Standard_D2s_v3*, soit la taille minimale recommandée pour des pools de nœuds Windows Server 2019 antérieurs à Kubernetes version 1.20. La taille minimale recommandée pour des pools de nœuds Windows Server 2019 utilisant `containerd` est *Standard_D4s_v3*. Si vous définissez le paramètre *node-vm-size*, consultez la liste des [tailles de machines virtuelles limitées][restricted-vm-sizes].
-> - Il est fortement recommandé d’utiliser [des teintes ou des étiquettes][aks-taints] avec vos pools de nœuds Windows Server 2019 exécutant `containerd`, et des tolérances ou des sélecteurs de nœud avec vos déploiements pour garantir que vos charges de travail sont correctement planifiées.
+### <a name="upgrade-an-existing-windows-server-node-pool-to-containerd-preview"></a>Mettre à niveau un pool de nœuds Windows Server existant vers `containerd` (préversion)
+
+Utilisez la commande `az aks nodepool upgrade` pour mettre à niveau un pool de nœuds spécifique de Docker vers `containerd`.
+
+```azurecli
+az aks nodepool upgrade \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name npwd \
+    --kubernetes-version 1.20.7 \
+    --aks-custom-headers WindowsContainerRuntime=containerd
+```
+
+La commande ci-dessus met à niveau un pool de nœuds nommé *npwd* vers le runtime `containerd`.
+
+Pour mettre à niveau tous les pools de nœuds existants dans un cluster afin d’utiliser le runtime `containerd` pour tous les pools de nœuds Windows Server :
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version 1.20.7 \
+    --aks-custom-headers WindowsContainerRuntime=containerd
+```
+
+La commande ci-dessus met à niveau tous les pools de nœuds Windows Server dans *myAKSCluster* pour utiliser le runtime `containerd`.
+
+> [!NOTE]
+> Après la mise à niveau de tous les pools de nœuds Windows Server existants pour utiliser le runtime `containerd`, Docker sera toujours le runtime par défaut lors de l’ajout de nouveaux pools de nœuds Windows Server. 
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
@@ -205,10 +236,10 @@ L’exemple de sortie suivant montre tous les nœuds du cluster. Vérifiez que l
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
-aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.2   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.2   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aksnpwcd123456                      Ready    agent   9m6s   v1.20.2   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
-aksnpwin987654                      Ready    agent   25m    v1.20.2   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.7   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.7   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aksnpwcd123456                      Ready    agent   9m6s   v1.20.7   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
+aksnpwin987654                      Ready    agent   25m    v1.20.7   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
 ```
 
 > [!NOTE]
@@ -238,7 +269,7 @@ spec:
         app: sample
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": windows
+        "kubernetes.io/os": windows
       containers:
       - name: sample
         image: mcr.microsoft.com/dotnet/framework/samples:aspnetapp

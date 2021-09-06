@@ -9,18 +9,18 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: d54824a29f84159f4d26ba20c5b50d9c1edae4c6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1477e81d3809a0712913c95f54d4c073f08bb362
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761293"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550741"
 ---
 [Analyse de texte pour les processus d’intégrité](../../how-tos/text-analytics-for-health.md) et extrait des informations à partir de données médicales non structurées. Le service détecte et détecte les concepts médicaux, assigne des assertions aux concepts, déduit les relations sémantiques entre les concepts et les lie à des ontologies médicaux courantes.
 
-Analyse de texte pour la santé détecte les concepts médicaux dans les catégories suivantes. Seul le texte anglais est pris en charge dans cet aperçu et une seule version du modèle est disponible.
+Analyse de texte pour la santé détecte les concepts médicaux dans les catégories suivantes. Seul du texte en anglais est actuellement pris en charge.
 
-| Catégorie  | Description  |
+| Category  | Description  |
 |---------|---------|
 | [ANATOMY](#anatomy) | concepts qui capturent des informations sur le corps et les systèmes anatomiques, les sites, les emplacements ou les régions. |
  | [DEMOGRAPHICS](#demographics) | concepts qui capturent des informations sur le sexe et l’âge. |

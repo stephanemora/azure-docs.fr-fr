@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c98a3d930d1fcacdc1281c139b020652e4138ac1
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534089"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540111"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 
@@ -21,7 +21,7 @@ La Gestion des API Azure prend en charge le déploiement sur plusieurs régions,
 Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. Des unités supplémentaires peuvent être ajoutées à la région primaire ou secondaire. Un composant de passerelle de gestion des API est déployé sur chaque région principale et secondaire sélectionnée. Les requêtes d’API entrantes sont dirigées automatiquement vers la région la plus proche. Si une région est déconnectée, les requêtes d’API sont acheminées automatiquement autour de la région défaillante vers la passerelle suivante la plus proche.
 
 > [!NOTE]
-> Seul le composant passerelle de la gestion des API est déployé dans toutes les régions. Le composant de gestion des services et le portail des développeurs sont hébergés uniquement dans la région principale. Par conséquent, en cas de panne de la région primaire, l’accès au portail des développeurs et la possibilité de modifier la configuration (par exemple, l’ajout d’API et l’application de stratégies) seront altérés jusqu’à ce que la région primaire soit de nouveau en ligne. Lorsque la région primaire n’est pas en ligne, les régions secondaires disponibles continuent de servir le trafic d’API à l’aide de la dernière configuration disponible. Activez éventuellement la [redondance interzone](zone-redundancy.md) pour améliorer la disponibilité et la résilience des régions primaires ou secondaires.
+> Seul le composant passerelle de la gestion des API est déployé dans toutes les régions. Le composant de gestion des services et le portail des développeurs sont hébergés uniquement dans la région principale. Par conséquent, en cas de panne de la région primaire, l’accès au portail des développeurs et la possibilité de modifier la configuration (par exemple, l’ajout d’API et l’application de stratégies) seront altérés jusqu’à ce que la région primaire soit de nouveau en ligne. Lorsque la région primaire n’est pas en ligne, les régions secondaires disponibles continuent de servir le trafic d’API à l’aide de la dernière configuration disponible. Activez éventuellement la [redondance de zone](zone-redundancy.md) pour améliorer la disponibilité et la résilience des régions primaires ou secondaires.
 
 >[!IMPORTANT]
 > La fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique. Pour toutes les autres régions, les données client sont stockées dans Zone géographique.

@@ -10,7 +10,7 @@
   items:
     - name: Modèles d’achat
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database/purchasing-models.md
         - name: Vue d’ensemble du modèle vCore
           href: database/service-tiers-vcore.md
@@ -20,7 +20,7 @@
           href: database/reserved-capacity-overview.md
     - name: Capacité de calcul et stockage
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database/service-tiers-general-purpose-business-critical.md
           displayName: provisioned compute tier
         - name: Usage général / Standard
@@ -153,8 +153,6 @@
                   href: database/xevent-code-ring-buffer.md
     - name: Procédures partagées
       items:
-        - name: Demander des augmentations de quota
-          href: database/quota-increase-request.md
         - name: Automatisation des travaux avec des travaux élastiques
           href: database/job-automation-overview.md
         - name: Automatisation des travaux avec SQL Agent
@@ -479,6 +477,8 @@
               href: database/private-endpoint-overview.md
             - name: Points de terminaison de réseau virtuel
               href: database/vnet-service-endpoint-rule-overview.md
+            - name: Rôles serveur
+              href: database/security-server-roles.md
         - name: Partitionnement de base de données
           items:
             - name: Partitionnement de base de données
@@ -750,7 +750,7 @@
   items:
     - name: Documentation
       href: managed-instance/index.yml
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que SQL Managed Instance\_?"
           href: managed-instance/sql-managed-instance-paas-overview.md
@@ -1099,7 +1099,7 @@
       href: virtual-machines/index.yml
     - name: Windows
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
@@ -1422,6 +1422,8 @@
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: Dépanner
       items:
+        - name: Erreurs de capacité pendant le déploiement
+          href: capacity-errors-troubleshoot.md
         - name: Erreurs de connectivité
           href: database/troubleshoot-common-errors-issues.md
         - name: Problèmes de connexion courants
@@ -1430,6 +1432,8 @@
           href: database/database-import-export-hang.md
         - name: Erreurs de journal des transactions
           href: database/troubleshoot-transaction-log-errors-issues.md
+        - name: Demander des augmentations de quota
+          href: database/quota-increase-request.md
     - name: Mises à jour de service
       items:
         - name: Expiration du certificat racine SSL

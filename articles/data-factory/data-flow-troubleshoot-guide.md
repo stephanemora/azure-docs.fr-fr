@@ -5,14 +5,15 @@ ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 04/22/2021
-ms.openlocfilehash: 82f6d69629f397cb5222a82677bf27ed880aa20f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 08/18/2021
+ms.openlocfilehash: 56a59d4acd9c1f8ed51f16e7c39cfb5cba949b6b
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988007"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535256"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory
 
@@ -67,7 +68,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Recommandation** : Pour plus d’informations sur ce problème, contactez l’équipe produit Microsoft.
 
 ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Code d’erreur : DF-Executor-PartitionDirectoryError
-- **Message** : Le chemin source spécifié comporte plusieurs répertoires partitionnés (par exemple, <Source Path>/<Répertoire racine de partition 1>/a=10/b=20, <Source Path>/<Répertoire racine de partition 2>/c=10/d=30) ou un répertoire partitionné avec un autre fichier ou un répertoire non partitionné (par exemple, <Source Path>/<Répertoire racine de partition 1>/a=10/b=20, <Source Path>/Répertoire 2/fichier1). Supprimez le répertoire racine de la partition du chemin source et lisez-le par le biais d’une transformation source distincte.
+- **Message** : Le chemin source spécifié comporte plusieurs répertoires partitionnés (par exemple, &lt;Chemin source&gt;/<Répertoire racine de partition 1>/a=10/b=20, &lt;Chemin source&gt;/&lt;Répertoire racine de partition 2&gt;/c=10/d=30) ou un répertoire partitionné avec un autre fichier ou un répertoire non partitionné (par exemple, &lt;Chemin source&gt;/&lt;Répertoire racine de partition 1&gt;/a=10/b=20, &lt;Chemin source&gt;/Répertoire 2/fichier1). Supprimez le répertoire racine de la partition du chemin source et lisez-le par le biais d’une transformation source distincte.
 - **Cause** : Le chemin source comporte plusieurs répertoires partitionnés ou un répertoire partitionné avec un autre fichier ou un répertoire non partitionné.
 - **Recommandation** : Supprimez le répertoire racine partitionné du chemin source et lisez-le par le biais d’une transformation source distincte.
 
@@ -117,7 +118,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
  ### <a name="error-code-df-executor-storeisnotdefined"></a>Code d’erreur : DF-Executor-StoreIsNotDefined
 - **Message** : La configuration de magasin n’est pas définie. Cette erreur est peut-être provoquée par une attribution incorrecte de paramètre dans le pipeline.
 - **Cause** : La configuration fournie pour le magasin n'est pas valide.
-- **Recommandation** : Vérifiez l’attribution de la valeur du paramètre dans le pipeline. Une expression de paramètre peut contenir des caractères non valides.
+- **Recommandation** : Vérifiez l’attribution de la valeur du paramètre dans le pipeline. Une expression de paramètre peut contenir des caractères non valides.
 
 
 ### <a name="error-code-4502"></a>Code d’erreur : 4502
@@ -125,6 +126,10 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Cause** : Un grand nombre d’exécutions d’activités de flux de données se produisent simultanément sur le runtime d’intégration. Pour plus d’informations, consultez [Limites d’Azure Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recommandation** : Si vous souhaitez exécuter davantage d’activités de flux de données en parallèle, répartissez-les sur plusieurs runtimes d’intégration.
 
+### <a name="error-code-4510"></a>Code d’erreur : 4510
+- **Message** : Défaillance inattendue pendant l’exécution. 
+- **Cause** : Étant donné que les clusters de débogage fonctionnent différemment des clusters de travail, les exécutions de débogage excessives peuvent affecter le cluster dans le temps, ce qui peut provoquer des problèmes de mémoire et des redémarrages soudains.
+- **Recommandation** : Redémarrez le cluster de débogage. Si vous exécutez plusieurs flux de données pendant la session de débogage, utilisez plutôt des exécutions d’activités, car l’exécution du niveau d’activité crée une session distincte sans imposer un cluster de débogage principal.
 
 ### <a name="error-code-invalidtemplate"></a>Code d’erreur : InvalidTemplate
 - **Message** : L’expression de pipeline ne peut pas être évaluée.
@@ -243,7 +248,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Recommandation** : Mettez à jour les paramètres de mise en lots de Snowflake pour veiller à ce que seul le service lié Azure Blob soit utilisé.
 
 ### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Code d’erreur : DF-Snowflake-InvalidStageConfiguration
-- **Message** : les propriétés de l’index en flocon doivent être spécifiées avec l’authentification BLOB Azure + SAS.
+- **Message** : Les propriétés de l’index Snowflake doivent être spécifiées avec l’authentification Azure Blob + SAS.
 - **Cause** : La configuration de la mise en lots fournie dans Snowflake n'est pas valide.
 - **Recommandation** : Veillez à ce que seule l'authentification Azure Blob + SAS soit spécifiée dans les paramètres de mise en lots de Snowflake.
 
@@ -397,19 +402,19 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 ### <a name="error-code-df-cosmos-deletedatafailed"></a>Code d'erreur : DF-Cosmos-DeleteDataFailed
 - **Message** : Échec de la suppression des données de Cosmos après 3 tentatives.
-- **Cause** : Le débit sur la collection Cosmos est faible, et entraîne une limitation ou mène à des données de ligne qui n'existent pas dans Cosmos.
+- **Cause** : Le débit sur la collection Cosmos est faible, et entraîne une limitation ou mène à des données de ligne qui n'existent pas dans Cosmos.
 - **Recommandation** : Procédez comme suit pour résoudre ce problème :
     1. En cas d'erreur 404, vérifiez que les données de la ligne associée existent dans la collection Cosmos. 
     1. En cas d'erreur de limitation, augmentez le débit de la collection Cosmos ou définissez-le sur Mise à l'échelle automatique.
+    1. E cas d’erreur d’expiration de la requête, définissez « Taille du lot » dans le récepteur Cosmos sur une valeur plus petite, par exemple 1000.
 
 ### <a name="error-code-df-sqldw-errorrowsfound"></a>Code d'erreur : DF-SQLDW-ErrorRowsFound
-- **Message** : Lignes d'erreur/non valides trouvées lors de l'écriture dans le récepteur SQL. Les lignes d'erreur/non valides sont écrites à l'emplacement de stockage des données rejetées, si un tel emplacement est configuré.
-- **Cause** : Des lignes d'erreur/non valides ont été trouvées lors de l'écriture dans le récepteur SQL.
+- **Cause** : Des lignes d'erreur/non valides ont été trouvées lors de l'écriture dans le récepteur Azure Synapse Analytics.
 - **Recommandation** : Recherchez les lignes d'erreur à l'emplacement de stockage des données rejetées, si un tel emplacement est configuré.
 
 ### <a name="error-code-df-sqldw-exporterrorrowfailed"></a>Code d'erreur : DF-SQLDW-ExportErrorRowFailed
 - **Message** : Une exception s'est produite lors de l'écriture des lignes d'erreur dans le stockage.
-- **Cause** : Une exception s'est produite lors de l'écriture des lignes d'erreur dans le stockage.
+- **Cause** : Une exception s'est produite lors de l'écriture des lignes d'erreur dans le stockage.
 - **Recommandation** : Vérifiez la configuration du service lié des données rejetées.
 
 ### <a name="error-code-df-executor-fieldnotexist"></a>Code d'erreur : DF-Executor-FieldNotExist
@@ -478,9 +483,93 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Recommandation** : Mettez à jour les paramètres d'AdobeIntegration pour définir votre type de partition sur RoundRobin.
 
 ### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Code d’erreur : DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message** : le seul règlement sur la confidentialité pris en charge actuellement est le RGPD.
+- **Message** : Le seul règlement sur la confidentialité qui est actuellement pris en charge est le « RGPD ».
 - **Cause** : Les configurations fournies en matière de confidentialité ne sont pas valides.
 - **Recommandation** : Mettez à jour les paramètres d'AdobeIntegration. Seul le « RGPD » est pris en charge.
+
+### <a name="error-code-df-executor-remoterpcclientdisassociated"></a>Code d’erreur : DF-Executor-RemoteRPCClientDisassociated
+- **Message** : Client RPC dissocié. Cette erreur est probablement provoquée par des conteneurs dépassant des seuils ou des problèmes réseau.
+- **Cause** : L’exécution de l’activité de flux de données a échoué en raison du problème réseau temporaire ou parce que la mémoire d’un nœud du cluster Spark est insuffisante.
+- **Recommandation** : Utilisez les options suivantes pour résoudre ce problème :
+  - Option 1 : utilisez un cluster puissant (la mémoire des nœuds lecteur et exécuteur est suffisante pour gérer les Big Data) afin d’exécuter des pipelines de flux de données avec le paramètre « Type de calcul » sur « Mémoire optimisée ». Les paramètres sont illustrés dans l’image ci-dessous.
+        
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Capture d’écran montrant la configuration de Type de calcul.":::   
+
+  - Option 2 : utilisez une plus grande taille de cluster (par exemple, 48 cœurs) pour exécuter vos pipelines de flux de données. Vous pouvez en savoir plus sur la taille du cluster dans ce document : [Taille du cluster](./concepts-data-flow-performance.md#cluster-size).
+  
+  - Option 3 : répartissez vos données d’entrée. Pour la tâche en cours d’exécution sur le cluster Spark de flux de données, une partition est une tâche et s’exécute sur un nœud. Si les données d’une partition sont trop volumineuses, la tâche associée en cours d’exécution sur le nœud doit consommer plus de mémoire que le nœud lui-même, ce qui entraîne une défaillance. Par conséquent, vous pouvez utiliser la répartition pour éviter une asymétrie des données, vous assurer que la taille des données dans chaque partition est moyenne et que la consommation de mémoire n’est pas trop importante.
+    
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-partition.png" alt-text="Capture d’écran montrant la configuration de partitions.":::
+
+    > [!NOTE]
+    >  Vous devez évaluer la taille des données ou le nombre de partitions de données d’entrée, puis définir un numéro de partition raisonnable sous « Optimiser ». Par exemple, le cluster que vous utilisez dans l’exécution du pipeline de flux de données comporte 8 cœurs et la mémoire de chaque cœur est de 20 Go, mais les données d’entrée sont de 1000 Go avec 10 partitions. Si vous exécutez le flux de données directement, il rencontrera le problème OOM, car 1000 Go/10 > 20 Go. Il est donc préférable de définir le nombre de répartitions sur 100 (1000 Go/100 < 20 Go).
+    
+  - Option 4 : Réglez et optimisez les paramètres de la source/du récepteur/de la transformation. Par exemple, essayez de copier tous les fichiers dans un conteneur et n’utilisez pas le modèle de caractère générique. Pour plus d’informations, reportez-vous au [Guide des performances et réglages des flux de données de mappage](./concepts-data-flow-performance.md).
+
+### <a name="error-code-df-mssql-errorrowsfound"></a>Code d’erreur : DF-MSSQL-ErrorRowsFound
+- **Cause** : Des lignes d’erreur/non valides ont été trouvées lors de l’écriture dans le récepteur Azure SQL Database.
+- **Recommandation** : Recherchez les lignes d'erreur à l'emplacement de stockage des données rejetées (s’il est configuré).
+
+### <a name="error-code-df-mssql-exporterrorrowfailed"></a>Code d'erreur : DF-SQLDW-ExportErrorRowFailed
+- **Message** : Une exception s'est produite lors de l'écriture des lignes d'erreur dans le stockage.
+- **Cause** : Une exception s'est produite lors de l'écriture des lignes d'erreur dans le stockage.
+- **Recommandation** : Vérifiez la configuration du service lié des données rejetées.
+
+### <a name="error-code-df-synapse-invaliddatabasetype"></a>Code d’erreur : DF-Synapse-InvalidDatabaseType
+- **Message** : Le type de base de données n’est pas pris en charge.
+- **Cause** : Le type de base de données n’est pas pris en charge.
+- **Recommandation** : Vérifiez le type de base de données et remplacez-le par le type approprié.
+
+### <a name="error-code-df-synapse-invalidformat"></a>Code d’erreur : DF-Synapse-InvalidFormat
+- **Message** : Le format n'est pas pris en charge.
+- **Cause** : Le format n'est pas pris en charge. 
+- **Recommandation** : Vérifiez le format et remplacez-le par le format approprié.
+
+### <a name="error-code-df-synapse-invalidtabledbname"></a>Code d’erreur : DF-Synapse-InvalidTableDBName
+- **Cause** : Le nom de table/base de données n'est pas valide.
+- **Recommandation** : Donnez un nom valide à la table/base de données. Les noms valides ne contiennent que des caractères alphabétiques, des nombres et `_`.
+
+### <a name="error-code-df-synapse-invalidoperation"></a>Code d’erreur : DF-Synapse-InvalidOperation
+- **Cause** : L'opération n'est pas prise en charge.
+- **Recommandation** : Changez l’opération non valide.
+
+### <a name="error-code-df-synapse-dbnotexist"></a>Code d’erreur : DF-Synapse-DBNotExist
+- **Cause** : La base de données n’existe pas.
+- **Recommandation** : Vérifiez si la base de données existe.
+
+### <a name="error-code-df-synapse-storedprocedurenotsupported"></a>Code d’erreur : DF-Synapse-StoredProcedureNotSupported
+- **Message** : L’utilisation de « Procédure stockée » en tant que source n’est pas prise en charge pour le pool serverless (à la demande).
+- **Cause** : Le pool serverless présente des limitations.
+- **Recommandation** : Réessayez en utilisant « requête » en tant que source ou en enregistrant la procédure stockée en tant que vue, puis utilisez « table » en tant que source pour lire directement à partir de la vue.
+
+### <a name="error-code-df-executor-broadcastfailure"></a>Code d’erreur : DF-Executor-BroadcastFailure
+- **Message** : L’exécution du flux de données a échoué pendant l’échange de diffusion. Les causes potentielles incluent des connexions à des sources mal configurées ou une erreur de délai d’expiration de la jointure de diffusion. Pour vous assurer que les sources sont correctement configurées, testez la connexion ou exécutez un aperçu des données sources dans une session de débogage de flux de données. Pour éviter le délai d’expiration de la jointure de diffusion, vous pouvez choisir l’option de diffusion « Désactivé » dans les transformations de jointure/d’existence/de recherche. Si vous envisagez d’utiliser l’option de diffusion pour améliorer les performances, assurez-vous que les flux de diffusion peuvent produire des données dans un délai de 60 secondes pour les exécutions de débogage et un délai de 300 secondes pour les exécutions de travaux. Si le problème persiste, contactez le support.
+
+- **Cause** :  
+    1. L’erreur de connexion/configuration source peut entraîner une défaillance de diffusion dans les transformations de jointure/d’existence/de recherche.
+    2. Le délai d’expiration par défaut de la diffusion est de 60 secondes dans les exécutions de débogage et de 300 secondes dans les exécutions de travaux. Dans la jointure de diffusion, le flux choisi pour la diffusion semble être trop volumineux pour produire des données respectant cette limite. Si une jointure de diffusion n’est pas utilisée, la diffusion par défaut effectuée par un flux de données peut atteindre la même limite.
+
+- **Recommandation** :
+    1. Affichez l’aperçu des données au niveau des sources pour vérifier que les sources sont bien configurées. 
+    1. Désactivez l’option de diffusion ou évitez de diffuser des flux de données volumineux dont le traitement peut prendre plus de 60 secondes. Choisissez plutôt un flux plus petit à diffuser. 
+    1. Les fichiers sources et les tables SQL/Data Warehouse volumineux sont généralement de mauvais candidats. 
+    1. En l’absence d’une diffusion de la jonction, utilisez un cluster plus grand si l’erreur se produit. 
+    1. Si le problème persiste, contactez le support client.
+
+### <a name="error-code-df-cosmos-shorttypenotsupport"></a>Code d’erreur : DF-Cosmos-ShortTypeNotSupport
+- **Message** : Le type de données courtes n’est pas pris en charge dans Cosmos DB.
+- **Cause** : Le type de données courtes n’est pas pris en charge dans Azure Cosmos DB.
+- **Recommandation** : Ajoutez une transformation dérivée pour convertir les colonnes associées de « short » en « integer » avant de les utiliser dans le récepteur Cosmos.
+
+### <a name="error-code-df-blob-functionnotsupport"></a>Code d’erreur : DF-BLOB-FunctionNotSupport
+- **Message** : Ce point de terminaison ne prend pas en charge BlobStorageEvents, SoftDelete ou AutomaticSnapshot. Désactivez ces fonctionnalités de compte si vous souhaitez utiliser ce point de terminaison.
+- **Cause** : Les événements de Stockage Blob Azure, la suppression réversible ou la capture instantanée automatique ne sont pas pris en charge dans les flux de données si le service lié Stockage Blob Azure est créé avec l’authentification du principal de service ou de l’identité managée.
+- **Recommandation** : Désactivez les événements de Stockage Blob Azure, la suppression réversible ou la fonctionnalité de capture instantanée automatique sur le compte Azure Blob, ou utilisez l’authentification par clé pour créer le service lié.
+
+### <a name="error-code-df-cosmos-invalidaccountkey"></a>Code d’erreur : DF-Cosmos-InvalidAccountKey
+- **Message** : Le jeton d’autorisation d’entrée ne peut pas traiter la requête. Vérifiez que la charge utile attendue est générée conformément au protocole et vérifiez la clé utilisée.
+- **Cause** : L’autorisation de lecture/d’écriture de données Azure Cosmos DB est insuffisante.
+- **Recommandation** : Utilisez la clé de lecture/écriture pour accéder à Azure Cosmos DB.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Conseils pour la résolution de problèmes divers
 - **Problème** : Une exception inattendue s’est produite et l’exécution a échoué.
@@ -609,6 +698,27 @@ Vous pouvez rencontrer les problèmes suivants avant l’amélioration, mais apr
  Après l’amélioration, le résultat de la colonne analysée doit être :<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
+###  <a name="internal-server-errors"></a>Erreurs de serveur internes
+
+Des scénarios spécifiques qui peuvent provoquer des erreurs internes de serveurs sont présentés ci-dessous.
+
+#### <a name="scenario-1-not-choosing-the-appropriate-compute-sizetype-and-other-factors"></a>Scénario 1 : Ne pas choisir la taille/le type de calcul approprié et d’autres facteurs
+
+  La réussite de l’exécution des flux de données dépend de nombreux facteurs, parmi lesquels la taille/le type de calcul, le nombre de sources/récepteurs à traiter, la spécification de partition, les transformations impliquées, la taille des jeux de données, l’asymétrie des données, etc.<br/>
+  
+  Pour plus d’aide, consultez [Optimisation d’Azure Integration Runtime](concepts-data-flow-performance.md#ir).
+
+#### <a name="scenario-2-using-debug-sessions-with-parallel-activities"></a>Scénario 2 : Utilisation de sessions de débogage avec des activités parallèles
+
+  Lors du déclenchement d’une exécution en utilisant une session de débogage de flux de données avec des constructions telles que ForEach dans le pipeline, plusieurs exécutions parallèles peuvent être soumises au même cluster. Cette situation peut entraîner des problèmes de défaillance du cluster au moment de l’exécution en raison de problèmes de ressources, tels qu’une mémoire insuffisante.<br/>
+  
+  Pour soumettre une exécution avec la configuration de runtime d’intégration appropriée définie dans l’activité de pipeline et après la publication des modifications, sélectionnez **Déclencher maintenant** ou **Déboguer** > **Utiliser le runtime de l'activité**.
+
+#### <a name="scenario-3-transient-issues"></a>Scénario 3 : Problèmes temporaires
+
+  Des problèmes temporaires avec des microservices impliqués dans l’exécution peuvent entraîner l’échec de l’exécution.<br/>
+  
+  La configuration de nouvelles tentatives dans l’activité de pipeline peut résoudre les problèmes dus à des problèmes temporaires. Pour plus d’informations, consultez la section [Stratégie d’activité](concepts-pipelines-activities.md#activity-json) de notre documentation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.openlocfilehash: 09c27d77c80b7c9178fbbe9f7c5e01b3bc67c567
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 675c90218f456fc0f238fcf3b1fb93d2e5a7bc44
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969043"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296309"
 ---
 # <a name="onboard-on-premises-servers-in-vmware-virtual-environment-to-azure-arc"></a>Intégration de serveurs locaux dans l’environnement virtuel VMware à Azure Arc   
 
@@ -21,19 +21,22 @@ Azure Arc vous permet de gérer votre parc informatique hybride depuis un volet 
 
 ## <a name="before-you-get-started"></a>Avant de commencer
 
-- [Passez en revue les exigences](/azure/migrate/tutorial-discover-vmware#prerequisites) pour découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation.  
-- Préparez [VMware vCenter](/azure/migrate/tutorial-discover-vmware#prepare-vmware) pour l’utilisation et passez en revue les [exigences liées à VMware](migrate-support-matrix-vmware.md#vmware-requirements) pour effectuer l’inventaire logiciel. L’inventaire logiciel doit être terminé pour commencer l’intégration des serveurs découverts à Azure Arc.   
-- Examinez la [configuration requise pour la découverte des applications](migrate-support-matrix-vmware.md#application-discovery-requirements) avant de lancer un inventaire logiciel des serveurs. PowerShell version 3.0 ou ultérieure doit être installé sur les serveurs Windows. 
-- Vérifiez les exigences d’accès au port pour autoriser les connexions à distance à l’inventaire des serveurs détectés. 
-    - **Windows :** Connexion entrante sur le port WinRM 5985 (HTTP). <br/>
-    - **Linux :** Connexions entrantes via le port 22 (TCP). 
-- Veillez à vérifier les [prérequis pour Azure Arc](/azure/azure-arc/servers/agent-overview#prerequisites) et à passer en revue les éléments suivants :
+- [Passez en revue les exigences](./tutorial-discover-vmware.md#prerequisites) pour découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation.  
+- Préparez [VMware vCenter](./tutorial-discover-vmware.md#prepare-vmware) pour l’utilisation et passez en revue les [exigences liées à VMware](migrate-support-matrix-vmware.md#vmware-requirements) pour effectuer l’inventaire logiciel. L’inventaire logiciel doit être terminé pour commencer l’intégration des serveurs découverts à Azure Arc.   
+- Examinez la [configuration requise pour la découverte des applications](migrate-support-matrix-vmware.md#software-inventory-requirements) avant de lancer un inventaire logiciel des serveurs. PowerShell version 3.0 ou ultérieure doit être installé sur les serveurs Windows. 
+- Vérifiez les conditions préalables requises pour permettre les connexions à distance à l’inventaire des serveurs découverts afin de les intégrer à Azure Arc. 
+    1. Autoriser les connexions à distance entrantes aux serveurs découverts 
+        - _Pour Windows :_ connexion entrante sur le port WinRM 5985 (HTTP). Sur tous les serveurs Windows cibles, exécutez la commande « winrm qc » pour activer le protocole WS-Management sur l’ordinateur local. 
+        - _Pour Linux :_ sur tous les serveurs Linux cibles, autorisez les connexions entrantes sur le port 22 (SSH).
+        - Vous pouvez aussi ajouter les adresses IP des ordinateurs distants (serveurs découverts) à la liste TrustedHosts de WinRM sur l’appliance. 
+    2. L’appliance Azure Migrate doit disposer d’une ligne de vue réseau sur les serveurs cibles. 
+- Veillez à vérifier les [prérequis pour Azure Arc](../azure-arc/servers/agent-overview.md#prerequisites) et à passer en revue les éléments suivants :
     - L’intégration à Azure Arc ne peut être lancée qu’une fois que la découverte et l’inventaire logiciel de vCenter Server sont terminés. L’inventaire logiciel peut durer jusqu’à 6 heures après son activation.
-    -  L’agent [Azure Arc Hybrid Connected Machine Agent](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) sera installé sur les serveurs découverts lors du processus d’intégration à Azure Arc. Veillez à fournir des informations d’identification avec des autorisations d’administrateur sur les serveurs pour installer et configurer l’agent. Sur Linux, fournissez le compte racine. Sur Windows, fournissez un compte membre du groupe Administrateurs locaux. 
-    - Vérifiez que les serveurs exécutent [un système d’exploitation pris en charge](/azure/azure-arc/servers/agent-overview#supported-operating-systems).
-    - Assurez-vous que votre compte Azure dispose des [rôles Azure requis](/azure/azure-arc/servers/agent-overview#required-permissions).
-    - Vérifiez que [les URL requises](/azure/azure-arc/servers/agent-overview#networking-configuration) ne sont pas bloquées si les serveurs détectés se connectent via un pare-feu ou un serveur proxy pour communiquer par Internet.
-    - Passez en revue les [régions prises en charge](/azure/azure-arc/servers/overview#supported-regions) par Azure Arc. 
+    -  L’agent [Azure Arc Hybrid Connected Machine Agent](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) sera installé sur les serveurs découverts lors du processus d’intégration à Azure Arc. Veillez à fournir des informations d’identification avec des autorisations d’administrateur sur les serveurs pour installer et configurer l’agent. Sur Linux, fournissez le compte racine. Sur Windows, fournissez un compte membre du groupe Administrateurs locaux. 
+    - Vérifiez que les serveurs exécutent [un système d’exploitation pris en charge](../azure-arc/servers/agent-overview.md#supported-operating-systems).
+    - Assurez-vous que votre compte Azure dispose des [rôles Azure requis](../azure-arc/servers/agent-overview.md#required-permissions).
+    - Vérifiez que [les URL requises](../azure-arc/servers/agent-overview.md#networking-configuration) ne sont pas bloquées si les serveurs détectés se connectent via un pare-feu ou un serveur proxy pour communiquer par Internet.
+    - Passez en revue les [régions prises en charge](../azure-arc/servers/overview.md#supported-regions) par Azure Arc. 
     - Les serveurs compatibles avec Azure Arc prennent en charge jusqu’à 5 000 instances de machine dans un groupe de ressources.
 
 
@@ -132,12 +135,13 @@ Si vous ne voyez pas le code d’erreur indiqué ci-dessous ou si le code d’er
 Soit les [prérequis](./migrate-support-matrix-physical.md) pour se connecter au serveur n’ont pas été remplis, soit il y a des problèmes de réseau lors de la connexion au serveur, par exemple certains paramètres de proxy.
 
 **Actions recommandées**   
-- Assurez-vous que le serveur répond aux conditions préalables et aux exigences d’accès au port, comme indiqué [ici](https://go.microsoft.com/fwlink/?linkid=2134728). 
-- Ajoutez les adresses IP des ordinateurs distants (serveurs découverts) à la liste TrustedHosts de WinRM sur l’appliance Azure Migrate, puis réessayez l’opération. 
+- Assurez-vous que le serveur répond aux [conditions préalables requises](#before-you-get-started) et aux [exigences d’accès au port](./migrate-support-matrix-physical.md). 
+- Ajoutez les adresses IP des ordinateurs distants (serveurs découverts) à la liste TrustedHosts de WinRM sur l’appliance Azure Migrate, puis réessayez l’opération. Cette opération a pour but d’autoriser les connexions entrantes à distance sur les serveurs - _Windows :_ port WinRM 5985 (HTTP) et _Linux :_ port SSH 22 (TCP).
 - Vérifiez que vous avez choisi la méthode d’authentification correcte sur l’appliance pour la connexion au serveur. 
    > [!Note] 
    > Azure Migrate prend en charge à la fois l’authentification basée sur un mot de passe et basée sur une clé SSH pour les serveurs Linux.
-- Si le problème persiste, soumettez une demande de support Microsoft en fournissant l’ID de la machine de l’appliance (disponible dans le pied de page du gestionnaire de configuration de l’appliance).    
+- Si le problème persiste, soumettez une demande de support Microsoft en fournissant l’ID de la machine de l’appliance (disponible dans le pied de page du gestionnaire de configuration de l’appliance).     
+   
 
 ### <a name="error-60002---invalidservercredentials"></a>Erreur 60002 : InvalidServerCredentials  
 
@@ -157,7 +161,7 @@ Impossible de se connecter au serveur. Soit vous avez fourni des informations d�
 **Actions recommandées**  
 - Assurez-vous que les dernières mises à jour du noyau et du système d’exploitation sont installées sur le serveur concerné.
 - Assurez-vous qu’il n’y a pas de latence réseau entre l’appliance et le serveur. Il est recommandé que l’appliance et le serveur source se trouvent sur le même domaine pour éviter les problèmes de latence.
-- Connectez-vous au serveur concerné à partir de l’appliance et exécutez les commandes [décrites ici](./troubleshoot-appliance-discovery.md) pour vérifier si elles retournent des données null ou vides.
+- Connectez-vous au serveur concerné à partir de l’appliance et exécutez les commandes [décrites ici](./troubleshoot-appliance.md) pour vérifier si elles retournent des données null ou vides.
 - Si le problème persiste, soumettez une demande de support Microsoft en fournissant l’ID de la machine de l’appliance (disponible dans le pied de page du gestionnaire de configuration de l’appliance).  
 
 ### <a name="error-60108---softwareinventorycredentialnotassociated"></a>Erreur 60108 : SoftwareInventoryCredentialNotAssociated  

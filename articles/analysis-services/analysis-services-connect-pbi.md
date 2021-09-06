@@ -4,15 +4,15 @@ description: Découvrez comment vous connecter à un serveur Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 06/30/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 579f97deaadf8005d7a7986ff3b032909c28972e
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: a956d5e3be0a5f92e22dcd1536339ff5244e19dc
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496558"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213347"
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
@@ -37,10 +37,12 @@ Une fois que vous avez créé un serveur dans Azure avant d’y déployer un mod
     
     Si vous avez un modèle Power BI en [mode Stockage mixte](/power-bi/transform-model/desktop-composite-models), l'option **Connexion directe** est remplacée par l'option **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** . Les connexions actives sont également automatiquement mises à niveau vers DirectQuery si le modèle passe du mode Importation au mode Stockage mixte.
 
-5. Entrez vos informations d’identification si elles vous sont demandées. 
+5. Lorsqu’il vous est demandé d’entrer vos informations d’identification, sélectionnez **Compte Microsoft**, puis cliquez sur **Se connecter**. 
+
+    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Se connecter à Azure AS":::
 
    > [!NOTE]
-   > Les comptes à code secret à usage unique ne sont pas pris en charge. 
+   > Les authentifications Windows et de base ne sont pas prises en charge. 
 
 6. Dans le **Navigateur**, développez le serveur, puis sélectionnez le modèle ou la perspective auquel vous souhaitez vous connecter, puis cliquez sur **Se connecter**. Cliquez sur un modèle ou une perspective pour afficher tous les objets de cette vue.
 
@@ -55,7 +57,7 @@ Une fois que vous avez créé un serveur dans Azure avant d’y déployer un mod
 
 Pour préserver les performances du système, une limite de mémoire est appliquée à toutes les requêtes émises par les rapports Power BI sur Azure Analysis Services, quelle que soit la [Limite de mémoire des requêtes](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current&preserve-view=true) configurée sur le serveur Azure Analysis Services. Les utilisateurs doivent essayer de simplifier la requête ou ses calculs si la requête utilise trop de mémoire.
 
-|                                                           | Limite de mémoire des requêtes |
+|Type de requête| Limite de mémoire des requêtes |
 |-----------------------------------------------------------|----------------------|
 | Connexion active à partir de Power BI                            | 10 Go  |
 | DirectQuery à partir d'un rapport Power BI dans un espace de travail partagé  | 1 Go   |

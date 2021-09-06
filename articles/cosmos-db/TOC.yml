@@ -52,6 +52,8 @@
           href: how-to-choose-offer.md
         - name: Choisir entre le débit provisionné et le serverless
           href: throughput-serverless.md
+        - name: Bonnes pratiques pour la mise à l’échelle du débit provisionné
+          href: scaling-provisioned-throughput-best-practices.md
     - name: Sécurité
       items:
         - name: Présentation de la sécurité
@@ -961,7 +963,7 @@
           href: ./policy-reference.md
 - name: API Cassandra
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que l’API Cassandra dans Cosmos DB\_?"
           href: cassandra/cassandra-introduction.md

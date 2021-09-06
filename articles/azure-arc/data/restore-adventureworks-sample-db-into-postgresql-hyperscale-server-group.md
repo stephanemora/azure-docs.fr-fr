@@ -1,5 +1,5 @@
 ---
-title: Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale avec Azure Arc
+title: Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale activé par Azure Arc
 description: Restaurer l’exemple de base de données AdventureWorks avec PostgreSQL Hyperscale activé par Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 476fb664df261cf2b71802d15f23e28eb9970a65
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: f802bb5d681e9e77d258d6071def53d4c5e4958f
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407450"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731087"
 ---
-# <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale avec Azure Arc
+# <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale activé par Azure Arc
 
 [AdventureWorks](/sql/samples/adventureworks-install-configure) est un exemple de base de données contenant une base de données OLTP utilisée dans des tutoriels et pour des exemples. Il est fourni et géré par Microsoft dans le [Dépôt GitHub d’échantillons SQL Server](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
@@ -70,7 +70,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 ```
 
 
-> **Remarque : Vous ne verrez pas beaucoup d’avantages en matière de performances résultant de l’exécution sur PostgreSQL Hyperscale activé par Azure Arc jusqu’à effectuer un scale-out et partitionner/distribuer les données/tables entre les nœuds Worker de votre groupe de serveurs PostgreSQL Hyperscale. Consultez [Étapes suivantes suggérées](#suggested-next-steps).**
+> **Remarque : vous ne verrez pas beaucoup d’avantages en matière de performances résultant de l’exécution sur PostgreSQL Hyperscale activé par Azure Arc jusqu’à effectuer un scale-out et partitionner/distribuer les données/tables entre les nœuds Worker de votre groupe de serveurs PostgreSQL Hyperscale. Consultez [Étapes suivantes suggérées](#suggested-next-steps).**
 
 ## <a name="suggested-next-steps"></a>Étapes suivantes suggérées
 - Lisez les concepts et les guides pratiques d’Azure Database pour PostgreSQL Hyperscale pour distribuer vos données sur plusieurs nœuds PostgreSQL Hyperscale et tirer parti de toute la puissance d’Azure Database pour PostgreSQL Hyperscale. :
@@ -82,6 +82,6 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
     * [Concevoir une base de données multilocataire](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Concevoir un tableau de bord d’analytique en temps réel](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-   > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
+   > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre instance PostgreSQL Hyperscale activé par Azure Arc.
 
 - [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-in-postgresql-hyperscale-server-group.md)

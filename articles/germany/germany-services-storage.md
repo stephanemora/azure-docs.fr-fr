@@ -1,27 +1,23 @@
 ---
 title: Services de stockage Azure Allemagne | Microsoft Docs
-description: Fournit une comparaison des services de stockage pour Azure Allemagne
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: Cette rubrique fournit une comparaison des services de stockage pour Azure Allemagne. Vous y trouverez également d’autres informations pertinentes.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: fc3eaa92e2373384b59c65aae3d9d2d622a89e6f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 7a82dfa03c85ecf8ad5c80a7d037431b18a28fed
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080839"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "122523958"
 ---
 # <a name="azure-germany-storage-services"></a>Services de stockage Azure Allemagne
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## <a name="storage"></a>Stockage
 Pour plus d’informations sur le stockage Azure et son utilisation, consultez la [documentation générale sur le stockage](../storage/index.yml).
 
@@ -38,23 +34,23 @@ La fonctionnalité Storage Service Encryption protège les données au repos dan
 
 ### <a name="storage-service-availability-by-azure-germany-region"></a>Disponibilité des services de stockage par région Azure Allemagne
 
-| de diffusion en continu | Centre de l’Allemagne | Nord-Est de l’Allemagne |
+| Service | Centre de l’Allemagne | Nord-Est de l’Allemagne |
 | --- | --- | --- |
 | [Stockage Blob](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
 | [Azure Files](../storage/common/storage-introduction.md#azure-files) | GA | GA |
 | [Stockage Table](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
-| [Stockage de files d’attente](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
+| [Stockage File d’attente](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
 | [Stockage Blob chaud/froid](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
-| Importation/Exportation |N/D |N/D |
+| Importer/Exporter |N/D |N/D |
 | StorSimple |N/D |N/D |
 
 ### <a name="variations"></a>Variantes
 Les URL pour les comptes de stockage dans Azure Allemagne sont différents de ceux dans Azure global :
 
-| Type de service | Azure global | Azure Germany |
+| Type de service | Azure global | Azure Allemagne |
 | --- | --- | --- |
-| Stockage d'objets blob | *.blob.core.windows.net | *.blob.core.cloudapi.de |
+| Stockage d’objets blob | *.blob.core.windows.net | *.blob.core.cloudapi.de |
 | Azure Files | *.file.core.windows.net | *.file.core.cloudapi.de | 
 | Stockage de files d'attente | *.queue.core.windows.net | *.queue.core.cloudapi.de |
 | Stockage de tables | *.table.core.windows.net | *.table.core.cloudapi.de |
@@ -75,4 +71,4 @@ Le suffixe de point de terminaison à utiliser dans ces surcharges est *core.clo
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Germany](https://blogs.msdn.microsoft.com/azuregermany/).
+Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Allemagne](/archive/blogs/azuregermany/).

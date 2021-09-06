@@ -267,6 +267,8 @@
           href: troubleshoot-common-errors.md
 - name: Référence
   items:
+    - name: Variables d’environnement des modules d’exécution
+      href: 'https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md'
     - name: Fonctions PowerShell
       items:
         - name: IoT Edge pour Linux sur Windows

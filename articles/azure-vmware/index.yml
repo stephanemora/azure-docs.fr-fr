@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 08/31/2021
-  ms.openlocfilehash: e0bf4719596ea64c5b80f66a48861d080a9e0d58
-  ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+  ms.openlocfilehash: fa374689b0d2990ba32f018a3d4246f70791c775
+  ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/31/2021
-  ms.locfileid: "123258395"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123449258"
 landingContent:
 - title: À propos d’Azure VMware Solution
   linkLists:
@@ -80,6 +80,8 @@ landingContent:
     links:
     - text: Déployer la reprise d’activité JetStream
       url: deploy-disaster-recovery-using-jetstream.md
+    - text: Déployer la reprise d’activité Zerto
+      url: deploy-zerto-disaster-recovery.md
     - text: Déployer VMware HCX pour la reprise d’activité
       url: deploy-disaster-recovery-using-vmware-hcx.md
     - text: Déployer VMware SRM pour la reprise d’activité

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 825fb15d9c3a0a0a44a77d3feec767adc0368add
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: a2906145e135f1b2e683ed757efde07ce1d5dd65
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279187"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296597"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -80,9 +80,6 @@ Si vous disposez déjà d’un coffre de clés, vous pouvez créer une connexion
     ![Capture d’écran montrant l’onglet « Informations de base » dans la page « Créer un point de terminaison privé (préversion) »](../media/private-link-service-4.png)
 
 Vous pouvez choisir de créer un point de terminaison privé pour n’importe quelle ressource Azure à l’aide de ce panneau. Vous pouvez soit utiliser les menus déroulants pour sélectionner un type de ressource et sélectionner une ressource dans votre annuaire, soit vous connecter à une ressource Azure en utilisant un ID de ressource. Laissez l’option « intégrer à la zone DNS privée » inchangée.  
-
-![Capture d’écran montrant l’ajout d’un point de terminaison privé à l’aide du panneau actuel](../media/private-link-service-3.png)
-![Capture d’écran montrant un exemple de la page « Créer un point de terminaison privé (préversion) »](../media/private-link-service-4.png)
 
 Quand vous créez un point de terminaison privé, la connexion doit être approuvée. Si la ressource pour laquelle vous créez un point de terminaison privé se trouve dans votre annuaire, vous pouvez approuver la demande de connexion à condition de bénéficier d’autorisations suffisantes. Si vous vous connectez à une ressource Azure située dans un autre annuaire, vous devez attendre que le propriétaire de cette ressource approuve votre demande de connexion.
 
@@ -243,7 +240,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 * Vérifiez que la zone DNS privée contient bien un enregistrement A pour le coffre de clés. 
     1. Accédez à la page Zone DNS privée. 
     2. Cliquez sur Vue d’ensemble et vérifiez qu’il existe un enregistrement A avec le nom simple de votre coffre de clés (par exemple fabrikam). Ne spécifiez aucun suffixe.
-    3. Vérifiez bien l’orthographe, puis créez ou corrigez l’enregistrement A. Vous pouvez utiliser une durée de vie de 3600 (1 heure). 
+    3. Vérifiez bien l’orthographe, puis créez ou corrigez l’enregistrement A. Vous pouvez utiliser une durée de vie de 600 (10 minutes).
     4. Veillez à spécifier l’adresse IP privée correcte. 
     
 * Vérifiez que l’enregistrement a l’adresse IP correcte. 

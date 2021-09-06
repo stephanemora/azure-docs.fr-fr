@@ -4,25 +4,27 @@ description: Cet article explique comment interroger les ressources à partir de
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/11/2021
-ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.date: 06/30/2021
+ms.openlocfilehash: ef7a917b504df521f087e5a2729d5c431e84fd62
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379551"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295894"
 ---
-# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Exécuter une requête de journal dans Azure Monitor qui s’étend sur plusieurs espaces de travail et applications
+# <a name="perform-log-queries-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Exécuter des requêtes de journal dans Azure Monitor qui s’étendent sur plusieurs espaces de travail et applications
 
-Les journaux Azure Monitor prennent en charge des requêtes sur plusieurs espaces de travail Log Analytics et l’application Application Insights dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.
+Les journaux Azure Monitor prennent en charge les requêtes sur plusieurs espaces de travail Log Analytics et applications Application Insights dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.
+
+Si vous gérez des abonnements dans d’autres locataires Azure Active Directory (Azure AD) via [Azure Lighthouse](../../lighthouse/overview.md), vous pouvez inclure dans vos requêtes des [espaces de travail Log Analytics créés dans ces locataires clients](../../lighthouse/how-to/monitor-at-scale.md).
 
 Il existe deux méthodes pour interroger des données stockées dans plusieurs espaces de travail et applications :
+
 1. Explicitement en spécifiant les détails de l’espace de travail et de l’application. Cette technique est détaillée dans cet article.
 2. Implicitement à l’aide de [requêtes du contexte des ressources](./design-logs-deployment.md#access-mode). Lorsque vous interrogez dans le contexte d’une ressource, d’un groupe de ressources ou d’un abonnement spécifique, les données pertinentes sont extraites de tous les espaces de travail contenant des données pour ces ressources. Les données Application Insights stockées dans des applications ne sont pas extraites.
 
 > [!IMPORTANT]
-> Si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md), la télémétrie est stockée dans un espace de travail Log Analytics avec toutes les autres données de journal. Utilisez l’expression workspace() pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
-
+> Si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md), la télémétrie est stockée dans un espace de travail Log Analytics avec toutes les autres données de journal. Utilisez l’expression workspace() pour écrire une requête incluant des applications dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
 
 ## <a name="cross-resource-query-limits"></a>Limites de requête inter-ressources 
 

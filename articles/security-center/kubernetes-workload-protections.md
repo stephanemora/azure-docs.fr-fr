@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 06/15/2021
 ms.author: memildin
-ms.openlocfilehash: fefbc605702539cb882aba4c7802d284b4291a9c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 3dbf8b3e15380b1e267be4f1b4af382aa9097a48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062295"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563009"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -35,11 +35,11 @@ Security Center offre davantage de fonctionnalités de sécurité de conteneur s
 
 | Aspect                          | Détails                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| État de sortie :                  | Disponibilité générale (GA)                                                                                                                    |
+| État de sortie :                  | Disponibilité générale                                                                                                                    |
 | Prix :                        | Gratuit                                                                                                                                         |
 | Rôles et autorisations obligatoires : | **Propriétaire** ou **Administrateur de la sécurité** pour modifier une attribution<br>**Lecteur** pour afficher les recommandations                                              |
 | Configuration requise pour l’environnement :       | Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge |
-| Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov) |
+| Clouds :                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Souverain (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
@@ -80,29 +80,36 @@ Pour configurer les recommandations, installez le **module complémentaire Azure
 
     | Nom de la recommandation                                                         | Contrôle de sécurité                         | Configuration requise |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Les limites de mémoire et du processeur du conteneur doivent être appliquées                          | Protéger les applications contre les attaques DDoS | Non                     |
-    | Les conteneurs privilégiés doivent être évités                                     | Gérer l’accès et les autorisations            | Non                     |
-    | Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs     | Gérer l’accès et les autorisations            | Non                     |
-    | Tout conteneur avec une élévation des privilèges doit être évité                       | Gérer l’accès et les autorisations            | Non                     |
-    | L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée                           | Gérer l’accès et les autorisations            | Non                     |
-    | Éviter les conteneurs partageant des espaces de noms d’hôte sensibles              | Gérer l’accès et les autorisations            | Non                     |
-    | Les fonctionnalités Linux les moins privilégiées doivent être appliquées pour les conteneurs       | Gérer l’accès et les autorisations            | **Oui**                |
-    | L’utilisation des montages de volume HostPath de pad doit être limitée à une liste connue    | Gérer l’accès et les autorisations            | **Oui**                |
     | Les conteneurs doivent écouter uniquement sur les ports autorisés                              | Restreindre l’accès réseau non autorisé     | **Oui**                |
     | Les services doivent écouter uniquement sur les ports autorisés                                | Restreindre l’accès réseau non autorisé     | **Oui**                |
     | L’utilisation du réseau hôte et des ports doit être limitée                     | Restreindre l’accès réseau non autorisé     | **Oui**                |
     | Le remplacement ou la désactivation du profil AppArmor des conteneurs doit être limité | Corriger les configurations de sécurité        | **Oui**                |
     | Les images conteneur doivent être déployées à partir de registres approuvés uniquement            | Corriger les vulnérabilités                | **Oui**                |
-    |||
+    | Les fonctionnalités Linux les moins privilégiées doivent être appliquées pour les conteneurs       | Gérer l’accès et les autorisations            | **Oui**                |
+    | L’utilisation des montages de volume HostPath de pad doit être limitée à une liste connue    | Gérer l’accès et les autorisations            | **Oui**                |
+    | Les conteneurs privilégiés doivent être évités                                     | Gérer l’accès et les autorisations            | Non                     |
+    | Tout conteneur avec une élévation des privilèges doit être évité                       | Gérer l’accès et les autorisations            | Non                     |
+    | Les clusters Kubernetes doivent désactiver le montage automatique des informations d’identification d’API             | Gérer l’accès et les autorisations            | Non                     |
+    | Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs     | Gérer l’accès et les autorisations            | Non                     |
+    | Tout conteneur avec une élévation des privilèges doit être évité                       | Gérer l’accès et les autorisations            | Non                     |
+    | L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée                           | Gérer l’accès et les autorisations            | Non                     |
+    | Éviter les conteneurs partageant des espaces de noms d’hôte sensibles              | Gérer l’accès et les autorisations            | Non                     |
+    | Les limites de mémoire et du processeur du conteneur doivent être appliquées                          | Protéger les applications contre les attaques DDoS | Non                     |
+    | Les clusters Kubernetes doivent être accessibles uniquement par le biais de HTTPS                    | Chiffrer les données en transit                  | No                     |
+    | Les clusters Kubernetes ne doivent pas utiliser l’espace de noms par défaut                    | Implémenter les bonnes pratiques de sécurité        | No                     |
+    ||||
 
 
-1. Pour forcer les recommandations avec des paramètres à être personnalisées, définissez les paramètres :
+1. Pour les recommandations avec des paramètres à personnaliser, définissez les paramètres :
 
     1. Dans le menu de Security Center, sélectionnez **Stratégie de sécurité**.
     1. Sélectionnez l’abonnement approprié.
     1. Dans la section **Stratégie par défaut de Security Center**, sélectionnez **Afficher la stratégie actuelle**.
-    1. Sélectionnez « ASC Default ».
+    1. Sélectionnez la stratégie par défaut pour l’étendue que vous mettez à jour.
     1. Ouvrez l’onglet **Paramètres** et modifiez les valeurs selon vos besoins.
+
+        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modification des paramètres de l’une des recommandations du bundle de protection de la charge de travail Kubernetes.":::
+
     1. Sélectionnez **Vérifier + enregistrer**.
     1. Sélectionnez **Enregistrer**.
 
@@ -111,7 +118,7 @@ Pour configurer les recommandations, installez le **module complémentaire Azure
 
     1. Ouvrez la page Détails de la recommandation et sélectionnez **Refuser** :
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Option Refuser pour le paramètre Azure Policy":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Option Refuser pour le paramètre Azure Policy.":::
 
         Cette opération ouvre le volet dans lequel vous définissez l’étendue. 
 
@@ -125,7 +132,7 @@ Pour configurer les recommandations, installez le **module complémentaire Azure
 
 1. Lorsque vous affichez une recommandation de l’ensemble de protection de la charge de travail, vous voyez le nombre de pods affectés (« composants Kubernetes ») avec le cluster. Pour obtenir la liste des pods spécifiques, sélectionnez le cluster, puis **Effectuer une action**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Affichage des pods affectés pour une recommandation K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Affichage des pods affectés pour une recommandation K8s."::: 
 
 1. Pour tester l’application, utilisez les deux déploiements Kubernetes ci-dessous :
 
@@ -158,7 +165,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: healthyClusterRegistry.azurecr.io/redis:latest
+        image: <customer-registry>.azurecr.io/redis:latest
         ports:
         - containerPort: 80
         resources:
@@ -191,25 +198,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-unhealthy-deployment
+  name: redis-unhealthy-deployment
   labels:
-    app: nginx
+    app: redis
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: redis
   template:
     metadata:      
       labels:
-        app: nginx
+        app: redis
     spec:
       hostNetwork: true
       hostPID: true 
       hostIPC: true
       containers:
-      - name: nginx
-        image: nginx:1.15.2
+      - name: redis
+        image: redis:latest
         ports:
         - containerPort: 9001
           hostPort: 9001
@@ -234,11 +241,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-unhealthy-service
+  name: redis-unhealthy-service
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: redis
   ports:
   - port: 6001
     targetPort: 9001

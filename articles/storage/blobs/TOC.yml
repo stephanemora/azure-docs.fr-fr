@@ -291,6 +291,8 @@ items:
             href: storage-blob-pageblob-overview.md
           - name: Sites web statiques
             href: storage-blob-static-website.md
+          - name: Prise en charge des fonctionnalités Stockage Blob
+            href: storage-feature-support-in-storage-accounts.md
       - name: Procédures
         items:
           - name: Créer et gérer les comptes de stockage
@@ -474,8 +476,12 @@ items:
                     href: archive-rehydrate-to-online-tier.md
                   - name: Gérer un événement lors de la réhydratation d’objets blob
                     href: archive-rehydrate-handle-event.md
-          - name: Configurer la réplication d’objets
-            href: object-replication-configure.md
+          - name: Gérer la réplication d’objets
+            items:
+              - name: Configurer des stratégies de réplication d’objets
+                href: object-replication-configure.md
+              - name: Empêcher la réplication d’objets entre locataires
+                href: object-replication-prevent-cross-tenant-policies.md
           - name: Gérer la concurrence
             href: concurrency-manage.md
           - name: Utiliser un émulateur de stockage
@@ -634,6 +640,8 @@ items:
                 href: ../common/storage-explorer-direct-link.md
               - name: Sécurité de l’Explorateur Stockage
                 href: ../common/storage-explorer-security.md
+              - name: Suppression réversible de l’Explorateur Stockage
+                href: ../common/storage-explorer-soft-delete.md
               - name: Gestion des versions de l’Explorateur Stockage
                 href: ../common/storage-explorer-blob-versioning.md
               - name: Gestion du stockage d’objets Blob Azure avec l’Explorateur Stockage
@@ -757,7 +765,7 @@ items:
               - name: Accès multiprotocole
                 href: data-lake-storage-multi-protocol-access.md
               - name: Fonctionnalités du stockage Blob prises en charge
-                href: data-lake-storage-supported-blob-storage-features.md
+                href: storage-feature-support-in-storage-accounts.md
               - name: Services Azure pris en charge
                 href: data-lake-storage-supported-azure-services.md
               - name: Plateformes open source prises en charge

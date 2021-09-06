@@ -1,37 +1,37 @@
 ---
-title: Créer des flux de travail dans Azure Logic Apps monolocataire à l’aide de Visual Studio Code
-description: Créez des flux de travail automatisés qui intègrent des applications, des données, des services et des systèmes en utilisant le service Azure Logic Apps monolocataire et Visual Studio Code.
+title: Créer des flux de travail avec Azure Logic Apps monolocataire (standard) dans Visual Studio Code
+description: Créez des flux de travail automatisés pour intégrer des applications, des données, des services et des systèmes avec le service Azure Logic Apps monolocataire (standard) dans Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 9507f8877be033772acb34fbbbe7996c38fca6ad
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/13/2021
+ms.openlocfilehash: 776068748b9cd7e90b9d9418bdf9a31fe36ff180
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369809"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733751"
 ---
-# <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-visual-studio-code"></a>Créer un flux de travail d’intégration à l’aide d’Azure Logic Apps monolocataire et de Visual Studio Code
+# <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Créer un flux de travail d’intégration avec Azure Logic Apps monolocataire (standard) dans Visual Studio Code
 
-Cet article explique comment créer un exemple de flux de travail d’intégration automatisé en utilisant le type de ressource **Application logique (standard)** , Visual Studio Code et l’extension **Azure Logic Apps (standard)** . Lorsque vous créez ce flux de travail d’application logique dans Visual Studio Code, vous pouvez exécuter et tester le flux de travail dans votre environnement de développement *local*.
+Cet article explique comment créer un exemple de flux de travail d’intégration automatisé qui s’exécute dans l’*environnement Azure Logic Apps monolocataire* à l’aide de Visual Studio Code avec l’extension **Azure Logic Apps (standard)** . L’application logique que vous créez avec cette extension est basée sur le type de ressource **Logic Apps (standard)** , qui offre les fonctionnalités suivantes :
 
-Lorsque vous êtes prêt, vous pouvez procéder au déploiement dans l’*environnement Azure Logic Apps monolocataire* ou partout où Azure Functions peut s’exécuter, en raison runtime conteneurisé d’Azure Logic apps remanié. Par rapport à l’extension **Azure Logic Apps (consommation)** multilocataire qui fonctionne pour l’environnement Azure Logic Apps multilocataire, l’extension **Azure Logic Apps (standard)** monolocataire offre la possibilité de créer des applications logiques avec les attributs suivants :
+* Vous pouvez exécuter et tester localement des flux de travail dans l’environnement de développement Visual Studio Code.
 
-* Le type de ressource **Application logique (standard)** peut héberger plusieurs [flux de travail avec et sans état](single-tenant-overview-compare.md#stateful-stateless) qui s’exécutent localement dans votre environnement de développement, dans l’environnement Azure Logic Apps monolocataire, ou partout où Azure Functions peut s’exécuter, comme des conteneurs. Cet attribut apporte de la flexibilité et de la portabilité à vos flux de travail.
+* Votre application logique peut inclure plusieurs [flux de travail avec et sans état](single-tenant-overview-compare.md#stateful-stateless).
 
-* Dans une ressource **Application logique (standard)** , les flux de travail dans les mêmes application logique et locataire s’exécutent dans le même processus que le runtime Azure Logic Apps remanié, de sorte qu’ils partagent les mêmes ressources et offrent de meilleures performances.
+* Les flux de travail dans les mêmes application logique et locataire s’exécutent dans le même processus que le runtime Azure Logic Apps, de sorte qu’ils partagent les mêmes ressources et offrent de meilleures performances.
 
-* Vous pouvez déployer une ressource **Application logique (standard)** directement dans Azure ou partout où Azure Functions peut s’exécuter, y compris des conteneurs.
+* Vous pouvez déployer le type de ressource **application logique (standard)** directement dans l’environnement Azure Logic Apps monolocataire ou partout où Azure Functions peut s’exécuter, y compris les conteneurs, en raison du runtime conteneurisé d’Azure Logic Apps.
 
-Pour plus d’informations sur le type de ressource **Application logique (standard)** et le modèle monolocataire, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
+Pour plus d’informations sur l’offre d’Azure Logic Apps monolocataire, passez en revue les [environnements monolocataires ou multilocataires et les services d’intégration](single-tenant-overview-compare.md).
 
 Bien que l’exemple de flux de travail soit basé sur le cloud et ne comporte que deux étapes, vous pouvez créer des flux de travail à partir de centaines d’opérations qui peuvent connecter un vaste éventail d’applications, de données, de services et de systèmes dans des environnements cloud, locaux et hybrides. L’exemple de flux de travail démarre avec le déclencheur de demande intégré et enchaîne avec une action Office 365 Outlook. Le déclencheur crée un point de terminaison pouvant être appelé pour le flux de travail, et attend une demande HTTPS entrante en provenance d’un appelant quelconque. Lorsque le déclencheur reçoit une demande et se déclenche, l’action suivante s’exécute en envoyant un e-mail à l’adresse e-mail spécifiée avec des sorties sélectionnées à partir du déclencheur.
 
 > [!TIP]
 > Si vous n’avez pas de compte Office 365, vous pouvez utiliser toute autre action disponible pouvant envoyer des messages à partir de votre compte e-mail, par exemple, Outlook.com.
-> 
+>
 > Pour créer cet exemple de flux de travail à l’aide du portail Azure à la place, suivez les étapes décrites dans [Créer des flux de travail d’intégration à l’aide du service Azure Logic Apps monolocataire et du portail Azure](create-single-tenant-workflows-azure-portal.md). 
 > Les deux options permettent de développer, d’exécuter et de déployer des flux de travail d’application logique dans les mêmes genres d’environnements. 
 > Toutefois, avec Visual Studio Code, vous pouvez développer, tester et exécuter *localement* des flux de travail dans votre environnement de développement.
@@ -114,7 +114,7 @@ Pour plus d’informations, consultez la [documentation Azurite](https://github.
 
 * Pour exécuter localement des déclencheurs et des actions basés sur des webhooks, tels que le [déclencheur Webhook HTTP intégré](../connectors/connectors-native-webhook.md), dans Visual Studio Code, vous devez [configurer le transfert pour l’URL de rappel](#webhook-setup).
 
-* Pour tester l’exemple de flux de travail dans cet article, vous avez besoin d’un outil pouvant envoyer des appels au point de terminaison créé par le déclencheur de demande. Si vous n’avez pas d’outil de ce type, vous pouvez télécharger, installer et utiliser [Postman](https://www.postman.com/downloads/).
+* Pour tester l’exemple de flux de travail dans cet article, vous avez besoin d’un outil pouvant envoyer des appels au point de terminaison créé par le déclencheur de demande. Si vous n’avez pas d’outil de ce type, vous pouvez télécharger, installer et utiliser l’application [Postman](https://www.postman.com/downloads/).
 
 * Si vous créez vos ressources d’application logique avec des paramètres qui prennent en charge l’utilisation d’[Application Insights](../azure-monitor/app/app-insights-overview.md), vous pouvez choisir d’activer la journalisation et le suivi des diagnostics pour votre application logique. Vous pouvez le faire lorsque vous créez votre application logique ou après le déploiement. Vous devez disposer d’une instance d’Application Insights, mais vous pouvez créer cette ressource [à l’avance](../azure-monitor/app/create-workspace-resource.md), lorsque vous créez votre application logique, ou après le déploiement.
 
@@ -214,43 +214,6 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
 
    ![Capture d’écran montrant le volet de l’Explorateur avec le dossier de projet, le dossier de workflow et le fichier « workflow.json ».](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
-1. Si vous utilisez macOS ou Linux, configurez l’accès à votre compte de stockage en suivant ces étapes, nécessaires pour exécuter localement votre projet :
-
-   1. Dans le dossier racine de votre projet, ouvrez le fichier **local.settings.json**.
-
-      ![Capture d’écran montrant le volet de l’Explorateur et le fichier « local.settings.json » dans votre projet.](./media/create-single-tenant-workflows-visual-studio-code/local-settings-json-files.png)
-
-   1. Remplacez la valeur de la propriété `AzureWebJobsStorage` par la chaîne de connexion de votre compte de stockage que vous avez enregistrée précédemment, par exemple :
-
-      Avant :
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-            "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-          }
-      }
-      ```
-
-      Après :
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-           "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-         }
-      }
-      ```
-
-      > [!IMPORTANT]
-      > Pour les scénarios de production, veillez à protéger et à sécuriser ces secrets et informations sensibles, par exemple en utilisant un coffre de clés.
-
-   1. Quand vous avez terminé, veillez à enregistrer vos modifications.
-
 <a name="enable-built-in-connector-authoring"></a>
 
 ## <a name="enable-built-in-connector-authoring"></a>Activer la création de connecteurs intégrés
@@ -315,7 +278,7 @@ Actuellement, la fonctionnalité de création est uniquement disponible dans Vis
 
    ![Capture d’écran montrant le volet de l’Explorateur et la zone du nom du groupe de ressources.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. Dans la liste des emplacements, recherchez et sélectionnez la région Azure à utiliser lors de la création de votre groupe de ressources et de vos ressources. Cet exemple utilise la région **USA Centre-Ouest**.
+1. Dans la liste des emplacements, sélectionnez la région Azure à utiliser lors de la création de votre groupe de ressources et de vos ressources. Cet exemple utilise la région **USA Centre-Ouest**.
 
    ![Capture d’écran montrant le volet de l’Explorateur avec la liste des emplacements et la région « USA Centre-Ouest » sélectionnée.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-region.png)
 
@@ -369,7 +332,7 @@ Dans cet exemple, le workflow utilise le déclencheur et les actions suivantes 
 
    L’invite **Choisir une opération** s’affiche sur le concepteur, et le volet **Ajouter une action** se rouvre pour vous permettre de sélectionner l’action suivante.
 
-1. Dans le volet **Ajouter une action**, dans la zone de recherche **Choisir une opération**, sélectionnez **Azure** afin de pouvoir rechercher et sélectionner une action pour un connecteur managé déployé dans Azure.
+1. Dans le volet **Ajouter une action**, dans la zone de recherche **Choisir une opération**, sélectionnez **Azure** afin de pouvoir sélectionner une action pour un connecteur managé déployé dans Azure.
 
    Cet exemple sélectionne et utilise l’action Office 365 Outlook **Envoyer un e-mail (V2)** .
 
@@ -468,8 +431,8 @@ Pour exécuter localement des déclencheurs et des actions basés sur un webhook
    >
    > Pour que l’invite réapparaisse, au niveau de la racine de votre projet, ouvrez le menu contextuel du fichier **local.settings.js**, puis sélectionnez **Configurer le point de terminaison de redirection de webhook**. L’invite s’affiche alors pour vous permettre de fournir l’URL de transfert.
 
-   Visual Studio Code ajoute l’URL de transfert au fichier **local.settings.json** situé dans le dossier racine de votre projet. Dans l’objet `Values`, la propriété nommée `Workflows.WebhookRedirectHostUri` apparaît alors. Elle est définie sur l’URL de transfert, par exemple :
-   
+   Visual Studio Code ajoute l’URL de transfert au fichier **local.settings.json** situé dans le dossier racine de votre projet. Dans l’objet `Values`, la propriété qui est nommée `Workflows.WebhookRedirectHostUri` apparaît alors. Elle est définie sur l’URL de transfert, par exemple :
+
    ```json
    {
       "IsEncrypted": false,
@@ -573,7 +536,7 @@ Pour tester votre application logique, procédez comme suit pour démarrer une s
 
    1. Sous **Toutes les collections**, fournissez un nom pour la collection à créer afin d’organiser vos demandes, appuyez sur Entrée, puis sélectionnez **Enregistrer dans <*nom-collection*>** . Cet exemple utilise `Logic Apps requests` comme nom de collection.
 
-      Le volet de demande de Postman s’ouvre, qui vous permet d’envoyer une demande à l’URL de rappel du déclencheur de demande.
+      Dans Postman, le volet de demande s’ouvre pour vous permettre d’envoyer une demande à l’URL de rappel du déclencheur de demande.
 
       ![Capture d’écran montrant Postman avec le volet de demande ouvert](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
@@ -707,7 +670,7 @@ Une fois que vous avez mis à jour votre application logique, vous pouvez effect
 
 <a name="firewall-setup"></a>
 
-##  <a name="find-domain-names-for-firewall-access"></a>Rechercher les noms de domaine pour l’accès au pare-feu
+## <a name="find-domain-names-for-firewall-access"></a>Rechercher les noms de domaine pour l’accès au pare-feu
 
 Avant de déployer et d’exécuter le workflow de votre application logique dans le portail Azure, si votre environnement présente des exigences réseau strictes ou des pare-feu qui limitent le trafic, vous devez définir des autorisations pour les connexions de déclencheur ou d’action présentes dans votre workflow.
 
@@ -715,7 +678,7 @@ Pour rechercher les noms de domaine complets (FQDN) de ces connexions, procédez
 
 1. Dans votre projet d’application logique, ouvrez le fichier **connections.json** créé après avoir ajouté le premier déclencheur ou action basé sur une connexion à votre workflow, et recherchez l'objet `managedApiConnections`.
 
-1. Pour chaque connexion que vous avez créée, recherchez, copiez et enregistrez la valeur de la propriété `connectionRuntimeUrl` dans un lieu sûr afin de configurer votre pare-feu à l’aide de ces informations.
+1. Pour chaque connexion que vous avez créée, copiez et enregistrez la valeur de la propriété `connectionRuntimeUrl` dans un lieu sûr afin de configurer votre pare-feu à l’aide de ces informations.
 
    Cet exemple de fichier **connections.json** contient deux connexions, une connexion AS2 et une connexion Office 365 avec les valeurs `connectionRuntimeUrl` suivantes :
 
@@ -796,7 +759,7 @@ Le déploiement du type de ressource **Application logique (standard)** requiert
 
       Pour plus d’informations, consultez [Plans d’hébergement et niveaux tarifaires](logic-apps-pricing.md#standard-pricing).
 
-   1. Pour des performances optimales, recherchez et sélectionnez le même groupe de ressources que votre projet pour le déploiement.
+   1. Pour des performances optimales, sélectionnez le même groupe de ressources que votre projet pour le déploiement.
 
       > [!NOTE]
       > Bien que vous puissiez créer ou utiliser un groupe de ressources différent, cela peut affecter les performances. Si vous créez ou choisissez un groupe de ressources différent, mais annulez l’opération après l’affichage de l’invite de confirmation, votre déploiement est également annulé.
@@ -955,7 +918,7 @@ Dans Visual Studio Code, vous pouvez afficher toutes les applications logiques d
 
    ![Capture d’écran montrant Visual Studio Code avec le volet d’extension « Azure Logic Apps (standard) » ouvert et le flux de travail déployé.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. Pour afficher tous les workflows de l’application logique, développez votre application logique, puis développez le nœud **Workflows**.
+1. Pour afficher tous les workflows de l’application logique, développez votre application logique, puis développez le nœud nommé **Workflows**.
 
 1. Pour afficher un workflow spécifique, ouvrez le menu contextuel du workflow, puis sélectionnez **Ouvrir dans le concepteur**, ce qui ouvre le workflow en mode lecture seule.
 
@@ -963,7 +926,7 @@ Dans Visual Studio Code, vous pouvez afficher toutes les applications logiques d
 
    * Dans Visual Studio Code, ouvrez le fichier **workflow.json** de votre projet dans le concepteur de workflows, apportez vos modifications, puis redéployez votre application logique dans Azure.
 
-   * Dans le portail Azure, [recherchez et ouvrez votre application logique](#manage-deployed-apps-portal). Recherchez, modifiez et enregistrez le workflow.
+   * Dans le Portail Azure, [ouvrez votre application logique](#manage-deployed-apps-portal). Vous pouvez ensuite ouvrir, modifier et enregistrer votre workflow.
 
 1. Pour ouvrir l’application logique déployée dans le portail Azure, ouvrez le menu contextuel de l’application logique, puis sélectionnez **Ouvrir dans le portail**.
 
@@ -991,7 +954,7 @@ L’arrêt d’une application logique affecte les instances de workflow de diff
 
   1. Dans la barre d’outils gauche de Visual Studio Code, sélectionnez l’icône Azure. 
   1. Dans le volet **Azure : Logic Apps (standard)** , développez votre abonnement qui affiche toutes les applications logiques déployées pour cet abonnement.
-  1. Développez votre application logique, puis le nœud **Workflows**.
+  1. Développez votre application logique, puis le nœud nommé **Workflows**.
   1. Ouvrez un workflow, puis modifiez une partie du déclencheur de ce workflow.
   1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel du déclencheur.
   1. Répétez cette opération pour chaque workflow.
@@ -1007,7 +970,7 @@ Voici de quelles manières la suppression d’une application logique affecte le
 
 * Le service Logic Apps ne crée ni n’exécute de nouvelles instances de workflow.
 
-* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez enregistrer de nouveau les workflows qui ont appelé le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement vaut également pour les workflows qui utilisent des artefacts dans des comptes d’intégration et des workflows qui appellent des fonctions Azure.
+* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Pour actualiser les métadonnées, vous devez enregistrer de nouveau les workflows qui appelaient le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement vaut également pour les workflows qui utilisent des artefacts dans des comptes d’intégration et des workflows qui appellent des fonctions Azure.
 
 <a name="manage-deployed-apps-portal"></a>
 
@@ -1019,7 +982,7 @@ Une fois que vous avez déployé une application logique sur le portail Azure à
 
    ![Capture d’écran montrant la zone de recherche du portail Azure contenant le texte de recherche « logic apps ».](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
-1. Dans le volet **Application logique (standard)** , recherchez et sélectionnez l’application logique que vous avez déployée à partir de Visual Studio Code.
+1. Dans le volet **Application logique (standard)** , sélectionnez l’application logique que vous avez déployée à partir de Visual Studio Code.
 
    ![Capture d’écran montrant le portail Azure et les ressources Application logique (standard) déployées dans Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-resources-pane.png)
 
@@ -1051,7 +1014,7 @@ Une fois que vous avez déployé une application logique sur le portail Azure à
 
 Le portail Azure vous permet d’ajouter des workflows vides à une ressource **Application logique (standard)** que vous avez déployée à partir de Visual Studio Code et de créer ces flux de travail.
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre ressource **Application logique (standard)** déployée.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre ressource **Application logique (standard)** déployée.
 
 1. Dans le menu de l’application logique, sélectionnez **Workflows**. Dans le volet **Flux de travail**, sélectionnez **Ajouter**.
 
@@ -1073,7 +1036,7 @@ Le portail Azure vous permet d’ajouter des workflows vides à une ressource **
 
 Pour déboguer plus facilement un workflow sans état, vous pouvez activer l’historique des exécutions du workflow en question, puis le désactiver lorsque vous avez terminé. Procédez comme suit pour Visual Studio Code ou, si vous travaillez dans le portail Azure, consultez [Créer des workflows monolocataires dans le portail Azure](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. Dans votre projet Visual Studio Code, développez le dossier **workflow-designtime**, puis ouvrez le fichier **local.settings.json**.
+1. Dans votre projet Visual Studio Code, développez le dossier nommé **workflow-designtime**, puis ouvrez le fichier **local.settings.json**.
 
 1. Ajoutez la propriété `Workflows.{yourWorkflowName}.operationOptions` et définissez la valeur sur `WithStatelessRunHistory`, par exemple :
 
@@ -1112,7 +1075,7 @@ Pour déboguer plus facilement un workflow sans état, vous pouvez activer l’h
 
 Une fois que vous avez déployé une ressource **Application logique (standard)** de Visual Studio Code à Azure, vous pouvez consulter l’historique des exécutions et les détails disponibles pour un flux de travail de cette ressource à l’aide du portail Azure et de l’expérience **Analyse** pour ce flux de travail. Toutefois, vous devez d’abord activer la capacité d’affichage **Analyse** sur cette ressource d’application logique.
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez la ressource **Application logique (standard)** déployée.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez la ressource **Application logique (standard)** déployée.
 
 1. Dans le menu de cette ressource, sous **API**, sélectionnez **CORS**.
 
@@ -1268,7 +1231,7 @@ Pour résoudre ce problème et utiliser l’URI plus long, modifiez les clés de
 
 Quand vous essayez de démarrer une session de débogage, vous recevez l’erreur : **« Une erreur existe après l’exécution de preLaunchTask 'generateDebugSymbols' »** . Pour résoudre ce problème, modifiez le fichier **tasks.json** dans votre projet pour ignorer la génération de symboles.
 
-1. Dans votre projet, développez le dossier **.vscode**, puis ouvrez le fichier **tasks.json**.
+1. Dans votre projet, développez le dossier nommé **.vscode**, puis ouvrez le fichier **tasks.json**.
 
 1. Dans la tâche suivante, supprimez la ligne, `"dependsOn: "generateDebugSymbols"`, ainsi que la virgule qui termine la ligne précédente, par exemple :
 

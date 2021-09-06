@@ -6,14 +6,14 @@ manager: akania
 services: azure-communication-services
 ms.author: srahaman
 ms.date: 06/30/2021
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1ebec7232ac23a250ca34ce130c7cd7b6b9eb5ad
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a5181a5a95c3e6eb33eb084d41674746096dd8c2
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766573"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259133"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>Meilleures pratiques : Kit de développement logiciel (SDK) d’appel Azure Communication Services
 Cet article fournit des informations sur les meilleures pratiques concernant le Kit de développement logiciel (SDK) d’appel Azure Communication Services (ACS).

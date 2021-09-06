@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aa866706a181014e104f7f9e7f8cded520f4ac9
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152272"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711822"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
@@ -60,6 +60,8 @@ Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de 
 Cloud Shell utilise un partage de fichiers Azure dans un compte de stockage, au sein d’un abonnement spécifié. En raison des autorisations héritées, les utilisateurs disposant de droits d’accès suffisants à l’abonnement peuvent accéder à tous les comptes de stockage, ainsi qu'aux partages de fichiers contenus dans l’abonnement.
 
 Les utilisateurs doivent verrouiller l’accès à leurs fichiers en définissant des autorisations au niveau du compte de stockage ou de l’abonnement.
+
+Le compte de stockage Cloud Shell contient les fichiers créés par l’utilisateur Cloud Shell dans son répertoire d’accueil, qui peut inclure des informations sensibles, notamment des jetons d’accès ou des informations d’identification.
 
 ## <a name="supported-storage-regions"></a>Régions de stockage prises en charge
 Pour déterminer votre région actuelle, vous pouvez exécuter `env` dans Bash et localiser la variable `ACC_LOCATION`, ou exécuter `$env:ACC_LOCATION` à partir de PowerShell. Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.

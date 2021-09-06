@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: storage
 author: fauhse
@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 60702c23c32f99d19fbe4741ba3ab170a60dcae2
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 52e1accfb5f5bb762cc2833a19e1caa3daa4a03d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109645067"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462186"
 ---
 ```console
-Robocopy /MT:32 /R:5 /W:5 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
 ```
 
 | Commutateur                | Signification |
 |-----------------------|---------|
-| `/MT:n`               | Autorise Robocopy à fonctionner en multithread. La valeur par défaut de `n` est 8. La valeur maximale est de 128 threads. Démarrez avec un nombre élevé de threads pour une série initiale. Un nombre élevé de threads permet de saturer la bande passante disponible. Les exécutions suivantes de `/MIR` sont affectées progressivement lorsque vous traitez des éléments sur le transport réseau. Pour les exécutions suivantes, associez votre valeur de nombre de threads au nombre de cœurs du processeur et au nombre de threads par cœur. Déterminez si les cœurs doivent être réservés pour les autres tâches qu’un serveur de production peut prendre en charge. |
+| `/MT:n`               | Autorise Robocopy à fonctionner en multithread. La valeur par défaut de `n` est 8. La valeur maximale est de 128 threads. Démarrez avec un nombre élevé de threads pour une série initiale. Un nombre élevé de threads permet de saturer la bande passante disponible. Les exécutions suivantes de `/MIR` sont progressivement affectées par le calcul disponible par rapport à la bande passante réseau disponible. Pour les exécutions suivantes, associez votre valeur de nombre de threads avec plus de précision au nombre de cœurs du processeur et au nombre de threads par cœur. Déterminez si les cœurs doivent être réservés pour les autres tâches qu’un serveur de production peut prendre en charge. |
 | `/R:n`                | Nombre maximal de tentatives pour un fichier dont la copie échoue à la première tentative. Vous pouvez améliorer la vitesse d’exécution d’un Robocopy en spécifiant un nombre maximal (`n`) de nouvelles tentatives avant que la copie du fichier échoue définitivement dans l’exécution. Le fonctionnement de ce commutateur est optimal quand il est déjà évident qu’il y aura d’autres exécutions de Robocopy. Si la copie du fichier échoue dans l’exécution actuelle, la tâche Robocopy suivante réessaiera. Les fichiers en échec, du fait de leur utilisation en cours ou de problèmes de délai d’attente, peuvent au final être correctement copiés si vous utilisez cette approche. |
 | `/W:n`                | Spécifie la durée d’attente de Robocopy, avant de tenter la copie d’un fichier qui n’a pas pu être copié à la dernière tentative. `n` est le nombre de secondes d’attente entre les tentatives. `/W:n` est souvent utilisé avec `/R:n`. |
 | `/B`                  | Exécute Robocopy dans le même mode qu’une application de sauvegarde. Ce commutateur permet à Robocopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations. |
@@ -33,7 +33,7 @@ Robocopy /MT:32 /R:5 /W:5 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNIL
 | `/NFL`                | Indique que les noms de fichiers ne sont pas enregistrés dans le journal. Améliore les performances de copie. |
 | `/NDL`                | Indique que les noms de répertoires ne sont pas enregistrés dans le journal. Améliore les performances de copie. |
 | `/UNILOG:<file name>` | Écrit l’état dans le fichier journal au format Unicode. (Remplace le journal existant.) |
+| `/L`                  | **Uniquement pour une série de tests** </br> Les fichiers doivent uniquement être répertoriés. Ils ne sont pas copiés ni supprimés, et ne sont pas horodatées. Souvent utilisé avec `/TEE` pour la sortie de console. Les indicateurs de l’exemple de script, comme `/NP`, `/NFL` et `/NDL`, peuvent devoir être supprimés pour obtenir des résultats de tests dûment documentés. |
 | `/LFSM`               | **Uniquement pour les cibles avec stockage hiérarchisé** </br>Spécifie que Robocopy fonctionne en mode « espace libre faible ». Ce commutateur est utile uniquement pour les cibles avec stockage hiérarchisé, susceptibles de manquer de capacité locale avant que Robocopy puisse se terminer. Il a été spécifiquement ajouté à des fins d’utilisation avec une cible de hiérarchisation cloud Azure File Sync activée. Il peut être utilisé indépendamment d’Azure File Sync. Dans ce mode, Robocopy s’interrompt chaque fois qu’une copie de fichier réduit l’espace libre du volume de destination en dessous d’une valeur « plancher ». Cette valeur peut être spécifiée par la forme `/LFSM:n` de l’indicateur. Le paramètre `n` est spécifié en base 2 : `nKB`, `nMB` ou `nGB`. Si `/LFSM` est spécifié sans valeur plancher explicite, le plancher est défini sur 10 % de la taille du volume de destination. Le mode d’espace libre faible n’est pas compatible avec `/MT`, `/EFSRAW`, `/B` ou `/ZB`. |
 | `/Z`                  | **Utiliser avec prudence** </br>Copie les fichiers en mode redémarrage. Ce commutateur est recommandé uniquement dans un environnement réseau instable. Elle réduit considérablement les performances de copie en raison d’une journalisation supplémentaire. |
 | `/ZB`                 | **Utiliser avec prudence** </br>Utilise le mode de redémarrage. En cas d’accès refusé, cette option utilise le mode de sauvegarde. Cette option réduit considérablement les performances de copie en raison des points de contrôle. |
-   

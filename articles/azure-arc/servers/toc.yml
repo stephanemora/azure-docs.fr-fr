@@ -6,6 +6,8 @@
       href: overview.md
     - name: Nouveautés de l’agent Connected Machine
       href: agent-release-notes.md
+    - name: Archive des notes de publication de l’agent Connected Machine
+      href: agent-release-notes-archive.md
 - name: Démarrages rapides
   items:
     - name: Activer l’agent des serveurs avec Arc

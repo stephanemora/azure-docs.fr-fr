@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: bf2813381fe02a453c7a7c1ddec4c027117f0ce0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: a9a1918496d3832aea736b8a024a15f62f72edad
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641261"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824550"
 ---
 # <a name="lookup-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de recherche dans Azure Data Factory et Azure Synapse Analytics
 
