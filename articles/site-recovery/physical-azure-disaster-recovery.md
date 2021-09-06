@@ -3,13 +3,13 @@ title: Configurer la récupération d'urgence de serveurs locaux physiques avec 
 description: Découvrez comment configurer la récupération d’urgence vers Azure de serveurs Windows et Linux locaux avec le service Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
-ms.openlocfilehash: 0197d3f505edef0890ed076e15f89d14ad5ab5d4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/14/2021
+ms.openlocfilehash: 6811511cf45d342691a76ddb14b631601db56c36
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968698"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290273"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -19,7 +19,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 
 > [!div class="checklist"]
 > * Configurer les prérequis Azure et locaux
-> * Créer un coffre Recovery Services pour Site Recovery 
+> * Créer un coffre Recovery Services pour Site Recovery
 > * Configurer les environnements de réplication source et cible
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
@@ -36,7 +36,7 @@ Pour suivre ce tutoriel :
 
 Avant de commencer, notez les choses suivantes :
 
-- Après le basculement vers Azure, les serveurs physiques ne pourront plus être restaurés vers des machines physiques locales. Vous ne pourrez effectuer une restauration que vers des machines virtuelles VMware. 
+- Après le basculement vers Azure, les serveurs physiques ne pourront plus être restaurés vers des machines physiques locales. Vous ne pourrez effectuer une restauration que vers des machines virtuelles VMware.
 - Ce tutoriel définit la récupération d’urgence d’un serveur physique vers Azure avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les autres options, lisez nos guides pratiques :
     - Configurez la [source de réplication](physical-azure-set-up-source.md), notamment le serveur de configuration Site Recovery.
     - Configurez la [cible de réplication](physical-azure-set-up-target.md).
@@ -48,7 +48,7 @@ Avant de commencer, notez les choses suivantes :
 Procurez-vous un [compte Microsoft Azure](https://azure.microsoft.com/).
 
 - Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- Lisez les informations relatives aux [prix de Site Recovery](/azure/site-recovery/site-recovery-faq.yml#pricing) et prenez connaissance des [prix appliqués](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Lisez les informations relatives aux [prix de Site Recovery](/azure/site-recovery/site-recovery-faq#pricing) et prenez connaissance des [prix appliqués](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Identifiez les [régions prises en charge](https://azure.microsoft.com/pricing/details/site-recovery/) pour Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Vérifier les autorisations de compte Azure
@@ -56,7 +56,7 @@ Procurez-vous un [compte Microsoft Azure](https://azure.microsoft.com/).
 Assurez-vous que votre compte Azure dispose des autorisations nécessaires pour la réplication de machines virtuelles vers Azure.
 
 - Vérifiez les [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) nécessaires pour répliquer des machines vers Azure.
-- Vérifiez et modifiez les autorisation de [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) . 
+- Vérifiez et modifiez les autorisation de [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) .
 
 
 
@@ -102,24 +102,25 @@ Sélectionnez l’élément à répliquer et l’emplacement où il doit être r
 
 Configurez le serveur de configuration, inscrivez-le dans le coffre et découvrez les machines virtuelles.
 
-1. Cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Source**.
-2. Si vous n’avez pas de serveur de configuration, cliquez sur **+Serveur de configuration**.
-3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
-4. Téléchargez le fichier d’installation unifiée de Site Recovery.
-5. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
+1. Cliquez sur **Site Recovery** > **Préparer l’infrastructure**.
+2. Assurez-vous d’avoir établi votre plan de déploiement et exécutez le planificateur de déploiement pour estimer les différentes exigences. Cliquez sur **Suivant**.
+3. Sélectionnez si vos machines sont virtuelles ou physiques dans l’option **Vos machines sont-elles virtualisées ?** .
+4. Si vous n’avez pas de serveur de configuration, cliquez sur **+Serveur de configuration**.
+5. Si vous activez la protection de machines virtuelles, téléchargez le modèle d’ordinateur virtuel du serveur de configuration.
+6. Si vous activez la protection de machines physiques, téléchargez le fichier d’installation unifiée Site Recovery. Vous devrez également télécharger la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
 
    ![Capture d’écran montrant les options de téléchargement du fichier d’installation et de la clé d’inscription.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>inscrire le serveur de configuration dans le coffre
 
-Avant de commencer, procédez comme suit : 
+Avant de commencer, procédez comme suit :
 
 #### <a name="verify-time-accuracy"></a>Vérifier la précision de l’heure
 Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](/windows-server/networking/windows-time-service/windows-time-service-top). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
 
 #### <a name="verify-connectivity"></a>Vérifier la connectivité
-Vérifiez que la machine peut accéder à ces URL en fonction de votre environnement : 
+Vérifiez que la machine peut accéder à ces URL en fonction de votre environnement :
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -170,12 +171,12 @@ Activez la réplication pour chaque serveur.
 3. Dans **Type de machine**, sélectionnez **Machines physiques**.
 4. Sélectionnez le serveur de processus (serveur de configuration). Cliquez ensuite sur **OK**.
 5. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles Azure après le basculement. Choisissez le modèle de déploiement que vous souhaitez utiliser dans Azure (classique ou gestion des ressources).
-6. Sélectionnez le compte de stockage Azure que vous souhaitez utiliser pour les données de réplication. 
+6. Sélectionnez le compte de stockage Azure que vous souhaitez utiliser pour les données de réplication.
 7. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
-8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine. 
-9. Dans **Machines physiques**, cliquez sur **+Machines physiques**. Spécifiez le nom et l’adresse IP. Sélectionnez le système d’exploitation de la machine que vous souhaitez répliquer. La détection et l’affichage de la liste des serveurs peuvent prendre quelques minutes. 
+8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine.
+9. Dans **Machines physiques**, cliquez sur **+Machines physiques**. Spécifiez le nom et l’adresse IP. Sélectionnez le système d’exploitation de la machine que vous souhaitez répliquer. La détection et l’affichage de la liste des serveurs peuvent prendre quelques minutes.
 10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte à utiliser par le serveur de processus pour installer automatiquement le service Mobilité sur la machine.
-11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. 
+11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée.
 12. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
 

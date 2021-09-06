@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 7d94bd0a4a9fb50cb211fd227c3022a46beef502
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: b1eb954626570d7feb2af7fe0980e4f7a10e70c6
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527535"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279921"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
@@ -23,11 +23,9 @@ Toutes les images dans Azure Marketplace doivent être réutilisables de façon 
 Les disques de système d’exploitation Windows sont généralisés à l’aide de l’outil [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si vous mettez à jour ou reconfigurez le système d’exploitation par la suite, vous devrez réexécuter Sysprep.
 
 > [!WARNING]
-> Après l’exécution de Sysprep, éteignez la machine virtuelle jusqu’à son déploiement, car les mises à jour peuvent s’exécuter automatiquement. Cet arrêt évite que des mises à jour ultérieures apportent des modifications propres à une instance au système d’exploitation ou aux services installés. Pour plus d’informations sur l’exécution de sysprep, consultez [Étapes de généralisation d’un disque dur virtuel](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
+> Après l’exécution de Sysprep, éteignez la machine virtuelle jusqu’à son déploiement, car les mises à jour peuvent s’exécuter automatiquement. Cet arrêt évite que des mises à jour ultérieures apportent des modifications propres à une instance au système d’exploitation ou aux services installés. Pour plus d’informations sur l’exécution de sysprep, consultez [Généraliser une machine virtuelle Windows](../../virtual-machines/generalize.md#windows).
 
 ### <a name="for-linux"></a>Pour Linux
-
-Le processus suivant généralise une machine virtuelle Linux et la redéploie sous la forme d’une machine virtuelle distincte. Pour plus d’informations, consultez [Guide pratique pour créer une image de machine virtuelle ou de disque dur virtuel](../../virtual-machines/linux/capture-image.md). Vous pouvez arrêter quand vous atteignez la section intitulée « Créer une machine virtuelle à partir de l’image capturée ».
 
 1. Supprimez l’agent Linux Azure.
     1. Connectez-vous à votre machine virtuelle Linux en utilisant un client SSH.

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500cc23f2091c38006f7e58e150fb246f2a9ca64
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91612946"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586902"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planifier l’espace de noms agrégé
 
@@ -48,7 +48,7 @@ Pour permettre un accès facile via le cache, vous pouvez créer des cibles de s
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | sourcecollection                        | /source/               |
 
-Une cible de stockage NFS peut avoir plusieurs chemins d’accès d’espace de noms virtuels, à condition que chacun d’eux fasse référence à un chemin d’exportation unique. (Lisez [Chemins d’accès aux espaces de noms NFS](add-namespace-paths.md#nfs-namespace-paths) pour connaître le nombre maximal recommandé de chemins d’accès d’espace de noms par cible de stockage NFS).
+Une cible de stockage NFS peut avoir plusieurs chemins d’accès d’espace de noms virtuels, à condition que chacun d’eux fasse référence à un chemin d’exportation unique. (Lisez [Chemins d’accès d’espace de noms NFS](add-namespace-paths.md#nfs-namespace-paths) pour en savoir plus sur l’utilisation de plusieurs chemins d’accès d’espace de noms avec une cible de stockage NFS.)
 
 Les chemins sources NFS étant des sous-répertoires d’une même exportation, vous devez définir plusieurs chemins d’espaces de noms à partir de la même cible de stockage.
 

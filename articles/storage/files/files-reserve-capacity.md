@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 918320cdb24442e551249e4e67d65e4ba85846c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 216ebdeb843f2faa76751f333e838c3cc32a6664
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027456"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539265"
 ---
 # <a name="optimize-costs-for-azure-files-with-reserved-capacity"></a>Optimiser les coûts d’Azure Files avec la capacité de réserve
 Vous pouvez réaliser des économies sur les coûts de stockage pour les partages de fichiers Azure avec des réservations de capacité. La capacité de réserve Azure Files vous propose une remise sur les coûts de capacité pour le stockage lorsque vous vous engagez sur une durée de un à trois ans. Une réservation offre une quantité fixe de capacité de stockage pour la durée de la réservation.
@@ -22,6 +22,13 @@ Vous pouvez réaliser des économies sur les coûts de stockage pour les partage
 La capacité de réserve Azure Files peut réduire de manière significative les coûts de capacité pour le stockage de données dans vos partages de fichiers Azure. Les économies réalisées dépendent de la durée de votre réservation, de la capacité totale que vous choisissez de réserver et des paramètres de niveau et de redondance que vous avez choisis pour vos partages de fichiers Azure. La capacité de réserve permet de bénéficier d’une remise, sans influencer l’état de vos partages de fichiers Azure.
 
 Pour plus d’informations sur la tarification de la capacité de réservation pour Azure Files, consultez [Tarification Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 ## <a name="reservation-terms-for-azure-files"></a>Conditions de réservation pour Azure Files
 Les sections suivantes énoncent les conditions d’une réservation de capacité Azure Files.
@@ -35,9 +42,7 @@ La capacité de réserve Azure Files est disponible pour un abonnement unique ou
 Une réservation de capacité pour Azure Files couvre uniquement la quantité de données stockées dans un abonnement ou un groupe de ressources partagé. Les frais relatifs aux opérations, à la bande passante et au transfert de données ne sont pas inclus dans la réservation. Dès que vous achetez une réservation, les frais de capacité qui correspondent aux attributs de la réservation sont facturés au tarif de la réduction plutôt qu’à celui du paiement à l’utilisation. Pour plus d’informations sur les réservations Azure, consultez [Qu’est-ce qu’une réservation Azure ?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### <a name="supported-tiers-and-redundancy-options"></a>Options de redondance et niveaux pris en charge
-La capacité de réserve Azure Files est disponible uniquement pour les partages de fichiers standard déployés dans des comptes de stockage version 2 à usage général (GPv2). La capacité de réserve n’est pas disponible pour les partages de fichiers Azure dans les niveaux Premium ou optimisés pour les transactions.
-
-Actuellement, seuls les partages de fichiers Azure des niveaux chaud et froid prennent en charge les réservations. Toutes les redondances de stockage prennent en charge les réservations. Pour plus d’informations sur les options de redondance, consultez [Redondance Azure Files](storage-files-planning.md#redundancy).
+La capacité de réserve Azure Files est disponible pour les partages de fichiers Premium, chauds et froids. La capacité de réserve n’est pas disponible pour les partages de fichiers Azure dans le niveau optimisé pour les transactions. Toutes les redondances de stockage prennent en charge les réservations. Pour plus d’informations sur les options de redondance, consultez [Redondance Azure Files](storage-files-planning.md#redundancy).
 
 ### <a name="security-requirements-for-purchase"></a>Exigences de sécurité pour l’achat
 Pour acheter une capacité de réserve :
@@ -69,7 +74,7 @@ Pour acheter une capacité de réserve, procédez comme suit :
    |**Portée**   |  Indique le nombre d’abonnements pouvant bénéficier de l’avantage de facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques. <br/><br/> Si vous sélectionnez **Partagé**, la remise de réservation est appliquée à la capacité Azure Files dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients avec paiement à l’utilisation, l’étendue partagée comprend tous les abonnements individuels avec des tarifs de paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée à la capacité Azure Files de l’abonnement sélectionné. <br/><br/> Si vous sélectionnez **Groupe de ressources unique**, la remise de réservation est appliquée à la capacité Azure Files de l’abonnement sélectionné et du groupe de ressources sélectionné dans cet abonnement. <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la réservation.  |
    |**Abonnement**  | Abonnement utilisé pour payer la réservation Azure Files. Les coûts sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour une souscription entreprise, les frais sont déduits du solde de Paiement anticipé Azure (précédemment appelé « engagement financier ») de l’inscription ou facturés comme dépassement. <br/><br/> Abonnement individuel avec tarifs de paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
    | **Région** | Région dans laquelle la réservation est en vigueur. |
-   | **Niveau** | Niveau pour lequel la réservation est en vigueur. Les options incluent les niveaux *Chaud* and *Froid*. |
+   | **Niveau** | Niveau pour lequel la réservation est en vigueur. Les options incluent *Premium*, *Chaud* et *Froid*. |
    | **Redondance** | Option de redondance pour la réservation. Les options incluent *LRS*, *ZRS*, *GRS* et *GZRS*. Pour plus d’informations sur les options de redondance, consultez [Redondance Azure Files](storage-files-planning.md#redundancy). |
    | **Périodicité de facturation** | Indique la fréquence à laquelle le compte est facturé pour la réservation. Les options incluent *Mensuel* ou *Comptant*. |
    | **Taille** | Quantité de capacité à réserver. |

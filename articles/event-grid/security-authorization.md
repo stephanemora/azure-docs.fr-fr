@@ -3,12 +3,12 @@ title: Sécurité et authentification Azure Event Grid
 description: Détaille Azure Event Grid et ses concepts.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 9dda983bdb70f0723b87419ae96ca5bbadccd61a
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 74f4cfdb40d13a56d21727f3ced0477276b578c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735761"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531383"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorisation de l’accès aux ressources Event Grid
 Azure Event Grid vous permet de contrôler le niveau d’accès accordé aux utilisateurs leur permettant d’effectuer différentes **opérations de gestion** telles que répertorier et créer des abonnements aux événements et générer des clés. Event Grid utilise le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
@@ -43,6 +43,7 @@ Le rôle Contributeur Event Grid vous permet de créer et de gérer des ressourc
 | [Lecteur de l’abonnement Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Vous permet de lire les abonnements aux événements Event Grid. |
 | [Contributeur de l’abonnement Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Vous permet de gérer les opérations d’abonnement aux événements Event Grid. |
 | [Contributeur Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Vous permet de créer et de gérer des ressources Event Grid. |
+| [Expéditeur de données Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) | Vous permet d’envoyer des événements à des rubriques Event Grid. |
 
 
 > [!NOTE]

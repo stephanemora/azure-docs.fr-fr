@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8141d44aa4da394726d8c45a1f8514bdcaac09aa
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f3a19958770e157ed31dc3104331bcf5f860041d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229375"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719592"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-multiple-authentication-types-azure-portal"></a>Configuration d’une connexion point à site à un réseau virtuel à l’aide de plusieurs types d’authentification : Portail Azure
 
@@ -41,7 +41,8 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 * **Groupe de ressources :** TestRG1
 * **Emplacement :** USA Est
 * **GatewaySubnet :** 10.1.255.0/27<br>
-* **Nom de la passerelle de réseau virtuel :** VNet1GW
+* **Référence SKU :** VpnGw2
+* **Génération :** Génération 2
 * **Type de passerelle :** VPN
 * **Type de VPN :** basé sur la route
 * **Nom de l'adresse IP publique :** VNet1GWpip
@@ -66,7 +67,12 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle. La création et le déploiement complets d’une passerelle peuvent souvent prendre 45 minutes ou plus. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="client-address-pool"></a><a name="addresspool"></a>Pool d’adresses des clients
 

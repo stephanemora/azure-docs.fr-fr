@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 11/06/2020
-ms.openlocfilehash: 61f169c447b61c6c072971fb5913b37a3752e09e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 06/25/2021
+ms.openlocfilehash: 9d1ae8214467d38958597136877baca0309b2ffc
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790259"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675262"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guide de migration : SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -59,11 +59,24 @@ Vous pouvez également utiliser  [Microsoft Assessment and Planning Toolkit (�
 
 Pour plus d’informations sur les outils utilisables au cours de la phase de découverte, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md). 
 
+Une fois les sources de données découvertes, évaluez les instances de SQL Server locales que vous pouvez migrer vers Azure SQL Managed Instance pour identifier les obstacles ou les problèmes de compatibilité liés à la migration.
+Passez aux étapes suivantes pour évaluer et migrer des bases de données vers Azure SQL Managed Instance :
+
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sql-managed-instance-steps.png" alt-text="Étapes pour la migration vers Azure SQL Managed Instance":::
+
+- [Évaluer la compatibilité de SQL Managed Instance](#assess) où vous devez vous assurer qu’aucun problème bloquant ne peut empêcher vos migrations.
+  Cette étape comprend également la création d’un [référentiel de performance](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline) pour déterminer l’utilisation des ressources sur votre instance de SQL Server source. Cette étape est nécessaire si vous souhaitez déployer une Managed Instance correctement dimensionnée et vérifier que les performances après la migration ne sont pas altérées.
+- [Choisir des options de connectivité des applications](../../managed-instance/connect-application-instance.md).
+- [Déployer sur une instance gérée dimensionnée de façon optimale](#deploy-to-an-optimally-sized-managed-instance) où vous allez choisir les caractéristiques techniques (nombre de vCores, quantité de mémoire) et le niveau de performance (critique pour l’entreprise, usage général) de votre Managed Instance.
+- [Sélectionner une méthode de migration et effectuer la migration](sql-server-to-managed-instance-overview.md#compare-migration-options) à l’endroit où vous migrez vos bases de données à l’aide des options de migration hors connexion et en ligne.
+- [Surveiller et corriger les applications](#monitor-and-remediate-applications) pour vous assurer que vous disposez des performances attendues.
+
+
 ### <a name="assess"></a>Évaluer 
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
-Une fois les sources de données découvertes, évaluez les instances de SQL Server locales que vous pouvez migrer vers Azure SQL Managed Instance pour identifier les obstacles ou les problèmes de compatibilité liés à la migration. 
+Déterminez si SQL Managed Instance est compatible avec les exigences de base de données de votre application. SQL Managed Instance est conçu pour faciliter la migration « lift-and-shift » de la plupart des applications existantes qui utilisent SQL Server. Toutefois, vous risquez parfois d’avoir besoin de fonctionnalités ou de capacités qui ne sont pas encore prises en charge et dont le coût d’implémentation d’une solution de contournement est trop élevé. 
 
 Vous pouvez utiliser l’Assistant Migration de données (version 4.1 et ultérieure) pour évaluer les bases de données et obtenir les informations suivantes : 
 
@@ -86,7 +99,7 @@ Pour évaluer votre environnement à l’aide de l’Assistant Migration de donn
 
 Pour en savoir plus, consultez [Effectuer une évaluation de migration SQL Server avec l’Assistant Migration de données](/sql/dma/dma-assesssqlonprem).
 
-Si SQL Managed Instance n’est pas une cible appropriée pour votre charge de travail, SQL Server sur les machines virtuelles Azure peut représenter une cible alternative viable pour votre entreprise. 
+Si SQL Managed Instance n’est pas une cible appropriée pour votre charge de travail, SQL Server sur les machines virtuelles Azure peut représenter une cible alternative viable pour votre entreprise.
 
 #### <a name="scaled-assessments-and-analysis"></a>Évaluations mises à l’échelle et analyse
 
@@ -98,22 +111,47 @@ L’Assistant Migration de données prend en charge l’exécution d’évaluati
 > [!IMPORTANT]
 >L’exécution d’évaluations à grande échelle sur plusieurs bases de données peut également être automatisée à l’aide de l’[utilitaire en ligne de commande de DMA](/sql/dma/dma-commandline). Vous pouvez ensuite charger les résultats vers [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) pour approfondir l’analyse et préparer la cible.
 
-### <a name="create-a-performance-baseline"></a>Créer un référentiel de performance
+### <a name="deploy-to-an-optimally-sized-managed-instance"></a>Déployer sur une instance gérée dimensionnée de façon optimale
 
-Si vous avez besoin de comparer les performances de votre charge de travail s’exécutant sur SQL Managed Instance avec votre charge de travail d’origine s’exécutant sur SQL Server, créez une base de référence des performances à utiliser pour la comparaison. Pour en savoir plus, consultez les informations relatives à la [base de référence des performances](sql-server-to-managed-instance-performance-baseline.md). 
+En vous basant sur les informations de la phase de découverte et d’évaluation, créez une cible SQL Managed Instance de taille appropriée. Pour ce faire, vous pouvez utiliser le [portail Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md) ou un modèle [ARM (Azure Resource Manager)](../../managed-instance/create-template-quickstart.md).
 
-### <a name="create-sql-managed-instance"></a>Créer une instance SQL Database Managed Instance 
+SQL Managed Instance est adapté pour des charges de travail locales qui planifient une migration vers le cloud. Un [modèle d’achat](../../database/service-tiers-vcore.md) est ainsi présenté. Il offre davantage de flexibilité dans le choix du niveau de ressources pour vos charges de travail. Localement, vous êtes probablement habitué à dimensionner ces charges de travail à l’aide de cœurs physiques et de bandes passantes E/S. Le modèle d’achat pour une instance gérée repose sur des mémoires à tores magnétiques virtuelles, ou « vCores », avec un stockage et des E/S supplémentaires disponibles séparément. Le modèle vCore vous permet de comprendre plus facilement vos exigences de calcul dans le cloud par rapport à ce que vous utilisez localement aujourd’hui. Ce modèle d’achat vous permet de dimensionner au mieux votre environnement de destination dans le cloud. Quelques conseils généraux pouvant vous aider à choisir les caractéristiques et le niveau de service appropriés sont décrits ici :
 
-En vous basant sur les informations de la phase de découverte et d’évaluation, créez une cible SQL Managed Instance de taille appropriée. Pour ce faire, vous pouvez utiliser le [portail Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md) ou un modèle [ARM (Azure Resource Manager)](../../managed-instance/create-template-quickstart.md). 
+- En fonction de l’utilisation de l’UC de référence, vous pouvez approvisionner une instance gérée correspondant au nombre de cœurs que vous utilisez sur SQL Server, tout en tenant compte des caractéristiques de l’UC qui sont susceptibles d’être mises à l’échelle, afin de satisfaire aux [caractéristiques des machines virtuelles où est installé Managed Instance](../../managed-instance/resource-limits.md#hardware-generation-characteristics).
+- En fonction de l’utilisation de la mémoire de référence, choisissez [le niveau de service disposant de la mémoire correspondante](../../managed-instance/resource-limits.md#hardware-generation-characteristics). La quantité de mémoire ne peut pas être choisie directement. Vous devez donc sélectionner l’instance gérée avec la quantité de vCores disposant de la mémoire correspondante (par exemple, 5,1 Go/vCore dans Gen5).
+- En fonction de la latence d’E/S de référence du sous-système de fichiers, choisissez entre les niveaux de service Usage général (latence supérieure à 5 ms) et Critique pour l’entreprise (latence inférieure à 3 ms).
+- En fonction du débit de référence, pré-allouez la taille des fichiers de données ou des fichiers journaux pour atteindre les performances d’E/S attendues.
 
+Vous pouvez choisir des ressources de calcul et de stockage au moment du déploiement, puis les modifier plus tard sans temps d’arrêt pour votre application par le biais du [portail Azure](../../database/scale-resources.md) :
+
+:::image type="content" source="media/sql-server-to-managed-instance-overview/managed-instance-sizing.png" alt-text="Dimensionnement de l’instance gérée":::
+
+Pour apprendre à créer l’infrastructure de réseau virtuel et une instance gérée, voir [Créer une instance gérée](../../managed-instance/instance-create-quickstart.md).
+
+> [!IMPORTANT]
+> Il est important de maintenir votre réseau virtuel de destination et le sous-réseau en adéquation avec la [Configuration requise de réseau virtuel d’instance gérée](../../managed-instance/connectivity-architecture-overview.md#network-requirements). Toute incompatibilité risque de vous empêcher de créer des instances ou d’utiliser celles que vous avez déjà créées. Apprenez-en davantage sur la [création de réseaux](../../managed-instance/virtual-network-subnet-create-arm-template.md) et la [configuration de réseaux existants](../../managed-instance/vnet-existing-add-subnet.md).
 
 ## <a name="migrate"></a>Migrer
 
 Une fois que vous avez effectué les tâches associées à la phase de prémigration, vous êtes prêt à effectuer la migration du schéma et des données. 
 
-Migrez les données à l’aide de la [méthode de migration](sql-server-to-managed-instance-overview.md#compare-migration-options) de votre choix. 
+Migrez les données à l’aide de la [méthode de migration](sql-server-to-managed-instance-overview.md#compare-migration-options) de votre choix.
 
-Ce guide décrit les deux options les plus répandues : Azure Database Migration Service (DMS) et la fonctionnalité native de sauvegarde et restauration. 
+SQL Managed Instance cible des scénarios d’utilisateur qui exigent une migration de base de données en masse depuis des implémentations locales ou de machine virtuelle. Ils constituent le meilleur choix lorsque vous avez besoin d’effectuer une migration « lift-and-shift » du backend des applications qui utilisent régulièrement des fonctionnalités au niveau de l’instance et/ou entre plusieurs bases de données. Si cela correspond à votre scénario, vous pouvez déplacer toute une instance vers un environnement correspondant dans Azure sans avoir à redéfinir l’architecture de vos applications.
+
+Pour déplacer des instances SQL, vous devez planifier avec soin :
+
+- La migration de toutes les bases de données qui ont besoin d’être colocalisées (celles qui s’exécutent sur la même instance).
+- La migration des objets au niveau de l’instance dont votre application dépend, notamment les connexions, les informations d’identification, les travaux et opérateurs de l’Agent SQL, ainsi que les déclencheurs au niveau du serveur.
+
+SQL Managed Instance est un service géré qui vous permet de déléguer certaines des activités courantes d’administration des bases de données à la plateforme puisqu’elles y sont intégrées. Ainsi, certaines données au niveau de l’instance n’ont pas besoin de migrer, notamment les travaux de maintenance pour les sauvegardes régulières ou la configuration Always On, étant donné que la [haute disponibilité](../../database/high-availability-sla.md) est intégrée.
+
+SQL Managed Instance prend en charge les options de migration de base de données suivantes (actuellement ce sont les seules méthodes de migration prises en charge) :
+
+- Azure Database Migration Service - Migration ne nécessitant quasiment aucun temps d’arrêt.
+- Native `RESTORE DATABASE FROM URL` - Utilise des sauvegardes natives à partir de SQL Server et nécessite un temps d’arrêt.
+
+Ce guide décrit les deux options les plus répandues : Azure Database Migration Service (DMS) et la fonctionnalité native de sauvegarde et restauration.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
@@ -132,7 +170,6 @@ Pour effectuer des migrations à l’aide de DMS, suivez les étapes ci-dessous�
 Pour accéder à un tutoriel étape par étape basé sur cette option de migration, consultez [Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l’aide de DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
-
 ### <a name="backup-and-restore"></a>Sauvegarde et restauration 
 
 L’une des fonctionnalités clés d’Azure SQL Managed Instance pour accélérer et faciliter la migration des bases de données est la restauration native des fichiers de sauvegarde de base de données (`.bak`) présents sur le service [Stockage Azure](https://azure.microsoft.com/services/storage/). La sauvegarde et la restauration sont des opérations asynchrones qui dépendent de la taille de votre base de données. 
@@ -144,6 +181,19 @@ Le diagramme suivant fournit une vue d’ensemble du processus :
 > [!NOTE]
 > Le temps nécessaire pour effectuer une sauvegarde, la charger vers le stockage Azure et exécuter une opération de restauration native sur Azure SQL Managed Instance dépend de la taille de la base de données. Prenez en compte un temps d’arrêt suffisant pour les grandes bases de données. 
 
+Le tableau suivant fournit des informations supplémentaires sur les méthodes que vous pouvez utiliser en fonction de la version de SQL Server source que vous exécutez :
+
+|Étape|Moteur SQL et version|Méthode de sauvegarde/restauration|
+|---|---|---|
+|Placer la sauvegarde sur Stockage Azure|Avant 2012 SP1 CU2|Charger le fichier .bak directement sur Stockage Azure|
+| |2012 SP1 CU2 - 2016|Sauvegarde directe utilisant la syntaxe [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql) dépréciée|
+| |2016 et versions ultérieures|Sauvegarde directe utilisant [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+|Restaurer à partir d’un Stockage Azure vers une instance gérée| |[RESTORE FROM URL avec SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
+
+> [!IMPORTANT]
+>
+> - Lorsque vous migrez une base de données protégée par [Transparent Data Encryption](../../database/transparent-data-encryption-tde-overview.md) vers une instance gérée à l’aide d’une option de restauration native, le certificat correspondant du serveur SQL Server local ou de machine virtuelle Azure doit être migré avant la restauration de la base de données. Pour des instructions détaillées, voir [Migrer un certificat TDE vers une instance gérée](../../managed-instance/tde-certificate-migrate.md).
+> - La restauration de bases de données système n’est pas prise en charge. Pour effectuer la migration d’objets au niveau de l’instance (stockés dans des bases de données master et msdb), nous vous recommandons de les scripter et d’exécuter des scripts T-SQL sur l’instance de destination.
 
 Pour effectuer une migration à l’aide de la fonctionnalité de sauvegarde et restauration, suivez les étapes ci-dessous : 
 
@@ -171,7 +221,6 @@ Pour en savoir plus sur cette option de migration, consultez [Restaurer une base
 > Une opération de restauration de base de données est asynchrone et peut être retentée. SQL Server Management Studio peut générer une erreur en cas d’interruption de la connexion ou d’expiration d’un délai d’attente. Azure SQL Database continue d’essayer de restaurer la base de données en arrière-plan et vous pouvez suivre l’avancement de la restauration dans les vues [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
 
 
-
 ## <a name="data-sync-and-cutover"></a>Synchronisation des données et basculement
 
 Quand vous utilisez des options de migration qui répliquent/synchronisent en permanence les changements apportés aux données de la source vers la cible, les données et le schéma sources peuvent varier et dériver par rapport à la cible. Pendant la synchronisation des données, vérifiez que tous les changements apportés à la source sont capturés et appliqués à la cible au cours du processus de migration. 
@@ -188,9 +237,11 @@ Une fois que vous avez réussi la phase de migration, vous devez effectuer toute
 
 La phase postmigration est cruciale pour résoudre les problèmes de justesse et d’exhaustivité des données ainsi que pour gérer les problèmes de performances liés à la charge de travail. 
 
-### <a name="remediate-applications"></a>Corriger les applications 
+### <a name="monitor-and-remediate-applications"></a>Surveiller et corriger les applications 
+Après avoir effectué la migration vers une instance gérée, vous devez suivre le comportement de l’application et les performances de votre charge de travail. Ce processus comporte les activités suivantes :
 
-Une fois les données migrées vers l’environnement cible, toutes les applications qui consommaient la source doivent commencer à consommer la cible. Dans certains cas, cela vous oblige à apporter des changements aux applications.
+- [Comparer les performances de la charge de travail s’exécutant sur l’instance Managed Instance](sql-server-to-managed-instance-performance-baseline.md#compare-performance) avec celles du [référentiel de performance que vous avez créé sur l’instance SQL Server source](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline).
+- [Superviser les performances de votre charge de travail](sql-server-to-managed-instance-performance-baseline.md#monitor-performance) en permanence pour identifier les problèmes potentiels et les améliorations.
 
 ### <a name="perform-tests"></a>Effectuer des tests
 
@@ -206,14 +257,14 @@ L’approche de test pour la migration de base de données comprend les activit�
 
 Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Managed Instance, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
 
-[Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) vous permet de superviser un grand nombre d’instances managées de manière centralisée.
+[Azure SQL Analytics](../../../azure-sql/database/monitor-tune-overview.md) vous permet de superviser un grand nombre d’instances managées de manière centralisée.
 
 Certaines fonctionnalités SQL Server sont disponibles uniquement une fois que vous avez fait passer le [niveau de compatibilité de la base de données](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) au dernier niveau (150). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous souhaitez obtenir une matrice des services et outils Microsoft et tiers qui peuvent vous aider dans différents scénarios de migration de données et de base de données ainsi que pour des tâches spécialisées, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md).
+- Pour obtenir une matrice des services et outils Microsoft et tiers qui peuvent vous aider dans les différents scénarios de migration de données et de base de données ainsi que leurs tâches spécialisées, consultez [Services et outils de migration de données](../../../dms/dms-tools-matrix.md).
 
 - Pour en savoir plus sur Azure SQL Managed Instance, consultez :
    - [Niveaux de service dans Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 866eb949d124e8d705785c6552672730fe67ece1
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174578"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464162"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
@@ -27,14 +27,17 @@ La plateforme d’identité Microsoft prend en charge l’[octroi des informatio
 > [!WARNING]
 > Microsoft vous recommande de ne _pas_ utiliser le flux ROPC. Dans la plupart des scénarios, des alternatives plus sécurisées sont disponibles et recommandées. Ce flux demande un degré de confiance très élevé dans l’application et comporte des risques qui ne sont pas présents dans d’autres flux. Utilisez ce flux uniquement lorsqu’aucun autre flux plus sécurisé ne peut être utilisé.
 
+
 > [!IMPORTANT]
 >
 > * La plateforme d’identité Microsoft prend en charge ROPC seulement pour les locataires Azure AD, et pas pour les comptes personnels. Cela signifie que vous devez utiliser un point de terminaison spécifique au locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou le point de terminaison `organizations`.
 > * Les comptes personnels qui sont invités sur un locataire Azure AD ne peuvent pas utiliser ROPC.
-> * Les comptes qui n’ont pas de mots de passe ne peuvent pas se connecter via ROPC. Pour ce scénario, nous vous recommandons d’utiliser à la place un autre flux pour votre application.
+> * Les comptes sans mots de passe ne peuvent pas se connecter avec ROPC, ce qui signifie que les fonctionnalités telles que la connexion SMS, FIDO et l’application Authenticator ne fonctionneront pas avec ce flux. Utilisez un autre flux que ROPC si votre application ou vos utilisateurs ont besoin de ces fonctionnalités.
 > * Si les utilisateurs doivent utiliser l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md) pour se connecter à l’application, ils seront au lieu de cela bloqués.
 > * ROPC n’est pas pris en charge dans les scénarios de la [fédération d’identités hybrides](../hybrid/whatis-fed.md) (par exemple, Azure AD et ADFS utilisés pour authentifier des comptes locaux). Si les utilisateurs sont redirigés en pleine page vers des fournisseurs d’identité locaux, Azure AD n’est pas en mesure de tester le nom d’utilisateur et le mot de passe par rapport à ce fournisseur d’identité. [L’authentification directe](../hybrid/how-to-connect-pta.md) est toutefois prise en charge avec ROPC.
 > * Voici une exception à un scénario d’identité hybride : la stratégie de découverte du domaine d’accueil avec l’ensemble AllowCloudPasswordValidation défini sur TRUE permettra au flux ROPC de fonctionner pour les utilisateurs fédérés lorsque le mot de passe local est synchronisé avec le Cloud. Pour plus d’informations, consultez [Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
@@ -45,11 +48,6 @@ Le diagramme qui suit montre le flux ROPC.
 ## <a name="authorization-request"></a>Demande d’autorisation.
 
 Le flux ROPC est une demande unique : il envoie l’identification du client et les informations d’identification de l’utilisateur au fournisseur d’identité, puis il reçoit en retour des jetons. Le client doit demander l’adresse e-mail (UPN) et le mot de passe de l’utilisateur avant de continuer. Immédiatement après une demande réussie, le client doit supprimer de la mémoire les informations d’identification de l’utilisateur de façon sécurisée. Il ne doit jamais les enregistrer.
-
-> [!TIP]
-> Essayez d'exécuter cette requête dans Postman !
-> [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 
 ```HTTP
 // Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
@@ -73,8 +71,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `username` | Obligatoire | Adresse e-mail de l’utilisateur. |
 | `password` | Obligatoire | Mot de passe de l’utilisateur. |
 | `scope` | Recommandé | Une liste (séparée par des espaces) d’[étendues](v2-permissions-and-consent.md), ou d’autorisations, exigées par l’application. Dans un flux interactif, l’administrateur ou l’utilisateur doit accepter ces étendues au préalable. |
-| `client_secret`| Parfois obligatoire | Si votre application est un client public, `client_secret` ou `client_assertion` ne peut pas être inclus.  Si l’application est un client confidentiel, le paramètre doit être inclus. |
+| `client_secret`| Parfois obligatoire | Si votre application est un client public, `client_secret` ou `client_assertion` ne peut pas être inclus.  Si l’application est un client confidentiel, le paramètre doit être inclus.|
 | `client_assertion` | Parfois obligatoire | Forme différente de `client_secret`, générée à l’aide d’un certificat.  Pour plus d’informations, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
+
+> [!WARNING]
+> Pour justifier la recommandation de ne pas utiliser ce flux, les kits de développement logiciel (SDK) officiels ne prennent pas en charge ce flux pour les clients confidentiels, à savoir ceux qui utilisent un secret ou une assertion. Vous pouvez constater que le kit de développement logiciel (SDK) que vous souhaitez utiliser ne vous permet pas d’ajouter un secret lors de l’utilisation de ROPC. 
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie
 
@@ -101,6 +102,8 @@ L’exemple suivant montre une réponse de jeton réussie :
 | `refresh_token` | Chaîne opaque | Émise si le paramètre `scope` d’origine inclut `offline_access`. |
 
 Vous pouvez utiliser le jeton d’actualisation pour acquérir de nouveaux jetons d’accès et actualiser des jetons avec le même flux détaillé décrit dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>Réponse d’erreur
 

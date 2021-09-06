@@ -1,104 +1,237 @@
 ---
-title: Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure
-description: Cet article explique comment nettoyer les journaux d’activité SSISDB à l’aide de travaux de base de données élastique Azure pour déclencher la procédure stockée prévue à cet effet
+title: Comment nettoyer les journaux SSISDB automatiquement
+description: Cet article explique comment nettoyer le déploiement de projet SSIS et les journaux d’exécution de package stockés dans SSISDB en appelant automatiquement la procédure stockée SSISDB appropriée via Azure Data Factory, Agent Azure SQL Managed Instance ou des travaux de base de données élastique.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/28/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a6ec3ffbdcf572965461bd2d4d2b23cdbfa08336
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6df8c978957bfcbeef87d36d14647ad1caeeb699
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534664"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562263"
 ---
-# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure
+# <a name="how-to-clean-up-ssisdb-logs-automatically"></a>Comment nettoyer les journaux SSISDB automatiquement
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Cet article explique comment utiliser des travaux de base de données élastique Azure pour déclencher la procédure stockée qui nettoie les journaux d’activité pour la base de données de catalogue SQL Server Integration Services, `SSISDB`.
+Une fois que vous avez configuré un runtime d’intégration (IR) Azure-SQL Server Integration Services (SSIS) dans Azure Data Factory (ADF), vous pouvez l’utiliser pour exécuter des packages SSIS déployés dans :
 
-Les travaux de base de données élastique constituent un service Azure qui simplifie l’automatisation et l’exécution de travaux par rapport à une base de données ou un groupe de bases de données. Vous pouvez planifier, exécuter et surveiller ces travaux à l’aide du portail Azure, Transact-SQL, PowerShell ou des API REST. Utilisez le travail de base de données élastique pour déclencher la procédure stockée de nettoyage unique du journal ou selon une planification. Vous pouvez choisir l’intervalle de planification en fonction de l’utilisation des ressources SSISDB afin d’éviter une lourde charge de base de données.
+- le catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance (modèle de déploiement de projet) ;
+- le système de fichiers, Azure Files ou une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance (modèle de déploiement de package).
+
+Dans le modèle de déploiement de projet, votre IR Azure-SSIS déploie des projets SSIS dans SSISDB, récupère les packages SSIS à exécuter à partir de SSISDB et écrit les journaux d’exécution de package dans SSISDB. SSISDB est également utilisé pour stocker les journaux des travaux SSIS et des opérations IR. Pour gérer les journaux accumulés, nous avons fourni des propriétés SSISDB et des procédures stockées appropriées qui peuvent être appelées automatiquement selon la planification par le biais d’ADF, Agent Azure SQL Managed Instance ou de travaux de base de données élastique.
+
+## <a name="ssisdb-log-clean-up-properties-and-stored-procedures"></a>Propriétés et procédures stockées de nettoyage des journaux SSISDB
+Pour gérer les journaux d’exécution de package SSIS, vous pouvez configurer des propriétés de nettoyage des journaux SSISDB en vous connectant à SSISDB hébergé par votre serveur Azure SQL Database/Managed Instance à l’aide de SQL Server Management Studio (SSMS). Consultez [Connexion à SSISDB](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15&preserve-view=true#connect-to-the-ssisdb-database). Une fois connecté, dans la fenêtre **Explorateur d’objets** de SSMS, vous pouvez développer le nœud **Catalogues Integration Services**, cliquer avec le bouton droit sur le sous-nœud **SSISDB**, puis sélectionner l’élément de menu **Propriétés** pour ouvrir la boîte de dialogue **Propriétés du catalogue**. Dans la boîte de dialogue **Propriétés du catalogue**, vous trouverez les propriétés de nettoyage des journaux SSISDB suivantes :
+
+- **Nettoyer les journaux régulièrement** : active le nettoyage des journaux d’exécution de package, défini par défaut sur *True*.
+- **Période de rétention (jours)** : spécifie l’ancienneté maximale des journaux retenus (en jours), défini par défaut sur *365*. Les journaux plus anciens sont supprimés lorsque la procédure stockée SSISDB appropriée est appelée.
+- **Supprimer régulièrement les anciennes versions** : active le nettoyage des versions de projet stockées, défini par défaut sur *True*.
+- **Nombre maximal de versions par projet** : spécifie le nombre maximal de versions de projet stockées, défini par défaut sur *10*. Les versions plus anciennes sont supprimées lorsque la procédure stockée SSISDB appropriée est appelée.
+
+![Propriétés de nettoyage des journaux SSISDB](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png)
+
+Une fois les propriétés de nettoyage des journaux SSISDB configurées, vous pouvez appeler la procédure stockée SSISDB appropriée, `[internal].[cleanup_server_retention_window_exclusive]`, pour nettoyer les journaux d’exécution de package SSIS.
+
+Pour nettoyer les journaux des travaux SSIS, vous pouvez appeler la procédure stockée SSISDB appropriée, `[internal].[cleanup_completed_jobs_exclusive]`. La période de rétention est définie par défaut sur 60 minutes et les anciens journaux sont supprimés lorsque la procédure stockée est appelée.
+
+Pour nettoyer les journaux des opérations IR SSIS, vous pouvez appeler la procédure stockée SSISDB appropriée, `[internal].[cleanup_expired_worker]`. La période de rétention est définie par défaut sur 168 heures et les anciens journaux sont supprimés lorsque la procédure stockée est appelée.
+
+Ces procédures stockées SSISDB nettoient différentes tables SSISDB :
+
+| Procédures stockées SSISDB | Tables SSISDB à nettoyer |
+|--------------------------|---------------------------|
+| `[internal].[cleanup_server_retention_window_exclusive]` | `[internal].[operations]`<br/><br/>`[internal].[operation_messages_scaleout]`<br/><br/>`[internal].[event_messages_scaleout]`<br/><br/>`[internal].[event_message_context_scaleout]` |
+| `[internal].[cleanup_completed_jobs_exclusive]` | `[internal].[jobs]`<br/><br/>`[internal].[tasks]`<br/><br/>`[internal].[job_worker_agents]` |
+| `[internal].[cleanup_expired_worker]` | `[internal].[worker_agents]` |
+ 
+Ces procédures stockées SSISDB peuvent également être appelées automatiquement selon la planification par le biais d’ADF, Agent Azure SQL Managed Instance ou de travaux de base de données élastique.
+
+## <a name="clean-up-ssisdb-logs-automatically-via-adf"></a>Nettoyer les journaux SSISDB automatiquement par le biais d’ADF
+Que vous utilisiez le serveur de base de données Azure SQL/Managed Instance pour héberger des SSISDB, vous pouvez toujours utiliser ADF pour nettoyer automatiquement les journaux SSISDB selon une planification. Pour ce faire, vous pouvez préparer une activité Exécuter le package SSIS dans le pipeline ADF avec un package incorporé contenant une seule tâche Exécuter SQL qui appelle les procédures stockées SSISDB appropriées. Consultez l’exemple 4 dans notre blog : [Exécutez n’importe quelle requête SQL en 3 étapes simples à l’aide du service SSIS dans Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244).
+
+![Nettoyage des journaux SSISDB par le biais d’ADF](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png)
+
+Pour le paramètre **SQLStatementSource**, vous pouvez entrer `EXEC internal.cleanup_server_retention_window_exclusive` pour nettoyer les journaux d’exécution de package SSIS. 
+
+Pour nettoyer les journaux des travaux SSIS, vous pouvez ajouter `EXEC internal.cleanup_completed_jobs_exclusive [@minutesToKeep=’Number of minutes to set as retention period’]`. 
+
+Pour nettoyer les journaux des opérations IR SSIS, vous pouvez ajouter `EXEC internal.cleanup_expired_worker [@hoursToKeep=’Number of hours to set as retention period’] `.
+
+Une fois que votre pipeline ADF est préparé, vous pouvez associer un déclencheur de planification pour l’exécuter régulièrement. Consultez [Comment déclencher un pipeline ADF selon une planification](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+## <a name="clean-up-ssisdb-logs-automatically-via-azure-sql-managed-instance-agent"></a>Nettoyer les journaux SSISDB automatiquement par le biais de l’Agent Azure SQL Managed Instance
+Si vous utilisez Azure SQL Managed Instance pour héberger SSISDB, vous pouvez également utiliser son orchestrateur/planificateur de travaux intégré, l’Agent Azure SQL Managed Instance, pour nettoyer automatiquement les journaux SSISDB selon une planification. Si SSISDB a été créé récemment dans votre Azure SQL Managed Instance, nous avons également créé un travail T-SQL nommé **Travail de maintenance de serveur SSIS** sous l’Agent Azure SQL Managed Instance pour nettoyer plus particulièrement les journaux d’exécution de package SSIS. Il est désactivé et configuré par défaut avec une planification d’exécution quotidienne.  Si vous souhaitez l’activer et ou reconfigurer sa planification, vous pouvez le faire en vous connectant à votre Azure SQL Managed Instance à l’aide de SSMS. Une fois connecté, dans la fenêtre **Explorateur d'objets** de SSMS, vous pouvez développer le nœud **Agent SQL Server**, développer le sous-nœud **Travaux**, puis double-cliquer sur **Travail de maintenance de serveur SSIS** pour l’activer/le reconfigurer.
+
+![Nettoyage des journaux SSISDB par le biais de l’Agent Azure SQL Managed Instance](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png)
+
+Si le **Travail de maintenance de serveur SSIS** n’est pas encore créé sous votre Agent Azure SQL Managed Instance, vous pouvez l’ajouter manuellement en exécutant le script T-SQL suivant sur votre Azure SQL Managed Instance.
+
+```sql
+USE msdb
+IF EXISTS(SELECT * FROM sys.server_principals where name = '##MS_SSISServerCleanupJobLogin##')
+   DROP LOGIN ##MS_SSISServerCleanupJobLogin##
+
+DECLARE @loginPassword nvarchar(256)
+SELECT @loginPassword = REPLACE (CONVERT( nvarchar(256), CRYPT_GEN_RANDOM( 64 )), N'''', N'''''')
+EXEC ('CREATE LOGIN ##MS_SSISServerCleanupJobLogin## WITH PASSWORD =''' +@loginPassword + ''', CHECK_POLICY = OFF')
+ALTER LOGIN ##MS_SSISServerCleanupJobLogin## DISABLE
+
+USE master
+GRANT VIEW SERVER STATE TO ##MS_SSISServerCleanupJobLogin##
+
+USE SSISDB
+IF EXISTS (SELECT name FROM sys.database_principals WHERE name = '##MS_SSISServerCleanupJobUser##')
+    DROP USER ##MS_SSISServerCleanupJobUser##
+CREATE USER ##MS_SSISServerCleanupJobUser## FOR LOGIN ##MS_SSISServerCleanupJobLogin##
+GRANT EXECUTE ON [internal].[cleanup_server_retention_window_exclusive] TO ##MS_SSISServerCleanupJobUser##
+GRANT EXECUTE ON [internal].[cleanup_server_project_version] TO ##MS_SSISServerCleanupJobUser##
+
+USE msdb
+EXEC dbo.sp_add_job
+    @job_name = N'SSIS Server Maintenance Job', 
+    @enabled = 0,
+    @owner_login_name = '##MS_SSISServerCleanupJobLogin##',
+    @description = N'Runs every day. The job removes operation records from the database that are outside the retention period and maintains a maximum number of versions per project.'
+
+DECLARE @IS_server_name NVARCHAR(30)
+SELECT @IS_server_name = CONVERT(NVARCHAR, SERVERPROPERTY('ServerName'))
+EXEC sp_add_jobserver  @job_name = N'SSIS Server Maintenance Job',
+                       @server_name = @IS_server_name
+
+EXEC sp_add_jobstep
+    @job_name = N'SSIS Server Maintenance Job',
+    @step_name = N'SSIS Server Operation Records Maintenance',
+    @subsystem = N'TSQL',
+    @command = N'
+       DECLARE @role int
+       SET @role = (SELECT [role] FROM [sys].[dm_hadr_availability_replica_states] hars INNER JOIN [sys].[availability_databases_cluster] adc ON hars.[group_id] = adc.[group_id] WHERE hars.[is_local] = 1 AND adc.[database_name] =''SSISDB'')
+       IF DB_ID(''SSISDB'') IS NOT NULL AND (@role IS NULL OR @role = 1)
+              EXEC [SSISDB].[internal].[cleanup_server_retention_window_exclusive]',
+    @database_name = N'msdb',
+    @on_success_action = 3,
+    @retry_attempts = 3,
+    @retry_interval = 3;
+
+EXEC sp_add_jobstep
+    @job_name = N'SSIS Server Maintenance Job',
+    @step_name = N'SSIS Server Max Version Per Project Maintenance',
+    @subsystem = N'TSQL',
+    @command = N'
+       DECLARE @role int
+       SET @role = (SELECT [role] FROM [sys].[dm_hadr_availability_replica_states] hars INNER JOIN [sys].[availability_databases_cluster] adc ON hars.[group_id] = adc.[group_id] WHERE hars.[is_local] = 1 AND adc.[database_name] =''SSISDB'')
+       IF DB_ID(''SSISDB'') IS NOT NULL AND (@role IS NULL OR @role = 1)
+              EXEC [SSISDB].[internal].[cleanup_server_project_version]',
+    @database_name = N'msdb',
+    @retry_attempts = 3,
+    @retry_interval = 3;
+
+EXEC sp_add_jobschedule
+    @job_name = N'SSIS Server Maintenance Job',
+    @name = 'SSISDB Scheduler',
+    @enabled = 1,
+    @freq_type = 4, /*daily*/
+    @freq_interval = 1,/*every day*/
+    @freq_subday_type = 0x1,
+    @active_start_date = 20001231,
+    @active_end_date = 99991231,
+    @active_start_time = 0,
+    @active_end_time = 120000
+```
+
+Vous pouvez également configurer le **Travail de maintenance de serveur SSIS** existante ou modifier le script T-SQL ci-dessus pour nettoyer également les journaux des travaux SSIS/opérations IR en appelant les procédures stockées SSISDB appropriées.
+
+## <a name="clean-up-ssisdb-logs-automatically-via-elastic-database-jobs"></a>Nettoyer les journaux SSISDB automatiquement par le biais de travaux de base de données élastique
+Si vous utilisez le serveur Azure SQL Database pour héberger SSISDB, il n’a pas d’orchestrateur/de planificateur de travaux intégré. Vous devez donc utiliser un composant externe, par exemple ADF (voir ci-dessus) ou des travaux de base de données élastique (voir le reste de cette section) pour nettoyer les journaux SSISDB automatiquement selon une planification.
+
+Les travaux de base de données élastique constituent un service Azure qui permet d’automatiser et d’exécuter des travaux par rapport à une base de données ou un groupe de bases de données. Vous pouvez planifier, exécuter et surveiller ces travaux à l’aide du portail Azure, Azure PowerShell, T-SQL ou des API REST. Utilisez des travaux de base de données élastique pour appeler les procédures stockées SSISDB appropriées pour le nettoyage des journaux une fois ou selon une planification. Vous pouvez choisir l’intervalle de planification en fonction de l’utilisation des ressources SSISDB afin d’éviter une lourde charge de base de données.
 
 Pour plus d’informations, consultez [Gérer des groupes de bases de données avec des travaux de base de données élastique](../azure-sql/database/elastic-jobs-overview.md).
 
-Les sections suivantes décrivent comment déclencher la procédure stockée `[internal].[cleanup_server_retention_window_exclusive]`, qui supprime les journaux d’activité SSISDB en dehors de la fenêtre de rétention définie par l’administrateur.
+Les sections suivantes décrivent comment appeler les procédures stockées SSISDB appropriées, `[internal].[cleanup_server_retention_window_exclusive]`/`[internal].[cleanup_completed_jobs_exclusive]`/`[internal].[cleanup_expired_worker]`, qui suppriment les journaux SSISDB qui se trouvent en dehors de leurs périodes de rétention spécifiques.
 
-## <a name="clean-up-logs-with-power-shell"></a>Nettoyer les journaux d’activité avec Power Shell
+### <a name="configure-elastic-database-jobs-using-azure-powershell"></a>Configurer des travaux de base de données élastique à l’aide d’Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Les exemples de scripts PowerShell suivants créent un nouveau travail élastique pour déclencher la procédure stockée de nettoyage du journal SSISDB. Pour plus d’informations, consultez [Créer un agent de travail élastique à l’aide de PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
+Les scripts Azure PowerShell suivants créent un nouveau travail élastique qui appelle la procédure stockée de nettoyage des journaux SSISDB sélectionnée. Pour plus d’informations, consultez [Créer un agent de travail élastique à l’aide de PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
 
-### <a name="create-parameters"></a>Créer des paramètres
+#### <a name="create-parameters"></a>Créer des paramètres
 
 ``` powershell
-# Parameters needed to create the Job Database
+# Parameters needed to create your job database
 param(
 $ResourceGroupName = $(Read-Host "Please enter an existing resource group name"),
-$AgentServerName = $(Read-Host "Please enter the name of an existing logical SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
-$SSISDBLogCleanupJobDB = $(Read-Host "Please enter a name for the Job Database to be created in the given SQL Server"),
-# The Job Database should be a clean,empty,S0 or higher service tier. We set S0 as default.
+$AgentServerName = $(Read-Host "Please enter the name of an existing Azure SQL Database server, for example myjobserver, to hold your job database"),
+$SSISDBLogCleanupJobDB = $(Read-Host "Please enter a name for your job database to be created in the given Azure SQL Database server"),
+$StoredProcName = $(Read-Host "Please enter the name of SSISDB log clean-up stored procedure to be invoked by your job (internal.cleanup_server_retention_window_exclusive/internal.cleanup_completed_jobs_exclusive/internal.cleanup_expired_worker)"), 
+
+# Your job database should be a clean, empty S0 or higher service tier. We set S0 as default.
 $PricingTier = "S0",
 
-# Parameters needed to create the Elastic Job agent
-$SSISDBLogCleanupAgentName = $(Read-Host "Please enter a name for your new Elastic Job agent"),
+# Parameters needed to create your Elastic Job agent
+$SSISDBLogCleanupAgentName = $(Read-Host "Please enter a name for your Elastic Job agent"),
 
-# Parameters needed to create the job credential in the Job Database to connect to SSISDB
-$PasswordForSSISDBCleanupUser = $(Read-Host "Please provide a new password for SSISDBLogCleanup job user to connect to SSISDB database for log cleanup"),
-# Parameters needed to create a login and a user in the SSISDB of the target server
-$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target logical SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
+# Parameters needed to create credentials in your job database for connecting to SSISDB
+$PasswordForSSISDBCleanupUser = $(Read-Host "Please provide a new password for the log clean-up job user to connect to SSISDB"),
+
+# Parameters needed to create the login and user for SSISDB
+$SSISDBServerEndpoint = $(Read-Host "Please enter the name of target Azure SQL Database server that contains SSISDB, for example myssisdbserver") + '.database.windows.net',
 $SSISDBServerAdminUserName = $(Read-Host "Please enter the target server admin username for SQL authentication"),
 $SSISDBServerAdminPassword = $(Read-Host "Please enter the target server admin password for SQL authentication"),
 $SSISDBName = "SSISDB",
 
-# Parameters needed to set job scheduling to trigger execution of cleanup stored procedure
-$RunJobOrNot = $(Read-Host "Please indicate whether you want to run the job to cleanup SSISDB logs outside the log retention window immediately(Y/N). Make sure the retention window is set appropriately before running the following powershell scripts. Those removed SSISDB logs cannot be recovered"),
-$IntervalType = $(Read-Host "Please enter the interval type for the execution schedule of SSISDB log cleanup stored procedure. For the interval type, Year, Month, Day, Hour, Minute, Second can be supported."),
-$IntervalCount = $(Read-Host "Please enter the detailed interval value in the given interval type for the execution schedule of SSISDB log cleanup stored procedure"),
-# StartTime of the execution schedule is set as the current time as default. 
+# Parameters needed to set the job schedule for invoking SSISDB log clean-up stored procedure
+$RunJobOrNot = $(Read-Host "Please indicate whether you want to run your job that cleans up SSISDB logs outside their retention period immediately (Y/N). Make sure the specific retention period is set properly before running the following scripts as deleted logs cannot be recovered."),
+$IntervalType = $(Read-Host "Please enter the interval type for SSISDB log clean-up schedule: Year, Month, Day, Hour, Minute, Second are supported."),
+$IntervalCount = $(Read-Host "Please enter the count of interval type for SSISDB log clean-up schedule."),
+
+# The start time for SSISDB log clean-up schedule is set to current time by default. 
 $StartTime = (Get-Date)
 ```
 
-### <a name="trigger-the-cleanup-stored-procedure"></a>Déclencher la procédure stockée de nettoyage
+#### <a name="invoke-ssisdb-log-clean-up-stored-procedure"></a>Appeler la procédure stockée de nettoyage des journaux SSISDB
 
 ```powershell
-# Install the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+# Install the latest PowerShell PackageManagement module that PowerShellGet v1.6.5 depends on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
-# You may need to restart the powershell session
-# Install the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+
+# You may need to restart your PowerShell session
+# Install the latest PowerShellGet module that adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
-# Place AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
+# Install AzureRM.Sql preview cmdlets side by side with the existing AzureRM.Sql version
 Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
 
 # Sign in to your Azure account
 Connect-AzureRmAccount
 
-# Create a Job Database which is used for defining jobs of triggering SSISDB log cleanup stored procedure and tracking cleanup history of jobs
-Write-Output "Creating a blank SQL database to be used as the SSISDBLogCleanup  Job Database ..."
+# Create your job database for defining SSISDB log clean-up job and tracking the job history
+Write-Output "Creating a blank SQL database to be used as your job database ..."
 $JobDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $SSISDBLogCleanupJobDB -RequestedServiceObjectiveName $PricingTier
 $JobDatabase
 
-# Enable the Elastic Jobs preview in your Azure subscription
+# Enable Elastic Database Jobs preview in your Azure subscription
 Register-AzureRmProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
 
-# Create the Elastic Job agent
-Write-Output "Creating the Elastic Job agent..."
+# Create your Elastic Job agent
+Write-Output "Creating your Elastic Job agent..."
 $JobAgent = $JobDatabase | New-AzureRmSqlElasticJobAgent -Name $SSISDBLogCleanupAgentName
 $JobAgent
 
-# Create the job credential in the Job Database to connect to SSISDB database in the target server for log cleanup
-Write-Output "Creating job credential to connect to SSISDB database..."
+# Create job credentials in your job database for connecting to SSISDB in target server
+Write-Output "Creating job credentials for connecting to SSISDB..."
 $JobCredSecure = ConvertTo-SecureString -String $PasswordForSSISDBCleanupUser -AsPlainText -Force
 $JobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "SSISDBLogCleanupUser", $JobCredSecure
 $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "SSISDBLogCleanupUser" -Credential $JobCred
 
-# In the master database of the target SQL server which contains SSISDB to cleanup 
-# - Create the job user login
-Write-Output "Grant permissions on the master database of the target server..."
+# Create the job user login in master database of target server
+Write-Output "Grant permissions on the master database of target server..."
 $Params = @{
   'Database' = 'master'
   'ServerInstance' = $SSISDBServerEndpoint
@@ -109,13 +242,11 @@ $Params = @{
 }
 Invoke-SqlCmd @Params
 
-# For SSISDB database of the target SQL server
-# - Create the SSISDBLogCleanup user from the SSISDBlogCleanup user login
-# - Grant permissions for the execution of SSISDB log cleanup stored procedure 
-Write-Output "Grant appropriate permissions on SSISDB database..."
+# Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure
+Write-Output "Grant appropriate permissions on SSISDB..."
 $TargetDatabase = $SSISDBName
 $CreateJobUser = "CREATE USER SSISDBLogCleanupUser FROM LOGIN SSISDBLogCleanupUser"
-$GrantStoredProcedureExecution = "GRANT EXECUTE ON internal.cleanup_server_retention_window_exclusive TO SSISDBLogCleanupUser"
+$GrantStoredProcedureExecution = "GRANT EXECUTE ON " + $StoredProcName + " TO SSISDBLogCleanupUser" 
 
 $TargetDatabase | ForEach-Object -Process {
   $Params.Database = $_
@@ -125,144 +256,146 @@ $TargetDatabase | ForEach-Object -Process {
   Invoke-SqlCmd @Params
 }
 
-# Create a target group which includes SSISDB database needed to cleanup
-Write-Output "Creating the target group including only SSISDB database needed to cleanup ..."
+# Create your target group that includes only SSISDB to clean up
+Write-Output "Creating your target group that includes only SSISDB to clean up..."
 $SSISDBTargetGroup = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name "SSISDBTargetGroup"
 $SSISDBTargetGroup | Add-AzureRmSqlElasticJobTarget -ServerName $SSISDBServerEndpoint -Database $SSISDBName 
 
-# Create the job to trigger execution of SSISDB log cleanup stored procedure
-Write-Output "Creating a new job to trigger execution of the stored procedure for SSISDB log cleanup"
+# Create your job to invoke SSISDB log clean-up stored procedure
+Write-Output "Creating your job to invoke SSISDB log clean-up stored procedure..."
 $JobName = "CleanupSSISDBLog"
 $Job = $JobAgent | New-AzureRmSqlElasticJob -Name $JobName -RunOnce
 $Job
 
-# Add the job step to execute internal.cleanup_server_retention_window_exclusive
-Write-Output "Adding the job step for the cleanup stored procedure execution"
-$SqlText = "EXEC internal.cleanup_server_retention_window_exclusive"
-$Job | Add-AzureRmSqlElasticJobStep -Name "step to execute cleanup stored procedure" -TargetGroupName $SSISDBTargetGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText
+# Add your job step to invoke SSISDB log clean-up stored procedure
+Write-Output "Adding your job step to invoke SSISDB log clean-up stored procedure..."
+$SqlText = "EXEC " + $StoredProcName 
+$Job | Add-AzureRmSqlElasticJobStep -Name "Step to invoke SSISDB log clean-up stored procedure" -TargetGroupName $SSISDBTargetGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText
 
-# Run the job to immediately start cleanup stored procedure execution for once
+# Run your job to immediately invoke SSISDB log clean-up stored procedure once
 if ($RunJobOrNot -eq 'Y')
 {
-Write-Output "Start a new execution of the stored procedure for SSISDB log cleanup immediately..."
+Write-Output "Invoking SSISDB log clean-up stored procedure immediately..."
 $JobExecution = $Job | Start-AzureRmSqlElasticJob
 $JobExecution
 }
 
-# Schedule the job running to trigger stored procedure execution on schedule for removing SSISDB logs outside the retention window
-Write-Output "Start the execution schedule of the stored procedure for SSISDB log cleanup..."
+# Schedule your job to invoke SSISDB log clean-up stored procedure periodically, deleting SSISDB logs outside their retention period
+Write-Output "Starting your schedule to invoke SSISDB log clean-up stored procedure periodically..."
 $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $IntervalCount -StartTime $StartTime -Enable
 ```
 
-## <a name="clean-up-logs-with-transact-sql"></a>Nettoyer les journaux d’activité avec Transact-SQL
+### <a name="configure-elastic-database-jobs-using-t-sql"></a>Configurer des travaux de base de données élastique à l’aide de T-SQL
 
-Les exemples de scripts Transact-SQL suivants créent un nouveau travail élastique pour déclencher la procédure stockée de nettoyage du journal SSISDB. Pour plus d’informations, consultez [Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
+Les scripts T-SQL suivants créent un nouveau travail élastique qui appelle la procédure stockée de nettoyage des journaux SSISDB sélectionnée. Pour plus d’informations, consultez [Utiliser T-SQL pour créer et gérer des travaux de base de données élastique](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
-1. Créez ou identifiez une base de données Azure SQL S0 ou supérieur vide comme base de données des travaux SSISDBCleanup. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Identifiez un niveau de service Azure SQL Database S0/supérieur vide ou créez-en un nouveau pour votre base de données de travaux. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
-2. Dans la base de données des travaux, créez des informations d’identification pour le travail de nettoyage du journal SSISDB. Ces informations d’identification sont utilisées pour se connecter à votre base de données SSISDB dans le but de nettoyer les journaux d’activité.
+2. Dans votre base de données de travaux, créez les informations d’identification pour la connexion à SSISDB sur votre serveur cible.
 
-    ```sql
-    -- Connect to the job database specified when creating the job agent
-    -- Create a database master key if one does not already exist, using your own password.  
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD= '<EnterStrongPasswordHere>';  
+   ```sql
+   -- Connect to the job database specified when creating your job agent.
+   -- Create a database master key if one doesn't already exist, using your own password.
+   CREATE MASTER KEY ENCRYPTION BY PASSWORD= '<EnterStrongPasswordHere>';
 
-    -- Create a credential for SSISDB log cleanup.  
-    CREATE DATABASE SCOPED CREDENTIAL SSISDBLogCleanupCred WITH IDENTITY = 'SSISDBLogCleanupUser', SECRET = '<EnterStrongPasswordHere>'; 
-    ```
+   -- Create credentials for SSISDB log clean-up.
+   CREATE DATABASE SCOPED CREDENTIAL SSISDBLogCleanupCred WITH IDENTITY = 'SSISDBLogCleanupUser', SECRET = '<EnterStrongPasswordHere>'; 
+   ```
 
-3. Définissez le groupe cible qui inclut la base de données SSISDB pour laquelle vous souhaitez exécuter la procédure stockée de nettoyage.
+3. Définissez votre groupe cible qui comprend SSISDB à nettoyer uniquement.
 
-    ```sql
-    -- Connect to the job database 
-    -- Add a target group 
-    EXEC jobs.sp_add_target_group 'SSISDBTargetGroup'
+   ```sql
+   -- Connect to your job database.
+   -- Add your target group.
+   EXEC jobs.sp_add_target_group 'SSISDBTargetGroup'
 
-    -- Add SSISDB database into the target group
-    EXEC jobs.sp_add_target_group_member 'SSISDBTargetGroup',
-    @target_type = 'SqlDatabase',
-    @server_name = '<EnterSSISDBTargetServerName>',
-    @database_name = '<EnterSSISDBName>'
+   -- Add SSISDB to your target group
+   EXEC jobs.sp_add_target_group_member 'SSISDBTargetGroup',
+   @target_type = 'SqlDatabase',
+   @server_name = '<EnterSSISDBTargetServerName>',
+   @database_name = 'SSISDB'
 
-    --View the recently created target group and target group members
-    SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
-    SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
-    ```
-4. Accordez des autorisations appropriées pour la base de données SSISDB. Le catalogue SSISDB doit disposer des autorisations appropriées pour la procédure stockée afin d’exécuter le nettoyage du journal SSISDB avec succès. Pour obtenir des instructions détaillées, consultez [Gérer les connexions](../azure-sql/database/logins-create-manage.md).
+   -- View your recently created target group and its members.
+   SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
+   SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
+   ```
 
-    ```sql
-    -- Connect to the master database in the target server including SSISDB 
-    CREATE LOGIN SSISDBLogCleanupUser WITH PASSWORD = '<strong_password>';
+4. Créez un utilisateur de nettoyage des journaux SSISDB à partir de la connexion dans SSISDB et accordez-lui les autorisations nécessaires pour appeler la procédure stockée de nettoyage des journaux SSISDB. Pour obtenir des instructions détaillées, consultez [Gérer les connexions](../azure-sql/database/logins-create-manage.md).
 
-    -- Connect to SSISDB database in the target server to cleanup logs
-    CREATE USER SSISDBLogCleanupUser FROM LOGIN SSISDBLogCleanupUser;
-    GRANT EXECUTE ON internal.cleanup_server_retention_window_exclusive TO SSISDBLogCleanupUser
-    ```
-5. Créez le travail et ajoutez une étape de travail pour déclencher l’exécution de la procédure stockée de nettoyage du journal SSISDB.
+   ```sql
+   -- Connect to the master database of target server that hosts SSISDB 
+   CREATE LOGIN SSISDBLogCleanupUser WITH PASSWORD = '<strong_password>';
 
-    ```sql
-    --Connect to the job database 
-    --Add the job for the execution of SSISDB log cleanup stored procedure.
-    EXEC jobs.sp_add_job @job_name='CleanupSSISDBLog', @description='Remove SSISDB logs which are outside the retention window'
+   -- Connect to SSISDB
+   CREATE USER SSISDBLogCleanupUser FROM LOGIN SSISDBLogCleanupUser;
+   GRANT EXECUTE ON '<internal.cleanup_server_retention_window_exclusive/internal.cleanup_completed_jobs_exclusive/internal.cleanup_expired_worker>' TO SSISDBLogCleanupUser 
+   ```
 
-    --Add a job step to execute internal.cleanup_server_retention_window_exclusive
-    EXEC jobs.sp_add_jobstep @job_name='CleanupSSISDBLog',
-    @command=N'EXEC internal.cleanup_server_retention_window_exclusive',
-    @credential_name='SSISDBLogCleanupCred',
-    @target_group_name='SSISDBTargetGroup'
-    ```
-6. Avant de continuer, assurez-vous que la fenêtre de rétention a été correctement définie. Les journaux d’activité SSISDB en dehors de la fenêtre sont supprimés et ne peuvent pas être récupérés.
+5. Créez votre travail et ajoutez votre étape de travail pour appeler la procédure stockée de nettoyage des journaux SSISDB.
 
-   Ensuite, vous pouvez exécuter le travail immédiatement pour commencer le nettoyage du journal SSISDB.
+   ```sql
+   -- Connect to your job database.
+   -- Add your job to invoke the relevant SSISDB log clean-up stored procedure.
+   EXEC jobs.sp_add_job @job_name='CleanupSSISDBLog', @description='Remove SSISDB logs outside their specific retention period'
 
-    ```sql
-    --Connect to the job database 
-    --Run the job immediately to execute the stored procedure for SSISDB log cleanup
-    declare @je uniqueidentifier
-    exec jobs.sp_start_job 'CleanupSSISDBLog', @job_execution_id = @je output
+   -- Add your job step to invoke the relevant SSISDB log clean-up stored procedure
+   EXEC jobs.sp_add_jobstep @job_name='CleanupSSISDBLog',
+   @command=N'<EXEC internal.cleanup_server_retention_window_exclusive/EXEC internal.cleanup_completed_jobs_exclusive/EXEC internal.cleanup_expired_worker>',
+   @credential_name='SSISDBLogCleanupCred',
+   @target_group_name='SSISDBTargetGroup'
+   ```
 
-    --Watch the execution results for SSISDB log cleanup 
-    select @je
-    select * from jobs.job_executions where job_execution_id = @je
-    ```
-7. Si vous le souhaitez, planifiez des exécutions du travail pour supprimer les journaux d’activité SSISDB en dehors de la fenêtre de rétention selon une planification. Utilisez une instruction similaire pour mettre à jour les paramètres du travail.
+6. Avant de continuer, veillez à définir correctement la période de rétention spécifique. Les journaux SSISDB en dehors de cette période seront supprimés et ne pourront pas être récupérés. Vous pouvez ensuite exécuter votre travail immédiatement pour démarrer le nettoyage des journaux SSISDB.
 
-    ```sql
-    --Connect to the job database 
-    EXEC jobs.sp_update_job
-    @job_name='CleanupSSISDBLog',
-    @enabled=1,
-    @schedule_interval_type='<EnterIntervalType(Month,Day,Hour,Minute,Second)>',
-    @schedule_interval_count='<EnterDetailedIntervalValue>',
-    @schedule_start_time='<EnterProperStartTimeForSchedule>',
-    @schedule_end_time='<EnterProperEndTimeForSchedule>'
-    ```
+   ```sql
+   -- Connect to your job database.
+   -- Run your job immediately to invoke SSISDB log clean-up stored procedure.
+   declare @je uniqueidentifier
+   exec jobs.sp_start_job 'CleanupSSISDBLog', @job_execution_id = @je output
 
-## <a name="monitor-the-cleanup-job-in-the-azure-portal"></a>Surveiller le travail de nettoyage dans le portail Azure
+   -- Watch SSISDB log clean-up results 
+   select @je
+   select * from jobs.job_executions where job_execution_id = @je
+   ```
 
-Vous pouvez surveiller l’exécution du travail de nettoyage dans le portail Azure. Pour chaque exécution, vous voyez l’état, l’heure de début et l’heure de fin du travail.
+7. Si vous le souhaitez, vous pouvez supprimer les journaux SSISDB en dehors de leur période de rétention selon une planification. Configurez vos paramètres de travail comme suit.
 
-![Surveiller le travail de nettoyage dans le portail Azure](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
+   ```sql
+   -- Connect to your job database.
+   EXEC jobs.sp_update_job
+   @job_name='CleanupSSISDBLog',
+   @enabled=1,
+   @schedule_interval_type='<EnterIntervalType(Month,Day,Hour,Minute,Second)>',
+   @schedule_interval_count='<EnterDetailedIntervalValue>',
+   @schedule_start_time='<EnterProperStartTimeForSchedule>',
+   @schedule_end_time='<EnterProperEndTimeForSchedule>'
+   ```
 
-## <a name="monitor-the-cleanup-job-with-transact-sql"></a>Surveiller le travail de nettoyage avec Transact-SQL
+### <a name="monitor-ssisdb-log-clean-up-job-using-azure-portal"></a>Surveiller le travail de nettoyage des journaux SSISDB à l’aide de portail Azure
 
-Vous pouvez également utiliser Transact-SQL pour afficher l’historique d’exécution du travail de nettoyage.
+Vous pouvez surveiller le travail de nettoyage des journaux SSISDB dans le portail Azure. Pour chaque exécution, vous voyez son état, heure de début et heure de fin.
+
+![Surveiller le travail de nettoyage des journaux SSISDB dans le portail Azure](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
+
+### <a name="monitor-ssisdb-log-clean-up-job-using-t-sql"></a>Surveiller le travail de nettoyage des journaux SSISDB à l’aide de T-SQL
+
+Vous pouvez également utiliser T-SQL pour afficher l’historique d’exécution du travail de nettoyage des journaux SSISDB.
 
 ```sql
---Connect to the job database 
---View all execution statuses for the job to cleanup SSISDB logs
+-- Connect to your job database.
+-- View all SSISDB log clean-up job executions.
 SELECT * FROM jobs.job_executions WHERE job_name = 'CleanupSSISDBLog' 
 ORDER BY start_time DESC
 
--- View all active executions
+-- View all active executions.
 SELECT * FROM jobs.job_executions WHERE is_active = 1
 ORDER BY start_time DESC
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour les tâches de gestion et de surveillance liées à Azure-SSIS Integration Runtime, consultez les articles suivants. Azure-SSIS IR est le moteur d’exécution de packages SSIS stockés dans SSISDB dans Azure SQL Database.
+Pour gérer et surveiller vos IR Azure-SSIS, consultez les articles suivants.
 
--   [Reconfigurer le runtime d’intégration Azure-SSIS](manage-azure-ssis-integration-runtime.md)
+- [Reconfigurer le runtime d’intégration Azure-SSIS](manage-azure-ssis-integration-runtime.md)
 
--   [Surveiller le runtime d’intégration Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).
+- [Surveiller le runtime d’intégration Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).

@@ -2,23 +2,29 @@
 title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Application Insights
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/21/2021
+ms.openlocfilehash: d248340aa272a6a1fef386ca755ed46536668ad9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719846"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447995"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
 Vous pouvez surveiller une séquence enregistrée d’URL et d’interactions avec un site web via des tests web à plusieurs étapes. Cet article vous guidera tout au long du processus de création d’un test web à plusieurs étapes avec Visual Studio Enterprise.
 
 > [!NOTE]
-> Les tests web à plusieurs étapes dépendent des fichiers de test web Visual Studio. Il a été [annoncé](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 est la dernière version avec la fonctionnalité de test web. Il est important de comprendre que même si aucune nouvelle fonctionnalité ne sera ajoutée, les fonctionnalités de test web dans Visual Studio 2019 sont toujours prises en charge et continueront d’être prises en charge pendant le cycle de vie du support du produit. L’équipe de produit Azure Monitor a répondu aux questions concernant l’avenir des tests de disponibilité à plusieurs étapes [ici](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
-> </br>
 > Les tests web comportant plusieurs étapes **ne sont pas pris en charge** dans le cloud [Azure Government](../../azure-government/index.yml).
 
+> [!NOTE]
+> Les tests web multiétapes sont catégorisés en tant que tests classiques et se trouvent sous **Ajouter un test classique** dans le volet disponibilité.
+
+## <a name="multi-step-webtest-alternative"></a>Autre solution de test web multiétapes
+
+Les tests web à plusieurs étapes dépendent des fichiers de test web Visual Studio. Il a été [annoncé](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 est la dernière version avec la fonctionnalité de test web. Il est important de comprendre que même si aucune nouvelle fonctionnalité ne sera ajoutée, les fonctionnalités de test web dans Visual Studio 2019 sont toujours prises en charge et continueront d’être prises en charge pendant le cycle de vie du support du produit. 
+
+Nous recommandons d’utiliser [TrackAvailability](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) pour soumettre des [tests de disponibilité personnalisés](./availability-azure-functions.md) au lieu de tests web multiétapes. Il s’agit de la solution prise en charge à long terme pour les scénarios de test multi-requête ou d’authentification. Avec TrackAvailability() et les tests de disponibilité personnalisés, vous pouvez exécuter des tests sur le calcul de votre choix et utiliser C# pour créer facilement de nouveaux tests.
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
@@ -41,9 +47,10 @@ Pour obtenir de l’aide sur la création de tests web Visual Studio, voir la [d
 
 ## <a name="upload-the-web-test"></a>Charger le test web
 
-1. Dans le portail Application Insights, sur le volet Disponibilité, sélectionnez **Créer un test** > **Type de test** > **Test web multiétape**.
-
-2. Définissez les emplacements de test, la fréquence et les paramètres d’alerte.
+1. Dans le volet Disponibilité du portail Application Insights, sélectionnez **Ajouter un test classique**, puis **Multiétape** comme *SKU*.
+2. Téléchargez votre test web multiétape.
+3. Définissez les emplacements de test, la fréquence et les paramètres d’alerte.
+4. Sélectionnez **Create** (Créer).
 
 ### <a name="frequency--location"></a>Fréquence et emplacement
 

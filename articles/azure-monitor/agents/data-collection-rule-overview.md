@@ -6,20 +6,20 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: e7da31ec80153fe2d2bd6923850a4342886fa9be
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 83ad2245ec010bd91907ae27e077f86b4d6b1d5e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495567"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122401"
 ---
-# <a name="data-collection-rules-in-azure-monitor-preview"></a>Règles de collecte de données dans Azure Monitor (version préliminaire)
+# <a name="data-collection-rules-in-azure-monitor"></a>Règles de collecte de données dans Azure Monitor
 Les règles de collecte de données (DCR) définissent les données entrantes dans Azure Monitor et spécifient l’emplacement où ces données doivent être envoyées ou stockées. Cet article fournit une vue d’ensemble des règles de collecte de données, notamment leur contenu et leur structure, et comment vous pouvez les créer et les utiliser.
 
 ## <a name="input-sources"></a>Sources d’entrée
 Les règles de collecte de données prennent actuellement en charge les sources d’entrée suivantes :
 
-- Machine virtuelle Azure avec l’agent Azure Monitor. Consultez [Configurer la collecte de données pour l’agent Azure Monitor (version préliminaire)](../agents/data-collection-rule-azure-monitor-agent.md).
+- L’agent Azure Monitor s’exécutant sur des machines virtuelles, des groupes de machines virtuelles identiques et Azure Arc pour serveurs. Consultez [Configurer la collecte de données pour l’agent Azure Monitor (version préliminaire)](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 
@@ -30,8 +30,10 @@ Une règle de collecte de données inclut les composants suivants.
 |:---|:---|
 | Sources de données | Source unique de données de surveillance avec son propre format et sa propre méthode d’exposition des données. Le journal des événements Windows, les compteurs de performances et Syslog sont des exemples d’une source de données. Chaque source de données correspond à un type de source de données particulier, comme décrit ci-dessous. |
 | Flux | Descripteur unique qui décrit un ensemble de sources de données qui seront transformées et schématisées en un seul type. Chaque source de données nécessite un ou plusieurs flux, et un flux peut être utilisé par plusieurs sources de données. Toutes les sources de données d’un flux partagent un schéma commun. Utilisez plusieurs flux de données, par exemple, lorsque vous souhaitez envoyer une source de données particulière à plusieurs tables dans le même espace de travail Log Analytics. |
-| Destinations | Ensemble de destinations où les données doivent être envoyées. L’espace de travail Log Analytics, les métriques Azure Monitor et Azure Event Hubs sont des exemples. | 
+| Destinations | Ensemble de destinations où les données doivent être envoyées. L’espace de travail Log Analytics et les métriques Azure Monitor sont des exemples. | 
 | Flux de données | Définition des flux à envoyer à des destinations. | 
+
+Les règles de collecte de données sont stockées à l’échelle régionale et sont disponibles dans toutes les régions publiques où Log Analytics est pris en charge. Actuellement, les régions et les clouds pour le secteur public ne sont pas pris en charge.
 
 Le diagramme suivant montre les composants d’une règle de collecte de données et leurs relations
 
@@ -73,7 +75,7 @@ Vous pouvez actuellement utiliser l’une des méthodes suivantes pour créer un
   - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>Exemple de règle de collecte de données
-L’exemple de règle de collecte de données ci-dessous concerne les machines virtuelles avec l’agent Azure Management et présente les détails suivants :
+L’exemple de règle de collecte de données ci-dessous concerne les machines virtuelles avec l’agent Azure Monitor et présente les détails suivants :
 
 - Données de performances
   - Collecte des compteurs de processeur, de mémoire, de disque logique et de disque physique spécifiques toutes les 15 secondes et les charge toutes les minutes.

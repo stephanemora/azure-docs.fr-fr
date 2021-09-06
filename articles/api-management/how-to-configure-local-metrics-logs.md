@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: apimpm
-ms.openlocfilehash: a8199f88527cfd1417997c12f9d682be1c60a810
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f17d271315bc537f916cb4d9addfa7ea1eaec995
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784536"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115836"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure
 
@@ -212,12 +212,13 @@ La passerelle auto-hébergée prend également en charge un certain nombre de pr
 | Champ  | Default | Description |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Active la journalisation dans des flux standard. La valeur peut être `none`, `text` ou `json`. |
-| telemetry.logs.local  | `none` | Active la journalisation locale. La valeur peut être `none`, `auto`, `localsyslog`, `rfc5424` ou `journal`.  |
+| telemetry.logs.local  | `auto` | Active la journalisation locale. La valeur peut être `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
 | telemetry.logs.local.localsyslog.endpoint  | n/a | Spécifie le point de terminaison de localsyslog.  |
 | telemetry.logs.local.localsyslog.facility  | n/a | Specifies le [code de facilité](https://en.wikipedia.org/wiki/Syslog#Facility) de localsyslog. Par exemple, `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Spécifie le point de terminaison de rfc5424.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Spécifie le code de facilité par [rfc5424](https://tools.ietf.org/html/rfc5424). Par exemple, `7`  |
 | telemetry.logs.local.journal.endpoint  | n/a | Spécifie le point de terminaison du journal.  |
+| telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | Spécifie le point de terminaison UDP qui accepte les données JSON : chemin de fichier, adresse IP : port ou nom d’hôte : port.
 
 Voici un exemple de configuration de journalisation locale :
 

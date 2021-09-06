@@ -330,6 +330,8 @@
       href: keyword-recognition-guidelines.md
     - name: Prise en charge de la région
       href: keyword-recognition-region-support.md
+- name: Identification de la langue
+  href: language-identification.md
 - name: Immersions dans des scénarios
   items:
     - name: Scénarios de conversation
@@ -531,11 +533,13 @@
           href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
         - name: Utiliser des clés gérées par le client
           href: speech-encryption-of-data-at-rest.md
+        - name: Guide pratique pour sauvegarder et récupérer des ressources de personnalisation de la parole
+          href: resiliency-and-recovery-plan.md
 - name: Appareils
   items:
     - name: Documentation sur Speech Devices
       href: index-devices.yml
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que le SDK d’appareils Speech\_?"
           href: speech-devices-sdk.md

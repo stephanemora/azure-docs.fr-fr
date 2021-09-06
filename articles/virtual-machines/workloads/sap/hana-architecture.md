@@ -11,28 +11,28 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2021
+ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 547e48e9cecb672c5274bc001178b2ea2aaf47af
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: fee1aab009bdbf84acf1a73244d6686db50e4e3f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577648"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450703"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architecture SAP HANA (grandes instances) sur Azure
 
 Cet article décrit l’architecture de déploiement de SAP HANA sur Azure (grandes instances) (également appelée BareMetal infrastructure). 
 
-À un niveau élevé, la solution SAP HANA sur Azure (grandes instances) dispose de la couche Application SAP sur des machines virtuelles. La couche base de données se trouve sur la grande instance HANA certifiée SAP située dans la même région Azure que les machines virtuelles Azure IaaS.
+À un niveau élevé, la solution SAP HANA sur Azure (grandes instances) dispose de la couche Application SAP sur des machines virtuelles. La couche de base de données se trouve sur la Grande instance HANA (HLI) certifiée SAP. La HLI est située dans la même région Azure que les machines virtuelles Azure IaaS.
 
 > [!NOTE]
 > Déployez la couche application SAP dans la même région Azure que la couche système de gestion de base de données (SGBD) SAP. Cette règle est bien documentée dans les informations publiées sur les charges de travail SAP sur Azure. 
 
 ## <a name="architectural-overview"></a>Vue d’ensemble de l’architecture
 
-L’architecture globale de SAP HANA sur Azure (grandes instances) fournit une configuration matérielle certifiée TDI SAP. Le matériel est un serveur non virtualisé, sans SE, hautes performances pour la base de données SAP HANA. Elle offre également la flexibilité d’Azure sur le plan de la mise à l’échelle des ressources de façon à ce que la couche Application SAP réponde à vos besoins.
+L’architecture globale de SAP HANA sur Azure (grandes instances) fournit une configuration matérielle certifiée TDI SAP. Le matériel est un serveur non virtualisé, sans SE, hautes performances pour la base de données SAP HANA. Elle vous donne la flexibilité de mise à l’échelle des ressources de façon à ce que la couche Application SAP réponde à vos besoins.
 
 ![Présentation de l’architecture de SAP HANA sur Azure (grandes instances)](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -49,7 +49,7 @@ L’architecture présentée est divisée en trois sections :
   -  [Utiliser SAP sur des machines virtuelles Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md)
 
-- **À gauche** : montre le matériel certifié TDI SAP HANA dans le tampon de grande instance Azure. Les unités HANA (grandes instances) se connectent aux réseaux virtuels de votre abonnement Azure via la même technologie que celle qu’utilise le système local pour se connecter à Azure. En mai 2019, nous avons introduit une optimisation qui permet la communication entre les unités HANA (grandes instances) et les machines virtuelles Azure, sans la passerelle ExpressRoute. Cette optimisation, appelée ExpressRoute FastPath, est représentée dans le schéma ci-dessus par les lignes rouges.
+- **À gauche** : montre le matériel certifié TDI SAP HANA dans le tampon de grande instance Azure. Les unités HANA (Grandes instances) se connectent aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que celle qu’utilisent les serveurs locaux pour se connecter à Azure. En mai 2019, nous avons introduit une optimisation qui permet la communication entre les unités HANA (grandes instances) et les machines virtuelles Azure, sans la passerelle ExpressRoute. Cette optimisation, appelée ExpressRoute FastPath, est représentée dans le schéma ci-dessus par les lignes rouges.
 
 ## <a name="components-of-the-azure-large-instance-stamp"></a>Composants du tampon de grande instance Azure
 
@@ -61,7 +61,9 @@ Le tampon de grande instance Azure combine les composants suivants :
 
 ## <a name="tenants"></a>Locataires
 
-Dans l’infrastructure multilocataire du tampon de grande instance, les clients sont déployés en tant que locataires isolés. Au moment du déploiement de l’abonné, nommez un abonnement Azure au sein de votre inscription Azure. Cet abonnement Azure correspond à la grande instance HANA facturée. Ces locataires ont une relation 1:1 avec l’abonnement Azure. En termes de réseau, il est possible d’accéder à une unité de grande instance HANA déployée sur un abonné dans une région Azure à partir de différents réseaux virtuels qui appartiennent à différents abonnements Azure. Ces abonnements Azure doivent appartenir à la même inscription Azure.
+Dans l’infrastructure multilocataire du tampon de grande instance, les clients sont déployés en tant que locataires isolés. Au moment du déploiement de l’abonné, nommez un abonnement Azure au sein de votre inscription Azure. Cet abonnement Azure correspond à la grande instance HANA facturée. Ces locataires ont une relation 1:1 avec l’abonnement Azure. 
+
+En termes de réseau, il est possible d’accéder à une grande instance HANA déployée sur un locataire dans une région Azure à partir de différents réseaux virtuels appartenant à différents abonnements Azure. Ces abonnements Azure doivent appartenir à la même inscription Azure.
 
 ## <a name="availability-across-regions"></a>Disponibilité dans les régions
 

@@ -3,20 +3,19 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/05/2021
 ms.author: mimart
-ms.openlocfilehash: fe128e7eee99d2b396c758979f0efff936ec6785
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 3d4bb5ff840a2f4ee5c4c33e2cc51dfe440866a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072996"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524057"
 ---
-Après s’être authentifié, l’utilisateur accède à une page qui appelle une API web protégée avec une authentification par jeton du porteur. Le jeton du porteur est le jeton d’accès obtenu auprès d’Azure AD B2C. L’application transmet le jeton dans l’en-tête d’autorisation de la requête HTTPS. 
+Une fois l’authentification terminée, les utilisateurs interagissent avec l’application, qui appelle une API web protégée. L’API web utilise l’authentification par [jeton du porteur](https://datatracker.ietf.org/doc/html/rfc6750). Le jeton du porteur est le jeton d’accès obtenu par l’application auprès d’Azure AD B2C. L’application transmet le jeton dans l’en-tête d’autorisation de la requête HTTPS. 
     
 ```http
 Authorization: Bearer <token>
 ```
 
 Si l’étendue du jeton d’accès ne correspond pas aux étendues de l’API web, la bibliothèque d’authentification obtient un nouveau jeton d’accès avec les étendues appropriées.
-s

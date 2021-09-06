@@ -1,23 +1,26 @@
 ---
-title: Activité de recherche dans Azure Data Factory
-description: Découvrez comment utiliser l’activité Lookup pour rechercher une valeur à partir d’une source externe. Cette sortie peut être référencée davantage par des activités complémentaires.
+title: Activité de recherche
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment utiliser l’activité de recherche dans Azure Data Factory et Azure Synapse Analytics pour rechercher une valeur à partir d’une source externe. Cette sortie peut être référencée davantage par des activités complémentaires.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/25/2021
-ms.openlocfilehash: 14ab6295717777f40677e0bdcd63a46821683658
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/10/2021
+ms.openlocfilehash: bf2813381fe02a453c7a7c1ddec4c027117f0ce0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480182"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641261"
 ---
-# <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
+# <a name="lookup-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de recherche dans Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité Lookup peut récupérer un jeu de données à partir de n’importe quelle source de données compatible Azure Data Factory. vous pouvez l’utiliser pour déterminer de manière dynamique sur quels objets intervenir dans une activité ultérieure, au lieu de coder en dur le nom d’objet. Les fichiers et les tables constituent quelques exemples d’objet.
+L’activité de recherche peut récupérer un jeu de données à partir de n’importe quelle source de données prise en charge par les pipelines Data Factory et Synapse. Vous pouvez l’utiliser pour déterminer de manière dynamique sur quels objets intervenir dans une activité ultérieure, au lieu de coder en dur le nom d’objet. Les fichiers et les tables constituent quelques exemples d’objet.
 
 L’activité Lookup lit et retourne le contenu d’une table ou d’un fichier de configuration. Elle retourne également le résultat de l’exécution d’une requête ou d’une procédure stockée. La sortie peut être une valeur singleton ou un tableau d’attributs, qui peut être consommé dans des activités ultérieures de copie, de transformation ou de flux de contrôle comme l’activité ForEach.
 
@@ -108,7 +111,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
 
 Dans cet exemple, le pipeline comprend deux activités : **Lookup** et **Copy**. L’activité Copy copie les données d’une table SQL de votre instance Azure SQL Database dans le stockage Blob Azure. Le nom de la table SQL est stocké dans un fichier JSON dans le stockage Blob. L’activité Lookup recherche le nom de la table lors de l’exécution. Le fichier JSON est modifié de manière dynamique avec cette approche. Vous n’avez pas besoin de redéployer les pipelines ou les jeux de données. 
 
-Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).
+Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc](tutorial-bulk-copy.md).
 
 
 ### <a name="pipeline"></a>Pipeline
@@ -389,7 +392,7 @@ Voici quelques limitations de l’activité de recherche et des suggestions de s
 | | |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez les autres activités de flux de contrôle prises en charge par les pipelines Azure Data Factory et Synapse : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Activité ForEach](control-flow-for-each-activity.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 8/11/2020
+ms.date: 07/06/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2b391c5a435c2dd2f19a3f170bf7c84edd7143f2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 18a9d2efa3093dd342e05f1c9038fa7f460d97bd
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063030"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358918"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -37,18 +37,18 @@ Microsoft Translator est desservi par des centres de données situés dans plusi
 * **Asie-Pacifique :** Corée Sud, Japon Est, Asie Sud-Est et Australie Est
 * **Europe :** Europe Ouest et Europe Nord
 
-Les requêtes adressées à Microsoft Translator sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la zone géographique Azure.
+Les requêtes adressées à Microsoft Translator sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la zone géographique.
 
-Pour forcer la gestion de la requête par une zone géographique Azure spécifique, remplacez le point de terminaison Global dans la requête d’API par le point de terminaison géographique souhaité :
+Pour forcer la gestion de la requête par une zone géographique spécifique, remplacez le point de terminaison Global dans la requête d’API par le point de terminaison géographique souhaité :
 
-|Description|Zone géographique Azure|URL de base (point de terminaison géographique)|
-|:--|:--|:--|
-|Azure|Global (région non précisée)|   api.cognitive.microsofttranslator.com|
-|Azure|États-Unis|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
-|Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
+|Geography|URL de base (point de terminaison géographique)|
+|:--|:--|
+|Global (région non précisée)|    api.cognitive.microsofttranslator.com|
+|États-Unis|    api-nam.cognitive.microsofttranslator.com|
+|Europe|    api-eur.cognitive.microsofttranslator.com|
+|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> Les clients disposant d’une ressource située dans la région Suisse Nord ou Suisse Ouest peuvent s’assurer que leurs requêtes d’API de texte sont traitées en Suisse. Pour garantir que les requêtes sont gérées en Suisse, créez la ressource Translator dans la « Région de ressource » « Suisse Nord » ou « Suisse Ouest », puis utilisez le point de terminaison personnalisé de la ressource dans vos requêtes d’API. Par exemple : Si vous créez une ressource Translator dans le portail Azure avec « Suisse Nord » comme « Région de ressource » et que le nom de votre ressource est « my-ch-n », votre point de terminaison personnalisé est « https://my-ch-n.cognitiveservices.azure.com  ». Et voici un exemple de demande de traduction :
+<sup>1</sup> Les clients disposant d’une ressource située dans la région Suisse Nord ou Suisse Ouest peuvent s’assurer que leurs requêtes d’API de texte sont traitées en Suisse. Pour garantir que les requêtes sont gérées en Suisse, créez la ressource Translator dans la « Région de ressource » « Suisse Nord » ou « Suisse Ouest », puis utilisez le point de terminaison personnalisé de la ressource dans vos requêtes d’API. Par exemple : si vous créez une ressource Translator dans le portail Azure avec « Suisse Nord » comme « Région de ressource » et que le nom de votre ressource est « my-ch-n », votre point de terminaison personnalisé est « https://my-ch-n.cognitiveservices.azure.com ». Et voici un exemple de demande de traduction :
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -95,7 +95,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### <a name="authenticating-with-a-regional-resource"></a>Authentification avec une ressource régionale
 
 Lorsque vous utilisez une [ressource de traducteur régionale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-Il existe deux en-têtes dont vous avez besoin pour appeler le Translator.
+Il existe 2 en-têtes dont vous avez besoin pour appeler le Translator.
 
 |headers|Description|
 |:-----|:----|
@@ -117,7 +117,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 Lorsque vous utilisez une ressource multiservice Cognitive Services. Vous pouvez ainsi utiliser une clé secrète unique pour authentifier les requêtes de plusieurs services. 
 
-Quand vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre requête. Il existe deux en-têtes dont vous avez besoin pour appeler le Translator.
+Quand vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre requête. Il existe 2 en-têtes dont vous avez besoin pour appeler le Translator.
 
 |headers|Description|
 |:-----|:----|
@@ -158,7 +158,7 @@ Un jeton d’authentification est valide pour une durée de 10 minutes. Le jeto
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels
 
-Le service Translator est désormais disponible avec des capacités de réseau virtuel (VNET) dans toutes les régions du cloud public Azure. Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal). 
+Le service Translator est désormais disponible avec des capacités de réseau virtuel (VNET) dans toutes les régions du cloud public Azure. Pour activer le réseau virtuel, *consultez* [Configuration de réseaux virtuels Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Après avoir activé cette capacité, vous devez utiliser le point de terminaison personnalisé pour appeler Translator. Vous ne pouvez pas utiliser le point de terminaison du traducteur global (« api.cognitive.microsofttranslator.com ») et vous ne pouvez pas vous authentifier avec un jeton d’accès.
 
@@ -197,6 +197,7 @@ Par exemple, un client avec un abonnement d’essai gratuit recevrait l’erreur
     }
 }
 ```
+
 Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Voici les codes d’erreur courants :
 
 | Code | Description |
@@ -238,7 +239,7 @@ Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTT
 | 415000| L’en-tête Content-Type est manquante ou invalide.|
 | 429000, 429001, 429002| Le serveur a rejeté la requête, car le client a dépassé les limites de requête.|
 | 500000| Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
-| 503000| Le service est temporairement indisponible. Veuillez réessayer. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
+| 503000| Le service est temporairement indisponible. Reprise Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
 
 ## <a name="metrics"></a>Mesures 
 Les métriques vous permettent de voir des informations sur l’utilisation et la disponibilité du traducteur dans le portail Azure, sous la section des métriques, comme illustré dans la capture d’écran ci-dessous. Pour plus d’informations, consultez [Métriques de données et de plateforme](../../../azure-monitor/essentials/data-platform-metrics.md).

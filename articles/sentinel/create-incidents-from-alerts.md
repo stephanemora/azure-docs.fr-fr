@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acc47d8744b59a175b37eb571646ae5ef3a42454
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807290"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525233"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft
 
@@ -29,6 +29,7 @@ Les alertes déclenchées dans des solutions de sécurité Microsoft qui sont co
 Vous pouvez facilement configurer Azure Sentinel pour créer automatiquement des incidents chaque fois qu’une alerte est déclenchée dans une solution de sécurité Microsoft connectée, en suivant les instructions mentionnées dans cet article.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Vous devez [connecter des solutions de sécurité Microsoft](connect-data-sources.md#data-connection-methods) pour activer la création d’incident à partir d’alertes de service de sécurité.
 
 ## <a name="using-microsoft-security-incident-creation-analytics-rules"></a>Utilisation de règles d’analytique de création d’incidents de sécurité Microsoft
@@ -47,7 +48,7 @@ Utilisez les règles intégrées disponibles dans Azure Sentinel pour choisir le
 
 1. Vous pouvez modifier les détails de la règle et choisir de filtrer les alertes qui vont créer des incidents par niveau de gravité d’alerte ou sur le texte contenu dans le nom de l’alerte.  
       
-    Par exemple, si vous choisissez **Azure Defender** (qui peut encore être appelé *Azure Security Center*) dans le champ **Service de sécurité Microsoft** et que vous choisissez **Elevée** dans le champ **Filtrer par gravité**, seules les alertes Azure Security Center de niveau de gravité élevé créeront automatiquement des incidents dans Azure Sentinel.  
+    Par exemple, si vous choisissez **Azure Defender** (qui peut encore être appelé *Azure Security Center*) dans le champ **Service de sécurité Microsoft** et que vous choisissez **Elevée** dans le champ **Filtrer par gravité**, seules les alertes Azure Defender de niveau de gravité élevé créeront automatiquement des incidents dans Azure Sentinel.  
 
     ![Assistant Créer une règle](media/incidents-from-alerts/create-rule-wizard.png)
 
@@ -55,10 +56,11 @@ Utilisez les règles intégrées disponibles dans Azure Sentinel pour choisir le
 
     ![Règle de création d’incident](media/incidents-from-alerts/incident-creation-rule.png)
 
-  Vous pouvez créer plusieurs règles d’analytique **Microsoft Sécurité** par type de **service de sécurité Microsoft**. Cela ne crée pas d’incidents en double, car chaque règle est utilisée comme filtre. Même si une alerte correspond à plusieurs règles d’analytique **Microsoft Sécurité**, elle crée un seul incident Azure Sentinel.
+    Vous pouvez créer plusieurs règles d’analytique **Microsoft Sécurité** par type de **service de sécurité Microsoft**. Cela ne crée pas d’incidents en double, car chaque règle est utilisée comme filtre. Même si une alerte correspond à plusieurs règles d’analytique **Microsoft Sécurité**, elle crée un seul incident Azure Sentinel.
 
 ## <a name="enable-incident-generation-automatically-during-connection"></a>Activer la génération automatique d’incidents pendant la connexion
- Quand vous connectez une solution de sécurité Microsoft, vous pouvez choisir si vous voulez que les alertes de la solution de sécurité génèrent automatiquement des incidents dans Azure Sentinel.
+
+Quand vous connectez une solution de sécurité Microsoft, vous pouvez choisir si vous voulez que les alertes de la solution de sécurité génèrent automatiquement des incidents dans Azure Sentinel.
 
 1. Connectez une source de données de solution de sécurité Microsoft. 
 
@@ -69,4 +71,4 @@ Utilisez les règles intégrées disponibles dans Azure Sentinel pour choisir le
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
-- Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).
+- Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](get-visibility.md).

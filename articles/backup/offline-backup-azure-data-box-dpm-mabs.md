@@ -2,19 +2,18 @@
 title: Sauvegarde hors connexion avec Azure Data Box pour DPM et MABS
 description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion à partir de DPM et MABS.
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 568baf7351555511b58dba59bec404688a646126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752547"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524356"
 ---
-# <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
+# <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS
 
 > [!NOTE]
-> Cette fonctionnalité s’applique à Data Protection Manager (DPM) 2019 UR2 et versions ultérieures.<br><br>
-> Cette fonctionnalité est actuellement disponible en préversion pour Serveur de sauvegarde Microsoft Azure (MABS). Si vous souhaitez utiliser Azure Data Box pour l’amorçage hors connexion avec MABS, contactez-nous à l’adresse [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> Cette fonctionnalité s’applique à Data Protection Manager (DPM) 2019 UR2 (et versions ultérieures) et à MABS v3 UR2 (et versions ultérieures).
 
 Cet article explique comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion de DPM et MABS dans un coffre Azure Recovery Services.
 
@@ -217,9 +216,15 @@ Pour vous assurer que l’échec est dû au [problème](#issue) ci-dessus, effec
 
 #### <a name="step-1"></a>Étape 1
 
-Vérifiez si vous voyez le message d’erreur suivant dans la console DPM/MABS au moment de la configuration de la sauvegarde hors connexion :
+Regardez si vous voyez apparaître l’un des messages d’erreur suivants dans la console DPM/MABS au cours de la configuration de la sauvegarde hors connexion :
 
-![Agent Azure Recovery Services](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png)
+**Impossible de créer une stratégie de sauvegarde hors connexion pour le compte Azure actif, car les informations d'authentification de ce serveur n'ont pas pu être chargées sur Azure. (ID : 100242)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png" alt-text="Agent Azure Recovery Services.":::
+
+**Impossible de transmettre à Azure les appels de service nécessaires pour interroger l'état de la tâche d'importation et déplacer les données de sauvegarde dans le coffre Recovery Services. (ID : 100230)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png" alt-text="Capture d’écran de l’écran d’erreur de l’agent Azure Recovery Services.":::
 
 #### <a name="step-2"></a>Étape 2
 

@@ -1,35 +1,37 @@
 ### YamlMime:Landing
-title: Documentation Azure Route Server
-summary: Découvrez comment utiliser Azure Route Server pour simplifier le routage dynamique entre vos appliances virtuelles réseau et votre réseau virtuel.
+title: Documentation sur le Serveur de routes Azure
+summary: Découvrez comment utiliser le Serveur de routes Azure pour simplifier le routage dynamique entre vos appliances virtuelles réseau et votre réseau virtuel.
 metadata:
-  title: Documentation Azure Route Server
-  description: En savoir plus sur Azure Route Server
+  title: Documentation sur le Serveur de routes Azure
+  description: Découvrir le Serveur de routes Azure
   services: route-server
   ms.service: route-server
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 03/02/2021
-  ms.openlocfilehash: f235d7118ce207d793c4ba03d357e2db09662c1f
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.date: 09/01/2021
+  ms.openlocfilehash: 6b9e50b0ac6cb8272f6e8f6d1366d480c53d2d49
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101677953"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123424831"
 landingContent:
-- title: À propos d’Azure Route Server (préversion)
+- title: À propos du Serveur de routes Azure
   linkLists:
   - linkListType: overview
     links:
-    - text: Présentation d’Azure Route Server (préversion)
+    - text: Qu’est-ce que le Serveur de routes Azure ?
       url: overview.md
 - title: Bien démarrer
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Créer et configurer un serveur de routage – PowerShell
+    - text: Créer et configurer un serveur de routes – Portail
+      url: quickstart-configure-route-server-portal.md
+    - text: Créer et configurer un serveur de routes – PowerShell
       url: quickstart-configure-route-server-powershell.md
-    - text: Créer et configurer un serveur de routage – CLI
+    - text: Créer et configurer un serveur de routes – CLI
       url: quickstart-configure-route-server-cli.md
 - title: Planification
   linkLists:
@@ -37,5 +39,5 @@ landingContent:
     links:
     - text: Prise en charge d’ExpressRoute et de la passerelle VPN
       url: expressroute-vpn-support.md
-    - text: Forum aux questions sur Route Server
+    - text: Questions fréquentes (FAQ) sur le Serveur de routes
       url: route-server-faq.md

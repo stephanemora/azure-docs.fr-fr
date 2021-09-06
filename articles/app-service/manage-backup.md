@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7aca099b4396237a80255a24149d9977c96b87cd
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aed7e341cf190e6daac237b87f17254c5c65bbab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794100"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531404"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 
@@ -50,7 +50,6 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 * La sauvegarde d’Azure Database pour PostgreSQL avec TLS activé n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
 * Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
 * L’utilisation d’un compte de stockage avec pare-feu comme destination de vos sauvegardes n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
-* Actuellement, vous ne pouvez pas utiliser la fonctionnalité de sauvegarde et de restauration avec la fonctionnalité d’intégration au réseau virtuel Azure App Service. 
 * Actuellement, vous ne pouvez pas utiliser la fonctionnalité de sauvegarde et de restauration avec les comptes de stockage Azure configurés pour utiliser un point de terminaison privé.
 
 <a name="manualbackup"></a>
@@ -161,6 +160,24 @@ La sauvegarde de base de données pour l'application est stockée dans la racine
 
 > [!WARNING]
 > Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+La page **Sauvegardes** vous montre l’état de chaque sauvegarde. Si vous cliquez sur une sauvegarde qui a échoué, vous pouvez obtenir les détails du journal concernant l’échec. Utilisez le tableau suivant pour vous aider à résoudre des problèmes sur votre sauvegarde. Si l’échec n’est pas documenté dans le tableau, ouvrez un ticket de support.
+
+| Erreur | Correction |
+| - | - |
+| Échec de l'accès au stockage. | Supprimez la planification de sauvegarde et reconfigurez-la. Vous pouvez également reconfigurer le stockage de sauvegarde. |
+| La taille du site web et de la base de données dépasse la limite de {0} Go pour les sauvegardes. La taille de votre contenu est de {1} Go. | [Excluez certains fichiers](#configure-partial-backups) de la sauvegarde ou supprimez la partie base de données de la sauvegarde et utilisez plutôt des sauvegardes proposées en externe. |
+| Une erreur s’est produite lors de la connexion à la base de données {0} sur le serveur {1}: Échec de l’authentification sur l’hôte '{1}' pour l’utilisateur '\<username>' à l’aide de la méthode 'mysql_native_password' avec le message : Base de données inconnue '\<db-name>' | Mettez à jour la chaîne de connexion à la base de données. |
+| Impossible de résoudre {0}. {1} (CannotResolveStorageAccount) | Supprimez la planification de sauvegarde et reconfigurez-la. |
+| Échec de la connexion pour l’utilisateur '{0}'. | Mise à jour de la chaîne de connexion de base de données. |
+| La création d’une copie de base de données de {0} ({1}) a levé une exception. Impossible de créer une copie de base de données. | Utilisez un utilisateur administrateur dans la chaîne de connexion. |
+| Le principal de serveur « \<name> » ne peut pas accéder à la base de données « master » dans le contexte de sécurité actuel. Impossible d’ouvrir la base de données « Master » demandée par la connexion. La connexion a échoué. Échec de la connexion pour l’utilisateur '\<name>'. | Utilisez un utilisateur administrateur dans la chaîne de connexion. |
+| Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom de l’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance. (fournisseur : Fournisseur de canaux nommés, erreur : 40 - Impossible d’ouvrir une connexion à SQL Server). | Vérifiez que la chaîne de connexion est valide. Autorisez les [adresses IP sortantes](overview-inbound-outbound-ips.md) de l’application dans les paramètres du serveur de base de données. |
+| Impossible d’ouvrir le serveur « \<name> » demandé par la connexion. La connexion a échoué. | Vérifiez que la chaîne de connexion est valide. |
+| Paramètres obligatoires manquants pour la signature d’accès partagé valide. | Supprimez la planification de sauvegarde et reconfigurez-la. |
+| Connexion SSL obligatoire. Veuillez spécifier les options SSL puis réessayez. Lors d’une tentative de connexion. | Utilisez plutôt la fonctionnalité de sauvegarde intégrée dans Azure MySQL ou Azure PostgresSQL. |
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 

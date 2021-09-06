@@ -10,14 +10,14 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: how-to
-  ms.date: 02/09/2021
+  ms.date: 06/18/2021
   ms.author: justinha
-  ms.openlocfilehash: a431fff476cd79d25c4db0e60ad0bcff361a4a2a
-  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.openlocfilehash: 287613213a565f475515e3034fd3897d29c1fff0
+  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "111907190"
+  ms.lasthandoff: 07/27/2021
+  ms.locfileid: "114707905"
 title: Foire aux questions (FAQ) sur Azure Active Directory (AD) Domain Services
 summary: Cette page répond aux questions fréquemment posées sur les services de domaine Azure Active Directory.
 sections:
@@ -73,6 +73,9 @@ sections:
       Les utilisateurs invités de mon annuaire peuvent-ils utiliser Azure Active Directory Domain Services ?
     answer: >
       Non. Les utilisateurs invités de votre annuaire Azure AD qui utilisent le processus d’invitation [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) sont synchronisés avec votre domaine managé Azure AD Domain Services. Toutefois, les mots de passe de ces utilisateurs ne sont pas stockés dans votre annuaire Azure AD. C’est pourquoi Azure AD Domain Services n’a aucun moyen de synchroniser les hachages NTLM et Kerberos pour ces utilisateurs dans votre domaine managé. De tels utilisateurs ne peuvent pas se connecter ou joindre des ordinateurs au domaine géré.
+  - question: >
+      Une approbation de forêt bidirectionnelle peut-elle être créée entre une forêt de ressources et une forêt locale ?
+    answer: "Non. Une forêt de ressources de domaine managé prend en charge jusqu’à cinq approbations de forêt sortante unidirectionnelle vers des forêts locales. \n"
   - question: >
       Puis-je déplacer un domaine managé Azure AD Domain Services existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?
     answer: >
@@ -158,6 +161,10 @@ sections:
       Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ? Ai-je besoin d’Azure AD Premium pour utiliser les services de domaine Azure AD ?
     answer: >
       Non. Les services de domaine Azure AD constituent un service Azure avec paiement à l’utilisation et ne font pas partie d’EMS. Azure Active Directory Domain Services peut être utilisé avec toutes les éditions d’Azure AD (Gratuit et Premium). La facturation se fait à l’utilisation, sur une base horaire.
+  - question: >
+      Puis-je créer un domaine enfant sous un domaine managé ?
+    answer: >
+      Non. Azure AD Domain Services a une conception à domaine unique et à forêt unique, et vous ne pouvez pas créer de domaines enfants.
   - question: >
       Dans quelles régions Azure le service est-il disponible ?
     answer: >

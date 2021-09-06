@@ -11,19 +11,19 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 3bc18e02345915c5446895a9acc5a33bd0b33431
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0548b309f84f46d7e1a8c904115167d59cc6f10e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746804"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417394"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>Images Docker prédéfinies pour l’inférence (préversion)
 
 Les images conteneur Docker prédéfinies pour l’inférence [(préversion)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) sont utilisées durant le déploiement d’un modèle avec Azure Machine Learning.  Les images sont prédéfinies avec des frameworks de machine learning et des packages Python populaires. Vous pouvez également étendre les packages pour ajouter d’autres packages à l’aide de l’une des méthodes suivantes :
 
 * [Ajoutez des Packages Python](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Utilisez le package prédéfini comme base d’un nouveau Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Avec cette méthode, vous pouvez installer des **packages Python et des packages apt**.
+* [Utilisez une image d’inférence prédéfinie comme base d’un nouveau Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Avec cette méthode, vous pouvez installer des **packages Python et des packages apt**.
 
 ## <a name="why-should-i-use-prebuilt-images"></a>Pourquoi utiliser des images prédéfinies ?
 
@@ -31,7 +31,6 @@ Les images conteneur Docker prédéfinies pour l’inférence [(préversion)](ht
 * Cela améliore le taux de réussite du déploiement de modèle.
 * Cela évite la génération d’image inutile pendant le déploiement du modèle.
 * Cela limite les dépendances et droits d’accès à l’image/au conteneur à ce qui est nécessaire. 
-* Le processus d’inférence dans le déploiement s’exécute de façon non-racine.
 
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>Liste des images Docker prédéfinies pour l’inférence 
 

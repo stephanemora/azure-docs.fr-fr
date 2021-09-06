@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8a67cb97487e1082aed976712ded5383008531b1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ae3f62141fdcdb1185f493eceeef7124fe11f869
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957127"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531615"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -86,7 +86,7 @@ Azure Service Fabric est une plateforme de systèmes distribués. Celle-ci facil
 * Approvisionnement
 * Déploiement en cours
 * Surveillance
-* Mise à niveau/application de correctifs
+* Mise à niveau/Mise à jour corrective
 * En cours de suppression
 
 Les applications s’exécutent sur un pool partagé de machines. Vous pouvez commencer à petite échelle puis évoluer pour prendre en charge des centaines ou des milliers de machines, selon les besoins.
@@ -130,7 +130,7 @@ La plupart des applications doivent stocker des données. Par conséquent, quell
 
   > **Quand les utiliser** : lorsque votre application stocke des données non relationnelles, telles que des paires clé-valeur (tables), des objets blob, des partages de fichiers ou des messages (files d’attente).
   >
-  > **Prise en main** : choisissez parmi les types de stockages suivants : [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md) et [fichiers](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Démarrer** : choisissez parmi les types de stockage suivants : [objets blob](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md) ou [fichiers](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 * **Azure SQL Database** : version basée sur Azure du moteur Microsoft SQL Server pour le stockage des données tabulaires relationnelles dans le cloud. SQL Database offre des performances prévisibles et une scalabilité sans interruption de service. Il assure aussi la continuité des activités et la protection des données.
 
@@ -244,7 +244,9 @@ Le [Portail Azure](https://portal.azure.com) est une application web. Vous pouve
 
 * Un tableau de bord configurable
 * Outils de gestion des ressources Azure
-* Accès aux paramètres d’abonnement et aux informations de facturation. Pour plus d’informations, consultez la [présentation du portail Azure](https://azure.microsoft.com/features/azure-portal/).
+* Accès aux paramètres d’abonnement et aux informations de facturation
+
+Pour plus d’informations, consultez la [présentation du portail Azure](https://azure.microsoft.com/features/azure-portal/).
 
 ### <a name="rest-apis"></a>API REST
 
@@ -338,4 +340,4 @@ Azure fournit un ensemble d’API REST de facturation qui donnent accès à la c
 
 Bien qu’il soit difficile d’estimer les coûts à l’avance, Azure propose des outils qui peuvent vous aider. Il dispose d’une [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût des ressources déployées. Vous pouvez également utiliser les ressources de facturation dans le portail et les API REST de facturation pour estimer les coûts futurs en fonction de votre consommation actuelle.
 
->**Prise en main** : Consultez [Présentation des API de consommation Azure](../../cost-management-billing/manage/consumption-api-overview.md).
+>**Démarrage** : pour en savoir plus, consultez [Vue d’ensemble de l’API de consommation Azure](../../cost-management-billing/manage/consumption-api-overview.md).

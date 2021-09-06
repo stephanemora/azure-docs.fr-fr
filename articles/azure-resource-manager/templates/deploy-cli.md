@@ -2,13 +2,13 @@
 title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: 4507fe743674ac8c7ee45b53adb1e4cc543289d5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/15/2021
+ms.openlocfilehash: 8ecb8bb2e6b24571d91e97157ff91ba931b0719d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951166"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296770"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
@@ -171,7 +171,7 @@ az deployment group create \
   --template-spec $id
 ```
 
-Pour plus d’informations, consultez [Spec de modèle Azure Resource Manager](template-specs.md).
+Pour plus d’informations, consultez [Specs de modèle Azure Resource Manager](template-specs.md).
 
 ## <a name="preview-changes"></a>Prévisualiser les modifications
 
@@ -235,6 +235,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 ```
 
 Utilisez des guillemets doubles autour du JSON que vous voulez passer à l’objet.
+
+Vous pouvez utiliser une variable pour contenir les valeurs de paramètre. Dans Bash, définissez la variable sur toutes les valeurs de paramètre et ajoutez-la à la commande de déploiement.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-template> \
+  --parameters $params
+``` 
+
+Toutefois, si vous utilisez Azure CLI avec l’invite de commandes (CMD) Windows ou PowerShell, définissez la variable sur une chaîne JSON. Échappez les guillemets : `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
 ### <a name="parameter-files"></a>Fichiers de paramètres
 

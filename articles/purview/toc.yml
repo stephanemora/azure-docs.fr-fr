@@ -76,6 +76,8 @@ items:
         href: concept-asset-normalization.md
       - name: Forum aux questions
         href: ./frequently-asked-questions.yml
+      - name: Comptes Purview mis à niveau
+        href: concept-account-upgrade.md
   - name: Guides pratiques
     items:
       - name: Créer et gérer des collections

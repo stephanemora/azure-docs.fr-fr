@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 07/31/2021
 ms.author: allensu
-ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fcb16f44aed90f483be80c64d31781f54203de6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93242206"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524482"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
@@ -41,10 +41,7 @@ Une valeur par défaut *règle globale* est incluse dans cette limite. La règle
 
 ## <a name="limits-and-pricing"></a>Limites et tarification 
 
-Chaque point de terminaison Azure CDN peut avoir jusqu’à 25 règles. Chaque règle peut avoir jusqu’à dix conditions de correspondance et cinq actions. La tarification du moteur de règles suit les dimensions ci-dessous : 
-- Règles : 1 USD par règle par mois 
-- Demandes traitées : 0,60 $ par million de demandes
-- Les 5 premières règles restent gratuites
+Consultez [Limites de mise à l'échelle CDN](../azure-resource-manager/management/azure-subscription-service-limits.md#content-delivery-network-limits) pour connaître la limite des règles. Pour la tarification du moteur de règles, consultez [Tarification de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="syntax"></a>Syntaxe
 

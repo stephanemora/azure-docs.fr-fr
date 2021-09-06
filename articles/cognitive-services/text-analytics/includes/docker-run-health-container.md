@@ -7,42 +7,35 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/12/2020
+ms.date: 06/18/2021
 ms.author: aahi
-ms.openlocfilehash: 2deb67f5a569ed6283bfe4a99bef795ffbf13bac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47a7059e21f1c9b9d6d72644bc08c62b66afc772
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110165475"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339560"
 ---
 ## <a name="install-the-container"></a>Installer le conteneur
 
 Il existe plusieurs façons d’installer et d’exécuter le conteneur Analyse de texte pour la santé. 
 
 - Utilisez le [Portail Azure](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare) pour créer une ressource d’Analyse de texte, et utilisez Docker pour obtenir votre conteneur.
+- Utilisez une machine virtuelle Azure avec Docker pour exécuter le conteneur. Reportez-vous à [Docker sur Azure](../../../docker/index.yml).
 - Utilisez les scripts PowerShell et Azure CLI suivants pour automatiser le déploiement des ressources et la configuration du conteneur.
 
 ### <a name="run-the-container-locally"></a>Exécutez localement le conteneur
 
-Pour exécuter le conteneur dans votre propre environnement après avoir téléchargé l’image conteneur, recherchez son ID d’image :
- 
-```bash
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
-Exécutez la commande `docker run` suivante. Remplacez les espaces réservés suivants par vos valeurs :
+Pour exécuter le conteneur dans votre propre environnement après avoir téléchargé l’image conteneur, exécutez la commande `docker run` suivante. Remplacez les espaces réservés suivants par vos valeurs :
 
 | Espace réservé | Valeur | Format ou exemple |
 |-------------|-------|---|
 | **{API_KEY}** | Clé de votre ressource Analyse de texte. Cette information est disponible dans le portail Azure, sur la page **Key and endpoint** (Clé et point de terminaison) de votre ressource. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | Point de terminaison pour accéder à l’API Analyse de texte. Cette information est disponible dans le portail Azure, sur la page **Key and endpoint** (Clé et point de terminaison) de votre ressource. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| **{IMAGE_ID}** | ID d’image du conteneur. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | Répertoire d’entrée du conteneur. | Windows : `C:\healthcareMount` <br> Linux/macOS : `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
---mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
@@ -52,8 +45,7 @@ Logging:Disk:Format=json
 
 Cette commande :
 
-- Suppose que le répertoire d’entrée existe sur l’ordinateur hôte
-- Exécute un conteneur Analyse de texte pour la santé à partir de l’image conteneur
+- Exécute le conteneur *Analyse de texte pour la santé* à partir de l’image conteneur
 - Alloue 6 cœurs de processeur et 12 gigaoctets (Go) de mémoire
 - Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
 - Accepte le contrat de licence utilisateur final (CLUF) et les conditions générales de l’IA responsable
@@ -73,7 +65,7 @@ http://<serverURL>:5000/demo
 Utilisez l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé en remplaçant la variable `serverURL` par la valeur appropriée.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 

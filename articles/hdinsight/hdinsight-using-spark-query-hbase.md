@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: 344caf4080380f5d9dfdaf452798ada6d1dc9f1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e639f49844aeb39b9fc51629f798e16015fa42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931230"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525189"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
@@ -160,11 +160,11 @@ Par exemple, le tableau suivant liste deux versions, ainsi que les commandes cor
     |Version de Spark| Version HDI HBase  | Version SHC    |  Commande  |
     | :-----------:| :----------: | :-----------: |:----------- |
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    
 
 2. Laissez cette instance de l'interpréteur de commandes Spark ouverte et passez à l'étape [Définir un catalogue et l'interroger](#define-a-catalog-and-query). Si vous ne trouvez pas les fichiers .jar correspondant à vos versions dans le référentiel SHC Core, poursuivez votre lecture. 
 
-Vous pouvez créer les fichiers .jar à partir de la branche GitHub [spark-hbase-connector](https://github.com/hortonworks-spark/shc). Par exemple, si vous utilisez Spark 2.3 et HBase 1.1, procédez comme suit :
+Pour les combinaisons suivantes de versions Spark et HBase, ces artefacts ne sont plus publiés sur le référentiel ci-dessus. Vous pouvez créer les fichiers .jar à partir de la branche GitHub [spark-hbase-connector](https://github.com/hortonworks-spark/shc). Par exemple, si vous utilisez Spark 2.4 et HBase 2.1, procédez comme suit :
 
 1. Clonez le référentiel :
 
@@ -172,10 +172,10 @@ Vous pouvez créer les fichiers .jar à partir de la branche GitHub [spark-hbase
     git clone https://github.com/hortonworks-spark/shc
     ```
     
-2. Accédez à la branche-2.3 :
+2. Accédez à la branche-2.4 :
 
     ```bash
-    git checkout branch-2.3
+    git checkout branch-2.4
     ```
 
 3. Créez à partir de la branche (crée un fichier .jar) :
@@ -187,7 +187,7 @@ Vous pouvez créer les fichiers .jar à partir de la branche GitHub [spark-hbase
 3. Exécutez la commande suivante (veillez à modifier le nom .jar qui correspond au fichier .jar que vous avez créé) :
 
     ```bash
-    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/shaded-clients/*
     ```
     
 4. Laissez cette instance de l'interpréteur de commandes Spark ouverte et passez à la section suivante. 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 01/27/2020
+ms.date: 07/12/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4c8e18979ff1575e1a050244a96e7858cdce46b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9afabe40426a5e86fdd3c6ef76969e1392a9b051
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530244"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649585"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -57,7 +57,7 @@ Les stratégies de conditions d’utilisation d’Azure AD vous permettent d’
 Pour utiliser et configurer les stratégies de conditions d’utilisation d’Azure AD, vous devez disposer des éléments suivants :
 
 - Abonnement Azure AD Premium P1, P2, EMS E3 ou EMS E5.
-   - Si vous ne disposez pas d’un de ces abonnements, vous pouvez [obtenir Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) ou [activer un essai d’Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
+   - Si vous n’avez pas l’un de ces abonnements, vous pouvez [obtenir Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) ou [activer la version d’évaluation d’Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Un des comptes d’administrateur suivants pour le répertoire que vous souhaitez configurer :
    - Administrateur général
    - Security Administrator
@@ -201,16 +201,10 @@ Les utilisateurs n’ont à accepter la stratégie de conditions d’utilisation
 
 Vous pouvez consulter et vérifier les stratégies de conditions d’utilisation qu’ils ont acceptées en procédant de la façon suivante.
 
-1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. Dans l’angle supérieur droit, cliquez sur votre nom, puis sélectionnez **Profil**.
-
-    ![Site MyApps avec le volet de l’utilisateur ouvert](./media/terms-of-use/tou14.png)
-
-1. Dans la page de votre profil, cliquez sur **Vérifier les conditions d’utilisation**.
-
-    ![Page de profil d’un utilisateur montrant le lien Vérifier les conditions d’utilisation](./media/terms-of-use/tou13a.png)
-
-1. C’est là que vous pouvez consulter les stratégies de conditions d’utilisation que vous avez acceptées.
+1. Connectez-vous à [https://myaccount.microsoft.com/](https://myaccount.microsoft.com/).
+1. Sélectionnez **Paramètres et confidentialité**.
+1. Sélectionnez **Confidentialité**.
+1. Sous **Organization’s notice** (Avis de l’organisation), sélectionnez **Afficher** à côté des conditions d’utilisation que vous voulez consulter.
 
 ## <a name="edit-terms-of-use-details"></a>Modifier les détails des conditions d’utilisation
 
@@ -222,7 +216,7 @@ Vous pouvez modifier certains détails des stratégies de conditions d’utilisa
 1. Dans le volet Modifier les conditions d’utilisation, vous pouvez changer les éléments suivants :
     - **Nom** : nom interne des conditions d’utilisation qui n’est pas partagé avec les utilisateurs finaux
     - **Nom d’affichage** : nom que les utilisateurs finaux peuvent voir lors de l’affichage des conditions d’utilisation
-    - **Demander aux utilisateurs d’étendre les conditions d’utilisation** : la définition de cette option sur **Activé** force l’utilisateur final à étendre la stratégie de conditions d’utilisation avant de l’accepter.
+    - **Demander aux utilisateurs de développer les conditions d’utilisation** : la définition de cette option sur **Activé** force l’utilisateur final à développer la politique de conditions d’utilisation avant de l’accepter.
     - (Préversion) Vous pouvez **mettre à jour un document de conditions d’utilisation existant**
     - Vous pouvez ajouter une langue à des conditions d’utilisation existantes
 
@@ -242,7 +236,7 @@ Vous pouvez modifier certains détails des stratégies de conditions d’utilisa
     ![Volet Modifier les conditions d’utilisation montrant les options Nom et Développer](./media/terms-of-use/edit-terms-use.png)
 
 5.  Dans le volet de droite, chargez le fichier PDF pour la nouvelle version.
-6.  Il existe également une option à bascule **Exiger une nouvelle acceptation** si vous souhaitez obliger les utilisateurs à accepter cette nouvelle version la prochaine fois qu’ils se connectent. Si vous exigez une nouvelle acceptation de la part de vos utilisateurs, ceux-ci sont invités à accepter cette nouvelle version la prochaine fois qu’ils tentent d’accéder à la ressource définie dans votre stratégie d’accès conditionnel. Si vous n’exigez pas de nouvelle acceptation de la part de vos utilisateurs, leur consentement préalable demeure à jour et seuls les nouveaux utilisateurs qui n’ont pas fait part de leur consentement ou dont le consentement arrive à expiration voient la nouvelle version.
+6.  Il existe également une option à bascule **Exiger une nouvelle acceptation** si vous souhaitez obliger les utilisateurs à accepter cette nouvelle version la prochaine fois qu’ils se connectent. Si vous exigez une nouvelle acceptation de la part de vos utilisateurs, ceux-ci sont invités à accepter cette nouvelle version la prochaine fois qu’ils tentent d’accéder à la ressource définie dans votre stratégie d’accès conditionnel. Si vous n’exigez pas de nouvelle acceptation de la part de vos utilisateurs, leur consentement préalable demeure à jour et seuls les nouveaux utilisateurs qui n’ont pas fait part de leur consentement ou dont le consentement arrive à expiration voient la nouvelle version. Jusqu’à l’expiration de la session, l’option **Exiger une nouvelle acceptation** n’impose pas aux utilisateurs d’accepter les nouvelles conditions d’utilisation. Si vous voulez assurer une nouvelle acceptation, supprimez et recréez ou créez des nouvelles conditions d’utilisation pour ce cas.
 
     ![Modifier les conditions d’utilisation - Mise en évidence de l’option permettant d’exiger une nouvelle acceptation](./media/terms-of-use/re-accept.png)
 
@@ -403,12 +397,6 @@ A : Le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs aya
 **Q : Pourquoi le nombre de consentements est-il différent dans le rapport des conditions d’utilisation et dans les journaux d’audit Azure AD ?**<br />
 A : Le rapport des conditions d’utilisation est stocké pendant toute la durée de vie de celles-ci, alors que les journaux d’audit Azure AD sont stockés pendant 30 jours. En outre, le rapport des conditions d’utilisation affiche uniquement l’état actuel du consentement utilisateur. Par exemple, si un utilisateur refuse, puis accepte les conditions d’utilisation, le rapport affichera uniquement son acceptation. Si vous avez besoin de consulter l’historique, vous pouvez utiliser les journaux d’audit Azure AD.
 
-**Q : Si je modifie les détails d’une stratégie de conditions d’utilisation, les utilisateurs doivent-ils la réaccepter ?**<br />
-A : Non. Si un administrateur modifie les détails d’une stratégie de conditions d’utilisation (nom, nom d’affichage, demander aux utilisateurs de développer les conditions ou ajouter une langue), les utilisateurs ne sont pas tenus de réaccepter les nouvelles conditions.
-
-**Q : Puis-je mettre à jour un document de stratégie de conditions d’utilisation existant ?**<br />
-A : Il n’est pas possible à l’heure actuelle de mettre à jour un document de stratégie de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de stratégie de conditions d’utilisation.
-
 **Q : Si des liens hypertexte se trouvent dans la stratégie de conditions d’utilisation d’un document PDF, les utilisateurs finaux peuvent-ils cliquer dessus ?**<br />
 A : Oui, les utilisateurs finaux sont en mesure de sélectionner des liens hypertexte vers des pages supplémentaires, mais les liens vers les sections du document ne sont pas pris en charge. En outre, les liens hypertexte dans les PDF d’une stratégie de conditions d’utilisation ne fonctionnent pas quand vous y accédez à partir du portail MyAccount/Azure AD MyApps.
 
@@ -434,7 +422,7 @@ A : Vous pouvez [consulter les stratégies de conditions d’utilisation préc�
 A : Si vous avez configuré les conditions d’utilisation d’Azure AD et les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit accepter les deux. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q : Quels sont les points de terminaison utilisés par le service Conditions d’utilisation pour l’authentification ?**<br />
-A : Le service Conditions d’utilisation utilise les points de terminaison suivants pour l’authentification : https://tokenprovider.termsofuse.identitygovernance.azure.com et https://account.activedirectory.windowsazure.com. Si votre organisation dispose d’une liste verte d’URL pour l’inscription, vous devez ajouter ces points de terminaison à votre liste verte, ainsi que les points de terminaison Azure AD pour vous connecter.
+A : Le service Conditions d’utilisation utilise les points de terminaison suivants pour l’authentification : https://tokenprovider.termsofuse.identitygovernance.azure.com et https://account.activedirectory.windowsazure.com. Si votre organisation dispose d’une liste d’autorisation d’URL pour l’inscription, vous devez ajouter ces points de terminaison à cette liste, ainsi que les points de terminaison Azure AD pour la connexion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

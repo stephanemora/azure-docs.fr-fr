@@ -34,7 +34,7 @@
       items:
         - name: Créer une application de notification avec Azure Function
           href: tutorial-serverless-notification.md
-        - name: Créer une application de conversation avec Azure Function
+        - name: Créer une application de conversation en temps réel avec une authentification cliente
           href: quickstart-serverless.md
     - name: Publier des messages et s’y abonner
       href: tutorial-pub-sub-messages.md
@@ -85,6 +85,8 @@
       items:
         - name: Sous-protocole JSON WebSocket
           href: reference-json-webpubsub-subprotocol.md
+        - name: Sous-protocole Protobuf WebSocket
+          href: reference-protobuf-webpubsub-subprotocol.md
     - name: Extension CloudEvents pour Azure Web PubSub
       href: reference-cloud-events.md
     - name: Liaisons et déclencheurs de fonctions

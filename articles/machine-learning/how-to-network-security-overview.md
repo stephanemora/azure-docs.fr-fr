@@ -10,45 +10,49 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack
-ms.openlocfilehash: c5e5461163b28ff53e77121a8e48dc478887ea6c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
+ms.openlocfilehash: 06dc1a34f35434019d1b992c12502577aa470360
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081062"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653488"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Sécuriser les ressources d’espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
 Sécurisez les ressources d’espace de travail Azure Machine Learning et les environnements de calcul à l’aide de réseaux virtuels. Cet article utilise un exemple de scénario pour vous montrer comment configurer un réseau virtuel complet.
 
-Cet article fait partie d’une série en cinq parties qui vous guide à travers le processus de sécurisation d’un workflow Azure Machine Learning. Nous vous recommandons vivement de commencer par lire cet article pour comprendre les concepts. 
-
-Voici les autres articles de cette série :
-
-**1. Présentation du réseau virtuel** > [2. Sécurisation de l’espace de travail](how-to-secure-workspace-vnet.md) > [3. Sécurisation de l’environnement d’entraînement](how-to-secure-training-vnet.md) > [4. Sécurisation de l’environnement d’inférence](how-to-secure-inferencing-vnet.md) > [5. Activation de la fonctionnalité studio](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
+>
+> * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+> * [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+> * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+> * [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+> * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+> * [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article part du principe que vous connaissez déjà les sujets suivants :
 + [Réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md)
 + [Réseaux IP](../virtual-network/public-ip-addresses.md)
-+ [Azure Private Link](how-to-configure-private-link.md)
++ [Espace de travail Azure Machine Learning avec point de terminaison privé](how-to-configure-private-link.md)
 + [Groupes de sécurité réseau (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Pare-feu de réseau](../firewall/overview.md)
 ## <a name="example-scenario"></a>Exemple de scénario
 
 Dans cette section, vous allez découvrir comment on peut configurer un scénario de réseau courant pour sécuriser la communication Azure Machine Learning avec des adresses IP privées.
 
-Le tableau suivant compare l’accès des services aux différentes parties d’un réseau Azure Machine Learning avec et sans VNet.
+Le tableau suivant compare l’accès des services aux différentes parties d’un réseau Azure Machine Learning avec et sans VNet :
 
 | Scénario | Espace de travail | Ressources associées | Environnement de calcul pour l’entraînement | Environnement de calcul pour l’inférence |
 |-|-|-|-|-|-|
 |**Aucun réseau virtuel**| Adresse IP publique | Adresse IP publique | Adresse IP publique | Adresse IP publique |
 |**Protéger les ressources dans un réseau virtuel**| Adresse IP privée (point de terminaison privé) | Adresse IP publique (point de terminaison de service) <br> **- ou -** <br> Adresse IP privée (point de terminaison privé) | IP privée | IP privée  | 
 
-* **Espace de travail** - Créez un point de terminaison privé à partir de votre réseau virtuel pour vous connecter à Private Link sur l’espace de travail. Le point de terminaison privé connecte l’espace de travail au réseau virtuel par le biais de plusieurs adresses IP privées.
+* **Espace de travail** - Créer un point de terminaison privé pour votre espace de travail. Le point de terminaison privé connecte l’espace de travail au réseau virtuel par le biais de plusieurs adresses IP privées.
 * **Ressource associée** - Utilisez les points de terminaison du service ou des points de terminaison privés pour vous connecter à des ressources d’espace de travail telles que Stockage Azure, Azure Key Vault et Azure Container Services.
     * Les **points de terminaison de service** fournissent l’identité de votre réseau virtuel au service Azure. Une fois que vous avez activé les points de terminaison de service dans votre réseau virtuel, vous pouvez ajouter une règle de réseau virtuel afin de sécuriser les ressources du service Azure pour votre réseau virtuel. Les points de terminaison de service utilisent des adresses IP publiques.
     * Les **points de terminaison privés** sont des interfaces réseau qui vous connectent de manière sécurisée à un service alimenté par Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel.
@@ -56,7 +60,7 @@ Le tableau suivant compare l’accès des services aux différentes parties d’
 * **Accès au calcul d’inférence** - Accédez à des clusters de calcul Azure Kubernetes Services (AKS) avec des adresses IP privées.
 
 
-Les cinq sections suivantes vous montrent comment sécuriser le scénario réseau décrit ci-dessus. Pour sécuriser votre réseau, vous devez :
+Les sections suivantes vous montrent comment sécuriser le scénario réseau décrit ci-dessus. Pour sécuriser votre réseau, vous devez :
 
 1. Sécuriser l’[**espace de travail et les ressources associées**](#secure-the-workspace-and-associated-resources).
 1. Sécuriser l’[**environnement d’entraînement**](#secure-the-training-environment).
@@ -69,7 +73,7 @@ Les cinq sections suivantes vous montrent comment sécuriser le scénario résea
 Utilisez la procédure ci-dessous pour sécuriser votre espace de travail et les ressources associées. Ces étapes permettent à vos services de communiquer dans le réseau virtuel.
 
 1. Créez un [espace de travail avec Private Link activé](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) pour activer la communication entre votre réseau virtuel et votre espace de travail.
-1. Ajoutez les services suivants au réseau virtuel en utilisant un __point de terminaison de service__ _ou_ un __point de terminaison privé__. Vous devez également autoriser les services Microsoft approuvés à accéder à ces services :
+1. Ajoutez les services suivants au réseau virtuel en utilisant un __point de terminaison de service__ _ou_ un __point de terminaison privé__. Autorisez également les services Microsoft approuvés à accéder à ces services :
     
     | Service | Informations sur le point de terminaison | Autoriser les informations approuvées |
     | ----- | ----- | ----- |
@@ -85,7 +89,7 @@ Retrouvez les instructions détaillées relatives à cette procédure dans l’a
 ### <a name="limitations"></a>Limites
 
 La sécurisation de votre espace de travail et des ressources associées dans un réseau virtuel présente les limitations suivantes :
-- L’utilisation d’un espace de travail Azure Machine Learning avec un lien privé n’est pas disponible dans les régions Azure Government ou Azure China 21Vianet.
+- L’utilisation d’un espace de travail Azure Machine Learning avec un point de terminaison privé n’est pas disponible dans les régions Azure Government ou Azure China 21Vianet.
 - Toutes les ressources doivent se trouver derrière le même réseau virtuel. Toutefois, des sous-réseaux peuvent être utilisés au sein d’un même réseau virtuel.
 
 ## <a name="secure-the-training-environment"></a>Sécuriser l’environnement d’entraînement
@@ -95,7 +99,7 @@ Dans cette section, vous allez voir comment sécuriser l’environnement d’ent
 Pour sécuriser l’environnement d’entraînement, procédez comme suit :
 
 1. Créez une [instance de calcul et un cluster de calcul Azure Machine Learning dans le réseau virtuel](how-to-secure-training-vnet.md#compute-instance) pour exécuter le travail d’entraînement.
-1. [Autorisez la communication entrante à partir d’Azure Batch Service](how-to-secure-training-vnet.md#mlcports) de sorte que Batch Service puisse envoyer des travaux à vos ressources de calcul. 
+1. [Autorisez les communications entrantes](how-to-secure-training-vnet.md#required-public-internet-access) pour permettre aux services de gestion de soumettre des tâches à vos ressources de calcul. 
 
 ![Diagramme d’architecture représentant la sécurisation des clusters et instances de calcul managés](./media/how-to-network-security-overview/secure-training-environment.png)
 
@@ -109,7 +113,7 @@ Dans cette section, vous allez voir comment Azure Machine Learning communique de
 
 1. Le client envoie un travail d’entraînement à l’espace de travail Azure Machine Learning via le point de terminaison privé.
 
-1. Azure Batch Services reçoit le travail de la part de l’espace de travail et l’envoie à l’environnement de calcul via l’équilibreur de charge public configuré avec la ressource de calcul. 
+1. Le service Azure Batch reçoit la tâche depuis l’espace de travail. Il soumet ensuite la tâche de formation à l’environnement de calcul via l’équilibreur de charge public pour la ressource de calcul. 
 
 1. La ressource de calcul reçoit le travail et commence l’entraînement. La ressource de calcul accède aux comptes de stockage sécurisés pour télécharger les fichiers d’entraînement et charger la sortie.
 
@@ -143,16 +147,16 @@ Le diagramme de réseau suivant représente un espace de travail Azure Machine L
 
 Vous pouvez sécuriser l’espace de travail derrière un réseau virtuel en utilisant un point de terminaison privé tout en autorisant l’accès via l’internet public. La configuration initiale est la même que pour [la sécurisation de l’espace de travail et des ressources associées](#secure-the-workspace-and-associated-resources). 
 
-Après la sécurisation de l’espace de travail avec un lien privé, vous [activez l’accès public](how-to-configure-private-link.md#enable-public-access). Après cela, vous pouvez accéder à l’espace de travail à partir de l’internet public et du réseau virtuel.
+Après la sécurisation de l’espace de travail avec un point de terminaison privé, vous devez [activer l’accès public](how-to-configure-private-link.md#enable-public-access). Après cela, vous pouvez accéder à l’espace de travail à partir de l’internet public et du réseau virtuel.
 
 ### <a name="limitations"></a>Limites
 
-- Si vous utilisez Azure Machine Learning Studio via l’internet public, certaines fonctionnalités, comme le concepteur, peuvent échouer à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
+- Si vous utilisez Azure Machine Learning Studio via l’internet public, certaines fonctionnalités, comme le concepteur, peuvent échouer à accéder à vos données. Ce phénomène se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
 ## <a name="optional-enable-studio-functionality"></a>Facultatif : activer la fonctionnalité studio
 
 [Sécuriser l’espace de travail](#secure-the-workspace-and-associated-resources) > [Sécuriser l’environnement d’entraînement](#secure-the-training-environment) > [Sécuriser l’environnement d’inférence](#secure-the-inferencing-environment) > **Activer la fonctionnalité studio** > [Configurer les paramètres du pare-feu](#configure-firewall-settings)
 
-Si votre stockage se trouve dans un réseau virtuel, vous devez d’abord effectuer des étapes de configuration supplémentaires pour activer toutes les fonctionnalités dans [le studio](overview-what-is-machine-learning-studio.md). Par défaut, les fonctionnalités suivantes sont désactivées :
+Si votre stockage se trouve dans un réseau virtuel, vous devez suivre des étapes de configuration supplémentaires pour activer toutes les fonctionnalités dans Studio. Par défaut, les fonctionnalités suivantes sont désactivées :
 
 * Aperçu des données dans Studio
 * Visualisation des données dans le concepteur
@@ -160,15 +164,18 @@ Si votre stockage se trouve dans un réseau virtuel, vous devez d’abord effect
 * Envoi d’une expérience AutoML
 * Démarrage d’un projet d’étiquetage
 
-Pour activer toute la fonctionnalité studio dans un réseau virtuel, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Le studio prend en charge les comptes de stockage à l’aide de points de terminaison de service ou de points de terminaison privés.
+Pour activer toutes les fonctionnalités Studio, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md).
 
 ### <a name="limitations"></a>Limites
 
-[L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Notez que le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
+[L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) ne prend pas en charge les comptes de stockage par défaut derrière un réseau virtuel. À la place, utilisez un compte de stockage différent de celui par défaut pour l’étiquetage des données assisté par ML. 
+
+> [!TIP]
+> Tant qu’il ne s’agit pas du compte de stockage par défaut, le compte utilisé par l’étiquetage des données peut être sécurisé derrière le réseau virtuel. 
 
 ## <a name="configure-firewall-settings"></a>Configurer les paramètres de pare-feu
 
-Configurez votre pare-feu pour contrôler l’accès aux ressources de votre espace de travail Azure Machine Learning et à l’Internet public. Bien que le Pare-feu Azure soit recommandé, vous devriez pouvoir utiliser d’autres produits de pare-feu pour sécuriser votre réseau. Si vous avez des questions sur la façon d’autoriser la communication via votre pare-feu, consultez la documentation du pare-feu que vous utilisez.
+Configurez votre pare-feu pour contrôler le trafic entre les ressources de votre espace de travail Azure Machine Learning et l’Internet public. Nous recommandons d’utiliser le pare-feu Azure, mais vous pouvez utiliser d’autres produits de pare-feu. 
 
 Pour plus d’informations sur les paramètres de pare-feu, consultez [Utiliser un espace de travail derrière un pare-feu](how-to-access-azureml-behind-firewall.md).
 
@@ -180,11 +187,11 @@ Pour plus d’informations sur les noms de domaine et les adresses IP requis, co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article fait partie d’une série en cinq parties sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
+Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
 
-* [Partie 2 : Vue d’ensemble des réseaux virtuels](how-to-secure-workspace-vnet.md)
-* [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
-* [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)
-
-Consultez également l’article sur l’utilisation du [DNS personnalisé](how-to-custom-dns.md) pour la résolution de noms.
+* [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+* [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+* [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+* [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+* [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+* [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)

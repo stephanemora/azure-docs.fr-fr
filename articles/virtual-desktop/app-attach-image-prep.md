@@ -6,16 +6,18 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f80d123a96a24ef9e9402cc2b142e94448468ea1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b3e33fecc1df930cf4fb01808b2a8400a210fce8
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745634"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707151"
 ---
 # <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Préparer une image MSIX pour Azure Virtual Desktop
 
 Attachement d’application MSIX est une solution d’application en couches qui vous permet d’attacher dynamiquement des applications d’un package MSIX à une session utilisateur. Le système de package MSIX sépare les applications du système d’exploitation, ce qui facilite la création d’images pour les machines virtuelles. Les packages MSIX vous permettent également de mieux contrôler les applications auxquelles vos utilisateurs peuvent accéder sur leurs machines virtuelles. Vous pouvez même séparer les applications de l’image principale et les donner aux utilisateurs ultérieurement.
+
+Des instructions expliquant comment convertir un programme d’installation de bureau (comme MSI, EXE, ClickOnce, App-V ou Script) en MSIX sont disponibles dans [Créer un package MSIX à partir d’un programme d’installation de bureau (MSI, EXE, ClickOnce ou App-V)](/windows/msix/packaging-tool/create-app-package).
 
 ## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Créer un package VHD ou VHDX pour MSIX
 
@@ -99,11 +101,11 @@ Une fois que vous avez créé le package MSIX, vous devez charger le fichier VHD
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Posez vos questions concernant cette fonctionnalité à la [communauté technique d’Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Posez vos questions concernant cette fonctionnalité à la [communauté technique Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Voici d’autres articles qui peuvent vous être utiles :
 
 - [Glossaire Attachement d’application MSIX](app-attach-glossary.md)
-- [FAS sur l’attachement d’application MSIX](app-attach-faq.md)
+- [FAS sur l’attachement d’application MSIX](app-attach-faq.yml)

@@ -8,43 +8,55 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 07/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81bdc8550f57a7c1c4992825cd231a9bb3cad4ce
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1c7d4eeaf7df1764b021cd5914d6f4f4a88a9a1c
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457473"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213468"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## <a name="password-reset-flow"></a>Flux de réinitialisation de mot de passe
+## <a name="overview"></a>Vue d'ensemble
 
-Le [parcours d’inscription et de connexion](add-sign-up-and-sign-in-policy.md) permet aux utilisateurs de réinitialiser leur mot de passe à l’aide du lien **Vous avez oublié votre mot de passe ?** . Le flux de réinitialisation du mot de passe est constitué des étapes suivantes :
+Dans un [parcours d’inscription et de connexion](add-sign-up-and-sign-in-policy.md), les utilisateurs peuvent réinitialiser leurs mots de passe à l’aide du lien **Vous avez oublié votre mot de passe ?** . Le flux de réinitialisation de mot de passe en libre-service s’applique aux comptes locaux dans Azure AD B2C qui utilisent une [adresse e-mail](sign-in-options.md#email-sign-in) ou un [nom d’utilisateur](sign-in-options.md#username-sign-in) avec un mot de passe pour la connexion.
 
-1. Dans la page d’inscription et de connexion, l’utilisateur clique sur le lien **Vous avez oublié votre mot de passe ?** . Azure AD B2C lance le flux de réinitialisation du mot de passe.
-2. L’utilisateur fournit son adresse e-mail et sélectionne **Envoyer le code de vérification**. Azure AD B2C envoie alors un code de vérification à l’utilisateur.
-
-* L’utilisateur doit ouvrir sa boîte e-mail et copier le code de vérification. L’utilisateur entre ensuite le code de vérification sur la page de réinitialisation de mot de passe Azure AD B2C, puis il sélectionne **Vérifier le code**.
-
-> [!NOTE]
-> Une fois l’e-mail vérifié, l’utilisateur peut toujours sélectionner **Modifier l’e-mail**, taper l’autre adresse e-mail et répéter la vérification de l’e-mail depuis le début.
-3. L’utilisateur peut ensuite entrer un nouveau mot de passe.
+Le flux de réinitialisation du mot de passe est constitué des étapes suivantes :
 
 ![Flux de réinitialisation de mot de passe](./media/add-password-reset-policy/password-reset-flow.png)
 
-Le flux de réinitialisation du mot de passe s’applique aux comptes locaux dans Azure AD B2C qui utilisent une [adresse e-mail](identity-provider-local.md#email-sign-in) ou un [nom d’utilisateur](identity-provider-local.md#username-sign-in) avec un mot de passe pour la connexion.
+**1.** Dans la page d’inscription et de connexion, l’utilisateur clique sur le lien **Vous avez oublié votre mot de passe ?** . Azure AD B2C lance le flux de réinitialisation du mot de passe.
+
+**2.** L’utilisateur fournit son adresse e-mail et sélectionne **Envoyer le code de vérification**. Azure AD B2C envoie le code de vérification à la boîte de réception de l’utilisateur. L’utilisateur copie ensuite le code de vérification de l’e-mail, le rentre sur la page de réinitialisation de mot de passe Azure AD B2C, puis sélectionne **Vérifier le code**.
+
+**3.** L’utilisateur peut ensuite entrer un nouveau mot de passe. (Après la vérification de l’e-mail, l’utilisateur peut toujours appuyer sur le bouton **Modifier l’adresse e-mail** ; voir [Masquage du bouton de modification d’adresse e-mail](#hiding-the-change-email-button) ci-dessous.)
 
 > [!TIP]
-> Le flux de réinitialisation du mot de passe en libre-service permet aux utilisateurs de modifier leur mot de passe quand ils oublient leur mot de passe et souhaitent le réinitialiser. Envisagez de configurer un [flux de modification du mot de passe](add-password-change-policy.md) pour prendre en charge les cas où un utilisateur connaît son mot de passe et souhaite le modifier.
+> Le flux de réinitialisation du mot de passe en libre-service permet aux utilisateurs de modifier leur mot de passe quand ils oublient leur mot de passe et souhaitent le réinitialiser. 
+> - Pour prendre en charge les cas où un utilisateur connaît son mot de passe et souhaite le modifier, utilisez un [flux de modification de mot de passe](add-password-change-policy.md). 
+> - Pour prendre en charge les cas où vous souhaitez forcer les utilisateurs à réinitialiser leurs mots de passe (par exemple, lorsqu’ils se connectent pour la première fois, lorsque leurs mots de passe ont été réinitialisés par un administrateur, ou lorsqu’ils ont été migrés vers Azure AD B2C avec des mots de passe aléatoires), utilisez un flux spécifique pour [forcer la réinitialisation de mot de passe](force-password-reset.md).
 
-Une pratique courante après la migration des utilisateurs vers Azure AD B2C avec des mots de passe aléatoires consiste à demander aux utilisateurs de vérifier leurs adresses e-mail et de réinitialiser leur mot de passe lors de leur première connexion. Il est également courant de forcer l’utilisateur à réinitialiser son mot de passe après qu’un administrateur a modifié son mot de passe. Pour activer cette fonctionnalité, consultez [Forcer la réinitialisation du mot de passe](force-password-reset.md).
+### <a name="hiding-the-change-email-button"></a>Masquage du bouton de modification d’adresse e-mail
+
+Une fois l’e-mail vérifié, l’utilisateur peut toujours sélectionner **Modifier l’e-mail**, taper une autre adresse e-mail et répéter la vérification de l’e-mail depuis le début. Si vous préférez masquer le bouton **Modifier l’adresse e-mail**, vous pouvez modifier la CSS pour masquer les éléments HTML associés sur la page. Par exemple, vous pouvez ajouter l’entrée CSS ci-dessous à selfAsserted.HTML et [personnaliser l’interface utilisateur avec des modèles HTML](customize-ui-with-html.md).
+
+```html
+<style type="text/css">
+   .changeClaims
+   {
+     visibility: hidden;
+   }
+</style>
+```
+
+Notez que le nom par défaut du bouton **Modifier l’adresse e-mail** sur la page selfasserted.html est `changeclaims`. Vous pouvez rechercher le nom du bouton en inspectant la source de la page d’inscription à l’aide d’un outil de navigation (par exemple, Inspecteur).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -303,8 +315,10 @@ Pour permettre aux utilisateurs de votre application de réinitialiser leur mot 
 1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**. 
 1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**.
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *passwordreset1*.
-1. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
-1. Sous **Revendications d’application**, sélectionnez **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
+1. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide du nom d’utilisateur** ou **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
+1. Sous **Authentification multifacteur**, si vous voulez demander aux utilisateurs de vérifier leur identité avec une deuxième méthode d’authentification, choisissez le type de méthode et le moment auquel appliquer l’authentification multifacteur (MFA). [Plus d’informations](multi-factor-authentication.md)
+1. Sous **Accès conditionnel**, si vous avez configuré des stratégies d’accès conditionnel pour votre locataire Azure AD B2C et que vous souhaitez les activer pour ce flux d’utilisateurs, cochez la case **Appliquer des stratégies d’accès conditionnel**. Vous n’avez pas besoin de spécifier un nom de stratégie. [Plus d’informations](conditional-access-user-flow.md?pivots=b2c-user-flow)
+1. 1. Sous **Revendications d’application**, sélectionnez **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
 1. Sélectionnez **OK**.
 1. Sélectionnez **Créer** pour ajouter le flux d’utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 

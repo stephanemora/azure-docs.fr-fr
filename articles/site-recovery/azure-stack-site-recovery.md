@@ -3,12 +3,12 @@ title: Répliquer des machines virtuelles Azure Stack à Azure en utilisant Azur
 description: Découvrez comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack avec le service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 300b239de74c7d21e03eb0c3b059663b5074964c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 386eae05ea06b59aac290d5f1f51d643d7952b6a
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728383"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580419"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -82,7 +82,7 @@ Assurez-vous que les machines virtuelles exécutent l’un des systèmes d’exp
 
 **Système d’exploitation** | **Détails**
 --- | ---
-**Windows 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (à partir de SP1)
+**Windows 64 bits** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (à partir de SP1)
 **CentOS** | 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3
 **Ubuntu** | Serveur LTS 14.04, Serveur LTS 16.04. Passer en revue les [noyaux pris en charge](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 

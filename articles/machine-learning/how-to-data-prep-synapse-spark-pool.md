@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 247b70e195bb17c8983d8012880f77de7bf5884b
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 424e1908df6d3e92d365e2dd3e10a42f7d1ddb2a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408728"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296409"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Data wrangling avec des pools Apache Spark (préversion) 
 
@@ -95,9 +95,15 @@ env.register(workspace=ws)
 
 Pour démarrer la préparation des données avec le pool Apache Spark et votre environnement personnalisé, spécifiez le nom du pool Apache Spark et l’environnement à utiliser pendant la session Apache Spark. En outre, vous pouvez fournir votre ID d’abonnement, le groupe de ressources de l’espace de travail Machine Learning et le nom de l’espace de travail Machine Learning.
 
+>[!IMPORTANT]
+> Veillez à ce que l’option [Autoriser les packages de niveau session](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) soit activée dans l’espace de travail Synapse lié.
+>
+>![activer les packages de niveau session](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
+
 ```python
 %synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
+
 ## <a name="load-data-from-storage"></a>Charger des données à partir du stockage
 
 Une fois votre session Apache Spark démarrée, lisez les données que vous souhaitez préparer. Le chargement des données est pris en charge pour Stockage Blob Azure et Azure Data Lake Storage générations 1 et 2.
@@ -108,7 +114,7 @@ Il existe deux façons de charger des données à partir de ces services de stoc
 
 * Lisez les données d’un [jeu de données Azure Machine Learning](how-to-create-register-datasets.md) existant.
 
-Pour accéder à ces services de stockage, vous avez besoin d’autorisations **Lecteur des données Blob du stockage**. Si vous envisagez d’écrire des données dans ces services de stockage, vous avez besoin d’autorisations **Contributeur aux données Blob du stockage**. [Découvrez-en plus sur les rôles et autorisations de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+Pour accéder à ces services de stockage, vous avez besoin d’autorisations **Lecteur des données Blob du stockage**. Si vous envisagez d’écrire des données dans ces services de stockage, vous avez besoin d’autorisations **Contributeur aux données Blob du stockage**. [Découvrez-en plus sur les rôles et autorisations de stockage](../storage/blobs/assign-azure-role-data-access.md).
 
 ### <a name="load-data-with-hadoop-distributed-files-system-hdfs-path"></a>Charger des données avec le chemin HDFS (Hadoop Distributed Files System)
 
@@ -207,7 +213,7 @@ df.show()
 
 Une fois l’exploration et la préparation des données terminées, stockez vos données préparées pour une utilisation ultérieure dans votre compte de stockage sur Azure.
 
-Dans l’exemple suivant, les données préparées sont écrites dans le stockage d’objets Blob Azure et remplacent le fichier `Titanic.csv` d’origine dans le répertoire `training_data`. Pour écrire dans le stockage, vous avez besoin d’autorisations **Contributeur aux données Blob du stockage**. [Découvrez-en plus sur les rôles et autorisations de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+Dans l’exemple suivant, les données préparées sont écrites dans le stockage d’objets Blob Azure et remplacent le fichier `Titanic.csv` d’origine dans le répertoire `training_data`. Pour écrire dans le stockage, vous avez besoin d’autorisations **Contributeur aux données Blob du stockage**. [Découvrez-en plus sur les rôles et autorisations de stockage](../storage/blobs/assign-azure-role-data-access.md).
 
 ```python
 %% synapse

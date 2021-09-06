@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: storage
 author: fauhse
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: a3dc42ece6bbd05b61ef9a4f1a0f82e147b2a762
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 12a11fadaa7a98b9a5d2d9f81cf91dfa26680f56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749287"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462187"
 ---
 La vitesse et le taux de réussite d’une exécution de RoboCopy donnée dépendent de plusieurs facteurs :
 
@@ -48,11 +48,14 @@ RoboCopy parcourra l’espace de noms qui lui est désigné et évaluera tous le
 
 Nous avons souvent tendance à considérer la bande passante comme le facteur le plus limitatif dans une migration, et cela peut être vrai. Toutefois, la possibilité d’énumérer un espace de noms peut influencer encore plus la durée totale de la copie pour les espaces de noms plus grands avec des fichiers de plus petite taille. Considérez que la copie de 1 Tio comportant des petits fichiers prendra beaucoup plus de temps que la copie de 1 Tio contenant des fichiers moins nombreux, mais plus volumineux. En supposant que toutes les autres variables demeurent inchangées.
 
-La cause de cette différence réside dans la puissance de traitement nécessaire pour parcourir un espace de noms. RoboCopy prend en charge les copies multithread par le biais du paramètre `/MT:n`, où n représente le nombre de threads de processeurs. Ainsi, lors du provisionnement d’une machine plus particulièrement destinée à RoboCopy, tenez compte du nombre de cœurs de processeur et de leur relation avec le nombre de threads qu’ils fournissent. Le plus souvent, il est question de deux threads par cœur. Le nombre de cœurs et de threads d’une machine constitue un point de données important pour déterminer les valeurs multithread `/MT:n` que vous devez spécifier. Tenez également compte du nombre de tâches de RoboCopy que vous prévoyez d’exécuter en parallèle sur une machine donnée.
+La cause de cette différence réside dans la puissance de traitement nécessaire pour parcourir un espace de noms. RoboCopy prend en charge les copies multithread par le biais du paramètre `/MT:n`, où n représente le nombre de threads à utiliser. Ainsi, lors du provisionnement d’une machine plus particulièrement destinée à RoboCopy, tenez compte du nombre de cœurs de processeur et de leur relation avec le nombre de threads qu’ils fournissent. Le plus souvent, il est question de deux threads par cœur. Le nombre de cœurs et de threads d’une machine constitue un point de données important pour déterminer les valeurs multithread `/MT:n` que vous devez spécifier. Tenez également compte du nombre de tâches de RoboCopy que vous prévoyez d’exécuter en parallèle sur une machine donnée.
 
 Des threads plus nombreux copieront notre exemple de 1 Tio de petits fichiers beaucoup plus rapidement que des threads moins nombreux. En même temps, l’investissement en ressources supplémentaires sur notre 1 Tio de fichiers volumineux peut ne pas produire d’avantages, en proportion. Un nombre élevé de threads tentera de copier simultanément un plus grand nombre de fichiers volumineux sur le réseau. Cette activité réseau supplémentaire augmente la probabilité d’être limité par les IOPS de débit ou de stockage.
 
 Pendant une première RoboCopy dans une cible vide ou une exécution différentielle avec un grand nombre de fichiers modifiés, vous êtes probablement limité par le débit de votre réseau. Démarrez avec un nombre élevé de threads pour une série initiale. Un nombre élevé de threads, même au-delà des threads actuellement disponibles sur votre machine, permet de saturer la bande passante réseau disponible. Les exécutions suivantes de /MIR sont affectées progressivement par les éléments traités. Un nombre moindre de modifications dans une exécution différentielle signifie moins de transport des données sur le réseau. Votre vitesse est désormais plus dépendante de votre capacité à traiter les éléments d’espace de noms que de leur déplacement sur la liaison réseau. Pour les exécutions suivantes, associez votre valeur de nombre de threads au nombre de cœurs du processeur et au nombre de threads par cœur. Déterminez si les cœurs doivent être réservés pour les autres tâches qu’un serveur de production peut prendre en charge.
+
+> [!TIP]
+> Règle générale : la première exécution de RoboCopy, qui déplace un grand nombre de données d’un réseau à latence plus élevée, bénéficie de l’approvisionnement excédentaire du nombre de threads (`/MT:n`). Les exécutions ultérieures copient moins de différences et vous êtes plus susceptible de passer du débit réseau limité au calcul limité. Dans ces circonstances, il est souvent préférable de faire correspondre le nombre de threads RoboCopy avec les threads réellement disponibles sur la machine. L’approvisionnement excédentaire dans ce scénario peut entraîner davantage de décalages de contexte dans le processeur, ce qui peut ralentir votre copie.
 
 ### <a name="avoid-unnecessary-work"></a>Éviter les tâches inutiles
 
@@ -69,4 +72,3 @@ Vous devez être prêt à exécuter plusieurs séquences de RoboCopy sur une ét
 * `/W:n` n = fréquence d’attente, en secondes, entre les tentatives
 
 `/R:5 /W:5` est un paramètre raisonnable que vous pouvez adapter à votre convenance. Dans cet exemple, un fichier ayant échoué sera retenté cinq fois, avec un délai d’attente de cinq secondes entre chaque tentative. Si la copie du fichier échoue toujours, la tâche RoboCopy suivante fera une nouvelle tentative. Souvent les fichiers en échec, du fait de leur utilisation en cours ou de problèmes de délai d’attente, peuvent au final être correctement copiés de cette façon.
-   

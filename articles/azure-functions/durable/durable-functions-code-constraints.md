@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fade080e631385acec46fc59c41e6624280ae9e7
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726408"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525554"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Contraintes de code des fonctions d’orchestrateur
 
@@ -30,7 +30,7 @@ Le tableau suivant présente des exemples d’API qui doivent être évitées, c
 
 | Catégorie d’API | Motif | Solution de contournement |
 | ------------ | ------ | ---------- |
-| Dates et heures  | Les API qui retournent la date ou l’heure actuelle ne sont pas déterministes, car la valeur retournée est différente à chaque réexécution. | Utilisez la propriété [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) dans .NET, l’API `currentUtcDateTime` dans JavaScript ou l’API `current_utc_datetime` dans Python, sans risque pour la réexécution. |
+| Dates et heures  | Les API qui retournent la date ou l’heure actuelle ne sont pas déterministes, car la valeur retournée est différente à chaque réexécution. | Utilisez la propriété [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) dans .NET, l’API `currentUtcDateTime` dans JavaScript ou l’API `current_utc_datetime` dans Python, sans risque pour la réexécution. De même, évitez les objets de type « chronomètre » (par exemple, la [classe Stopwatch dans .NET](/dotnet/api/system.diagnostics.stopwatch)). Si vous avez besoin de mesurer le temps écoulé, stockez la valeur de `CurrentUtcDateTime` au début de l’exécution et soustrayez cette valeur de `CurrentUtcDateTime` lorsque l’exécution est terminée. |
 | GUID et UUID  | Les API qui retournent un GUID ou un UUID aléatoire ne sont pas déterministes, car la valeur générée est différente à chaque réexécution. | Utilisez [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) dans .NET, `newGuid` dans JavaScript, et `new_guid` dans Python pour générer des GUID aléatoires de façon sûre. |
 | Nombres aléatoires | Les API qui retournent des nombres aléatoires ne sont pas déterministes, car la valeur générée est différente à chaque réexécution. | Utilisez une fonction d’activité pour renvoyer des nombres aléatoires à une orchestration. Les valeurs de retour des fonctions d’activité sont toujours sûres pour la réexécution. |
 | Liaisons | Les liaisons d’entrée et de sortie effectuent généralement des opérations d’E/S et ne sont pas déterministes. Même les liaisons du [client d’orchestration](durable-functions-bindings.md#orchestration-client) et du [client d’entité](durable-functions-bindings.md#entity-client) ne doivent pas être utilisées directement par une fonction d’orchestrateur. | Utilisez des liaisons d’entrée et de sortie dans les fonctions clientes ou d’activité. |

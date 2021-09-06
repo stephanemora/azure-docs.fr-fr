@@ -7,16 +7,16 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: jushiman
-ms.openlocfilehash: 87a97f974ba687001c9e7648c9738e4af5cf2314
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: eb8e094b4a78e718efc86314ca74c0df92426248
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072987"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525915"
 ---
 # <a name="fx-series"></a>FX-series
 
-La série FX s’exécute sur les processeurs Intel® Xeon® Gold 6246R (Cascade Lake). Elle est dotée d’une fréquence turbo tous cœurs de 4 GHz, de 21 Go de RAM par processeur virtuel, jusqu’à 1 To de RAM au total et d’un stockage temporaire local. La série FX tirera parti des charges de travail qui nécessitent une vitesse d’horloge élevée de l’UC et un ratio élevé entre la mémoire et l’UC, des charges de travail dont les coûts de licence par cœur sont élevés et des applications nécessitant des performances élevées pour un seul cœur. Un cas d’usage typique de la série FX est la charge de travail d’automatisation de la conception électronique (EDA).
+La série FX s’exécute sur les processeurs Intel® Xeon® Gold 6246R (Cascade Lake). Elle est dotée d’une fréquence turbo tous cœurs de 4 GHz, de 21 Go de RAM par processeur virtuel, jusqu’à 1 To de RAM au total et d’un stockage temporaire local. La série FX tirera parti des charges de travail qui nécessitent une vitesse d’horloge élevée de l’UC et un ratio élevé entre la mémoire et l’UC, des charges de travail dont les coûts de licence par cœur sont élevés et des applications nécessitant un haut niveau de performance pour un seul cœur. Un cas d’usage typique de la série FX est la charge de travail d’automatisation de la conception électronique (EDA).
 
 Les machines virtuelles de la série FX sont dotées des technologies [Intel® Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel® Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et [Intel® Advanced Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 

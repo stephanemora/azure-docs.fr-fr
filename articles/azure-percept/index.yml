@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: amiyouss
   ms.date: 03/25/2021
-  ms.openlocfilehash: 62ddbb2c5d64e634a534956714b6d2703a61f828
-  ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+  ms.openlocfilehash: 5d5e559b5374f0e635138e8189ff9a0259ef40e4
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/30/2021
-  ms.locfileid: "123223317"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123424363"
 landingContent:
 - title: Qu’est-ce qu’Azure Percept ?
   linkLists:
@@ -45,12 +45,8 @@ landingContent:
       url: quickstart-percept-dk-unboxing.md
     - text: Configurer l’appareil Azure Percept DK
       url: quickstart-percept-dk-set-up.md
-    - text: Configurer l’appareil Azure Percept Audio
-      url: quickstart-percept-audio-setup.md
   - linkListType: how-to-guide
     links:
-    - text: Établir une connexion Ethernet avec Azure Percept DK
-      url: how-to-connect-over-ethernet.md
     - text: Établir une connexion 5G ou LTE avec Azure Percept DK
       url: connect-over-cellular.md
     - text: Établir une connexion SSH avec Azure Percept DK
@@ -59,10 +55,20 @@ landingContent:
       url: troubleshoot-dev-kit.md
     - text: Résoudre les problèmes relatifs à la configuration d’Azure Percept DK
       url: how-to-troubleshoot-setup.md
-    - text: États des boutons et des voyants d’Azure Percept Audio
-      url: audio-button-led-behavior.md
     - text: Obtenir de l’aide de la part d’ASUS concernant le matériel Azure Percept
       url: how-to-get-hardware-support.md
+- title: Configurer l’appareil Azure Percept Audio
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Configurer l’appareil Azure Percept Audio
+      url: quickstart-percept-audio-setup.md
+  - linkListType: how-to-guide
+    links:
+    - text: États des boutons et des voyants d’Azure Percept Audio
+      url: audio-button-led-behavior.md
+    - text: Résoudre les problèmes relatifs à Azure Percept Audio et au module Speech
+      url: troubleshoot-audio-accessory-speech-module.md
 - title: Gérer votre appareil Azure Percept DK
   linkLists:
   - linkListType: how-to-guide
@@ -77,11 +83,9 @@ landingContent:
       url: how-to-update-via-usb.md
   - linkListType: download
     links:
-    - text: Sélectionner votre package de mise à jour Azure Percept DK
-      url: how-to-select-update-package.md
     - text: Versions de logiciel (mises à jour OTA)
       url: software-releases-over-the-air-updates.md
-    - text: Versions d’Azure Percept DK pour une mise à jour via une connexion USB
+    - text: Versions logicielles pour les mises à jour de câble USB
       url: software-releases-usb-cable-updates.md
     - text: Notes de publication des versions de logiciel pour Azure Percept DK
       url: azure-percept-devkit-software-release-notes.md
@@ -105,7 +109,7 @@ landingContent:
       url: how-to-view-telemetry.md
     - text: Résoudre les problèmes relatifs à Azure Percept Vision et aux modules de vision
       url: vision-solution-troubleshooting.md
-- title: Créer un assistant vocal sans code
+- title: Créer un Assistant vocal sans code avec Azure Percept Studio
   linkLists:
   - linkListType: tutorial
     links:

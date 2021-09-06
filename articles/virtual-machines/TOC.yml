@@ -356,15 +356,9 @@
         - name: Vue d'ensemble
           displayName: 'Dedicated hosts, ADH'
           href: dedicated-hosts.md
-        - name: Interface de ligne de commande
-          displayName: 'Dedicated hosts, ADH'
-          href: ./linux/dedicated-hosts-cli.md
-        - name: Portail
-          displayName: 'Dedicated hosts, ADH'
-          href: dedicated-hosts-portal.md
-        - name: PowerShell
-          displayName: 'Dedicated hosts, ADH'
-          href: ./windows/dedicated-hosts-powershell.md
+        - name: Procédures
+          displayName: dedicated adh
+          href: dedicated-hosts-how-to.md
     - name: Machines virtuelles Azure Spot
       items:
         - name: Vue d’ensemble
@@ -776,8 +770,6 @@
           href: ./linux/no-agent.md
         - name: Désactiver le provisionnement de l’agent Linux
           href: ./linux/disable-provisioning.md
-        - name: Capturer une machine virtuelle sur une image managée
-          href: ./linux/capture-image.md
     - name: Images personnalisées Windows
       items:
         - name: Préparer un disque VHD au chargement
@@ -801,89 +793,35 @@
         - name: Vue d’ensemble
           displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
           href: ./shared-image-galleries.md
-        - name: Interface de ligne de commande
+        - name: Créer une galerie
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: create-gallery.md
+        - name: Partager une galerie
+          href: share-gallery.md
+        - name: Capturer une machine virtuelle dans le portail
+          href: capture-image-portal.md
+        - name: Créer une image
+          displayName: 'VM, image, VHD, storage account'
+          href: image-version.md
+        - name: Créer une machine virtuelle
           items:
-            - name: Créer une galerie
+            - name: Généralisée
               displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: shared-images-cli.md
-            - name: Créer une image
-              items:
-                - name: À partir d’une machine virtuelle
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-vm-cli.md
-                - name: À partir d’un disque managé ou d’un instantané
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-snapshot-cli.md
-                - name: Cloner une image managée
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-managed-image-cli.md
-                - name: Copier à partir d’une autre galerie
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-another-gallery-cli.md
-            - name: Créer une machine virtuelle
-              items:
-                - name: Généralisée
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: vm-generalized-image-version-cli.md
-                - name: Spécialisée
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: vm-specialized-image-version-cli.md
-            - name: Mettre à jour les ressources d’image
+              href: vm-generalized-image-version.md
+            - name: Spécialisée
               displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: update-image-resources-cli.md
-            - name: Inscription d’application pour le partage
-              items:
-                - name: Linux
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-                  href: ./linux/share-images-across-tenants.md
-                - name: Windows
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-                  href: ./windows/share-images-across-tenants.md
-        - name: PowerShell
+              href: vm-specialized-image-version.md
+        - name: Mettre à jour les ressources d’image
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: update-image-resources.md
+        - name: Inscription d’application pour le partage
           items:
-            - name: Créer une galerie
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: shared-images-powershell.md
-            - name: Créer une version d’image
-              items:
-                - name: À partir d’une machine virtuelle
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, version'
-                  href: image-version-vm-powershell.md
-                - name: À partir d’un disque managé ou d’un instantané
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, managed disk, snapshot'
-                  href: image-version-snapshot-powershell.md
-                - name: Cloner une image managée
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, clone, copy'
-                  href: image-version-managed-image-powershell.md
-                - name: Copier à partir d’une autre galerie
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, copy, clone'
-                  href: image-version-another-gallery-powershell.md
-            - name: Créer une machine virtuelle
-              items:
-                - name: Généralisée
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, generalized'
-                  href: vm-generalized-image-version-powershell.md
-                - name: Spécialisée
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, specialized'
-                  href: vm-specialized-image-version-powershell.md
-                - name: Mettre à jour les ressources d’image
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: update-image-resources-powershell.md
-                - name: Inscription d’application pour le partage
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: windows/share-images-across-tenants.md
-        - name: Portail
-          items:
-            - name: 'Créer une galerie, une image et une machine virtuelle'
-              items:
-                - name: Linux
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
-                  href: ./linux/shared-images-portal.md
-                - name: Windows
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
-                  href: ./windows/shared-images-portal.md
-            - name: Capturer une machine virtuelle dans le portail
-              href: capture-image-portal.md
+            - name: Linux
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+              href: ./linux/share-images-across-tenants.md
+            - name: Windows
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+              href: ./windows/share-images-across-tenants.md
         - name: Modèles de Gestionnaire des ressources
           items:
             - name: Créer une galerie Shared Image Gallery

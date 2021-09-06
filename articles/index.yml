@@ -1232,7 +1232,7 @@ productDirectory:
         - storage
       url: virtual-machines/managed-disks-overview.md
     - title: Azure Files
-      summary: Partages de fichiers utilisant le protocole SMB 3.0 standard
+      summary: 'Partages de fichiers cloud simples, sécurisés et serverless de niveau entreprise'
       imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-azure-files.svg'
       azureCategories:
         - storage

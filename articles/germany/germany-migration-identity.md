@@ -1,26 +1,26 @@
 ---
-title: Migrer des ressources d’identité Azure d’Azure Germany vers Azure global
+title: Migrer des ressources d’identité Azure d’Azure Allemagne vers Azure global
 description: Cet article fournit des informations sur la migration de vos ressources de gestion des identités Azure d’Azure Germany vers Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 07ecaa564f2fda21967ab6f0c30c06fa876e4171
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41f8019d8732560754be4757845f22f436cfcf70
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033526"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "122531344"
 ---
 # <a name="migrate-identity-resources-to-global-azure"></a>Migrer des ressources d’identité vers Azure global
 
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 Cet article contient des informations qui peuvent vous aider à migrer des ressources d’identité Azure d’Azure Germany vers Azure global.
 
-Les conseils sur l’identité/les locataires sont destinées aux clients Azure uniquement. Si vous utilisez des locataires Azure Active Directory (Azure AD) courants pour Azure et Office 365 (ou d’autres produits Microsoft), il existe des complexités lors de la migration de l’identité et vous devez d’abord contacter votre responsable de compte avant d’utiliser ce guide de migration.
+Les conseils sur l’identité/les locataires sont destinées aux clients Azure uniquement. Si vous utilisez des locataires Azure Active Directory (Azure AD) courants pour Azure et Microsoft 365 (ou d’autres produits Microsoft), il existe des complexités lors de la migration de l’identité et vous devez d’abord contacter votre responsable de compte avant d’utiliser ce guide de migration.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -121,11 +121,11 @@ Passez en revue chaque rôle pour rechercher les utilisateurs ou applications as
 Get-AzureADDirectoryRole | ForEach-Object {$_.DisplayName; Get-AzureADDirectoryRoleMember -ObjectId
 $_.ObjectId | Format-Table}
 ```
-Pour plus d'informations :
+Pour plus d’informations :
 
-- En savoir plus sur les [Solutions d'identité hybride](../active-directory/choose-hybrid-identity-solution.md).
-- Lisez le billet de blog [Utiliser Azure AD Connect avec plusieurs clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/) pour en savoir plus sur les méthodes que vous utiliser pour synchroniser différents environnements cloud.
-- En savoir plus sur [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+- En savoir plus sur les [Solutions d'identité hybride](../active-directory/hybrid/whatis-hybrid-identity.md).
+- Lisez le billet de blog [Utiliser Azure AD Connect avec plusieurs clouds](/archive/blogs/ralfwi/using-adconnect-with-multiple-clouds) pour en savoir plus sur les méthodes que vous utiliser pour synchroniser différents environnements cloud.
+- En savoir plus sur [Azure Active Directory](../active-directory/index.yml).
 - En savoir plus sur [noms de domaine personnalisés](../active-directory/fundamentals/add-custom-domain.md).
 - Découvrez comment [importer des données CSV dans Azure AD](/powershell/azure/active-directory/importing-data).
 
@@ -143,13 +143,13 @@ Si vous utilisez déjà Azure AD Connect pour synchroniser de et vers Azure Germ
 Get-AzureADUser -All $true |Where-Object {$_.DirSyncEnabled -ne "True"}
 ```
 
-Pour plus d'informations :
+Pour plus d’informations :
 
 - En savoir plus sur [Azure AD Connect](../active-directory/hybrid/reference-connect-dirsync-deprecated.md).
 
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Vous devez recréer les utilisateurs et redéfinir votre instance Azure Multi-Factor Authentication dans votre nouvel environnement. 
+Vous devez recréer les utilisateurs et redéfinir votre instance Azure AD Multi-Factor Authentication dans votre nouvel environnement. 
 
 Pour obtenir une liste des comptes utilisateur pour lesquels l’authentification multifacteur est activée ou appliquée :
 
@@ -157,22 +157,22 @@ Pour obtenir une liste des comptes utilisateur pour lesquels l’authentificatio
 1. Sélectionnez **Utilisateurs** > **Tous les utilisateurs** > **Authentication multifacteur**.
 1. Lorsque vous êtes redirigé vers la page du service d’authentification multifacteur, définissez les filtres appropriés pour obtenir la liste des utilisateurs.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- En savoir plus sur [Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+- En savoir plus sur [Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les outils, techniques et recommandations pour migrer des ressources dans les catégories de service suivantes :
+Informez-vous sur les outils, techniques et suggestions pour migrer des ressources dans les catégories de service suivantes :
 
 - [Calcul](./germany-migration-compute.md)
-- [Mise en réseau](./germany-migration-networking.md)
+- [Réseau](./germany-migration-networking.md)
 - [Stockage](./germany-migration-storage.md)
-- [web](./germany-migration-web.md)
+- [Web](./germany-migration-web.md)
 - [Bases de données](./germany-migration-databases.md)
 - [Analyse](./germany-migration-analytics.md)
 - [IoT](./germany-migration-iot.md)
 - [Intégration](./germany-migration-integration.md)
 - [Sécurité](./germany-migration-security.md)
-- [Outils de gestion](./germany-migration-management-tools.md)
+- [Outils d'administration](./germany-migration-management-tools.md)
 - [Média](./germany-migration-media.md)

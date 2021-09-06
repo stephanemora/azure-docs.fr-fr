@@ -1,38 +1,38 @@
 ---
-title: Rechercher dans le contenu du Stockage Table Azure
+title: Indexer des données à partir du Stockage Table Azure
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment indexer les données stockées dans le Stockage Table Azure avec un indexeur Recherche cognitive Azure.
+description: Configurez un indexeur de recherche pour indexer les données stockées dans Stockage Table Azure pour la recherche en texte intégral dans Recherche cognitive Azure.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: f3994ee7e87670adb6ffbe2aa6f7279d11afa146
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 06/26/2021
+ms.openlocfilehash: 8469716c5cc6b3b7c70d5eeb5868f81ae6b40198
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557051"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982957"
 ---
-# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Comment indexer des tables à partir du Stockage Table Azure avec la Recherche cognitive Azure
+# <a name="index-data-from-azure-table-storage"></a>Indexer des données à partir du Stockage Table Azure
 
-Cet article montre comment utiliser la Recherche cognitive Azure pour indexer les données stockées dans le Stockage Table Azure.
+Cet article vous montre comment configurer l’indexeur de table Azure pour extraire le contenu et le rendre détectable dans Recherche cognitive Azure. Ce workflow crée un index de recherche sur Recherche cognitive Azure et le charge avec le contenu existant extrait de Stockage Table Azure.
 
-## <a name="set-up-azure-table-storage-indexing"></a>Configurer l’indexation du Stockage Table Azure
-
-Vous pouvez configurer un indexeur de Stockage Table Azure à l’aide des ressources suivantes :
+Vous pouvez configurer un indexeur de Stockage Table Azure à l’aide de l’un des clients suivants :
 
 * [Azure portal](https://ms.portal.azure.com)
 * [API REST](/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
-* [Kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/search) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) de Recherche cognitive Azure
 
-Ici, nous vous présentons le flux à l’aide de l’API REST. 
+Cet article utilise les API REST. 
 
-### <a name="step-1-create-a-datasource"></a>Étape 1 : Créer une source de données
+## <a name="configure-an-indexer"></a>Configurer un indexeur
 
-Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à la Recherche cognitive Azure d’identifier efficacement les changements dans les données.
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
+
+[Créer une source de données](/rest/api/searchservice/create-data-source) spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Recherche cognitive Azure d’identifier efficacement les changements dans les données.
 
 Pour l’indexation des tables, la source de données doit avoir les propriétés suivantes :
 
@@ -46,25 +46,23 @@ Pour l’indexation des tables, la source de données doit avoir les propriété
 > [!IMPORTANT] 
 > Si possible, utilisez un filtre sur PartitionKey pour de meilleures performances. Toute autre requête effectue une analyse complète, ce qui entraîne une dégradation des performances pour les grandes tables. Consultez la section [Considérations relatives aux performances](#Performance).
 
-
-Pour créer une source de données :
+Pour créer une source de données, envoyez la requête suivante :
 
 ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-        "name" : "table-datasource",
-        "type" : "azuretable",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
-    }   
+{
+    "name" : "table-datasource",
+    "type" : "azuretable",
+    "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
+}   
 ```
 
-Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](/rest/api/searchservice/create-data-source).
-
 <a name="Credentials"></a>
+
 #### <a name="ways-to-specify-credentials"></a>Manières de spécifier des informations d’identification ####
 
 Vous pouvez fournir les informations d’identification de la table de l’une des manières suivantes : 
@@ -80,54 +78,52 @@ Pour plus d’informations sur les signatures d’accès partagé au stockage, c
 > Si vous utilisez des informations d’identification d’une signature d’accès partagé, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification d’une signature d’accès partagé expirent, l’indexeur échoue avec un message d’erreur tel que « Les informations d’identification fournies dans la chaîne de connexion sont invalides ou ont expiré. »  
 
 ### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
-L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
 
-Pour créer un index :
+[Créer un index](/rest/api/searchservice/create-index) spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
+
+Pour créer un index, envoyez la requête suivante :
 
 ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-          "name" : "my-target-index",
-          "fields": [
-            { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-          ]
-    }
+{
+        "name" : "my-target-index",
+        "fields": [
+        { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+        ]
+}
 ```
-
-Pour plus d’informations sur la création d’index, consultez [Création d’un index](/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
-Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
 
-Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur :
+[Créer un indexeur](/rest/api/searchservice/create-indexer) connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
+
+Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
 ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      "name" : "table-indexer",
-      "dataSourceName" : "table-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" }
-    }
+{
+    "name" : "table-indexer",
+    "dataSourceName" : "table-datasource",
+    "targetIndexName" : "my-target-index",
+    "schedule" : { "interval" : "PT2H" }
+}
 ```
 
-Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est définie sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
+Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est définie sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande. Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Planifier des indexeurs pour Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](/rest/api/searchservice/create-indexer).
+## <a name="handle-field-name-discrepancies"></a>Gérer les différences de noms de champs
 
-Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
-
-## <a name="deal-with-different-field-names"></a>Gérer différents noms de champs
 Les noms de champ figurant dans votre index existant diffèrent parfois des noms de propriétés dans votre table. Dans ce cas, vous pouvez utiliser les mappages de champs pour mapper les noms de propriété de la table aux noms de champ de votre index de recherche. Pour en savoir plus sur les mappages de champs, consultez [Les mappages de champs de l’indexeur de la Recherche cognitive Azure comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Gérer les clés de document
+
 Dans la Recherche cognitive Azure, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type `Edm.String`. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).
 
 Puisque les lignes d’une table ont une clé composée, la Recherche cognitive Azure génère un champ synthétique appelé `Key` qui est une concaténation des valeurs de la clé de partition et de la clé de ligne. Par exemple, si la valeur PartitionKey d’une ligne est `PK1` et que RowKey est `RK1`, alors la valeur du champ `Key` est `PK1RK1`.
@@ -135,32 +131,32 @@ Puisque les lignes d’une table ont une clé composée, la Recherche cognitive 
 > [!NOTE]
 > La valeur `Key` peut contenir des caractères non valides dans les clés de document, par exemple des tirets. Vous pouvez traiter les caractères non valides à l’aide de la `base64Encode` [fonction de mappage de champ](search-indexer-field-mappings.md#base64EncodeFunction). Si vous procédez ainsi, n’oubliez pas d’utiliser également l’encodage Base64 sécurisé pour les URL lorsque vous transmettez des clés de document dans des appels d’API tels que Recherche.
 >
->
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexation incrémentielle et détection des suppressions
+
 Lorsque vous configurez un indexeur de table pour l’exécuter de manière planifiée, cet indexeur répertorie uniquement les lignes nouvelles ou mises à jour, comme le détermine la valeur `Timestamp` de la ligne. Vous n’êtes pas obligé de spécifier une stratégie de détection de modification. L’indexation incrémentielle est automatiquement activée pour vous.
 
 Pour indiquer que certains documents doivent être supprimés de l’index, vous pouvez utiliser une stratégie de suppression réversible. Plutôt que de supprimer une ligne, ajoutez une propriété pour signaler sa suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données. Par exemple, la stratégie suivante considère qu’une ligne est supprimée si elle a une propriété `IsDeleted` avec la valeur `"true"` :
 
 ```http
-    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-        "name" : "my-table-datasource",
-        "type" : "azuretable",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "table name", "query" : "<query>" },
-        "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
-    }   
+{
+    "name" : "my-table-datasource",
+    "type" : "azuretable",
+    "credentials" : { "connectionString" : "<your storage connection string>" },
+    "container" : { "name" : "table name", "query" : "<query>" },
+    "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
+}   
 ```
 
 <a name="Performance"></a>
+
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 
 Par défaut, la Recherche cognitive Azure utilise le filtre de requête suivant : `Timestamp >= HighWaterMarkValue`. Dans la mesure où les tables Azure n’ont pas d’index secondaire sur le champ `Timestamp`, ce type de requête nécessite une analyse de table complète et est donc lente pour les tables volumineuses.
-
 
 Voici deux approches possibles pour améliorer les performances d’indexation de table. Ces deux approches s’appuient sur l’utilisation de partitions de table : 
 
@@ -174,6 +170,7 @@ Voici deux approches possibles pour améliorer les performances d’indexation d
     - Surveillez la progression de l’indexeur avec [l’API Get Indexer Status](/rest/api/searchservice/get-indexer-status) et mettez régulièrement à jour la condition `<TimeStamp>` de la requête sur la base de la dernière valeur de limite supérieure réussie. 
     - Avec cette approche, si vous avez besoin de déclencher une réindexation complète, vous devez réinitialiser la requête de source de données en plus de la réinitialisation de l’indexeur. 
 
+## <a name="see-also"></a>Voir aussi
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer Recherche cognitive Azure
-Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
++ [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
++ [Créer un indexeur](search-howto-create-indexers.md)

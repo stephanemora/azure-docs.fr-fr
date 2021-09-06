@@ -9,16 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 979beba00c4006b69c4d9ea2187cf17f3665696d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520508"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693603"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Créer plusieurs points de terminaison de service web à partir d’une expérience avec ML Studio (classique) et PowerShell
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio (classique) à l’aide d’une expérience unique.
 
@@ -26,9 +28,9 @@ Supposez par exemple que vous avez une franchise de location de vélos à l’é
 
 Vous pourriez former votre modèle une fois à l’aide d’une version fusionnée de tous les jeux de données et de tous les emplacements. Toutefois, chacun de vos emplacements a un environnement unique. Une meilleure approche consiste donc à former le modèle de régression séparément à l’aide du jeu de données de chacun. Ainsi, chaque modèle formé peut prendre en compte les différences en termes de taille de magasin, de volume, de géographie, de population, de qualité de l’environnement de circulation pour les vélos, et ainsi de suite.
 
-Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Azure Machine Learning Studio (classique) représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
+Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Machine Learning Studio (classique) représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
 
-Heureusement, vous pouvez obtenir le même résultat en utilisant l’[API de reformation Azure Machine Learning Studio (classique)](./retrain-machine-learning-model.md) et en automatisant la tâche avec [Azure Machine Learning Studio (classique) PowerShell](powershell-module.md).
+Heureusement, vous pouvez obtenir le même résultat en utilisant l’[API de reformation Machine Learning Studio (classique)](./retrain-machine-learning-model.md) et en automatisant la tâche avec [Machine Learning Studio (classique) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Pour accélérer l’exécution de notre exemple, nous allons réduire le nombre d’emplacements de 1000 à 10, mais les mêmes principes et procédures sont valables pour 1 000 emplacements. Toutefois, si vous ne souhaitez pas effectuer l’apprentissage à partir de 1000 jeux de données, vous pouvez exécuter les scripts PowerShell suivants en parallèle. Cette opération sort du cadre de cet article, mais vous trouverez des exemples de multi-threading PowerShell sur Internet.  
@@ -36,7 +38,7 @@ Heureusement, vous pouvez obtenir le même résultat en utilisant l’[API de re
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurer l’expérience de formation
-Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](https://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio (classique)](https://studio.azureml.net) .
+Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](https://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Machine Learning Studio (classique)](https://studio.azureml.net).
 
 > [!NOTE]
 > Pour suivre cet exemple, il est préférable d’utiliser un espace de travail standard plutôt qu’un espace de travail gratuit. Vous créez un point de terminaison pour chaque client (soit 10 points de terminaison en tout), ce qui nécessite un espace de travail standard car un espace de travail gratuit est limité à trois points de terminaison.
@@ -62,7 +64,7 @@ Pour déployer le service web de formation, cliquez sur le bouton **Set Up Web S
 
 Vous devez à présent déployer le service web de notation.
 Pour cela, cliquez sur **Set Up Web Service** (Configurer le service web) sous le canevas et sélectionnez **Predictive Web Service** (Service web prédictif). Une expérience de notation est créée.
-Vous devez effectuer quelques petits ajustements pour qu’elle fonctionne en tant que service web. Supprimez la colonne d’étiquette « cnt » des données d’entrée et limitez la sortie à l’ID d’instance et à la valeur prédite correspondante.
+Vous devez effectuer quelques petits ajustements pour qu’elle fonctionne en tant que service web. Supprimez la colonne d’étiquette « cnt » des données d’entrée et limitez la sortie à l’ID d’instance et à la valeur prédite correspondante.
 
 Pour vous éviter ce travail, vous pouvez ouvrir [l’expérience prédictive](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) déjà préparée dans la galerie.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 3c18b6d8dc44762649a9c07b88af348a18888fb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfec3e6305b6b955cfb7b2cfd787507db36ff6ba
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699111"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213594"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer et zones de disponibilité
 
@@ -75,6 +75,12 @@ La redondance dans une zone n’implique pas de plan de données ni de plan de c
 Les flux de trafic qui font appel à une zone au moment de la défaillance de cette dernière peuvent être concernés, mais les applications peuvent récupérer. Le trafic se poursuit dans les zones saines de la région après retransmission, une fois qu’Azure a convergé autour de la défaillance de zone.
 
 Passez en revue les [modèles de conception cloud Azure](/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
+
+## <a name="limitations"></a>Limites
+
+* Après la création, les zones de la ressource ne peuvent pas être modifiées, mises à jour ou créées.
+
+* Les ressources ne peuvent pas être converties de zonales à redondantes interzones, et inversement, après la création.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

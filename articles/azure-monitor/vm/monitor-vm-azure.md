@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5a3ed2de24127f09a901fb5bcb06c84124751d74
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047041"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525815"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](../essentials/monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
 
 > [!NOTE]
-> Cet article fournit une vue d’ensemble complète des concepts et des options de supervision des machines virtuelles dans Azure Monitor. Pour commencer la supervision de vos machines virtuelles rapidement sans vous attarder sur les concepts sous-jacents, consultez [Démarrage rapide : Superviser une machine virtuelle Azure avec Azure Monitor](./quick-monitor-azure-vm.md).
+> Cet article fournit une vue d’ensemble complète des concepts et des options de supervision des machines virtuelles dans Azure Monitor. Pour commencer la supervision de vos machines virtuelles rapidement sans vous attarder sur les concepts sous-jacents, consultez [Démarrage rapide : Superviser une machine virtuelle Azure avec Azure Monitor](./monitor-virtual-machine.md).
 
 
 ## <a name="differences-from-other-azure-resources"></a>Différences par rapport aux autres ressources Azure
@@ -85,7 +85,7 @@ Vous pouvez accéder à la configuration de l’espace de travail directement à
 
 ![Configuration de l’espace de travail](media/monitor-vm-azure/workspace-configuration.png)
 
-Sélectionnez **Paramètres avancés** dans le menu de l’espace de travail, puis **Données** pour configurer les sources de données. Pour les agents Windows, sélectionnez **Journaux des événements Windows** et ajoutez des journaux d’événements courants, comme *Système* et *Application*. Pour les agents Linux, sélectionnez **Syslog** et ajoutez des fonctionnalités communes, comme *crénage* et *démon*. Pour obtenir la liste des sources de données disponibles et savoir comment les configurer, consultez [Sources de données d’agent dans Azure Monitor](../agents/agent-data-sources.md). 
+Sélectionnez **Configuration des agents** dans le menu de l’espace de travail pour configurer des sources de données. Pour les agents Windows, sélectionnez **Journaux des événements Windows** et ajoutez des journaux d’événements courants, comme *Système* et *Application*. Pour les agents Linux, sélectionnez **Syslog** et ajoutez des fonctionnalités communes, comme *crénage* et *démon*. Pour obtenir la liste des sources de données disponibles et savoir comment les configurer, consultez [Sources de données d’agent dans Azure Monitor](../agents/agent-data-sources.md). 
 
 ![Configurer des événements](media/monitor-vm-azure/configure-events.png)
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 07376647edac05384c2efc1240c2242fd5eb664b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a06a488473264a992d947ef78ad69c61776d34ae
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949816"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527638"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ Les colonnes indiquent si la balise :
 - Prend en charge l’étendue [régionale](https://azure.microsoft.com/regions).
 - Est utilisable dans les règles de [Pare-feu Azure](../firewall/service-tags.md).
 
-Par défaut, les balises de service reflètent les plages pour l’ensemble du Cloud. Certaines balises de service permettent également d’obtenir un contrôle plus précis en limitant les plages d’adresses IP correspondantes à une région spécifiée. Par exemple, la balise de service **Storage** représente le Stockage Azure pour l’ensemble du cloud, alors que **Storage.WestUS** limite la sélection aux plages d’adresses IP de stockage de la région WestUS. Le tableau suivant indique si chaque balise de service prend en charge cette étendue régionale.  
+Par défaut, les balises de service reflètent les plages pour l’ensemble du Cloud. Certaines balises de service permettent également d’obtenir un contrôle plus précis en limitant les plages d’adresses IP correspondantes à une région spécifiée. Par exemple, la balise de service **Storage** représente le Stockage Azure pour l’ensemble du cloud, alors que **Storage.WestUS** limite la sélection aux plages d’adresses IP de stockage de la région WestUS. Le tableau suivant indique si chaque balise de service prend en charge cette étendue régionale. Notez que la direction indiquée pour chaque étiquette est une recommandation. Par exemple, l’étiquette AzureCloud peut être utilisée pour autoriser le trafic entrant. Toutefois, nous vous déconseillons de le faire dans la plupart des scénarios, car cela revient à autoriser le trafic provenant de toutes les adresses IP Azure, y compris celles utilisées par d’autres clients Azure. 
 
 | Tag | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|
@@ -56,8 +56,8 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureActiveDirectory** | Azure Active Directory | Règle de trafic sortant | Non | Oui |
 | **AzureActiveDirectoryDomainServices** | Trafic de gestion pour les déploiements dédiés vers Azure Active Directory Domain Services. | Les deux | Non | Oui |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Règle de trafic sortant | Non | Non |
-| **AzureAPIForFHIR** | API Azure pour FHIR (Fast Healthcare Interoperability Resources).<br/><br/> *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*.| Règle de trafic sortant | Non | Non |
 | **AzureArcInfrastructure** | Serveurs Azure Arc, Kubernetes Azure Arc et trafic Guest Configuration.<br/><br/>*Remarque :* Cette balise a une dépendance vis-à-vis des balises **AzureActiveDirectory**, **AzureTrafficManager** et **AzureResourceManager**. *Cette balise n’est actuellement pas configurable sur le portail Azure*.| Règle de trafic sortant | Non | Oui |
+| **AzureAttestation** | Azure Attestation.<br/><br/>*Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure* | Règle de trafic sortant | Non | Oui | 
 | **AzureBackup** |Sauvegarde Azure.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. | Règle de trafic sortant | Non | Oui |
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
 | **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=56519). | Règle de trafic sortant | Oui | Oui |
@@ -74,7 +74,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureEventGrid** | Azure Event Grid. | Les deux | Non | Non |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Les deux | Non | Non |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory**, **AzureFrontDoor.Frontend** et **AzureFrontDoor.FirstParty**. | Règle de trafic sortant | Non | Non |
-| **AzureIoTHub** | Azure IoT Hub. | Règle de trafic sortant | Non | Non |
+| **AzureIoTHub** | Azure IoT Hub. | Règle de trafic sortant | Oui | Non |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureActiveDirectory**. | Règle de trafic sortant | Oui | Oui |
 | **AzureLoadBalancer** | Équilibrage de charge de l’infrastructure Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Cela comprend uniquement le trafic de sondes, et non le trafic réel vers votre ressource principale. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure. | Les deux | Non | Non |
 | **AzureMachineLearning** | Azure Machine Learning. | Les deux | Non | Oui |
@@ -106,7 +106,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **PowerQueryOnline** | Power Query en ligne. | Les deux | Non | Non |
 | **ServiceBus** | Trafic Azure Service Bus qui utilise le niveau de service Premium. | Règle de trafic sortant | Oui | Oui |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Remarque :* Cette balise représente le point de terminaison du service Service Fabric pour le plan de contrôle par région. Ceci permet aux clients d’effectuer des opérations de gestion pour leurs clusters Service Fabric à partir de leur réseau virtuel (point de terminaison, par exemple https://westus.servicefabric.azure.com) | Les deux | Non | Non |
-| **Sql** | Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure Synapse Analytics.<br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. Cette balise ne s’applique pas à une instance gérée SQL. | Règle de trafic sortant | Oui | Oui |
+| **Sql** | Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure Database for MariaDB et Azure Synapse Analytics.<br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. Cette balise ne s’applique pas à une instance gérée SQL. | Règle de trafic sortant | Oui | Oui |
 | **SqlManagement** | Trafic de gestion pour les déploiements dédiés de SQL. | Les deux | Non | Oui |
 | **Stockage** | Stockage Azure. <br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. | Règle de trafic sortant | Oui | Oui |
 | **StorageSyncService** | Service de synchronisation du stockage. | Les deux | Non | Non |

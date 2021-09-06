@@ -6,21 +6,27 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 46cd1b2d695592b97f2fe27451fe48e6e2c7be19
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 39dd221210b558a3b6ce59200aebaa4aa2278fb5
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410708"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688141"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
 La suppression réversible d’objets blob protège un objet blob, un instantané ou une version contre les suppressions ou les remplacements accidentels en conservant les données supprimées dans le système pendant un laps de temps spécifié. Pendant la période de conservation, vous pouvez restaurer un objet supprimé de manière réversible à son état au moment de sa suppression. Une fois la période de conservation expirée, l’objet est supprimé définitivement.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+> [!IMPORTANT]
+> La suppression réversible dans les comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée est actuellement en VERSION PRÉLIMINAIRE et est disponible globalement dans toutes les régions Azure.
+> Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+>
+> Pour vous inscrire à la préversion, voir [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
+
 
 ## <a name="recommended-data-protection-configuration"></a>Configuration recommandée de la protection des données
 
@@ -46,12 +52,12 @@ Une tentative de suppression d’un objet supprimé de manière réversible n’
 
 Si vous désactivez la suppression réversible d’objets blob, vous pouvez continuer à accéder aux objets supprimés de manière réversible et à les récupérer dans votre compte de stockage jusqu’à ce que la période de conservation de la suppression réversible soit écoulée.
 
-Le contrôle de version des objets blob est disponible pour les comptes de stockage d’objets blob et d’objets blob de blocs à usage général v2. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
+Le contrôle de version des objets blob est disponible pour les comptes de stockage d’objets blob et d’objets blob de blocs à usage général v2. Les comptes de stockage ayant un espace de noms hiérarchique ne sont actuellement pas pris en charge.
 
 La version 2017-07-29 et les versions ultérieures de l’API REST de Stockage Azure prennent en charge la suppression réversible d’objets blob.
 
 > [!IMPORTANT]
-> Vous pouvez utiliser la suppression réversible d’objets blob uniquement pour restaurer un objet blob, un instantané ou une version individuels. Pour restaurer un conteneur et son contenu, la suppression réversible de conteneur doit également être activée pour le compte de stockage. Microsoft recommande d’activer la suppression réversible de conteneur et le contrôle de version des objets blob avec la suppression réversible d’objets blob pour garantir une protection complète des données blob. Pour plus d’informations, consultez [Vue d’ensemble de la protection des données](data-protection-overview.md).
+> Vous pouvez utiliser la suppression réversible d’objets blob uniquement pour restaurer un objet blob, un instantané, un répertoire (dans un espace de noms hiérarchique) ou une version individuels. Pour restaurer un conteneur et son contenu, la suppression réversible de conteneur doit également être activée pour le compte de stockage. Microsoft recommande d’activer la suppression réversible de conteneur et le contrôle de version des objets blob avec la suppression réversible d’objets blob pour garantir une protection complète des données blob. Pour plus d’informations, consultez [Vue d’ensemble de la protection des données](data-protection-overview.md).
 >
 > La suppression réversible d’objets blob ne protège pas contre la suppression d’un compte de stockage. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage d’un compte de stockage, consultez [Appliquer un verrou Azure Resource Manager à un compte de stockage](../common/lock-account-resource.md).
 
@@ -63,9 +69,14 @@ Si un objet blob a des instantanés, il ne peut pas être supprimé, à moins de
 
 Vous pouvez également supprimer un ou plusieurs instantanés actifs sans supprimer l’objet blob de base. Dans ce cas, l’instantané est supprimé de manière réversible.
 
+Si un répertoire est supprimé dans un compte où la fonctionnalité d’espace de noms hiérarchique est activée, le répertoire et tout son contenu sont marqués comme étant supprimés de manière réversible. 
+
 Les objets supprimés de manière réversible sont invisibles, sauf s’ils sont explicitement affichés ou répertoriés. Pour plus d’informations sur la façon de répertorier les objets supprimés de manière réversible, consultez [Gérer et restaurer des objets blob supprimés de manière réversible](soft-delete-blob-manage.md).
 
 ### <a name="how-overwrites-are-handled-when-soft-delete-is-enabled"></a>Traitement des remplacements lorsque la suppression réversible est activée
+
+>[!IMPORTANT]
+> Cette section ne s’applique pas aux comptes qui ont un espace de noms hiérarchique.
 
 L’appel d’une opération telle que [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list)ou [Copy Blob](/rest/api/storageservices/copy-blob) remplace les données dans un objet blob. Lorsque la suppression réversible d’objets blob est activée, le remplacement d’un objet blob crée automatiquement un instantané supprimé de manière réversible de l’état de l’objet blob avant l’opération d’écriture. Lorsque la période de conservation expire, l’instantané supprimé de manière réversible est définitivement supprimé.
 
@@ -81,7 +92,9 @@ Pour les comptes de stockage Premium, les instantanés supprimés de manière r�
 
 ### <a name="restoring-soft-deleted-objects"></a>Restauration d’objets supprimés de manière réversible
 
-Vous pouvez restaurer des objets blob supprimés de manière réversible en appelant l’opération [Annuler la suppression d’un objet blob](/rest/api/storageservices/undelete-blob) durant la période de conservation. L’opération **Annuler la suppression d’un objet blob** restaure un objet blob et tous les instantanés supprimés de manière réversible qui lui sont associés. Les instantanés qui ont été supprimés pendant la période de conservation sont restaurés.
+Vous pouvez restaurer des objets blobs ou des répertoires (dans un espace de noms hiérarchique) supprimés de manière réversible en appelant l’opération [Annuler la suppression d’un objet blob](/rest/api/storageservices/undelete-blob) durant la période de rétention. L’opération **Annuler la suppression d’un objet blob** restaure un objet blob et tous les instantanés supprimés de manière réversible qui lui sont associés. Les instantanés qui ont été supprimés pendant la période de conservation sont restaurés.
+
+Dans les comptes qui ont un espace de noms hiérarchique, l’opération **Annuler la suppression d’un objet blob** peut également être utilisée pour restaurer un répertoire supprimé de manière réversible et tout son contenu. Si vous renommez un répertoire qui contient des objets blob supprimés de manière réversible, ces derniers sont déconnectés du répertoire. Si vous souhaitez restaurer ces objets blob, vous devez rétablir le nom d’origine du répertoire ou créer un répertoire distinct qui utilise le nom de répertoire d’origine. Dans le cas contraire, vous recevrez une erreur lorsque vous tenterez de restaurer ces objets blob supprimés de manière réversible.
 
 L’appel de l’action **Annuler la suppression d’un objet blob** sur un objet blob qui n’est pas supprimé de manière réversible restaure les instantanés supprimés de manière réversible associés à l’objet blob. Si l’objet blob n’a pas d’instantanés et n’est pas supprimé de manière réversible, l’appel de l’action **Annuler la suppression d’un objet blob** n’a aucun effet.
 
@@ -92,6 +105,9 @@ Les données d’un objet blob ou d’un instantané supprimé de manière réve
 Pour plus d’informations sur la façon de restaurer les objets supprimés de manière réversible, consultez [Gérer et restaurer des objets blob supprimés de manière réversible](soft-delete-blob-manage.md).
 
 ## <a name="blob-soft-delete-and-versioning"></a>Suppression réversible d’objets blob et contrôle de version
+
+>[!IMPORTANT]
+> Le contrôle de version n’est pas pris en charge pour les comptes qui ont un espace de noms hiérarchique.
 
 Si le contrôle de version des objets blob et la suppression réversible d’objets blob sont tous deux activés sur un compte de stockage, alors le remplacement d’un objet blob crée automatiquement une nouvelle version. La nouvelle version n’est pas supprimée de manière réversible et n’est pas supprimée à l’expiration de la période de rétention de la suppression réversible. Aucun instantané supprimé de manière réversible n’est créé. Lorsque vous supprimez un objet blob, la version actuelle de l’objet blob devient la version antérieure et qu’il n’y a plus de version actuelle. Aucune nouvelle version n’est créée et aucun instantané supprimé de manière réversible n’est créé.
 
@@ -106,7 +122,9 @@ Microsoft recommande d’activer le contrôle de version et la suppression réve
 
 ## <a name="blob-soft-delete-protection-by-operation"></a>Protection contre la suppression réversible d’objets blob par opération
 
-Le tableau suivant décrit le comportement attendu pour les opérations de suppression et d’écriture lorsque la suppression réversible d’objets blob est activée, avec ou sans le contrôle de version d’objet blob :
+Le tableau suivant décrit le comportement attendu pour les opérations de suppression et d’écriture lorsque la suppression réversible d’objets blob est activée, avec ou sans le contrôle de version d’objet blob. 
+
+### <a name="storage-account-no-hierarchical-namespace"></a>Compte de stockage (sans espace de noms hiérarchique)
 
 | Opérations de l'API REST | Suppression réversible activée | Suppression réversible et contrôle de version activés |
 |--|--|--|
@@ -122,6 +140,14 @@ Le tableau suivant décrit le comportement attendu pour les opérations de suppr
 | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | Aucune modification. Les métadonnées de l’objet blob remplacé ne sont pas récupérables. | Une nouvelle version qui capture l’état de l’objet blob avant l’opération est générée automatiquement. |
 | [Set Blob Tier](/rest/api/storageservices/set-blob-tier) | L’objet blob de base est déplacé vers le nouveau niveau. Les instantanés actifs ou supprimés de manière réversible restent dans le niveau d’origine. Aucun instantané supprimé de manière réversible n’est créé. | L’objet blob de base est déplacé vers le nouveau niveau. Les versions actives ou supprimées de manière réversible restent dans le niveau d’origine. Aucune nouvelle version n’est créée. |
 
+### <a name="storage-account-hierarchical-namespace"></a>Compte de stockage (espace de noms hiérarchique)
+
+|**Opération d’API REST**|**Suppression réversible activée**|
+|---|---|
+|[Path - Delete](/rest/api/storageservices/datalakestoragegen2/path/delete) |Un objet blob ou un répertoire supprimé de manière réversible est créé. L’objet supprimé de manière réversible est supprimé après la période de rétention.|
+|[Delete Blob](/rest/api/storageservices/delete-blob)|Un objet supprimé de manière réversible est créé. L’objet supprimé de manière réversible est supprimé après la période de rétention. La suppression réversible n’est pas prise en charge pour les objets blob comportant des instantanés, ni pour les instantanés en soi.|
+|[Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create), cette opération permet de renommer un objet blob ou un répertoire | Un objet blob de destination existant ou un répertoire vide sera supprimé de manière réversible et remplacé par la source. L’objet supprimé de manière réversible est supprimé après la période de rétention.|
+
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
 Toutes les données supprimées de manière réversible sont facturées au même tarif que des données actives. Vous ne serez pas facturé pour des données supprimées définitivement à l’issue de la période de conservation.
@@ -136,9 +162,9 @@ Pour plus d’informations sur la tarification du Stockage Blob, consultez la pa
 
 ## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Suppression réversible d’objets blob et disques de machine virtuelle  
 
-La suppression réversible d’objets blob est disponible pour les disques non managés Standard et Premium, qui sont des objets blob de pages en arrière-plan. La suppression réversible peut vous aider à récupérer des données supprimées ou remplacées par les opérations **Delete Blob**, **Put Blob**, **Put Block List** et **Copy Blob** uniquement.
+La suppression réversible d’objets blob est disponible pour les disques non managés Standard et Premium, qui sont des objets blob de pages en arrière-plan. La suppression réversible peut vous aider à récupérer des données supprimées ou remplacées par les opérations [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) et [Copy Blob](/rest/api/storageservices/copy-blob) uniquement.
 
-Les données remplacées par un appel de l’opération **Put Page** ne sont pas récupérables. Étant donné qu’une machine virtuelle Azure écrit sur un disque non managé à l'aide d'appels à **Put Page**, la suppression réversible pour annuler des écritures sur un disque non managé à partir d'une machine virtuelle Azure n'est pas un scénario pris en charge.
+Les données remplacées par un appel de l’opération [Put Page](/rest/api/storageservices/put-page) ne sont pas récupérables. Étant donné qu’une machine virtuelle Azure écrit sur un disque non managé à l'aide d'appels à [Put Page](/rest/api/storageservices/put-page), la suppression réversible pour annuler des écritures sur un disque non managé à partir d'une machine virtuelle Azure n'est pas un scénario pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

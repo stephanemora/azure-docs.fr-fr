@@ -144,6 +144,8 @@
       items:
         - name: Mettre à l’échelle un cluster AKS
           href: scale-cluster.md
+        - name: Arrêter/désallouer des nœuds avec le mode Scale-down (préversion)
+          href: scale-down-mode.md
         - name: Arrêter un cluster AKS
           href: start-stop-cluster.md
         - name: Utiliser la maintenance planifiée (préversion)
@@ -359,7 +361,31 @@
         - name: À propos des maillages de service
           href: servicemesh-about.md
         - name: Module complémentaire Open Service Mesh AKS (préversion)
-          href: servicemesh-osm-about.md
+          items:
+            - name: Vue d’ensemble d’OSM
+              href: open-service-mesh-about.md
+            - name: Déployer le module complémentaire OSM AKS
+              href: open-service-mesh-deploy-add-on.md
+            - name: Télécharger la bibliothèque de client OSM
+              href: open-service-mesh-binary.md
+            - name: Tutoriels OSM
+              items:
+                - name: Gérer un nouveau déploiement d’application
+                  href: open-service-mesh-deploy-new-application.md
+                - name: Gérer un déploiement d’application existant
+                  href: open-service-mesh-deploy-existing-application.md
+                - name: Utilisation des entrées Azure Application Gateway
+                  href: open-service-mesh-azure-application-gateway-ingress.md
+                - name: Utilisation des entrées NGINX
+                  href: open-service-mesh-nginx-ingress.md
+                - name: 'Configurer l’observabilité avec Prometheus, Grafana et Jaeger'
+                  href: open-service-mesh-open-source-observability.md
+            - name: Configurer Azure Monitor
+              href: open-service-mesh-azure-monitor.md
+            - name: Résoudre les problèmes OSM
+              href: open-service-mesh-troubleshoot.md
+            - name: Désactiver OSM
+              href: open-service-mesh-disable-add-on.md
     - name: DevOps
       items:
         - name: Utiliser Ansible pour créer des clusters AKS

@@ -6,14 +6,14 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfa3e378e9627652810eb6ac1feaeb7b74522539
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019497"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525261"
 ---
-# <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio Code
+# <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code-preview"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio Code (préversion)
 
 Les travaux de diffusion en continu qui ne génèrent aucun résultat ou des résultats inattendus nécessitent souvent un dépannage. L’extension de Visual Studio Code pour Azure Stream Analytics intègre les diagrammes de travaux, les métriques, les journaux de diagnostic et les résultats intermédiaires pour vous aider à isoler rapidement la source d’un problème. Vous pouvez utiliser le diagramme de travail lorsque vous testez votre requête localement pour examiner le jeu de résultats intermédiaire et les métriques pour chaque étape.
 

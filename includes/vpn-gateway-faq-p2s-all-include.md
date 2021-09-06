@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2021
+ms.date: 06/15/2021
 ms.author: cherylmc
 ms.custom: include file, devx-track-azurepowershell
-ms.openlocfilehash: d41b443a076e303d96588a27285b671123593b57
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5f0d9c821a26d935544f67bca078a9cfdbe50c58
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556433"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112396823"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
@@ -23,7 +23,6 @@ Cela dépend de la référence SKU de passerelle. Pour plus d’informations sur
 
 Les systèmes d’exploitation clients pris en charge sont les suivants :
 
-* Windows 7 (32 bits et 64 bits)
 * Windows Server 2008 R2 (64 bits uniquement)
 * Windows 8.1 (32 bits et 64 bits)
 * Windows Server 2012 (64 bits uniquement)
@@ -81,11 +80,13 @@ Oui. Dans le portail, accédez à la page **Passerelle VPN -> Configuration poi
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure prend-elle en charge le VPN IKEv2 avec Windows ?
 
-Le protocole IKEv2 est pris en charge sur Windows 10 et Server 2016. Toutefois, pour pouvoir utiliser le protocole IKEv2, vous devez installer les mises à jour et définir une valeur de clé de Registre localement. Les versions de système d’exploitation antérieures à Windows 10 ne sont pas prises en charge. Elles peuvent uniquement utiliser le protocole SSTP ou **OpenVPN®**.
+Le protocole IKEv2 est pris en charge sur Windows 10 et Server 2016. Toutefois, pour pouvoir utiliser le protocole IKEv2 dans certaines versions de système d’exploitation, vous devez installer les mises à jour et définir une valeur de clé de Registre localement. Notez que les versions de système d’exploitation antérieures à Windows 10 ne sont pas prises en charge. Elles peuvent uniquement utiliser le protocole SSTP ou **OpenVPN®**.
+
+> REMARQUE : ces étapes ne sont pas nécessaires dans les builds de système d’exploitation Windows ultérieurs à Windows 10 version 1709 et Windows Server 2016 version 1607.
 
 Pour préparer Windows 10 ou Server 2016 pour IKEv2 :
 
-1. Installez la mise à jour.
+1. Installez la mise à jour en fonction de la version de votre système d’exploitation :
 
    | Version du SE | Date | Nombre/lien |
    |---|---|---|

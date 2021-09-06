@@ -1,18 +1,18 @@
 ---
 title: Comment identifier des adresses IP publiques sortantes dans Azure Spring Cloud
 description: Comment afficher les adresses IP publiques sortantes statiques pour communiquer avec les ressources externes, telles que la base de données, le stockage, Key Vault, etc.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: bea1c156df381d8f3b53ce0eb08173d385b6eada
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cc3050cb7c92e0e46c02a4a12f218364b94b2d1f
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080647"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525495"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Comment identifier des adresses IP publiques sortantes dans Azure Spring Cloud
 
@@ -20,7 +20,7 @@ Cette page explique comment afficher les adresses IP publiques statiques sortant
 
 ## <a name="how-ip-addresses-work-in-azure-spring-cloud"></a>Fonctionnement des adresses IP dans Azure Spring Cloud
 
-Un service Azure Spring Cloud possède une ou plusieurs adresses IP publiques sortantes. Le nombre d’adresses IP publiques sortantes peut varier en fonction des niveaux et d’autres facteurs. 
+Un service Azure Spring Cloud possède une ou plusieurs adresses IP publiques sortantes. Le nombre d’adresses IP publiques sortantes peut varier en fonction des niveaux et d’autres facteurs.
 
 Les adresses IP publiques sortantes sont généralement constantes et restent identiques, mais il existe des exceptions.
 
@@ -35,7 +35,7 @@ Le nombre d’adresses IP publiques sortantes change lorsque vous effectuez l�
 
 ## <a name="find-outbound-ips"></a>Trouver des adresses IP sortantes
 
-Pour rechercher les adresses IP publiques sortantes actuellement utilisées par votre instance de service dans le portail Azure, cliquez sur **Mise en réseau** dans le volet de navigation de gauche de votre instance. Elles sont répertoriées dans le champ **Adresses IP sortantes**.
+Pour rechercher les adresses IP publiques sortantes actuellement utilisées par votre instance de service dans le portail Azure, sélectionnez **Mise en réseau** dans le volet de navigation de gauche de votre instance. Elles sont répertoriées dans le champ **Adresses IP sortantes**.
 
 Vous pouvez obtenir les mêmes informations en exécutant la commande suivante dans Cloud Shell
 
@@ -44,6 +44,7 @@ az spring-cloud show --resource-group <group_name> --name <service_name> --query
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"]
 * [En savoir plus sur les identités managées pour les ressources Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [En savoir plus sur le coffre de clés dans Azure Spring Cloud](./tutorial-managed-identities-key-vault.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de17fface1a99e7e3832cf815eadda6915a707fd
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667669"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583146"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Comment exécuter ou réinitialiser des indexeurs, des compétences ou des documents
 
@@ -73,7 +73,7 @@ L’indicateur de réinitialisation est effacé une fois l’exécution terminé
 ## <a name="reset-skills-preview"></a>Réinitialiser les compétences (préversion)
 
 > [!IMPORTANT] 
-> [Réinitialiser les compétences](/rest/api/searchservice/preview-api/reset-skills) est disponible en préversion publique, uniquement via l’API REST de préversion. Les fonctionnalités d’évaluation sont proposées telles quelles, dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [Réinitialiser les compétences](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) est en préversion publique et soumise à des [conditions d’utilisation supplémentaires](/rest/api/searchservice/preview-api/reset-skills). L’[API REST en préversion](/rest/api/searchservice/index-preview) prend en charge cete fonctionnalité.
 
 Pour les indexeurs qui ont des ensembles de compétences, vous pouvez réinitialiser des compétences spécifiques pour forcer le traitement de cette compétence et de toute compétence en aval qui dépend de sa sortie. Les [enrichissements mis en cache](search-howto-incremental-index.md) sont également actualisés. La réinitialisation des compétences invalide les résultats des compétences mis en cache, ce qui est utile quand une nouvelle version d’une compétence est déployée et que vous souhaitez que l’indexeur réexécute cette compétence pour tous les documents. 
 

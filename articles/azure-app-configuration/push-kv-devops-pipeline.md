@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: a3b3c8760c3bf7d6bf4bee444bef7ed77134fb5a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 61b50f8e3c5b32401b4f7339627b9b704a4b94fd
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748270"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122972"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envoyer des paramètres vers App Configuration avec Azure Pipelines
 
@@ -99,6 +99,10 @@ Si une erreur inattendue se produit, les journaux de débogage peuvent être act
 **Comment faire pour charger plusieurs fichiers de configuration ?**
 
 Créez plusieurs instances de la tâche Azure App Configuration Push dans le même pipeline pour envoyer plusieurs fichiers de configuration au magasin App Configuration.
+
+**Comment créer des références Key Vault à l’aide de cette tâche ?**
+
+Pour créer des références Key Vault, définissez le paramètre « Type de contenu » sur *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8*. Si toutes les valeurs de clé d’un fichier de configuration ne sont pas des références Key Vault, placez les références Key Vault et les valeurs de clé normales dans des fichiers de configuration distincts, puis transmettez-les séparément.
 
 **Pourquoi est-ce que je reçois une erreur 409 lors de la tentative d’envoi de paires clé-valeur vers mon magasin de configuration ?**
 

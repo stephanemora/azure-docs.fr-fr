@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4cfa90e2863583cf920df333fd2e5dbd7d7b46c6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101736183"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084603"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Avec Azure, vos charges de travail de serveur MySQL peuvent s’exécuter dans une infrastructure en tant que service (IaaS) de machine virtuelle hébergée ou dans une plateforme en tant que service (PaaS) hébergée. PaaS a plusieurs options de déploiement, et il existe des niveaux de service au sein de chaque option de déploiement. Quand vous choisissez entre IaaS et PaaS, vous devez déterminer si vous voulez gérer votre base de données, appliquer des correctifs et effectuer des sauvegardes, ou plutôt déléguer ces opérations à Azure.
 
@@ -45,27 +47,27 @@ Le tableau suivant liste les principales différences entre ces options :
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
 | Prise en charge de la version de MySQL | 5.6, 5.7 et 8.0| 5.7 et 8.0 | Toutes les versions|
 | Mise à l’échelle du calcul | Pris en charge (la mise à l’échelle de et vers le niveau De base n’est pas prise en charge)| Prise en charge | Prise en charge|
-| Taille de stockage | De 5 Gio à 16 Tio| De 5 Gio à 16 Tio | De 32 Gio à 32 767 Gio|
-| Mise à l’échelle du stockage en ligne | Prise en charge| Prise en charge| Non pris en charge|
-| Mise à l’échelle du stockage automatique | Prise en charge| Non prise en charge en préversion| Non pris en charge|
+| Taille de stockage | 5 Gio à 16Tio| De 20 Gio à 16 Tio | De 32 Gio à 32 767 Gio|
+| Mise à l’échelle du stockage en ligne | Prise en charge| Pris en charge| Non pris en charge|
+| Mise à l’échelle du stockage automatique | Prise en charge| Pris en charge| Non pris en charge|
 | Mise à l’échelle des IOPs supplémentaires | Non pris en charge| Prise en charge| Non pris en charge|
 | Connectivité réseau | - Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec prise en charge de Liaison privée.|- Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec intégration de réseau virtuel.| - Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec prise en charge de Liaison privée.|
 | Contrat de niveau de service (SLA) | Contrat SLA de disponibilité de 99,99 % |Aucun contrat de niveau de service en préversion| 99,99 % utilisant des zones de disponibilité|
 | Mise à jour corrective du système d’exploitation| Automatique  | Automatique avec contrôle de fenêtre de maintenance personnalisée | Géré par les utilisateurs finaux |
 | Mise à jour corrective de MySQL     | Automatique  | Automatique avec contrôle de fenêtre de maintenance personnalisée | Géré par les utilisateurs finaux |
 | Haute disponibilité | Haute disponibilité intégrée à l’intérieur d’une zone de disponibilité unique| Haute disponibilité intégrée à l’intérieur de zones de disponibilité et entre elles | Gestion personnalisée à l’aide d’un clustering, d’une réplication, etc.|
-| Redondance de zone | Non pris en charge | Prise en charge | Prise en charge|
-| Placement de la zone | Non pris en charge | Prise en charge | Prise en charge|
-| Scénarios hybrides | Pris en charge avec [Réplication des données entrantes](./concepts-data-in-replication.md)| Non disponible en préversion | Géré par les utilisateurs finaux |
+| Redondance de zone | Non pris en charge | Pris en charge | Prise en charge|
+| Placement de la zone | Non pris en charge | Pris en charge | Prise en charge|
+| Scénarios hybrides | Pris en charge avec [Réplication des données entrantes](./concepts-data-in-replication.md)| Pris en charge avec [Réplication des données entrantes](./flexible-server/concepts-data-in-replication.md) | Géré par les utilisateurs finaux |
 | Réplicas en lecture | Pris en charge (jusqu’à 5 réplicas)| Pris en charge (jusqu’à 10 réplicas)| Géré par les utilisateurs finaux |
 | Sauvegarde | Automatisée avec une rétention de 7 à 35 jours | Automatisée avec une rétention de 1 à 35 jours | Géré par les utilisateurs finaux |
 | Supervision des opérations de base de données | Prise en charge | Prise en charge | Géré par les utilisateurs finaux |
-| Récupération d'urgence | Prise en charge avec le stockage de sauvegarde géo-redondant et les réplicas de lecture inter-régions | Non prise en charge en préversion| Gérée de manière personnalisée avec des technologies de réplication |
+| Récupération d'urgence | Prise en charge avec le stockage de sauvegarde géo-redondant et les réplicas de lecture inter-régions | Bientôt disponible| Gérée de manière personnalisée avec des technologies de réplication |
 | Query Performance Insight | Prise en charge | Non disponible en préversion| Géré par les utilisateurs finaux |
-| Prix ​​des instances réservées | Prise en charge | Non disponible en préversion | Prise en charge |
+| Prix ​​des instances réservées | Prise en charge | Bientôt disponible | Prise en charge |
 | Azure AD Authentication | Prise en charge | Non disponible en préversion | Non pris en charge|
 | Chiffrement des données au repos | Pris en charge avec clés gérées par le client | Pris en charge avec clés gérées par le service | Non pris en charge|
-| SSL/TLS | Activé par défaut avec prise en charge de TLS v1.2, 1.1 et 1.0 | Appliqué avec TLS v1.2 | Pris en charge avec TLS v1.2, 1.1 et 1.0 |
+| SSL/TLS | Activé par défaut avec prise en charge de TLS v1.2, 1.1 et 1.0 | Activé par défaut avec prise en charge de TLS v1.2, 1.1 et 1.0| Pris en charge avec TLS v1.2, 1.1 et 1.0 |
 | Gestion de flotte | Prise en charge avec Azure CLI, PowerShell, REST et Azure Resource Manager | Prise en charge avec Azure CLI, PowerShell, REST et Azure Resource Manager  | Pris en charge pour les machines virtuelles avec Azure CLI, PowerShell, REST et Azure Resource Manager |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivations métier pour choisir PaaS ou IaaS

@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 04/28/2021
-ms.openlocfilehash: 820c69135acbecde8c2c918e26a7b8cf9dc69428
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1ab4655df0233fdea13f507f8b80b5caa92dc9d6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699893"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284326"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,8 +25,9 @@ La géoréplication active est une fonctionnalité Azure SQL Database qui vous p
 
 > [!NOTE]
 > La fonctionnalité de géoréplication active pour Azure SQL Hyperscale [est désormais disponible en préversion publique](https://aka.ms/hsgeodr). Les limitations actuelles incluent : un seul géosecondaire dans la même région ou dans une autre région, basculement forcé et planifié non pris en charge pour le moment, restauration de base de données à partir d'un géosecondaire non prise en charge, utilisation d'un géosecondaire en tant que base de données source pour la copie de base de données ou en tant que principal pour un autre géosecondaire non prise en charge
-> Si besoin, vous pouvez rendre le géosecondaire accessible en écriture en rompant le lien de géoréplication comme suit :
-> 1. Faites de la base de données secondaire une base de données autonome en lecture-écriture à l'aide de la cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary). Toutes les modifications de données validées sur la base de données primaire mais pas encore répliquées sur la base de données secondaire seront perdues. Ces modifications peuvent être récupérées lorsque l'ancienne base de données primaire est disponible ou, dans certains cas, en restaurant l'ancienne base de données primaire au dernier point disponible dans le temps.
+> 
+> Si vous devez faire du géosecondaire une zone géographique primaire (base de données accessible en écriture), procédez comme suit :
+> 1. Rompez le lien de géoréplication à l’aide du cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) dans PowerShell ou [az sql db replica delete-link](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_delete_link) pour Azure CLI. La base de données secondaire deviendra alors une base de données autonome accessible en écriture. Toutes les modifications de données validées sur la base de données primaire mais pas encore répliquées sur la base de données secondaire seront perdues. Ces modifications peuvent être récupérées lorsque l'ancienne base de données primaire est disponible ou, dans certains cas, en restaurant l'ancienne base de données primaire au dernier point disponible dans le temps.
 > 2. Si l'ancienne base de données primaire est disponible, supprimez-la, puis configurez la géoréplication pour la nouvelle base de données primaire (une nouvelle base de données secondaire sera amorcée). 
 > 3. Mettez à jour les chaînes de connexion de votre application en conséquence.
 
@@ -149,7 +150,9 @@ Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Pr
 ## <a name="cross-subscription-geo-replication"></a>Géoréplication entre abonnements
 
 > [!NOTE]
-> La création d'un géo-réplica sur un serveur logique dans un autre locataire Azure n'est pas prise en charge lorsque l'authentification [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) est activée sur le serveur logique primaire ou secondaire.
+> La création d'un géo-réplica sur un serveur logique dans un autre locataire Azure n'est pas prise en charge lorsque seule l'authentification [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) pour Azure SQL est activée sur le serveur logique primaire ou secondaire.
+> [!NOTE]
+> Les opérations de géoréplication entre abonnements, y compris la configuration et le basculement, sont uniquement prises en charge via les commandes SQL.
 
 Pour configurer la géoréplication active entre deux bases de données appartenant à des abonnements différents (que ce soit sous le même locataire ou non), vous devez suivre la procédure spéciale décrite dans cette section.  La procédure repose sur des commandes SQL et requiert ce qui suit :
 

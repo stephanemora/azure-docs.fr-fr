@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2703e5f92ad0756ece8088c4948170ea13fa0e06
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: c0e63d0aee60ae81c14fa8971369c3a50f9b2bde
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683440"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461397"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Guide pratique pour connecter des appareils via une passerelle transparente IoT Edge
 
@@ -70,7 +70,7 @@ La capture d’écran suivante montre la page **Relations** d’un appareil de p
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="Capture d’écran montrant une relation de modèle d’appareil de passerelle IoT Edge avec un modèle d’appareil à thermostat en aval.":::
 
-La capture d’écran précédente montre un modèle d’appareil de passerelle IoT Edge sans aucun module défini. Une passerelle transparente ne nécessite aucun module, car le runtime IoT Edge transfère les messages des appareils en aval vers IoT Central. Si la passerelle elle-même doit envoyer des données de télémétrie, synchroniser des propriétés, ou gérer des commandes, vous pouvez définir ces fonctionnalités dans le composant par défaut ou dans un module.
+La capture d’écran précédente montre un modèle d’appareil de passerelle IoT Edge sans aucun module défini. Une passerelle transparente ne nécessite aucun module, car le runtime IoT Edge transfère les messages des appareils en aval vers IoT Central. Si la passerelle elle-même doit envoyer des données de télémétrie, synchroniser des propriétés, ou gérer des commandes, vous pouvez définir ces fonctionnalités dans le composant racine ou dans un module.
 
 Ajoutez les propriétés de cloud et les vues requises avant de publier la passerelle et les modèles d’appareil en aval.
 

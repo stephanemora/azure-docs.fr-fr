@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 08/18/2021
 ms.author: b-juche
-ms.openlocfilehash: 46db9181657e5271f5aee567365e1f616caddc3f
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 954519f766c5c9f79fa0c8f61ed45f260743a0c2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061503"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527942"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -53,6 +53,10 @@ Non. L’attribution d’adresses IP aux volumes Azure NetApp Files est dynamiqu
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Azure NetApp Files prend-il en charge le réseau virtuel à double pile (IPv4 et IPv6) ?
 
 Non, actuellement Azure NetApp Files ne prend pas en charge le réseau virtuel à double pile (IPv4 et IPv6).  
+
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>Le nombre d’adresses IP à l’aide de solutions VMware Azure pour les montages de système d’exploitation invités est-il [limité à 1000](azure-netapp-files-resource-limits.md#resource-limits) ?
+
+Non. Les solutions VMware Azure se trouvent derrière une passerelle ER qui se comporte comme sur des systèmes locaux. Le nombre d’« hôtes » et d’« invités » AVS n’est pas visible pour Azure NetApp Files, et la limite d’adresse IP de 1000 ne s’applique pas.
  
 ## <a name="security-faqs"></a>Forum aux questions sur la sécurité
 
@@ -101,6 +105,10 @@ Pour obtenir la liste complète des opérations API, consultez [API REST Azure N
 Oui, vous pouvez créer des [stratégies Azure personnalisées](../governance/policy/tutorials/create-custom-policy-definition.md). 
 
 Toutefois, vous ne pouvez pas créer de stratégies Azure (stratégies de nommage personnalisées) sur l’interface Azure NetApp Files. Consultez [Consignes pour planifier un réseau Azure NetApp Files](azure-netapp-files-network-topologies.md#considerations).
+
+### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Lorsque je supprime un volume Azure NetApp Files, les données sont-elles supprimées en toute sécurité ? 
+
+La suppression d’un volume Azure NetApp Files est effectuée par programmation dans le serveur principal (couche d’infrastructure physique) avec effet immédiat. L’opération de suppression comprend la suppression des clés utilisées pour chiffrer les données au repos. Il n’existe aucune option pour un scénario de récupération d’un volume supprimé une fois l’opération de suppression exécutée avec succès (via des interfaces telles que le portail Azure et l’API).
 
 ## <a name="performance-faqs"></a>Questions fréquentes relatives aux performances
 
@@ -227,6 +235,10 @@ Utilisez le lien **Affichage JSON** dans le volet de vue d’ensemble du volume 
 Non. Toutefois, les partages SMB d’Azure NetApp Files peuvent servir de cible de dossier pour un espace de noms DFS (DFS-N).   
 Pour utiliser un partage SMB d’Azure NetApp Files comme cible de dossier DFS-N, indiquez le chemin d’accès de montage UNC (Convention d’affectation des noms) du partage SMB d’Azure NetApp Files à l’aide de la procédure [Ajouter un dossier cible de DFS](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target).  
 
+### <a name="can-the-smb-share-permissions-be-changed"></a>Les autorisations de partage SMB peuvent-elles être modifiées ?   
+
+Non, les autorisations de partage ne peuvent pas être modifiées. Toutefois, les autorisations NTFS du volume `root` peuvent être modifiées à l’aide de la procédure [Autorisations de fichier et de dossier NTFS](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions). 
+
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Comment surveiller l’utilisation du pool de capacité et du volume Azure NetApp Files ? 
@@ -333,11 +345,17 @@ Vous pouvez monter des volumes NFS d’Azure NetApp Files sur des machines virtu
 
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Quelles sont les régions prises en charge pour l’utilisation de volumes NFS ou SMB d’Azure NetApp Files avec Azure VMware Solution (AVS) ?
 
-L’utilisation de volumes NFS ou SMB d’Azure NetApp Files avec AVS est prise en charge dans les régions suivantes : USA Est, USA Ouest, Europe Ouest et Australie Est.
+L’utilisation de volumes NFS ou SMB d’Azure NetApp Files avec AVS pour les *montages de systèmes d’exploitation invités* est prise en charge dans [toutes les régions où AVS et ANF sont activés](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
 ### <a name="does-azure-netapp-files-work-with-azure-policy"></a>Azure NetApp Files fonctionne-t-il avec Azure Policy ?
 
 Oui. Azure NetApp Files est un service interne. Il adhère pleinement aux normes du fournisseur de ressources Azure. Par conséquent, Azure NetApp Files peut être intégré à Azure Policy par le biais de *définitions de stratégie personnalisées*. Pour plus d’informations sur la façon d’implémenter des stratégies personnalisées pour Azure NetApp Files, consultez [Azure Policy désormais disponible pour Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) sur Microsoft Tech Community. 
+
+### <a name="which-unicode-character-encoding-is-supported-by-azure-netapp-files-for-the-creation-and-display-of-file-and-directory-names"></a>Quel codage de caractères Unicode est pris en charge par Azure NetApp Files pour la création et l’affichage des noms de fichiers et de répertoires ?   
+
+Azure NetApp Files prend uniquement en charge les noms de fichiers et de répertoires qui sont encodés avec le format de codage de caractères Unicode UTF-8 pour les volumes NFS et SMB.
+
+Si vous essayez de créer des fichiers ou des répertoires dont les noms utilisent des caractères supplémentaires ou des paires de substitutions, tels que des caractères non standard et des Emoji qui ne sont pas pris en charge par UTF-8, l’opération échoue. Dans ce cas, une erreur d’un client Windows peut indiquer « Le nom de fichier que vous avez spécifié n’est pas valide ou est trop long. Spécifiez un autre nom de fichier. » 
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

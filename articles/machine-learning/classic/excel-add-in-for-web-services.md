@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Complément Excel pour les services web – Azure'
-description: Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code.
+description: Comment utiliser les services web de Machine Learning directement dans Excel sans écrire de code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e915f6a713df68dba539d3e5aeb31501eea6ed8e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519998"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688870"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complément Excel de services web Azure Machine Learning Studio (classique)
+# <a name="excel-add-in-for-machine-learning-studio-classic-web-services"></a>Complément Excel de services web de Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
 
@@ -29,7 +30,7 @@ Excel permet d'appeler facilement des services web directement sans qu'il soit 
  
     > [!NOTE]
     > - Vous pouvez voir la liste des services web associés au fichier. En bas, la case de prédiction automatique s’affiche. Si vous activez la prédiction automatique, les prédictions de **tous** vos services seront mises à jour chaque fois que les entrées sont modifiées. Si la case n’est pas cochée, vous devrez cliquer sur le bouton « Prédire tout » pour actualiser. Pour activer la prédiction automatique au niveau du service, passez à l’étape 6.
-    > - Le complément Excel d’Azure Machine Learning appellera le magasin de compléments Office pour charger. Si votre organisation interdit l’accès au magasin de compléments Office, une erreur s’affiche lors du chargement du complément. Dans ce cas, déployez le complément Excel d’Azure Machine Learning à partir du Centre d’administration Microsoft 365. Appelez ensuite le complément et ajoutez le service web manuellement en collant l’URL et la clé API.
+    > - Le complément Excel de Machine Learning appellera le magasin de compléments Office pour charger. Si votre organisation interdit l’accès au magasin de compléments Office, une erreur s’affiche lors du chargement du complément. Dans ce cas, déployez le complément Excel de Machine Learning à partir du Centre d’administration Microsoft 365. Appelez ensuite le complément et ajoutez le service web manuellement en collant l’URL et la clé API.
 
  
 
@@ -59,13 +60,13 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel exéc
 4. Recherchez la section **URI de requête** .  Copiez et enregistrez l’URL.
 
 > [!NOTE]
-> Il est désormais possible de se connecter au portail [Azure Machine Learning Web Services](https://services.azureml.net) pour obtenir la clé API d’un service web Machine Learning classique.
+> Il est désormais possible de se connecter au portail [Machine Learning Web Services](https://services.azureml.net) pour obtenir la clé API d’un service web Machine Learning classique.
 > 
 > 
 
 **Utiliser un nouveau service web**
 
-1. Dans le portail [Services web Azure Machine Learning](https://services.azureml.net), cliquez sur **Services web**, puis sélectionnez votre service web. 
+1. Dans le portail [Services web de Machine Learning](https://services.azureml.net), cliquez sur **Services web**, puis sélectionnez votre service web. 
 2. Cliquez sur **Consommer**.
 3. Recherchez la section **des informations de base sur la consommation** . Copiez et enregistrez la **Clé primaire** et l’URL de **Demande-réponse**.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2243f149ebe89bcb3d52d5940ba930891925d788
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94442903"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524130"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protégée : Vérifier les étendues et les rôles d’application
 
@@ -41,7 +41,7 @@ Pour protéger une API web ASP.NET ou ASP.NET Core, vous devez ajouter l’attri
     [Authorize]
     public class TodoListController : Controller
     {
-     ...
+     // ...
     }
 ```
 
@@ -54,11 +54,84 @@ Mais cette protection n’est pas suffisante. Elle garantit uniquement qu’ASP.
 
 Si une application cliente appelle votre API pour le compte d’un utilisateur, l’API doit demander un jeton du porteur ayant des étendues spécifiques pour elle. Pour plus d’informations, consultez [Configuration de code | Jeton du porteur](scenario-protected-web-api-app-configuration.md#bearer-token).
 
-### <a name="net-core"></a>.NET Core
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+
+Dans ASP.NET Core, vous pouvez utiliser Microsoft.Identity.Web pour vérifier les étendues de chaque action du contrôleur. Vous pouvez également les vérifier au niveau du contrôleur ou de l’ensemble de l’application.
 
 #### <a name="verify-the-scopes-on-each-controller-action"></a>Vérifier les étendues de chaque action de contrôleur
 
+Vous pouvez vérifier les étendues de l’action du contrôleur à l’aide de l'attribut `[RequiredScope]`. Cet attribut comporte plusieurs remplacements. Un qui prend directement les étendues requises, et une qui prend une clé de la configuration.
+
+##### <a name="verify-the-scopes-on-a-controller-action-with-hardcoded-scopes"></a>Vérifier les étendues d’une action de contrôleur avec des étendues codées en dur
+
+L’extrait de code suivant montre l’utilisation de l'attribut `[RequiredScope]` avec des étendues codées en dur.
+
 ```csharp
+using Microsoft.Identity.Web
+
+[Authorize]
+public class TodoListController : Controller
+{
+    /// <summary>
+    /// The web API will accept only tokens that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+    // GET: api/values
+    [HttpGet]
+    [RequiredScope(scopeRequiredByApi)]
+    public IEnumerable<TodoItem> Get()
+    {
+        // Do the work and return the result.
+        // ...
+    }
+ // ...
+}
+```
+
+##### <a name="verify-the-scopes-on-a-controller-action-with-scopes-defined-in-configuration"></a>Vérifier les étendues d’une action de contrôleur avec des étendues définies dans la configuration
+
+Vous pouvez également déclarer ces étendues requises dans la configuration et faire référence à la clé de configuration :
+
+Par exemple, si vous avez la configuration suivante dans appsettings.js :
+
+```JSon
+{
+ "AzureAd" : {
+   // more settings
+   "Scopes" : "access_as_user access_as_admin"
+  }
+}
+```
+
+Ensuite, référencez-la dans l’attribut `[RequiredScope]` :
+
+```csharp
+using Microsoft.Identity.Web
+
+[Authorize]
+public class TodoListController : Controller
+{
+    // GET: api/values
+    [HttpGet]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    public IEnumerable<TodoItem> Get()
+    {
+        // Do the work and return the result.
+        // ...
+    }
+ // ...
+}
+```
+
+##### <a name="verify-scopes-conditionally"></a>Vérifier les étendues de manière conditionnelle
+
+Dans certains cas, vous souhaiterez vérifier les étendues de manière conditionnelle. Pour ce faire, utilisez la méthode d'extension `VerifyUserHasAnyAcceptedScope` sur le `HttpContext`.
+
+```csharp
+using Microsoft.Identity.Web
+
 [Authorize]
 public class TodoListController : Controller
 {
@@ -76,23 +149,113 @@ public class TodoListController : Controller
         // Do the work and return the result.
         // ...
     }
-...
+ // ...
 }
 ```
 
-La méthode `VerifyUserHasAnyAcceptedScope` effectue des étapes semblables aux suivantes :
+#### <a name="verify-the-scopes-at-the-level-of-the-controller"></a>Vérifier les étendues au niveau du contrôleur
+
+Vous pouvez également vérifier les étendues pour l’ensemble du contrôleur.
+
+##### <a name="verify-the-scopes-on-a-controller-with-hardcoded-scopes"></a>Vérifier les étendues sur un contrôleur avec des étendues codées en dur
+
+L’extrait de code suivant montre l’utilisation de l'attribut `[RequiredScope]` avec des étendues codées en dur sur le contrôleur.
+
+```csharp
+using Microsoft.Identity.Web
+
+[Authorize]
+[RequiredScope(scopeRequiredByApi)]
+public class TodoListController : Controller
+{
+    /// <summary>
+    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    const string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+    // GET: api/values
+    [HttpGet]
+    public IEnumerable<TodoItem> Get()
+    {
+        // Do the work and return the result.
+        // ...
+    }
+ // ...
+}
+```
+
+##### <a name="verify-the-scopes-on-a-controller-with-scopes-defined-in-configuration"></a>Vérifier les étendues sur le contrôleur avec des étendues définies dans la configuration
+
+Comme pour une action, vous pouvez également déclarer ces étendues requises dans la configuration et faire référence à la clé de configuration :
+
+```csharp
+using Microsoft.Identity.Web
+
+[Authorize]
+[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")
+public class TodoListController : Controller
+{
+    // GET: api/values
+    [HttpGet]
+    public IEnumerable<TodoItem> Get()
+    {
+        // Do the work and return the result.
+        // ...
+    }
+ // ...
+}
+```
+
+#### <a name="verify-the-scopes-more-globally"></a>Vérifier les étendues plus globalement
+
+La définition d’étendues précises pour votre API web et la vérification des étendues dans chaque action de contrôleur est l’approche recommandée. Toutefois, il est également possible de vérifier les étendues au niveau de l’application ou d’un contrôleur. Pour plus d’informations, consultez [Autorisation basée sur les revendications](/aspnet/core/security/authorization/claims) dans la documentation d’ASP.NET Core.
+
+#### <a name="what-is-verified"></a>Qu’est-ce qui est vérifié ?
+
+L’attribut `[RequiredScope]` et la méthode `VerifyUserHasAnyAcceptedScope` effectuent des étapes semblables aux suivantes :
 
 - Vérifier qu’il existe une revendication nommée `http://schemas.microsoft.com/identity/claims/scope` ou `scp`.
 - Vérifier que la revendication a une valeur qui contient l’étendue attendue par l’API.
 
+### <a name="aspnet-classic"></a>[ASP.NET Classique](#tab/aspnet)
 
-#### <a name="verify-the-scopes-more-globally"></a>Vérifier les étendues plus globalement
+Dans une application ASP.NET, vous pouvez valider les étendues de la manière suivante :
 
-La définition d’étendues précises pour votre API web et la vérification des étendues dans chaque action de contrôleur est l’approche recommandée. Toutefois, il est également possible de vérifier les étendues au niveau de l’application ou d’un contrôleur à l’aide d’ASP.NET Core. Pour plus d’informations, consultez [Autorisation basée sur les revendications](/aspnet/core/security/authorization/claims) dans la documentation d’ASP.NET Core.
+```CSharp
+[Authorize]
+public class TodoListController : ApiController
+{
+    public IEnumerable<TodoItem> Get()
+    {
+       ValidateScopes(new[] {"read"; "admin" } );
+       // ...
+    }
+```
 
-### <a name="net-mvc"></a>.NET MVC
+Vous trouverez ci-dessous une version simplifiée de `ValidateScopes` :
 
-Pour ASP.NET, remplacez simplement `HttpContext.User` par `ClaimsPrincipal.Current` et remplacez le type de revendication `"http://schemas.microsoft.com/identity/claims/scope"` par `"scp"`. Consultez également l’extrait de code présenté plus loin dans cet article.
+```csharp
+private void ValidateScopes(IEnumerable<string> acceptedScopes)
+{
+    //
+    // The `role` claim tells you what permissions the client application has in the service.
+    // In this case, we look for a `role` value of `access_as_application`.
+    //
+    Claim scopeClaim = ClaimsPrincipal.Current.FindFirst("scp");
+    if (scopeClaim == null || !scopeClaim.Value.Split(' ').Intersect(acceptedScopes).Any())
+    {
+        throw new HttpResponseException(new HttpResponseMessage
+        { StatusCode = HttpStatusCode.Forbidden,
+            ReasonPhrase = $"The 'scp' claim does not contain '{scopeClaim}' or was not found"
+        });
+    }
+}
+```
+
+Pour une version complète de `ValidateScopes` pour ASP.NET Core, [*ScopesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs)
+
+---
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Vérifier les rôles d’application dans les API appelées par des applications démon
 
@@ -100,22 +263,64 @@ Si votre API web est appelée par une [application de démon](scenario-daemon-ov
 
 Vous devez maintenant demander à votre API de vérifier que le jeton qu’elle reçoit contient la revendication `roles` et que cette revendication a la valeur attendue. Le code de vérification est similaire au code qui vérifie les autorisations déléguées, excepté que votre action de contrôleur teste les rôles au lieu des étendues :
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+
+L’extrait de code suivant montre comment vérifier le rôle d’application
 
 ```csharp
+using Microsoft.Identity.Web
+
 [Authorize]
 public class TodoListController : ApiController
 {
     public IEnumerable<TodoItem> Get()
     {
         HttpContext.ValidateAppRole("access_as_application");
-        ...
+        // ...
     }
 ```
 
-La méthode `ValidateAppRole` est définie dans Microsoft.Identity.Web au sein de [RolesRequiredHttpContextExtensions.cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28).
+À la place, vous pouvez utiliser les attributs [Authorize("role")] sur le contrôleur ou une action (ou une page razor).
 
-### <a name="aspnet-mvc"></a>ASP.NET MVC
+```CSharp
+[Authorize("role")]
+MyController : ApiController
+{
+    // ...
+}
+```
+
+Mais pour cela, vous devrez mapper la revendication de rôle à « Roles » dans le fichier Startup.cs :
+
+
+```CSharp
+ services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
+ {
+    // The claim in the Jwt token where App roles are available.
+    options.TokenValidationParameters.RoleClaimType = "roles";
+ });
+```
+
+Ce n’est pas la meilleure solution si vous devez également effectuer une autorisation basée sur des groupes.
+
+Pour plus d’informations, consultez le tutoriel incrémentiel d’application web sur l'[autorisation par rôles et groupes](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ).
+
+### <a name="aspnet-classic"></a>[ASP.NET Classique](#tab/aspnet)
+
+Dans une application ASP.NET, vous pouvez valider les rôles d’application de la manière suivante :
+
+```CSharp
+[Authorize]
+public class TodoListController : ApiController
+{
+    public IEnumerable<TodoItem> Get()
+    {
+       ValidateAppRole("access_as_application");
+       // ...
+    }
+```
+
+Une version simplifiée de `ValidateAppRole` est la suivante :
 
 ```csharp
 private void ValidateAppRole(string appRole)
@@ -133,8 +338,11 @@ private void ValidateAppRole(string appRole)
         });
     }
 }
-}
 ```
+
+Pour une version complète de `ValidateAppRole` pour ASP.NET Core, consultez le code [*RolesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs).
+
+---
 
 ### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Acceptation de jetons d’application uniquement si l’API web doit être appelée uniquement par des applications de démon
 
@@ -145,10 +353,35 @@ Si vous voulez que seules les applications démon appellent votre API web, ajout
 ```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
-bool isAppOnlyToken = oid == sub;
+bool isAppOnly = oid != null && sub != null && oid == sub;
 ```
 
 La vérification de la condition inverse autorise uniquement les applications qui connectent un utilisateur à appeler votre API.
+
+### <a name="using-acl-based-authorization"></a>Utilisation de l’autorisation basée sur les listes de contrôle d’accès (ACL)
+
+En guise d’alternative à l’autorisation basée sur les rôles d’application, vous pouvez protéger votre API web avec un modèle d’autorisation basé sur les listes de contrôle d’accès (ACL) afin de [contrôler les jetons sans la revendication `roles`](v2-oauth2-client-creds-grant-flow.md#controlling-tokens-without-the-roles-claim).
+
+Si vous utilisez Microsoft.Identity.Web sur ASP.NET Core, vous devez déclarer que vous utilisez une autorisation basée sur les listes de contrôle d’accès (ACL). Dans le cas contraire, Microsoft Identity Web lèvera une exception lorsque ni les rôles ni les étendues ne se trouvent dans les revendications fournies :
+
+```Text
+System.UnauthorizedAccessException: IDW10201: Neither scope or roles claim was found in the bearer token.
+```
+
+ Pour éviter cette exception, affectez la valeur true à la propriété de configuration `AllowWebApiToBeAuthorizedByACL`, dans appsettings.json ou par programmation.
+
+```Json
+{
+ "AzureAD"
+ {
+  // other properties
+  "AllowWebApiToBeAuthorizedByACL" : true,
+  // other properties
+ }
+}
+```
+
+Si vous affectez la valeur true à `AllowWebApiToBeAuthorizedByACL`, il est de **votre responsabilité** de vérifier le mécanisme d’ACL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

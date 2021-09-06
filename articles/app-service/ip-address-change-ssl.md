@@ -1,21 +1,21 @@
 ---
-title: Se préparer à un changement d’adresse IP SSL
-description: Si votre adresse IP SSL va être modifiée, découvrez les choses à faire pour que votre application continue de fonctionner après la modification.
+title: Se préparer à un changement d’adresse IP TLS/SSL
+description: Si votre adresse IP TLS/SSL va être modifiée, découvrez les choses à faire pour que votre application continue de fonctionner après la modification.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3712931f73463ec1a799f003b82197752a735136
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020957"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895280"
 ---
-# <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Comment se préparer à un changement d’adresse IP SSL
+# <a name="how-to-prepare-for-a-tlsssl-ip-address-change"></a>Comment se préparer à un changement d’adresse IP TLS/SSL
 
-Si vous avez reçu une notification indiquant la modification de l’adresse IP SSL de votre application Azure App Service, suivez les instructions dans cet article pour libérer l’adresse IP SSL existante et en affecter une nouvelle.
+Si vous avez reçu une notification indiquant la modification de l’adresse IP TLS/SSL de votre application Azure App Service, suivez les instructions dans cet article pour libérer l’adresse IP TLS/SSL existante et en affecter une nouvelle.
 
-## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>Libérer des adresses IP SSL et en affecter de nouvelles
+## <a name="release-tlsssl-ip-addresses-and-assign-new-ones"></a>Libérer des adresses IP TLS/SSL et en affecter de nouvelles
 
 1.  Ouvrez le [portail Azure](https://portal.azure.com).
 

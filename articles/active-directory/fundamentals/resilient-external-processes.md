@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d3c159c615d928a8d56d3913c8e1cab846c7580
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724405"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462090"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces résilientes avec processus externes
 
@@ -38,7 +38,7 @@ Les stratégies Identity Experience Framework (IEF) vous permettent d’appeler 
 
 - Si possible, supprimez les appels d’API du chemin d’accès préauthentifié. Si vous ne le pouvez pas, vous devez mettre en place des protections strictes contre les attaques par déni de service (DoS) et par déni de service distribué (DDoS) devant vos API. Les attaquants peuvent charger la page de connexion et tenter de saturer votre API avec des attaques DoS et paralyser votre application. Par exemple, l’utilisation de CAPTCHA dans votre flux de connexion ou d’inscription peut vous aider.
 
-- Utilisez les [connecteurs d’API du flux d’utilisateurs intégré à l’inscription](../../active-directory-b2c/api-connectors-overview.md) chaque fois que cela est possible pour intégrer les API web, soit après l’inscription auprès d’un fournisseur d’identité, soit avant la création de l’utilisateur. Comme les flux d’utilisateurs sont déjà largement testés, il est probable que vous n’ayez pas à effectuer de tests fonctionnels, de performance ou d’échelle au niveau des flux d’utilisateurs. Vous devez toujours tester vos applications sur le plan des fonctionnalités, des performances et de la mise à l’échelle.
+- Utilisez les [connecteurs d’API du flux d’utilisateurs intégré à l’inscription](../../active-directory-b2c/api-connectors-overview.md) chaque fois que cela est possible pour intégrer les API web, soit après la fédération avec un fournisseur d’identité pendant l’inscription, soit avant la création de l’utilisateur. Comme les flux d’utilisateurs sont déjà largement testés, il est probable que vous n’ayez pas à effectuer de tests fonctionnels, de performance ou d’échelle au niveau des flux d’utilisateurs. Vous devez toujours tester vos applications sur le plan des fonctionnalités, des performances et de la mise à l’échelle.
 
 - Les [profils techniques](../../active-directory-b2c/restful-technical-profile.md) des API RESTFul Azure AD ne fournissent aucun comportement de mise en cache. Au lieu de cela, le profil d’API RESTFul implémente une logique de nouvelle tentative et un délai d’expiration intégré à la stratégie.
 

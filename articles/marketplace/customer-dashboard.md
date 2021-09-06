@@ -4,33 +4,32 @@ description: Découvrez comment accéder à des informations détaillées sur vo
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 3d5016e1671bb52d4b819c10e7c52c12e5046b7e
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 43332c559c309bc99754467994a4718ece78d3cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541165"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524398"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Clients dans l’analytique de la Place de marché commerciale
 
 Cet article fournit des informations sur le tableau de bord Client de l’Espace partenaires. Ce tableau de bord présente des informations sur vos clients, notamment les tendances de croissance, dans un format graphique et téléchargeable.
 
-Pour accéder au tableau de bord Clients dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clients**.
-
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).
 
 ## <a name="customers-dashboard"></a>Tableau de bord des clients
 
-Le tableau de bord Clients affiche des données concernant les clients qui ont acquis vos offres. Vous pouvez afficher une représentation graphique des éléments suivants :
+Le [tableau de bord Clients](https://go.microsoft.com/fwlink/?linkid=2166011) affiche des données concernant les clients qui ont acheté vos offres. Vous pouvez afficher une représentation graphique des éléments suivants :
 
 - Tendance des clients actifs et perdus
 - Tendance de croissance de la clientèle, incluant les clients existants, nouveaux et perdus
 - Clients par commande et utilisation
-- Centile de clients 
+- Centile de clients
 - Type de client par commandes et utilisation
 - Clients par zone géographique
 - Tableau des détails des clients
@@ -42,6 +41,8 @@ Le tableau de bord Clients affiche des données concernant les clients qui ont a
 ## <a name="elements-of-the-customers-dashboard"></a>Éléments du tableau de bord Clients
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Clients et lire les données.
+
+Pour accéder au tableau de bord Clients dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clients**.
 
 ### <a name="month-range"></a>Plage de mois
 
@@ -181,4 +182,4 @@ Les filtres de la page Clients s’appliquent au niveau de la page Clients. Vous
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la Place de marché commerciale](./usage-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et de Microsoft AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+- Pour voir les questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).

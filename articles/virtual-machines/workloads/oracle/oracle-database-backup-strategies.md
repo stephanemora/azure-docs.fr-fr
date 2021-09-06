@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 8a1eb1c21663e0294cd384daa0ba644adf78007a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbe0fe6d0dadea6e99b406f2de6e16ed4d667741
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673213"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461535"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Oracle Database dans les stratégies de sauvegarde de machine virtuelle Linux Azure
 
@@ -103,7 +103,7 @@ Vous pouvez également protéger des partages de fichiers Azure via le service S
 
 #### <a name="azure-files-nfs-v41-preview"></a>Azure Files NFS v4.1 (préversion)
 
-Vous pouvez monter des partages de fichiers Azure dans des distributions Linux à l’aide du protocole NFS (Network File System) v4.1. En préversion, il existe un certain nombre de limitations aux fonctionnalités prises en charge, qui sont documentées [ici](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
+Vous pouvez monter des partages de fichiers Azure dans des distributions Linux à l’aide du protocole NFS (Network File System) v4.1. En préversion, il existe un certain nombre de limitations aux fonctionnalités prises en charge. Pour obtenir davantage d’informations, voir [Monter un partage de fichiers Azure NFS (préversion)](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
 
 En préversion, Azure Files NFS v4.1 est également limité aux [régions suivantes](../../../storage/files/storage-files-how-to-mount-nfs-shares.md) :
 - USA Est (LRS et ZRS)
@@ -120,7 +120,7 @@ Les partages de fichiers Azure peuvent être montés dans des distributions Linu
 
 Le protocole SMB Azure Files est généralement disponible dans toutes les régions Azure, et présente les mêmes caractéristiques de performances que les protocoles NFS v3.0 et v4.1. Il s’agit donc actuellement de la méthode recommandée pour fournir un support de stockage de sauvegarde aux machines virtuelles Linux Azure.  
 
-Deux versions du protocole SMB sont prises en charge, SMB 2.1 et SMB 3.0, cette dernière étant recommandée parce qu’elle prend en charge le chiffrement en transit. D’autres versions de noyaux Linux prennent en charge les protocoles SMB 2.1 et 3.0 autrement. Pour vous assurer que votre application prend en charge le protocole SMB 3.0, consultez [ce tableau](../../../storage/files/storage-how-to-use-files-linux.md) . 
+Deux versions du protocole SMB sont prises en charge, SMB 2.1 et SMB 3.0, cette dernière étant recommandée parce qu’elle prend en charge le chiffrement en transit. Toutefois, diverses versions de noyaux Linux assurent une prise en charge différente de SMB 2.1 et 3.0. Pour obtenir davantage d’informations, voir [Monter un partage de fichiers SMB Azure sur Linux](../../../storage/files/storage-how-to-use-files-linux.md) pour vérifier que votre application prend en charge SMB 3.0. 
 
 Étant donné qu’Azure Files est conçu pour être un service de partage de fichiers multi-utilisateurs, vous devez régler certaines caractéristiques afin de le rendre plus adapté en tant que support de stockage de sauvegarde. Il est recommandé de désactiver la mise en cache et la définition des ID d’utilisateur et de groupe pour les fichiers créés.
 
@@ -152,5 +152,3 @@ Le service Sauvegarde Azure fournit désormais une [infrastructure améliorée d
 - [Démarrage rapide Créer une base de données Oracle DB](oracle-database-quick-create.md)
 - [Sauvegarder une base de données Oracle DB sur Azure Files](oracle-database-backup-azure-storage.md)
 - [Sauvegarder une base de données Oracle DB à l’aide du service Sauvegarde Azure](oracle-database-backup-azure-backup.md)
-
-

@@ -3,14 +3,14 @@ title: Vue d’ensemble de la suppression de Start/Stop VMs v2 (préversion)
 description: Cet article explique comment supprimer la fonctionnalité Start/Stop VMs v2 (préversion).
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/30/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd24de679781cda37ba9489eb7acad6332896659
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1a22faba480eb9c130cc7c883abfc3e53ef58fe5
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076849"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970154"
 ---
 # <a name="how-to-remove-startstop-vms-v2-preview"></a>Comment supprimer Start/Stop VMs v2 (préversion)
 
@@ -20,6 +20,9 @@ Après avoir activé la fonctionnalité Start/Stop VMs v2 (préversion) pour gé
 - Les planifications dans Azure Logic Apps
 - L’instance Application Insights
 - Compte de Stockage Azure
+
+> [!NOTE]
+> Si vous rencontrez des problèmes lors du déploiement, que vous rencontrez un problème lors de l’utilisation de Start/Stop VMs V2 (préversion) ou si vous avez une question connexe, vous pouvez envoyer un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). L’envoi d’un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n’est pas disponible pour cette préversion. 
 
 ## <a name="delete-the-dedicated-resource-group"></a>Supprimer le groupe de ressources dédié
 

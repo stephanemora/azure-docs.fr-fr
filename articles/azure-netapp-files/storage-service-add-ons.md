@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/15/2021
 ms.author: b-juche
-ms.openlocfilehash: c37d67b6f090314343376237dce3b107b52ee3eb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: dfb4de158cbaf63f2a41932e630036831643fcf6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082672"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122235"
 ---
 # <a name="storage-service-add-ons-for-azure-netapp-files"></a>Modules complémentaires du service de stockage pour Azure NetApp Files
 
-Le menu du portail **Modules complémentaires du service de stockage** d’Azure NetApp Files fournit une « rampe de lancement » des modules complémentaires tiers pris en charge de l’écosystème dans le service de stockage Azure NetApp Files. 
+Le menu du portail **Modules complémentaires du service de stockage** d’Azure NetApp Files fournit une « rampe de lancement » des modules complémentaires tiers disponibles de l’écosystème dans le service de stockage Azure NetApp Files. 
 
 ## <a name="access-storage-service-add-ons"></a>Accéder aux modules complémentaires du service de stockage  
 

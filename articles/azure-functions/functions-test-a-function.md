@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 27bc8171509e16f25c508dd71515d8cb25a11b0b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 21bc9991534084ace3be025f1ee0b295ea78558f
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639859"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223803"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -23,6 +23,7 @@ Le contenu suivant est divisé en deux sections distinctes destinées à cibler 
 
 - [C# dans Visual Studio avec xUnit](#c-in-visual-studio)
 - [JavaScript dans VS Code avec Jest](#javascript-in-vs-code)
+- [Python à l’aide de pytest](./functions-reference-python.md?tabs=application-level#unit-testing)
 
 L’exemple de dépôt est disponible sur [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 

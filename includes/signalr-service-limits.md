@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2020
 ms.author: zhshang
-ms.openlocfilehash: 496d98c5faebfcef511152476b58dd6257dbbedc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 328a3d088ea21ec55f5e06cfbfc307fca2b03afa
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83673541"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113644368"
 ---
 | Ressource | Limite par défaut | Limite maximale | 
 | --- | --- | --- |
@@ -35,3 +35,4 @@ ms.locfileid: "83673541"
 
 Pour demander une mise à jour des limites par défaut de votre abonnement, ouvrez un ticket de support.
 
+Pour obtenir davantage d’informations sur la comptabilisation des connexions et des messages, consultez [Messages et connexions dans Azure SignalR Service](../articles/azure-signalr/signalr-concept-messages-and-connections.md).

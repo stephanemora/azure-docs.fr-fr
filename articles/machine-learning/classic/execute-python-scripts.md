@@ -9,21 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b83cf9896c82b4821e38b0245a9330cbaab7fede
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519981"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689607"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio (classique)
+# <a name="execute-python-machine-learning-scripts-in-machine-learning-studio-classic"></a>Exécuter des scripts d’apprentissage automatique Python dans Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Python est un précieux outil dans le coffre à outils de nombreux scientifiques de données. Il est utilisé à chaque étape des flux de travail d’apprentissage automatique typiques, y compris l'exploration des données, l'extraction des fonctionnalités, la formation, la validation et le déploiement de modèles.
 
-Cet article explique comment utiliser le module Exécuter le script Python pour utiliser du code Python dans vos expériences Azure Machine Learning Studio (classique) et vos services web.
+Cet article explique comment utiliser le module Exécuter le script Python pour utiliser du code Python dans vos expériences Machine Learning Studio (classique) et vos services web.
 
 ## <a name="using-the-execute-python-script-module"></a>Utilisation du module Exécuter le script Python
 
@@ -155,7 +156,7 @@ Voici la fonction Python permettant de calculer les notations d’importance et 
 
 ![Fonction permettant de classer les fonctionnalités par notations](./media/execute-python-scripts/figure8.png)
 
-L’expérience suivante calcule, puis retourne les notations d’importance des fonctionnalités dans le jeu de données « Diabète chez les indiens Pima » dans Azure Machine Learning Studio (classique) :
+L’expérience suivante calcule, puis retourne les notations d’importance des fonctionnalités dans le jeu de données « Diabète chez les Indiens Pima » dans Machine Learning Studio (classique) :
 
 ![Expérience permettant de classer des fonctionnalités dans l'ensemble de données du diabète chez les indiens Pima, en utilisant Python](./media/execute-python-scripts/figure9a.png)
 

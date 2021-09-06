@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 5fd8dad44aa085530426168961280c4a84162ecb
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 9f78e3021df56ea750f2c902555aca796691476a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617670"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448947"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Mettre à jour votre GPU Azure Stack Edge Pro 
 
@@ -24,8 +24,8 @@ Cet article décrit les étapes à effectuer pour installer des mises à jour su
 La procédure décrite dans cet article a été effectuée à l’aide d’une version différente du logiciel, mais le processus reste le même pour la version actuelle du logiciel.
 
 > [!IMPORTANT]
-> - La mise à jour **2105** est la mise à jour actuelle et correspond à :
->   - Version du logiciel de l'appareil – **2.2.1606.3320**
+> - La mise à jour **2106** est la mise à jour actuelle et correspond à :
+>   - Version du logiciel de l’appareil – **2.2.1636.3457**
 >   - Version du serveur Kubernetes – **v1.20.2**
 >   - Version d'IoT Edge : **0.1.0-beta14**
 >   - Version du pilote GPU : **460.32.03**
@@ -161,7 +161,7 @@ Effectuez les étapes suivantes pour télécharger la mise à jour à partir du 
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. Sélectionnez **Télécharger**. Il y a deux packages à télécharger : <!--KB 4616970 and KB 4616971--> un pour les mises à jour logicielles de l'appareil (*SoftwareUpdatePackage.exe*) et l'autre pour les mises à jour Kubernetes (*Kubernetes_Package.exe*). Téléchargez les packages dans un dossier du système local. Vous pouvez également copier le dossier sur un partage réseau accessible à partir de l’appareil.
+4. Sélectionnez **Télécharger**. Il y a deux packages à télécharger : <!--KB 4616970 and KB 4616971--> un pour les mises à jour logicielles de l’appareil (*SoftwareUpdatePackage.exe*) et un autre pour les mises à jour Kubernetes (*Kubernetes_Package.exe*), respectivement. Téléchargez les packages dans un dossier du système local. Vous pouvez également copier le dossier sur un partage réseau accessible à partir de l’appareil.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Installation de la mise à jour ou du correctif
 

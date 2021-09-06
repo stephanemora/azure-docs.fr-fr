@@ -10,14 +10,14 @@ ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bd35487bcd11aeacae019acf0b87e4e1e716a66
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520559"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583299"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Azure Machine Learning Studio (classique) utilisant les modules d’importation et d’exportation des données
+# <a name="deploy-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Machine Learning Studio (classique) utilisant les modules d’importation et d’exportation des données
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -77,7 +77,7 @@ Maintenant, vous devez configurer l’expérience prédictive à partir de laque
 9. Dans le **champ du nom de la table de données**, tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.
 10. Dans le champ **Liste des colonnes de table de données séparées par des virgules** , tapez Étiquettes notées.
 
-Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres de service web, consultez l’[entrée des paramètres de service web Azure Machine Learning Studio](/archive/blogs/machinelearning/azureml-web-service-parameters) du blog Cortana Intelligence and Machine Learning.
+Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres de service web, consultez l’[entrée des paramètres de service web Machine Learning Studio (classique)](/archive/blogs/machinelearning/azureml-web-service-parameters) du blog Cortana Intelligence et Machine Learning.
 
 Pour configurer les paramètres du service web pour la requête d’importation et la table de destination :
 
@@ -124,7 +124,7 @@ Pour déployer comme un service web classique et créer une application afin de 
 ### <a name="deploy-a-new-web-service"></a>Déployer comme un nouveau service web
 
 > [!NOTE]
-> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez [Gérer un service web à l’aide du portail des services web Machine Learning](manage-new-webservice.md).
 
 Pour déployer comme un nouveau service web et créer une application afin de l’utiliser :
 

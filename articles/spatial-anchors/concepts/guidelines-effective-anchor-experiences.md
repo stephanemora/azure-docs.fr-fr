@@ -8,24 +8,20 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a6bc500516de7e554c38a335ea57519a39c8f602
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c92b45d9c471cf8a94a4001fb5303347d2839dd2
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95487501"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125921"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Créer une expérience d’ancrage efficace à l’aide d’Azure Spatial Anchors
 
 Cet article donne des instructions et soulève des considérations pour vous aider à créer et localiser des ancres de manière efficace avec Azure Spatial Anchors.
 
-## <a name="anchor-improvement-over-time"></a>Amélioration de l’ancre au fil du temps
-
-Avec Azure Spatial Anchors, chaque fois que vous localisez des ancres, nous tentons d’améliorer la qualité des opérations de localisation futures. Pour ce faire, nous utilisons les données d’environnement collectées pour compléter les informations visuelles sur les ancres que nous recherchons. Ce processus s’exécute en arrière-plan et est une optimisation hors connexion exécutée par le service Azure Spatial Anchors pour optimiser votre environnement. Les données supplémentaires collectées au cours de chaque opération permettent de mieux comprendre l’environnement. Vous pouvez ainsi améliorer la qualité et la localisation des ancres grâce à la modification de l’environnement, au passage du temps et aux utilisateurs qui regardent les ancres à partir de différents angles et perspectives.
-
 ## <a name="good-anchors"></a>Des ancres de qualité
 
-Même si Azure Spatial Anchors tente d’améliorer la qualité des ancres au fil du temps, il est également important de consacrer du temps à la formation ou au guidage des utilisateurs dans votre expérience utilisateur (UX) afin de créer de bons points d’ancrage. Un tel investissement en amont vous permet d’aider les utilisateurs à trouver des ancres fiables :
+Il est important d’investir du temps dans la formation ou l’accompagnement des utilisateurs dans votre expérience utilisateur pour qu’ils créent des ancres de qualité. Un tel investissement en amont vous permet d’aider les utilisateurs à trouver des ancres fiables :
 
 - Sur différents appareils.
 - À des moments différents.
@@ -104,7 +100,7 @@ Les systèmes de suivi visuel s’appuient sur les caractéristiques visuelles d
 
 Suivez les recommandations générales données dans cette section pour créer une expérience utilisateur qui encourage un scan utile de l’environnement.
 
-Tout d’abord, si l’utilisateur ne localise pas une ancre en quelques secondes, l’application doit l’encourager à déplacer l’appareil pour capturer d’autres perspectives. L’application peut aussi encourager les utilisateurs à se déplacer dans l’environnement pour rechercher l’ancre depuis d’autres perspectives. Plus l’appareil perçoit des perspectives de fonctionnalités, mieux c’est, car cela augmente la probabilité qu’une ancre soit localisée, ainsi que le recueil d’autres données sur l’environnement, qui seront utilisées pour améliorer la qualité de l’ancre.
+Tout d’abord, si l’utilisateur ne localise pas une ancre en quelques secondes, l’application doit l’encourager à déplacer l’appareil pour capturer d’autres perspectives. L’application peut aussi encourager les utilisateurs à se déplacer dans l’environnement pour rechercher l’ancre depuis d’autres perspectives. Plus le nombre de perspectives de fonctionnalités que l’appareil pourra voir est important, mieux ce sera, car cela augmentera les chances de localisation d’une ancre.
 
 Pour les scénarios avec des cibles, demandez à l’utilisateur de se déplacer autour de la cible pour la voir depuis des perspectives différentes. En d’autres termes, demandez à l’utilisateur de capturer la cible depuis des perspectives nouvelles jusqu’à ce qu’il trouve l’ancre.
 

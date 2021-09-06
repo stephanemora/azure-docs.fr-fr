@@ -2,8 +2,11 @@
   href: ./index.yml
 - name: Vue d’ensemble
   items:
-    - name: À propos de Media Services
+    - name: "À propos de Media Services\_v3"
       href: media-services-overview.md
+    - name: "Documentation Media Services\_v2"
+      href: ../previous/media-services-overview.md
+      displayName: 'media services v2, v2, version 2'
     - name: Notes de publication
       href: release-notes.md
       displayName: 'Release Notes, notes, updates, announcements, deprecations'

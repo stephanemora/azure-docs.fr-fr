@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4eba226fbbe3ef6d9791f2f098a24fdf217debaa
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 84cb22956b682a9acb23f4f391faf046eccc47a7
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575371"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378139"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scénario : Acheminer le trafic via des appliances virtuelles réseau à l’aide de paramètres personnalisés
 
@@ -177,6 +177,7 @@ Pour configurer le routage via une appliance virtuelle réseau (NVA), procédez 
    > * Les utilisateurs du portail doivent activer la « propagation vers l’itinéraire par défaut » sur les connexions (VPN/ER/P2S/VNet) pour que l’itinéraire 0.0.0.0/0 prenne effet.
    > * Les utilisateurs PS/CLI/REST doivent affecter la valeur true à l’indicateur « enableinternetsecurity » pour que l’itinéraire 0.0.0.0/0 prenne effet.
    > * La connexion de réseau virtuel ne prend pas en charge l’adresse IP de tronçon suivant « multiple/unique » pour l’appliance virtuelle de réseau « same » dans un réseau virtuel SPOKE « si » l’un des itinéraires avec l’adresse IP de tronçon suivant est indiqué comme adresse IP publique ou 0.0.0.0/0 (Internet)
+   > * Lorsque 0.0.0.0/0 est configuré en tant qu’itinéraire statique sur une connexion de réseau virtuel, cet itinéraire est appliqué à tout le trafic, y compris les ressources dans l’étoile elle-même. Cela signifie que tout le trafic sera transféré vers l’adresse IP de tronçon suivant de l’itinéraire statique (adresse IP privée NVA). Par conséquent, dans les déploiements avec un itinéraire 0.0.0.0/0 avec l’adresse IP NVA de tronçon suivant configurée sur une connexion de réseau virtuel en étoile, pour accéder directement aux charges de travail dans le même réseau virtuel que le NVA (par exemple, pour que le trafic ne passe pas par NVA), spécifiez un itinéraire /32 sur la connexion de réseau virtuel en étoile. Par exemple, si vous souhaitez accéder directement à 10.1.3.1, indiquez 10.1.3.1/32, tronçon suivant 10.1.3.1, sur la connexion de réseau virtuel en étoile.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

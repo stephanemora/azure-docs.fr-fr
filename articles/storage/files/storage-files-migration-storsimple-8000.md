@@ -7,18 +7,25 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 48924cd16eef4cafb2ee0d6a85e30903203169ce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f51f4b9a838a7a08259b280c4d9cd185b42e588b
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785508"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116974"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
 La série StorSimple 8000 est représentée par les appliances physiques locales 8100 ou 8600 et leurs composants de service cloud. Il est possible d’effectuer la migration des données de l’une ou l’autre de ces appliances vers un environnement Azure File Sync. Azure File Sync est le service Azure à long terme stratégique et par défaut vers lequel les appliances StorSimple peuvent être migrées.
 
 StorSimple série 8000 atteindra sa [fin de vie](/lifecycle/products/azure-storsimple-8000-series) en décembre 2022. Il est important de planifier votre migration le plus tôt possible. Cet article donne les étapes à suivre pour effectuer correctement une migration vers Azure File Sync, en fournissant toutes les connaissances générales nécessaires.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="phase-1-prepare-for-migration"></a>Phase 1 : Préparation de la migration
 
@@ -191,11 +198,11 @@ Choisissez l’une des deux options suivantes :
 * *Stockage redondant interzone (ZRS)* , qui n’est pas disponible dans toutes les régions Azure.
 
 > [!NOTE]
-> Seuls les types de redondance LRS et ZRS sont compatibles avec les grands partages de fichiers Azure d’une capacité de 100 Tio.
+> Seuls les types de redondance LRS et ZRS sont compatibles avec les grands partages de fichiers Azure d’une capacité de 100 Tio.
 
 Le stockage globalement redondant, toutes variantes confondues, n’est pas pris en charge pour le moment. Vous pouvez changer de type de redondance plus tard et passer à GRS lorsqu’Azure le prendra en charge.
 
-#### <a name="enable-100-tib-capacity-file-shares"></a>Activer les partages de fichiers d’une capacité de 100 Tio
+#### <a name="enable-100-tib-capacity-file-shares"></a>Activer les partages de fichiers d’une capacité de 100 Tio
 
 :::row:::
     :::column:::
@@ -206,9 +213,9 @@ Le stockage globalement redondant, toutes variantes confondues, n’est pas pris
     :::column-end:::
 :::row-end:::
 
-Opter pour les grands partages de fichiers d’une capacité de 100 Tio présente plusieurs avantages :
+Opter pour les grands partages de fichiers d’une capacité de 100 Tio présente plusieurs avantages :
 
-* Vos performances sont considérablement accrues par rapport aux partages de fichiers plus petits d’une capacité de 5 Tio (par exemple, 10 fois plus d’E/S).
+* Vos performances sont considérablement accrues par rapport aux partages de fichiers plus petits d’une capacité de 5 Tio (par exemple, 10 fois plus d’IOPS).
 * La migration se terminera beaucoup plus rapidement.
 * Le partage de fichiers disposera d'une capacité suffisante pour contenir toutes les données que vous migrerez vers celui-ci, y compris la capacité de stockage requise par les sauvegardes différentielles.
 * La croissance future est couverte.

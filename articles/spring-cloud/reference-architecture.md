@@ -1,17 +1,17 @@
 ---
 ms.date: 02/16/2021
 ms.topic: reference-architecture
-author: kriation
+author: karlerickson
 title: Architecture de référence Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Cette architecture de référence est une base qui utilise une conception hub-and-spoke typique des entreprises pour l’utilisation d’Azure Spring Cloud.
-ms.openlocfilehash: d45d70227be2d88ca69e8a88bbc116a7f8045e74
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0cc7a1345ff15a63c7cb9b0ebca51863fdf2791
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132680"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534899"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Architecture de référence Azure Spring Cloud
 
@@ -19,7 +19,7 @@ Cette architecture de référence est une base qui utilise une conception hub-an
 
 Pour l’implémentation de cette architecture, consultez le référentiel [Architecture de référence Azure Spring Cloud][10] sur GitHub.
 
-Les options de déploiement de cette architecture sont Azure Resource Manager (ARM), Terraform et Azure CLI. Les artefacts de ce référentiel fournissent une base que vous pouvez adapter à votre environnement. Vous pouvez regrouper des ressources telles que Pare-feu Azure ou Application Gateway dans différents groupes de ressources ou abonnements. Ce regroupement permet de séparer différentes fonctions, telles que l’infrastructure informatique, la sécurité, les équipes chargées des applications commerciales, etc.
+Les options de déploiement de cette architecture sont Azure Resource Manager (ARM), Terraform, Azure CLI et Bicep. Les artefacts de ce référentiel fournissent une base que vous pouvez adapter à votre environnement. Vous pouvez regrouper des ressources telles que Pare-feu Azure ou Application Gateway dans différents groupes de ressources ou abonnements. Ce regroupement permet de séparer différentes fonctions, telles que l’infrastructure informatique, la sécurité, les équipes chargées des applications commerciales, etc.
 
 ## <a name="planning-the-address-space"></a>Planification de l’espace d’adressage
 

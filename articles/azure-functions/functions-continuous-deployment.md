@@ -4,12 +4,12 @@ description: Utilisez les fonctionnalités de déploiement continu d’Azure App
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0018f1c74708035206a8a2bb9a540f00f98f43a4
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83123665"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321020"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
 
@@ -62,7 +62,7 @@ Pour configurer le déploiement continu d’une Function App existante, procéde
 Une fois le processus terminé, tout le code de la source spécifiée est déployé sur votre application. À ce stade, les modifications apportées à la source de déploiement déclenchent un déploiement de ces modifications sur votre Function App dans Azure.
 
 > [!NOTE]
-> Après avoir configuré l’intégration continue, vous ne pouvez plus modifier vos fichiers sources dans le portail Functions.
+> Après avoir configuré l’intégration continue, vous ne pouvez plus modifier vos fichiers sources dans le portail Functions. Si vous avez initialement publié votre code à partir de votre ordinateur local, vous devrez peut-être remplacer la valeur du paramètre `WEBSITE_RUN_FROM_PACKAGE` dans votre application de fonction par `0`. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

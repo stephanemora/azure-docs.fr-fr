@@ -1,59 +1,52 @@
 ---
-title: Obtenir les journaux pour résoudre les problèmes liés aux services de données Azure Arc
-description: Découvrez comment obtenir des fichiers journaux à partir d’un contrôleur de données pour résoudre les problèmes liés aux services de données Azure Arc.
+title: Obtenir les journaux pour résoudre les problèmes liés aux services de données activés par Azure Arc
+description: Découvrez comment obtenir des fichiers journaux à partir d’un contrôleur de données pour résoudre les problèmes liés aux services de données activés par Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82152756b5caf5bfbe0301a14185d8ffed1d1afe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93234039"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531626"
 ---
-# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtenir les journaux pour résoudre les problèmes liés aux services de données Azure Arc
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtenir les journaux pour résoudre les problèmes liés aux services de données activés par Azure Arc
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, vérifiez que vous disposez des éléments suivants :
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Pour plus d’informations, consultez [Installer les outils clients pour le déploiement et la gestion des services de données activés par Azure Arc](./install-client-tools.md).
-* Un compte administrateur pour se connecter au contrôleur de données activé par Azure Arc.
+* Azure CLI (`az`) avec l’extension `arcdata`. Pour plus d’informations, consultez [Installer les outils clients pour le déploiement et la gestion des services de données activés par Azure Arc](./install-client-tools.md).
+* Un compte administrateur pour se connecter au contrôleur de données Azure Arc.
 
 ## <a name="get-log-files"></a>Obtenir les fichiers journaux
 
-Vous pouvez obtenir les journaux de service pour l’ensemble des pods ou pour des pods spécifiques à des fins de dépannage. L’une des méthodes consiste à utiliser les outils Kubernetes standard, tels que la commande `kubectl logs`. Dans cet article, vous allez utiliser l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], qui facilite l’extraction de tous les journaux en même temps.
+Vous pouvez obtenir les journaux de service pour l’ensemble des pods ou pour des pods spécifiques à des fins de dépannage. L’une des méthodes consiste à utiliser les outils Kubernetes standard, tels que la commande `kubectl logs`. Dans cet article, vous allez utiliser l’extension `arcdata` d’Azure CLI (`az`), qui facilite l’extraction de tous les journaux en même temps.
 
-1. Connectez-vous au contrôleur de données avec un compte administrateur.
+Exécutez la commande suivante pour sauvegarder les journaux :
 
-   ```console
-   azdata login
-   ```
-
-2. Exécutez la commande suivante pour sauvegarder les journaux :
-
-   ```console
-   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```azurecli
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
    Par exemple :
 
-   ```console
-   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```azurecli
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
 Le contrôleur de données crée les fichiers journaux dans le répertoire de travail actuel dans un sous-répertoire appelé `logs`. 
 
 ## <a name="options"></a>Options
 
-La commande `azdata arc dc debug copy-logs` fournit les options suivantes pour gérer la sortie :
+La commande `az arcdata dc debug copy-logs` fournit les options suivantes pour gérer la sortie :
 
 * Sortie des fichiers journaux dans un autre répertoire en utilisant le paramètre `--target-folder`.
 * Compression des fichiers en omettant le paramètre `--skip-compress`.
@@ -63,14 +56,14 @@ La commande `azdata arc dc debug copy-logs` fournit les options suivantes pour g
 
 Avec ces paramètres, vous pouvez remplacer les `<parameters>` dans l’exemple suivant : 
 
-```console
-azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```azurecli
+az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name>
 ```
 
 Par exemple :
 
 ```console
-#azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
+#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 
 ```
 
 L’arborescence des dossiers suivante est un exemple. Elle est organisée par nom de pod, puis par conteneur, et enfin par arborescence de répertoires au sein du conteneur.
@@ -194,6 +187,3 @@ L’arborescence des dossiers suivante est un exemple. Elle est organisée par n
             └───openvpn
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-
-[azdata arc dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 80de6651d59b26b596633b8ba775c774dcfea62e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6ecfd3fd9f426676fe0b5c9a69af26b1245b7824
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970343"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524899"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -72,8 +72,10 @@ Les définitions de stratégie Guest Configuration sont incluses dans les nouvel
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3 - 8.x|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
 |SUSE|SLES|12 SP3-SP5, 15.x|
+
+\* Red Hat CoreOS n’est pas pris en charge.
 
 Les images de machine virtuelle personnalisées sont prises en charge par les définitions de stratégie Guest Configuration, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
 
@@ -85,7 +87,7 @@ Les machines Azure Arc se connectent à l’aide de l’infrastructure réseau l
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Communiquer via des réseaux virtuels dans Azure
 
-Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « AzureArcInfrastructure » peut être utilisée pour référencer le service Guest Configuration plutôt que de gérer manuellement la [liste des plages d’adresses IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) pour les centres de données Azure.
+Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). Les [étiquettes de service](../../../virtual-network/service-tags-overview.md) « AzureArcInfrastructure » et « Storage » peuvent être utilisées pour référencer les services Guest Configuration et Storage plutôt que de gérer manuellement la [liste des plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=56519) pour les centres de données Azure. Les deux étiquettes sont nécessaires, car les packages de contenu de Guest Configuration sont hébergés par Stockage Azure.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Communiquer via une liaison privée dans Azure
 
@@ -167,6 +169,11 @@ Les clients qui conçoivent une solution hautement disponible doivent tenir comp
 Lorsque vous envisagez une architecture pour les applications hautement disponibles, en particulier lorsque les machines virtuelles sont approvisionnées dans des [groupes à haute disponibilité](../../../virtual-machines/availability.md#availability-sets) derrière une solution d’équilibrage de charge pour fournir une haute disponibilité, il est recommandé d’affecter les mêmes définitions de stratégie avec les mêmes paramètres à toutes les machines de la solution. Si possible, une attribution de stratégie unique couvrant toutes les machines offrirait la surcharge administrative la moins importante.
 
 Pour les machines protégées par [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md), assurez-vous que les machines d’un site secondaire se trouvent dans l’étendue des attributions d’Azure Policy pour les mêmes définitions en utilisant les mêmes valeurs de paramètres que les machines du site principal.
+
+## <a name="data-residency"></a>Résidence des données
+
+Guest Configuration stocke/traite les données client. Par défaut, les données client sont répliquées dans la [région jumelée.](../../../best-practices-availability-paired-regions.md)
+Pour une région résidente unique, toutes les données client sont stockées et traitées dans la région.
 
 ## <a name="troubleshooting-guest-configuration"></a>Résolution des problèmes de configuration invité
 

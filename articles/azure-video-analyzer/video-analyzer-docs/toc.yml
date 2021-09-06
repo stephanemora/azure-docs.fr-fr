@@ -161,8 +161,8 @@
       href: visual-studio-code-extension.md
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Mises à jour des services Azure
+      href: 'https://azure.microsoft.com/updates/'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: Régions disponibles

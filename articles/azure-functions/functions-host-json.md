@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 9424162e847a9d92019efe907ce74f21c55cdb23
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: b646c4d263896e1bf4d63bdaf965209c005b8228
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226243"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532372"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -21,7 +21,7 @@ Le fichier de métadonnées *host.json* contient les options de configuration gl
 > [!NOTE]
 > Cet article concerne Azure Functions versions 2.x et ultérieures.  Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
 
-D’autres options de configuration d’application de fonction sont gérées dans vos [paramètres d’application](functions-app-settings.md) (pour les applications déployées) ou dans votre fichier [local.settings.json](functions-run-local.md#local-settings-file) (pour un développement local).
+D’autres options de configuration d’application de fonction sont gérées dans vos [paramètres d’application](functions-app-settings.md) (pour les applications déployées) ou dans votre fichier [local.settings.json](functions-develop-local.md#local-settings-file) (pour un développement local).
 
 Les configurations dans host.json relatives aux liaisons sont appliquées de façon égale à chaque fonction de l’application de fonction. 
 
@@ -221,6 +221,28 @@ Pour plus d’informations sur les instantanés, consultez [Captures instantané
 
 Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons d’objets blob de stockage](functions-bindings-storage-blob.md#hostjson-settings).  
 
+## <a name="console"></a>console
+
+Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la journalisation de la console lorsque le mode débogage n’est pas activé.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": false,
+          "DisableColors": true
+        },
+    ...
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------| 
+|DisableColors|false| Supprime la mise en forme du journal dans les journaux de conteneurs sur Linux. Affectez la valeur true si vous voyez des caractères de contrôle ANSI indésirables dans les journaux de conteneurs lors de l’exécution sur Linux. |
+|isEnabled|false|Active ou désactive la journalisation de la console.| 
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -348,26 +370,6 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
 |logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. Ce paramètre vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Configurer les niveaux de journalisation](configure-monitoring.md#configure-log-levels). |
 |console|n/a| Le paramètre de journalisation de la [console](#console). |
 |applicationInsights|n/a| Le paramètre [applicationInsights](#applicationinsights). |
-
-## <a name="console"></a>console
-
-Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la journalisation de la console lorsque le mode débogage n’est pas activé.
-
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Propriété  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|false|Active ou désactive la journalisation de la console.| 
 
 ## <a name="manageddependency"></a>managedDependency
 

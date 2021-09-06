@@ -1,32 +1,32 @@
 ---
-title: Utilisation de l’émulateur de stockage Azure pour le développement et le test
-description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure.
+title: Utilisation de l’émulateur de stockage Azure pour le développement et le test (déconseillé)
+description: L’émulateur de stockage Azure (déconseillé) fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure.
 author: twooley
 ms.author: twooley
-ms.date: 07/16/2020
+ms.date: 07/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 812694ef96e60a9cc52dd9ab94408e3f90fd6d93
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2ff639cd19a97d2e3a5ef730c774f8c967cfa6c3
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677229"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203798"
 ---
-# <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
+# <a name="use-the-azure-storage-emulator-for-development-and-testing-deprecated"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test (déconseillé)
 
 L’émulateur de stockage Microsoft Azure est un outil qui émule les services Blob, File d’attente et Table d’Azure à des fins de développement. Vous pouvez tester localement votre application sur les services de stockage sans souscrire d’abonnement Azure ni engendrer de frais. Quand vous êtes satisfait du fonctionnement de votre application dans l’émulateur, commencez à utiliser un compte de stockage Azure dans le cloud.
 
 > [!IMPORTANT]
-> L’Émulateur de stockage Azure n’est plus développé activement. [**Azurite**](storage-use-azurite.md) est désormais la plateforme de l’émulateur de stockage. Azurite remplace l’Émulateur de stockage Azure. Azurite continuera d’être mis à jour pour prendre en charge les dernières versions des API de stockage Azure. Pour plus d’informations, consultez [**Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure**](storage-use-azurite.md).
+> L’émulateur de stockage Azure est désormais déconseillé. Microsoft vous recommande d’utiliser l’émulateur [**Azurite**](storage-use-azurite.md) pour le développement local avec le stockage Azure. Azurite remplace l’Émulateur de stockage Azure. Azurite continuera d’être mis à jour pour prendre en charge les dernières versions des API de stockage Azure. Pour plus d’informations, consultez [**Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure**](storage-use-azurite.md).
 
 ## <a name="get-the-storage-emulator"></a>Obtenir l’émulateur de stockage
 
 L’émulateur de stockage fait partie du [Kit de développement logiciel (SDK) Microsoft Azure](https://azure.microsoft.com/downloads/). Vous pouvez également installer l’émulateur de stockage en tant que [programme d’installation autonome](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (téléchargement direct). Pour installer l’émulateur de stockage, vous devez disposer de privilèges administratifs sur votre ordinateur.
 
-Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. Si vous avez besoin d’un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite), géré par la communauté.
+Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. Pour l’émulation sous Linux, utilisez l’émulateur [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Il n’est pas garanti que vous puissiez accéder aux données créées dans une version de l’émulateur de stockage à partir d’une autre version. Si vous devez rendre vos données persistantes à long terme, nous vous recommandons de stocker ces données dans un compte de stockage Azure plutôt que dans l’émulateur de stockage.

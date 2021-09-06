@@ -7,16 +7,16 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ec2e7d2f80e19d2e001fec0a3949f469b33149d2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f527b33445ed55fbc64a08144a94ba9a05f38092
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957144"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554475"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data Factory. 
+> Cet article s’applique à la version 1 de Data Factory.
 
 ## <a name="overview"></a>Vue d’ensemble
 Lors de l’utilisation d’Azure Data Factory pour vos besoins d’intégration de données, vous pourriez être amené à réutiliser le même modèle dans différents environnements ou à implémenter la même tâche de façon répétée dans la même solution. Les modèles vous aident à implémenter et à gérer ces scénarios de manière simple. Les modèles dans Azure Data Factory sont parfaitement adaptés aux scénarios qui impliquent la réutilisation et la répétition.
@@ -39,12 +39,12 @@ Reportez-vous aux didacticiels suivants pour obtenir des instructions détaillé
 ## <a name="data-factory-templates-on-github"></a>Modèles Data Factory sur GitHub
 Découvrez les modèles de démarrage rapide Azure suivants sur GitHub :
 
-* [Créer une fabrique de données pour copier des données du Stockage Blob Azure vers Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
-* [Créer une fabrique de données avec une activité Hive sur un cluster Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
-* [Créer une fabrique de données pour copier des données à partir de Salesforce vers des objets blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
-* [Créer une fabrique de données qui lié les activités : copie des données à partir d’un serveur FTP vers des objets Blob Azure, appelle un script hive sur un cluster HDInsight à la demande pour transformer les données et copie le résultat dans Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
+* [Créer une fabrique de données pour copier des données du Stockage Blob Azure vers Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy)
+* [Créer une fabrique de données avec une activité Hive sur un cluster Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation)
+* [Créer une fabrique de données pour copier des données à partir de Salesforce vers des objets blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy)
+* [Créer une fabrique de données qui lié les activités : copie des données à partir d’un serveur FTP vers des objets Blob Azure, appelle un script hive sur un cluster HDInsight à la demande pour transformer les données et copie le résultat dans Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-ftp-hive-blob)
 
-N’hésitez pas à partager vos modèles Azure Data Factory sur la page [Démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/). Reportez-vous au [guide de contribution](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) lors du développement de modèles qui peuvent être partagés via ce référentiel.
+N’hésitez pas à partager vos modèles Azure Data Factory sur la page [Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Reportez-vous au [guide de contribution](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) lors du développement de modèles qui peuvent être partagés via ce référentiel.
 
 Les sections suivantes fournissent plus d’informations sur la définition de ressources Data Factory dans un modèle Resource Manager.
 
@@ -89,7 +89,7 @@ Vous définissez une fabrique de données dans le modèle Resource Manager, comm
     "location": "East US"
 }
 ```
-Le dataFactoryName est défini dans « variables » en tant que :
+Le dataFactoryName est défini dans « variables » en tant que :
 
 ```JSON
 "dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
@@ -107,7 +107,7 @@ Le dataFactoryName est défini dans « variables » en tant que :
 }
 ```
 
-Consultez [Service de stockage lié](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [Services liés de calcul](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations sur les propriétés JSON pour le service lié spécifique que vous souhaitez déployer. Le paramètre « dependsOn » spécifie le nom de la fabrique de données correspondante. Un exemple de définition d’un service lié pour le Stockage Azure est indiqué dans la définition JSON suivante :
+Consultez [Service de stockage lié](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [Services liés de calcul](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations sur les propriétés JSON pour le service lié spécifique que vous souhaitez déployer. Le paramètre « dependsOn » spécifie le nom de la fabrique de données correspondante. Un exemple de définition d’un service lié pour le Stockage Azure est indiqué dans la définition JSON suivante :
 
 ### <a name="define-datasets"></a>Définir les jeux de données
 
@@ -123,7 +123,7 @@ Consultez [Service de stockage lié](data-factory-azure-blob-connector.md#azure-
     ...
 }
 ```
-Consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour plus d’informations sur les propriétés JSON pour le type de jeu de données spécifique que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données et du service lié de stockage correspondants. Un exemple de définition d’un type de jeu de données pour le Stockage Blob Azure est indiqué dans la définition JSON suivante :
+Consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour plus d’informations sur les propriétés JSON pour le type de jeu de données spécifique que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données et du service lié de stockage correspondant. Un exemple de définition d’un type de jeu de données pour le Stockage Blob Azure est indiqué dans la définition JSON suivante :
 
 ```JSON
 "type": "datasets",
@@ -169,7 +169,7 @@ Consultez [Magasins de données pris en charge](data-factory-data-movement-activ
 }
 ```
 
-Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-json) pour plus d’informations sur les propriétés JSON permettant de définir le pipeline et les activités spécifiques que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données, ainsi que les services liés ou les jeux de données correspondants. Un exemple de pipeline qui copie des données depuis le Stockage Blob Azure vers une base de données Azure SQL est indiqué dans l’extrait de code JSON suivant :
+Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-json) pour plus d’informations sur les propriétés JSON permettant de définir le pipeline et les activités spécifiques que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données, ainsi que les services liés ou les jeux de données correspondants. Un exemple de pipeline qui copie des données depuis le Stockage Blob Azure vers une base de données Azure SQL est indiqué dans l’extrait de code JSON suivant :
 
 ```JSON
 "type": "datapipelines",

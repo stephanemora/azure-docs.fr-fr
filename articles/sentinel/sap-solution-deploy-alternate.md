@@ -1,6 +1,6 @@
 ---
-title: Déployer le connecteur de données SAP Azure Sentinel localement | Microsoft Docs
-description: Découvrez comment déployer le connecteur de données d’Azure Sentinel pour les environnements SAP à l’aide d’un ordinateur local.
+title: Options de configuration pour experts du connecteur de données SAP Azure Sentinel, déploiement local et sources de journaux SAPControl | Microsoft Docs
+description: Découvrez comment déployer le connecteur de données d’Azure Sentinel pour les environnements SAP à l’aide d’options de configuration pour experts et d’un ordinateur local. Apprenez-en également davantage sur les sources de journaux SAPControl.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: c2917d23c08c24ca4f96aca33c7160ba8834561a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ba0457bef8ad4e732cffe229e850272f68a6d30f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524075"
 ---
-# <a name="deploy-the-azure-sentinel-sap-data-connector-on-premises"></a>Déployer le connecteur de données SAP Azure Sentinel localement
+# <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>Options de configuration pour experts, déploiement local et sources de journaux SAPControl
 
 Cet article décrit comment déployer le connecteur de données SAP Azure Sentinel dans un processus expert ou personnalisé, comme l’utilisation d’un ordinateur local et d’un coffre de clés Azure pour stocker vos informations d’identification.
 
@@ -254,10 +254,10 @@ osuser = <SET_YOUR_SAPADM_LIKE_USER>
 ospasswd = <SET_YOUR_SAPADM_PASS>
 x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
-appserver = <SET_YOUR_SAPCTRL_SERVER>
-instance = <SET_YOUR_SAP_INSTANCE>
-abapseverity = <SET_ABAP_SEVERITY>
-abaptz = <SET_ABAP_TZ>
+appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
+instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
+abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
+abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
 
 [File Extraction JAVA]
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
@@ -266,10 +266,10 @@ javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
 javaospasswd = <SET_YOUR_JAVAADM_PASS>
 javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
-javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER>
-javainstance = <SET_YOUR_JAVA_SAP_INSTANCE>
-javaseverity = <SET_JAVA_SEVERITY>
-javatz = <SET_JAVA_TZ>
+javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
+javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
+javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
+javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
 ### <a name="define-the-sap-logs-that-are-sent-to-azure-sentinel"></a>Définir les journaux SAP qui sont envoyés à Azure Sentinel
@@ -331,6 +331,28 @@ Cette section vous permet de configurer les paramètres suivants :
 |**timechunk**     |   Détermine si le système attend un nombre spécifique de minutes comme intervalle entre les extractions de données. Utilisez ce paramètre si une grande quantité de données est attendue. <br><br>Par exemple, pendant le chargement initial des données au cours des premières 24 heures, vous souhaiterez peut-être que l’extraction des données soit seulement exécutée toutes les 30 minutes afin de laisser suffisamment de temps à chaque extraction de données. Dans ce cas, définissez cette valeur sur **30**.  |
 |     |         |
 
+### <a name="configuring-an-abap-sap-control-instance"></a>Configuration d’une instance de contrôle SAP ABAP
+
+Pour ingérer tous les journaux ABAP dans Azure Sentinel, y compris les journaux basés sur le service web de contrôle NW RFC et SAP, configurez les informations de contrôle SAP ABAP suivantes :
+
+|Paramètre  |Description  |
+|---------|---------|
+|**javaappserver**     |Entrez votre hôte de serveur ABAP de contrôle SAP. <br>Par exemple : `contoso-erp.appserver.com`         |
+|**javainstance**     |Entrez votre numéro d’instance ABAP de contrôle SAP. <br>Par exemple : `00`         |
+|**abaptz**     |Entrez le fuseau horaire configuré sur votre serveur ABAP de contrôle SAP, au format GMT. <br>Par exemple : `GMT+3`         |
+|**abapseverity**     |Entrez le niveau de gravité le plus bas, inclus, pour lequel vous souhaitez ingérer les journaux ABAP dans Azure Sentinel.  Ces valeurs comprennent : <br><br>- **0** = Tous les journaux <br>- **1** = Avertissement <br>- **2** = Erreur     |
+
+
+### <a name="configuring-a-java-sap-control-instance"></a>Configuration d’une instance de contrôle SAP Java
+
+Pour ingérer les journaux du service Web de contrôle SAP dans Azure Sentinel, configurez les informations sur l’instance de contrôle SAP JAVA suivantes :
+
+|Paramètre  |Description  |
+|---------|---------|
+|**javaappserver**     |Entrez votre hôte de serveur Java de contrôle SAP. <br>Par exemple : `contoso-java.server.com`         |
+|**javainstance**     |Entrez votre numéro d’instance ABAP de contrôle SAP. <br>Par exemple : `10`         |
+|**javatz**     |Entrez le fuseau horaire configuré sur votre serveur Java de contrôle SAP, au format GMT. <br>Par exemple : `GMT+3`         |
+|**javaseverity**     |Entrez le niveau de gravité le plus bas, inclus, pour lequel vous souhaitez ingérer les journaux de service web dans Azure Sentinel.  Ces valeurs comprennent : <br><br>- **0** = Tous les journaux <br>- **1** = Avertissement <br>- **2** = Erreur     |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -343,3 +365,4 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Exigences de SAP détaillées pour la solution SAP Azure Sentinel](sap-solution-detailed-requirements.md)
 - [Informations de référence sur les journaux de la solution SAP Azure Sentinel](sap-solution-log-reference.md)
 - [Solution SAP Azure Sentinel : informations de référence relatives au contenu de sécurité](sap-solution-security-content.md)
+- [Résolution des problèmes de déploiement de votre solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)

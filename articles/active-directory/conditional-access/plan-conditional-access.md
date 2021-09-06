@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13460fad0ed106f5c0590df961ceca54cb04cd7b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 17b69d4473529f585d6a0c997bafca42516e91a2
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102427179"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203159"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -50,7 +50,7 @@ Le déploiement de l’accès conditionnel présente les avantages suivants :
 
 Consultez [Conditions de licence de l’accès conditionnel](overview.md).
 
-Si des fonctionnalités supplémentaires sont nécessaires, il est possible que vous ayez également besoin des licences associées. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Si des fonctionnalités supplémentaires sont nécessaires, il est possible que vous ayez également besoin des licences associées. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -316,7 +316,7 @@ Avec des stratégies d’accès conditionnel, vous pouvez implémenter des répo
 
 * [Demander à tous les utilisateurs de s’inscrire pour l’authentification multifacteur](howto-conditional-access-policy-risk.md)
 
-* [Exiger un changement de mot de passe pour les utilisateurs à risque élevé](howto-conditional-access-policy-risk.md)
+* [Exiger un changement de mot de passe pour les utilisateurs à risque élevé](howto-conditional-access-policy-risk-user.md)
 
 * [Exiger l’authentification multifacteur pour les utilisateurs dont la connexion est à risque moyen ou élevé](howto-conditional-access-policy-risk.md)
 

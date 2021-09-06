@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bdbc6956f9a32cbba369135652fb4ac03c581108
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7ac3cbc5c8be5ef417e54b29f1bc85f5546071f2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559373"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525742"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -28,6 +28,7 @@ Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * Le sous-réseau affecté au pool de nœuds AKS ne peut pas être un [sous-réseau délégué](../virtual-network/subnet-delegation-overview.md).
+* Si vous fournissez votre propre sous-réseau, vous devez gérer les groupes de sécurité réseau (NSG) associés à ce sous-réseau. AKS ne modifiera aucun des groupes de sécurité réseau associés à ce sous-réseau. Vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du pod.
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planifier l’adressage IP pour votre cluster
 
@@ -83,7 +84,7 @@ Une valeur minimale pour le nombre maximal de pods par nœud est appliquée afin
 
 * **Azure CLI** : spécifiez l’argument `--max-pods` lorsque vous déployez un cluster avec la commande [az aks create][az-aks-create]. La valeur maximale est 250.
 * **Modèle Resource Manager** : spécifiez la propriété `maxPods` dans l’objet [ManagedClusterAgentPoolProfile] lorsque vous déployez un cluster avec un modèle Resource Manager. La valeur maximale est 250.
-* **Portail Azure**: vous ne pouvez pas modifier le nombre maximal de pods par nœud lorsque vous déployez un cluster avec le portail Azure. Les clusters de réseau Azure CNI sont limités à 30 pods par nœud quand vous effectuez le déploiement à partir du portail Azure.
+* **Portail Azure**: vous ne pouvez pas modifier le nombre maximal de pods par nœud lorsque vous déployez un cluster avec le portail Azure. Les clusters de réseau Azure CNI sont limités à 110 pods par nœud lorsque vous effectuez le déploiement à partir du portail Azure.
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurer un maximum : clusters existants
 
@@ -151,23 +152,7 @@ La capture d’écran suivante de votre portail Azure représente un exemple de 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE] 
-> La fonctionnalité en préversion est actuellement disponible dans les régions suivantes :
->
-> * USA Est
-> * USA Est 2
-> * Centre-Nord des États-Unis
-> * Centre-USA Ouest
-> * USA Ouest
-> * USA Ouest 2
-> * Centre du Canada
-> * Australie Est
-> * Sud du Royaume-Uni
-> * Europe Nord
-> * Europe Ouest
-> * Asie Sud-Est
-
-Un inconvénient de la CNI (Container Networking Interface) traditionnelle est l’épuisement des adresses IP de pod à mesure que le cluster AKS croît, qui entraîne la nécessité de reconstruire l’ensemble du cluster dans un sous-réseau plus grand. La nouvelle fonctionnalité d’allocation d’adresses IP dynamique dans Azure CNI résout ce problème en allouant des adresses IP de pod à partir d’un sous-réseau séparé du sous-réseau hébergeant le cluster AKS.  Elle offre les avantages suivants :
+Un inconvénient de la CNI (Container Networking Interface) traditionnelle est l’épuisement des adresses IP de pod à mesure que le cluster AKS croît, qui entraîne la nécessité de reconstruire l’ensemble du cluster dans un sous-réseau plus grand. La nouvelle fonctionnalité d’allocation d’adresses IP dynamique dans Azure CNI résout ce problème en allouant des adresses IP de pod à partir d’un sous-réseau séparé du sous-réseau hébergeant le cluster AKS. Elle offre les avantages suivants :
 
 * **Meilleure utilisation des adresses IP** : les adresses IP sont allouées de façon dynamique aux pods du cluster à partir du sous-réseau de pod. Cela permet d’améliorer l’utilisation des adresses IP dans le cluster par rapport à la solution de CNI traditionnelle, qui effectue une allocation statique des adresses IP pour chaque nœud.  
 
@@ -178,6 +163,13 @@ Un inconvénient de la CNI (Container Networking Interface) traditionnelle est l
 * **Stratégies de réseau virtuel distinctes pour les pods** : étant donné que les pods ont un sous-réseau distinct, vous pouvez configurer ceux-ci des stratégies de réseau virtuel distinctes, qui diffèrent des stratégies de nœud. Cela permet de nombreux scénarios utiles, tels que l’autorisation de la connectivité Internet uniquement pour les pods et pas pour les nœuds, la correction de l’adresse IP source pour un pod dans un pool de nœuds à l’aide d’une NAT de réseau virtuel, et l’utilisation de groupes de sécurité réseau pour filtrer le trafic entre les pools de nœuds.  
 
 * **Stratégies réseau Kubernetes** : les stratégies réseau Azure et Calico fonctionnent avec cette nouvelle solution.  
+
+### <a name="additional-prerequisites"></a>Autres composants requis
+
+Les [composants requis][prerequisites] déjà répertoriés pour Azure CNI s’appliquent toujours, mais il existe quelques limitations supplémentaires :
+
+* Seuls les clusters de nœuds et les pools de nœuds Linux sont pris en charge.
+* Les clusters de moteur AKS et en libre service ne sont pas pris en charge.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Installez l’interface de ligne de commande Azure `aks-preview`
 
@@ -213,13 +205,6 @@ Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressource
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="additional-prerequisites"></a>Autres composants requis
-
-Les composants requis déjà répertoriés pour Azure CNI s’appliquent toujours, mais il existe quelques limitations supplémentaires :
-
-* Seuls les clusters de nœuds et les pools de nœuds Linux sont pris en charge.
-* Les clusters de moteur AKS et en libre service ne sont pas pris en charge.
-
 ### <a name="planning-ip-addressing"></a>Planification de l’adressage IP
 
 Lorsque vous utilisez cette fonctionnalité, la planification est bien plus simple. Étant donné que les nœuds et les pods se mettent à l’échelle indépendamment, leurs espaces d’adressage peuvent également être planifiés séparément. Étant donné que les sous-réseaux de pod peuvent être configurés pour la granularité d’un pool de nœuds, les clients peuvent toujours ajouter un sous-réseau quand ils ajoutent un pool de nœuds. Les pods système dans un cluster/pool de nœuds recevant également des adresses IP du sous-réseau de pod, ce comportement doit être pris en compte.
@@ -251,23 +236,31 @@ L’utilisation de l’allocation dynamique d’adresses IP et de la prise en ch
 Commencez par créer le réseau virtuel avec deux sous-réseaux :
 
 ```azurecli-interactive
-$resourceGroup="myResourceGroup"
-$vnet="myVirtualNetwork"
+resourceGroup="myResourceGroup"
+vnet="myVirtualNetwork"
+location="westcentralus"
+
+# Create the resource group
+az group create --name $resourceGroup --location $location
 
 # Create our two subnet network 
-az network vnet create -g $rg --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-az network vnet subnet create -g $rg --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-az network vnet subnet create -g $rg --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
 ```
 
 Ensuite, créez le cluster en référençant le sous-réseau de nœud à l’aide de `--vnet-subnet-id` et le sous-réseau de pod à l’aide de `--pod-subnet-id` :
 
 ```azurecli-interactive
-$clusterName="myAKSCluster"
-$location="eastus"
-$subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+clusterName="myAKSCluster"
+subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create -n $clusterName -g $resourceGroup -l $location --max-pods 250 --node-count 2 --network-plugin azure --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
+az aks create -n $clusterName -g $resourceGroup -l $location \
+  --max-pods 250 \
+  --node-count 2 \
+  --network-plugin azure \
+  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
+  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
 ```
 
 #### <a name="adding-node-pool"></a>Ajout d’un pool de nœuds
@@ -278,7 +271,12 @@ Lorsque vous ajoutez un pool de nœuds, référencez le sous-réseau de nœud à
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
 
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool --max-pods 250 --node-count 2 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet --no-wait 
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
+  --max-pods 250 \
+  --node-count 2 \
+  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
+  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
+  --no-wait 
 ```
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
@@ -374,3 +372,4 @@ Pour plus d’informations sur la mise en réseau dans AKS, consultez les articl
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
+[prerequisites]: configure-azure-cni.md#prerequisites

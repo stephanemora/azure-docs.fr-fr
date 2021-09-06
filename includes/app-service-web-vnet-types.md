@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c3542332fbdad13d56a141d677e91b68f7e99d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97812796"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524269"
 ---
 * Les systèmes multilocataires qui prennent en charge l’ensemble des plans de tarification, excepté « Isolé ».
 * La fonctionnalité App Service Environment qui opère un déploiement dans votre réseau virtuel et prend en charge les applications à plan tarifaire Isolé.
@@ -30,7 +30,7 @@ Les fonctionnalités d’intégration au réseau virtuel :
 L’intégration au réseau virtuel ne prend pas en charge certaines choses, notamment :
 
 * Montage d’un lecteur.
-* Intégration d’Active Directory.
+* Intégration de Windows Server Active Directory.
 * NetBIOS.
 
 L’intégration au réseau virtuel avec passerelle obligatoire fournit un accès aux ressources uniquement du réseau virtuel cible, ou des réseaux connectés au réseau virtuel cible avec un peering ou des réseaux privés virtuels. L’intégration au réseau virtuel avec passerelle obligatoire n’autorise pas l’accès aux ressources disponibles sur les connexions Azure ExpressRoute ni ne fonctionne avec des points de terminaison de service.

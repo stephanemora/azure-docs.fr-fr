@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: d8e40cf9dac496266f67ad94e1e65db01e42f9d2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 6d2fca3ed64711133f1701446ebea61c28a3dcab
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816833"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674311"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Le chiffrement des données d’Azure Database pour MySQL à l’aide d’une clé gérée par le client vous permet de mettre en place votre propre scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
 
@@ -22,7 +24,7 @@ Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gé
 Key Vault est un système de gestion de clés externe basé sur le cloud. Il fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels (HSM) validés FIPS 140-2 niveau 2. Il n'autorise pas l'accès direct à une clé stockée, mais fournit des services de chiffrement et de déchiffrement aux entités autorisées. Key Vault peut générer la clé, l'importer ou [la faire transférer à partir d'un appareil HSM local](../key-vault/keys/hsm-protected-keys.md).
 
 > [!NOTE]
-> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires « Usage général » et « Mémoire optimisée ». Pour connaître les autres limitations, consultez la section [Limitation](concepts-data-encryption-mysql.md#limitations).
+> Cette fonctionnalité est prise en charge seulement sur le stockage « Stockage v2 universel (prise en charge jusqu’à 16 To) » disponible dans les niveaux tarifaires Usage général et Mémoire optimisée. Pour plus d’informations, consultez [Concepts du stockage](concepts-pricing-tiers.md#storage). Pour connaître les autres limitations, consultez la section [Limitation](concepts-data-encryption-mysql.md#limitations).
 
 ## <a name="benefits"></a>Avantages
 
@@ -70,7 +72,7 @@ Les exigences suivantes s'appliquent à la configuration de la clé gérée par 
 * La clé gérée par le client à utiliser pour chiffrer la clé de chiffrement de données ne peut être qu’asymétrique, RSA 2048.
 * La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d’expiration n’est pas définie.
 * La clé doit être dans l’état *activé*.
-* La clé doit avoir une [suppression réversible](../key-vault/general/soft-delete-overview.md) avec la période de rétention définie sur **90 jours**. Cela définit implicitement l’attribut de clé requis recoveryLevel : « Recoverable ». Si la rétention est définie sur < 90 jours, l’attribut recoveryLevel: « CustomizedRecoverable », n’est pas obligatoire et vous devez définir la période de rétention sur **90 jours**.
+* La clé doit avoir une [suppression réversible](../key-vault/general/soft-delete-overview.md) avec la période de rétention définie sur **90 jours**. Cela définit implicitement l’attribut de clé requis recoveryLevel : « Recoverable ». Si la rétention est définie sur < 90 jours, l’attribut recoveryLevel : « CustomizedRecoverable » n’est pas obligatoire et vous devez définir la période de rétention sur **90 jours**.
 * La clé doit avec la [protection contre le vidage activée](../key-vault/general/soft-delete-overview.md#purge-protection).
 * Si vous [importez une clé existante](/rest/api/keyvault/ImportKey/ImportKey) dans le coffre de clés, veillez à ce qu’elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
 
@@ -105,7 +107,7 @@ Lorsque vous configurez le chiffrement des données avec une clé gérée par le
 
 Il peut arriver qu'une personne disposant de droits d'accès suffisants à Key Vault désactive accidentellement l'accès du serveur à la clé en :
 
-* révoquant les autorisations get, wrapKey, unwrapKey du coffre de clés à partir du serveur ;
+* révoquant les autorisations `get`, `wrapKey` et `unwrapKey` du coffre de clés à partir du serveur ;
 * supprimant la clé ;
 * supprimant le coffre de clés ;
 * modifiant les règles de pare-feu du coffre de clés ;
@@ -132,17 +134,18 @@ Pour éviter les problèmes lors de la configuration du chiffrement des données
 
 ## <a name="limitations"></a>Limites
 
-Pour Azure Database pour MySQL, la prise en charge du chiffrement des données au repos à l’aide de Customer Managed Key (CMK) présente peu de restrictions.
+Pour Azure Database pour MySQL, la prise en charge du chiffrement des données au repos à l’aide d’une clé gérée par le client (CMK) présente peu de restrictions.
 
 * La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée**.
-* Cette fonctionnalité est uniquement prise en charge dans les régions et les serveurs qui prennent en charge jusqu’à 16 To de stockage. Pour obtenir la liste des régions Azure qui prennent en charge le stockage jusqu’à 16 To, reportez-vous à la section consacrée au stockage dans la documentation [ici](concepts-pricing-tiers.md#storage)
+* Cette fonctionnalité est prise en charge seulement dans les régions et les serveurs qui prennent en charge le stockage v2 universel (jusqu’à 16 To). Pour obtenir la liste des régions Azure qui prennent en charge le stockage jusqu’à 16 To, reportez-vous à la section consacrée au stockage dans la documentation [ici](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - Pour tous les nouveaux serveurs MySQL créés dans les régions mentionnées ci-dessus, la prise en charge du chiffrement avec les clés CMK est **disponible**. En théorie, le serveur de restauration jusqu’à une date et une heure (PITR) ou le réplica de lecture ne sont pas signalés comme des ressources « nouvelles ».
-    > - Pour vérifier si votre serveur approvisionné prend en charge jusqu’à 16 To, vous pouvez accéder au tableau de bord de niveau tarifaire dans le portail et voir la taille de stockage maximale prise en charge par votre serveur approvisionné. Si vous pouvez déplacer le curseur jusqu’à 4 To, il se peut que votre serveur ne prenne pas en charge le chiffrement avec les clés managées par le client. Toutefois, les données sont chiffrées à l’aide de clés managées par le service à tout moment. Posez vos questions en contactant AskAzureDBforMySQL@service.microsoft.com.
+    > - Pour tous les nouveaux serveurs MySQL créés dans les [régions Azure](concepts-pricing-tiers.md#storage) prenant en charge le stockage v2 universel, la prise en charge du chiffrement avec des clés gérées par le client est **disponible**. En théorie, le serveur de Limite de restauration dans le temps ou le réplica de lecture ne sont pas signalés comme des ressources « nouvelles ».
+    > - Pour vérifier si votre serveur provisionné prend en charge le stockage v2 universel, vous pouvez accéder au volet des niveaux tarifaires dans le portail et voir la taille de stockage maximale prise en charge par votre serveur provisionné. Si vous pouvez déplacer le curseur jusqu’à 4 To, c’est que votre serveur est sur un stockage v1 universel et qu’il ne prend pas en charge le chiffrement avec des clés gérées par le client. Toutefois, les données sont chiffrées à l’aide de clés managées par le service à tout moment. Posez vos questions en contactant AskAzureDBforMySQL@service.microsoft.com.
 
 * Le chiffrement est pris en charge uniquement avec la clé de chiffrement RSA 2048.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à configurer le chiffrement des données à l'aide d'une clé gérée par le client pour votre instance d'Azure Database pour MySQL à l'aide du [Portail Azure](howto-data-encryption-portal.md) et d’[Azure CLI](howto-data-encryption-cli.md).
+* Apprenez à configurer le chiffrement des données à l'aide d'une clé gérée par le client pour votre instance d'Azure Database pour MySQL à l'aide du [Portail Azure](howto-data-encryption-portal.md) et d’[Azure CLI](howto-data-encryption-cli.md).
+* En savoir plus sur la prise en charge du type de stockage pour [Azure Database pour MySQL - Serveur unique](concepts-pricing-tiers.md#storage)

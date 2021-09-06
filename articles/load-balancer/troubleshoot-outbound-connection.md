@@ -2,21 +2,27 @@
 title: Résoudre les problèmes liés aux connexions sortantes dans Azure Load Balancer
 description: Résolutions des problèmes courants de connectivité sortante via Azure Load Balancer.
 services: load-balancer
-author: erichrt
+author: anavinahar
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
-ms.author: errobin
-ms.openlocfilehash: 1f52900086afef09d69b80bf44474d5514e25235
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.author: anavin
+ms.openlocfilehash: 71472a89b2aa3138c83dac1f5c2dfc5649c9b9ce
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748877"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583164"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Résolution des problèmes liés aux défaillances des connexions sortantes
 
-Cet article a pour but de fournir des solutions aux problèmes courants liés aux connexions sortantes d’Azure Load Balancer. La plupart des problèmes de connectivité sortante que les clients rencontrent sont dus à une insuffisance de ports SNAT et à l’expiration des délais de connexion, ce qui entraîne une perte de paquets. Cet article décrit les étapes à suivre pour atténuer chacun de ces problèmes.
+Cet article a pour but de fournir des solutions aux problèmes courants liés aux connexions sortantes d’Azure Load Balancer. La plupart des problèmes de connectivité sortante que les clients rencontrent sont dus à une insuffisance de ports de traduction d'adresses réseau (SNAT) et à l’expiration des délais de connexion, ce qui entraîne une perte de paquets. Cet article décrit les étapes à suivre pour atténuer chacun de ces problèmes.
+
+## <a name="avoid-snat"></a>Éviter SNAT
+
+La meilleure façon d’éviter une insuffisance de ports consiste en premier lieu à éliminer le besoin de SNAT, dans la mesure du possible. Dans certains cas, ce n’est pas possible. Par exemple, lors de la connexion à des points de terminaison publics. Toutefois, dans certains cas, cela est possible et peut être obtenu en vous connectant en privé aux ressources. Si vous vous connectez à des services Azure comme Stockage, SQL, Cosmos DB ou tout autre [service Azure répertorié ici](../private-link/availability.md), l’utilisation d’Azure Private Link élimine la nécessité de SNAT. Par conséquent, vous ne risquez pas un problème de connectivité potentiel en raison de l’insuffisance de ports SNAT.
+
+Le service Private Link est également pris en charge par Snowflake, MongoDB, Confluent, Elastic et d’autres services de ce type.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestion de l’insuffisance de ports (PAT) SNAT
 Les [ports éphémères](load-balancer-outbound-connections.md) utilisés pour [PAT](load-balancer-outbound-connections.md) sont une ressource épuisable, comme décrit dans [Machine virtuelle autonome sans adresse IP publique](load-balancer-outbound-connections.md) et [Machine virtuelle à charge équilibrée sans adresse IP publique](load-balancer-outbound-connections.md). Vous pouvez superviser l’utilisation des ports éphémères et la comparer à votre allocation actuelle pour déterminer le niveau de risque, ou pour confirmer l’insuffisance des ports SNAT à l’aide de [ce](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guide.

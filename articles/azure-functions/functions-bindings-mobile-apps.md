@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5ea58cc3d9f3615a74249b36f3f9ffb79caddda1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c2c47b4a0895ef41096348c97ebb2d6ff34e801
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88212244"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554601"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 
@@ -143,7 +143,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**tableName** |**TableName**|Nom de la table de données de l’application mobile|
 | **id**| **Id** | Identificateur de l’enregistrement à récupérer. Peut être statique ou basé sur le déclencheur qui appelle la fonction. Par exemple, si vous utilisez un déclencheur de file d’attente pour votre fonction, `"id": "{queueTrigger}"` utilise la valeur de chaîne du message de file d’attente en tant qu’ID de l’enregistrement à récupérer.|
 |**connection**|**Connection**|Nom d’un paramètre d’application qui a l’URL de l’application mobile. La fonction utilise cette URL pour construire les opérations REST requises par rapport à votre application mobile. Créez un paramètre d’application dans votre application de fonction, contenant l’URL de votre application mobile, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre liaison d’entrée. L’URL est de type `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|Nom d’un paramètre d’application qui a la clé API de votre application mobile. Indiquez la clé API si vous [implémentez une clé API dans votre application mobile Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou [implémentez une clé API dans votre application mobile .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Pour indiquer la clé, créez un paramètre d’application dans votre application de fonction contenant la clé API, puis ajoutez la propriété `apiKey` dans votre liaison d’entrée avec le nom du paramètre d’application. |
+|**apiKey**|**ApiKey**|Nom d’un paramètre d’application qui a la clé API de votre application mobile. Indiquez la clé API si vous implémentez une clé API dans votre application mobile Node.js ou si vous [implémentez une clé API dans votre application mobile .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Pour indiquer la clé, créez un paramètre d’application dans votre application de fonction contenant la clé API, puis ajoutez la propriété `apiKey` dans votre liaison d’entrée avec le nom du paramètre d’application. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -300,7 +300,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 | **name**| n/a | Nom du paramètre de sortie dans la signature de la fonction.|
 |**tableName** |**TableName**|Nom de la table de données de l’application mobile|
 |**connection**|**MobileAppUriSetting**|Nom d’un paramètre d’application qui a l’URL de l’application mobile. La fonction utilise cette URL pour construire les opérations REST requises par rapport à votre application mobile. Créez un paramètre d’application dans votre application de fonction, contenant l’URL de votre application mobile, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre liaison d’entrée. L’URL est de type `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|Nom d’un paramètre d’application qui a la clé API de votre application mobile. Indiquez la clé API si vous [implémentez une clé API dans le backend de votre application mobile Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou si vous [implémentez une clé API dans le backend de votre application mobile .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Pour indiquer la clé, créez un paramètre d’application dans votre application de fonction contenant la clé API, puis ajoutez la propriété `apiKey` dans votre liaison d’entrée avec le nom du paramètre d’application. |
+|**apiKey**|**ApiKeySetting**|Nom d’un paramètre d’application qui a la clé API de votre application mobile. Indiquez la clé API si vous implémentez une clé API dans le backend de votre application mobile Node.js ou si vous [implémentez une clé API dans le backend de votre application mobile .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Pour indiquer la clé, créez un paramètre d’application dans votre application de fonction contenant la clé API, puis ajoutez la propriété `apiKey` dans votre liaison d’entrée avec le nom du paramètre d’application. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

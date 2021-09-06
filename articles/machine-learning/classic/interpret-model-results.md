@@ -8,20 +8,22 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: f824cf6e30ed795ef0fe4468542ae16c801bd61b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 882939a08a3a90cffd0b4eb25711d71159a91eb9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100516122"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689681"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio (classique)
+# <a name="interpret-model-results-in-machine-learning-studio-classic"></a>Interpréter les résultats de modèle dans Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article s’applique à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**S’APPLIQUE À**   ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article ne s’applique pas à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio (classique). Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-Il existe quatre principaux types de modèles Machine Learning dans Azure Machine Learning Studio (classique) :
+Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Machine Learning Studio (classique). Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
+
+Il existe quatre principaux types de modèles Machine Learning dans Machine Learning Studio (classique) :
 
 * classification ;
 * Clustering
@@ -46,12 +48,12 @@ Il existe deux sous-catégories de problèmes de classification :
 * Problèmes avec uniquement deux classes (classification double classe ou binaire)
 * Problèmes avec plus de deux classes (classification multiclasse)
 
-Azure Machine Learning Studio (classique) propose différents modules pour traiter chacun de ces types de classification, mais les méthodes permettant d’interpréter les résultats des prédictions sont similaires.
+Machine Learning Studio (classique) propose différents modules pour traiter chacun de ces types de classification, mais les méthodes permettant d’interpréter les résultats des prédictions sont similaires.
 
 ### <a name="two-class-classification"></a>Classification double classe.
 **Exemple d'expérience**
 
-Un exemple de problème de classification double classe est la classification de fleurs d’iris. La tâche consiste à classer les fleurs d’iris en fonction de leurs caractéristiques. Le jeu de données Iris fourni dans Azure Machine Learning Studio (classique) constitue un sous-ensemble de ce fameux [Jeu de données Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) contenant des instances d’uniquement deux espèces de fleur (classes 0 et 1). Chaque fleur comporte quatre caractéristiques (la longueur des sépales, la largeur des sépales, la longueur des pétales et la largeur des pétales).
+Un exemple de problème de classification double classe est la classification de fleurs d’iris. La tâche consiste à classer les fleurs d’iris en fonction de leurs caractéristiques. Le jeu de données Iris fourni dans Machine Learning Studio (classique) constitue un sous-ensemble de ce fameux [Jeu de données Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) contenant des instances d’uniquement deux espèces de fleur (classes 0 et 1). Chaque fleur comporte quatre caractéristiques (la longueur des sépales, la largeur des sépales, la longueur des pétales et la largeur des pétales).
 
 ![Capture d’écran de l’expérience iris](./media/interpret-model-results/1.png)
 
@@ -225,7 +227,7 @@ Pour les systèmes de recommandation, vous pouvez utiliser le problème de recom
 * Données caractéristiques des clients
 * Données sur les caractéristiques de restaurants
 
-Plusieurs tâches peuvent être effectuées via le module [Former la recommandation Matchbox][train-matchbox-recommender] d’Azure Machine Learning Studio (classique), à savoir :
+Plusieurs tâches peuvent être effectuées via le module [Former la recommandation Matchbox][train-matchbox-recommender] de Machine Learning Studio (classique), à savoir :
 
 * Prédire des notations pour un utilisateur et un élément donné
 * Recommander des éléments à un utilisateur donné
@@ -236,7 +238,7 @@ Vous pouvez choisir ce que vous voulez en sélectionnant parmi les quatre option
 
 ![Recommandation matchbox](./media/interpret-model-results/19_1.png)
 
-Une expérience Azure Machine Learning Studio (classique) type pour un système de recommandation est semblable à celui de la Figure 20. Pour plus d’informations sur l’utilisation de ces modules de système de recommandation, consultez les rubriques [Former la recommandation Matchbox][train-matchbox-recommender] et [Noter la recommandation Matchbox][score-matchbox-recommender].
+Une expérience Azure Machine Learning Studio (classique) type pour un système de recommandation est semblable à celui de la Figure 20. Pour plus d’informations sur l’utilisation de ces modules de système de recommandation, consultez les rubriques [Former la recommandation Matchbox][train-matchbox-recommender] et [Noter la recommandation Matchbox][score-matchbox-recommender].
 
 ![Expérience du système de recommandation](./media/interpret-model-results/20.png)
 

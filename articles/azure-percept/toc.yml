@@ -80,7 +80,7 @@
           href: delete-voice-assistant-application.md
     - name: Mettre à jour vos appareils Azure Percept
       items:
-        - name: Comment déterminer votre stratégie de mise à jour
+        - name: "Déterminer votre stratégie de mise à jour pour Azure\_Percept\_DK"
           href: how-to-determine-your-update-strategy.md
         - name: Configurer Azure IoT Hub pour déployer des mises à jour OTA
           href: how-to-set-up-over-the-air-updates.md
@@ -90,7 +90,7 @@
           href: how-to-update-over-the-air.md
         - name: "Mettre à jour Azure\_Percept\_DK via une connexion\_USB-C"
           href: how-to-update-via-usb.md
-    - name: Se connecter au DK Azure Percept
+    - name: "Se connecter au/depuis Azure Percept\_DK"
       items:
         - name: "Établir une connexion Ethernet avec Azure\_Percept\_DK"
           href: how-to-connect-over-ethernet.md
@@ -126,7 +126,7 @@
       items:
         - name: Versions de logiciel (mises à jour OTA)
           href: software-releases-over-the-air-updates.md
-        - name: "Versions de logiciel pour Azure Percept\_DK (mises à jour sur USB)"
+        - name: Versions logicielles pour les mises à jour de câble USB
           href: software-releases-usb-cable-updates.md
         - name: "Notes de publication des versions de logiciel pour Azure Percept\_DK"
           href: azure-percept-devkit-software-release-notes.md

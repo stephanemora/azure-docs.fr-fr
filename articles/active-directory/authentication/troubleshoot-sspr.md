@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 06/28/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76b4469b9b0e6fcb23f9c12fa648a8204b06eb79
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600860"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004949"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe en libre-service dans Azure Active Directory
 
@@ -49,6 +49,16 @@ Pour plus d’informations, consultez [Bien démarrer avec Azure AD Connect](../
 ## <a name="sspr-reporting"></a>Rapports SSPR
 
 Si vous rencontrez des problèmes avec les rapports SSPR sur le portail Azure, passez en revue les étapes de dépannage suivantes :
+
+### <a name="i-see-an-authentication-method-that-i-have-disabled-in-the-add-method-option-in-combined-registration"></a>Je vois une méthode d’authentification que j’ai désactivée dans l’option Ajouter une méthode dans l’inscription combinée.
+
+L’inscription combinée prend en compte trois stratégies pour déterminer quelles méthodes sont présentées dans **Ajouter une méthode** : 
+
+- [Réinitialisation de mot de passe en libre service](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+- [MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)
+- [Méthodes d’authentification](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AdminAuthMethods)
+
+Si vous désactivez les notifications d’application dans SSPR, mais que vous l’activez dans une stratégie MFA, cette option apparaît dans l’inscription combinée. Autre exemple : si un utilisateur désactive **Téléphone de bureau** dans SSPR, il apparaît toujours en tant qu’option si la propriété de téléphone **Phone/Office** est définie pour l’utilisateur. 
 
 ### <a name="i-dont-see-any-password-management-activity-types-in-the-self-service-password-management-audit-event-category"></a>Aucun type d’activité de gestion des mots de passe ne s’affiche dans la catégorie d’événement d’audit **Gestion des mots de passe en libre-service**.
 
@@ -98,6 +108,7 @@ Si vos utilisateurs ou vous-même rencontrez des problèmes lors de l’utilisat
 | J’ai défini une stratégie de réinitialisation du mot de passe, mais quand un compte d’administrateur utilise la réinitialisation du mot de passe, cette stratégie n’est pas appliquée. | Microsoft gère et contrôle la stratégie de réinitialisation du mot de passe administrateur afin de garantir le plus haut niveau de sécurité possible. |
 | L’utilisateur est empêché de tenter de réinitialiser son mot de passe un nombre de fois par jour trop élevé. | Un mécanisme de limitation automatique est utilisé pour empêcher les utilisateurs d’essayer de réinitialiser leurs mots de passe un nombre de fois trop élevé sur un court laps de temps. La limitation se produit dans les scénarios suivants : <br><ul><li>L’utilisateur tente de valider un numéro de téléphone cinq fois en une heure.</li><li>L’utilisateur tente d’utiliser la méthode des questions de sécurité cinq fois en une heure.</li><li>L’utilisateur tente de réinitialiser un mot de passe pour le même compte d’utilisateur cinq fois en une heure.</li></ul>Si un utilisateur rencontre ce problème, il doit attendre 24 heures après la dernière tentative. L’utilisateur peut ensuite réinitialiser son mot de passe. |
 | L’utilisateur rencontre une erreur durant la validation de son numéro de téléphone. | Cette erreur se produit quand le numéro de téléphone entré ne correspond pas au numéro de téléphone enregistré. Assurez-vous que l’utilisateur entre le numéro de téléphone complet, y compris le code de zone et de pays, quand il essaie d’utiliser une méthode par téléphone pour la réinitialisation du mot de passe. |
+| L’utilisateur voit une erreur lorsqu’il utilise son adresse e-mail. | Si le nom UPN est différent du ProxyAddress/SMTPAddress principal de l’utilisateur, le paramètre [Se connecter à Azure AD avec un e-mail comme autre ID de connexion](howto-authentication-use-email-signin.md) doit être activé pour le locataire. |
 | Une erreur s’est produite pendant le traitement de la demande. | Les erreurs génériques d’inscription à SSPR peuvent être provoquées par de nombreux problèmes, mais en général cette erreur est due à une panne du service ou à un problème de configuration. Si cette erreur générique continue de s’afficher lorsque vous renouvelez le processus d’inscription à SSPR, [contactez le support technique Microsoft](#contact-microsoft-support) pour obtenir une assistance supplémentaire. |
 | Violation de la stratégie locale | Le mot de passe ne respecte pas la stratégie de mot de passe Active Directory locale. L’utilisateur doit définir un mot de passe qui respecte les exigences de complexité ou de puissance. |
 | Le mot de passe n’est pas conforme à la stratégie approximative | Le mot de passe qui a été utilisé fait partie de la [liste des mots de passe interdits](./concept-password-ban-bad.md#how-are-passwords-evaluated) et ne peut-être pas être utilisé. L’utilisateur doit définir un mot de passe qui respecte ou dépasse la stratégie de la liste des mots de passe interdits. |

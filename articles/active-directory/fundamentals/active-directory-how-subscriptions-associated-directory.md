@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dc428a79e38f390d926f268bd8147eb7ee06a648
+ms.sourcegitcommit: 04d2dec0316576388e6e10c1558b0a0b3688d01c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594629"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112421821"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -31,6 +31,8 @@ Un ou plusieurs abonnements Azure peuvent établir une relation d’approbation 
 Lorsqu’un utilisateur s’inscrit à un service cloud Microsoft, un nouveau locataire Azure AD est créé et l’utilisateur est promu membre du rôle Administrateur général. Toutefois, lorsqu’un propriétaire d’un abonnement joint son abonnement à un locataire existant, le propriétaire n’est pas affecté au rôle Administrateur général.
 
 Tous vos utilisateurs ont un seul répertoire *accueil* pour authentification. Vos utilisateurs peuvent également être les invités d’autres annuaires. Vous pouvez voir les répertoires accueil et invité pour chaque utilisateur dans Azure AD.
+
+:::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Capture d’écran montrant la relation de confiance entre les abonnements Azure et les annuaires Azure Active Directory.":::
 
 > [!Important]
 > Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs auxquels des rôles ont été attribués à l’aide du [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.

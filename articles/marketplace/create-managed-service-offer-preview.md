@@ -1,21 +1,21 @@
 ---
-title: Comment ajouter un public de préversion pour votre offre Service géré
-description: Découvrez comment ajouter un public de préversion pour votre offre Service géré dans Espace partenaires Microsoft.
+title: Ajouter un public de préversion pour une offre de service géré
+description: Ajoutez un public de préversion pour une offre de service géré sur la Place de marché Azure.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: a30265f335dd279470e6de421f83e682a304788f
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 7/16/2021
+ms.openlocfilehash: 38fbf04f9e8f961cca99bd3e0b23e05e664f4848
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060504"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649714"
 ---
-# <a name="how-to-add-a-preview-audience-for-your-managed-service-offer"></a>Comment ajouter un public de préversion pour votre offre Service géré
+# <a name="add-a-preview-audience-for-a-managed-service-offer"></a>Ajouter un public de préversion pour une offre de service géré
 
 Cet article explique comment configurer un public de préversion pour une offre Service géré sur le marketplace commercial à l’aide d’Espace partenaires. Le public de préversion peut évaluer votre offre avant sa mise en ligne.
 
@@ -43,7 +43,8 @@ Ajoutez au moins un ID d’abonnement Azure, que ce soit individuellement (jusqu
 5. Enregistrez le fichier au format CSV.
 6. Sur la page **Public de préversion**, sélectionnez le lien **Importer le public (csv)** .
 7. Dans la boîte de dialogue **Confirmer**, sélectionnez **Oui**, puis chargez le fichier CSV.
-8. Avant de passer à l’onglet suivant, sélectionnez **Enregistrer le brouillon**.
+
+Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, **Vue d’ensemble du plan**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

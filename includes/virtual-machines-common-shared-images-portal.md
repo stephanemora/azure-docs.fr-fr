@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: cynthn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f4a2e5a7186032995ee277dfb9f2c226853163b
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750559"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573978"
 ---
 ## <a name="create-an-image-gallery"></a>Créer une galerie d’images
 
@@ -35,13 +35,15 @@ L’exemple suivant crée une galerie nommée *myGallery* dans le groupe de ress
 
 ## <a name="create-an-image-definition"></a>Créer une définition d’image 
 
-Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
+Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. 
 
-Créez la définition de l’image de galerie à l’intérieur de votre galerie. Dans cet exemple, l’image de galerie est nommée *myImageDefinition*.
+Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
+
+Créez la définition de l’image de galerie à l’intérieur de votre galerie. 
 
 1. Sur la page de votre nouvelle galerie d’images, sélectionnez **Ajouter une nouvelle définition d’image** à partir du haut de la page. 
 1. Sous **Ajouter une nouvelle définition d’image à la galerie Shared Image Gallery**, pour **Région**, sélectionnez *USA Est*.
-1. Pour **Nom de la définition d’image**, saisissez *myImageDefinition*.
+1. Pour **Nom de la définition d’image**, tapez un nom comme *myImageDefinition*.
 1. Pour **Système d’exploitation**, sélectionnez l’option appropriée en fonction de votre machine virtuelle source.  
 1. Pour **Génération de machine virtuelle**, sélectionnez l'option en fonction de votre machine virtuelle source. Dans la plupart des cas, ce sera *Gen 1*. Pour plus d'informations, voir [Prise en charge des machines virtuelles de 2e génération](../articles/virtual-machines/generation-2.md).
 1. Pour **État du système d’exploitation**, sélectionnez l’option appropriée en fonction de votre machine virtuelle source. Pour plus d’informations, voir [Machines virtuelles généralisées et spécialisées](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
@@ -55,39 +57,35 @@ Créez la définition de l’image de galerie à l’intérieur de votre galerie
 
 ## <a name="create-an-image-version"></a>Créer une version d’image
 
-Créer une version de l’image à partir d’une image managée. Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure la région *source* en tant que cible pour la réplication.
-
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+ Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure la région *source* en tant que cible pour la réplication.
 
 Les étapes de création d'une version d'image sont légèrement différentes, selon que la source est une image généralisée ou une capture instantanée d'une machine virtuelle spécialisée. 
 
-### <a name="option-generalized"></a>Option : Généralisée
 
 1. Sur la page de votre définition d’image, sélectionnez **Ajouter une version** à partir du haut de la page.
-1. Dans **Région**, sélectionnez la région où est stockée votre image managée. Les versions d’images doivent être créées dans la même région que l’image managée à partir de laquelle elles sont créées.
-1. Pour **Nom**, saisissez *1.0.0*. Le nom de version d’image doit respecter le format *version majeure*.*version mineure*.*correctif* en utilisant des nombres entiers. 
-1. Dans **Image source**, sélectionnez votre image managée source à partir de la liste déroulante.
+1. Dans **Région**, sélectionnez la région où créer l’image.
+1. Pour **Numéro de version**, tapez un nombre comme *1.0.0*. Le nom de version d’image doit respecter le format *version majeure*.*version mineure*.*correctif* en utilisant des nombres entiers. 
+1. Dans **Image source**, sélectionnez votre image managée source à partir de la liste déroulante. Consultez le tableau ci-dessous pour obtenir des détails spécifiques pour chaque type de source.
+
+    | Source | Autres champs |
+    |---|---|
+    | Disques ou instantanés | - Pour **Disque de système d’exploitation**, sélectionnez le disque ou l’instantané dans la liste déroulante. <br> - Pour ajouter un disque de données, tapez le numéro de LUN, puis sélectionnez le disque de données dans la liste déroulante. |
+    | Version d’image | - Sélectionnez la **galerie source** dans la liste déroulante. <br> - Sélectionnez la définition d’image appropriée dans la liste déroulante. <br>- Sélectionnez la version de l’image existante que vous souhaitez utiliser dans la liste déroulante. |
+    | Image managée | Sélectionnez l’**image source** dans la liste déroulante. <br>L’image managée doit se trouver dans la même région que celle que vous avez choisie dans **Détails de l’instance**.
+    | VHD dans un compte de stockage | Sélectionnez **Parcourir** pour choisir le compte de stockage du VHD. |
+
 1. Dans **Exclure de la plus récente**, conservez la valeur par défaut *Non*.
 1. Pour **Date de fin de vie**, sélectionnez une date dans le calendrier dans quelques mois.
-1. Dans **Réplication**, laissez le **Nombre de réplicas par défaut** sur 1. Vous devez répliquer vers la région source, donc laissez le premier réplica à la valeur par défaut et choisissez comme deuxième région de réplica *USA Est*.
+1. Dans l’onglet **Réplication**, sélectionnez le type de stockage dans la liste déroulante.
+1. Définissez le **nombre de réplicas par défaut**. Vous pouvez le remplacer pour chaque région que vous ajoutez. 
+1. Vous devez effectuer une réplication vers la région source, de sorte que le premier réplica de la liste sera dans la région où vous avez créé l’image. Vous pouvez ajouter d’autres réplicas en sélectionnant la région dans la liste déroulante et en ajustant le nombre de réplicas si nécessaire.
 1. Quand vous avez terminé, sélectionnez **Vérifier + créer**. Azure validera la configuration.
 1. Une fois la définition d’image validée, sélectionnez **Créer**.
 1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
 
 La réplication de l’image à l’ensemble des régions cibles peut prendre un certain temps.
 
-### <a name="option-specialized"></a>Option : Spécialisée
-
-1. Sur la page de votre définition d’image, sélectionnez **Ajouter une version** à partir du haut de la page.
-1. Dans **Région**, sélectionnez la région où est stockée votre capture instantanée. Les versions d’images doivent être créées dans la même région que la source à partir de laquelle elles sont créées.
-1. Pour **Nom**, saisissez *1.0.0*. Le nom de version d’image doit respecter le format *version majeure*.*version mineure*.*correctif* en utilisant des nombres entiers. 
-1. Dans **Capture instantanée de disque de système d’exploitation**, sélectionnez la capture instantanée de votre machine virtuelle source dans le menu déroulant. Si votre machine virtuelle source possède un disque de données que vous souhaitez inclure, sélectionnez le bon numéro **LUN** dans le menu déroulant, puis choisissez la capture instantanée du disque de données pour **Capture instantanée du disque de données**. 
-1. Dans **Exclure de la plus récente**, conservez la valeur par défaut *Non*.
-1. Pour **Date de fin de vie**, sélectionnez une date dans le calendrier dans quelques mois.
-1. Dans **Réplication**, laissez le **Nombre de réplicas par défaut** sur 1. Vous devez répliquer vers la région source, donc laissez le premier réplica à la valeur par défaut et choisissez comme deuxième région de réplica *USA Est*.
-1. Quand vous avez terminé, sélectionnez **Vérifier + créer**. Azure validera la configuration.
-1. Une fois la définition d’image validée, sélectionnez **Créer**.
-1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
+Vous pouvez également capturer une machine virtuelle existante sous forme d’image à partir du portail. Pour plus d’informations, consultez [Créer une image d’une machine virtuelle dans le portail](../articles/virtual-machines/capture-image-portal.md).
 
 ## <a name="share-the-gallery"></a>Partager la galerie
 

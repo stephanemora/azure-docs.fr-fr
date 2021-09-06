@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/25/2021
+ms.openlocfilehash: 828748a2702233bfdabf3dc627e46956bf436020
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99560223"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289378"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 
@@ -118,7 +118,7 @@ Nous vous recommandons d’utiliser des jeux de données de référence qui sont
 |3   |150 Mo ou moins   |
 |6 et au-delà   |5 Go ou moins.    |
 
-La prise en charge de la compression n’est pas disponible pour les données de référence.
+La prise en charge de la compression n’est pas disponible pour les données de référence. Pour les jeux de données de référence d’une taille supérieure à 300 Mo, il est recommandé d’utiliser Azure SQL Database comme option source avec [requête delta](./sql-reference-data.md#delta-query) pour obtenir des performances optimales. Si la requête delta n’est pas utilisée dans de tels scénarios, vous verrez des pics dans la mesure du délai du filigrane chaque fois que l’ensemble de données de référence est actualisé. 
 
 ## <a name="joining-multiple-reference-datasets-in-a-job"></a>Jointure de plusieurs jeux de données de référence dans un travail
 Vous pouvez joindre une seule entrée de flux avec une entrée de données de référence en une seule étape de votre requête. Toutefois, vous pouvez joindre plusieurs jeux de données de référence en fractionnant la requête en plusieurs étapes. Voici un exemple.

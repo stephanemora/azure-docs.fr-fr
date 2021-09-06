@@ -238,58 +238,44 @@
           href: virtual-machine-scale-sets-design-overview.md
         - name: Comprendre les ID d’instance
           href: virtual-machine-scale-sets-instance-ids.md
-    - name: Utiliser des images
-      displayName: 'SIG, AMI, image'
+    - name: Galeries d’images partagées
       items:
-        - name: Galeries d’images partagées
+        - name: Vue d’ensemble
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ../virtual-machines/shared-image-galleries.md
+        - name: Créer une galerie
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ../virtual-machines/create-gallery.md
+        - name: Partager une galerie
+          href: ../virtual-machines/share-gallery.md
+        - name: Créer une image
+          displayName: 'VM, image, VHD, storage account'
+          href: ../virtual-machines/image-version.md
+        - name: Capturer une machine virtuelle dans le portail
+          href: ../virtual-machines/capture-image-portal.md
+        - name: Créer un groupe de machines virtuelles identiques
           items:
             - name: PowerShell
               items:
-                - name: Créer une galerie
-                  href: ../virtual-machines/shared-images-powershell.md
-                - name: Créer une image
-                  items:
-                    - name: À partir d’une machine virtuelle
-                      href: ../virtual-machines/image-version-vm-powershell.md
-                    - name: Migrer à partir d’une image managée
-                      href: ../virtual-machines/image-version-managed-image-powershell.md
-                    - name: Copier à partir d’une autre galerie
-                      href: ../virtual-machines/image-version-another-gallery-powershell.md
-                - name: Créer un groupe de machines virtuelles identiques
-                  items:
-                    - name: Spécialisée
-                      href: instance-specialized-image-version-powershell.md
-                    - name: Généralisée
-                      href: instance-generalized-image-version-powershell.md
-                - name: Mettre à jour les ressources d’image
-                  href: ../virtual-machines/update-image-resources-powershell.md
+                - name: Spécialisée
+                  href: instance-specialized-image-version-powershell.md
+                - name: Généralisée
+                  href: instance-generalized-image-version-powershell.md
             - name: Interface de ligne de commande
               items:
-                - name: Créer une galerie
-                  href: ../virtual-machines/shared-images-cli.md
-                - name: Créer une image
-                  items:
-                    - name: À partir d’une machine virtuelle
-                      href: ../virtual-machines/image-version-vm-cli.md
-                    - name: Migrer à partir d’une image managée
-                      href: ../virtual-machines/image-version-managed-image-cli.md
-                    - name: Copier à partir d’une autre galerie
-                      href: ../virtual-machines/image-version-another-gallery-cli.md
-                - name: Créer un groupe de machines virtuelles identiques
-                  items:
-                    - name: Spécialisée
-                      href: instance-specialized-image-version-cli.md
-                    - name: Généralisée
-                      href: instance-generalized-image-version-cli.md
-                - name: Mettre à jour les ressources d’image
-                  href: ../virtual-machines/update-image-resources-cli.md
-            - name: Résoudre les problèmes relatifs aux images partagées
-              href: ../virtual-machines/troubleshooting-shared-images.md
-            - name: Utilisation de clés gérées par le client
-              displayName: 'SSE, CMK, encrypt'
-              href: ../virtual-machines/image-version-encryption.md
-            - name: Inscription d’application pour le partage
-              href: share-images-across-tenants.md
+                - name: Spécialisée
+                  href: instance-specialized-image-version-cli.md
+                - name: Généralisée
+                  href: instance-generalized-image-version-cli.md
+        - name: Mettre à jour les ressources d’image
+          href: ../virtual-machines/update-image-resources.md
+        - name: Résoudre les problèmes relatifs aux images partagées
+          href: ../virtual-machines/troubleshooting-shared-images.md
+        - name: Utilisation de clés gérées par le client
+          displayName: 'SSE, CMK, encrypt'
+          href: ../virtual-machines/image-version-encryption.md
+        - name: Inscription d’application pour le partage
+          href: share-images-across-tenants.md
     - name: Créer un modèle
       items:
         - name: En savoir plus sur les modèles de groupes identiques
@@ -343,15 +329,12 @@
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Utiliser des hôtes dédiés
+          displayName: 'sole-tenant, sole tenant, isolated, isolation'
           items:
             - name: Vue d’ensemble
               href: ../virtual-machines/dedicated-hosts.md
-            - name: Interface de ligne de commande
-              href: ../virtual-machines/linux/dedicated-hosts-cli.md
-            - name: PowerShell
-              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
-            - name: Portail
-              href: ../virtual-machines/dedicated-hosts-portal.md
+            - name: Procédures
+              href: ../virtual-machines/dedicated-hosts.md
         - name: Machines virtuelles Azure Spot
           href: use-spot.md
         - name: Azure Hybrid Benefit pour Linux

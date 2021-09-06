@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 6f0a0fd48e3717d14a714e42c5566cd7bcf090d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d48f1cf99b22c091f069e7e5f572941a234eaebe
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545282"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449872"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Utiliser le service StorSimple Device Manager pour gérer les conteneurs de volumes StorSimple
 
@@ -33,7 +33,7 @@ Un conteneur de volumes présente les attributs suivants :
 * **Volumes** : les volumes StorSimple à plusieurs niveaux ou épinglés en local et hébergés dans le conteneur de volumes. 
 * **Chiffrement** : clé de chiffrement pouvant être définie pour chaque conteneur de volume. Cette clé est utilisée pour chiffrer les données envoyées depuis votre appareil StorSimple sur le cloud. Une clé AES 256 bits de niveau militaire est utilisée avec la clé saisie par l’utilisateur. Pour sécuriser vos données, nous vous recommandons de toujours activer le chiffrement du stockage cloud.
 * **Compte de stockage** : compte de stockage Azure utilisé pour stocker les données. L’ensemble des volumes hébergés dans votre conteneur de volumes partagent ce compte de stockage. Vous pouvez choisir un compte de stockage à partir d’une liste existante ou créer un compte lors de la création du conteneur de volumes, avant de spécifier les informations d’identification d’accès associées à ce compte.
-* **Bande passante cloud** : bande passante utilisée par le périphérique lorsque les données du périphérique sont envoyées vers le cloud. Vous pouvez appliquer un contrôle de bande passante en définissant une valeur comprise entre 1 et 1 000 Mbits/s lorsque vous créez ce conteneur. Si vous souhaitez que le périphérique utilise toute la bande passante disponible, paramétrez ce champ sur **Illimité**. Vous pouvez également créer et appliquer un modèle de bande passante, afin d’allouer la bande passante suivant une planification.
+* **Bande passante cloud** : bande passante utilisée par le périphérique lorsque les données du périphérique sont envoyées vers le cloud. Si vous souhaitez que le périphérique utilise toute la bande passante disponible, paramétrez ce champ sur **Illimité**. Vous pouvez également créer et appliquer un modèle de bande passante, afin d’allouer la bande passante suivant une planification.
 
 Les procédures suivantes expliquent comment utiliser le panneau **Conteneurs de volumes** StorSimple pour effectuer les opérations courantes ci-dessous :
 

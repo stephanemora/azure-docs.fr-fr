@@ -3,12 +3,12 @@ title: Haute disponibilité et récupération d’urgence
 description: Apprenez à concevoir votre application Azure Batch afin de faire face à une panne régionale.
 ms.topic: how-to
 ms.date: 12/30/2020
-ms.openlocfilehash: 51bcb0cfa35aacd24c0f79082491ef1fc7040889
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb3d0cb218e607e38b7478b7cc7956963e450f46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97831004"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524354"
 ---
 # <a name="design-your-batch-application-for-high-availability"></a>Concevoir votre application Batch à des fins de haute disponibilité
 
@@ -30,8 +30,8 @@ Pour basculer une solution vers une autre région, tous ses composants doivent �
 
 Lors de la conception d'une solution capable de basculer, tenez compte des points suivants :
 
-- Créez au préalable tous les comptes requis dans les différentes régions, comme le compte Batch et le compte de stockage. Il n’y a souvent aucun frais pour la création de comptes, et les frais s’accumulent uniquement lorsque le compte est utilisé ou lorsque des données sont stockées.
-- Veillez à ce que des [quotas](batch-quota-limit.md) appropriés soient définis à l’avance sur tous les comptes afin de pouvoir allouer le nombre requis de cœurs à l’aide du compte Batch.
+- Créez au préalable tous les services requis dans les différentes régions, comme le compte Batch et le compte de stockage. Il n’y a souvent aucun frais pour la création de comptes, et les frais s’accumulent uniquement lorsque le compte est utilisé ou lorsque des données sont stockées.
+- Veillez à ce que des [quotas](batch-quota-limit.md) appropriés soient définis à l’avance sur tous les abonnements afin de pouvoir allouer le nombre requis de cœurs à l’aide du compte Batch.
 - Utilisez des modèles et/ou des scripts pour automatiser le déploiement de l'application dans une région.
 - Maintenez à jour les données de référence et les fichiers binaires de l'application dans toutes les régions. Une région à jour pourra être mise en ligne rapidement sans avoir à attendre le téléchargement et le déploiement des fichiers. Par exemple, si une application personnalisée à installer sur des nœuds de pool est stockée et référencée à l'aide de packages d'application Batch, lorsqu'une nouvelle version de l'application est produite, elle doit être téléchargée sur chaque compte Batch et référencée par la configuration du pool (ou la nouvelle version peut devenir la version par défaut).
 - Dans l’application qui appelle Batch, Stockage ou tout autre service, facilitez le basculement vers les clients ou la charge vers différentes régions.

@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: active-directory
 author: msaburnley
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9686cce60520895fe4a3ae7fb47e1eb0eca03599
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105582631"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112975249"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -210,15 +210,15 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 
 1. Cliquez sur **Suivant**.
 
-## <a name="add-requestor-information-preview-to-an-access-package"></a>Ajout d’informations sur le demandeur (préversion) à un package d'accès
+## <a name="add-requestor-information-to-an-access-package"></a>Ajouter des informations sur le demandeur à un package d'accès
 
-1. Accédez à l’onglet **Informations sur le demandeur**, puis cliquez sur le sous-onglet **Questions**.
+1. Accédez à l'onglet **Informations sur le demandeur**, puis cliquez sur le sous-onglet **Questions**.
  
 1. Tapez ce que vous souhaitez demander au demandeur, également appelé « chaîne d’affichage », pour la question dans la zone **Question**.
 
-    ![Package d’accès – Stratégie – Activation du paramètre Informations sur le demandeur](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+    ![Package d'accès - Stratégie - Activation du paramètre Informations sur le demandeur](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. Si vous souhaitez ajouter vos propres options de localisation, cliquez sur **Ajouter une localisation**.
+1. Si vous souhaitez localiser les options de question et de réponse, cliquez sur **Ajouter une localisation**.
     1. Une fois dans le volet **Ajouter des localisations pour les questions**, sélectionnez le **code de la langue** dans laquelle vous localisez la question.
     1. Dans la langue que vous avez configurée, tapez la question dans la zone **Texte localisé**.
     1. Une fois que vous avez ajouté toutes les localisations nécessaires, cliquez sur **Enregistrer**.
@@ -229,10 +229,13 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
  
     ![Package d’accès – Stratégie – Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Afficher et modifier** pour configurer les options de réponse.
-    1. Une fois que vous avez sélectionné Afficher et modifier, le volet **Afficher/modifier la question** s’ouvre.
+1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Modifier et localiser** pour configurer les options de réponse.
+    1. Une fois que vous avez sélectionné Modifier et localiser, le volet **Modifier/localiser la question** s'ouvre.
     1. Tapez les options de réponse que vous souhaitez donner au demandeur lorsqu’il répond à la question dans les zones **Valeurs de réponse** .
-    1. Tapez le nombre de réponses dont vous avez besoin, puis cliquez sur **Enregistrer**.
+    1. Tapez le nombre de réponses dont vous avez besoin.
+    1. Si vous souhaitez ajouter votre propre localisation pour les options à choix multiples, sélectionnez le **Code langue facultatif** pour la langue dans laquelle vous souhaitez localiser une option spécifique.
+    1. Dans la langue que vous avez configurée, tapez la question dans la zone de texte Localisé.
+    1. Une fois que vous avez ajouté toutes les localisations nécessaires pour chaque option à choix multiples, cliquez sur **Enregistrer**.
     
     ![Package d’accès – Stratégie –Saisie des options de choix multiples](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
