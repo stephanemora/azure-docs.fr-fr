@@ -8,12 +8,12 @@ metadata:
   author: keferna
   ms.author: keferna
   ms.date: 07/14/2020
-  ms.openlocfilehash: bf27d686edd4324419a06e696eed27a64c66a32d
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+  ms.openlocfilehash: 4015d78469f08450d81495f61800f68f980b9b02
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113595888"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122866339"
 title: Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 summary: >
   Le portail Cloud Partner a fait l’objet d’une transition vers l’Espace partenaires. L’Espace partenaires offre une expérience simplifiée et intégrée pour la publication de nouvelles offres sur [Microsoft AppSource](https://appsource.microsoft.com/) ou la [Place de marché Azure](https://azuremarketplace.microsoft.com/) et pour la gestion des offres existantes qui ont été migrées à partir du portail Cloud Partner. Toutes les fonctions du portail Cloud Partner sont disponibles dans l’Espace partenaires. Cet article répond aux questions fréquentes sur ce sujet.
@@ -120,7 +120,7 @@ sections:
 
       | Dynamics 365 Business Central | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 pour Business Central](dynamics-365-business-central-offer-setup.md). |
 
-      | Dynamics 365 for Customer Engagement et PowerApps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](dynamics-365-customer-engage-offer-setup.md). |
+      | Dynamics 365 pour Customer Engagement et Power Apps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. Découvrez-en plus dans [Créer une offre Dynamics 365 for Customer Engagement et Power Apps](dynamics-365-customer-engage-offer-setup.md). |
 
       | Dynamics 365 for Operations | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md). |
 

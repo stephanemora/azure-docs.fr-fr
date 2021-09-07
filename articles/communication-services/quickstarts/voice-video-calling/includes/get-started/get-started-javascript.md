@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f394448f0b488f468ce09c13d036585db032bda9
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1f027dd3dfb812e9a700810972d2b019810dc41c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112536099"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251507"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Javascript.
 
@@ -124,8 +124,10 @@ Ajoutez un gestionnaire d’événements pour lancer un appel en cas de clic sur
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
+    // To call an ACS communication user, use {communicationUserId: 'ACS_USER_ID'}.
+    // To call echobot, use {id: '8:echo123'}.
     call = callAgent.startCall(
-        [{ id: userToCall }],
+        [{ communicationUserId: userToCall }],
         {}
     );
     // toggle button states
@@ -164,4 +166,7 @@ Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments su
 
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
-Vous pouvez établir un appel VoIP sortant en fournissant un jeton d’accès utilisateur et un ID d’utilisateur valides dans les champs de texte correspondant et en cliquant sur le bouton **Start Call** (Démarrer l’appel). L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour bien démarrer et vérifier que vos périphériques audio fonctionnent.
+Vous pouvez établir un appel VoIP sortant en fournissant un jeton d’accès utilisateur et un ID d’utilisateur valides dans les champs de texte correspondant et en cliquant sur le bouton **Start Call** (Démarrer l’appel).
+
+L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour bien démarrer et vérifier que vos périphériques audio fonctionnent. Passez `{id: '8:echo123'}` à l’API CallAgent.startCall() pour appeler Echobot.
+Pour appeler un utilisateur de communication ACS, passez `{communicationUserId: 'ACS_USER_ID'}` à l’API `CallAgent.startCall()`.

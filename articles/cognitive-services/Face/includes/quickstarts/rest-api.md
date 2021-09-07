@@ -9,18 +9,18 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 87871be12310782abe172fe308782825ba8e09d0
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 6520c9514ee8fbf950437026c1d2712683e58151
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858108"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442348"
 ---
 Commencez à utiliser la reconnaissance faciale avec l’API REST Visage. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
 Utilisez l’API REST Visage pour :
 
-* [Détecter des visages sur une image](#detect-faces-in-an-image)
+* [Détecter et analyser les visages](#detect-and-analyze-faces)
 * [Rechercher des visages semblables](#find-similar-faces)
 
 > [!NOTE]
@@ -29,13 +29,14 @@ Utilisez l’API REST Visage pour :
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="créez une ressource Visage"  target="_blank">créer une ressource Visage </a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 * [PowerShell version 6.0 +](/powershell/scripting/install/installing-powershell-core-on-windows) ou une application de ligne de commande similaire.
 
 
-## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
+## <a name="detect-and-analyze-faces"></a>Détecter et analyser les visages
 
 Vous allez utiliser une commande similaire à ce qui suit pour appeler l’API Visage et obtenir les données d’attribut de visage d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez changer certaines parties.
 
@@ -175,7 +176,7 @@ Cette opération utilise un seul visage détecté (la source) et recherche un en
 
 ### <a name="detect-faces-for-comparison"></a>Détecter des visages pour les comparer
 
-Avant de pouvoir comparer des images, vous devez d’abord les détecter dans les images. Exécutez cette commande comme vous l’avez fait dans la section [Détecter des visages](#detect-faces-in-an-image). Cette méthode de détection est optimisée pour les opérations de comparaison. Elle n’extrait pas les attributs de visage détaillés comme dans la section ci-dessus, et elle utilise un modèle de détection différent.
+Avant de pouvoir comparer des images, vous devez d’abord les détecter dans les images. Exécutez cette commande comme vous l’avez fait dans la section [Détecter et analyser](#detect-and-analyze-faces). Cette méthode de détection est optimisée pour les opérations de comparaison. Elle n’extrait pas les attributs de visage détaillés comme dans la section ci-dessus, et elle utilise un modèle de détection différent.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
 

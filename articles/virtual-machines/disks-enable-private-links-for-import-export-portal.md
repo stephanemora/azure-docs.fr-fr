@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5be3cbb5a43f76959eab47dc89e00ad4e761c11d
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: b023f7f068d1dc52c073519cc7e7f308e5d86ad0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598114"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696454"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Restreindre l’accès à l’importation/exportation de disques managés à l’aide d’Azure Private Link
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Vous pouvez utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour restreindre l’exportation et l’importation de disques managés, et accéder de manière plus sécurisée aux données via une [liaison privée](../private-link/private-link-overview.md) à partir des clients de votre réseau virtuel Azure. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour vos disques managés. Le trafic réseau entre clients sur leurs réseau virtuel et disques managés transite uniquement sur le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, éliminant ainsi toute exposition à partir de l’Internet public.
 
@@ -36,7 +38,7 @@ Pour utiliser Private Link afin d’exporter et d’importer des disques managé
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="Capture d’écran du volet de création d’accès au disque. Indiquez le nom souhaité, sélectionnez une région, sélectionnez un groupe de ressources, puis continuez":::
 
-1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez **Vérifier + créer**.
 1. Une fois votre ressource créée, accédez directement à celle-ci.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Capture d’écran du bouton Accéder à la ressource dans le portail":::
@@ -73,7 +75,7 @@ Vous devez ensuite créer un point de terminaison privé et le configurer pour l
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, troisième volet. Les options Réseau virtuel et Sous-réseau sont mises en évidence.":::
 
-1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez **Vérifier + créer**.
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Activer un point de terminaison privé sur votre disque
 

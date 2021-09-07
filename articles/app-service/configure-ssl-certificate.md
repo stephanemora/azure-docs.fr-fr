@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 011461b1ecba9c5ce8cf636980a97d26f2228a98
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: f7c6c46565ce9abb108b59e567d2f66c7a05ab28
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128837"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835429"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -297,7 +297,9 @@ Une fois l’opération terminée, le certificat s’affiche dans la liste **Cer
 
 > [!IMPORTANT] 
 > Pour sécuriser un domaine personnalisé avec ce certificat, vous devez quand même créer une liaison de certificat. Suivez les étapes fournies dans [Créer une liaison](configure-ssl-bindings.md#create-binding).
->
+
+> [!NOTE]
+> Pour renouveler un [certificat que vous avez chargé](#upload-a-private-certificate), consultez [Exporter une liaison de certificat](configure-ssl-bindings.md#renew-certificate-binding). App Service ne synchronise pas automatiquement votre certificat récemment chargé avec les liaisons. La fonctionnalité de synchronisation automatique des certificats est uniquement disponible pour les [certificats Key Vault importés ](#import-a-certificate-from-key-vault) et les [certificats App Service importés](#import-an-app-service-certificate).
 
 ## <a name="upload-a-public-certificate"></a>Téléchargement d’un certificat public
 
@@ -346,7 +348,7 @@ Une fois l’opération de recréation de clé terminée, cliquez sur **Synchron
 
 Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche. Par défaut, les certificats App Service sont valides pendant 1 an.
 
-Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent être automatiquement renouvelés 30 jours avant leur expiration si vous avez activé le renouvellement automatique.
+Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent être automatiquement renouvelés 31 jours avant leur expiration si vous avez activé le renouvellement automatique.
 
 ![Renouveler automatiquement un certificat App Service](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 

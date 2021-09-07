@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: fe60a36d93a77ee75df578e0f6fc6665da26681e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 49dab18a0f3b58d82b7de9c393f63428ac0d115b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532395"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695189"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>ÉTAPE 2 : Configurer votre solution de sécurité pour envoyer des messages CEF
 
@@ -64,7 +64,7 @@ Si aucun connecteur n’existe pour votre solution de sécurité spécifique, ut
 
 1. Pour rechercher des événements CEF dans Log Analytics, entrez `CommonSecurityLog` dans la fenêtre Requête.
 
-1. Continuez jusqu’à l’ÉTAPE 3 : [valider la connectivité](connect-cef-verify.md).
+1. Continuez jusqu’à l’ÉTAPE 3 : [valider la connectivité](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 > [!NOTE]
 > **Modification de la source du champ TimeGenerated**

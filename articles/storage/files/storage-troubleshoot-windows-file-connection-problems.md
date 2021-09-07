@@ -8,12 +8,12 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccaa432de640e7d4bf89675c750e965e0058f847
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b1541acc9ab6871418d1cb750d74d285f3228f92
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676107"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525466"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
@@ -21,6 +21,13 @@ Cet article liste les problèmes courants liés à Microsoft Azure Files en cas 
 
 > [!IMPORTANT]
 > Le contenu de cet article s’applique uniquement aux partages SMB. Pour plus d’informations sur les partages NFS, consultez [Résoudre les problèmes des partages de fichiers NFS Azure](storage-troubleshooting-files-nfs.md).
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 quand vous montez un partage de fichiers Azure
@@ -175,6 +182,49 @@ Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées co
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
 Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
+
+## <a name="unable-to-modify-or-delete-an-azure-file-share-or-share-snapshots-because-of-locks-or-leases"></a>Impossible de modifier ou de supprimer un partage de fichiers ou un instantané de partage Azure en raison de verrous ou de baux
+Azure Files fournit deux méthodes pour empêcher la modification ou la suppression accidentelle de partages de fichiers et d’instantanés de partage Azure : 
+
+- **Verrous de ressource sur le compte de stockage** : toutes les ressources Azure, notamment le compte de stockage, prennent en charge les [verrous de ressource](../../azure-resource-manager/management/lock-resources.md). Des verrous peuvent être placés sur le compte de stockage par un administrateur ou par des services à valeur ajoutée comme Sauvegarde Azure. Il existe deux variantes des verrous de ressource : « modifier », qui empêche toute modification du compte de stockage et de ses ressources, et « supprimer », qui empêche uniquement les suppressions du compte de stockage et de ses ressources. Quand vous modifiez ou supprimez des partages par le biais du fournisseur de ressources `Microsoft.Storage`, des verrous de ressource sont appliqués sur les partages de fichiers et les instantanés de partage Azure. La plupart des opérations du portail, des applets de commande Azure PowerShell pour Azure Files dont le nom contient `Rm` (c’est-à-dire `Get-AzRmStorageShare`) et des commandes Azure CLI dans le groupe de commandes `share-rm` (c’est-à-dire `az storage share-rm list`) utilisent le fournisseur de ressources `Microsoft.Storage`. Certains outils et utilitaires tels que l’Explorateur Stockage, les applets de commande de gestion PowerShell Azure Files héritées dont le nom ne contient pas `Rm` (c’est-à-dire `Get-AzStorageShare`) et les commandes CLI Azure Files héritées sous le groupe de commandes `share` (c’est-à-dire `az storage share list`) utilisent des API héritées dans l’API FileREST qui contournent le fournisseur de ressources `Microsoft.Storage` et les verrous de ressource. Pour plus d’informations sur les API de gestion héritées exposées dans l’API FileREST, consultez le [plan de contrôle dans Azure Files](/rest/api/storageservices/file-service-rest-api#control-plane).
+
+- **Baux de partage/d’instantanés de partage** : les baux de partage sont un type de verrou propriétaire pour les partages de fichiers et les instantanés de partage de fichiers Azure. Les baux peuvent être placés sur des partages de fichiers ou des instantanés de partage de fichiers Azure par des administrateurs (en appelant l’API avec un script) ou par des services à valeur ajoutée comme Sauvegarde Azure. Quand un bail est placé sur un partage de fichiers ou un instantané de partage de fichiers Azure, il est possible de modifier ou de supprimer le partage ou l’instantané de partage de fichiers avec l’*ID de bail*. Les utilisateurs peuvent également libérer le bail avant les opérations de modification, ce qui nécessite l’ID de bail, ou résilier le bail, ce qui ne nécessite pas l’ID de bail. Pour plus d’informations sur les baux de partage, consultez [Lease Share](/rest/api/storageservices/lease-share).
+
+Étant donné que les baux et verrous de ressource peuvent interférer avec les opérations prévues par l’administrateur sur votre compte de stockage ou vos partages de fichiers Azure, vous souhaiterez peut-être supprimer les verrous/baux qui peuvent avoir été placés sur vos ressources manuellement ou automatiquement par des services à valeur ajoutée comme Sauvegarde Azure. Le script suivant supprime tous les verrous et baux de ressource. N’oubliez pas de remplacer `<resource-group>` et `<storage-account>` par les valeurs qui correspondent à votre environnement.
+
+Pour exécuter le script suivant, vous devez [installer la préversion 3.10.1](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview) du module PowerShell Stockage Azure.
+
+> [!Important]  
+> Les services à valeur ajoutée qui prennent des verrous de ressource et des baux de partage/instantantés de partage sur vos ressources Azure Files peuvent réappliquer périodiquement les verrous et les baux. La modification ou la suppression de ressources verrouillées par des services à valeur ajoutée peut avoir un impact sur le fonctionnement normal de ces services, comme la suppression d’instantanés de partage précédemment gérés par Sauvegarde Azure.
+
+```PowerShell
+# Parameters for storage account resource
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+# Remove resource locks
+Get-AzResourceLock `
+        -ResourceType "Microsoft.Storage/storageAccounts" `
+        -ResourceGroupName $storageAccount.ResourceGroupName `
+        -ResourceName $storageAccount.StorageAccountName | `
+    Remove-AzResourceLock -Force | `
+    Out-Null
+
+# Remove share and share snapshot leases
+Get-AzStorageShare -Context $storageAccount.Context | `
+    Where-Object { $_.Name -eq $fileShareName } | `
+    ForEach-Object {
+        try {
+            $leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($_.ShareClient)
+            $leaseClient.Break() | Out-Null
+        } catch { }
+    }
+```
 
 <a id="open-handles"></a>
 ## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Impossible de modifier, déplacer/renommer ou supprimer un fichier ou un répertoire
@@ -442,7 +492,6 @@ $StorageAccountName = "<storage-account-name-here>"
 
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 ```
-
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

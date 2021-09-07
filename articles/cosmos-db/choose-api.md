@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2021
-ms.openlocfilehash: a4873662578dee69d4f7fe16618101a732129f58
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/12/2021
+ms.openlocfilehash: 451e03c8557f224dce118866932307b32bfbfd56
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111561663"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531984"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Choisir une API dans Azure Cosmos DB
 
@@ -43,7 +43,7 @@ En fonction de votre charge de travail, vous devez choisir l’API qui répond �
 
 ## <a name="coresql-api"></a>API Core (SQL)
 
-Cette API stocke les données au format de document. Elle offre la meilleure expérience de bout en bout, car nous disposons d’un contrôle total sur l’interface, le service et les bibliothèques clientes du SDK. Toutes les nouvelles fonctionnalités déployées dans Azure Cosmos DB sont d’abord disponibles sur les comptes de l’API SQL. Les comptes de l’API SQL Azure Cosmos DB prennent en charge l’interrogation des éléments à l’aide de la syntaxe SQL (Structured Query Language), l’un des langages de requête les plus familiers et les plus populaires pour interroger des objets JSON. Pour en savoir plus, consultez cette page [qui vous explique comment bien démarrer avec les requêtes SQL](sql-query-getting-started.md).
+Cette API stocke les données au format de document. Elle offre la meilleure expérience de bout en bout, car nous disposons d’un contrôle total sur l’interface, le service et les bibliothèques clientes du SDK. Toutes les nouvelles fonctionnalités déployées dans Azure Cosmos DB sont d’abord disponibles sur les comptes de l’API SQL. Les comptes de l’API SQL Azure Cosmos DB prennent en charge l’interrogation des éléments à l’aide de la syntaxe SQL (Structured Query Language), l’un des langages de requête les plus familiers et les plus populaires pour interroger des objets JSON. Pour en savoir plus, consultez le module Learn [API SQL Azure Cosmos DB](/learn/modules/intro-to-azure-cosmos-db-core-api/) et l’article [Bien démarrer avec les requêtes SQL](sql-query-getting-started.md).
 
 Si vous effectuez une migration à partir d’autres bases de données telles qu’Oracle, DynamoDB, HBase, etc. et si vous souhaitez utiliser les technologies modernes pour générer vos applications, l’API SQL est l’option recommandée. L’API SQL prend en charge les analytiques et offre une isolation des performances entre les charges de travail opérationnelles et analytiques.
 
@@ -51,9 +51,9 @@ Si vous effectuez une migration à partir d’autres bases de données telles qu
 
 Cette API stocke les données dans une structure de document, via le format BSON. Elle est compatible avec le protocole filaire MongoDB. Toutefois, elle n’utilise pas de code lié à MongoDB en mode natif. Cette API est un bon choix si vous souhaitez utiliser l’écosystème et les compétences MongoDB plus larges, sans compromis concernant l’utilisation des fonctionnalités Azure Cosmos DB telles que la mise à l’échelle, la haute disponibilité, la géoréplication, les emplacements d’écritures multiples, la gestion automatique et transparente des partitions, la réplication transparente entre les magasins opérationnels et analytiques et bien plus encore.
 
-Vous pouvez utiliser vos applications MongoDB existantes avec l’API pour MongoDB en modifiant simplement la chaîne de connexion. Vous pouvez déplacer des données existantes à l’aide d’outils MongoDB natifs tels que mongodump et mongorestore ou à l’aide de notre outil de migration de base de données Azure. Les outils tels que l’interpréteur de commandes MongoDB, [MongoDB Compass](mongodb-compass.md) et [Robo3T](mongodb-robomongo.md) peuvent exécuter des requêtes et utiliser des données comme c’est le cas avec MongoDB en mode natif.
+Vous pouvez utiliser vos applications MongoDB existantes avec l’API pour MongoDB en modifiant simplement la chaîne de connexion. Vous pouvez déplacer des données existantes à l’aide d’outils MongoDB natifs tels que mongodump et mongorestore ou à l’aide de notre outil de migration de base de données Azure. Les outils tels que l’interpréteur de commandes MongoDB, [MongoDB Compass](mongodb/connect-using-compass.md) et [Robo3T](mongodb/connect-using-robomongo.md) peuvent exécuter des requêtes et utiliser des données comme c’est le cas avec MongoDB en mode natif.
 
-L’API pour MongoDB est compatible avec les versions serveur 4.0, 3.6 et 3.2 de MongoDB. La version de serveur 4.0 est recommandée, car elle offre les meilleures performances et une prise en charge complète des fonctionnalités. Pour plus d’informations, consultez l’article sur l’[API pour MongoDB](mongodb-introduction.md).
+L’API pour MongoDB est compatible avec les versions serveur 4.0, 3.6 et 3.2 de MongoDB. La version de serveur 4.0 est recommandée, car elle offre les meilleures performances et une prise en charge complète des fonctionnalités. Pour plus d’informations, consultez l’article sur l’[API pour MongoDB](mongodb/mongodb-introduction.md).
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -71,12 +71,12 @@ L’API Gremlin d’Azure Cosmos DB repose sur [Apache TinkerPop](https://tinker
 
 Cette API stocke les données au format clé/valeur. Si vous utilisez actuellement le Stockage Table Azure, vous pouvez constater des limitations en matière de latence, de mise à l’échelle, de débit, de distribution à l’échelle mondiale, de gestion des index, et les faibles performances en matière de requêtes. L’API Table surmonte ces limitations et il est recommandé de migrer votre application si vous souhaitez tirer parti des avantages d’Azure Cosmos DB. L’API Table prend en charge uniquement les scénarios OLTP.
 
-Les applications écrites pour le Stockage Table Azure peuvent migrer vers l’API Table avec peu de modification de code, et tirer parti des fonctionnalités Premium. Pour plus d’informations, consultez l’article sur l’[API Table](table-introduction.md).
+Les applications écrites pour le Stockage Table Azure peuvent migrer vers l’API Table avec peu de modification de code, et tirer parti des fonctionnalités Premium. Pour plus d’informations, consultez l’article sur l’[API Table](introduction.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Prise en main de l’API SQL Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Bien démarrer avec l’API Azure Cosmos DB pour MongoDB](create-mongodb-nodejs.md)
-* [Prise en main de l’API Cassandra Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Bien démarrer avec l’API Azure Cosmos DB pour MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Prise en main de l’API Cassandra Azure Cosmos DB](cassandra/manage-data-dotnet.md)
 * [Prise en main de l’API Gremlin Azure Cosmos DB](create-graph-dotnet.md)
 * [Prise en main de l’API Table Azure Cosmos DB](create-table-dotnet.md)

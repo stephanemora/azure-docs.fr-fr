@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 796c9563de794b22d47dacee4c93e7bfde73fb2a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678655"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221803"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
@@ -255,8 +255,18 @@ Si vous utilisez l’expédition à gestion automatique, lorsque la copie est te
 |Prêt pour la réception au centre de données Azure     |L’appareil est prêt à être reçu dans le centre de données Azure.        |
 |Reçu     |L’appareil a été reçu dans le centre de données Azure.      |
 
+## <a name="get-device-password"></a>Obtenir le mot de passe d’un appareil
 
+Lorsque vous commandez votre appareil, vous pouvez choisir d’utiliser le mot de passe d’appareil par défaut généré par le système ou votre propre mot de passe. Dans les deux cas, le mot de passe de l’appareil est défini en usine et vous ne pouvez pas le modifier. 
 
+Vous pouvez trouver le mot de passe de l’appareil en consultant votre commande dans le portail Azure.
+
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+
+> [!NOTE]
+> Après plusieurs échecs de tentatives de connexion à l’aide d’un mot de passe incorrect, votre compte administrateur est verrouillé sur l’appareil. Le verrou de compte est effacé au bout de quelques minutes, et vous pouvez vous reconnecter.  
+> - Data Box 4.1 et versions ultérieures : le compte est verrouillé pendant 15 minutes après 5 échecs de tentative de connexion. 
+> - Data Box 4.0 et versions antérieures : le compte est verrouillé pendant 30 minutes après 3 échecs de tentative de connexion.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

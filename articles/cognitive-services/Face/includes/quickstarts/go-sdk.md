@@ -9,21 +9,21 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 57c152546bfdbcdfbeba45536990c6c204106e7a
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 5534fc3b82119295dc744e98054fead2f12d4a7d
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858152"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442535"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Go. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
 Vous pouvez effectuer les tâches suivantes à l’aide de la bibliothèque de client du service Visage pour Go :
 
-* [Détecter des visages sur une image](#detect-faces-in-an-image)
-* [Rechercher des visages semblables](#find-similar-faces)
-* [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup)
+* [Détecter et analyser les visages](#detect-and-analyze-faces)
 * [Identifier un visage](#identify-a-face)
+* [Vérifier les visages](#verify-faces)
+* [Rechercher des visages semblables](#find-similar-faces)
 
 [Documentation de référence](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Téléchargement du SDK](https://github.com/Azure/azure-sdk-for-go)
 
@@ -31,6 +31,7 @@ Vous pouvez effectuer les tâches suivantes à l’aide de la bibliothèque de c
 
 * La dernière version de [Go](https://golang.org/dl/)
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="créez une ressource Visage"  target="_blank">créer une ressource Visage </a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
@@ -104,10 +105,10 @@ Les classes et interfaces suivantes gèrent certaines des principales fonctionna
 Ces exemples de code vous montrent comment effectuer des tâches de base à l’aide de la bibliothèque de client du service Visage pour Go :
 
 * [Authentifier le client](#authenticate-the-client)
-* [Détecter des visages sur une image](#detect-faces-in-an-image)
-* [Rechercher des visages semblables](#find-similar-faces)
-* [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup)
+* [Détecter et analyser les visages](#detect-and-analyze-faces)
 * [Identifier un visage](#identify-a-face)
+* [Vérifier les visages](#verify-faces)
+* [Rechercher des visages semblables](#find-similar-faces)
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
@@ -119,7 +120,10 @@ Créez une fonction **main** et ajoutez-lui le code suivant pour instancier un c
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_main_client)]
 
 
-## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
+## <a name="detect-and-analyze-faces"></a>Détecter et analyser les visages
+
+La détection des visages est nécessaire comme première étape de l’analyse des visages et de la vérification d’identité. Cette section montre comment retourner les données d’attribut de visage supplémentaires. Si vous souhaitez uniquement détecter les visages à des fins d’identification ou de vérification des visages, passez aux sections suivantes.
+
 
 Ajoutez le code suivant à la méthode **main**. Ce code définit un exemple d’image distante et spécifie les fonctionnalités de visage à extraire de l’image. Il définit également le modèle IA à utiliser pour extraire des données du ou des visages détectés. Pour plus d’informations sur ces options, consultez [Spécifier un modèle de reconnaissance](../../Face-API-How-to-Topics/specify-recognition-model.md). Enfin, la méthode **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** effectue l’opération de détection de visage sur l’image et enregistre les résultats dans la mémoire du programme.
 
@@ -134,40 +138,21 @@ Le bloc de code suivant prend le premier élément dans le tableau d’objets **
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect_display)]
 
-## <a name="find-similar-faces"></a>Rechercher des visages semblables
-
-Le code suivant utilise un visage unique détecté (la source) et recherche un ensemble d’autres visages (la cible) pour trouver des correspondances (recherche faciale par image). Quand il trouve une correspondance, il affiche l’ID du visage correspondant sur la console.
-
-### <a name="detect-faces-for-comparison"></a>Détecter des visages pour les comparer
-
-Tout d’abord, enregistrez une référence au visage qui a été détecté dans la section [Détecter des visages dans une image](#detect-faces-in-an-image). Ce visage constituera la source.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
-
-Entrez maintenant le code suivant pour détecter un ensemble de visages dans une autre image. Ces visages constitueront la cible.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_multiple_ref)]
-
-### <a name="find-matches"></a>Rechercher des correspondances
-
-Le code suivant utilise la méthode **[FindSimilar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.FindSimilar)** pour rechercher tous les visages cibles qui correspondent au visage source.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar)]
-
-### <a name="print-matches"></a>Afficher les correspondances
-
-Le code suivant affiche les détails relatifs aux correspondances sur la console.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
-## <a name="create-and-train-a-persongroup"></a>Créer et effectuer l'apprentissage d’un objet PersonGroup
+
+
+## <a name="identify-a-face"></a>Identifier un visage
+
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
+
+### <a name="get-person-images"></a>Obtenir des images de personne
 
 Pour suivre ce scénario, vous devez enregistrer les images suivantes dans le répertoire racine de votre projet : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 Ce groupe d’images contient trois ensembles d’images avec un seul visage qui correspondent à trois personnes différentes. Le code définit trois objets **PersonGroup Person** et les associe aux fichiers image qui commencent par `woman`, `man` et `child`.
 
-### <a name="create-persongroup"></a>Créer un PersonGroup
+### <a name="create-a-persongroup"></a>Créer un objet PersonGroup
 
 Une fois que vous avez téléchargé vos images, ajoutez le code suivant en bas de la méthode **main**. Ce code authentifie un objet **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** , puis l’utilise pour définir un nouvel objet **PersonGroup**.
 
@@ -188,7 +173,7 @@ Le code suivant trie les images en fonction de leur préfixe, détecte les visag
 > [!TIP]
 > Vous pouvez également créer un **PersonGroup** à partir d’images distantes référencées par URL. Consultez les méthodes [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) comme **AddFaceFromURL**.
 
-### <a name="train-persongroup"></a>Entraîner le PersonGroup
+### <a name="train-the-persongroup"></a>Entraîner le PersonGroup
 
 Une fois que vous avez attribué les visages, vous entraînez le **PersonGroup** pour qu’il puisse identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge le résultat en affichant l’état sur la console.
 
@@ -197,16 +182,9 @@ Une fois que vous avez attribué les visages, vous entraînez le **PersonGroup**
 > [!TIP]
 > L’API Visage s’exécute sur un ensemble de modèles prédéfinis qui sont statiques par nature (les performances du modèle ne se dégradent pas ou ne s’améliorent pas quand le service est exécuté). Les résultats générés par le modèle risquent de changer si Microsoft met à jour le back-end du modèle sans migrer vers une version entièrement nouvelle du modèle. Pour bénéficier d’une version plus récente d’un modèle, vous pouvez réentraîner votre **PersonGroup**, en spécifiant le modèle plus récent en tant que paramètre avec les mêmes images d’inscription.
 
-## <a name="identify-a-face"></a>Identifier un visage
-
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
-
-> [!IMPORTANT]
-> Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni dans [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup).
-
 ### <a name="get-a-test-image"></a>Obtenir une image de test
 
-Le code suivant recherche une image _test-image-person-group.jpg_ à la racine du projet et la charge dans la mémoire du programme. Vous trouverez cette image dans le même dépôt que les images utilisées dans la section [Créer et effectuer l’apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup) : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Le code suivant recherche une image _test-image-person-group.jpg_ à la racine du projet et la charge dans la mémoire du programme. Vous trouverez cette image dans le même dépôt que les images utilisées pour créer l’**objet PersonGroup** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -216,7 +194,7 @@ Le bloc de code suivant effectue une détection de visage ordinaire sur l’imag
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_detect)]
 
-### <a name="identify-faces"></a>Identifier des visages
+### <a name="identify-faces-from-source-image"></a>Identifier les visages dans l’image source
 
 La méthode **[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** prend le tableau des visages détectés et les compare à l’objet **PersonGroup** (qui a été défini et entraîné dans la section précédente). Si elle trouve une correspondance entre un visage détecté et un objet **Person** dans le groupe, elle enregistre le résultat.
 
@@ -227,9 +205,9 @@ Ce code affiche ensuite les résultats de correspondance détaillés sur la cons
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_print)]
 
 
-## <a name="verify-faces"></a>Vérifier les visages
+### <a name="verify-faces"></a>Vérifier les visages
 
-L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne.
+L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne. La vérification peut être utilisée pour vérifier la correspondance des visages retournée par l’opération d’identification.
 
 Le code suivant détecte les visages dans deux images sources, puis il compare chaque visage détecté à un visage détecté dans une image cible.
 
@@ -252,6 +230,33 @@ Le code suivant détecte des visages dans les images source et cible, et les enr
 Le code suivant compare chacune des images sources à l’image cible et affiche un message indiquant si elles appartiennent à la même personne.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
+
+## <a name="find-similar-faces"></a>Rechercher des visages semblables
+
+Le code suivant utilise un visage unique détecté (la source) et recherche un ensemble d’autres visages (la cible) pour trouver des correspondances (recherche faciale par image). Quand il trouve une correspondance, il affiche l’ID du visage correspondant sur la console.
+
+### <a name="detect-faces-for-comparison"></a>Détecter des visages pour les comparer
+
+Tout d’abord, enregistrez une référence au visage qui a été détecté dans la section [Détecter et analyser](#detect-and-analyze-faces). Ce visage constituera la source.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
+
+Entrez maintenant le code suivant pour détecter un ensemble de visages dans une autre image. Ces visages constitueront la cible.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_multiple_ref)]
+
+### <a name="find-matches"></a>Rechercher des correspondances
+
+Le code suivant utilise la méthode **[FindSimilar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.FindSimilar)** pour rechercher tous les visages cibles qui correspondent au visage source.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar)]
+
+### <a name="print-matches"></a>Afficher les correspondances
+
+Le code suivant affiche les détails relatifs aux correspondances sur la console.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
+
 
 ## <a name="run-the-application"></a>Exécution de l'application
 

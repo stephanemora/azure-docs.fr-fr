@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.date: 06/21/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: bccb9427f29f9982ca70f2551c48e462cfa16e00
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 5cbb4496b9317e64c0cdec8e78bf825d19d8bd38
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112522066"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258615"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm"></a>Qu’est-ce que Azure Key Vault Managed HSM ?
 
-Azure Key Vault Managed HSM est un service cloud complètement managé, à haut niveau de disponibilité et monolocataire, qui vous permet de protéger les clés de chiffrement de vos applications cloud en utilisant des modules de sécurité matériels certifiés **FIPS 140-2 de niveau 3**. Pour plus d’informations sur les prix, consultez la section Pools de HSM managés de la page [Tarification Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). 
+Azure Key Vault Managed HSM est un service cloud complètement managé, hautement disponible et monolocataire qui vous permet de protéger les clés de chiffrement de vos applications cloud en utilisant des HSM (Hardware Security Module) certifiés **FIPS 140-2 de niveau 3**. Pour plus d’informations sur les prix, consultez la section Pools de HSM managés de la page [Tarification Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). 
 
 ## <a name="why-use-managed-hsm"></a>Pourquoi utiliser Managed HSM ?
 

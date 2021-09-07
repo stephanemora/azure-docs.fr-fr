@@ -1,29 +1,29 @@
 ---
 title: Qu’est-ce que Custom Vision ?
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser le service Azure Custom Vision pour créer des détecteurs d’images et des classifieurs d’images IA personnalisés dans le cloud Azure.
+description: Découvrez comment utiliser le service Azure Custom Vision pour créer des modèles AI personnalisés afin de détecter des objets ou de classifier des images.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 05/24/2021
+ms.date: 08/25/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, identificateur d’image, application de reconnaissance d’image, vision personnalisée
-ms.openlocfilehash: ff90aedd43622c3f6fb696c15b3034b2a133322d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: febd4b5921beff8f810b411dd1da96ac82b9a64d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322282"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309863"
 ---
 # <a name="what-is-custom-vision"></a>Qu’est-ce que Custom Vision ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Custom Vision est un service de reconnaissance d’image qui vous permet de créer, de déployer et d’améliorer vos propres identificateurs d’images. Un identificateur d’images applique des étiquettes (représentant des classes ou des objets) à des images en fonction de leurs caractéristiques visuelles. Contrairement au service [Vision par ordinateur](../computer-vision/overview.md), le service Custom Vision vous permet de spécifier les étiquettes et d’entraîner des modèles personnalisés pour les détecter.
+Azure Custom Vision est un service de reconnaissance d’image qui vous permet de créer, de déployer et d’améliorer vos propres modèles d’identificateurs d’images. Un identificateur d’images applique des étiquettes (représentant des classifications ou des objets) à des images en fonction de leurs caractéristiques visuelles détectées. Contrairement au service [Vision par ordinateur](../computer-vision/overview.md), le service Custom Vision vous permet de spécifier vos propres étiquettes et d’entraîner des modèles personnalisés pour les détecter.
 
 Cette documentation contient les types d’articles suivants :
 * Les [guides de démarrage rapide](./getting-started-build-a-classifier.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps.
@@ -33,17 +33,17 @@ Cette documentation contient les types d’articles suivants :
 
 ## <a name="what-it-does"></a>Résultat
 
-Le service Custom Vision utilise un algorithme de Machine Learning pour analyser les images. En tant que développeur, vous envoyez des groupes d’images présentant les caractéristiques en question ainsi que des groupes d’images n’en disposant pas. Vous étiquetez les images vous-même au moment de la soumission. L’algorithme s’entraîne ensuite avec ces données et calcule sa propre justesse en se testant lui-même à l’aide de ces mêmes images. Une fois que vous avez entraîné l’algorithme, vous pouvez le tester, le réentraîner, puis l’utiliser dans votre application de reconnaissance d’images pour classifier de nouvelles images. Vous pouvez également exporter le modèle en question pour l’utiliser en mode hors connexion.
+Le service Custom Vision utilise un algorithme de Machine Learning pour analyser les images. En tant que développeur, vous envoyez des groupes d’images présentant les caractéristiques en question ainsi que des groupes d’images n’en disposant pas. Vous étiquetez les images vous-même au moment de la soumission. L’algorithme s’entraîne ensuite avec ces données et calcule sa propre justesse en se testant lui-même à l’aide de ces mêmes images. Une fois que vous avez entraîné l’algorithme, vous pouvez le tester, le réentraîner, puis l’utiliser dans votre application de reconnaissance d’images pour [classifier des images](getting-started-build-a-classifier.md). Vous pouvez également [exporter le modèle](export-your-model.md) en question pour l’utiliser en mode hors connexion.
 
 ### <a name="classification-and-object-detection"></a>Classification et détection d’objet
 
-Les fonctionnalités du service Vision personnalisée peuvent être divisées en deux fonctionnalités. La **classification d’images** applique une ou plusieurs étiquettes à une image. La **détection d’objet** est similaire, mais elle retourne également les coordonnées dans l’image où se trouvent la ou les étiquettes appliquées.
+Les fonctionnalités du service Vision personnalisée peuvent être divisées en deux fonctionnalités. La **[classification d’images](getting-started-build-a-classifier.md)** applique une ou plusieurs étiquettes à une image. La **[détection d’objet](get-started-build-detector.md)** est similaire, mais elle retourne également les coordonnées dans l’image où se trouvent la ou les étiquettes appliquées.
 
 ### <a name="optimization"></a>Optimization
 
 Le service Custom Vision est optimisé pour reconnaître rapidement les principales différences entre les images. Vous pouvez ainsi commencer à prototyper votre modèle avec une petite quantité de données. Il est généralement conseillé de commencer avec 50 images par étiquette. Toutefois, le service n’est pas optimal pour la détection de différences subtiles au sein des images (par exemple, la détection de petites fissures ou de petits trous dans des scénarios d’assurance qualité).
 
-En outre, vous pouvez choisir parmi plusieurs types d’algorithme de Custom Vision qui sont optimisés pour certains sujets (par exemple, des points de repère ou des articles vendus au détail). Pour plus d’informations, consultez les guides [Créer un classifieur](getting-started-build-a-classifier.md) et [Créer un détecteur d’objet](get-started-build-detector.md).
+En outre, vous pouvez choisir parmi plusieurs variantes d’algorithme de Custom Vision qui sont optimisées pour certains sujets (par exemple, des points de repère ou des articles vendus au détail). Pour plus d’informations, consultez [Sélectionner un domaine](select-domain.md).
 
 ## <a name="what-it-includes"></a>Contenu
 

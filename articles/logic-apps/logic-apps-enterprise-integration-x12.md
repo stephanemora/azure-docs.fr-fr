@@ -1,47 +1,64 @@
 ---
-title: Envoyer et recevoir des messages X12 pour le B2B
-description: Échanger des messages X12 dans le cadre de scénarios d’intégration d’entreprise B2B à l’aide de Azure Logic Apps avec Enterprise Integration Pack
+title: Échanger des messages X12 pour l’intégration B2B
+description: Envoyez, recevez et traitez des messages X12 lors de la création de solutions d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 04/29/2020
-ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.reviewer: estfan, divswa, azla
+ms.topic: how-to
+ms.date: 07/16/2021
+ms.openlocfilehash: 5328fad1530ee8dd7b4a2c79581d443488c44b28
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077468"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453838"
 ---
-# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-using-azure-logic-apps-and-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B en utilisant Azure Logic Apps et Enterprise Integration Pack
 
-Pour utiliser des messages X12 dans Azure Logic Apps, vous pouvez vous servir du connecteur X12, qui fournit des déclencheurs et des actions pour la gestion de la communication X12. Pour plus d’informations sur les messages EDIFACT, consultez [Échanger des messages EDIFACT](logic-apps-enterprise-integration-edifact.md).
+Dans Azure Logic Apps, vous pouvez créer des workflows qui manipulent des messages X12 en utilisant des opérations **X12**. Ces opérations incluent les déclencheurs et les actions que vous pouvez utiliser dans votre workflow pour gérer la communication X12. Vous pouvez ajouter des déclencheurs et des actions X12 comme tout autre déclencheur ou action d’un workflow, mais vous devez respecter des prérequis supplémentaires pour pouvoir utiliser des opérations X12.
+
+Cet article décrit les conditions et les paramètres d’utilisation des déclencheurs et des actions X12 dans votre workflow. Si vous recherchez des messages EDIFACT à la place, consultez [Échanger des messages EDIFACT](logic-apps-enterprise-integration-edifact.md). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](logic-apps-overview.md) et [Démarrage rapide - Créer un workflow d’intégration avec Azure Logic Apps multilocataire et le portail Azure](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* L’application logique à partir de laquelle vous souhaitez utiliser le connecteur X12 et un déclencheur qui démarre le flux de travail de votre application logique. Le connecteur X12 fournit uniquement des actions, pas des déclencheurs. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Une ressource d’application logique et un workflow dans lesquels vous souhaitez utiliser un déclencheur ou une action X12. Pour utiliser un déclencheur X12, vous avez besoin d’un workflow vide. Pour utiliser une action X12, vous avez besoin d’un workflow qui a un déclencheur existant.
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associé à votre abonnement Azure et lié à l’application logique dans laquelle vous prévoyez d’utiliser le connecteur X12. Votre application logique et votre compte d’intégration doivent tous deux exister dans le même emplacement ou dans la même région Azure.
+* Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) lié à votre ressource d’application logique. Vos application logique et compte d’intégration doivent utiliser le même abonnement Azure et se trouver dans la même région ou localisation Azure.
 
-* Au moins deux [partenaires commerciaux](../logic-apps/logic-apps-enterprise-integration-partners.md) déjà définis dans votre compte d’intégration à l’aide du qualificateur d’identité X12.
+  Votre compte d’intégration doit également inclure les artefacts B2B suivants :
 
-* Les [schémas](../logic-apps/logic-apps-enterprise-integration-schemas.md) à utiliser pour la validation XML que vous avez déjà ajoutée à votre compte d’intégration. Si vous utilisez des schémas HIPAA (Health Insurance Portability and Accountability Act), consultez les [schémas HIPAA](#hipaa-schemas).
+  * Au moins deux [partenaires commerciaux](logic-apps-enterprise-integration-partners.md) qui utilisent le qualificateur d’identité X12.
 
-* Pour pouvoir utiliser le connecteur X12, vous devez créer un [contrat](../logic-apps/logic-apps-enterprise-integration-agreements.md) X12 entre vos partenaires commerciaux et le stocker dans votre compte d’intégration. Si vous utilisez des schémas HIPAA (Health Insurance Portability and Accountability Act), vous devez ajouter une section `schemaReferences` à votre contrat. Pour plus d’informations, consultez [Schémas HIPAA](#hipaa-schemas).
+  * Un [contrat](logic-apps-enterprise-integration-agreements.md) X12 défini entre vos partenaires commerciaux. Pour plus d’informations sur les paramètres à utiliser lors de la réception et de l’envoi de messages, consultez [Paramètres de réception](#receive-settings) et [Paramètres d’envoi](#send-settings).
+
+    > [!IMPORTANT]
+    > Si vous utilisez des schémas HIPAA (Health Insurance Portability and Accountability Act), vous devez ajouter une section `schemaReferences` à votre contrat. Pour plus d’informations, consultez [Schémas HIPAA et types de messages](#hipaa-schemas).
+
+  * Les [schémas](logic-apps-enterprise-integration-schemas.md) à utiliser pour la validation XML.
+
+    > [!IMPORTANT]
+    > Si vous utilisez des schémas HIPAA (Health Insurance Portability and Accountability Act), consultez [Schémas HIPAA et types de messages](#hipaa-schemas).
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/x12/).
+
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages B2B de l’ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 <a name="receive-settings"></a>
 
 ## <a name="receive-settings"></a>Paramètres de réception
 
-Après avoir défini les propriétés du contrat, vous pouvez configurer la manière dont ce contrat identifie et traite les messages entrants reçus par votre partenaire par l’intermédiaire de ce contrat.
+Après avoir défini les propriétés de votre contrat, vous pouvez configurer la manière dont ce contrat identifie et traite les messages entrants reçus par votre partenaire par l’intermédiaire de ce contrat.
 
 1. Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 
-1. Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Les **Paramètres de réception** sont organisés selon les sections suivantes :
+1. En fonction du contrat avec le partenaire qui échange des messages avec vous, définissez les propriétés dans le volet **Paramètres de réception**, qui est organisé selon les sections suivantes :
 
    * [Identificateurs](#inbound-identifiers)
    * [Accusé de réception](#inbound-acknowledgement)
@@ -50,8 +67,6 @@ Après avoir défini les propriétés du contrat, vous pouvez configurer la mani
    * [Numéros de contrôle](#inbound-control-numbers)
    * [Validations](#inbound-validations)
    * [Paramètres internes](#inbound-internal-settings)
-
-   Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
 1. Une fois que vous avez terminé, sélectionnez **OK** pour enregistrer vos paramètres.
 
@@ -200,7 +215,7 @@ Après avoir défini les propriétés du contrat, vous pouvez configurer la mani
 | Propriété | Description |
 |----------|-------------|
 | **TA1 attendu** | Renvoie un accusé de réception technique (TA1) à l’expéditeur de l’échange. <p>Ce paramètre spécifie que le partenaire hôte qui envoie le message demande un accusé de réception de la part du partenaire invité figurant dans le contrat. Ces accusés de réception sont attendus par le partenaire hôte en fonction des paramètres de réception du contrat. |
-| **FA attendu** | Renvoie un accusé de réception fonctionnel (FA) à l’expéditeur de l’échange. Pour la propriété **version FA**, en fonction de la version du schéma, sélectionnez les accusés de réception 997 ou 999. <p>Ce paramètre spécifie que le partenaire hôte qui envoie le message demande un accusé de réception de la part du partenaire invité figurant dans le contrat. Ces accusés de réception sont attendus par le partenaire hôte en fonction des paramètres de réception du contrat. |
+| **FA attendu** | Renvoie un accusé de réception fonctionnel (FA) à l’expéditeur de l’échange. Pour la propriété **version FA**, en fonction de la version du schéma, sélectionnez les accusés de réception 997 ou 999. <p>Ce paramètre spécifie que le partenaire hôte, qui envoie le message, demande un accusé de réception de la part du partenaire invité figurant dans le contrat. Ces accusés de réception sont attendus par le partenaire hôte en fonction des paramètres de réception du contrat. |
 |||
 
 <a name="outbound-schemas"></a>
@@ -309,7 +324,7 @@ La ligne **Par défaut** affiche les règles de validation utilisées pour un ty
 
 ## <a name="hipaa-schemas-and-message-types"></a>Schémas HIPAA et types de messages
 
-Lorsque vous utilisez des schémas HIPAA et les types de message 277 ou 837, vous devez effectuer quelques étapes supplémentaires. Les [numéros de version de document (GS8)](#outbound-control-version-number) pour ces types de messages comportent plus de 9 caractères, par exemple, « 005010X222A1 ». En outre, certains numéros de version de document sont mappés à des types de messages des variants. Si vous ne faites pas référence au type de message approprié dans votre schéma et dans votre contrat, vous recevez ce message d’erreur :
+Lorsque vous utilisez des schémas HIPAA et les types de message 277 ou 837, vous devez effectuer quelques étapes supplémentaires. Les [numéros de version de document (GS8)](#outbound-control-version-number) pour ces types de messages comportent plus de neuf caractères, par exemple, « 005010X222A1 ». En outre, certains numéros de version de document sont mappés à des types de messages des variants. Si vous ne faites pas référence au type de message approprié dans votre schéma et dans votre contrat, vous recevez ce message d’erreur :
 
 `"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
@@ -335,7 +350,7 @@ Pour spécifier ces numéros de version de document et types de messages, procé
 
    1. Dans le Portail Azure, accédez à votre compte d’intégration. Recherchez et téléchargez votre schéma. Remplacez le type de message et renommez le fichier de schéma, puis chargez votre schéma révisé dans votre compte d’intégration. Pour plus d’informations, consultez [Modifier les schémas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
 
-   1. Dans les paramètres de message de votre contrat, sélectionnez le schéma révisé.
+   1. Dans les paramètres de message du contrat, sélectionnez le schéma révisé.
 
 1. Dans l’objet `schemaReferences` de votre contrat, ajoutez une autre entrée qui spécifie le type de message du variant correspondant au numéro de version de document.
 
@@ -378,13 +393,8 @@ Pour spécifier ces numéros de version de document et types de messages, procé
 
    ![Désactiver la validation pour tous les types de messages ou chaque type de message](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 
-## <a name="connector-reference"></a>Référence de connecteur
-
-Pour obtenir des informations techniques complémentaires sur ce connecteur, notamment au sujet des actions et des limites décrites dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/x12/).
-
-> [!NOTE]
-> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages B2B de l’ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Plus d’informations sur les autres [connecteurs pour Logic apps](../connectors/apis-list.md)
+* [Accusés de réception techniques et codes d’erreur X12 TA1](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md)
+* [Accusés de réception techniques et codes d’erreur X12 997](logic-apps-enterprise-integration-x12-997-acknowledgment.md)
+* [Connecteurs pour Azure Logic Apps](../connectors/apis-list.md)

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: article
 ms.date: 06/07/2021
 ms.author: duau
-ms.openlocfilehash: 8deecdc043a7a39f77e96e8be5eb8bb8ef4f6191
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f76c996f75dce0ea1f6aae8dc8c86ac80f6006a5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527688"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253874"
 ---
 # <a name="azure-route-server-preview-faq"></a>Forum aux questions sur Azure Route Server (préversion)
 
@@ -24,10 +24,6 @@ ms.locfileid: "122527688"
 ## <a name="what-is-azure-route-server"></a>Qu’est-ce qu’Azure Route Server ?
 
 Azure Route Server est un service complètement managé qui vous permet de gérer facilement le routage entre votre appliance virtuelle réseau (NVA) et votre réseau virtuel.
-
-## <a name="why-does-azure-route-server-require-a-public-ip-address"></a>Pourquoi Serveur de routes Azure nécessite-t-il une adresse IP publique ?
-
-Serveur de routes Azure doit garantir la connectivité au service back-end qui gère la configuration de Serveur de routes, car une telle adresse IP publique est nécessaire. 
 
 ### <a name="is-azure-route-server-just-a-vm"></a>Azure Route Server est-il juste une machine virtuelle ?
 
@@ -52,6 +48,10 @@ Non. Azure Route Server échange des routes BGP uniquement avec votre NVA. Le tr
 
 ### <a name="does-azure-route-server-store-customer-data"></a>Serveur de routes Azure stocke-t-il les données des clients ?
 Non. Serveur de routes Azure échange uniquement les itinéraires BGP avec votre appliance virtuelle réseau, puis les propage vers votre réseau virtuel.
+
+### <a name="why-does-azure-route-server-require-a-public-ip-address"></a>Pourquoi Serveur de routes Azure nécessite-t-il une adresse IP publique ?
+
+Serveur de routes Azure doit garantir la connectivité au service back-end qui gère la configuration de Serveur de routes, car une telle adresse IP publique est nécessaire. 
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Si le serveur de routes Azure reçoit la même route de plusieurs appliances virtuelles réseau, comment la gère-t-il ?
 

@@ -8,12 +8,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/19/2021
-ms.openlocfilehash: d015c5182b51c655d45365a2f45a9f9d08db582b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: ff0dc37b70861dae8cddb77ef984c27109eefc15
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835627"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525108"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -51,7 +51,7 @@ Pour finir, vous téléchargez et installez la dernière version de l'IR auto-h�
   
   Si vous utilisez des pilotes OLEDB/ODBC/ADO.NET pour d’autres systèmes de base de données, comme PostgreSQL, MySQL, Oracle, etc., vous pouvez télécharger les versions 64 bits à partir de leur site web.
 - Si vous utilisez des composants de flux de données d'Azure Feature Pack dans vos packages, [téléchargez et installez Azure Feature Pack pour SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) sur l'ordinateur où votre IR auto-hébergé est installé, si ce n'est déjà fait.
-- Si ce n’est pas déjà fait, [téléchargez et installez la version 64 bits du runtime Visual C++ (VC)](https://www.microsoft.com/en-us/download/details.aspx?id=40784) sur l’ordinateur où votre IR auto-hébergé est installé.
+- Si ce n’est pas déjà fait, [téléchargez et installez la version 64 bits du runtime Visual C++ (VC)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) sur l’ordinateur où votre IR auto-hébergé est installé.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Utiliser l'authentification Windows pour des tâches locales
 

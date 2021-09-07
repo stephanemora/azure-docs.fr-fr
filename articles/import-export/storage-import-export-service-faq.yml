@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 01/14/2021
+  ms.date: 08/24/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: 51af880897564851750dccd756601d86a1dab889
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: bfdbb966783e4f95945933c074265d8c45ee1f61
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113094832"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122867608"
 title: 'Service Azure Import/Export : Questions fréquentes (FAQ)'
 summary: >
   Vous trouverez ci-dessous des questions et réponses relatives à l’utilisation du service Azure Import/Export pour le transfert de données vers le Stockage Azure.
@@ -124,6 +124,10 @@ sections:
       Au moment d’expédier mon disque, le transporteur me demande l’adresse de contact et le numéro de téléphone du centre de données. Que dois-je indiquer ?
     answer: >
       Le numéro de téléphone et l’adresse du centre de données sont fournis dans le cadre de la création de la tâche.
+  - question: >
+      Pourquoi ma commande est-elle encore à l’état Expédition alors que j’ai déjà reçu mon appareil ?
+    answer: >
+      Après que le transporteur a livré un appareil physique, il faut compter de un à trois jours ouvrés pour que la livraison soit traitée dans Azure Import/Export. Une fois la livraison traitée, la commande passe à l’état Reçu.
 - name: Divers
   questions:
   - question: >

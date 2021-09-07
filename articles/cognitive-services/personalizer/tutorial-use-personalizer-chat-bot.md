@@ -1,17 +1,20 @@
 ---
 title: Utiliser Personalizer dans un chatbot - Personalizer
 description: Personnalisez un chatbot .NET C# à l’aide d’une boucle Personalizer pour fournir le contenu approprié à un utilisateur en fonction d’actions (avec des caractéristiques) et de caractéristiques de contexte.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4cc2fcfb73117edf27421dd8c91161d12bab7a7a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 15774ad99391dee3cc89bec6fa09bb808715a4ef
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097909"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830290"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutoriel : Utiliser Personalizer dans un chatbot .NET
 
@@ -33,7 +36,7 @@ Fondamentalement, un chatbot est un mécanisme de conversation bidirectionnelle 
 
 Le chatbot doit gérer des tours de conversation. Le chatbot utilise le [Bot Framework](https://github.com/microsoft/botframework-sdk) pour gérer l’architecture du bot et la conversation. Par ailleurs, il utilise le service cognitif LUIS ([Language Understanding](../LUIS/index.yml)) pour comprendre l’intention du langage naturel de l’utilisateur.
 
-Le chatbot est un site web avec une route spécifique disponible pour répondre aux demandes : `http://localhost:3978/api/messages`. Vous pouvez utiliser l’émulateur de bot pour interagir visuellement avec le chatbot en cours d’exécution tout en développant un bot localement.
+Le chatbot est un site web avec une route spécifique disponible pour répondre aux demandes : `http://localhost:3978/api/messages`. Vous pouvez utiliser Bot Framework Emulator pour interagir visuellement avec le chatbot en cours d’exécution tout en développant un bot localement.
 
 ### <a name="user-interactions-with-the-bot"></a>Utiliser des interactions avec le bot
 
@@ -174,24 +177,24 @@ Après avoir configuré `appsettings.json`, vous êtes prêt à générer et ex�
 Conservez le site web en cours d’exécution. En effet, le tutoriel explique ce que fait le bot et vous pouvez ainsi interagir avec ce dernier.
 
 
-## <a name="set-up-the-bot-emulator"></a>Configurer l’émulateur de bot
+## <a name="set-up-the-bot-framework-emulator"></a>Configurer Bot Framework Emulator
 
 1. Ouvrez Bot Framework Emulator, puis sélectionnez **Open Bot** (Ouvrir le bot).
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Capture d’écran de l’écran de démarrage de l’émulateur de bot":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Capture d’écran de l’écran de démarrage de Bot Framework Emulator":::
 
 
 1. Configurez le bot en spécifiant l’URL de bot suivante sous **Bot URL**, puis sélectionnez **Connect** :
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Capture d’écran des paramètres d’ouverture de bot dans l’émulateur de bot":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Capture d’écran des paramètres d’ouverture de bot dans Bot Framework Emulator":::
 
     L’émulateur se connecte au chatbot et affiche le texte d’instructions avec les informations de journalisation et de débogage, utiles pour le développement local.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Capture d’écran de l’émulateur de bot au premier tour de la conversation":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Capture d’écran de Bot Framework Emulator au premier tour de la conversation":::
 
-## <a name="use-the-bot-in-the-bot-emulator"></a>Utiliser le bot dans l’émulateur de bot
+## <a name="use-the-bot-in-the-bot-framework-emulator"></a>Utiliser le bot dans Bot Framework Emulator
 
 1. Demandez l’affichage du menu en entrant `I would like to see the menu`. Le chatbot affiche les éléments.
 1. Demandez au bot de suggérer un élément en entrant `Please suggest a drink for me.`. L’émulateur affiche la requête Rank et la réponse dans la fenêtre de conversation. Vous pouvez ainsi voir l’ensemble du code JSON. Le bot affiche alors une suggestion, par exemple `How about Latte?`.

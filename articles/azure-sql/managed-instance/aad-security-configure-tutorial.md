@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d763931e7baec0fb17cfc127834cbfccec51d7d6
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639848"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256099"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité dans Azure SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -213,8 +213,7 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
       GO
       ```
 
-> [!NOTE]
-> Les utilisateurs invités Azure AD sont pris en charge pour les connexions SQL Managed Instance uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans l’instance Azure AD à laquelle appartient l’instance managée, à partir d’une autre instance Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte Microsoft) peuvent être ajoutés à un groupe dans l’instance Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** SQL Managed Instance pour le groupe à l’aide de la syntaxe **CREATE LOGIN**. Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
+Les utilisateurs invités sont pris en charge en tant qu’utilisateurs individuels (sans faire nécessairement partie d’un groupe AAD) et les connexions peuvent être créées directement dans la base de données MASTER (par exemple, joe@contoso.con) avec la syntaxe de connexion actuelle.
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Créer un utilisateur Azure AD à partir du principal de serveur (connexion) Azure AD
 

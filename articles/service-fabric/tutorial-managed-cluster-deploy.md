@@ -2,14 +2,14 @@
 title: Déployer un cluster Service Fabric managé
 description: Dans ce tutoriel, vous allez déployer un cluster Service Fabric managé à des fins de test.
 ms.topic: tutorial
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: f87e45dcaab5e42607f24decc5897471a74e90b5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3117c4c248aa073fb961dc031342d8b3d9489bbd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666926"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867401"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster"></a>Tutoriel : Déployer un cluster Service Fabric managé
 
@@ -52,9 +52,6 @@ Set-AzContext -SubscriptionId <your-subscription>
 ## <a name="create-a-new-resource-group"></a>Créer un groupe de ressources
 
 Ensuite, créez le groupe de ressources pour le cluster Service Fabric managé, en remplaçant `<your-rg>` et `<location>` par le nom du groupe et l’emplacement souhaités.
-
-> [!NOTE]
-> Les régions prises en charge pour la préversion publique incluent `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` et `eastus2`.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

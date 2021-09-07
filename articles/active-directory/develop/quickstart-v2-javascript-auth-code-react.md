@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: f380a2807ad4efa6c2da2df8aabf3b521918d64c
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 1ce5a7e2532fd150b5445e3b243c841d797b4157
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112516810"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226866"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connecter et obtenir un jeton d’accès dans une application monopage (SPA) React à l’aide du flux du code d’authentification
 
@@ -187,7 +187,7 @@ npm install @azure/msal-browser @azure/msal-react
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour avoir un guide pas à pas détaillé sur la création de l’application de flux de code d’authentification en utilisant JavaScript vanilla, consultez le tutoriel suivant :
+Essayez ensuite de suivre un tutoriel pas à pas pour apprendre à créer une application monopage (SPA) React à partir de zéro, qui connecte les utilisateurs et appelle l’API Microsoft Graph pour obtenir des données de profil utilisateur :
 
 > [!div class="nextstepaction"]
-> [Tutoriel pour se connecter et appeler MS Graph](./tutorial-v2-javascript-auth-code.md)
+> [Tutoriel : Connecter des utilisateurs et appeler Microsoft Graph](tutorial-v2-react.md)

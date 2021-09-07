@@ -5,14 +5,14 @@ author: miag
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/24/2021
 ms.author: miag
-ms.openlocfilehash: 34b83376a555b5fd06947049f959badc9a1aed67
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 4d5a518bc517b950f5366ba53eadb7284121a5e3
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731075"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866407"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Prise en charge des identités managées par IoT Hub 
 
@@ -273,7 +273,7 @@ La fonctionnalité de [chargement de fichiers](iot-hub-devguide-file-upload.md) 
     > Vous devez effectuer les étapes ci-dessus pour attribuer à l’identité managée le bon accès avant d’enregistrer le compte de stockage dans IoT Hub pour le chargement de fichiers à l’aide de l’identité managée. Patientez quelques minutes pour que l’attribution de rôle se propage. 
  
 5. Sur la page des ressources de votre hub IoT, accédez à l’onglet **Chargement de fichiers**.
-6. Sur la page qui s’affiche, sélectionnez le conteneur que vous comptez utiliser dans votre stockage blob, puis configurez les **paramètres de notification de fichier, la durée de vie SAP, la durée de vie par défaut et le nombre maximal de distributions** comme vous le souhaitez. Choisissez le type d’authentification de votre choix, puis cliquez sur **Enregistrer**.
+6. Sur la page qui s’affiche, sélectionnez le conteneur que vous comptez utiliser dans votre stockage blob, puis configurez les **paramètres de notification de fichier, la durée de vie SAP, la durée de vie par défaut et le nombre maximal de distributions** comme vous le souhaitez. Choisissez le type d’authentification de votre choix, puis cliquez sur **Enregistrer**. Si vous recevez une erreur à cette étape, configurez temporairement votre compte de stockage afin d’autoriser l’accès à partir de **tous les réseaux**, puis réessayez. Vous pouvez configurer le pare-feu sur le compte de stockage une fois la configuration du chargement de fichiers terminée.
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="Chargement de fichiers IoT Hub avec MSI":::
 

@@ -2,14 +2,14 @@
 title: Effectuer le scale-out d’un cluster Service Fabric managé
 description: Dans ce tutoriel, découvrez comment effectuer le scale-out d’un type de nœud d’un cluster Service Fabric managé.
 ms.topic: tutorial
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e2bd57925ddb78dcfe23742b35c1490584558f8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 938c163f4b27706999f7fe32f7935d4d7877c96b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666874"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864967"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster"></a>Tutoriel : Effectuer le scale-out d’un cluster Service Fabric managé
 
@@ -35,7 +35,7 @@ Cette partie de la série explique comment :
 Modifiez le nombre d’instances pour augmenter ou diminuer le nombre de nœuds sur le type de nœud que vous souhaitez mettre à l’échelle. Vous pouvez trouver les noms des types de nœuds dans le modèle Azure Resource Manager (modèle ARM) à partir de votre déploiement de cluster ou dans Service Fabric Explorer.  
 
 > [!NOTE]
-> Si le type de nœud est « Principal », vous ne pourrez pas descendre en dessous de 3 nœuds pour un cluster de référence SKU « De base » et de 5 nœuds pour un cluster de référence SKU « Standard ».
+> Pour le type de nœud Principal, vous ne pouvez pas descendre en dessous de 3 nœuds pour un cluster avec la référence SKU De base et de 5 nœuds pour un cluster avec la référence SKU Standard.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

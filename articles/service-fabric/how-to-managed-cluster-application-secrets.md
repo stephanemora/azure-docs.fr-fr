@@ -1,18 +1,18 @@
 ---
-title: Utiliser des secrets d’application dans des clusters managés Service Fabric
-description: En savoir plus sur les secrets d’application Azure Service Fabric et sur la façon de collecter les informations nécessaires pour une utilisation dans des clusters managés
+title: Déployer des secrets d’application dans un cluster géré par Service Fabric
+description: En savoir plus sur les secrets d’application Azure Service Fabric et leur déploiement dans un cluster géré
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 820fb2a116ba5343a2f2126950a7f5d5896ddee3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 8/23/2021
+ms.openlocfilehash: 81fbd254f6aee216661e720a73c97e89351a9fad
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950129"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867344"
 ---
-# <a name="use-application-secrets-in-service-fabric-managed-clusters"></a>Utiliser des secrets d’application dans des clusters managés Service Fabric
+# <a name="deploy-application-secrets-to-a-service-fabric-managed-cluster"></a>Déployer des secrets d’application dans un cluster géré par Service Fabric
 
-Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut. Cet article utilise Azure Key Vault pour gérer les clés et les secrets, comme c’est le cas pour les clusters managés Service Fabric. Toutefois, *l’utilisation de* secrets dans une application cloud est indépendante de la plateforme et permet ainsi un déploiement d’applications dans un cluster hébergé à n’importe quel endroit.
+Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut. Nous vous recommandons d’utiliser Azure Key Vault pour gérer des clés et secrets pour des clusters gérés par Service Fabric, et d’en tirer parti pour cet article. Toutefois, *l’utilisation de* secrets dans une application cloud est indépendante de la plateforme et permet ainsi un déploiement d’applications dans un cluster hébergé à n’importe quel endroit.
 
 La méthode recommandée pour gérer les paramètres de configuration de service consiste à utiliser des [packages de configuration de service][config-package]. Les versions des packages de configuration sont gérées et peuvent être mises à jour par le biais de mises à niveau propagées gérées avec validation de l’intégrité et la restauration automatique. Cette option est préférable à une configuration globale, car elle réduit le risque d’interruption de service globale. Les secrets chiffrés ne font pas exception. Service Fabric dispose de fonctionnalités intégrées pour chiffrer et déchiffrer des valeurs dans un fichier de package de configuration Settings.xml à l’aide du cryptage de certificat.
 
@@ -45,11 +45,11 @@ Ce certificat doit être installé sur chaque nœud du cluster et les clusters m
 Pour les clusters managés, vous avez besoin de trois valeurs : deux pour Azure Key Vault et une pour le nom de magasin local sur les nœuds.
 
 Paramètres : 
-* Coffre source : Il s’agit de cet 
+* `Source Vault` : il s’agit de 
     * exemple : /subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1
-* URL de certificat : Il s’agit de l’identificateur d’objet complet. Elle n’est pas sensible à la casse et est immuable
+* `Certificate URL` : identificateur d’objet complet, non sensible à la casse et immuable
     * https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}
-* Magasin de certificats : Il s’agit du magasin de certificats local sur les nœuds où le certificat sera placé
+* `Certificate Store` : magasin de certificats local sur les nœuds où le certificat sera placé
     * nom du magasin de certificats sur les nœuds ; par exemple : « MY »
 
 Les clusters managés Service Fabric prennent en charge deux méthodes pour ajouter des secrets spécifiques à la version à vos nœuds.

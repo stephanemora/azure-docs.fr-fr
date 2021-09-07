@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7bdc0008baa1ee03c11aeeba03485fd7cd09e6f9
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612515"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969813"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant sur Hyper-V avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -138,7 +138,8 @@ Configurez un nouveau projet.
 Azure Migrate utilise une appliance Azure Migrate légère. L’appliance effectue la détection du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate. L’appliance peut être configurée en déployant un fichier VHD pouvant être téléchargé à partir du projet.
 
 > [!NOTE]
-> Si, pour une raison quelconque, vous ne pouvez pas configurer l’appliance à l’aide du modèle, vous pouvez la configurer à l’aide d’un script PowerShell sur un serveur Windows Server 2016 existant. [Plus d’informations](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)
+> Si, pour une raison quelconque, vous ne pouvez pas configurer l’appliance à l’aide du modèle, vous pouvez la configurer à l’aide d’un script PowerShell sur un serveur Windows Server 2016 existant. [Plus d’informations](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)<br/>
+> L’option de déploiement d’une appliance à l’aide d’un modèle VHD n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](/azure/migrate/deploy-appliance-script-government) sur le déploiement d’une appliance pour le cloud Azure Government.
 
 Ce tutoriel configure l’appliance sur un serveur s’exécutant dans l’environnement Hyper-V, de la façon suivante :
 

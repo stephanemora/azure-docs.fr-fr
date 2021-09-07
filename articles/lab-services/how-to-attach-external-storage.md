@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 9d59e8eab9aff857991a886838cc1063a36de00c
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: dc0f2a4f51fb12c61d0e1e16cb23d030a5dc9cc6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112120111"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969272"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Utiliser le stockage de fichiers externes dans Lab Services
 
@@ -51,11 +51,11 @@ Si vous utilisez un point de terminaison privé pour le partage Azure Files, il 
 Procédez comme suit pour créer une machine virtuelle connectée à un partage Azure Files.
 
 1. Créez un [compte de stockage Azure](../storage/files/storage-how-to-create-file-share.md). Sur la page **Méthode de connectivité**, choisissez un **point de terminaison public** ou **privé**.
-2. Si vous avez choisi la méthode privée, créez un [point de terminaison privé](../private-link/tutorial-private-endpoint-storage-portal.md) afin que les partages de fichiers soient accessibles à partir du réseau virtuel. Créez une [zone DNS privée](../dns/private-dns-privatednszone.md) ou utilisez-en une existante. Les zones Azure DNS privées fournissent une résolution de noms au sein d’un réseau virtuel.
-3. Créez un [partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md). Le partage de fichiers est accessible par le nom d’hôte public du compte de stockage.
+2. Si vous avez choisi la méthode privée, créez un [point de terminaison privé](../private-link/tutorial-private-endpoint-storage-portal.md) afin que les partages de fichiers soient accessibles à partir du réseau virtuel.
+3. Créez un [partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md). Le partage de fichiers est accessible par le nom d’hôte public du compte de stockage en cas d’utilisation d’un point de terminaison public.  Le partage de fichiers est accessible par une adresse IP privée en cas d’utilisation d’un point de terminaison privé.  
 4. Montez le partage de fichiers Azure dans le modèle de machine virtuelle :
     - [Windows](../storage/files/storage-how-to-use-files-windows.md)
-    - [Linux](../storage/files/storage-how-to-use-files-linux.md). Pour éviter les problèmes de montage sur les machines virtuelles des étudiants, consultez la section suivante.
+    - [Linux](../storage/files/storage-how-to-use-files-linux.md). Pour éviter les problèmes de montage sur les machines virtuelles des étudiants, consultez la section [Utiliser Azure Files avec Linux](#use-azure-files-with-linux).
 5. [Publiez](how-to-create-manage-template.md#publish-the-template-vm) le modèle de machine virtuelle.
 
 > [!IMPORTANT]
@@ -65,6 +65,7 @@ Procédez comme suit pour créer une machine virtuelle connectée à un partage 
 
 Si vous utilisez les instructions par défaut pour monter un partage de fichiers Azure, le partage de fichiers semble disparaître sur les machines virtuelles des étudiants une fois le modèle publié. Le script modifié suivant résout ce problème.  
 
+Pour un partage de fichiers avec un point de terminaison public :
 ```bash
 #!/bin/bash
 
@@ -88,6 +89,34 @@ fi
 sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
 
 sudo bash -c "echo ""//$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
+sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
+```
+
+Pour un partage de fichiers avec un point de terminaison privé :
+```bash
+#!/bin/bash
+
+# Assign variables values for your storage account and file share
+storage_account_name=""
+storage_account_ip=""
+storage_account_key=""
+fileshare_name=""
+
+# Do not use 'mnt' for mount directory.
+# Using ‘mnt’ will cause issues on student VMs.
+mount_directory="prm-mnt" 
+
+sudo mkdir /$mount_directory/$fileshare_name
+if [ ! -d "/etc/smbcredentials" ]; then
+    sudo mkdir /etc/smbcredentials
+fi
+if [ ! -f "/etc/smbcredentials/$storage_account_name.cred" ]; then
+    sudo bash -c "echo ""username=$storage_account_name"" >> /etc/smbcredentials/$storage_account_name.cred"
+    sudo bash -c "echo ""password=$storage_account_key"" >> /etc/smbcredentials/$storage_account_name.cred"
+fi
+sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
+
+sudo bash -c "echo ""//$storage_account_ip/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
 sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
 ```
 

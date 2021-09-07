@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3db33f994c70d2c471ec8147672be5704406157d
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 8f653f8e41d45310cf6d90aebf0484b2a0ea7360
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765365"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272976"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrer des machines virtuelles VMware vers Azure (sans agent)
 
@@ -193,13 +193,14 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
 1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la réplication**. Cette action arrête la réplication pour la machine locale et nettoie les informations d’état de la réplication de la machine virtuelle.
-2. Nous installons automatiquement l’agent VM pour les machines virtuelles Windows et Linux pendant la migration. Si la machine est dotée d’un système d’exploitation Linux, passez en revue les [exigences](../virtual-machines/extensions/agent-linux.md#requirements) de l’agent Linux de machine virtuelle Azure sur les machines migrées pour vérifier que l’installation de l’agent VM Linux est effectuée correctement.
-3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
-4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
-5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.
-6. Supprimez les machines virtuelles locales de votre inventaire des machines virtuelles locales.
-7. Supprimez les machines virtuelles locales des sauvegardes locales.
-8. Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure.
+1. Nous installons automatiquement l’agent VM pour les machines virtuelles Windows et Linux pendant la migration.
+1. Examinez et [résolvez tout problème d’activation de Windows sur la machine virtuelle Azure.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des noms d’hôte, des chaînes de connexion de base de données et des configurations du serveur web.
+1. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
+1. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.
+1. Supprimez les machines virtuelles locales de votre inventaire des machines virtuelles locales.
+1. Supprimez les machines virtuelles locales des sauvegardes locales.
+1. Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure.
 
 ## <a name="post-migration-best-practices"></a>Bonnes pratiques après la migration
 

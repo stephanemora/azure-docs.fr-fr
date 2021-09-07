@@ -12,23 +12,25 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2021
+ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 123b3ab0f438c0577143c3780836a2a2c574412e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 4f79fc66b44de89ba93137b244e22890348ab1c4
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081025"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967200"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
 La gestion des secrets et des informations d'identification utilisés pour sécuriser la communication entre les différents composants d'une solution constitue un défi courant pour les développeurs. Les identités managées permettent aux développeurs de ne plus avoir à gérer les informations d'identification. Les identités managées fournissent une identité utilisée par les applications lorsqu'elles se connectent à des ressources qui prennent en charge l'authentification Azure Active Directory (Azure AD). Les applications peuvent utiliser l'identité managée pour obtenir des jetons Azure AD. Par exemple, une application peut utiliser une identité managée pour accéder à des ressources comme [Azure Key Vault](../../key-vault/general/overview.md) où les développeurs peuvent stocker des informations d'identification de manière sécurisée, ou pour accéder à des comptes de stockage.
 
-À quoi une identité managée peut-elle servir ?</br>
+Découvrez comment utiliser des identités managées</br>
 
-> [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+> [!VIDEO https://channel9.msdn.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+
+
 
 Voici quelques-uns des avantages de l’utilisation des identités managées :
 
@@ -46,7 +48,6 @@ Il existe deux types d’identités administrées :
 - **Affectation par le système** Certains services Azure vous permettent d’activer une identité managée directement sur une instance de service. Quand vous activez une identité managée affectée par le système, une identité est créée dans Azure AD qui est liée au cycle de vie de cette instance de service. Ainsi, quand la ressource est supprimée, Azure supprime automatiquement l’identité. Par défaut, seule cette ressource Azure peut utiliser cette identité pour demander des jetons à Azure AD.
 - **Affectation par l’utilisateur** Vous pouvez également créer une identité managée en tant que ressource Azure autonome. Vous pouvez [créer une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-portal.md) et l’attribuer à une ou plusieurs instances d’un service Azure. Une identité managée affectée par l’utilisateur est gérée séparément des ressources qui l’utilisent. </br></br>
 
-> [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
 Le tableau ci-dessous montre les différences entre les deux types d’identités managées.
 

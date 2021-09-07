@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8738f34ea9d038bbc5a0bc3d9f13be11db2b9e00
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4f9f9c9688340a153efab189cc24ace13fc4da6e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681707"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113589206"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -301,7 +301,7 @@ La rotation de la clé gérée par le client utilisée par votre compte Azure Co
     $account | Set-AzResource -Force
     ```
 
-La clé ou la version de clé précédente peut être désactivée après 24 heures ou une fois que les [journaux d’audit Azure Key Vault](../key-vault/general/logging.md) n’affichent plus d’activité Azure Cosmos DB sur cette clé ou version de clé.
+La clé ou la version de clé précédente peut être désactivée une fois que les [journaux d’audit Azure Key Vault](../key-vault/general/logging.md) n’affichent plus d’activité Azure Cosmos DB sur cette clé ou version de clé. Aucune autre activité ne doit avoir lieu sur la clé ou version de clé précédente après 24 heures de rotation de clé.
     
 ## <a name="error-handling"></a>Gestion des erreurs
 
@@ -341,7 +341,7 @@ Cette fonctionnalité n’est actuellement disponible que pour les nouveaux comp
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>Est-il possible d’utiliser des clés gérées par le client conjointement avec le [magasin analytique](analytical-store-introduction.md) Azure Cosmos DB ?
 
-Oui, mais vous devez [utiliser l’identité managée de votre compte Azure Cosmos DB](#using-managed-identity) dans votre stratégie d’accès Azure Key Vault avant d’activer le magasin analytique.
+Oui, Azure Synapse Link prend uniquement en charge la configuration des clés gérées par le client en utilisant l’identité managée de votre compte Azure Cosmos DB. Vous devez [utiliser l’identité managée de votre compte Azure Cosmos DB](#using-managed-identity) dans votre stratégie d’accès Azure Key Vault avant d’[activer Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) sur votre compte.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Existe-t-il un plan pour prendre en charge une plus grande précision que celle des clés au niveau du compte ?
 

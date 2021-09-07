@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e165340dc9856916a8c2ccdcd6609663282d63
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: f4dd89dd22345188c05dd607b4a71ea8ef733f73
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714095"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259968"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -29,7 +29,9 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 ## <a name="administration"></a>Administration
 
-* Si vous obtenez un message d’accès refusé lors de la configuration de la gestion des droits d’utilisation, et que vous êtes administrateur général, assurez-vous que votre annuaire comporte une [licence Azure AD Premium P2 (ou EMS E5)](entitlement-management-overview.md#license-requirements).
+* Si vous obtenez un message d’accès refusé lors de la configuration de la gestion des droits d’utilisation, et que vous êtes administrateur général, assurez-vous que votre annuaire comporte une [licence Azure AD Premium P2 (ou EMS E5)](entitlement-management-overview.md#license-requirements).  Si vous avez récemment renouvelé un abonnement Azure AD Premium P2 expiré, jusqu’à 8 heures peuvent s’écouler jusqu’à ce que le renouvellement de cette licence soit visible.
+
+* Si la licence Azure AD Premium P2 de votre locataire a expiré, vous ne pouvez pas traiter de nouvelles demandes d’accès ou effectuer des révisions d’accès.  
 
 * Si vous obtenez un message d’accès refusé lors de la création ou de la consultation de packages d’accès, et que vous êtes membre d’un groupe Créateur de catalogue, vous devez [créer un catalogue](entitlement-management-catalog-create.md) avant de créer votre premier package d’accès.
 
@@ -38,6 +40,8 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 * Les rôles des applications sont définis par l’application elle-même, et gérés dans Azure AD. Si une application n’a pas de rôle de ressource, la gestion des droits d’utilisation affecte aux utilisateurs un rôle **Accès par défaut**.
 
     Notez que le portail Azure peut également afficher les principaux de service des services qui ne peuvent pas être sélectionnés en tant qu’applications.  Plus particulièrement, **Exchange Online** et **SharePoint Online** sont des services, pas des applications disposant de rôles de ressources dans l’annuaire, ils ne peuvent donc pas être dans un package d’accès.  Utilisez plutôt la gestion des licences par groupe pour établir une licence appropriée, destinée à un utilisateur qui a besoin d’accéder à ces services.
+
+* Les applications qui prennent uniquement en charge les utilisateurs de comptes Microsoft personnels pour l’authentification, et non les comptes professionnels dans votre annuaire, ne disposent pas de rôles d’application et ne peuvent pas être ajoutées pour accéder aux catalogues de packages.
 
 * Pour qu’un groupe soit une ressource dans un package d’accès, il doit pouvoir être modifiable dans Azure AD.  Les groupes issus d’une instance Active Directory locale ne peuvent pas être attribués en tant que ressources, car leurs attributs de propriétaire ou de membre ne sont pas modifiables dans Azure AD.   Les groupes qui proviennent d’Exchange Online en tant que groupes de distribution ne peuvent pas être modifiés dans Azure AD. 
 

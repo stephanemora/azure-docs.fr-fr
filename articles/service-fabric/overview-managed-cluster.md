@@ -3,12 +3,12 @@ title: Clusters managés Service Fabric
 description: Les clusters managés Service Fabric sont une évolution du modèle de ressource de cluster Azure Service Fabric qui simplifie le déploiement et la gestion de cluster.
 ms.topic: overview
 ms.date: 5/10/2021
-ms.openlocfilehash: a412899f4aa37ce2257a3351c3e27da4d5d3add2
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 12f5c7bd16e8738aaadfb8ca9aeed491bab5b8e0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685258"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866915"
 ---
 # <a name="service-fabric-managed-clusters"></a>Clusters managés Service Fabric
 
@@ -33,12 +33,15 @@ En termes de taille et de complexité, le modèle ARM pour un cluster managé Se
 | Compte(s) de stockage | |
 | Réseau virtuel | |
 
-Les clusters managés Service Fabric offrent un certain nombre d’avantages par rapport aux clusters traditionnels :
+## <a name="service-fabric-managed-cluster-advantages"></a>Avantages du cluster managé Service Fabric
+Les clusters managés Service Fabric offrent un certain nombre d’avantages par rapport aux clusters traditionnels, notamment :
 
 **Déploiement et gestion simplifiés des clusters**
 - Déployer et gérer une seule ressource Azure
-- Gestion et autorotation des certificats
+- Gestion des certificats de cluster et rotation automatique tous les 90 jours
 - Opérations de mise à l’échelle simplifiées
+- Prise en charge de la mise à niveau automatique de l’image de système d’exploitation
+- Prise en charge des changements de référence SKU de système d’exploitation sur place
 
 **Empêcher les erreurs opérationnelles**
 - Empêcher les incompatibilités de configuration avec les ressources sous-jacentes
@@ -60,7 +63,7 @@ Les clusters managés Service Fabric sont disponibles la fois dans les SKU de ba
 | ------- | ----- | -------- |
 | Ressource réseau (SKU pour [Load Balancer](../load-balancer/skus.md), [adresse IP publique](../virtual-network/public-ip-addresses.md)) | De base | standard |
 | Nombre minimal de nœuds (instance de machine virtuelle) | 3 | 5 |
-| Nombre maximal de nœuds par type de nœud | 100 | 100 |
+| Nombre maximal de nœuds par type de nœud | 100 | 1 000 |
 | Nombre maximal de types de nœuds | 1 | 20 |
 | Ajouter/supprimer des types de nœuds | Non | Oui |
 | Redondance de zone | Non | Oui |
@@ -85,6 +88,8 @@ Pour commencer à utiliser des clusters managés Service Fabric, essayez le dém
 
 > [!div class="nextstepaction"]
 > [Créer un cluster managé Service Fabric](quickstart-managed-cluster-template.md)
+
+Et les informations de référence expliquant [comment configurer votre cluster managé](how-to-managed-cluster-configuration.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

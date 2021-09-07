@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein
-ms.date: 4/16/2021
-ms.openlocfilehash: 514e7e229ba1b72f2c357f6cefdd272889ed46b9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.reviewer: mathoma, wiassaf
+ms.date: 7/29/2021
+ms.openlocfilehash: ac1241b28ae85f19aa4bfdbc1a92310b64d88462
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591005"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532541"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Contrairement aux bases de données de calcul provisionné, la mémoire du cache
 
 Dans les bases de données de niveaux de calcul serverless et provisionné, des entrées de cache peuvent être supprimées si toute la mémoire disponible est utilisée.
 
-Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  En outre, il peut y avoir des délais supplémentaires après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan réguliers répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression et les tâches de nettoyage QDS génèrent des enregistrements fantômes marqués pour suppression, mais ne sont pas physiquement supprimés tant que le processus de nettoyage des éléments fantômes n’est pas exécuté, ce qui peut impliquer la lecture de pages de données dans le cache.
+Quand l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  Il peut y avoir aussi des délais supplémentaires après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan réguliers répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression et les tâches de nettoyage du Magasin des requêtes génèrent des enregistrements fantômes marqués pour suppression, mais qui ne sont pas physiquement supprimés tant que le processus de nettoyage des éléments fantômes n’est pas exécuté. Le nettoyage des éléments fantômes peut impliquer la lecture de pages de données supplémentaires dans le cache.
 
 #### <a name="cache-hydration"></a>Alimentation du cache
 
@@ -110,19 +110,58 @@ La taille du cache SQL augmente à mesure que des données sont extraites du dis
 Une mise en pause automatique est déclenchée si toutes les conditions suivantes sont remplies pendant la durée du délai de mise en pause automatique :
 
 - Nombre de sessions = 0
-- Processeur = 0 pour la charge de travail utilisateur exécutée dans le pool d’utilisateurs
+- Processeur = 0 pour la charge de travail utilisateur exécutée dans le pool de ressources utilisateur
 
 Une option permet de désactiver la mise en pause automatique si vous le souhaitez.
 
-Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Si l’une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données restera en ligne quelle que soit sa durée d’inactivité :
+Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique. Si l’une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données restera en ligne quelle que soit sa durée d’inactivité :
 
-- Géoréplication (géoréplication active et groupes de basculement automatique).
-- Conservation de sauvegardes à long terme (LTR).
-- Base de données de synchronisation utilisée dans SQL Data Sync.  Contrairement aux bases de données de synchronisation, les bases de données de hub et de membres prennent en charge la mise en pause automatique.
-- Alias DNS
-- Base de données de travail utilisée dans les travaux élastiques (préversion).
+- Géoréplication ([géoréplication active](active-geo-replication-overview.md) et [groupes de basculement automatique](auto-failover-group-overview.md)).
+- [Conservation de sauvegardes à long terme](long-term-retention-overview.md) (LTR).
+- Base de données de synchronisation utilisée dans [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md). Contrairement aux bases de données de synchronisation, les bases de données de hub et de membres prennent en charge la mise en pause automatique.
+- [Alias DNS](dns-alias-overview.md) créé pour le serveur logique qui contient une base de données serverless.
+- [Travaux élastiques (préversion)](elastic-jobs-overview.md), quand la base de données de travaux est une base de données serverless. Les bases de données ciblées par les travaux élastiques prennent en charge la mise en pause automatique et sont reprises à la connexion des travaux.
 
 La mise en pause automatique est temporairement indisponible durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.  Dans ce cas, la mise en pause automatique est réactivée dès que la mise à jour du service est terminée.
+
+#### <a name="auto-pause-troubleshooting"></a>Résolution des problèmes de mise en pause automatique
+
+Si la mise en pause automatique est activée, mais qu’une base de données n’est pas mise en pause automatique quand le délai est écoulé et que les fonctionnalités listées ci-dessus ne sont pas utilisées, il se peut que des sessions d’application ou utilisateur empêchent la mise en pause automatique. Pour voir si des sessions d’application ou utilisateur sont actuellement connectées à la base de données, connectez-vous à la base de données à l’aide de n’importe quel outil client et exécutez la requête suivante :
+
+```sql
+SELECT session_id,
+       host_name,
+       program_name,
+       client_interface_name,
+       login_name,
+       status,
+       login_time,
+       last_request_start_time,
+       last_request_end_time
+FROM sys.dm_exec_sessions AS s
+INNER JOIN sys.dm_resource_governor_workload_groups AS wg
+ON s.group_id = wg.group_id
+WHERE s.session_id <> @@SPID
+      AND
+      (
+      (
+      wg.name like 'UserPrimaryGroup.DB%'
+      AND
+      TRY_CAST(RIGHT(wg.name, LEN(wg.name) - LEN('UserPrimaryGroup.DB') - 2) AS int) = DB_ID()
+      )
+      OR
+      wg.name = 'DACGroup'
+      );
+```
+
+> [!TIP]
+> Après avoir exécuté la requête, veillez à vous déconnecter de la base de données. Sinon, la session ouverte utilisée par la requête empêchera la mise en pause automatique.
+
+Si le jeu de résultats n’est pas vide, cela signifie que des sessions empêchent actuellement la mise en pause automatique. 
+
+Si le jeu de résultats est vide, il est toujours possible que des sessions aient été ouvertes précédemment, peut-être durant une brève période, pendant le délai de pause automatique. Pour savoir si cela s’est produit, vous pouvez utiliser l’[audit Azure SQL](auditing-overview.md) et examiner les données d’audit sur la période concernée.
+
+La présence de sessions ouvertes, avec ou sans utilisation simultanée du processeur dans le pool de ressources utilisateur, est la raison la plus courante pour laquelle une base de données serverless n’est pas mise en pause automatique comme prévu. Notez que certaines [fonctionnalités](#auto-pausing) ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.
 
 ### <a name="auto-resuming"></a>Reprise automatique
 
@@ -159,7 +198,7 @@ La latence pour la reprise automatique d’une base de données serverless est g
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Chiffrement transparent des données géré par le client (BYOK)
 
-Si vous utilisez le [chiffrement transparent des données géré par le client](transparent-data-encryption-byok-overview.md) (BYOK) et que la base de données serverless est mise en pause automatique lors de la suppression ou de la révocation de la clé, la base de données reste dans l’état de pause automatique.  Dans ce cas, après la reprise de la base de données, la base de données devient inaccessible pendant 10 minutes environ.  Une fois que la base de données devient inaccessible, le processus de récupération est le même que pour les bases de données de calcul provisionnées.  Si la base de données serverless est en ligne lors de la suppression ou de la révocation d’une clé, elle devient également inaccessible après environ 10 minutes, de la même façon qu’avec les bases de données de calcul approvisionnées.
+Si vous utilisez le [chiffrement transparent des données géré par le client](transparent-data-encryption-byok-overview.md) (BYOK) et que la base de données serverless est mise en pause automatique lors de la suppression ou de la révocation de la clé, la base de données reste dans l’état de pause automatique.  Dans ce cas, après la reprise de la base de données, la base de données devient inaccessible pendant 10 minutes environ. Une fois que la base de données devient inaccessible, le processus de récupération est le même que pour les bases de données de calcul provisionnées. Si la base de données serverless est en ligne lors de la suppression ou de la révocation d’une clé, elle devient également inaccessible après environ 10 minutes, de la même façon qu’avec les bases de données de calcul approvisionnées.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Intégration au niveau de calcul serverless
 
@@ -180,7 +219,7 @@ La création d’une base de données ou le déplacement d’une base de donnée
 
 Les exemples suivants créent une base de données au niveau de calcul serverless.
 
-#### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+#### <a name="use-azure-portal"></a>Utiliser le portail Azure
 
 Consultez [Démarrage rapide : Créez une base de données unique dans Azure SQL Database à l’aide du portail Azure](single-database-create-quickstart.md).
 
@@ -192,7 +231,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+#### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -202,7 +241,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
 
-Lors de l’utilisation de T-SQL, les valeurs par défaut sont appliquées au vCores min. et au délai de la mise en pause automatique.
+Lors de l’utilisation de T-SQL, les valeurs par défaut sont appliquées au vCores min. et au délai de la mise en pause automatique. Vous pourrez les modifier ultérieurement à partir du portail ou d’autres API de gestion (PowerShell, Azure CLI, API REST).
 
 ```sql
 CREATE DATABASE testdb
@@ -217,24 +256,22 @@ Les exemples suivants déplacent une base de données du niveau de calcul approv
 
 #### <a name="use-powershell"></a>Utiliser PowerShell
 
-
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+#### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-
 #### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
 
-Lors de l’utilisation de T-SQL, les valeurs par défaut sont appliquées au vCores min. et au délai de la mise en pause automatique.
+Lors de l’utilisation de T-SQL, les valeurs par défaut sont appliquées au vCores min. et au délai de la mise en pause automatique. Vous pourrez les modifier ultérieurement à partir du portail ou d’autres API de gestion (PowerShell, Azure CLI, API REST).
 
 ```sql
 ALTER DATABASE testdb 
@@ -253,10 +290,9 @@ Vous pouvez déplacer une base de données serverless dans un niveau de calcul p
 
 Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) dans PowerShell à l’aide des arguments `MaxVcore`, `MinVcore` et `AutoPauseDelayInMinutes`.
 
-### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 
 Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [az sql db update](/cli/azure/sql/db#az_sql_db_update) dans Azure CLI à l’aide des arguments `capacity`, `min-capacity` et `auto-pause-delay`.
-
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -266,26 +302,26 @@ Les ressources d’une base de données serverless sont encapsulées par le pack
 
 #### <a name="app-package"></a>Package d’application
 
-Le package d’application représente le maximum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le package d’application contient l’instance de SQL et des services externes tels que la recherche en texte intégral, qui comprennent ensemble toutes les ressources utilisateur et système utilisées par une base de données dans SQL Database. En règle générale, l’instance SQL domine l’utilisation globale des ressources sur le package d’application.
+Le package d’application représente le maximum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le package d’application contient l’instance SQL et des services externes tels que la recherche en texte intégral, qui comprennent ensemble toutes les ressources utilisateur et système utilisées par une base de données dans SQL Database. En règle générale, l’instance SQL domine l’utilisation globale des ressources sur le package d’application.
 
 #### <a name="user-resource-pool"></a>Pool de ressources utilisateur
 
-Le pool de ressources utilisateur représente le minimum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le pool de ressources utilisateur comprend le processeur et les E/S de la charge de travail utilisateur générée par les requêtes DDL comme CREATE et ALTER, et par les requêtes DML comme SELECT, INSERT, UPDATE et DELETE. Ces requêtes représentent généralement la proportion la plus importante de l’utilisation dans le package d’application.
+Le pool de ressources utilisateur représente une limite interne en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le pool de ressources utilisateur comprend le processeur et les E/S de la charge de travail utilisateur générée par les requêtes DDL comme CREATE et ALTER, les requêtes DML comme INSERT, UPDATE, DELETE et MERGE et les requêtes SELECT. Ces requêtes représentent généralement la proportion la plus importante de l’utilisation dans le package d’application.
 
 ### <a name="metrics"></a>Mesures
 
-Les métriques de supervision de l’utilisation des ressources du package d’application et du pool d’utilisateurs d’une base de données serverless sont listées dans le tableau suivant :
+Les métriques de supervision de l’utilisation des ressources du package d’application et du pool de ressources utilisateur d’une base de données serverless sont listées dans le tableau suivant :
 
 |Entité|Métrique|Description|Units|
 |---|---|---|---|
 |Package d’application|app_cpu_percent|Pourcentage de vCores utilisés par l’application par rapport au nombre maximal de vCores autorisé pour l’application.|Pourcentage|
 |Package d’application|app_cpu_billed|Volume de calcul facturé pour l’application pendant la période de rapport. Le montant payé pendant cette période est le produit de cette métrique et du prix unitaire d’un vCore. <br><br>Les valeurs de cette métrique sont déterminées par l’agrégation de la quantité maximale du processeur utilisé et de la mémoire utilisée par seconde. Si la quantité utilisée est inférieure à la quantité minimale provisionnée tel que définie par le nombre minimal de vCores et la mémoire minimum, la quantité minimale provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.|Secondes de vCore|
 |Package d’application|app_memory_percent|Pourcentage de mémoire utilisée par l’application par rapport à la mémoire maximale autorisée pour l’application.|Pourcentage|
-|Pool utilisateur|cpu_percent|Pourcentage de vCores utilisés par la charge de travail utilisateur par rapport au nombre maximal de vCores autorisé pour la charge de travail utilisateur.|Pourcentage|
-|Pool utilisateur|data_IO_percent|Pourcentage d’IOPS de données utilisées par la charge de travail utilisateur par rapport au nombre maximal d’IOPS de données autorisé pour la charge de travail utilisateur.|Pourcentage|
-|Pool utilisateur|log_IO_percent|Pourcentage de Mo/s de journal utilisés par la charge de travail utilisateur par rapport au nombre maximal de Mo/s de journal autorisé pour la charge de travail utilisateur.|Pourcentage|
-|Pool utilisateur|workers_percent|Pourcentage de workers utilisés par la charge de travail utilisateur par rapport au nombre maximal de workers autorisé pour la charge de travail utilisateur.|Pourcentage|
-|Pool utilisateur|sessions_percent|Pourcentage de session utilisées par la charge de travail utilisateur par rapport au nombre maximal de sessions autorisé pour la charge de travail utilisateur.|Pourcentage|
+|Pool de ressources utilisateur|cpu_percent|Pourcentage de vCores utilisés par la charge de travail utilisateur par rapport au nombre maximal de vCores autorisé pour la charge de travail utilisateur.|Pourcentage|
+|Pool de ressources utilisateur|data_IO_percent|Pourcentage d’IOPS de données utilisées par la charge de travail utilisateur par rapport au nombre maximal d’IOPS de données autorisé pour la charge de travail utilisateur.|Pourcentage|
+|Pool de ressources utilisateur|log_IO_percent|Pourcentage de Mo/s de journal utilisés par la charge de travail utilisateur par rapport au nombre maximal de Mo/s de journal autorisé pour la charge de travail utilisateur.|Pourcentage|
+|Pool de ressources utilisateur|workers_percent|Pourcentage de workers utilisés par la charge de travail utilisateur par rapport au nombre maximal de workers autorisé pour la charge de travail utilisateur.|Pourcentage|
+|Pool de ressources utilisateur|sessions_percent|Pourcentage de session utilisées par la charge de travail utilisateur par rapport au nombre maximal de sessions autorisé pour la charge de travail utilisateur.|Pourcentage|
 
 ### <a name="pause-and-resume-status"></a>État de mise en pause et de reprise
 
@@ -300,12 +336,11 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+#### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
-
 
 ## <a name="resource-limits"></a>Limites des ressources
 
@@ -342,7 +377,7 @@ La [Calculatrice de prix Azure SQL Database](https://azure.microsoft.com/pricing
 
 ### <a name="example-scenario"></a>Exemple de scénario
 
-Prenons l’exemple d’une base de données serverless configurée avec 1 vCore min et 4 vCores max.  Cela représente environ 3 Go de mémoire min et 12 Go de mémoire max.  Supposons que le délai de mise en pause automatique est défini à six heures et que la charge de travail de la base de données est active durant les deux premières heures d’une période de 24 heures, mais qu’elle reste inactive le reste du temps.    
+Prenons l’exemple d’une base de données serverless configurée avec 1 vCore min et 4 vCores max.  Cela représente environ 3 Go de mémoire min. et 12 Go de mémoire max.  Supposons que le délai de mise en pause automatique est défini à six heures et que la charge de travail de la base de données est active durant les deux premières heures d’une période de 24 heures, mais qu’elle reste inactive le reste du temps.    
 
 Dans ce cas de figure, la base de données est facturée pour le calcul et le stockage pendant les huit premières heures.  Même si la base de données devient inactive après la deuxième heure, elle continue d’être facturée pour le calcul durant les six heures suivantes, selon le calcul minimal provisionné quand la base de données est en ligne.  Seul le stockage est facturé pendant le reste de la période de 24 heures où la base de données est mise en pause.
 
@@ -356,7 +391,7 @@ Plus précisément, les coûts de calcul dans cet exemple sont calculés de la f
 |8:00-24:00|0|0|Aucun calcul facturé pendant la mise en pause|0 seconde de vCore|
 |Total de secondes de vCore facturées sur 24 heures||||50 400 secondes de vCore|
 
-Supposons que le prix de l’unité Compute est 0,000145 $/vCore/seconde.  Le calcul facturé sur cette période de 24 heures est le produit du prix de l’unité Compute par le nombre de secondes de vCore facturées : 0,000145 $/vCore/seconde * 50 400 secondes de vCore ~ 7,31 $
+Supposons que le prix de l’unité Compute est 0,000145 $/vCore/seconde.  Le calcul facturé sur cette période de 24 heures est le produit du prix de l’unité Compute et du nombre de secondes de vCore facturées : 0,000145 $/vCore/seconde * 50 400 secondes de vCore ~ 7,31 $.
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure Hybrid Benefit et capacité réservée
 

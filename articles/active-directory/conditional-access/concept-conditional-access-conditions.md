@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a332b43da59c3e7c766d8fd911f0426fa346d8b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 1725c88ec2275d4b20303161680020512c13bc4a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564983"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226745"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -34,7 +34,7 @@ Pour les clients ayant accès à [Identity Protection](../identity-protection/ov
 
 ## <a name="user-risk"></a>Risque de l’utilisateur 
 
-Pour les clients ayant accès à [Identity Protection](../identity-protection/overview-identity-protection.md), le risque utilisateur peut être évalué dans le cadre d’une stratégie d’accès conditionnel. Le risque utilisateur reflète la probabilité qu'une identité ou un compte donné soit compromis. Pour plus d’informations sur le risque utilisateur, consultez les articles [Qu’est-ce que le risque](../identity-protection/concept-identity-protection-risks.md#user-risk) et [Comment : Configurer et activer des stratégies de risque](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+Pour les clients ayant accès à [Identity Protection](../identity-protection/overview-identity-protection.md), le risque utilisateur peut être évalué dans le cadre d’une stratégie d’accès conditionnel. Le risque utilisateur reflète la probabilité qu'une identité ou un compte donné soit compromis. Pour plus d’informations sur le risque utilisateur, consultez les articles [Qu’est-ce que le risque](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) et [Comment : Configurer et activer des stratégies de risque](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="device-platforms"></a>Plateformes d’appareils
 

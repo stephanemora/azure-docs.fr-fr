@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: f362bc76a3361b511b08a3822c01730c200d37b1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cfbca90fe4c0053816421ff392f0af93938ff5ee
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957028"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254166"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -349,45 +349,32 @@ Vous gérez l’accès à la machine virtuelle sur l’adresse IP publique à l�
 Enfin, comme c’est le cas pour la gestion de tout système informatique, vous devez assurer la sécurité d’une machine virtuelle Azure au niveau du système d’exploitation, à l’aide des informations d’identification de sécurité et des pare-feu logiciels.
 
 ## <a name="azure-storage"></a>Stockage Azure
-
-Stockage Azure est un service géré par Microsoft qui fournit un stockage redondant, évolutif et durable. En tant que ressource, vous pouvez ajouter un compte de stockage Azure à n’importe quel groupe de ressources au moyen d’une méthode de déploiement de ressource. Azure comporte quatre types de stockage : Stockage Blob, stockage Fichier, stockage Table et stockage File d’attente. Lors du déploiement d’un compte de stockage, deux types de comptes sont disponibles, l’un à usage général, l’autre de stockage blob. Un compte de stockage à usage général vous donne accès aux quatre types de stockage. Les comptes de stockage blob sont similaires aux comptes à usage général, mais contiennent des objets blob spécialisés qui incluent les niveaux d’accès à chaud et à froid. Pour plus d’informations sur le stockage d’objets blob, consultez [Stockage Blob Azure](../../storage/blobs/storage-blob-storage-tiers.md).
-
-Les comptes de stockage Azure peuvent être configurés selon différents niveaux de redondance :
-
-- Le **stockage localement redondant** offre une haute disponibilité en vous assurant que trois copies de l’ensemble des données sont effectuées de façon synchrone avant qu’une opération d’écriture soit considérée comme réussie. Ces copies sont stockées dans un établissement unique situé dans une seule région. Les réplicas se trouvent dans des domaines d’erreur et de mise à niveau distincts. Cela signifie que les données sont disponibles même si un nœud de stockage contenant vos données est défaillant ou est mis hors connexion pour une mise à jour.
-
-- Le **stockage géo-redondant** réalise trois copies synchrones des données dans la région principale pour la haute disponibilité, puis trois réplicas de façon asynchrone dans une région associée pour la récupération d’urgence.
-
-- Le **stockage géo-redondant avec accès en lecture** correspond à un stockage géo-redondant, avec la possibilité de lire les données dans la région secondaire. Cette capacité le rend approprié pour une reprise d’activité partielle. S’il y a un problème avec la région primaire, vous pouvez modifier votre application pour avoir un accès en lecture seule à la région associée.
+Azure fournit différents types de stockage (Blob Azure, Fichier Azure, Table Azure et File d’attente Azure) adaptés à un large éventail de cas d’utilisation du stockage qui ont tous besoin de garanties élevées en ce qui concerne la durabilité, la scalabilité et la redondance. Les services de stockage Azure sont gérés avec un compte de stockage Azure qui peut être déployé en tant que ressource dans n’importe quel groupe de ressources et à l’aide de n’importe quelle méthode de déploiement de ressources. 
 
 ### <a name="use-cases"></a>Cas d'utilisation
-
 Chaque type de stockage convient à une utilisation différente.
 
 #### <a name="blob-storage"></a>Stockage d'objets blob
+Le mot *blob* est l’acronyme de « binary large object », un *objet binaire volumineux*. Les objets blob sont des fichiers non structurés, comme ceux que vous stockez sur votre ordinateur. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob.
 
-Le mot *blob* est l’acronyme de « binary large object », un *objet binaire volumineux*. Les objets blob sont des fichiers non structurés, comme ceux que vous stockez sur votre ordinateur. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob. Le Stockage Blob Azure conserve également les disques de données des machines virtuelles Azure.
+Le Stockage Blob Azure prend en charge trois sortes d’objets blob :
 
-Ce type de stockage Azure prend en charge trois types d’objets blob :
+- Les **objets blob de blocs**, qui servent à stocker des fichiers ordinaires d’une taille maximale de 195 Gio (4 Mio × 50 000 blocs). Les objets blob de blocs sont principalement utilisés pour le stockage de fichiers lus du début jusqu’à la fin, tels que les fichiers multimédias ou les fichiers d’image de sites Web. Ils sont nommés objets blob de blocs, car les fichiers dont la taille est supérieure à 64 Mio doivent être chargés sous forme de petits blocs. Ces blocs sont ensuite consolidés (ou validés) dans l’objet blob final.
 
-- **Objets blob de blocs** Ces objets servent à stocker des fichiers ordinaires d’une taille maximale de 195 Go (4 Mo × avec 50 000 blocs). L’utilisation principale des objets blob de blocs est le stockage de fichiers lus du début jusqu’à la fin, tels que les fichiers multimédias ou les fichiers d’image de sites Web. Ils sont nommés objets blob de blocs, parce que les fichiers supérieurs à 64 Mo doivent être chargés sous forme de petits blocs. Ces blocs sont ensuite consolidés (ou validés) dans l’objet blob final.
+- Les **objets blob de pages**, qui servent à stocker des fichiers à accès aléatoire d’une taille maximale de 1 Tio. Les objets blob de pages sont utilisés principalement comme stockage de sauvegarde pour les disques durs virtuels qui fournissent des disques durables à Machines virtuelles Azure, le service de calcul IaaS dans Azure. Ils sont nommés objets blob de pages, car ils fournissent un accès en lecture/écriture aléatoire vers des pages de 512 octets.
 
-- **Objets blob de pages** Ces objets servent à stocker les fichiers à accès aléatoire d’une taille maximale de 1 To. Les objets blob de pages sont utilisés principalement comme stockage de sauvegarde pour les disques durs virtuels qui fournissent des disques durables à Machines virtuelles Azure, le service de calcul IaaS dans Azure. Ils sont nommés objets blob de pages, car ils fournissent un accès en lecture/écriture aléatoire vers des pages de 512 octets.
+- **Objets blob d’ajout** Ces objets se composent de blocs, comme les objets blob de blocs, mais sont optimisés pour les opérations d’ajout. Leur utilisation est fréquente pour l’enregistrement d’informations à partir d’une ou de plusieurs sources dans le même objet blob. Vous pouvez, par exemple, écrire toute la journalisation du suivi dans le même objet blob d’ajout pour une application qui s’exécute sur plusieurs machines virtuelles. La taille d’un seul objet blob d’ajout peut atteindre 195 Gio.
 
-- **Objets blob d’ajout** Ces objets se composent de blocs, comme les objets blob de blocs, mais sont optimisés pour les opérations d’ajout. Leur utilisation est fréquente pour l’enregistrement d’informations à partir d’une ou de plusieurs sources dans le même objet blob. Vous pouvez, par exemple, écrire toute la journalisation du suivi dans le même objet blob d’ajout pour une application qui s’exécute sur plusieurs machines virtuelles. La taille d’un seul objet blob d’ajout peut atteindre 195 Go.
+Pour plus d’informations, consultez [Présentation du Stockage Blob Azure](../../storage/blobs/storage-blobs-overview.md).
 
-Pour plus d’informations, consultez [Bien démarrer avec le Stockage Blob Azure à l’aide de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+#### <a name="azure-files"></a>Azure Files
+Le Stockage Fichier Azure fournit des partages de fichiers complètement managés dans le cloud qui sont accessibles via les protocoles SMB (Server Message Block) ou NFS (Network File System) standard. Le service prend en charge les protocoles SMB 3.1.1, SMB 3.0, SMB 2.1 et NFS 4.1. Avec le Stockage Fichier Azure, vous pouvez migrer vers Azure des applications qui s’appuient sur des partages de fichiers, rapidement et sans réécritures onéreuses. Les applications s’exécutant sur des machines virtuelles Azure, dans des services cloud ou à partir de clients locaux, peuvent monter un partage de fichiers dans le cloud.
 
-#### <a name="file-storage"></a>Stockage Fichier
+Comme les partages de fichiers Azure exposent des points de terminaison SMB ou NFS standard, les applications exécutées dans Azure ont accès aux données stockées dans les partages par le biais d’API d’E/S de système de fichiers. Les développeurs peuvent ainsi utiliser leur code et leurs compétences actuelles pour migrer les applications existantes. Les professionnels de l’informatique peuvent utiliser les applets de commande PowerShell pour créer, monter et gérer des partages de fichiers Azure dans le cadre de l’administration des applications Azure.
 
-Le Stockage Fichier Azure est un service qui propose des partages de fichiers dans le cloud en utilisant le protocole SMB (Server Message Block) standard. Le service prend en charge SMB 2.1 et SMB 3.0. Avec Stockage Fichier Azure, vous pouvez migrer des applications qui s’appuient sur des partages de fichiers sur Azure, rapidement et sans réécritures onéreuses. Les applications s’exécutant sur des machines virtuelles Azure, dans des services cloud ou à partir de clients locaux, peuvent monter un partage de fichiers dans le cloud. La façon de faire est semblable à celle d’une application de bureau montant un partage SMB classique. Un nombre illimité de composants d’application peuvent ensuite monter un partage de stockage de fichiers et y accéder simultanément.
-
-Un partage Stockage Fichier étant un partage de fichiers SMB standard, les applications exécutées dans Azure peuvent accéder aux données du partage par le biais d’API d’E/S de système de fichiers. Les développeurs peuvent ainsi utiliser leur code et leurs compétences actuelles pour migrer les applications existantes. Les professionnels de l’informatique peuvent utiliser les applets de commande PowerShell pour créer, monter et gérer les partages Stockage Fichier dans le cadre de l’administration des applications Azure.
-
-Pour plus d’informations, consultez [Bien démarrer avec Stockage Fichier Azure sur Windows](../../storage/files/storage-how-to-use-files-windows.md) ou [Utilisation de Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Pour plus d’informations, consultez [Présentation du Stockage Fichier Azure](../../storage/files/storage-files-introduction.md).
 
 #### <a name="table-storage"></a>Stockage de tables
-
 Le stockage de tables Azure est un service qui stocke des données NoSQL structurées dans le cloud. Le Stockage Table est un magasin de clés/attributs doté d’une conception sans schéma. Du fait que le Stockage Table ne comporte pas de schéma, il est aisé d’adapter vos données en fonction de l’évolution des besoins de votre application. L'accès aux données est rapide et peu coûteux pour tous les types d'applications. Normalement, le stockage de tables est considérablement moins coûteux que le SQL traditionnel pour des volumes de données similaires.
 
 Vous pouvez utiliser le stockage de tables pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications Web, des carnets d'adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Vous pouvez stocker le nombre d’entités que vous voulez dans une table. Un compte de stockage peut contenir n’importe quel nombre de tables, jusqu’à la limite de capacité du compte de stockage.
@@ -395,7 +382,6 @@ Vous pouvez utiliser le stockage de tables pour stocker des jeux de données fle
 Pour plus d’informations, consultez [Bien démarrer avec Stockage Table Azure](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### <a name="queue-storage"></a>Stockage de files d'attente
-
 Le Stockage File d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d’applications pour la mise à l’échelle, des composants d’application sont souvent découplés, de sorte qu’ils peuvent être mis à l’échelle indépendamment. Le Stockage File d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le Stockage File d'attente prend également en charge la gestion des tâches asynchrones et la création des workflows de processus.
 
 Pour plus d’informations, consultez [Bien démarrer avec Stockage File d’attente Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md).
@@ -418,17 +404,17 @@ En plus de déployer des ressources Azure individuellement, vous pouvez utiliser
 
 #### <a name="command-line-interface-cli"></a>Interface de ligne de commande (CLI)
 
-À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement et s’utilise sur les systèmes Windows, OS X ou Linux. Vous pouvez utiliser la commande d’Azure CLI **storage account create** pour créer un compte de stockage. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
+À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement sur les systèmes Windows, macOS ou Linux. Vous pouvez utiliser la commande d’Azure CLI **storage account create** pour créer un compte de stockage. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 De même, vous pouvez utiliser l’interface de ligne de commande Azure pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
-### <a name="access-and-security-for-azure-storage"></a>Accès et sécurité pour Stockage Azure
+### <a name="access-and-security-for-azure-storage-services"></a>Accès et sécurité pour les services de stockage Azure
 
-Il est possible d’accéder à Stockage Azure de différentes manières, y compris par le portail Azure, au cours de la création et du fonctionnement de machines virtuelles, et à partir de bibliothèques clientes de stockage.
+Il est possible d’accéder aux services de stockage Azure de différentes manières, y compris par le portail Azure, durant la création et l’exécution de machines virtuelles, et à partir de bibliothèques clientes de stockage.
 
 #### <a name="virtual-machine-disks"></a>Disques de machines virtuelles
 
-Lorsque vous déployez une machine virtuelle, vous devez également créer un compte de stockage pour stocker le disque du système d’exploitation de la machine virtuelle et les disques de données supplémentaires. Vous pouvez sélectionner un compte de stockage existant ou en créer un. La taille maximale d’un objet blob étant de 1 024 Go, un seul disque de machine virtuelle peut afficher une taille de 1 023 Go. Pour configurer un disque de données plus volumineux, vous pouvez présenter plusieurs disques de données à la machine virtuelle et les rassembler en un disque logique unique. Pour plus d’informations, consultez les pages « Gestion des disques Azure » pour [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) et [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
+Lorsque vous déployez une machine virtuelle, vous devez également créer un compte de stockage pour stocker le disque du système d’exploitation de la machine virtuelle et les disques de données supplémentaires. Vous pouvez sélectionner un compte de stockage existant ou en créer un. La taille maximale d’un objet blob étant de 1 024 Gio, un seul disque de machine virtuelle peut avoir une taille maximale de 1 023 Gio. Pour configurer un disque de données plus volumineux, vous pouvez présenter plusieurs disques de données à la machine virtuelle et les rassembler en un disque logique unique. Pour plus d’informations, consultez les pages « Gestion des disques Azure » pour [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) et [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 #### <a name="storage-tools"></a>Outils de stockage
 
@@ -436,7 +422,7 @@ Les comptes de stockage Azure sont accessibles par le biais de nombreux explorat
 
 #### <a name="storage-api"></a>API de stockage
 
-Les ressources de stockage sont accessibles par le biais de n’importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, Stockage Azure offre des bibliothèques de programmation pour plusieurs langages répandus. Ces bibliothèques simplifient l’utilisation de Stockage Azure en gérant des détails tels que l’invocation synchrone et asynchrone, le traitement par lots des opérations, la gestion des exceptions et les nouvelles tentatives automatiques. Pour plus d’informations, consultez [Référence sur l’API REST du service Stockage Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Les ressources de stockage sont accessibles par le biais de n’importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, les services de stockage Azure fournissent des bibliothèques de programmation pour plusieurs langages répandus. Ces bibliothèques simplifient l’utilisation de la plateforme de stockage Azure en gérant certains aspects comme l’invocation synchrone et asynchrone, le traitement par lots des opérations, la gestion des exceptions et les nouvelles tentatives automatiques. Pour plus d’informations, consultez [Informations de référence sur les API REST des services de stockage Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 #### <a name="storage-access-keys"></a>Clés d’accès de stockage
 

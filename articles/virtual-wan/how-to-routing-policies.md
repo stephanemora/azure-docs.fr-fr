@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.author: wellee
-ms.openlocfilehash: d61e6c3847d9ce64f9c3f17da1300b32a1a8e643
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 5fb694cd1dab2d53495e2e4b513ce6bfe2ebaff9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563406"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101827"
 ---
 # <a name="how-to-configure-virtual-wan-hub-routing-intent-and-routing-policies"></a>Comment configurer l’intention de routage et les stratégies de routage d’un hub Virtual Wan
 
@@ -22,7 +22,7 @@ ms.locfileid: "122563406"
 > 
 > Cette préversion est fournie sans contrat de niveau de service et elle n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> Pour obtenir l’accès à la préversion, contactez previewinterhub@microsoft.com avec l’ID du WAN virtuel, l’ID de l’abonnement et la région Azure dans laquelle vous souhaitez configurer l’intention de routage. Attendez une réponse dans les 48 heures ouvrables (du lundi au vendredi) avec la confirmation de l’activation des fonctionnalités.
+> Pour obtenir l’accès à la préversion, déployez deux hubs dans la même région Azure à côté des passerelles (passerelles VPN site à site et point à site, ainsi que les passerelles ExpressRoute), puis accédez à previewinterhub@microsoft.com avec l’ID de Virtual WAN, l’ID d’abonnement et la région Azure dans laquelle vous souhaitez configurer l’intention de routage. Attendez une réponse dans les 48 heures ouvrables (du lundi au vendredi) avec la confirmation de l’activation des fonctionnalités. Notez que les passerelles créées après l’activation des fonctionnalités devront être mises à niveau par l’équipe Virtual WAN.
 
 ## <a name="background"></a>Arrière-plan 
 
@@ -53,7 +53,7 @@ Alors que le trafic privé comprend des préfixes d’adresses de branche et de 
 ## <a name="prerequisites"></a>Configuration requise
 1. Créer un réseau étendu virtuel. Assurez-vous de créer au moins deux hubs virtuels dans la **même** région. Par exemple, vous pouvez créer un Virtual WAN avec deux hubs virtuels dans la région USA Est. 
 2. Convertissez votre hub Virtual WAN en hub Virtual WAN sécurisé en déployant un Pare-feu Azure dans les hubs virtuels de la région choisie. Pour plus d’informations sur la conversion de votre hub Virtual WAN en hub virtuel sécurisé, veuillez consulter ce [document](howto-firewall.md).
-3. Contactez **previewinterhub@microsoft.com** avec l’**ID de ressource Virtual WAN** et la **région de hub virtuel Azure** dans laquelle vous souhaitez configurer les stratégies de routage. Pour localiser l’ID du WAN virtuel, ouvrez le portail Azure, naviguez jusqu’à votre ressource WAN virtuelle et sélectionnez Paramètres > Propriétés > ID de ressources. Par exemple : 
+3. Déployez les passerelles VPN site à site et point à site, ainsi qu’ExpressRoute que vous allez utiliser pour les tests. Contactez **previewinterhub@microsoft.com** avec l’**ID de ressource Virtual WAN** et la **région de hub virtuel Azure** dans laquelle vous souhaitez configurer les stratégies de routage. Pour localiser l’ID du WAN virtuel, ouvrez le portail Azure, naviguez jusqu’à votre ressource WAN virtuelle et sélectionnez Paramètres > Propriétés > ID de ressources. Par exemple : 
 ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
 ```
@@ -157,6 +157,7 @@ La section suivante décrit les problèmes courants rencontrés lors de la confi
 * Actuellement, l’utilisation du Pare-feu Azure pour inspecter le trafic entre hubs est uniquement disponible pour les hubs Virtual WAN déployés dans la **même** région Azure. 
 * Actuellement, les stratégies de routage du trafic privé ne sont pas prises en charge dans les hubs avec des connexions ExpressRoute chiffrées (Tunnel VPN de site à site s’exécutant sur une connectivité privée ExpressRoute). 
 * Vous pouvez vérifier que les stratégies de routage ont été appliquées correctement en vérifiant les itinéraires effectifs de DefaultRouteTable. Si des stratégies de routage privées sont configurées, vous devez voir les itinéraires dans DefaultRouteTable pour les préfixes de trafic privé avec le Pare-feu Azure de tronçon suivant. Si les stratégies de routage du trafic Internet sont configurées, vous devez voir un itinéraire par défaut (0.0.0.0/0) dans DefaultRouteTable avec le Pare-feu Azure de tronçon suivant.
+* Si des passerelles VPN site à site ou point à site ont été créées **après** confirmation de l’activation de la fonctionnalité sur votre déploiement, vous devez à nouveau accéder à previewinterhub@microsoft.com pour que la fonctionnalité soit activée. 
 
 ### <a name="troubleshooting-azure-firewall"></a>Résolution des problèmes liés au Pare-feu Azure
 

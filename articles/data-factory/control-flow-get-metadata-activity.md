@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 15d7f6372982222e5bd2ecb4cfe4a784a9fda0b1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4f619266d225e4dd36bb68ca9ebcaaae366891cb
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641373"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821886"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Activité Get Metadata dans Azure Data Factory et Azure Synapse Analytics
 

@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Arc
 description: Découvrez ce qu’est le service Azure Arc et comment il permet aux clients d’activer la gestion et la gouvernance de leurs ressources hybrides avec d’autres services et fonctionnalités Azure.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: ddab135ffe98675a498c4a364bc9e04ce57b92fe
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 878e1b9166a10a071d3870edcc70d1775fbcd914
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732041"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867122"
 ---
 # <a name="azure-arc-overview"></a>Vue d’ensemble d’Azure Arc
 
@@ -30,7 +30,7 @@ Aujourd’hui, Azure Arc vous permet de gérer les types de ressources suivants
 * Serveurs : machines virtuelles et machines physiques exécutant Windows ou Linux.
 * Clusters Kubernetes : prise en charge de plusieurs distributions Kubernetes.
 * Services de données - Services Azure SQL Managed Instance et PostgreSQL Hyperscale.
-* SQL Server - Inscrire des instances à partir de n’importe quel emplacement.
+* SQL Server - Inscrire des instances à partir de n’importe quel emplacement avec [SQL Server sur des serveurs avec Azure Arc](/sql/sql-server/azure-arc/overview).
 
 ## <a name="what-does-azure-arc-deliver"></a>Que propose Azure Arc ?
 
@@ -50,7 +50,7 @@ Les fonctionnalités clés d’Azure Arc sont les suivantes :
 
 * Créer des [emplacements personnalisés](./kubernetes/custom-locations.md) en plus de vos clusters [Kubernetes avec Azure Arc](./kubernetes/overview.md), en les utilisant comme emplacements cibles pour le déploiement des instances de services Azure. Déployer vos extensions de cluster de service Azure pour [Data Services avec Azure Arc](./data/create-data-controller-direct-azure-portal.md), [App Services sur Azure Arc](../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](../event-grid/kubernetes/overview.md).
 
-* Une expérience unifiée de l’affichage de vos ressources Azure Arc activées, que vous utilisiez le portail Azure, l’interface Azure CLI, Azure PowerShell ou l’API REST Azure.
+* Une expérience unifiée de l’affichage de vos ressources avec Azure Arc, que vous utilisiez le portail Azure, l’interface Azure CLI, Azure PowerShell ou l’API REST Azure.
 
 ## <a name="how-much-does-azure-arc-cost"></a>Combien coûte Azure Arc ?
 
@@ -70,22 +70,24 @@ Les fonctionnalités suivantes du plan de contrôle Azure Arc sont proposées sa
 
 * Gestion des mises à jour.
 
-Tout service Azure utilisé sur des serveurs avec Arc, par exemple Azure Security Center ou Azure Monitor, sera facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
+Tout service Azure utilisé sur des serveurs avec Arc, par exemple Azure Security Center ou Azure Monitor, est facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Kubernetes avec Azure Arc
 
-Tout service Azure qui est utilisé sur Kubernetes avec Arc, par exemple Azure Security Center ou Azure Monitor, sera facturé sur la base des tarifs de ce service. Pour plus d’informations sur les tarifs des configurations Kubernetes avec Azure Arc, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
+Tout service Azure qui est utilisé sur Kubernetes avec Arc, par exemple Azure Security Center ou Azure Monitor, est facturé sur la base des tarifs de ce service. Pour plus d’informations sur les tarifs des configurations Kubernetes avec Azure Arc, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
-### <a name="azure-arc-enabled-data-services"></a>Services de données avec Azure Arc
+### <a name="azure-arc-enabled-data-services"></a>Services de données avec Azure Arc
 
-Dans la phase de préversion actuelle, les services de données avec Azure Arc sont proposés sans frais supplémentaires.
+Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les serveurs avec Arc, consultez cette [vue d’ensemble](./servers/overview.md)
+* Pour en découvrir plus sur les serveurs avec Azure Arc, consultez cette [vue d’ensemble](./servers/overview.md)
 
-* Pour plus d’informations sur Kubernetes avec Arc, consultez cette [vue d’ensemble](./kubernetes/overview.md)
+* Pour en découvrir plus sur Kubernetes avec Azure Arc, consultez cette [vue d’ensemble](./kubernetes/overview.md)
 
-* Pour plus d’informations sur les services de données avec Arc, consultez cette [vue d’ensemble](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
+* Pour plus d’informations sur les services de données avec Azure Arc, consultez cette [vue d’ensemble](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
 
-* Découvrez les services avec Arc à partir de la [preuve de concept Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/)
+* Pour en découvrir plus sur SQL Server sur les serveurs avec Azure Arc, consultez cette [vue d’ensemble](/sql/sql-server/azure-arc/overview)
+
+* Découvrez les services avec Azure Arc à partir de la [preuve de concept Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/)

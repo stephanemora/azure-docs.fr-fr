@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 353fdd952ed4b2baa8920f1e15fb0dc0f44264ba
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: 7a5bea7e555bf4f388a06668b2e349045692a941
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534733"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106624"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Intégration d’Azure Active Directory géré par AKS
 
-L’intégration d’Azure AD géré par AKS est conçue pour simplifier l’expérience d’intégration d’Azure AD, où les utilisateurs devaient auparavant créer une application cliente et une application serveur et où le locataire Azure AD devait accorder des autorisations de lecture du répertoire. Dans la nouvelle version, le fournisseur de ressources AKS gère les applications cliente et serveur pour vous.
+L’intégration d’Azure AD géré par AKS simplifie le processus d’intégration d’Azure AD. Auparavant, les utilisateurs devaient créer une application cliente et une application serveur, et nécessitaient que le locataire Azure AD accorde des autorisations de lecture d’annuaire. Dans la nouvelle version, le fournisseur de ressources AKS gère les applications cliente et serveur pour vous.
 
 ## <a name="azure-ad-authentication-overview"></a>Vue d’ensemble de l’authentification Azure AD
 
@@ -26,7 +26,7 @@ Pour en savoir plus sur le flux de l’intégration d’Azure AD, consultez la [
 
 * L’intégration d’Azure AD géré par AKS ne peut pas être désactivée.
 * La modification d’un cluster intégré Azure AD géré par AKS vers un cluster AAD hérité n’est pas prise en charge
-* Les clusters sans RBAC Kubernetes ne sont pas pris en charge pour l’intégration d’Azure AD managé par AKS
+* Les clusters sans RBAC Kubernetes activé ne sont pas pris en charge pour l’intégration d’Azure AD géré par AKS
 * La modification de l’abonné Azure AD associé à l’intégration d’Azure AD géré par AKS n’est pas prise en charge
 
 ## <a name="prerequisites"></a>Prérequis
@@ -50,7 +50,7 @@ Pour d’autres systèmes d’exploitation, utilisez [ces instructions](https://
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour votre cluster, vous avez besoin d’un groupe Azure AD. Le cluster a besoin de ce groupe comme groupe d’administration afin d’accorder des autorisations d’administrateur de cluster. Vous pouvez utiliser un groupe Azure AD existant ou en créer un. Enregistrez l’ID d’objet de votre groupe Azure AD.
+Pour votre cluster, vous avez besoin d’un groupe Azure AD. Ce groupe sera inscrit en tant que groupe d’administration sur le cluster pour accorder des autorisations d’administration de cluster. Vous pouvez utiliser un groupe Azure AD existant ou en créer un. Enregistrez l’ID d’objet de votre groupe Azure AD.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -100,7 +100,7 @@ Une fois le cluster créé, vous pouvez commencer à y accéder.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Accéder à un cluster compatible Azure AD
 
-Pour effectuer les étapes ci-dessous, vous avez besoin du rôle intégré [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) (Utilisateur de cluster Azure Kubernetes Service).
+Pour accéder au cluster à l’aide d’un groupe défini par Azure AD, vous avez besoin du rôle intégré d’[utilisateur de cluster Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role).
 
 Récupérez les informations d’identification d’utilisateur permettant d’accéder au cluster :
  

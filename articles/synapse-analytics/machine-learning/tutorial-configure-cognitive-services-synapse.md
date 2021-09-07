@@ -1,30 +1,31 @@
 ---
-title: 'Tutoriel : Prérequis de Cognitive Services dans Azure Synapse Analytics'
+title: 'Démarrage rapide : Prérequis de Cognitive Services dans Azure Synapse Analytics'
 description: Découvrez comment configurer les prérequis de l’utilisation de Cognitive Services dans Azure Synapse.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
-ms.topic: tutorial
+ms.topic: quickstart
 ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: da1760def8f2c036854839787b1051e8f52358d0
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: e10a31b2156cce03dcef40a88f5cb380f12dd03c
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809649"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835522"
 ---
-# <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Tutoriel : Prérequis de l’utilisation de Cognitive Services dans Azure Synapse Analytics
+# <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Démarrage rapide : Configurer les prérequis pour utiliser Cognitive Services dans Azure Synapse Analytics
 
-Dans ce tutoriel, vous allez apprendre à configurer les prérequis de l’utilisation sécurisée d’Azure Cognitive Services dans Azure Synapse Analytics.
+Dans ce guide de démarrage rapide, vous apprenez à configurer les prérequis pour utiliser Azure Cognitive Services de manière sécurisée dans Azure Synapse Analytics. La liaison de ces services cognitifs Azure vous permet de tirer parti d’Azure Cognitive Services à partir de différentes expériences dans Synapse.
 
-Ce tutoriel contient les sections suivantes :
+Ce démarrage rapide couvre les sujets suivants :
 > [!div class="checklist"]
 > - Créer une ressource Cognitive Services comme Analyse de texte ou Détecteur d’anomalies.
 > - Stocker une clé d’authentification auprès des ressources Cognitive Services sous la forme de secrets dans Azure Key Vault et configurer l’accès pour un espace de travail Azure Synapse Analytics.
 > - Créer un service lié Azure Key Vault dans votre espace de travail Azure Synapse Analytics.
+> - Créer un service lié Azure Cognitive Services dans votre espace de travail Azure Synapse Analytics.
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de commencer](https://azure.microsoft.com/free/).
 
@@ -65,7 +66,7 @@ Vous pouvez créer une ressource [Détecteur d’anomalies](https://ms.portal.az
    ![Capture d’écran montrant les sélections pour la création d’un secret](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
    > [!IMPORTANT]
-   > Veillez à mémoriser ou à noter le nom de ce secret. Vous l’utiliserez ultérieurement quand vous vous connecterez à Cognitive Services à partir de Synapse Studio.
+   > Veillez à mémoriser ou à noter le nom de ce secret. Vous l’utilisez par la suite pour créer le service lié Azure Cognitive Services.
 
 ## <a name="create-an-azure-key-vault-linked-service-in-azure-synapse"></a>Créer un service lié Azure Key Vault dans Azure Synapse
 
@@ -74,6 +75,15 @@ Vous pouvez créer une ressource [Détecteur d’anomalies](https://ms.portal.az
 3. Vérifiez la connexion en sélectionnant le bouton **Tester la connexion**. Si la connexion est verte, sélectionnez **Créer**, puis **Publier tout** pour enregistrer vos modifications.
 
 ![Capture d’écran qui montre Azure Key Vault en tant que nouveau service lié](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
+
+
+## <a name="create-an-azure-cognitive-service-linked-service-in-azure-synapse"></a>Créer un service lié Azure Cognitive Services dans Azure Synapse
+
+1. Ouvrez votre espace de travail dans Synapse Studio.
+2. Accédez à **Gérer** > **Services liés**. Créez un service lié **Azure Cognitive Services** en pointant sur le service cognitif que vous venez de créer. 
+3. Vérifiez la connexion en sélectionnant le bouton **Tester la connexion**. Si la connexion est verte, sélectionnez **Créer**, puis **Publier tout** pour enregistrer vos modifications.
+
+![Capture d’écran qui montre le service cognitif Azure comme un nouveau service lié.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
 
 Vous êtes maintenant prêt à passer à l’un des tutoriels concernant l’utilisation de l’expérience Azure Cognitive Services dans Synapse Studio.
 

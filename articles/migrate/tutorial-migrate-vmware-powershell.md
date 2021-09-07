@@ -5,14 +5,14 @@ author: rahulg1190
 ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 08/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 018b11d53cf201de41f0f6ff9bc4f1f5c7488d7a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 8ce9dc354ff4ed3f4ff5246ce761a481f220e263
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765314"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186278"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrer des machines virtuelles VMware vers Azure (sans agent) - PowerShell
 
@@ -154,6 +154,7 @@ Vous pouvez spécifier les propriétés de réplication comme suit.
  Type du disque | Obligatoire | Spécifiez le nom de l’équilibreur de charge à créer. 
  Redondance d’infrastructure | Facultatif | Spécifiez l’option de redondance d’infrastructure comme suit. <br/><br/> - **Zone de disponibilité** pour épingler la machine migrée à une Zone de disponibilité spécifique dans la région. Utilisez cette option pour distribuer les serveurs qui forment une couche Application à plusieurs nœuds entre des Zones de disponibilité. Cette option est disponible uniquement si la région cible sélectionnée pour la migration prend en charge la fonctionnalité Zones de disponibilité. Pour utiliser des zones de disponibilité, spécifiez la valeur de zone de disponibilité souhaitée pour le paramètre (`TargetAvailabilityZone`). <br/> - **Groupe à haute disponibilité** pour placer la machine migrée dans un groupe à haute disponibilité. Pour utiliser cette option, le groupe de ressources cible qui a été sélectionné doit comporter un ou plusieurs groupes à haute disponibilité. Pour utiliser un groupe à haute disponibilité, spécifiez son ID pour le paramètre (`TargetAvailabilitySet`). 
  Compte de stockage de diagnostics de démarrage | Facultatif | Pour utiliser un compte de stockage de diagnostics de démarrage, spécifiez l’ID pour le paramètre (`TargetBootDiagnosticStorageAccount`). <br/> - Le compte de stockage utilisé pour les diagnostics de démarrage doit se trouver dans le même abonnement que celui vers lequel vous migrez vos machines virtuelles. <br/> - Par défaut, aucune valeur n’est définie pour ce paramètre. 
+ Étiquettes | Facultatif | Ajoutez des étiquettes à vos machines virtuelles migrées, disques et cartes réseau. <br/>  Utilisez (`Tag`) pour ajouter des étiquettes aux machines virtuelles, disques et cartes réseau. <br/> or <br/> Utilisez (`VMTag`) pour ajouter des étiquettes à vos machines virtuelles migrées.<br/> Utilisez (`DiskTag`) pour ajouter des étiquettes aux disques. <br/> Utilisez (`NicTag`) pour ajouter des étiquettes aux interface réseau. <br/> Par exemple, ajoutez les étiquettes nécessaires à une variable $tags et passez cette variable dans le paramètre obligatoire.  $tags = @{Organization=”Contoso”}
 
 
 
@@ -346,7 +347,9 @@ Groupe de ressources | Facultatif | La configuration de la carte réseau peut ê
 Interface réseau | Facultatif | Spécifiez le nom de la machine virtuelle Azure à créer en utilisant le paramètre [`TargetVMName`]. 
 Zone de disponibilité | Facultatif | Pour utiliser des zones de disponibilité, spécifiez la valeur de zone de disponibilité souhaitée pour le paramètre [`TargetAvailabilityZone`]. 
 Groupe à haute disponibilité | Facultatif | Pour utiliser un groupe à haute disponibilité, spécifiez son ID pour le paramètre [`TargetAvailabilitySet`]. 
-
+Étiquettes | Facultatif | Pour mettre à jour les étiquettes, utilisez les paramètres [`UpdateTag`] ou [`UpdateVMTag`], [`UpdateDiskTag`], [`UpdateNicTag`], et spécifiez le type de l’opération de mise à jour des étiquettes [`UpdateTagOperation`] ou [`UpdateVMTagOperation`], [`UpdateDiskTagOperation`], [`UpdateNicTagOperation`].   L’opération de mise à jour des étiquettes peut prendre les valeurs suivantes : merge (fusionner), delete (supprimer) et replace (remplacer). <br/> Utilisez [`UpdateTag`] pour mettre à jour toutes les étiquettes des machines virtuelles, des disques et des cartes réseau. <br/> Utilisez [`UpdateVMTag`] pour mettre à jour les étiquettes des machines virtuelles. <br/> Utilisez [`UpdateDiskTag`] pour mettre à jour les étiquettes des disques. <br/> Utilisez [`UpdateNicTag`] pour mettre à jour les étiquettes des cartes réseau. <br/> Utilisez [`UpdateTagOperation`] pour mettre à jour l’opération effectuée sur toutes les étiquettes des machines virtuelles, des disques et des cartes réseau. <br/>  Utilisez [`UpdateVMTagOperation`] pour mettre à jour les étiquettes des machines virtuelles. <br/> Utilisez [`UpdateDiskTagOperation`] pour mettre à jour les étiquettes des disques. <br/> Utilisez [`UpdateNicTagOperation`] pour mettre à jour les étiquettes des cartes réseau. <br/> <br/> L’option *replace* remplace l’ensemble complet des étiquettes existantes par un nouvel ensemble. <br/> L’option *merge* permet d’ajouter des étiquettes avec de nouveaux noms et de mettre à jour les valeurs des étiquettes avec des noms existants. <br/> L’option *delete* permet de supprimer des étiquettes de manière sélective en fonction de noms ou de paires nom/valeur spécifiés. 
+Disque(s) | Facultatif | Pour le disque de système d’exploitation : <br/> Mettez à jour le nom du disque de système d’exploitation en utilisant le paramètre [`TargetDiskName`].  <br/><br/> Pour mettre à jour plusieurs disques : <br/>  Utilisez [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) pour définir les noms de disque sur une variable *$DiskMapping*, et utilisez le paramètre [`DiskToUpdate`] auquel vous passez la variable. <br/> <br/> **Remarque :** L’ID de disque à utiliser dans [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) est la propriété UUID (identificateur unique) du disque que vous obtenez à l’aide de l’applet de commande  [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver). 
+Nom de la ou des cartes réseau | Facultatif | Utilisez [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping) pour définir les noms de carte réseau sur une variable *$NICMapping*, et utilisez le paramètre [`NICToUpdate`] auquel vous passez la variable.
 
 La cmdlet [Get-AzMigrateServerReplication](/powershell/module/az.migrate/get-azmigrateserverreplication) retourne un travail qui peut être suivi pour superviser l’état de l’opération.
 
@@ -363,13 +366,13 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
 ```
 
-Dans l’exemple suivant, nous allons mettre à jour la configuration de la carte réseau en définissant la première carte réseau comme carte principale et en lui affectant une adresse IP statique. Nous allons ignorer la deuxième carte réseau pour la migration, et mettre à jour le nom et la taille de la machine virtuelle cible.
+Dans l’exemple suivant, nous allons mettre à jour la configuration de la carte réseau en définissant la première carte réseau comme carte principale et en lui affectant une adresse IP statique. Nous allons ignorer la deuxième carte réseau pour la migration, mettre à jour le nom et la taille de la machine virtuelle cible, et personnaliser les noms des cartes réseau.
 
 ```azurepowershell-interactive
 # Specify the NIC properties to be updated for a replicating VM.
 $NicMapping = @()
-$NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP ###.###.###.### -TargetNicSelectionType Primary
-$NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType DoNotCreate
+$NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP ###.###.###.### -TargetNicSelectionType Primary TargetNicName "ContosoNic_1"
+$NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType DoNotCreate - TargetNicName "ContosoNic_2"
 
 $NicMapping += $NicMapping1
 $NicMapping += $NicMapping2
@@ -378,6 +381,32 @@ $NicMapping += $NicMapping2
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize Standard_DS13_v2 -TargetVMName MyMigratedVM -NicToUpdate $NicMapping
 ```
+
+Dans l’exemple suivant, nous personnalisons le nom des disques.
+
+```azurepowershell-interactive
+# Customize the Disk names for a replicating VM
+$OSDisk = Set-AzMigrateDiskMapping -DiskID "6000C294-1217-dec3-bc18-81f117220424" -DiskName "ContosoDisk_1" 
+$DataDisk1= Set-AzMigrateDiskMapping -DiskID "6000C292-79b9-bbdc-fb8a-f1fa8dbeff84" -DiskName "ContosoDisk_2" 
+$DiskMapping = $OSDisk, $DataDisk1 
+```
+
+```azurepowershell-interactive
+# Update the disk names for a replicating server
+$UpdateJob = Set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
+ ```
+
+Dans l’exemple suivant, nous ajoutons des étiquettes aux machines virtuelles de réplication.
+
+```azurepowershell-interactive
+# Update all tags across virtual machines, disks, and NICs.
+Set-azmigrateserverreplication UpdateTag $UpdateTag UpdateTagOperation Merge/Replace/Delete
+
+# Update virtual machines tags
+Set-azmigrateserverreplication UpdateVMTag $UpdateVMTag UpdateVMTagOperation Merge/Replace/Delete 
+```
+Utilisez l’exemple suivant pour suivre l’état du travail.
+
 ```azurepowershell-interactive
 # Track job status to check for completion
 while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted')){
@@ -388,8 +417,6 @@ while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted
 # Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
 Write-Output $UpdateJob.State
 ```
-
-
 
 ## <a name="11-run-a-test-migration"></a>11. Exécuter un test de migration
 

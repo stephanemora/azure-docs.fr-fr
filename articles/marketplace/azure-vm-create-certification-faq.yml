@@ -8,12 +8,12 @@ metadata:
   author: mathapli
   ms.author: mathapli
   ms.date: 01/18/2021
-  ms.openlocfilehash: 96e8f93f38d7ba84b93fdfb4101371f426a14f37
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: dcb526fe2e7946e9ffd77d319107d150f04ad06d
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114456570"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122968424"
 title: Résoudre les problèmes de certification des machines virtuelles
 summary: >
   Lorsque vous publiez l’image d’une machine virtuelle sur Place de marché Azure, l’équipe Azure la valide pour s’assurer qu’elle est démarrable, sécurisée et compatible avec Azure. Si votre image de machine virtuelle échoue à l’un des tests de haute qualité, elle ne sera pas publiée. Vous recevrez un message d’erreur qui décrit le problème.
@@ -46,7 +46,7 @@ sections:
 
       |1|Disque dur virtuel (VHD) non valide|Si la valeur du cookie spécifiée dans le pied de page du disque dur virtuel est incorrecte, le disque dur virtuel sera considéré comme non valide.|Recréez l'image et envoyez la demande.|
 
-      |2|Type d'objet blob non valide|Le provisionnement de la machine virtuelle a échoué car le bloc utilisé est un type de bloc et non un type de page.|Recréez l’image en tant que type de page et envoyez la demande.|
+      |2|Type d'objet blob non valide|Le provisionnement de la machine virtuelle a échoué car le blob utilisé est de type bloc et non de type page.|Recréez l’image en tant que type de page et envoyez la demande.|
 
       |3|Expiration du délai de provisionnement ou généralisation incorrecte|Il y a un problème avec la généralisation de la machine virtuelle.|Recréez l'image avec la généralisation et envoyez la demande.|
 
@@ -196,7 +196,7 @@ sections:
 
       | 1 | Cas de test Version de l'agent Linux | La version minimale de l’agent Linux est 2.2.41 ou ultérieure. Cette exigence est obligatoire depuis le 1er mai 2020. | Mettez à jour la version de l’agent Linux. Il doit s’agir de la version 2.241 ou ultérieure. Pour plus d’informations, consultez la [page de mise à jour de la version de l’agent Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 
-      | 2 | Cas de test Historique Bash | Une erreur se produit si la taille de l’historique Bash de l’image que vous avez envoyée est supérieure à 1 kilo-octet (ko). La taille est limitée à 1 ko pour garantir que votre fichier d’historique Bash ne contient pas d’informations potentiellement sensibles. | Résolvez l’erreur en montant le disque dur virtuel sur une autre machine virtuelle opérationnelle et apportez des modifications pour réduire la taille à 1 ko ou moins. Par exemple, supprimez les fichiers d’historique `.bash`. |
+      | 2 | Cas de test Historique Bash | Une erreur se produit si la taille de l’historique Bash de l’image que vous avez envoyée est supérieure à 1 kilo-octet (ko). La taille est limitée à 1 ko pour garantir que votre fichier d’historique Bash ne contient pas d’informations potentiellement sensibles. | Résolvez l’erreur en montant le disque dur virtuel sur une autre machine virtuelle opérationnelle et apportez des modifications pour réduire la taille à 1 ko ou moins. Par exemple, supprimez les fichiers `.bash_history`. |
 
       | 3 | Cas de test Paramètres de noyau requis | Vous recevez cette erreur quand la valeur de `console` n’est pas `ttyS0`. Vérifiez en exécutant la commande suivante : <br /> `cat /proc/cmdline` | Affectez la valeur `ttyS0` à `console` et renvoyez la demande. |
 

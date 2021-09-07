@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: 9b5d5d85d8df58a8e8c3e2626abaed75377e6025
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5a7df784ec30b958eb6924de674e09cbbe21c91e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "122643151"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830017"
 ---
 # <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>Démarrage rapide : Créer votre première fonction C# dans Azure à l’aide de Visual Studio
 
@@ -28,9 +28,14 @@ Dans cet article, vous apprendrez comment :
 > * Exécuter votre code localement pour vérifier le comportement de la fonction.
 > * Déployer votre projet de code sur Azure Functions. 
  
+Cet article prend en charge la création de deux types de fonctions C# compilées : 
+
++ [In-process](functions-create-your-first-function-visual-studio.md?tabs=in-process) : s’exécute dans le même processus que le processus hôte Functions. Pour en découvrir plus, consultez [Développer des fonctions de bibliothèque de classes C# à l’aide d’Azure Functions](functions-dotnet-class-library.md).
++ [Processus isolé](functions-create-your-first-function-visual-studio.md?tabs=isolated-process) : s’exécute dans un processus Worker .NET séparé. Pour plus d’informations, consultez [Guide d’exécution de fonctions sur .NET 5.0 dans Azure](dotnet-isolated-process-guide.md).
+
 Le fait de suivre ce guide de démarrage rapide entraîne une faible dépense de quelques cents USD tout au plus dans votre compte Azure.
- 
-Le projet que vous créez s’exécute sur .NET Core 3.1. Si vous préférez créer un projet qui s’exécute sur .NET 5.0, consultez [Développer et publier des fonctions .NET 5 à l’aide d’Azure Functions](dotnet-isolated-process-developer-howtos.md).
+
+Si vous souhaitez consulter une version de cet article adaptée à Visual Studio Code, [cliquez ici](create-first-function-vs-code-csharp.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,8 +61,16 @@ L’attribut de méthode `FunctionName` définit le nom de la fonction qui, par 
 
 Votre définition de fonction doit maintenant ressembler au code suivant :
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
- 
+# <a name="in-process"></a>[In-process](#tab/in-process) 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
+
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13"::: 
+
+---
+
 Maintenant que vous avez renommé la fonction, vous pouvez la tester sur votre ordinateur local.
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement

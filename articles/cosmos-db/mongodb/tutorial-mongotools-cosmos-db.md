@@ -6,14 +6,14 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7aedfa7b0a9c174e9205cb744f470574888be6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 335af910f9e62fe1bd67513f843966de3c5b381b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121782451"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038315"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-mongodb-native-tools"></a>Tutoriel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide des outils natifs MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -163,6 +163,9 @@ Après avoir migré les données stockées dans la base de données MongoDB vers
 
 * [Informations sur le service Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 * [Documentation des outils de base de données MongoDB](https://docs.mongodb.com/database-tools/)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ?
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

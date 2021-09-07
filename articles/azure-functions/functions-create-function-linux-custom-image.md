@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: f3f4af97309326fe761ea58a7927df19522e4f60
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: a6e3ad07f9ba46bd15fe662f370ae2ffc3deb4a8
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486748"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830511"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -64,31 +64,39 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
 ## <a name="create-and-test-the-local-functions-project"></a>Créer et tester un projet de fonction local
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Dans un terminal ou une invite de commandes, exécutez la commande suivante dans le langage de votre choix pour créer un projet d’application de fonction dans un dossier nommé `LocalFunctionsProject`.  
+Dans un terminal ou une invite de commandes, exécutez la commande suivante dans le langage de votre choix pour créer un projet d’application de fonction dans le dossier actuel.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
+
+# <a name="in-process"></a>[In-process](#tab/in-process)
 ```console
-func init LocalFunctionsProject --worker-runtime dotnet --docker
+func init --worker-runtime dotnet --docker
 ```
+
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+```console
+func init --worker-runtime dotnet-isolated --docker
+```
+---
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 ```console
-func init LocalFunctionsProject --worker-runtime node --language javascript --docker
+func init --worker-runtime node --language javascript --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 ```console
-func init LocalFunctionsProject --worker-runtime powershell --docker
+func init --worker-runtime powershell --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ```console
-func init LocalFunctionsProject --worker-runtime python --docker
+func init --worker-runtime python --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 ```console
-func init LocalFunctionsProject --worker-runtime node --language typescript --docker
+func init --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
@@ -130,38 +138,48 @@ Maven crée les fichiers projet dans un nouveau dossier avec le nom d’_artifac
 
 ::: zone pivot="programming-language-other"  
 ```console
-func init LocalFunctionsProject --worker-runtime custom --docker
+func init --worker-runtime custom --docker
 ```
 ::: zone-end
 
 L’option `--docker` génère un `Dockerfile` pour le projet, qui définit un conteneur personnalisé approprié pour une utilisation avec Azure Functions et le runtime sélectionné.
 
-Accédez au dossier du projet :
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
-```console
-cd LocalFunctionsProject
-```
-::: zone-end  
 ::: zone pivot="programming-language-java"  
+Accédez au dossier du projet :
+
 ```console
 cd fabrikam-functions
 ```
 ::: zone-end  
+::: zone pivot="programming-language-csharp"  
+
+# <a name="in-process"></a>[In-process](#tab/in-process)
+Aucune modification n’est requise pour le fichier Dockerfile.
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+Ouvrez le fichier Dockerfile et ajoutez les lignes suivantes après la première instruction `FROM`, si elles ne sont pas déjà présentes :
+
+```docker
+# Build requires 3.1 SDK
+COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/dotnet
+```
+---
+::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient le fichier de code approprié au langage choisi pour le projet, et un fichier config nommé *function.json*.
+Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un fichier de code C# dans votre projet.
 
 ```console
-func new --name HttpExample --template "HTTP trigger"
+func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 ```
 ::: zone-end
 
-::: zone pivot="programming-language-other" 
+::: zone pivot="programming-language-other,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient un fichier config nommé *function.json*.
 
 ```console
-func new --name HttpExample --template "HTTP trigger"
+func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 ```
-
+::: zone-end  
+::: zone pivot="programming-language-other" 
 Au moyen d’un éditeur de texte, dans le dossier du projet, créez un fichier nommé *handler.R*. Ajoutez le code suivant en tant que contenu.
 
 ```r
@@ -316,14 +334,16 @@ Pour tester la génération, exécutez l’image dans un conteneur local avec la
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
-Une fois que l’image s’exécute dans un conteneur local, ouvrez un navigateur sur `http://localhost:8080`, qui doit afficher l’image de l’espace réservé montrée ci-dessous. L’image apparaît à ce stade, car votre fonction est exécutée dans le conteneur local, comme ce serait le cas dans Azure, ce qui signifie qu’elle est protégée par une clé d’accès telle que définie dans *function.json* avec la propriété `"authLevel": "function"`. Le conteneur n’a cependant pas encore été publié sur une application de fonction : la clé n’est donc pas encore disponible. Si vous voulez effectuer un test avec le conteneur local, arrêtez Docker, changez la propriété d’autorisation en `"authLevel": "anonymous"`, regénérez l’image, puis redémarrez Docker. Ensuite, réinitialisez `"authLevel": "function"` dans *function.json*. Pour plus d’informations, consultez [Clés d’autorisation](functions-bindings-http-webhook-trigger.md#authorization-keys).
+::: zone pivot="programming-language-csharp"
+# <a name="in-process"></a>[In-process](#tab/in-process)
+Après le démarrage de l’image dans le conteneur local, accédez à `http://localhost:8080/api/HttpExample?name=Functions`, qui doit afficher le même message « hello » que précédemment. Étant donné que la fonction déclenchée par HTTP que vous avez créée utilise une autorisation anonyme, vous pouvez appeler la fonction en cours d’exécution dans le conteneur sans avoir à obtenir de clé d’accès. Pour en savoir plus, consultez [Clés d’autorisation].
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+Après le démarrage de l’image dans le conteneur local, accédez à `http://localhost:8080/api/HttpExample`, qui doit afficher le même message d’accueil que précédemment. Étant donné que la fonction déclenchée par HTTP que vous avez créée utilise une autorisation anonyme, vous pouvez appeler la fonction en cours d’exécution dans le conteneur sans avoir à obtenir de clé d’accès. Pour en savoir plus, consultez [Clés d’autorisation].
 
-![Image d’espace réservé indiquant que le conteneur s’exécute localement](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
-
+---
 ::: zone-end
-::: zone pivot="programming-language-java"  
-Une fois que l’image s’exécute dans un conteneur local, accédez à `http://localhost:8080/api/HttpExample?name=Functions`, qui doit afficher le même message « hello » que précédemment. Étant donné que l’archétype Maven génère une fonction HTTP déclenchée qui utilise une autorisation anonyme, vous pouvez toujours appeler la fonction même si elle est déjà exécutée dans le conteneur. 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
+Après le démarrage de l’image dans le conteneur local, accédez à `http://localhost:8080/api/HttpExample?name=Functions`, qui doit afficher le même message « hello » que précédemment. Étant donné que la fonction déclenchée par HTTP que vous avez créée utilise une autorisation anonyme, vous pouvez appeler la fonction en cours d’exécution dans le conteneur sans avoir à obtenir de clé d’accès. Pour en savoir plus, consultez [Clés d’autorisation].
 ::: zone-end  
 
 Après avoir vérifié l’application de fonction dans le conteneur, arrêtez Docker avec **Ctrl**+**C**.
@@ -346,45 +366,87 @@ Docker Hub est un registre de conteneurs qui héberge des images, et qui fournit
 
 1. Selon la rapidité de votre réseau, le premier initial de l’image peut prendre quelques minutes (l’envoi des modifications suivantes est beaucoup plus rapide). Pendant que vous attendez, vous pouvez passer à la section suivante et créer des ressources Azure dans un autre terminal.
 
-## <a name="create-supporting-azure-resources-for-your-function"></a>Créer des ressources Azure de support pour votre fonction
+## <a name="create-supporting-azure-resources-for-your-function"></a>Créer des ressources Azure de prise en charge pour votre fonction
 
-Pour déployer votre code de fonction sur Azure, vous devez créer trois ressources :
+Avant de déployer le code de votre fonction dans Azure, vous devez créer trois ressources :
 
-- Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
-- Un compte de stockage Azure, qui conserve l’état et d’autres informations spécifiques à vos projets.
+- Un [groupe de ressources](../azure-resource-manager/management/overview.md), qui est un conteneur logique pour les ressources associées.
+- Un [compte de stockage](../storage/common/storage-account-create.md), qui sert à conserver l’état et d’autres informations sur vos fonctions.
 - Une application de fonction, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction est mappée à votre projet de fonction local. Elle vous permet de regrouper les fonctions en tant qu’unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
-Vous utilisez les commandes Azure CLI pour créer ces éléments. Chaque commande fournit une sortie JSON une fois l’opération terminée.
+Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerShell sont pris en charge.
 
-1. Connectez-vous à Azure avec la commande [az login](/cli/azure/reference-index#az_login) :
+1. Si vous ne l’avez pas déjà fait, connectez-vous à Azure :
 
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
     az login
     ```
-    
-1. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé `AzureFunctionsContainers-rg` dans la région `westeurope`. (Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible à partir de la commande `az account list-locations`.)
 
-    ```azurecli
-    az group create --name AzureFunctionsContainers-rg --location westeurope
+    La commande [az login](/cli/azure/reference-index#az_login) vous connecte à votre compte Azure.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
     ```
-    
-    > [!NOTE]
-    > Vous ne pouvez pas héberger des applications Linux et Windows dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `AzureFunctionsContainers-rg` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
-    
-1. Créez un compte de stockage universel dans votre groupe de ressources et votre région à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). Dans l’exemple suivant, remplacez `<storage_name>` par un nom globalement unique qui vous convient. Les noms doivent contenir entre 3 et 24 caractères, et comporter uniquement des lettres minuscules. `Standard_LRS` spécifie un compte universel standard.
 
+    L’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) vous connecte à votre compte Azure.
+
+    ---
+
+1. Créez un groupe de ressources nommé `AzureFunctionsContainers-rg` dans la région de votre choix :
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
     ```azurecli
-    az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
+    az group create --name AzureFunctionsContainers-rg --location <REGION>
     ```
-    
-    Le compte de stockage génère un coût de quelques cents USD seulement pour ce tutoriel.
-    
-1. Utilisez la commande pour créer un plan Premium pour Azure Functions nommé `myPremiumPlan` dans le niveau tarifaire **Elastic Premium 1** (`--sku EP1`), dans la région Europe Ouest (`-location westeurope` ou utilisez une région appropriée proche de vous) et dans un conteneur Linux (`--is-linux`).
+ 
+    La commande [az group create](/cli/azure/group#az_group_create) crée un groupe de ressources. Dans la commande ci-dessus, remplacez `<REGION>` par une région près de chez vous en utilisant un code de région disponible retourné par la commande [az account list-locations](/cli/azure/account#az_account_list_locations).
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    ```azurepowershell
+    New-AzResourceGroup -Name AzureFunctionsContainers-rg -Location <REGION>
+    ```
+
+    La commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crée un groupe de ressources. Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible qui est retournée par l’applet de commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
+
+    ---
+
+1. Créez un compte de stockage universel dans votre groupe de ressources et votre région :
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
-    ```   
+    az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
+    ```
 
+    La commande [az storage account create](/cli/azure/storage/account#az_storage_account_create) crée le compte de stockage. 
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    ```azurepowershell
+    New-AzStorageAccount -ResourceGroupName AzureFunctionsContainers-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location <REGION>
+    ```
+
+    L’applet de commande [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) crée le compte de stockage.
+
+    ---
+
+    Dans l’exemple précédent, remplacez `<STORAGE_NAME>` par un nom qui vous convient et qui est unique dans Stockage Azure. Les noms doivent contenir entre 3 et 24 caractères, et comporter uniquement des lettres minuscules. `Standard_LRS` spécifie un compte universel, qui est [pris en charge par Functions](storage-considerations.md#storage-account-requirements).
+    
+1. Utilisez la commande pour créer un plan Premium pour Azure Functions nommé `myPremiumPlan` dans le niveau tarifaire **Elastic Premium 1** (`--sku EP1`), dans votre `<REGION>` et dans un conteneur Linux (`--is-linux`).
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location <REGION> --number-of-workers 1 --sku EP1 --is-linux
+    ```
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+    ```powershell
+    New-AzFunctionAppPlan -ResourceGroupName AzureFunctionsContainers-rg -Name MyPremiumPlan -Location <REGION> -Sku EP1 -WorkerType Linux
+    ```
+    ---
     Nous utilisons ici le plan Premium, qui peut être mis à l’échelle en fonction des besoins. Pour en savoir plus sur l’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md). Pour calculer les coûts, consultez la [page Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
     La commande provisionne également une instance Azure Application Insights associée dans le même groupe de ressources, avec laquelle vous pouvez superviser votre application de fonction et visualiser les journaux. Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md). L’instance n’entraîne aucun coût tant que vous ne l’activez pas.
@@ -393,48 +455,66 @@ Vous utilisez les commandes Azure CLI pour créer ces éléments. Chaque command
 
 Une application de fonction sur Azure gère l’exécution de vos fonctions dans votre plan d’hébergement. Dans cette section, vous utilisez les ressources Azure de la section précédente pour créer une application de fonction à partir d’une image sur Docker Hub et pour la configurer avec une chaîne de connexion à Stockage Azure.
 
-1. Créez l’application de fonction avec la commande [az functionapp create](/cli/azure/functionapp#az_functionapp_create). Dans l’exemple suivant, remplacez `<storage_name>` par le nom que vous avez utilisé dans la section précédente pour le compte de stockage. Remplacez aussi `<app_name>` par un nom globalement unique qui vous convient et `<docker_id>` par votre ID Docker.
+1. Créez une application de fonction avec la commande suivante :
 
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
-    ::: zone-end
-    ::: zone pivot="programming-language-other"
-    ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime custom --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+
+    Dans la commande [az functionapp create](/cli/azure/functionapp#az_functionapp_create), le paramètre *deployment-container-image-name* spécifie l’image à utiliser pour l’application de fonction. Vous pouvez utiliser la commande [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) pour voir des informations sur l’image utilisée pour le déploiement. Vous pouvez aussi utiliser la commande [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) pour déployer à partir d’une autre image.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
-    ::: zone-end
+    ---
     
-    Le paramètre *deployment-container-image-name* spécifie l’image à utiliser pour l’application de fonction. Vous pouvez utiliser la commande [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) pour voir des informations sur l’image utilisée pour le déploiement. Vous pouvez aussi utiliser la commande [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) pour déployer à partir d’une autre image.
+    Dans cet exemple, remplacez `<STORAGE_NAME>` par le nom que vous avez utilisé dans la section précédente pour le compte de stockage. Remplacez aussi `<APP_NAME>` par un nom globalement unique qui vous convient et `<DOCKER_ID>` par votre ID DockerHub.    
     
     > [!TIP]  
     > Vous pouvez utiliser le [`DisableColor`paramètre](functions-host-json.md#console) dans le fichier host.json pour empêcher l’écriture des caractères de contrôle ANSI dans les journaux de conteneur. 
 
-1. Affichez la chaîne de connexion pour le compte de stockage que vous avez créé avec la commande [az storage account show-connection-string](/cli/azure/storage/account). Remplacez `<storage-name>` par le nom du compte de stockage créé ci-dessus :
+1. Utilisez la commande suivante afin d’obtenir la chaîne de connexion pour le compte de stockage que vous avez créé :
 
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
-    az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <STORAGE_NAME> --query connectionString --output tsv
     ```
-    
-1. Ajoutez ce paramètre à l’application de fonction à l’aide de la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set). Dans la commande suivante, remplacez `<app_name>` par le nom de votre application de fonction et `<connection_string>` par la chaîne de connexion récupérée à l’étape précédente (une longue chaîne codée qui commence par « DefaultEndpointProtocol= ») :
+
+    La chaîne de connexion pour le compte de stockage est retournée avec la commande [az storage account show-connection-string](/cli/azure/storage/account). 
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    $storage_name = "glengagtestdockerstorage"
+    $key = (Get-AzStorageAccountKey -ResourceGroupName AzureFunctionsContainers-rg -Name $storage_name)[0].Value
+    $string = "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=" + $storage_name + ";AccountKey=" + $key
+    Write-Output($string) 
+    ```
+    La clé retournée par l’applet de commande [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) est utilisée pour construire la chaîne de connexion pour le compte de stockage.
+
+    ---    
+
+    Remplacez `<STORAGE_NAME>` par le nom du compte de stockage que vous avez créé.
+
+1. Ajoutez ce paramètre à l’application de fonction en utilisant la commande suivante : 
  
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
-    az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
+    az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<CONNECTION_STRING>
     ```
+    La commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set) crée le paramètre. 
 
-    > [!TIP]
-    > Dans Bash, vous pouvez utiliser une variable de shell pour capturer la chaîne de connexion, au lieu d’utiliser le Presse-papiers. Pour commencer, utilisez la commande suivante pour créer une variable avec la chaîne de connexion :
-    > 
-    > ```bash
-    > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
-    > ```
-    > 
-    > Ensuite, référencez la variable dans la deuxième commande :
-    > 
-    > ```azurecli
-    > az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
-    > ```
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"AzureWebJobsStorage"="<CONNECTION_STRING>"}
+    ```
+    L’applet de commande [Update-AzFunctionAppSetting](/powershell/module/az.functions/update-azfunctionappsetting) crée le paramètre.
+
+    ---
+
+    Dans cette commande, remplacez `<APP_NAME>` par le nom de votre application de fonction et `<CONNECTION_STRING>` par la chaîne de connexion issue de l’étape précédente. La connexion doit être une longue chaîne codée qui commence par `DefaultEndpointProtocol=`.
+ 
 
 1. La fonction peut maintenant utiliser cette chaîne de connexion pour accéder au compte de stockage.
 
@@ -443,82 +523,47 @@ Une application de fonction sur Azure gère l’exécution de vos fonctions dans
 
 ## <a name="verify-your-functions-on-azure"></a>Vérifier vos fonctions sur Azure
 
-Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez désormais appeler la fonction via des requêtes HTTP. Comme la définition de *function.json* inclut la propriété `"authLevel": "function"`, vous devez d’abord obtenir la clé d’accès (également appelée « clé de fonction ») et l’inclure en tant que paramètre d’URL dans toutes les requêtes adressées au point de terminaison.
+Une fois l’image déployée sur votre application de fonction dans Azure, vous pouvez appeler la fonction comme avant via des requêtes HTTP.
+Dans votre navigateur, accédez à une URL telle que la suivante :
 
-1. Récupérez l’URL de la fonction avec la clé (de fonction) d’accès en utilisant le portail Azure ou Azure CLI avec la commande `az rest`.
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+`https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`  
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+# <a name="in-process"></a>[In-process](#tab/in-process) 
+`https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+`https://<APP_NAME>.azurewebsites.net/api/HttpExample`
 
-    # <a name="portal"></a>[Portail](#tab/portal)
+---
+:::zone-end  
 
-    1. Connectez-vous au portail Azure, puis recherchez et sélectionnez **Application de fonction**.
-
-    1. Sélectionnez la fonction que vous souhaitez vérifier.
-
-    1. Dans le volet de navigation gauche, sélectionnez **Fonctions**, puis sélectionnez la fonction que vous souhaitez vérifier.
-
-        ![Sélectionnez votre fonction dans le portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
-
-    
-    1. Sélectionnez **Obtenir l’URL de la fonction**.
-
-        ![Obtenir l'URL de fonction à partir du portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
-
-    
-    1. Dans la fenêtre contextuelle, sélectionnez **Par défaut (clé de fonction)** , puis copiez l’URL dans le presse-papiers. La clé est la chaîne de caractères qui suit `?code=`.
-
-        ![Choisir la clé d’accès par défaut de la fonction](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
-
-
-    > [!NOTE]  
-    > Dans la mesure où votre application de fonction est déployée en tant que conteneur, vous ne pouvez pas apporter de modifications à votre code de fonction dans le portail. Vous devez à la place mettre à jour le projet dans l’image locale, envoyer à nouveau l’image vers le registre, puis redéployer sur Azure. Vous pouvez configurer le déploiement continu dans une section ultérieure.
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
-
-    1. Construisez une chaîne d’URL au format suivant, en remplaçant `<subscription_id>`, `<resource_group>`et `<app_name>` par votre ID d’abonnement Azure, par le groupe de ressources de votre application de fonction et par le nom de votre application de fonction, respectivement :
-
-        ```
-        "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Web/sites/<app_name>/host/default/listKeys?api-version=2018-11-01"
-        ```
-
-        Par exemple, l’URL peut se présenter comme l’adresse suivante :
-
-        ```
-        "/subscriptions/1234aaf4-1234-abcd-a79a-245ed34eabcd/resourceGroups/AzureFunctionsContainers-rg/providers/Microsoft.Web/sites/msdocsfunctionscontainer/host/default/listKeys?api-version=2018-11-01"
-        ```
-
-        > [!TIP]
-        > Par souci pratique, vous pouvez à la place affecter l’URL à une variable d’environnement et l’utiliser dans la commande `az rest`.
-    
-    1. Exécutez la commande `az rest` suivante (disponible dans Azure CLI version 2.0.77 et ultérieure), en remplaçant `<uri>` par la chaîne d’URI de la dernière étape, en y incluant les guillemets :
-
-        ```azurecli
-        az rest --method post --uri <uri> --query functionKeys.default --output tsv
-        ```
-
-    1. La sortie de la commande est la clé de la fonction. L’URL complète de la fonction est alors `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>` (remplacez `<app_name>`, `<function_name>` et `<key>` par vos valeurs spécifiques).
-    
-        > [!NOTE]
-        > La clé récupérée ici est la clé d’*hôte* qui marche pour toutes les fonctions de l’application de fonction ; la méthode montrée pour le portail récupère la clé pour cette seule fonction.
-
-    ---
-
-1. Collez l’URL de la fonction dans la barre d’adresse de votre navigateur, en ajoutant le paramètre `&name=Azure` à la fin de cette URL. Un texte similaire à « Hello, Azure » doit apparaître dans le navigateur.
-
-    ![Réponse de la fonction dans le navigateur.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
-
-1. Pour tester l’autorisation, supprimez le paramètre `code=` de l’URL et vérifiez que vous ne recevez pas de réponse de la fonction.
-
+Remplacez `<APP_NAME>` par le nom de votre application de fonction. Quand vous accédez à cette URL, le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Activer le déploiement continu sur Azure
 
 Vous pouvez activer Azure Functions pour mettre à jour automatiquement votre déploiement d’une image chaque fois que vous mettez à jour l’image dans le registre.
 
-1. Activez le déploiement continu avec la commande [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_config), en remplaçant `<app_name>` par le nom de votre application de fonction :
+1. Activez le déploiement continu et récupérez l’URL du webhook avec les commandes suivantes :
 
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
-    az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <app_name> --resource-group AzureFunctionsContainers-rg
+    az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <APP_NAME> --resource-group AzureFunctionsContainers-rg
     ```
     
-    Cette commande active le déploiement continu et retourne l’URL du webhook de déploiement. (Vous pouvez récupérer cette URL ultérieurement avec la commande [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_show_cd_url).)
+    La commande [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_config) active le déploiement continu et retourne l’URL du webhook de déploiement. Vous pouvez récupérer cette URL ultérieurement avec la commande [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_show_cd_url).
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"DOCKER_ENABLE_CI" = "true"}
+    Get-AzWebAppContainerContinuousDeploymentUrl -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg
+    ```
+    
+    Le paramètre d’application `DOCKER_ENABLE_CI` détermine si le déploiement continu est activé à partir du dépôt de conteneurs.  L’applet de commande [Get-AzWebAppContainerContinuousDeploymentUrl](/powershell/module/az.websites/get-azwebappcontainercontinuousdeploymenturl) retourne l’URL du webhook de déploiement.
+
+    ---    
+
+    Comme avant, remplacez `<APP_NAME>` par le nom de votre application de fonction. 
 
 1. Copiez l’URL du webhook de déploiement dans le Presse-papiers.
 
@@ -588,14 +633,18 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 
-## <a name="write-to-an-azure-storage-queue"></a>Écrire dans une file d’attente Stockage Azure
+## <a name="write-to-azure-queue-storage"></a>Écrire dans le Stockage File d’attente Azure
 
 Azure Functions vous permet de connecter vos fonctions à d’autres services et ressources Azure sans devoir écrire votre propre code d’intégration. Ces *liaisons*, qui représentent l’entrée et la sortie, sont déclarées dans la définition de la fonction. Les données issues des liaisons sont fournies à la fonction en tant que paramètres. Un *déclencheur* est un type spécial de liaison d’entrée. Si une fonction ne peut avoir qu’un seul déclencheur, elle peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
-Cette section vous montre comment intégrer votre fonction à une file d’attente de stockage Azure. La liaison de sortie que vous ajoutez à cette fonction écrit des données d’une requête HTTP dans un message en file d’attente.
+Cette section vous montre comment intégrer votre fonction à un stockage File d’attente Azure. La liaison de sortie que vous ajoutez à cette fonction écrit des données d’une requête HTTP dans un message en file d’attente.
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-csharp"  
+## <a name="register-binding-extensions"></a>Inscrire des extensions de liaison
+::: zone-end 
 
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
@@ -612,7 +661,7 @@ Cette section vous montre comment intégrer votre fonction à une file d’atten
 
 ## <a name="add-code-to-use-the-output-binding"></a>Ajouter du code pour utiliser la liaison de sortie
 
-Avec la liaison de file d’attente définie, vous pouvez à présent mettre à jour votre fonction pour qu’elle reçoive le paramètre de sortie `msg` et écrive des messages dans la file d’attente.
+Une fois la liaison de file d’attente définie, vous pouvez mettre à jour votre fonction pour qu’elle écrive des messages dans la file d’attente en utilisant le paramètre de liaison.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"     
@@ -681,3 +730,5 @@ az group delete --name AzureFunctionsContainer-rg
 + [Supervision des fonctions](functions-monitoring.md)
 + [Mise à l’échelle et options d’hébergement](functions-scale.md)
 + [Hébergement serverless basé sur Kubernetes](functions-kubernetes-keda.md)
+
+[Clés d’autorisation]: functions-bindings-http-webhook-trigger.md#authorization-keys

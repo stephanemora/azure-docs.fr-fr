@@ -9,12 +9,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 10eb9d57b19968737077a595030bb2a986ec6c7b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: ca7a6e424125980f79ccb6521df0d7b87a9ce456
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564785"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694964"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 
@@ -156,7 +156,7 @@ Pour un déploiement AKS avec un certificat personnalisé ou un déploiement ACI
 > Lorsque vous utilisez un certificat provenant de Microsoft pour un déploiement AKS, vous n’avez pas besoin de mettre à jour manuellement la valeur DNS pour le cluster. Cette valeur doit être définie automatiquement.
 
 Vous pouvez suivre les étapes ci-dessous afin de mettre à jour l’enregistrement DNS pour votre nom de domaine personnalisé :
-1. Obtenez l’adresse IP du point de terminaison de scoring à partir de l’URI de point de terminaison de scoring, qui est généralement au format *http://104.214.29.152:80/api/v1/service/<service-name>/score* . Dans cet exemple, l’adresse IP est 104.214.29.152.
+1. Obtenez l’adresse IP du point de terminaison de scoring à partir de l’URI de point de terminaison de scoring, qui est généralement au format `http://104.214.29.152:80/api/v1/service/<service-name>/score` . Dans cet exemple, l’adresse IP est 104.214.29.152.
 1. Utilisez les outils de votre bureau d’enregistrement de noms de domaine pour mettre à jour l’enregistrement DNS pour votre nom de domaine. L’enregistrement mappe le nom de domaine complet (par exemple, www\.contoso.com) à l’adresse IP. L’enregistrement doit pointer vers l’adresse IP du point de terminaison de scoring.
 
     > [!TIP]

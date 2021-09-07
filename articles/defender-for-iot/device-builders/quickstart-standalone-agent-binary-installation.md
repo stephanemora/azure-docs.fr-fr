@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Installer le micro-agent Defender pour IoT (préversion)'
 description: Suivez ce guide de démarrage rapide pour apprendre à installer et authentifier le micro-agent Defender.
-ms.date: 06/27/2021
+ms.date: 08/26/2021
 ms.topic: quickstart
-ms.openlocfilehash: e77ebaf3ab99fc88d3d0138edf3c815b63507e6c
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 857c0a6a9682d4b15362d75523d2aa08a1c8461e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195548"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965637"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>Démarrage rapide : Installer le micro-agent Defender pour IoT (préversion)
 
@@ -48,10 +48,11 @@ Avant d’installer le module Defender pour IoT, vous devez créer une identit�
     sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
     ```
 
-1. Mettez à jour la liste des packages à partir du référentiel que vous avez ajouté à l’aide de la commande suivante :
+1. Installez la clé publique Microsoft GPG :
 
     ```bash
-    sudo apt-get update
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
 Pour installer le package du micro-agent Defender sur Debian et sur les distributions Linux basées sur Ubuntu, utilisez la commande suivante :
@@ -60,21 +61,21 @@ Pour installer le package du micro-agent Defender sur Debian et sur les distribu
 sudo apt-get install defender-iot-micro-agent 
 ```
 
-## <a name="micro-agent-authentication-methods"></a>Méthodes d’authentification du micro-agent 
+## <a name="micro-agent-authentication-methods"></a>Méthodes d’authentification du micro-agent
 
-Les deux options utilisées pour authentifier le micro-agent Defender pour IoT sont les suivantes : 
+Les deux options utilisées pour authentifier le micro-agent Defender pour IoT sont les suivantes :
 
-- Chaîne de connexion d’identité de module. 
+- Chaîne de connexion d’identité de module.
 
 - Certificat.
 
 ### <a name="authenticate-using-a-module-identity-connection-string"></a>Authentifier à l’aide d’une chaîne de connexion d’identité de module
 
-Veillez à ce que les [conditions préalables](#prerequisites) pour cet article soient réunies et à créer une identité de module avant de commencer ces étapes. 
+Veillez à ce que les [conditions préalables](#prerequisites) pour cet article soient réunies et à créer une identité de module avant de commencer ces étapes.
 
 #### <a name="get-the-module-identity-connection-string"></a>Obtient la chaîne de connexion d’identité de module
 
-Pour récupérer la chaîne de connexion d’identité de module à partir de l’IoT Hub : 
+Pour récupérer la chaîne de connexion d’identité de module à partir de l’IoT Hub :
 
 1. Accédez à l’IoT Hub, puis sélectionnez votre hub.
 
@@ -118,13 +119,13 @@ Pour s’authentifier à l’aide d’un certificat :
 
 1. Procurez-vous un certificat en suivant [ces instructions](../../iot-hub/tutorial-x509-scripts.md).
 
-1. Placez la partie publique codée en PEM du certificat et la clé privée dans le répertoire de l’agent Defender, dans les fichiers nommés `certificate_public.pem` et `certificate_private.pem`. 
+1. Placez la partie publique codée en PEM du certificat et la clé privée dans le répertoire de l’agent Defender, dans les fichiers nommés `certificate_public.pem` et `certificate_private.pem`.
 
-1. Placez la chaîne de connexion appropriée dans le fichier `connection_string.txt`. La chaîne de connexion doit ressembler à ceci : 
+1. Placez la chaîne de connexion appropriée dans le fichier `connection_string.txt`. La chaîne de connexion doit ressembler à ceci :
 
-    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true` 
+    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    Cette chaîne alerte l’agent Defender, afin de demander qu’un certificat soit fourni pour l’authentification. 
+    Cette chaîne alerte l’agent Defender, afin de demander qu’un certificat soit fourni pour l’authentification.
 
 1. Redémarrez le service à l’aide de la commande suivante :  
 
@@ -145,10 +146,10 @@ Pour valider votre installation :
 1. Vérifiez que le service est stable en contrôlant qu’il est actif (`active`) et que la durée du bon fonctionnement du processus est appropriée
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Vérifiez que votre service est stable et actif.":::
- 
-## <a name="testing-the-system-end-to-end"></a>Test du système de bout en bout 
 
-Vous pouvez tester le système de bout en bout en créant un fichier déclencheur sur l’appareil. Le fichier déclencheur fait en sorte que l’analyse de ligne de base effectuée dans l’agent détecte le fichier comme une violation de la ligne de base. 
+## <a name="testing-the-system-end-to-end"></a>Test du système de bout en bout
+
+Vous pouvez tester le système de bout en bout en créant un fichier déclencheur sur l’appareil. Le fichier déclencheur fait en sorte que l’analyse de ligne de base effectuée dans l’agent détecte le fichier comme une violation de la ligne de base.
 
 Créez un fichier sur le système de fichiers avec la commande suivante :
 
@@ -156,15 +157,15 @@ Créez un fichier sur le système de fichiers avec la commande suivante :
 sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
 ```
 
-Une recommandation d’échec de validation de ligne de base se produit dans le hub, avec CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0 comme valeur `CceId` : 
+Une recommandation d’échec de validation de ligne de base se produit dans le hub, avec CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0 comme valeur `CceId` :
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="Recommandation d’échec de validation de ligne de base qui se produit dans le hub." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
 
-Patientez jusqu’à une heure pour que la recommandation apparaisse dans le hub. 
+Patientez jusqu’à une heure pour que la recommandation apparaisse dans le hub.
 
-## <a name="micro-agent-versioning"></a>Gestion de versions du micro-agent 
+## <a name="micro-agent-versioning"></a>Gestion de versions du micro-agent
 
-Pour installer une version spécifique du micro-agent Defender pour IoT, exécutez la commande suivante : 
+Pour installer une version spécifique du micro-agent Defender pour IoT, exécutez la commande suivante :
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>

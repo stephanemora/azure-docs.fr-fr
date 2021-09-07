@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: a215100ebc858d2f6f7e154ea81ed5e006d3d9a4
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: c2cdd4009261306357bc9d840afa83bc1ebf40df
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252232"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111632"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -36,26 +36,31 @@ Les serveurs flexibles sont adaptés de façon optimale pour ce qui suit :
 - Haute disponibilité redondante interzone.
 - Fenêtres de maintenance managées.
 
+Pour les dernières mises à jour apportées au serveur flexible, consultez [Nouveautés d’Azure Database pour MySQL - Serveur flexible](whats-new.md).
+
 ![Schéma conceptuel du serveur flexible](media/overview/1-flexible-server-conceptual-diagram.png) 
+
+## <a name="free-12-month-offer"></a>Offre gratuite de 12 mois
+
+Avec un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez utiliser un serveur flexible gratuitement pendant 12 mois avec les limites mensuelles suivantes :
+* **750 heures d’instance Burstable B1MS**, soit un nombre d’heures suffisant pour exécuter une instance de base de données en continu chaque mois.
+* **32 Go** de stockage et **32 Go** de stockage de sauvegarde. 
+
+Vous pouvez profiter de cette offre si vous souhaitez développer et déployer des applications qui utilisent Azure Database pour MySQL - Serveur flexible. Pour découvrir comment créer et utiliser un serveur flexible gratuitement avec un compte gratuit Azure, accédez à [ce tutoriel](how-to-deploy-on-azure-free-account.md). 
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>Haute disponibilité à l’intérieur de zones de disponibilité et entre elles
 
-Le modèle de déploiement de serveur flexible est conçu pour prendre en charge une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. L'architecture distingue le calcul du stockage. Le moteur de base de données s’exécute sur une machine virtuelle Linux, tandis que les fichiers de données se trouvent sur le Stockage Premium Azure. Le stockage gère trois copies synchrones localement redondantes des fichiers de base de données, ce qui garantit la durabilité des données en permanence.
+Azure Database pour MySQL - Serveur flexible (préversion) permet de configurer la haute disponibilité avec le basculement automatique. Cette solution de haute disponibilité est conçue pour empêcher toute perte de données validées provoquée par des défaillances et améliorer la durée de bon fonctionnement globale de votre application.Quand la haute disponibilité est configurée, le serveur flexible provisionne et gère automatiquement un réplica de secours. Deux modèles d'architecture à haute disponibilité sont disponibles : 
 
-Au sein d’une zone de disponibilité unique, si le serveur tombe en panne en raison d’événements planifiés ou non, le service maintient la haute disponibilité des serveurs grâce à la procédure automatisée suivante :
+- **Haute disponibilité redondante interzone** : cette option est recommandée pour une isolation et une redondance complètes de l’infrastructure sur plusieurs zones de disponibilité. Elle offre le niveau de disponibilité le plus élevé, mais vous oblige à configurer la redondance des applications entre zones. La haute disponibilité redondante interzone est préférable quand vous voulez obtenir le niveau de disponibilité le plus élevé en cas de défaillance de l’infrastructure dans la zone de disponibilité et où la latence dans la zone de disponibilité est acceptable. La haute disponibilité redondante interzone est disponible dans un  [sous-ensemble de régions Azure](overview.md#azure-regions)  où chaque région prend en charge plusieurs zones de disponibilité et où des partages de fichiers Premium redondants interzones sont disponibles. 
 
-1. Une nouvelle machine virtuelle de calcul est approvisionnée.
-2. Le stockage contenant les fichiers de données est mappé avec la machine virtuelle.
-3. Le moteur de base de données MySQL est mis en ligne sur le nouvelle machine virtuelle.
-4. Les applications clientes peuvent se reconnecter une fois le serveur prêt à accepter les connexions.
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Haute disponibilité redondante interzone":::
 
-:::image type="content" source="media/overview/2-flexible-server-architecture.png" alt-text="Schéma conceptuel de haute disponibilité à zone unique":::
+- **Haute disponibilité dans la même zone** : cette option est préférable pour la redondance de l’infrastructure avec une latence réseau inférieure, car le serveur principal et le serveur de secours se trouvent dans la même zone de disponibilité. Elle offre une haute disponibilité sans qu’il soit nécessaire de configurer la redondance des applications entre les zones. La haute disponibilité dans la même zone est préférable quand vous voulez obtenir le niveau de disponibilité le plus élevé au sein d’une même zone de disponibilité avec la latence réseau la plus faible. La haute disponibilité dans la même zone est disponible dans [toutes les régions Azure](overview.md#azure-regions) où il est possible de créer un serveur flexible Azure Database pour MySQL. 
 
-Si la haute disponibilité redondante interzone est configurée, le service approvisionne et gère un serveur de secours dans la zone de disponibilité, au sein de la même région Azure. Les modifications apportées aux données sur le serveur source sont répliquées de façon synchrone sur le serveur de secours pour éviter toute perte de données. Avec la haute disponibilité redondante interzone, une fois l’événement de basculement planifié ou non planifié déclenché, le serveur de secours est immédiatement mis en ligne et disponible pour traiter les transactions entrantes. Le temps de basculement standard est compris entre 60 et 120 secondes. Cela permet au service de prendre en charge la haute disponibilité et d’améliorer la résilience grâce à la tolérance en cas de défaillances de zone de disponibilité uniques dans une région Azure donnée.
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Haute disponibilité redondante dans la même zone":::
 
 Pour plus d’informations, consultez [Concepts de haute disponibilité](concepts-high-availability.md).
-
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Schéma conceptuel de haute disponibilité redondante interzone":::
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Mise à jour corrective automatisée avec fenêtre de maintenance gérée
 
@@ -87,7 +92,7 @@ Pour en savoir plus, consultez [Concepts de mise en réseau](concepts-networking
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustez les performances et la mise à l’échelle en quelques secondes
 
-Trois références SKU sont disponibles pour le service à serveur flexible : Expansible, Usage général et À mémoire optimisée. Le niveau Burstable est idéalement adapté aux charges de travail de développement à faible coût et faible concurrence ne nécessitant pas en permanence une capacité de calcul complète. Les niveaux Usage général et À mémoire optimisée conviendront quant à eux aux charges de travail de production nécessitant une simultanéité et une mise à l'échelle de haut niveau, ainsi que des performances prévisibles. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle en toute transparence aux besoins de votre solution. La mise à l'échelle du stockage s'effectue en ligne et prend en charge la croissance automatique du stockage. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous ne payez que pour les ressources que vous consommez. 
+Trois références SKU sont disponibles pour le service à serveur flexible : Expansible, Usage général et À mémoire optimisée. Le niveau Burstable est idéalement adapté aux charges de travail de développement à faible coût et faible concurrence ne nécessitant pas en permanence une capacité de calcul complète. Les niveaux Usage général et À mémoire optimisée conviendront quant à eux aux charges de travail de production nécessitant une simultanéité et une mise à l'échelle de haut niveau, ainsi que des performances prévisibles. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle en toute transparence aux besoins de votre solution. La mise à l'échelle du stockage s'effectue en ligne et prend en charge la croissance automatique du stockage. Le serveur flexible vous permet de provisionner jusqu’à 20 000 IOPS supplémentaires par rapport à la limite d’IOPS gratuites indépendamment du stockage. À l’aide de cette fonctionnalité, vous pouvez augmenter ou diminuer à tout moment le nombre d’IOPS approvisionnées en fonction des exigences de votre charge de travail. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous ne payez que pour les ressources que vous consommez. 
 
 Pour plus d’informations, consultez [Concepts de calcul et de stockage](concepts-compute-storage.md).
 
@@ -106,7 +111,7 @@ Pour en savoir plus, consultez [Concepts de réplicas en lecture](concepts-read-
 La réplication des données entrantes vous permet de synchroniser les données d’un serveur MySQL externe avec le service Azure Database pour MySQL Flexible. Le serveur externe peut être hébergé localement, dans des machines virtuelles, Azure Database pour MySQL Single Server, ou il peut s'agir d'un service de base de données hébergé par d'autres fournisseurs de services cloud. La réplication des données est basée sur la position du fichier journal binaire (binlog). Voici les principaux scénarios à prendre en compte concernant l’utilisation de la réplication des données entrantes :
 * Synchronisation de données hybride
 * Synchronisation de plusieurs clouds
-* Migration minimale des temps d’arrêt vers un serveur flexible
+* [Migration minimale des temps d’arrêt vers un serveur flexible](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
 
 Pour plus d’informations, consultez [Concepts de réplication de données](concepts-data-in-replication.md).
 
@@ -121,9 +126,9 @@ Pour plus d’informations, consultez [Concepts de serveur](concept-servers.md).
 
 Le service à serveur flexible utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. Toutes les données sont chiffrées, y compris les sauvegardes et les fichiers temporaires créés lors de l'exécution des requêtes. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés peuvent être gérées par le système (par défaut).
 
-Le service chiffre les données en mouvement avec le protocole TLS appliqué par défaut. Le serveur flexible prend uniquement en charge les connexions chiffrées à l’aide du protocole TLS (Transport Layer Security) 1.2 et toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées.
+Le service chiffre les données en mouvement avec le protocole TLS appliqué par défaut. Par défaut, le serveur flexible prend en charge les connexions chiffrées avec le protocole TLS 1.2 et refuse toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1. L’application du protocole SSL peut être désactivée en définissant le paramètre require_secure_transport et le paramètre tls_version (version minimale) pour votre serveur.
 
-Pour plus d’informations, consultez [Utiliser les connexions chiffrées sur des serveurs flexibles](https://docs.mongodb.com/manual/tutorial/configure-ssl).
+Pour plus d’informations, consultez [Utiliser les connexions chiffrées sur des serveurs flexibles](how-to-connect-tls-ssl.md).
 
 Les serveurs flexibles permettent un accès privé complet aux serveurs à l’aide du [réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md) (intégration au réseau virtuel). Les serveurs du réseau virtuel Azure sont uniquement accessibles et connectés via des adresses IP privées. Avec l’intégration au réseau virtuel, l’accès public est refusé et les serveurs ne sont pas accessibles à l’aide de points de terminaison publics.
 
@@ -131,7 +136,7 @@ Pour plus d’informations, consultez [Concepts relatifs aux réseaux](concepts-
 
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
 
-Le service à serveur flexible est équipé de fonctionnalités intégrées d'analyse des performances et d'alerte. Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Le service expose les métriques du serveur hôte pour surveiller l’utilisation des ressources et permet de configurer les journaux des requêtes lentes. Grâce à ces outils, vous pouvez rapidement optimiser vos charges de travail et configurer votre serveur pour bénéficier de performances optimales.
+Le service à serveur flexible est équipé de fonctionnalités intégrées d'analyse des performances et d'alerte. Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Le service expose les métriques du serveur hôte pour surveiller l’utilisation des ressources et permet de configurer les journaux des requêtes lentes. Grâce à ces outils, vous pouvez rapidement optimiser vos charges de travail et configurer votre serveur pour bénéficier de performances optimales. De plus, vous pouvez utiliser et intégrer des outils de supervision fournis par la communauté, comme [Percona Monitoring and Management avec votre serveur flexible MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
 
 Pour plus d'informations, voir [Concepts de réplication](concepts-monitoring.md).
 
@@ -146,35 +151,37 @@ Le service exécute la version de la communauté de MySQL. Cela permet une compa
 ### <a name="online-or-minimal-downtime-migrations"></a>Migrations en ligne ou avec temps d’arrêt minimal
 Utilisez la réplication de données dans une sauvegarde/restauration mydumper/myloader cohérente pour l’amorçage initial. En savoir plus avec les instructions pas à pas : [Tutoriel : migration de la base de données Azure pour MySQL avec temps d’arrêt minimal – Serveur unique vers Azure Database pour MySQL – Serveur flexible](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
 
+Pour migrer d’Azure Database pour MySQL -Serveur unique vers Serveur flexible en cinq étapes simples, consultez [ce blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
+
 Pour plus d’informations, consultez [Guide de migration d’Azure Database pour MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
 
 ## <a name="azure-regions"></a>Régions Azure
 
 L’un des avantages de l’exécution de votre charge de travail dans Azure est sa portée mondiale. Le serveur flexible pour Azure Database pour MySQL est disponible aujourd’hui dans les régions Azure suivantes :
 
-| Region | Disponibilité | Haute disponibilité redondante interzone |
-| --- | --- | --- |
-| Australie Est | :heavy_check_mark: | :heavy_check_mark: |
-| Brésil Sud | :heavy_check_mark: | :x: |
-| Centre du Canada | :heavy_check_mark: | :x: |
-| USA Centre | :heavy_check_mark: | :x: |
-| USA Est | :heavy_check_mark: | :heavy_check_mark: |
-| USA Est 2 | :heavy_check_mark: | :heavy_check_mark: |
-| France Centre | :heavy_check_mark: | :heavy_check_mark:|
-| Allemagne Centre-Ouest | :heavy_check_mark: | :x: |
-| Japon Est | :heavy_check_mark: | :heavy_check_mark: |
-| Centre de la Corée | :heavy_check_mark: | :x: |
-| Europe Nord | :heavy_check_mark: | :heavy_check_mark: |
-| Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: |
-| Suisse Nord | :heavy_check_mark: | :x: |
-| Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: |
-| USA Ouest | :heavy_check_mark: | :x: |
-| USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Europe Ouest | :heavy_check_mark: | :heavy_check_mark: |
-| Sud-Australie Est | :heavy_check_mark: | :x: |
-| Afrique du Sud Nord | :heavy_check_mark: | :x: |
-| Asie Est (Hong Kong, R.A.S.) | :heavy_check_mark: | :x: |
-| Inde centrale | :heavy_check_mark: | :x: |
+| Region | Disponibilité | Haute disponibilité dans la même zone | Haute disponibilité redondante interzone |
+| --- | --- | --- | --- |
+| Australie Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Brésil Sud | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Centre du Canada | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| USA Centre | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| USA Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| USA Est 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Centre | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| Allemagne Centre-Ouest | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japon Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Centre de la Corée | :heavy_check_mark: | :x: | :x: |
+| Europe Nord | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Suisse Nord | :heavy_check_mark: | :x: | :x: |
+| Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| USA Ouest | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Europe Ouest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Sud-Australie Est | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Afrique du Sud Nord | :heavy_check_mark: | :x: | :x: |
+| Asie Est (Hong Kong, R.A.S.) | :heavy_check_mark: | :x: | :x: |
+| Inde centrale | :heavy_check_mark: | :x: | :x: |
 
 ## <a name="contacts"></a>Contacts
 

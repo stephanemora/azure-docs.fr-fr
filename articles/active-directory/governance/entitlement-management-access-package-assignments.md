@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 04/12/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245781f22db75d27f335c0a81d0ee9793b076c47
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3ed289789576df7c81368b2b98001968c358c0e0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713861"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440198"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -56,9 +56,21 @@ Pour utiliser la gestion des droits d’utilisation Azure AD et affecter des ut
 
 1. Pour télécharger un fichier CSV contenant la liste filtrée, cliquez sur **Télécharger**.
 
-### <a name="viewing-assignments-programmatically"></a>Affichage d’affectations par programmation
+## <a name="view-assignments-programmatically"></a>Afficher les attributions par programmation
+### <a name="view-assignments-with-microsoft-graph"></a>Afficher les attributions avec Microsoft Graph
+Vous pouvez également récupérer des affectations dans un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.Read.All` ou `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [lister les attributions accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true). Un administrateur de gouvernance des identités peut récupérer des packages d’accès à partir de plusieurs catalogues. Cependant, si l’utilisateur ne dispose que de rôles d’administration délégués propres au catalogue, la demande doit fournir un filtre pour indiquer un package d’accès spécifique comme `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. Une application qui dispose de l’autorisation `EntitlementManagement.Read.All` ou `EntitlementManagement.ReadWrite.All` peut également utiliser cette API.
 
-Vous pouvez également récupérer des affectations dans un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [répertorier les affectations accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true).
+### <a name="view-assignments-with-powershell"></a>Afficher les attributions avec PowerShell
+
+Vous pouvez exécuter cette requête dans PowerShell avec l’applet de commande `Get-MgEntitlementManagementAccessPackageAssignment` issue du module [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) version 1.6.0 ou ultérieure. Cette applet de commande accepte comme paramètre l’ID du package d’accès, qui est inclus dans la réponse de l’applet de commande `Get-MgEntitlementManagementAccessPackage`.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
+Select-MgProfile -Name "beta"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign"
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop
+$assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
+```
 
 ## <a name="directly-assign-a-user"></a>Affecter directement un utilisateur
 
@@ -76,21 +88,61 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
     ![Affectations - Ajouter un utilisateur au package d’accès](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Cliquez sur **Ajouter des utilisateurs** pour sélectionner les utilisateurs auxquels vous voulez affecter ce package d’accès.
+1.  Dans la liste **Sélectionner une stratégie**, sélectionnez une stratégie selon laquelle les requêtes et le cycle de vie des utilisateurs seront régis et suivis. Si vous souhaitez que les utilisateurs sélectionnés aient des paramètres de stratégie différents, vous pouvez cliquer sur **Créer une nouvelle stratégie** pour ajouter une nouvelle stratégie.
 
-1. Dans la liste **Sélectionner une stratégie**, sélectionnez une stratégie selon laquelle les requêtes et le cycle de vie des utilisateurs seront régis et suivis. Si vous souhaitez que les utilisateurs sélectionnés aient des paramètres de stratégie différents, vous pouvez cliquer sur **Créer une nouvelle stratégie** pour ajouter une nouvelle stratégie.
+1.  Une fois que vous avez sélectionné une stratégie, vous pouvez utiliser l’option Ajouter des utilisateurs pour sélectionner les utilisateurs auxquels vous souhaitez attribuer ce package d’accès, dans le cadre de la stratégie choisie.
+
+    > [!NOTE]
+    > Si vous sélectionnez une stratégie avec des questions, vous ne pouvez affecter qu’un seul utilisateur à la fois.
 
 1. Définissez la date et l'heure de début et de fin de l'affectation des utilisateurs sélectionnés. Si aucune date de fin n’est fournie, les paramètres du cycle de vie de la stratégie seront utilisés.
 
-1. Si vous le souhaitez, fournissez une justification de votre affectation directe à des fins d’archivage.
+1.  Si vous le souhaitez, fournissez une justification de votre affectation directe à des fins d’archivage.
+
+1.  Si la stratégie sélectionnée inclut des informations supplémentaires sur le demandeur, cliquez sur **Afficher les questions** pour répondre à la place des utilisateurs, puis cliquez sur **Enregistrer**.  
+
+     ![Attribution - Cliquez sur Afficher les questions](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
+
+    ![Attributions - Volet Questions](./media/entitlement-management-access-package-assignments/assignments-questions-pane.png)
 
 1. Cliquez sur **Ajouter** pour affecter directement les utilisateurs sélectionnés au package d'accès.
 
     Après quelques instants, cliquez sur **Actualiser** pour voir les utilisateurs dans la liste des affectations.
 
-### <a name="directly-assigning-users-programmatically"></a>Affectation d’utilisateurs directement par programmation
+## <a name="directly-assigning-users-programmatically"></a>Affectation d’utilisateurs directement par programmation
+### <a name="assign-a-user-to-an-access-package-with-microsoft-graph"></a>Affecter un utilisateur à un package d’accès avec Microsoft Graph
+Vous pouvez également affecter directement un utilisateur à un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All`, ou une application disposant de cette autorisation, peut appeler l’API pour [créer un accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true). Dans cette demande, la valeur de la propriété `requestType` doit être `AdminAdd`, et la propriété `accessPackageAssignment` est une structure qui contient le `targetId` de l’utilisateur affecté.
 
-Vous pouvez également affecter directement un utilisateur à un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [créer une demande accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true).
+### <a name="assign-a-user-to-an-access-package-with-powershell"></a>Affecter un utilisateur à un package d’accès avec PowerShell
+
+Vous pouvez affecter un utilisateur à un package d’accès dans PowerShell avec l’applet de commande `New-MgEntitlementManagementAccessPackageAssignmentRequest` issue du module [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) version 1.6.0 ou ultérieure. Cette applet de commande accepte comme paramètres :
+* L’ID du package d’accès, qui est inclus dans la réponse de l’applet de commande `Get-MgEntitlementManagementAccessPackage`,
+* L’ID de la stratégie d’attribution du package d’accès, qui est inclus dans la réponse de l’applet de commande `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`,
+* L’ID d’objet de l’utilisateur cible.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetId "a43ee6df-3cc5-491a-ad9d-ea964ef8e464"
+```
+
+Vous pouvez également affecter plusieurs utilisateurs à un package d’accès dans PowerShell avec l’applet de commande `New-MgEntitlementManagementAccessPackageAssignment` issue du module [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) version 1.6.1 ou ultérieure. Cette applet de commande accepte comme paramètres :
+* L’ID du package d’accès, qui est inclus dans la réponse de l’applet de commande `Get-MgEntitlementManagementAccessPackage`,
+* L’ID de la stratégie d’attribution du package d’accès, qui est inclus dans la réponse de l’applet de commande `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`,
+* Les ID d’objet des utilisateurs cibles, soit sous la forme d’un tableau de chaînes, soit sous la forme d’une liste d’utilisateurs membres, retournés par l’applet de commande `Get-MgGroupMember`.
+
+Par exemple, si vous souhaitez faire en sorte que tous les utilisateurs membres d’un groupe soient également affectés à un package d’accès, vous pouvez utiliser cette applet de commande afin de créer des demandes pour les utilisateurs qui n’ont pas d’affectations.  Notez que cette applet de commande crée uniquement des affectations et qu’elle ne permet pas de supprimer les affectations.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
+Select-MgProfile -Name "beta"
+$members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$req = New-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
+```
 
 ## <a name="remove-an-assignment"></a>Supprimer une affectation
 
@@ -109,6 +161,22 @@ Vous pouvez également affecter directement un utilisateur à un package d’acc
     ![Affectations - Supprimer un utilisateur du package d’accès](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
     Une notification s’affiche pour vous informer que l’affectation a été supprimée. 
+
+## <a name="remove-an-assignment-programmatically"></a>Supprimer une attribution programmatiquement
+### <a name="remove-an-assignment-with-microsoft-graph"></a>Supprimer une attribution avec Microsoft Graph
+Vous pouvez également supprimer l’attribution d’un package d’accès à un utilisateur à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All`, ou une application disposant de cette autorisation, peut appeler l’API pour [créer un accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true).  Dans cette demande, la valeur de la propriété `requestType` doit être `AdminRemove`, et la propriété `accessPackageAssignment` est une structure qui contient la propriété `id` qui identifie le `accessPackageAssignment` supprimé.
+
+### <a name="remove-an-assignment-with-powershell"></a>Supprimer une attribution avec PowerShell
+
+Vous pouvez supprimer l’attribution d’un utilisateur dans PowerShell avec l’applet de commande `New-MgEntitlementManagementAccessPackageAssignmentRequest` issue du module [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) version 1.6.0 ou ultérieure.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -Filter "accessPackageId eq '9f573551-f8e2-48f4-bf48-06efbb37c7b8' and assignmentState eq 'Delivered'" -All -ErrorAction Stop
+$toRemove = $assignments | Where-Object {$_.targetId -eq '76fd6e6a-c390-42f0-879e-93ca093321e7'}
+$req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageAssignmentId $toRemove.Id -RequestType "AdminRemove"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
