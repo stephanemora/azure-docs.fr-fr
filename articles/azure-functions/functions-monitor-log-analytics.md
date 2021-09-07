@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 194154f192cfcc91138b13bd37b37d80d38097d2
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591076"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126785"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorage d’Azure Functions avec Azure Monitor Logs
 
@@ -22,7 +22,7 @@ Azure Monitor Logs offre la possibilité de consolider les journaux de différen
 Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/query/) utilisé par Azure Data Explorer qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](../azure-monitor/logs/get-started-queries.md) pour vous aider à apprendre le langage de requête.
 
 > [!NOTE]
-> L’intégration avec Azure Monitor Logs est actuellement en préversion publique pour les applications de fonction v2 et v3 qui s’exécutent sur des plans d’hébergement Windows Consumption, Premium et Dedicated.
+> L’intégration avec les journaux de Azure Monitor est actuellement en version préliminaire publique. Non pris en charge pour les applications de fonction s’exécutant sur la [version 1.x](functions-versions.md).
 
 ## <a name="setting-up"></a>Configuration
 

@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Cet article contient la liste des questions fréquemment posées relatives à Kubernetes compatible avec Azure Arc
 keywords: Kubernetes, Arc, Azure, conteneurs, configuration, GitOps, FAQ
-ms.openlocfilehash: 84368cc63bd9aaf1df4fb281395b47a6e886cb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f678bd23bc4e9e40f718d72ccde8069c36673ac6
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025847"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272922"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Forum aux questions - Kubernetes compatible avec Azure Arc
 
@@ -27,7 +27,9 @@ Kubernetes avec Azure Arc vous permet d’étendre les fonctionnalités de gesti
 
 ## <a name="do-i-need-to-connect-my-aks-clusters-running-on-azure-to-azure-arc"></a>Dois-je connecter à Azure Arc mes clusters AKS qui s’exécutent sur Azure ?
 
-Non. Toutes les fonctionnalités Kubernetes avec Azure Arc, y compris Azure Monitor et Azure Policy (Gatekeeper), sont disponibles sur AKS (une ressource native dans Azure Resource Manager).
+La connexion d’un cluster Azure Kubernetes Service (AKS) à Azure Arc n’est requise que pour l’exécution de services avec Arc, comme App Services et Data Services, sur le cluster. Pour ce faire, vous pouvez utiliser la fonctionnalité d’[emplacements personnalisés](custom-locations.md) de Kubernetes avec Arc. Il s’agit pour l’instant d’une limite dans le temps jusqu’à ce que les extensions de cluster et les emplacements personnalisés soient introduits en mode natif sur les clusters AKS.
+
+Si vous ne souhaitez pas utiliser d’emplacements personnalisés mais simplement des fonctionnalités de gestion telles que Azure Monitor et Azure Policy (Gatekeeper), celles-ci sont disponibles en mode natif sur AKS sans qu’aucune connexion à Azure Arc ne soit requise.
     
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Dois-je connecter mon cluster AKS-HCI et les clusters Kubernetes sur Azure Stack Hub et Azure Stack Edge à Azure Arc ?
 
@@ -37,7 +39,17 @@ Si le cluster Kubernetes avec Azure Arc est sur Azure Stack Edge, AKS sur Azure 
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Comment traiter des ressources Kubernetes avec Azure Arc ?
 
-Le certificat relatif aux identités managées pour les ressources Azure, qui est associé à votre instance de Kubernetes avec Azure Arc, a une fenêtre d’expiration de 90 jours. Une fois ce certificat expiré, la ressource est considérée `Expired`, et toutes les fonctionnalités telles que la configuration, la supervision et la stratégie cessent de fonctionner sur ce cluster. Pour que votre cluster Kubernetes fonctionne à nouveau avec Azure Arc :
+L’identité managée attribuée par le système associée à votre cluster Kubernetes avec Azure Arc est utilisée uniquement par les agents Arc pour communiquer avec les services Azure Arc. Le certificat que le système associe à cette identité managée a une fenêtre d’expiration de 90 jours, et les agents continuent de tenter de le renouveler entre les 46e et 90e jours. Une fois ce certificat expiré, la ressource est considérée comme `Expired`, et toutes les fonctionnalités (telles que la configuration, la surveillance et la stratégie) cessent de fonctionner sur ce cluster. Vous devez alors supprimer le cluster et le reconnecter à Azure Arc. Il est donc recommandé de faire en sorte que le cluster revienne en ligne au moins une fois entre les 46e et 90e jours de la fenêtre de temps pour garantir le renouvellement du certificat d’identité managée.
+
+Pour vérifier si le certificat est sur le point d’expirer pour un cluster donné, exécutez la commande suivante :
+
+```console
+az connectedk8s show -n <name> -g <resource-group>
+```
+
+Dans la sortie, la valeur `managedIdentityCertificateExpirationTime` indique la date d’expiration du certificat d’identité managée (marque 90D Mark pour ce certificat). 
+
+Si la valeur `managedIdentityCertificateExpirationTime` indique un horodatage (timestamp) passé, le champ `connectivityStatus` dans la sortie ci-dessus est défini sur `Expired`. Dans de tels cas, pour que votre cluster Kubernetes fonctionne à nouveau avec Azure Arc :
 
 1. Supprimez la ressource et les agents Kubernetes avec Azure Arc sur le cluster. 
 
@@ -52,7 +64,7 @@ Le certificat relatif aux identités managées pour les ressources Azure, qui es
     ```
 
 > [!NOTE]
-> `az connectedk8s delete` supprime également les configurations en plus du cluster. Après avoir exécuté `az connectedk8s connect`, recréez les configurations sur le cluster, manuellement ou à l’aide d’Azure Policy.
+> `az connectedk8s delete` va également supprimer les configurations et les extensions de cluster sur le cluster. Après avoir exécuté `az connectedk8s connect`, recréez les configurations et les extensions de cluster sur le cluster, manuellement ou à l’aide d’Azure Policy.
 
 ## <a name="if-i-am-already-using-cicd-pipelines-can-i-still-use-azure-arc-enabled-kubernetes-and-configurations"></a>Si j’utilise déjà des pipelines CI/CD, puis-je continuer à utiliser Kubernetes compatible avec Azure Arc et les configurations ?
 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: b37b63fda6b142fc1aba458c007b6fe0eb5db814
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: cefbd6d014dda28a5e88a41a0131eeb92fc5f311
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810945"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440719"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Publier des routes personnalisées pour des clients VPN point à site
 
@@ -21,7 +21,7 @@ Vous pouvez être amené à publier des routes personnalisées pour tous vos cli
 
 :::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagramme de la publication de routes personnalisées.":::
 
-## <a name="advertise-custom-routes"></a>Publier des routes personnalisées
+## <a name="advertise-custom-routes"></a><a name="advertise"></a>Publier des routes personnalisées
 
 Pour publier des routes personnalisées, utilisez `Set-AzVirtualNetworkGateway cmdlet`. L’exemple suivant montre comment publier l’adresse IP pour les [tables de compte de stockage Contoso](https://contoso.table.core.windows.net).
 
@@ -45,9 +45,13 @@ Pour publier des routes personnalisées, utilisez `Set-AzVirtualNetworkGateway c
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
 
-## <a name="advertise-custom-routes---forced-tunneling"></a>Publier des routes personnalisées - Tunneling forcé
+## <a name="advertise-custom-routes---forced-tunneling"></a><a name="forced-tunneling"></a>Publier des routes personnalisées - Tunneling forcé
 
 Vous pouvez diriger tout le trafic vers le tunnel VPN en publiant 0.0.0.0/1 et 128.0.0.0/1 comme routes personnalisées vers les clients. La raison de la répartition de 0.0.0.0/0 en deux sous-réseaux plus petits est que ces préfixes plus petits sont plus spécifiques que la route par défaut qui peut déjà être configurée sur la carte réseau locale et, par conséquent, est préférable lors de l’acheminement du trafic.
+
+> [!NOTE]
+> Aucune connectivité Internet n’est fournie via la passerelle VPN. De ce fait, l’ensemble du trafic lié à Internet est abandonné.
+>
 
 1. Pour activer le tunneling forcé, utilisez les commandes suivantes :
 
@@ -55,7 +59,8 @@ Vous pouvez diriger tout le trafic vers le tunnel VPN en publiant 0.0.0.0/1 et 1
     $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 0.0.0.0/1 , 128.0.0.0/1
     ```
-## <a name="view-custom-routes"></a>Afficher les routes personnalisées
+
+## <a name="view-custom-routes"></a><a name="view"></a>Afficher les routes personnalisées
 
 Utilisez l’exemple suivant pour afficher les routes personnalisées :
 
@@ -63,7 +68,7 @@ Utilisez l’exemple suivant pour afficher les routes personnalisées :
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
-## <a name="delete-custom-routes"></a>Supprimer des routes personnalisées
+## <a name="delete-custom-routes"></a><a name="delete"></a>Supprimer des routes personnalisées
 
 Utilisez l’exemple suivant pour supprimer des itinéraires personnalisés :
 

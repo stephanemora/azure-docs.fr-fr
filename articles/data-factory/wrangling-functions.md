@@ -4,14 +4,15 @@ description: Vue d’ensemble des fonctions de data wrangling disponibles dans A
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: 5985db37e6b88dc39ce1ac166c4aaf9ba368240d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: f75ae0030316fafcc734644d4def4ad94d04b0d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524799"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 

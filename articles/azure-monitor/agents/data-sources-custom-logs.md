@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e90c33f63eb360bae4182ac1f9ed32eb9b8aa0c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042706"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439086"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux personnalisés avec l'agent Log Analytics dans Azure Monitor
 
@@ -52,8 +52,8 @@ Utilisez la procédure suivante pour définir un fichier journal personnalisé. 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Étape 1. Ouvrir l’Assistant Journal personnalisé
 L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous permet de définir un nouveau journal personnalisé de collecte.
 
-1. Dans le portail Azure, sélectionnez **Espaces de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
-2. Cliquez sur **Données** > **Journaux d’activité personnalisés**.
+1. Dans le portail Azure, sélectionnez **Espaces de travail Log Analytics** > votre espace de travail > **Paramètres**.
+2. Cliquez sur **Journaux personnalisés**.
 3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 

@@ -1,5 +1,5 @@
 ---
-title: Clustering de données de point sur une carte | Microsoft Azure Maps
+title: Clustering de données de point dans le kit Web SDK | Microsoft Azure Maps
 description: Découvrez comment mettre en cluster des données de point sur des cartes. Découvrez comment utiliser le Kit de développement logiciel (SDK) web Azure Maps pour mettre en cluster des données, réagir aux événements de souris en cluster et afficher les agrégats de cluster.
 author: rbrundritt
 ms.author: richbrun
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 70b1ac01c2019b4ce74895b67cb79f5e93226b64
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608355"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091858"
 ---
-# <a name="clustering-point-data"></a>Clustering de données de point
+# <a name="clustering-point-data-in-the-web-sdk"></a>Clustering de données de point dans le kit Web SDK
 
 Lors de la visualisation de nombreux points de données sur la carte, les points peuvent se chevaucher. Le chevauchement peut rendre la carte illisible et difficile à utiliser. Le clustering de point de données est le processus permettant de combiner des données de point proches les unes des autres et de les représenter sur une carte en tant qu’un point de données en cluster unique. Lorsque l’utilisateur effectue un zoom avant sur la carte, les clusters se décomposent pour afficher les points de données individuels qui les composent. Quand vous travaillez avec un grand nombre de points de données, utilisez les processus de clustering pour améliorer l’expérience de vos utilisateurs.
 

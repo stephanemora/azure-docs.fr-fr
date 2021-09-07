@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 460176dd8c86abc59d2f82948a6a35655b9eef84
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: fae919afc12afd5a6169dd119b57ae72ae7c14f0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530622"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472870"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
@@ -58,4 +58,4 @@ Le tableau suivant reflète les limites de débit de différentes API.
 
 Les limites des types de données et des champs dans les documents DTDL pour les modèles Azure Digital Twins sont disponibles dans la documentation des spécifications sur GitHub : [DTDL (Digital Twins Definition Language) – version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Les détails de la latence des requêtes sont décrits dans [Concepts : Langage de requête](../articles/digital-twins/concepts-query-language.md#considerations-for-querying). Les limitations des fonctionnalités spécifiques du langage de requête se trouvent dans la [documentation de référence sur les requêtes](../articles/digital-twins/concepts-query-language.md#reference-documentation).
+Les détails de la latence des requêtes sont décrits dans [Langage de requête](../articles/digital-twins/concepts-query-language.md#considerations-for-querying). Les limitations des fonctionnalités spécifiques du langage de requête se trouvent dans la [documentation de référence sur les requêtes](../articles/digital-twins/concepts-query-language.md#reference-documentation).

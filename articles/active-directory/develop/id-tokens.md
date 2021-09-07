@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom:
 - aaddev
 - identityplatformtop40
 - fasttrack-edit
-ms.openlocfilehash: 920589c3c0582387a83d5f7d85c660f0692a761b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c1e125127cf4376eb96e267c11e35085a4a27f18
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471276"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458896"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -36,7 +36,7 @@ L'article suivant vous sera très utile avant de poursuivre le présent article�
 
 ## <a name="claims-in-an-id-token"></a>Revendications dans un jeton d'ID
 
-Les jetons d'ID sont des [jetons web JSON (JWT)](https://jwt.io/introduction/). Ces jetons d'ID se composent d'un en-tête, d'une charge utile et d'une signature. L'en-tête et la signature permettent de vérifier l'authenticité du jeton, tandis que la charge utile contient les informations relatives à l'utilisateur qui sont demandées par votre client. Les informations contenues dans les jetons d'ID v1.0 et v2.0 présentent des différences. La version est basée sur le point de terminaison à partir duquel le jeton a été demandé. Alors que les applications existantes utilisent probablement le point de terminaison Azure AD (v1.0), les nouvelles applications doivent utiliser le point de terminaison « Plateforme d'identités Microsoft » (v2.0).
+Les jetons d'ID sont des [jetons web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). Ces jetons d'ID se composent d'un en-tête, d'une charge utile et d'une signature. L'en-tête et la signature permettent de vérifier l'authenticité du jeton, tandis que la charge utile contient les informations relatives à l'utilisateur qui sont demandées par votre client. Les informations contenues dans les jetons d'ID v1.0 et v2.0 présentent des différences. La version est basée sur le point de terminaison à partir duquel le jeton a été demandé. Alors que les applications existantes utilisent probablement le point de terminaison Azure AD (v1.0), les nouvelles applications doivent utiliser le point de terminaison « Plateforme d'identités Microsoft » (v2.0).
 
 * v1.0 : Point de terminaison Azure AD : `https://login.microsoftonline.com/common/oauth2/authorize`
 * v2.0 : Point de terminaison Plateforme d'identités Microsoft : `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
@@ -67,8 +67,8 @@ Le tableau ci-dessous indique les revendications d'en-tête présentes dans les 
 |-----|--------|-------------|
 |`typ` | Chaîne : toujours « JWT » | Indique que le jeton est un jeton JWT.|
 |`alg` | String | Indique l’algorithme utilisé pour signer le jeton. Exemple : "RS256" |
-|`kid` | String | Empreinte pour la clé publique utilisée pour vérifier ce jeton. Émise dans les jetons `id_tokens` v1.0 et v2.0. |
-|`x5t` | String | Identique (en utilisation et en valeur) à `kid`. Il s'agit toutefois d'une ancienne revendication émise uniquement dans les jetons `id_tokens` v1.0 à des fins de compatibilité. |
+| `kid` | String | Spécifie l’empreinte numérique de la clé publique qui peut être utilisée pour valider la signature de ce jeton. Émis dans les jetons v1.0 et v2.0. |
+| `x5t` | String | Fonctions identiques (en utilisation et en valeur) à `kid`. `x5t` est une revendication héritée émise uniquement dans les jetons v1.0 à des fins de compatibilité. |
 
 ### <a name="payload-claims"></a>Revendications de la charge utile
 
@@ -93,7 +93,7 @@ Le tableau ci-dessous indique les revendications présentes par défaut dans la 
 |`roles`| Tableau de chaînes | Ensemble des rôles attribués à l’utilisateur qui se connecte. |
 |`rh` | Chaîne opaque |Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
 |`sub` | String | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. L’objet est un identificateur par paire ; il est spécifique à un ID d’application donné. Si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos exigences en matière d’architecture et de confidentialité. |
-|`tid` | Chaîne, GUID | GUID représentant le client Azure AD d’où provient l’utilisateur. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de client immuable de l’organisation à laquelle appartient l’utilisateur. Pour les comptes personnels, la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. L’étendue `profile` est requise afin de recevoir cette revendication. |
+|`tid` | Chaîne, GUID | Représente le locataire auquel l’utilisateur se connecte. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de locataire immuable de l’organisation à laquelle l’utilisateur se connecte. Pour les connexions au locataire de compte Microsoft personnel (services tels que Xbox, Teams à usage personnel ou Outlook), la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. Pour recevoir cette revendication, votre application doit demander l’étendue `profile`. |
 |`unique_name` | String | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Cette valeur est unique à un moment donné mais, comme les e-mails et autres identificateurs peuvent être réutilisés, elle peut réapparaître sur d'autres comptes. Par conséquent, elle ne doit être utilisée qu'à des fins d'affichage. Émise uniquement dans les jetons `id_tokens` v1.0. |
 |`uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
 |`ver` | Chaîne, 1.0 ou 2.0 | Indique la version du jeton id_token. |
@@ -104,12 +104,12 @@ Le tableau ci-dessous indique les revendications présentes par défaut dans la 
 
 Lorsque vous identifiez un utilisateur (par exemple, en le recherchant dans une base de données ou en déterminant les autorisations qui lui sont attribuées), il est essentiel d’utiliser des informations qui resteront constantes et uniques au fil du temps. Les applications héritées utilisent parfois des champs tels que l’adresse e-mail, un numéro de téléphone ou l’UPN.  Tous ces éléments peuvent évoluer et être réutilisés au fil du temps. Par exemple, lorsqu'un employé modifie son nom ou reçoit une adresse e-mail correspondant à celle d'un employé précédent qui n'est plus présent. Par conséquent, il est **essentiel** que votre application n'utilise pas de données lisibles par l'homme pour identifier un utilisateur ; « lisible par l'homme » signifie généralement que quelqu'un le lira et voudra le modifier. Utilisez plutôt les revendications fournies par la norme OIDC, ou les revendications d’extension fournies par Microsoft (revendications `sub` et `oid`).
 
-Pour stocker correctement les informations par utilisateur, utilisez `sub` ou `oid` seul (qui, comme des GUID sont uniques), avec `tid` utilisé pour le routage ou partitionnement si nécessaire.  Si vous avez besoin de partager des données entre les services, `oid`+`tid` est préférable, car toutes les applications reçoivent les mêmes revendications `oid` et `tid` pour un utilisateur donné.  La revendication `sub` dans la plateforme d’identité Microsoft est « par paire ». Elle est unique en fonction d’une combinaison de destinataire, de locataire et d’utilisateur du jeton.  Ainsi, deux applications qui demandent des jetons d'ID pour un utilisateur donné recevront des revendications `sub` différentes, mais les mêmes revendications `oid` pour cet utilisateur.
+Pour stocker correctement les informations par utilisateur, utilisez `sub` ou `oid` seul (qui, comme des GUID sont uniques), avec `tid` utilisé pour le routage ou partitionnement si nécessaire.  Si vous avez besoin de partager des données entre les services, `oid`+`tid` est préférable, car toutes les applications reçoivent les mêmes revendications `oid` et `tid` pour un utilisateur donné agissant dans un locataire donné.  La revendication `sub` dans la plateforme d’identité Microsoft est « par paire ». Elle est unique en fonction d’une combinaison de destinataire, de locataire et d’utilisateur du jeton.  Ainsi, deux applications qui demandent des jetons d'ID pour un utilisateur donné recevront des revendications `sub` différentes, mais les mêmes revendications `oid` pour cet utilisateur.
 
 >[!NOTE]
 > N’utilisez pas la revendication `idp` pour stocker des informations sur un utilisateur dans une tentative de mettre en corrélation des utilisateurs parmi les locataires.  Elle ne fonctionnera pas, car, par conception, les revendications `oid` et `sub` pour un utilisateur changent entre locataires pour s’assurer que des applications ne puissent pas suivre des utilisateurs parmi les locataires.  
 >
-> Les scénarios d’invité, où un utilisateur est hébergé dans un locataire et s’authentifie dans un autre, doivent traiter l’utilisateur comme s’il s’agissait d’un tout nouvel utilisateur du service.  Vos documents et privilèges dans le locataire Contoso ne doivent pas s’appliquer dans le locataire Fabrikam. Cela est important pour empêcher des fuites accidentelles de données entre locataires.
+> Les scénarios d’invité, où un utilisateur est hébergé dans un locataire et s’authentifie dans un autre, doivent traiter l’utilisateur comme s’il s’agissait d’un tout nouvel utilisateur du service.  Vos documents et privilèges dans le locataire Contoso ne doivent pas s’appliquer dans le locataire Fabrikam. Cela est important pour éviter les fuites accidentelles de données entre les locataires et l’application des cycles de vie des données.  Évincer un invité d’un locataire doit également supprimer son accès aux données qu’il a créées dans ce locataire. 
 
 ### <a name="groups-overage-claim"></a>Revendication de dépassement des groupes
 Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d’en-tête HTTP, Azure AD limite le nombre d’ID d’objets inclus dans la revendication `groups`. Si un utilisateur est membre d’un nombre de groupes supérieur à la limite de dépassement (150 pour les jetons SAML, 200 pour les jetons JWT), Azure AD n’émet pas la revendication des groupes dans le jeton. Au lieu de cela, il inclut une revendication de dépassement dans le jeton qui indique à l’application d’interroger l’API Microsoft Graph pour récupérer l’appartenance de groupe de l’utilisateur.
@@ -149,5 +149,6 @@ Pour valider manuellement le jeton, consultez les étapes détaillées dans la s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Examinez le flux [OpenID Connect](v2-protocols-oidc.md), qui définit les protocoles émettant un jeton d’ID. 
 * En savoir plus sur les [jetons d’accès](access-tokens.md)
 * Personnalisez les revendications JWT de votre jeton d'ID à l'aide de [revendications facultatives](active-directory-optional-claims.md).

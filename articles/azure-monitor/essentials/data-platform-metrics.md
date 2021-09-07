@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2021
 ms.author: bwren
-ms.openlocfilehash: 5c8256e453763d9cd2fdc18687df3064552dcf2b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 00014d4a7f2829ec6836473d03ae0b25f388a903
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289531"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286467"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Vue d’ensemble d’Azure Monitor Metrics
 Azure Monitor Metrics est une fonctionnalité Azure Monitor qui collecte des données numériques à partir de [ressources surveillées](../monitor-reference.md) dans une base de données de séries chronologiques. Les métriques sont des valeurs numériques collectées à intervalles réguliers et qui décrivent un certain aspect d’un système à un moment donné. Les métriques dans Azure Monitor sont légères et capables de prendre en charge des scénarios en quasi-temps réel. Ainsi, elles sont particulièrement utiles pour la création d’alertes et la détection rapide des problèmes. Vous pouvez les analyser de manière interactive à l’aide de l’explorateur de métriques, être alerté de manière proactive lorsqu’une valeur dépasse un seuil, ou les visualiser dans un classeur ou un tableau de bord.
@@ -133,6 +133,9 @@ Pour la plupart des ressources dans Azure, les métriques de la plateforme sont 
 > [!NOTE]
 > Vous pouvez [envoyer des métriques de plateforme pour les ressources Azure Monitor à un espace de travail Log Analytics](./resource-logs.md#send-to-azure-storage) pour les tendances à long terme.
 
+
+> [!NOTE]
+> Comme mentionné ci-dessus, pour la plupart des ressources dans Azure, les métriques de la plateforme sont stockées pendant 93 jours. Toutefois, vos interrogations (dans la vignette de métriques) ne peuvent porter que sur 30 jours de données au maximum pour un même graphique. Cette limitation ne s’applique pas aux métriques reposant sur un journal. Si le graphique est vide ou affiche uniquement une partie des données de métrique, vérifiez que l’intervalle entre les dates de début et de fin dans le sélecteur d’heure ne dépasse pas 30 jours. Une fois que vous avez sélectionné un intervalle de 30 jours, vous pouvez faire [défiler](./metrics-charts.md#pan) le graphique pour afficher la fenêtre de rétention complète.
 
 
 

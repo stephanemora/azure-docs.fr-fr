@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: fa09a03a9ffda04e09bbd5708e97334304013078
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 2bd5ae6696c5ce1c2d4ea3be974245fde1053b71
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006578"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416287"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -21,7 +21,7 @@ ms.locfileid: "112006578"
 - Propriétaire
 - Manager
 
-Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165290) pour gérer votre compte et les offres.
+Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2166002) pour gérer votre compte et les offres.
 
 ## <a name="access-your-account-settings"></a>Accéder à vos paramètres de compte
 
@@ -122,7 +122,7 @@ Un profil de paiement est le compte bancaire auquel les recettes sont envoyées 
 
 Pour configurer votre profil de paiement :
 
-1. Accédez à la [page Vue d’ensemble de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
+1. Accédez à la page [Vue d’ensemble de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
 2. Dans la section **Profil**, à côté de **Profil de paiement**, sélectionnez **Mettre à jour**.
 3. **Choisir un mode de paiement** : Compte bancaire ou PayPal.
 4. **Ajouter des informations de paiement** : Il peut s’agir du type de compte (courant ou épargne), du nom du titulaire du compte, le numéro de compte, le numéro de routage, l’adresse de facturation, le numéro de téléphone ou l’adresse e-mail PayPal. Pour plus d’informations sur l’utilisation de PayPal comme mode de paiement du compte et pour savoir s’il est pris en charge dans votre marché ou région, consultez [Informations PayPal](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).

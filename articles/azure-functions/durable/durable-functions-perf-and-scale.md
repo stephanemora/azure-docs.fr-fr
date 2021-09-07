@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.author: azfuncdf
-ms.openlocfilehash: a91baf110e08794bcf2dedec2a61f0e6c2c734a5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 179eb4c5c380a65374143cf24b2f960458fe62b5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375874"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240438"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -234,7 +234,7 @@ Si le nombre maximal d’activités ou d’orchestrations/entités sur une machi
 > Ces paramètres permettent de gérer l’utilisation de la mémoire et du processeur sur une seule machine virtuelle. Toutefois, lors de la montée en chaque sur plusieurs machines virtuelles, chaque machine virtuelle a son propre ensemble de limites défini. Ces paramètres ne peuvent pas être utilisés pour contrôler la concurrence au niveau global.
 
 > [!NOTE]
-> Les orchestrations et les entités sont chargées dans la mémoire uniquement lorsqu’elles traitent activement des événements ou des opérations. Après avoir exécuté leur logique et attendu (par exemple pour une instruction `await` (C#) ou `yield` (JavaScript, Python) dans le code de la fonction d’orchestrateur), elles sont déchargées de la mémoire. Les orchestrations et les entités qui sont déchargées de la mémoire ne sont pas comptabilisées dans la limitation `maxConcurrentOrchestratorFunctions`. Même si des millions d’orchestrations ou d’entités sont dans l’état « En cours d’exécution », les orchestrations ou entités n’entrent pas en compte dans le calcul de la limite, sauf si elles sont chargées dans la mémoire active. Une orchestration qui planifie une fonction d’activité de la même manière ne compte pas dans le calcul de la limite si l’orchestration attend la fin de l’exécution de l’activité.
+> Les orchestrations et les entités sont chargées dans la mémoire uniquement lorsqu’elles traitent activement des événements ou des opérations. Après avoir exécuté leur logique et attendu (par exemple pour une instruction `await` (C#) ou `yield` (JavaScript, Python) dans le code de la fonction d’orchestrateur), elles sont déchargées de la mémoire. Les orchestrations et les entités qui sont déchargées de la mémoire ne sont pas comptabilisées dans la limitation `maxConcurrentOrchestratorFunctions`. Même si des millions d’orchestrations ou d’entités sont dans l’état « En cours d’exécution », elles n’entrent en compte que dans le calcul de la limite lorsqu’elles sont chargées dans la mémoire active. Une orchestration qui planifie une fonction d’activité de la même manière ne compte pas dans le calcul de la limite si l’orchestration attend la fin de l’exécution de l’activité.
 
 ### <a name="language-runtime-considerations"></a>Considérations relatives au Language Runtime
 

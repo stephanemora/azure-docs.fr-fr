@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 29f5e96c18220f0bbdec5f91107c9220fc2fba0b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 323e6960a111d8227c14cf38046807ad6c1cada6
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355417"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122262002"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -259,7 +259,7 @@ Si vous ne spécifiez pas de version, vous recevez une erreur accompagnée de la
 
 ### <a name="swagger"></a>Fichier Swagger
 
-Une définition Swagger complète pour IMDS est disponible à l’adresse https://github.com/Azure/azure-rest-api-specs/blob/main/specification/imds/data-plane/readme.md.
+Une définition Swagger complète pour IMDS est disponible à l’adresse https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md.
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 

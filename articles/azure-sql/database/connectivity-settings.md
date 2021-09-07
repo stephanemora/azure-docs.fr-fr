@@ -9,14 +9,14 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
-ms.date: 07/06/2020
+ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4de2ad883e0daa4a0be0e1da8060b783af5713ff
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 77b629f5fb354ee94d06055999ece59aea05e592
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525252"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Paramètres de connectivité pour Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ Cet article présente les paramètres qui contrôlent la connectivité au serveu
 
 Les paramètres de connectivité sont accessibles à partir de l’écran **Pare-feu et réseaux virtuels**, comme illustré dans la capture d’écran suivante :
 
- ![Capture d’écran de la fenêtre des paramètres de connectivité.][1]
+:::image type="content" source="media/single-database-create-quickstart/manage-connectivity-settings.png" alt-text="capture d’écran des paramètres de pare-feu et de réseaux virtuels dans Portail Azure pour SQL server":::
 
 > [!NOTE]
 > Ces paramètres prennent effet immédiatement après leur application. Vos clients risquent de perdre la connexion s’ils ne satisfont pas aux exigences de chaque paramètre.
@@ -121,6 +121,10 @@ Une fois la version minimale de TLS définie, les tentatives de connexion de cli
 Error 47072
 Login failed with invalid TLS version
 ```
+
+## <a name="set-the-minimal-tls-version-in-azure-portal"></a>Définir la version minimale de TLS dans Portail Azure
+
+Dans le [portail Azure](https://portal.azure.com), accédez à votre ressource **SQL Server**. Sous les paramètres **Sécurité**, sélectionnez **Pare-feu et réseaux virtuels**. Sélectionnez la **Version TLS minimum** désirée pour toutes les bases de données SQL associées au serveur, puis sélectionnez **Enregistrer**.
 
 ## <a name="set-the-minimal-tls-version-via-powershell"></a>Définir la version minimale de TLS via PowerShell
 
@@ -225,5 +229,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 - Pour plus d’informations sur la façon de modifier la stratégie de connexion d’un serveur, consultez [conn-policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
-[1]: media/single-database-create-quickstart/manage-connectivity-settings.png
 [2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

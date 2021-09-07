@@ -2,7 +2,6 @@
 title: Contrôler l’accès à IoT Hub à l’aide de jetons SAS | Microsoft Docs
 description: Comment contrôler l’accès à IoT Hub pour les applications d’appareil et les applications principales à l’aide de jetons de signature d’accès partagé.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -16,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 0724a1281475ffc9cbeaa4480bd45aa69f9d4857
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: aec64f22cf0af9de9b99c914d972f45f3dfefe1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524289"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>Contrôler l’accès à IoT Hub à l’aide de signatures d’accès partagé et de jetons de sécurité
 
@@ -362,13 +361,13 @@ Une passerelle de protocole peut utiliser le même jeton pour tous les appareils
 
 Vous pouvez utiliser le [registre des identités](iot-hub-devguide-identity-registry.md) IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil/module à l’aide de [jetons](iot-hub-dev-guide-sas.md#security-tokens). Si une solution IoT a déjà un registre des identités et/ou un schéma d’authentification personnalisé, vous pouvez créer un *service de jeton* pour intégrer cette infrastructure existante à IoT Hub. De cette façon, vous pouvez utiliser d'autres fonctionnalités IoT dans votre solution.
 
-Un service de jeton est un service cloud personnalisé. Il utilise une *stratégie d’accès partagé* IoT Hub avec des autorisations **DeviceConnect** ou **ModuleConnect** pour créer des jetons *device-scoped* ou *module-scoped*. Ces jetons permettent à un appareil et à un module de se connecter à votre hub IoT.
+Un service de jeton est un service cloud personnalisé. Il utilise une *stratégie d’accès partagé* d’IoT Hub avec l’autorisation **DeviceConnect** pour créer des jetons *device-scoped* ou *module-scoped*. Ces jetons permettent à un appareil et à un module de se connecter à votre hub IoT.
 
 ![Étapes du modèle de service de jeton](./media/iot-hub-devguide-security/tokenservice.png)
 
 Voici les principales étapes du schéma de service de jeton :
 
-1. Créez une stratégie d’accès partagé IoT Hub avec des autorisations **DeviceConnect** ou **ModuleConnect** pour votre hub IoT. Vous pouvez créer cette stratégie dans le [Portail Azure](https://portal.azure.com) ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
+1. Créez une stratégie d’accès partagé IoT Hub avec des autorisations **DeviceConnect** pour votre hub IoT. Vous pouvez créer cette stratégie dans le [Portail Azure](https://portal.azure.com) ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
 
 2. Quand un appareil/module doit accéder à votre hub IoT, il demande à votre service de jetons un jeton signé. L’appareil peut s’authentifier avec votre registre des identités personnalisé/schéma d’authentification pour déterminer l’identité d’appareil/de module que le service de jeton utilise pour créer le jeton.
 
@@ -416,6 +415,6 @@ Maintenant que vous savez comment contrôler l’accès à IoT Hub, vous serez p
 
 Si vous souhaitez tenter de mettre en pratique certains des concepts décrits dans cet article, consultez les didacticiels IoT Hub suivants :
 
-* [Mise en route de Azure IoT Hub](quickstart-send-telemetry-node.md)
+* [Mise en route de Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 * [Envoyer des messages du cloud à votre appareil avec IoT Hub](iot-hub-csharp-csharp-c2d.md)
 * [Configurer le routage des messages avec IoT Hub](tutorial-routing.md)

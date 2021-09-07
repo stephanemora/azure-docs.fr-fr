@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: lajanuar
-ms.openlocfilehash: 4e776555b1f51cc4a66c4cd074ce021adc976957
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 36691229ebe59a6b3b5dd59776b6af41e326a3c2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537521"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525248"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0 : Detect
 
@@ -33,37 +33,18 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
-<table width="100%">
-  <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Paramètre obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
-  </tr>
-</table> 
+| Paramètre de requête. | Description |
+| --- | --- |
+| api-version | *Paramètre obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`. |
 
 Les en-têtes de demande sont les suivants :
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
-  <tr>
-    <td>En-tête(s) d’authentification</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*En-tête de demande obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*En-tête de demande obligatoire*.<br/>Longueur du corps de la demande.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
-  </tr>
-</table> 
+| headers | Description |
+| --- | --- |
+| En-tête(s) d’authentification | <em>En-tête de demande obligatoire</em>.<br/>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication)</a>. |
+| Content-Type | *En-tête de demande obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`. |
+| Content-Length | *En-tête de demande obligatoire*.<br/>Longueur du corps de la demande. |
+| X-ClientTraceId | *Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`. |
 
 ## <a name="request-body"></a>Corps de la demande
 
@@ -71,7 +52,7 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 
 ```json
 [
-    { "Text": "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal." }
+    { "Text": "Ich würde wirklich gerne Ihr Auto ein paar Mal um den Block fahren." }
 ]
 ```
 
@@ -116,51 +97,23 @@ Exemple de réponse JSON :
 
 ## <a name="response-headers"></a>En-têtes de réponse
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
-  <tr>
-    <td>X-RequestId</td>
-    <td>Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage.</td>
-  </tr>
-</table> 
+| headers | Description |
+| --- | --- |
+| X-RequestId | Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage. |
 
 ## <a name="response-status-codes"></a>Codes d’état de réponse
 
 Voici les codes d’état HTTP qu’une demande peut retourner. 
 
-<table width="100%">
-  <th width="20%">Code d’état</th>
-  <th>Description</th>
-  <tr>
-    <td>200</td>
-    <td>Réussite.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>L’un des paramètres de requête est manquant ou non valide. Corrigez les paramètres de demande avant de réessayer.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>Il n’a pas été possible d’authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>La demande n’est pas autorisée. Vérifiez le message d’erreur détaillé. Cela indique souvent que toutes les traductions gratuites fournies avec un abonnement d’essai ont été utilisées.</td>
-  </tr>
-  <tr>
-    <td>429</td>
-    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
-  </tr>
-  <tr>
-    <td>503</td>
-    <td>Serveur temporairement indisponible. Relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
-  </tr>
-</table> 
+| Code d’état | Description |
+| --- | --- |
+| 200 | Réussite. |
+| 400 | L’un des paramètres de requête est manquant ou non valide. Corrigez les paramètres de demande avant de réessayer. |
+| 401 | Il n’a pas été possible d’authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides. |
+| 403 | La demande n’est pas autorisée. Vérifiez le message d’erreur détaillé. Cela indique souvent que toutes les traductions gratuites fournies avec un abonnement d’essai ont été utilisées. |
+| 429 | Le serveur a rejeté la requête, car le client a dépassé les limites de requête. |
+| 500 | Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`. |
+| 503 | Serveur temporairement indisponible. Relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`. |
 
 Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](./v3-0-reference.md#errors). 
 

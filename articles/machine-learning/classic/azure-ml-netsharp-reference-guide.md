@@ -9,23 +9,25 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9baa15de1d053b03f28b1d5ba10a8f6e2d9673d7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519250"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695948"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 NET# est un langage développé par Microsoft et utilisé pour définir des architectures de réseaux neuronaux complexes, comme les réseaux neuronaux profonds ou les convolutions de dimensions arbitraires. Vous pouvez utiliser des structures complexes pour améliorer l’entraînement à partir de données telles que des images, des sons ou des vidéos.
 
-Vous pouvez utiliser une spécification d’architecture Net# dans les contextes suivants :
-
-+ Tous les modules de réseau neuronal dans Microsoft Azure Machine Learning Studio (classique) : [Multiclass Neural Network](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](/azure/machine-learning/studio-module-reference/two-class-neural-network) et [Neural Network Regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Les fonctions de réseau neuronal dans Microsoft ML Server : [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) et [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)pour le langage R, et [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) pour Python.
+Vous pouvez utiliser une spécification d’architecture Net# dans tous les modules de réseau neuronal dans Machine Learning Studio (classique) : 
+* [Réseau neuronal multiclasse](/azure/machine-learning/studio-module-reference/multiclass-neural-network)
+* [Réseau neuronal à deux classes](/azure/machine-learning/studio-module-reference/two-class-neural-network)
+* [Régression de réseau neuronal](/azure/machine-learning/studio-module-reference/neural-network-regression)
 
 
 Cet article décrit les concepts de base et la syntaxe nécessaire au développement d’un réseau neuronal personnalisé à l’aide de Net # :
@@ -33,7 +35,6 @@ Cet article décrit les concepts de base et la syntaxe nécessaire au développe
 + Conditions des réseaux neuronaux et définition des principaux composants
 + Syntaxe et mots clés du langage de spécification Net#
 + Exemples de réseaux neuronaux personnalisés créés avec Net#
-
 
 
 ## <a name="neural-network-basics"></a>Principes fondamentaux des réseaux neuronaux
@@ -57,7 +58,7 @@ En outre, Net# prend en charge les quatre types de faisceaux de connexions avanc
 
 ## <a name="supported-customizations"></a>Personnalisations prises en charge
 
-L’architecture des modèles de réseau neuronal que vous créez dans Microsoft Azure Machine Learning Studio (classique) peut bénéficier d’une personnalisation avancée grâce à Net#. Vous pouvez :
+L’architecture des modèles de réseau neuronal que vous créez dans Machine Learning Studio (classique) peut bénéficier d’une personnalisation avancée grâce à Net#. Vous pouvez :
 
 + créer des couches masquées et contrôler le nombre de nœuds dans chaque couche ;
 + spécifier la façon dont les couches doivent être connectées les unes aux autres ;
@@ -293,7 +294,7 @@ from P1 response norm {
   }
 ```
 
-+ La couche source inclut cinq signatures, chacune présentant des dimensions 12x12, pour un total de 1 440 nœuds.
++ La couche source inclut cinq signatures, chacune présentant une dimension de 12x12, pour un total de 1440 nœuds.
 + La valeur de **KernelShape** indique qu’il s’agit d’une couche de normalisation de même signature, où le voisinage est un rectangle 3x3.
 + La valeur par défaut de **Padding** est False. La couche de destination n’a donc que 10 nœuds par dimension. Pour inclure un seul nœud dans la couche de destination correspondant à tous les nœuds de la couche source, ajoutez la chaîne Padding = [true, true, true] et remplacez la taille de l'élément RN1 par [5, 12, 12].
 
@@ -461,6 +462,6 @@ output Digit [10] from Hid3 all;
 + Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Étant donné que `Sharing[d]` a la valeur False uniquement pour `d == 0`, le nombre de noyaux est de `MapCount * NodeCount\[0] = 10 * 5 = 50`.
 
-## <a name="acknowledgements"></a>Remerciements
+## <a name="acknowledgments"></a>Remerciements
 
-Le langage Net # pour la personnalisation de l'architecture des réseaux neuronaux a été développée chez Microsoft par Shon Katzenberger (architecte, Machine Learning) et Alexey Kamenev (ingénieur logiciel, Microsoft Research). Il est utilisé en interne pour l'apprentissage de projets et d'applications allant de la détection d'images à l'analyse de texte. Pour plus d'informations, consultez [Réseaux neuronaux dans Azure Machine Learning Studio - Présentation de Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net).
+Le langage Net # pour la personnalisation de l'architecture des réseaux neuronaux a été développée chez Microsoft par Shon Katzenberger (architecte, Machine Learning) et Alexey Kamenev (ingénieur logiciel, Microsoft Research). Il est utilisé en interne pour l'apprentissage de projets et d'applications allant de la détection d'images à l'analyse de texte. Pour plus d'informations, consultez [Réseaux neuronaux dans Machine Learning Studio - Présentation de Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)

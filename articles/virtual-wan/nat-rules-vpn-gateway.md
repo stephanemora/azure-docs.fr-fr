@@ -8,19 +8,14 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: fc6c9f6c7c69f92c66706678dd27e082412afa3e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6613952b5d7811c187123963a6e611602aabb5dc
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539169"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113127687"
 ---
-# <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway---preview"></a>Configurer des règles NAT pour votre passerelle VPN de Virtual WAN – Préversion
-
-> [!IMPORTANT]
-> Les règles NAT sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway"></a>Configurer des règles NAT pour votre passerelle VPN de Virtual WAN
 
 Vous pouvez configurer votre passerelle VPN de Virtual WAN avec des règles NAT statiques un-à-un. Une règle NAT fournit un mécanisme permettant de configurer la traduction un-à-un des adresses IP. Vous pouvez une NAT pour interconnecter deux réseaux IP dont les adresses IP sont incompatibles ou se chevauchent. Un scénario classique est celui des branches avec des adresses IP se chevauchant, qui souhaitent accéder aux ressources de réseau virtuel Azure.
 

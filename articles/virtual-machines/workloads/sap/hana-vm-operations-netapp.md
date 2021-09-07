@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fc8f9697f418533131e86c069afd3157a71c78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b6b0fa5e1af60b65c513fd3fa6250dba2a978879
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142978"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965894"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 sur Azure NetApp Files pour SAP HANA
 
@@ -55,13 +55,13 @@ Lorsque vous envisagez d’utiliser Azure NetApp Files pour SAP Netweaver et SAP
 
 ## <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionnement de la base de données HANA sur Azure NetApp Files
 
-Le débit d’un volume NetApp Azure est une fonction de la taille de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+Le débit d’un volume NetApp Azure est fonction de la taille du volume et du niveau de service, comme décrit dans [Niveaux de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
-Il est important de comprendre la relation entre les performance et la taille, et qu’il existe des limites physiques pour une interface logique (LIF) de la machine virtuelle de stockage (SVM).
+Il est important de comprendre la relation entre les performance et la taille, et qu’un point de terminaison de stockage du service présente des limites physiques. Chaque point de terminaison de stockage est injecté de façon dynamique dans le [sous-réseau délégué Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) lors de la création du volume, et reçoit une adresse IP. Selon la capacité disponible et la logique de déploiement, des volumes Azure NetApp Files peuvent partager un point de terminaison de stockage
 
-Le tableau ci-dessous montre qu’il peut être judicieux de créer un grand volume « Standard » pour stocker les sauvegardes et qu’il n’est pas judicieux de créer un volume « Ultra » d’une taille supérieure à 12 To, car la capacité de bande passante physique d’une LIF unique serait dépassée. 
+Le tableau ci-dessous montre qu’il peut être judicieux de créer un grand volume « Standard » pour stocker les sauvegardes, et qu’il n’est pas judicieux de créer un volume « Ultra » d’une taille supérieure à 12 To, car la capacité de bande passante physique maximale d’un volume unique serait dépassée. 
 
-Le débit maximal pour une LIF et une session Linux unique est compris entre 1,2 et 1,4 Go/s. Si vous avez besoin d’un débit plus élevé pour /hana/data, vous pouvez utiliser le partitionnement de volume de données SAP HANA pour agréger par bandes l’activité d’E/S pendant le rechargement des données ou les points d’enregistrement HANA sur plusieurs fichiers de données HANA situés sur plusieurs partages NFS. Pour plus d’informations sur l’agrégation par bandes des volumes de données HANA, consultez ces articles :
+Le débit d’écriture maximal pour un volume et une session Linux unique est compris entre 1,2 et 1,4 Go/s. Si vous avez besoin d’un débit plus élevé pour /hana/data, vous pouvez utiliser le partitionnement de volume de données SAP HANA pour agréger par bandes l’activité d’E/S pendant le rechargement des données ou les points d’enregistrement HANA sur plusieurs fichiers de données HANA situés sur plusieurs partages NFS. Pour plus d’informations sur l’agrégation par bandes des volumes de données HANA, consultez ces articles :
 
 - [Guide de l’administrateur HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog sur SAP HANA – Partitionnement des volumes de données](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -95,7 +95,7 @@ Lorsque vous concevez l’infrastructure pour SAP dans Azure, vous devez connaî
 Pour les systèmes HANA, qui ne nécessitent pas de bande passante élevée, les tailles de volume ANF peuvent être plus petites. Dans le cas où un système HANA nécessite un débit plus élevé, le volume peut être adapté en redimensionnant la capacité en ligne. Aucun KPI n’est défini pour les volumes de sauvegarde. Toutefois, le débit du volume de sauvegarde est essentiel pour un environnement performant. Les performances des volumes de journal et de données doivent être conçues afin de répondre aux attentes des clients.
 
 > [!IMPORTANT]
-> Indépendamment de la capacité que vous déployez sur un volume NFS unique, le débit est supposé stagner dans la plage de bande passante de 1,2 à 1,4 Go/s exploitée par un consommateur dans une machine virtuelle. Cela concerne l’architecture sous-jacente de l’offre ANF et aux limites de session Linux associées relatives à NFS. Les valeurs de performances et de débit décrites dans l’article [Résultats des tests de performances pour Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) ont été effectuées sur un volume NFS partagé avec plusieurs machines virtuelles clientes et, par conséquent, avec plusieurs sessions. Ce scénario est différent du scénario que nous mesurons dans SAP. Nous y mesurons le débit d’une seule machine virtuelle par rapport à un volume NFS. Hébergé sur ANF.
+> Indépendamment de la capacité que vous déployez sur un volume NFS unique, le débit est supposé atteindre un plateau dans la plage de bande passante de 1,2 à 1,4 Go/s utilisée par un consommateur au cours d’une session. Cela concerne l’architecture sous-jacente de l’offre ANF et aux limites de session Linux associées relatives à NFS. Les valeurs de performances et de débit décrites dans l’article [Résultats des tests de performances pour Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) ont été effectuées sur un volume NFS partagé avec plusieurs machines virtuelles clientes et, par conséquent, avec plusieurs sessions. Ce scénario est différent du scénario que nous mesurons dans SAP. Nous y mesurons le débit d’une seule machine virtuelle par rapport à un volume NFS. Hébergé sur ANF.
 
 Pour respecter les exigences de débit minimal SAP pour les données et le journal, et conformément aux instructions pour **/hana/shared**, les tailles recommandées ressemblent à ceci :
 
@@ -104,7 +104,7 @@ Pour respecter les exigences de débit minimal SAP pour les données et le journ
 | /hana/log/ | 4 Tio | 2 Tio | v4.1 |
 | /hana/data | 6,3 Tio | 3,2 Tio | v4.1 |
 | /hana/shared scale-up | Min (1 To, 1 x RAM)  | Min (1 To, 1 x RAM) | v3 ou v4.1 |
-| /hana/shared scale-out | 1 x RAM de nœud Worker<br /> pour 4 nœuds Worker  | 1 x RAM de nœud Worker<br /> pour 4 nœuds Worker  | v3 ou v4.1 |
+| /hana/shared scale-out | 1 x RAM de nœud Worker<br /> par quatre nœuds Worker  | 1 x RAM de nœud Worker<br /> par quatre nœuds Worker  | v3 ou v4.1 |
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 ou v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 ou v4.1 |
 
@@ -128,10 +128,10 @@ Les mises à jour et mises à niveau du système ANF sont appliquées sans affec
 
 
 ## <a name="volumes-and-ip-addresses-and-capacity-pools"></a>Volumes et adresses IP et pools de capacité
-Avec ANF, il est important de comprendre comment l’infrastructure sous-jacente est créée. Un pool de capacité est seulement une structure, ce qui simplifie la création d’un modèle de facturation pour ANF. Un pool de capacité n’a pas de relation physique avec l’infrastructure sous-jacente. Si vous créez un pool de capacité, seul un shell qui peut être facturé est créé, rien de plus. Lorsque vous créez un volume, la première SVM est créée sur un cluster de plusieurs systèmes NetApp. Une adresse IP unique est créée afin que cette SVM puisse accéder au volume. Si vous créez plusieurs volumes, tous les volumes sont distribués dans cette SVM sur ce cluster NetApp à plusieurs contrôleurs. Même si vous n’avez qu’une seule adresse IP, les données sont distribuées sur plusieurs contrôleurs. ANF a une logique qui distribue automatiquement les charges de travail des clients une fois que les volumes et/ou la capacité du stockage configuré atteignent un niveau prédéfini interne. Vous remarquerez peut-être de tels cas, car une nouvelle adresse IP est affectée pour accéder aux volumes.
+Avec ANF, il est important de comprendre comment l’infrastructure sous-jacente est créée. Un pool de capacité n’est qu’une construction qui fournit un budget de capacité et de performance, ainsi qu’une unité de facturation, en fonction de son niveau de service. Un pool de capacité n’a pas de relation physique avec l’infrastructure sous-jacente. Lorsque vous créez un volume sur le service, un point de terminaison de stockage est créé. Une adresse IP unique est attribuée à ce point de terminaison de stockage pour fournir un accès aux données du volume. Si vous créez plusieurs volumes, ceux-ci sont distribués au sein du parc de matériel nu sous-jacent lié à ce point de terminaison de stockage. ANF a une logique qui distribue automatiquement les charges de travail des clients une fois que les volumes et/ou la capacité du stockage configuré atteignent un niveau prédéfini interne. Vous pouvez rencontrer de tels cas, car un nouveau point de terminaison de stockage, avec une nouvelle adresse IP, est créé automatiquement pour accéder aux volumes. Le service Azure NetApp Files (ANF) ne permet pas au client de contrôler cette logique de distribution.
 
-##<a name="log-volume-and-log-backup-volume"></a>Volume du journal et volume de sauvegarde du journal
-Le « volume du journal » ( **/hana/log**) est utilisé pour écrire le journal de phase de restauration par progression en ligne. Il existe donc des fichiers ouverts sur ce volume, et cela n’a pas de sens de créer une capture instantanée de ce volume. Les fichiers journaux de phase de restauration par progression en ligne sont archivés ou sauvegardés sur le volume de sauvegarde du journal une fois que le fichier journal de phase de restauration par progression en ligne est plein ou qu’une sauvegarde du journal de phase de restauration par progression est exécutée. Pour garantir des performances de sauvegarde raisonnables, le volume de sauvegarde du journal nécessite un bon débit. Pour optimiser les coûts de stockage, il peut être judicieux de consolider le volume de sauvegarde du journal de plusieurs instances HANA, afin que plusieurs instances HANA tirent parti du même volume et écrivent leurs sauvegardes dans des répertoires différents. Avec une telle consolidation, vous pouvez obtenir un débit plus élevé, car vous devez augmenter la taille du volume. 
+## <a name="log-volume-and-log-backup-volume"></a>Volume du journal et volume de sauvegarde du journal
+Le « volume du journal » ( **/hana/log**) est utilisé pour écrire le journal de phase de restauration par progression en ligne. Il existe donc des fichiers ouverts sur ce volume, et cela n’a pas de sens de créer une capture instantanée de ce volume. Les fichiers journaux de phase de restauration par progression en ligne sont archivés ou sauvegardés sur le volume de sauvegarde du journal une fois que le fichier journal de phase de restauration par progression en ligne est plein ou qu’une sauvegarde du journal de phase de restauration par progression est exécutée. Pour garantir des performances de sauvegarde raisonnables, le volume de sauvegarde du journal nécessite un bon débit. Pour optimiser les coûts de stockage, il peut être judicieux de consolider le volume de sauvegarde du journal de plusieurs instances HANA, afin que plusieurs instances HANA utilise le même volume et écrivent leurs sauvegardes dans des répertoires différents. Avec une telle consolidation, vous pouvez obtenir un débit plus élevé, car vous devez augmenter la taille du volume. 
 
 Il en va de même pour le volume sur lequel vous écrivez des sauvegardes complètes de base de données HANA.  
  
@@ -170,7 +170,7 @@ az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name m
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-Cette procédure de sauvegarde de capture instantanée peut être gérée de plusieurs façons et à l’aide de différents outils, par exemple avec le script Python « ntaphana_azure.py » disponible sur GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana). Il s’agit d’un exemple de code, fourni « tel quel » sans aucune maintenance ni prise en charge.
+Cette procédure de sauvegarde de capture instantanée peut être gérée de diverses façons à l’aide de différents outils. par exemple avec le script Python « ntaphana_azure.py » disponible sur GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana). Il s’agit d’un exemple de code, fourni « tel quel » sans aucune maintenance ni prise en charge.
 
 
 
@@ -182,8 +182,8 @@ Pour les utilisateurs de produits de sauvegarde Commvault, la deuxième option e
 
 
 ### <a name="back-up-the-snapshot-using-azure-blob-storage"></a>Sauvegarder la capture instantanée à l’aide du stockage d’objets blob Azure
-La sauvegarde dans le stockage d’objets blob Azure est une méthode économique et rapide pour enregistrer les sauvegardes de captures instantanées de stockage de base de données HANA basées sur ANF. Pour enregistrer les captures instantanées dans le stockage d’objets blob Azure, nous vous recommandons l’outil azcopy. Téléchargez la dernière version de cet outil et installez-la par exemple dans le répertoire bin où est installé le script Python de GitHub.
-Téléchargez la dernière version de l’outil azcopy :
+La sauvegarde dans le stockage d’objets blob Azure est une méthode économique et rapide pour enregistrer les sauvegardes de captures instantanées de stockage de base de données HANA basées sur ANF. Pour enregistrer les captures instantanées dans le Stockage Blob Azure, l’outil préconisé est AzCopy. Téléchargez la dernière version de cet outil et installez-la par exemple dans le répertoire bin où est installé le script Python de GitHub.
+Téléchargez la dernière version de l’outil AzCopy :
 
 ```
 root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1

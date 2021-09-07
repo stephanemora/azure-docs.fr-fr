@@ -2,13 +2,13 @@
 title: Utilisez Bicep pour déployer des ressources dans un groupe d’administration
 description: Décrit comment créer un fichier Bicep qui déploie des ressources dans l’étendue du groupe d’administration.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 58fbed44045a90f4f344117fd76f7de8b0493771
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/19/2021
+ms.openlocfilehash: afa4a0f266eb7720a569df123c9828fd151d21e0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372191"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453597"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Déploiements de groupes d’administration avec des fichiers Bicep
 
@@ -128,7 +128,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
 }
 ```
 
-Pour cibler un autre groupe d'administration, ajoutez un module. Utilisez la [fonction managementGroup](bicep-functions-scope.md#managementgroup) pour définir la propriété `scope`. Indiquez le nom du groupe d’administration.
+Pour cibler un autre groupe d'administration, ajoutez un [module](modules.md). Utilisez la [fonction managementGroup](bicep-functions-scope.md#managementgroup) pour définir la propriété `scope`. Indiquez le nom du groupe d’administration.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -137,7 +137,7 @@ param otherManagementGroupName string
 
 // module deployed at management group level but in a different management group
 module exampleModule 'module.bicep' = {
-  name: 'deployToDifferntMG'
+  name: 'deployToDifferentMG'
   scope: managementGroup(otherManagementGroupName)
 }
 ```
