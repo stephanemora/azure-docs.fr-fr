@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0041299031934bd76e4ef0700d2e75e2d61516cd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 494ff350866d8de1386a5fd98539f0e3e5ff2c3f
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745456"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126299"
 ---
 # <a name="add-components-on-the-portal"></a>Ajouter des composants sur le portail
 
@@ -60,12 +60,12 @@ Chaque projet soumis à la certification inclura un composant **Produit prêt po
 
 Vous avez peut-être des questions concernant le nombre de composants à inclure ou le type de composant à utiliser. Voici quelques exemples de scénarios d’appareils que vous pouvez certifier et la façon dont vous pouvez utiliser la fonctionnalité des composants.
 
-| Type de produit                                       | Non. Components | 1 composant/Type d’accessoire      | Plus de 2 composants/Type d’accessoire                    |
+| Type de produit                                       | Non. Composants | 1 composant/Type d’accessoire      | Plus de 2 composants/Type d’accessoire                    |
 |----------------------------------------------------|------------|----------------------------------|--------------------------------------------------|
 | Produit fini                                   | 1          | Produit prêt pour le client, discret | N/A                                              |
 | Produit fini avec **périphérique(s) détachable(s)** | 2 ou plus  | Produit prêt pour le client, discret | Périphérique / Discret ou intégré              |
 | Produit terminé avec **composant(s) intégré(s)**  | 2 ou plus  | Produit prêt pour le client, discret | Sélectionnez le type approprié / Discret ou intégré |
-| Kit de développement prêt pour les solutions                             | 2 ou plus  | Produit prêt pour le client, discret | Sélectionnez le type approprié / Discret ou intégré |
+| Kit de développement prêt pour les solutions                             | 1 ou plus  | Produit ou carte de développement prêt pour le client, discret ou intégré| Sélectionnez le type approprié / Discret ou intégré |
 
 ## <a name="example-component-usage"></a>Exemple d’utilisation des composants
 

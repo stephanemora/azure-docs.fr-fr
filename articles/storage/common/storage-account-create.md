@@ -10,12 +10,12 @@ ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e514154b650ec2baaa8ebc547d54ad744ed1971b
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 0bac6465ec392ac8d397f1210299c27c3a25c81e
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888479"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552313"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -113,7 +113,7 @@ Chaque ressource Resource Manager, y compris un compte de stockage Azure, doit a
 Pour créer un compte de stockage Azure avec le portail Azure, effectuez les étapes suivantes :
 
 1. Dans le menu du portail de gauche, sélectionnez **Comptes de stockage** pour afficher la liste de vos comptes de stockage.
-1. Sur la page **Comptes de stockage**, sélectionnez **Nouveau**.
+1. Sur la page **Comptes de stockage**, sélectionnez **Créer**.
 
 Les options de votre nouveau compte de stockage sont organisées en onglets dans la page **Créer un compte de stockage**. Les sections suivantes décrivent chacun des onglets et ses options.
 
@@ -150,9 +150,9 @@ Le tableau suivant décrit les champs de l’onglet **Avancé**.
 | Sécurité | Activer l’accès de clé de compte de stockage (préversion) | Facultatif | Lorsqu’il est activé, ce paramètre permet aux clients d’autoriser les demandes au compte de stockage à l’aide des clés d’accès du compte ou d’un compte Azure Active Directory (Azure AD - par défaut). La désactivation de ce paramètre empêche l’autorisation avec les clés d’accès du compte. Pour plus d’informations, consultez [Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure](shared-key-authorization-prevent.md). |
 | Sécurité | Version TLS minimale | Obligatoire | Sélectionnez la version minimale requise du protocole TLS (Transport Layer Security) pour les demandes entrantes adressées au compte de stockage. La valeur par défaut est TLS version 1.2. Lorsqu’elle est définie sur la valeur par défaut, les requêtes entrantes effectuées à l’aide de TLS 1.0 ou TLS 1.1 sont rejetées. Pour plus d’informations, consultez [Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Activer l’espace de noms hiérarchique | Facultatif | Pour utiliser ce compte de stockage pour les charges de travail Azure Data Lake Storage Gen2, configurez un espace de noms hiérarchique. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
-| Stockage d'objets blob | Activer le partage de fichiers réseau (NFS) v3 (préversion) | Facultatif | NFS v3 assure la compatibilité du système de fichiers Linux au niveau du stockage des objets, et permet aux clients Linux de monter un conteneur dans Stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. Pour plus d’informations, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](../blobs/network-file-system-protocol-support.md). |
+| Stockage d'objets blob | Activer le partage de fichiers réseau (NFS) v3 | Facultatif | NFS v3 assure la compatibilité du système de fichiers Linux au niveau du stockage des objets, et permet aux clients Linux de monter un conteneur dans Stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. Pour plus d’informations, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure](../blobs/network-file-system-protocol-support.md). |
 | Stockage d'objets blob | Niveau d’accès | Obligatoire | Les niveaux d’accès aux objets blob vous permettent de stocker les données blob de la manière la plus économique, en fonction de l’utilisation. Sélectionnez le niveau chaud (par défaut) pour les données fréquemment utilisées. Sélectionnez le niveau froid pour les données rarement utilisées. Pour plus d’informations, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). |
-| Azure Files | Activer les partages de fichiers volumineux | Facultatif | Disponible uniquement pour les comptes de stockage Premium pour les partages de fichiers. Pour plus d’informations, consultez [Activer les partages de fichiers Standard pour couvrir jusqu’à 100 Tio](../files/storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib). |
+| Azure Files | Activer les partages de fichiers volumineux | Facultatif | Disponible uniquement pour les partages de fichiers standard avec les redondances LRS ou ZRS. |
 | Tables et files d’attente | Activer la prise en charge des clés gérées par le client | Facultatif | Pour activer la prise en charge des clés gérées par le client pour les tables et les files d’attente, vous devez sélectionner ce paramètre au moment de la création du compte de stockage. Pour plus d’informations, consultez [Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente](account-encryption-key-create.md). |
 
 ### <a name="networking-tab"></a>Onglet Réseau

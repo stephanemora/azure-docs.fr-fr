@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 44c838fcb0728797aa3781da0ad98b37cc2c25a5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b86e90298bc753cdea5c0fb5f255e88fcc26dc5c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317970"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440753"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guide de transition : du concepteur de vues Azure Monitor aux classeurs
 Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Ils ont migré vers les Classeurs pour fournir un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Cet article vous aide à effectuer la transition du Concepteur de vues vers les Classeurs. 
@@ -60,9 +60,7 @@ Une fois la fonctionnalité sélectionnée, une galerie répertorie tous les cla
 Pour lancer un nouveau classeur, vous pouvez sélectionner le modèle **Vide** sous **Démarrage rapide**, ou l'icône **Nouveau** de la barre de navigation supérieure. Pour afficher les modèles ou revenir aux classeurs enregistrés, sélectionnez l'élément dans la galerie ou recherchez le nom sur la barre de recherche.
 
 Pour enregistrer un classeur, vous devrez enregistrer le rapport avec un titre, un abonnement, un groupe de ressources et un emplacement spécifiques.
-Le classeur sera automatiquement renseigné avec les mêmes paramètres que l'espace de travail LA, avec le même abonnement et le même groupe de ressources, mais les utilisateurs pourront modifier ces paramètres de rapport. Par défaut, les classeurs sont enregistrés dans *Mes rapports* et l'utilisateur individuel est le seul à y avoir accès. Ils peuvent également être directement enregistrés dans des rapports partagés, ou faire l'objet de partages ultérieurs.
-
-![Enregistrement des classeurs](media/view-designer-conversion-overview/workbooks-save.png)
+Le classeur sera automatiquement renseigné avec les mêmes paramètres que l'espace de travail LA, avec le même abonnement et le même groupe de ressources, mais les utilisateurs pourront modifier ces paramètres de rapport. Les classeurs sont des ressources partagées qui requièrent un accès en écriture au groupe de ressources parent à enregistrer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

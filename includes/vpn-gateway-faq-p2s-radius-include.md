@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d0d0bbd1cea6d1af016aa46569171bd2bcd8ac4f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6bead4346bdb23dd725fa474ef1bd8a982d2b61a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110722096"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336126"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -24,6 +24,9 @@ L’authentification RADIUS est prise en charge pour les références SKU VpnGw1
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>L’authentification RADIUS est-elle prise en charge pour le modèle de déploiement classique ?
  
 Non. L’authentification RADIUS n’est pas prise en charge pour le modèle de déploiement classique.
+
+### <a name="what-is-the-timeout-period-for-radius-requests-sent-to-the-radius-server"></a>Quel est le délai d’expiration des demandes RADIUS envoyées au serveur RADIUS ?
+Les demandes RADIUS sont définies pour expirer après 30 secondes. Les valeurs de délai d'expiration définies par l’utilisateur ne sont pas prises en charge actuellement.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>Les serveurs RADIUS tiers sont-ils pris en charge ?
 

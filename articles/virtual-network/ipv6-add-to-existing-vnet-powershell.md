@@ -1,5 +1,5 @@
 ---
-title: Mettre à niveau une application IPv4 vers IPv6 dans un réseau virtuel Azure – PowerShell
+title: Ajouter une application IPv4 vers IPv6 dans un réseau virtuel Azure – PowerShell
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer des adresses IPv6 dans une application figurant dans un réseau virtuel Azure avec Azure PowerShell.
 services: virtual-network
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 771d108bc3a3262c46ab13127727eddce2abaeb8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5d4982fac67b0d5bde5e0c68f64da634f01a9eab
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675799"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435647"
 ---
-# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Mettre à niveau une application IPv4 vers IPv6 dans un réseau virtuel Azure – PowerShell
+# <a name="add-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Ajouter une application IPv4 vers IPv6 dans un réseau virtuel Azure – PowerShell
 
 Cet article explique comment ajouter une connectivité IPv6 à une application IPv4 existante dans un réseau virtuel Azure avec un Standard Load Balancer et une adresse IP publique. La mise à niveau sur place comprend les éléments suivants :
 - Espace d’adressage IPv6 pour le réseau virtuel et le sous-réseau

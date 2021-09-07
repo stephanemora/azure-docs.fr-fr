@@ -2,7 +2,6 @@
 title: Bien démarrer avec les jumeaux d’appareil Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez le kit Azure IoT device SDK pour .NET pour implémenter l’application d’appareil simulé et le kit Azure IoT service SDK pour .NET pour implémenter une application de service qui ajoute des balises et exécute la requête IoT Hub.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 53a2d4ef83f20633c227c5d1a0e23de5bb45c81d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89013756"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532090"
 ---
 # <a name="get-started-with-device-twins-net"></a>Prise en main des représentations d’appareils (.NET)
 
@@ -250,8 +249,8 @@ Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azu
 
 Vous pouvez en apprendre davantage à partir des ressources suivantes :
 
-* Pour savoir comment envoyer des données de télémétrie à partir d’appareils, consultez le tutoriel [Envoyer des données de télémétrie à partir d’un appareil vers un hub IoT](quickstart-send-telemetry-dotnet.md).
+* Pour savoir comment envoyer des données de télémétrie à partir d’appareils, consultez le tutoriel [Envoyer des données de télémétrie à partir d’un appareil vers un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
 * Pour savoir comment configurer des appareils à l’aide des propriétés souhaitées de jumeau d’appareil, consultez le tutoriel [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md).
 
-* Pour savoir comment contrôler des appareils de façon interactive, par exemple mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur, consultez le tutoriel [Utiliser des méthodes directes](quickstart-control-device-dotnet.md).
+* Pour savoir comment contrôler des appareils de façon interactive, par exemple mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur, consultez le démarrage rapide [Utiliser des méthodes directes](./quickstart-control-device.md?pivots=programming-language-csharp).

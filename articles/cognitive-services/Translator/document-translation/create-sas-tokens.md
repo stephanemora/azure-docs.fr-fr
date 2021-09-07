@@ -6,14 +6,14 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a91829ce79c5cd9e32efefc809dd23a19382f49
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102489631"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360268"
 ---
-# <a name="create-sas-tokens-for-document-translation-processing"></a>Créer des jetons SAS pour le traitement des traductions de documentation
+# <a name="create-sas-tokens-for-your-storage-containers"></a>Créer des jetons SAS pour vos conteneurs de stockage
 
 Dans cet article, vous allez apprendre à créer des jetons de signature d’accès partagé (SAS) avec l’Explorateur Stockage Azure ou le portail Azure. Un jeton SAS fournit un accès délégué sécurisé aux ressources dans votre compte de stockage Azure.
 

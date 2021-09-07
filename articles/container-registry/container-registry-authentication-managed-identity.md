@@ -2,13 +2,13 @@
 title: Authentifier avec l’identité gérée
 description: Donnez accès aux images de votre registre de conteneurs privé à l’aide d’une identité managée Azure affectée par l’utilisateur ou par le système.
 ms.topic: article
-ms.date: 01/16/2019
-ms.openlocfilehash: 88952a032b9c4439620de05f181402f29639a5b2
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 06/30/2021
+ms.openlocfilehash: 84f7d76eb763c8116390501dfbe2a6568849f10f
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440661"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286535"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 
@@ -34,7 +34,7 @@ Après avoir configuré des ressources Azure sélectionnées avec une identité 
 Ensuite, utilisez l’identité pour vous authentifier auprès d’un [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sans aucune information d’identification dans votre code. Il existe plusieurs méthodes d’authentification en fonction du scénario. Pour pouvoir accéder à un registre de conteneurs Azure à partir d’une machine virtuelle à l’aide d’une identité managée, vous vous authentifiez avec Azure Resource Manager. 
 
 > [!NOTE]
-> Actuellement, les services tels qu’Azure Web App pour conteneurs ou Azure Container Instances ne peuvent pas utiliser leur identité managée pour s’authentifier auprès d’Azure Container Registry lors de l’extraction d’une image conteneur pour déployer la ressource de conteneur elle-même. L’identité est disponible uniquement une fois que le conteneur est en cours d’exécution. Pour déployer ces ressources à l’aide d’images d’Azure Container Registry, il est recommandé d’utiliser une méthode d’authentification différente, telle que le [principal du service](container-registry-auth-service-principal.md).
+> Vous ne pouvez actuellement pas utiliser d’identité managée dans les instances Azure Container pour extraire une image d’Azure Container Registry lors de la création d’un groupe de conteneurs. L’identité est disponible uniquement dans un conteneur en cours d’exécution. Pour déployer un groupe de conteneurs dans les instances Azure Container à l’aide d’images d’Azure Container Registry, il est recommandé d’utiliser une méthode d’authentification différente, telle que le [principal du service](container-registry-auth-service-principal.md).
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
@@ -232,6 +232,7 @@ Dans cet article, vous avez découvert les identités managées avec Azure Conta
 > * utiliser l’identité managée pour accéder au registre et tirer (pull) une image conteneur.
 
 * En savoir plus sur les [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/index.yml).
+* Découvrez comment utiliser une identité gérée [affectée par le système](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md) ou [affectée par l’utilisateur](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md) avec App Service et Azure Container Registry.
 
 
 <!-- LINKS - external -->

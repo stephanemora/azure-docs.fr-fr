@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e95359d24cda6b0d23084010d8ab19566dd2197c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 415824041c8e721c96ad9a9d480d5e50436310e4
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409376"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964767"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Fonctionnement de l’approvisionnement d’applications dans Azure Active Directory
 
@@ -143,7 +143,7 @@ Le service de provisionnement continue à exécuter indéfiniment des cycles inc
 
 ### <a name="errors-and-retries"></a>Erreurs et nouvelles tentatives
 
-Si un utilisateur ne peut pas être ajouté, mis à jour ou supprimé dans le système cible en raison d’une erreur dans le système cible, une nouvelle tentative est effectuée lors du prochain cycle de synchronisation. Si l’utilisateur continue d’échouer, les nouvelles tentatives ne seront possibles qu’à une fréquence réduite, pour finalement n’être autorisées qu’une seule fois par jour. Pour résoudre le problème, les administrateurs doivent vérifier les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) pour déterminer la cause racine et prendre les mesures nécessaires. Les échecs courants peuvent inclure :
+Si un utilisateur ne peut pas être ajouté, mis à jour ou supprimé dans le système cible en raison d’une erreur dans le système cible, une nouvelle tentative est effectuée lors du prochain cycle de synchronisation. Les erreurs sont continuellement retentées, en remettant progressivement à l’échelle la fréquence des nouvelles tentatives. Pour résoudre le problème, les administrateurs doivent vérifier les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) pour déterminer la cause racine et prendre les mesures nécessaires. Les échecs courants peuvent inclure :
 
 - Utilisateurs n’ayant pas d’attribut renseigné dans le système source alors qu’il est requis dans le système cible
 - Utilisateurs ayant une valeur d’attribut dans le système source pour laquelle il existe une contrainte unique dans le système cible, et la même valeur se trouve dans un autre enregistrement utilisateur

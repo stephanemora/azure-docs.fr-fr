@@ -4,14 +4,14 @@ description: Utilisez Helm avec AKS et Azure Container Registry pour empaqueter 
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 07/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: 248b91be60f4da3ce7dd10212a9db69377651ccb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cc060b0b23cbcef0551ec2660856d453b8a3b0e2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071539"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454145"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Démarrage rapide : Développer sur Azure Kubernetes Service (AKS) avec Helm
 
@@ -88,30 +88,11 @@ Pour connecter localement un cluster Kubernetes, utilisez [kubectl][kubectl], le
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
-Ce démarrage rapide utilise [un exemple d’application Node.js][example-nodejs]. Clonez l’application à partir de GitHub, puis accédez au répertoire `dev-spaces/samples/nodejs/getting-started/webfrontend`.
+Ce démarrage rapide utilise l’[application Azure Vote][azure-vote-app]. Clonez l’application à partir de GitHub, puis accédez au répertoire `azure-vote`.
 
 ```console
-git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/samples/nodejs/getting-started/webfrontend
-```
-
-## <a name="create-a-dockerfile"></a>Créer un Dockerfile
-
-Créez un fichier *Dockerfile* à l’aide des commandes suivantes :
-
-```dockerfile
-FROM node:latest
-
-WORKDIR /webfrontend
-
-COPY package.json ./
-
-RUN npm install
-
-COPY . .
-
-EXPOSE 80
-CMD ["node","server.js"]
+git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+cd azure-voting-app-redis/azure-vote/
 ```
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Créer et envoyer (push) l’exemple d’application vers l’ACR
@@ -119,36 +100,75 @@ CMD ["node","server.js"]
 En utilisant le fichier Dockerfile précédent, exécutez la commande [az acr build][az-acr-build] pour générer et envoyer (push) une image au registre. Le `.` à la fin de la commande définit l’emplacement du fichier Dockerfile (dans ce cas, le répertoire actif).
 
 ```azurecli
-az acr build --image webfrontend:v1 \
+az acr build --image azure-vote-front:v1 \
   --registry MyHelmACR \
   --file Dockerfile .
 ```
+
+> [!NOTE]
+> En plus d’importer des images de conteneur dans votre ACR, vous pouvez également importer des graphiques Helm dans votre ACR. Pour plus d’informations, consultez [Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure][acr-helm].
 
 ## <a name="create-your-helm-chart"></a>Créer votre chart Helm
 
 Générez votre chart Helm à l’aide de la commande `helm create`.
 
 ```console
-helm create webfrontend
+helm create azure-vote-front
 ```
 
-Mettez à jour *webfrontend/values.yaml* :
-* Remplacez la propriété loginServer de votre registre que vous avez notée à l’étape précédente, par exemple *myhelmacr.azurecr.io*.
-* Remplacez `image.repository` par `<loginServer>/webfrontend` :
-* Remplacez `service.type` par `LoadBalancer` :
+Mettez à jour *azure-vote-front/Chart.yaml* afin d’ajouter une dépendance pour le graphique *redis* à partir du référentiel de graphiques `https://charts.bitnami.com/bitnami` et mettez à jour `appVersion` vers `v1`. Par exemple :
+
+```yml
+apiVersion: v2
+name: azure-vote-front
+description: A Helm chart for Kubernetes
+
+dependencies:
+  - name: redis
+    version: 14.7.1
+    repository: https://charts.bitnami.com/bitnami
+
+...
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application.
+appVersion: v1
+```
+
+Mettez à jour les dépendances de votre graphique Helm à l’aide de `helm dependency update` :
+
+```console
+helm dependency update azure-vote-front
+```
+
+Mettez à jour *azure-vote-front/values.yaml*:
+* Ajoutez une section *redis* pour définir les détails d’image, le port de conteneur et le nom du déploiement.
+* Ajoutez un *backendName* pour connecter la portion frontend au déploiement *redis*.
+* Redéfinissez *image.repository* sur `<loginServer>/azure-vote-front`.
+* Redéfinissez *image.tag* sur `v1`.
+* Redéfinissez *service.type* sur *LoadBalancer*.
 
 Par exemple :
 
 ```yml
-# Default values for webfrontend.
+# Default values for azure-vote-front.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+backendName: azure-vote-backend-master
+redis:
+  image:
+    registry: mcr.microsoft.com
+    repository: oss/bitnami/redis
+    tag: 6.0.8
+  fullnameOverride: azure-vote-backend
+  auth:
+    enabled: false
 
 image:
-  repository: myhelmacr.azurecr.io/webfrontend
+  repository: myhelmacr.azurecr.io/azure-vote-front
   pullPolicy: IfNotPresent
+  tag: "v1"
 ...
 service:
   type: LoadBalancer
@@ -156,15 +176,20 @@ service:
 ...
 ```
 
-Mettez à jour `appVersion` vers `v1` dans *webfrontend/Chart.yaml*. Par exemple
+Ajoutez une section `env` à *azure-vote-front/templates/deployment.yaml* pour transmettre le nom du déploiement *redis*.
 
 ```yml
-apiVersion: v2
-name: webfrontend
 ...
-# This is the version number of the application being deployed. This version number should be
-# incremented each time you make changes to the application.
-appVersion: v1
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: REDIS
+            value: {{ .Values.backendName }}
+...
 ```
 
 ## <a name="run-your-helm-chart"></a>Exécuter votre chart Helm
@@ -172,18 +197,17 @@ appVersion: v1
 Installez votre application à l'aide de votre chart Helm en utilisant la commande `helm install`.
 
 ```console
-helm install webfrontend webfrontend/
+helm install azure-vote-front azure-vote-front/
 ```
 
 Le renvoi d’une adresse IP publique par le service prend plusieurs minutes. Surveillez la progression avec la commande `kubectl get service` et l’argument `--watch`.
 
 ```console
-$ kubectl get service --watch
-
-NAME                TYPE          CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-webfrontend         LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
+$ kubectl get service azure-vote-front --watch
+NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+azure-vote-front   LoadBalancer   10.0.18.228   <pending>       80:32021/TCP   6s
 ...
-webfrontend         LoadBalancer  10.0.141.72   <EXTERNAL-IP> 80:32150/TCP   7m
+azure-vote-front   LoadBalancer   10.0.18.228   52.188.140.81   80:32021/TCP   2m6s
 ```
 
 Accédez à l’équilibreur de charge de votre application dans un navigateur en utilisant `<EXTERNAL-IP>` pour voir l’exemple d’application.
@@ -213,10 +237,11 @@ Pour plus d’informations sur l’utilisation de Helm, consultez la documentati
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az aks install-cli]: /cli/azure/aks#az_aks_install_cli
-[example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
+[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/
 [helm-documentation]: https://helm.sh/docs/
 [helm-existing]: kubernetes-helm.md
 [helm-install]: https://helm.sh/docs/intro/install/
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[acr-helm]: ../container-registry/container-registry-helm-repos.md

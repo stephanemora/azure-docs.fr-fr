@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b4bd2615dd99145bd75fd7c1095056961d3b2d80
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369656"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988352"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
@@ -39,34 +39,17 @@ Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un adm
 Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
 
 1. Ouvrez la [page Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres** .
-1. Sélectionner **Propriétés** . L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
+1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
+1. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Pour attribuer un utilisateur en tant qu’administrateur
 
-1. Connectez-vous au portail Azure en tant que propriétaire de l’abonnement et ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+- Attribuez le rôle de propriétaire à l’utilisateur dans l’étendue de l’abonnement.  
+     Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
-1. Cliquez sur l’abonnement pour lequel vous souhaitez accorder l’accès.
+## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-1. Cliquez sur **Contrôle d’accès (IAM)** .
-
-1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
-
-    ![Capture d'écran illustrant les attributions de rôles](./media/add-change-subscription-administrator/role-assignments.png)
-
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet **Ajouter une attribution de rôle** .
-
-    Si vous ne disposez pas des autorisations nécessaires pour attribuer des rôles, l'option est désactivée.
-
-1. Dans la liste déroulante **Rôle** , sélectionnez le rôle **Propriétaire** .
-
-1. Dans la liste **Sélectionner** , sélectionnez un utilisateur. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone **Sélectionner** pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire.
-
-    ![Capture d’écran montrant le rôle Propriétaire sélectionné](./media/add-change-subscription-administrator/add-role.png)
-
-1. Cliquez sur **Enregistrer** pour attribuer le rôle.
-
-    Après quelques instants, le rôle Propriétaire est attribué à l’utilisateur au niveau de l’abonnement.
+Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -74,7 +57,3 @@ Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, pro
 * [Comprendre les différents rôles dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Autorisations des rôles d'administrateur dans Azure Active Directory](../../active-directory/roles/permissions-reference.md)
-
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
-
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

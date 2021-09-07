@@ -3,15 +3,15 @@ title: Déployer un Runbook Worker hybride Linux dans Azure Automation
 description: Cet article explique comment déployer un runbook Worker hybride Azure Automation qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/06/2021
+ms.date: 08/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d60e4964ca9ce4de4b4d8e5545875f5c47f0f809
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 244a811380e973503e2a59be6b0f492dc4b100d0
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854393"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607609"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -45,11 +45,11 @@ La fonctionnalité Runbook Worker hybride prend en charge les distributions suiv
 
 * Amazon Linux 2012.09 à 2015.09
 * CentOS Linux 5, 6, 7, et 8
-* Oracle Linux 5, 6 et 7
+* Oracle Linux 6, 7 et 8
 * Red Hat Enterprise Linux Server 5, 6, 7 et 8
 * Debian GNU/Linux 6, 7 et 8
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS et 18.04 LTS
-* SUSE Linux Enterprise Server 12 et 15 (SUSE n’a pas publié de numéros de version 13 ou 14)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04 et 20.04 LTS
+* SUSE Linux Enterprise Server 12, 15 et 15.1 (SUSE n’a pas publié de numéros de version 13 ou 14)
 
 > [!IMPORTANT]
 > Avant d’activer la fonctionnalité Update Management, qui dépend du rôle Runbook Worker hybride du système, vérifiez les distributions qu’elle prend en charge [ici](update-management/operating-system-requirements.md).
@@ -67,9 +67,11 @@ Voici la configuration minimale requise pour un système Linux et un Runbook Wor
 |Glibc |Bibliothèque C de GNU| 2.5-12 |
 |Openssl| Bibliothèques OpenSSL | 1.0 (TLS 1.1 et TLS 1.2 sont pris en charge)|
 |Curl | Client web cURL | 7.15.5|
-|Python-ctypes | Python 2.x ou Python 3.x sont obligatoire |
+|Python-ctypes | Bibliothèque de fonctions étrangères pour Python| Python 2.x ou Python 3.x sont obligatoire |
 |PAM | Modules d’authentification enfichable|
+
 | **Package facultatif** | **Description** | **Version minimum**|
+|--------------------- | --------------------- | -------------------|
 | PowerShell Core | Pour exécuter des runbooks PowerShell, vous devez avoir installé PowerShell Core. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/install/installing-powershell-core-on-linux) pour connaître la procédure d’installation. | 6.0.0 |
 
 ### <a name="adding-a-machine-to-a-hybrid-runbook-worker-group"></a>Ajout d’un ordinateur à un groupe de Runbook Workers hybrides
@@ -143,7 +145,7 @@ Pour installer et configurer un runbook Worker hybride pour Linux, effectuez les
 
 2. Déployez l’agent Log Analytics sur la machine cible.
 
-    * Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Linux à l’aide de l’[extension de machine virtuelle pour Linux](../virtual-machines/extensions/oms-linux.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, l’interface de ligne de commande Azure ou Azure Policy pour attribuer la stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
+    * Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Linux à l’aide de l’[extension de machine virtuelle pour Linux](../virtual-machines/extensions/oms-linux.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, l’interface de ligne de commande Azure ou Azure Policy pour attribuer la définition de stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
 
     * Pour les ordinateurs non Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs avec Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
 
@@ -158,7 +160,7 @@ Pour installer et configurer un runbook Worker hybride pour Linux, effectuez les
 
         - Utilisation d’Azure Policy.
 
-            Avec cette approche, vous utilisez la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Linux ou Windows Azure Arc](../governance/policy/samples/built-in-policies.md#monitoring) d’Azure Policy si l’agent Log Analytics est installé sur le serveur activé pour Arc. Si l’agent n’est pas installé, elle le déploie automatiquement en utilisant une tâche de remédiation. Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../governance/policy/samples/built-in-initiatives.md#monitoring) pour installer et configurer l’agent Log Analytics.
+            Avec cette approche, vous utilisez la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Linux ou Windows Azure Arc](../governance/policy/samples/built-in-policies.md#monitoring) d’Azure Policy pour vérifier si l’agent Log Analytics est installé sur le serveur compatible Arc. Si l’agent n’est pas installé, elle le déploie automatiquement en utilisant une tâche de remédiation. Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../governance/policy/samples/built-in-initiatives.md#monitoring) pour installer et configurer l’agent Log Analytics.
 
         Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en utilisant Azure Policy.
 

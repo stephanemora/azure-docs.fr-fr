@@ -1,20 +1,20 @@
 ---
-title: Stratégies pour l’étiquetage des ressources
-description: Décrit les stratégies Azure que vous pouvez attribuer pour garantir la conformité des étiquettes.
+title: Définitions de stratégie pour le balisage des ressources
+description: Décrit les définitions Azure Policy que vous pouvez attribuer pour garantir la conformité des étiquettes.
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/21/2021
+ms.openlocfilehash: f7af799423b0aceac66dfa97e92c92d25c3916db
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89293731"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456254"
 ---
-# <a name="assign-policies-for-tag-compliance"></a>Attribuer des stratégies pour la conformité des étiquettes
+# <a name="assign-policy-definitions-for-tag-compliance"></a>Affecter des définitions de stratégie pour la conformité des balises
 
-Vous pouvez utiliser [Azure Policy](../../governance/policy/overview.md) pour appliquer des règles et conventions d’étiquetage. En créant une stratégie, vous pouvez éviter de déployer dans votre abonnement des ressources n’ayant pas les étiquettes attendues pour votre organisation. Au lieu d’appliquer des étiquettes ou de rechercher des ressources non conformes manuellement, vous pouvez créer une stratégie qui applique automatiquement les étiquettes nécessaires pendant le déploiement. Les étiquettes peuvent également être appliquées aux ressources existantes avec le nouvel effet [Modifier](../../governance/policy/concepts/effects.md#modify) et une [tâche de correction](../../governance/policy/how-to/remediate-resources.md). La section suivante présente des exemples de stratégies pour les étiquettes.
+Vous pouvez utiliser [Azure Policy](../../governance/policy/overview.md) pour appliquer des règles et conventions d’étiquetage. En créant une stratégie, vous pouvez éviter de déployer dans votre abonnement des ressources n’ayant pas les étiquettes attendues pour votre organisation. Au lieu d’appliquer des étiquettes ou de rechercher des ressources non conformes manuellement, vous pouvez créer une stratégie qui applique automatiquement les étiquettes nécessaires pendant le déploiement. Les étiquettes peuvent également être appliquées aux ressources existantes avec le nouvel effet [Modifier](../../governance/policy/concepts/effects.md#modify) et une [tâche de correction](../../governance/policy/how-to/remediate-resources.md). La section suivante présente des exemples de définitions de stratégie pour les étiquettes.
 
-## <a name="policies"></a>Stratégies
+## <a name="policy-definitions"></a>Définitions de stratégies
 
 [!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 

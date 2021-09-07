@@ -3,12 +3,12 @@ title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Micros
 description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 0c1c053378c8c2dec1f769fe489eb823ea81390f
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: d786b3d0e9afbf7ab4e895c6788209644d9f921f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438735"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092752"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -52,7 +52,7 @@ AMQP appelle les *conteneurs* de programmes de communication ; ceux-ci contienne
 
 La connexion réseau est par conséquent ancrée sur le conteneur. Elle est lancée par le conteneur dans le rôle client établissant une connexion de socket TCP sortante vers un conteneur dans le rôle de récepteur qui écoute et accepte les connexions TCP entrantes. L’établissement d’une liaison de connexion inclut la négociation de la version du protocole, la déclaration ou la négociation de l’utilisation du protocole Transport Level Security (TLS/SSL) et l’établissement d’une liaison d’authentification/autorisation au niveau de la portée de la connexion basée sur SASL.
 
-Azure Service Bus requiert l’utilisation de TLS à tout moment. Il prend en charge les connexions sur le port TCP 5671, dans le cadre duquel, la connexion TCP est tout d’abord superposée à TLS avant la saisie de la négociation du protocole AMQP et prend également en charge les connexions sur le port TCP 5672, dans le cadre duquel le serveur propose immédiatement une mise à niveau de connexion obligatoire vers TLS à l’aide du modèle prescrit par AMQP. La liaison AMQP WebSockets crée un tunnel via le port TCP 443 qui équivaut alors aux connexions AMQP 5671.
+Azure Service Bus ou Azure Event Hubs requiert l’utilisation de TLS à tout moment. Il prend en charge les connexions sur le port TCP 5671, dans le cadre duquel, la connexion TCP est tout d’abord superposée à TLS avant la saisie de la négociation du protocole AMQP et prend également en charge les connexions sur le port TCP 5672, dans le cadre duquel le serveur propose immédiatement une mise à niveau de connexion obligatoire vers TLS à l’aide du modèle prescrit par AMQP. La liaison AMQP WebSockets crée un tunnel via le port TCP 443 qui équivaut alors aux connexions AMQP 5671.
 
 Après avoir configuré la connexion et le protocole TLS, Service Bus propose deux options de mécanisme SASL :
 

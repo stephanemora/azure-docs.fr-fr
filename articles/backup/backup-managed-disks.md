@@ -3,12 +3,12 @@ title: Sauvegarde des Disques managés Azure
 description: Découvrez comment sauvegarder des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
 ms.date: 05/27/2021
-ms.openlocfilehash: c47499c371a9eccfd97224344a48c166d0e1f811
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 9bbb29aa4741f71448876a0af947964f728b0fb0
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653628"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300733"
 ---
 # <a name="back-up-azure-managed-disks"></a>Sauvegarder les disques managés Azure
 
@@ -121,7 +121,7 @@ Voici les prérequis de la configuration de la sauvegarde de disques managés :
 
    - Vous ne pouvez pas modifier le groupe de ressources d’instantané affecté à une instance de sauvegarde lorsque vous configurez la sauvegarde d’un disque.
 
-   - Au cours d’une opération de sauvegarde, le service Sauvegarde Azure crée un compte de stockage dans le groupe de ressources d’instantané où sont stockés les instantanés. Un seul compte de stockage est créé par groupe de ressources d’instantané. Il est réutilisé sur toutes les instances de sauvegarde sur disque qui utilisent le même groupe de ressources comme groupe de ressources d’instantané.
+   - Au cours d’une opération de sauvegarde, le service Sauvegarde Azure crée un compte de stockage dans le groupe de ressources d’instantané. Un seul compte de stockage est créé par groupe de ressources d’instantané. Il est réutilisé sur toutes les instances de sauvegarde sur disque qui utilisent le même groupe de ressources comme groupe de ressources d’instantané.
      
      - Les instantanés ne sont pas stockés dans le compte de stockage. Les instantanés incrémentiels du disque managé constituent des ressources ARM qui sont créées sur le groupe de ressources et non dans un compte de stockage. 
      
@@ -182,7 +182,7 @@ Pour attribuer un rôle, procédez comme suit :
    ![Sélection des disques à sauvegarder](./media/backup-managed-disks/select-disks-to-backup.png)
 
    >[!NOTE]
-   >Le portail permet de sélectionner plusieurs disques et de configurer la sauvegarde. Cependant, chaque disque correspond à une instance de sauvegarde individuelle. Actuellement, la sauvegarde de disque Azure ne prend en charge que la sauvegarde de disques individuels. La sauvegarde dans le temps de plusieurs disques attachés à un disque virtuel n’est pas prise en charge.
+   >Le portail permet de sélectionner plusieurs disques et de configurer la sauvegarde. Cependant, chaque disque correspond à une instance de sauvegarde individuelle. Actuellement, la sauvegarde de disque Azure ne prend en charge que la sauvegarde de disques individuels. La sauvegarde dans le temps de plusieurs disques attachés à une machine virtuelle n’est pas prise en charge.
    >
    >Sur le portail, seuls les disques du même abonnement peuvent être sélectionnés. Si vous avez plusieurs disques à sauvegarder ou s’ils sont répartis sur différents abonnements, vous pouvez utiliser des scripts pour automatiser l’opération.
    >

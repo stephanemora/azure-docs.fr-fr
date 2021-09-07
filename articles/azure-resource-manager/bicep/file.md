@@ -2,13 +2,13 @@
 title: Structure et syntaxe des fichiers Bicep
 description: Décrit la structure et les propriétés d’un fichier Bicep en utilisant une syntaxe déclarative.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: a9dcb83b54a665a71c8f1095a682c9dabcafd039
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/02/2021
+ms.openlocfilehash: 5401aebb0b0a82a04a2b78f9af1dc6d133915c0b
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111025807"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286625"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendre la structure et la syntaxe des fichiers Bicep
 
@@ -297,6 +297,10 @@ Spécifiez un [type de données](data-types.md) pour la valeur de sortie.
 Une sortie peut avoir le même nom qu’un paramètre, une variable, un module ou une ressource.
 
 Pour plus d’informations, consultez [Sorties dans Bicep](./outputs.md).
+
+## <a name="whitespace"></a>Espace blanc
+
+Les espaces et les tabulations sont ignorés lors de la création de fichiers Bicep. Les nouvelles lignes ont toutefois une signification sémantique ; par exemple, dans les déclarations [object](./data-types.md#objects) et [array](./data-types.md#arrays).
 
 ## <a name="comments"></a>Commentaires
 

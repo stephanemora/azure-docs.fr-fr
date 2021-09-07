@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to resize VMs running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
-ms.openlocfilehash: bf2125a6e1d0b443202a036c52fdf845f79d11fa
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 5e41edf0cf080d06a0829e31e7105a13a0035f93
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079867"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532033"
 ---
 # <a name="use-the-azure-portal-to-resize-the-vms-on-your-azure-stack-edge-pro-gpu"></a>Utiliser le Portail Azure pour redimensionner les machines virtuelles sur votre GPU Azure Stack Edge Pro
 
@@ -38,28 +38,28 @@ Avant de redimensionner une machine virtuelle en cours d’exécution sur votre 
 
 1. Au moins une machine virtuelle est déployée sur votre appareil. Pour créer cette machine virtuelle, consultez les instructions fournies dans [Déployer une machine virtuelle sur Azure Stack Edge Pro via le Portail Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-1. Votre machine virtuelle doit être à l’état **Arrêté**. Pour arrêter votre machine virtuelle, accédez à **Machines virtuelles > Vue d’ensemble** et sélectionnez la machine virtuelle que vous souhaitez arrêter. Dans la page Vue d’ensemble, sélectionnez **Arrêter**, puis sélectionnez **Oui** lorsque vous êtes invité à confirmer. Avant de redimensionner votre machine virtuelle, vous devez arrêter la machine virtuelle.
+1. Votre machine virtuelle être à l’état **Arrêté**. Pour arrêter votre machine virtuelle, accédez à **Machines virtuelles > Vue d’ensemble** et sélectionnez la machine virtuelle que vous souhaitez arrêter. Dans la page Vue d’ensemble, sélectionnez **Arrêter**, puis sélectionnez **Oui** lorsque vous êtes invité à confirmer. Avant de redimensionner votre machine virtuelle, vous devez arrêter la machine virtuelle.
 
-    ![Arrêter la machine virtuelle à partir de la page Vue d’ensemble](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Capture d’écran de l’écran d’arrêt d’une machine virtuelle à partir de la vue d’ensemble des machines virtuelles. Le bouton Oui est mis en surbrillance.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## <a name="resize-a-vm"></a>Redimensionner une machine virtuelle
 
 Procédez comme suit pour redimensionner une machine virtuelle déployée sur votre appareil. 
 
-1. Accédez à la machine virtuelle que vous avez arrêtée et rendez-vous sur la page **Vue d’ensemble**. Sélectionnez **Taille de la machine virtuelle (modifier)** .
+1. Accédez à la machine virtuelle que vous avez arrêtée et sélectionnez **Taille de VM (changer)** dans le panneau **Détails** de la machine virtuelle.
     
-    ![Sélectionner Taille de la machine virtuelle Modifier dans la page Vue d’ensemble](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
+    ![Capture d’écran montrant l’onglet Détails pour une machine virtuelle. L’onglet Détails et l’option Taille de VM sont mis en surbrillance.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
 
 2. Dans le panneau **Modifier la taille de la machine virtuelle**, à partir de la barre de commandes, sélectionnez la **Taille de la machine virtuelle**, puis sélectionnez **Modifier**.
 
-    ![Sélectionner une nouvelle taille de machine virtuelle](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
+    ![Capture d’écran de l’écran Changer la taille de machine virtuelle. Une taille de machine virtuelle est mise en surbrillance, tout comme le bouton Changer.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
 
 3. Vous verrez une notification indiquant que la machine virtuelle est en cours de mise à jour. Une fois la machine virtuelle correctement mise à jour, la page **Vue d’ensemble** est actualisée pour afficher la machine virtuelle redimensionnée.
 
-    ![Machine virtuelle redimensionnée ](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
+    ![Capture d’écran de la page de présentation d’une VM La valeur Taille de VM pour la machine virtuelle redimensionnée est mise en surbrillance.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro, consultez [Déployer des machines virtuelles via le Portail Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
+Pour savoir comment déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro, consultez [Déployer des machines virtuelles via le portail Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).

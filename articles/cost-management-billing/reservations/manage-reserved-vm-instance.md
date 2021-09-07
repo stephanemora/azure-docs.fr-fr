@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cee0acf851d82ba09867b8d66c09a17b21e7af45
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288667"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989054"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -62,15 +62,8 @@ Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations�
 
 Pour permettre à d’autres personnes de gérer des réservations, vous avez le choix entre deux options :
 
-- Déléguer la gestion de l’accès d’un ordre de réservation individuelle :
-    1. Connectez-vous au [portail Azure](https://portal.azure.com).
-    1. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
-    1. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
-    1. Dans Détails de la réservation, sélectionnez l’ordre de réservation.
-    1. Sélectionnez **Contrôle d’accès (IAM)** .
-    1. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire**. Si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
-    1. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
-    1. Sélectionnez l’utilisateur, puis **Enregistrer**.
+- Déléguez la gestion de l’accès pour un ordre de réservation individuel en affectant le rôle propriétaire à un utilisateur au niveau de l’étendue des ressources de l’ordre de réservation. Si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.  
+     Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 - Ajouter un utilisateur en tant qu’administrateur de facturation à un Contrat Entreprise ou à un Contrat client Microsoft :
     - Pour un Contrat Entreprise, ajoutez des utilisateurs avec le rôle d’_Administrateur d’entreprise_ qui permet d’afficher et de gérer tous les ordres de réservation qui s’appliquent au Contrat Entreprise. Les utilisateurs détenant le rôle d’_Administrateur d’entreprise (lecture seule)_ peuvent uniquement afficher la réservation. Les administrateurs de service et les propriétaires de compte ne peuvent pas afficher les réservations _à moins_ d’être explicitement ajoutés à celles-ci à l’aide du contrôle d’accès (IAM). Pour plus d’informations, consultez [Gestion des rôles Azure Enterprise](../manage/understand-ea-roles.md).
@@ -89,6 +82,10 @@ Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour 
 2. Dans le menu de gauche, sélectionnez **Produits + services** > **Réservations**.
 3. La liste complète des réservations pour votre profil d’inscription ou de facturation d’administrateur d’entreprise s’affiche.
 4. Les administrateurs de facturation peuvent prendre possession d’une réservation en la sélectionnant, puis en sélectionnant **Accorder l’accès** dans la fenêtre qui s’affiche.
+
+## <a name="change-billing-subscription-for-an-azure-reservation"></a>Modifier l’abonnement de facturation pour une réservation Azure
+
+Nous n’autorisons pas la modification de l’abonnement de facturation après l’achat d’une réservation. Si vous souhaitez modifier l’abonnement, utilisez le processus Exchange pour définir le bon abonnement de facturation pour la réservation.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Diviser une réservation unique en deux réservations
 

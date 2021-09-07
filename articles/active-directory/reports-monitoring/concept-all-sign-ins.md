@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/11/2021
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf000169c993290dc45ef6ec9ed4591f87d1def
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 9fbd65204534e978446109c99ca7286c0af00d68
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030639"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580383"
 ---
 # <a name="sign-in-logs-in-azure-active-directory---preview"></a>Journaux de connexion dans Azure Active Directory - préversion
 
@@ -312,8 +312,6 @@ Pour faciliter la synthèse des données, les journaux de connexion avec identit
 
 - Statut
 
-- Adresse IP
-
 - Nom ou ID de la ressource
 
 Sélectionnez un élément dans la liste pour afficher toutes les connexions regroupées sous un nœud.
@@ -435,7 +433,27 @@ Chaque téléchargement au format JSON se compose de quatre fichiers différents
 ![Télécharger des fichiers](./media/concept-all-sign-ins/download-files.png "Télécharger des fichiers")
 
 
+## <a name="return-log-data-with-microsoft-graph"></a>Retourner des données de journal avec Microsoft Graph
 
+Outre l’utilisation du portail Azure, vous pouvez interroger les journaux de connexion à l’aide de l’API Microsoft Graph pour retourner différents types d’informations de connexion. Pour éviter d’éventuels problèmes de performances, limitez votre requête aux données qui vous intéressent. 
+
+L’exemple suivant limite la requête par le nombre d’enregistrements, sur une période spécifique et par type d’événement de connexion :
+
+```msgraph-interactive
+GET https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=createdDateTime ge 2020-09-10T06:00:00Z and createdDateTime le 2020-09-17T06:00:00Z and signInEventTypes/any(t: t eq 'nonInteractiveUser')
+```
+
+Les paramètres de requête de l’exemple fournissent les résultats suivants :
+
+- Le paramètre [$top](/graph/query-parameters#top-parameter) renvoie les 100 premiers résultats.
+- Le paramètre [$filter](/graph/query-parameters#filter-parameter) limite le laps de temps pour que les résultats soient renvoyés et utilise la propriété signInEventTypes pour retourner uniquement les connexions utilisateur non interactives.
+
+Les valeurs suivantes sont disponibles pour le filtrage par différents types de connexions : 
+
+- interactiveUser
+- nonInteractiveUser
+- servicePrincipal 
+- managedIdentity
 
 ## <a name="next-steps"></a>Étapes suivantes
 

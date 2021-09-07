@@ -2,14 +2,14 @@
 title: Charges de travail de conteneur
 description: Découvrez comment exécuter et mettre à l’échelle des applications à partir d’images conteneur sur Azure Batch. Créez un pool de nœuds de calcul prenant en charge l’exécution de tâches de conteneur.
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8effa7daf0c30edaef9924cbefe35cdad1b20e1
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91843445"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564117"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -32,14 +32,13 @@ Vous devez être familiarisé avec les concepts de conteneur et savoir comment c
   - Kit de développement logiciel Batch Java (version 3.0)
   - Kit de développement logiciel Batch Node.js (version 3.0)
 
-- **Comptes** : sur votre abonnement Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage Azure.
+- **Comptes** : dans votre abonnement Azure, vous devez créer un [compte Batch](accounts.md) et, éventuellement, un compte de stockage Azure.
 
-- **Une image de machine virtuelle prise en charge** : les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
+- **Une image de machine virtuelle prise en charge** : les conteneurs sont uniquement pris en charge dans les pools créés avec la configuration de machine virtuelle, à partir d’une image prise en charge (figurant dans la section suivante). Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
 Gardez à l’esprit les limitations suivantes :
 
 - Batch prend en charge RDMA uniquement pour les conteneurs exécutés sur les pools Linux.
-
 - Pour les charges de travail de conteneur Windows, nous vous recommandons de choisir une taille de machine virtuelle multicœur pour votre pool.
 
 ## <a name="supported-virtual-machine-images"></a>Images de machines virtuelles prises en charge
@@ -71,10 +70,8 @@ Pour les charges de travail de conteneur Linux, Batch prend en charge les images
 Ces images sont uniquement prises en charge dans le cadre d’une utilisation avec les pools Azure Batch et sont adaptées à une exécution dans le conteneur Docker. Elles offrent :
 
 - Un runtime de conteneur [Moby](https://github.com/moby/moby) compatible avec Docker préinstallé
-
 - Des pilotes GPU NVIDIA et un runtime de conteneur NVIDIA préinstallés pour simplifier le déploiement sur les machines virtuelles Azure N-series
-
-- Une image préinstallée ou préconfigurée avec la prise en charge des tailles de machine virtuelle InfiniBand RDMA pour les images avec le suffixe `-rdma`. Ces images ne prennent pas en charge les tailles de machine virtuelle SR-IOV IB/RDMA.
+- Les images de machine virtuelle avec le suffixe « -rdma » sont préconfigurées avec prise en charge des tailles de machine virtuelle InfiniBand RDMA. Ces images de machine virtuelle ne doivent pas être utilisées avec les tailles de machine virtuelle qui ne prennent pas en charge InfiniBand.
 
 Vous pouvez également créer des images personnalisées à partir de machines virtuelles exécutant Docker sur l’une des distributions Linux compatibles avec Batch. Si vous souhaitez fournir votre propre image Linux personnalisée, consultez les instructions dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
@@ -83,7 +80,6 @@ Pour la prise en charge de Docker sur une image personnalisée, installez [Docke
 Remarques supplémentaires relatives à l’utilisation d’une image personnalisée Linux :
 
 - Pour tirer parti des performances du GPU de tailles Azure N-series lors de l’utilisation d’une image personnalisée, préinstallez des pilotes NVIDIA. En outre, vous devez installer l’utilitaire moteur Docker pour GPU NVIDIA, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-
 - Pour accéder au réseau RDMA Azure, utilisez une taille de machine virtuelle prenant en charge RDMA. Les pilotes RDMA nécessaires sont installés dans les images CentOS HPC et Ubuntu prises en charge par Batch. Une configuration supplémentaire peut être nécessaire pour exécuter des charges de travail MPI. Voir [Utiliser des instances compatibles RDMA ou GPU dans les pools Batch](batch-pool-compute-intensive-sizes.md).
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuration du conteneur pour le pool Batch
@@ -277,6 +273,37 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
+### <a name="managed-identity-support-for-acr"></a>Prise en charge des identités managées pour ACR
+
+Lors de l’accès aux conteneurs stockés dans [Azure Container Registry](https://azure.microsoft.com/services/container-registry), vous pouvez utiliser un nom d’utilisateur/mot de passe ou une identité managée pour vous authentifier auprès du service. Pour utiliser une identité managée, assurez-vous d’abord que l’identité a été [attribuée au pool](managed-identity-pools.md) et que l’identité a le rôle `AcrPull` attribué pour le registre de conteneurs auquel vous souhaitez accéder. Ensuite, il suffit d’indiquer à Batch quelle identité utiliser lors de l'authentification auprès d’ACR.
+
+```csharp
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "myContainerRegistry.azurecr.io",
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
+);
+
+// Create container configuration, prefetching Docker images from the container registry
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
+
+// VM configuration
+VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
+    imageReference: imageReference,
+    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
+
+// Create pool
+CloudPool pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 4,
+    virtualMachineSize: "Standard_NC6",
+    virtualMachineConfiguration: virtualMachineConfiguration);
+...
+```
+
 ## <a name="container-settings-for-the-task"></a>Paramètres de conteneur pour la tâche
 
 Pour exécuter une tâche de conteneur sur un pool prenant en charge les conteneurs, spécifiez des paramètres propres aux conteneurs. Il s’agit notamment de l’image à utiliser, du registre et des options d’exécution des conteneurs.
@@ -285,7 +312,7 @@ Pour exécuter une tâche de conteneur sur un pool prenant en charge les contene
 
 - Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
 
-- Pour Windows, les tâches doivent être exécutées avec [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) défini sur `admin`. 
+- Pour Windows, les tâches doivent être exécutées avec [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) défini sur `admin`.
 
 - Pour Linux, Batch mappera l’autorisation utilisateur/groupe au conteneur. Si l’accès à un dossier au sein du conteneur nécessite une autorisation d’administrateur, vous devrez peut-être exécuter la tâche en tant qu’étendue de pool avec le niveau d’élévation administrateur. Cela permet de s’assurer que Batch exécute la tâche en tant que racine dans le contexte du conteneur. Dans le cas contraire, un utilisateur non administrateur n’aura peut-être pas accès à ces dossiers.
 
@@ -361,7 +388,7 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour faciliter le déploiement de charges de travail de conteneur sur Azure Batch par le biais de [recettes Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes), consultez également la boîte à outils [Batch Shipyard](https://github.com/Azure/batch-shipyard).
+- Pour faciliter le déploiement de charges de travail de conteneur sur Azure Batch par le biais de [recettes Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes), consultez la boîte à outils [Batch Shipyard](https://github.com/Azure/batch-shipyard).
 - Pour plus d’informations sur l’installation et l’utilisation de Docker CE sur Linux, consultez la documentation [Docker](https://docs.docker.com/engine/installation/).
 - Découvrez comment [utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 - En savoir plus sur le [projet Moby](https://mobyproject.org/), une infrastructure pour la création de systèmes basés sur le conteneur.

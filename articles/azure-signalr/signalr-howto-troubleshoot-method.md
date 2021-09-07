@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: ed8775c6544791571746b0f3784a60ce2af0de7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a85e61536e04bd670cd49127f906c69727acc8e9
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726972"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113134976"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Comment résoudre les problèmes de connectivité et de remise de messages
 
@@ -27,9 +27,17 @@ Tout d’abord, vous devez vérifier à partir du portail Azure sur quel [Servic
 
 * Pour le mode `Classic`, consultez [Résolution des problèmes en mode classique](#classic_mode_tsg).
 
-<a name="default_mode_tsg"></a>
+Deuxièmement, vous devez capturer les traces de service pour résoudre les problèmes. Pour savoir comment capturer des traces, consultez [Capture de traces de service](#how-to-capture-service-traces).
 
 [Vous avez des problèmes ou des commentaires sur la résolution des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/survey/troubleshooting)
+
+## <a name="how-to-capture-service-traces"></a>Comment capturer des traces de service
+
+Pour simplifier le processus de résolution des problèmes, le service Azure SignalR fournit l’**outil Live Trace** pour exposer les traces de service dans les catégories **connectivité** et **messagerie**. Les traces incluent, mais sans s’y limiter, les événements de connexion connecté/déconnecté et les événements de messages reçus/laissés. Avec l’**outil Live Trace**, vous pouvez capturer, afficher, trier, filtrer et exporter des traces actives. Pour plus d’informations, reportez-vous à [Utilisation de l’outil Live Trace](./signalr-howto-troubleshoot-live-trace.md).
+
+[Vous avez des problèmes ou des commentaires sur la résolution des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/survey/troubleshooting)
+
+<a name="default_mode_tsg"></a>
 
 ## <a name="default-mode-troubleshooting"></a>Résolution des problèmes en mode par défaut
 

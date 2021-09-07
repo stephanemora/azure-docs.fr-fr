@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: arvindshmicrosoft
 ms.author: arvindsh
 ms.reviewer: mathoma
-ms.date: 12/9/2020
-ms.openlocfilehash: 014f3e80446e514fcce20cc0dbc82f6f1d3a063e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/23/2021
+ms.openlocfilehash: a3847bb1ac435779e50ce8cc41a3940bb6adfab7
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708783"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112965127"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,6 +101,10 @@ Les étapes suivantes peuvent vous aider à estimer si un pool est plus économi
 
 > [!IMPORTANT]
 > Si le nombre de bases de données dans un pool approche le maximum pris en charge, veillez à envisager la [gestion des ressources dans les pools élastiques denses](elastic-pool-resource-management.md).
+
+### <a name="per-database-properties"></a>Propriétés par base de données
+
+Vous pouvez éventuellement définir des propriétés « par base de données » pour modifier les modèles de consommation des ressources dans les pools élastiques. Pour plus d’informations, reportez-vous à la documentation sur les limites de ressources pour les pools élastiques [DTU](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases) et [vCore](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases).
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Utilisation d’autres fonctionnalités SQL Database avec des pools élastiques
 

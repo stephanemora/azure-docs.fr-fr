@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 286ce9b628eff0975cff1cfa006f914ed43c3c46
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 195e47ce7165a02c5bb7126521432d448e2199a9
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469676"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238808"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -56,7 +56,7 @@ Pour activer l’analyse de vulnérabilité des images stockées dans un registr
 
 1. Pour voir les résultats, accédez à la page **Recommandations**. Si des problèmes sont trouvés, la recommandation **Les vulnérabilités des images Azure Container Registry doivent être corrigées** apparaît.
 
-    ![Recommandation de correction des problèmes ](media/monitor-container-security/acr-finding.png)
+    ![Recommandation de correction des problèmes](media/monitor-container-security/acr-finding.png)
 
 1. Sélectionnez la recommandation. 
 
@@ -70,7 +70,7 @@ Pour activer l’analyse de vulnérabilité des images stockées dans un registr
 
 1. Sélectionnez un référentiel pour afficher les référentiels qui contiennent des images vulnérables.
 
-    ![Sélectionner un référentiel](media/monitor-container-security/acr-finding-select-repository.png)
+    ![Sélectionnez un dépôt.](media/monitor-container-security/acr-finding-select-repository.png)
 
     La page de détails du référentiel s’ouvre. Elle liste les images vulnérables, accompagnées d’une évaluation de la gravité des vulnérabilités détectées.
 
@@ -143,7 +143,7 @@ Pour créer une règle :
 1. Pour afficher, remplacer ou supprimer une règle : 
     1. Sélectionnez **Désactiver une règle**.
     1. Dans la liste des étendues, les abonnements présentant des règles actives apparaissent avec la mention **Règle appliquée**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modification ou suppression d’une alerte":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modifier ou supprimer une règle existante.":::
     1. Pour afficher ou supprimer la règle, sélectionnez le menu de points de suspension (« … »).
 
 

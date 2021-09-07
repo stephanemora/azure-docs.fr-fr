@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: fb0cca1859a8e4fcc456bb3815f0e03f4f0311d1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3720ac243fd90be23c18f760977dc2a0d13e0412
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459398"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989108"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Créer votre première fonction avec Java et Eclipse 
 
@@ -51,7 +51,7 @@ Maven crée les fichiers projet dans un nouveau dossier avec le nom de _artifact
 > [Azure Functions Core Tools, version 2](functions-run-local.md#v2) doit être installé pour pouvoir exécuter et déboguer des fonctions localement.
 
 1. Cliquez avec le bouton droit sur le projet généré, puis choisissez **Exécuter en tant que** et **Build Maven**.
-1. Dans la boîte de dialogue **Edit Configuration** (Modifier la configuration), entrez `package` dans les champs **Goals** (Objectifs) et **Nom**, puis sélectionnez **Exécuter**. Cette opération entraîne la génération et l’empaquetage du code de fonction.
+1. Dans la boîte de dialogue **Edit Configuration** (Modifier la configuration), entrez `package` dans les champs **Goals** (Objectifs) et sélectionnez **Exécuter**. Cette opération entraîne la génération et l’empaquetage du code de fonction.
 1. Une fois la génération terminée, créez une autre configuration Exécuter comme ci-dessus, en utilisant `azure-functions:run` en tant qu’objectif et que nom. Sélectionnez **Exécuter** pour exécuter la fonction dans l’IDE.
 
 Lorsque vous avez fini de tester votre fonction, terminez le runtime dans la fenêtre de console. Un seul hôte de fonction à la fois peut être actif et en cours d’exécution localement.

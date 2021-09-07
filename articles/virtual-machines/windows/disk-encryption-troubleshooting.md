@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 09a23e9e1e4508b10003f95f6e8c3502ea214d64
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 74ce915d5183315ab3a9ef57c8913ac6b7a3a9f1
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733764"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415387"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
@@ -38,7 +38,7 @@ Les paramètres de groupe de sécurité réseau appliqués doivent permettre au 
 Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](disk-encryption-windows-aad.md#), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d'authentification Azure Active Directory actuels sont traités dans les sections 56 et 59 de la documentation [URL et plages d'adresses IP Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure 
-La machine virtuelle doit pouvoir accéder au point de terminaison [Azure Instance Metadata Service](../windows/instance-metadata-service.md) qui utilise une adresse IP non routable bien connue (`169.254.169.254`), accessible uniquement à partir de la machine virtuelle.  Les configurations de proxy qui modifient le trafic HTTP local à cette adresse (par exemple, en ajoutant un en-tête X-Forwarded-For) ne sont pas prises en charge.
+La VM doit pouvoir accéder au point de terminaison de [service de métadonnées d’instance Azure](../windows/instance-metadata-service.md) (`169.254.169.254`) et à l’[adresse IP publique virtuelle](../../virtual-network/what-is-ip-address-168-63-129-16.md) (`168.63.129.16`) utilisée pour communiquer avec les ressources de la plateforme Azure. Les configurations de proxy qui modifient le trafic HTTP local à ces adresses (par exemple, en ajoutant un en-tête X-Forwarded-For) ne sont pas prises en charge.
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Résolution des problèmes Windows Server 2016 Server Core
 

@@ -1,31 +1,28 @@
 ---
 title: Exécuter des scripts PowerShell dans une machine virtuelle Windows dans Azure
 description: Cette rubrique explique comment exécuter des scripts PowerShell au sein d’une machine virtuelle Windows Azure à l’aide de la fonctionnalité Run Command
-services: automation
 ms.service: virtual-machines
 ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.date: 04/26/2019
+ms.date: 06/22/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: de84372a6d9e6aa2c506427cd601859bf1ac00f0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 81ffce59b1f99628580418836d690d650ea94a1c
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672663"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566243"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows à l’aide de Run Command
 
 La fonctionnalité Run Command utilise l’agent de machine virtuelle pour exécuter des scripts PowerShell au sein d’une machine virtuelle Windows Azure. Vous pouvez utiliser ces scripts pour la gestion générale des ordinateurs ou des applications. Ils peuvent vous aider à diagnostiquer et corriger rapidement les problèmes de réseau et d’accès aux machines virtuelles et à rétablir l’état de la machine virtuelle.
 
 
-
 ## <a name="benefits"></a>Avantages
 
-Vous pouvez accéder à vos machines virtuelles de plusieurs façons. Run Command peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Vous utilisez Run Command par le biais du Portail Azure, de l’[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou de [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) pour machines virtuelles Windows.
+Vous pouvez accéder à vos machines virtuelles de plusieurs façons. Run Command peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Vous utilisez Run Command par le biais du Portail Azure, de l’[API REST](/rest/api/compute/virtual-machines-run-commands/run-command) ou de [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) pour machines virtuelles Windows.
 
 Cette fonctionnalité est utile dans tous les scénarios où vous souhaitez exécuter un script sur une machine virtuelle. C’est l’une des seules manières de détecter et de corriger un problème sur une machine virtuelle qui n’a pas de port RDP ou SSH ouvert en raison d’une configuration incorrecte du réseau ou de l’utilisateur administratif.
 
@@ -45,6 +42,8 @@ Les restrictions suivantes s’appliquent lorsque vous utilisez Run Command :
 
 > [!NOTE]
 > Pour fonctionner correctement, Run Command a besoin d’une connectivité (port 443) aux IP publiques Azure. Si l’extension n’a pas accès à ces points de terminaison, il se peut que les scripts s’exécutent correctement, mais qu’ils ne retournent pas les résultats. Si vous bloquez le trafic sur la machine virtuelle, vous pouvez utiliser des [balises de service](../../virtual-network/network-security-groups-overview.md#service-tags) pour autoriser le trafic à destination des IP publiques Azure en utilisant la balise `AzureCloud`.
+> 
+> La fonctionnalité Exécuter la commande ne fonctionne pas si l’état de l’agent de machine virtuelle n’est PAS PRÊT. Vérifiez l’état de l’agent dans les propriétés de la machine virtuelle dans le portail Azure.
 
 ## <a name="available-commands"></a>Commandes disponibles
 
@@ -53,16 +52,21 @@ Ce tableau affiche la liste des commandes disponibles pour les machines virtuell
 ```error
 The entity was not found in this Azure location
 ```
+<br>
 
-|**Nom**|**Description**|
+| **Nom** | **Description** |
 |---|---|
-|**RunPowerShellScript**|Exécute un script PowerShell.|
-|**EnableRemotePS**|Configure la machine pour activer PowerShell à distance.|
-|**EnableAdminAccount**|Vérifie si le compte Administrateur local est désactivé, et si tel est le cas, l’active.|
-|**IPConfig**| Affiche des informations détaillées pour l’adresse IP, le masque de sous-réseau et la passerelle par défaut de chaque adaptateur lié à TCP/IP.|
-|**RDPSettings**|Vérifie les paramètres du registre et les paramètres de la stratégie de domaine. Suggère les actions de la stratégie si la machine fait partie d’un domaine ou remplace les paramètres par les valeurs par défaut.|
-|**ResetRDPCert**|Supprime le certificat TLS/SSL lié à l’écouteur RDP et restaure les valeurs par défaut pour la sécurité de l’écouteur RDP. Utilisez ce script si vous rencontrez des problèmes avec le certificat.|
-|**SetRDPPort**|Définit le numéro de port par défaut ou spécifié par l’utilisateur pour les connexions Bureau à distance. Active les règles de pare-feu pour l’accès entrant au port.|
+| **RunPowerShellScript** | Exécute un script PowerShell. |
+| **DisableNLA** | Désactiver l’authentification au niveau du réseau |
+| **DisableWindowsUpdate** | Désactiver les mises à jour automatiques de Windows Update |
+| **EnableAdminAccount** | Vérifie si le compte Administrateur local est désactivé, et si tel est le cas, l’active. |
+| **EnableEMS** | Active EMS |
+| **EnableRemotePS** | Configure la machine pour activer PowerShell à distance. |
+| **EnableWindowsUpdate** | Activer les mises à jour automatiques de Windows Update |
+| **IPConfig** | Affiche des informations détaillées pour l’adresse IP, le masque de sous-réseau et la passerelle par défaut de chaque adaptateur lié à TCP/IP. |
+| **RDPSetting** | Vérifie les paramètres du registre et les paramètres de la stratégie de domaine. Suggère les actions de la stratégie si la machine fait partie d’un domaine ou remplace les paramètres par les valeurs par défaut. |
+| **ResetRDPCert** | Supprime le certificat TLS/SSL lié à l’écouteur RDP et restaure les valeurs par défaut pour la sécurité de l’écouteur RDP. Utilisez ce script si vous rencontrez des problèmes avec le certificat. |
+| **SetRDPPort** | Définit le numéro de port par défaut ou spécifié par l’utilisateur pour les connexions Bureau à distance. Active les règles de pare-feu pour l’accès entrant au port. |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -82,7 +86,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## <a name="azure-portal"></a>Portail Azure
 
-Accédez à une machine virtuelle dans le [Portail Azure](https://portal.azure.com) et sélectionnez **Run Command** sous **OPÉRATIONS**. Une liste des commandes pouvant s’exécuter sur la machine virtuelle s’affiche.
+Accédez à une machine virtuelle dans le [Portail Azure](https://portal.azure.com) et sélectionnez **Run command** dans le menu de gauche sous **Opérations**. Une liste des commandes pouvant s’exécuter sur la machine virtuelle s’affiche.
 
 ![Liste des commandes](./media/run-command/run-command-list.png)
 

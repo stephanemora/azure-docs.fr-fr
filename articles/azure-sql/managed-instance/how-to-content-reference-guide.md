@@ -11,12 +11,12 @@ ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: 155c87c1f5343e583beb226c2eb5416d782fcfb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dafe702121934a1267f01a861932dc49361e5258
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963195"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688551"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Référence du contenu Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,7 +25,7 @@ Dans cet article, vous trouverez une référence du contenu des guides, des scri
 
 ## <a name="load-data"></a>Charger les données
 
-- [Migrer vers Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md) : découvrez les processus de migration et les outils recommandés pour la migration vers Azure SQL Managed Instance.
+- [Guide SQL Server vers Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md) : découvrez les processus de migration et les outils recommandés pour la migration vers Azure SQL Managed Instance.
 - [Migrer le certificat TDE vers Azure SQL Managed Instance](tde-certificate-migrate.md) : si votre base de données SQL Server est protégée par le chiffrement transparent des données (TDE), vous devez migrer le certificat que SQL Managed Instance peut utiliser pour déchiffrer la sauvegarde que vous souhaitez restaurer dans Azure.
 - [Importer une base de données depuis un fichier BACPAC](../database/database-import.md)
 - [Exporter une base de données vers un fichier BACPAC](../database/database-export.md)

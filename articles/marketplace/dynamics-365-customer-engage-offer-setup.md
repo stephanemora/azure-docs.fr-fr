@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 060d24a331a7f15c4ee687c919fe8c2b7cdf2ca6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ea640bc4f5b191c3b01ed2a00ecb1d247f1a602d
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971456"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240277"
 ---
 # <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps
 
@@ -61,7 +61,7 @@ Pour **Comment voulez-vous qu’interagissent les clients potentiels avec l’of
 - **Activer la gestion de licence d’application via Microsoft** : gérez vos licences d’application avec Microsoft. Pour permettre aux clients d’exécuter les fonctionnalités de base de votre application sans licence, ainsi que des fonctionnalités Premium après avoir acheté une licence, sélectionnez la **case Autoriser les clients à installer mon application même si les licences ne sont pas attribuées**. Si vous sélectionnez cette deuxième case, vous devez configurer votre package de solution pour qu’il ne nécessite pas de licence.
 
     > [!NOTE]
-    > Vous ne pouvez pas modifier ce paramètre après la publication de votre offre. Pour en savoir plus sur ce paramètre, consultez [Gestion de licence d’application tierce via Microsoft](third-party-license.md).
+    > Vous ne pouvez pas modifier ce paramètre après la publication de votre offre. Pour en savoir plus sur ce paramètre, consultez [Gestion de licence d’application ISV](isv-app-license.md).
 
 - **Obtenez-en une maintenant (gratuit)**  : référencez votre offre gratuitement pour les clients.
 - **Essai gratuit (annonce)**  : référencez votre offre pour les clients avec un lien vers un essai gratuit. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.

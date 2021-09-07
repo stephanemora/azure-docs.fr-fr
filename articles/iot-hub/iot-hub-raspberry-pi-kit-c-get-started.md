@@ -6,22 +6,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/14/2021
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 845a2d7af740b804d25250753c02c2791da82944
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97804052"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414932"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connecter Raspberry Pi à Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation de Raspberry Pi exécutant Raspbian. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](about-iot-hub.md). Pour obtenir des exemples Windows 10 IoT Standard, accédez au [centre de développement Windows](https://www.windowsondevices.com/).
+Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation de Raspberry Pi exécutant le système d’exploitation Raspberry Pi. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](about-iot-hub.md). Pour obtenir des exemples Windows 10 IoT Standard, accédez au [centre de développement Windows](https://www.windowsondevices.com/).
 
 Vous n’avez pas encore de kit ? Essayez [le simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). Ou achetez un nouveau kit [ici](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -93,25 +93,25 @@ Les éléments suivants sont facultatifs :
 
 Configurez maintenant l’appareil Raspberry Pi.
 
-### <a name="install-the-raspbian-operating-system-for-pi"></a>Installation du système d’exploitation Raspbian pour Pi
+### <a name="install-the-raspberry-pi-os"></a>Installer le système d’exploitation Raspberry PI
 
-Préparez la carte microSD pour l’installation de l’image Raspbian.
+Préparez la carte microSD pour l’installation de l’image du système d’exploitation Raspberry PI.
 
-1. Téléchargez Raspbian.
+1. Télécharger le système d’exploitation Raspberry Pi
 
-   1. [Téléchargez Raspbian Stretch avec Desktop](https://www.raspberrypi.org/software/) (fichier .zip).
+   1. [Téléchargez système d’exploitation Raspberry Pi](https://www.raspberrypi.org/software/) (fichier .zip).
 
-   2. Extrayez l’image Raspbian dans un dossier sur votre ordinateur.
+   2. Extrayez l’image dans un dossier sur votre ordinateur.
 
-2. Installez Raspbian sur la carte microSD.
+2. Installez le système d’exploitation Raspberry Pi sur la carte microSD.
 
    1. [Téléchargez et installez l’utilitaire de graveur de carte SD Etcher](https://etcher.io/).
 
-   2. Exécutez Etcher et sélectionnez l’image Raspbian extraite à l’étape 1.
+   2. Exécutez Etcher et sélectionnez l’image du système d’exploitation Raspberry Pi extraite à l’étape 1.
 
    3. Sélectionnez le lecteur de carte microSD. Remarque : Etcher a peut-être déjà sélectionné le lecteur approprié.
 
-   4. Cliquez sur Flash pour installer Raspbian sur la carte microSD.
+   4. Cliquez sur Flash pour installer le système d’exploitation Raspberry Pi sur la carte microSD.
 
    5. Retirez la carte microSD de votre ordinateur une fois l’installation terminée. Vous pouvez retirer directement la carte microSD en toute sécurité, car Etcher éjecte ou démonte automatiquement la carte microSD une fois le processus terminé.
 
@@ -119,11 +119,11 @@ Préparez la carte microSD pour l’installation de l’image Raspbian.
 
 ### <a name="enable-ssh-and-spi"></a>Activer SSH et SPI
 
-1. Connectez Pi au moniteur, au clavier et à la souris, démarrez Pi, puis connectez-vous à Raspbian en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
+1. Connectez Pi au moniteur, au clavier et à la souris, démarrez Pi, puis connectez-vous au système d’exploitation Raspberry Pi en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
  
 2. Cliquez sur l’icône Raspberry > **Préférences** > **Configuration de Raspberry Pi**.
 
-   ![Le menu Préférences de Raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
+   ![Menu des préférences du système d’exploitation Raspberry Pi](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
 3. Sur l’onglet **Interfaces**, définissez **SPI** et **SSH** sur **Activer**, puis cliquez sur **OK**. Si vous ne possédez pas de capteurs physiques et que vous souhaitez utiliser des données de capteur simulé, cette étape est facultative.
 
@@ -190,11 +190,10 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 1. Clonez l’exemple d’application en exécutant la commande suivante :
 
    ```bash
-   sudo apt-get install git-core
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
 
-2. Exécutez le script de configuration :
+2. Un script d’installation est fourni avec l’exemple pour préparer l’environnement de développement et générer l’exemple. Exécutez le script de configuration :
 
    ```bash
    cd ./iot-hub-c-raspberrypi-client-app
@@ -208,7 +207,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 
 ### <a name="build-and-run-the-sample-application"></a>Générer et exécuter l'exemple d’application
 
-1. Générez l’exemple d’application en exécutant la commande suivante :
+1. Le script d’installation doit avoir déjà généré l’exemple. Toutefois, si vous apportez des modifications et que vous devez régénérer l’exemple d’application, exécutez la commande suivante :
 
    ```bash
    cmake . && make
@@ -235,6 +234,15 @@ Vous devriez voir le résultat suivant, qui affiche les données de capteur et l
 Une façon de surveiller les messages reçus par votre hub IoT à partir de votre appareil consiste à utiliser Azure IoT Tools pour Visual Studio Code. Pour en savoir plus, consultez [Utiliser Azure IoT Tools pour Visual Studio Code afin d’envoyer et de recevoir des messages entre votre appareil et un IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 Pour d’autres méthodes de traitement des données envoyées par votre appareil, passez à la section suivante.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Vous pouvez utiliser les ressources créées dans cette rubrique avec d’autres didacticiels et démarrages rapides dans cet ensemble de documents. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans cette rubrique. Sinon, effectuez les opérations suivantes pour supprimer toutes les ressources créées dans cette rubrique dans le portail Azure.
+
+1. À partir du menu de gauche, dans le portail Azure, sélectionnez **Toutes les ressources**, puis l’IoT Hub que vous avez créé. 
+1. En haut du volet d’aperçu du IoT Hub, cliquez sur **Supprimer**.
+1. Entrez le nom de votre hub et cliquez de nouveau sur **Supprimer** pour confirmer la suppression définitive du IoT Hub.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

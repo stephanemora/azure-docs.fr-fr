@@ -3,18 +3,18 @@ title: Attribuer une autorisation d’accès aux données Azure Cost Management
 description: Cet article vous explique comment affecter une autorisation aux données Azure Cost Management pour différentes étendues d’accès.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 06/27/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9ee0f7f854363389f3e6594946411f05b1b8b790
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645297"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988694"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -140,45 +140,24 @@ Après les étapes ci-dessus, le compte d’utilisateur devient un compte d’in
 
 L’accès permettant de voir l’étendue du groupe d’administration nécessite au minimum une autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un groupe d’administration sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) du groupe d’administration est nécessaire au minimum pour donner accès à d’autres utilisateurs. Par ailleurs, pour des comptes Azure EA, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
-1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes d’administration_, puis sélectionnez **groupes d’administration**.
-3. Sélectionnez le groupe d’administration dans la hiérarchie.
-4. En regard du nom de votre groupe d’administration, sélectionnez **Détails**.
-5. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)** .
-6. Sélectionnez **Ajouter**.
-7. Sous **Rôle**, sélectionnez **Lecteur Cost Management**.
-8. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
-9. Pour affecter une autorisation d’accès, recherchez, puis sélectionnez l’utilisateur.
-10. Sélectionnez **Enregistrer**.  
-    ![exemple d’informations figurant dans la zone Ajouter des autorisations d’un groupe d’administration](./media/assign-access-acm-data/add-permissions.png)
+
+- Attribuez le rôle lecteur de Cost Management (ou lecteur) à un utilisateur dans l’étendue du groupe d’administration.  
+     Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="assign-subscription-scope-access"></a>Affecter une autorisation d’accès à l’étendue d’abonnement
 
 L’accès à un abonnement requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un abonnement sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) de l’abonnement est nécessaire au minimum pour donner accès à d’autres utilisateurs. Par ailleurs, pour des comptes Azure EA, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
-1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _abonnements_, puis sélectionnez **Abonnements**.
-3. Sélectionnez votre abonnement.
-4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)** .
-5. Sélectionnez **Ajouter**.
-6. Sous **Rôle**, sélectionnez **Lecteur Cost Management**.
-7. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
-8. Pour affecter une autorisation d’accès, recherchez, puis sélectionnez l’utilisateur.
-9. Sélectionnez **Enregistrer**.
+- Attribuez le rôle lecteur de Cost Management (ou lecteur) à un utilisateur dans l’étendue du groupe d’abonnement.  
+     Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="assign-resource-group-scope-access"></a>Affecter une autorisation d’accès à l’étendue du groupe de ressources
 
 L’accès à un groupe de ressources requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un groupe de ressources sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) du groupe de ressources est nécessaire au minimum pour donner accès à d’autres utilisateurs. Par ailleurs, pour des comptes Azure EA, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
-1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes de ressources_, puis sélectionnez **Groupes de ressources**.
-3. Sélectionnez votre groupe de ressources.
-4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)** .
-5. Sélectionnez **Ajouter**.
-6. Sous **Rôle**, sélectionnez **Lecteur Cost Management**.
-7. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
-8. Pour affecter une autorisation d’accès, recherchez, puis sélectionnez l’utilisateur.
-9. Sélectionnez **Enregistrer**.
+
+- Attribuez le rôle lecteur de Cost Management (ou lecteur) à un utilisateur dans l’étendue du groupe de ressources.  
+     Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="cross-tenant-authentication-issues"></a>Problèmes d’authentification multilocataires
 

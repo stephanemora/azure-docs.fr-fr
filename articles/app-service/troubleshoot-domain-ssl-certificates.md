@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ba266c5a4ec5ffb84ee02e9c1904423f01d333e5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: aca2e73b6abbdce6447034e14d0457958f1b800e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670908"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964497"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaine et TLS/SSL dans Azure App Service
 
@@ -35,14 +35,14 @@ Quand vous ajoutez une liaison TLS, vous obtenez le message d’erreur suivant 
 
 #### <a name="cause"></a>Cause
 
-Ce problème peut se produire si vous disposez de plusieurs liaisons SSL basées sur IP pour une même adresse IP dans plusieurs applications. Par exemple, l’application A dispose du protocole SSL basé sur IP avec un ancien certificat. L’application B dispose du protocole SSL basé sur IP avec un nouveau certificat pour une même adresse IP. Quand vous mettez à jour la liaison TLS des applications avec le nouveau certificat, cette opération échoue avec cette erreur, car la même adresse IP est utilisée pour une autre application. 
+Ce problème peut se produire si vous disposez de plusieurs liaisons TLS/SSL basées sur IP pour une même adresse IP dans plusieurs applications. Par exemple, l’application A dispose d’une liaison TLS/SSL basée sur IP avec un ancien certificat. L’application B dispose d’une liaison TLS/SSL basée sur IP avec un nouveau certificat pour une même adresse IP. Quand vous mettez à jour la liaison TLS des applications avec le nouveau certificat, cette opération échoue avec cette erreur, car la même adresse IP est utilisée pour une autre application. 
 
 #### <a name="solution"></a>Solution 
 
 Pour corriger ce problème, utilisez l’une des méthodes suivantes :
 
-- Supprimez la liaison SSL basée sur IP dans l’application qui utilise l’ancien certificat. 
-- Créez une liaison SSL basée sur IP qui utilise le nouveau certificat.
+- Supprimez la liaison TLS/SSL basée sur IP dans l’application qui utilise l’ancien certificat. 
+- Créez une liaison TLS/SSL basée sur IP qui utilise le nouveau certificat.
 
 ### <a name="you-cant-delete-a-certificate"></a>Vous n’arrivez pas à supprimer un certificat 
 

@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: storage
 author: fauhse
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 532ac3b60f90a3d587a57ad8ea9663a6cfad3d90
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: c1fda4eb853e97b7a5b85beebe162ab3869e4a68
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109645046"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "113798780"
 ---
 Un partage de fichiers Azure est stocké dans le cloud dans un compte de stockage Azure.
 Les performances doivent être considérées à un autre niveau ici.
@@ -34,7 +34,7 @@ Vérifiez que la région est la même pour tous vos comptes de stockage et qu’
 > [!CAUTION]
 > Si vous créez un partage de fichiers Azure limité à 100 Tio, il peut utiliser deux options de redondance seulement : un stockage localement redondant ou un stockage redondant interzone. Tenez compte de vos besoins en termes de redondance du stockage avant d’utiliser des partages de fichiers de 100 Tio.
 
-Les partages de fichiers Azure sont toujours créés avec une limite de 5 Tio par défaut. Étant donné que vous créez de nouveaux comptes de stockage, veillez à suivre les [instructions pour la création de comptes de stockage autorisant des partages de fichiers Azure limités à 100 Tio](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
+Les partages de fichiers Azure sont toujours créés avec une limite de 5 Tio par défaut. Suivez les étapes de la section [Créer un partage de fichiers Azure](../articles/storage/files/storage-how-to-create-file-share.md) pour créer un partage de fichiers volumineux.
 
 Quand vous déployez un compte de stockage, vous devez également tenir compte de la redondance du stockage Azure. Consultez [Options de redondance de stockage Azure](../articles/storage/common/storage-redundancy.md).
 

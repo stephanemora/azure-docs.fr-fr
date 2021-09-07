@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 6a4e969c592e844164d2f031914740e24fdc8f99
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 81e9bc60a7749cdc155fc6997c198e834476dbf0
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540255"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031928"
 ---
 # <a name="edge-secured-core-certification-requirements-preview"></a>Exigences pour la certification Edge Secured-Core (Préversion) #
 
@@ -49,7 +49,7 @@ Edge Secured-Core est une certification incrémentielle du programme Azure Certi
 |S'applique à|N’importe quel appareil|
 |Système d’exploitation|Sans dépendance|
 |Type de validation|Manuel/outils|
-|Validation|Appareil à valider par le biais de l’ensemble d’outils pour vérifier que le chiffrement du stockage est activé et que l’algorithme par défaut est XTS-AES, avec une longueur de clé de 128 bits ou plus.|
+|Validation|Appareil à valider par le biais de l’ensemble d’outils pour vérifier que le chiffrement du stockage est activé et que l’algorithme par défaut est XTS-AES, avec une longueur de clé de 128 bits ou plus. </br></br>Remarque : la version préliminaire de juin 2021 vérifie uniquement que DM-Crypt est installée sur l’appareil et que celui-ci dispose d’une partition chiffrée.|
 |Ressources||
 
 ---
@@ -85,7 +85,7 @@ Edge Secured-Core est une certification incrémentielle du programme Azure Certi
 |S'applique à|N’importe quel appareil|
 |Système d’exploitation|Sans dépendance|
 |Type de validation|Manuel/outils|
-|Validation|Confirmation du partenaire qu’il a pu envoyer une mise à jour à l’appareil via Microsoft Update, Azure Device Update ou d’autres services approuvés.|
+|Validation|Partenaire confirmant qu’il a pu envoyer une mise à jour à l’appareil via Microsoft Update, [Device Update for IoT Hub (ADU)](../iot-hub-device-update/understand-device-update.md). Pour les appareils Linux qui utilisent la mise à jour des appareils pour IoT Hub, la certification nécessite de fournir un fichier de mise à jour. swu pendant le processus de test de base sécurisé et des informations spécifiques à l’appareil pour le service de certification afin de générer un fichier [manifeste de mise à jour\](../iot-hub-device-update/update-manifest.md).|
 |Ressources|[Device Update pour IoT Hub](../iot-hub-device-update/index.yml)|
 
 ---
@@ -182,7 +182,7 @@ Validation|Appareil à valider par le biais de l’ensemble d’outils pour gara
 |S'applique à|N’importe quel appareil|
 |Système d’exploitation|Sans dépendance|
 |Type de validation|Manuel/outils|
-|Validation|Appareil à valider par le biais de l’ensemble d’outils pour garantir que les signatures du microprogramme et du noyau sont validées à chaque démarrage de l’appareil. <ul><li>UEFI : Le démarrage sécurisé est activé</li><li>Uboot : Le démarrage vérifié est activé</li></ul>|
+|Validation|Appareil à valider par le biais de l’ensemble d’outils pour garantir que les signatures du microprogramme et du noyau sont validées à chaque démarrage de l’appareil. <ul><li>UEFI : Le démarrage sécurisé est activé</li><li>Uboot : Le démarrage vérifié est activé</li></ul> </br> </br>Remarque : la version préliminaire de juin 2021 vérifie uniquement l’existence d’UEFI.|
 |Ressources||
 
 ---

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cee69fbd2cb829a7ec90179e94098e307e5a094
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 456f635e3cd7be91064a15b87c0da627678fdc45
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968540"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732977"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -172,7 +172,7 @@ Utilisez les fonctionnalités d'Azure AD pour gérer les appareils en toute séc
 
     -   Utilisez [Microsoft Intune](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/microsoft-intune) comme source d’autorité pour toutes les charges de travail de gestion des périphériques.
 
--   [**Déployez des appareils à accès privilégié**](/security/compass/privileged-access-devices#device-roles-and-profiles) : utilisez l’accès privilégié pour gérer Microsoft 365 et Azure AD.
+-   [**Déployer des appareils d’accès privilégié**](/security/compass/privileged-access-devices#device-roles-and-profiles) : utilisez l’accès privilégié pour gérer les Microsoft 365 et les Azure AD dans le cadre d’une approche complète de la [sécurisation de l’accès privilégié](/security/compass/overview).
 
 ## <a name="workloads-applications-and-resources"></a>Charges de travail, applications et ressources 
 
@@ -209,7 +209,7 @@ Utilisez l’accès conditionnel Azure AD pour interpréter les signaux et les u
 
 * Si vous utilisez une version d’Azure AD qui n’inclut pas l’accès conditionnel, veillez à utiliser les [paramètres de sécurité par défaut d’Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
 
-   Pour plus d’informations sur les licences des fonctionnalités Azure AD, consultez le [guide de tarification d’Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+   Pour plus d’informations sur les licences des fonctionnalités Azure AD, consultez le [guide de tarification d’Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="monitor"></a>Superviser 
 

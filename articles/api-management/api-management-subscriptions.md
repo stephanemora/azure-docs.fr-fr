@@ -10,24 +10,33 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 08/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 288f82d55749e50c9e9520784497ade2c9387f78
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 9bbdc914eae50a7226b22952b40cdb4b28849239
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199355"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111667"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
-Les abonnements représentent un concept important dans la Gestion des API Azure. C’est l’approche la plus courante pour permettre aux consommateurs d’API d’obtenir l’accès aux API publiées par l’intermédiaire d’une instance de Gestion des API. Cet article fournit une vue d’ensemble du concept.
+Dans Azure API Management, les abonnements sont la manière la plus courante pour des consommateurs d’API d’accéder aux API publiées via une instance de Gestion des API. Cet article fournit une vue d’ensemble du concept.
 
 ## <a name="what-are-subscriptions"></a>Qu’est-ce qu’un abonnement ?
 
-Lors de la publication d’API via la Gestion des API, il est facile et courant de sécuriser l’accès à ces API au moyen de clés d’abonnement. Les développeurs qui utilisent les API publiées doivent inclure une clé d’abonnement valide dans les requêtes HTTP lorsqu’ils effectuent des appels vers ces API. Sinon, les appels sont immédiatement rejetés par la passerelle de Gestion des API. Ils ne sont pas transférés vers les services backend.
+En publiant des API via Gestion des API, vous pouvez facilement sécuriser l’accès aux API à l’aide de clés d’abonnement. Consommez les API publiées en incluant une clé d’abonnement valide dans les requêtes HTTP lors de l’appel de ces API. Si vous ne disposez pas d’une clé d’abonnement valide, les appels :
+* Sont immédiatement rejetés par la passerelle Gestion des API. 
+* Ne sont pas transférés aux services principaux.
 
-Pour obtenir une clé d’abonnement permettant d’accéder aux API, un abonnement est nécessaire. Un abonnement est avant tout un conteneur nommé pour une paire de clés d’abonnement. Les développeurs devant utiliser les API publiées peuvent obtenir des abonnements. Et ils n’ont pas besoin de l’approbation des éditeurs d’API. Les éditeurs d’API peuvent également créer des abonnements directement pour les consommateurs d’API.
+Pour accéder aux API, vous devez disposer d’un abonnement et d’une clé d’abonnement. Un *abonnement* est un conteneur nommé pour une paire de clés d’abonnement. 
+
+La régénération régulière des clés étant une précaution de sécurité courante, la plupart des produits Azure nécessitant une clé d’abonnement génèrent des clés par paires. Chaque application qui utilise le service peut passer de la *clé A* à la *clé B*, et régénérer la clé A avec une interruption minimale, et vice versa. 
+
+De plus :
+
+* Les développeurs peuvent obtenir des abonnements sans l’approbation des éditeurs d’API. 
+* Les éditeurs d’API peuvent également créer des abonnements directement pour les consommateurs d’API.
 
 > [!TIP]
 > La Gestion des API prend également en charge d’autres mécanismes de protection de l’accès aux API, entre autres :
@@ -41,7 +50,16 @@ Les abonnements peuvent être associés à différentes étendues : un produit,
 
 ### <a name="subscriptions-for-a-product"></a>Abonnements pour un produit
 
-Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Dès qu’une requête d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés contenues pour accéder à toutes les API du produit. À l’heure actuelle, le portail des développeurs affiche uniquement les abonnements de portée produit dans la section du profil utilisateur. 
+Habituellement, les abonnements dans Gestion des API sont associés à une seule étendue de [produit d’API](api-management-terminology.md). Développeurs :
+* Ont trouvé la liste des produits sur le portail des développeurs. 
+* Ont soumis des demandes d’abonnement pour les produits qu’ils souhaitent utiliser. 
+* Utilisent les clés de ces abonnements (approuvées automatiquement ou par des serveurs de publication d’API) pour accéder à toutes les API dans le produit. 
+    * Vous pouvez accéder aux API avec ou sans la clé d’abonnement, quelle que soit l’étendue de l’abonnement (produit, global ou API).
+
+Actuellement, le portail des développeurs affiche uniquement les abonnements dans l’étendue du produit dans la section **Profil utilisateur**. 
+
+> [!NOTE]
+> Si vous utilisez une clé d’abonnement d’étendue API, les *stratégies* configurées dans l’étendue du produit ne sont pas appliquées à cet abonnement.
 
 ![Abonnements de produit](./media/api-management-subscriptions/product-subscription.png)
 
@@ -50,14 +68,31 @@ Habituellement, les abonnements dans la Gestion des API sont toujours associés 
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Abonnements pour toutes les API ou une API individuelle
 
-Quand nous avons introduit le niveau [Consommation](https://aka.ms/apimconsumptionblog) de la Gestion des API, nous avons apporté quelques changements afin de simplifier la gestion des clés :
-- Tout d’abord, nous avons ajouté deux étendues d’abonnement : toutes les API et une seule API. L’étendue des abonnements n’est plus limitée à un produit d’API. Vous pouvez maintenant créer des clés accordant l’accès à une API, ou à toutes les API au sein d’une instance de Gestion des API, sans préalablement devoir créer un produit et lui ajouter les API. De plus, chaque instance de Gestion des API intègre désormais un abonnement immuable à toutes les API. Cet abonnement simplifie et facilite les tests et le débogage des API dans la console de test.
+Avec l’ajout du niveau [Consommation](https://aka.ms/apimconsumptionblog) de Gestion des API, la gestion des clés d’abonnement est simplifiée. 
 
-- Par ailleurs, la Gestion des API autorise désormais les abonnements **autonomes**. Les abonnements ne doivent plus forcément être associés à un compte de développeur. Cette fonctionnalité est utile dans les scénarios où plusieurs développeurs ou équipes partagent un abonnement.
+#### <a name="two-more-subscription-scopes"></a>Deux autres étendues d’abonnement
 
-- Enfin, les éditeurs d’API peuvent à présent [créer des abonnements](api-management-howto-create-subscriptions.md) directement dans le portail Azure :
+À présent que les étendues d’abonnement ne sont plus limitées à un produit d’API, vous pouvez créer des clés qui accordent l’accès à :
+* une seule API, ou 
+* toutes les API dans une instance de Gestion des API. 
 
-    ![Abonnements flexibles](./media/api-management-subscriptions/flexible-subscription.png)
+Vous n’avez pas besoin de créer un produit avant d’y ajouter des API. 
+
+De plus, chaque instance de Gestion des API intègre désormais un abonnement immuable à toutes les API. Cet abonnement simplifie et facilite les tests et le débogage des API dans la console de test.
+
+#### <a name="standalone-subscriptions"></a>Abonnements autonomes
+
+La Gestion des API autorise désormais les abonnements *autonomes*. Vous n’avez plus besoin d’associer des abonnements à un compte de développeur. Cette fonctionnalité s’avère utile dans des scénarios tels que ceux où plusieurs développeurs ou équipes partagent un abonnement.
+
+La création d’un abonnement sans attribution de propriétaire en fait un abonnement autonome. Pour permettre aux développeurs et au reste de votre équipe d’accéder à la clé d’abonnement autonome, vous pouvez :
+* Partager manuellement la clé d’abonnement.
+* Utiliser un système personnalisé pour mettre la clé d’abonnement à la disposition de votre équipe.
+
+#### <a name="creating-subscriptions-in-azure-portal"></a>Création d’abonnements dans le portail Azure
+
+Les éditeurs d’API peuvent désormais [créer des abonnements](api-management-howto-create-subscriptions.md) directement dans le portail Azure :
+
+![Abonnements flexibles](./media/api-management-subscriptions/flexible-subscription.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Sachez-en plus sur la Gestion des API :
