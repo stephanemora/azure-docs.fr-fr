@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/13/2021
 ms.author: tisande
-ms.openlocfilehash: 20798fc438f037ca7372822ea8bd54117b8936ee
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c2f380e92693e6ef2d16e74001b2d22d76e6d941
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456566"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563666"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Dans Azure Cosmos DB, chaque conteneur est doté d’une stratégie d’indexati
 Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation* et inclure ou exclure des *chemins de la propriété*.
 
 > [!NOTE]
-> La méthode de mise à jour des stratégies d’indexation décrite dans cet article s’applique uniquement à l’API SQL (principale) de la base de données SQL Azure Cosmos. Découvrez l’indexation dans[API Azure Cosmos DB pour MongoDB](mongodb-indexing.md).
+> La méthode de mise à jour des stratégies d’indexation décrite dans cet article s’applique uniquement à l’API SQL (principale) de la base de données SQL Azure Cosmos. Découvrez l’indexation dans[API Azure Cosmos DB pour MongoDB](mongodb/mongodb-indexing.md).
 
 ## <a name="indexing-mode"></a>Mode d'indexation
 
@@ -32,7 +32,7 @@ Azure Cosmos DB prend en charge deux modes d’indexation :
 - **Aucun** : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
 
 > [!NOTE]
-> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. Les nouveaux conteneurs ne peuvent pas sélectionner l’indexation différée. Vous pouvez demander une exemption en contactant le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md), qui ne prend pas en charge l’indexation différée).
+> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. Les nouveaux conteneurs ne peuvent pas sélectionner l’indexation différée. Vous pouvez demander une exemption en contactant le cosmoslazyindexing@microsoft.com (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md), qui ne prend pas en charge l’indexation différée).
 
 Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
 
@@ -329,7 +329,7 @@ Les considérations suivantes sont utilisées lors de la création d’index com
 | ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
 | ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
-## <a name="index-transformationmodifying-the-indexing-policy"></a><index-transformation>Modification de la stratégie d’indexation
+## <a name="modifying-the-indexing-policy"></a><a id=index-transformation></a>Modification de la stratégie d’indexation
 
 La stratégie d’indexation d’un conteneur peut être mise à jour à tout moment [à l’aide du portail Azure ou de l’un des kit de développement logiciel (SDK) pris en charge](how-to-manage-indexing-policy.md). Une mise à jour de la stratégie d’indexation déclenche une transformation de l’ancien index vers le nouveau, qui est effectuée en ligne et localement (aucun espace de stockage supplémentaire n’est consommé pendant l’opération). L’ancienne stratégie d’indexation est transformée efficacement en nouvelle stratégie, sans incidence sur la disponibilité d’écriture ni de lecture, ni sur le débit approvisionné sur le conteneur. La transformation d’index est une opération asynchrone. Le temps nécessaire pour l’effectuer dépend du débit approvisionné, du nombre d’éléments et de leur taille.
 
@@ -341,9 +341,11 @@ La stratégie d’indexation d’un conteneur peut être mise à jour à tout mo
 
 Il n’y a aucun impact sur la disponibilité des écritures lors des transformations d’index. La transformation d’index utilise vos unités de requête approvisionnées, mais à une priorité inférieure à celles de vos opérations CRUD ou de vos requêtes.
 
-Il n’y a aucun impact sur la disponibilité de lecture lors de l’ajout d’un nouvel index. Les requêtes utilisent uniquement les nouveaux index une fois la transformation d’index terminée. Pendant la transformation d’index, le moteur de requête continue d’utiliser les index existants, ce qui vous permet d’observer des performances de lecture similaires pendant la transformation d’indexation à ce que vous aviez observé avant de lancer la modification de l’indexation. Lors de l’ajout de nouveaux index, il n’y a pas non plus de risque de résultats de requête incomplets ou incohérents.
+Il n’y a aucun impact sur la disponibilité de lecture lors de l’ajout de nouveaux chemins indexés. Les requêtes utilisent uniquement les nouveaux chemins indexés une fois la transformation d’un index terminée. En d’autres termes, lors de l’ajout de nouveaux chemins indexés, les requêtes qui tirent parti de ce chemin indexé présenteront les mêmes performances avant et pendant la transformation d’index. Une fois la transformation d’index terminée, le moteur de requête commence à utiliser les nouveaux chemins indexés.
 
-Lorsque vous supprimez des index et que vous exécutez immédiatement des requêtes qui filtrent sur les index supprimés, il n’existe pas de garantie de résultats de requête cohérents ou complets. Si vous supprimez plusieurs index et que vous le faites dans une seule modification de stratégie d’indexation, le moteur de requête fournit des résultats cohérents et complets tout au long de la transformation d’index. Toutefois, si vous supprimez des index par le biais de plusieurs modifications de stratégie d’indexation, le moteur de requête ne fournit pas de résultats cohérents ou complets tant que toutes les transformations d’index ne sont pas terminées. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
+Lorsque vous supprimez des chemins indexés, vous devez regrouper toutes vos modifications dans une seule transformation de stratégie d’indexation. Si vous supprimez plusieurs index et que vous le faites dans une seule modification de stratégie d’indexation, le moteur de requête fournit des résultats cohérents et complets tout au long de la transformation d’index. Toutefois, si vous supprimez des index par le biais de plusieurs modifications de stratégie d’indexation, le moteur de requête ne fournit pas de résultats cohérents ou complets tant que toutes les transformations d’index ne sont pas terminées. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
+
+Lorsque vous supprimez un chemin indexé, le moteur de requête cesse immédiatement de l’utiliser et effectue une analyse complète.
 
 > [!NOTE]
 > Dans la mesure du possible, vous devez toujours essayer de regrouper plusieurs modifications d’indexation dans une seule modification de stratégie d’indexation.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 300bde794afbd3c2db4e9049e28979933b19ac79
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a5d3e8aa303527e7baaa465e911d3b869a975cf5
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099941"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224251"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Contentful
 
@@ -39,6 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Contentful prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 * Contentful prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Contentful prend en charge [l’attribution d’utilisateurs automatisée](contentful-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -146,6 +147,8 @@ Si cela ne fonctionne pas, contactez l’[équipe de support technique Contentfu
 ### <a name="create-contentful-test-user"></a>Créer un utilisateur de test Contentful
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Contentful. Contentful prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Contentful, il en est créé un après l’authentification.
+
+Contentful prend également en charge l’attribution automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./contentful-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

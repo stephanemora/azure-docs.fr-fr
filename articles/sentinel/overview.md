@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 2c37f49478e5c762e72fd8569828853e29ba07f5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 105f3e55999d433f4d9a160ef93d789b23200dfe
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737575"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251923"
 ---
 # <a name="what-is-azure-sentinel"></a>Qu’est-ce qu’Azure Sentinel ?
 
@@ -43,7 +43,11 @@ S’appuyant sur la gamme complète des services Azure existants, Azure Sentinel
 
 ## <a name="connect-to-all-your-data"></a>Connexion à toutes vos données
 
-Pour intégrer Azure Sentinel, vous devez d’abord [vous connecter à vos sources de sécurité](connect-data-sources.md). Azure Sentinel est fourni avec un certain nombre de connecteurs pour solutions Microsoft, prêts à l'emploi et offrant une intégration en temps réel, comme les solutions Microsoft 365 Defender (anciennement Protection Microsoft contre les menaces), les sources Microsoft 365, dont Office 365, Azure AD, Microsoft Defender pour Identity (anciennement Azure ATP) et Microsoft Cloud App Security. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format d’événement commun, Syslog ou l’API REST pour connecter vos sources de données à Azure Sentinel. 
+Pour intégrer Azure Sentinel, vous devez d’abord [vous connecter à vos sources de sécurité](connect-data-sources.md). 
+
+Azure Sentinel est fourni avec un certain nombre de connecteurs pour solutions Microsoft, prêts à l'emploi et offrant une intégration en temps réel, comme les solutions Microsoft 365 Defender (anciennement Protection Microsoft contre les menaces), les sources Microsoft 365, dont Office 365, Azure AD, Microsoft Defender pour Identity (anciennement Azure ATP) et Microsoft Cloud App Security. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format d’événement commun, Syslog ou l’API REST pour connecter vos sources de données à Azure Sentinel. 
+
+Pour plus d’informations, consultez [Rechercher votre connecteur de données](data-connectors-reference.md).
 
 ![Collecteurs de données](./media/collect-data/collect-data-page.png)
 

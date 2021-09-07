@@ -6,12 +6,12 @@ ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
 ms.date: 06/04/2021
-ms.openlocfilehash: 6e3fd0c2dafd9d174b79206cb5482450fee74f8e
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 5c6ddce8d50da1660bfcba8b29bb032b56197bb8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984045"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562221"
 ---
 # <a name="run-the-emulator-on-docker-for-linux-preview"></a>Exécuter l’émulateur sur Docker pour Linux (Préversion)
 
@@ -37,11 +37,11 @@ Dans la mesure où l’émulateur Azure Cosmos DB offre un environnement émul�
 
 - L’émulateur pour Linux n’est pas un service de stockage scalable et ne prend pas en charge un grand nombre de conteneurs. Par défaut, vous pouvez créer jusqu’à 10 conteneurs de taille fixe à 400 RU/s (pris en charge uniquement avec les kits SDK Azure Cosmos DB), ou 5 conteneurs illimités avec l’émulateur Azure Cosmos DB. Pour plus d’informations sur la modification de cette valeur, consultez l’article [Définir la valeur PartitionCount](emulator-command-line-parameters.md#set-partitioncount).
 
-- Si des [niveaux de cohérence](consistency-levels.md) semblables à ceux du service cloud peuvent être ajustés à l’aide d’arguments de ligne de commande pour les scénarios de test uniquement (le paramètre par défaut est Session), un utilisateur peut ne pas attendre le même comportement que dans le service cloud. Par exemple, les cohérences Forte et Obsolescence limitée n’ont aucun effet sur l’émulateur, à l’exception de la signalisation au SDK Cosmos DB de la cohérence par défaut du compte.
+- Les [niveaux de cohérence](consistency-levels.md) pouvant être ajustés à l’aide d’arguments de ligne de commande pour les scénarios de test uniquement (le paramètre par défaut est Session), l’utilisateur risque de ne pas attendre le même comportement que dans le service cloud. Par exemple, les cohérences Forte et Obsolescence limitée n’ont aucun effet sur l’émulateur, à l’exception de la signalisation au SDK Cosmos DB de la cohérence par défaut du compte.
 
 - L’émulateur pour Linux ne permet pas la [réplication entre plusieurs régions](distribute-data-globally.md).
 
-- Votre copie de l’émulateur Azure Cosmos DB pour Linux n’étant pas forcément à jour par rapport aux derniers changements apportés au service Azure Cosmos DB, nous vous conseillons de consulter l’outil de [planification de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md) pour évaluer avec précision les besoins en débit (RU) de votre application. <add link>
+- Votre copie de l’émulateur Azure Cosmos DB pour Linux n’étant pas forcément à jour par rapport aux derniers changements apportés au service Azure Cosmos DB, nous vous conseillons de consulter l’outil de [planification de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md) pour évaluer avec précision les besoins en débit (RU) de votre application.
 
 - L’émulateur pour Linux prend en charge la taille maximale de propriété d’ ID qui est de 254 caractères.
 

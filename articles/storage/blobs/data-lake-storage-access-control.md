@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 14a357bf5f7fece43ce72b58142aa0047213bfab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 41afd3cf3720c5fa86acf75acadc07e60fa2f3cc
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532081"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968843"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -343,7 +343,7 @@ Si vous avez le bon OID pour le principal du service, accédez à la page **Gér
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>Puis-je définir la liste de contrôle d’accès d’un conteneur ?
 
-Non. Un conteneur n’a pas de liste de contrôle d'accès. Toutefois, vous pouvez définir la liste de contrôle d’accès du répertoire racine du conteneur. Chaque conteneur possède un répertoire racine et il partage le même nom que le conteneur. Par exemple, si le conteneur est nommé `my-container`, le répertoire racine est nommé `myContainer/`. 
+Non. Un conteneur n’a pas de liste de contrôle d'accès. Toutefois, vous pouvez définir la liste de contrôle d’accès du répertoire racine du conteneur. Chaque conteneur possède un répertoire racine et il partage le même nom que le conteneur. Par exemple, si le conteneur est nommé `my-container`, le répertoire racine est nommé `my-container/`. 
 
 L’API REST de stockage Azure contient une opération nommée [Set Container ACL](/rest/api/storageservices/set-container-acl), mais cette opération ne peut pas être utilisée pour définir la liste de contrôle d’accès d’un conteneur ou le répertoire racine d’un conteneur. Au lieu de cela, cette opération est utilisée pour indiquer si les objets blob dans un conteneur [sont accessibles publiquement](anonymous-read-access-configure.md). 
 

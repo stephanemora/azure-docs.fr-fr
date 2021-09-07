@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8999d7cb19ac556a207d55bfd0d865b8ce02e142
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: edcbb25b3e6a9383c2488da686823239c9a25811
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114400322"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105427"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -51,6 +51,27 @@ Pour plus d’informations sur ce standard de conformité, consultez [Cybersecur
 |Protection du système et des communications |SC.3.177 |Utiliser le chiffrement validé FIPS quand il est utilisé pour protéger la confidentialité d’informations CUI. |[Exiger un chiffrement sur les comptes Data Lake Store](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7ff3161-0087-490a-9ad9-ad6217f4f43a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStoreEncryption_Deny.json) |
 |Protection du système et des communications |SC.3.191 |Protéger la confidentialité de CUI au repos. |[Exiger un chiffrement sur les comptes Data Lake Store](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7ff3161-0087-490a-9ad9-ad6217f4f43a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStoreEncryption_Deny.json) |
 
+## <a name="fedramp-high"></a>FedRAMP Niveau élevé
+
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP High](https://www.fedramp.gov/).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Audit et responsabilité |AU-6 (4) |Évaluation et analyse centralisées |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-6 (5) |Capacités d’intégration/d’analyse et de surveillance |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-12 |Génération de l’audit |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-12 (1) |Piste d’audit corrélée au temps ou à l’échelle du système |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+
+## <a name="fedramp-moderate"></a>FedRAMP Niveau modéré
+
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP Moderate](https://www.fedramp.gov/).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Audit et responsabilité |AU-12 |Génération de l’audit |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+
 ## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 
 Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à ce standard de conformité, consultez [Conformité réglementaire Azure Policy – HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
@@ -70,30 +91,22 @@ Pour plus d’informations sur cette norme de conformité, consultez [New Zealan
 |---|---|---|---|---|
 |Contrôle d’accès et mots de passe |AC-17 |16.6.9 Événements à consigner |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
 
-## <a name="nist-sp-800-53-r4"></a>NIST SP 800-53 R4
+## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
 
-Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à ce standard de conformité, consultez [Conformité réglementaire Azure Policy – NIST SP 800-53 R4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 R4](https://nvd.nist.gov/800-53).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-12 |Génération de l’audit |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-12 (1) |Piste d’audit corrélée au temps / à l’échelle du système |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-6 (4) |Évaluation et analyse centralisées |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-6 (5) |Fonctionnalités d’intégration / analyse et supervision |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-12 |Génération de l’audit |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-12 (1) |Piste d’audit corrélée au temps / à l’échelle du système |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-6 (4) |Évaluation et analyse centralisées |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-6 (5) |Fonctionnalités d’intégration / analyse et supervision |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-12 |Génération de l’audit |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-12 (1) |Piste d’audit corrélée au temps / à l’échelle du système |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-6 (4) |Évaluation et analyse centralisées |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|Audit et responsabilité |NIST SP 800-53 Rév. 4 AU-6 (5) |Fonctionnalités d’intégration / analyse et supervision |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-6 (4) |Évaluation et analyse centralisées |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-6 (5) |Capacités d’intégration/d’analyse et de surveillance |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-12 |Génération de l’audit |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Audit et responsabilité |AU-12 (1) |Piste d’audit corrélée au temps ou à l’échelle du système |[Les journaux de ressources dans Azure Data Lake Store doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
 
-## <a name="nist-sp-800-53-r5"></a>NIST SP 800-53 R5
+## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
 
-Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire Azure Policy – NIST SP 800-53 R5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 R5](https://nvd.nist.gov/800-53).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

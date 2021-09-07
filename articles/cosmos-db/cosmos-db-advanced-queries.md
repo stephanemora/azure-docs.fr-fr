@@ -8,27 +8,27 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 16c4fe809fc411a9d6eec89ed7ceeb04dce317d2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 240e7a24e5e0095326445727d5eb98a95542e3c3
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097771"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609363"
 ---
 # <a name="troubleshoot-issues-with-advanced-diagnostics-queries-for-the-sql-core-api"></a>Résoudre les problèmes liés aux requêtes de diagnostic avancées pour l’API SQL (Core)
 
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
 > * [API SQL (Core)](cosmos-db-advanced-queries.md)
 > * [API MongoDB](mongodb/diagnostic-queries-mongodb.md)
 > * [API Cassandra](cassandra/diagnostic-queries-cassandra.md)
-> * [API Gremlin](graph/diagnostic-queries-gremlin.md)
+> * [API Gremlin](queries-gremlin.md)
 >
 
 Dans cet article, nous allons voir comment écrire des requêtes plus avancées pour vous aider à résoudre les problèmes de votre compte Azure Cosmos DB en utilisant les journaux de diagnostic envoyés aux tables **Diagnostics Azure (hérité)** et **spécifiques aux ressources**.
 
-Pour les tables Diagnostics Azure, toutes les données sont écrites dans une seule table. Les utilisateurs spécifient la catégorie qu’ils veulent interroger. Si vous souhaitez afficher la requête de texte intégral de votre requête, consultez [Superviser les données Azure Cosmos DB en utilisant des paramètres de diagnostic dans Azure](cosmosdb-monitor-resource-logs.md#full-text-query) pour savoir comment activer cette fonctionnalité.
+Pour les tables Diagnostics Azure, toutes les données sont écrites dans une seule table. Les utilisateurs spécifient la catégorie qu’ils veulent interroger. Si vous souhaitez afficher la requête de texte intégral de votre demande, consultez [Superviser les données Azure Cosmos DB en utilisant des paramètres de diagnostic dans Azure](cosmosdb-monitor-resource-logs.md#full-text-query) pour savoir comment activer cette fonctionnalité.
 
 Pour les [tables spécifiques aux ressources](cosmosdb-monitor-resource-logs.md#create-setting-portal), les données sont écrites dans des tables individuelles pour chaque catégorie de la ressource. Nous recommandons ce mode parce qu’il :
 

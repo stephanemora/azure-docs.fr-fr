@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 08/30/2021
+ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b5406fa20d0ca01f75e23e2bf1c7836943c4833e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8cfe26f3f1718acde32c34f00b0f50a79b963d35
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226311"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593732"
 ---
 Event Hubs organise les séquences d’événements envoyés à un hub d’événements dans une ou plusieurs partitions. Les événements les plus récents sont ajoutés à la fin de cette séquence. 
 

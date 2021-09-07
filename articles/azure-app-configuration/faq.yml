@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: 2c7df8ee7ea6947165157e43f79ecca7afd8a118
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 6dd7cff8408d89cfca117241ebb434f6976a32fb
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114447536"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123112037"
 title: Azure App Configuration – Questions fréquentes (FAQ)
 summary: Cet article répond aux questions fréquentes sur Azure App Configuration.
 sections:
@@ -85,28 +85,7 @@ sections:
 
       En revanche, vous ne pouvez pas passer un magasin du niveau Standard au niveau Gratuit. Au niveau Gratuit, vous pouvez créer un magasin, puis importer des données de configuration dans ce magasin.
   - question: Quel niveau App Configuration dois-je utiliser ?
-    answer: >
-      Les deux niveaux App Configuration offrent des fonctionnalités de base, notamment des paramètres de configuration, indicateurs de fonctionnalité, références Key Vault, opérations de gestion de base, métriques et journaux.
-
-
-      Voici quelques considérations relatives au choix d'un niveau.
-
-
-      - **Ressources par abonnement** : Une ressource se compose d’un magasin de configuration unique. Au niveau Gratuit, chaque abonnement est limité à un magasin de configuration. Au niveau Standard, les abonnements ne sont pas limités en termes de magasins de configuration.
-
-      - **Stockage par ressource** : Au niveau Gratuit, chaque magasin de configuration est limité à 10 Mo de stockage. Au niveau Standard, chaque magasin de configuration peut utiliser jusqu’à 1 Go de stockage.
-
-      - **Historique des révisions** : App Configuration stocke l'historique des différentes modifications apportées aux clés. Au niveau Gratuit, cet historique est stocké pendant sept jours. Au niveau Standard, cet historique est stocké pendant 30 jours.
-
-      - **Quota de requêtes** : Au niveau Gratuit, les magasins sont limités à 1 000 requêtes par jour. Lorsqu’un magasin atteint 1 000 requêtes, il renvoie le code d’état HTTP 429 pour toutes les requêtes jusqu’à minuit UTC.
-
-          Au niveau Standard, les magasins sont limités à 20 000 requêtes par heure. Lorsque le quota est épuisé, le code d’état HTTP 429 est renvoyé pour toutes les requêtes jusqu’à la fin de l’heure.
-
-      - **Contrat de niveau de service** : Le niveau Standard présente un contrat de niveau de service garantissant une disponibilité de 99,9 %. Le niveau Gratuit ne présente aucun contrat de niveau de service.
-
-      - **Fonctionnalités de sécurité** : Les deux niveaux incluent des fonctionnalités de sécurité de base, parmi lesquelles le chiffrement avec des clés gérées par Microsoft, l’authentification via HMAC ou Azure Active Directory, la prise en charge d’Azure RBAC, l’identité managée et les étiquettes de service. Le niveau Standard offre des fonctionnalités de sécurité plus avancées, notamment la prise en charge d'Azure Private Link et le chiffrement avec des clés managées par le client.
-
-      - **Coût** : Au niveau Standard, les magasins génèrent des frais d’utilisation quotidiens. Chaque jour, les 200 000 premières requêtes sont comprises dans les frais quotidiens. Au-delà de l'allocation quotidienne, les requêtes génèrent aussi des frais de dépassement. Au niveau Gratuit, l'utilisation d'un magasin ne génère pas de frais.
+    answer: "Les deux niveaux App Configuration offrent des fonctionnalités de base, notamment des paramètres de configuration, indicateurs de fonctionnalité, références Key Vault, opérations de gestion de base, métriques et journaux.\n\nVoici quelques considérations relatives au choix d'un niveau.\n\n- **Ressources par abonnement** : Une ressource se compose d’un magasin de configuration unique. Au niveau Gratuit, chaque abonnement est limité à un magasin de configuration. Au niveau Standard, les abonnements ne sont pas limités en termes de magasins de configuration.\n- **Stockage par ressource** : Au niveau Gratuit, chaque magasin de configuration est limité à 10 Mo de stockage. Au niveau Standard, chaque magasin de configuration peut utiliser jusqu’à 1 Go de stockage.\n- **Historique des révisions** : App Configuration stocke l'historique des différentes modifications apportées aux clés. Au niveau Gratuit, cet historique est stocké pendant sept jours. Au niveau Standard, cet historique est stocké pendant 30 jours.\n- **Quota de requêtes** : Au niveau Gratuit, les magasins sont limités à 1 000 requêtes par jour. Lorsqu’un magasin atteint 1 000 requêtes, il renvoie le code d’état HTTP 429 pour toutes les requêtes jusqu’à minuit UTC.\n\n    Au niveau Standard, les magasins sont limités à 30 000 demandes par heure. Quand le quota horaire est épuisé, les demandes peuvent retourner le code d’état HTTP 429 indiquant un trop grand nombre de demandes jusqu’à la fin de l’heure. Au fur et à mesure de l’envoi de demandes au-delà du quota, un pourcentage plus élevé de celles-ci peut retourner le code d’état 429. \n\n- **Contrat de niveau de service** : Le niveau Standard présente un contrat de niveau de service garantissant une disponibilité de 99,9 %. Le niveau Gratuit ne présente aucun contrat de niveau de service.\n- **Fonctionnalités de sécurité** : Les deux niveaux incluent des fonctionnalités de sécurité de base, parmi lesquelles le chiffrement avec des clés gérées par Microsoft, l’authentification via HMAC ou Azure Active Directory, la prise en charge d’Azure RBAC, l’identité managée et les étiquettes de service. Le niveau Standard offre des fonctionnalités de sécurité plus avancées, notamment la prise en charge d'Azure Private Link et le chiffrement avec des clés managées par le client.\n- **Coût** : Au niveau Standard, les magasins génèrent des frais d’utilisation quotidiens. Chaque jour, les 200 000 premières requêtes sont comprises dans les frais quotidiens. Au-delà de l'allocation quotidienne, les requêtes génèrent aussi des frais de dépassement. Au niveau Gratuit, l'utilisation d'un magasin ne génère pas de frais.\n"
   - question: Puis-je passer un magasin du niveau Gratuit au niveau Standard ? Puis-je passer un magasin du niveau Standard au niveau Gratuit ?
     answer: >
       Vous pouvez à tout moment passer du niveau Gratuit au niveau Standard.
@@ -117,13 +96,38 @@ sections:
     answer: >
       Les données client stockées dans App Configuration résident dans la région où le magasin App Configuration du client a été créé. Cela s’applique à toutes les régions disponibles. Les clients et les utilisateurs finaux peuvent déplacer leurs données client, les copier ou y accéder à partir de n’importe quel emplacement dans le monde.
   - question: Comment App Configuration garantit-il une haute disponibilité des données ?
-    answer: "\nAzure App Configuration prend en charge Zones de disponibilité Azure pour protéger votre application et vos données contre les défaillances d’un centre de données unique.Toutes les régions avec zone de disponibilité se composent d’au moins 3 zones de disponibilité, où chacune est un centre de données physiquement indépendant.Pour la résilience, cette prise en charge dans App Configuration est activée pour tous les clients sans frais supplémentaires. Les régions pour lesquelles App Configuration a activé Zone de disponibilité sont USA Est, USA Est 2, USA Centre, USA Ouest 2, Europe Nord, Europe Ouest, France Centre, Royaume-Uni Sud, Asie Sud-Est et Japon Est. Pour plus d'informations, consultez  [Régions et Zones de disponibilité dans Azure](../availability-zones/az-overview.md).\n\n \n"
+    answer: >
+      Azure App Configuration prend en charge Zones de disponibilité Azure pour protéger votre application et vos données contre les défaillances d’un centre de données unique.Toutes les régions avec zone de disponibilité se composent d’au moins 3 zones de disponibilité, où chacune est un centre de données physiquement indépendant.Pour la résilience, cette prise en charge dans App Configuration est activée pour tous les clients sans frais supplémentaires. Voici les régions pour lesquelles App Configuration a activé la prise en charge des zones de disponibilité. Pour plus d'informations, consultez  [Régions et Zones de disponibilité dans Azure](../availability-zones/az-overview.md).
+
+      - USA Centre
+
+      - USA Est
+
+      - USA Est 2
+
+      - USA Ouest 2
+
+      - Centre du Canada
+
+      - France Centre
+
+      - Allemagne Centre-Ouest
+
+      - Europe Nord
+
+      - Sud du Royaume-Uni
+
+      - Europe Ouest
+
+      - Asie Sud-Est
+
+      - Japon Est
   - question: Est-ce qu’il y a des limites au nombre de requêtes adressées à App Configuration ?
     answer: >
-      Les magasins de configuration dans le niveau Gratuit sont limités à 1 000 requêtes par jour. Les magasins de configuration dans le niveau Standard peuvent subir une limitation temporaire lorsque le taux de requêtes dépasse 20 000 requêtes par heure.
+      Les magasins de configuration dans le niveau Gratuit sont limités à 1 000 requêtes par jour. Les magasins de configuration dans le niveau Standard peuvent subir une limitation temporaire quand le taux de demande dépasse 30 000 demandes par heure.
 
 
-      Lorsqu’un magasin atteint sa limite, il renvoie le code d’état HTTP 429 pour toutes les requêtes effectuées jusqu’à l’expiration de la période. L’en-tête `retry-after-ms` dans la réponse indique un délai d’attente suggéré (en millisecondes) avant d’effectuer une nouvelle tentative de requête.
+      Quand un magasin atteint sa limite au niveau Standard, il peut retourner le code d’état HTTP 429 pour certaines demandes effectuées jusqu’à la fin de l’heure. L’en-tête `retry-after-ms` dans la réponse indique un délai d’attente suggéré (en millisecondes) avant d’effectuer une nouvelle tentative de requête.
 
 
       Si votre application rencontre régulièrement des réponses du code d’état HTTP 429, envisagez de la reconcevoir pour réduire le nombre de requêtes effectuées. Pour plus d’informations, consultez [Réduire les requêtes adressées à la App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
@@ -144,10 +148,16 @@ sections:
       Examinez le corps de la réponse 429 connaître pour la raison spécifique de l’échec de la requête.
   - question: Pourquoi ne puis-je pas créer de magasin App Configuration portant le même nom que celui que je viens de supprimer ?
     answer: >
-      Lorsqu’un magasin App Configuration de niveau standard est supprimé, le nom est réservé pendant trois jours après la suppression. Il est possible de recréer un magasin portant le même nom avant la fin de la période de réservation, mais il doit se trouver dans le même abonnement, le même groupe de ressources et la même région que le magasin d’origine. Si le groupe de ressources qui contenait le magasin a été supprimé, il faudra d’abord le recréer dans le même abonnement avant de recréer le magasin qu’il contenait.
+      Quand un magasin App Configuration de niveau standard est supprimé, le nom est réservé pendant sept jours après la suppression. Il est possible de recréer un magasin portant le même nom avant la fin de la période de réservation, mais il doit se trouver dans le même abonnement, le même groupe de ressources et la même région que le magasin d’origine. Si le groupe de ressources qui contenait le magasin a été supprimé, il faudra d’abord le recréer dans le même abonnement avant de recréer le magasin qu’il contenait.
+
+
+      Le magasin App Configuration ne peut pas être créé dans un autre abonnement/groupe de ressources tant que la période de conservation n’est pas écoulée. Toutefois, vous pouvez recréer la ressource dans le groupe de ressources/l’abonnement d’origine, puis la déplacer vers un nouveau groupe de ressources/abonnement en suivant [ces instructions](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
+
+
+      La recréation d’un magasin App Configuration pendant la période de conservation est prise en charge uniquement par Azure CLI au moyen de la commande `az appconfig create` décrite [ici](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
   - question: Comment puis-je restaurer un magasin App Configuration que j’ai supprimé par erreur ?
     answer: >
-      Les magasins App Configuration de niveau standard peuvent être récupérés dans les trois jours suivant leur suppression. Pour récupérer un magasin App Configuration supprimé par erreur, contactez Support Microsoft.
+      Les magasins App Configuration de niveau standard peuvent être récupérés dans les sept jours suivant leur suppression. Pour récupérer un magasin App Configuration supprimé par erreur, contactez Support Microsoft.
   - question: Comment puis-je recevoir des annonces sur les nouvelles versions et d’autres informations relatives à App Configuration ?
     answer: >
       Abonnez-vous à notre [référentiel d’annonces GitHub](https://github.com/Azure/AppConfiguration-Announcements).

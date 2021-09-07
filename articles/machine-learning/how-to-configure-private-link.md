@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2021
-ms.openlocfilehash: ef8d50b0cc4463f59d8fcb96afda3ef4a5c96781
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1c07e96a82814e59c635a592313e461d06a6fcc3
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123028387"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217464"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning
 
@@ -43,6 +43,7 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 
 ## <a name="limitations"></a>Limites
 
+* L’utilisation d’un espace de travail Azure Machine Learning avec point de terminaison privé n’est pas disponible dans les régions Azure Government.
 * Si vous activez l’accès public à un espace de travail sécurisé avec point de terminaison privé et utilisez Azure Machine Learning Studio sur l’Internet public, certaines fonctionnalités telles que le concepteur peuvent ne pas parvenir à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
 * Il se peut que vous rencontriez des problèmes en tentant d’accéder au point de terminaison privé de votre espace de travail si vous utilisez Mozilla Firefox. Un de ces problème peut être lié à DNS sur HTTPS dans Mozilla. Nous vous recommandons d’utiliser Microsoft Edge ou Google Chrome comme solution de contournement.
 * L’utilisation d’un point de terminaison privé n’a pas d’effet sur le plan de contrôle Azure (opérations de gestion), comme la suppression de l’espace de travail ou la gestion des ressources de calcul. Par exemple, la création, la mise à jour ou la suppression d’une cible de calcul. Ces opérations sont effectuées sur l’Internet public comme d’habitude. Les opérations de plan de données telles que l’utilisation du studio Azure Machine Learning, des API (y compris les pipelines publiés) ou du SDK utilisent le point de terminaison privé.

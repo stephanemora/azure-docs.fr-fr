@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 66b1a982afd42ba03f1396e9683132f4510dceb1
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 24485b9c2cf22d6906320b7d28336ad6a4377e0f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114400552"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109819"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -22,6 +22,26 @@ Pour passer en revue la façon dont les composants intégrés Azure Policy dispo
 |---|---|---|---|---|
 |Sécurité réseau |NS-2 |Interconnecter des réseaux privés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
 
+## <a name="fedramp-high"></a>FedRAMP Niveau élevé
+
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP High](https://www.fedramp.gov/).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Contrôle d’accès |AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
+|Contrôle d’accès |AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
+
+## <a name="fedramp-moderate"></a>FedRAMP Niveau modéré
+
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP Moderate](https://www.fedramp.gov/).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Contrôle d’accès |AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
+|Contrôle d’accès |AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
+
 ## <a name="new-zealand-ism-restricted"></a>New Zealand ISM Restricted
 
 Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – New Zealand ISM Restricted](../../../../articles/governance/policy/samples/new-zealand-ism.md).
@@ -31,26 +51,20 @@ Pour plus d’informations sur cette norme de conformité, consultez [New Zealan
 |---|---|---|---|---|
 |Infrastructure |INF-9 |10.8.35 Architecture de la sécurité |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
 
-## <a name="nist-sp-800-53-r4"></a>NIST SP 800-53 R4
+## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
 
-Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à ce standard de conformité, consultez [Conformité réglementaire Azure Policy – NIST SP 800-53 R4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 R4](https://nvd.nist.gov/800-53).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
-|Contrôle d’accès |NIST SP 800-53 Rév. 4 AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
+|Contrôle d’accès |AC-17 |Accès à distance |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
+|Contrôle d’accès |AC-17 (1) |Contrôle/supervision automatisés |[Azure Spring Cloud doit utiliser l’injection de réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf35e2a4-ef96-44e7-a9ae-853dd97032c4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Platform/Spring_VNETEnabled_Audit.json) |
 
-## <a name="nist-sp-800-53-r5"></a>NIST SP 800-53 R5
+## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
 
-Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – NIST SP 800-53 R5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 R5](https://nvd.nist.gov/800-53).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

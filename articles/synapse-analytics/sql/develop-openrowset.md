@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8a93ce59927144ce02edb8c1193406a29b18530
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 578ff0997375b62b3fd5a90ec44967ead1b9cd63
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913776"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253807"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -113,10 +113,10 @@ Vous avez deux possibilités pour les fichiers d’entrée qui contiennent les d
 **'unstructured_data_path'**
 
 L’élément unstructured_data_path qui établit un chemin d’accès aux données peut être un chemin d’accès absolu ou relatif :
-- Un chemin d’accès absolu au format « \<prefix>://\<storage_account_path>/\<storage_path> » permet à un utilisateur de lire directement les fichiers.
-- Chemin relatif au format « < storage_path > » qui doit être utilisé avec le paramètre `DATA_SOURCE` et décrit le modèle de fichier dans l’emplacement <storage_account_path> défini dans `EXTERNAL DATA SOURCE`. 
+- Un chemin absolu au format `\<prefix>://\<storage_account_path>/\<storage_path>` permet à un utilisateur de lire directement les fichiers.
+- Un chemin relatif au format `<storage_path>` doit être utilisé avec le paramètre `DATA_SOURCE` et décrit le modèle de fichier dans l’emplacement <storage_account_path> défini dans `EXTERNAL DATA SOURCE`. 
 
-Vous trouverez ci-dessous les valeurs <storage account path> appropriées qui établiront un lien à votre source de données externe particulière. 
+Vous trouverez ci-dessous les valeurs \<storage account path> appropriées qui établiront un lien à votre source de données externe particulière. 
 
 | Source de données externe       | Préfixe | Chemin de compte de stockage                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |

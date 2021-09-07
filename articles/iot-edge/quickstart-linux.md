@@ -2,19 +2,18 @@
 title: 'Démarrage rapide : Créer un appareil Azure IoT Edge sous Linux | Microsoft Docs'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un appareil IoT Edge sur Linux et à déployer du code préconfiguré à distance à partir du portail Azure.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cdc5dd2df0dc6ac682d37aea3328545fcb7e5ad2
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d06a4af7d9280eb3bab076ff103968d94fd38839
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728605"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215396"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Linux
 
@@ -279,6 +278,8 @@ Suivez ces étapes pour démarrer l’Assistant **Définir des modules** et dép
 
 1. Sélectionnez l’ID de l’appareil cible dans la liste des appareils.
 
+   Lorsque vous créez un appareil IoT Edge, le code d’état `417 -- The device's deployment configuration is not set` s’affiche dans le portail Azure. Cet état est normal et signifie que l’appareil est prêt à recevoir un déploiement de module.
+
 1. Dans la barre supérieure, sélectionnez **Définir des modules**.
 
    ![Capture d’écran montrant la sélection de la commande Définir des modules.](./media/quickstart/select-set-modules.png)
@@ -394,7 +395,7 @@ az group list
 
 Dans ce guide de démarrage rapide, vous avez créé un appareil IoT Edge et utilisé l’interface cloud Azure IoT Edge pour déployer du code sur l’appareil. Vous possédez désormais un appareil de test générant des données brutes sur son environnement.
 
-L’étape suivante consiste à configurer votre environnement de développement local afin de pouvoir commencer à créer des modules IoT Edge qui exécutent votre logique métier.
+Dans le tutoriel suivant, vous apprendrez à surveiller l’activité et l’intégrité de votre appareil à partir du portail Azure.
 
 > [!div class="nextstepaction"]
-> [Commencer à développer des modules IoT Edge pour des appareils Linux](tutorial-develop-for-linux.md)
+> [Surveiller les appareils IoT Edge](tutorial-monitor-with-workbooks.md)

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 08/26/2021
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js, devx-track-azurecli
 ms.reviewer: sngun
-ms.openlocfilehash: 370790fbc83bc81bd543a8a4ee64c3ee309caf68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 41a025607979fcca68b0bfc61c8dd62b6ba4a0f7
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121782500"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035328"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Créer un compte Cosmos
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -83,3 +83,7 @@ Vous pouvez maintenant passer à la partie suivante du didacticiel afin de conne
 
 > [!div class="nextstepaction"]
 > [Utiliser Mongoose pour se connecter à Azure Cosmos DB](tutorial-develop-nodejs-part-5.md)
+
+Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+* Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

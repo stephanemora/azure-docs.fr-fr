@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 19ee8f56fffe3fcaf8d344f8aa4832ef63d346bb
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 6833763ad38bd821067432aa63b166826442ed2f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581265"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695517"
 ---
 # <a name="manage-a-web-service-using-the-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web avec le portail des services web Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Vous pouvez gérer vos services web Machine Learning Studio (classique) avec le portail des services web Machine Learning. 
 

@@ -1,48 +1,53 @@
 ---
 title: Vue d’ensemble des serveurs avec Azure Arc
 description: Découvrez comment utiliser les serveurs avec Azure Arc afin de gérer les serveurs hébergés en dehors d’Azure comme une ressource Azure.
-keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.topic: overview
-ms.openlocfilehash: ed764b3eb743f29c3df033fa36893e8b3eebbc43
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2a6ed9eb865ed588653cd9ce5a41863af2db6de4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457502"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108713"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
-Les serveurs avec Azure Arc vous permettent de gérer vos machines virtuelles et vos serveurs physiques Windows et Linux hébergés *en dehors* d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cette expérience de gestion est conçue pour être cohérente avec la manière dont vous gérez les machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée possède un ID de ressource, est incluse dans un groupe de ressources et tire parti des constructions Azure standard, comme Azure Policy et l’application d’étiquettes. Les fournisseurs de services qui gèrent l'infrastructure locale d'un client peuvent gérer ses machines hybrides (comme ils le font déjà avec les ressources Azure natives) dans différents environnements clients à l'aide d'[Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) avec Azure Arc.
+Les serveurs avec Azure Arc vous permettent de gérer vos machines virtuelles et vos serveurs physiques Windows et Linux hébergés *en dehors* d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cette expérience de gestion est conçue pour être cohérente avec la manière dont vous gérez les machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée a un ID de ressource qui permet d’inclure la machine dans un groupe de ressources. Vous bénéficiez désormais de constructions Azure standard, comme Azure Policy et l’application d’étiquettes. Les fournisseurs de services qui gèrent l’infrastructure locale d’un client peuvent gérer ses machines hybrides (comme ils le font déjà avec les ressources Azure natives) dans différents environnements clients avec [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md).
 
-Pour bénéficier de cette expérience avec vos machines hybrides hébergées en dehors d’Azure, vous devez installer Azure Connected Machine sur chaque machine que vous envisagez de connecter à Azure. Cet agent ne fournit aucune autre fonctionnalité et ne remplace pas l’agent Azure [Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-introduction.md).
+Pour bénéficier de cette expérience avec vos machines hybrides, vous devez installer l’agent Azure Connected Machine sur chaque machine. Cet agent ne fournit aucune autre fonctionnalité et ne remplace pas l’agent Azure [Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est requis dans les situations suivantes :
 
->[!NOTE]
-> [L’agent Azure Monitor](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA), actuellement en préversion, ne remplace pas Connected Machine Agent. Il remplace en revanche l’agent Log Analytics, l’extension Diagnostics et l’agent Telegraf pour les machines Windows et Linux. Pour plus d’informations, consultez la documentation Azure Monitor sur le nouvel agent.
+* Vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine.
+* Vous le gérez avec des runbooks Automation ou des solutions comme Update Management.
+* Vous utilisez d’autres services Azure comme [Azure Security Center](../../security-center/security-center-introduction.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-cloud-operations"></a>Opérations cloud prises en charge 
 
-Lorsque vous connectez votre machine à des serveurs avec Azure Arc, vous pouvez effectuer les tâches de supervision et de gestion de la configuration suivantes :
-- Affecter des [configurations invité Azure Policy](../../governance/policy/concepts/guest-configuration.md) à l’aide de la même expérience que lors de l’attribution de stratégie pour des machines virtuelles Azure. De nos jours, la plupart des stratégies de configuration d’invité ne s’appliquent pas aux configurations : elles auditent seulement les paramètres à l’intérieur de la machine. Pour comprendre le coût de l’utilisation de stratégies Guest Configuration dans Azure Policy avec des serveurs Arc, consultez le [guide des tarifs](https://azure.microsoft.com/pricing/details/azure-policy/) d’Azure Policy.
+Quand vous connectez votre machine à des serveurs avec Azure Arc, elle vous permet d’effectuer les fonctions opérationnelles suivantes, comme décrit dans le tableau ci-dessous.
 
-- Signalez les changements de configuration relatifs aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows ainsi qu’aux démons Linux sur des serveurs surveillés à l’aide de la fonctionnalité [Suivi des modifications et inventaire](../../automation/change-tracking/overview.md) d’Azure Automation et de [Supervision d’intégrité de fichier dans Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md), et à l’aide d’[Azure Defender pour serveurs](../../security-center/defender-for-servers-introduction.md) pour les serveurs.
+|Fonction d’opérations |Description | 
+|--------------------|------------|
+|**Gouvernance** ||
+| Azure Policy |Attribuez des [configurations d’invité Azure Policy](../../governance/policy/concepts/guest-configuration.md) pour auditer les paramètres à l’intérieur de la machine. Pour comprendre le coût de l’utilisation de stratégies Guest Configuration dans Azure Policy avec des serveurs Arc, consultez le [guide des tarifs](https://azure.microsoft.com/pricing/details/azure-policy/) d’Azure Policy.|
+|**Protéger** ||
+| Azure Security Center | Protégez les serveurs non Azure avec [Microsoft Defender pour point de terminaison](/microsoft-365/security/defender-endpoint), inclus dans [Azure defender](../../security-center/defender-for-servers-introduction.md), à des fins de détection des menaces, de gestion des vulnérabilités et de surveillance proactive des menaces de sécurité potentielles. Azure Security Center présente les alertes et les suggestions de correction à partir des menaces détectées. |
+| Azure Sentinel | Les machines connectées aux serveurs avec Arc peuvent être [configurées avec Azure Sentinel](scenario-onboard-azure-sentinel.md) pour collecter des événements liés à la sécurité et les mettre en corrélation avec d’autres sources de données. |
+|**Configurer** ||
+| Azure Automation |Évaluez les changements de configuration relatifs aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows ainsi qu’aux démons Linux avec [Suivi des modifications et inventaire](../../automation/change-tracking/overview.md).<br> Utilisez la fonctionnalité [Update Management](../../automation/update-management/overview.md) pour gérer les mises à jour du système d’exploitation de vos serveurs Windows et Linux. |
+| Azure Automanage | Intégrez un ensemble de services Azure quand vous utilisez [Automanage pour les machines pour les serveurs avec Arc](../../automanage/automanage-arc.md). |
+| Extensions de machine virtuelle | Fournit des tâches d’automatisation et de configuration post-déploiement avec des [extensions de machines virtuelles pour les serveurs avec Arc](manage-vm-extensions.md) prises en charge pour votre machine Windows ou Linux non-Azure. |
+|**Surveiller**|
+| Azure Monitor | Supervisez les performances du système d’exploitation invité de la machine connectée, et découvrez les composants de l’application pour superviser leurs processus et dépendances avec d’autres ressources à l’aide de [VM Insights](../../azure-monitor/vm/vminsights-overview.md). Collectez d’autres données de journal, telles que des données de performances et des événements, à partir du système d’exploitation ou des charges de travail en cours d’exécution sur la machine avec l’[agent Log Analytics](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ces données sont stockées dans un [espace de travail Log Analytics](../../azure-monitor/logs/design-logs-deployment.md). |
 
-- Supervisez les performances du système d’exploitation invité de votre machine connectée, et découvrez les composants de l’application pour superviser leurs processus et dépendances avec d’autres ressources que l’application communique à l’aide de [VM Insights](../../azure-monitor/vm/vminsights-overview.md).
+> [!NOTE]
+> À ce stade, l’activation d’Azure Automation Update Management, directement à partir d’un serveur avec Azure Arc, n’est pas prise en charge. Pour connaître les conditions requises et la façon de l’activer pour votre serveur, consultez [Activer Update Management à partir de votre compte Automation](../../automation/update-management/enable-from-automation-account.md).
 
-- Simplifiez le déploiement avec d’autres services Azure tels que l’espace de travail Azure Monitor Log Analytics à l’aide des [extensions de machine virtuelle Azure](manage-vm-extensions.md) prises en charge pour votre machine Windows ou Linux non Azure. Cela comprend l’exécution de la configuration après déploiement ou de l’installation de logiciels à l’aide de l’extension de script personnalisé.
-
-- Utilisez la fonctionnalité [Update Management](../../automation/update-management/overview.md) d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos serveurs Windows et Linux.
-
-    > [!NOTE]
-    > À ce stade, l’activation d’Update Management, directement à partir d’un serveur avec Azure Arc, n’est pas prise en charge. Pour connaître les conditions requises et la façon de l’activer pour votre serveur, consultez [Activer Update Management à partir de votre compte Automation](../../automation/update-management/enable-from-automation-account.md).
-
-- Incluez vos serveurs non Azure pour la détection avancée des menaces, et surveillez de manière proactive les menaces de sécurité potentielles à l'aide d'[Azure Security Center](../../security-center/security-center-introduction.md) ou d’[Azure Defender](../../security-center/azure-defender.md).
-
-- Protégez les serveurs non Azure avec [Microsoft Defender pour point de terminaison](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint), inclus dans [Azure defender](../../security-center/azure-defender.md), à des fins de détection des menaces, de gestion des vulnérabilités et de surveillance proactive des menaces de sécurité potentielles.
-
-Les données de journal collectées et stockées dans un espace de travail Log Analytics à partir de la machine hybride contiennent désormais des propriétés spécifiques de la machine, telles qu’un ID de ressource. Cela peut être utilisé pour prendre en charge l’accès au journal de [contexte de ressource](../../azure-monitor/logs/design-logs-deployment.md#access-mode).
+Les données de journal collectées et stockées dans un espace de travail Log Analytics à partir de la machine hybride contiennent désormais des propriétés spécifiques de la machine, telles qu’un ID de ressource, pour prendre en charge l’accès aux journaux [dans le contexte de la ressource](../../azure-monitor/logs/design-logs-deployment.md#access-mode).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
+Pour en savoir plus sur la façon dont les serveurs avec Arc peuvent être utilisés pour implémenter les services de supervision, de sécurité et de mise à jour Azure dans des environnements hybrides et multiclouds, consultez la vidéo suivante.
+
+> [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
 ## <a name="supported-regions"></a>Régions prises en charge
 

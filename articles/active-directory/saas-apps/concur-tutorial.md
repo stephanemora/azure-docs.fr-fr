@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 006d30839e16ea303b684fb0ee1be7f40dcbdfb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b18de633d586b6b32bc11b4eb6cb1a65928550
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736953"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222628"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Concur
 
@@ -37,8 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Concur prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
-* Concur prend en charge l’approvisionnement d’utilisateurs **Juste-à-temps**
+* Concur prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**.
+* Concur prend en charge l’attribution d’utilisateurs **Juste-à-temps**.
+* Concur prend en charge l’[attribution d’utilisateurs automatisée](concur-provisioning-tutorial.md).
 
 ## <a name="adding-concur-from-the-gallery"></a>Ajout de Concur à partir de la galerie
 
@@ -134,6 +135,8 @@ Pour configurer l’authentification unique côté **Concur**, vous devez envoye
 ### <a name="create-concur-test-user"></a>Créer un utilisateur de test Concur
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Concur. Concur prend en charge l’approvisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si aucun utilisateur n’existe dans Concur, un nouveau est créé après l’authentification.
+
+Concur prend également en charge l’attribution automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./concur-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
-ms.reviewer: mathoma, MashaMSFT
-ms.date: 06/08/2021
-ms.openlocfilehash: 8e33e8271f8b877f20fb3f27885aa518a52ed90e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.reviewer: mathoma
+ms.date: 08/20/2021
+ms.openlocfilehash: 2131f5549c026afdfde1d0ec14a27608a2ffaae8
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751146"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215218"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Vue d’ensemble des opérations de gestion Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,16 +41,21 @@ Les opérations de gestion suivantes sur les instances managées peuvent avoir u
 
 La durée des opérations sur le cluster virtuel peut varier, mais elle a généralement la durée la plus longue. 
 
-Voici les valeurs généralement attendues, selon les données de télémétrie de service existantes :
+Le tableau suivant liste les étapes de longue durée qui peuvent être déclenchées dans le cadre de l’opération de création, de mise à jour ou de suppression. Le tableau liste également les durées généralement attendues, selon les données de télémétrie de service existantes :
 
-- **Création de cluster virtuel** :  La création constitue une étape synchrone dans les opérations de gestion d’instance. <br/> **90 % des opérations se terminent dans les quatre heures**.
-- **Redimensionnement de cluster virtuel (expansion ou réduction)**  : L’expansion est une étape synchrone, tandis que la réduction est effectuée de façon asynchrone (sans incidence sur la durée des opérations de gestion des instances). <br/>**90 % des expansions de cluster nécessitent moins de deux heures trente**.
-- **Suppression de cluster virtuel** : La suppression est une étape asynchrone, mais elle peut également être [lancée manuellement](virtual-cluster-delete.md) sur un cluster virtuel vide, auquel cas elle s’exécute de façon synchrone. <br/>**90 % des suppressions de cluster virtuel ne prennent pas plus d’une heure trente**.
+|Étape|Description|Durée estimée|
+|---------|---------|---------|
+|**Création de cluster virtuel**|La création constitue une étape synchrone dans les opérations de gestion d’instance.|**90 % des opérations se terminent dans les 4 heures.**|
+|**Redimensionnement de cluster virtuel (expansion ou réduction)**|L’expansion est une étape synchrone, tandis que la réduction est effectuée de façon asynchrone (sans incidence sur la durée des opérations de gestion des instances).|**90 % des expansions de cluster nécessitent moins de deux heures trente**|
+|**Suppression de cluster virtuel**|La suppression d’un cluster virtuel peut être synchrone et asynchrone. Effectuée en arrière-plan, la suppression asynchrone est déclenchée quand plusieurs clusters virtuels se trouvent à l’intérieur d’un même sous-réseau et que la dernière instance dans le cluster qui n’est pas le dernier au sein du sous-réseau est supprimée. La suppression synchrone du cluster virtuel est déclenchée dans le cadre de la suppression de la toute dernière instance dans le sous-réseau.|**90 % des suppressions de cluster ne prennent pas plus d’une heure trente**|
+|**Amorçage des fichiers de base de données**<sup>1</sup>|Étape synchrone, déclenchée pendant le calcul (vCore) ou le stockage dans le niveau de service Critique pour l’entreprise, ou le changement de niveau de service de Usage général à Critique pour l’entreprise (et inversement). La durée de cette opération est proportionnelle à la taille totale de la base de données, ainsi qu’à l’activité actuelle de la base de données (nombre de transactions actives). L’activité de la base de données lors de la mise à jour d’une instance peut faire varier considérablement la durée totale.|**90 % de ces opérations s’exécutent à 220 Go/heure ou plus**|
 
-Par ailleurs, la gestion des instances peut également comporter l’une des opérations suivantes sur les bases de données hébergées, qui allongent les durées d’exécution :
+<sup>1</sup> Lors de la mise à l’échelle du calcul (vCores) ou du stockage dans le niveau de service Critique pour l’entreprise ou du basculement du niveau de service de Usage général vers Critique pour l’entreprise, l’amorçage comprend également l’amorçage des groupes de disponibilité Always On.
 
-- **Attachement de fichiers de base de données à partir du Stockage Azure** :  Une étape synchrone, comme le scale-up ou le scale-down du calcul (vCores), ou du stockage dans le niveau de service Usage général. <br/>**90 % de ces opérations ne prennent pas plus de cinq minutes**.
-- **Amorçage de groupe de disponibilité Always On** : étape synchrone. Exemples : mise à l’échelle du calcul (vCore) ou du stockage dans le niveau de service Critique pour l’entreprise, ou changement de niveau de service de Usage général à Critique pour l’entreprise (et inversement). La durée de cette opération est proportionnelle à la taille totale de la base de données, ainsi qu’à l’activité actuelle de la base de données (nombre de transactions actives). L’activité de la base de données lors de la mise à jour d’une instance peut faire varier considérablement la durée totale. <br/>**90 % de ces opérations s’exécutent à 220 Go/heure ou plus**.
+> [!IMPORTANT]
+> Le scale-up ou scale-down du stockage dans le niveau de service Usage général consiste à mettre à jour les métadonnées et à propager la réponse pour la demande envoyée. Il s’agit d’une opération rapide qui prend jusqu’à 5 minutes, sans temps d’arrêt ni basculement.
+
+### <a name="management-operations-long-running-segments"></a>Segments de longue durée des opérations de gestion
 
 Les tableaux suivants récapitulent les opérations et les durées globales habituelles, en fonction de la catégorie de l’opération :
 
@@ -63,31 +68,34 @@ Les tableaux suivants récapitulent les opérations et les durées globales habi
 |Création d’instance suivante sur le sous-réseau non vide (2e instance, 3e instance, et ainsi de suite.)|Redimensionnement de cluster virtuel|90 % des opérations se terminent dans les deux heures trente.|
 | | | 
 
-<sup>1</sup> Le cluster virtuel est créé en fonction de la génération du matériel.
+<sup>1</sup> Le cluster virtuel est créé en fonction de la génération du matériel et de la configuration de la fenêtre de maintenance.
 
 **Catégorie : Mise à jour**
 
 |Opération  |Segment de longue durée  |Durée estimée  |
 |---------|---------|---------|
 |Modification de propriété d’instance (mot de passe administrateur, connexion Azure AD, indicateur Azure Hybrid Benefit)|N/A|Jusqu’à une minute.|
-|Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|Pas de segment de longue durée<sup>1</sup>|99 % des opérations ne prennent pas plus de cinq minutes.|
+|Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|Pas de segment de longue durée|99 % des opérations ne prennent pas plus de cinq minutes.|
 |Scale-up et scale-down du stockage d’instance (niveau de service Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les 2,5 heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure).|
 |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente.|
 |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les 2,5 heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure).|
 |Modification du niveau de service de l’instance (Usage général vers Critique pour l’entreprise et vice versa)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les 2,5 heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure).|
 | | | 
 
-<sup>1</sup> La mise à l’échelle du stockage d’instance géré en usage général ne provoque pas de basculement à la fin de l’opération. Dans ce cas, l’opération consiste à mettre à jour les métadonnées et à propager la réponse pour la requête envoyée.
-
 **Catégorie : Suppression**
 
 |Opération  |Segment de longue durée  |Durée estimée  |
 |---------|---------|---------|
-|Suppression d’instance|Sauvegarde de la fin du journal pour toutes les bases de données|90 % des opérations se terminent en une minute.<br>Remarque : Si la dernière instance du sous-réseau est supprimée, cette opération va planifier la suppression du cluster virtuel au bout de 12 heures.<sup>1</sup>|
-|Suppression de cluster virtuel (en tant qu’opération lancée par l’utilisateur)|Suppression de cluster virtuel|90 % des opérations ne nécessitent pas plus d’une heure trente.|
+|Suppression d’une instance autre que la dernière|Sauvegarde de la fin du journal pour toutes les bases de données|90 % des opérations se terminent en une minute.<sup>1</sup>|
+|Suppression de la dernière instance |- Sauvegarde de la fin du journal pour toutes les bases de données <br> - Suppression de cluster virtuel|90 % des opérations ne nécessitent pas plus d’une heure trente.<sup>2</sup>|
 | | | 
 
-<sup>1</sup>12 heures est la configuration actuelle, mais elle est sujette à modification dans le futur. Si vous devez supprimer un cluster virtuel plus tôt (par exemple pour libérer le sous-réseau), consultez [Supprimer un sous-réseau après avoir supprimé une instance managée](virtual-cluster-delete.md).
+<sup>1</sup> Dans le cas de plusieurs clusters virtuels dans le sous-réseau, si la dernière instance dans le cluster virtuel est supprimée, cette opération déclenche immédiatement la suppression **asynchrone** du cluster virtuel.
+
+<sup>2</sup> La suppression de la dernière instance dans le sous-réseau déclenche immédiatement la suppression **synchrone** du cluster virtuel.
+
+> [!IMPORTANT]
+> Dès que l’opération de suppression est déclenchée, la facturation de SQL Managed Instance est désactivée. La durée de l’opération de suppression n’impacte pas la facturation.
 
 ## <a name="instance-availability"></a>Disponibilité des instances
 
@@ -117,15 +125,22 @@ Les opérations de gestion sont constituées de plusieurs étapes. Avec l’[int
 
 |Nom de l’étape  |Description de l’étape  |
 |----|---------|
-|Validation des demandes | Les paramètres soumis sont validés. En cas d’erreur de configuration, l’opération échoue avec une erreur. |
+|Validation des demandes |Les paramètres soumis sont validés. En cas d’erreur de configuration, l’opération échoue avec une erreur. |
 |Redimensionnement / création de cluster virtuel |Selon l’état du sous-réseau, le cluster virtuel est créé ou redimensionné. |
-|Démarrage de la nouvelle instance SQL | Le processus SQL est démarré sur le cluster virtuel déployé. |
+|Démarrage de la nouvelle instance SQL |Le processus SQL est démarré sur le cluster virtuel déployé. |
 |Amorçage des fichiers de base de données / attachement de fichiers de base de données |Selon le type de l’opération de mise à jour, l’amorçage de la base de données ou l’attachement de fichiers de base de données est effectué. |
 |Préparation du basculement et basculement |Une fois les données amorcées ou les fichiers de base de données rattachés, le système est préparé pour le basculement. Quand tout est défini, le basculement est effectué **avec un temps d’arrêt réduit**. |
 |Nettoyage de l’ancienne instance SQL |Suppression de l’ancien processus SQL du cluster virtuel |
 
+### <a name="managed-instance-delete-steps"></a>Étapes de la suppression d’une instance managée
+|Nom de l’étape  |Description de l’étape  |
+|----|---------|
+|Validation des demandes |Les paramètres soumis sont validés. En cas d’erreur de configuration, l’opération échoue avec une erreur. |
+|Nettoyage de l’instance SQL |Suppression du processus SQL du cluster virtuel |
+|Suppression de cluster virtuel |Si l’instance supprimée est la dernière dans le sous-réseau, le cluster virtuel est supprimé de façon synchrone en guise de dernière étape. |
+
 > [!NOTE]
-> Une fois la mise à l’échelle de l’instance effectuée, le cluster virtuel sous-jacent est soumis au processus de libération de la capacité inutilisée et d’une possible défragmentation de la capacité, ce qui peut affecter les instances du même sous-réseau qui n’ont pas participé à l’opération de mise à l’échelle et provoquer leur basculement. 
+> Suite à la mise à l’échelle des instances, le cluster virtuel sous-jacent passe par le processus de libération de la capacité inutilisée et par une défragmentation possible de la capacité, ce qui peut affecter les instances qui n’ont pas participé aux opérations de création et de mise à l’échelle. 
 
 
 ## <a name="management-operations-cross-impact"></a>Impact sur les opérations de gestion

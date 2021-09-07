@@ -1,41 +1,47 @@
 ---
-title: Déclencheurs et actions intégrés pour Azure Logic Apps
+title: Déclencheurs et actions intégrés
 description: Utilisez des déclencheurs et des actions intégrés pour créer des workflows automatisés qui intègrent des applications, des données, des services et des systèmes, pour contrôler des workflows et pour gérer des données à l’aide d’Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: a718e7c7b771f66ed8337e53fec49e5939ab0442
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/16/2021
+ms.openlocfilehash: 83800e088599bca0023d734bba52b6ed3207f0a3
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315756"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122566156"
 ---
-# <a name="built-in-triggers-and-actions-for-logic-apps"></a>Déclencheurs et actions intégrés pour Logic Apps
+# <a name="built-in-triggers-and-actions-in-azure-logic-apps"></a>Déclencheurs et actions intégrés dans Azure Logic Apps
 
+Les [déclencheurs et actions intégrés](apis-list.md) vous permettent de [contrôler la planification et la structure de votre workflow](#control-workflow), d’[exécuter votre propre code](#run-code-from-workflows), de [gérer ou manipuler des données](#manage-or-manipulate-data), et d’effectuer d’autres tâches dans vos workflows. Différents des [connecteurs managés](managed.md), de nombreuses opérations intégrées ne sont pas liées à un service, un système ou un protocole spécifique. Par exemple, vous pouvez démarrer presque n’importe quel workflow selon une planification à l’aide du déclencheur Récurrence. Vous pouvez aussi faire en sorte que votre workflow attende jusqu’à ce qu’il soit appelé à l’aide du déclencheur Requête. Toutes les opérations intégrées s’exécutent en mode natif dans Azure Logic Apps et la plupart ne nécessitent pas la création d’une connexion avant leur utilisation.
 
-Les [déclencheurs et actions intégrés](apis-list.md) vous permettent de [contrôler la planification et la structure de votre workflow](#control-workflow), d’[exécuter votre propre code](#run-code-from-workflows), de [gérer ou manipuler des données](#manage-or-manipulate-data), et d’effectuer d’autres tâches dans vos workflows. Différents des [connecteurs managés](managed.md), de nombreuses opérations intégrées ne sont pas liées à un service, un système ou un protocole spécifique. Par exemple, vous pouvez démarrer presque n’importe quel workflow selon une planification à l’aide du déclencheur Récurrence. Vous pouvez aussi faire en sorte que votre workflow attende jusqu’à ce qu’il soit appelé à l’aide du déclencheur Requête. Toutes les opérations intégrées s’exécutent en mode natif dans le service Logic Apps, et la plupart ne nécessitent pas la création d’une connexion avant leur utilisation. 
+Azure Logic Apps fournit également des opérations intégrées pour un nombre plus restreint de services, systèmes et protocoles comme Azure App Services, Azure Functions et Gestion des API Azure et pour appeler d’autres workflows d’application logique Azure Logic Apps. Le nombre et la plage disponibles varient selon que vous créez une ressource d’application logique basée sur un plan Consommation qui s’exécute dans Azure Logic Apps multilocataire ou une ressource d’application logique basée sur un plan Standard qui s’exécute dans Azure Logic Apps monolocataire. Pour plus d’informations, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](../logic-apps/single-tenant-overview-compare.md). Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, et ainsi de suite.
 
-Logic Apps fournit également des opérations intégrées pour certains services, systèmes et protocoles, comme Azure Functions, Azure App Services, Gestion des API Azure, AS2, etc. Cette sélection varie selon que vous créez une application logique multilocataire ou à locataire unique. Par exemple, si vous créez une application logique à locataire unique, les opérations intégrées sont disponibles pour Azure Service Bus, Azure Event Hubs, SQL Server et MQ. Dans certains cas, une version intégrée et une version de connecteur managé sont toutes deux disponibles. Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, et ainsi de suite. Par exemple, pour [échanger des messages B2B à l’aide du protocole AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), sélectionnez la version intégrée, sauf si vous avez besoin de fonctionnalités de suivi, qui sont disponibles uniquement dans la version du connecteur managé (dépréciée).
+Par exemple, si vous créez une application logique monolocataire, les opérations intégrées et les [opérations de connecteurs managés](managed.md) sont disponibles pour quelques services, à savoir Azure Service Bus, Azure Event Hubs, SQL Server, DB2 et MQ. Dans quelques cas, une opération intégrée n’est disponible que dans un seul environnement. Par exemple, Flat File est actuellement disponible uniquement dans un environnement multilocataire, tandis qu’IBM Host File n’est disponible que dans un environnement monolocataire. Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, et ainsi de suite.
 
-La liste suivante décrit quelques-unes des tâches que vous pouvez effectuer avec des [déclencheurs et actions intégrés](#understand-triggers-and-actions) :
+La liste suivante décrit quelques-unes des tâches que vous pouvez effectuer avec des [déclencheurs et actions intégrés](#general-built-in-triggers-and-actions) :
 
-- Exécuter des workflows selon des planifications personnalisées et avancées. Pour plus d’informations sur la planification, consultez la [section sur le comportement lié à la périodicité dans la vue d’ensemble des connecteurs Logic Apps](apis-list.md#recurrence-behavior).
+- Exécuter des workflows selon des planifications personnalisées et avancées. Pour plus d’informations sur la planification, consultez la [section sur le comportement lié à la périodicité dans la vue d’ensemble des connecteurs pour Azure Logic Apps](apis-list.md#recurrence-behavior).
+
 - Organiser et contrôler la structure de votre workflow, par exemple à l’aide de boucles et de conditions
+
 - Utiliser des variables, des dates, des opérations de données, des transformations de contenu et des opérations par lots
+
 - Communiquer avec d’autres points de terminaison à l’aide de déclencheurs et d’actions HTTP
+
 - Recevoir des requêtes et y répondre
-- Appeler vos propres fonctions (Azure Functions), applications web (Azure App Services), API (Gestion des API Azure), autres workflows Logic Apps qui peuvent recevoir des requêtes, et ainsi de suite.
 
-## <a name="understand-triggers-and-actions"></a>Présentation des déclencheurs et actions
+- Appeler vos propres fonctions (Azure Functions), applications web (Azure App Services), API (Gestion des API Azure), autres workflows Azure Logic Apps qui peuvent recevoir des requêtes, et ainsi de suite.
 
-Logic Apps fournit les déclencheurs et actions intégrés suivants :
+## <a name="general-built-in-triggers-and-actions"></a>Déclencheurs et actions intégrés généraux
+
+Azure Logic Apps fournit les déclencheurs et actions intégrés suivants :
 
 :::row:::
     :::column:::
-        [![Icône de planification dans Logic Apps][schedule-icon]][schedule-doc]
+        [![Icône - planification][schedule-icon]][schedule-doc]
         \
         \
         [**Planification**][schedule-doc]
@@ -53,33 +59,21 @@ Logic Apps fournit les déclencheurs et actions intégrés suivants :
         [**Différer jusqu’à**][schedule-delay-until-doc] : suspendre votre workflow jusqu’à la date et l’heure spécifiées.
     :::column-end:::
     :::column:::
-        [![Icône de lot dans Logic Apps][batch-icon]][batch-doc]
-        \
-        \
-        [**Traitement par lot**][batch-doc]
-        \
-        \
-        [**Traiter les messages par lots**][batch-doc] : déclencher un workflow qui traite les messages par lots.
-        \
-        \
-        [**Envoyer les messages au lot**][batch-doc] : appeler un workflow existant qui démarre actuellement avec un déclencheur **Traiter les messages par lots**.
-    :::column-end:::
-    :::column:::
-        [![Icône HTTP dans Logic Apps][http-icon]][http-doc]
+        [![Icône - déclencheur et action HTTP][http-icon]][http-doc]
         \
         \
         [**HTTP**][http-doc]
         \
         \
-        Appeler un point de terminaison HTTP ou HTTPS à l’aide du déclencheur ou de l’action HTTP. 
+        Appeler un point de terminaison HTTP ou HTTPS à l’aide du déclencheur ou de l’action HTTP.
         \
         \
-        Vous pouvez également utiliser ces autres déclencheurs et actions HTTP intégrés : 
+        Vous pouvez également utiliser ces autres déclencheurs et actions HTTP intégrés :
         - [HTTP + Swagger][http-swagger-doc]
         - [HTTP + Webhook][http-webhook-doc]
     :::column-end:::
     :::column:::
-        [![Icône de requête][http-request-icon]][http-request-doc]
+        [![Icône - déclencheur de requête][http-request-icon]][http-request-doc]
         \
         \
         [**Requête**][http-request-doc]
@@ -90,10 +84,27 @@ Logic Apps fournit les déclencheurs et actions intégrés suivants :
         \
         [**Réponse**][http-request-doc] : répondre à une requête reçue par le déclencheur **Lors de la réception d’une demande HTTP** dans le même workflow.
     :::column-end:::
+    :::column:::
+        [![Icône - traitement par lot][batch-icon]][batch-doc]
+        \
+        \
+        [**Traitement par lot**][batch-doc]
+        \
+        \
+        [**Traiter les messages par lots**][batch-doc] : déclencher un workflow qui traite les messages par lots.
+        \
+        \
+        [**Envoyer les messages au lot**][batch-doc] : appeler un workflow existant qui démarre actuellement avec un déclencheur **Traiter les messages par lots**.
+    :::column-end:::
 :::row-end:::
+
+## <a name="service-based-built-in-trigger-and-actions"></a>Déclencheurs et actions intégrés basés sur les services
+
+Azure Logic Apps fournit les actions intégrées suivantes pour les services indiqués :
+
 :::row:::
     :::column:::
-        [![Icône Gestion des API Azure dans Logic Apps][azure-api-management-icon]][azure-api-management-doc]
+        [![Icône - Gestion des API Azure][azure-api-management-icon]][azure-api-management-doc]
         \
         \
         [**Gestion des API Azure**][azure-api-management-doc]
@@ -102,7 +113,7 @@ Logic Apps fournit les déclencheurs et actions intégrés suivants :
         Appelez vos propres déclencheurs et actions dans des API que vous définissez, gérez et publiez à l’aide de [Gestion des API Azure](../api-management/api-management-key-concepts.md). <p><p>**Remarque** : Ceci n’est pas pris en charge lors de l’utilisation du [niveau Consommation pour Gestion des API](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
-        [![Icône Azure App Services dans Logic Apps][azure-app-services-icon]][azure-app-services-doc]
+        [![Icône - Azure App Services][azure-app-services-icon]][azure-app-services-doc]
         \
         \
         [**Azure App Services**][azure-app-services-doc]
@@ -114,7 +125,7 @@ Logic Apps fournit les déclencheurs et actions intégrés suivants :
         Lorsque Swagger est inclus, les déclencheurs et les actions définis par ces applications apparaissent comme les autres déclencheurs et actions de première classe dans Azure Logic Apps.
     :::column-end:::
     :::column:::
-        [![Icône Azure Logic Apps dans Logic Apps][azure-logic-apps-icon]][nested-logic-app-doc]
+        [![Icône - Azure Logic Apps][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
         [**Azure Logic Apps**][nested-logic-app-doc]
@@ -123,16 +134,22 @@ Logic Apps fournit les déclencheurs et actions intégrés suivants :
         Appelez d’autres workflows qui démarrent avec le déclencheur Requête nommé **Lors de la réception d’une demande HTTP**.
     :::column-end:::
     :::column:::
+        [![Icône - SQL Server][sql-server-icon]][sql-server-doc]
+        \
+        \
+        [**SQL Server**][sql-server-doc] <br>(*Monolocataire uniquement*)     \
+        \
+        Connectez-vous à votre serveur SQL local ou à Azure SQL Database dans le cloud pour gérer les enregistrements, exécuter des procédures stockées ou exécuter des requêtes. <p>**Remarque** : Azure Logic Apps monolocataire fournit des opérations intégrées SQL et de connecteurs managés, tandis qu’Azure Logic Apps multilocataire fournit uniquement des opérations de connecteurs managés. <p>Pour plus d’informations, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration pour Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
     :::column-end:::
 :::row-end:::
 
 ## <a name="run-code-from-workflows"></a>Exécuter du code à partir de workflows
 
-Logic Apps fournit des actions intégrées vous permettant d’exécuter votre propre code dans votre workflow :
+Azure Logic Apps fournit les actions intégrées suivantes vous permettant d’exécuter votre propre code dans votre workflow :
 
 :::row:::
     :::column:::
-        [![Icône Azure Functions dans Logic Apps][azure-functions-icon]][azure-functions-doc]
+        [![Icône - Azure Functions][azure-functions-icon]][azure-functions-doc]
         \
         \
         [**Azure Functions**][azure-functions-doc]
@@ -141,7 +158,7 @@ Logic Apps fournit des actions intégrées vous permettant d’exécuter votre 
         Appelez des [fonctions hébergées par Azure](../azure-functions/functions-overview.md) pour exécuter vos propres *extraits de code* (C# ou Node.js) dans votre workflow.
     :::column-end:::
     :::column:::
-        [![Icône de code inclus dans Logic Apps][inline-code-icon]][inline-code-doc]
+        [![Icône - action de code inclus][inline-code-icon]][inline-code-doc]
         \
         \
         [**Code inclus**][inline-code-doc]
@@ -157,11 +174,11 @@ Logic Apps fournit des actions intégrées vous permettant d’exécuter votre 
 
 ## <a name="control-workflow"></a>Contrôler le flux de travail
 
-Logic Apps fournit des actions intégrées qui permettent de structurer et de contrôler les actions de votre workflow :
+Azure Logic Apps fournit les actions intégrées suivantes qui permettent de structurer et de contrôler les actions de votre workflow :
 
 :::row:::
     :::column:::
-        [![Icône d’action de condition dans Logic Apps][condition-icon]][condition-doc]
+        [![Icône - action Condition][condition-icon]][condition-doc]
         \
         \
         [**Condition**][condition-doc]
@@ -170,7 +187,7 @@ Logic Apps fournit des actions intégrées qui permettent de structurer et de c
         Évaluez une condition et exécutez différentes actions selon que la condition est true ou false.
     :::column-end:::
     :::column:::
-        [![Icône d’action For Each dans Logic Apps][for-each-icon]][for-each-doc]
+        [![Icône - action For Each][for-each-icon]][for-each-doc]
         \
         \
         [**For Each**][for-each-doc]
@@ -179,7 +196,7 @@ Logic Apps fournit des actions intégrées qui permettent de structurer et de c
         Effectuez les mêmes actions sur chaque élément dans un tableau.
     :::column-end:::
     :::column:::
-        [![Icône d’action d’étendue dans Logic Apps][scope-icon]][scope-doc]
+        [![Icône - action Scope][scope-icon]][scope-doc]
         \
         \
         [**Nom**][scope-doc]
@@ -188,7 +205,7 @@ Logic Apps fournit des actions intégrées qui permettent de structurer et de c
         Regroupez les actions en *étendues*, qui obtiennent leur propre état à la fin de l’exécution des actions dans l’étendue.
     :::column-end:::
     :::column:::
-        [![Icône d’action Switch dans Logic Apps][switch-icon]][switch-doc]
+        [![Icône - action Switch][switch-icon]][switch-doc]
         \
         \
         [**Switch**][switch-doc]
@@ -199,16 +216,16 @@ Logic Apps fournit des actions intégrées qui permettent de structurer et de c
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icône d’action Terminate dans Logic Apps][terminate-icon]][terminate-doc]
+        [![Icône - action Terminate][terminate-icon]][terminate-doc]
         \
         \
         [**Terminate**][terminate-doc]
         \
         \
-        Arrêtez un flux de travail d’application logique qui fonctionne activement. 
+        Arrêtez un flux de travail d’application logique qui fonctionne activement.
     :::column-end:::
     :::column:::
-        [![Icône d’action Until dans Logic Apps][until-icon]][until-doc]
+        [![Icône - action Until][until-icon]][until-doc]
         \
         \
         [**Until**][until-doc]
@@ -224,41 +241,41 @@ Logic Apps fournit des actions intégrées qui permettent de structurer et de c
 
 ## <a name="manage-or-manipulate-data"></a>Gérer ou manipuler des données
 
-Logic Apps fournit des actions intégrées qui permettent de manipuler les sorties de données et leur format :
+Azure Logic Apps fournit les actions intégrées suivantes qui permettent de manipuler les sorties de données et leur format :
 
 :::row:::
     :::column:::
-        [![Icône d’action Opérations de données dans Logic Apps][data-operations-icon]][data-operations-doc]
+        [![Icône - opérations de données][data-operations-icon]][data-operations-doc]
         \
         \
         [**Opérations de données**][data-operations-doc]
         \
         \
-        Effectuez des opérations avec les données. 
+        Effectuez des opérations avec les données.
         \
         \
-        **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types. 
+        **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types.
         \
         \
-        **Créer un tableau CSV** : créez un tableau CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON. 
+        **Créer un tableau CSV** : créez un tableau CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON.
         \
         \
-        **Créer un tableau HTML** : créez un tableau HTML à partir d’un tableau avec des objets JSON. 
+        **Créer un tableau HTML** : créez un tableau HTML à partir d’un tableau avec des objets JSON.
         \
         \
-        **Filtrer un tableau** : créez un tableau à partir des éléments d’un autre tableau qui correspondent à vos critères. 
+        **Filtrer un tableau** : créez un tableau à partir des éléments d’un autre tableau qui correspondent à vos critères.
         \
         \
-        **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments à l’aide du séparateur spécifié. 
+        **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments à l’aide du séparateur spécifié.
         \
         \
-        **Analyser JSON** : Créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre workflow. 
+        **Analyser JSON** : Créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre workflow.
         \
         \
         **Select** : créez un tableau avec des objets JSON en transformant les éléments ou les valeurs d’un autre tableau et en mappant ces éléments sur les propriétés spécifiées.
     :::column-end:::
     :::column:::
-        ![Icône d’action Date et heure dans Logic Apps][date-time-icon]
+        ![Icône - action de date et heure][date-time-icon]
         \
         \
         **Date et heure**
@@ -267,25 +284,25 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
         Effectuez des opérations avec des horodatages.
         \
         \
-        **Ajouter à l’heure** : ajoutez le nombre spécifié d’unités à un timestamp. 
+        **Ajouter à l’heure** : ajoutez le nombre spécifié d’unités à un timestamp.
         \
         \
-        **Convertir le fuseau horaire** : Convertit un horodatage du fuseau horaire source au fuseau horaire cible. 
+        **Convertir le fuseau horaire** : Convertit un horodatage du fuseau horaire source au fuseau horaire cible.
         \
         \
-        **Heure actuelle** : Renvoyer le timestamp actuel sous forme de chaîne. 
+        **Heure actuelle** : Renvoyer le timestamp actuel sous forme de chaîne.
         \
         \
-        **Obtenir l’heure future** : Retourne l’horodatage actuel plus les unités de temps spécifiées. 
+        **Obtenir l’heure future** : Retourne l’horodatage actuel plus les unités de temps spécifiées.
         \
         \
-        **Obtenir l’heure passée** : Retourne l’horodatage actuel moins les unités de temps spécifiées. 
+        **Obtenir l’heure passée** : Retourne l’horodatage actuel moins les unités de temps spécifiées.
         \
         \
-        **Soustraire de l’heure** : soustrayez un nombre d’unités de temps d’un horodatage.
+        **Soustraire de l’heure** : Soustrait un nombre d’unités de temps d’un horodatage.
     :::column-end:::
     :::column:::
-        [![Icône d’action Variables dans Logic Apps][variables-icon]][variables-doc]
+        [![Icône - action Variables][variables-icon]][variables-doc]
         \
         \
         [**Variables**][variables-doc]
@@ -294,7 +311,7 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
         Effectuez des opérations avec des variables.
         \
         \
-        **Ajouter à une variable tableau** : insérez une valeur en tant que dernier élément dans un tableau stocké par une variable. 
+        **Ajouter à une variable tableau** : insérez une valeur en tant que dernier élément dans un tableau stocké par une variable.
         \
         \
         **Ajouter à une variable chaîne** : insérez une valeur en tant que dernier caractère dans une chaîne stockée par une variable.
@@ -303,13 +320,81 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
         **Décrémenter une variable** : diminuez une variable d’une valeur constante.
         \
         \
-        **Incrémenter une variable** : augmentez une variable d’une valeur constante. 
+        **Incrémenter une variable** : augmentez une variable d’une valeur constante.
         \
         \
-        **Initialiser la variable** : créez une variable et déclarez son type de données et sa valeur initiale. 
+        **Initialiser la variable** : créez une variable et déclarez son type de données et sa valeur initiale.
         \
         \
-        **Définir une variable** : attribuez une autre valeur à une variable existante. 
+        **Définir une variable** : attribuez une autre valeur à une variable existante.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+## <a name="integration-account-built-in-actions"></a>Actions intégrées de compte d’intégration
+
+Azure Logic Apps fournit les actions intégrées suivantes, qui nécessitent un compte d’intégration si vous utilisez Azure Logic Apps multilocataire basée sur un plan Consommation, mais pas si vous utilisez Azure Logic Apps monolocataire basé sur un plan Standard :
+
+> [!NOTE]
+> Avant de pouvoir utiliser une action de compte d’intégration dans Azure Logic Apps multilocataire basé sur un plan Consommation, vous devez [lier votre ressource d’application logique à un compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Toutefois, dans Azure Logic Apps monolocataire basé sur un plan Standard, certaines opérations de compte d’intégration ne nécessitent pas la liaison de votre ressource d’application logique à un compte d’intégration, par exemple, les opérations Liquid et XML. Pour utiliser ces actions, vous devez disposer de cartes Liquid, de cartes XML ou de schémas XML que vous pouvez charger par le biais des actions respectives dans le portail Azure ou ajouter au dossier **Artefacts** de votre projet Visual Studio Code à l’aide des dossiers **Cartes** et **Schémas**.
+
+:::row:::
+    :::column:::
+        [![Icône - décodage de fichier plat][flat-file-decode-icon]][flat-file-decode-doc]
+        \
+        \
+        [**Décodage de fichier plat**<br>(*Multilocataire uniquement*)][flat-file-decode-doc]
+        \
+        \
+        Codez du contenu XML avant de l’envoyer à un partenaire commercial.
+    :::column-end:::
+    :::column:::
+        [![Icône - codage de fichier plat][flat-file-encode-icon]][flat-file-encode-doc]
+        \
+        \
+        [**Codage de fichier plat**<br>(*Multilocataire uniquement*)][flat-file-encode-doc]
+        \
+        \
+        Décodez du contenu XML après l’avoir reçu d’un partenaire commercial.
+    :::column-end:::
+    :::column:::
+        [![Icône - compte d’intégration][integration-account-icon]][integration-account-doc]
+        \
+        \
+        [**Recherche d’artefact de compte d’intégration**<br>(*Multilocataire uniquement*)][integration-account-doc]
+        \
+        \
+        Récupérez des métadonnées personnalisées pour les artefacts dans votre compte d’intégration : partenaires commerciaux, accords, schémas, etc.
+    :::column-end:::
+    :::column:::
+        [![Icône - opérations Liquid][liquid-icon]][json-liquid-transform-doc]
+        \
+        \
+        [**Opérations Liquid**][json-liquid-transform-doc]
+        \
+        \
+        Convertissez les formats suivants à l’aide de modèles Liquid : <p><p>- JSON en JSON <br>- JSON en texte <br>- XML en JSON <br>- XML en texte
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Icône - transformation XML][xml-transform-icon]][xml-transform-doc]
+        \
+        \
+        [**Transformation XML**][xml-transform-doc]
+        \
+        \
+        Convertissez le format XML source en un autre format XML.
+    :::column-end:::
+    :::column:::
+        [![Icône - validation XML][xml-validate-icon]][xml-validate-doc]
+        \
+        \
+        [**Validation XML**][xml-validate-doc]
+        \
+        \
+        Validez des documents XML par rapport au schéma spécifié.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -318,11 +403,12 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](../logic-apps/logic-apps-create-api-app.md)
+> [Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
-<!-- Built-ins icons -->
+<!-- Built-in icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
+[azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
 [batch-icon]: ./media/apis-list/batch.png
@@ -338,18 +424,28 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
+[sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
 [until-icon]: ./media/apis-list/until.png
 [variables-icon]: ./media/apis-list/variables.png
 
+<!--Built-in integration account connector icons -->
+[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
+[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
+[integration-account-icon]: ./media/apis-list/integration-account.png
+[liquid-icon]: ./media/apis-list/liquid-transform.png
+[xml-transform-icon]: ./media/apis-list/xml-transform.png
+[xml-validate-icon]: ./media/apis-list/xml-validation.png
 
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Créer une instance du service Gestion des API Azure pour gérer et publier vos API"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Permet d’intégrer des applications logiques à App Service API Apps"
+[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Gérer les fichiers de votre conteneur d’objets blob avec le connecteur Stockage Blob Azure"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Permet d’intégrer des applications logiques à Azure Functions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Traiter les messages en groupes ou sous forme de lots"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Évaluer une condition et exécuter différentes actions selon que la condition est true ou false"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Effectuer des opérations avec les données telles que le filtrage de tableaux ou la création de tableaux CSV et HTML"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Effectuer les mêmes actions sur chaque élément dans un tableau"
 [http-doc]: ./connectors-native-http.md "Appeler des points de terminaison HTTP ou HTTPS à partir de vos applications logiques"
 [http-request-doc]: ./connectors-native-reqres.md "Recevoir des requêtes HTTP dans vos applications logiques"
@@ -365,8 +461,16 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Exécuter des applications logiques selon une planification périodique"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Exécuter des applications logiques qui doivent gérer des données en blocs contigus"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organiser les actions en groupes, qui obtiennent leur propre état à la fin de l’exécution des actions dans le groupe"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Se connecter à Azure SQL Database ou SQL Server. Créer, mettre à jour, obtenir et supprimer des entrées dans une table de base de données SQL"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organiser les actions en cas, auxquels sont affectées des valeurs uniques. Exécuter uniquement le cas dont la valeur correspond au résultat d’une expression, d’un objet ou d’un jeton. Si aucune correspondance n’existe, exécuter le cas par défaut"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Arrêter ou annuler un flux de travail qu fonctionne activement pour votre application logique"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Répéter les actions jusqu’à ce que la condition spécifiée ait la valeur true ou qu’un état ait changé"
-[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Effectuer des opérations avec les données telles que le filtrage de tableaux ou la création de tableaux CSV et HTML"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Effectuer des opérations avec des variables, comme initialiser, définir, incrémenter, décrémenter et ajouter à une variable de chaîne ou de tableau"
+
+<!--Built-in integration account doc links-->
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Découvrir le fichier plat d’intégration d’entreprise"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Découvrir le fichier plat d’intégration d’entreprise"
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Gérer les métadonnées des artefacts de compte d’intégration"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transformer du code JSON avec des modèles Liquid"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformer des messages XML"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Valider des messages XML"

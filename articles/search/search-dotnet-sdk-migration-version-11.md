@@ -1,57 +1,64 @@
 ---
 title: Mettre à niveau vers la version 11 du Kit de développement logiciel (SDK) .NET
 titleSuffix: Azure Cognitive Search
-description: Migrez le code vers le Kit de développement logiciel (SDK) .NET Recherche cognitive Azure version 11 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
+description: Migrez le code vers le Kit de développement logiciel (SDK) .NET Recherche cognitive Azure version 11 à partir de versions antérieures.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 06/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df8841cb2dcac6335b09a5e7715f42c508c69e76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb596e993981275bbf61efd2542dbf1b566e1a3a
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99536813"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003887"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Mettre à niveau vers la version 11 du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure
 
-Si vous utilisez la version 10.0 ou une version antérieure du [Kit SDK .NET](/dotnet/api/overview/azure/search), cet article vous aidera à effectuer une mise à niveau pour utiliser la version 11 et la bibliothèque de client **Azure.Search.Documents**.
+Si votre solution de recherche repose sur le [**kit Azure SDK pour .NET**](/dotnet/azure/), cet article va vous aider à migrer votre code des versions antérieures de [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) à la version 11, la nouvelle bibliothèque de client [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme). La version 11 est une bibliothèque de client entièrement repensée, publiée par l’équipe de développement de Kits de développement logiciel (SDK) d’Azure (les versions précédentes ont été produites par l’équipe de développement de Recherche cognitive Azure). 
 
-La version 11 est une bibliothèque de client entièrement repensée, publiée par l’équipe de développement de Kits de développement logiciel (SDK) d’Azure (les versions précédentes ont été produites par l’équipe de développement de Recherche cognitive Azure). La bibliothèque a été repensée pour une plus grande cohérence avec les autres bibliothèques de client Azure, en dépendant d’[Azure.Core](/dotnet/api/azure.core) et de [System.Text.Json](/dotnet/api/system.text.json) et en implémentant des approches familières pour les tâches courantes.
+À [une exception près](#WhatsNew), toutes les fonctionnalités de la version 10 sont implémentées dans la version 11. Les principales différences sont les suivantes :
 
-Voici quelques-unes des principales différences que vous noterez dans la nouvelle version :
-
-+ Un package et une bibliothèque au lieu de plusieurs
-+ Un nouveau nom du package : `Azure.Search.Documents` au lieu de `Microsoft.Azure.Search`
-+ Trois clients au lieu de deux : `SearchClient`, `SearchIndexClient`, `SearchIndexerClient`
++ Un seul package (**Azure.Search.Documents**) au lieu de quatre
++ Trois clients au lieu de deux : SearchClient, SearchIndexClient, SearchIndexerClient
 + Des différences d’affectation de noms dans une plage d’API et de petites différences structurelles qui simplifient certaines tâches
 
-En plus de cet article, vous pouvez passer en revue le [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) pour obtenir la liste des modifications apportées au Kit de développement logiciel (SDK) .NET version 11.
+Le [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) de la bibliothèque de client comporte une liste détaillée des mises à jour.
 
-## <a name="package-and-library-consolidation"></a>Consolidation des packages et des bibliothèques
+Tous les extraits et exemples de code C# de la documentation relative au produit Recherche cognitive ont été révisés pour tenir compte de l’utilisation de la nouvelle bibliothèque de client **Azure.Search.Documents**.
 
-La version 11 regroupe plusieurs packages et bibliothèques en un seul package et une seule bibliothèque. Après la migration, vous aurez moins de bibliothèques à gérer.
+## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
 
-+ [Package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
+Synthèse des avantages de la mise à niveau :
 
-+ [Informations de référence sur l’API pour la bibliothèque de client](/dotnet/api/overview/azure/search.documents-readme)
++ Les nouvelles fonctionnalités vont être ajoutées à **Azure.Search.Documents** uniquement. La version précédente, Microsoft.Azure.Search, est désormais un client hérité. Les mises à jour des bibliothèques héritées se limitent aux résolutions des bogues de haute priorité uniquement.
 
-## <a name="client-differences"></a>Différences de clients
++ Cohérence avec les autres bibliothèques de clients Azure. **Azure.Search.Documents** accepte une dépendance sur [Azure.Core](/dotnet/api/azure.core) et [System.Text.Json](/dotnet/api/system.text.json). Il suit les approches conventionnelles pour les tâches courantes, par exemple les autorisations et les connexions des clients.
+
+## <a name="package-comparison"></a>Comparaison des packages
+
+La version 11 regroupe et simplifie la gestion des packages pour en réduire le nombre à gérer.
+
+| Version 10 et versions antérieures | Version 11 |
+|------------------------|------------|
+| [Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search/) </br>[Microsoft.Azure.Search.Service](https://www.nuget.org/packages/Microsoft.Azure.Search.Service/) </br>[Microsoft.Azure.Search.Data](https://www.nuget.org/packages/Microsoft.Azure.Search.Data/) </br>[Microsoft.Azure.Search.Common](https://www.nuget.org/packages/Microsoft.Azure.Search.Common/)  | [Package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) |
+
+## <a name="client-comparison"></a>Comparaison des clients
 
 Le cas échéant, le tableau suivant mappe les bibliothèques de client entre les deux versions.
 
-| Étendue des opérations | Microsoft.Azure.Search&nbsp;(v10) | Azure.Search.Documents&nbsp;(v11) |
+|  Opérations du client | Microsoft.Azure.Search&nbsp;(v10) | Azure.Search.Documents&nbsp;(v11) |
 |---------------------|------------------------------|------------------------------|
-| Client utilisé pour les requêtes et pour remplir un index. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
-| Client utilisé pour les index, les analyseurs et les mappages de synonymes | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Client utilisé pour les indexeurs, les sources de données et les ensembles de compétences | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**nouveau**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Cible la collection de documents d’un index (requêtes et importation de données) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
+| Cible les objets liés aux index (index, analyseurs, mappages de synonymes) | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
+| Cible les objets liés aux indexeurs (indexeurs, sources de données, ensembles de compétences) | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**nouveau**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
-> [!Important]
-> `SearchIndexClient` existe dans les deux versions, mais prend en charge des éléments différents. Dans la version 10, `SearchIndexClient` crée des index et d’autres objets. Dans la version 11, `SearchIndexClient` fonctionne avec les index existants. Pour éviter toute confusion lors de la mise à jour du code, gardez à l’esprit l’ordre dans lequel les références de client sont mises à jour. Le fait de suivre l’ordre des [étapes de mise à niveau](#UpgradeSteps) devrait aider à atténuer les éventuels problèmes de remplacement de chaînes.
+> [!Caution]
+> Notez que SearchIndexClient existe dans les deux versions, mais qu’il cible des opérations distinctes. Dans la version 10, SearchIndexClient crée des index et d’autres objets. Dans la version 11, SearchIndexClient fonctionne avec les index existants, en ciblant la collection de documents à l’aide des API de requête et d’ingestion des données. Pour éviter toute confusion lors de la mise à jour du code, gardez à l’esprit l’ordre dans lequel les références de client sont mises à jour. Le fait de suivre l’ordre des [étapes de mise à niveau](#UpgradeSteps) devrait aider à atténuer les éventuels problèmes de remplacement de chaînes.
 
 <a name="naming-differences"></a>
 
@@ -64,7 +71,7 @@ Outre les différences de clients (notées précédemment et donc omises ici), p
 | Version 10 | Équivalent dans la version 11 |
 |------------|-----------------------|
 | [SearchCredentials](/dotnet/api/microsoft.azure.search.searchcredentials) | [AzureKeyCredential](/dotnet/api/azure.azurekeycredential) |
-| `EncryptionKey` (existait dans le [Kit de développement logiciel (SDK) de préversion](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) en tant que fonctionnalité généralement disponible) | [SearchResourceEncryptionKey](/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
+| EncryptionKey (non documenté dans les informations sur la référence API. La prise en charge de cette API est passée en disponibilité générale dans la version 10, mais elle n’était disponible que dans la [préversion du kit SDK](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview)) | [SearchResourceEncryptionKey](/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
 
 ### <a name="indexes-analyzers-synonym-maps"></a>Index, analyseurs et mappages de synonymes
 
@@ -101,13 +108,16 @@ Les définitions de champ sont rationalisées : [SearchableField](/dotnet/api/a
 | [IndexAction](/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
 | [IndexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
 
-### <a name="query-definitions-and-results"></a>Définitions et résultats des requêtes
+### <a name="query-requests-and-responses"></a>Requêtes et réponses
 
 | Version 10 | Équivalent dans la version 11 |
 |------------|-----------------------|
+| [DocumentsOperationsExtensions.SearchAsync](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.searchasync) | [SearchClient.SearchAsync](/dotnet/api/azure.search.documents.searchclient.searchasync) |
 | [DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](/dotnet/api/azure.search.documents.models.searchresult-1) ou [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1), selon que le résultat est un document unique ou plusieurs documents. |
 | [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
 | [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions](/dotnet/api/azure.search.documents.searchoptions)  |
+| [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) |  [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) |
+| [SearchParameters.Filter](/dotnet/api/microsoft.azure.search.models.searchparameters.filter) |  [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) (nouvelle classe pour la construction d’expressions de filtre OData) |
 
 ### <a name="json-serialization"></a>Sérialisation JSON
 
@@ -143,33 +153,43 @@ Response<SearchResults<Mountain>> results = client.Search<Mountain>("Rainier");
 
 Si vous utilisez Newtonsoft.Json pour la sérialisation JSON, vous pouvez transmettre des stratégies globales d’affectation de noms à l’aide d’attributs similaires ou en utilisant les propriétés sur [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm). Pour obtenir un exemple équivalent à celui ci-dessus, consultez l’[exemple de désérialisation des documents](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) dans le fichier Lisez-moi de Newtonsoft.Json.
 
-
 <a name="WhatsNew"></a>
 
-## <a name="whats-in-version-11"></a>Contenu de la version 11
+## <a name="inside-v11"></a>Dans la version 11
 
-Chaque version d’une bibliothèque de client Recherche cognitive Azure cible une version correspondante de l’API REST. L’API REST est considérée comme fondamentale pour le service, avec des Kits de développement logiciel (SDK) individuels encapsulant une version de l’API REST. En tant que développeur .NET, il peut être utile de passer en revue la [documentation sur l’API REST](/rest/api/searchservice/) si vous souhaitez plus d’informations sur des objets ou des opérations spécifiques.
-
-La version 11 cible le [service de recherche 2020-06-30](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Étant donné que la version 11 est également une nouvelle bibliothèque de client entièrement créée, l’essentiel de l’effort de développement s’est concentré sur l’équivalence avec la version 10, certaines fonctionnalités de l’API REST étant encore en attente de prise en charge.
+Chaque version d’une bibliothèque de client Recherche cognitive Azure cible une version correspondante de l’API REST. L’API REST est considérée comme fondamentale pour le service, avec des Kits de développement logiciel (SDK) individuels encapsulant une version de l’API REST. En tant que développeur .NET, il peut être utile de passer en revue la [documentation de l’API REST](/rest/api/searchservice/), qui est plus détaillée, pour obtenir une couverture plus précise d’objets ou d’opérations spécifiques. La version 11 cible le [service de recherche 2020-06-30](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). 
 
 La version 11.0 prend entièrement en charge les opérations et objets suivants :
 
 + Création et gestion d’index
 + Création et gestion de mappage de synonymes
-+ Tous les types de requêtes et la syntaxe (à l’exception des filtres géospatiaux)
-+ Objets et opérations de l’indexeur pour l’indexation des sources de données Azure, y compris les sources de données et ensembles de compétences
++ Création et gestion d’indexeurs
++ Création et gestion de sources de données d’indexeur
++ Création et gestion d’ensembles de compétences
++ Tous les types de requête et toutes les syntaxes
 
-La version 11.1 ajoute ce qui suit :
+Ajouts à la version 11.1 (détails du [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1110-2020-08-11)) :
 
 + [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder) (ajouté à la version 11.1)
 + [Propriété du sérialiseur](/dotnet/api/azure.search.documents.searchclientoptions.serializer) (ajoutée à la version 11.1) pour prendre en charge la sérialisation personnalisée
 
-### <a name="pending-features"></a>Fonctionnalités en attente
+Ajouts à la version 11.2 (détails du [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-2021-02-10)) :
 
-Les fonctionnalités suivantes de la version 10 ne sont pas encore disponibles dans la version 11. Si vous avez besoin de ces fonctionnalités, reportez la migration jusqu’à ce qu’elles soient prises en charge.
++ Ajout de la propriété [EncryptionKey](/dotnet/api/azure.search.documents.indexes.models.searchindexer.encryptionkey) aux indexeurs, aux sources de données et aux ensembles de compétences
++ Prise en charge de la propriété [IndexingParameters.IndexingParametersConfiguration](/dotnet/api/azure.search.documents.indexes.models.indexingparametersconfiguration)
++ Les [types géospatiaux](/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype.geographypoint) sont pris en charge de manière native dans [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder.build). [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) peut encoder des types géométriques à partir de Microsoft.Spatial sans dépendance d’assembly explicite.
+
+  Vous pouvez également continuer à déclarer explicitement une dépendance sur [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/). Des exemples de cette technique sont disponibles pour [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) et [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
+
+Non pris en charge pour le moment dans les versions d’Azure.Search.Documents :
 
 + [Base de connaissances](knowledge-store-concept-intro.md)
-+ Types géospatiaux - Le support de première classe des types géospatiaux est toujours en cours. Pour le moment, le package [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) peut être utilisé pour prendre en charge les opérations géographiques. Des exemples sont disponibles pour [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) et [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
+
+## <a name="before-upgrading"></a>Avant la mise à niveau
+
++ Les [guides de démarrage rapide](search-get-started-dotnet.md), les tutoriels et les [exemples C#](samples-dotnet.md) ont été mis à jour pour tenir compte de l’utilisation du package Azure.Search.Documents. Nous vous recommandons de passer en revue les exemples et procédures pas à pas existants pour en savoir plus sur les nouvelles API avant de vous lancer dans un exercice de migration.
+
++ Le [Guide pratique pour utiliser Azure.Search.Documents](search-howto-dotnet-sdk.md) présente les API les plus couramment utilisées. Même les utilisateurs avertis du service Recherche cognitive peuvent être amenés à consulter cette introduction à la nouvelle bibliothèque en prévision de la migration.
 
 <a name="UpgradeSteps"></a>
 
@@ -248,6 +268,8 @@ En termes de mises à jour de version de service, lorsque les modifications de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
++ [Utilisation d’Azure.Search.Documents dans une application .NET C#](search-howto-dotnet-sdk.md)
++ [Tutoriel : Ajout de la recherche à des applications web](tutorial-csharp-overview.md)
 + [Package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Exemples sur GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
 + [Informations de référence sur l’API Azure.Search.Document](/dotnet/api/overview/azure/search.documents-readme)

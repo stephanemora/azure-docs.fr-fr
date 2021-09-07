@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: c91e35ec5c7e21d5bdbc9a61ea907acde38ea60c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: f185df57226f438a8f40ef6889f1945b21b8540b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641405"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252924"
 ---
 # <a name="delete-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité Delete dans Azure Data Factory et Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 -   [stockage d’objets blob Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Stockage Fichier Azure](connector-azure-file-storage.md)
+-   [Azure Files](connector-azure-file-storage.md)
 -   [Système de fichiers](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)

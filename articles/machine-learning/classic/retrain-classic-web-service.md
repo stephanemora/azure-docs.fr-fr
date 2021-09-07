@@ -9,17 +9,18 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: b9b249dff4bbb6f5c3aa688986bf470e3d449372
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: a7dba27f5c4ef0f63b270111692c35080b2ec378
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579537"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688816"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 
 **S’APPLIQUE À :**  ![S’applique à.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![X indiquant non.](../../../includes/media/aml-applies-to-skus/no.png)[Ne s’applique pas à.](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio (classique) classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio (classique), [consultez cet article pratique.](retrain-machine-learning-model.md)
 

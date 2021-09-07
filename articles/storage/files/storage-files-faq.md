@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 47400f8e359f8f5f7a05119eb91106b318a0e798
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 34a8d0d732863f5fe40056f25460269f131fbf7c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729575"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866498"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -440,9 +440,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="share-snapshot-price"></a>
 **Quel est le coût des instantanés de partage ?**  
-     Durant la période de préversion, il n’y a aucun frais pour la capacité d’instantané de partage. Les coûts de sortie standard et de transaction liés au stockage s’appliquent. Après la disponibilité générale, la capacité et les transactions sur les instantanés de partage seront facturées aux abonnements.
-     
-     Les instantanés de partage sont incrémentiels par nature. L’instantané de partage de base est le partage lui-même. Tous les instantanés de partage suivants sont incrémentiels et ne stockent que la différence par rapport à l’instantané de partage précédent. Vous n’êtes facturé que pour le contenu changé. Si vous disposez d’un partage de 100 Go de données, mais que seulement 5 Go ont changé depuis le dernier instantané de partage, l’instantané de partage consomme seulement 5 Go supplémentaires ; ainsi, 105 Go vous sont facturés. Pour plus d’informations sur les frais de sortie standard et de transaction, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage/files/).
+    Les instantanés de partage sont incrémentiels par nature. L’instantané de partage de base est le partage lui-même. Tous les instantanés de partage suivants sont incrémentiels et ne stockent que la différence par rapport à l’instantané de partage précédent. Vous n’êtes facturé que pour le contenu changé. Si vous disposez d’un partage de 100 Go de données, mais que seulement 5 Go ont changé depuis le dernier instantané de partage, l’instantané de partage consomme seulement 5 Go supplémentaires ; ainsi, 105 Go vous sont facturés. Pour plus d’informations sur les frais de sortie standard et de transaction, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="scale-and-performance"></a>Scalabilité et performances
 * <a id="files-scale-limits"></a>

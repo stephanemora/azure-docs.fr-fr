@@ -1,24 +1,24 @@
 ---
 title: Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB
 description: Découvrez comment Azure Cosmos DB assure la protection des bases de données grâce à l’intégration d’Active directory (Azure RBAC).
-author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.author: mjbrown
+ms.date: 06/17/2021
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a305dc7b6f40883231ebf243624e5d4e0fcfa607
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fa99ba28bacd2132191679c614c2be73fc0a80a8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964203"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123107851"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!NOTE]
-> Cet article concerne le contrôle d’accès en fonction du rôle pour les opérations de plan de gestion dans Azure Cosmos DB. Si vous utilisez des opérations de plan de données, consultez [RBAC Azure Cosmos DB](how-to-setup-rbac.md) pour obtenir des informations sur le contrôle d’accès en fonction du rôle appliqué à vos opérations de plan de données.
+> La prise en charge d’Azure RBAC dans Azure Cosmos DB s’applique uniquement aux opérations de plan de gestion. Cet article concerne le contrôle d’accès en fonction du rôle pour les opérations de plan de gestion dans Azure Cosmos DB. Si vous utilisez des opérations de plan de données, les données sont sécurisées à l’aide de clés primaires, de jetons de ressource ou du RBAC Azure Cosmos DB. Pour en savoir plus sur le contrôle d’accès en fonction du rôle appliqué aux opérations de plan de données, consultez les articles [Sécuriser l’accès aux données](secure-access-to-data.md) et [RBAC Azure Cosmos DB](how-to-setup-rbac.md).
 
 Azure Cosmos DB fournit un contrôle d’accès en fonction du rôle Azure (Azure RBAC) intégré pour les scénarios de gestion courants dans Azure Cosmos DB. Une personne disposant d’un profil dans Azure Active Directory peut assigner ces rôles Azure à des utilisateurs, des groupes, des principaux de service ou des identités managées pour accorder ou refuser l’accès aux ressources et aux opérations sur les ressources Azure Cosmos DB. L’attribution des rôles est limitée au seul accès au plan de contrôle, ce qui inclut l’accès aux comptes, bases de données, conteneurs et offres (débit) d’Azure Cosmos.
 
@@ -33,9 +33,6 @@ Voici les rôles intégrés pris en charge par Azure Cosmos DB :
 |[Opérateur de sauvegarde Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Soumettre une demande de restauration à Portail Azure pour une base de données avec sauvegarde périodique ou pour un conteneur. Modifier l’intervalle de sauvegarde et la rétention sur le portail Azure. Ne peut pas accéder aux données ni utiliser Data Explorer.  |
 | [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Effectuer une action de restauration pour un compte Azure Cosmos DB avec le mode de sauvegarde continue.|
 |[Opérateur Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Peut provisionner des comptes, des bases de données et des conteneurs Azure Cosmos. Ne peut pas accéder aux données ni utiliser Data Explorer.|
-
-> [!IMPORTANT]
-> La prise en charge d’Azure RBAC dans Azure Cosmos DB s’applique uniquement aux opérations de plan de contrôle. Les opérations du plan de données sont sécurisées à l’aide de clés primaires, de jetons de ressources ou du contrôle d’accès RBAC Cosmos DB. Pour en savoir plus, veuillez consulter [Sécuriser l’accès aux données dans Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Gestion des identités et des accès
 
@@ -52,7 +49,7 @@ En plus des rôles intégrés, les utilisateurs peuvent également créer des [r
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Prévention des modifications des Kits de développement logiciel (SDK) Azure Cosmos DB
 
-Il est possible de verrouiller le fournisseur de ressources Azure Cosmos DB pour empêcher toute modification des ressources par un client connecté au moyen des clés de compte (c’est-à-dire les applications connectées par le biais du Kit de développement logiciel (SDK) Azure Cosmos DB), y compris les modifications apportées à partir du portail Azure. Cette fonctionnalité peut être souhaitable pour les utilisateurs qui recherchent des niveaux de contrôle et de gouvernance plus élevés pour les environnements de production. La prévention des modifications du Kit de développement logiciel (SDK) active également des fonctionnalités telles que le verrouillage des ressources et les journaux de diagnostic pour les opérations de plan de contrôle. Les clients qui se connectent au moyen du Kit de développement logiciel (SDK) Azure Cosmos DB ne pourront pas modifier les propriétés des comptes, des bases de données, des conteneurs ni du débit Azure Cosmos. Les opérations impliquant la lecture et l’écriture de données dans les conteneurs Cosmos proprement dits ne sont pas concernées.
+Il est possible de verrouiller le fournisseur de ressources Azure Cosmos DB pour empêcher toute modification des ressources par un client connecté au moyen des clés de compte (c’est-à-dire les applications connectées par le biais du Kit de développement logiciel (SDK) Azure Cosmos DB), Cette fonctionnalité peut être souhaitable pour les utilisateurs qui recherchent des niveaux de contrôle et de gouvernance plus élevés pour les environnements de production. La prévention des modifications du Kit de développement logiciel (SDK) active également des fonctionnalités telles que le verrouillage des ressources et les journaux de diagnostic pour les opérations de plan de contrôle. Les clients qui se connectent au moyen du Kit de développement logiciel (SDK) Azure Cosmos DB ne pourront pas modifier les propriétés des comptes, des bases de données, des conteneurs ni du débit Azure Cosmos. Les opérations impliquant la lecture et l’écriture de données dans les conteneurs Cosmos proprement dits ne sont pas concernées.
 
 Lorsque cette fonctionnalité est activée, seuls les utilisateurs possédant le rôle Azure et les informations d’identification Azure Active Directory appropriés, notamment les identités Managed Service Identity, peuvent apporter des modifications aux ressources.
 
@@ -73,7 +70,7 @@ Ce paramètre empêche toute modification de ressources Cosmos provenant d’un 
 
 - Modification des procédures stockées, des déclencheurs ou des fonctions définies par l’utilisateur.
 
-Si vos applications (ou les utilisateurs qui passent par le portail Azure) effectuent l’une de ces actions, il sera nécessaire de les migrer pour qu’elles s’exécutent par le biais de [modèles Resource Manager](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST ou la [bibliothèque de gestion Azure](https://github.com/Azure-Samples/cosmos-management-net). Notez que la gestion Azure est disponible dans [plusieurs langues](/azure/index.yml?product=developer-tools#languages-and-tools).
+Si vos applications (ou les utilisateurs qui passent par le portail Azure) effectuent l’une de ces actions, il sera nécessaire de les migrer pour qu’elles s’exécutent par le biais de [modèles Resource Manager](sql/manage-with-templates.md), [PowerShell](sql/manage-with-powershell.md), [Azure CLI](sql/manage-with-cli.md), REST ou la [bibliothèque de gestion Azure](https://github.com/Azure-Samples/cosmos-management-net). Notez que la gestion Azure est disponible dans [plusieurs langues](/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Définition au moyen d’un modèle ARM
 

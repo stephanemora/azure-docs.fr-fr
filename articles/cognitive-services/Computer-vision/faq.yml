@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: f03dd44b1ea37f5103ca9aa4eff26b3b7b080312
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.openlocfilehash: 2509338fac06a182864777e2ff5825f1092f758c
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113311620"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122968819"
 title: Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 summary: >
   > [!TIP]
@@ -27,9 +27,28 @@ sections:
 - name: Ignoré
   questions:
   - question: >
+      Comment augmenter le nombre de transactions par seconde autorisées par le service ?
+    answer: >
+      Le niveau gratuit (S0) autorise uniquement 20 transactions par minute. Effectuez une mise à niveau vers le niveau S1 pour obtenir jusqu’à 10 transactions par seconde. Si vous voyez le code d’erreur 429 et le message d’erreur « Trop de demandes », [soumettez un ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) afin que le nombre de transactions par seconde soit porté à 50 ou plus, avec une brève justification métier. [Tarifs de Vision par ordinateur](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+  - question: "Le service génère une erreur, car mon fichier image est trop grand. Comment résoudre ce problème ? \n"
+    answer: >
+      La taille limite de fichier pour la plupart des fonctionnalités de Vision par ordinateur est 4 Mo, mais les SDK de la bibliothèque de client peuvent gérer des fichiers jusqu’à 6 Mo. Pour la reconnaissance optique de caractères (OCR) qui gère les documents multipages, la taille de fichier maximale est de 50 Mo. Pour plus d’informations, consultez les [limites d’entrée pour l’analyse d’image](overview-image-analysis.md#image-requirements) et les [limites d’entrée pour la reconnaissance optique de caractères](overview-ocr.md#input-requirements).
+  - question: >
+      Comment traiter des documents multipages avec la reconnaissance optique de caractères en un seul appel ?
+    answer: >
+      La reconnaissance optique de caractères, en particulier l’opération de lecture, prend en charge les documents multipages en tant qu’entrée d’API. Si vous appelez l’API avec un document de 10 pages, vous êtes facturé pour 10 pages, chaque page représentant une transaction facturable. Notez que si vous disposez du niveau gratuit (S0), il ne peut traiter que deux pages à la fois.
+  - question: >
+      Puis-je envoyer plusieurs images en un seul appel d’API au service Vision par ordinateur ?
+    answer: >
+      Cette fonction n’est pas disponible.
+  - question: >
+      Combien de langues sont prises en charge pour l’analyse d’image et l’OCR ?
+    answer: >
+      Veuillez consulter la page [Prise en charge des langues](language-support.md) pour obtenir la liste des langues couvertes par l’analyse d’image et l’OCR.
+  - question: >
       Puis-je former l’API Vision par ordinateur pour qu’elle utilise des balises personnalisées ?  J’aimerais par exemple ajouter des images d’espèces de chats pour « former » l’IA, puis recevoir une valeur d’espèce en fonction d’une requête d’IA.
     answer: >
-      Cette fonction n’est pas disponible actuellement. Toutefois, nos ingénieurs travaillent pour mettre en œuvre cette fonctionnalité sur l’API Vision par ordinateur.
+      Cette fonction n’est pas disponible actuellement. Vous pouvez utiliser [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/overview) pour entraîner un modèle afin de détecter les caractéristiques visuelles définies par l’utilisateur.
   - question: >
       Puis-je déployer la capacité OCR (Read) localement ?
     answer: >

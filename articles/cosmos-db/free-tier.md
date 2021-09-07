@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: sngun
-ms.openlocfilehash: 77e4ccd7b651de97d3f423a72309ac08a6495fd6
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 55b37ce3f96bc187e4420fc16924b02639c9a7df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539806"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563233"
 ---
 # <a name="azure-cosmos-db-free-tier"></a>Niveau gratuit d’Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,7 +20,7 @@ Le niveau gratuit d’Azure Cosmos DB facilite le démarrage, le développement
 
 Le niveau gratuit dure indéfiniment pendant la durée de vie du compte et il est fourni avec tous les [avantages et fonctionnalités](introduction.md#key-benefits) d’un compte Azure Cosmos DB standard. Ces avantages incluent un stockage et un débit illimités (RU/s), des contrats SLA, une haute disponibilité, une distribution mondiale clé en main dans toutes les régions Azure, et bien plus encore.
 
-Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez y souscrire lors de la création du compte. Si vous ne voyez pas l’option permettant d’appliquer la remise de niveau gratuit, cela signifie qu’un autre compte dans l’abonnement a déjà été activé avec le niveau gratuit. Lors de la création d’un nouveau compte, il est recommandé d’activer la remise du niveau gratuit si elle est disponible.
+Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez y souscrire lors de la création du compte. Si vous ne voyez pas l’option permettant d’appliquer la remise de niveau gratuit, cela signifie qu’un autre compte dans l’abonnement a déjà été activé avec le niveau gratuit. Si vous créez un compte avec le niveau gratuit, puis que vous le supprimez, vous pouvez appliquer le niveau gratuit à un nouveau compte. Lors de la création d’un nouveau compte, il est recommandé d’activer la remise du niveau gratuit si elle est disponible.
 
 > [!NOTE]
 > Le niveau gratuit n’est actuellement pas disponible pour les comptes serverless.
@@ -92,6 +92,6 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 Après avoir créé un compte de niveau gratuit, vous pouvez commencer à créer des applications utilisant Azure Cosmos DB avec les articles suivants :
 
 * [Créer une application console en utilisant le SDK .NET V4](create-sql-api-dotnet-v4.md) pour gérer des ressources Azure Cosmos DB.
-* [Générer une application web .NET à l’aide de l’API d’Azure Cosmos DB pour MongoDB](create-mongodb-dotnet.md)
+* [Générer une application web .NET à l’aide de l’API d’Azure Cosmos DB pour MongoDB](mongodb/create-mongodb-dotnet.md)
 * [Téléchargez un notebook à partir de la galerie](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) et analysez vos données.
 * En savoir plus sur les [factures Azure Cosmos DB](understand-your-bill.md)

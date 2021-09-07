@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 24a1ed0d3146b695995182f8a9236ca48ee4fe81
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 768bcc39505671c452d99dc1d8d1d50ec3f3b9e5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290936"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259641"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-app-service"></a>Conteneurisation et migration d’applications web Java vers Azure App Service
 
@@ -231,7 +231,7 @@ Une fois l’image conteneur générée, l’étape suivante consiste à déploy
     - **Supervision de l’espace de travail** : Si vous avez choisi d’activer la supervision avec Application Insights, spécifiez la ressource Application Insights que vous voulez utiliser. Cette option n’est pas visible si vous avez désactivé l’intégration de la supervision.
          - Si vous n’avez pas de ressource Application Insights ou si vous voulez en créer une, vous pouvez choisir de le faire à partir de l’outil en cliquant sur **Créer**.
 
-3. **Spécifier un partage de fichiers Azure** : si vous avez ajouté des répertoires/dossiers et sélectionné l’option Partage de fichiers Azure pour le stockage persistant, spécifiez le partage de fichiers Azure que l’outil Conteneurisation d’applications d’Azure Migrate doit utiliser pendant le processus de déploiement. L’outil copie les répertoires/dossiers d’application configurés pour le stockage de fichiers Azure et les monte sur le conteneur d’application au cours du déploiement. 
+3. **Spécifier un partage de fichiers Azure** : si vous avez ajouté des répertoires/dossiers et sélectionné l’option Partage de fichiers Azure pour le stockage persistant, spécifiez le partage de fichiers Azure que l’outil Conteneurisation d’applications d’Azure Migrate doit utiliser pendant le processus de déploiement. L’outil copie les répertoires/dossiers d’application configurés pour Azure Files et les monte sur le conteneur d’application durant le déploiement. 
 
      - Si vous n’avez pas de partage de fichiers Azure ou si vous souhaitez créer un partage de fichiers Azure, vous pouvez choisir de continuer à le créer à partir de l’outil en cliquant sur **Créer un compte de stockage et un partage de fichiers**.  
 

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 5325999fc844a23aeea3795527396709d2e7a730
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 01/23/2019
+ms.openlocfilehash: 491094d704d5a5b5d40b8531fc60096f76db0cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825074"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641374"
 ---
 # <a name="foreach-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité ForEach dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

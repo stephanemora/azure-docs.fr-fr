@@ -4,14 +4,14 @@ description: Découvrez comment auditer les opérations de plan de contrôle tel
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 08/13/2021
 ms.author: sngun
-ms.openlocfilehash: 6f3e408343fc75d6587d1a67a0179edf13d56e36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ce2d934c335099d07bbe5621a8aa363bf97583c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658246"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525775"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Guide pratique pour auditer les opérations de plan de contrôle Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -68,17 +68,17 @@ Après avoir activé la journalisation, suivez les étapes ci-dessous pour effec
    | where TimeGenerated >= ago(1h)
    ```
 
-Les captures d’écran suivantes capturent des journaux lorsqu’un niveau de cohérence est modifié par un compte Azure Cosmos :
+   Les captures d’écran suivantes capturent des journaux lorsqu’un niveau de cohérence est modifié par un compte Azure Cosmos. La valeur `activityId_g` des résultats est différente de l’ID d’activité d’une opération :
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Journaux du plan de contrôle lors de l’ajout d’un réseau virtuel":::
+   :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Journaux du plan de contrôle lors de l’ajout d’un réseau virtuel":::
 
-Les captures d’écran suivantes capturent les journaux lorsque l’espace de clés ou une table d’un compte Cassandra sont créés et lorsque le débit est mis à jour. Les journaux du plan de contrôle pour les opérations de création et de mise à jour sur la base de données et le conteneur sont consignés séparément, comme le montre la capture d’écran suivante :
+   Les captures d’écran suivantes capturent les journaux lorsque l’espace de clés ou une table d’un compte Cassandra sont créés et lorsque le débit est mis à jour. Les journaux du plan de contrôle pour les opérations de création et de mise à jour sur la base de données et le conteneur sont consignés séparément, comme le montre la capture d’écran suivante :
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Journaux du plan de contrôle lors de la mise à jour du débit":::
+   :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Journaux du plan de contrôle lors de la mise à jour du débit":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifier l’identité associée à une opération spécifique
 
-Si vous souhaitez effectuer un débogage supplémentaire, vous pouvez identifier une opération spécifique dans le **journal d’activité** à l’aide de l’ID d’activité ou de l’horodatage de l’opération. L’horodatage est utilisé pour certains clients Resource Manager dans les cas où l’ID d’activité n’est pas explicitement passée. Le journal d’activité fournit des détails sur l’identité sous laquelle l’opération a été lancée. La capture d’écran suivante montre comment utiliser l’ID d’activité et rechercher les opérations qui lui sont associées dans le journal d’activité :
+Si vous souhaitez déboguer davantage, vous pouvez identifier une opération spécifique dans le **journal d’activité** en utilisant `activityId_g` ou l’horodatage de l’opération. L’horodatage est utilisé pour certains clients Resource Manager dans les cas où l’ID d’activité n’est pas explicitement passée. Le journal d’activité fournit des détails sur l’identité sous laquelle l’opération a été lancée. La capture d’écran suivante montre comment utiliser `activityId_g` et rechercher les opérations qui lui sont associées dans le journal d’activité :
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Utiliser l’ID d’activité et rechercher les opérations":::
 

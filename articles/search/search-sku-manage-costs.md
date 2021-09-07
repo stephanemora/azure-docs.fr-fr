@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 6a371d3a9edf537e78f5a889139a053cb925518f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 1e46601858ece67efa2bca9543083da8a0e2cc79
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770832"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563382"
 ---
 # <a name="estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Estimer et gérer les coûts d’un service Recherche cognitive Azure
 
@@ -93,7 +93,7 @@ Pour l’[enrichissement par IA](cognitive-search-concept-intro.md) à l’aide 
 | [Recherche d’entité personnalisée](cognitive-search-skill-custom-entity-lookup.md) | Mesuré par la Recherche cognitive Azure. Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/search/#pricing). |
 
 > [!TIP]
-> L’[enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) réduit le coût du traitement des ensembles de compétences en mettant en cache et en réutilisant les enrichissements non affectés par les changements apportés à un ensemble de compétences. La mise en cache a besoin du Stockage Azure (consultez les [tarifs](https://azure.microsoft.com/pricing/details/storage/blobs/)). Toutefois, le coût cumulé de l’exécution des ensembles de compétences est moindre si les enrichissements existants peuvent être réutilisés.
+> L’[enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) réduit le coût du traitement des ensembles de compétences en mettant en cache et en réutilisant les enrichissements non affectés par les changements apportés à un ensemble de compétences. La mise en cache a besoin du Stockage Azure (consultez les [tarifs](/pricing/details/storage/blobs/)). Toutefois, le coût cumulé de l’exécution des ensembles de compétences est moindre si les enrichissements existants peuvent être réutilisés.
 
 ## <a name="tips-for-managing-costs"></a>Conseils pour la gestion des coûts
 

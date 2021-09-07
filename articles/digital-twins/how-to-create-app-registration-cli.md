@@ -4,23 +4,23 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment créer une inscription d’application Azure AD en tant qu’option d’authentification pour les applications clientes en utilisant l’interface CLI.
 author: baanders
 ms.author: baanders
-ms.date: 5/13/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a42a09af845bce160689718fb74eb393409740d3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7c9f69d33c89fba209ecf7ad76bc1aa8e2b6b666
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437927"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224887"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-cli"></a>Créer une inscription d’application à utiliser avec Azure Digital Twins (interface CLI)
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-Lors de l’utilisation d’une instance Azure Digital Twins, il est courant d’interagir avec cette instance par le biais d’applications clientes, comme une application cliente personnalisée ou un exemple d’application comme [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Ces applications doivent s’authentifier auprès d’Azure Digital Twins pour interagir avec, et certains des [mécanismes d’authentification](how-to-authenticate-client.md) que les applications peuvent utiliser impliquent une **inscription d’application** [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
+Lors de l’utilisation d’une instance Azure Digital Twins, il est courant d’interagir avec cette instance par le biais d’applications clientes, telles qu’une application cliente personnalisée ou un exemple d’application comme [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Ces applications doivent s’authentifier auprès du service Azure Digital Twins pour interagir avec celui-ci, et certains des [mécanismes d’authentification](how-to-authenticate-client.md) que les applications peuvent utiliser impliquent une **inscription d’application** [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
-Cela n’est pas obligatoire pour tous les scénarios d’authentification. Toutefois, si vous utilisez une stratégie d’authentification ou un exemple de code qui nécessite une inscription d’application, cet article vous montre comment en définir une avec [Azure CLI](/cli/azure/what-is-azure-cli). Il explique également comment [collecter les valeurs importantes](#collect-important-values) dont vous aurez besoin pour utiliser l’inscription de l’application afin de vous authentifier.
+L’inscription de l’application n’est pas obligatoire pour tous les scénarios d’authentification. En revanche, si vous utilisez une stratégie d’authentification ou un exemple de code qui nécessite une inscription d’application, cet article montre comment en définir une avec [Azure CLI](/cli/azure/what-is-azure-cli). Il explique également comment [collecter les valeurs importantes](#collect-important-values) dont vous aurez besoin pour utiliser l’inscription d’application afin de vous authentifier.
 
 ## <a name="azure-ad-app-registrations"></a>Inscriptions d’applications Azure AD
 
@@ -59,13 +59,13 @@ Enregistrez le fichier terminé.
 
 ### <a name="upload-to-cloud-shell"></a>Upload to Cloud Shell (Charger sur Cloud Shell)
 
-Ensuite, chargez le fichier manifeste que vous venez de créer dans Cloud Shell, afin de pouvoir y accéder dans les commandes Cloud Shell lors de la configuration de l’inscription d’application.
+Ensuite, chargez le fichier manifeste que vous avez créé dans Cloud Shell, afin de pouvoir y accéder dans les commandes Cloud Shell lors de la configuration de l’inscription d’application.
 
 Pour charger le fichier, accédez à la fenêtre Cloud Shell dans votre navigateur. Sélectionnez l’icône « Charger/Télécharger des fichiers » et choisissez « Charger ».
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Capture d’écran d’Azure Cloud Shell. L’icône de chargement est mise en évidence.":::
 
-Accédez au fichier **manifest.json** sur votre machine et sélectionnez « Ouvrir ». Cela chargera le fichier à la racine de votre stockage Cloud Shell.
+Accédez au fichier **manifest.json** sur votre machine et sélectionnez « Ouvrir ». Cela a pour effet de charger le fichier à la racine de votre stockage Cloud Shell.
 
 ## <a name="create-the-registration"></a>Création de l’inscription
 
@@ -93,7 +93,7 @@ Vous pouvez également vérifier que l’inscription d’application a été cor
 
 ## <a name="collect-important-values"></a>Collecter les valeurs importantes
 
-Ensuite, collectez certaines valeurs importantes sur l’inscription d’application dont vous aurez besoin pour utiliser l’inscription d’application afin d’authentifier une application cliente. Ces valeurs incluent :
+Ensuite, collectez certaines valeurs importantes sur l’inscription d’application, dont vous aurez besoin pour utiliser l’inscription d’application afin d’authentifier une application cliente. Ces valeurs incluent :
 * **Nom de la ressource**
 * **ID client**
 * **ID locataire**
@@ -125,7 +125,7 @@ Pour créer un **secret client** pour votre inscription d’application, vous av
 az ad app credential reset --id <client-ID> --append
 ```
 
-Vous pouvez également ajouter des paramètres facultatifs à cette commande pour spécifier une description des informations d’identification, une date de fin et d’autres détails. Pour plus d’informations sur la commande et ses paramètres supplémentaires, consultez la [documentation sur az ad app credential reset](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
+Vous pouvez également ajouter des paramètres facultatifs à cette commande pour spécifier une description des informations d’identification, une date de fin et d’autres détails. Pour plus d’informations sur la commande et ses paramètres, consultez la [documentation sur az ad app credential reset](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
 
 Les informations générées par cette commande décrivent le secret client que vous avez créé. Copiez la valeur de `password` à utiliser lorsque vous avez besoin du secret client pour l’authentification.
 
@@ -136,9 +136,9 @@ Les informations générées par cette commande décrivent le secret client que 
 
 ## <a name="other-possible-steps-for-your-organization"></a>Autres étapes possibles pour votre organisation
 
-Il est possible que votre organisation exige des actions supplémentaires de la part des propriétaires/administrateurs d’abonnement pour configurer correctement une inscription d’application. Les étapes requises peuvent varier en fonction des paramètres spécifiques de votre organisation.
+Il est possible que votre organisation exige des actions supplémentaires de la part des propriétaires ou administrateurs d’abonnement pour configurer correctement une inscription d’application. Les étapes requises peuvent varier en fonction des paramètres spécifiques de votre organisation.
 
-Voici quelques activités courantes qu’un propriétaire ou administrateur pour l’abonnement peut devoir effectuer.
+Voici quelques activités courantes qu’un propriétaire ou administrateur de l’abonnement peuvent devoir effectuer.
 * Accordez le consentement administrateur pour l’inscription d’application. Votre organisation peut avoir activé globalement l’option **Consentement administrateur requis** dans Azure AD pour toutes les inscriptions d’applications au sein de votre abonnement. Dans ce cas, le propriétaire/administrateur peut avoir besoin d’accorder des autorisations d’application ou déléguées supplémentaires.
 * Activez l’accès client public en ajoutant `--set publicClient=true` à une commande de création ou de mise à jour pour l’inscription.
 * Définissez des URL de réponse spécifiques pour l’accès web et au bureau à l’aide du paramètre `--reply-urls`. Pour plus d’informations sur l’utilisation de ce paramètre avec des commandes `az ad`, consultez la [documentation sur az ad app](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).

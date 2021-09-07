@@ -3,16 +3,16 @@ title: Mises à jour du service de pool d’hôtes Azure Virtual Desktop – Azu
 description: Comment créer un pool d’hôtes de validation pour surveiller les mises à jour de service avant de déployer les mises à jour en production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 07/23/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 2c944d1068ae74a97c8a6315e98a1348f9378b8c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 13d340d427d2478d226b966e17bf98bcf2561004
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749126"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110159"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
 
@@ -31,17 +31,29 @@ Vous pouvez déboguer les problèmes du pool d’hôtes de validation avec la [f
 >[!IMPORTANT]
 >Des problèmes se posent actuellement pour activer et désactiver les environnements de validation avec l’intégration entre Azure Virtual Desktop et Azure Resource Management. Nous mettrons à jour cet article quand nous aurons résolu le problème.
 
-## <a name="prerequisites"></a>Prérequis
-
-Avant de commencer, suivez les instructions fournies dans [Configuration du module PowerShell Azure Virtual Desktop](powershell-module.md) pour configurer votre module PowerShell et vous connecter à Azure.
-
 ## <a name="create-your-host-pool"></a>Créer votre pool d'hôtes
 
 Vous pouvez créer un pool d'hôtes en suivant les instructions de ces articles :
-- [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
-- [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
+- [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure ou Azure CLI](create-host-pools-azure-marketplace.md)
+- [Créer un pool d’hôtes avec PowerShell ou Azure CLI](create-host-pools-powershell.md)
 
 ## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Définir votre pool d’hôtes en tant que pool d’hôtes de validation
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Pour utiliser le portail Azure pour configurer votre pool d’hôtes de validation :
+
+1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
+2. Recherchez et sélectionnez **Azure Virtual Desktop**.
+3. Sur la page Azure Virtual Desktop, sélectionnez **Pools d’hôtes**.
+4. Sélectionnez le nom du pool d’hôtes que vous souhaitez modifier.
+5. Sélectionner **Propriétés**.
+6. Dans le champ d’environnement de validation, sélectionnez **Oui** pour activer l’environnement de validation.
+7. Sélectionnez **Enregistrer**. Les nouveaux paramètres seront appliqués.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Si vous ne l’avez pas déjà fait, suivez les instructions fournies dans [Configurer le module PowerShell Azure Virtual Desktop](powershell-module.md) pour configurer votre module PowerShell et vous connecter à Azure.
 
 Exécutez les cmdlets PowerShell suivantes pour définir le nouveau pool d’hôtes en tant que pool d’hôtes de validation. Remplacez les valeurs entre crochets par les valeurs correspondant à votre session :
 
@@ -68,19 +80,27 @@ Les résultats de la cmdlet doivent se présenter comme suit :
     ValidationEnvironment : True
 ```
 
-## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Activez votre environnement de validation avec le portail Azure
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Vous pouvez également utiliser le portail Azure pour activer votre environnement de validation.
+Si vous ne l’avez pas déjà fait, préparez votre environnement pour Azure CLI et connectez-vous.
 
-Pour utiliser le portail Azure pour configurer votre pool d’hôtes de validation :
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
-2. Recherchez et sélectionnez **Azure Virtual Desktop**.
-3. Sur la page Azure Virtual Desktop, sélectionnez **Pools d’hôtes**.
-4. Sélectionnez le nom du pool d’hôtes que vous souhaitez modifier.
-5. Sélectionner **Propriétés**.
-6. Dans le champ d’environnement de validation, sélectionnez **Oui** pour activer l’environnement de validation.
-7. Sélectionnez **Enregistrer**. Les nouveaux paramètres seront appliqués.
+Pour définir le nouveau pool d’hôtes comme pool d’hôtes de validation, utilisez la commande [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update) :
+
+```azurecli
+az desktopvirtualization hostpool update --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \
+    --validation-environment true
+```
+
+Utilisez la commande suivante pour vérifier que la propriété de validation a été définie.
+
+```azurecli
+az desktopvirtualization hostpool show --name "MyHostPool" \
+    --resource-group "MyResourceGroup" 
+```
+---
 
 ## <a name="update-schedule"></a>Mettre à jour la planification
 

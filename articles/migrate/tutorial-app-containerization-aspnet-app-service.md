@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.author: rahugup
-ms.openlocfilehash: 674fcd1fc7ad6035278448b46528cc939b5e8a6e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: fd0a7d3e1af6bb0a0dad10f9a92194b495b13b91
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294630"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253105"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-app-service"></a>Conteneurisation d’applications ASP.NET et leur migration vers Azure App Service
 
@@ -23,13 +23,13 @@ L’outil Conteneurisation d’applications d’Azure Migrate prend actuellement
 - Conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur App Service.
 - Conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur Azure Kubernetes Service. [En savoir plus](./tutorial-app-containerization-aspnet-kubernetes.md)
 - conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur AKS. [En savoir plus](./tutorial-app-containerization-java-kubernetes.md)
-- conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur App Service. [En savoir plus](./tutorial-app-containerization-java-app-service.md)
+- Conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur App Service. [En savoir plus](./tutorial-app-containerization-java-app-service.md)
 
 L’outil Conteneurisation d’applications d’Azure Migrate vous aide à effectuer les opérations suivantes :
 
 - **Découvrir votre application :** l’outil se connecte à distance aux serveurs d’applications exécutant votre application ASP.Net et découvre les composants d’application. L’outil crée un fichier Dockerfile utilisable pour créer une image conteneur pour l’application.
 - **Créer l’image conteneur :** vous pouvez inspecter et personnaliser le fichier Dockerfile en fonction des besoins de votre application, et l’utiliser pour créer votre image conteneur d’application. L’image conteneur d’application est envoyée (push) à un Azure Container Registry que vous spécifiez.
-- **Déployer sur Azure App service** : l’outil génère ensuite les fichiers de déploiement nécessaires au déploiement de l’application en conteneur sur Azure App service.
+- **Déployer sur Azure App Service** : l’outil génère ensuite les fichiers de déploiement nécessaires au déploiement de l’application en conteneur sur Azure App service.
 
 > [!NOTE]
 > L’outil Conteneurisation d’applications d’Azure Migrate vous aide à découvrir des types d’applications spécifiques (ASP.NET et applications web Java sur Apache Tomcat) et leurs composants sur un serveur d’applications. Pour découvrir les serveurs et l’inventaire des applications, rôles et fonctionnalités s’exécutant sur des machines locaux, utilisez la fonctionnalité Découverte et évaluation d’Azure Migrate. [En savoir plus](./tutorial-discover-vmware.md)
@@ -211,23 +211,23 @@ Paramétrer la configuration a pour effet de rendre celle-ci disponible en tant 
 
     ![Capture d’écran de la fin de la génération d’image conteneur d’application.](./media/tutorial-containerize-apps-aks/build-aspnet-app-completed.png)
 
-## <a name="deploy-the-containerized-app-on-azure-app-service"></a>Déployer l’application en conteneur sur Azure App Service
+## <a name="deploy-the-containerized-app-on-azure-app-service"></a>Déployer l’application conteneurisée sur Azure App Service
 
 Une fois l’image conteneur générée, l’étape suivante consiste à déployer l’application en tant que conteneur sur [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-1. **Sélectionnez le plan de Azure App service** : spécifiez le plan de Azure App service que l’application doit utiliser.
+1. **Sélectionner le plan Azure App Service** : Spécifiez le plan Azure App Service que l’application doit utiliser.
 
-     - Si vous n’avez pas de plan App Service ou si vous souhaitez créer un plan App Service à utiliser, vous pouvez choisir de créer à partir de l’outil en cliquant sur **Créer un nouveau plan App service**.      
+     - Si vous n’avez pas de plan App Service ou si vous souhaitez créer un plan App Service à utiliser, vous pouvez choisir d’en créer un à partir de l’outil en cliquant sur **Créer un plan App service**.      
      - Cliquez sur **Continuer** après avoir sélectionné le plan App Service.
 
-2. **Spécifier le magasin des secrets** : si vous aviez choisi de paramétrer des configurations d’application, spécifiez le magasin de secrets à utiliser pour l’application. Vous pouvez choisir les paramètres d'application Azure Key Vault ou App Service pour gérer vos secrets d’application. [En savoir plus](../app-service/configure-common.md#configure-connection-strings)
+2. **Spécifier le magasin des secrets** : si vous aviez choisi de paramétrer des configurations d’application, spécifiez le magasin de secrets à utiliser pour l’application. Vous pouvez choisir les paramètres d’application Azure Key Vault ou App Service pour gérer vos secrets d’application. [En savoir plus](../app-service/configure-common.md#configure-connection-strings)
 
      - Si vous avez sélectionné App Service paramètres d’application pour la gestion des secrets, cliquez sur **Continuer**.
      - Si vous souhaitez utiliser Azure Key Vault pour gérer les secrets de votre application, spécifiez l’instance Azure Key Vault que vous souhaitez utiliser.     
          - Si vous n’avez pas d’instance Azure Key Vault ou si vous souhaitez en créer une nouvelle, vous pouvez choisir de la créer à partir de l’outil en cliquant sur **Créer un nouveau Azure Key Vault**.
          - L’outil attribue automatiquement les autorisations nécessaires pour la gestion des secrets via Key Vault.
 
-3. **Spécifier un partage de fichiers Azure** : si vous avez ajouté des répertoires/dossiers et sélectionné l’option Partage de fichiers Azure pour le stockage persistant, spécifiez le partage de fichiers Azure que l’outil Conteneurisation d’applications d’Azure Migrate doit utiliser pendant le processus de déploiement. L’outil copie les répertoires/dossiers d’application configurés pour le stockage de fichiers Azure et les monte sur le conteneur d’application au cours du déploiement. 
+3. **Spécifier un partage de fichiers Azure** : si vous avez ajouté des répertoires/dossiers et sélectionné l’option Partage de fichiers Azure pour le stockage persistant, spécifiez le partage de fichiers Azure que l’outil Conteneurisation d’applications d’Azure Migrate doit utiliser pendant le processus de déploiement. L’outil copie les répertoires/dossiers d’application configurés pour Azure Files et les monte sur le conteneur d’application durant le déploiement. 
 
      - Si vous n’avez pas de partage de fichiers Azure ou si vous souhaitez créer un partage de fichiers Azure, vous pouvez choisir de continuer à le créer à partir de l’outil en cliquant sur **Créer un compte de stockage et un partage de fichiers**.  
 

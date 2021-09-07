@@ -3,15 +3,15 @@ title: Qu’est-ce que le streaming d’applications distantes Azure Virtual Des
 description: Une présentation du streaming d’applications distantes Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 88bc4c94612a69be8a9d7aad7bbad983b687235a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: e1ff4cba43c1e57c39b5e47e2485a262f66bbb5f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113798785"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032977"
 ---
 # <a name="what-is-azure-virtual-desktop-remote-app-streaming"></a>Qu’est-ce que le streaming d’applications distantes Azure Virtual Desktop ?
 
@@ -27,13 +27,15 @@ Pour configurer un déploiement Azure Virtual Desktop pour que vos applications 
 
 - Votre application personnalisée. Voir [Comment héberger des applications personnalisées avec Azure Virtual Desktop](custom-apps.md) Pour en savoir plus sur les types d’applications qu’Azure Virtual Desktop prend en charge et comment vous pouvez les servir à vos clients.
 
-- Informations d’identification de jonction de domaine. Si vous ne disposez pas déjà d’un système de gestion des identités compatible avec Azure Virtual Desktop, vous devez configurer la gestion des identités pour votre pool hôte.
+- Informations d’identification de jonction de domaine. Si vous ne disposez pas déjà d’un système de gestion des identités compatible avec Azure Virtual Desktop, vous devez configurer la gestion des identités pour votre pool hôte. Pour en savoir plus, consultez [Configurer des identités managées](identities.md).
 
 - Un abonnement Azure. Si vous n’avez pas encore d’abonnement, assurez-vous de [Créer un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="get-started"></a>Bien démarrer
 
-Maintenant que vous êtes prêt, jetons un coup d’œil à la façon dont vous pouvez configurer votre déploiement Azure Virtual Desktop.
+Maintenant que vous êtes prêt, jetons un coup d’œil à la façon dont vous pouvez configurer votre déploiement Azure Virtual Desktop. Vous avez deux options pour garantir vos chances de succès. Vous pouvez configurer votre déploiement manuellement ou automatiquement. Les deux sections suivantes décrivent les différences entre ces deux méthodes.
+
+### <a name="set-up-azure-virtual-desktop-manually"></a>Configurer Azure Virtual Desktop manuellement
 
 Vous pouvez configurer votre déploiement manuellement en suivant les didacticiels suivants :
 
@@ -44,6 +46,13 @@ Vous pouvez configurer votre déploiement manuellement en suivant les didacticie
 3. [Créer un pool d’hôtes pour valider les mises à jour de service](../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 4. [Configurer des alertes de service](../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+
+### <a name="set-up-azure-virtual-desktop-automatically"></a>Configurer Azure Virtual Desktop automatiquement
+
+Si vous préférez un processus automatique, vous pouvez utiliser la fonctionnalité de démarrage qui configure le déploiement pour vous. Pour plus d’informations, consultez les articles suivants :
+
+- [Déployer Azure Virtual Desktop avec la fonctionnalité de démarrage](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (Quand vous suivez ces instructions, consultez celles de la section [Pour les abonnements avec Azure AD DS ou AD DS](../getting-started-feature.md#for-subscriptions-with-azure-ad-ds-or-ad-ds). Cette méthode permet une meilleure gestion des identités et une meilleure compatibilité des applications. Elle vous donne aussi la possibilité d’ajuster les coûts d’infrastructure liés aux identités. La méthode pour les abonnements qui n’ont pas encore Azure AD DS ou AD DS ne vous offre pas ces avantages.)
+- [Résoudre les problèmes de la fonctionnalité de démarrage](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="customize-and-manage-azure-virtual-desktop"></a>Personnaliser et gérer Azure Virtual Desktop
 
@@ -58,6 +67,7 @@ Une fois que vous avez configuré Azure Virtual Desktop, vous disposez de nombre
 - [Configurer un plan de continuité d’activité et la reprise d’activité (BCDR)](../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Configurer l’impression universelle](/universal-print/fundamentals/universal-print-getting-started)
+- [Configurer la fonctionnalité Démarrer la machine virtuelle à la connexion](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="get-to-know-your-azure-virtual-desktop-deployment"></a>Découverte de votre déploiement Azure Virtual Desktop
 
@@ -69,7 +79,9 @@ Lisez les articles suivants pour comprendre les concepts essentiels à la créat
 - [Glossaire d’Azure Monitor pour Azure Virtual Desktop](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Virtual Desktop pour l’entreprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [Estimer les coûts de déploiement totaux](total-costs.md)
+- [Estimer les coûts de diffusion d’application par utilisateur](streaming-costs.md)
 - [Recommandations en matière d’architecture](architecture-recs.md)
+- [FAQ sur Démarrer la machine virtuelle à la connexion](../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

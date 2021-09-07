@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/18/2021
-ms.openlocfilehash: 3d7ba65e6965ff488ead6094376bea7142eb5ec9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/18/2021
+ms.openlocfilehash: 1f3ed6e3c661e0238b6a29284a2da7254edab6c4
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590591"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824838"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -22,11 +22,89 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 __Flux RSS__ : Recevez une notification quand cette page est mise à jour en copiant et collant l’URL suivante dans votre lecteur de flux : `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
-## <a name="2021-05-25"></a>2021-05-25
+## <a name="2021-08-18"></a>18-08-2021
 
-### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Annonce de l’interface CLI 2.0 (préversion) pour Azure Machine Learning
+### <a name="azure-machine-learning-experimentation-user-interface"></a>Azure Machine Learning - Expérimentation - Interface utilisateur
+  + **Nom d’affichage de l’exécution**
+    + « Nom d’affichage de l’exécution » est un nouveau nom d’affichage modifiable et facultatif qui peut être assigné à une exécution. 
+    + Ce nom peut faciliter le suivi, l’organisation et la découverte des exécutions. 
+    + Le nom d’affichage de l’exécution est défini par défaut sur un format adjectif_nom_guid (exemple : awesome_watch_2i3uns). 
+    + Ce nom par défaut peut être modifié en un nom plus personnalisable. Vous pouvez le modifier à partir de la page Détails de l’exécution dans l’interface utilisateur du studio Azure Machine Learning.   
 
-L’extension `ml` d’Azure CLI est l’interface de nouvelle génération d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles. [Installez l’extension et commencez](how-to-configure-cli.md).
+## <a name="2021-08-02"></a>02-08-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1330"></a>SDK Azure Machine Learning pour Python v1.33.0
+  + **azureml-automl-core**
+    + Amélioration de la gestion des erreurs liées à la récupération du modèle XGBoost.
+    + Ajout de la possibilité de convertir les prédictions de nombres à virgule flottante en nombres entiers pour les tâches de prévision et de régression.
+    + Mise à jour de la valeur par défaut pour enable_early_stopping dans AutoMLConfig sur True.
+  + **azureml-automl-runtime**
+    + Ajout de la possibilité de convertir les prédictions de nombres à virgule flottante en nombres entiers pour les tâches de prévision et de régression.
+    + Mise à jour de la valeur par défaut pour enable_early_stopping dans AutoMLConfig sur True.
+  + **azureml-contrib-automl-pipeline-steps**
+    + La série chronologique est activée pour les tâches de prévision via des pipelines.
+    + Ajout de la prise en charge des jeux de données tabulaires pour l’inférence
+    + Un chemin personnalisé peut être spécifié pour les données d’inférence
+  + **azureml-contrib-reinforcementlearning**
+    + Certaines propriétés dans `azureml.core.environment.DockerSection` sont dépréciées, telles que la propriété `shm_size` utilisée par les Workers Ray dans les travaux d’apprentissage par renforcement. Cette propriété peut désormais être spécifiée dans `azureml.contrib.train.rl.WorkerConfiguration` à la place.
+  + **azureml-core**
+    + Correction d’un lien hypertexte dans la documentation `ScriptRunConfig.distributed_job_config`
+    + Les clusters de calcul Azure Machine Learning peuvent désormais être créés à un emplacement différent de celui de l’espace de travail. C’est utile pour optimiser l’allocation de la capacité inactive et gérer l’utilisation du quota à différents emplacements sans avoir à créer plus d’espaces de travail juste pour utiliser le quota et créer un cluster de calcul à un emplacement particulier. Pour plus d’informations, consultez [Créer un cluster de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md?tabs=python).
+    + Ajout de display_name comme champ de nom mutable de l’objet Run.
+    + Le jeu de données from_files prend désormais en charge l’omission des extensions de données pour les données d’entrée volumineuses
+  + **azureml-dataprep**
+    + Correction d’un bogue qui entraînait l’échec de to_dask_dataframe en raison d’une condition de concurrence.
+    + Le jeu de données from_files prend désormais en charge l’omission des extensions de données pour les données d’entrée volumineuses
+  + **azureml-defaults**
+    + Nous supprimons la dépendance azureml-model-management-sdk==1.0.1b6.post1 d’azureml-defaults.
+  + **azureml-interpret**
+    + Mise à jour d’azureml-interpret en interpret-community 0.19.*
+  + **azureml-pipeline-core**
+    + La série chronologique est activée pour les tâches de prévision via des pipelines.
+  + **azureml-train-automl-client**
+    + Basculement vers l’utilisation du magasin d’objets blob pour la mise en cache dans le ML automatisé.
+    + La série chronologique est activée pour les tâches de prévision via des pipelines.
+    + Amélioration de la gestion des erreurs liées à la récupération du modèle XGBoost.
+    + Mise à jour de la valeur par défaut pour enable_early_stopping dans AutoMLConfig sur True.
+  + **azureml-train-automl-runtime**
+    + Basculement vers l’utilisation du magasin d’objets blob pour la mise en cache dans le ML automatisé.
+    + La série chronologique est activée pour les tâches de prévision via des pipelines.
+    + Mise à jour de la valeur par défaut pour enable_early_stopping dans AutoMLConfig sur True.
+
+
+## <a name="2021-07-06"></a>06-07-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1320"></a>SDK Azure Machine Learning pour Python v1.32.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-core**
+    + Exposer et diagnostiquer l’intégrité de l’espace de travail dans le SDK/l’interface CLI
+  + **azureml-defaults**
+    + Ajout de la dépendance `opencensus-ext-azure==1.0.8` à azureml-defaults
+  + **azureml-pipeline-core**
+    + Mise à jour d’AutoMLStep pour utiliser des images prégénérées quand l’environnement pour la soumission des travaux correspond à l’environnement par défaut
+  + **azureml-responsibleai**
+    + Ajout d’un nouveau client d’analyse des erreurs pour charger, télécharger et lister les rapports d’analyse des erreurs
+    + Vérification de la synchronisation des versions des packages `raiwidgets` et `responsibleai`
+  + **azureml-train-automl-runtime**
+    + Définition du temps alloué pour effectuer une recherche dynamique entre les différentes stratégies de caractérisation sur au maximum un quart du délai d’expiration de l’expérience globale
+
+
+## <a name="2021-06-21"></a>21-06-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1310"></a>SDK Azure Machine Learning pour Python v1.31.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-core**
+    + Amélioration de la documentation de la propriété platform sur la classe Environment
+    + Modification de la durée de scale-down des nœuds de calcul AML par défaut de 120 secondes en 1 800 secondes
+    + Mise à jour du lien de résolution des problèmes par défaut affiché sur le portail pour la résolution des échecs d’exécution : https://aka.ms/azureml-run-troubleshooting
+  + **azureml-automl-runtime**
+    + Nettoyage des données : les échantillons ayant des valeurs cibles dans [None, "", "nan", np.nan] sont supprimés avant la caractérisation et/ou l’entraînement du modèle
+  + **azureml-interpret**
+    + Augmentation du délai pour empêcher l’erreur de vidage de la file d’attente des tâches sur les exécutions AzureML distantes qui utilisent ExplanationClient
+  + **azureml-pipeline-core**
+    + Ajout du paramètre jar à l’étape synapse
+  + **azureml-train-automl-runtime**
+    + Correction des garde-fous de cardinalité élevée pour les aligner davantage sur la documentation
 
 ## <a name="2021-06-07"></a>2021-06-07
 
@@ -49,6 +127,11 @@ L’extension `ml` d’Azure CLI est l’interface de nouvelle génération d�
     + Prise en charge des quantiles définis personnalisés pendant l’inférence MM
     + Prise en charge de forecast_quantiles pendant l’inférence de traitement par lots.
 
+## <a name="2021-05-25"></a>2021-05-25
+
+### <a name="announcing-the-cli-v2-preview-for-azure-machine-learning"></a>Annonce de l’interface CLI (v2) (préversion) pour Azure Machine Learning
+
+L’extension `ml` d’Azure CLI est l’interface de nouvelle génération d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles. [Installez l’extension et commencez](how-to-configure-cli.md).
 
 ### <a name="azure-machine-learning-sdk-for-python-v1290"></a>SDK Azure Machine Learning pour Python v1.29.0
 + **Résolutions de bogue et améliorations**
@@ -634,7 +717,7 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
   + **azure-cli-ml**
     + Le profilage de grille est supprimé du SDK et n’est plus pris en charge.
   + **azureml-accel-models**
-    + Le package azureml-accel-models prend à présent en charge Tensorflow 2.x
+    + Le package azureml-accel-models prend à présent en charge TensorFlow 2.x
   + **azureml-automl-core**
     + Ajout de la gestion des erreurs dans get_output dans les cas où les versions locales de pandas/sklearn ne correspondent pas à celles utilisées lors de l’apprentissage
   + **azureml-automl-runtime**
@@ -716,7 +799,7 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
   + **azureml-train-core**
     + Les utilisateurs doivent maintenant fournir un argument hyperparameter_sampling valide lors de la création d’une configuration HyperDriveConfig. De plus, la documentation de HyperDriveRunConfig a été modifiée pour informer les utilisateurs de la dépréciation de HyperDriveRunConfig.
     + Restauration de la version par défaut de PyTorch vers 1.4.
-    + Ajout d’images PyTorch 1.6 et Tensorflow 2.2 et d’un environnement organisé.
+    + Ajout d’images PyTorch 1.6 et TensorFlow 2.2 et d’un environnement organisé.
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-august-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour d’août)
 + **Nouvelles fonctionnalités**
@@ -1074,7 +1157,7 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
     + Activez des garde-fous pour prévoir les imputations de valeurs manquantes.
     + Amélioration de la journalisation dans AutoML
     + Ajout d’une gestion des erreurs affinée pour les exceptions liées à la préparation des données
-    + Suppression des restrictions sur les modèles phrophet et xgboost lorsqu’ils sont formés sur un cacul distant.
+    + Suppression des restrictions sur les modèles phrophet et xgboost lorsqu’ils sont entraînés sur un cacul distant.
     + `azureml-train-automl-runtime` et `azureml-automl-runtime` ont mis à jour des dépendances pour `pytorch`, `scipy` et `cudatoolkit`. Nous prenons désormais en charge `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1` et `cudatoolkit==10.1.243`.
     + La gestion des erreurs liées à la caractérisation personnalisée dans les tâches de prévision a été améliorée.
     + Le mécanisme de détection de la fréquence du jeu de données de prévision a été amélioré.
@@ -1129,13 +1212,13 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
     + Prise en charge de cv_split_column_names à utiliser avec training_data
     + azureml.dprep.Dataflow désormais déconseillé en tant que type valide pour les données d'entrée.
     + Mac mis à jour pour utiliser cudatoolkit= 9.0 car il n’est pas encore disponible dans la version 10.
-    + Suppression des restrictions sur les modèles phrophet et xgboost lorsqu’ils sont formés sur un cacul distant.
+    + Suppression des restrictions sur les modèles phrophet et xgboost lorsqu’ils sont entraînés sur un cacul distant.
     + `azureml-train-automl-runtime` et `azureml-automl-runtime` ont mis à jour des dépendances pour `pytorch`, `scipy` et `cudatoolkit`. Nous prenons désormais en charge `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1` et `cudatoolkit==10.1.243`.
     + Ajout d’une fonctionnalité permettant aux utilisateurs d’inclure des fonctions décalées pour générer des prévisions.
   + **azureml-train-automl-runtime**
     + Amélioration de la journalisation dans AutoML
     + Ajout d’une gestion des erreurs affinée pour les exceptions liées à la préparation des données
-    + Suppression des restrictions sur les modèles phrophet et xgboost lorsqu’ils sont formés sur un cacul distant.
+    + Suppression des restrictions sur les modèles phrophet et xgboost lorsqu’ils sont entraînés sur un cacul distant.
     + `azureml-train-automl-runtime` et `azureml-automl-runtime` ont mis à jour des dépendances pour `pytorch`, `scipy` et `cudatoolkit`. Nous prenons désormais en charge `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1` et `cudatoolkit==10.1.243`.
     + Mise à jour du message d’erreur afin d’afficher correctement l’erreur de l’utilisateur.
     + Prise en charge de cv_split_column_names à utiliser avec training_data
@@ -1162,7 +1245,7 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
     + Accélérez le modèle Prophet/AutoArima dans la prévision AutoML en activant l’ajustement parallèle pour la série chronologique lorsque les jeux de données ont plusieurs séries chronologiques. Pour tirer parti de cette nouvelle fonctionnalité, il est recommandé de définir « max_cores_per_iteration = -1 » (c’est-à-dire, à l’aide de tous les cœurs de processeur disponibles) dans AutoMLConfig.
     + Corriger l’erreur de clé liée à l’impression de garde-fous dans l’interface de la console
     + Correction du message d’erreur pour experimentation_timeout_hours
-    + Modèles Tensorflow déconseillés pour AutoML.
+    + Modèles TensorFlow dépréciés pour AutoML.
   + **azureml-automl-runtime**
     + Correction du message d’erreur pour experimentation_timeout_hours
     + Correction de l’exception non classifiée lors de la tentative de désérialisation à partir du magasin de cache
@@ -1210,7 +1293,7 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
   + **azureml-pipeline-core**
     + Autorisation de l’option regenerate_outputs lors de l’utilisation d’un module incorporé dans un ModuleStep.
   + **azureml-train-automl-client**
-    + Modèles Tensorflow déconseillés pour AutoML.
+    + Modèles TensorFlow dépréciés pour AutoML.
     + Correction des algorithmes non pris en charge de liste verte d’utilisateurs en mode local
     + Corrections de la documentation dans AutoMLConfig.
     + Application des vérifications de type de données sur la saisie de cv_split_indices dans AutoMLConfig.
@@ -1435,7 +1518,7 @@ Accédez aux outils de création web suivants à partir de Studio :
     + Ajout d’un exemple de documentation pour le jeu de données sous la forme d’une entrée PythonScriptStep
   + **azureml-tensorboard**
     + Mise à jour d’azureml-tensorboard pour prendre en charge TensorFlow 2.0
-    + Affiche le numéro de port correct lors de l’utilisation d’un port Tensorboard personnalisé sur une instance de calcul
+    + Affiche le numéro de port correct lors de l’utilisation d’un port TensorBoard personnalisé sur une instance de calcul
   + **azureml-train-automl-client**
     + Résolution d’un problème où certains packages pouvaient être installés à des versions incorrectes sur des exécutions distantes.
     + Correction du problème de substitution FeaturizationConfig qui filtre la configuration de caractérisation personnalisée.
@@ -1829,7 +1912,7 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
     + Ajout d’interface CLI de jeu de données. Pour plus d’informations : `az ml dataset --help`
     + Ajout de la prise en charge du déploiement et du packaging des modèles pris en charge (ONNX, scikit-learn et TensorFlow) sans instance InferenceConfig.
     + Ajout de l’indicateur de remplacement pour le déploiement de service (ACI et AKS) dans le SDK et l’interface CLI. S’il est fourni, l’indicateur remplace le service existant si le service portant le nom existe déjà. Si le service n’existe pas, un nouveau service est créé.
-    + Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et Tensorflow. - L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
+    + Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et TensorFlow. - L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
   + **azureml-automl-core**
     + L’apprentissage d’une itération s’exécute dans un processus enfant uniquement lorsque des contraintes d’exécution sont définies.
     + Ajout d’une barrière de sécurité pour les tâches de prévision, afin de vérifier si une valeur max_horizon spécifiée entraînera un problème de mémoire sur l’ordinateur donné. Si c’est le cas, un message de barrière de sécurité s’affiche.
@@ -1842,7 +1925,7 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
     + Mise à jour de la taille de données minimale requise pour la validation croisée afin de garantir un minimum de deux échantillons dans chaque pli de validation.
   + **azureml-cli-common**
     + L’interface CLI prend désormais en charge le packaging de modèle.
-    + Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et Tensorflow.
+    + Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et TensorFlow.
     + L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
   + **azureml-contrib-gbdt**
     + Correction du canal de publication du Notebook
@@ -1857,7 +1940,7 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
     + La conversion des données intermédiaires en jeu de données tabulaire est autorisée dans le pipeline Azure Machine Learning, ainsi que leur utilisation dans [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep).
     + Ajout de la prise en charge du déploiement et du packaging des modèles pris en charge (ONNX, scikit-learn et TensorFlow) sans instance InferenceConfig.
     + Ajout de l’indicateur de remplacement pour le déploiement de service (ACI et AKS) dans le SDK et l’interface CLI. S’il est fourni, l’indicateur remplace le service existant si le service portant le nom existe déjà. Si le service n’existe pas, un nouveau service est créé.
-    +  Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et Tensorflow. L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
+    +  Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et TensorFlow. L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
     + Ajout d’un nouveau magasin de données pour Azure Database pour MySQL. Ajout d’un exemple pour l’utilisation d’Azure Database pour MySQL dans DataTransferStep dans des pipelines Azure Machine Learning.
     + Ajout de fonctionnalités pour ajouter et supprimer des balises dans des expérimentations - Ajout de fonctionnalités pour supprimer des balises dans les exécutions
     + Ajout de l’indicateur de remplacement pour le déploiement de service (ACI et AKS) dans le SDK et l’interface CLI. S’il est fourni, l’indicateur remplace le service existant si le service portant le nom existe déjà. Si le service n’existe pas, un nouveau service est créé.
@@ -2415,7 +2498,7 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
     + Correction du bogue concernant l’utilisation d’InteractiveLoginAuthentication pour le tracking_uri mlflow
     + Utilisation améliorée des ressources des exécutions à distance qui utilisent azureml.mlflow
     + Amélioration de la documentation du package azureml-mlflow
-    + Correction du bogue suivant : mlflow.log_artifacts (« my_dir ») enregistrait les artefacts sous « my_dir/<artifact-paths> » au lieu de « <artifact-paths> ».
+    + Correction du bogue suivant : mlflow.log_artifacts (« my_dir ») enregistrait les artefacts sous `my_dir/<artifact-paths>` au lieu de `<artifact-paths>`.
   + **azureml-opendatasets**
     + Ajout de la possibilité d’épingler `pyarrow` de `opendatasets` aux anciennes versions (antérieures à la version 0.14.0) en raison d’un problème de mémoire.
     + Déplacement d’azureml-contrib-opendatasets vers azureml-opendatasets.
@@ -2630,4 +2713,4 @@ Le [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez la vue d’ensemble [d’Azure Machine Learning](overview-what-is-azure-ml.md).
+Consultez la vue d’ensemble [d’Azure Machine Learning](overview-what-is-azure-machine-learning.md).

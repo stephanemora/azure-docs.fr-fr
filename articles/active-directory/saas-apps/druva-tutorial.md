@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 08/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 858e63272faea2aaf2572a5e97e24ba5858d5bda
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 69649cf16ecfeca81d730ecfc19c8124fdc25579
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568426"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224175"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Druva
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Druva prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+* Druva prend en charge l’[attribution d’utilisateurs automatique](druva-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -155,6 +156,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 ### <a name="create-druva-test-user"></a>Créer un utilisateur de test Druva
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Druva. Druva prend en charge l’approvisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Druva, il en est créé un après l’authentification.
+
+Druva prend également en charge l’attribution automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./druva-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

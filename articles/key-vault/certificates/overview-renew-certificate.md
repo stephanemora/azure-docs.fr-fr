@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 082b0fd4d3324502516dcd2b45b9ad16a919c773
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ce1d83ddd47553de1efdef80cc33bc5dd4634c81
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749219"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307591"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renouveler des certificats Azure Key Vault
 
@@ -28,7 +28,7 @@ Cet article explique comment renouveler vos certificats Azure Key Vault.
 Pour être informé des événements de la durée de vie d’un certificat, vous devez ajouter le contact de ce dernier. Les contacts du certificat contiennent des informations de contact pour l’envoi de notifications déclenchées par des événements de durée de vie de certificat. Les informations de contact sont partagées par tous les certificats dans le coffre de clés. Une notification est envoyée à tous les contacts spécifiés pour un événement pour n’importe quel certificat dans le coffre de clés.
 
 ### <a name="steps-to-set-certificate-notifications"></a>Étapes de définition des notifications de certificat :
-Tout d’abord, ajoutez un contact de certificat à votre coffre de clés. Vous pouvez effectuer l’ajout à l’aide du portail Azure ou de l’applet de commande PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact).
+Tout d’abord, ajoutez un contact de certificat à votre coffre de clés. Vous pouvez l’ajouter en utilisant le portail Azure ou l’applet de commande PowerShell [Add-AzKeyVaultCertificateContact](/powershell/module/az.keyvault/add-azkeyvaultcertificatecontact).
 
 Ensuite, configurez le moment où vous souhaitez être averti de l’expiration du certificat. Pour configurer les attributs de cycle de vie du certificat, consultez [Configurer la rotation automatique d’un certificat dans Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 

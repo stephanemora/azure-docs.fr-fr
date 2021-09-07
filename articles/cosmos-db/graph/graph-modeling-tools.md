@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.reviewer: sngun
-ms.openlocfilehash: eacebb55cbf4d6254d6688a95dba8ae638838cf3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d603de7ae8f011ac2ae2ed96d61efb571bdcf64
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524176"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662354"
 ---
 # <a name="third-party-data-modeling-tools-for-azure-cosmos-db-graph-data"></a>Outils de modélisation de données tiers pour les données de graphe Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Cet outil assure la modélisation des données avec des sommets/arêtes et leurs
 
 L’animation de la Figure 2 illustre l’ingénierie à rebours et l’extraction d’entités à partir d’un SGBDR. Hackolade découvre ensuite des relations à partir des relations de clés étrangères, puis les modifications.
 
-Vous trouverez [ici](https://github.com/Azure-Samples/northwind-ddl-sample/nw.sql) un exemple de DDL pour SQL Server comme source.   
+Vous trouverez [ici](https://github.com/Azure-Samples/northwind-ddl-sample/blob/main/nw.sql) un exemple de DDL pour SQL Server comme source.   
 
 
 :::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Graphe":::
@@ -58,4 +58,4 @@ L’image suivante illustre l’ingénierie à rebours à partir d’un SGBDR et
 -  [Documentation Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Visualisation des données](/graph-visualization)
+- [Visualisation des données](/azure/cosmos-db/graph/graph-visualization-partners)

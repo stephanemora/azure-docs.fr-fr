@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: b2ddc56614187d1f2dc6a4a1864d68276eaf54fd
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: a6016ba42fba5a457f2969a1b980a0962605f7a7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609093"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318330"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Démarrage rapide : Création de votre premier site statique à l’aide de l’interface Azure CLI
 
@@ -117,7 +117,7 @@ Maintenant que le dépôt est constitué, vous pouvez créer une application web
 
     - `<LOCATION>`: Remplacez cette valeur par l’emplacement le plus proche de vous. Options disponibles : _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_ et _WestUS2_.
 
-    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Remplacez cette valeur par le [jeton d’accès personnel GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) que vous avez généré précédemment.
+    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Remplacez cette valeur par le [jeton d’accès personnel GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) que vous avez généré précédemment. (les autorisations minimales sont l’étendue `Workflow`)
 
     Vous pouvez désormais afficher l’application créée dans Azure.
 

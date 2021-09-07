@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: b1b4b9fbb3914ca3389f57d680d2298c00d64a9b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d83d6ad6834ea38b293054e59eb39a35be5c507e
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114444766"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111491"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configurer le contrôle d’accès en fonction du rôle avec Azure Active Directory pour votre compte Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) de plan de données Azure Co
 > Ce modèle d’autorisation couvre seulement les opérations de base de données qui vous permettent de lire et d’écrire des données. Il **ne couvre aucun** type d’opération de gestion, comme la création de conteneurs ou la modification de leur débit. Cela signifie que **vous ne pouvez pas utiliser de kit de développement logiciel (SDK) de plan de données Azure Cosmos DB** pour authentifier les opérations de gestion avec une identité AAD. Au lieu de cela, vous devez utiliser [Azure RBAC](role-based-access-control.md) via un des éléments suivants :
 > - [Modèles Azure Resource Manager (ARM)](manage-with-templates.md)
 > - [Scripts Azure PowerShell](manage-with-powershell.md),
-> - [Scripts Azure CLI](manage-with-cli.md),
+> - [Scripts Azure CLI](sql/manage-with-cli.md),
 > - Bibliothèques de gestion Azure disponibles pour
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)

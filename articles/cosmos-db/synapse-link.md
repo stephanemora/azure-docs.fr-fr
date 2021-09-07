@@ -5,22 +5,22 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: c9c751338db45a7d9df3f6e63e3d53e4e1ef4f74
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 41aa8efe93970205faad1bc621061aa8cdf9adaa
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903233"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527862"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Synapse Link pour Azure Cosmos DB est une fonctionnalité de traitement transactionnel et analytique (HTAP) hybride cloud native qui vous permet d’exécuter des analyses en temps quasi-réel sur les données opérationnelles dans Azure Cosmos DB. Azure Synapse Link crée une intégration transparente entre Azure Cosmos DB et Azure Synapse Analytics.
 
-À l’aide du [magasin analytique Azure Cosmos DB](analytical-store-introduction.md), un magasin de colonnes totalement isolé, Azure Synapse Link n’autorise aucune analyse ETL (Extract-Transform-Load) dans [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) sur vos données opérationnelles à grande échelle. Les analystes d’entreprise, les ingénieurs de données et les chercheurs de données peuvent désormais utiliser Synapse Spark ou Synapse SQL de façon interchangeable pour exécuter des pipelines décisionnels, analytiques et Machine Learning en temps quasi réel. Vous pouvez y parvenir sans affecter les performances de vos charges de travail transactionnelles sur Azure Cosmos DB. 
+À l’aide du [magasin analytique Azure Cosmos DB](analytical-store-introduction.md), un magasin de colonnes totalement isolé, Azure Synapse Link n’autorise aucune analyse ETL (Extract-Transform-Load) dans [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) sur vos données opérationnelles à grande échelle. Les analystes d’entreprise, les ingénieurs de données et les chercheurs de données peuvent désormais utiliser Synapse Spark ou Synapse SQL de façon interchangeable pour exécuter des pipelines décisionnels, analytiques et Machine Learning en temps quasi réel. Vous pouvez y parvenir sans affecter les performances de vos charges de travail transactionnelles sur Azure Cosmos DB.
 
 L’illustration suivante représente l’intégration d’Azure Synapse Link dans Azure Cosmos DB et Azure Synapse Analytics : 
 
@@ -121,7 +121,9 @@ L’utilisation de Synapse Link est déconseillée si vos exigences en matière 
 
 * Pour les conteneurs avec le magasin analytique activé, la sauvegarde et la restauration automatiques de vos données dans le magasin analytique ne sont pas prises en charge pour l’instant. Lorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue automatiquement [d’effectuer des sauvegardes](./online-backup-and-restore.md) de vos données dans le magasin transactionnel (uniquement) des conteneurs selon l’intervalle de sauvegarde planifié, comme toujours. Il est important de noter que lorsqu’un conteneur avec le magasin analytique activé est restauré vers un nouveau compte, le conteneur est restauré avec uniquement le magasin transactionnel et aucun magasin analytique activé.
 
-* L’accès au magasin Azure Cosmos DB Analytics avec Synapse SQL approvisionné n’est pas disponible actuellement.
+* L’accès au magasin d’analytique Azure Cosmos DB avec le pool SQL dédié Azure Synapse n’est actuellement pas pris en charge.
+
+* Les comptes Azure Cosmos DB serverless ne sont pas pris en charge pour l’instant.
 
 ## <a name="security"></a>Sécurité
 
@@ -129,7 +131,7 @@ Synapse Link vous permet d’exécuter une analytique en quasi-temps réel sur v
 
 * **Isolement réseau à l’aide de points de terminaison privés** : vous pouvez contrôler indépendamment l’accès réseau aux données dans le magasin transactionnel et le magasin analytique. L’isolement réseau s’effectue à l’aide de points de terminaison privés managés distincts pour chaque magasin, au sein de réseaux virtuels managés dans les espaces de travail Azure Synapse. Pour plus d’informations, consultez l’article [Configurer des points de terminaison privés pour le magasin analytique](analytical-store-private-endpoints.md).
 
-* **Chiffrement des données avec des clés managées par le client** : vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. Pour plus d’informations, consultez l’article [Configurer des clés managées par le client](how-to-setup-cmk.md).
+* **Chiffrement des données avec des clés managées par le client** : vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. Azure Synapse Link prend uniquement en charge la configuration des clés gérées par le client en utilisant l’identité managée de votre compte Azure Cosmos DB. Vous devez configurer l’identité managée de votre compte dans votre stratégie d’accès Azure Key Vault avant d’activer Azure Synapse Link (configure-synapse-link.md#enable-synapse-link) sur votre compte. Pour en savoir plus, consultez l’article [Configurer des clés gérées par le client en utilisant les identités managées des comptes Azure Cosmos DB](how-to-setup-cmk.md#using-managed-identity).
 
 * **Gestion sécurisée des clés** : l’accès aux données dans le magasin analytique à partir de Synapse Spark et des pools SQL serverless Synapse requiert la gestion des clés Azure Cosmos DB dans les espaces de travail Synapse Analytics. Au lieu d’utiliser les clés de compte Azure Cosmos DB inline dans les travaux Spark ou les scripts SQL, Azure Synapse Link offre des fonctionnalités plus sécurisées.
 
@@ -147,6 +149,8 @@ Le modèle de facturation d’Azure Synapse Link comprend les coûts engendrés 
 Pour en savoir plus, consultez les documents suivants :
 
 * [Vue d’ensemble du magasin analytique Azure Cosmos DB](analytical-store-introduction.md)
+
+* Consultez le module Learn pour savoir comment [Concevoir un traitement transactionnel et analytique hybride avec Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Prise en main d’Azure Synapse Link pour Azure Cosmos DB](configure-synapse-link.md)
  

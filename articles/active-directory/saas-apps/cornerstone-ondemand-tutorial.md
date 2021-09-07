@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 23abb7c3d917084d0cc9989bf19dbb76adf0a266
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 8740f7e8b02002e4f55a833074cf34057cddc056
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967297"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone
 
@@ -41,6 +41,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Cornerstone prend en charge l’authentification unique initiée par le **fournisseur de services**.
+
+* Cornerstone prend en charge l’[attribution d’utilisateurs automatisée](cornerstone-ondemand-provisioning-tutorial.md).
 
 * Si vous intégrez un ou plusieurs produits de cette liste en particulier, vous devez utiliser cette application Cornestone Single Sign-On à partir de la galerie.
 
@@ -140,6 +142,7 @@ Pour configurer l’authentification unique dans Cornerstone, vous devez contact
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Cornerstone. Collaborez avec votre équipe d’implémentation de Cornerstone pour ajouter les utilisateurs dans Cornerstone. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Cornerstone Single Sign-On prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations [ici](./cornerstone-ondemand-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

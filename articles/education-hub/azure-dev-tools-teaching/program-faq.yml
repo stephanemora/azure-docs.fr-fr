@@ -8,12 +8,12 @@ metadata:
   ms.subservice: education-hub
   ms.topic: overview
   ms.date: 06/30/2020
-  ms.openlocfilehash: 7f6d555b1ea72a145c3826ffc1ae9ff7cc8c499a
-  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+  ms.openlocfilehash: 9953271e12adb0ccd59deabbb7fbf7a7fc846b94
+  ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111907380"
+  ms.lasthandoff: 08/31/2021
+  ms.locfileid: "123271878"
 title: Questions fréquentes à propos du Hub Education
 summary: Cet article donne des réponses aux questions fréquemment posées sur Azure for Students, Azure for Students Starter et Azure Dev Tools for Teaching.
 sections:
@@ -23,6 +23,9 @@ sections:
       Que se passe-t-il une fois que j’ai utilisé mon crédit de 100 USD ou que j’ai atteint la fin des 12 mois ?
     answer: >
       Une fois que vous avez épuisé votre crédit disponible ou atteint la fin des 12 mois, votre abonnement Azure est désactivé. Pour continuer à utiliser Azure, vous pouvez effectuer une mise à niveau vers un abonnement avec paiement à l’utilisation dans le portail Azure. Pour obtenir les conditions d’utilisation détaillées pour Azure for Students, consultez les [conditions de l’offre](https://azure.microsoft.com/offers/ms-azr-0170p/).
+  - question: >
+      Qui peut bénéficier d’Azure for Students ?
+    answer: "Azure for Students Starter est disponible uniquement pour les étudiants qui répondent aux conditions suivantes :\n\n- Vous devez confirmer que vous êtes âgé de 18 ans ou plus et que vous êtes étudiant à plein temps dans un établissement d’enseignement agréé qui décerne des diplômes en deux ou en quatre ans. \n- Vous devez confirmer votre statut universitaire via l’adresse e-mail de votre organisation.\n- Consultez l’[Offre Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) pour connaître les conditions d’utilisation détaillées.\n\nCette offre n’est pas disponible pour une utilisation dans un cours en ligne ouvert à tous (MOOC) ou d’autres formations professionnelles d’organisations à but lucratif.\n\nCette offre est limitée à un seul abonnement Azure for Students par client éligible. Elle est non transférable et ne peut pas être combinée avec d’autres offres, sauf autorisation contraire de Microsoft.\n    \n"
   - question: >
       Puis-je participer à nouveau à Azure for Students l’année prochaine ?
     answer: >

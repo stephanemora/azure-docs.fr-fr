@@ -8,37 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 08/25/2021
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 69026d9abd8e0f3a978d9c327e9cb9c2e0140d04
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 8eeac06c4db34a7aa2452ae9fda51890ac1b91a1
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565775"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864845"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Démarrage rapide : Utiliser la bibliothèque de client et l’API REST Analyse de texte
 
-Consultez cet article pour savoir comment utiliser la bibliothèque de client et l’API REST Analyse de texte. Effectuez les étapes suivantes afin de tester les exemples de code pour une exploration de texte :
-
-* analyse de sentiments
-* Exploration des opinions
-* Détection de la langue
-* Reconnaissance d’entité
-* Reconnaissance des informations d’identification personnelle
-* Extraction d’expressions clés
+Consultez cet article pour savoir comment utiliser la bibliothèque de client et l’API REST Analyse de texte. Effectuez les étapes suivantes afin de tester les exemples de code pour une exploration de texte.
 
 
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * La dernière version stable de l’API Analyse de texte est la version `3.1`.
->    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
-> * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
-> * Si vous voulez utiliser Analyse de texte pour la santé ou des opérations asynchrones, consultez les exemples sur GitHub pour [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * Ce guide de démarrage rapide couvre uniquement les versions suivantes de l’API : v3.1 et v3.2-preview.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -49,7 +39,8 @@ Consultez cet article pour savoir comment utiliser la bibliothèque de client et
 > [!IMPORTANT]
 > * La dernière version stable de l’API Analyse de texte est la version `3.1`.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
-Si vous voulez utiliser Analyse de texte pour la santé ou des opérations asynchrones, consultez les exemples sur GitHub pour [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * Vous pouvez également utiliser la préversion la plus récente de la bibliothèque de client pour utiliser le résumé extractif. Consultez les exemples suivants sur [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java)
+
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -70,9 +61,7 @@ Si vous voulez utiliser Analyse de texte pour la santé ou des opérations async
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * La dernière version stable de l’API Analyse de texte est la version `3.1`.
->    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
-> * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous. Si vous voulez utiliser Analyse de texte pour la santé ou des opérations asynchrones, consultez les exemples sur GitHub pour [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * Ce guide de démarrage rapide couvre uniquement les versions suivantes de l’API : v3.1 et v3.2-preview.
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 

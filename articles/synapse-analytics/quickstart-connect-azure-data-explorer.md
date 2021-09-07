@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f45bc134c656701ff02beca464ac00fdf222f88
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92172267"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830200"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Se connecter à Azure Data Explorer à l’aide d’Apache Spark pour Azure Synapse Analytics
 
@@ -57,6 +57,8 @@ La connexion d’une base de données Azure Data Explorer à un espace de travai
 1. Les clusters et bases de données Azure Data Explorer apparaissent sous l’onglet **Lié** dans la section **Azure Data Explorer**.
 
     ![Capture d’écran montrant la navigation pour sélectionner les clusters.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
+
+1. Avant de pouvoir interagir avec le service lié à partir d’un notebook, vous devez le publier dans l’espace de travail. Cliquez sur **Publier** dans la barre d’outils, vérifiez les changements en attente et cliquez sur **OK**.
 
     > [!NOTE]
     > Dans la version actuelle, les objets de base de données sont renseignés en fonction des autorisations de votre compte Azure AD sur les bases de données Azure Data Explorer. Lorsque vous exécutez les travaux d’intégration ou les notebooks Apache Spark, les informations d’identification du service de liaison sont utilisées (par exemple, le principal de service).

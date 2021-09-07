@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: e4ceefbf3dc722b0e575b697f6872b033f494714
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8bba5cbfe0496c773625a164e3e3e2ef002e03b1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739850"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829957"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Python dans Azure à partir de la ligne de commande
 
@@ -204,20 +204,20 @@ Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerS
     
     ---
 
-1. Créez un groupe de ressources nommé `AzureFunctionsQuickstart-rg` dans la région `westeurope`. 
+1. Créez un groupe de ressources nommé `AzureFunctionsQuickstart-rg` dans la région de votre choix : 
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     
     ```azurecli
-    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    az group create --name AzureFunctionsQuickstart-rg --location <REGION>
     ```
  
-    La commande [az group create](/cli/azure/group#az_group_create) crée un groupe de ressources. Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible retournée par la commande `az account list-locations`.
+    La commande [az group create](/cli/azure/group#az_group_create) crée un groupe de ressources. Dans la commande ci-dessus, remplacez `<REGION>` par une région près de chez vous, en utilisant un code de région disponible retourné par la commande [az account list-locations](/cli/azure/account#az_account_list_locations).
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
+    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location '<REGION>'
     ```
 
     La commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crée un groupe de ressources. Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible retournée par l’applet de commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
@@ -240,7 +240,7 @@ Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerS
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location westeurope
+    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location <REGION>
     ```
 
     L’applet de commande [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) crée le compte de stockage.
@@ -264,7 +264,7 @@ Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerS
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location '<REGION>'
     ```
     
     L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. Si vous utilisez Python 3.7 ou 3.6, remplacez `-RuntimeVersion` par `3.7` ou `3.6`, respectivement.
