@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 88b7e1cb43fc10301f9dab46c6cca5f30c1e14d1
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 12/19/2018
+ms.openlocfilehash: c89bebbd40b36712c6b33f017234705c426f5fb7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822480"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641577"
 ---
 # <a name="web-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité Web dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

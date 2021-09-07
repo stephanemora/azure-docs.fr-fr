@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1869c48e38bdaf56fe4bd428a7bcbd6d316b85
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: a8580c025e7fc14144202962528a00aa78548ddf
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535698"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867167"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 
@@ -61,10 +61,10 @@ AllowEmailVerifiedUsers et AllowAdHocSubscriptions sont des paramètres à l’�
 
 Si les conditions précédentes sont remplies, un utilisateur membre est créé dans le locataire de base et un utilisateur invité B2B est créé dans le locataire à l’origine de l’invitation.
 
-Pour en savoir plus sur les inscriptions d’essai à Microsoft Flow et PowerApps, consultez les articles suivants :
+Pour plus d’informations sur les inscriptions d’essai à Microsoft Flow et Power Apps, consultez les articles suivants :
 
 * [Comment faire pour empêcher les utilisateurs existants de commencer à utiliser Power BI ?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Questions et réponses sur Flow dans l’organisation](/flow/organization-q-and-a)
+* [Questions et réponses sur Flow dans l’organisation](/power-automate/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Comment les vérifications parviennent-elles à fonctionner ensemble ?
 Ces deux paramètres peuvent être utilisés conjointement pour définir une vérification plus précise de l’inscription libre-service. Par exemple, la commande suivante permettra aux utilisateurs de réaliser une inscription libre-service, mais uniquement si ces utilisateurs possèdent déjà un compte dans Azure AD (en d’autres termes, les utilisateurs qui ont besoin d’un compte vérifié par e-mail ne peuvent pas réaliser d’inscription libre-service) :

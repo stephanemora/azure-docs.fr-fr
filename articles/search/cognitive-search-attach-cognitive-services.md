@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 0fe9a87e82ab391fc0e1ccfca95ad48a0ef5dc61
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c5f29cb909dae7b8e362cdf37481111dbf75c8d9
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772464"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525855"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Attacher une ressource Cognitive Services à un ensemble de compétences dans Recherche cognitive Azure
 
@@ -47,7 +47,7 @@ Vous pouvez omettre la clé et la section Cognitive Services pour les ensembles 
   Comme indiqué, la [recherche d’entité personnalisée](cognitive-search-skill-custom-entity-lookup.md) est un cas particulier dans la mesure où elle nécessite une clé, mais qu’elle est [mesurée par le service Recherche cognitive](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 > [!TIP]
-> Pour réduire le coût du traitement des ensembles de compétences, activez l’[enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) afin de mettre en cache et de réutiliser les enrichissements non affectés par les changements apportés à un ensemble de compétences. La mise en cache nécessite Stockage Azure (consultez les [tarifs](https://azure.microsoft.com/pricing/details/storage/blobs/)). Toutefois, le coût cumulé de l’exécution des ensembles de compétences est moindre si les enrichissements existants peuvent être réutilisés, en particulier pour les ensembles de compétences qui utilisent l’analyse et l’extraction d’images.
+> Pour réduire le coût du traitement des ensembles de compétences, activez l’[enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) afin de mettre en cache et de réutiliser les enrichissements non affectés par les changements apportés à un ensemble de compétences. La mise en cache nécessite Stockage Azure (consultez les [tarifs](/pricing/details/storage/blobs/)). Toutefois, le coût cumulé de l’exécution des ensembles de compétences est moindre si les enrichissements existants peuvent être réutilisés, en particulier pour les ensembles de compétences qui utilisent l’analyse et l’extraction d’images.
 
 ## <a name="same-region-requirement"></a>Exigence de même région
 

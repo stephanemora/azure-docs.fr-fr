@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: b833b8b63415a36fb0ee2862c9dfa261cfeb44ef
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 2af9d5979635042c857e23e9514ea0e5a1df530e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864208"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641232"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -850,7 +850,7 @@ S’il ne se trouve pas dans l’autorité de certification racine de confiance,
 Pour plus d’informations sur la résolution des problèmes, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
+*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

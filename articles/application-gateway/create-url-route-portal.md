@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: b0ab3cbd2891ef1677c0d4ba7a00821d67714b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d42a62c6251456d11dff7b2276936db7df5259af
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708949"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222691"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutoriel : Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
@@ -176,6 +176,9 @@ Sous l’onglet **Configuration**, vous allez connecter le front-end et le pool 
 
 > [!NOTE]
 > Vous n’avez pas besoin d’ajouter une règle de chemin */* * personnalisée pour gérer les cas par défaut. Cela est géré automatiquement par le pool back-end par défaut.
+
+> [!NOTE]
+> Le délimiteur de caractère générique **\*** n’est respecté qu’à la fin de la règle. Pour plus d’informations et des exemples de règles basées sur le chemin prises en charge, consultez [Vue d’ensemble du routage basé sur le chemin d’URL](url-route-overview.md#pathpattern).
 
 ### <a name="review--create-tab"></a>Onglet Vérifier + créer
 

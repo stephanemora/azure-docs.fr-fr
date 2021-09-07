@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/28/2021
+ms.date: 08/20/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0f2e63a32c30c807f865a46154123643809de74
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de0374f2ea26e3fa1dc7d25e7c837187f8914918
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442842"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254733"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutoriel : Créer un entrepôt de données logique avec un pool SQL serverless
 
@@ -41,7 +41,7 @@ Pour commencer, vous avez besoin de configurer une source de données et de spé
 
 Les sources de données représentent des informations de chaîne de connexion qui décrivent l’emplacement où vos données sont placées et la manière de vous authentifier auprès de votre source de données.
 
-Voici un exemple de définition de source de données qui fait référence à un [jeu de données Azure ouvert et public, fourni par le Centre européen de prévention et de contrôle des maladies (ECDC), sur les cas de COVID-19](/azure/open-datasets/dataset-ecdc-covid-cases) :
+Voici un exemple de définition de source de données qui fait référence à un [jeu de données Azure ouvert et public, fourni par le Centre européen de prévention et de contrôle des maladies (ECDC), sur les cas de COVID-19](../../open-datasets/dataset-ecdc-covid-cases.md) :
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -80,6 +80,17 @@ CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
+
+Tout utilisateur avec le rôle Administrateur Synapse peut utiliser ces informations d’identification pour accéder au stockage Azure Data Lake ou au stockage analytique Cosmos DB. Si vous avez des utilisateurs à faibles privilèges qui n’ont pas le rôle Administrateur Synapse, vous devez leur donner une autorisation explicite pour référencer ces informations d’identification limitées à la base de données :
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
+GO
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <user>
+GO
+```
+
+Plus d’informations dans la page [Accorder des autorisations DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql).
 
 ### <a name="define-external-file-formats"></a>Définir des formats de fichiers externes
 
@@ -202,7 +213,7 @@ GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
 GO
 GRANT SELECT ON OBJECT::ecdc_cosmosDB.cases TO [jovan@contoso.com]
 GO
-GRANT REFERENCES ON CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
 GO
 ```
 

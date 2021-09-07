@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: a084d636b9610b3f6d601142bfb7b15449e2d2d9
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 869b28c8c65c402936dcb7b7641a6e4af8db3f47
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608659"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100895"
 ---
 # <a name="how-to-meet-data-residency-requirements-in-azure-cosmos-db"></a>Comment répondre aux exigences de résidence des données dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Dans Azure Cosmos DB, vous pouvez configurer vos données et sauvegardes pour qu’elles restent dans une seule région afin de répondre aux [exigences de résidence.](https://azure.microsoft.com/global-infrastructure/data-residency/)
 

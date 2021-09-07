@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 0dd136b442f426cc7da547f2fb3ac98c649866ee
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 5d59d2eea57b58188b87ba83112e8e52bdc9660d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689337"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Didacticiel : Intégration d’Azure Active Directory à Mixpanel
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Mixpanel prend en charge l’authentification unique initiée par le **fournisseur de services**.
+
+* Mixpanel prend en charge l’[attribution d’utilisateurs automatisée](mixpanel-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -155,6 +157,9 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 > [!Note]
 > L’utilisateur recevra un e-mail pour configurer son profil.
+
+> [!NOTE]
+> Mixpanel prend également en charge l’attribution automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./mixpanel-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

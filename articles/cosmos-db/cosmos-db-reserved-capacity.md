@@ -4,15 +4,15 @@ description: Découvrez comment acheter une capacité réservée Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 08/26/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5c2d1d286572b21879742a1a9c6ab3975441373d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7726960ac4fc5a4a3a64fe8b51e23e77e157ba6d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602680"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037858"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -108,6 +108,10 @@ La remise de réservation est appliquée automatiquement aux ressources Azure Co
    * [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Réservations Azure dans le cadre du programme Fournisseur de solutions cloud de l’Espace Partenaires](/partner-center/azure-reservations)
+
+Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+* Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

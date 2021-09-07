@@ -9,22 +9,21 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 2fefa04a6ba00d788d39d850431234c490734dd5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: da96179707be6d41c8191b5debff3154fe1e1151
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593168"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442351"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
 Utilisez la bibliothèque de client Visage pour Python pour :
 
-* [Détecter des visages sur une image](#detect-faces-in-an-image)
-* [Rechercher des visages semblables](#find-similar-faces)
-* [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup)
+* [Détecter et analyser les visages](#detect-and-analyze-faces)
 * [Identifier un visage](#identify-a-face)
 * [Vérifier les visages](#verify-faces)
+* [Rechercher des visages semblables](#find-similar-faces)
 
 [Documentation de référence](/python/api/overview/azure/cognitiveservices/face-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Exemples C#](/samples/browse/?products=azure&term=face)
 
@@ -33,6 +32,7 @@ Utilisez la bibliothèque de client Visage pour Python pour :
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
   * Votre installation Python doit inclure [pip](https://pip.pypa.io/en/stable/). Vous pouvez vérifier si pip est installé en exécutant `pip --version` sur la ligne de commande. Procurez-vous pip en installant la dernière version de Python.
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Créer une ressource Visage"  target="_blank">créez une ressource Visage </a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
@@ -84,11 +84,11 @@ Les classes et interfaces suivantes gèrent certaines des principales fonctionna
 Ces extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client Visage pour Python :
 
 * [Authentifier le client](#authenticate-the-client)
-* [Détecter des visages sur une image](#detect-faces-in-an-image)
-* [Rechercher des visages semblables](#find-similar-faces)
-* [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup)
+* [Détecter et analyser les visages](#detect-and-analyze-faces)
 * [Identifier un visage](#identify-a-face)
 * [Vérifier les visages](#verify-faces)
+* [Rechercher des visages semblables](#find-similar-faces)
+
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
@@ -96,7 +96,10 @@ Instanciez un client avec votre point de terminaison et la clé. Créez un objet
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
 
-## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
+## <a name="detect-and-analyze-faces"></a>Détecter et analyser les visages
+
+La détection des visages est nécessaire dans l’analyse des visages et la vérification d’identité. Cette section montre comment retourner les données d’attribut de visage supplémentaires. Si vous souhaitez uniquement détecter les visages à des fins d’identification ou de vérification des visages, passez aux sections suivantes.
+
 
 Le code suivant détecte un visage dans une image distante. Il affiche l’ID du visage détecté sur la console et le stocke dans la mémoire du programme. Ensuite, il détecte les visages dans une image où figurent plusieurs personnes et affiche également leurs ID sur la console. En modifiant les paramètres de la méthode [detect_with_url](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#detect-with-url-url--return-face-id-true--return-face-landmarks-false--return-face-attributes-none--recognition-model--recognition-01---return-recognition-model-false--detection-model--detection-01---custom-headers-none--raw-false----operation-config-), vous pouvez retourner différentes informations avec chaque objet [DetectedFace](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.models.detectedface).
 
@@ -113,31 +116,16 @@ Le code suivant génère l’image donnée à l’écran et trace des rectangles
 
 ![Jeune femme dont le visage est indiqué par un rectangle rouge](../../images/face-rectangle-result.png)
 
-## <a name="find-similar-faces"></a>Rechercher des visages semblables
 
-Le code suivant utilise un visage unique détecté (la source) et recherche un ensemble d’autres visages (la cible) pour trouver des correspondances (recherche faciale par image). Quand il trouve une correspondance, il affiche l’ID du visage correspondant sur la console.
 
-### <a name="find-matches"></a>Rechercher des correspondances
 
-Tout d’abord, exécutez le code de la section ci-dessus ([Détecter des visages dans une image](#detect-faces-in-an-image)) pour enregistrer une référence à un visage unique. Exécutez ensuite le code suivant pour obtenir des références à plusieurs visages dans une image de groupe.
+## <a name="identify-a-face"></a>Identifier un visage
 
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
 
-Ajoutez ensuite le bloc de code suivant pour rechercher les instances du premier visage du groupe. Pour savoir comment modifier ce comportement, consultez la section sur la méthode [find_similar](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-).
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar)]
-
-### <a name="print-matches"></a>Afficher les correspondances
-
-Utilisez le code suivant pour afficher les détails sur les correspondances sur la console.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
-
-## <a name="create-and-train-a-persongroup"></a>Créer et effectuer l'apprentissage d’un objet PersonGroup
+### <a name="create-a-persongroup"></a>Créer un objet PersonGroup
 
 Le code suivant crée un **PersonGroup** avec trois objets **Person** différents. Il associe chaque objet **Person** à un ensemble d’exemples d’images, puis s’entraîne pour pouvoir reconnaître chaque personne. 
-
-### <a name="create-persongroup"></a>Créer un PersonGroup
 
 Pour suivre ce scénario, vous devez enregistrer les images suivantes dans le répertoire racine de votre projet : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
@@ -160,7 +148,7 @@ Le code suivant trie vos images en fonction de leur préfixe, détecte les visag
 > [!TIP]
 > Vous pouvez également créer un **PersonGroup** à partir d’images distantes référencées par URL. Consultez les méthodes [PersonGroupPersonOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations) comme **add_face_from_url**.
 
-### <a name="train-persongroup"></a>Entraîner le PersonGroup
+### <a name="train-the-persongroup"></a>Entraîner le PersonGroup
 
 Une fois que vous avez attribué des visages, vous devez entraîner le **PersonGroup** pour qu’il puisse identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge le résultat en affichant l’état sur la console.
 
@@ -169,20 +157,13 @@ Une fois que vous avez attribué des visages, vous devez entraîner le **PersonG
 > [!TIP]
 > L’API Visage s’exécute sur un ensemble de modèles prédéfinis qui sont statiques par nature (les performances du modèle ne se dégradent pas ou ne s’améliorent pas quand le service est exécuté). Les résultats générés par le modèle risquent de changer si Microsoft met à jour le back-end du modèle sans migrer vers une version entièrement nouvelle du modèle. Pour bénéficier d’une version plus récente d’un modèle, vous pouvez réentraîner votre **PersonGroup**, en spécifiant le modèle plus récent en tant que paramètre avec les mêmes images d’inscription.
 
-## <a name="identify-a-face"></a>Identifier un visage
-
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
-
-> [!IMPORTANT]
-> Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni dans [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup).
-
 ### <a name="get-a-test-image"></a>Obtenir une image de test
 
 Le code suivant recherche une image _test-image-person-group.jpg_ à la racine du projet et détecte les visages dans l’image. Vous pouvez trouver cette image avec les images utilisées pour la gestion de **PersonGroup** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
-### <a name="identify-faces"></a>Identifier des visages
+### <a name="output-identified-face-ids"></a>Générer des ID de visages identifiés
 
 La méthode **identify** compare un groupe de visages détectés à un **PersonGroup**. Si un visage détecté correspond à un objet **Person**, elle enregistre le résultat. Ce code affiche les résultats de correspondance détaillés sur la console.
 
@@ -190,7 +171,7 @@ La méthode **identify** compare un groupe de visages détectés à un **PersonG
 
 ## <a name="verify-faces"></a>Vérifier les visages
 
-L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne.
+L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne. La vérification peut être utilisée pour vérifier la correspondance des visages retournée par l’opération d’identification.
 
 Le code suivant détecte des visages dans deux images sources, puis les compare à un visage détecté à partir d’une image cible.
 
@@ -213,6 +194,26 @@ Le code suivant détecte des visages dans les images source et cible, et les enr
 Le code suivant compare chacune des images sources à l’image cible et affiche un message indiquant si elles appartiennent à la même personne.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
+
+## <a name="find-similar-faces"></a>Rechercher des visages semblables
+
+Le code suivant utilise un visage unique détecté (la source) et recherche un ensemble d’autres visages (la cible) pour trouver des correspondances (recherche faciale par image). Quand il trouve une correspondance, il affiche l’ID du visage correspondant sur la console.
+
+### <a name="find-matches"></a>Rechercher des correspondances
+
+Tout d’abord, exécutez le code de la section ci-dessus ([Détecter et analyser les visages](#detect-and-analyze-faces)) pour enregistrer une référence à un visage unique. Exécutez ensuite le code suivant pour obtenir des références à plusieurs visages dans une image de groupe.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
+
+Ajoutez ensuite le bloc de code suivant pour rechercher les instances du premier visage du groupe. Pour savoir comment modifier ce comportement, consultez la section sur la méthode [find_similar](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-).
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar)]
+
+### <a name="print-matches"></a>Afficher les correspondances
+
+Utilisez le code suivant pour afficher les détails sur les correspondances sur la console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
 ## <a name="run-the-application"></a>Exécution de l'application
 

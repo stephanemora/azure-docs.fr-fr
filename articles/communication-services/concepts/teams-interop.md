@@ -7,19 +7,19 @@ manager: chpalm
 services: azure-communication-services
 ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: e884079bc159dbbc76d6443dc0e095c4d8f596ab
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 1bcb97892965cbe978899df4208888a4adb07253
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668093"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251346"
 ---
 # <a name="teams-interoperability"></a>Interopérabilité de Teams
 
 > [!IMPORTANT]
-> L’interopérabilité des BYOI est disponible en version préliminaire publique et largement disponible à la demande. Pour activer/désactiver l’[interopérabilité des locataires Teams](../concepts/teams-interop.md), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
+> L’interopérabilité BYOI est en préversion publique et disponible pour toutes les applications Communication Services et toutes les organisations Teams.
 >
 > L'interopérabilité authentifiée de Microsoft 365 est en phase de prévisualisation privée et limitée, à l'aide de contrôles de service, aux premiers utilisateurs d'Azure Communication Services. Pour participer au programme d'accès anticipé, remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 >
@@ -42,10 +42,24 @@ Azure Communication Services prend en charge deux types d’interopérabilité T
 
 Les applications peuvent implémenter les deux schémas d’authentification et laissent le choix de l’authentification à l’utilisateur final.
 
-## <a name="bring-your-own-identity"></a>Apportez votre propre identité
-BYOI (Bring your own identity) est le modèle commun pour l’utilisation d’Azure Communication Services et de l’interopérabilité avec Teams. Il prend en charge tous les fournisseurs d’identité et tous les schémas d’authentification. Votre application peut rejoindre les réunions Microsoft Teams et Teams traitera ces utilisateurs comme des comptes externes anonymes. Le nom des utilisateurs d’Azure Communication Services est affiché dans Teams est configurable via le kit de développement logiciel (SDK) d’Azure Communication Services.
+## <a name="overview"></a>Vue d’ensemble
 
-Cette fonctionnalité est idéale pour les applications interentreprises qui rassemblent les employés (familiarisés avec Teams) et les utilisateurs externes (à l’aide d’une expérience d’application personnalisée) dans une réunion. Les détails de la réunion qui doivent être partagés avec les utilisateurs externes de votre application peuvent être récupérés via l’API Graph ou à partir du calendrier dans Microsoft Teams.
+Les utilisateurs peuvent accéder à l’expérience d’appel Teams de deux façons :
+
+- Via des clients Teams en tant qu’**utilisateurs Teams**. Cela comprend les clients Teams de bureau, mobiles et web. 
+- Via l’expérience web de votre application en tant qu’**utilisateurs anonymes Teams**. 
+
+Les utilisateurs anonymes Teams n’ont pas besoin d’être des utilisateurs Teams. Azure Communication Services vous permet de créer et de personnaliser de nouveaux points de terminaison d’appel Teams pour les utilisateurs Teams et les utilisateurs anonymes Teams. Vous pouvez utiliser le kit SDK d’appel Communication Services et la bibliothèque d’interface utilisateur pour la personnalisation et l’intégration dans une application ou un produit existant. Le diagramme suivant montre comment il est possible de rejoindre une réunion Teams à partir de plusieurs points de terminaison : ![Vue d’ensemble de plusieurs scénarios d’interopérabilité dans Azure Communication Services](./media/teams-identities/teams_interop_overview.png)
+
+Lorsqu’un point de terminaison se connecte à une réunion Teams avec une identité Teams via les bibliothèques clientes Azure Communication Services, le point de terminaison est traité comme un utilisateur Teams avec un client Teams. Les utilisateurs Teams ont accès à plus de fonctionnalités que les utilisateurs anonymes Teams. Les utilisateurs Teams peuvent rejoindre des réunions Teams, téléphoner à d’autres utilisateurs Teams, recevoir des appels de numéros de téléphone et transférer des appels en cours vers la file d’attente des appels Teams. La connectivité du point de terminaison Communication Services avec l’identité Teams est indiquée dans le diagramme suivant.
+
+![Vue d’ensemble de plusieurs scénarios d’interopérabilité dans Azure Communication Services](./media/teams-identities/teams_interop_m365_identity_interop_overview.png)
+
+## <a name="bring-your-own-identity"></a>Apportez votre propre identité
+
+BYOI (Bring your own identity) est le modèle commun pour l’utilisation d’Azure Communication Services et de l’interopérabilité avec Teams. Il prend en charge tous les fournisseurs d’identité et tous les schémas d’authentification. Le premier scénario activé permet à votre application de rejoindre des réunions Microsoft Teams, et Teams traite ces utilisateurs comme des comptes externes anonymes, les mêmes que les utilisateurs qui participent à l’aide de l’application web anonyme Teams. C’est idéal pour les applications interentreprises qui rassemblent les employés (familiarisés avec Teams) et les utilisateurs externes (à l’aide d’une expérience d’application personnalisée) dans une réunion. À l’avenir, nous allons activer des scénarios supplémentaires, notamment les conversations et les appels directs, ce qui permettra à votre application de lancer des appels et des conversations avec les utilisateurs Teams en dehors du contexte d’une réunion Teams.
+
+La possibilité pour les utilisateurs Communication Services de rejoindre des réunions Teams en tant qu’utilisateurs anonymes est contrôlée par la configuration « autoriser l’accès anonyme aux réunions » qui contrôle également l’accès anonyme aux réunions Teams existant.  Ce paramètre peut être mis à jour dans le centre d’administration Teams (https://admin.teams.microsoft.com/meetings/settings) ou avec l’applet de commande PowerShell Teams Set-CsTeamsMeetingConfiguration (https://docs.microsoft.com/powershell/module/skype/set-csteamsmeetingconfiguration). Comme avec l’accès anonyme aux réunions Teams, votre application doit disposer du lien de la réunion pour y accéder, qui peut être récupéré via l’API Graph ou à partir du calendrier dans Microsoft Teams.  Le nom des utilisateurs d’Azure Communication Services est affiché dans Teams est configurable via le kit de développement logiciel (SDK) d’Azure Communication Services.
 
 Les utilisateurs externes pourront utiliser les fonctionnalités audio, vidéo, de partage d’écran et de conversation de base via les kits de développement logiciel (SDK) d’Azure communication services. Les fonctionnalités telles que Lever la main, le mode ensemble et les salles de pause ne seront disponibles que pour les utilisateurs Teams. Les utilisateurs d’Azure Communication Services peuvent envoyer et recevoir des messages uniquement lorsqu’ils sont présents dans la réunion Teams et si la réunion n’est pas planifiée pour un canal précis.
 

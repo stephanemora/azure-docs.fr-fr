@@ -3,17 +3,17 @@ title: Nouveautés d’Azure Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/07/2021
+ms.date: 07/30/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: d597e4c33652cb5a7106943ebd9f4e8b23b496ef
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 88c94a3f1b6329c80cddcec49c7ebb445a21d8e0
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730223"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318138"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Nouveautés d’Azure Virtual Desktop
 
@@ -42,11 +42,12 @@ L’agent Azure Virtual Desktop est mis à jour au moins une fois par mois.
 
 Voici les modifications apportées à l’agent Azure Virtual Desktop :
 
-- Version 1.0.3130.1200 : cette mise à jour a été publiée en mai 2021 pour les pools de validation et présente les modifications suivantes :
+- Version 1.0.3130.2900 : cette mise à jour a été publiée en juillet 2021 avec les changements suivants :
     - Améliorations générales et résolutions de bogues.
     - Résout un problème d’obtention du chemin d’accès au pool d’hôtes pour l’inscription Intune.
     - Ajout de la journalisation pour mieux diagnostiquer les problèmes liés à l’agent.
-- Version 1.0.3050.1200 : cette mise à jour a été publiée en mai 2021 pour les pools de validation et présente les modifications suivantes :
+    - Résout un problème avec les délais d’expiration de l’orchestration.
+- Version 1.0.3050.2500 : cette mise à jour a été publiée en juillet 2021 avec les changements suivants :
     - Mise à jour de l’analyse interne de l’intégrité de l’agent.
     - Mise à jour de la logique de nouvelle tentative pour l’intégrité de la pile.
 - Version 1.0.2990.1500 : cette mise à jour publiée en avril 2021 présente les changements suivants :
@@ -65,6 +66,77 @@ Voici les modifications apportées à l’agent Azure Virtual Desktop :
 ## <a name="fslogix-updates"></a>Mises à jour FSLogix
 
 Vous êtes curieux de découvrir les dernières mises à jour de FSLogix ? Consultez [Nouveautés de FSLogix](/fslogix/whats-new).
+
+## <a name="august-2021"></a>Août 2021
+
+Voici ce qui a changé en août 2021 :
+
+### <a name="windows-11-preview-on-avd"></a>Windows 11 (préversion) sur AVD
+
+Les images Windows 11 (préversion) sont désormais disponibles dans la Place de marché Azure pour permettre aux clients de les tester et de les valider avec Azure Virtual Desktop. Pour plus d’informations, consultez [notre annonce](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-preview-is-now-available-on-azure-virtual-desktop/ba-p/2666468).
+
+### <a name="multimedia-redirection-mmr-is-now-in-public-preview"></a>La redirection multimédia (MMR) est désormais en préversion publique
+
+La redirection multimédia (MMR) vous offre une lecture vidéo fluide dans votre navigateur web Azure Virtual Desktop et fonctionne avec Microsoft Edge et Google Chrome. Pour en savoir plus, consultez [notre billet de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692).
+
+### <a name="ip-virtualization-support-for-windows-server-2019"></a>Prise en charge de la virtualisation IP pour Windows Server 2019
+
+La virtualisation IP est prise en charge sur Windows Server 2008 R2 et versions ultérieures. Des étapes supplémentaires sont nécessaires pour utiliser la virtualisation IP pour Windows Server 2019. Pour plus d’informations, consultez [notre annonce](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/ip-virtualization-support-for-windows-server-2019/m-p/2658650).
+
+### <a name="windows-defender-application-control-and-azure-disk-encryption-is-now-supported"></a>Le contrôle d’application Windows Defender et Azure Disk Encryption sont désormais pris en charge
+
+Azure Virtual Desktop prend désormais en charge le contrôle d’application Windows Defender pour contrôler les pilotes et applications autorisés à s’exécuter sur la machine virtuelle Windows, ainsi qu’Azure Disk Encryption qui utilise Windows BitLocker pour fournir le chiffrement de volume du système d’exploitation et des disques de données de vos machines virtuelles. Pour plus d’informations, consultez [notre annonce](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
+ 
+### <a name="signing-into-azure-ad-using-smart-cards-are-now-supported-in-azure-virtual-desktop"></a>La connexion à Azure AD à l’aide de cartes à puce est maintenant prise en charge dans Azure Virtual Desktop
+
+Cette fonctionnalité d’Azure AD n’est pas nouvelle, mais la configuration des services de fédération Active Directory (AD FS) pour se connecter avec les cartes à puce est désormais prise en charge dans Azure Virtual Desktop. Pour plus d’informations, consultez [notre annonce](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671).
+
+### <a name="screen-capture-protection-is-now-generally-available"></a>La protection contre la capture d’écran est maintenant en disponibilité générale
+
+Empêchez la capture des informations sensibles par les logiciels exécutés sur les points de terminaison clients grâce à la protection contre la capture d’écran dans AVD. Pour en savoir plus, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-screen-capture-protection-for/m-p/2699684).
+
+## <a name="july-2021"></a>Juillet 2021
+
+Voici ce qui a changé en juillet 2021 :
+
+### <a name="azure-virtual-desktop-images-now-include-optimized-teams"></a>Les images Azure Virtual Desktop comprennent désormais une version de Teams optimisée
+
+Toutes les images disponibles dans la galerie d’images d’Azure Virtual Desktop qui comprennent Microsoft 365 Apps for Enterprise ont désormais une version préinstallée de Teams avec optimisation des médias pour Azure Virtual Desktop. Pour plus d’informations, consultez [notre annonce](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/media-optimization-for-microsoft-teams-now-part-of-win10/m-p/2550054#M7442).
+
+### <a name="azure-active-directory-domain-join-for-session-hosts-is-in-public-preview"></a>La jonction de domaine Azure Active Directory pour les hôtes de session est en préversion publique
+
+Vous pouvez maintenant joindre vos machines virtuelles Azure Virtual Desktop directement à Azure Active Directory (Azure AD). Cette fonctionnalité vous permet de vous connecter à vos machines virtuelles à partir de n’importe quel appareil avec des informations d’identification de base. Vous pouvez également inscrire automatiquement vos machines virtuelles dans Microsoft Endpoint Manager. Pour certains scénarios, cela vous permet de ne plus avoir besoin d’un contrôleur de domaine, de réduire les coûts et de rationaliser votre déploiement. Pour plus d’informations, consultez [Déployer des machines virtuelles jointes à Azure AD dans Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+
+### <a name="fslogix-version-2105-is-now-available"></a>La version 2105 de FSLogix est maintenant disponible
+
+La version 2105 de FSLogix est maintenant en disponibilité générale. Cette version propose une amélioration du temps de connexion ainsi que des correctifs de bogues qui n’étaient pas disponibles dans la préversion publique (version 2105). Pour des informations détaillées, consultez [les notes de publication de FSLogix](/fslogix/whats-new) et [notre billet de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-fslogix-2105-2-9-7838-44263/m-p/2539491#M7412).
+
+### <a name="azure-virtual-desktop-in-china-has-entered-public-preview"></a>Azure Virtual Desktop en Chine est entré en préversion publique
+
+Azure Virtual Desktop étant maintenant disponible en Chine, nous avons une couverture mondiale plus complète qui permet aux organisations de prendre en charge les clients de cette région avec de meilleures performances et une latence plus courte. Plus d’informations dans [notre annonce](https://azure.microsoft.com/updates/azure-virtual-desktop-is-now-available-in-the-azure-china-cloud-in-preview/).
+ 
+### <a name="the-getting-started-feature-for-azure-virtual-desktop"></a>Fonctionnalité de démarrage pour Azure Virtual Desktop
+
+Cette fonctionnalité offre une expérience d’intégration simplifiée dans le portail Azure pour configurer votre environnement Azure Virtual Desktop. Vous pouvez l’utiliser pour créer des déploiements qui répondent aux exigences des systèmes pour automatiser Azure Active Directory Domain Services de façon simple et rapide. Pour plus d’informations, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385).
+
+### <a name="start-vm-on-connect-is-now-generally-available"></a>Démarrer la machine virtuelle à la connexion est maintenant en disponibilité générale
+
+La fonctionnalité Démarrer la machine virtuelle à la connexion est désormais en disponibilité générale. Cette fonctionnalité vous permet d’optimiser les coûts en vous donnant la possibilité de désactiver les machines virtuelles désallouées ou arrêtées, ce qui apporte une certaine flexibilité à votre déploiement en fonction de la demande des utilisateurs. Pour plus d’informations, consultez [Démarrer la machine virtuelle à la connexion](start-virtual-machine-connect.md).
+
+### <a name="remote-app-streaming-documentation"></a>Documentation sur le streaming d’applications à distance
+
+Nous avons récemment annoncé une nouvelle option tarifaire pour le streaming d’applications à distance afin de vous permettre d’utiliser Azure Virtual Desktop pour fournir des applications en tant que service à vos clients et partenaires commerciaux. Par exemple, les éditeurs de logiciels peuvent utiliser le streaming d’applications à distance pour distribuer des applications sous forme de solution Software as a service (SaaS) accessible à leurs clients. Pour en savoir plus sur le streaming d’applications à distance, consultez [notre documentation](./remote-app-streaming/overview.md).
+
+Du 14 juillet 2021 au 31 décembre 2021, nous proposons aux clients qui utilisent le streaming d’applications à distance une offre promotionnelle accordant à leurs partenaires commerciaux et clients l’accès gratuit à Azure Virtual Desktop. Cette offre s’applique uniquement aux droits d’accès des utilisateurs externes. La facturation normale reprend le 1er janvier 2022. En attendant, vous pouvez continuer à utiliser vos droits de licence Windows existants, par exemple, Microsoft 365 E3 ou Windows E3. Pour en savoir plus sur cette offre, consultez la [page de prix d’Azure Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+### <a name="new-azure-virtual-desktop-handbooks"></a>Nouveaux manuels Azure Virtual Desktop
+
+Nous avons récemment publié 4 nouveaux manuels pour vous aider à concevoir et déployer Azure Virtual Desktop dans différents scénarios : 
+
+- [Gestion des applications](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-application-management/) vous montre comment moderniser la distribution d’applications et simplifier la gestion informatique.  
+- Dans [Reprise d’activité après sinistre](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-disaster-recovery/), découvrez comment renforcer la résilience de l’entreprise en développant une stratégie de reprise d’activité.  
+- Tirez un meilleur parti de vos investissements Citrix avec le guide de migration [Citrix Cloud avec Azure Virtual Desktop](https://azure.microsoft.com/resources/migration-guide-citrix-cloud-with-azure-virtual-desktop/).
+- Tirez un meilleur parti de vos investissements VMware existants avec le guide de migration [VMware Horizon avec Azure Virtual Desktop](https://azure.microsoft.com/resources/migration-guide-vmware-horizon-cloud-and-azure-virtual-desktop/).
 
 ## <a name="june-2021"></a>Juin 2021
 

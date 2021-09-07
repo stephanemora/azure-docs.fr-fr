@@ -13,14 +13,14 @@ ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 27c56804eeb3b27bfda9f581f13b853edc8e4b4e
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5f213c6b41a0a34850b35fb24dd4288c00693511
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453787"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039334"
 ---
-# <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton
+# <a name="add-app-roles-to-your-application-and-receive-them-in-the-token"></a>ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
 Le contrôle d’accès en fonction du rôle (RBAC) est un mécanisme populaire pour appliquer l’autorisation dans des applications. En utilisant RBAC, un administrateur accorde des autorisations aux rôles, pas à des utilisateurs individuels ou à des groupes. L’administrateur peut alors attribuer des rôles aux différents utilisateurs et groupes pour contrôler l’accès au contenu et aux fonctionnalités.
 

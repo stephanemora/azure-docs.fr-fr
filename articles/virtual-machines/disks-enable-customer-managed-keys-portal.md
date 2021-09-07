@@ -2,24 +2,23 @@
 title: Portail Azure - Activez les clés gérées par le client avec les disques managés - SSE
 description: Activez les clés gérées par le client sur vos disques managés à l’aide du portail Azure.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 08/31/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 99a6a94405978cf183c717f2fed34f7eb24d9299
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2117fc6d425233ee2de4954173981ad5cfda5f18
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361366"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318469"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser le portail Azure pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
 
-Le Stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client ainsi que d’autres types de chiffrement de disque managés, consultez la section **Clés gérées par le client** de notre article sur le chiffrement de disque :
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: 
 
-- Pour Linux : [Clés gérées par le client](./disk-encryption.md#customer-managed-keys)
-- Pour Windows : [Clés gérées par le client](./disk-encryption.md#customer-managed-keys)
+Le stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client ainsi que d’autres types de chiffrement de disque managés, consultez la section **Clés gérées par le client** de notre article sur le chiffrement de disque [Clés gérées par le client](disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -79,6 +78,12 @@ Le processus de déploiement de la machine virtuelle est similaire au processus 
 
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés gérées par le client, une identité managée est automatiquement affectée à vos ressources à l’arrière plan. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le disque managé d’un répertoire Azure AD à un autre, l’identité managée associée aux disques managés n’est pas transférée vers le nouveau locataire, de sorte que les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez [Transfert d’un abonnement entre des répertoires Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+### <a name="enable-automatic-key-rotation-on-an-existing-disk-encryption-set"></a>Activer la rotation automatique des clés sur un jeu de chiffrement de disque existant
+
+1. Accédez au jeu de chiffrement de disque sur lequel vous souhaitez activer la [Rotation automatique des clés](disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
+1. Sous **Paramètres**, sélectionnez **Clé**.
+1. Sélectionnez **Rotation automatique des clés**, puis **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

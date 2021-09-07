@@ -8,18 +8,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 662a550145ece8821a8cdbed0533696b265f7952
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 060cea47bf70f1e13310ecc408f89a46365a8595
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690009"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580293"
 ---
 # <a name="powershell-modules-for-machine-learning-studio-classic"></a>Modules PowerShell pour Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Grâce aux modules PowerShell, vous pouvez gérer par programmation vos ressources Studio (classique) et des ressources telles que les espaces de travail, les jeux de données et les services web.
 
