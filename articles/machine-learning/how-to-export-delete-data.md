@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
-ms.date: 04/24/2020
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.openlocfilehash: f3e432573e07146157d76de71e5ef1b328ed5bcf
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1889798d120946e0afc319ceeeaa43db12f59566
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885071"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524615"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporter ou supprimer vos données d’espace de travail Machine Learning
 
@@ -32,7 +32,7 @@ Dans Azure Machine Learning, les données personnelles se composent d’informat
 
 ## <a name="delete-high-level-resources-using-the-portal"></a>Supprimer des ressources de haut niveau à l’aide du portail
 
-Lorsque vous créez un espace de travail, Azure crée un certain nombre de ressources au sein du groupe de ressources :
+Quand vous créez un espace de travail, Azure crée plusieurs ressources au sein du groupe de ressources :
 
 - L’espace de travail lui-même
 - Un compte de stockage
@@ -52,11 +52,14 @@ Les documents d’historique des exécutions, qui peuvent contenir des informati
 
 Azure Machine Learning Studio fournit une vue unifiée de vos ressources Machine Learning, telles que les notebooks, les jeux de données, les modèles et les expériences. Azure Machine Learning Studio met l’accent sur la conservation d’un enregistrement de vos données et de vos expériences. Les ressources de calcul telles que les pipelines et autres peuvent être supprimées à l’aide du navigateur. Pour ces ressources, accédez à la ressource en question et choisissez **Supprimer**. 
 
-Les jeux de données peuvent être désinscrits et les expériences peuvent être archivées, mais ces opérations ne suppriment pas les données. Pour supprimer entièrement les données, les jeux de données et les données d’exécution doivent être supprimés au niveau du stockage. La suppression au niveau du stockage s’effectue à l’aide du portail, comme décrit précédemment.
+Les jeux de données peuvent être désinscrits et les expériences peuvent être archivées, mais ces opérations ne suppriment pas les données. Pour supprimer entièrement les données, les jeux de données et les données d’expérience doivent être supprimés au niveau du stockage. La suppression au niveau du stockage s’effectue à l’aide du portail, comme décrit précédemment. Une exécution individuelle peut être directement supprimée dans Studio. La suppression d’une exécution supprime ses données. 
+
+> [!NOTE]
+> Avant d’annuler l’inscription d’un jeu de données, utilisez son lien **Source de données** pour rechercher l’URL de données spécifique à supprimer. 
 
 Vous pouvez télécharger des artefacts d’entraînement à partir d’exécutions expérimentales à l’aide de Studio. Choisissez l’**expérience** et l’**exécution** qui vous intéressent. Choisissez **Sortie + journaux** et accédez aux artefacts spécifiques que vous souhaitez télécharger. Choisissez **...** et **Télécharger**.
 
-Vous pouvez télécharger un modèle inscrit en accédant au **modèle** souhaité et en choisissant **Télécharger**. 
+Vous pouvez télécharger un modèle inscrit en accédant au **modèle** et en choisissant **Télécharger**. 
 
 :::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Capture d’écran de la page de modèle Studio avec l’option Télécharger mise en évidence":::
 

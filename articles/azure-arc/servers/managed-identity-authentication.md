@@ -2,13 +2,13 @@
 title: S’authentifier auprès de ressources Azure au moyen de serveurs avec Arc
 description: Cet article décrit la prise en charge d’Azure Instance Metadata Service pour les serveurs avec Arc et la façon dont vous pouvez vous authentifier auprès de ressources Azure et locales à l’aide d’un secret.
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: 49b70928ae972da8e0a0d14d711e4b6f246cca6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 76f7174792f751322545b1d30bb51476c5339e26
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96939015"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389907"
 ---
 # <a name="authenticate-against-azure-resources-with-arc-enabled-servers"></a>S’authentifier auprès de ressources Azure au moyen de serveurs avec Arc
 
@@ -22,11 +22,11 @@ Dans cet article, nous vous montrons comment un serveur peut utiliser une identi
 
 Lors de l’intégration de votre serveur à des serveurs avec Azure Arc, plusieurs actions sont effectuées pour configurer l’utilisation d’une identité managée, à l’instar de ce qui est effectué pour une machine virtuelle Azure :
 
-- Azure Resource Manager reçoit une demande pour activer l’identité managée attribuée par le système sur le serveur avec Arc.
+- Azure Resource Manager reçoit une demande pour activer l’identité managée affectée par le système sur le serveur avec Arc.
 
 - Azure Resource Manager crée un principal de service dans Azure AD pour représenter l’identité du serveur. Le principal de service est créé dans le locataire Azure AD approuvé par cet abonnement.
 
-- Azure Resource Manager configure l’identité sur le serveur en mettant à jour le point de terminaison d’identité Azure Instance Metadata Service (IMDS) pour [Windows](../../virtual-machines/windows/instance-metadata-service.md) ou [Linux](../../virtual-machines/linux/instance-metadata-service.md) avec l’ID client et le certificat du principal de service. Le point de terminaison est un point de terminaison REST accessible uniquement à partir du serveur à l’aide d’une adresse IP non routable connue. Ce service fournit un sous-ensemble d’informations de métadonnées sur le serveur avec Arc pour faciliter sa gestion et sa configuration.
+- Azure Resource Manager configure l’identité sur le serveur en mettant à jour le point de terminaison d’identité Azure Instance Metadata Service (IMDS) pour [Windows](../../virtual-machines/windows/instance-metadata-service.md) ou [Linux](../../virtual-machines/linux/instance-metadata-service.md) avec l’ID client et le certificat du principal de service. Le point de terminaison est un point de terminaison REST accessible uniquement à partir du serveur à l’aide d’une adresse IP non routable connue. Ce service fournit un sous-ensemble des informations de métadonnées sur le serveur avec Arc pour faciliter sa gestion et sa configuration.
 
 L’environnement d’un serveur avec identité managée est configuré avec les variables suivantes sur un serveur Windows avec Arc :
 

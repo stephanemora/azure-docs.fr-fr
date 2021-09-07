@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: a1f6b51c8ab36d779ad2771c1e12de78673e6fc1
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 94ffb38c71437c8f5902866620b5ac0c2467edfd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902404"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462912"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-gpu-device"></a>Créer des images de machines virtuelles personnalisées pour votre appareil Azure Stack Edge Pro avec GPU
 
@@ -27,7 +27,7 @@ Un workflow est nécessaire pour la préparation d’une image de machine virtue
 
 Avant de créer votre image de machine virtuelle, conformez-vous aux prérequis suivants :
 
-- [Téléchargez AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy vous offre un moyen de copie rapide d’un disque de système d’exploitation dans un compte de stockage Azure.
+- [Téléchargez AzCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy). AzCopy vous offre un moyen de copie rapide d’un disque de système d’exploitation dans un compte de stockage Azure.
 
 ---
 
@@ -40,9 +40,11 @@ Les étapes de préparation d’une image de machine virtuelle personnalisée va
 
 Effectuez les étapes suivantes pour créer une image de machine virtuelle Windows :
 
-1. Créez une machine virtuelle Windows dans Azure. Pour obtenir les instructions du portail, consultez [Créer une machine virtuelle Windows dans le portail Azure](/azure/virtual-machines/windows/quick-create-portal). Pour obtenir des instructions PowerShell, consultez [Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
+1. Créez une machine virtuelle Windows dans Azure. Pour obtenir les instructions du portail, consultez [Créer une machine virtuelle Windows dans le portail Azure](../virtual-machines/windows/quick-create-portal.md). Pour obtenir des instructions PowerShell, consultez [Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
 
-   La machine virtuelle doit être une machine virtuelle de génération 1. Le disque de système d’exploitation que vous utilisez pour créer votre image de machine virtuelle doit être un disque dur virtuel dont la taille fixe est prise en charge par Azure. Pour les options de taille de machine virtuelle, consultez [Tailles de machines virtuelles prises en charge](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).  
+   La machine virtuelle doit être une machine virtuelle de génération 1. Le disque de système d’exploitation que vous utilisez pour créer votre image de machine virtuelle doit être un disque dur virtuel dont la taille fixe est prise en charge par Azure. Pour les options de taille de machine virtuelle, consultez [Tailles de machines virtuelles prises en charge](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+
+   Vous pouvez utiliser n’importe quelle machine virtuelle Windows Gen1 avec un disque dur virtuel de taille fixe dans la Place de marché Azure. Pour obtenir une liste des images utilisables de la Place de marché Azure, consultez [Images de la Place de marché Azure couramment utilisées pour Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
 
 2. Généralisez la machine virtuelle. Pour généraliser la machine virtuelle, [connectez-vous à la machine virtuelle](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm), ouvrez une invite de commandes, puis exécutez la commande `sysprep` suivante :
 
@@ -60,7 +62,7 @@ Effectuez les étapes suivantes pour créer une image de machine virtuelle Linux
 
 1. Créer une machine virtuelle Linux dans Azure. Pour obtenir les instructions du portail, consultez [Démarrage rapide : Créer une machine virtuelle Linux dans le portail Azure](../virtual-machines/linux/quick-create-portal.md).  Pour obtenir des instructions PowerShell, consultez [Démarrage rapide : Créer une machine virtuelle Linux dans Azure avec PowerShell](../virtual-machines/linux/quick-create-powershell.md).
 
-   Vous pouvez utiliser n’importe quelle machine virtuelle Gen1 dotée d’un disque dur virtuel de taille fixe dans la Place de marché Azure pour créer des images personnalisées Linux, à l’exception des images Red Hat Enterprise Linux (RHEL) qui nécessitent des étapes supplémentaires. Pour obtenir la liste des images appropriées de la Place de Marché Azure, consultez [Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true). Pour obtenir des conseils sur les images RHEL, consultez [Utilisation des images RHEL BYOS](#using-rhel-byos-images), ci-dessous. 
+   Vous pouvez utiliser n’importe quelle machine virtuelle Gen1 dotée d’un disque dur virtuel de taille fixe dans la Place de marché Azure pour créer des images personnalisées Linux, à l’exception des images Red Hat Enterprise Linux (RHEL) qui nécessitent des étapes supplémentaires. Pour obtenir une liste des images utilisables de la Place de marché Azure, consultez [Images de la Place de marché Azure couramment utilisées pour Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). Pour obtenir des conseils sur les images RHEL, consultez [Utilisation des images RHEL BYOS](#using-rhel-byos-images), ci-dessous.
 
 1. Annulez l’approvisionnement de la machine virtuelle. Utilisez l’agent de machine virtuelle Azure pour supprimer les fichiers et les données propres à la machine. Utilisez la commande `waagent` avec le paramètre `-deprovision+user` sur votre machine virtuelle Linux source. Pour plus d’informations, consultez [Comprendre et utiliser l’agent Linux Azure](../virtual-machines/extensions/agent-linux.md).
 
@@ -98,9 +100,9 @@ Si vous voulez utiliser votre image de machine virtuelle personnalisée pour dé
 
 Pour télécharger le disque du système d’exploitation de la machine virtuelle dans un compte de stockage Azure, procédez comme suit :
 
-1. [Arrêtez la machine virtuelle dans le portail](/azure/virtual-machines/windows/download-vhd#stop-the-vm). Vous devez le faire pour libérer le disque de système d’exploitation, même si votre machine virtuelle Windows a été arrêtée après votre exécution de `sysprep` pour la généraliser.
+1. [Arrêtez la machine virtuelle dans le portail](../virtual-machines/windows/download-vhd.md#stop-the-vm). Vous devez le faire pour libérer le disque de système d’exploitation, même si votre machine virtuelle Windows a été arrêtée après votre exécution de `sysprep` pour la généraliser.
 
-1. [Générez une URL de téléchargement pour le disque de système d’exploitation](/azure/virtual-machines/windows/download-vhd#generate-download-url) et prenez note de cette URL. Par défaut, l’URL expire au bout de 3 600 secondes (1 heure). Vous pouvez augmenter ce délai si nécessaire.
+1. [Générez une URL de téléchargement pour le disque de système d’exploitation](../virtual-machines/windows/download-vhd.md#generate-download-url) et prenez note de cette URL. Par défaut, l’URL expire au bout de 3 600 secondes (1 heure). Vous pouvez augmenter ce délai si nécessaire.
       
 1. Téléchargez le disque dur virtuel dans votre compte de stockage Azure à l’aide de l’une des méthodes suivantes :
    
@@ -112,7 +114,7 @@ Vous pouvez à présent utiliser ce disque dur virtuel pour créer et déployer 
 
 ## <a name="copy-vhd-to-storage-account-using-azcopy"></a>Copier le disque dur virtuel dans le compte de stockage avec AzCopy
 
-Les procédures suivantes décrivent l’utilisation d’AzCopy pour copier une image de machine virtuelle personnalisée dans un compte de stockage Azure, afin que vous puissiez utiliser l’image dans le déploiement de machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU. Nous vous recommandons de stocker vos images de machines virtuelles personnalisées dans le même compte de stockage que celui que vous utilisez pour votre appareil Azure Stack Edge Pro avec GPU. 
+Les procédures suivantes décrivent l’utilisation d’AzCopy pour copier une image de machine virtuelle personnalisée dans un compte de stockage Azure, afin que vous puissiez utiliser l’image dans le déploiement de machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU. Nous vous recommandons de stocker vos images de machine virtuelle personnalisées dans n’importe quel compte de stockage existant que vous utilisez et qui se trouve dans les mêmes région/abonnement qu’Azure Stack Edge.
 
 
 ### <a name="create-target-uri-for-a-container"></a>Créer un URI cible pour un conteneur
@@ -152,7 +154,7 @@ Pour créer l’URI cible de votre disque dur virtuel préparé, effectuez les �
 
 Pour copier votre disque dur virtuel dans un conteneur d’objets blob à l’aide d’AzCopy, effectuez les étapes suivantes :
 
- 1. [Téléchargez AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) si vous ne l’avez pas déjà fait.
+ 1. [Téléchargez AZCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy) si vous ne l’avez pas déjà fait.
  
  1. Dans PowerShell, accédez au répertoire où vous avez stocké azcopy.exe, puis exécutez la commande suivante :
 

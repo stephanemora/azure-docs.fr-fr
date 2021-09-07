@@ -1,26 +1,26 @@
 ---
-title: 'Démarrage rapide : Créer un compte Automation – Modèle Azure'
+title: Créer un compte Automation – Modèle Azure
 titleSuffix: Azure Automation
-description: Ce guide de démarrage rapide montre comment créer un compte Automation en utilisant le modèle Azure Resource Manager.
+description: Cet article montre comment créer un compte Automation à l’aide du modèle Azure Resource Manager.
 services: automation
 ms.author: magoedte
 ms.date: 07/20/2021
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 17183bffcfe9607a774d1205180c284d49cd7503
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: b17bb61230fa06acc988129bd593ab5c25332e84
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652007"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727381"
 ---
-# <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Automation à l’aide d’un modèle ARM
+# <a name="create-an-automation-account-by-using-arm-template"></a>Créer un compte Automation à l’aide d’un modèle ARM
 
-Azure Automation offre un service d’automatisation et de configuration cloud prenant en charge une gestion cohérente de vos environnements Azure et non-Azure. Ce guide de démarrage rapide vous montre comment déployer un modèle Azure Resource Manager (modèle ARM) qui crée un compte Automation. L’utilisation d’un modèle ARM comprend moins d’étapes que les autres méthodes de déploiement.
+Azure Automation offre un service d’automatisation et de configuration cloud prenant en charge une gestion cohérente de vos environnements Azure et non-Azure. Cet article vous montre comment déployer un modèle Azure Resource Manager (modèle ARM) qui crée un compte Automation. L’utilisation d’un modèle ARM comprend moins d’étapes que les autres méthodes de déploiement.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Cet exemple de modèle effectue les opérations suivantes :
 
 Une fois ces étapes accomplies, vous devez [configurer des paramètres de diagnostic](automation-manage-send-joblogs-log-analytics.md) pour votre compte Automation, afin d’envoyer l’état de la tâche du Runbook et les flux de tâches à l’espace de travail Log Analytics lié.
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-automation/).
+Le modèle utilisé dans cet article provient des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-automation/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
@@ -132,7 +132,7 @@ Lorsque vous n’en avez plus besoin, dissociez le compte Automation de l’espa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un compte Automation et un espace de travail Log Analytics, et vous les avez liés ensemble.
+Dans cet article, vous avez créé un compte Automation et un espace de travail Log Analytics, et vous les avez liés.
 
 Pour en savoir plus, passez aux tutoriels concernant Azure Automation.
 

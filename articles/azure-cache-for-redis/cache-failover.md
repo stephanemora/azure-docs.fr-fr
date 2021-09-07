@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 91c62faf53bd0a0f81322316e5225579eaa6ca9d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 69ddda7bd88218a3667b16bfdc9fa33aa5349ff6
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813046"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573937"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Basculement et mise à jour corrective pour Azure Cache pour Redis
 
@@ -19,7 +19,7 @@ Pour générer des applications clientes résilientes et réussies, il est essen
 
 Dans cet article, vous trouverez les informations suivantes :  
 
-- Ce qu’est un basculement.
+- Qu’est-ce qu’un basculement ?
 - Comment le basculement se produit lors d’une mise à jour corrective.
 - Comment créer une application cliente résiliente.
 
@@ -78,12 +78,6 @@ Le nombre d’erreurs détectées par l’application cliente dépend du nombre 
 
 La plupart des bibliothèques clientes tentent de se reconnecter au cache si elles sont configurées pour ce faire. Toutefois, des bogues imprévus peuvent parfois placer les objets de bibliothèque dans un état irrécupérable. Si les erreurs persistent plus longtemps qu’une durée préconfigurée, l’objet de connexion doit être recréé. Dans Microsoft.NET et d’autres langages orientés objet, il est possible de recréer la connexion sans redémarrer l’application à l’aide d’un [modèle Lazy\<T\>](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
-### <a name="how-do-i-make-my-application-resilient"></a>Comment faire rendre mon application résiliente ?
-
-Étant donné que vous ne pouvez pas éviter complètement les basculements, écrivez vos applications clientes à des fins de résilience à des arrêts de connexion et des demandes ayant échoué. Bien que la plupart des bibliothèques de clients se reconnectent automatiquement au point de terminaison de cache, seules quelques-unes retentent les requêtes ayant échoué. Selon le scénario de l’application, il peut être utile d’utiliser la logique de nouvelle tentative avec retrait.
-
-Pour tester la résilience d’une application cliente, utilisez un [redémarrage](cache-administration.md#reboot) comme déclencheur manuel pour les interruptions de connexion. En outre, nous vous recommandons de [planifier des mises à jour](cache-administration.md#schedule-updates) sur un cache. Demandez au service de gestion d’appliquer des correctifs de runtime Redis pendant les fenêtres hebdomadaires spécifiées. Ces fenêtres correspondent généralement à des périodes où le trafic de l’application cliente est faible pour éviter les incidents potentiels.
-
 ### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>Puis-je être notifié à l’avance d’une maintenance planifiée ?
 
 Azure Cache pour Redis publie désormais des notifications via un canal de publication et d’abonnement appelé [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md), environ 30 secondes avant les mises à jour planifiées. Les notifications sont des notifications de runtime. Elles sont spécialement conçues pour les applications qui peuvent utiliser des disjoncteurs permettant de contourner le cache ou les commandes de mémoire tampon, par exemple, pendant les mises à jour planifiées. Ce mécanisme ne peut pas vous avertir plusieurs jours ni même plusieurs heures à l’avance.
@@ -96,6 +90,22 @@ Certaines modifications de la configuration réseau côté client peuvent décle
 - Mise à l’échelle de la taille ou du nombre d’instances de votre application.
 
 De telles modifications peuvent entraîner un problème de connectivité qui dure moins d’une minute. Il est probable que votre application cliente perde sa connexion à d’autres ressources réseau externes, mais également au service Azure Cache pour Redis.
+
+## <a name="build-in-resiliency"></a>Intégrer la résilience 
+
+Vous ne pouvez pas éviter complètement les basculements. Au lieu de cela, écrivez vos applications clientes pour qu’elles soient résilientes aux interruptions de connexion et aux demandes ayant échoué. La plupart des bibliothèques de clients se reconnectent automatiquement au point de terminaison de cache, mais seules quelques-unes retentent les demandes ayant échoué. Selon le scénario de l’application, il peut être utile d’utiliser la logique de nouvelle tentative avec retrait.
+
+### <a name="how-do-i-make-my-application-resilient"></a>Comment faire rendre mon application résiliente ?
+
+Reportez-vous aux modèles de conception ci-dessous pour créer des clients résilients, en particulier aux modèles de disjoncteur et de nouvelle tentative :
+
+- [Modèles de fiabilité – Modèles de conception cloud](/azure/architecture/framework/resiliency/reliability-patterns#resiliency)
+- [Guide de nouvelle tentative pour les services Azure – Bonnes pratiques pour les applications cloud](/azure/architecture/best-practices/retry-service-specific)
+- [Implémenter de nouvelles tentatives avec interruption exponentielle](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)
+
+Pour tester la résilience d’une application cliente, utilisez un [redémarrage](cache-administration.md#reboot) comme déclencheur manuel pour les interruptions de connexion.
+
+En outre, nous vous recommandons de [planifier des mises à jour](cache-administration.md#schedule-updates) sur un cache pour appliquer des correctifs de runtime Redis pendant des fenêtres hebdomadaires spécifiques. Ces fenêtres correspondent généralement à des périodes où le trafic de l’application cliente est faible pour éviter les incidents potentiels.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

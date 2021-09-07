@@ -7,23 +7,31 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/18/2021
+ms.openlocfilehash: c7c5ce32801efe68d653dc3abd97c1e5ff3a7f9b
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580032"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113000407"
 ---
-# <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimer et gérer la capacité d’un service Recherche cognitive Azure
+# <a name="estimate-and-manage-capacity-of-a-search-service"></a>Estimer et gérer la capacité d’un service de recherche
 
-Avant de [provisionner un service de recherche](search-create-service-portal.md) et de choisir un niveau tarifaire particulier, prenez quelques minutes pour bien comprendre le fonctionnement de la capacité et comment vous pouvez ajuster la capacité des réplicas et des partitions pour s’adapter à la fluctuation des charges de travail.
+Avant de [créer un service de recherche](search-create-service-portal.md) et de choisir un [niveau tarifaire](search-sku-tier.md) spécifique, prenez quelques minutes pour bien comprendre comment fonctionne la capacité et comment vous pouvez ajuster les réplicas et les partitions en fonction des fluctuations des charges de travail.
 
-La capacité est une fonction du [niveau de service](search-sku-tier.md), qui permet d’établir un stockage maximal par service, par partition, ainsi que les limites maximales du nombre d’objets que vous pouvez créer. Le niveau De base est conçu pour les applications qui ont des exigences de stockage modestes (une partition uniquement), mais avec la possibilité de s’exécuter dans une configuration à haute disponibilité (trois réplicas). D’autres niveaux sont conçus pour des charges de travail ou des modèles spécifiques, tels que l’architecture mutualisée. En interne, les services créés sur ces niveaux bénéficient d’un matériel qui facilite ces scénarios.
+Dans Recherche cognitive Azure, la capacité est basée sur les *réplicas* et les *partitions*. Les réplicas sont des copies du moteur de recherche.
+Les partitions sont des unités de stockage. Chaque nouveau service de recherche commence avec un réplica et une partition, mais vous pouvez effectuer un scale-up de chaque ressource indépendamment pour tenir compte de la fluctuation des charges de travail. L’ajout de l’une ou l’autre de ces ressources est [facturable](search-sku-manage-costs.md#billable-events).
 
-L’architecture de scalabilité dans Recherche cognitive Azure est basée sur des combinaisons flexibles de réplicas et de partitions afin que vous puissiez faire varier la capacité selon que vous avez besoin d’une plus grande puissance d’interrogation ou d’indexation. Lorsqu’un service est créé, vous pouvez augmenter ou diminuer le nombre de réplicas ou de partitions de manière indépendante. Les coûts augmenteront avec chaque ressource physique ajoutée, mais une fois les charges de travail importantes terminées, vous pouvez réduire la taille de votre infrastructure pour faire baisser votre facture. Selon le niveau et la taille de l’ajustement, le processus d’ajout ou de réduction de capacité peut prendre de 15 minutes à plusieurs heures.
+Les caractéristiques physiques des réplicas et des partitions, par exemple la vitesse de traitement et les E/S de disque, varient en fonction du [niveau de service](search-sku-tier.md). Si vous avez effectué un provisionnement de niveau Standard, les réplicas et les partitions sont plus rapides et plus volumineux que ceux du niveau De base.
 
-Si vous modifiez l’allocation des réplicas et des partitions, nous vous recommandons d’utiliser le portail Azure. Le portail applique des limites aux combinaisons autorisées inférieures aux limites maximales d’un niveau. Toutefois, si vous souhaitez suivre une approche de provisionnement basée sur un script ou du code, [Azure PowerShell](search-manage-powershell.md) et l’[API REST Gestion](/rest/api/searchmanagement/services) constituent des solutions alternatives.
+Le changement de capacité n’est pas instantané. L’activation ou la désactivation des partitions peut prendre jusqu’à une heure, en particulier pour les services comportant de grandes quantités de données.
+
+Durant la mise à l’échelle d’un service de recherche, vous avez le choix entre les approches et les outils suivants :
+
++ [Azure portal](#adjust-capacity)
++ [Azure PowerShell](search-manage-powershell.md)
++ [Azure CLI](/cli/azure/search)
++ [l’API REST de gestion ;](/rest/api/searchmanagement/2020-08-01/services)
 
 ## <a name="concepts-search-units-replicas-partitions-shards"></a>Concepts : unités de recherche, réplicas, partitions, shards
 
@@ -123,7 +131,7 @@ Le niveau Gratuit et les fonctionnalités d’évaluation ne sont pas couverts p
 
 ## <a name="when-to-add-capacity"></a>Moment opportun pour ajouter de la capacité
 
-Au départ, un service se voit allouer un niveau minimal de ressources consistant en une partition et un réplica. Le [niveau que vous choisissez](search-sku-tier.md) détermine la taille et la vitesse des partitions, et chaque niveau est optimisé par rapport à un ensemble de caractéristiques adaptées à différents scénarios. Si vous choisissez un niveau tarifaire supérieur, vous aurez sans doute besoin de moins de partitions que si vous optez pour le niveau S1. L’une des questions auxquelles vous devrez répondre au moyen de tests autonomes est de savoir si une partition plus grande et plus coûteuse offre de meilleures performances que deux partitions moins chères sur un service provisionné à un niveau inférieur.
+Au départ, un service se voit allouer un niveau minimal de ressources consistant en une partition et un réplica. Le [niveau que vous choisissez](search-sku-tier.md) détermine la taille et la vitesse des partitions, et chaque niveau est optimisé par rapport à un ensemble de caractéristiques adaptées à différents scénarios. Si vous choisissez un niveau supérieur, vous aurez peut-être [besoin de moins de partitions](search-performance-tips.md#service-capacity) que si vous optez pour le niveau S1. L’une des questions auxquelles vous devrez répondre au moyen de tests autonomes est de savoir si une partition plus grande et plus coûteuse offre de meilleures performances que deux partitions moins chères sur un service provisionné à un niveau inférieur.
 
 Un seul service doit avoir suffisamment de ressources pour gérer toutes les charges de travail (indexation et requêtes). Aucune charge de travail ne s’exécute en arrière-plan. Vous pouvez planifier l’indexation à des moments où les demandes de requête sont naturellement moins fréquentes, mais à part cela, le service n’établit pas de priorité entre les tâches. De plus, un certain degré de redondance lisse les performances des requêtes lorsque les services ou les nœuds sont mis à jour en interne.
 
@@ -154,7 +162,7 @@ Enfin, plus les index sont grands, plus ils sont longs à interroger. Par consé
 
    :::image type="content" source="media/search-capacity-planning/1-initial-values.png" alt-text="Page de mise à l’échelle avec les valeurs actuelles" border="true":::
 
-1. Utilisez le curseur pour augmenter ou diminuer le nombre de partitions. La formule en bas indique combien d’unités de recherche utilisées. Sélectionnez **Enregistrer**.
+1. Utilisez le curseur pour augmenter ou diminuer le nombre de partitions. Sélectionnez **Enregistrer**.
 
    Cet exemple ajoute un deuxième réplica et une autre partition. Notez le nombre d’unités de recherche. Il est désormais de quatre, car la formule de facturation multiplie le nombre de réplicas par le nombre de partitions (2 x 2). Le doublement de la capacité fait plus que doubler le coût de l’exécution du service. Si le coût d’une unité de recherche était de 100, la nouvelle facture mensuelle serait désormais de 400.
 
@@ -172,9 +180,31 @@ Enfin, plus les index sont grands, plus ils sont longs à interroger. Par consé
 
 > [!NOTE]
 > Une fois qu’un service a été provisionné, il ne peut pas être mis à niveau vers un niveau supérieur. Vous devez créer un service de recherche au nouveau niveau et recharger vos index. Pour obtenir des instructions sur l’approvisionnement du service, voir [Créer un service Recherche cognitive Azure dans le portail](search-create-service-portal.md) .
->
-> De plus, les partitions et les réplicas sont gérés de manière exclusive et en interne par le service. Il n’existe pas de concept d’affinité du processeur ni d’affectation d’une charge de travail à un nœud spécifique.
->
+
+## <a name="how-scale-requests-are-handled"></a>Gestion des requêtes de mise à l’échelle
+
+Quand une requête de mise à l’échelle est reçue, le service de recherche :
+
+1. Vérifie si la requête est valide.
+1. Démarre la sauvegarde des données et des informations système.
+1. Vérifie si le service est déjà dans un état de provisionnement (ajout ou suppression de réplicas ou de partitions).
+1. Démarre le provisionnement.
+
+La mise à l’échelle d’un service peut prendre dans les 15 minutes ou bien plus d’une heure, selon la taille du service et l’étendue de la requête. La sauvegarde peut prendre plusieurs minutes, en fonction de la quantité de données et du nombre de partitions et de réplicas.
+
+Les étapes ci-dessus ne sont pas entièrement consécutives. Par exemple, le système démarre le provisionnement quand il peut le faire de manière sécurisée, ce qui peut avoir lieu au moment où la sauvegarde s’achève.
+
+## <a name="errors-during-scaling"></a>Erreurs durant la mise à l’échelle
+
+Le message d’erreur « Les opérations de mise à jour du service ne sont pas autorisées pour le moment, car nous traitons déjà une requête » est provoqué par la répétition d’une requête de scale-down ou de scale-up alors que le service traite déjà une requête.
+
+Résolvez cette erreur en consultant l’état du service pour vérifier l’état du provisionnement :
+
+1. Utilisez l’[API REST de gestion](/rest/api/searchmanagement/2020-08-01/services), [Azure PowerShell](search-manage-powershell.md) ou [Azure CLI](/cli/azure/search) pour obtenir l’état du service.
+1. Appelez [Get Service](/rest/api/searchmanagement/2020-08-01/services/get)
+1. Vérifiez la réponse pour ["provisioningState": "provisioning"](/rest/api/searchmanagement/2020-08-01/services/get#provisioningstate)
+
+Si l’état est "Provisioning", attendez la fin de la requête. L’état doit être "Succeeded" ou "Failed" avant qu’une autre requête ne soit tentée. Il n’existe aucun état pour la sauvegarde. La sauvegarde est une opération interne. Il est peu probable qu’elle soit un facteur disruptif dans un exercice de mise à l’échelle.
 
 <a id="chart"></a>
 
@@ -197,7 +227,7 @@ Tous les services de recherche Standard et À stockage optimisé peuvent suppose
 Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site web Azure. Pour plus d'informations, consultez la rubrique [Tarification](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> Le nombre de réplicas et de partitions est divisible par 12 de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Recherche cognitive Azure divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties équitablement sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un index, chaque partition contiendra quatre partitions de l'index. Le partitionnement d’un index réalisé par la Recherche cognitive Azure est un détail d'implémentation susceptible d’être modifié dans des futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
+> Le nombre de réplicas et de partitions est divisible par 12 de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Le service Recherche cognitive Azure divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties en proportions égales sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un index, chaque partition contiendra quatre partitions de l'index. Le partitionnement d’un index réalisé par la Recherche cognitive Azure est un détail d'implémentation susceptible d’être modifié dans des futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

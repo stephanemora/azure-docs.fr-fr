@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 97c35aa059f4419ee951875e769b252016578963
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310323"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524081"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
@@ -103,6 +103,23 @@ Le tableau suivant récapitule les rôles Azure Sentinel et leurs actions autori
     - [Table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
 
     Le RBAC dans le contexte de la ressource et le RBAC au niveau table sont deux méthodes d’octroi d’accès à des données spécifiques dans votre espace de travail Azure Sentinel sans autoriser l’accès à toute l’expérience Azure Sentinel.
+
+## <a name="role-recommendations"></a>Recommandations relatives aux rôles
+
+Après avoir compris comment les rôles et les autorisations fonctionnent dans Azure Sentinel, vous pouvez utiliser le guide des bonnes pratiques suivant pour appliquer des rôles à vos utilisateurs :
+
+|Type d’utilisateur  |Rôle |Resource group  |Description  |
+|---------|---------|---------|---------|
+|**Analystes de sécurité**     | [Répondeur Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)        | Groupe de ressources d’Azure Sentinel        | Visualiser des données, des incidents, des workbooks et d’autres ressources Azure Sentinel. <br><br>Gérer les incidents, par exemple les attribuer ou les ignorer.        |
+|     | [Contributeur Logic Apps](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Groupe de ressources d’Azure Sentinel ou groupe de ressources dans lequel vos playbooks sont stockés        | Attacher des playbooks aux règles analytiques et d’automatisation, et exécuter des playbooks. <br><br>**Remarque** : Ce rôle permet également aux utilisateurs de modifier des playbooks.         |
+|**Ingénieurs de la sécurité**     | [Contributeur Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)       |Groupe de ressources d’Azure Sentinel         |   Visualiser des données, des incidents, des workbooks et d’autres ressources Azure Sentinel. <br><br>Gérer les incidents, par exemple les attribuer ou les ignorer. <br><br>Créer et modifier des workbooks, des règles analytiques et d’autres ressources Azure Sentinel.      |
+|     | [Contributeur Logic Apps](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Groupe de ressources d’Azure Sentinel ou groupe de ressources dans lequel vos playbooks sont stockés        | Attacher des playbooks aux règles analytiques et d’automatisation, et exécuter des playbooks. <br><br>**Remarque** : Ce rôle permet également aux utilisateurs de modifier des playbooks.         |
+|  **Principal du service**   | [Contributeur Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)      |  Groupe de ressources d’Azure Sentinel       | Configuration automatisée des tâches de gestion |
+|     |         |        | |
+
+> [!TIP]
+> Des rôles supplémentaires peuvent être nécessaires en fonction des données que vous ingérez ou supervisez. Par exemple, des rôles Azure AD peuvent être nécessaires, tels que les rôles d’administrateur général ou d’administrateur de la sécurité, afin de configurer des connecteurs de données pour des services dans d’autres portails Microsoft.
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

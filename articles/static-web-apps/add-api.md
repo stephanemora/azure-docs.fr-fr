@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 939c63edba204ff903a8616eef1db5e031397a3f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 56c8044f1ab36015accb3f951469ee0a0579ca23
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066175"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608639"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps avec Azure Functions
 
@@ -98,7 +98,7 @@ Si vous avez utilisé les guides de démarrage rapide pour créer l’applicatio
 
 # <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
 
-Mettez à jour le contenu du fichier _index.html_ à l’aide du code suivant pour extraire le texte de la fonction API et l’afficher à l’écran.
+Mettez à jour le contenu du fichier _src/index.html_ à l’aide du code suivant pour récupérer le texte de la fonction API et l’afficher à l’écran.
 
 ```html
 <!DOCTYPE html>

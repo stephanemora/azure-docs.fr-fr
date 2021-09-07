@@ -6,20 +6,24 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ffb96cdc3fbb561009b7f545a3b9a1da9eef729
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 1c25ea8c35b81169119b0f10025b36319d4dc2c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421001"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532444"
 ---
 # <a name="collect-vm-guest-logs-on-an-azure-stack-edge-pro-gpu-device"></a>Collecte des journaux invités des machines virtuelles sur un appareil GPU Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Pour diagnostiquer les échecs de provisionnement de machines virtuelles sur votre appareil GPU Azure Stack Edge Pro, vous devez examiner les journaux invités de la machine virtuelle en question. Cet article explique comment collecter les journaux invités des machines virtuelles dans un package de support.
+
+> [!NOTE]
+> Vous pouvez également examiner les journaux d’activité des machines virtuelles dans le portail Azure. Pour plus d’informations, consultez [Surveiller l’activité des machines virtuelles sur votre appareil](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
+
 
 ## <a name="collect-vm-guest-logs-in-support-package"></a>Collecte des journaux invités des machines virtuelles dans le package de support
 
@@ -48,4 +52,5 @@ Pour collecter les journaux invités des machines virtuelles en échec sur un ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes de provisionnement des machines virtuelles sur un appareil GPU Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [Examiner le journal d’activité des machines virtuelles](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
+- [Résoudre les problèmes de provisionnement des machines virtuelles sur un appareil GPU Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md).

@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes d'extensions de machine virtuelle liés aux serveurs Azure Arc
-description: Cet article explique comment détecter et résoudre les problèmes d'extensions de machine virtuelle Azure qui surviennent avec les serveurs Azure Arc.
-ms.date: 09/24/2020
+title: Résoudre les problèmes d’extensions de machine virtuelle liés aux serveurs avec Azure Arc
+description: Cet article explique comment détecter et résoudre les problèmes liés aux extensions de machine virtuelle Azure qui surviennent lors de l’utilisation de serveurs avec Azure Arc.
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 690b92389d86ca497801af79c6930677c19178fe
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584669"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390198"
 ---
-# <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Résoudre les problèmes d'extensions de machine virtuelle liés aux serveurs Azure Arc
+# <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Résoudre les problèmes d’extensions de machine virtuelle liés aux serveurs avec Arc
 
-Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de déploiement ou de suppression d'extensions de machine virtuelle Azure sur des serveurs Azure Arc. Pour obtenir des informations générales, consultez [Gérer et utiliser les extensions de machine virtuelle Azure](./manage-vm-extensions.md).
+Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de déploiement ou de suppression d’extensions de machine virtuelle Azure sur des serveurs avec Arc. Pour obtenir des informations générales, consultez [Gérer et utiliser les extensions de machine virtuelle Azure](./manage-vm-extensions.md).
 
 ## <a name="general-troubleshooting"></a>Résolution générale des problèmes
 
@@ -32,11 +32,11 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="vm-insights"></a>Insights de machine virtuelle
 
-- Lors de l'activation d'Insights de machine virtuelle pour un serveur Azure Arc, les agents Dependency et Log Analytics sont installés. Sur un ordinateur lent ou dont la connexion réseau est lente, des délais d'attente peuvent survenir pendant le processus d'installation. Microsoft prend actuellement des mesures pour y remédier dans l'agent Connected Machine. Dans l'intervalle, une nouvelle tentative d'installation peut aboutir.
+- Lors de l’activation d’Insights de machine virtuelle pour un serveur avec Azure Arc, les agents Dependency et Log Analytics sont installés. Sur un ordinateur lent ou dont la connexion réseau est lente, des délais d'attente peuvent survenir pendant le processus d'installation. Microsoft prend actuellement des mesures pour y remédier dans l'agent Connected Machine. Dans l'intervalle, une nouvelle tentative d'installation peut aboutir.
 
 ### <a name="log-analytics-agent-for-linux"></a>Agent Log Analytics pour Linux
 
-- L'agent Log Analytics version 1.13.9 (dont la version d'extension correspondante est 1.13.15) ne marque pas correctement les données chargées avec l'ID de ressource du serveur Azure Arc. Les journaux sont envoyés au service, mais lorsque vous essayez d'afficher les données du serveur activé sélectionné après avoir sélectionné **Journaux** ou **Insights**, aucune donnée n'est renvoyée. Vous pouvez consulter ses données en exécutant des requêtes à partir des journaux Azure Monitor ou à partir d'Azure Monitor pour les machines virtuelles ; celles-ci sont étendues à l'espace de travail.
+- L’agent Log Analytics version 1.13.9 (dont la version d’extension correspondante est 1.13.15) ne marque pas correctement les données chargées avec l’ID de ressource du serveur avec Azure Arc. Les journaux sont envoyés au service, mais lorsque vous essayez d'afficher les données du serveur activé sélectionné après avoir sélectionné **Journaux** ou **Insights**, aucune donnée n'est renvoyée. Vous pouvez consulter ses données en exécutant des requêtes à partir des journaux Azure Monitor ou à partir d'Azure Monitor pour les machines virtuelles ; celles-ci sont étendues à l'espace de travail.
 
 - Certaines distributions ne sont actuellement pas prises en charge par l'agent Log Analytics pour Linux. L'agent requiert l'installation de dépendances supplémentaires, dont Python 2. Reportez-vous à la matrice de prise en charge et aux prérequis, disponibles [ici](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 

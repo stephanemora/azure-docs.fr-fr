@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/19/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a01566341a1c5aa1700b68938410ee0c08c17ddd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a23fd4f764773dfa29e1abd20f4952cc86049c42
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747542"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464075"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identités Microsoft et protocole OpenID Connect
 
@@ -26,6 +26,7 @@ OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0,
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Il présente également le [point de terminaison de UserInfo](userinfo.md), une API qui renvoie des informations sur l’utilisateur. 
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram-sign-in"></a>Schéma de protocole : Connexion
 
@@ -118,7 +119,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| `tenant` | Obligatoire | Vous pouvez utiliser la valeur `{tenant}` dans le chemin d’accès de la requête pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
+| `tenant` | Obligatoire | Vous pouvez utiliser la valeur `{tenant}` dans le chemin d’accès de la requête pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). Notez que dans les scénarios d’invités, où vous connectez l’utilisateur d’un locataire à un autre locataire, vous *devez* impérativement fournir l’identificateur du locataire pour connecter correctement l’utilisateur au locataire des ressources.|
 | `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `response_type` | Obligatoire | Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure d’autres valeurs `response_type`, par exemple `code`. |
 | `redirect_uri` | Recommandé | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Si vous ne disposez pas d’un URI de redirection, le point de terminaison sélectionnera un élément redirect_uri inscrit au hasard vers lequel il redirigera l’utilisateur. |
@@ -127,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | Recommandé | Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Peut être `form_post` ou `fragment`. Pour les applications web, nous vous recommandons d’utiliser `response_mode=form_post` pour garantir le transfert le plus sécurisé des jetons à votre application. |
 | `state` | Recommandé | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les attaques par falsification de requête intersites](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | `prompt` | Facultatif | Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none`, `consent` et `select_account`. La revendication `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Le paramètre`prompt=none` est le contraire et doit être associé à `login_hint` pour indiquer quel utilisateur doit être connecté. Ces paramètres garantissent qu’aucune invite interactive n’est présentée à l’utilisateur. Si la requête ne peut pas être effectuée en mode silencieux par le biais de l’authentification unique (car aucun utilisateur n’est connecté, l’utilisateur avec indication n’est pas connecté ou plusieurs utilisateurs sont connectés et aucun indicateur n’est fourni), la plateforme d’identité Microsoft retourne une erreur. La revendication `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth une fois que l’utilisateur se connecte. La boîte de dialogue invite l’utilisateur à accorder des autorisations à l’application. Enfin, `select_account` montre à l’utilisateur un sélecteur de compte, en annulant l’authentification unique sans assistance, mais en permettant à l’utilisateur de choisir le compte avec lequel il envisage de se connecter, sans avoir besoin d’entrer une entrée d’identification. Vous ne pouvez pas utiliser `login_hint` et `select_account` ensemble.|
-| `login_hint` | Facultatif | Vous pouvez utiliser ce paramètre pour remplir au préalable le champ réservé au nom d’utilisateur et à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`. |
+| `login_hint` | Facultatif | Vous pouvez utiliser ce paramètre pour remplir au préalable le champ réservé au nom d’utilisateur et à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre durant la réauthentification, après avoir extrait la [revendication facultative](active-directory-optional-claims.md) `login_hint` à partir d’une connexion antérieure. |
 | `domain_hint` | Facultatif | Le domaine de l’utilisateur dans un répertoire fédéré.  Ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur. Pour les clients fédérés par le biais d’un répertoire local comme AD FS, cela aboutit généralement à une connexion fluide en raison d’une ouverture de session existante. |
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. La plateforme d’identités Microsoft vérifie que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, la plateforme d’identités Microsoft lui demande de corriger ce manquement. Vous pouvez en savoir plus sur les [autorisations, consentements et applications mutualisées](v2-permissions-and-consent.md).
@@ -255,6 +256,8 @@ Les paramètres de la réponse signifient la même chose quel que soit le flux u
 | `scope` | Autorisations d’accès accordées pour le jeton d’accès.  Notez que, comme le point de terminaison UserInfo est hébergé sur Microsoft Graph, des étendues Graph supplémentaires peuvent être répertoriées ici (par exemple, user.read) si elles ont été précédemment accordées à l’application.  Cela est dû au fait qu’un jeton associé à une ressource donnée comprend toujours toutes les autorisations actuellement accordées au client.  |
 | `id_token` | Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le jeton d'ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus de détails sur les jetons d'ID et leur contenu, consultez la page de [référence `id_tokens`](id-tokens.md). |
 | `state` | Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>Réponse d’erreur
 

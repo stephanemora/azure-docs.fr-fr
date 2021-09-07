@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e5de3cdec7a9c503f4b7bf7056bd62f1ddf682d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e1348040bb496448d85c8d1bec3b9621025bf22
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594018"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653590"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
 
@@ -19,12 +19,13 @@ Dans App Service (Web Apps, API Apps ou Mobile Apps), une application s’exécu
 
 Quand vous créez un plan App Service dans une région (par exemple, Europe Ouest), un ensemble de ressources de calcul est créé pour ce plan dans cette région. Toutes les applications que vous placez dans ce plan App Service s’exécutent sur ces ressources de calcul telles que définies par votre plan App Service. Chaque plan App Service définit les éléments suivants :
 
+- Système d’exploitation (Windows, Linux)
 - Région (USA Ouest, USA Est, etc.)
 - Nombre d’instances de machine virtuelle
 - Taille des instances de machine virtuelle (petite, moyenne ou grande)
 - Niveau tarifaire (Gratuit, Partagé, De base, Standard, Premium, PremiumV2, PremiumV3, Isolé)
 
-Le _niveau tarifaire_ d’un plan App Service détermine les fonctionnalités App Service que vous obtenez et combien vous payez pour le plan. Il existe plusieurs catégories de niveaux tarifaires :
+Le _niveau tarifaire_ d’un plan App Service détermine les fonctionnalités App Service que vous obtenez et combien vous payez pour le plan. Les niveaux tarifaires disponibles pour votre plan App Service dépendent du système d’exploitation sélectionné au moment de la création. Il existe plusieurs catégories de niveaux tarifaires :
 
 - **Calcul partagé** : Les deux niveaux de base, **Gratuit** et **Partagé**, exécutent une application sur la même machine virtuelle Azure que les autres applications App Service, y compris les applications d’autres clients. Ces niveaux allouent des quotas d’UC à chaque application qui s’exécute sur les ressources partagées, et les ressources ne peuvent pas effectuer un scale-out.
 - **Calcul dédié** : Les niveaux **De base**, **Standard**, **Premium**, **PremiumV2** et **PremiumV3** exécutent les applications sur des machines virtuelles Azure dédiées. Seules les applications qui se trouvent dans un même plan App Service partagent les mêmes ressources de calcul. Plus le niveau est élevé, plus vous disposez d’instances de machine virtuelle pour une mises à l’échelle.

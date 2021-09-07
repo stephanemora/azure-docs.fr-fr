@@ -1,8 +1,8 @@
 ---
 title: Utiliser des rubriques et abonnements Azure Service Bus avec Java
-description: Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique.
-ms.date: 06/23/2020
-ms.topic: quickstart
+description: Dans cet article, vous allez écrire du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis recevoir les messages des abonnements à cette rubrique.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
 - seo-java-july2019
@@ -10,23 +10,23 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: c20a9372ddc951b7d4184a7abeda9537006c4865
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f6f0520797a5c221f1c3e1ea60c22d1576bad07e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533367"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "121736239"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Démarrage rapide : Utiliser des rubriques et des abonnements Service Bus avec Java
-Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique. 
+# <a name="use-service-bus-topics-and-subscriptions-with-java-old-package"></a>Utiliser les rubriques et les abonnements Service Bus avec Java (ancien package)
+Dans cet article, vous allez écrire du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis recevoir les messages des abonnements à cette rubrique. 
 
 > [!WARNING]
->  Ce guide de démarrage rapide utilise les anciens packages azure-servicebus. Pour un guide de démarrage rapide qui utilise la version la plus récente du package azure-messaging-servicebus, consultez [Envoyer et recevoir des messages à l’aide de azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+>  Cet article utilise les anciens packages azure-servicebus. Pour lire un article qui utilise la version la plus récente du package azure-messaging-servicebus, consultez [Envoyer et recevoir des messages à l’aide de azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Un abonnement Azure. Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créez un **espace de noms** Service Bus.
     2. Obtenez la **chaîne de connexion**.

@@ -1,23 +1,26 @@
 ---
-title: Activité ForEach dans Azure Data Factory
-description: L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et d’exécuter des activités spécifiées.
+title: Activité ForEach
+titleSuffix: Azure Data Factory & Azure Synapse
+description: L’activité ForEach définit un flux de contrôle répétitif dans un pipeline Azure Data Factory ou Azure Synapse Analytics. L’activité ForEach permet d’effectuer une itération sur une collection afin d’exécuter des actions sur chaque élément de la collection individuellement.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 28c67640a65e44fb9c6d6791229796c614993fa1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 5325999fc844a23aeea3795527396709d2e7a730
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906293"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825074"
 ---
-# <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
+# <a name="foreach-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité ForEach dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
+L’activité ForEach définit un flux de contrôle répétitif dans un pipeline Azure Data Factory ou Synapse. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
 
 ## <a name="syntax"></a>Syntaxe
 Les propriétés sont décrites plus loin dans cet article. La propriété items est la collection, et chaque élément dans celle-ci est référencé à l’aide de `@item()`, comme illustré dans la syntaxe suivante :  
@@ -70,13 +73,13 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 name | Nom de l’activité ForEach. | String | Oui
 type | Doit être défini sur **ForEach** | String | Oui
-isSequential | Spécifie si la boucle doit être exécutée de façon séquentielle ou parallèle.  Le nombre maximal d’itérations de boucle exécutables simultanément en parallèle est de 20. Par exemple, si vous avez une activité ForEach effectuant une itération sur une activité de copie portant sur 10 jeux de données de source et de récepteur différents avec la valeur **isSequential** définie sur False, toutes les copies sont exécutées en même temps. La valeur par défaut est FALSE. <br/><br/> Si la valeur de « isSequential » est définie sur False, assurez-vous qu’il existe une configuration correcte pour exécuter plusieurs exécutables. Autrement, cette propriété doit être utilisée avec précaution pour éviter des conflits d’écriture. Pour plus d’informations, voir la section [Exécution parallèle](#parallel-execution). | Boolean | Non. La valeur par défaut est FALSE.
+isSequential | Spécifie si la boucle doit être exécutée de façon séquentielle ou parallèle.  Le nombre maximal d’itérations de boucle exécutables simultanément en parallèle est de 50. Par exemple, si vous avez une activité ForEach effectuant une itération sur une activité de copie portant sur 10 jeux de données de source et de récepteur différents avec la valeur **isSequential** définie sur False, toutes les copies sont exécutées en même temps. La valeur par défaut est FALSE. <br/><br/> Si la valeur de « isSequential » est définie sur False, assurez-vous qu’il existe une configuration correcte pour exécuter plusieurs exécutables. Autrement, cette propriété doit être utilisée avec précaution pour éviter des conflits d’écriture. Pour plus d’informations, voir la section [Exécution parallèle](#parallel-execution). | Boolean | Non. La valeur par défaut est FALSE.
 batchCount | Nombre de lots à utiliser pour contrôler le nombre d’exécutions en parallèle (lorsque isSequential est défini sur false). Il s’agit de la limite supérieure de concurrence, mais l’activité ForEach n’atteindra pas toujours ce nombre lors de son exécution. | Entier (maximum 50) | Non. La valeur par défaut est 20.
 Éléments | Expression qui retourne un tableau JSON auquel appliquer l’itération. | Expression (qui retourne un tableau JSON) | Oui
 Activités | Activités à exécuter. | Liste des activités | Oui
 
 ## <a name="parallel-execution"></a>Exécution parallèle
-Si la valeur de **isSequential** est définie sur False, l’activité effectue l’itération en parallèle avec un maximum de 20 itérations simultanées. Ce paramètre doit être utilisé avec précaution. Si les itérations simultanées écrivent dans le même dossier, mais dans des fichiers différents, cette approche convient. Si les itérations simultanées écrivent en même temps dans le même fichier, cette approche entraînera très probablement une erreur. 
+Si la valeur de **isSequential** est définie sur False, l’activité effectue l’itération en parallèle avec un maximum de 50 itérations simultanées. Ce paramètre doit être utilisé avec précaution. Si les itérations simultanées écrivent dans le même dossier, mais dans des fichiers différents, cette approche convient. Si les itérations simultanées écrivent en même temps dans le même fichier, cette approche entraînera très probablement une erreur. 
 
 ## <a name="iteration-expression-language"></a>Langage d’expression de l’itération
 Dans l’activité ForEach, fournissez un tableau sur lequel effectuer l’itération pour la propriété **items**. Utilisez `@item()` pour itérer sur une seule énumération dans l’activité ForEach. Par exemple, si **items** est un tableau [1, 2, 3], `@item()` retourne 1 dans la première itération, 2 dans la deuxième, et 3 dans la troisième. Vous pouvez également utiliser `@range(0,10)` comme expression pour effectuer une itération dix fois commençant par 0 et se terminant par 9.
@@ -487,7 +490,7 @@ Voici quelques limitations de l’activité ForEach et des suggestions de soluti
 | | |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez d’autres activités de flux de contrôle prises en charge : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)

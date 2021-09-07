@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 06/29/2021
 ms.author: yelevin
-ms.openlocfilehash: 0687b3bf486d2496763237164536be34f504f7ed
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: bddd27b29a1546f0c985f7a5b3aa15027be75d46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070882"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524211"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel
 
@@ -33,6 +33,8 @@ Les équipes SIEM/SOC sont généralement submergées d’alertes de sécurité 
 Beaucoup, voire la plupart, de ces alertes et incidents sont conformes à des modèles récurrents qui peuvent être traités par des ensembles d’actions de correction spécifiques et définies.
 
 Un playbook est un ensemble de ces actions de correction qui peuvent être exécutées à partir d’Azure Sentinel en tant que routine. Un playbook peut vous aider à [**automatiser et orchestrer votre réponse aux menaces**](tutorial-respond-threats-playbook.md). Il peut être exécuté manuellement ou configuré pour s’exécuter automatiquement en réponse à des alertes ou des incidents spécifiques, lorsqu’il est déclenché par une règle analytique ou une règle d’automatisation, respectivement.
+
+Par exemple, si un compte et un ordinateur sont compromis, un playbook peut isoler l’ordinateur du réseau et bloquer le compte au moment où l’équipe SOC est informée de l’incident.
 
 Les playbooks sont créés et appliqués au niveau de l’abonnement, mais l’onglet **Playbooks** (dans le nouveau panneau **Automatisation**) affiche tous les playbooks disponibles dans les abonnements sélectionnés.
 
@@ -197,7 +199,7 @@ Si l’alerte crée un incident, l’incident déclenche une règle d’automati
 
 Pour les règles qui sont déclenchées par la création d’une alerte et qui reçoivent des alertes comme entrées (la première étape est « Quand une alerte Azure Sentinel est déclenchée »), attachez le playbook à une règle d’analyse :
 
-1. Modifiez la [règle d’analyse](tutorial-detect-threats-custom.md) qui génère l’alerte pour laquelle vous souhaitez définir une réponse automatisée.
+1. Modifiez la [règle d’analyse](detect-threats-custom.md) qui génère l’alerte pour laquelle vous souhaitez définir une réponse automatisée.
 
 1. Sous **Automatisation des alertes** dans l’onglet **Réponse automatisée**, sélectionnez le ou les playbooks que cette règle d’analyse déclenchera lors de la création d’une alerte.
 
@@ -242,7 +244,7 @@ Le déclenchement manuel est disponible à partir du portail Azure Sentinel dans
 
 ### <a name="run-a-playbook-manually-on-an-incident"></a>Exécuter manuellement un playbook sur un incident
 
-Pas encore pris en charge. <!--make this a note instead? -->
+Pas encore pris en charge.
 
 ## <a name="manage-your-playbooks"></a>Gérer vos playbooks
 
@@ -275,6 +277,29 @@ Pour afficher toutes les connexions d’API, entrez *Connexions d’API* dans la
 Pour afficher les connexions d’API, vous pouvez également accéder au panneau **Toutes les ressources** et les filtrer par type de *connexion d’API*. Ainsi, vous pouvez sélectionner, marquer et supprimer plusieurs connexions à la fois.
 
 Pour modifier l’autorisation d’une connexion existante, entrez la ressource de connexion, puis sélectionnez **Modifier la connexion d’API**.
+
+## <a name="recommended-playbooks"></a>Playbooks recommandés
+
+Les playbooks recommandés suivants et d’autres playbooks similaires sont disponibles dans le [dépôt Github Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) :
+
+- Les **playbooks de notification** sont déclenchés quand une alerte ou un incident est créé et envoient une notification à une destination configurée :
+
+    - [Poster un message dans un canal Microsoft Teams](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Teams)
+    - [Envoyer une notification par e-mail Outlook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
+    - [Poster un message dans un canal Slack](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Slack)
+
+- Les **playbooks de blocage** sont déclenchés quand une alerte ou un incident est créé, collectent des informations sur les entités telles que le compte, l’adresse IP et l’hôte, et les empêchent d’effectuer d’autres actions :
+
+    - [Inviter à bloquer une adresse IP](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
+    - [Bloquer un utilisateur AAD](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [Réinitialiser un mot de passe d’utilisateur AAD](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [Inviter à isoler un ordinateur](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
+
+- Les **playbooks de création, de mise à jour ou de fermeture** peuvent créer, mettre à jour ou fermer des incidents dans Azure Sentinel, les services de sécurité Microsoft 365 ou d’autres systèmes de gestion de tickets :
+
+    - [Modifier la gravité d’un incident](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
+    - [Créer un incident ServiceNow](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

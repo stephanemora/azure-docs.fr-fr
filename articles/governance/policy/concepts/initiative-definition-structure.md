@@ -1,14 +1,14 @@
 ---
 title: Informations sur la structure d'une définition d'initiative
 description: Explique comment les définitions d'initiative de stratégie permettent de regrouper les définitions de stratégie à des fins de déploiement sur les ressources Azure de votre organisation.
-ms.date: 03/16/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7efe34c76df46bb4499def5b92521eedecaee22d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9ef2d5a77d9ae957a81517b635d923cd80519b76
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744944"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563915"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Structure d'une définition d'initiative Azure Policy
 
@@ -223,7 +223,7 @@ Chaque élément du _tableau_ qui représente une définition de stratégie comp
 - `parameters`: (facultatif) paires nom/valeur permettant de transmettre un paramètre d'initiative à la définition de stratégie incluse en tant que propriété dans cette définition de stratégie. Pour plus d’informations, consultez [Paramètres](#parameters).
 - `groupNames` (tableau de chaînes) : (facultatif) groupe dont la définition de stratégie est membre. Pour plus d'informations, consultez [Groupes de stratégies](#policy-definition-groups).
 
-Exemple de `policyDefinitions` comportant deux définitions de stratégie incluses qui reçoivent chacune le même paramètre d'initiative :
+Voici un exemple de `policyDefinitions` comportant deux définitions de stratégie incluses qui reçoivent chacune le même paramètre d’initiative :
 
 ```json
 "policyDefinitions": [

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cddaf1bde84d7e60eb59bd4c58c65fa889e06ae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ab256d58284e79323b988b2b81f4c664fa3fc16
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028809"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456660"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
@@ -35,7 +35,7 @@ Lorsque les clients externes aux machines virtuelles principales passent par l�
 
 **Validation et résolution**
 
-Les équilibrages standards sont **sécurisés par défaut**. Les équilibrages standards sont autorisés à se connecter à Internet via une adresse IP publique *masquée*. Cela n’est pas recommandé pour les charges de travail de production, car l’adresse IP n’est ni statique ni verrouillée via des NSG dont vous êtes propriétaire. Si vous êtes récemment passé d’un ILB De base à un ILB Standard, vous devez créer une IP publique explicitement via une configuration [Sortie uniquement](egress-only.md) qui verrouille l’adresse IP via des NSG. Vous pouvez également utiliser une passerelle [NAT Gateway](../virtual-network/nat-overview.md) sur votre sous-réseau.
+Les équilibrages standards sont **sécurisés par défaut**. Les équilibrages standards sont autorisés à se connecter à Internet via une adresse IP publique *masquée* appelée adresse IP d’accès sortant par défaut. Cela n’est pas recommandé pour les charges de travail de production, car l’adresse IP n’est ni statique ni verrouillée via des NSG dont vous êtes propriétaire. Si vous êtes récemment passé d’un ILB De base à un ILB Standard, vous devez créer une IP publique explicitement via une configuration [Sortie uniquement](egress-only.md) qui verrouille l’adresse IP via des NSG. Vous pouvez également utiliser une passerelle [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) sur votre sous-réseau. NAT Gateway est la solution recommandée pour le trafic sortant.
 
 ## <a name="cant-change-backend-port-for-existing-lb-rule-of-a-load-balancer-that-has-virtual-machine-scale-set-deployed-in-the-backend-pool"></a>Impossible de modifier le port principal pour la règle d’équilibreur de charge existante d’un équilibreur de charge dont le groupe de machines virtuelles identiques est déployé dans le pool principal.
 

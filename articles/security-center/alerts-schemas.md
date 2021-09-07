@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2020
+ms.date: 07/18/2021
 ms.author: memildin
-ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e65fd5a0c672e500a0a4bc08f45e9ced32d89047
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557996"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463501"
 ---
 # <a name="security-alerts-schemas"></a>Schémas des alertes de sécurité
 
@@ -37,27 +37,9 @@ Si vous utilisez des méthodes de programmation pour consommer les alertes, vous
 ## <a name="the-schemas"></a>Les schémas 
 
 
-### <a name="workflow-automation-and-continuous-export-to-event-hub"></a>[Automatisation du workflow et exportation continue vers Event Hub](#tab/schema-continuousexport)
+### <a name="azure-sentinel"></a>[Azure Sentinel](#tab/schema-sentinel)
 
-### <a name="sample-json-for-alerts-sent-to-logic-apps-event-hub-and-third-party-siems"></a>Exemple d’objet JSON pour les alertes envoyées à Logic Apps, Event Hub et les SIEM tiers
-
-Vous trouverez ci-dessous le schéma des événements d’alerte transmis à :
-
-- Des instances d’application logique Azure configurées dans l’automatisation de workflow de Security Center
-- Azure Event Hub utilisant la fonctionnalité d’exportation continue de Security Center
-
-Pour plus d’informations sur la fonctionnalité d’automatisation de workflow, consultez [Automatiser les réponses aux déclencheurs de Security Center](workflow-automation.md).
-
-Pour plus d’informations sur l’exportation continue, consultez [Exporter en continu les données Security Center](continuous-export.md).
-
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
-
-
-
-
-### <a name="azure-sentinel-and-log-analytics-workspaces"></a>[Azure Sentinel et espaces de travail Log Analytics](#tab/schema-sentinel)
-
-Le connecteur Sentinel reçoit les alertes d’Azure Security Center et les envoie à l’espace de travail Log Analytics pour Azure Sentinel. 
+Le connecteur Sentinel reçoit les alertes d’Azure Security Center et les envoie à l’espace de travail Log Analytics pour Azure Sentinel.
 
 Pour créer un cas Sentinel ou un incident à l’aide d’alertes Security Center, vous aurez besoin du schéma pour les alertes indiquées ci-dessous. 
 
@@ -66,15 +48,13 @@ Pour plus d’informations sur Azure Sentinel, consultez [la documentation](../s
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
-
-
 ### <a name="azure-activity-log"></a>[Journal d'activité Azure](#tab/schema-activitylog)
 
 Azure Security Center audite les alertes de sécurité générées en tant qu’événements dans le journal d'activité Azure.
 
 Vous pouvez afficher les événements d’alertes de sécurité dans le journal d’activité en recherchant l’événement Activer l’alerte, comme indiqué ci-dessous :
 
-[![Recherche de l’événement Activer l’alerte dans le journal d’activité](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+[![Recherche de l’événement Activer l’alerte dans le journal d’activité.](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
 ### <a name="sample-json-for-alerts-sent-to-azure-activity-log"></a>Exemple d’objet JSON pour les alertes envoyées au journal d’activité Azure
@@ -165,6 +145,18 @@ Vous pouvez afficher les événements d’alertes de sécurité dans le journal 
 |**relatedEvents**|Constante - tableau vide|
 |||
 
+
+### <a name="workflow-automation"></a>[Automatisation de workflow](#tab/schema-workflow-automation)
+
+Pour le schéma des alertes lors de l’utilisation de l’automatisation de workflow, consultez la [documentation relative aux connecteurs](/connectors/ascalert/).
+
+
+### <a name="continuous-export"></a>[Exportation continue](#tab/schema-continuousexport)
+
+La fonctionnalité d’exportation continue de Security Center transmet les données d’alerte :
+
+- à Azure Event Hub avec le même schéma que [l’API Alertes](/rest/api/securitycenter/alerts).
+- aux espaces de travail Log Analytics en fonction du [schéma SecurityAlert](/azure/azure-monitor/reference/tables/SecurityAlert) dans la documentation de référence des données Azure Monitor.
 
 
 

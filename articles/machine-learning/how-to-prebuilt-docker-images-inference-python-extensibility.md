@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 8af27f876f1c325cf99214e36f680e012e86c98d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 08139501886f580033aae46bdabd55ed300c5059
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536323"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710010"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilité des packages Python pour les images Docker prédéfinies (préversion)
 
@@ -31,7 +31,7 @@ Les [images Docker prédéfinies pour l’inférence de modèle](concept-prebuil
     Utilisez cette approche __pour les déploiements de production__. Comme le répertoire contenant les packages est monté sur l’image, il peut être utilisé même si vos déploiements ne disposent pas d’un accès Internet public. Par exemple, c’est le cas lors du déploiement dans un réseau virtuel Azure sécurisé.
 
 > [!IMPORTANT]
-> L’utilisation d’images Docker prédéfinies avec Azure Machine Learning est actuellement en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Pour l’heure, l’utilisation d’images Docker prédéfinies avec Azure Machine Learning est disponible en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -173,6 +173,13 @@ Voici quelques éléments qui peuvent être à l’origine de ce problème :
 
 
 * Pour plus d’informations sur le chargement d’un modèle inscrit ou local, consultez [Où et comment déployer](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
+
+## <a name="bug-fixes"></a>Correctifs de bogues
+
+### <a name="2021-07-26"></a>26-07-2021
+
+* `AZUREML_EXTRA_REQUIREMENTS_TXT` et `AZUREML_EXTRA_PYTHON_LIB_PATH` sont désormais toujours relatifs au répertoire du script de score.
+Par exemple, si le fichier requirements.txt et le script de score sont dans **mon_dossier**, `AZUREML_EXTRA_REQUIREMENTS_TXT` doit être défini sur requirements.txt. `AZUREML_EXTRA_REQUIREMENTS_TXT` n’est plus défini sur **mon_dossier/requirements.txt**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

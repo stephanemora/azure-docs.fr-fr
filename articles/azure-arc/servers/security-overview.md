@@ -1,30 +1,30 @@
 ---
 title: Présentation de la sécurité
-description: Informations relatives à la sécurité des serveurs Azure Arc.
+description: Informations relatives à la sécurité des serveurs avec Azure Arc.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: aa8653b783e7eb3e211b7514831604dd5642cfbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 113eaaf779409cd77e66b253074146dfaa0ff0ab
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117025"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390216"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>Vue d’ensemble de la sécurité Azure Arc pour serveurs
 
-Cet article décrit la configuration et les considérations relatives à la sécurité que vous devez évaluer avant de déployer des serveurs Azure Arc dans votre entreprise.
+Cet article décrit la configuration et les considérations relatives à la sécurité que vous devez évaluer avant de déployer des serveurs avec Azure Arc dans votre entreprise.
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-Chaque serveur Azure Arc dispose d’une identité managée, en tant qu’élément d’un groupe de ressources dans un abonnement Azure ; cette identité représente le serveur s’exécutant localement ou sur un autre environnement cloud. L’accès à cette ressource est contrôlé par le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) standard. À partir de la page [**Contrôle d’accès (IAM)**](../../role-based-access-control/role-assignments-portal.md) du portail Azure, vous pouvez vérifier qui a accès à votre serveur Azure Arc.
+Chaque serveur avec Azure Arc dispose d’une identité managée, en tant qu’élément d’un groupe de ressources dans un abonnement Azure ; cette identité représente le serveur s’exécutant localement ou dans un autre environnement cloud. L’accès à cette ressource est contrôlé par le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) standard. À partir de la page [**Contrôle d’accès (IAM)** ](../../role-based-access-control/role-assignments-portal.md) du portail Azure, vous pouvez vérifier qui a accès à votre serveur avec Azure Arc.
 
-:::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Contrôle d’accès au serveur Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
+:::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Contrôle d’accès au serveur avec Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
 Les utilisateurs et les applications bénéficiant de l’accès à la ressource par le biais du rôle d’administrateur ou de [contributeur](../../role-based-access-control/built-in-roles.md#contributor) peuvent apporter des modifications à la ressource, y compris le déploiement ou la suppression d’[extensions](manage-vm-extensions.md) sur la machine. Les extensions peuvent inclure des scripts arbitraires qui s’exécutent dans un contexte privilégié ; par conséquent, vous devez considérer tout contributeur sur la ressource Azure comme un administrateur indirect du serveur.
 
-Le rôle **Intégration d’Azure Connected Machine** est disponible pour l’intégration à grande échelle, il peut uniquement lire ou créer des serveurs Arc dans Azure. Il ne peut pas servir à supprimer des serveurs déjà inscrits, ou à gérer des extensions. En tant que bonne pratique, nous vous recommandons d’attribuer ce rôle uniquement au principal du service Azure Active Directory (Azure AD) utilisé pour l’intégration des machines à grande échelle.
+Le rôle **Intégration d’Azure Connected Machine** est disponible pour l’intégration à grande échelle et il peut uniquement lire ou créer de nouveaux serveurs avec Arc dans Azure. Il ne peut pas servir à supprimer des serveurs déjà inscrits, ou à gérer des extensions. En tant que bonne pratique, nous vous recommandons d’attribuer ce rôle uniquement au principal du service Azure Active Directory (Azure AD) utilisé pour l’intégration des machines à grande échelle.
 
-En tant que membres du rôle **Administrateur des ressources Azure Connected Machine**, les utilisateurs peuvent lire, modifier, réintégrer et supprimer une machine. Ce rôle est conçu pour prendre en charge la gestion des serveurs Arc, mais aucune autre ressource dans le groupe de ressources ou l’abonnement.
+En tant que membres du rôle **Administrateur des ressources Azure Connected Machine**, les utilisateurs peuvent lire, modifier, réintégrer et supprimer une machine. Ce rôle est conçu pour prendre en charge la gestion des serveurs avec Arc, mais aucune autre ressource dans le groupe de ressources ou l’abonnement.
 
 ## <a name="agent-security-and-permissions"></a>Sécurité et autorisations de l’agent
 
@@ -40,9 +40,9 @@ L’agent Azure Connected Machine est composé de trois services, qui s’exécu
 
 Les services de configuration et d’extension d’invités s’exécutent en tant que Système local sur Windows, et en tant que racine sur Linux.
 
-## <a name="using-a-managed-identity-with-arc-enabled-servers"></a>Utilisation d’une identité managée avec les serveurs Arc
+## <a name="using-a-managed-identity-with-arc-enabled-servers"></a>Utilisation d’une identité managée sur les serveurs avec Arc
 
-Par défaut, l’identité affectée par le système Azure Active Directory qui est utilisée par ARC peut uniquement servir pour mettre à jour l’état du serveur Arc dans Azure. Par exemple, l’état des pulsations *la dernière fois*. Vous pouvez éventuellement affecter des rôles supplémentaires à l’identité si une application sur votre serveur utilise l’identité attribuée par le système pour accéder aux autres services Azure.
+Par défaut, l’identité affectée par le système Azure Active Directory qui est utilisée par Arc peut uniquement servir pour mettre à jour l’état du serveur avec Arc dans Azure. Par exemple, l’état des pulsations *la dernière fois*. Vous pouvez éventuellement affecter des rôles supplémentaires à l’identité si une application sur votre serveur utilise l’identité attribuée par le système pour accéder aux autres services Azure.
 
 Alors que n’importe quelle application s’exécutant sur la machine peut accéder à Hybrid Instance Metadata Service, seules les applications autorisées peuvent demander un jeton Azure AD pour l’identité attribuée par le système. Lors de la première tentative d’accès à l’URI de jeton, le service génère un objet blob de chiffrement, créé de manière aléatoire dans un emplacement sur le système de fichiers, que seuls les appelants approuvés peuvent lire. L’appelant doit ensuite lire le fichier (en prouvant qu’il dispose de l’autorisation appropriée) et faire une nouvelle tentative de demande, avec le contenu du fichier dans l’en-tête d’autorisation, pour parvenir à récupérer un jeton Azure AD.
 
@@ -56,4 +56,6 @@ L’agent Azure Connected Machine utilise l’authentification par clé publique
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avant d'évaluer ou d'activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d'ensemble d'Azure Connected Machine Agent](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l'agent, ainsi que sur les méthodes de déploiement.
+* Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
+
+* Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.

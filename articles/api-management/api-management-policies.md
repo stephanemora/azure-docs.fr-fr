@@ -4,20 +4,16 @@ description: Découvrez les stratégies disponibles dans Gestion des API Azure. 
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 07/19/2021
 ms.author: apimpm
-ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6856226c1eda0e8d5fde7df6d2b251007a47fa2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562346"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468515"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).
@@ -36,11 +32,13 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
     -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
     -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
+    -   [Valider le certificat client](api-management-access-restriction-policies.md#validate-client-certificate) : garantit qu’un certificat présenté par un client à une instance de gestion des API correspond aux règles de validation et revendications spécifiées.
 -   [Stratégies avancées](api-management-advanced-policies.md#AdvancedPolicies)
     -   [Control flow](api-management-advanced-policies.md#choose) : applique de manière conditionnelle les instructions des stratégies en fonction de l’évaluation des expressions booléennes.
     -   [Forward request](api-management-advanced-policies.md#ForwardRequest) : transfère la demande vers le service principal.
     -   [Limit concurrency](api-management-advanced-policies.md#LimitConcurrency) : empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié.
     -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) : envoie des messages au format spécifié à une cible de message définie par une entité Enregistreur.
+    -   [Émettre des métriques](api-management-advanced-policies.md#emit-metrics) – Envoie des métriques personnalisées à Application Insights lors de l’exécution.
     -   [Mock response](api-management-advanced-policies.md#mock-response) : abandonne l’exécution du pipeline et renvoie une réponse factice indiquée directement à l’appelant.
     -   [Retry](api-management-advanced-policies.md#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.
     -   [Return response](api-management-advanced-policies.md#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.

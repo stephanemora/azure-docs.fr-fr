@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: ea92a5e196c809535801278631cbfdfdc5013199
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251622"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288214"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymes dans Recherche cognitive Azure
 
-Avec les cartes de synonymes, vous pouvez associer des termes équivalents qui élargissent implicitement l’étendue d’une requête, sans que l’utilisateur ait à fournir le terme. Par exemple, en supposant que « chien », « canin » et « chiot » sont des synonymes, une requête sur « canin » correspond à un document contenant « chien ».
+Dans un service de recherche, le mappage de synonymes est une opération effectuée par une ressource globale qui associe des termes équivalents. Cela permet de développer l’étendue d’une requête sans que l’utilisateur ne soit obligé de fournir le terme. Par exemple, en partant du principe que « chien », « canin » et « chiot » sont synonymes, une requête sur « canin » correspond à un document contenant « chien ».
 
 ## <a name="create-synonyms"></a>Créer des synonymes
 
@@ -38,7 +38,13 @@ POST /synonymmaps?api-version=2020-06-30
 }
 ```
 
-Pour créer une carte de synonymes, utilisez [Créer une carte de synonymes (API REST)](/rest/api/searchservice/create-synonym-map) ou un kit de développement logiciel (SDK) Azure. Pour les développeurs C#, vous pouvez commencer par [Ajouter des synonymes dans Recherche cognitive Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
+Vous créez un mappage de synonymes par programmation (le portail ne prend pas en charge les définitions de mappage de synonymes) :
+
++ [Créer un mappage de synonymes (API REST)](/rest/api/searchservice/create-synonym-map). Cette référence est la plus descriptive.
++ [Classe SynonymMap (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) et [Ajouter des synonymes en C#](search-synonyms-tutorial-sdk.md)
++ [Classe SynonymMap (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
++ [Interface SynonymMap (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
++ [Classe SynonymMap (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
 
 ## <a name="define-rules"></a>Définir des règles
 
@@ -85,7 +91,14 @@ Dans le cas explicite, une requête pour `Washington`, `Wash.` ou `WA` sera ré�
 
 ### <a name="escaping-special-characters"></a>Échappement des caractères spéciaux
 
-Les synonymes sont analysés au cours du traitement des requêtes. Si vous devez définir des synonymes qui contiennent des virgules, ou autres caractères spéciaux, vous pouvez échapper celles-ci à l’aide d’une barre oblique inverse, comme dans l’exemple suivant :
+Dans la recherche en texte intégral, les synonymes sont analysés durant le traitement de la requête comme tout autre terme de requête, ce qui signifie que les règles relatives aux caractères réservés et aux caractères spéciaux s’appliquent aux termes du mappage de synonymes. La liste des caractères qui nécessitent un échappement varie entre la syntaxe simple et la syntaxe complète :
+
++ [syntaxe simple](query-simple-syntax.md) `+ | " ( ) ' \`
++ [syntaxe complète](query-lucene-syntax.md) `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`
+
+Rappelez-vous que si vous devez conserver des caractères qui sont en principe ignorés par l’analyseur par défaut durant l’indexation, vous devez utiliser un autre analyseur qui les conserve. Parmi les choix possibles figurent les [analyseurs de langage](index-add-language-analyzers.md) naturel de Microsoft, qui conservent les mots avec trait d'union, ou un analyseur personnalisé pour les modèles plus complexes. Pour plus d'informations, consultez [Termes partiels, modèles et caractères spéciaux](search-query-partial-matching.md).
+
+L’exemple suivant montre comment placer un caractère dans une séquence d’échappement à l’aide d’une barre oblique inverse :
 
 ```json
 {

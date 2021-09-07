@@ -10,18 +10,18 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: 95c9880eb8c61b5a057cf2573aad7871c3c37bb3
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 5bba667b70099e3f88e1ff62ae3472144556a0d1
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613609"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525428"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
 L’application Azure Machine Learning Workbench et d’autres fonctionnalités d’origine ont été dépréciées et remplacées dans la version de **septembre 2018** pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée.
 
-Pour améliorer votre expérience, la version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires. Les fonctionnalités principales qui englobent les exécutions expérimentales jusqu’au déploiement de modèles n’ont pas changé. Toutefois, maintenant, vous pouvez utiliser le <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK Python</a> robuste, le SDK R et l’interface [Azure CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et pipelines de Machine Learning.
+Pour améliorer votre expérience, la version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires. Les fonctionnalités principales qui englobent les exécutions expérimentales jusqu’au déploiement de modèles n’ont pas changé. Toutefois, maintenant, vous pouvez utiliser le <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK Python</a> robuste et l’interface [Azure CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et pipelines de Machine Learning.
 
 La plupart des artefacts créés dans la version précédente d’Azure Machine Learning sont stockés dans votre propre stockage local ou cloud. Ces artefacts ne disparaîtront jamais.
 
@@ -85,7 +85,7 @@ Les images que vous avez créées dans votre ancien registre d’images ne peuve
 
 L’ancienne interface CLI n’étant plus prise en charge, vous ne pouvez plus redéployer de modèles ni gérer les services web que vous aviez déployés avec votre compte Gestion des modèles. Toutefois, ces services web continueront à fonctionner tant qu’Azure Container Service (ACS) sera pris en charge.
 
-Dans la dernière version, les modèles sont déployés en tant que services web sur des clusters Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). Vous pouvez également déployer les modèles sur des FPGA et sur Azure IoT Edge.
+Dans la dernière version, les modèles sont déployés en tant que services web sur des clusters Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). Vous pouvez également effectuer le déploiement sur des FPGA.
 
 Pour en savoir plus, consultez les articles suivants :
 + [Où et comment déployer des modèles ?](how-to-deploy-and-where.md)
@@ -95,7 +95,7 @@ Pour en savoir plus, consultez les articles suivants :
 
 Découvrez plus d’informations sur la [dernière architecture d’Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-Pour avoir une vue d’ensemble du service, consultez [Qu’est-ce qu’Azure Machine Learning ?](overview-what-is-azure-ml.md).
+Pour avoir une vue d’ensemble du service, consultez [Qu’est-ce qu’Azure Machine Learning ?](overview-what-is-azure-machine-learning.md).
 
 Commencez par [Démarrage rapide : Bien démarrer avec Azure Machine Learning](quickstart-create-resources.md).  Utilisez ensuite ces ressources pour créer votre première expérience avec votre méthode favorite :
 

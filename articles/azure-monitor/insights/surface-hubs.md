@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 9d81af064b18ca8113599b460f2b9524c7288439
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e1a5b98607046f8f57699e49be764439baa6f2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711074"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474145"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Effectuer le monitoring de hubs Surface Hub avec Azure Monitor pour suivre leur intégrité
 
@@ -18,7 +18,7 @@ ms.locfileid: "101711074"
 
 Cet article explique comment utiliser la solution Surface Hub d’Azure Monitor pour effectuer le monitoring d’appareils Microsoft Surface Hub. Cette solution permet de suivre l’intégrité des hubs Surface Hub et aide à comprendre comment ils sont utilisés.
 
-Chaque Surface Hub a un Microsoft Monitoring Agent installé. C’est cet agent qui permet d’envoyer des données de Surface Hub à un espace de travail Log Analytics dans Azure Monitor. Les fichiers journaux sont lus dans les hubs Surface Hub, puis envoyés à Azure Monitor. Des problèmes comme des serveurs hors connexion, un calendrier qui ne se synchronise pas ou un compte d’appareil incapable de se connecter à Skype s’affichent sur le tableau de bord Surface Hub d’Azure Monitor. Les données du tableau de bord vous permettent d’identifier les appareils qui ne sont pas en cours d’exécution ou qui rencontrent d’autres problèmes, voire d’appliquer des correctifs pour les problèmes détectés.
+Chaque Surface Hub a un Microsoft Monitoring Agent installé. C’est cet agent qui permet d’envoyer des données de Surface Hub à un espace de travail Log Analytics dans Azure Monitor. Les fichiers journaux sont lus à partir de vos hubs Surface Hub, puis envoyés à Azure Monitor. Des problèmes comme des serveurs hors connexion, un calendrier qui ne se synchronise pas ou un compte d’appareil incapable de se connecter à Skype s’affichent sur le tableau de bord Surface Hub d’Azure Monitor. Les données du tableau de bord vous permettent d’identifier les appareils qui ne sont pas en cours d’exécution ou qui rencontrent d’autres problèmes, voire d’appliquer des correctifs pour les problèmes détectés.
 
 ## <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Utilisez les informations suivantes pour installer et configurer la solution. Les éléments suivants sont nécessaires pour gérer des hubs Surface Hub dans Azure Monitor :
@@ -38,14 +38,16 @@ Vous devez disposer de l’ID et de la clé de l’espace de travail Log Analyti
 
 Intune est un produit Microsoft permettant de gérer de manière centralisée les paramètres de configuration de l’espace de travail Log Analytics appliqués à un ou plusieurs appareils. Pour configurer vos appareils via Intune, procédez comme suit :
 
-1. Connectez-vous à Intune.
-2. Accédez à **Paramètres** > **Sources connectées**.
-3. Créez ou modifiez une stratégie basée sur le modèle Surface Hub.
-4. Accédez à la section Azure Operational Insights de la stratégie, puis ajoutez *l’ID de l’espace de travail* et la *Clé de l’espace de travail* Log Analytics à la stratégie.
-5. Enregistrez la stratégie.
-6. Associez la stratégie au groupe approprié d’appareils.
+1. Connectez-vous au [Centre d’administration Microsoft Endpoint Manager](https://endpoint.microsoft.com/).
+2. Accédez à **Appareils** > **Profils de configuration**.
+3. Créez un nouveau profil Windows 10, puis sélectionnez **modèles**.
+4. Dans la liste des modèles, sélectionnez **Restrictions de l’appareil (Windows 10 Collaboration)** .
+5. Entrez un nom et une description pour le profil.
+6. Pour **Azure Operational Insights**, sélectionnez **Activer**.
+7. Entrez l’**ID d’espace de travail** Log Analytics et entrez la **clé d’espace de travail** pour la stratégie.
+8. Affectez la stratégie à votre groupe d’appareils Surface Hub et enregistrez la stratégie.
 
-   ![Stratégie Intune](./media/surface-hubs/intune.png)
+    :::image type="content" source="./media/surface-hubs/intune.png" alt-text="Capture d’écran montrant la définition d’une stratégie Intune":::
 
 Intune synchronise ensuite les paramètres Log Analytics avec les appareils du groupe cible en inscrivant ceux-ci dans votre espace de travail Log Analytics.
 
@@ -58,9 +60,10 @@ Si vous n’utilisez pas Intune pour gérer votre environnement, vous pouvez ins
 2. Entrez les informations d’identification d’administrateur de l’appareil lorsque vous y êtes invité.
 3. Cliquez sur **Cet appareil**, puis, sous **Analyse**, cliquez sur **Configurer les paramètres Log Analytics**.
 4. Sélectionnez **Activer l’analyse**.
-5. Dans la boîte de dialogue Paramètres Log Analytics, entrez **l’ID de l’espace de travail** et la **Clé de l’espace de travail**.  
-   ![Screenshot shows the Microsoft Operations Manager Suite settings with Enable monitoring selected and text boxes for Workspace ID and Workspace Key.](./media/surface-hubs/settings.png)
-6. Cliquez sur **OK** pour achever la configuration.
+5. Dans la boîte de dialogue Paramètres Log Analytics, entrez **l’ID de l’espace de travail** et la **Clé de l’espace de travail**. 
+
+    ![Screenshot shows the Microsoft Operations Manager Suite settings with Enable monitoring selected and text boxes for Workspace ID and Workspace Key.](./media/surface-hubs/settings.png)
+1. Cliquez sur **OK** pour achever la configuration.
 
 Une confirmation s’affiche, vous indiquant si la configuration a été correctement appliquée à l’appareil. Si c’est le cas, un message indique que l’agent est bien connecté à Azure Monitor. L’appareil commence alors à envoyer des données à Azure Monitor, où vous pouvez les consulter et les exploiter.
 

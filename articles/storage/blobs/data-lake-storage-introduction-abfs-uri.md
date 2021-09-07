@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 948b5aa0ad015f9f3c693e13219ec034724687c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c1d861da7a312ce94bbc7bc4074037bdb27d02b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95913162"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532079"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utiliser l’URI Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Si le compte Data Lake Storage Gen2 que vous ciblez **n’est pas** défini comm
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificateur de schéma** : le protocole `abfs` est utilisé comme identificateur de schéma. Vous avez la possibilité de vous connecter avec ou sans une connexion TLS (Transport Layer Security), précédemment connue sous le nom de connexion SSL (Secure Sockets Layer). Utilisez `abfss` pour vous connecter avec une connexion TLS.
+1. **Identificateur de schéma** : le protocole `abfs` est utilisé comme identificateur de schéma. Si vous ajoutez un « s » à la fin (abfs<b><i>s</i></b>), le pilote du client ABFS Hadoop utilisera <i>TOUJOURS</i> le TLS, quelle que soit la méthode d’authentification choisie. Si vous choisissez OAuth comme méthode d’authentification, le pilote client utilisera toujours le protocole TLS même si vous spécifiez « abfs » au lieu de « abfss », car OAuth s’appuie uniquement sur la couche TLS. Enfin, si vous choisissez d’utiliser l’ancienne méthode de clé de compte de stockage, le pilote client interprétera « abfs » comme l’indication que vous ne souhaitez pas utiliser le TLS. 
 
 2. **Système de fichiers** : emplacement parent qui contient les fichiers et dossiers. C’est l’équivalent des conteneurs du service Stockage Blob Azure.
 

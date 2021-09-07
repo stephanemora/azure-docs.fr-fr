@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 62f51922399a300b9ed803c3ee2d380dcab615b8
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 672fac2b33ef1d8fd9be1948d0c7da332f8ce43b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987521"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562550"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>À propos des passerelles de réseau virtuel ExpressRoute
 
@@ -31,23 +31,50 @@ Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau vi
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de passerelle
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Si vous souhaitez mettre à niveau votre passerelle vers une référence (SKU) de passerelle plus puissante, dans la plupart des cas, vous pouvez utiliser la cmdlet PowerShell « Resize-AzVirtualNetworkGateway ». Cela fonctionne pour les mises à niveau vers les références (SKU) Standard HighPerformance. Toutefois, pour mettre à niveau vers la référence (SKU) UltraPerformance, vous devez recréer la passerelle. La recréation d’une passerelle entraîne un temps d’arrêt.
+Si vous souhaitez mettre à niveau votre passerelle vers une référence (SKU) de passerelle plus puissante, dans la plupart des cas, vous pouvez utiliser la cmdlet PowerShell « Resize-AzVirtualNetworkGateway ». Cela fonctionne pour les mises à niveau vers les références (SKU) Standard HighPerformance. Toutefois, pour mettre à niveau une passerelle de zone de non-disponibilité vers la référence SKU UltraPerformance, vous devez recréer la passerelle. La recréation d’une passerelle entraîne un temps d’arrêt. Vous n’avez pas besoin de supprimer et de recréer la passerelle pour mettre à niveau une référence SKU avec zone de disponibilité.
+### <a name="feature-support-by-gateway-sku"></a><a name="gatewayfeaturesupport"></a>Prise en charge des fonctionnalités par référence SKU de passerelle
+Le tableau suivant présente les fonctionnalités prises en charge pour chaque type de passerelle.
+
+|**SKU de la passerelle**|**Coexistence de la passerelle VPN et d’ExpressRoute**|**FastPath**|**Nombre maximal de connexions de circuit**|
+| --- | --- | --- | --- |
+|**Référence SKU standard/ErGw1AZ**|Oui|Non|4|
+|**Référence SKU haute performance/ERGw2Az**|Oui|Non|8
+|**Référence SKU Ultra-Performance/ErGw3Az**|Oui|Oui|16
 
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Performances estimées par référence (SKU) de passerelle
-Le tableau ci-dessous présente les types de passerelle et les performances estimées. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
+Le tableau suivant présente les types de passerelle et le nombre de mises à l’échelle des performances estimées. Ces valeurs sont dérivées des conditions de test suivantes et représentent les limites de prise en charge maximales. Les performances réelles peuvent varier en fonction de la précision avec laquelle le trafic réplique les conditions de test.
+
+### <a name="testing-conditions"></a>Conditions de test
+##### <a name="standardergw1az"></a>**Standard/ERGw1Az** #####
+
+- Bande passante du circuit : 1 Gbits/s
+- Nombre de routes publiées par la passerelle : 500
+- Nombre de routes découvertes : 4 000
+##### <a name="high-performanceergw2az"></a>**Haute performance/ERGw2Az** #####
+
+- Bande passante du circuit : 1 Gbits/s
+- Nombre de routes publiées par la passerelle : 500
+- Nombre de routes découvertes : 9 500
+##### <a name="ultra-performanceergw3az"></a>**Ultra-performance/ErGw3Az** #####
+
+- Bande passante du circuit : 1 Gbits/s
+- Nombre de routes publiées par la passerelle : 500
+- Nombre de routes découvertes : 9 500
+
+ Cette table s’applique aux modèles de déploiement classique et Resource Manager.
+ 
+|**SKU de la passerelle**|**Connexions par seconde**|**Mégabits par seconde**|**Paquets par seconde**|**Nombre de machines virtuelles prises en charge dans le réseau virtuel**|
+| --- | --- | --- | --- | --- |
+|**Standard/ERGw1Az**|7 000|1 000|100 000|2 000|
+|**Haute performance/ERGw2Az**|14 000|2 000|250 000|4 500|
+|**Ultra-performance/ErGw3Az**|16 000|10 000|1 000 000|11 000|
 
 > [!IMPORTANT]
 > Les performances de l’application dépendent de plusieurs facteurs, tels que la latence de bout en bout et le nombre de flux de trafic que l’application ouvre. Les numéros indiqués dans le tableau représentent la limite supérieure que l’application peut théoriquement atteindre dans un environnement idéal.
->
->
 
-> [!NOTE]
+>[!NOTE]
 > Pour toutes les passerelles, quatre circuits ExpressRoute au maximum peuvent se connecter au même réseau virtuel à partir du même emplacement d’appairage.
 >
->
-
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Sous-réseau de passerelle
 

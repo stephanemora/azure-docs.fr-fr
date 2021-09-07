@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 08/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 51194dbcdfd967a40da96842cf58d373fd28f96f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 04dde4560a9b03208d4c0f234d475ddce7265343
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468285"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563359"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -40,11 +40,13 @@ Si vous n’êtes pas en mesure de faire correspondre les URL internes et extern
 
 Il existe plusieurs options de configuration DNS, en fonction des besoins :
 
+
 ### <a name="same-internal-and-external-url-different-internal-and-external-behavior"></a>Même URL interne et externe, comportements interne et externe différents 
 
 Si vous ne souhaitez pas que vos utilisateurs internes soient dirigés via le Proxy d’application, vous pouvez configurer un *DNS Split-Brain*. Une infrastructure DNS fractionnée dirige les hôtes internes vers un serveur de noms de domaine interne et les hôtes externes vers un serveur de noms de domaine externe, pour la résolution de noms. 
 
 ![DNS Split-Brain](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+
 
 ### <a name="different-internal-and-external-urls"></a>URL internes et externes différentes 
 
@@ -107,6 +109,9 @@ Pour publier votre application via le Proxy d’application avec un domaine pers
    ![Ajouter une entrée DNS CNAME](./media/application-proxy-configure-custom-domain/dns-info.png)
    
 10. Suivez les instructions de la section [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](../../dns/dns-operations-recordsets-portal.md) pour ajouter un enregistrement DNS qui redirige la nouvelle URL externe vers le domaine *msappproxy.net*.
+
+   > [!IMPORTANT] 
+   > Vérifiez que vous utilisez correctement un enregistrement CNAME qui pointe vers le domaine *msappproxy.net*. Ne faites pas pointer d’enregistrements vers des adresses IP ou des noms DNS de serveurs, car ces valeurs ne sont pas statiques et peuvent impacter la résilience du service.
    
 11. Pour vérifier que l’enregistrement DNS est correctement configuré, utilisez la commande [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) afin de confirmer que votre URL externe est accessible et que le domaine *msapproxy.net* apparaît en tant qu’alias.
 

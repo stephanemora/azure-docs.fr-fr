@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 7a903b63ad1da2dbb029fdbeba1106d3090ba3ef
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 8e25c921b390211f159e7f845dca9c7cbc9168c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554819"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524733"
 ---
 # <a name="rest-code-samples-for-azure-cognitive-search"></a>Exemples de code Java pour Recherche cognitive Azure
 
@@ -37,7 +37,7 @@ Les exemples de code de l’équipe Recherche cognitive illustrent les fonctionn
 | [Debug-sessions](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) | Code source pour [Tutoriel : Diagnostiquer, réparer et valider les changements apportés à votre ensemble de compétences](cognitive-search-tutorial-debug-sessions.md). Cet article montre comment utiliser une session de débogage d’ensemble compétences dans le portail Azure. REST est utilisé pour créer les objets utilisés lors du débogage.|
 | [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) | Code source pour [Tutoriel : Créer un analyseur personnalisé pour les numéros de téléphone](tutorial-create-custom-analyzer.md). Cet article explique comment utiliser des analyseurs pour conserver des modèles et des caractères spéciaux dans du contenu pouvant faire l’objet d’une recherche.|
 | [knowledge-store](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) | Code source pour [Créer une base de connaissances à l’aide de REST et Postman](knowledge-store-create-rest.md). Cet article explique les étapes nécessaires afin d’alimenter une base de connaissances utilisée pour des flux de travail d’exploration de connaissances. |
-| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Code source pour [Guide pratique pour mettre en forme et exporter des enrichissements](knowledge-store-projections-examples.md). Cet article explique comment spécifier les structures de données physiques dans une base de connaissances.|
+| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Code source pour la [définition des projections dans une base de connaissances](knowledge-store-projections-examples.md). Cet article explique comment spécifier les structures de données physiques dans une base de connaissances.|
 | [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Code source pour [Indexer des objets blob chiffrés à l’aide d’indexeurs d’objets blob et d’ensembles de compétences](search-howto-index-encrypted-blobs.md). Cet article explique comment indexer dans le service Stockage Blob Azure des documents précédemment chiffrés à l’aide d’Azure Key Vault. |
 
 > [!Tip]

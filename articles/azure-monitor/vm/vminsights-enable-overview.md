@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa656b974a89924a2ce029a7c5e38b4d9f68f6b7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634156"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440086"
 ---
 # <a name="enable-vm-insights-overview"></a>Activer la vue d’ensemble de VM Insights
 
@@ -37,6 +37,8 @@ VM Insights prend en charge les machines suivantes :
 - Groupe de machines virtuelles identiques Azure
 - Machine virtuelle hybride connectée avec Azure Arc
 
+> [!IMPORTANT]
+> Si le périphérique Ethernet de votre machine virtuelle contient plus de neuf caractères, il ne sera pas reconnu par les insights de machine virtuelle et les données ne seront pas envoyées à la table InsightsMetrics. L’agent collectera les données à partir d’[autres sources](../agents/agent-data-sources.md).
 
 ## <a name="supported-azure-arc-machines"></a>Machines Azure Arc prises en charge
 VM Insights est disponible pour les serveurs avec Azure Arc dans les régions où le service d’extension Arc est disponible. Vous devez exécuter la version 0.9 ou une version supérieure de l’agent Arc.

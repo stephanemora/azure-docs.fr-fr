@@ -4,12 +4,12 @@ description: En savoir plus sur les étapes requises pour mettre à niveau votre
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3d6092d694d1c99ff7755dfcbec5c0edbfb7567f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3eea51b69bbb1138ac7c5418370759d1777b482c
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077299"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361834"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrer vers des ressources de Application Insights basées sur un espace de travail
 
@@ -26,7 +26,7 @@ Les Application Insights basées sur l’espace de travail vous permettent de ti
 * [Les clés gérées par le client (CMK)](../logs/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
 * [Azure Private Link](../logs/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
 * [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
-* Les [niveaux de réservation de capacité](../logs/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25 % par rapport au tarif du paiement à l’utilisation. 
+* Les [niveaux d’engagement](../logs/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 30 % par rapport au tarif du paiement à l’utilisation. 
 * Ingestion plus rapide des données via l’ingestion de diffusion en continu Log Analytics.
 
 ## <a name="migration-process"></a>Processus de migration
@@ -49,8 +49,11 @@ Si vous n’avez pas besoin de migrer une ressource existante et que vous souhai
 
     - Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../logs/quick-create-workspace.md).
     
-- L’exportation continue n’est pas prise en charge pour les ressources basées sur l’espace de travail et doit être désactivée.
+- **L’exportation continue n’est pas prise en charge pour les ressources basées sur l’espace de travail** et doit être désactivée.
 Une fois la migration terminée, vous pouvez utiliser [les paramètres de diagnostic](../essentials/diagnostic-settings.md) pour configurer l’archivage des données sur un compte de stockage ou la diffusion en continu vers Azure Event Hub.  
+
+    > [!CAUTION]
+    > Les paramètres de diagnostic utilisent un format/schéma d’exportation différent de celui de l’exportation continue. La migration entraînera la rupture des intégrations existantes avec Stream Analytics.
 
 - Vérifiez vos paramètres de rétention actuels sous **Général** >  **Utilisation et coûts estimés** > **Rétention des données** pour votre espace de travail Log Analytics. Ce paramètre aura un impact sur la durée de stockage des nouvelles données ingérées une fois que vous avez migré vos ressources Application Insights. Si vous stockez actuellement des données Application Insights pendant une durée supérieure à la valeur par défaut de 90 jours et que vous souhaitez conserver cette période de rétention supérieure, vous devrez peut-être ajuster les paramètres de rétention de votre espace de travail.
 

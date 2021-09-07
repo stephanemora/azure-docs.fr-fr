@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: fed830833e9f68bcf734be65cba16f1cc84c8f89
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
+ms.openlocfilehash: fca6234742958f363d45c02780c2d01246ac58a9
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494349"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535180"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
@@ -46,6 +46,8 @@ Lorsque les fonctionnalités d’une ressource sont regroupées en petits ensemb
 Dans OAuth 2.0, ces types de jeux d’autorisations sont appelés des *étendues*. Ils sont également souvent appelés *autorisations*. Dans la plateforme d’identités Microsoft, une autorisation est représentée sous la forme d’une valeur de chaîne. Une application demande les autorisations dont elle a besoin en spécifiant l’autorisation dans le paramètre de requête `scope`. La plateforme d’identité prend en charge plusieurs [étendues OpenID Connect](#openid-connect-scopes) bien définies, ainsi que des autorisations basées sur les ressources (pour chaque autorisation, la valeur de celle-ci est ajoutée à l’URI de l’identificateur de la ressource ou de l’ID de l’application). Par exemple, la chaîne d’autorisation `https://graph.microsoft.com/Calendars.Read` est utilisée pour demander l’autorisation de lire les calendriers des utilisateurs dans Microsoft Graph.
 
 Généralement, une application peut demander ces autorisations en spécifiant les étendues dans les demandes dirigées vers le point de terminaison d’autorisation de la plateforme d’identités Microsoft. Toutefois, certaines autorisations à privilèges élevés peuvent être accordées uniquement par le biais du consentement de l’administrateur. Elles peuvent être demandées ou accordées en utilisant le [point de terminaison de consentement de l’administrateur](#admin-restricted-permissions). Poursuivez votre lecture pour en savoir plus.
+
+Dans les requêtes adressées aux points de terminaison d’autorisation, de jeton ou de consentement pour la plateforme d’identités Microsoft, si l’identificateur de ressource est omis dans le paramètre d’étendue, la ressource est censée être Microsoft Graph. Par exemple, `scope=User.Read` équivaut à `https://graph.microsoft.com/User.Read`.
 
 ## <a name="permission-types"></a>Types d'autorisations
 
@@ -106,12 +108,36 @@ Le jeton d’accès est valide pendant une courte durée : il arrive générale
 
 Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page [Référence sur le protocole de la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
 
-## <a name="incremental-and-dynamic-consent"></a>Consentement incrémentiel et dynamique
+## <a name="consent-types"></a>Types de consentement
+
+Les applications de la plateforme d’identités Microsoft s’appuient sur le consentement pour accéder aux ressources ou aux API nécessaires. Il existe plusieurs types de consentement dont votre application peut avoir besoin pour fonctionner correctement. Si vous définissez des autorisations, vous devez également comprendre la façon dont vos utilisateurs vont accéder à votre application ou API.
+
+### <a name="static-user-consent"></a>Consentement de l’utilisateur statique 
+
+Dans le scénario du consentement de l’utilisateur statique, vous devez spécifier toutes les autorisations nécessaires dans la configuration de l’application, au sein du portail Azure. Si l’utilisateur (ou l’administrateur, selon le cas) n’a pas octroyé son consentement pour cette application, la plateforme d’identités Microsoft invite l’utilisateur à donner son consentement à ce stade.
+
+Les autorisations statiques permettent également aux administrateurs de [donner leur consentement au nom de tous les utilisateurs](#requesting-consent-for-an-entire-tenant) de l’organisation.
+
+Bien que les autorisations statiques de l’application définies dans le portail Azure préservent la simplicité du code, elles présentent quelques problèmes potentiels pour les développeurs :
+
+- L’application doit demander toutes les autorisations dont elle est susceptible d’avoir besoin dès la première connexion de l’utilisateur. Ceci peut résulter en une longue liste d’autorisations qui décourage les utilisateurs finaux d’approuver l’accès de l’application lors de la connexion initiale.
+
+- L’application doit connaître au préalable l’ensemble des ressources auxquelles elle est susceptible d’accéder. Il est difficile de créer des applications pouvant accéder à un nombre arbitraire de ressources.
+
+### <a name="incremental-and-dynamic-user-consent"></a>Consentement de l’utilisateur incrémentiel et dynamique
+
 Avec le point de terminaison de la Plateforme d’identités Microsoft, vous pouvez ignorer les autorisations statiques définies dans les informations d’inscription de l’application du portail Azure et demander à la place des autorisations de façon incrémentielle.  Vous pouvez demander dès le départ un ensemble minimal d’autorisations, puis en demander plus ultérieurement quand le client utilise des fonctionnalités d’application supplémentaires. Pour cela, vous pouvez spécifier les étendues dont votre application a besoin à tout moment en incluant les nouvelles étendues dans le paramètre `scope` quand vous [demandez un jeton d’accès](#requesting-individual-user-consent), sans qu’il soit nécessaire de les définir au préalable dans les informations d’inscription de l’application. Si l’utilisateur n’a pas encore consenti aux nouvelles étendues ajoutées à la demande, il est invité à donner son consentement seulement aux nouvelles autorisations. Consentement incrémentiel ou dynamique, s’applique uniquement aux autorisations déléguées et pas aux permissions d’application.
 
 En permettant à l’application de demander des autorisations de façon dynamique grâce au paramètre `scope`, les développeurs maîtrisent totalement l’expérience de vos utilisateurs. Vous pouvez aussi anticiper l’expérience de consentement et demander toutes les autorisations dans une même demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez les demander à l’utilisateur de façon incrémentielle quand il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
 
-Quand il est recueilli pour le compte d’une organisation, le [consentement de l’administrateur](#using-the-admin-consent-endpoint) nécessite encore les autorisations statiques inscrites pour l’application. Par conséquent, vous devez définir ces autorisations pour les applications dans le portail d’inscription des applications si vous avez besoin qu’un administrateur donne son consentement pour le compte de toute l’organisation. Ainsi, les cycles nécessaires à l’administrateur de l’organisation pour configurer l’application sont réduits.
+> [!IMPORTANT]
+> Le consentement dynamique peut s’avérer pratique, mais il représente un véritable défi pour les autorisations qui nécessitent un consentement de l’administrateur, dans la mesure où l’expérience de consentement de l’administrateur n’a pas connaissance de ces autorisations au moment du consentement. Si vous avez besoin d’autorisations à privilège administratif ou si votre application utilise le consentement dynamique, vous devez inscrire toutes les autorisations dans le portail Azure (pas seulement le sous-ensemble d’autorisations qui nécessite le consentement de l’administrateur). Ceci permet aux administrateurs de locataires de donner leur consentement au nom de tous leurs utilisateurs.
+
+### <a name="admin-consent"></a>Consentement de l’administrateur
+
+[Consentement administrateur](#using-the-admin-consent-endpoint) : nécessaire quand votre application a besoin d’accéder à certaines autorisations dotées de privilèges élevés. Le consentement de l’administrateur garantit que les administrateurs disposent de contrôles supplémentaires avant d’autoriser des applications ou des utilisateurs à accéder aux données à privilèges élevés de l’organisation.
+
+Le [consentement administrateur accordé au nom d’une organisation](#requesting-consent-for-an-entire-tenant) nécessite toujours l’inscription des autorisations statiques pour l’application. Définissez ces autorisations pour les applications dans le portail d’inscription d’applications, si vous avez besoin qu’un administrateur donne son consentement au nom de l’ensemble de l’organisation. Ainsi, les cycles nécessaires à l’administrateur de l’organisation pour configurer l’application sont réduits.
 
 ## <a name="requesting-individual-user-consent"></a>Demande de consentement d’utilisateur individuel
 
@@ -143,7 +169,9 @@ Lorsque l’utilisateur approuve la demande d’autorisation, le consentement es
 
 Lorsqu’une organisation achète une licence ou un abonnement pour une application, elle souhaite souvent configurer l’application de manière proactive afin que tous les membres de l’organisation puissent l’utiliser. Dans le cadre de cette procédure, un administrateur peut autoriser l’application à agir au nom de n’importe quel utilisateur au sein du locataire. Si l’administrateur donne son consentement pour l’intégralité du locataire, les utilisateurs de l’organisation ne voient pas de page de consentement pour l’application.
 
-Pour demander le consentement pour les autorisations déléguées pour tous les utilisateurs d’un locataire, votre application peut utiliser le point de terminaison de consentement de l’administrateur.
+Le consentement administrateur accordé au nom d’une organisation nécessite toujours l’inscription des autorisations statiques pour l’application. Définissez ces autorisations pour les applications dans le portail d’inscription d’applications, si vous avez besoin qu’un administrateur donne son consentement au nom de l’ensemble de l’organisation.
+
+Si vous souhaitez demander le consentement relatif aux autorisations déléguées pour tous les utilisateurs d’un locataire, votre application peut utiliser le [point de terminaison de consentement administrateur](#using-the-admin-consent-endpoint).
 
 En outre, les applications doivent utiliser le point de terminaison du consentement administrateur pour demander des permissions d’application.
 

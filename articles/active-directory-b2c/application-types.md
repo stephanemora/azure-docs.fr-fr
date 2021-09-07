@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e4f54f736a47cc6b351ff02b8fb7f8bad1c5c56
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94952044"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552691"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Active Directory B2C
  
@@ -139,7 +139,7 @@ Dans ce flux, l’application exécute des [stratégies](user-flow-overview.md) 
 
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur), et à l’aide du flux des informations d’identification du client OAuth 2.0. Le flux d’informations d’identification du client n’est pas le même que celui avec emprunt d’identité, et celui-ci ne doit pas être utilisé pour l’authentification de serveur à serveur.
 
-Bien que le flux d’octroi d’informations d’identification du client OAuth 2.0 ne soit pas directement pris en charge par le service d’authentification Azure AD B2C, vous pouvez configurer le flux d’informations d’identification du client à l’aide d’Azure AD et de la plateforme d’identités Microsoft ou du point de terminaison de jeton pour une application dans votre locataire Azure AD B2C. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.
+Bien que le flux d’octroi d’informations d’identification du client OAuth 2.0 ne soit pas directement pris en charge par le service d’authentification Azure AD B2C, vous pouvez configurer le flux d’informations d’identification du client à l’aide d’Azure AD et de la Plateforme d’identités Microsoft ou du point de terminaison de jeton (https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token) pour une application dans votre locataire Azure AD B2C. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.
 
 Pour configurer le flux d’informations d’identification du client, consultez [Azure Active Directory v2.0 et le flux d’informations d’identification du client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Une authentification réussie entraîne la réception d’un jeton mis en forme de telle sorte qu’il peut être utilisé par Azure AD, comme décrit dans la [documentation de référence sur les jetons Azure AD](../active-directory/develop/id-tokens.md).
 
@@ -150,17 +150,6 @@ Pour obtenir des instructions sur l’inscription d’une application de gestion
 De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant dans les clients natifs qui disposent d’une API web principale et appellent un service en ligne Microsoft, comme l’API Microsoft Graph.
 
 Ce scénario d’API web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of.  Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
-
-### <a name="faulted-apps"></a>Applications ayant généré une erreur
-
-Ne modifiez pas les applications Azure AD B2C comme suit :
-
-- Sur les autres portails de gestion des applications tels que le [Portail d’inscription des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
-- À l’aide de l’API Graph ou de PowerShell
-
-Si vous modifiez l’application Azure AD B2C en dehors du portail Azure, elle devient défaillante et n'est plus utilisable avec Azure AD B2C. Supprimer l’application, puis recréez-la.
-
-Pour supprimer l’application, accédez au [Portail d’inscription des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), puis supprimez l’application à cet emplacement. Pour que l’application soit visible, vous devez en être le propriétaire (et non simplement un administrateur du locataire).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

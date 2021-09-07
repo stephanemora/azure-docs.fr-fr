@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 3bf83c31c10245cb64a047c9d856489a4e0ce71a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0248491ed8a2fb8459565306249f95b1af92cf09
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030752"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588892"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configurer l’apprentissage AutoML sans code avec l’interface utilisateur de Studio 
 
@@ -30,7 +30,7 @@ Pour une expérience basée sur du code Python, [configurez vos expériences de 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
 * Un espace de travail Azure Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md). 
 
@@ -114,7 +114,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes de ML
 
     Sélectionnez **Suivant**.
 
-1. Dans le formulaire **Type de tâche et paramètres**, sélectionnez le type de tâche : classification, régression ou prévision. Pour plus d’informations, consultez [Types de tâches pris en charge](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
+1. Dans le formulaire **Type de tâche et paramètres**, sélectionnez le type de tâche : classification, régression ou prévision. Pour plus d’informations, consultez [Types de tâches pris en charge](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting).
 
     1. Pour la **classification**, vous pouvez également activer le deep learning.
     
@@ -175,10 +175,13 @@ L’onglet **Modèles** contient une liste des modèles créés affichés selon 
 
 ### <a name="view-training-run-details"></a>Afficher les détails de l'exécution de formation
 
-Explorez les modèles terminés pour voir les détails de l’exécution de la formation, par exemple un résumé du modèle sous l’onglet **Modèle** ou les graphiques des mesures de performance sous l’onglet **Mesures**. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
+Explorez les modèles terminés pour afficher les détails de l’exécution de l’entraînement. Sous l’onglet **Modèle**, affichez les détails comme un résumé du modèle et les hyperparamètres utilisés pour le modèle sélectionné. 
 
-[![Détails de l’itération](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+[![Détails des hyperparamètres](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
+ Vous pouvez également consulter les graphiques de métriques de performances propres au modèle sous l’onglet **Métriques**. [Découvrez-en plus sur les graphiques](how-to-understand-automated-ml.md).
+
+![Détails d'itération](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 Dans l’onglet Transformation des données, vous pouvez voir un diagramme des techniques de prétraitement des données, d’ingénierie des caractéristiques et de mise à l’échelle ainsi que l’algorithme Machine Learning qui ont été appliqués pour générer ce modèle.
 

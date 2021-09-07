@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: acae7a6121587a1a58c6f19b0b09287b3d93cc84
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 5b1fc91868f420b2f156fbb4d219d08cf5ad2ab6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992158"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562248"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Informations de référence sur les types d'entités Azure Sentinel
 
 ## <a name="entity-types-and-identifiers"></a>Types d'entités et identificateurs
 
-Le tableau suivant présente les **types d'entités** actuellement disponibles pour le mappage dans Azure Sentinel, ainsi que les **attributs** disponibles en tant qu'**identificateurs** pour chaque type d'entité ; ceux-ci apparaissent dans la liste déroulante **Identificateurs** de la section [Mappage d'entités](map-data-fields-to-entities.md) de l'[Assistant de règle analytique](tutorial-detect-threats-custom.md).
+Le tableau suivant présente les **types d'entités** actuellement disponibles pour le mappage dans Azure Sentinel, ainsi que les **attributs** disponibles en tant qu'**identificateurs** pour chaque type d'entité ; ceux-ci apparaissent dans la liste déroulante **Identificateurs** de la section [Mappage d'entités](map-data-fields-to-entities.md) de l'[Assistant de règle analytique](detect-threats-custom.md).
 
 Chacun des identificateurs de la colonne **Identificateurs requis** est nécessaire pour identifier l'entité correspondante. Cela dit, un identifiant requis peut ne pas suffire à lui seul à fournir une identification *unique*. Plus le nombre d'identifiants utilisés est élevé, plus la probabilité d'identification unique est grande. Vous pouvez utiliser trois identificateurs par mappage d'entités.
 
@@ -139,7 +139,7 @@ Identificateurs faibles d'une entité Hôte :
 | ----- | ---- | ----------- |
 | Type | String | « ip » |
 | Adresse | String | Adresse IP sous forme de chaîne, par exemple 127.0.0.1 (dans IPv4 ou IPv6). |
-| Emplacement | GeoLocation | Contexte de géolocalisation joint à l'entité IP. |
+| Emplacement | GeoLocation | Contexte de géolocalisation joint à l'entité IP. <br><br>Pour plus d’informations, consultez également [Enrichir des entités dans Azure Sentinel avec des données de géolocalisation via l’API REST (préversion publique)](geolocation-data-api.md). |
 |
 
 Identificateurs forts d'une entité IP :

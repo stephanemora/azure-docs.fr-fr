@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/19/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c92095449132b790c80cf6396a3608f802d7e9a7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689026"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458501"
 ---
 # <a name="two-way-sms-unsupported"></a>SMS bidirectionnel non pris en charge
 
-Les SMS bidirectionnels pour le serveur Multi-Factor Authentication (MFA) Azure AD, déconseillés dès 2018, ne sont plus pris en charge depuis le 24 février 2021. Les administrateurs doivent activer une autre méthode pour les utilisateurs qui continuent d’utiliser les SMS bidirectionnels.
+L’authentification par SMS bidirectionnel pour le serveur Azure AD MFA (Azure AD Multi-Factor Authentication) a été dépréciée en 2018 et n’est plus prise en charge depuis le 24 février 2021, sauf pour les organisations qui ont reçu une extension de support jusqu’au 2 août 2021. Les administrateurs doivent activer une autre méthode pour les utilisateurs qui continuent d’utiliser les SMS bidirectionnels.
 
 Les notifications par e-mail et les notifications Service Health sur le portail Azure (toasts du portail) ont été envoyées à des administrateurs désignés les 8 décembre 2020 et 28 janvier 2021. Les alertes sont allées aux rôles RBAC Propriétaire, Copropriétaire, Administrateur et Administrateur de service liés aux abonnements. Si vous avez déjà effectué les étapes ci-après, aucune action n’est nécessaire.
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e45d2ea0c0e44e859f5339459ed834be22fbb5ea
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 3a26a181dc8fd25ad93ebba9aaa496f3421bbffc
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950853"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113354580"
 ---
 # <a name="recover-a-deleted-storage-account"></a>récupérer un compte de stockage supprimé
 
@@ -23,6 +23,7 @@ Un compte de stockage supprimé peut être récupéré dans certains cas à part
 - Le compte de stockage a été supprimé au cours des 14 derniers jours.
 - Le compte de stockage a été créé avec le modèle de déploiement Azure Resource Manager.
 - Aucun nouveau compte de stockage portant le même nom n’a été créé depuis la suppression du compte d’origine.
+- L’utilisateur qui récupère le compte de stockage doit se voir attribuer un rôle RBAC Azure qui fournit l’autorisation **Microsoft.Storage/storageAccounts/write**. Pour plus d’informations sur les rôles RBAC Azure intégrés qui fournissent cette autorisation, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). 
 
 Avant de tenter de récupérer un compte de stockage supprimé, assurez-vous que le groupe de ressources pour ce compte existe. Si le groupe de ressources a été supprimé, vous devez le recréer. Il est impossible de récupérer un groupe de ressources. Pour plus d’informations, consultez [Gérer des groupes de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 

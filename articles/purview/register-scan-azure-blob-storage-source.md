@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: a691c242cbe91ea4a3e76bd0b1a93f11a6dd7c8b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 7b295fd67052d91c229977571056b3ea95d56773
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750593"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525581"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
 
@@ -21,6 +21,12 @@ Cet article explique comment inscrire un compte Stockage Blob Azure dans Purview
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Stockage Blob Azure prend en charge les analyses incrémentielles et complètes pour capturer les métadonnées et le schéma. Il classe également les données automatiquement selon des règles de classification système et personnalisées.
+
+Pour les types de fichiers comme CSV, TSV, PSV et SSV, le schéma est extrait quand les logiques suivantes sont en place :
+
+1. Les valeurs de la première ligne ne sont pas vides
+2. Les valeurs de la première ligne sont uniques
+3. Les valeurs de la première ligne ne sont ni une date ni un nombre
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,11 +47,11 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **+ Ajouter**.
+1. Sélectionnez **Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
 
 > [!Note]
-> Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/common/storage-auth-aad.md)
+> Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
 ### <a name="account-key"></a>Clé du compte
 
@@ -91,7 +97,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **+ Ajouter**.
+1. Sélectionnez **Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom ou ID d’objet de votre principal de service dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre principal de service.
 
 ## <a name="firewall-settings"></a>Paramètres du pare-feu

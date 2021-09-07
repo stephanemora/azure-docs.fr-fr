@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 04/19/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6025451779ba04b3a20307d35ca8a939c7762d64
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 22838cd661e64d4a85debfb4c5ce556a142dc2c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474367"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122535050"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -172,6 +172,12 @@ La propriété **details** des effets AuditIfNotExists possède toutes les sous-
   - Pour _ResourceGroup_, le traitement se limiterait au groupe de ressources de la ressource de condition **if** ou au groupe de ressources spécifié dans **ResourceGroupName**.
   - Pour _Subscription_, le traitement interroge l’abonnement entier pour la ressource associée.
   - La valeur par défaut est _ResourceGroup_.
+- **EvaluationDelay** (facultatif)
+  - Spécifie à quel moment l’existence des ressources associées doit être évaluée. Le délai est utilisé uniquement pour les évaluations qui résultent d’une requête de création ou de mise à jour de ressource.
+  - Les valeurs autorisées sont `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` ou une durée ISO 8601 comprise entre 10 et 360 minutes.
+  - Les valeurs _AfterProvisioning_ inspectent le résultat du provisionnement de la ressource qui a été évaluée dans la condition IF de la règle de stratégie. `AfterProvisioning` s’exécute une fois le provisionnement terminé, quel que soit le résultat. Si le provisionnement prend plus de 6 heures, il est considéré comme un échec lors de la détermination des délais d’évaluation de _AfterProvisioning_.
+  - La valeur par défaut est `PT10M` (10 minutes).
+  - La spécification d’un délai d’évaluation long peut empêcher la mise à jour de l’état de conformité enregistré de la ressource jusqu’au prochain [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (facultatif)
   - Si elle n’est pas spécifiée, toute ressource connexe du **type** remplit les conditions de l’effet et ne déclenche pas l’audit.
   - Utilise la même langue que la règle de stratégie pour la condition **if** mais est évaluée individuellement sur chaque ressource associée.
@@ -267,7 +273,7 @@ Comme pour AuditIfNotExists, une définition de stratégie DeployIfNotExists ex�
 
 ### <a name="deployifnotexists-evaluation"></a>Évaluation DeployIfNotExists
 
-DeployIfNotExists s’exécute environ 15 minutes après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour d’un abonnement ou une requête de ressource et a retourné un code d’état de réussite. Un déploiement de modèle est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. La durée du déploiement dépend de la complexité des ressources incluses dans le modèle.
+DeployIfNotExists s’exécute après un délai configurable quand qu’un fournisseur de ressources traite une requête de création ou de mise à jour d’un abonnement ou d’une ressource et qu’il retourne un code d’état de réussite. Un déploiement de modèle est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. La durée du déploiement dépend de la complexité des ressources incluses dans le modèle.
 
 Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un effet DeployIfNotExists sur les ressources sont marquées comme non conformes, mais aucune action n’est effectuée sur ces ressources. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md).
 
@@ -293,6 +299,12 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
   - Pour _ResourceGroup_, le traitement se limiterait au groupe de ressources de la ressource de condition **if** ou au groupe de ressources spécifié dans **ResourceGroupName**.
   - Pour _Subscription_, le traitement interroge l’abonnement entier pour la ressource associée.
   - La valeur par défaut est _ResourceGroup_.
+- **EvaluationDelay** (facultatif)
+  - Spécifie à quel moment l’existence des ressources associées doit être évaluée. Le délai est utilisé uniquement pour les évaluations qui résultent d’une requête de création ou de mise à jour de ressource.
+  - Les valeurs autorisées sont `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` ou une durée ISO 8601 comprise entre 0 et 360 minutes.
+  - Les valeurs _AfterProvisioning_ inspectent le résultat du provisionnement de la ressource qui a été évaluée dans la condition IF de la règle de stratégie. `AfterProvisioning` s’exécute une fois le provisionnement terminé, quel que soit le résultat. Si le provisionnement prend plus de 6 heures, il est considéré comme un échec lors de la détermination des délais d’évaluation de _AfterProvisioning_.
+  - La valeur par défaut est `PT10M` (10 minutes).
+  - La spécification d’un délai d’évaluation long peut empêcher la mise à jour de l’état de conformité enregistré de la ressource jusqu’au prochain [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (facultatif)
   - Si elle n’est pas spécifiée, toute ressource connexe de **type** satisfait à l’effet en question et ne déclenche pas le déploiement.
   - Utilise la même langue que la règle de stratégie pour la condition **if** mais est évaluée individuellement sur chaque ressource associée.
@@ -308,6 +320,7 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
   - La valeur par défaut est _ResourceGroup_.
 - **Deployment** (obligatoire)
   - Cette propriété doit inclure le déploiement de modèle complet, car elle est transmise à l’API PUT `Microsoft.Resources/deployments`. Pour plus d’informations, consultez [l’API REST Deployments](/rest/api/resources/deployments).
+  - Les éléments `Microsoft.Resources/deployments` imbriqués dans le modèle doivent utiliser des noms uniques pour éviter tout conflit entre plusieurs évaluations de stratégie. Le nom du déploiement parent peut être utilisé comme partie du nom de déploiement imbriqué via `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`.
 
   > [!NOTE]
   > Toutes les fonctions à l’intérieur de la propriété **Deployment** sont évaluées en tant que composants du modèle, et non pas de la stratégie. La propriété **parameters** y fait exception car elle transmet les valeurs de la stratégie au modèle. Dans cette section, la propriété **value** sous le nom de paramètre du modèle permet d’effectuer la transmission de valeurs (voir _fullDbName_ dans l’exemple DeployIfNotExists).
@@ -327,6 +340,7 @@ Sinon, un déploiement destiné à l’activer est exécuté.
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "evaluationDelay": "AfterProvisioning",
         "roleDefinitionIds": [
             "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
@@ -489,7 +503,7 @@ Les opérations suivantes sont prises en charge par Modify :
 
 - Ajouter, remplacer ou supprimer des étiquettes. Pour les étiquettes, une stratégie Modify doit avoir `mode` défini sur _Indexé_, sauf si la ressource cible est un groupe de ressources.
 - Ajouter ou remplacer la valeur du type d’identité managée (`identity.type`) des machines virtuelles et des groupes de machines virtuelles identiques.
-- Ajouter ou remplacer les valeurs de certains alias (préversion).
+- Ajouter ou remplacer les valeurs de certains alias.
   - Utilisez `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
     dans Azure PowerShell **4.6.0** ou une version ultérieure pour obtenir la liste des alias pouvant être utilisés avec Modify.
 

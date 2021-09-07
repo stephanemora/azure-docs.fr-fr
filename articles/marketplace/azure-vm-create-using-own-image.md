@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 06/02/2021
-ms.openlocfilehash: 44a31ee5fc8118ad163b5edb582b2a182b75dd3e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 07/22/2021
+ms.openlocfilehash: 2ff120fbc95fc96bf39f1648f14a5bdf75ee0db2
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525009"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601168"
 ---
 # <a name="create-a-virtual-machine-using-your-own-image"></a>Créer une machine virtuelle à l’aide de votre propre image
 
@@ -60,7 +60,7 @@ Demandez au propriétaire d’exécuter l’une de ces commandes (dans les deux 
 az login
 az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
 ```
- 
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId {subscriptionId}
@@ -68,10 +68,10 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> Vous n’avez pas besoin de générer d’URI de SAP, car vous pouvez désormais publier une image provenant d’une galerie d’images partagées sur Espace partenaires. Toutefois, si vous avez encore besoin de vous référer aux étapes de génération d’un URI de SAP, consultez [Comment générer un URI SAS pour une image de machine virtuelle](azure-vm-get-sas-uri.md).
+> Vous n’avez pas besoin de générer d’URI SAS, car vous pouvez désormais publier une image provenant d’une galerie d’images partagées sur Espace partenaires, sans utiliser d’API. <br/> <br/>Si vous *publiez* avec des API, vous devez générer des URI SAS au lieu d’utiliser une signature d’accès partagé ; consultez [Guide pratique pour générer un URI SAS pour une image de machine virtuelle](azure-vm-get-sas-uri.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Testez votre image de machine virtuelle](azure-vm-image-test.md) pour vous assurer qu’elle répond aux exigences de publication de la Place de marché Azure (facultatif).
-- Si vous ne souhaitez pas tester votre image de machine virtuelle, connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/) et publiez l’image SIG.
-- Si vous rencontrez des difficultés lors de la création de votre nouveau disque dur virtuel basé sur Azure, consultez [Forum aux questions sur la Place de marché Microsoft Azure](azure-vm-create-faq.md).
+- Si vous ne souhaitez pas tester votre image de machine virtuelle, connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165935) et publiez l’image SIG.
+- Si vous rencontrez des difficultés lors de la création de votre nouveau disque dur virtuel basé sur Azure, consultez [Forum aux questions sur la Place de marché Microsoft Azure](azure-vm-create-faq.yml).

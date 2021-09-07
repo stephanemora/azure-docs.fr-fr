@@ -3,13 +3,13 @@ title: Définitions de schéma d’alerte dans Azure Monitor
 description: Comprendre les définitions de schéma d’alerte courant pour Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: a026fa846901d4db7cb56196de50508f077e4fc6
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 07/20/2021
+ms.openlocfilehash: 165753b293d73d89865710074ad11869c6e1aa6b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018256"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440702"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -33,6 +33,9 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
       "monitoringService": "Platform",
       "alertTargetIDs": [
         "/subscriptions/<subscription ID>/resourcegroups/pipelinealertrg/providers/microsoft.compute/virtualmachines/wcus-r2-gen2"
+      ],
+      "configurationItems": [
+        "wcus-r2-gen2"
       ],
       "originAlertId": "3f2d4487-b0fc-4125-8bd5-7ad17384221e_PipeLineAlertRG_microsoft.insights_metricAlerts_WCUS-R2-Gen2_-117781227",
       "firedDateTime": "2019-03-22T13:58:24.3713213Z",
@@ -79,6 +82,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 | monitorCondition | Quand une alerte se déclenche, la condition d’analyse de l’alerte est **Déclenché**. Quand la condition sous-jacente qui a déclenché l’alerte disparaît, la condition d’analyse est **Résolu**.   |
 | monitoringService | La solution ou le service de supervision qui a généré l’alerte. Les champs du contexte de l’alerte dépendent du service de supervision. |
 | alertTargetIds | Liste des ID Azure Resource Manager qui sont des cibles affectées d’une alerte. Pour une alerte de journal définie sur un espace de travail Log Analytics ou une instance Application Insights, il s’agit de l’espace de travail ou de l’application respectifs. |
+| configurationItems | Liste des ressources affectées d’une alerte. Les éléments de configuration peuvent être différents des cibles d’alerte dans certains cas, par exemple dans les alertes de métriques ou de journal définies sur un espace de travail Log Analytics, où les éléments de configuration sont les ressources réelles qui envoient les données de télémétrie, et non l’espace de travail. Ce champ est utilisé par les systèmes ITSM pour mettre en corrélation les alertes avec les ressources dans une CMDB. |
 | originAlertId | ID de l’instance d’alerte tel que généré par le service de surveillance. |
 | firedDateTime | Date et heure, en temps universel coordonné (UTC), auxquelles l’instance d’alerte a été déclenchée. |
 | resolvedDateTime | Date et heure, en temps universel coordonné (UTC), auxquelles la condition d’analyse pour l’instance d’alerte a été définie sur **Résolu**. Applicable uniquement aux alertes de métrique.|
@@ -110,7 +114,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 
 ## <a name="alert-context"></a>Contexte de l’alerte
 
-### <a name="metric-alerts-excluding-availability-tests"></a>Alertes de métriques (à l’exception des tests de disponibilité)
+### <a name="metric-alerts---static-threshold"></a>Alertes de métriques – Seuil statique
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -145,7 +149,43 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 }
 ```
 
-### <a name="metric-alerts-availability-tests"></a>Alertes de métriques (tests de disponibilité)
+### <a name="metric-alerts---dynamic-threshold"></a>Alertes de métriques – Seuil dynamique
+
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
+
+**Exemples de valeurs**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "DynamicThresholdCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "alertSensitivity": "High",
+            "failingPeriods": {
+              "numberOfEvaluationPeriods": 1,
+              "minFailingPeriodsToAlert": 1
+            },
+            "ignoreDataBefore": null,
+            "metricName": "Egress",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "operator": "GreaterThan",
+            "threshold": "47658",
+            "timeAggregation": "Total",
+            "dimensions": [],
+            "metricValue": 50101
+          }
+        ],
+        "windowStartTime": "2021-07-20T05:07:26.363Z",
+        "windowEndTime": "2021-07-20T05:12:26.363Z"
+      }
+    }
+}
+```
+
+### <a name="metric-alerts---availability-tests"></a>Alertes de métriques – Tests de disponibilité
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -179,7 +219,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 ### <a name="log-alerts"></a>Alertes de journal
 
 > [!NOTE]
-> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Cela signifie que si vous souhaitez définir une charge utile JSON personnalisée, le webhook ne peut pas utiliser le schéma d'alerte commun. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludeSearchResults`. Lorsque les résultats de la recherche ne sont pas inclus, vous devez utiliser `LinkToFilteredSearchResultsAPI` et `LinkToSearchResultsAPI` pou accéder aux résultats de la requête avec l’[API Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
+> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Cela signifie que si vous souhaitez définir une charge utile JSON personnalisée, le webhook ne peut pas utiliser le schéma d'alerte commun. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludedSearchResults`. Lorsque les résultats de la recherche ne sont pas inclus, vous devez utiliser `LinkToFilteredSearchResultsAPI` et `LinkToSearchResultsAPI` pou accéder aux résultats de la requête avec l’[API Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -251,7 +291,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
         ]
       }
     ],
-  "IncludeSearchResults": "True",
+  "IncludedSearchResults": "True",
   "AlertType": "Metric measurement"
   }
 }
@@ -323,13 +363,16 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
         }
       ]
     },
-    "IncludeSearchResults": "True",
+    "IncludedSearchResults": "True",
     "AlertType": "Metric measurement"
   }
 }
 ```
 
 #### <a name="monitoringservice--log-alerts-v2"></a>`monitoringService` = `Log Alerts V2`
+
+> [!NOTE]
+> Les règles d’alerte de journal de la version d’API 2020-05-01 utilisent ce type de charge utile, qui prend uniquement en charge le schéma commun. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal lors de l’utilisation de cette version. Vous devez utiliser des [dimensions](./alerts-unified-log.md#split-by-alert-dimensions) pour fournir un contexte aux alertes déclenchées. Vous pouvez également utiliser `LinkToFilteredSearchResultsAPI` ou `LinkToSearchResultsAPI` pour accéder aux résultats de la requête avec l’[API Log Analytics](/rest/api/loganalytics/dataaccess/query/get). Si vous devez incorporer les résultats, utilisez une application logique avec les liens fournis pour générer une charge utile personnalisée.
 
 **Exemples de valeurs**
 ```json

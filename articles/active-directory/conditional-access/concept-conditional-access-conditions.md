@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 07/08/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e0aaac1c52a2def624f8bc8736219685458ad42
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5a332b43da59c3e7c766d8fd911f0426fa346d8b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070284"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564983"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -117,7 +117,9 @@ Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire �
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+Ces navigateurs prennent en charge l’authentification des appareils, ce qui permet de les identifier et de les valider par rapport à une stratégie. La vérification de l’appareil se solde par un échec si le navigateur s’exécute en mode privé, ou si les cookies sont désactivés.
 
 > [!NOTE]
 > Edge 85 ou version ultérieure exige que l’utilisateur soit connecté au navigateur pour transmettre correctement l’identité de l’appareil. Dans le cas contraire, il se comporte comme Chrome sans l’extension Comptes. Cette connexion peut ne pas se produire automatiquement dans un scénario de jonction Azure AD Hybride. Safari est pris en charge pour l’accès conditionnel basé sur les appareils, mais il ne peut pas satisfaire à la condition **Exiger une application cliente approuvée** ni à la condition **Exiger une stratégie de protection des applications**. Un navigateur managé comme Microsoft Edge, lui, répond à ces deux exigences.
@@ -143,8 +145,6 @@ Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de R
 - Nom 1
 - REG_SZ de type (String)
 - Data {« pattern » : « https://device.login.microsoftonline.com », « Filter »:{« ISSUER »:{« CN » : « MS-Organization-Access »}}}
-
-Ces navigateurs prennent en charge l’authentification des appareils, ce qui permet de les identifier et de les valider par rapport à une stratégie. La vérification de l’appareil échoue si le navigateur est en cours d’exécution en mode privé.
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Applications mobiles et clients de bureau pris en charge
 

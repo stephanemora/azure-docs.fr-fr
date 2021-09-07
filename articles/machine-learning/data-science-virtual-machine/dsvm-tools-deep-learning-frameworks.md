@@ -6,16 +6,16 @@ keywords: outils de science des données, machine virtuelle science des données
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
-author: timoklimmer
-ms.author: tklimmer
+author: michalmar
+ms.author: mimarusa
 ms.topic: conceptual
-ms.date: 05/12/2021
-ms.openlocfilehash: 3272c2584d03c6f13d2ffb85eb0b37bf3c29000a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: a757151d17456c7ee9646bc0730a51f34088b255
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081619"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729186"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Infrastructures de Deep learning et d’intelligence artificielle pour Azure Data Science Virtual Machine
 Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) sont répertoriées ci-dessous.
@@ -53,16 +53,16 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 | Category | Valeur |
 |--|--|
-| Version(s) prise(s) en charge | 1.8.1 (Ubuntu 18.04, Windows 2019) |
+| Version(s) prise(s) en charge | 1.9.0 (Ubuntu 18.04, Windows 2019) |
 | Éditions DSVM prises en charge | Windows Server 2019<br>Ubuntu 18.04 |
-| Comment est-il configuré / installé sur la machine virtuelle DSVM ? | Installé dans Python, environnement conda 'py38_pytorch' |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ? | Installé dans Python, environnements conda 'py38_default', 'py38_pytorch' |
 | Comment l’exécuter | Terminal : Activez l’environnement approprié, puis exécutez Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine) : Connectez-vous, puis ouvrez le répertoire PyTorch pour obtenir des exemples. |
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
 
 | Category | Valeur |
 |--|--|
-| Version(s) prise(s) en charge | 2.4 |
+| Version(s) prise(s) en charge | 2.5 |
 | Éditions DSVM prises en charge | Windows Server 2019<br>Ubuntu 18.04 |
-| Comment est-il configuré / installé sur la machine virtuelle DSVM ? | Installé dans Python, environnement conda 'py38_tensorflow' |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ? | Installé dans Python, environnements conda 'py38_default', 'py38_tensorflow' |
 | Comment l’exécuter | Terminal : Activez l’environnement approprié, puis exécutez Python. <br/> * Jupyter : Connectez-vous à [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), puis ouvrez le répertoire TensorFlow pour obtenir des exemples. |

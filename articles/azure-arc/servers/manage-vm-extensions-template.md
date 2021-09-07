@@ -1,15 +1,15 @@
 ---
 title: Activer l’extension de machine virtuelle à l’aide du modèle Azure Resource Manager
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs avec Azure Arc s’exécutant dans des environnements cloud hybrides à l’aide d’un modèle Azure Resource Manager.
-ms.date: 04/13/2021
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad2cd02393404b419bc7028e54571d2db285982
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: f1ea92383242cb5b1b1a1d09f33f947ff07113c5
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802447"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389804"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Activer les extensions de machine virtuelle Azure à l’aide d’un modèle ARM
 
@@ -21,7 +21,7 @@ Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure 
 >Même si plusieurs extensions peuvent être regroupées et traitées ensemble, elles sont installées en série. Une fois l’installation de la première extension terminée, l’installation de la suivante est entreprise.
 
 > [!NOTE]
-> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement et la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
+> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement ni la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
 
 ## <a name="deploy-the-log-analytics-vm-extension"></a>Déployer l’extension de machine virtuelle Log Analytics
 
@@ -143,7 +143,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Pour utiliser l’extension de script personnalisé, l’exemple suivant est fourni pour s’exécuter sur Windows et Linux. Si vous ne connaissez pas bien l’extension de script personnalisé, consultez [Extension de script personnalisé pour Windows](../../virtual-machines/extensions/custom-script-windows.md) ou [Extension de script personnalisé pour Linux](../../virtual-machines/extensions/custom-script-linux.md). Avant d’utiliser cette extension avec des machines hybrides, vous devez comprendre quelques caractéristiques divergentes :
 
-* La liste des systèmes d’exploitation pris en charge avec l’extension de script personnalisé de machine virtuelle Azure ne s’applique pas à un serveur avec Azure Arc. La liste des systèmes d’exploitation pris en charge pour Arc pour serveurs se trouve [ici](agent-overview.md#supported-operating-systems).
+* La liste des systèmes d’exploitation pris en charge avec l’extension de script personnalisé de machine virtuelle Azure ne s’applique pas aux serveurs avec Azure Arc. La liste des systèmes d’exploitation pris en charge pour les serveurs avec Arc se trouve [ici](agent-overview.md#supported-operating-systems).
 
 * Les détails de configuration concernant Azure Virtual Machine Scale Sets ou les machines virtuelles Classic ne sont pas applicables.
 
@@ -529,7 +529,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 Enregistrez le fichier de modèle sur disque. Vous pouvez ensuite déployer l’extension sur l’ordinateur connecté à l’aide de la commande suivante.
 
 > [!NOTE]
-> L’extension de machine virtuelle nécessite une identité attribuée par le système pour s’authentifier auprès du coffre de clés. Consultez [Comment s’authentifier auprès de Key Vault à l’aide d’une identité managée](managed-identity-authentication.md) pour les serveurs Windows et Linux Arc.
+> L’extension de machine virtuelle nécessite une identité attribuée par le système pour s’authentifier auprès du coffre de clés. Consultez [Comment s’authentifier auprès de Key Vault à l’aide d’une identité managée](managed-identity-authentication.md) pour les serveurs Windows et Linux avec Arc.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
@@ -558,7 +558,7 @@ Pour utiliser l’extension du scanneur intégré Azure Defender, l’exemple su
       },
       "resources": [
         {
-          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }
@@ -595,7 +595,7 @@ Pour utiliser l’extension du scanneur intégré Azure Defender, l’exemple su
       },
       "resources": [
         {
-          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 07dd3319416f6b8cad4cd77d69da81020569788f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1cbdbad379887687c71bd8c52b5791bde4e08a08
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296463"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492880"
 ---
 # <a name="azure-digital-twins-query-language-reference-from-clause"></a>Informations de référence sur le langage de requête Azure Digital Twins : clause FROM
 
@@ -69,11 +69,11 @@ Pour nommer la collection :
 
 ### <a name="examples"></a>Exemples
 
-Voici une requête qui renvoie toutes les relations de l’instance. 
+Voici une requête qui retourne toutes les relations de l’instance. 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsExample":::
 
-Voici une requête qui renvoie toutes les relations provenant des jumeaux `A`, `B`, `C` ou `D`.
+Voici une requête qui retourne toutes les relations provenant des jumeaux `A`, `B`, `C` ou `D`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsFilteredExample":::
 
@@ -89,7 +89,7 @@ Les limites suivantes s’appliquent aux requêtes utilisant `FROM`.
 * [Aucune sous-requête](#no-subqueries)
 * [Choisir FROM RELATIONSHIPS ou JOIN](#choose-from-relationships-or-join)
 
-Pour plus d’informations, consultez les sections ci-dessous.
+Pour plus d’informations, consultez les sections suivantes.
 
 ### <a name="no-subqueries"></a>Aucune sous-requête
 

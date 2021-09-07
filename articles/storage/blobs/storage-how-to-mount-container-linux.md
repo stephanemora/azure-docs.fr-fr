@@ -5,15 +5,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 2/1/2019
+ms.date: 07/06/2021
 ms.author: tamram
 ms.reviewer: twooley
-ms.openlocfilehash: 9fa64d491a872d830ac57a1d097045d1702dd852
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 30a91858b03c89d38a58ba02efb75d4368d9e8d5
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527295"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302479"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Comment monter le stockage Blob en tant que système de fichiers avec blobfuse
 
@@ -30,7 +30,7 @@ Ce guide vous explique comment utiliser blobfuse, monter un conteneur de stockag
 ## <a name="install-blobfuse-on-linux"></a>Installer blobfuse sur Linux
 Les fichiers binaires de blobfuse sont disponibles sur les [référentiels de logiciels Microsoft pour Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) pour les distributions Ubuntu, Debian, SUSE, CentoOS, Oracle Linux et RHEL. Pour installer blobfuse sur ces distributions, configurez l’un des dépôts de la liste. Si les fichiers binaires ne sont pas disponibles pour votre distribution, vous pouvez les générer à partir du code source en suivant les [étapes d’installation du Stockage Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source).
 
-blobfuse prend en charge l’installation sur les versions d’Ubuntu : 16.04, 18.04 et 20.04, les versions de RHEL : 7.5, 7.8, 8.0, 8.1 et 8.2, les versions de CentOS : 7.0 et 8.0, les versions de Debian : 9.0 et 10.0, la version de SUSE : 15 et OracleLinux 8.1. Exécutez cette commande pour vous assurer qu’une de ces versions est déployée :
+Blobfuse est publié dans un référentiel Linux pour les versions d’Ubuntu : 16.04, 18.04 et 20.04, les versions de RHEL : 7.5, 7.8, 8.0, 8.1 et 8.2, les versions de CentOS : 7.0 et 8.0, les versions de Debian : 9.0 et 10.0, les versions de SUSE : 15 et OracleLinux 8.1. Exécutez cette commande pour vous assurer qu’une de ces versions est déployée :
 ```
 lsb_release -a
 ```

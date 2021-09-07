@@ -5,16 +5,16 @@ author: emaher
 ms.topic: article
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 60ac7c3a95564fad5c271c543beac875334b05a1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 96154718ce8e0ecff0ccdce0ded70272cdda828e
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482778"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991763"
 ---
 # <a name="set-up-lab-for-react-on-linux"></a>Configurer un lab pour React sur Linux
 
-[React](https://reactjs.org/) est une bibliothèque JavaScript couramment utilisée pour créer des interfaces utilisateur (IU). React est un moyen déclaratif de créer des composants réutilisables pour votre site web.  De nombreuses autres bibliothèques sont disponibles pour le développement front-end basé sur JavaScript.  Nous utiliserons quelques-unes de ces bibliothèques lors de la création de notre labo.  [Redux](https://redux.js.org/) est une bibliothèque qui fournit un conteneur d'état prévisible pour les applications JavaScript. Elle est souvent utilisée en complément de React. [Jsx](https://reactjs.org/docs/introducing-jsx.html) est une extension syntaxique de la bibliothèque JavaScript souvent utilisée avec React pour décrire ce à quoi l'interface utilisateur doit ressembler.  [NodeJS](https://nodejs.org/) est un moyen pratique d'exécuter un serveur web pour votre application React.
+[React](https://reactjs.org/) est une bibliothèque JavaScript couramment utilisée pour créer des interfaces utilisateur (IU). React est un moyen déclaratif de créer des composants réutilisables pour votre site web.  De nombreuses autres bibliothèques sont disponibles pour le développement front-end basé sur JavaScript.  Nous utiliserons quelques-unes de ces bibliothèques lors de la création de notre labo.  [Redux](https://redux.js.org/) est une bibliothèque qui fournit un conteneur d'état prévisible pour les applications JavaScript. Elle est souvent utilisée en complément de React. [JSX](https://reactjs.org/docs/introducing-jsx.html) est une extension syntaxique de la bibliothèque JavaScript souvent utilisée avec React pour décrire ce à quoi l'interface utilisateur doit ressembler.  [NodeJS](https://nodejs.org/) est un moyen pratique d'exécuter un serveur web pour votre application React.
 
 Cet article explique comment installer [Visual Studio Code](https://code.visualstudio.com/) pour votre environnement de développement, et présente les outils et bibliothèques nécessaires pour un cours de développement web avec React.
 
@@ -85,6 +85,14 @@ Installez les extensions Outils de développement React correspondant à votre n
 - [Module complémentaire FireFox pour l'extension Outils de développement React](https://addons.mozilla.org/firefox/addon/react-devtools/)
 
 Pour exécuter l'application en mode de développement, utilisez la commande `npm start` intégrée.  Les URL locales et réseau seront répertoriées dans la sortie de la commande.  Pour utiliser HTTPS au lieu de HTTP, consultez [Créer une application React à l'aide du protocole HTTPS dans le cadre du développement](https://create-react-app.dev/docs/using-https-in-development).
+
+### <a name="update-firewall-settings"></a>Mettre à jour les paramètres du pare-feu
+
+Les builds Ubuntu officielles ont [iptables](https://help.ubuntu.com/community/IptablesHowTo) installé et autorisent tout le trafic entrant par défaut.  Toutefois, si vous utilisez une machine virtuelle qui a un pare-feu plus restrictif, ajoutez une règle de trafic entrant pour autoriser le trafic vers le serveur NodeJS.  L’exemple ci-dessous utilise [iptables](https://help.ubuntu.com/community/IptablesHowTo) pour autoriser le trafic sur le port 3000.
+
+```bash
+sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+```
 
 >[!IMPORTANT]
 >Les formateurs doivent utiliser le modèle de machine virtuelle ou une autre machine virtuelle lab pour accéder au site web d'un élève.

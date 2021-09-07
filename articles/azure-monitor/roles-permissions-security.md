@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5ba7c9505e49b8d0b35ee592bb0c3bafafad416a
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 077b247b4d8f40cc84b491ba26d78cd614ce15bf
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319392"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105414"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Rôles, autorisations et sécurité dans Azure Monitor
 
@@ -24,7 +24,7 @@ Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter 
 ### <a name="monitoring-reader"></a>Lecteur d’analyse
 Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, mais ne peuvent pas modifier de ressource ou modifier les paramètres relatifs à l’analyse des ressources. Ce rôle est approprié pour les utilisateurs dans une organisation, tels que les ingénieurs de support ou d’opération, qui doivent être en mesure de faire ce qui suit :
 
-* Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
+* Affichez les tableaux de bord d’analyse dans le portail.
 * Afficher les règles d’alerte définies dans [Alertes Azure](alerts/alerts-overview.md)
 * Requête de mesures avec l’[API REST Azure Monitor](/rest/api/monitor/metrics), les [applets de commande PowerShell](powershell-samples.md) ou le [CLI multiplateforme](cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
@@ -48,7 +48,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 ### <a name="monitoring-contributor"></a>Contributeur d’analyse
 Les personnes affectées au rôle de contributeur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, et créer ou modifier des paramètres d’analyse, mais ne peuvent pas modifier d’autres ressources. Ce rôle est un surensemble du rôle lecteur d’analyse et est approprié pour les membres de l’équipe d’analyse d’une organisation ou les fournisseurs de services gérés qui, outre les autorisations ci-dessus, doivent également être en mesure de faire ce qui suit :
 
-* Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
+* Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
 * Définir les [paramètres de diagnostic](essentials/diagnostic-settings.md) pour une ressource.\*
 * Définir le [profil de journalisation](essentials/activity-log.md#legacy-collection-methods) pour un abonnement.\*
 * Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](alerts/alerts-overview.md).

@@ -1,18 +1,20 @@
 ---
 title: Transformer des données à l’aide d’une activité Hadoop MapReduce
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment traiter des données en exécutant des programmes Hadoop MapReduce sur un cluster Azure HDInsight à partir d’une fabrique de données Azure.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/08/2020
-ms.openlocfilehash: f03906586d6226c92cfa69e1a139d4c876cbf723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20ac921650f980127f24a48a5dc4e80602b5ef91
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375882"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527646"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
 
@@ -120,5 +122,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
+* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

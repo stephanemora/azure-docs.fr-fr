@@ -1,28 +1,28 @@
 ---
-title: Prise en main des files d’attente Azure Service Bus | Microsoft Docs
-description: Dans ce tutoriel, vous créez des applications console .NET Core afin d’échanger des messages avec une file d’attente Service Bus.
-ms.topic: quickstart
+title: Utiliser les files d’attente Azure Service Bus avec .NET (ancienne version)
+description: Dans cet article, vous créez des applications console .NET Core pour envoyer et recevoir des messages à destination et en provenance d’une file d’attente Service Bus.
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/01/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 86ff3608a0575413b6c5c30eec05ec0bb898247e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748063"
 ---
-# <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
-Dans ce tutoriel, vous créez des applications console .NET Core afin d’échanger des messages avec une file d’attente Service Bus.
+# <a name="send-and-receive-messages-from-azure-service-bus-queues-using-net-old-package"></a>Envoyer et recevoir des messages à destination et en provenance de files d’attente Azure Service Bus à l’aide de .NET (ancien package)
+Dans cet article, vous créez des applications console .NET Core pour envoyer et recevoir des messages à destination et en provenance d’une file d’attente Service Bus.
 
 > [!WARNING]
-> Ce démarrage rapide utilise l’ancien package Microsoft.Azure.ServiceBus. Pour un démarrage rapide qui utilise la version la plus récente du package Azure.Messaging.ServiceBus, consultez [Envoyer et recevoir des événements à l’aide du package Azure.Messaging.ServiceBus](service-bus-dotnet-get-started-with-queues.md). 
+> Cet article utilise l’ancien package Microsoft.Azure.ServiceBus. Pour accéder à un article qui utilise le dernier package Azure.Messaging.ServiceBus, consultez [Envoyer et recevoir des événements à l’aide du package Azure.Messaging.ServiceBus](service-bus-dotnet-get-started-with-queues.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [Kit de développement logiciel (SDK) NET Core](https://dotnet.microsoft.com/download), version 2.0 ou ultérieure.
-- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Un abonnement Azure. Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
 
   - Lire la vue d’ensemble rapide des files d’attente Service Bus.

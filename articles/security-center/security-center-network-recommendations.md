@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: c24e3473c07759aa256a077d11edb20c616629f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dd09279665230062c7a2567784731144ef438c6c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439508"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237229"
 ---
 # <a name="protect-your-network-resources"></a>Protéger vos ressources réseau
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -31,7 +31,7 @@ Les fonctionnalités de **mise en réseau** de Security Center sont les suivante
 
 Dans la page [Inventaire des ressources](asset-inventory.md), utilisez le filtre de type de ressource pour sélectionner les ressources de mise en réseau que vous souhaitez examiner :
 
-:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Types de ressources du réseau dans l’inventaire des ressources" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Types de ressources du réseau dans l’inventaire des ressources." lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
 
 
 ## <a name="network-map"></a>Mappage réseau
@@ -42,7 +42,7 @@ Pour ouvrir le mappage réseau :
 
 1. Dans le menu de Security Center, ouvrez le tableau de bord Azure Defender et sélectionnez **Carte réseau**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Ouverture de la carte réseau à partir du tableau de bord Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Ouverture de la carte réseau à partir du tableau de bord Azure Defender." lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Sélectionnez le menu **Couches**, puis **Topologie**.
  
@@ -55,7 +55,7 @@ La valeur par défaut du mappage de la topologie affiche :
 - Ressources accessibles sur Internet
 - Le mappage est optimisé pour les abonnements que vous avez sélectionnés dans Azure. Si vous modifiez votre sélection, le mappage est recalculé et ré-optimisé en fonction de vos nouveaux paramètres.  
 
-[![Mappage de la topologie de mise en réseau](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
+[![Mappage de la topologie de réseau.](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>Compréhension du mappage réseau
 
@@ -107,7 +107,7 @@ Pour explorer une ressource au niveau du détail :
 
 **Ces données sont basées sur les analyses de groupes de sécurité réseau, ainsi que sur des algorithmes de Machine Learning avancés qui analysent plusieurs règles pour en comprendre les croisements et les interactions.** 
 
-[![Mappage de trafic réseau](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+[![Mappage de trafic réseau.](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

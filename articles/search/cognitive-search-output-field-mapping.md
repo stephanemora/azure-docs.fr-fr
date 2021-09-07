@@ -1,21 +1,20 @@
 ---
-title: Mapper les champs d’entrée aux champs de sortie
+title: Mapper les champs de sortie de compétence
 titleSuffix: Azure Cognitive Search
-description: Extrayez et enrichissez des champs de données sources, puis mappez-les à des champs de sortie dans un index de Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+description: Exportez le contenu enrichi créé par un ensemble de compétences en mappant ses champs de sortie aux champs d’un index de recherche.
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: 0e1db5f12e83a88697db38a6ddd77edab445f6c0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001301"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122533368"
 ---
-# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Guide pratique pour mapper des champs enrichis par IA sur un index pouvant faire l’objet d’une recherche
+# <a name="map-enrichment-output-to-fields-in-a-search-index"></a>Mapper la sortie d’enrichissement aux champs d’un index de recherche
 
 ![Étapes de l'indexeur](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "étapes de l'indexeur")
 
@@ -32,7 +31,7 @@ Exemples de mappages de champs de sortie :
 * Vous n’avez pas d’ensemble de compétences, mais vous indexez un type complexe à partir d’une base de données Cosmos DB. Vous aimeriez accéder à un nœud sur ce type complexe et le mapper à un champ de votre index.
 
 > [!NOTE]
-> Nous avons récemment activé la fonctionnalité de mappage des fonctions sur les mappages de champs de sortie. Pour plus d’informations sur les fonctions de mappage, consultez [Fonctions de mappage de champs](./search-indexer-field-mappings.md#field-mapping-functions).
+> Les mappages de champs de sortie s’appliquent uniquement aux index de recherche. Pour les indexeurs qui créent des [bases de connaissances](knowledge-store-concept-intro.md), les mappages de champs de sortie sont ignorés.
 
 ## <a name="use-outputfieldmappings"></a>Utiliser outputFieldMappings
 
@@ -81,7 +80,7 @@ Le corps de la demande est structuré comme suit :
 }
 ```
 
-Pour chaque mappage de champ de sortie, définissez l’emplacement des données dans l’arborescence de documents enrichis (sourceFieldName) ainsi que le nom du champ tel que référencé dans l’index (targetFieldName).
+Pour chaque mappage de champ de sortie, définissez l’emplacement des données dans l’arborescence de documents enrichis (sourceFieldName) ainsi que le nom du champ tel que référencé dans l’index (targetFieldName). Affectez les [fonctions de mappage](search-indexer-field-mappings.md#field-mapping-functions) nécessaires pour transformer le contenu d’un champ avant qu’il ne soit stocké dans l’index.
 
 ## <a name="flattening-information-from-complex-types"></a>Aplatissement d’informations à partir de types complexes 
 

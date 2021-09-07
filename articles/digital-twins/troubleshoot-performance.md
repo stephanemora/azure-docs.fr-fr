@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/11/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65b1873c1ac4f6ce9b06aad20dbb86e5f4613886
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 252eeea15e5c9ebde19c5925423615cd7c50234c
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110116531"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113493096"
 ---
 # <a name="troubleshooting-azure-digital-twins-performance"></a>Résolution des problèmes rencontrés avec Azure Digital Twins : Performances
 
@@ -24,15 +24,15 @@ Déterminez si le délai provient d’Azure Digital Twins ou d’un autre servi
 
 ## <a name="check-regions"></a>Vérifier les régions
 
-Si votre solution utilise Azure Digital Twins conjointement avec d’autres services Azure (comme Azure Functions), vérifiez la région de déploiement de chaque service. Si les services sont déployés dans des régions différentes, cela peut occasionner des délais dans votre solution. À moins que vous ne soyez intentionnellement en train de créer une solution distribuée, essayez de déployer toutes les instances de service dans la même région afin d’éviter d’introduire accidentellement des délais.
+Si votre solution utilise Azure Digital Twins conjointement avec d’autres services Azure (comme Azure Functions), vérifiez la région de déploiement de chaque service. Les services déployés dans des régions différentes peuvent occasionner des délais dans votre solution. À moins que vous ne soyez intentionnellement en train de créer une solution distribuée, essayez de déployer toutes les instances de service dans la même région afin d’éviter d’introduire accidentellement des délais.
 
-## <a name="leverage-logs"></a>Examiner les journaux
+## <a name="check-logs"></a>Inspecter les journaux d’activité
 
 Azure Digital Twins peut collecter les journaux de votre instance de service pour vous aider à superviser ses performances et diverses autres données. Les journaux sont envoyés à [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) ou à votre système de stockage personnalisé. Pour activer la journalisation dans votre instance, suivez les instructions données dans [Résolution des problèmes : Configurer les diagnostics](troubleshoot-diagnostics.md). Vous pouvez analyser les horodatages des journaux pour mesurer les latences, évaluer leur cohérence et déterminer leur source.
 
 ## <a name="check-api-frequency"></a>Vérifier la fréquence de l’API
 
-Un autre facteur susceptible d’impacter les performances est le temps nécessaire pour autoriser à nouveau les appels de l’API. Examinez la fréquence des appels de l’API. S’il y a un intervalle de plus de 15 minutes entre les appels, le système peut devoir réautoriser chaque appel, ce qui prend plus de temps. Vous pouvez éviter cela en ajoutant un minuteur ou un mécanisme similaire dans votre code pour vous assurer qu’Azure Digital Twins sera appelé au moins une fois toutes les 15 minutes.
+Un autre facteur susceptible d’impacter les performances est le temps nécessaire pour autoriser à nouveau les appels de l’API. Examinez la fréquence des appels de l’API. S’il y a un intervalle de plus de 15 minutes entre les appels, le système peut devoir ré-autoriser chaque appel, ce qui prend plus de temps. Vous pouvez éviter ce problème en ajoutant un minuteur ou un mécanisme similaire dans votre code pour vous assurer qu’Azure Digital Twins sera appelé au moins une fois toutes les 15 minutes.
 
 ## <a name="contact-support"></a>Contacter le support technique
 

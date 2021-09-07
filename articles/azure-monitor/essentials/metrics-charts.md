@@ -4,14 +4,14 @@ description: En savoir plus sur les utilisations avancées d’Azure Metrics Exp
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 06/30/2020
 ms.author: vitalyg
-ms.openlocfilehash: 8564f96ad311a07ccf4582f274e44e6ebd1e0c85
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bd0fef05913c66f767cb81e3c999fda4edaa8c21
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758508"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456521"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -113,7 +113,9 @@ Par exemple, supposons qu’un graphique indique la métrique *Temps de réponse
 - Si la granularité temporelle est définie sur 30 minutes, le graphique est dessiné à partir de 48 points de données agrégés. Autrement dit, le graphique en courbes connecte 48 points dans la zone de traçage du graphique (24 heures x 2 points de données par heure). Chaque point de données représente la *moyenne* de tous les temps de réponse capturés pour les requêtes au serveur qui se sont produites pendant chacune des périodes de 30 minutes pertinentes.
 - Si vous réglez la granularité temporelle à 15 minutes, vous obtenez 96 points de données agrégés.  C’est-à-dire que vous obtenez 24 heures x 4 points de données par heure.
 
-Metrics Explorer propose cinq types d’agrégation statistique de base : somme, nombre, min., max. et moyenne. L’agrégation *Somme* est parfois appelée l’agrégation *Total*. Pour de nombreuses métriques, Metrics Explorer masque les agrégations qui ne sont pas pertinentes et ne peuvent pas être utilisées.
+Metrics Explorer propose cinq types d’agrégation statistique de base : somme, nombre, min., max. et moyenne. L’agrégation *Somme* est parfois appelée l’agrégation *Total*. Pour de nombreuses métriques, Metrics Explorer masque les agrégations qui ne sont pas pertinentes et ne peuvent pas être utilisées. 
+
+Pour plus d’informations sur le fonctionnement de l’agrégation des métriques, consultez [Explication de l’agrégation et de l’affichage des métriques Azure Monitor](metrics-aggregation-explained.md).
 
 * **Sum** : Somme de toutes les valeurs capturées pendant l’intervalle d’agrégation.
 

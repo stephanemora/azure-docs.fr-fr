@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/08/2021
-ms.openlocfilehash: 7bbc559fb8bb6dcfa3d8e17305b13e67c92f94dd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 48c6232678adceed0bc239ff788f8a191d9d88c2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642033"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304701"
 ---
 # <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données vers et depuis SQL Server à l'aide d'Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -53,6 +53,30 @@ Plus précisément, ce connecteur SQL Server prend en charge :
 ## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-sql-server-linked-service-using-ui"></a>Créer un service lié SQL Server à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié SQL Server dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez SQL et sélectionnez le connecteur SQL Server.
+
+    :::image type="content" source="media/connector-sql-server/sql-server-connector.png" alt-text="Capture d’écran du connecteur SQL Server.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-sql-server/configure-sql-server-linked-service.png" alt-text="Capture d’écran de la configuration d’un service lié SQL Server.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir des entités de pipelines Data Factory et Synapse propres au connecteur de base de données SQL Server.
 
@@ -731,4 +755,4 @@ Quand vous copiez des données depuis/vers SQL Server avec [Always Encrypted](/
 6. **Vérifiez la connexion** : Pour vous connecter à SQL Server en utilisant un nom complet, utilisez SQL Server Management Studio à partir d’un autre ordinateur. par exemple `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité Copy.
+Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité de copie.

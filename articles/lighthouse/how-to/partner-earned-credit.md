@@ -1,14 +1,14 @@
 ---
 title: Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées
 description: Associez votre ID de partenaire pour utiliser le crédit Partenaires sur des ressources de clients que vous gérez par le biais d’Azure Lighthouse.
-ms.date: 02/12/2021
+ms.date: 07/02/2021
 ms.topic: how-to
-ms.openlocfilehash: e21fc641f421580e6f00de8036f88632cc860060
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 72a31da9cf9927de00f005ce374488c0de9eba47
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075616"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288722"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées 
 
@@ -24,7 +24,7 @@ Pour simplifier, nous vous recommandons de créer un compte de principal du serv
 
 1. [Créez un compte utilisateur de principal de service](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) dans votre locataire de gestion. Pour cet exemple, nous allons utiliser le nom *Compte Automation de fournisseur* pour ce compte de principal de service.
 1. En utilisant ce compte de principal du service, [établissez un lien avec votre ID MPN](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) dans votre locataire gérant. Cette opération est unique.
-1. Lorsque vous intégrez un client [à l'aide de modèles ARM](onboard-customer.md) ou d'[offres Service géré](publish-managed-services-offers.md), veillez à inclure une autorisation qui englobe le Compte Automation de fournisseur en tant qu'utilisateur disposant d'un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec).
+1. Quand vous intégrez un client [avec des modèles ARM](onboard-customer.md) ou des [offres Service géré](publish-managed-services-offers.md), veillez à inclure au moins une autorisation qui englobe le Compte Automation de fournisseur en tant qu’utilisateur disposant d’un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec). Ce rôle doit être accordé en tant qu’attribution permanente, et non en tant qu’[autorisation éligible](create-eligible-authorizations.md) juste-à-temps, pour que le crédit Partenaires s’applique.
 
 En suivant ces étapes, chaque locataire de client que vous gérez est associé à votre ID de partenaire. Le Compte Automation de fournisseur n’a pas besoin de s’authentifier ni d’effectuer des actions dans le locataire du client.
 
@@ -32,7 +32,7 @@ En suivant ces étapes, chaque locataire de client que vous gérez est associé 
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Ajoute votre ID de partenaire aux clients précédemment intégrés
 
-Si vous avez déjà intégré un client, vous ne voulez peut-être pas effectuer un autre déploiement pour ajouter le principal du service de votre Compte Automation de fournisseur. Vous pouvez plutôt associer votre **ID MPN** à un compte d’utilisateur qui a déjà accès au locataire de ce client. Vérifiez que le compte a reçu un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec).
+Si vous avez déjà intégré un client, vous ne voulez peut-être pas effectuer un autre déploiement pour ajouter le principal du service de votre Compte Automation de fournisseur. Vous pouvez plutôt associer votre **ID MPN** à un compte d’utilisateur qui a déjà accès au locataire de ce client. Vérifiez que le compte a reçu un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec) en tant qu’attribution de rôle permanente.
 
 Une fois que le compte a été [lié à votre ID MPN](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) dans votre locataire gérant, vous pouvez recevoir suivre votre impact sur ce client.
 

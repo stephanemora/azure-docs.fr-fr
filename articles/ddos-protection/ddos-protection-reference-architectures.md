@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: ddb42dde242bb9c3f33a6dc3f8f52a147367f295
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e3710613b0a2622b20329ed383d5f818b01f6fee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139108"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524984"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Architectures de référence de la protection DDoS
 
@@ -66,7 +66,7 @@ Vous pouvez tirer parti de l’échelle, de la capacité et de l’efficacité d
 
 ![Protection des ressources locales](./media/reference-architectures/ddos-on-prem.png)
 
-Si vous disposez d’une application web qui reçoit du trafic d’Internet, vous pouvez héberger l’application web derrière Application Gateway, puis la protéger avec WAF contre les attaques web de couche 7, telles que l’injection SQL et Slowloris. Les origines principales de votre application se trouveront dans votre environnement local, qui est connecté via le VPN. 
+Si vous disposez d’une application web qui reçoit du trafic d’Internet, vous pouvez héberger l’application web derrière Application Gateway, puis la protéger avec WAF contre les attaques web de couche 7, telles que l’injection SQL. Les origines principales de votre application se trouveront dans votre environnement local, qui est connecté via le VPN. 
 
 Les ressources principales de l’environnement local ne sont pas exposées à l’Internet public. Seule l’adresse IP publique AppGW/WAF est exposée à Internet et le nom DNS de votre application mappe à cette adresse IP publique. 
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 0b3996df3c75ff31d0825be1d332dbd055305963
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: dcff46bb93d09d086000dad6e983275d87bc8950
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259759"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587370"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurer des paramètres Azure HPC Cache supplémentaires
 
@@ -81,7 +81,7 @@ Envisagez d’utiliser un cache de test pour vérifier et affiner votre configur
 
 ### <a name="refresh-storage-target-dns"></a>Actualiser le DNS des cibles de stockage
 
-Si votre serveur DNS met à jour les adresses IP, les cibles de stockage NFS associées deviennent temporairement indisponibles. Lisez comment mettre à jour les adresses IP de votre système DNS personnalisé dans [Modifier les cibles de stockage](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
+Si votre serveur DNS met à jour les adresses IP, les cibles de stockage NFS associées deviennent temporairement indisponibles. Lisez comment mettre à jour les adresses IP de votre système DNS personnalisé dans [Gérer les cibles de stockage](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Afficher les instantanés pour les cibles de stockage blob
 

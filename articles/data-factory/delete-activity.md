@@ -1,22 +1,24 @@
 ---
 title: Activité Delete dans Azure Data Factory
-description: Découvrez comment supprimer des fichiers dans plusieurs magasins de fichiers avec l’activité Delete dans Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment supprimer des fichiers dans plusieurs magasins de fichiers avec l’activité Delete dans Azure Data Factory et Azure Synapse Analytics.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 569e42643642a435ba8fbd56f11d7ffcbea9249e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c91e35ec5c7e21d5bdbc9a61ea907acde38ea60c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641405"
 ---
-# <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
+# <a name="delete-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité Delete dans Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 L’activité Delete dans Azure Data Factory vous permet de supprimer des fichiers ou dossiers de magasins de stockage au niveau local ou dans le cloud. Utilisez cette activité pour nettoyer ou archiver les fichiers qui ne sont plus nécessaires.
 
@@ -29,7 +31,7 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 
 -   Sauvegardez vos fichiers avant de les supprimer avec l’activité Delete au cas où vous souhaiteriez les restaurer par la suite.
 
--   Vérifiez que Data Factory dispose d’autorisations en écriture pour supprimer des dossiers ou fichiers du magasin de stockage.
+-   Vérifiez que le service dispose d’autorisations en écriture pour supprimer des dossiers ou fichiers du magasin de stockage.
 
 -   Veillez à ne pas supprimer de fichiers en cours d’écriture. 
 
@@ -142,7 +144,7 @@ Utilisez à présent l’activité Delete pour supprimer un dossier ou des fichi
 
 ### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Nettoyer périodiquement le dossier ou les fichiers partitionnés dans le temps
 
-Vous pouvez créer un pipeline pour nettoyer périodiquement le dossier ou les fichiers partitionnés dans le temps.  Voici un exemple de structure de dossiers : `/mycontainer/2018/12/14/*.csv`.  Vous pouvez tirer parti de la variable système ADF du déclencheur de planification pour identifier le dossier ou les fichiers à supprimer dans chaque exécution du pipeline. 
+Vous pouvez créer un pipeline pour nettoyer périodiquement le dossier ou les fichiers partitionnés dans le temps.  Voici un exemple de structure de dossiers : `/mycontainer/2018/12/14/*.csv`.  Vous pouvez utiliser la variable système du service du déclencheur de planification pour identifier le dossier ou les fichiers à supprimer dans chaque exécution du pipeline. 
 
 #### <a name="sample-pipeline"></a>Exemple de pipeline
 
@@ -765,6 +767,6 @@ Vous pouvez également faire en sorte que le modèle déplace les fichiers à pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur le déplacement de fichiers dans Azure Data Factory.
+Apprenez-en davantage sur le déplacement de fichiers dans les pipelines Azure Data Factory et Synapse.
 
--   [Outil Copier des données dans Azure Data Factory](copy-data-tool.md)
+-   [Outil Copier des données](copy-data-tool.md)

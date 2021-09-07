@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/25/2021
 ms.author: hirsin
-ms.reviewer: mmacy, hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: f5a60f14799e872d835d651fc043edd27dfc6990
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d633f52d739552a02999295ec083a965e0fa45fd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105593"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447025"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -84,9 +84,8 @@ Certaines revendications permettent à Azure AD de sécuriser les jetons en cas 
 |Revendication | Format | Description |
 |--------|--------|-------------|
 | `typ` | Chaîne : toujours « JWT » | Indique que le jeton est un JWT.|
-| `nonce` | String | Identificateur unique utilisé pour se protéger contre les attaques par relecture de jetons. Votre ressource peut enregistrer cette valeur pour se protéger contre les relectures. |
 | `alg` | String | Indique l’algorithme utilisé pour signer le jeton, par exemple « RS256 » |
-| `kid` | String | Indique l’empreinte de la clé publique utilisée pour signer le jeton. Émis dans les jetons d’accès v1.0 et v2.0. |
+| `kid` | String | Spécifie l’empreinte numérique de la clé publique qui peut être utilisée pour valider la signature de ce jeton. Émis dans les jetons d’accès v1.0 et v2.0. |
 | `x5t` | String | Fonctions identiques (en utilisation et en valeur) à `kid`. `x5t` est une revendication héritée émise uniquement dans les jetons d’accès v1.0 à des fins de compatibilité. |
 
 ### <a name="payload-claims"></a>Revendications de la charge utile
@@ -116,7 +115,7 @@ Certaines revendications permettent à Azure AD de sécuriser les jetons en cas 
 | `groups:src1` | Objet JSON | Pour les requêtes de jetons dont la longueur n’est pas limitée (voir `hasgroups` ci-dessus) mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour les jetons JWT en tant que revendication distribuée, pour SAML en tant que nouvelle revendication à la place de la revendication `groups`. <br><br>**Exemple de valeur JWT** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | Chaîne | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource et qu’il peut servir de clé dans les tables de base de données. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. Toutefois, l’objet est un identificateur par paire ; il est unique à un ID d’application donné. Par conséquent, si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos besoins d’architecture et de confidentialité. Consultez également la revendication `oid` (qui reste la même sur les applications d’un même locataire). |
 | `oid` | Chaîne, GUID | Identificateur immuable pour le « principal » de la demande (utilisateur ou principal du service dont l’identité a été vérifiée).  Dans les jetons d’ID et les jetons d’application/utilisateur, il s’agit de l’ID d’objet de l’utilisateur.  Dans les jetons d’application uniquement, il s’agit de l’ID d’objet du principal de service appelant. Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique le principal parmi les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Ainsi, `oid` peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph. Microsoft Graph renverra cet ID en tant que propriété `id` pour un [compte d’utilisateur](/graph/api/resources/user) donné. `oid` permettant à plusieurs applications de corréler des principaux, l’étendue `profile` est requise afin de recevoir cette revendication pour des utilisateurs. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
-| `tid` | Chaîne, GUID | Représente le client Azure AD d’où provient l’utilisateur. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de client immuable de l’organisation à laquelle appartient l’utilisateur. Pour les comptes personnels, la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. L’étendue `profile` est requise afin de recevoir cette revendication. |
+|`tid` | Chaîne, GUID | Représente le locataire auquel l’utilisateur se connecte. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de locataire immuable de l’organisation à laquelle l’utilisateur se connecte. Pour les connexions au locataire de compte Microsoft personnel (services tels que Xbox, Teams à usage personnel ou Outlook), la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. Pour recevoir cette revendication, votre application doit demander l’étendue `profile`. |
 | `unique_name` | String | Uniquement dans les jetons v1.0. Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d’un client. Elle doit être utilisée uniquement à des fins d’affichage. |
 | `uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Les ressources ne doivent pas utiliser cette revendication. |
 | `rh` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Les ressources ne doivent pas utiliser cette revendication. |
@@ -229,7 +228,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 Ce document de métadonnées :
 
 * Est un objet JSON qui contient diverses informations utiles, comme l’emplacement des différents points de terminaison nécessaires pour effectuer l’authentification OpenID Connect.
-* Comprend également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. La clé web JSON (JWK) située sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné.  Le format JWK est décrit dans la [RFC 7517](https://tools.ietf.org/html/rfc7517).  Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
+* Inclut un `jwks_uri`, qui indique l’emplacement de l’ensemble de clés publiques correspondant aux clés privées utilisées pour signer les jetons. La clé web JSON (JWK) située sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné. Le format JWK est décrit dans la [RFC 7517](https://tools.ietf.org/html/rfc7517). Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique, décrite dans ce document, qui correspond à la clé privée utilisée pour signer un jeton particulier. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser la revendication `kid` pour valider votre jeton. Alors que les jetons v1.0 contiennent à la fois les revendications `x5t` et `kid`, les jetons v2.0 contiennent uniquement la revendication `kid`.
@@ -242,10 +241,10 @@ Si votre application dispose de clés de signature personnalisées après avoir 
 
 Cette étape est déterminée par la logique métier de votre application, certaines méthodes d’autorisation courantes sont décrites ci-dessous.
 
-* Vérifiez la revendication `scp` ou `roles` pour vous assurer que toutes les étendues présentes correspondent à celles exposées par votre API, et permettre au client d’effectuer l’action requise.
+* Utilisez la revendication `aud` pour vérifier que l’utilisateur avait l’intention d’appeler votre application.  Si l’identificateur de votre ressource ne figure pas dans la revendication `aud`, rejetez-la.
+* Utilisez la revendication `scp` pour vérifier que l’utilisateur a octroyé à l’application appelante l’autorisation d’appeler votre API.
+* Utilisez les revendications `roles` et `wids` pour vérifier que l’utilisateur lui-même est autorisé à appeler votre API.  Par exemple, un administrateur peut avoir l’autorisation d’écrire dans votre API, mais pas un utilisateur normal.
 * Assurez-vous que le client appelant est autorisé à appeler votre API avec l’attribut `appid`.
-* Validez l’état d’authentification du client appelant à l’aide de `appidacr`. Si les clients publics ne sont pas autorisés à appeler votre API, sa valeur doit être différente de 0.
-* Vérifiez par rapport à une liste de revendications `nonce` passées pour savoir si le jeton n’est pas en relecture.
 * Vérifiez que `tid` correspond à un client autorisé à appeler votre API.
 * Utilisez la revendication `amr` pour vérifier que l’utilisateur a effectué la MFA. Cela doit être exécuté à l’aide d’un [accès conditionnel](../conditional-access/overview.md).
 * Si vous avez demandé les revendications `roles` ou `groups` dans le jeton d’accès, vérifiez que l’utilisateur fait bien partie du groupe autorisé à effectuer cette action.

@@ -4,15 +4,15 @@ description: Découvrez comment interpréter les modèles de facturation provisi
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9d0079ac85980f97a0241780b23e639e2359c65d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 7f133600f800881f462583ca5bee2972a5c914fa
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787218"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527709"
 ---
 # <a name="understand-azure-files-billing"></a>Comprendre la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
@@ -27,6 +27,13 @@ Azure Files propose deux modèles de facturation distincts : provisionné et pa
 :::row-end:::
 
 Pour plus d’informations sur la tarification d’Azure Files, consultez la [page de tarification d’Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 ## <a name="storage-units"></a>Unités de stockage    
 Azure Files utilise des unités de mesure binaires pour représenter la capacité de stockage : Kio, Mio, Gio et Tio. Votre système d’exploitation peut utiliser ou non la même unité de mesure ou le même système de comptage.
@@ -52,7 +59,7 @@ Azure Files prend en charge les réservations de capacité de stockage, ce qui v
 
 - **Taille de la capacité** : les réservations de capacité peuvent être pour 10 Tio ou 100 Tio, avec des remises plus significatives pour l’achat d’une réservation de capacité supérieure. Vous pouvez acheter plusieurs réservations, y compris des réservations de différentes tailles de capacité pour répondre à vos besoins en matière de charge de travail. Par exemple, si votre déploiement de production contient 120 Tio de partages de fichiers, vous pouvez acheter une réservation de 100 Tio réservation et deux réservations de 10 Tio pour répondre aux besoins de capacité totaux.
 - **Durée** : les réservations peuvent être achetées pour une période d’un ou trois ans, avec des remises plus importantes pour l’achat d’une durée de réservation plus longue. 
-- **Niveau** : le niveau d’Azure Files pour la réservation de capacité. Les réservations pour Azure Files sont actuellement disponibles pour les niveaux chaud et froid.
+- **Niveau** : le niveau d’Azure Files pour la réservation de capacité. Les réservations pour Azure Files sont actuellement disponibles pour les niveaux d’accès Premium, Chaud et Froid.
 - **Emplacement** : la région Azure pour la réservation de capacité. Les réservations de capacité sont disponibles pour un sous-ensemble de régions Azure.
 - **Redondance** : la redondance de stockage pour la réservation de capacité. Les réservations sont prises en charge pour toutes les redondances qu’Azure Files prend en charge, notamment LRS, ZRS, GRS et GZRS.
 
@@ -63,29 +70,34 @@ Pour plus d’informations sur l’achat de réservations de stockage, consultez
 ## <a name="provisioned-model"></a>Modèle provisionné
 Azure Files utilise un modèle provisionné pour les partages de fichiers Premium. Dans un modèle provisionné, vous spécifiez de manière proactive au service Azure Files vos besoins en matière de stockage au lieu de payer en fonction de votre utilisation. Cela est comparable à un achat de matériel en local. En effet, lorsque vous provisionnez un partage de fichiers Azure avec une certaine quantité de stockage, vous payez ce stockage indépendamment de l’utilisation que vous en faites, à l’instar du support physique, que vous payez directement et pas uniquement lorsque vous commencez à l’utiliser. En revanche, contrairement à un support physique local, les partages de fichiers provisionnés peuvent être rapidement mis à l’échelle en fonction de vos caractéristiques de stockage et de performances d’e/s.
 
-Lorsque vous provisionnez un partage de fichiers Premium, vous spécifiez le nombre de Gio requis par votre charge de travail. Chaque Gio que vous provisionnez vous donne droit à des IOPS et un débit supplémentaires à un taux fixe. En plus des IOPS de base qui vous sont garanties, chaque partage de fichiers Premium prend en charge le bursting sur la base du meilleur effort. Les formules pour les IOPS et le débit sont les suivantes :
-
-- IOPS de base = 400 + 1 * par Gio provisionné. (Jusqu’à 100 000 IOPS maximum).
-- Limite de rafale = MAX(4000, 3 * IOPS de base).
-- Débit de sortie = 60 Mio/s + 0,06 * Gio provisionnés.
-- Débit d’entrée = 40 Mio/s + 0,04 * Gio provisionnés.
-
 La taille provisionnée du partage de fichiers peut être augmentée à tout moment, mais elle ne peut être réduite qu’au bout des 24 heures suivant la dernière augmentation. À l’issue des 24 heures sans augmentation de quota, vous pouvez diminuer le quota du partage autant de fois que vous le souhaitez, jusqu’à ce que vous l’augmentiez à nouveau. Les modifications de mise à l’échelle IOPS/débit prennent effet quelques minutes après le changement de taille provisionnée.
 
 Il est possible de diminuer la taille de votre partage provisionné en dessous de votre Gio utilisé. Si vous faites cela, vous ne perdez pas les données, mais vous êtes toujours facturé pour la taille utilisée et recevez les performances (IOPS de base, débit et IOPS en rafale) du partage provisionné, pas de la taille utilisée.
 
+### <a name="provisioning-method"></a>Méthode d'approvisionnement
+Lorsque vous provisionnez un partage de fichiers Premium, vous spécifiez le nombre de Gio requis par votre charge de travail. Chaque Gio que vous provisionnez vous donne droit à des IOPS et un débit supplémentaires à un taux fixe. En plus des IOPS de base qui vous sont garanties, chaque partage de fichiers Premium prend en charge le bursting sur la base du meilleur effort. Les formules pour les IOPS et le débit sont les suivantes :
+
+| Élément | Valeur |
+|-|-|
+| Taille minimale d'un partage de fichiers | 100 Gio |
+| Unité de provisionnement | 1 Gio |
+| Formule IOPS de référence | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
+| Limite de rafale | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Débit d’entrée | `40 MiB/sec + 0.04 * ProvisionedGiB` |
+| Débit de sortie | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+
 Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage provisionné :
 
-|Capacité (Gio) | IOPS de base | IOPS en rafale | Sortie (Mio/s) | Entrée (Mio/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Jusqu’à 4 000     | 66   | 44   |
-|500         | 900     | Jusqu’à 4 000  | 90   | 60   |
-|1 024       | 1 424   | Jusqu’à 4 000   | 122   | 81   |
-|5 120       | 5 520   | Jusqu’à 15 360  | 368   | 245   |
-|10 240      | 10 640  | Jusqu’à 30 720  | 675   | 450   |
-|33 792      | 34 192  | Jusqu’à 100 000 | 2 088 | 1 392   |
-|51 200      | 51 600  | Jusqu’à 100 000 | 3 132 | 2 088   |
-|102 400     | 100 000 | Jusqu’à 100 000 | 6 204 | 4 136   |
+| Capacité (Gio) | IOPS de base | IOPS en rafale | Sortie (Mio/s) | Entrée (Mio/s) |
+|-|-|-|-|-|
+| 100 | 500 | Jusqu’à 4 000 | 66 | 44 |
+| 500 | 900 | Jusqu’à 4 000 | 90 | 60 |
+| 1 024 | 1 424 | Jusqu’à 4 000 | 122 | 81 |
+| 5 120 | 5 520 | Jusqu’à 15 360 | 368 | 245 |
+| 10 240 | 10 640 | Jusqu’à 30 720 | 675 | 450 |
+| 33 792 | 34 192 | Jusqu’à 100 000 | 2 088 | 1 392 |
+| 51 200 | 51 600 | Jusqu’à 100 000 | 3 132 | 2 088 |
+| 102 400 | 100 000 | Jusqu’à 100 000 | 6 204 | 4 136 |
 
 Les performances réelles des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows sans SMB Multichannel activé, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Le même client peut atteindre des \~performances trois fois supérieures si SMB Multichannel est activé sur les partages Premium. Pour obtenir une mise à l’échelle des performances maximales, [activez SMB Multichannel](storage-files-enable-smb-multichannel.md) et répartissez la charge entre plusieurs machines virtuelles. Reportez-vous à [Performances de SMB Multichannel](storage-files-smb-multichannel-performance.md) et au [Guide de dépannage](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
@@ -127,8 +139,8 @@ Il existe cinq catégories de transactions de base : écriture, liste , lecture
 
 | Type d'opération | Transactions d’écriture | Transactions de liste | Transactions de lecture | Autres transactions | Transactions de suppression |
 |-|-|-|-|-|-|
-| Opérations de gestion | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
-| Opérations de données | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`SetShareACL`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
+| Opérations de gestion | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
+| Opérations de données | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
 
 > [!Note]  
 > NFS 4.1 est disponible uniquement pour les partages de fichiers Premium, qui utilisent le modèle de facturation provisionné. Les transactions n’affectent pas la facturation pour les partages de fichiers Premium.

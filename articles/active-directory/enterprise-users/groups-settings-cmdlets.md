@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 07/19/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc0acadadc728f714e84418a438c451aea255ccc
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e45101caec9127c39837d015d6a5117c7e2ae775
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408026"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472040"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -153,7 +153,7 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 |  <ul><li>EnableGroupCreation<li>Tapez : Boolean<li>Valeur par défaut : True |Indicateur spécifiant si la création de groupes Microsoft 365 est autorisée dans le répertoire par les utilisateurs non-administrateurs. Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tapez : String<li>Par défaut : "" |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes Microsoft 365 même lorsque EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tapez : String<li>Par défaut : "" |Lien vers les instructions d’utilisation du groupe. |
-|  <ul><li>ClassificationDescriptions<li>Tapez : String<li>Par défaut : "" | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>où Classification correspond à une entrée dans ClassificationList.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
+|  <ul><li>ClassificationDescriptions<li>Tapez : String<li>Par défaut : "" | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>où Classification correspond à une entrée dans ClassificationList.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.<br>Pour la propriété ClassificationDescriptions, le nombre de caractères est limité à 300, et les virgules ne peuvent pas être placées dans une séquence d’échappement.
 |  <ul><li>DefaultClassification<li>Tapez : String<li>Par défaut : "" | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tapez : String<li>Par défaut : "" | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Microsoft 365. Pour plus d’informations, consultez [Appliquer une stratégie d’affectation de noms pour les groupes Microsoft 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Tapez : String<li>Par défaut : "" | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez [Appliquer une stratégie d’affectation de noms pour les groupes Microsoft 365](groups-naming-policy.md). |

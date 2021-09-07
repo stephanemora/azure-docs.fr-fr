@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: e5fd0fdd5a6f9a4a7537a844b096efdfef253638
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c0f35290aa653d5b9e9be9f1a9a0184854509889
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816851"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532978"
 ---
 # <a name="monitor-azure-machine-learning"></a>Superviser Azure Machine Learning
 
@@ -29,7 +29,7 @@ Lorsque vous avez des applications critiques et des processus métier basés sur
 > * [Suivre des expériences avec MLflow](how-to-use-mlflow.md)
 > * [Visualiser les exécutions avec TensorBoard](how-to-monitor-tensorboard.md)
 >
-> Si vous voulez superviser les informations générées par des modèles déployés en tant que services web ou modules IoT Edge, consultez [Collecter les données des modèles](how-to-enable-data-collection.md) et [Superviser avec Application Insights](how-to-enable-app-insights.md).
+> Si vous voulez superviser les informations générées par des modèles déployés en tant que services web, consultez [Collecter les données des modèles](how-to-enable-data-collection.md) et [Superviser avec Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
 
@@ -60,9 +60,9 @@ Pour obtenir une référence détaillée des journaux et des métriques créés 
 
 Les métriques de plateforme et le journal d’activité sont collectés et stockés automatiquement, mais ils peuvent être acheminés vers d’autres emplacements à l’aide d’un paramètre de diagnostic.  
 
-Les journaux de ressources ne sont pas collectés ni stockés tant que vous n’avez pas créé un paramètre de diagnostic et que vous ne les acheminez pas vers un ou plusieurs emplacements.
+Les journaux de ressources ne sont pas collectés ni stockés tant que vous n’avez pas créé un paramètre de diagnostic et que vous ne les acheminez pas vers un ou plusieurs emplacements. Quand vous devez gérer plusieurs espaces de travail Azure Machine Learning, vous pouvez router les journaux de tous les espaces de travail vers la même destination de journalisation et interroger tous les journaux à partir d’un emplacement unique.
 
-Pour plus d’informations sur la création d’un paramètre de diagnostic à l’aide du portail Azure, de l’interface CLI ou de PowerShell, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../azure-monitor/essentials/diagnostic-settings.md). Lorsque vous créez un paramètre de diagnostic, vous spécifiez les catégories de journaux à collecter. Les catégories pour Azure Machine Learning sont répertoriées dans [Informations de référence sur les données de monitoring Azure Machine Learning](monitor-resource-reference.md#resource-logs).
+Pour plus d’informations sur la création d’un paramètre de diagnostic avec le portail Azure, l’interface Azure CLI ou PowerShell, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../azure-monitor/essentials/diagnostic-settings.md). Lorsque vous créez un paramètre de diagnostic, vous spécifiez les catégories de journaux à collecter. Les catégories pour Azure Machine Learning sont répertoriées dans [Informations de référence sur les données de monitoring Azure Machine Learning](monitor-resource-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > L’activation de ces paramètres nécessite des services Azure supplémentaires (compte de stockage, hub d’événements ou Log Analytics), ce qui peut augmenter vos coûts. Pour calculer un coût estimé, consultez la rubrique [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator).
@@ -74,6 +74,7 @@ Vous pouvez configurer les journaux suivants pour Azure Machine Learning :
 | AmlComputeClusterEvent | Événements provenant des clusters de calcul Azure Machine Learning. |
 | AmlComputeClusterNodeEvent | Événements provenant des nœuds d’un cluster de calcul Azure Machine Learning. |
 | AmlComputeJobEvent | Événements provenant des travaux en cours d’exécution sur la capacité de calcul Azure Machine Learning. |
+
 
 > [!NOTE]
 > Quand vous activez les métriques dans un paramètre de diagnostic, les informations de dimension ne sont actuellement pas incluses dans les informations envoyées à un compte de stockage, un hub d’événements ou Log Analytics.
@@ -111,9 +112,20 @@ Les données des journaux Azure Monitor sont stockées dans des tables, chacune 
 
 | Table de charge de travail | Description |
 |:---|:---|
-| AmlComputeClusterEvent | Événements provenant des clusters de calcul Azure Machine Learning. |
+| AmlComputeClusterEvent | Événements provenant des clusters de calcul Azure Machine Learning.|
 | AmlComputeClusterNodeEvent | Événements provenant des nœuds d’un cluster de calcul Azure Machine Learning. |
 | AmlComputeJobEvent | Événements provenant des travaux en cours d’exécution sur la capacité de calcul Azure Machine Learning. |
+| AmlComputeInstanceEvent | Événements lors de l’accès à une instance Capacité de calcul ML (lecture/écriture). La catégorie comprend : ComputeInstanceEvent (très fournie). |
+| AmlDataLabelEvent | Événements lors de l’accès à des étiquettes de données ou à leurs projets (lecture, création ou suppression). La catégorie comprend :DataLabelReadEvent,DataLabelChangeEvent.  |
+| AmlDataSetEvent | Événements lors de l’accès à un jeu de données ML inscrit ou non inscrit (lecture, création ou suppression). La catégorie comprend : DataSetReadEvent,DataSetChangeEvent. |
+| AmlDataStoreEvent | Événements lors de l’accès à un magasin de données ML (lecture, création ou suppression). La catégorie comprend : DataStoreReadEvent, DataStoreChangeEvent. |
+| AmlDeploymentEvent | Événements quand un déploiement de modèle se produit sur ACI ou AKS. La catégorie comprend : DeploymentReadEvent, DeploymentEventACI, DeploymentEventAKS. |
+| AmlInferencingEvent | Événements liés à l’inférence ou à une opération associée sur le type de calcul AKS ou ACI. La catégorie comprend : InferencingOperationACI (très fournie), InferencingOperationAKS (très bavard). |
+| AmlModelsEvent | Événements lors de l’accès à un modèle ML (lecture, création ou suppression). Comprend des événements liés à l’empaquetage de modèles et de ressources en paquets prêts à être générés. La catégorie comprend : ModelsReadEvent,ModelsActionEvent.|
+| AmlPipelineEvent | Événements lors de l’accès à un module, un point de terminaison ou un brouillon de pipeline ML (lecture, création ou suppression). La catégorie comprend : PipelineReadEvent, PipelineChangeEvent. |
+| AmlRunEvent | Événements lors de l’accès à des expériences ML (lecture, création ou suppression). La catégorie comprend : RunReadEvent, RunEvent. |
+| AmlEnvironmentEvent | Événements liés aux configurations d’environnement ML (lecture, création ou suppression). La catégorie comprend : EnvironmentReadEvent (très fournie), EnvironmentChangeEvent. |
+
 
 > [!IMPORTANT]
 > Quand vous sélectionnez **Journaux** dans le menu Azure Machine Learning, Log Analytics est ouvert avec l’étendue de requête définie sur l’espace de travail actuel. Cela signifie que les requêtes de journal n’incluront que les données de cette ressource. Si vous voulez exécuter une requête qui inclut des données d’autres bases de données ou des données provenant d’autres services Azure, sélectionnez **Journaux** dans le menu **Azure Monitor**. Pour plus d’informations, consultez [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](../azure-monitor/logs/scope.md).
@@ -157,6 +169,17 @@ Voici des requêtes que vous pouvez utiliser pour vous aider à superviser vos r
     AmlComputeClusterNodeEvent
     | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
     | distinct NodeId
+    ```
+
+Quand vous connectez plusieurs espaces de travail Azure Machine Learning au même espace de travail Log Analytics, vous pouvez interroger toutes les ressources. 
+
++ Obtenir le nombre de nœuds en cours d’exécution entre les espaces de travail et les clusters au cours du dernier jour :
+
+    ```Kusto
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(1d)
+    | summarize avgRunningNodes=avg(TargetNodeCount), maxRunningNodes=max(TargetNodeCount)
+             by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
 
 ## <a name="alerts"></a>Alertes

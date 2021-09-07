@@ -2,14 +2,14 @@
 title: Verrouiller les ressources pour empêcher des modifications
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure en appliquant un verrou pour tous les utilisateurs et rôles.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 780957dec73177541e8677fb5f6551a6ad147797
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27ab9d607f3b8fad669682e980bc0178e8dfad42
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951429"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563686"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -43,7 +43,9 @@ Si vous appliquez des verrous, il se peut que vous obteniez des résultats inatt
 
 - Un verrou en lecture seule appliqué à un **compte de stockage** empêche les utilisateurs de répertorier les clés du compte. L’opération Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) est gérée par le biais d’une requête POST pour protéger l’accès aux clés de compte, qui fournissent un accès complet aux données du compte de stockage. Lorsqu'un verrou en lecture seule est configuré pour un compte de stockage, les utilisateurs qui ne disposent pas des clés de compte doivent utiliser des informations d'identification Azure AD pour accéder aux données de blob ou de file d'attente. Un verrou en lecture seule empêche également l’attribution de rôles Azure RBAC étendus au compte de stockage ou à un conteneur de données (conteneur de blobs ou file d’attente).
 
-- Un verrou cannot-delete (suppression impossible) sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou empêche uniquement la suppression du compte de stockage lui-même, et ne protège pas les données de blob, de file d'attente, de table ou de fichier au sein de ce compte de stockage.
+- Un verrou cannot-delete (suppression impossible) sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou ne protège que le compte de stockage proprement dit contre la suppression. Si une requête utilise des [opérations de plan de données](control-plane-and-data-plane.md#data-plane), le verrou sur le compte de stockage ne protège pas les données BLOB, de file d’attente, de table ou de fichier dans ce compte de stockage. Toutefois, si la requête utilise des [opérations de plan de contrôle](control-plane-and-data-plane.md#control-plane), le verrou protège ces ressources.
+
+  Par exemple, si une requête utilise [Partages de fichiers - Supprimer](/rest/api/storagerp/file-shares/delete), qui est une opération de plan de contrôle, la suppression est refusée. Si la requête utilise [Supprimer le partage](/rest/api/storageservices/delete-share), qui est une opération de plan de données, la suppression réussit. Nous vous recommandons d’utiliser les opérations de plan de contrôle.
 
 - Un verrou en lecture seule sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou empêche uniquement la suppression ou la modification du compte de stockage lui-même, et ne protège pas les données de blob, de file d'attente, de table ou de fichier au sein de ce compte de stockage.
 
@@ -60,6 +62,10 @@ Si vous appliquez des verrous, il se peut que vous obteniez des résultats inatt
 - Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche **Azure Machine Learning** d’effectuer la mise à l’échelle automatique des [clusters de calcul Azure Machine Learning](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) pour supprimer les nœuds inutilisés.
 
 - Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
+
+- Un verrou en lecture seule sur une **passerelle applicative** vous empêche d’obtenir l’intégrité du backend de la passerelle applicative. Cette [opération utilise POST](/rest/api/application-gateway/application-gateways/backend-health), qui est bloqué par le verrou en lecture seule.
+
+- Un verrou en lecture seule sur un **cluster AKS** empêche tous les utilisateurs d’accéder aux ressources du cluster à partir de la section **Ressources Kubernetes** de la lame gauche du cluster AKS sur le Portail Azure. Ces opérations requièrent une requête POST pour l’authentification.
 
 ## <a name="who-can-create-or-delete-locks"></a>Utilisateurs autorisés à créer ou à supprimer des verrous
 

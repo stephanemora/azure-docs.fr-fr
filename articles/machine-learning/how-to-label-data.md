@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 3fa2276163b054c72ec27901fb28315b648c47c3
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 491ee8134d17eac9e0abb54780f2aa39e1323e6c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296435"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446252"
 ---
 # <a name="labeling-images-and-text-documents"></a>Étiquetage des images et des documents texte
 
@@ -79,6 +79,19 @@ Ici, nous avons choisi une disposition deux par deux, et nous sommes sur le poin
 Lorsque toutes les images de la page sont balisées, Azure active le bouton **Envoyer**. Sélectionnez **Envoyer** pour enregistrer votre travail.
 
 Une fois que vous avez envoyé les étiquettes relatives aux données disponibles, Azure actualise la page en affichant un nouvel ensemble d’images provenant de la file d’attente de travail.
+
+## <a name="medical-image-tasks"></a>Tâches liées aux images médicales
+
+> [!IMPORTANT]
+> La fonctionnalité permettant d’étiqueter des images DICOM ou de types similaires n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’étiquetage des données pour des images DICOM ou de types similaires.
+
+Les projets d’image prennent en charge le format d’image DICOM pour les images de fichiers de radiographie.
+
+:::image type="content" source="media/how-to-label-data/x-ray-image.png" alt-text="Image DICOM de radiographie à étiqueter.":::
+
+Même si vous étiquetez les images médicales avec les mêmes outils que pour les autres images, il existe un outil supplémentaire pour les images DICOM.  Sélectionnez l’outil **Fenêtre et niveau** pour changer l’intensité de l’image. Cet outil est disponible uniquement pour les images DICOM.
+
+:::image type="content" source="media/how-to-label-data/window-level-tool.png" alt-text="Outil Fenêtre et niveau pour les images DICOM":::
 
 ## <a name="tag-images-for-multi-class-classification"></a>Étiqueter des images pour une classification multiclasse
 

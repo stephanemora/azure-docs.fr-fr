@@ -2,22 +2,24 @@
 title: Compétence cognitive Sentiment
 titleSuffix: Azure Cognitive Search
 description: Extrayez le score de sentiment positif/négatif d’un texte dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 6519cd952bd1265b4daad3b77b29aabd47ea4cc5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11190d27a8c8fa7fac465ca7132439f0bc34fef0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547473"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524667"
 ---
 # <a name="sentiment-cognitive-skill"></a>Compétence cognitive Sentiment
 
 La compétence **Sentiment** évalue du texte non structuré sur un continuum positif-négatif et, pour chaque enregistrement, retourne un score numérique compris entre 0 et 1. Un score proche de 1 indique un sentiment positif, et un score proche de 0 un sentiment négatif. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services.
+
+> [!IMPORTANT]
+> La compétence Sentiment n’est plus disponible et est remplacée par [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md). Suivez les recommandations de la page [Compétences de recherche cognitive déconseillées](cognitive-search-skill-deprecated.md) pour migrer vers une compétence prise en charge.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
@@ -118,3 +120,4 @@ Si la langue n’est pas prise en charge, un avertissement est généré et aucu
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
++ [Compétence Sentiment (V3)](cognitive-search-skill-sentiment-v3.md)

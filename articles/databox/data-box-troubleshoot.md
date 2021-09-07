@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 06f0408587cc7c5533bdb852f7ad4f59094a33da
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92124673"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220256"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
 
@@ -31,9 +31,10 @@ Dans Data Box et Data Box Heavy, les erreurs sont récapitulées comme suit :
 | Limite de taille des conteneurs ou des partages | La taille totale des données dans les conteneurs ou les partages dépasse la limite Azure.   |Téléchargez les listes d’erreurs. <br> Réduisez le volume global des données dans le conteneur ou le partage. [Plus d’informations](#container-or-share-size-limit-errors)|
 | Limite de taille des objets ou des fichiers | L’objet ou les fichiers présents dans les conteneurs ou les partages dépassent la limite Azure.|Téléchargez les listes d’erreurs. <br> Réduisez la taille de fichier dans le conteneur ou le partage. [Plus d’informations](#object-or-file-size-limit-errors) |    
 | Type de fichier ou de données | Le format de données ou le type de fichier n’est pas pris en charge. |Téléchargez les listes d’erreurs. <br> Pour les objets blob de pages ou les disques managés, vérifiez que les données sont de alignées par éléments de 512 octets et copiées vers les dossiers créés au préalable. [Plus d’informations](#data-or-file-type-errors) |
+| Erreurs internes de dossier ou de fichier | Le fichier ou le dossier rencontre une erreur interne. |Téléchargez les listes d’erreurs. <br> Supprimez le fichier et recopiez-le. S’il s’agit d’un dossier, modifiez-le en le renommant, ou en ajoutant ou en supprimant un fichier dans le dossier. L’erreur doit en principe disparaître dans un délai de 30 minutes.  [Plus d’informations](#folder-or-file-internal-errors) |
 | Erreurs non critiques liées aux objets blob ou aux fichiers  | Les noms d’objets blob ou de fichiers ne suivent pas les règles de nommage Azure ou le type de fichier n’est pas pris en charge. | Ces objets blob ou fichiers ne peuvent pas être copiés ou ils peuvent être changés. [Découvrez comment résoudre ces erreurs](#non-critical-blob-or-file-errors). |
 
-\* Les quatre premières catégories d’erreur sont des erreurs critiques qui doivent être corrigées pour que vous puissiez continuer à préparer l’expédition.
+\* Les cinq premières catégories d’erreur sont des erreurs critiques qui doivent impérativement être corrigées pour que vous puissiez continuer à préparer l’expédition.
 
 
 ## <a name="container-or-share-name-errors"></a>Erreurs liées aux noms de conteneurs ou de partages
@@ -119,8 +120,8 @@ Il s’agit d’erreurs liées à des données dont la taille dépasse la taille
 - Identifiez les dossiers qui rencontrent ce problème dans les journaux d'erreur et vérifiez que la taille des fichiers présents dans ce dossier est inférieure à 5 Tio.
 - La limite de 5 Tio ne s'applique pas à un compte de stockage qui autorise les partages de fichiers volumineux. Cependant, des partages de fichiers volumineux doivent être configurés lorsque vous passez votre commande. 
   - Contactez le [Support Microsoft](data-box-disk-contact-microsoft-support.md) et demandez une nouvelle étiquette d'expédition.
-  - [Activez les partages de fichiers volumineux sur le compte de stockage.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
-  - [Développez les partages de fichiers sur le compte de stockage](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) et définissez le quota sur 100 Tio.
+  - [Activez les partages de fichiers volumineux sur le compte de stockage](../storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Développez les partages de fichiers sur le compte de stockage](../storage/files/storage-how-to-create-file-share.md#expand-existing-file-shares) et définissez le quota sur 100 Tio.
   
   
 ## <a name="object-or-file-size-limit-errors"></a>Erreurs liées à la limite de taille des objets ou des fichiers
@@ -176,6 +177,11 @@ Pour plus d’informations, consultez [Copier sur des disques managés](data-box
 
 **Résolution suggérée :** Les liens symboliques sont généralement des liens, des canaux et d’autres fichiers de ce type. Retirez les liens, ou résolvez les liens et copiez les données.
 
+## <a name="folder-or-file-internal-errors"></a>Erreurs internes de dossier ou de fichier
+
+**Description de l’erreur :** Le fichier ou dossier se trouve dans un état d’erreur interne.
+
+**Résolution suggérée :** S’il s’agit d’un fichier, supprimez le fichier et recopiez-le. Si c’est un dossier, modifiez le dossier. Pour cela, renommez le dossier ou bien ajoutez ou supprimez un fichier dans le dossier. L’erreur disparaît en principe automatiquement dans un délai de 30 minutes. Contactez le Support Microsoft si l’erreur persiste.
 
 ## <a name="non-critical-blob-or-file-errors"></a>Erreurs non critiques liées aux objets blob ou aux fichiers
 

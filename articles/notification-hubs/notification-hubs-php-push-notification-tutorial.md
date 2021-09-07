@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: daebf7c6a5fc9056e16b77a40ee9f90db598749f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46e0a74a97f46c317684f590f7d4462aec08fad2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87076630"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586845"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Utilisation de Notification Hubs à partir de PHP
 
@@ -280,7 +280,7 @@ L'exécution de votre code PHP produit normalement une notification qui apparaî
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cette rubrique, nous vous avons montré comment créer un client REST Java simple pour Notification Hubs. À partir de là, vous pouvez :
+Dans cette rubrique, nous avons montré comment créer un client REST PHP simple pour Notification Hubs. À partir de là, vous pouvez :
 
 * télécharger l'intégralité de l' [exemple de wrapper REST PHP], qui contient tout le code ci-dessus ;
 * poursuivre l'apprentissage de la fonction de balisage dans le [didacticiel Nouvelles de dernière minute] ;

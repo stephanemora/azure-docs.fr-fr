@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a68697d6dffad6aad857bb59d66beeb42dec62d2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8c1b6aa0d6bdd98a66a638a216f93a6d81bd6b93
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475393"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726857"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Créer une stratégie d’accès stockée avec .NET
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur les stratégies d’accès stockées, consultez [
 
 ## <a name="create-a-stored-access-policy"></a>création d’une stratégie d’accès stockée
 
-L’opération REST sous-jacente pour créer une stratégie d’accès stockée est [Set Container ACL](/rest/api/storageservices/set-container-acl). Vous devez autoriser l’opération à créer une stratégie d’accès stockée via une clé partagée en utilisant les clés d’accès au compte figurant dans une chaîne de connexion. L’autorisation de l’opération **Set Container ACL** avec des informations d’identification Azure AD n’est pas prise en charge. Pour plus d’informations, consultez [Autorisations pour l’appel d’opérations de données d’objet BLOB et de file d’attente](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+L’opération REST sous-jacente pour créer une stratégie d’accès stockée est [Set Container ACL](/rest/api/storageservices/set-container-acl). Vous devez autoriser l’opération à créer une stratégie d’accès stockée via une clé partagée en utilisant les clés d’accès au compte figurant dans une chaîne de connexion. L’autorisation de l’opération **Set Container ACL** avec des informations d’identification Azure AD n’est pas prise en charge. Pour plus d’informations, consultez [Autorisations pour l’appel d’opérations de données](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 Les exemples de code suivants créent une stratégie d’accès stockée sur un conteneur. Vous pouvez utiliser la stratégie d’accès pour spécifier des contraintes pour une SAP de service sur le conteneur ou sur ses objets blob.
 

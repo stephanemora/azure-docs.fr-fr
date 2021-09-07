@@ -3,14 +3,14 @@ title: Présentation d’Update Management Azure Automation
 description: Cet article présente la fonctionnalité Update Management qui implémente les mises à jour de vos machines Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 576bc21791d088a736044a0111c25dc97c57b059
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 0190d5501b95c0c70606978586edf30ff3d39b79
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854807"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676605"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -149,6 +149,11 @@ Pour classifier les mises à jour sur Red Hat Enterprise version 6, vous devez 
 Quand vous planifiez une mise à jour à exécuter sur une machine Linux qui, par exemple, est configurée pour installer uniquement les mises à jour correspondant à la classification **Sécurité**, les mises à jour installées peuvent être différentes des mises à jour correspondant à cette classification, ou n’en constituer qu’une partie. Quand une évaluation des mises à jour du système d’exploitation en attente pour votre ordinateur Linux est effectuée, les fichiers [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) fournis par le fournisseur de distribution Linux sont utilisés par Update Management pour la classification.
 
 La catégorisation est effectuée pour les mises à jour Linux en tant que **Sécurité** ou **Autres** en fonction des fichiers OVAL, ce qui inclut les mises à jour traitant des problèmes de sécurité ou des vulnérabilités. Toutefois, lorsque la planification des mises à jour est effectuée, elle s’exécute sur la machine Linux à l’aide du gestionnaire de package approprié pour les installer (p. ex., YUM, APT ou ZYPPER). Le gestionnaire de package pour la distribution Linux peut avoir un mécanisme différent pour classifier les mises à jour, où les résultats peuvent différer de ceux obtenus à partir des fichiers OVAL par Update Management. Pour vérifier manuellement la machine et savoir quelles mises à jour sont pertinentes pour la sécurité du point de vue de votre gestionnaire de package, consultez [Résoudre les problèmes liés à Update Management pour Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
+
+>[!NOTE]
+> Le déploiement de mises à jour par classification des mises à jour peut ne pas fonctionner correctement pour les distributions Linux prises en charge par Update Management. Cela est dû à un problème identifié avec le schéma d’affectation de noms du fichier OVAL, qui empêche Update Management de faire correspondre correctement les classifications basées sur des règles de filtrage. En raison de la logique différente utilisée dans les évaluations des mises à jour de sécurité, les résultats peuvent différer des mises à jour de sécurité appliquées pendant le déploiement. Si vous avez défini la classification comme **Critique** et **Sécurité**, le déploiement de la mise à jour fonctionnera comme prévu. Seule la *classification des mises à jour* pendant une évaluation est affectée.
+>
+> Update Management pour les machines Windows Server n’est pas affecté. La classification des mises à jour et les déploiements sont inchangés.
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Intégrer Update Management à Configuration Manager
 

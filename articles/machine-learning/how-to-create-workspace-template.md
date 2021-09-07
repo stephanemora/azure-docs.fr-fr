@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: afb0d487d43b2a04aa298d9ec4249a6855d06544
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a8272d6b21130f253046ef3ffe05db8b00d4b79
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967740"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038668"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -28,11 +28,9 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+* Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](/powershell/azure/) ou [Azure CLI](/cli/azure/install-azure-cli).
-
-* Dans certains scénarios, vous devez ouvrir un ticket de support. Par exemple, l’utilisation d’un espace de travail activé pour Private Link avec une clé gérée par le client. Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="limitations"></a>Limites
 
@@ -278,9 +276,6 @@ En définissant la valeur du paramètre `vnetOption` sur `new` ou `existing`, vo
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Déployer l’espace de travail uniquement derrière un point de terminaison privé
 
 Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé. Vous pouvez le faire aussi bien pour les espaces de travail existants que nouveaux. Lors de la mise à jour d’un espace de travail existant, renseignez les paramètres du modèle avec les informations concernant cet espace.
-
-> [!IMPORTANT]
-> L’utilisation d’un espace de travail Azure Machine Learning avec liaison privée n’est pas disponible dans les régions Azure Government.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -541,7 +536,7 @@ New-AzResourceGroupDeployment `
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
 1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__, choisissez l’entrée **démarrages rapides**. Quand il s’affiche, sélectionnez le lien « Cliquez ici pour ouvrir le dépôt de modèles ». Ce lien vous dirige vers le répertoire `quickstarts` dans le dépôt de modèles de démarrage rapide Azure.
-1. Dans la liste des modèles de démarrage rapide, sélectionnez `microsoft.machinelearningservices'. Finally, select `Déployer sur Azure`.
+1. Dans la liste des modèles de démarrage rapide, sélectionnez `microsoft.machinelearningservices`. Enfin, sélectionnez `Deploy to Azure`.
 1. Quand le modèle apparaît, fournissez les informations nécessaires suivantes et tous les autres paramètres en fonction de votre scénario de déploiement.
 
    * Abonnement : Sélectionnez l’abonnement Azure à utiliser pour ces ressources.

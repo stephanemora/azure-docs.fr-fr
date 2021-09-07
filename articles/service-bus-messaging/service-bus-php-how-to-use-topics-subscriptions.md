@@ -1,17 +1,17 @@
 ---
 title: Guide pratique pour utiliser les rubriques Azure Service Bus avec PHP
-description: Dans ce tutoriel, vous allez apprendre à utiliser les rubriques et abonnements Azure Service Bus à partir d’une application PHP.
+description: Dans cet article, vous découvrez comment utiliser les rubriques et les abonnements Azure Service Bus à partir d’une application PHP.
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 7cdb6ca30b2c9abf2c2525057a90888b2c5d1c78
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.topic: how-to
+ms.date: 07/27/2021
+ms.openlocfilehash: 0265b138b2f6f44961d085ca8492ba125b9a36b2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302533"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725117"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec PHP
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Utilisation des rubriques et abonnements Service Bus avec PHP
 
 Cet article vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en PHP et utilisent le [kit SDK Azure pour PHP](https://github.com/Azure/azure-sdk-for-php). Parmi les scénarios présentés :
 
@@ -26,11 +26,11 @@ Cet article vous montre comment utiliser les rubriques et les abonnements Servic
  
 
 ## <a name="prerequisites"></a>Prérequis
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Un abonnement Azure. Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
 
     > [!NOTE]
-    > Vous allez créer une **rubrique** et un **abonnement** à la rubrique à l’aide de **PHP** dans ce démarrage rapide. 
+    > Dans cet article, vous allez créer une **rubrique** et un **abonnement** à la rubrique en **PHP**. 
 
 ## <a name="create-a-php-application"></a>Création d'une application PHP
 Le référencement de classes issues du [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php) dans votre code constitue la seule exigence pour créer une application PHP qui accède au service blob Azure. Vous pouvez utiliser tous les outils de développement pour créer votre application, ou Bloc-notes.

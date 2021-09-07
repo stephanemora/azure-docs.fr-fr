@@ -1,5 +1,5 @@
 ---
-title: Entraîner des modèles (créer des travaux) avec l’interface CLI 2.0
+title: Entraîner des modèles (créer des travaux) avec l’interface CLI (v2)
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner des modèles (créer des travaux) à l’aide de l’extension Azure CLI pour Machine Learning.
 services: machine-learning
@@ -8,40 +8,57 @@ ms.subservice: core
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 06/08/2021
+ms.date: 06/18/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 141f1ac9cefa91c93a6f2e0cb8500f378ae4700b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: devx-track-azurecli, devplatv2
+ms.openlocfilehash: 9f3a91f9abc472f285139bfac04af7dff5c63e9f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008018"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564085"
 ---
-# <a name="train-models-create-jobs-with-the-20-cli-preview"></a>Entraîner des modèles (créer des travaux) avec l’interface CLI 2.0 (préversion)
+# <a name="train-models-create-jobs-with-the-cli-v2"></a>Entraîner des modèles (créer des travaux) avec l’interface CLI (v2)
 
-L’extension Azure CLI 2.0 pour Machine Learning (préversion) vous permet d’accélérer le processus d’entraînement de modèles tout en effectuant le scale-up et le scale-out au niveau de la capacité de calcul Azure. Par ailleurs, le cycle de vie des modèles fait l’objet d’un suivi et peut être audité.
+L’interface CLI Azure Machine Learning (v2) est une extension Azure CLI qui vous permet d’accélérer le processus d’entraînement de modèles tout en effectuant le scale-up et le scale-out au niveau de la capacité de calcul Azure. Par ailleurs, le cycle de vie des modèles fait l’objet d’un suivi et peut être audité.
 
 L’entraînement d’un modèle de machine learning est normalement un processus itératif. Grâce aux outils modernes, l’entraînement des modèles volumineux avec plus de données est plus facile et plus rapide que jamais. Les processus auparavant manuels et fastidieux comme le réglage hyperparamétrique et même la sélection d’algorithmes sont souvent automatisés. Avec l’interface CLI d’Azure Machine Learning, vous pouvez assurer le suivi de vos travaux (et modèles) dans un [espace de travail](concept-workspace.md) avec des balayages hyperparamétriques, un scale-up au niveau des capacités de calcul Azure hautes performances et un scale-out utilisant un entraînement distribué.
-
-> [!TIP]
-> Pour profiter d’un environnement de développement complet, utilisez Visual Studio Code et l’[extension Azure Machine Learning](how-to-setup-vs-code.md) pour [gérer les ressources Azure Machine Learning](how-to-manage-resources-vscode.md) et [entraîner des modèles de machine learning](tutorial-train-deploy-image-classification-model-vscode.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Pour utiliser l'interface de ligne de commande, vous devez disposer d'un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+- Pour utiliser l'interface de ligne de commande, vous devez disposer d'un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 - [Installer et configurer l’extension Azure CLI pour Machine Learning](how-to-configure-cli.md)
-- Clonez le référentiel d’exemples :
 
-    ```azurecli-interactive
-    git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli
-    ```
+> [!TIP]
+> Pour profiter d’un environnement de développement complet, utilisez Visual Studio Code et l’[extension Azure Machine Learning](how-to-setup-vs-code.md) pour [gérer les ressources Azure Machine Learning](how-to-manage-resources-vscode.md) et [entraîner des modèles de machine learning](tutorial-train-deploy-image-classification-model-vscode.md).
+
+### <a name="clone-examples-repository"></a>Cloner un dépôt d’exemples
+
+Pour exécuter les exemples d’entraînement, commencez par cloner le dépôt d’exemples et placez-le dans le répertoire `cli` :
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+
+Notez que `--depth 1` clone uniquement le dernier commit dans le dépôt, ce qui réduit le temps nécessaire à l’exécution de l’opération.
+
+### <a name="create-compute"></a>Créer une capacité de calcul
+
+Vous pouvez créer un cluster de calcul Azure Machine Learning à partir de la ligne de commande. Par exemple, les commandes suivantes créent un cluster nommé `cpu-cluster` et un autre nommé `gpu-cluster`.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
+
+Notez que le calcul ne vous est pas facturé à ce stade, car `cpu-cluster` et `gpu-cluster` restent aux nœuds 0 tant qu’aucun travail n’est envoyé. Apprenez-en davantage sur [la gestion et l’optimisation des coûts pour AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+
+Les exemples de travaux suivants fournis dans cet article utilisent `cpu-cluster` ou `gpu-cluster`. Adaptez ces informations selon le nom de votre ou de vos clusters.
+
+Utilisez `az ml compute create -h` pour plus d’informations sur les options de création de capacités de calcul.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## <a name="introducing-jobs"></a>Introduction aux travaux
 
-Pour l’interface CLI d’Azure Machine Learning, les travaux sont créés au format YAML. Un travail englobe les aspects suivants :
+Pour l’interface CLI d’Azure Machine Learning (v2), les travaux sont créés au format YAML. Un travail englobe les aspects suivants :
 
 - Quoi exécuter
 - Comment l’exécuter
@@ -49,9 +66,13 @@ Pour l’interface CLI d’Azure Machine Learning, les travaux sont créés au f
 
 Le travail « hello world » comporte les trois :
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
 
-Il s’agit simplement d’un exemple de travail qui ne génère rien d’autre qu’une ligne dans le fichier journal. En plus des journaux générés par le système, il est généralement souhaitable de générer des artefacts supplémentaires, comme des binaires de modèle et les métadonnées associées.
+Vous pouvez l’exécuter ainsi :
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
+
+Toutefois, il s’agit simplement d’un exemple de travail qui ne génère rien d’autre qu’une ligne dans le fichier journal. En plus des journaux générés par le système, il est généralement souhaitable de générer des artefacts supplémentaires, comme des binaires de modèle et les métadonnées associées.
 
 Azure Machine Learning capture automatiquement les artefacts suivants :
 
@@ -64,50 +85,25 @@ Par exemple, examinez le répertoire du projet `jobs/train/lightgbm/iris` dans l
 
 ```tree
 .
-├── environment.yml
 ├── job-sweep.yml
 ├── job.yml
 └── src
     └── main.py
 ```
 
-Ce répertoire contient deux fichiers de travail, un fichier d’environnement conda et un sous-répertoire de code source `src`. Même si cet exemple comporte un seul fichier sous `src`, le sous-répertoire entier est chargé de manière récursive et peut être utilisé dans le travail.
+Ce répertoire contient deux fichiers de travail et un sous-répertoire de code source `src`. Même si cet exemple comporte un seul fichier sous `src`, le sous-répertoire entier est chargé de manière récursive et peut être utilisé dans le travail.
 
-Le travail à la commande de base est configuré via `job.yml` :
+Le travail de la commande est configuré via `job.yml` :
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
-Ce travail peut être créé et exécuté via `az ml job create` en utilisant le paramètre `--file/-f`. Cependant, le travail cible une capacité de calcul nommée `cpu-cluster` qui n’existe pas encore. Pour exécuter le travail d’abord en local, vous pouvez remplacer la cible de calcul par `--set` :
+Vous pouvez l’exécuter ainsi :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
-
-Même si l’exécution locale de ce travail est plus lente que l’exécution de `python main.py` dans un environnement Python local avec les packages nécessaires, le premier vous permet de :
-
-- Enregistrer l’historique des exécutions dans le studio Azure Machine Learning
-- Reproduire l’exécution sur des cibles de calcul distantes (scale-up, scale-out, balayage hyperparamétrique)
-- Suivre les détails de l’envoi de l’exécution, notamment le commit et le dépôt git du code source
-- Suivre les métriques, les métadonnées et les artefacts du modèle
-- Éviter l’installation et la gestion de packages dans votre environnement local
-
-> [!IMPORTANT]
-> [Docker](https://docker.io) doit être installé et s’exécuter localement. Python doit être installé dans l’environnement du travail. Pour les exécutions locales qui utilisent `inputs`, le package Python `azureml-dataprep` doit être installé dans l’environnement du travail.
-
-> [!TIP]
-> Plusieurs minutes sont nécessaire pour extraire l’image Docker de base et créer l’environnement conda par-dessus. Utilisez des images Docker prédéfinies pour éviter le temps de génération d’image.
-
-## <a name="create-compute"></a>Créer une capacité de calcul
-
-Vous pouvez créer un cluster de calcul Azure Machine Learning à partir de la ligne de commande. Par exemple, les commandes suivantes créent un cluster nommé `cpu-cluster` et un autre nommé `gpu-cluster`.
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
-
-Notez que le calcul ne vous est pas facturé à ce stade, car `cpu-cluster` et `gpu-cluster` restent aux nœuds 0 tant qu’aucun travail n’est envoyé. Apprenez-en davantage sur [la gestion et l’optimisation des coûts pour AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
-
-Utilisez `az ml compute create -h` pour plus d’informations sur les options de création de capacités de calcul.
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 ## <a name="basic-python-training-job"></a>Travail d’entraînement Python de base
 
-Une fois `cpu-cluster` créé, vous pouvez exécuter le travail d’entraînement de base, qui génère un modèle et les métadonnées associées. Examinons de près le fichier YAML du travail :
+Examinons de près le fichier YAML du travail :
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
@@ -167,7 +163,7 @@ Créez le travail et ouvrez-le dans le studio :
 
 ## <a name="distributed-training"></a>Entraînement distribué
 
-Vous pouvez spécifier la section `distributed` dans un travail de commande. Azure ML prend en charge l’entraînement distribué pour PyTorch, TensorFlow et les infrastructures compatibles MPI. PyTorch et TensorFlow permettent un entraînement distribué natif pour leurs infrastructures respectives, comme les API `tf.distributed.Strategy` pour TensorFlow.
+Vous pouvez spécifier la section `distribution` dans un travail de commande. Azure ML prend en charge l’entraînement distribué pour PyTorch, TensorFlow et les infrastructures compatibles MPI. PyTorch et TensorFlow permettent un entraînement distribué natif pour leurs infrastructures respectives, comme les API `tf.distributed.Strategy` pour TensorFlow.
 
 Veillez à définir `compute.instance_count`, dont la valeur par défaut est 1, en fonction du nombre de nœuds que vous voulez pour le travail.
 

@@ -2,23 +2,48 @@
 title: Nouveautés relatives à Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine
 description: Notes de publication pour Azure Data Science Virtual Machine
-author: timoklimmer
+author: michalmar
 ms.service: data-science-vm
-ms.author: tklimmer
-ms.date: 05/25/2021
+ms.author: mimarusa
+ms.date: 07/16/2021
 ms.topic: reference
-ms.openlocfilehash: a3bb8f3c7174fe301a8c81396bb46b6762e70796
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b74b535a6d6e00f83dd659728bb1ed930e1fb7dd
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409844"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371382"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notes de publication Azure Data Science Virtual Machine
 
 Dans cet article, découvrez les versions d’Azure Data Science Virtual Machine. Pour obtenir la liste complète des outils inclus, ainsi que les numéros de version, consultez [cette page](./tools-included.md).
 
 Consultez la [liste des problèmes connus](reference-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2021-07-12"></a>12-07-2021
+
+Nouvelle image pour [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Principaux changements :
+
+- Mise à jour vers PyTorch 1.9.0
+- Mise à jour d’Azure CLI vers la version 2.26.1
+- Mise à jour de l’extension Azure Machine Learning d’Azure CLI vers la version 1.29.0
+- Mise à jour de VS Code version 1.58.1
+- Amélioration de la stabilité et correction de bogues mineurs 
+
+
+## <a name="2021-06-22"></a>22-06-2021
+
+Nouvelle image pour [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
+
+Version : 21.06.22
+
+Principaux changements :
+
+- Mise à jour vers PyTorch 1.9.0
+- Correction d’un bogue empêchant la disponibilité de git
+
 
 ## <a name="2021-06-01"></a>2021-06-01
 
@@ -41,8 +66,6 @@ Suppression de plusieurs icônes du bureau
 ## <a name="2021-05-22"></a>2021-05-22
 
 Nouvelle image pour [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
-
-Les mises à jour de version sélectionnées sont les suivantes :
 
 Version : 21.05.22
 
@@ -73,9 +96,6 @@ Suppression de Firefox, d’Apache Drill et de Microsoft Integration Runtime.
 
 <br/>
 Mode sombre, modification des icônes sur le bureau, modification du papier peint en arrière-plan.
-
-<br/>
-Activation de l’image à utiliser dans une machine virtuelle Gen2.
 
 ## <a name="2021-05-12"></a>2021-05-12
 

@@ -1,18 +1,21 @@
 ---
 title: Transformation d’aplatissement dans le flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Dénormalisez des données hiérarchiques à l’aide de la transformation d’aplatissement.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e632260e8af6e4bac9fac9ec43f25bf636b98b4d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81413673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641412"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformation d’aplatissement dans le flux de données de mappage
 
@@ -39,6 +42,28 @@ Par défaut, la transformation d’aplatissement déroule un tableau au sommet d
 Comme pour la transformation de sélection, choisissez la projection de la nouvelle structure à partir des champs entrants et du tableau dénormalisé. Si un tableau dénormalisé est mappé, la colonne de sortie a le même type de données que le tableau. Si le tableau « Dérouler par » est un tableau d’objets complexes qui contient des sous-tableaux, le mappage d’un élément de ce sous-tableau génère un tableau.
 
 Pour vérifier votre sortie de mappage, reportez-vous à l’onglet Inspection et à la vue d’ensemble des données.
+
+## <a name="rule-based-mapping"></a>Mappage basé sur des règles
+
+La transformation d’aplatissement prend en charge le mappage basé sur des règles, ce qui vous permet de créer des transformations dynamiques et flexibles qui aplatiront les tableaux en fonction des règles, et aplatiront les structures en fonction des niveaux de la hiérarchie.
+
+![Modèle d’aplatissement](media/data-flow/flatten-pattern.png "Modèles d’aplatissement")
+
+### <a name="matching-condition"></a>Condition de correspondance
+
+Entrez une condition de correspondance de modèle pour la ou les colonnes que vous souhaitez aplatir en fonction de correspondances exactes ou de modèles. Exemple : ```like(name,'cust%')```
+
+### <a name="deep-column-traversal"></a>Parcours de colonne en profondeur
+
+Paramètre facultatif qui indique à ADF de gérer toutes les sous-colonnes d’un objet complexe individuellement au lieu de gérer l’objet complexe comme une colonne entière.
+
+### <a name="hierarchy-level"></a>Niveau de hiérarchie
+
+Choisissez le niveau de la hiérarchie que vous souhaitez développer.
+
+### <a name="name-matches-regex"></a>Correspondances de nom (regex)
+
+Si vous le souhaitez, choisissez d’exprimer votre correspondance de nom sous forme d’expression régulière dans cette zone, au lieu d’utiliser la condition de correspondance ci-dessus.
 
 ## <a name="examples"></a>Exemples
 

@@ -4,12 +4,12 @@ description: Découvrez comment gérer des erreurs dans l’extension Fonctions 
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 7a2a95a25bc42de9f4c93200d4fdd1e5d558549a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8ffa633479189ad8391d4c03c59113dc957d77e6
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377430"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667132"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
@@ -218,7 +218,7 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
 
 L'appel de fonction de l'activité de l'exemple précédent utilise un paramètre pour configurer une stratégie de nouvelles tentatives automatiques. Il existe plusieurs options de personnalisation de la stratégie de nouvelle tentative automatique :
 
-* **Nombre maximal de tentatives** : Nombre maximal de nouvelles tentatives.
+* **Nombre maximal de tentatives**: le nombre maximal de tentatives. Si la valeur est 1, aucune nouvelle tentative ne se produit.
 * **Intervalle avant première nouvelle tentative** : Temps d’attente avant la première nouvelle tentative.
 * **Coefficient d’interruption** : Coefficient permettant de déterminer le taux d’augmentation de l’interruption. La valeur par défaut est de 1.
 * **Intervalle maximal entre deux nouvelles tentatives** : Durée maximale de l’attente entre deux nouvelles tentatives.

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 2233e6f40c1023f1b02543f4e234b00422f6f77f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0b1cf7d0dbf7456d01f6530355e6943c8ead54db
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077191"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525470"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connecter des appareils Azure IoT Edge à une application Azure IoT Central
 
@@ -48,6 +48,9 @@ Un appareil IoT Edge peut fonctionner en tant que passerelle fournissant une con
 Il existe deux modèles de passerelle :
 
 * Dans le modèle de *passerelle transparente* , le module IOT Edge Hub se comporte comme une solution IoT Central et gère les connexions à partir d’appareils inscrits dans celle-ci. Les messages passent des appareils en aval à IoT Central comme s’il n’y avait pas de passerelle entre eux.
+
+    > [!NOTE]
+    > IoT Central ne prend actuellement pas en charge la connexion d’un appareil IoT Edge en tant qu’appareil en aval à une passerelle transparente IoT Edge. Cela est dû au fait que tous les appareils qui se connectent à IoT Central sont provisionnés à l’aide du service Device Provisioning Service (DPS), lequel ne prend pas en charge les scénarios IoT Edge imbriqués.
 
 * Dans le modèle de *passerelle de traduction*, les appareils qui ne peuvent pas se connecter à IoT Central par eux-mêmes se connectent à un module IoT Edge personnalisé à la place. Le module dans l’appareil IoT Edge traite les messages entrants d’appareils en aval, puis les transfère à IoT Central.
 
@@ -281,6 +284,10 @@ Vous pouvez également installer le runtime IoT Edge dans les environnements sui
 Si vous avez sélectionné un appareil IoT Edge comme appareil de passerelle, vous pouvez ajouter des relations en aval aux modèles d’appareil pour les appareils que vous souhaitez connecter à l’appareil de passerelle.
 
 Pour en savoir plus, consultez [Guide pratique pour connecter des appareils via une passerelle transparente IoT Edge](how-to-connect-iot-edge-transparent-gateway.md).
+
+## <a name="monitor-your-iot-edge-devices"></a>Superviser vos appareils IoT Edge
+
+Pour savoir comment superviser à distance votre flotte IoT Edge à l’aide d’Azure Monitor et de l’intégration de métriques prédéfinies, consultez [Collecter et transporter des métriques](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

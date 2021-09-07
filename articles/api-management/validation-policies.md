@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 07/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 26f1f9449a4e02f25e44e55d578f0194615b0be5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801891"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437070"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Stratégies Gestion des API pour valider les demandes et les réponses
 
@@ -40,8 +40,8 @@ Actions disponibles :
 | Action         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | ignore | Ignorer la validation. |
-| empêcher | Bloque le traitement de la demande ou de la réponse, journalise l’erreur de validation détaillée et retourne une erreur. Le traitement est interrompu lorsque le premier ensemble d’erreurs est détecté. |
-| détecter | Consignez les erreurs de validation, sans interrompre le traitement de la demande ou de la réponse. |
+| empêcher | Bloque le traitement de la demande ou de la réponse, journalise l’[erreur de validation](#validation-errors) détaillée et retourne une erreur. Le traitement est interrompu lorsque le premier ensemble d’erreurs est détecté. 
+| détecter | Journalise les [erreurs de validation](#validation-errors), sans interrompre le traitement de la demande ou de la réponse. |
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -97,7 +97,7 @@ Dans l’exemple suivant, la charge utile JSON dans les demandes et les réponse
 | unspecified-content-type-action | [Action](#actions) à effectuer pour les demandes ou les réponses avec un type de contenu qui n’est pas spécifié dans le schéma API. |  Oui     | N/A   |
 | max-size | Longueur maximale, en octets, du corps de la demande ou de la réponse, vérifiée par rapport à l'en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko).  | Oui       | N/A   |
 | size-exceeded-action | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps dépasse la taille spécifiée dans `max-size`. |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Oui    | N/A   |
+| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
 | type | Type de contenu pour lequel exécuter la validation du corps, vérifié par rapport à l’en-tête `Content-Type`. La valeur ne respecte pas la casse. S’il est vide, il s’applique à chaque type de contenu spécifié dans le schéma API. |   Non    |  N/A  |
 | validate-as | Moteur de validation à utiliser pour la validation du corps d’une demande ou d’une réponse avec un type de contenu correspondant. Actuellement, la seule valeur possible est « json ».   |  Oui     |  N/A  |
 | action | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps ne correspond pas au type de contenu spécifié.  |  Oui      | N/A   |
@@ -165,7 +165,7 @@ Dans cet exemple, tous les paramètres de requête et de chemin d’accès sont 
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-parameter-action | [Action](#actions) à effectuer pour les paramètres de demande spécifiés dans le schéma API. <br/><br/> Lorsqu’il est fourni dans un élément `headers`, `query` ou `path`, la valeur se substitue à la valeur de `specified-parameter-action` dans l’élément `validate-parameters`.  |  Oui     | N/A   |
 | unspecified-parameter-action | [Action](#actions) à effectuer pour les paramètres de demande non spécifiés dans le schéma API. <br/><br/>Lorsqu’il est fourni dans un élément `headers` ou `query`, la valeur se substitue à la valeur de `unspecified-parameter-action` dans l’élément `validate-parameters`. |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Oui    | N/A   |
+| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
 | name | Nom du paramètre pour lequel remplacer l’action de validation. La valeur ne respecte pas la casse.  | Oui | N/A |
 | action | [Action](#actions) à effectuer pour le paramètre avec le nom correspondant. Si le paramètre est spécifié dans le schéma API, cette valeur remplace la configuration `specified-parameter-action` de niveau supérieur. Si le paramètre n’est pas spécifié dans le schéma API, cette valeur remplace la configuration `unspecified-parameter-action` de niveau supérieur.| Oui | N/A | 
 
@@ -210,7 +210,7 @@ La stratégie `validate-headers` valide les en-têtes de réponse par rapport au
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-header-action | [Action](#actions) à effectuer pour les en-têtes de réponse spécifiés dans le schéma API.  |  Oui     | N/A   |
 | unspecified-header-action | [Action](#actions) à effectuer pour les en-têtes de réponse non spécifiés dans le schéma API.  |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Oui    | N/A   |
+| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
 | name | Nom de l’en-tête pour lequel remplacer l’action de validation. La valeur ne respecte pas la casse. | Oui | N/A |
 | action | [Action](#actions) à effectuer pour l’en-tête portant le nom correspondant. Si l’en-tête est spécifié dans le schéma API, cette valeur remplace la valeur de `specified-header-action` dans l’élément `validate-headers`. Sinon, elle remplace la valeur de `unspecified-header-action` dans l’élément validate-headers. | Oui | N/A | 
 
@@ -252,7 +252,7 @@ La stratégie `validate-status-code` valide les codes d’état HTTP dans les r�
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-status-code-action | [Action](#actions) à effectuer pour les codes d’état HTTP dans les réponses qui ne sont pas spécifiés dans le schéma API.  |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Oui    | N/A   |
+| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
 | code | Code d’état HTTP pour lequel remplacer l’action de validation. | Oui | N/A |
 | action | [Action](#actions) à effectuer pour le code d’état correspondant, qui n’est pas spécifié dans le schéma API. Si le code d’état est spécifié dans le schéma API, ce remplacement n’entre pas en vigueur. | Oui | N/A | 
 
@@ -271,7 +271,10 @@ Le tableau suivant répertorie toutes les erreurs possibles des stratégies de v
 * **Détails** : peut être utilisé pour examiner les erreurs. Non destiné à être partagé publiquement.
 * **Réponse publique** : erreur retournée au client. Ne divulgue pas les détails de l’implémentation.
 
-| **Nom**                             | **Type**                                                        | **Règle de validation** | **Détails**                                                                                                                                       | **Réponse publique**                                                                                                                       | **Action**           |
+Quand une stratégie de validation spécifie l’action `prevent` et génère une erreur, la réponse de la gestion des API comprend un code d’état HTTP : 400 lorsque la stratégie est appliquée dans la section entrante, et 502 lorsque la stratégie est appliquée dans la section sortante.
+
+
+| **Nom**   | **Type**                                                        | **Règle de validation** | **Détails**                                                                                                                                       | **Réponse publique**                                                                                                                       | **Action**           |
 |----|----|---|---|---|----|
 | **validate-content** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | |RequestBody                                                     | SizeLimit           | Le corps de la demande a une longueur de {size} octets, ce qui dépasse la limite configurée de {maxSize} octets.                                                       | Le corps de la demande a une longueur de {size} octets, ce qui dépasse la limite de {maxSize} octets.                                                          | détecter/empêcher |
@@ -285,7 +288,7 @@ Le tableau suivant répertorie toutes les erreurs possibles des stratégies de v
 | {messageContentType}                 | ResponseBody                                                    | IncorrectMessage    | Le corps de la réponse n’est pas conforme à la définition {definitionName}, qui est associée au type de contenu {messageContentType}.<br/><br/>{valError.Message} Ligne : {valError.LineNumber}, Position : {valError.LinePosition}                                       | Impossible de traiter la demande en raison d’une erreur interne. Contactez le propriétaire de l’API.                                                       | détecter/empêcher |
 |                                      | RequestBody                                                     | ValidationException | Impossible de valider le corps de la demande pour le type de contenu {messageContentType}.<br/><br/>{détails de l’exception}                                                                | Impossible de traiter la demande en raison d’une erreur interne. Contactez le propriétaire de l’API.                                                       | détecter/empêcher |
 |                                      | ResponseBody                                                    | ValidationException | Impossible de valider le corps de la réponse pour le type de contenu {messageContentType}.<br/><br/>{détails de l’exception}                                                                | Impossible de traiter la demande en raison d’une erreur interne. Contactez le propriétaire de l’API.                                                       | détecter/empêcher |
-| **validate-parameter/validate-headers** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
+| **validate-parameters / validate-headers** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | {paramName} / {headerName}           | QueryParameter / PathParameter / RequestHeader                  | Non spécifié         | Le {paramètre de chemin d’accès/paramètre de requête/en-tête} {paramName} non spécifié n’est pas autorisé.                                                               | Le {paramètre de chemin d’accès/paramètre de requête/en-tête} {paramName} non spécifié n’est pas autorisé.                                                       | détecter/empêcher |
 | {headerName}                         | ResponseHeader                                                  | Non spécifié         | L’en-tête non spécifié {headerName} n’est pas autorisé.                                                                                                   | Impossible de traiter la demande en raison d’une erreur interne. Contactez le propriétaire de l’API.                                                       | détecter/empêcher |
 |                                      |ApiSchema                                                       |                     | Le schéma API n’existe pas ou n’a pas pu être résolu.                                                                                            | Impossible de traiter la demande en raison d’une erreur interne. Contactez le propriétaire de l’API.                                                       | détecter/empêcher |

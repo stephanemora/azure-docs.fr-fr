@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/12/2021
-ms.openlocfilehash: 28d2cc40d1272fdf29b6df3f08469418ecbc36da
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 642ec1908298c331777776f886e005e715a727f2
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559391"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730637"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Créer des réseaux virtuels pour les clusters Azure HDInsight
 
@@ -34,9 +34,9 @@ Les autres conditions préalables pour les exemples de cet article sont les suiv
 
 Les exemples de cette section montrent comment créer des règles de groupe de sécurité réseau. Les règles autorisent HDInsight à communiquer avec les services de gestion Azure. Avant d’utiliser les exemples, ajustez les adresses IP pour qu’elles correspondent à celles de la région Azure que vous utilisez. Vous pouvez trouver ces informations dans les [adresses IP de gestion HDInsight](hdinsight-management-ip-addresses.md).
 
-### <a name="azure-resource-management-template"></a>Modèle de gestion des ressources Azure
+### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
-Le modèle de gestion des ressources suivant crée un réseau virtuel qui restreint le trafic entrant, mais autorise le trafic en provenance des adresses IP requises par HDInsight. Ce modèle crée également un cluster HDInsight dans le réseau virtuel.
+Le modèle Resource Manager suivant crée un réseau virtuel qui restreint le trafic entrant, mais autorise le trafic en provenance des adresses IP exigées par HDInsight. Ce modèle crée également un cluster HDInsight dans le réseau virtuel.
 
 * [Déployer un réseau virtuel Azure sécurisé et un cluster Hadoop HDInsight](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 

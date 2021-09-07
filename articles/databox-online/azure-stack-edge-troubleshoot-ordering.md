@@ -6,26 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 99d68cc9a801a73680f32c6f4baa46cebff3b4eb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 46a7d0ed41b8f10874c19c8d70ddc5d8c5d7f197
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460409"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608284"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Résoudre vos problèmes de commandes liés à Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article décrit comment résoudre des problèmes de commandes liés à Azure Stack Edge.
-
-Dans ce tutoriel, vous allez apprendre à :
-
-> [!div class="checklist"]
->
-> * Résoudre les problèmes de commandes
 
 ## <a name="unsupported-subscription-or-region"></a>Abonnement ou région non pris en charge
 
@@ -43,7 +37,12 @@ Il est possible que Microsoft autorise la mise à niveau d’un type d’abonnem
 
 **Erreur :** Vous avez un abonnement au service Broker External Activator, au fournisseur de solutions Cloud ou sponsorisé et vous recevez l’erreur suivante :
 
-*Le type d’abonnement sélectionné n’est pas pris en charge. Veillez à utiliser un abonnement pris en charge. [En savoir plus](azure-stack-edge-deploy-prep.md#prerequisites) Si vous utilisez un type d’abonnement pris en charge, assurez-vous que le fournisseur `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)* .
+* Le type d’abonnement sélectionné n’est pas pris en charge. Veillez à utiliser un abonnement pris en charge. [Plus d’informations](azure-stack-edge-deploy-prep.md#prerequisites) Si vous utilisez un type d’abonnement pris en charge, assurez-vous que :
+ 
+- Le fournisseur `Microsoft.DataBoxEdge` est inscrit, au moment du passage de commandes sur le portail Classic.
+- Le fournisseur `Microsoft.EdgeOrder` est inscrit, au moment du passage de commandes sur Azure Edge Hardware Center (préversion).
+ 
+Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
 
 **Solution suggérée :** Pour inscrire votre fournisseur de ressources Azure Stack Edge, procédez comme suit :
 
@@ -59,11 +58,13 @@ Si vous ne disposez pas d’un accès propriétaire ou contributeur pour inscrir
 
 Pour plus d’informations, consultez [Inscrire les fournisseurs de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft.DataBoxEdge non inscrit pour l’abonnement
+## <a name="resource-provider-not-registered-for-subscription"></a>Le fournisseur de ressources n’est pas inscrit pour cet abonnement
 
-**Erreur :** Dans Portail Azure, vous sélectionnez un abonnement à utiliser pour Azure Stack Edge ou Data Box Gateway et vous recevez l’erreur suivante :
+**Erreur :** Dans le portail Azure, vous sélectionnez un abonnement à utiliser pour Azure Stack Edge ou Data Box Gateway et vous recevez l’erreur suivante :
 
 *Fournisseur(s) de ressources : Microsoft.DataBoxEdge n’est pas inscrit pour l’abonnement &lt;nom d’abonnement&gt; et vous ne disposez pas des autorisations pour inscrire un fournisseur de ressources pour l’abonnement &lt;nom d’abonnement&gt;* .
+
+*Fournisseur(s) de ressources : Microsoft.EdgeOrder n’est pas inscrit pour l’abonnement &lt;nom d’abonnement&gt; et vous ne disposez pas des autorisations pour inscrire un fournisseur de ressources pour l’abonnement &lt;nom d’abonnement&gt;* .
 
 **Solution suggérée :** Élevez votre accès à l’abonnement ou trouvez une personne disposant d’un accès propriétaire ou contributeur pour inscrire le fournisseur de ressources.
 
@@ -73,8 +74,8 @@ Pour plus d’informations, consultez [Inscrire les fournisseurs de ressources](
 
 La *ressource &lt;nom de ressource&gt; a été rejetée par la stratégie. (Code : RequestDisallowedByPolicy). Initiative : Refusez les types de ressources généralement indésirables. Stratégie : Types de ressources non autorisés.*
 
-**Solution suggérée :** Cette erreur se produit en raison d’une stratégie Azure existante qui bloque la création de ressources. Les stratégies Azure sont définies par l’administrateur système d’une organisation pour garantir la conformité lors de l’utilisation ou de la création de ressources Azure. Si une telle stratégie bloque la création de ressources Azure Stack Edge, contactez votre administrateur système pour modifier votre stratégie Azure.
+**Solution suggérée :** Cette erreur est provoquée par une attribution Azure Policy existante qui bloque la création des ressources. Les définitions et attributions Azure Policy sont définies par l’administrateur système d’une organisation afin de garantir la conformité lors de l’utilisation ou de la création de ressources Azure. Si une attribution Azure Policy bloque la création de ressources Azure Stack Edge, contactez votre administrateur système pour modifier votre définition Azure Policy.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [Résoudre vos problèmes liés à Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Découvrez comment [Résoudre vos problèmes liés à Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md).

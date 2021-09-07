@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: ca91e7298486cc92ae8a4444869f0b71c91ae2ab
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: be1ffdecb727426f914a74970a720f4f19e51824
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034226"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534938"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Questions fréquentes sur Azure Front Door Standard/Premium (préversion)
 
@@ -63,9 +63,12 @@ Azure Front Door prend en charge HTTP, HTTPS et HTTP/2.
 
 La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant uniquement à Azure Front Door. La communication vers les back-ends dans le pool de back-ends s’effectue sur HTTP/1.1. La prise en charge d’HTTP/2 est activée par défaut.
 
-### <a name="what-resources-are-supported-today-as-part-of-origin-group"></a>Quelles sont les ressources actuellement prises en charge dans le groupe d’origine ?
+### <a name="what-resources-are-supported-today-as-part-of-an-origin-group"></a>Quelles sont les ressources actuellement prises en charge dans un groupe d’origine ?
 
-Le groupe d’origine est composé d’instances de Kubernetes, de Stockage, de Web App ou tout autre nom d’hôte personnalisé qui dispose d’une connectivité publique. Azure Front Door exige que les origines soient définies par le biais d’une adresse IP publique ou d’un nom d’hôte DNS pouvant être résolu publiquement. Les membres des groupes d’origine peuvent être dans différentes zones ou régions, ou même en dehors d’Azure tant qu’ils disposent d’une connectivité IP.
+Les groupes d’origine peuvent être composés de deux types d’origines :
+
+- Les origines publiques incluent les comptes de stockage, les applications App Service, les instances Kubernetes ou tout autre nom d’hôte personnalisé disposant d’une connectivité publique. Ces origines doivent être définies à l’aide d’une adresse IP publique ou d’un nom d’hôte DNS pouvant être résolu publiquement. Les membres des groupes d’origine peuvent être déployés dans des zones de disponibilité, des régions ou même en dehors d’Azure tant qu’ils disposent d’une connectivité IP. Les origines publiques sont prises en charge pour les niveaux Front Door Standard et Premium.
+- Les [origines Private Link](concept-private-link.md) sont disponibles quand vous utilisez Azure Front Door (Premium).
 
 ### <a name="what-regions-is-the-service-available-in"></a>Dans quelles régions le service est-il disponible ?
 
@@ -141,7 +144,7 @@ Oui, Azure Front Door prend en charge les en-têtes X-Forwarded-For, X-Forwarded
 La plupart des mises à jour de la configuration du moteur de règles prennent moins de 20 minutes. Vous pouvez vous attendre à ce que la règle prenne effet dès que la mise à jour est terminée. 
 
  > [!Note]  
-  > Le déploiement global de la plupart des mises à jour de certificats TLS/SSL personnalisés prend généralement environ 30 minutes.
+  > Le déploiement global de la plupart des mises à jour de certificats TLS/SSL personnalisés prend généralement de quelques minutes à une heure.
 
 Toutes les mises à jour des routes ou des pools de back-ends étant fluides, elles n’entraînent aucun temps d’arrêt (si la nouvelle configuration est correcte). Les mises à jour de certificat ne provoquent aucune interruption, sauf si vous passez d’« Azure Front Door Géré » à « Utiliser votre propre certificat » ou l’inverse.
 
@@ -150,7 +153,9 @@ Toutes les mises à jour des routes ou des pools de back-ends étant fluides, el
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front Door peut-il équilibrer la charge ou router le trafic au sein d’un réseau virtuel ?
 
-Azure Front Door (AFD) nécessite une adresse IP publique ou un nom DNS pouvant être résolu publiquement pour router le trafic. Azure Front Door ne peut pas router directement vers les ressources d’un réseau virtuel. Vous pouvez utiliser Application Gateway ou Azure Load Balancer avec une adresse IP publique pour résoudre ce problème.
+Azure Front Door (Standard) nécessite une adresse IP publique ou un nom DNS pouvant être résolu publiquement pour router le trafic. Azure Front Door ne peut pas router directement vers les ressources d’un réseau virtuel. Vous pouvez utiliser Application Gateway ou Azure Load Balancer avec une adresse IP publique pour résoudre ce problème.
+
+Azure Front Door (Premium) prend en charge le routage du trafic vers les [origines Private Link](concept-private-link.md).
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quels sont les différents délais d’attente et limites applicables à Azure Front Door ?
 

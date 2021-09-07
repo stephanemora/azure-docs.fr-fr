@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: a91053f9a21aebf1a99c35a3a982fd3ad5514d04
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ef78f1dd6089201744de19900738ebcc6e5f70db
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475652"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468669"
 ---
 # <a name="authentication-failed"></a>Échec de l'authentification.
 
@@ -29,7 +29,7 @@ Lors de la configuration et de l’exécution de l’application Azure Digital T
 
 Cette erreur peut se produire si votre compte Azure ne dispose pas des autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) requises définies sur votre instance Azure Digital Twins. Pour accéder aux données de votre instance, vous devez avoir le rôle **Lecteur des données Azure Digital Twins** ou **Propriétaire des données Azure Digital Twins** sur l’instance que vous essayez de lire ou de gérer, respectivement. 
 
-Pour plus d’informations sur la sécurité et les rôles dans Azure Digital Twins, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md).
+Pour plus d’informations sur la sécurité et les rôles dans Azure Digital Twins, consultez [Sécurité pour les solutions Azure Digital Twins](concepts-security.md).
 
 ## <a name="solutions"></a>Solutions
 
@@ -63,7 +63,7 @@ Pour plus d’informations sur cette exigence de rôle et le processus d’attri
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lisez les étapes de configuration relatives à la création et à l’authentification d’une nouvelle instance Azure Digital Twins :
-* [Guide pratique : Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md) .
+* [Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md)
 
 En savoir plus sur la sécurité et les autorisations sur Azure Digital Twins :
-* [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md)
+* [Sécurité pour les solutions Azure Digital Twins](concepts-security.md)

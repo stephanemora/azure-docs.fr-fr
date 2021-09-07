@@ -1,6 +1,6 @@
 ---
 title: Présentation des modèles d’appareils dans Azure IoT Central | Microsoft Docs
-description: Les modèles d’appareils Azure IoT Central vous permettent de spécifier le comportement des appareils connectés à votre application. Un modèle d’appareil spécifie les données de télémétrie, les propriétés et les commandes que l’appareil doit implémenter. Un modèle d’appareil définit également l’interface utilisateur pour l’appareil dans IoT Central tels que les formulaires et les tableaux de bord utilisés par un opérateur.
+description: Les modèles d’appareils Azure IoT Central vous permettent de spécifier le comportement des appareils connectés à votre application. Un modèle d’appareil spécifie les données de télémétrie, les propriétés et les commandes que l’appareil doit implémenter. Un modèle d’appareil définit également l’interface utilisateur pour l’appareil dans IoT Central, comme les formulaires et les affichages utilisés par un opérateur.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/19/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: ab209cd3fb598c0c9ad4df359578d956aca7077b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b2122dc50b265c31c1c21c2758e343ec88384a8b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088729"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474053"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 
@@ -24,9 +24,9 @@ Un générateur de solutions ajoute des modèles d’appareils à une applicatio
 Un modèle d’appareil comprend les sections suivantes :
 
 - _Un modèle d’appareil_. Cette partie du modèle d’appareil définit la manière dont l’appareil interagit avec votre application. Un développeur d’appareils implémente les comportements définis dans le modèle.
-    - _Composant par défaut_. Chaque modèle d’appareil possède un composant par défaut. L’interface du composant par défaut décrit les fonctionnalités spécifiques au modèle d’appareil.
-    - _Composants_. En plus du composant par défaut, un modèle d’appareil peut inclure des composants pour décrire les fonctionnalités de l’appareil. Chaque composant inclut une interface qui décrit ses fonctionnalités. Les interfaces de composant peuvent être réutilisées dans d’autres modèles d’appareils. Par exemple, plusieurs modèles d’appareils téléphoniques peuvent utiliser la même interface d’appareil photo.
-    - _Interfaces héritées_. Un modèle d’appareil contient une ou plusieurs interfaces qui étendent les fonctionnalités du composant par défaut.
+    - _Composant racine_. Chaque modèle d’appareil possède un composant racine. L’interface du composant racine décrit les capacités spécifiques au modèle d’appareil.
+    - _Composants_. En plus du composant racine, un modèle d’appareil peut inclure des composants pour décrire les capacités de l’appareil. Chaque composant inclut une interface qui décrit ses fonctionnalités. Les interfaces de composant peuvent être réutilisées dans d’autres modèles d’appareils. Par exemple, plusieurs modèles d’appareils téléphoniques peuvent utiliser la même interface d’appareil photo.
+    - _Interfaces héritées_. Un modèle d’appareil contient une ou plusieurs interfaces qui étendent les capacités du composant racine.
 - _Propriétés Cloud_. Cette partie du modèle d’appareil permet au développeur de solutions de spécifier toutes les métadonnées de l’appareil à stocker. Les propriétés Cloud ne sont jamais synchronisées avec les appareils et n’existent que dans l’application. Les propriétés Cloud n’affectent pas le code écrit par un développeur d’appareils pour implémenter le modèle d’appareil.
 - _Personnalisations_. Cette partie du modèle d’appareil permet au développeur de solutions de remplacer certaines définitions dans le modèle d’appareil. Des personnalisations sont utiles si le développeur de solutions souhaite affiner la façon dont l’application gère une valeur, par exemple, en modifiant le nom d’affichage d’une propriété ou de la couleur utilisée pour afficher une valeur de télémétrie. Les personnalisations n’affectent pas le code qu’un développeur d’appareils a écrit pour implémenter le modèle d’appareil.
 - _Affichages_. Cette partie du modèle d’appareil permet au développeur de solutions de définir des visualisations pour afficher les données de l’appareil, ainsi que des formulaires pour gérer et contrôler un appareil. Les affichages utilisent le modèle d’appareil, les propriétés Cloud et les personnalisations. Les affichages n’affectent pas le code qu’un développeur d’appareils a écrit pour implémenter le modèle d’appareil.
@@ -39,7 +39,7 @@ Pour en savoir plus sur la modification d’un modèle d’appareil, consultez [
 
 Un développeur de solutions peut également exporter un fichier JSON contenant le modèle d’appareil. Un développeur d’appareils peut utiliser ce document JSON pour comprendre comment l’appareil doit communiquer avec l’application IoT Central.
 
-Le fichier JSON qui définit le modèle d’appareil utilise le [langage DTDL (Digital Twin Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central s’attend à ce que le fichier JSON contienne le modèle d’appareil avec les interfaces définies incluses plutôt que dans des fichiers distincts. Pour en savoir plus, consultez [Guide de modélisation d’IoT Plug-and-Play](../../iot-pnp/concepts-modeling-guide.md).
+Le fichier JSON qui définit le modèle d’appareil utilise le [langage DTDL (Digital Twin Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central s’attend à ce que le fichier JSON contienne le modèle d’appareil avec les interfaces définies incluses plutôt que dans des fichiers distincts. Pour en savoir plus, consultez [Guide de modélisation d’IoT Plug-and-Play](../../iot-develop/concepts-modeling-guide.md).
 
 Un appareil IoT classique est constitué des éléments suivants :
 
@@ -48,7 +48,7 @@ Un appareil IoT classique est constitué des éléments suivants :
 
 Ces éléments sont appelés _interfaces_ dans un modèle d’appareil. Les interfaces définissent les détails de chaque partie implémentée par votre appareil. Les interfaces sont réutilisables entre les modèles d’appareils. Dans DTDL, un composant fait référence à une autre interface, qui peut être définie dans un fichier DTDL distinct ou dans une section distincte du fichier.
 
-L’exemple suivant montre le plan du modèle d’appareil pour un [contrôleur de température](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). Le composant par défaut comprend des définitions pour `workingSet`, `serialNumber` et `reboot`. Le modèle d’appareil comprend également deux composants `thermostat` et un composant `deviceInformation`. Le contenu des trois composants a été supprimé par souci de concision :
+L’exemple suivant montre le plan du modèle d’appareil pour un [contrôleur de température](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). Le composant racine comprend des définitions pour `workingSet`, `serialNumber` et `reboot`. Le modèle d’appareil comprend également deux composants `thermostat` et un composant `deviceInformation`. Le contenu des trois composants a été supprimé par souci de concision :
 
 ```json
 [
@@ -295,7 +295,7 @@ Pour les propriétés accessibles en écriture, l’application d’appareil ret
 
 ## <a name="telemetry"></a>Télémétrie
 
-IoT Central vous permet d’afficher une télémétrie sur des tableaux de bord et des graphiques, ainsi que d’utiliser des règles pour déclencher des actions lorsque certains seuils sont atteints. IoT Central utilise les informations du modèle d’appareil, telles que les types de données, les unités et les noms d’affichage, pour déterminer la manière d’afficher les valeurs de télémétrie.
+IoT Central vous permet d’afficher la télémétrie dans des affichages et des graphiques d’appareil, ainsi que d’utiliser des règles pour déclencher des actions quand certains seuils sont atteints. IoT Central utilise les informations du modèle d’appareil, telles que les types de données, les unités et les noms d’affichage, pour déterminer la manière d’afficher les valeurs de télémétrie. Vous pouvez également afficher des valeurs de télémétrie sur des tableaux de bord d’application et des tableaux de bord personnels.
 
 La fonctionnalité d’exportation de données d’IoT Central permet de diffuser en continu la télémétrie vers d’autres destinations, telles que le stockage ou Event Hubs.
 
@@ -318,7 +318,7 @@ Les commandes hors connexion représentent des notifications unidirectionnelles 
 
 Les propriétés Cloud font partie du modèle d’appareil, mais pas du modèle d’appareil. Les propriétés Cloud permettent au développeur de solutions de spécifier les métadonnées d’appareil à stocker dans l’application IoT Central. Les propriétés Cloud n’affectent pas le code écrit par un développeur d’appareils pour implémenter le modèle d’appareil.
 
-Un développeur de solutions peut ajouter des propriétés Cloud à des tableaux de bord et des affichages, en même temps que des propriétés de l’appareil pour permettre à un opérateur de gérer les appareils connectés à l’application. Un développeur de solutions peut également utiliser des propriétés Cloud dans le cadre d’une définition de règle pour rendre une valeur de seuil modifiable par un opérateur.
+Un développeur de solutions peut ajouter des propriétés du cloud à des affichages et des formulaires d’appareil, en même temps que des propriétés de l’appareil pour permettre à un opérateur de gérer les appareils connectés à l’application. Un développeur de solutions peut également utiliser des propriétés Cloud dans le cadre d’une définition de règle pour rendre une valeur de seuil modifiable par un opérateur.
 
 ## <a name="customizations"></a>Personnalisations
 

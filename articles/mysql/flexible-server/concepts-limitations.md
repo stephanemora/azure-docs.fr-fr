@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 659f62cb8e42a4e2aba2e51dfcfee9826a614923
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034518"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588325"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitations dans Azure Database pour MySQL – Serveur flexible (préversion)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
 Cet article décrit les limitations existant dans le service Serveur flexible Azure Database pour MySQL. Les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) du moteur de base de données MySQL sont également applicables. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l’article sur [le calcul et le stockage](concepts-compute-storage.md).
@@ -59,7 +61,7 @@ Les éléments suivants ne sont pas pris en charge :
 - `SELECT ... INTO OUTFILE`: Pas de prise en charge dans le service.
 
 ### <a name="supported"></a>Prise en charge
-- `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB).
+- `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB). En outre, si vous utilisez une version du client MySQL >= 8.0, vous devez inclure le paramètre `-–local-infile=1` dans votre chaîne de connexion.
 
 ## <a name="functional-limitations"></a>Limitations fonctionnelles
 

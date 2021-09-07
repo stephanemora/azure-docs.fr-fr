@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6868739d5b2350d5ac29e12f48278348ee7204a8
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027966"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437443"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tâches d’administrateur de compte dans le portail Azure
 
@@ -25,6 +25,11 @@ Cet article explique comment effectuer les tâches suivantes dans le portail Azu
 - Ajouter des crédits à votre abonnement Azure dans Open
 
 Vous devez être l’administrateur de compte pour effectuer l’une de ces tâches.
+
+## <a name="accounts-portal-is-retiring"></a>Mise hors service du portail Comptes
+
+Le portail Comptes sera mis hors service et les clients seront redirigés vers le portail Azure d’ici le 31 décembre 2021. Les fonctionnalités prises en charge dans le portail Comptes seront migrées vers le portail Azure. Cet article explique comment effectuer certaines des opérations les plus courantes dans le portail Azure.
+
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Accéder aux modes de paiement de votre abonnement
 

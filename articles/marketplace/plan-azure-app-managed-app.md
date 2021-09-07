@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: a34bdfe55d2200176d6f6c7fde389c19dc26cfa5
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/13/2021
+ms.openlocfilehash: 082b943aef3f82898b80d23d33a90d3f5ec3ebc6
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536477"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535413"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planifier une application managée Azure pour une offre d’application Azure
 
@@ -32,7 +32,7 @@ Utiliser une application Azure : Plan d’application managée lorsque les cond
 | ------------ | ------------- |
 | Abonnement Azure | Les applications gérées doivent être déployées dans l’abonnement d’un client, mais elles peuvent être gérées par un tiers. |
 | Facturation et mesure | Les ressources sont fournies dans l’abonnement Azure d’un client. Les machines virtuelles qui utilisent le modèle de paiement à l’utilisation font l’objet de transactions avec le client par le biais de Microsoft et sont facturées dans le cadre de l’abonnement Azure du client. <br><br> Pour les machines virtuelles BYOL (apportez votre propre licence), Microsoft facture tous les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuez la transaction de vos frais de licence logicielle directement avec le client. |
-| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations, consultez les pages suivantes :<br> • [Créer une ressource technique de machine virtuelle Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (pour les disques durs virtuels Windows).<br> • [Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux). |
+| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations, consultez les pages suivantes :<br> * [Créer une ressource technique de machine virtuelle Azure](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (pour les disques durs virtuels Windows).<br> *  [Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux). |
 | Attribution de l’utilisation client | Toutes les nouvelles offres d’applications Azure doivent également inclure un GUID d’[attribution de l’utilisation de client partenaire Azure](azure-partner-customer-usage-attribution.md). Pour plus d’informations sur l’attribution de l’utilisation de client et sur son activation, consultez [Attribution de l’utilisation de client partenaire Azure](azure-partner-customer-usage-attribution.md). |
 | Package de déploiement | Vous aurez besoin d’un package de déploiement qui permettra aux clients de déployer votre plan. Si vous créez plusieurs plans nécessitant la même configuration technique, vous pouvez utiliser le même package. Pour plus d’informations, consultez la section suivante : Package de déploiement. |
 |||
@@ -40,13 +40,35 @@ Utiliser une application Azure : Plan d’application managée lorsque les cond
 > [!NOTE]
 > Les applications managées doivent pouvoir être déployées via Place de marché. Si la communication client est un problème, contactez les clients intéressés une fois que vous avez activé le partage des prospects.
 
+## <a name="usage-of-azure-kubernetes-service-aks-and-containers-in-managed-application"></a>Utilisation d’Azure Kubernetes Service (AKS) et de conteneurs dans une application managée
+
+### <a name="azure-application-offers-fall-into-two-categories"></a>Les offres d’applications Azure se répartissent en deux catégories
+
+- Modèle de solution : non accessible par l’éditeur
+- Application managée : accessible par l’éditeur par le biais d’une autorisation prédéfinie accordée par le client au moment du déploiement
+
+**Modèles de solution :** Les offres de modèle de solution ne peuvent pas être changées par l’éditeur après le déploiement par le client. Ainsi, les conteneurs et les ressources AKS (Azure Kubernetes Service) ne sont pas autorisés dans cette catégorie d’offres.
+
+**Applications managées :** Les offres d’application managée permettent à l’éditeur d’accéder aux ressources créées pendant le déploiement dans l’abonnement du client et de les contrôler. Ainsi, les conteneurs et les ressources AKS (Azure Kubernetes Service) *<u>sont provisoirement autorisés</u>* dans cette catégorie d’offres.
+
+### <a name="rules-and-known-issues-for-aks-and-containers-in-managed-applications"></a>Règles et problèmes connus pour AKS et les conteneurs dans les applications managées
+
+- Le groupe de ressources du nœud AKS n’hérite pas des affectations de refus dans le cadre de l’application managée Azure. Cela signifie que le client a un accès complet au groupe de ressources du nœud AKS créé par la ressource AKS quand il est inclus dans l’application managée tandis que le groupe de ressources managé a les affectations de refus appropriées.
+ 
+- L’éditeur peut inclure des graphiques Helm et d’autres scripts dans le cadre de l’application managée Azure. Toutefois, l’offre étant traitée comme un déploiement d’application managée standard, il n’y a pas de traitement automatique propre au conteneur ou d’installation de graphiques Helm au moment du déploiement. Il incombe à l’éditeur d’exécuter les scripts appropriés, soit au moment du déploiement, en utilisant les techniques habituelles, telles que l’extension de script personnalisé de machine virtuelle ou les scripts de déploiement Azure, soit après le déploiement.
+ 
+- Comme dans le cas de l’application managée Azure standard, il incombe à l’éditeur de s’assurer que la solution se déploie correctement et que tous les composants sont correctement configurés, sécurisés et opérationnels. Par exemple, les éditeurs peuvent utiliser leur propre registre de conteneurs comme source des images, mais sont entièrement responsables de la sécurité des conteneurs et de l’analyse continue des vulnérabilités.
+
+> [!NOTE]
+> La prise en charge des conteneurs et d’AKS dans l’offre Application managée Azure peut être retirée quand un type d’offre d’application de conteneur officiel est disponible sur la Place de marché. À ce moment-là, il peut être nécessaire de publier toutes les futures offres en utilisant le nouveau type d’offre, et les offres existantes devront peut-être être migrées vers le nouveau type d’offre et mises hors service.
+
 ## <a name="deployment-package"></a>Package de déploiement
 
 Le package de déploiement regroupe tous les fichiers de modèle requis pour ce plan, ainsi que toutes les ressources supplémentaires, empaquetés dans un fichier .zip.
 
 Toutes les applications Azure doivent inclure les deux fichiers suivants dans le dossier racine d’une archive .zip :
 
-- Un fichier de modèle Resource Manager nommé [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
+- Un fichier de modèle Resource Manager nommé [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/resources/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
 - Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
 
 Tailles maximales de fichiers prises en charge :

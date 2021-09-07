@@ -2,13 +2,13 @@
 title: Vue d’ensemble de la sauvegarde des disques Azure
 description: Découvrez la solution de sauvegarde des disques Azure.
 ms.topic: conceptual
-ms.date: 04/09/2021
-ms.openlocfilehash: 42f37c1f500be719e0bd79bad41226ab3ab2d911
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 05/27/2021
+ms.openlocfilehash: f1c27241e0b61cc4ae491f7bf4a4281d24cd09b6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285137"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562353"
 ---
 # <a name="overview-of-azure-disk-backup"></a>Vue d’ensemble de la sauvegarde de disques Azure
 
@@ -48,13 +48,13 @@ Envisagez la sauvegarde des disques Azure dans les scénarios suivants :
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Fonctionnement du processus de sauvegarde et de restauration
 
-- La première étape de la configuration de la sauvegarde des disques managés Azure consiste à créer un [coffre de sauvegarde](backup-vault-overview.md). Ce coffre vous offre une vue consolidée des sauvegardes configurées sur différentes charges de travail.
+- La première étape de la configuration de la sauvegarde de disques managés Azure consiste à créer un [coffre de sauvegarde](backup-vault-overview.md). Ce coffre vous offre une vue consolidée des sauvegardes configurées sur différentes charges de travail. La sauvegarde de disque Azure prend en charge uniquement la sauvegarde de niveau opérationnel. La copie des sauvegardes dans le niveau de stockage coffre n’est pas prise en charge. Le paramètre de redondance de stockage du coffre de sauvegarde (LRS/GRS) ne s’applique donc pas aux sauvegardes stockées dans le niveau opérationnel.
 
 - Ensuite, créez une stratégie de sauvegarde vous permettant de configurer la fréquence de sauvegarde et la durée de rétention.
 
 - Pour configurer la sauvegarde, accédez au coffre de sauvegarde, affectez une stratégie de sauvegarde, sélectionnez le disque managé à sauvegarder et fournissez un groupe de ressources dans lequel les instantanés seront stockés et gérés. La sauvegarde Azure déclenche automatiquement les tâches de sauvegarde planifiées qui créent un instantané incrémentiel du disque en fonction de la fréquence de sauvegarde. Les instantanés plus anciens sont supprimés en fonction de la durée de conservation spécifiée par la stratégie de sauvegarde.
 
-- La sauvegarde Azure utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) du disque managé. Les instantanés incrémentiels sont une sauvegarde ponctuelle économique des disques managés qui sont facturés pour les modifications d’ordre différentiel apportées au disque depuis le dernier instantané. Ils sont toujours stockés dans le stockage le plus économique, le stockage de disque dur standard, quel que soit le type de stockage des disques parents. Le premier instantané du disque occupe la taille utilisée du disque et les instantanés incrémentiels suivants stockent les modifications d’ordre différentiel apportées au disque depuis le dernier instantané.
+- La sauvegarde Azure utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) du disque managé. Les instantanés incrémentiels sont une sauvegarde ponctuelle économique des disques managés qui sont facturés pour les modifications d’ordre différentiel apportées au disque depuis le dernier instantané. Ils sont toujours stockés dans le stockage le plus économique, le stockage de disque dur standard, quel que soit le type de stockage des disques parents. Le premier instantané du disque occupe la taille utilisée du disque et les instantanés incrémentiels suivants stockent les modifications d’ordre différentiel apportées au disque depuis le dernier instantané. La Sauvegarde Azure attribue automatiquement une étiquette aux instantanés qu’elle crée pour les identifier de manière unique. 
 
 - Une fois que vous avez configuré la sauvegarde d’un disque managé, une instance de sauvegarde est créée dans le coffre de sauvegarde. Avec cette instance de sauvegarde, vous pouvez trouver l’intégrité des opérations de sauvegarde, déclencher des sauvegardes à la demande et effectuer des opérations de restauration. Vous pouvez également consulter l’intégrité des sauvegardes dans plusieurs coffres et instances de sauvegarde à l’aide du Centre de sauvegarde, qui fournit une seule et unique vue.
 
@@ -66,7 +66,19 @@ Envisagez la sauvegarde des disques Azure dans les scénarios suivants :
 
 ## <a name="pricing"></a>Tarifs
 
-La sauvegarde Azure offre une solution de gestion du cycle de vie des instantanés pour la protection des disques Azure. Les instantanés de disque créés par la sauvegarde Azure sont stockés dans le groupe de ressources de votre abonnement Azure et occasionnent des frais de **stockage d’instantanés**. Vous pouvez consulter [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) pour plus d’informations sur les tarifs des instantanés.<br></br>Comme les instantanés ne sont pas copiés dans le coffre de sauvegarde, la sauvegarde Azure ne facture aucuns frais d’**instance protégée** et le coût de **stockage de sauvegarde** ne s’applique pas. De plus, les instantanés incrémentiels occupent les modifications d’ordre différentiel comme le dernier instantané et sont toujours stockés dans le stockage standard, quel que soit le type de stockage des disques managés parents, et sont facturés selon la tarification du stockage standard. C’est pourquoi la sauvegarde des disques Azure une solution économique.
+La sauvegarde Azure utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md) du disque managé. Les instantanés incrémentiels sont facturés par Gio du stockage occupé par les modifications delta depuis le dernier instantané. Par exemple, si vous utilisez un disque managé avec une taille provisionnée de 128 Gio avec 100 Gio utilisés, le premier instantané incrémentiel est facturé uniquement pour la taille utilisée de 100 Gio. 20 Gio de données sont ajoutés sur le disque avant la création du deuxième instantané. À présent, le deuxième instantané incrémentiel est facturé pour 20 Gio seulement. 
+
+Les instantanés incrémentiels sont toujours stockés sur le stockage Standard quel que soit le type de stockage des disques managés parents et sont facturés en fonction du prix du stockage Standard. Par exemple, les instantanés incrémentiels d’un disque managé SSD Premium sont stockés sur le stockage Standard. Par défaut, ils sont stockés sur un stockage ZRS dans des régions où ce dernier est pris en charge. Sinon, ils sont stockés sur un stockage localement redondant (LRS). Le prix par Gio des options LRS et ZRS est identique. 
+
+Les instantanés créés par la Sauvegarde Azure sont stockés dans le groupe de ressources de votre abonnement Azure et occasionnent des frais de stockage d’instantanés. Pour plus d’informations sur le prix des instantanés, consultez [Tarification Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). Comme les instantanés ne sont pas copiés dans le coffre de sauvegarde, la sauvegarde Azure ne facture aucuns frais d’instance protégée et le coût de stockage de sauvegarde ne s’applique pas. 
+
+Au cours d’une opération de sauvegarde, le service Sauvegarde Azure crée un compte de stockage dans le groupe de ressources d’instantané où sont stockés les instantanés. Les instantanés incrémentiels du disque managé constituent des ressources ARM créées sur le groupe de ressources et non dans un compte de stockage. 
+
+Le compte de stockage est utilisé pour stocker les métadonnées de chaque point de récupération. Le service Sauvegarde Azure crée un conteneur d’objets blob par instance de sauvegarde sur disque. Un objet blob de blocs est créé pour chaque point de récupération afin de stocker les informations de métadonnées le décrivant (par exemple l’abonnement, l’ID du disque, ses attributs, etc.). Ces informations occupent un petit espace (quelques Kio). 
+
+Le compte de stockage est créé avec l’option RA-GZRS si la région prend en charge la redondance de zone et avec l’option RA-GRS si ce n’est pas le cas. Si votre stratégie existante arrête la création d’un compte de stockage sur l’abonnement ou le groupe de ressources avec redondance GRS, le compte de stockage est créé avec l’option LRS. Le compte de stockage créé est un compte v2 universel, les objets blob de blocs étant stockés sur le niveau chaud dans le conteneur d’objets blob. Vous êtes facturé pour le compte de stockage en fonction de sa redondance. Ces frais correspondent à la taille des objets blob de blocs. Toutefois, il s’agit d’un montant minime, car ils stockent uniquement les métadonnées, qui ne représentent que quelques Kio par point de récupération. 
+
+Le nombre de points de récupération est déterminé par la stratégie de sauvegarde utilisée pour configurer les sauvegardes des instances de sauvegarde sur disque. Les objets blob de blocs plus anciens sont supprimés selon le processus de garbage collection, à mesure que les points de récupération les plus anciens correspondants sont élagués.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

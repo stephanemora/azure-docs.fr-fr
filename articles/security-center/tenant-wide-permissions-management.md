@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 99e7e09ac1b73dfb24cea14fe1b407f491e4ade5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102617486"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236892"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Accorder et demander une visibilité à l’échelle du locataire
 
@@ -26,11 +26,11 @@ Pour vous attribuer des autorisations au niveau du locataire :
 
 1. En tant qu’utilisateur Administrateur général sans affectation au groupe d’administration racine du locataire, ouvrez la page **Vue d’ensemble** de Security Center, puis sélectionnez le lien **Visibilité à l’échelle du locataire** dans la bannière. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Activer des autorisations au niveau du locataire dans Azure Security Center":::
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Activer des autorisations au niveau du locataire dans Azure Security Center.":::
 
 1. Sélectionnez le nouveau rôle Azure à attribuer. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Formulaire de définition des autorisations au niveau du locataire à attribuer à votre utilisateur":::
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Formulaire de définition des autorisations au niveau du locataire à attribuer à votre utilisateur.":::
 
     > [!TIP]
     > En règle générale, le rôle Administrateur de sécurité est nécessaire pour appliquer des stratégies au niveau racine, tandis que Lecteur de Sécurité est suffisant pour fournir une visibilité au niveau locataire. Pour plus d’informations sur les autorisations accordées par ces rôles, consultez la [description du rôle intégré Administrateur de sécurité](../role-based-access-control/built-in-roles.md#security-admin) ou la [description du rôle intégré de Lecteur Sécurité](../role-based-access-control/built-in-roles.md#security-reader).
@@ -71,13 +71,13 @@ Pour demander des autorisations à privilège élevé à votre administrateur g�
 
 1. Dans le formulaire détaillé de la demande, sélectionnez le rôle souhaité et la raison pour laquelle vous avez besoin de ces autorisations.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Page de détails pour la demande d’autorisations à l’échelle du locataire auprès de votre administrateur général Azure":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Page de détails pour la demande d’autorisations à l’échelle du locataire auprès de votre administrateur général Azure.":::
 
 1. Sélectionnez **Demander l’accès**.
 
     Un e-mail est envoyé à l’administrateur général. L’e-mail contient un lien vers Security Center où il peut approuver ou rejeter la demande.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="E-mail envoyé à l’administrateur général pour de nouvelles autorisations":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="E-mail envoyé à l’administrateur général pour de nouvelles autorisations.":::
 
     Une fois que l’administrateur général a sélectionné **Examiner la demande** et a terminé le processus, la décision est envoyée par e-mail à l’utilisateur qui effectue la demande. 
 

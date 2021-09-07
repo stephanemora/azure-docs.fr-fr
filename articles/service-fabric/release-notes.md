@@ -5,12 +5,12 @@ ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 0e5b4d17b0c0ccaa4c839338e0656c0a8eda3bd5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 11615d48bb1331e068c685a507670f0add883344
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078021"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562110"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -22,6 +22,24 @@ Les ressources suivantes sont également disponibles :
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Options de support</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versions prises en charge</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Exemples de code</a>
+
+
+## <a name="service-fabric-81"></a>Service Fabric 8.1
+
+Nous avons le plaisir d’annoncer que la version 8.1 du runtime Service Fabric a commencé à être déployée dans les différentes régions Azure, avec des mises à jour des outils et des kits SDK. Les mises à jour des Kits de développement logiciel (SDK) .NET et Java et du runtime Service Fabric sont disponibles via Web Platform Installer, les packages NuGet et les référentiels Maven.
+
+### <a name="key-announcements"></a>Principales annonces
+- Ajout de la prise en charge du réplica auxiliaire
+- **Préversion** Ajout de la prise en charge pour les applications Service Fabric .NET 6.0
+- Ajout de la prise en charge d’API pour la mise à jour des descriptions d’application
+- Ajout d’une commande ping périodique entre Reconfiguration Agent (RA) et Reconfiguration Agent Proxy (RAP) pour détecter les défaillances IPC et traiter les blocages
+- Ajout de la prise en charge des sondes liveness et readiness pour les applications non conteneurisées
+- Mise à niveau des clusters pour les mises à jour de capacité de nœud désormais sans impact
+
+### <a name="service-fabric-81-releases"></a>Versions de Service Fabric 8.1
+| Date de publication | Libérer | En savoir plus |
+|---|---|---|
+| 28 juillet 2021 | [Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-release/ba-p/2594194)  | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81.md)|
 
 
 ## <a name="service-fabric-80"></a>Service Fabric 8.0
@@ -46,11 +64,13 @@ Nous avons le plaisir d’annoncer que la version 8.0 du runtime Service Fabri
 - Correction de StateManager de façon à publier la référence dès que la publication est sans risque
 - Bloquer la suppression du service de secrets central lors du stockage des secrets d’utilisateur
 
-
 ### <a name="service-fabric-80-releases"></a>Mises en production de Service Fabric 8.0
 | Date de publication | Libérer | En savoir plus |
 |---|---|---|
 | 08 avril 2021 | [Azure Service Fabric 8.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-release/ba-p/2260016)  | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80.md)|
+| 17 mai 2021 | [Azure Service Fabric 8.0 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-first-refresh-release/ba-p/2362556) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU1.md) |
+| 17 juin 2021 | [Azure Service Fabric 8.0 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-second-refresh-release/ba-p/2462979) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU2.md) |
+| 28 juillet 2021 | [Azure Service Fabric 8.0 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-third-refresh-release/ba-p/2594180) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU3.md) |
 
 
 ## <a name="previous-versions"></a>Versions précédentes

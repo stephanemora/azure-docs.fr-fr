@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: a9e87796c3557f21bb6192c7d7d0c0925d08d786
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e465a4d349a6e381aac6aa7f77e9a7d70c84d724
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311751"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433685"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -57,7 +57,7 @@ Le tableau suivant compare les deux techniques de manière plus détaillée :
 |  **Temps d’exécution** | Nécessite relativement peu de temps pour apprendre, de quelques secondes à quelques heures. | Nécessite généralement un temps d’entraînement assez long, car un algorithme de deep learning implique de nombreuses couches. |
 |  **Sortie** | La sortie est généralement une valeur numérique, telle qu’une note ou une classification. | La sortie peut avoir plusieurs formats, comme un texte, un score ou un son. |
 
-## <a name="what-is-transfer-learning"></a>Qu’est-ce que l’apprentissage de transfert
+## <a name="what-is-transfer-learning"></a>Qu’est-ce que l’apprentissage de transfert ?
 
 La formation de modèles Deep Learning nécessite souvent de grandes quantités de données de formation, des ressources de calcul haut de gamme (GPU, TPU) et un temps de formation plus long. Dans les cas où vous ne disposez pas de ces ressources, vous pouvez raccourcir le processus d’entraînement à l’aide d’une technique appelée *apprentissage de transfert*.
 
@@ -133,7 +133,7 @@ Les transformateurs constituent une architecture de modèle adaptée à la réso
 
 Les transformateurs sont utilisés pour résoudre les problèmes de traitement du langage naturel tels que la traduction, la génération de texte, la réponse aux questions et le résumé de texte.
 
-Exemples d'implémentations connues des transformateurs :
+Exemples d’implémentations connues des transformateurs :
 
 - BERT (Bidirectional Encoder Representations from Transformers)
 - GPT-2 (Generative Pre-trained Transformer 2)

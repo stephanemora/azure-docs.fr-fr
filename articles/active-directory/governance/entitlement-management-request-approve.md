@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd47a623700c495a571bc4ca6b949d1a2229178a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f44390d042f12336c6556d05c4fe1332e822e068
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469158"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963759"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -49,7 +49,7 @@ Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les demandes d’ac
 
 1. Dans l’onglet **En attente**, recherchez la demande.
 
-## <a name="view-requestors-answers-to-questions-preview"></a>Afficher les réponses du demandeur aux questions (préversion)
+## <a name="view-requestors-answers-to-questions"></a>Afficher les réponses du demandeur aux questions
 
 1. Accédez à l’onglet **Approbations** dans Mon accès.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 08/11/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 471cf0ae11910b74f6aabd8fd858ed6f6dd2f31c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6eb911bb58413e6551224d98371cf56ecbd8e01f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524650"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurer un passe d’accès temporaire dans Azure AD pour inscrire des méthodes d’authentification sans mot de passe (préversion)
 
@@ -118,6 +118,7 @@ L’utilisation la plus courante d’un passe d’accès temporaire consiste pou
 >Pour des domaines fédérés, un passe d’accès temporaire est préférable à une fédération. Un utilisateur disposant d’un passe d’accès temporaire s’authentifie dans Azure AD et n’est pas redirigé vers le fournisseur d’identité (IdP) fédéré.
 
 L’utilisateur est maintenant connecté et peut mettre à jour ou inscrire une méthode telle que la clé de sécurité FIDO2. Les utilisateurs qui mettent à jour leurs méthodes d’authentification en raison de la perte de leurs informations d’identification ou de leur appareil doivent veiller à supprimer les anciennes méthodes d’authentification.
+Les utilisateurs peuvent également continuer à se connecter à l’aide de leur mot de passe. Un passe d’accès temporaire ne remplace pas le mot de passe d’un utilisateur.
 
 Les utilisateurs peuvent également se servir de leur passe d’accès temporaire afin de s’inscrire pour une connexion par téléphone sans mot de passe directement à partir de l’application Microsoft Authenticator. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire dans l’application Microsoft Authenticator](../user-help/user-help-auth-app-add-work-school-account.md).
 
@@ -154,7 +155,7 @@ Gardez ces limites à l’esprit :
 - Des utilisateurs invités ne peuvent pas se connecter avec un passe d’accès temporaire.
 - Le passe d’accès temporaire est en préversion publique et n’est actuellement pas disponible dans Azure pour le gouvernement des États-Unis.
 - Les utilisateurs concernés par la stratégie d’inscription Réinitialisation du mot de passe en libre-service (SSPR) *ou* par la [stratégie d’inscription de l’authentification multifacteur Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)seront tenus d’inscrire des méthodes d’authentification après s’être connectés avec un passe d’accès temporaire. Les utilisateurs concernés par ces stratégies seront redirigés vers le [mode d’interruption de l’inscription combinée](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Cette expérience ne prend actuellement pas en charge l’inscription de FIDO2 et de la connexion par téléphone. 
-- Un passe d’accès temporaire ne peut pas être utilisé avec l’extension Network Policy Server (NPS) et l’adaptateur Services de fédération Active Directory (AD FS) ou pendant l’expérience OOBE (Setup/Out-of-Box-Experience) Windows et Autopilot. 
+- Il est impossible d’utiliser un passe d’accès temporaire avec l’extension NPS (Network Policy Server) et l’adaptateur des services de fédération Active Directory (AD FS), durant l’installation/expérience OOBE (out-of-box experience) de Windows, avec Autopilot, ou pour déployer Windows Hello Entreprise. 
 - Lorsque l’authentification unique fluide est activée sur le locataire, les utilisateurs sont invités à entrer un mot de passe. Le lien **Utiliser plutôt un passe d’accès temporaire** sera disponible pour que l’utilisateur se connecte avec un passe d’accès temporaire.
 
   ![Capture d’écran de l’utilisation d’un passe d’accès temporaire à la place](./media/how-to-authentication-temporary-access-pass/alternative.png)
@@ -167,6 +168,7 @@ Gardez ces limites à l’esprit :
 - Si le message « **La connexion par passe d’accès temporaire a été bloquée en raison de la stratégie relative aux informations d’identification de l’utilisateur.**  » apparaît lors de la connexion à l’aide d’un passe d’accès temporaire, vérifiez les points suivants :
   - L’utilisateur dispose d’un passe d’accès temporaire à usages multiples, tandis que la stratégie de méthode d’authentification requiert un passe d’accès temporaire à usage unique.
   - Un passe d’accès temporaire à usage unique a déjà été utilisé.
+- Si la connexion par passe d’accès temporaire a été bloquée en raison de la stratégie des informations d’identification de l’utilisateur, vérifiez que l’utilisateur fait partie de l’étendue de la stratégie du passe d’accès temporaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

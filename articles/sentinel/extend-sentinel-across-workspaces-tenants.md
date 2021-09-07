@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: f491681c8054c800e15c3c77516ff22e3c70dbac
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 917bcf74adaaec4e354662ec25816bcad471025d
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001499"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991907"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -96,10 +96,13 @@ Vous pouvez ensuite écrire une requête sur les deux espaces de travail en comm
 
 #### <a name="cross-workspace-analytics-rules"></a>Règles d’analytique applicables à plusieurs espaces de travail<a name="scheduled-alerts"></a>
 <!-- Bookmark added for backward compatibility with old heading -->
-Des requêtes sur plusieurs espaces de travail peuvent désormais être incluses dans des règles d’analytique planifiée, sous réserve des limitations suivantes :
+Des requêtes portant sur plusieurs espaces de travail peuvent désormais être incluses dans des règles analytiques planifiées. Vous pouvez utiliser des règles analytiques portant sur plusieurs espaces de travail dans un SOC central et entre les locataires (à l’aide d’Azure Lighthouse) comme dans le cas d’un MSSP, selon les restrictions suivantes :
 
-- Jusqu’à 20 espaces de travail peuvent être inclus dans une même requête.
-- Azure Sentinel doit être déployé sur chaque espace de travail référencé dans la requête.
+- **Jusqu’à 20 espaces de travail** peuvent être inclus dans une même requête.
+- Azure Sentinel doit être **déployé sur chaque espace de travail** référencé dans la requête.
+- Les alertes générées par une règle analytique portant sur plusieurs espaces de travail et les incidents créés à partir de celles-ci existent **uniquement dans l’espace de travail où la règle a été définie**. Ils ne seront pas affichés dans les autres espaces de travail référencés dans la requête.
+
+Les alertes et les incidents créés par des règles analytiques portant sur plusieurs espaces de travail contiendront toutes les entités associées, dont celles de tous les espaces de travail référencés ainsi que l’espace de travail « d’origine » (où la règle a été définie). Cela permettra aux analystes d’avoir une vue d’ensemble des alertes et des incidents.
 
 > [!NOTE] 
 > Interroger plusieurs espaces de travail dans la même requête peut nuire au niveau de performance ; par conséquent, cette méthode est recommandée uniquement lorsque la logique requiert cette fonctionnalité.

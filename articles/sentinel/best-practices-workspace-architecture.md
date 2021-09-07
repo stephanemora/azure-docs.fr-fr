@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 7a477122e9a0642233a5bac7a1884818f216d2f3
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 085b9a187ce574c5138867f7a2ce929218717c37
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534772"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253804"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Meilleures pratiques pour l’architecture de l’espace de travail Azure Sentinel
 
@@ -25,6 +25,9 @@ Lorsque vous planifiez le déploiement de votre espace de travail Azure Sentine
 - Conséquences sur le coût pour différents scénarios
 
 Pour plus d’informations, consultez [Concevoir votre architecture d’espace de travail Azure Sentinel](design-your-workspace-architecture.md) et [Exemples de conceptions d’espace de travail](sample-workspace-designs.md) pour connaître les scénarios courants et [Activités de prédéploiement et prérequis pour le déploiement d’Azure Sentinel](prerequisites.md).
+
+Consultez notre vidéo : [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
 
 ## <a name="tenancy-considerations"></a>Considérations relatives à la location
 
@@ -44,7 +47,7 @@ Tous les connecteurs basés sur les paramètres de diagnostic ne peuvent pas êt
 Utilisez [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) pour gérer plusieurs instances Azure Sentinel dans divers locataires.
 
 > [!NOTE]
-> Les [connecteurs de données partenaires](partner-data-connectors.md) sont généralement basés sur des regroupements d’API ou d’agent, et ne sont donc pas attachés à un locataire Azure AD spécifique.
+> Les [connecteurs de données partenaires](data-connectors-reference.md) sont souvent basés sur des regroupements d’API ou d’agent, et ne sont donc pas attachés à un locataire Azure AD spécifique.
 >
 
 

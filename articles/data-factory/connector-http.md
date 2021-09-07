@@ -1,19 +1,22 @@
 ---
-title: Copier des données d’une source HTTP à l’aide d’Azure Data Factory
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’une source HTTP dans le cloud ou locale vers des banques de données réceptrices prises en charge.
+title: Copier des données à partir d’une source HTTP
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment utiliser l’activité de copie (Copy) dans un pipeline Azure Data Factory ou Azure Synapse Analytics pour copier des données d’une source HTTP cloud ou locale vers des magasins de données récepteurs pris en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen
-ms.openlocfilehash: c04bf94b26535ec7791bfd0c2354432aaa6fc98e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1a0e4ad1222f2701251ad62a56b000a9a981c306
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485024"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641384"
 ---
-# <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
+# <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-http-connector.md)
@@ -21,7 +24,7 @@ ms.locfileid: "109485024"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis un point de terminaison HTTP. Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
+Cet article décrit comment utiliser l’activité de copie (Copy) dans Azure Data Factory et Azure Synapse pour copier des données depuis un point de terminaison HTTP. Il s’appuie sur l’article [Activité de copie](copy-activity-overview.md), qui présente une vue d’ensemble de cette activité.
 
 Les différences entre ce connecteur HTTP, le [connecteur REST](connector-rest.md) et le [connecteur Table Web](connector-web-table.md) sont les suivantes :
 
@@ -45,7 +48,7 @@ Vous pouvez utiliser ce connecteur HTTP pour :
 - Copier la réponse HTTP en l’état ou l’analyser en utilisant les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
-> Pour tester une requête HTTP pour la récupération de données avant de configurer le connecteur HTTP dans Data Factory, obtenez des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps. Vous pouvez vous servir d’outils tels que Postman ou un navigateur web pour valider.
+> Pour tester une requête HTTP d’extraction de données avant de configurer le connecteur HTTP, obtenez des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps. Vous pouvez vous servir d’outils tels que Postman ou un navigateur web pour valider.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,7 +58,7 @@ Vous pouvez utiliser ce connecteur HTTP pour :
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory propres au connecteur HTTP.
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisables pour définir les entités propres au connecteur HTTP.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -77,7 +80,7 @@ Définissez la valeur de la propriété **authenticationType** sur **De base**, 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison HTTP. | Oui |
-| mot de passe | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| mot de passe | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 
 **Exemple**
 
@@ -111,7 +114,7 @@ Pour utiliser l’authentification ClientCertificate, définissez la valeur de l
 |:--- |:--- |:--- |
 | embeddedCertData | Données du certificat encodé en Base64. | Spécifiez **embeddedCertData** ou **certThumbprint**. |
 | certThumbprint | Empreinte numérique du certificat installé dans le magasin de certificats de votre ordinateur exécutant le runtime d’intégration auto-hébergé. S’applique uniquement quand le type auto-hébergé du runtime d’intégration est spécifié dans la propriété **connectVia**. | Spécifiez **embeddedCertData** ou **certThumbprint**. |
-| mot de passe | Mot de passe associé au certificat. Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| mot de passe | Mot de passe associé au certificat. Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 
 Si vous utilisez **certThumbprint** pour l’authentification et que le certificat est installé dans le magasin personnel de l’ordinateur local, accordez des autorisations de lecture au runtime d’intégration auto-hébergé :
 
@@ -304,7 +307,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création peut désormais générer ce nouveau modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
@@ -401,4 +404,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs pour l’activité de copie, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

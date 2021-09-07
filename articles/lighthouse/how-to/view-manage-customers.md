@@ -1,14 +1,14 @@
 ---
 title: Voir et gérer les clients et les ressources déléguées sur le portail Azure
 description: En tant que fournisseur de services ou entreprise utilisant Azure Lighthouse, vous pouvez afficher l'ensemble de vos ressources et abonnements délégués en accédant à Mes clients sur le portail Azure.
-ms.date: 03/12/2021
+ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 78344015ee027b9844b6339fa7cd95d348488a54
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a29f34983bc42d74efd65a45605bb99944897345
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419327"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532953"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Voir et gérer les clients et les ressources déléguées sur le portail Azure
 
@@ -41,6 +41,9 @@ Vous pouvez afficher les informations suivantes de cette page :
 - Pour afficher des détails supplémentaires sur une offre et ses délégations, sélectionnez le nom de l’offre.
 - Pour voir plus de détails sur les affectations de rôles pour les abonnements ou groupes de ressources délégués, sélectionnez l’entrée dans la colonne **Délégations**.
 
+> [!NOTE]
+> Si un client renomme un abonnement après qu’il a été délégué, vous voyez le nom de l’abonnement mis à jour. S’il renomme le locataire, vous pouvez toujours voir l’ancien nom du locataire à certains endroits du portail Azure.
+
 ## <a name="view-and-manage-delegations"></a>Afficher et gérer les délégations
 
 Les délégations affichent l'abonnement ou le groupe de ressources délégué, ainsi que les utilisateurs et autorisations qui y ont accès. Pour afficher ces informations, sélectionnez **Délégations** sur le côté gauche de la page **Mes clients**.
@@ -67,15 +70,18 @@ Pour plus d’informations, consultez [Afficher les modifications de délégatio
 
 Vous pouvez travailler directement dans le contexte d’un abonnement délégué au sein du portail Azure, sans changer le répertoire auquel vous êtes connecté. Pour ce faire :
 
-1. Sélectionnez l’icône **Répertoires délégués + actuels** dans la partie supérieure du portail Azure.
-2. Dans le **filtre Abonnement par défaut**, vérifiez que seule la case correspondant à cet abonnement délégué est sélectionnée. Vous pouvez utiliser la zone de liste déroulante **Répertoires délégués + actuels** pour afficher uniquement les abonnements figurant dans un répertoire spécifique (n’utilisez pas l’option **Changer de répertoire**, car cela modifie le répertoire auquel vous êtes connecté).
+1. Sélectionnez l’icône **Annuaire + abonnements** ou **Paramètres** dans la partie supérieure du portail Azure.
+1. Dans la [page des paramètres d’annuaire et d’abonnement](../../azure-portal/set-preferences.md#directories--subscriptions), assurez-vous que le bouton bascule **Filtres avancés** est [désactivé](../../azure-portal/set-preferences.md#subscription-filters).
+1. Dans la section **Filtre d’abonnement par défaut**, sélectionnez l’annuaire et l’abonnement appropriés.
 
-Si vous accédez ensuite à un service qui prend en charge les [expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md), le service est par défaut dans le contexte de l’abonnement délégué que vous avez sélectionné. Vous pouvez modifier cela en suivant les étapes ci-dessus et en activant la case à cocher **Sélectionner tout** (ou en choisissant un ou plusieurs abonnements dans lesquels travailler à la place).
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Capture d’écran d’un filtre montrant un abonnement délégué":::
+
+Si vous accédez ensuite à un service qui prend en charge les [expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md), le service est par défaut dans le contexte de l’abonnement délégué que vous avez inclus dans votre filtre. Vous pouvez modifier cela en suivant les étapes ci-dessus et en activant la case à cocher **Sélectionner tout** (ou en choisissant un ou plusieurs abonnements dans lesquels travailler à la place).
 
 > [!NOTE]
-> Si vous avez obtenu l’accès à un ou plusieurs groupes de ressources, au lieu d’accéder à un abonnement entier, sélectionnez l’abonnement auquel appartient ce groupe de ressources. Vous travaillerez ensuite dans le contexte de cet abonnement, mais ne pourrez accéder qu’aux groupes de ressources désignés.
+> Si vous avez obtenu l’accès à un ou plusieurs groupes de ressources, au lieu d’accéder à un abonnement entier, sélectionnez l’abonnement auquel appartient ce groupe de ressources. Vous travaillerez ensuite dans le contexte de cet abonnement, mais ne pourrez accéder qu’au(x) groupe(s) de ressources désigné(s).
 
-Vous pouvez également accéder à des fonctionnalités associées à des abonnements ou à des groupes de ressources délégués à partir de services qui prennent en charge les expériences de gestion inter-locataire en sélectionnant l’abonnement ou le groupe de ressources au sein de ce service.
+Vous pouvez également accéder à des fonctionnalités associées à des abonnements ou à des groupes de ressources délégués à partir de services qui prennent en charge les expériences de gestion inter-locataire en sélectionnant l’abonnement ou le groupe de ressources au sein d’un service individuel.
 
 ## <a name="cloud-solution-provider-preview"></a>Fournisseur de solutions Cloud (préversion)
 

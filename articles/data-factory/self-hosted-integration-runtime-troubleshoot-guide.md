@@ -1,39 +1,50 @@
 ---
-title: Résoudre les problèmes du runtime d’intégration auto-hébergé dans Azure Data Factory
-description: Découvrez comment résoudre les problèmes liés au runtime d’intégration auto-hébergé dans Azure Data Factory.
+title: Résoudre les problèmes liés au runtime d’intégration auto-hébergé
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment résoudre les problèmes liés au runtime d’intégration auto-hébergé dans les pipelines Azure Data Factory et Azure Synapse Analytics.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 08/24/2021
 ms.author: lle
-ms.openlocfilehash: 7abdd532e20a2514fcf96d97973a8fbfdd87d0df
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b833b8b63415a36fb0ee2862c9dfa261cfeb44ef
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796269"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864208"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article présente des méthodes couramment employées pour résoudre les problèmes liés au runtime d’intégration (IR) auto-hébergé dans Azure Data Factory.
+Cet article présente des méthodes couramment employées pour résoudre les problèmes liés au runtime d’intégration (IR) auto-hébergé dans les espaces de travail Azure Data Factory et Synapse.
 
-## <a name="gather-self-hosted-ir-logs-from-azure-data-factory"></a>Collecter les journaux de l’IR auto-hébergé auprès d’Azure Data Factory
+## <a name="gather-self-hosted-ir-logs"></a>Collecter les journaux d’un IR auto-hébergé
 
-Azure Data Factory prend en charge l’affichage et le chargement des journaux d’erreurs pour les activités ayant échoué qui sont exécutées sur un IR auto-hébergé ou partagé. Pour obtenir l’ID de rapport d’erreurs, suivez les instructions fournies ici, puis entrez l’ID de rapport pour rechercher les problèmes connus associés.
+Le service prend en charge l’affichage et le chargement des journaux d’erreurs pour les activités ayant échoué qui sont exécutées sur un IR auto-hébergé ou partagé. Pour obtenir l’ID de rapport d’erreurs, suivez les instructions fournies ici, puis entrez l’ID de rapport pour rechercher les problèmes connus associés.
 
-1. Dans Data Factory, sélectionnez **Exécutions de pipeline**.
+1. Dans la page Superviser de l’interface utilisateur du service, sélectionnez **Exécutions de pipeline**.
 
 1. Sous **Exécutions de l’activité**, dans la colonne **Erreur**, sélectionnez le bouton en surbrillance pour afficher les journaux d’activité, comme illustré dans la capture d’écran suivante :
 
-    ![Capture d’écran de la section « Exécutions de l’activité » du volet « Toutes les exécutions de pipelines ».](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
-
-    Les journaux d’activité s’affichent pour l’exécution de l’activité qui a échoué.
-
-    ![Capture d’écran des journaux d’activité pour l’activité ayant échoué.](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png) 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
     
-1. Pour obtenir de l’aide, sélectionnez **Envoyer des journaux**.
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Capture d’écran de la section « Exécutions d’activité » du volet « Toutes les exécutions de pipelines ».":::
+    
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Capture d’écran de la section « Exécutions d’activité » du volet « Toutes les exécutions de pipelines ».":::
+    
+    ---
+    
+    Les journaux d’activité s’affichent pour l’exécution de l’activité qui a échoué.
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Capture d’écran des journaux d’activité pour l’activité ayant échoué."::: 
+    
+3. Pour obtenir de l’aide, sélectionnez **Envoyer des journaux**.
  
    La fenêtre **Share the self-hosted integration runtime (IR) logs with Microsoft (Partager les journaux du runtime d’intégration (IR) auto-hébergé avec Microsoft)** s’ouvre.
 
@@ -71,7 +82,7 @@ Vérifiez l’utilisation des ressources et l’exécution simultanée d’activ
 
 #### <a name="symptoms"></a>Symptômes
 
-Lorsque vous essayez d’augmenter la limite de travaux simultanés à partir de l’interface Azure Data Factory, le processus se bloque avec l’état *Mise à jour*.
+Lorsque vous essayez d’augmenter la limite de travaux simultanés à partir de l’interface utilisateur, le processus se bloque à l’état *Mise à jour*.
 
 Exemple de scénario : la valeur maximale de travaux simultanés est actuellement définie sur 24 et vous souhaitez augmenter le nombre afin que les travaux puissent s’exécuter plus rapidement. La valeur minimale que vous pouvez entrer est 3 et la valeur maximale est 32. Vous augmentez la valeur de 24 à 32, puis vous sélectionnez le bouton **Mettre à jour**. Le processus est bloqué avec l’état *Mise à jour*, comme indiqué dans la capture d’écran suivante. Vous actualisez la page et la valeur 24 est toujours affichée. Elle n’a pas été mise à jour sur 32 comme prévu.
 
@@ -307,7 +318,7 @@ Cela est dû au fait que les nœuds Worker n'ont pas accès aux clés privées. 
 
 `[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
 
-Le processus de synchronisation ne pose aucun problème lorsque vous utilisez l'authentification du principal du service dans le service lié ADF. En revanche, lorsque vous changez de type d'authentification pour utiliser une clé de compte, un problème de synchronisation survient. En effet, le service du runtime d'intégration auto-hébergé est exécuté sous un compte de service (NT SERVICE\DIAHostService) et doit être ajouté aux autorisations des clés privées.
+Le processus de synchronisation ne pose aucun problème lorsque vous utilisez l'authentification du principal du service dans le service lié. En revanche, lorsque vous changez de type d'authentification pour utiliser une clé de compte, un problème de synchronisation survient. En effet, le service du runtime d'intégration auto-hébergé est exécuté sous un compte de service (NT SERVICE\DIAHostService) et doit être ajouté aux autorisations des clés privées.
  
 
 #### <a name="resolution"></a>Résolution
@@ -516,9 +527,9 @@ Conversion avant et après :
 ![Capture d’écran du résultat après la conversion du certificat.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 ### <a name="self-hosted-integration-runtime-version-5x"></a>Version 5.x du runtime d’intégration auto-hébergé
-Pour la mise à niveau vers la version 5.x du runtime d’intégration auto-hébergé Azure Data Factory, nous avons besoin du **runtime .NET Framework 4.7.2** ou version ultérieure. Sur la page de téléchargement, vous trouverez des liens de téléchargement pour la dernière version 4.x et les deux dernières versions 5.x. 
+Pour la mise à niveau vers la version 5.x du runtime d’intégration auto-hébergé, vous avez besoin du **runtime .NET Framework 4.7.2** ou version ultérieure. Sur la page de téléchargement, vous trouverez des liens de téléchargement pour la dernière version 4.x et les deux dernières versions 5.x. 
 
-Pour les clients Azure Data Factory v2 :
+Pour les clients Azure Data Factory v2 et Azure Synapse :
 - Si la mise à jour automatique est activée et que vous avez déjà mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure, le runtime d’intégration auto-hébergé sera automatiquement mis à niveau vers la version 5.x la plus récente.
 - Si la mise à jour automatique est activée et que vous n’avez pas mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure, le runtime d’intégration auto-hébergé ne sera pas automatiquement mis à niveau vers la version 5.x la plus récente. Le runtime d’intégration auto-hébergé conservera la version 4.x actuelle. Vous pouvez voir un avertissement pour la mise à niveau du runtime .NET Framework dans le portail et le client du runtime d’intégration auto-hébergé.
 - Si la mise à jour automatique est désactivée et que vous avez déjà mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure, vous pouvez télécharger manuellement la version 5.x la plus récente et l’installer sur votre ordinateur.
@@ -545,7 +556,7 @@ Lorsque vous tentez d’inscrire le runtime d’intégration auto-hébergé, le 
 
 #### <a name="cause"></a>Cause 
 
-L’IR auto-hébergé ne peut pas se connecter au backend du service Azure Data Factory. Ce problème est généralement dû à des paramètres réseau dans le pare-feu.
+L’IR auto-hébergé ne peut pas se connecter au back-end du service. Ce problème est généralement dû à des paramètres réseau dans le pare-feu.
 
 #### <a name="resolution"></a>Résolution
 
@@ -557,10 +568,10 @@ L’IR auto-hébergé ne peut pas se connecter au backend du service Azure Data 
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
-    ```
-        
+    ```      
+
    > [!NOTE]     
-   > L’URL du service peut varier en fonction de l’emplacement de votre instance Data Factory. L’URL du service se trouve sous **UI ADF** > **Connexions** > **Runtimes d’intégration** >  **Modifier l’IR auto-hébergé** > **Nœuds** > **Afficher les URL du service**.
+   > L’URL du service peut varier en fonction de l’emplacement de votre instance Data Factory ou Synapse. Pour trouver l’URL du service, accédez à la page Manage (Gérer) de l’interface utilisateur de votre instance Data Factory ou Azure Synapse et recherchez **Runtimes d’intégration**, puis cliquez sur votre IR auto-hébergé pour le modifier.  Ensuite, sélectionnez l’onglet **Nœuds** et cliquez sur **View Service URLs** (Afficher les URL de service).
             
     Voici la réponse attendue :
             
@@ -646,13 +657,13 @@ Ce comportement se produit lorsque les nœuds ne peuvent pas communiquer entre e
     - Placez tous les nœuds dans le même domaine.
     - Ajoutez l’adresse IP au mappage de l’hôte dans tous les fichiers hôtes de la machine virtuelle hébergée.
 
-### <a name="connectivity-issue-between-the-self-hosted-ir-and-your-data-factory-instance-or-the-self-hosted-ir-and-the-data-source-or-sink"></a>Problème de connectivité entre l’IR auto-hébergé et votre instance Data Factory ou l’IR auto-hébergé et la source de données ou le récepteur
+### <a name="connectivity-issue-between-the-self-hosted-ir-and-your-data-factory-or-azure-synapse-instance-or-the-self-hosted-ir-and-the-data-source-or-sink"></a>Problème de connectivité entre l’IR auto-hébergé et votre instance Data Factory ou Azure Synapse ou entre l’IR auto-hébergé et la source de données ou le récepteur
 
 Pour résoudre le problème de connectivité réseau, vous devez savoir comment collecter la trace réseau, comprendre comment l’utiliser et [analyser la trace Microsoft Network Monitor (Netmon)](#analyze-the-netmon-trace) avant d’appliquer les outils Netmon à de vrais cas à partir de l’IR auto-hébergé.
 
 #### <a name="symptoms"></a>Symptômes
 
-Vous devrez peut-être parfois résoudre certains problèmes de connectivité entre le runtime d’intégration auto-hébergé et votre instance Data Factory, comme indiqué dans la capture d’écran suivante, ou entre l’IR auto-hébergé et la source de données ou le récepteur. 
+Vous devrez peut-être parfois résoudre certains problèmes de connectivité entre le runtime d’intégration auto-hébergé et votre instance Data Factory ou Azure Synapse, comme indiqué dans la capture d’écran suivante, ou entre l’IR auto-hébergé et la source de données ou le récepteur. 
 
 ![Capture d’écran d’un message « Échec de la requête HTTP traitée »](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
@@ -766,7 +777,7 @@ Comment déterminer si vous êtes concerné :
 
 - Vous *n’êtes pas* concerné si vous définissez des règles de pare-feu basées sur des noms de domaine complets qui utilisent l’approche décrite dans le document [Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
-- Vous êtes *concerné* si vous activez explicitement la liste d’autorisation pour les adresses IP sortantes sur votre pare-feu d’entreprise.
+- Vous *êtes* concerné si vous activez explicitement la liste d’autorisation pour les adresses IP sortantes sur votre pare-feu d’entreprise.
 
    Si vous êtes concerné, procédez comme suit : avant le 8 novembre 2020, demandez à votre équipe d’infrastructure réseau de mettre à jour votre configuration réseau pour utiliser les adresses IP Data Factory les plus récentes. Pour télécharger les dernières adresses IP, accédez à [Découvrir les étiquettes de service à l’aide de fichiers JSON téléchargeables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -800,13 +811,13 @@ Comment déterminer si vous êtes concerné :
 
 #### <a name="symptoms"></a>Symptômes
 
-L’IR auto-hébergé ne peut pas se connecter au service Azure Data Factory.
+L’IR auto-hébergé ne peut pas se connecter au service Azure Data Factory ou Azure Synapse.
 
 Lorsque vous vérifiez le journal des événements de l’IR auto-hébergé ou les journaux de notification du client dans la table CustomLogEvent, le message d’erreur suivant est disponible :
 
 « Le serveur a clos la connexion sous-jacente : Impossible d’établir une relation de confiance pour le canal sécurisé SSL/TLS. Le certificat distant n’est pas valide selon la procédure de validation. »
 
-La façon la plus simple de vérifier le certificat de serveur du service Data Factory consiste à ouvrir l’URL du service Data Factory dans votre navigateur. Par exemple, ouvrez le lien [Vérifier le certificat du serveur](https://eu.frontend.clouddatahub.net/) sur l’ordinateur où est installé l’IR auto-hébergé, puis affichez les informations du certificat du serveur.
+La façon la plus simple de vérifier le certificat de serveur du service consiste à ouvrir l’URL du service dans votre navigateur. Par exemple, ouvrez le lien [Vérifier le certificat du serveur](https://eu.frontend.clouddatahub.net/) sur l’ordinateur où est installé l’IR auto-hébergé, puis affichez les informations du certificat du serveur.
 
   ![Capture d’écran du volet Vérifier le certificat de serveur du service Azure Data Factory.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
 
@@ -816,13 +827,13 @@ La façon la plus simple de vérifier le certificat de serveur du service Data F
 
 Il existe deux raisons possibles à ce problème :
 
-- Raison 1 : L’autorité de certification racine du certificat de serveur de service Azure Data Factory n’est pas approuvée sur l’ordinateur sur lequel l’IR auto-hébergé est installé. 
-- Raison 2 : Vous utilisez un proxy dans votre environnement et le certificat de serveur du service Azure Data Factory est remplacé par le proxy, tandis que le certificat de serveur remplacé n’est pas approuvé par l’ordinateur sur lequel l’IR auto-hébergé est installé.
+- Raison 1 : l’autorité de certification racine du certificat de serveur du service n’est pas approuvée sur l’ordinateur sur lequel l’IR auto-hébergé est installé. 
+- Raison 2 : vous utilisez un proxy dans votre environnement et le certificat de serveur du service est remplacé par le proxy, tandis que le certificat de serveur remplacé n’est pas approuvé par l’ordinateur sur lequel l’IR auto-hébergé est installé.
 
 #### <a name="resolution"></a>Résolution
 
-- Pour la raison 1 : assurez-vous que le certificat de serveur Azure Data Factory et sa chaîne de certificats sont approuvés par l’ordinateur sur lequel l’IR auto-hébergé est installé.
-- Pour la raison 2 : approuvez l’autorité de certification racine remplacée sur l’ordinateur de l’IR auto-hébergé ou configurez le proxy pour qu’il ne remplace pas le certificat de serveur Data Factory.
+- Pour la raison 1 : assurez-vous que le certificat de serveur du service et sa chaîne de certificats sont approuvés par l’ordinateur sur lequel l’IR auto-hébergé est installé.
+- Pour la raison 2 : approuvez l’autorité de certification racine remplacée sur l’ordinateur de l’IR auto-hébergé ou configurez le proxy pour qu’il ne remplace pas le certificat de serveur du service.
 
 Pour plus d’informations sur l’approbation des certificats sur Windows, consultez [Installation du certificat racine approuvé](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
@@ -839,7 +850,7 @@ S’il ne se trouve pas dans l’autorité de certification racine de confiance,
 Pour plus d’informations sur la résolution des problèmes, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

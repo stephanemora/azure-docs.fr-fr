@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 1fad1bca18d16ac3b6a654a3c289d0a14e3cd2e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f5b3cc109d3583defce78c3ae52848188fca900
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204790"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284553"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
 Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections suivantes sont remplies.
@@ -46,6 +46,7 @@ Si vous prévoyez d’activer Microsoft 365 sur ExpressRoute, consultez les doc
 * [Planification réseau et optimisation des performances pour Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Planification réseau et planification de la migration pour Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
 * [Intégration de Microsoft 365 à des environnements locaux](/microsoft-365/enterprise/microsoft-365-integration)
+* [Être informé des changements apportés à l’adresse IP d’Office 365](/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
 * [Vidéos de formation avancée à ExpressRoute sur Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>Étapes suivantes

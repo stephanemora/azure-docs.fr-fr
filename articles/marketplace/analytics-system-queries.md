@@ -4,15 +4,16 @@ description: Découvrez les requêtes système que vous pouvez utiliser pour obt
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
-ms.openlocfilehash: f2b5f7eb559e349947f88067a3d2ea53d99b7cbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/06/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.openlocfilehash: 04d56f39cc4721d0290bb258595fb95b6440cf79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583499"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525176"
 ---
 # <a name="list-of-system-queries"></a>Liste des requêtes système
 
@@ -41,11 +42,19 @@ Les sections suivantes fournissent des requêtes de rapport pour différents rap
 
 **Description du rapport**: rapport commandes pour les six derniers mois
 
-**QueryID** :  `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
+**QueryID** : `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
 
 **Requête de rapport** :
 
 `SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId FROM ISVOrder TIMESPAN LAST_6_MONTHS`
+
+**Description du rapport**: rapport OrdersV2 pour les six derniers mois
+
+**QueryID** : `bd1b0cc1-ce45-4578-beba-6fe5a69fd421`
+
+**Requête de rapport** :
+
+`SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId,TermStartDate,TermEndDate,PurchaseRecordId,PurchaseRecordLineItemId,HasTrial,IsTrialDeployment,estimatedcharges FROM ISVOrderV2 TIMESPAN LAST_6_MONTHS`
 
 ## <a name="usage-report-queries"></a>Requêtes de rapport d’utilisation
 

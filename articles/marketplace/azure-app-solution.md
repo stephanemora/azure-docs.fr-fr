@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 22e5bc0aa411fd4561094fc41d5d3e55a5dcdeb8
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: f9ca1bbb2bc8556f972a55720b874b08587b06f1
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542472"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594952"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configurer un plan de modèle de solution
 
@@ -99,7 +99,7 @@ Une fois que vous avez créé un ou plusieurs plans, sous l’onglet **Vue d’e
 Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensemble du plan** varient en fonction de l’état de votre plan et peuvent inclure les éléments suivants :
 
 - Si l’état du plan est **Brouillon**, le lien figurant dans la colonne **Action** indique **Supprimer le brouillon**.
-- Si l’état du plan est **Disponible**, le lien dans la colonne **Action** est **Arrêter la vente du plan** ou **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
+- Si l’état du plan est **Disponible**, le lien dans la colonne **Action** est **Arrêter la distribution** ou **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
 - Pour créer un autre plan pour cette offre, en haut de l’onglet **Vue d’ensemble du plan**, sélectionnez **+ Créer un plan**. Répétez les étapes décrites dans [Comment créer des plans pour votre offre d’application Azure](azure-app-plans.md). Sinon, si vous avez terminé la création de plans, passez à la section suivante : Étapes suivantes.
 
 ## <a name="next-steps"></a>Étapes suivantes

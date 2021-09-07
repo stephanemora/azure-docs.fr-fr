@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: ae041bd8780524d24c360412232ec77ae60aa3c4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5b6a4186fed994057ab6c44930c5ec68ba85ad05
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884711"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607128"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 
@@ -34,7 +34,7 @@ Cette article vous explique comment :
 
 Vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -171,16 +171,8 @@ dataprep_step = PythonScriptStep(
     )
 ```
 
-Vous pouvez choisir de charger le contenu de votre objet `OutputFileDatasetConfig` à la fin d’une exécution. Dans ce cas, utilisez la fonction `as_upload()` en même temps que votre objet `OutputFileDatasetConfig` et indiquez si les fichiers existants doivent être remplacés dans la destination. 
-
-```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
-```
-
 > [!NOTE]
-> Les écritures simultanées dans un `OutputFileDatasetConfig` échouent. N’essayez pas d’utiliser un seul `OutputFileDatasetConfig` simultanément. Ne partagez pas un seul `OutputFileDatasetConfig` dans une situation de multitraitement, par exemple lors de l’utilisation de la formation distribuée. 
+> Les écritures simultanées dans un `OutputFileDatasetConfig` échouent. N’essayez pas d’utiliser un seul `OutputFileDatasetConfig` simultanément. Ne partagez pas un seul `OutputFileDatasetConfig` dans une situation de multitraitement, par exemple lors de l’utilisation de l’[entraînement distribuée](how-to-train-distributed-gpu.md). 
 
 ### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Utiliser `OutputFileDatasetConfig` comme sortie d’une étape d’apprentissage
 

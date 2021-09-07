@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d029c3392ad5b5472173d17db17a113526d4f3a
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 22ad40dadf36b711bde4b7af7e8b24b09610ab89
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811503"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459501"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Utiliser Azure Digital Twins Explorer (préversion)
 
@@ -485,7 +485,7 @@ Voici un exemple d’URL avec les valeurs d’espace réservé remplies :
 
 `https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
 
-Pour que le destinataire puisse voir l’instance dans la fenêtre Azure Digital Twins Explorer résultante, il doit se connecter à son compte Azure et disposer d’un accès **Lecteur de données Azure Digital Twins** à l’instance (vous pouvez en savoir plus sur les rôles Azure Digital Twins dans [Concepts : Sécurité](concepts-security.md)). Pour que le destinataire puisse apporter des modifications au graphe et aux données, il doit avoir le rôle **Propriétaire de données Azure Digital Twins** sur l’instance.
+Pour que le destinataire puisse voir l’instance dans la fenêtre Azure Digital Twins Explorer résultante, il doit se connecter à son compte Azure et disposer d’un accès **Lecteur de données Azure Digital Twins** à l’instance (pour en savoir plus sur les rôles Azure Digital Twins, consultez [Sécurité](concepts-security.md)). Pour que le destinataire puisse apporter des modifications au graphe et aux données, il doit avoir le rôle **Propriétaire de données Azure Digital Twins** sur l’instance.
 
 ### <a name="link-with-a-query"></a>Lien avec une requête
 
@@ -524,5 +524,5 @@ Le fait de cliquer sur l’icône d’engrenage des paramètres dans le coin sup
 ## <a name="next-steps"></a>Étapes suivantes 
 
 En savoir plus sur l’écriture de requêtes pour le graphe des jumeaux Azure Digital Twins : 
-* [Concepts : Langage de requête](concepts-query-language.md)
-* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)
+* [Langage de requête](concepts-query-language.md)
+* [Interroger le graphe de jumeaux](how-to-query-graph.md)

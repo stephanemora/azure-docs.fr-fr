@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: Azure Lighthouse autorise et améliore les expériences interlocataires dans de nombreux services Azure.
-ms.date: 05/11/2021
+ms.date: 07/20/2021
 ms.topic: conceptual
-ms.openlocfilehash: f482c4738fd0bec8f32eaeb540b2d0ef2e0d4b15
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c57afabe5f3aaf49ef1f1868c04c60af4298381d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790430"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440907"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -99,7 +99,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher et d’actualiser des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - [Log Analytics](../../azure-monitor/logs/service-providers.md) : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
-- [Créez, affichez et gérez des alertes de journal d’activité](../../azure-monitor/alerts/alerts-activity-log.md) dans des locataires clients
+- Créer, afficher et gérer des [alertes de métrique](../../azure-monitor/alerts/alerts-metric.md), des [alertes de journal](../../azure-monitor/alerts/alerts-log.md) et des [alertes de journal d’activité](../../azure-monitor/alerts/alerts-activity-log.md) dans des locataires clients
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
 - Créer des [paramètres de diagnostic](../..//azure-monitor/essentials/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

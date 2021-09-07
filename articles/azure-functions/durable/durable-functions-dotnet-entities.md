@@ -3,14 +3,14 @@ title: Guide du développeur pour les entités durables dans .NET - Azure Functi
 description: Guide pratique pour utiliser les entités durables dans .NET avec l’extension Durable Functions pour Azure Functions.
 author: sebastianburckhardt
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 06/30/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6927c0a276ffa58077ce258dc5fa4ce02eb8f43f
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92740014"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108042"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide des entités durables en .NET pour les développeurs
 
@@ -264,10 +264,11 @@ Si seule la clé de l’entité est spécifiée et si aucune implémentation uni
 Comme d’habitude, tous les types de paramètre et de retour doivent être sérialisables au format JSON. Sinon, des exceptions de sérialisation sont levées au moment de l’exécution.
 
 Nous appliquons également certaines règles supplémentaires :
+* Les interfaces d’entité doivent être définies dans le même assembly que la classe d’entité.
 * Les interfaces d’entité doivent uniquement définir des méthodes.
 * Les interfaces d’entités ne doivent pas contenir de paramètres génériques.
 * Les méthodes d’interface d’entité ne doivent pas avoir plus d’un paramètre.
-* Les méthodes d’interface d’entité doivent retourner `void`, `Task` ou `Task<T>` 
+* Les méthodes d’interface d’entité doivent retourner `void`, `Task` ou `Task<T>`.
 
 Si l’une de ces règles est enfreinte, un `InvalidOperationException` est levé au moment de l’exécution quand l’interface est utilisée en tant qu’argument de type pour `SignalEntity` ou `CreateProxy`. Le message d’exception indique la règle qui a été enfreinte.
 

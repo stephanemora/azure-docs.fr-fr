@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1266e10f6d8bf69c6e72a236ecde27623ad1cf12
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: b96a2ad95d126feaa8def5a2cddea4702ff823ff
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281299"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122641208"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Ce tutoriel vous montre comment configurer **Postman** afin de l’utiliser pour appeler l’API REST Azure Media Services (AMS). Le tutoriel montre comment importer des fichiers d’environnement et de collection dans **Postman**. La collection contient des définitions groupées de requêtes HTTP qui appellent les API REST de Azure Media Services (AMS). Le fichier d’environnement contient des variables qui sont utilisées par la collection.
+Ce tutoriel vous montre comment configurer **Postman** afin de l’utiliser pour appeler l’API REST Azure Media Services (AMS). Il s’agit d’un outil d’apprentissage, qui n’est pas recommandé pour les applications de production. Les applications de production doivent utiliser les SDK clients pris en charge, qui contiennent des stratégies intégrées de nouvelle tentative de gestion des ressources Azure.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
+Le tutoriel montre comment importer des fichiers d’environnement et de collection dans **Postman**. La collection contient des définitions groupées de requêtes HTTP qui appellent les API REST de Azure Media Services (AMS). Le fichier d’environnement contient des variables qui sont utilisées par la collection.
 
 Avant de commencer à développer, voir [Développement avec les API Media Services v3](media-services-apis-overview.md).
 

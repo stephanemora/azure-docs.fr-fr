@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89744b63a555cc02d35815b4066ce572b7f77e38
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ccd033ec224762fef984e98971334ec93bff931f
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531886"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231671"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Gérer l’accès externe avec Gestion des droits d’utilisation 
 
@@ -37,7 +37,7 @@ Un [package d’accès](../governance/entitlement-management-overview.md) est la
 
 * applications d’entreprise, y compris vos applications SaaS et internes personnalisées telles que Salesforce.
 
-* Canaux Microsoft Teams.
+* Microsoft Teams.
 
 * Groupes Microsoft 365. 
 

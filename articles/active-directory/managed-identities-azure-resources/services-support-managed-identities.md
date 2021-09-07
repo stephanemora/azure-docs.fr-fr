@@ -4,19 +4,19 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/28/2021
+ms.date: 07/13/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e5bf54426f3aeedbeeaae7ff4a232e46a1ebf3e3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: fad9f2566384e824c72a4914c1fdab598b99a5cf
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064645"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634430"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -35,7 +35,7 @@ Les services Azure prenant en charge les identités managées pour les ressource
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
-| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
+| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service de gestion des API Azure (dans les régions où il est disponible) :
 
@@ -102,8 +102,8 @@ Reportez-vous au document suivant pour reconfigurer une identité managée si vo
 
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
+| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
 
 Reportez-vous aux documents suivants pour utiliser une identité managée avec [Azure Automation](../../automation/automation-intro.md) :
 
@@ -137,15 +137,6 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 | Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
 | Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
-
-### <a name="azure-communication-services"></a>Azure Communication Services
-
-Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | ![Disponible][check] | Non disponible | Non disponible | Non disponible |
-
-
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -164,8 +155,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par le système | ![Disponible][check] | PRÉVERSION | Non disponible | PRÉVERSION |
+| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
 
 Reportez-vous à la liste suivante pour configurer une identité managée pour Azure Container Registry Tasks (dans les régions où il est disponible) :
 
@@ -188,9 +179,6 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Data Factory V2 (dans les régions où il est disponible) :
 
 - [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
-- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [Kit SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-digital-twins"></a>Azure Digital Twins
 
@@ -201,14 +189,14 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 Reportez-vous à la liste suivante pour configurer l’identité managée du service Azure Digital Twins (dans les régions où il est disponible) :
 
-- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
+- [Azure portal](../../digital-twins/how-to-route-with-managed-identity.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
 Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
-| Attribuée par l'utilisateur | Non disponible | Non disponible  | Non disponible  | Non disponible |
+| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
 
 ### <a name="azure-firewall-policy"></a>Stratégie de Pare-feu Azure
 
@@ -289,6 +277,17 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 | Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
 
 Pour plus d’informations, consultez [Utiliser les identités managées avec Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
+
+### <a name="azure-media-services"></a>Azure Media Services
+
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
+| Attribuée par l'utilisateur | Non disponible  | Non disponible  | Non disponible  | Non disponible  |
+
+Reportez-vous à la liste suivante pour configurer l’identité managée d’Azure Media Services (dans les régions où il est disponible) :
+
+- [Azure CLI](../../media-services/latest/security-access-storage-managed-identity-cli-tutorial.md)
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -438,6 +437,15 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Azure Germany |   | Non disponible |
 | Azure China 21Vianet |  | Non disponible |
 
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+
+| Cloud | ID de ressource | Statut |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.documents.azure.com/`<br/><br/>`https://cosmos.azure.com` | ![Disponible][check] |
+| Azure Government | `https://<account>.documents.azure.us/`<br/><br/>`https://cosmos.azure.us` | ![Disponible][check] |
+| Azure Germany | `https://<account>.documents.microsoftazure.de/`<br/><br/>`https://cosmos.microsoftazure.de` | ![Disponible][check] |
+| Azure China 21Vianet | `https://<account>.documents.azure.cn/`<br/><br/>`https://cosmos.azure.cn` | ![Disponible][check] |
+
 ### <a name="azure-sql"></a>Azure SQL
 
 | Cloud | ID de ressource | Statut |
@@ -461,25 +469,18 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Cloud | ID de ressource | Statut |
 |--------|------------|:-:|
 | Azure Global | `https://eventhubs.azure.net` | ![Disponible][check] |
-| Azure Government |  | Non disponible |
-| Azure Germany |   | Non disponible |
-| Azure China 21Vianet |  | Non disponible |
+| Azure Government | `https://eventhubs.azure.net` | ![Disponible][check] |
+| Azure Germany | `https://eventhubs.azure.net` | ![Disponible][check] |
+| Azure China 21Vianet | `https://eventhubs.azure.net` | ![Disponible][check] |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|:-:|
 | Azure Global | `https://servicebus.azure.net`  | ![Disponible][check] |
-| Azure Government |  | ![Disponible][check] |
-| Azure Germany |   | Non disponible |
-| Azure China 21Vianet |  | Non disponible |
-
-
-
-
-
-
-
+| Azure Government | `https://servicebus.azure.net`  | ![Disponible][check] |
+| Azure Germany |  `https://servicebus.azure.net`  | ![Disponible][check] |
+| Azure China 21Vianet | `https://servicebus.azure.net`  | ![Disponible][check] |
 
 
 ### <a name="azure-storage-blobs-and-queues"></a>Objets blob et files d’attente Stockage Azure
@@ -500,8 +501,16 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Azure Germany | `https://*.asazure.cloudapi.de` | ![Disponible][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Disponible][check] |
 
-> [!Note]
-> Microsoft Power BI [prend aussi en charge les identités managées](../../stream-analytics/powerbi-output-managed-identity.md).
+### <a name="azure-communication-services"></a>Azure Communication Services
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | ![Disponible][check] | Non disponible | Non disponible | Non disponible |
+
+
+> [!NOTE]
+> Vous pouvez utiliser une identité managée pour authentifier un [travail Azure Stream Analytics dans Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
 
 
 [check]: media/services-support-managed-identities/check.png "Disponible"

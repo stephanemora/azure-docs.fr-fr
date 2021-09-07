@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/08/2020
+ms.date: 08/09/2021
 ms.author: rolyon
-ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fc3d614ef26235325e0b9a9e8fee68d2bf919a5
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555923"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525445"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Comprendre l’étendue d’Azure RBAC
 
@@ -119,6 +119,18 @@ Il est assez simple de déterminer l’étendue d’un groupe d’administration
         "type": "Microsoft.Authorization/roleAssignments"
       }
     ```
+
+## <a name="scope-and-arm-templates"></a>Étendue et modèles ARM
+
+Une attribution de rôle est un type spécial dans Azure Resource Manager appelé *ressource d’extension*. Une ressource d’extension est une ressource qui ajoute des fonctionnalités à une autre ressource. Elle existe toujours en tant qu’extension (comme enfant) d’une autre ressource. Par exemple, une attribution de rôle au niveau de l’étendue de l’abonnement est une ressource d’extension de l’abonnement. Le nom d’une attribution de rôle est toujours le nom de la ressource que vous étendez plus `/Microsoft.Authorization/roleAssignments/{roleAssignmentId}`. Quand vous attribuez des rôles avec un modèle Azure Resource Manager (modèle ARM), vous n’avez généralement pas besoin de fournir l’étendue. En effet, le champ de l’étendue finit toujours par être l’ID de la ressource que vous étendez. L’étendue peut être déterminée à partir de l’ID de l’attribution de rôle elle-même. Le tableau suivant présente des exemples d’un ID d’attribution de rôle et de l’étendue correspondante :
+
+> [!div class="mx-tableFixed"]
+> | ID d’attribution de rôle | Étendue |
+> | --- | --- |
+> | `/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}` |
+> | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg` |
+
+Pour plus d’informations sur l’étendue et les modèles ARM, consultez [Attribuer des rôles Azure avec des modèles Azure Resource Manager](role-assignments-template.md). Pour obtenir la liste complète des types de ressources d’extension, consultez [Types de ressources qui étendent les fonctionnalités d’autres ressources](../azure-resource-manager/management/extension-resource-types.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

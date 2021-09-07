@@ -2,19 +2,18 @@
 title: Scripts Azure CLI utilisant le module az search
 titleSuffix: Azure Cognitive Search
 description: Créez et configurez un service Recherche cognitive Azure avec Azure CLI. Vous pouvez mettre à l'échelle un service, gérer les clés API d'administration et de requête et interroger des informations système.
-manager: luisca
 author: DerekLegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 456aaf20c0b6d198ae353490d961a69a319b6601
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 08/03/2021
+ms.openlocfilehash: b5689b17bf2e4eace52e7c3cb28c40dc05e58ade
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045108"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533172"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Gérer votre service Recherche cognitive Azure avec Azure CLI
 > [!div class="op_single_selector"]
@@ -58,7 +57,7 @@ az resource list --resource-type Microsoft.Search/searchServices --output table
 Dans la liste des services, elle permet d'obtenir des informations sur une ressource spécifique.
 
 ```azurecli-interactive
-az resource list --name <service-name>
+az resource list --name <search-service-name>
 ```
 
 ## <a name="list-all-az-search-commands"></a>Répertorier toutes les commandes az search
@@ -103,10 +102,10 @@ az search service create --help
 
 ## <a name="get-search-service-information"></a>Obtenir des informations sur le service de recherche
 
-Si vous connaissez le groupe de ressources qui contient votre service de recherche, exécuter [**az search service show**](/cli/azure/search/service#az_search_service_show) pour renvoyer la définition du service, avec le nom, la région, le niveau ainsi que le nombre de partitions et de réplicas.
+Si vous connaissez le groupe de ressources qui contient votre service de recherche, exécuter [**az search service show**](/cli/azure/search/service#az_search_service_show) pour renvoyer la définition du service, avec le nom, la région, le niveau ainsi que le nombre de partitions et de réplicas. Pour cette commande, indiquez le groupe de ressources qui contient le service de recherche.
 
 ```azurecli-interactive
-az search service show --name <service-name> --resource-group <resource-group-name>
+az search service show --name <service-name> --resource-group <search-service-resource-group-name>
 ```
 
 ## <a name="create-or-delete-a-service"></a>Créer ou supprimer un service
@@ -116,7 +115,7 @@ Pour [créer un service de recherche](search-create-service-portal.md), utilisez
 ```azurecli-interactive
 az search service create \
     --name <service-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1
@@ -158,8 +157,8 @@ En fonction de vos exigences de sécurité, vous pouvez créer un service de rec
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -172,8 +171,8 @@ Dans certains cas, par exemple quand [vous utilisez une identité managée pour 
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -190,8 +189,8 @@ Tout d’abord, déployez un service de recherche avec `PublicNetworkAccess` dé
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -203,7 +202,7 @@ Ensuite, créez un réseau virtuel et le point de terminaison privé.
 ```azurecli-interactive
 # Create the virtual network
 az network vnet create \
-    --resource-group <resource-group-name> \
+    --resource-group <vnet-resource-group-name> \
     --location "West US" \
     --name <virtual-network-name> \
     --address-prefixes 10.1.0.0/16 \
@@ -213,21 +212,21 @@ az network vnet create \
 # Update the subnet to disable private endpoint network policies
 az network vnet subnet update \
     --name <subnet-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <vnet-resource-group-name> \
     --vnet-name <virtual-network-name> \
     --disable-private-endpoint-network-policies true
 
 # Get the id of the search service
 id=$(az search service show \
-    --resource-group <resource-group-name> \
-    --name <service-name> \
+    --resource-group <search-service-resource-group-name> \
+    --name <search-service-name> \
     --query [id] \
     --output tsv)
 
 # Create the private endpoint
 az network private-endpoint create \
     --name <private-endpoint-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <private-endpoint-resource-group-name> \
     --vnet-name <virtual-network-name> \
     --subnet <subnet-name> \
     --private-connection-resource-id $id \
@@ -240,12 +239,12 @@ Enfin, créez une zone DNS privée.
 ```azurecli-interactive
 ## Create private DNS zone
 az network private-dns zone create \
-    --resource-group <resource-group-name> \
+    --resource-group <private-dns-resource-group-name> \
     --name "privatelink.search.windows.net"
 
 ## Create DNS network link
 az network private-dns link vnet create \
-    --resource-group <resource-group-name> \
+    --resource-group <private-dns-resource-group-name> \
     --zone-name "privatelink.search.windows.net" \
     --name "myLink" \
     --virtual-network <virtual-network-name> \
@@ -253,7 +252,7 @@ az network private-dns link vnet create \
 
 ## Create DNS zone group
 az network private-endpoint dns-zone-group create \
-   --resource-group <resource-group-name>\
+   --resource-group <private-endpoint-resource-group-name>\
    --endpoint-name <private-endpoint-name> \
    --name "myZoneGroup" \
    --private-dns-zone "privatelink.search.windows.net" \
@@ -272,7 +271,7 @@ Pour récupérer une connexion de point de terminaison privé et afficher son é
 az search private-endpoint-connection show \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 Pour mettre à jour la connexion, utilisez la commande [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az_search_private_endpoint_connection_update). L’exemple suivant montre comment rejeter une connexion de point de terminaison privé :
@@ -281,7 +280,7 @@ Pour mettre à jour la connexion, utilisez la commande [**az search private-endp
 az search private-endpoint-connection show \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
     --status Rejected \
     --description "Rejected" \
     --actions-required "Please fix XYZ"
@@ -293,7 +292,7 @@ Pour supprimer la connexion au point de terminaison privé, utilisez la commande
 az search private-endpoint-connection delete \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 ## <a name="regenerate-admin-keys"></a>Régénération des clés d’administration
@@ -308,7 +307,7 @@ Les valeurs correspondant aux clés API sont générées par le service. Vous ne
 
 ```azurecli-interactive
 az search admin-key renew \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --service-name <search-service-name> \
     --key-kind primary
 ```
@@ -331,7 +330,7 @@ Vous ne pouvez pas fournir de clé à des fins d'utilisation par Recherche cogni
 ```azurecli-interactive
 az search query-key create \
     --name myQueryKey \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --service-name <search-service-name>
 ```
 
@@ -347,8 +346,8 @@ Il n'est pas possible d'arrêter la commande une fois celle-ci en cours d'exécu
 
 ```azurecli-interactive
 az search service update \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --partition-count 6 \
     --replica-count 6
 ```
@@ -369,7 +368,7 @@ Pour créer la ressource de liaison privée partagée, utilisez la commande [**a
 az search shared-private-link-resource create \
     --name <spl-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --group-id blob \
     --resource-id "/subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage"  \
     --request-message "Please approve" 
@@ -381,7 +380,7 @@ Pour récupérer les ressources de liaison privée partagée et afficher leur é
 ```azurecli-interactive
 az search shared-private-link-resource list \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 Vous devrez approuver la connexion à l’aide de la commande suivante avant de pouvoir l’utiliser. L’ID de connexion au point de terminaison privé doit être récupéré à partir de la ressource enfant. Dans ce cas, nous obtenons l’ID de connexion à partir de la commande az storage.
@@ -398,7 +397,7 @@ Pour supprimer la ressource de liaison privée partagée, utilisez la commande [
 az search shared-private-link-resource delete \
     --name <spl-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 Pour plus d’informations sur la configuration des ressources de liaisons privées partagées, consultez la documentation relative à la [création de connexions d’indexeur via un point de terminaison privé](search-indexer-howto-access-private.md).

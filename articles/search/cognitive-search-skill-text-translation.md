@@ -7,13 +7,13 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: c55d0e9c7897fdf2e34016bd0f2657db123cee69
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97654862"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563362"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Compétence cognitive Traduction de texte
 
@@ -24,9 +24,8 @@ Cette fonctionnalité est utile si vous vous attendez à ce que vos documents ne
 L’[API Traduction de texte Translator Text v3.0](../cognitive-services/translator/reference/v3-0-reference.md) est un service cognitif non régional, ce qui signifie que vos données ne sont pas conservées dans la même région que votre ressource Recherche cognitive Azure ou Cognitive Services associée.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
+> Cette compétence est liée à Cognitive Services et nécessite [une ressource facturable](cognitive-search-attach-cognitive-services.md) pour les transactions dépassant 20 documents par indexeur et par jour. L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.TranslationSkill

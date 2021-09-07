@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: dc279ea48472ac86dd9502e37788e8b2aad4f37c
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: f0caaea2296a8981df4717497cb641676b43dea1
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906791"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237072"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
@@ -26,7 +26,7 @@ Après avoir lu toutes les recommandations, vous devez décider laquelle appliqu
 
 1. Suivez les instructions dans la section **Étapes de correction**. Chaque recommandation comprend un ensemble d’instructions. La capture d’écran suivante montre les étapes de correction permettant de configurer les applications de manière à autoriser uniquement le trafic via HTTPS.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Étapes de correction manuelle pour une recommandation" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Étapes de correction manuelle pour une recommandation." lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
 1. Une fois l’opération terminée, une notification vous indique si le problème est résolu.
 
@@ -39,7 +39,7 @@ La fonctionnalité **Corriger** vous permet d'appliquer rapidement une recommand
 > [!TIP]
 > La fonctionnalité **Corriger** est uniquement disponible pour des recommandations spécifiques. Pour connaître les recommandations concernées, utilisez le filtre **Actions de réponse** dans la liste des recommandations :
 > 
-> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Utilisez les filtres disponibles au-dessus de la liste des recommandations pour rechercher des recommandations incluant l'option Corriger":::
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Utilisez les filtres disponibles au-dessus de la liste des recommandations pour rechercher des recommandations incluant l’option Corriger.":::
 
 Pour implémenter une option **Corriger** :
 
@@ -54,7 +54,7 @@ Pour implémenter une option **Corriger** :
 
 1. Dans la zone de confirmation, lisez les détails et les implications de la correction.
 
-    ![Correctif rapide](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
+    ![Correctif rapide.](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > Les implications sont listées dans la zone grise de la fenêtre **Corriger les ressources** qui s’ouvre après que vous avez cliqué sur **Corriger**. Elles indiquent les changements apportés si vous utilisez l'option **Corriger**.

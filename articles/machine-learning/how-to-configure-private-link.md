@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/10/2021
-ms.openlocfilehash: 9a8e4351b88c1b9c4f166dff71fe906177870d9a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/01/2021
+ms.openlocfilehash: ef8d50b0cc4463f59d8fcb96afda3ef4a5c96781
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984695"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028387"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning
 
@@ -39,13 +39,10 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
-* Si vous prévoyez d’utiliser un espace de travail avec point de terminaison privé activé avec une clé gérée par le client, vous devez demander cette fonctionnalité à l’aide d’un ticket de support. Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 * Vous devez disposer d’un réseau virtuel existant dans lequel créer le point de terminaison privé. Vous devez également [désactiver les stratégies réseau pour les points de terminaison privés](../private-link/disable-private-endpoint-network-policy.md) avant d’ajouter le point de terminaison privé.
 
 ## <a name="limitations"></a>Limites
 
-* L’utilisation d’un espace de travail Azure Machine Learning avec point de terminaison privé n’est pas disponible dans les régions Azure Government.
 * Si vous activez l’accès public à un espace de travail sécurisé avec point de terminaison privé et utilisez Azure Machine Learning Studio sur l’Internet public, certaines fonctionnalités telles que le concepteur peuvent ne pas parvenir à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
 * Il se peut que vous rencontriez des problèmes en tentant d’accéder au point de terminaison privé de votre espace de travail si vous utilisez Mozilla Firefox. Un de ces problème peut être lié à DNS sur HTTPS dans Mozilla. Nous vous recommandons d’utiliser Microsoft Edge ou Google Chrome comme solution de contournement.
 * L’utilisation d’un point de terminaison privé n’a pas d’effet sur le plan de contrôle Azure (opérations de gestion), comme la suppression de l’espace de travail ou la gestion des ressources de calcul. Par exemple, la création, la mise à jour ou la suppression d’une cible de calcul. Ces opérations sont effectuées sur l’Internet public comme d’habitude. Les opérations de plan de données telles que l’utilisation du studio Azure Machine Learning, des API (y compris les pipelines publiés) ou du SDK utilisent le point de terminaison privé.
@@ -127,7 +124,7 @@ Pour plus d’informations sur les classes et les méthodes utilisées dans cet 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’[extension Azure CLI 1.0 pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint add](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
+L’[extension Azure CLI 1.0 pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
@@ -164,7 +161,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’[extension Azure CLI 1.0 pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint delete](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
+L’[extension Azure CLI 1.0 pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -186,7 +183,9 @@ Pour plus d’informations sur Machines virtuelles Microsoft Azure, consultez la
 Dans certains cas, vous pouvez autoriser une personne à se connecter à votre espace de travail sécurisé sur un point de terminaison public, plutôt que par le biais du réseau virtuel. Après la configuration d’un espace de travail avec un point de terminaison privé, vous pouvez éventuellement activer l’accès public à l’espace de travail. Cela n’a pas pour effet de supprimer le point de terminaison privé. Toutes les communications assurées entre les composants derrière le réseau virtuel sont toujours sécurisées. Un accès public est permis uniquement à l’espace de travail, en plus de l’accès privé via le réseau virtuel.
 
 > [!WARNING]
-> Lors de la connexion au point de terminaison public, certaines caractéristiques du studio ne parviendront pas à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure. Notez également que les fonctionnalités d’instance de calcul Jupyter/JupyterLab/RStudio et les notebooks en cours d’exécution ne fonctionneront pas.
+> Lors de la connexion via le point de terminaison public :
+> * __Certaines fonctionnalités de Studio ne peuvent pas accéder à vos données__. Ce problème se produit quand _les données sont stockées sur un service sécurisé derrière le réseau virtuel_. Par exemple, un compte de stockage Azure. 
+> * L’utilisation de Jupyter, JupyterLab et RStudio sur une instance de calcul, y compris les notebooks en cours d’exécution, __n’est pas prise en charge__.
 
 Pour activer l’accès public à un espace de travail avec point de terminaison privé, procédez comme suit :
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: cd2a265c5d4c339fa6e50338949cbf643314a3ee
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: cc0e6dc0e11809fb1e8cf046821231cc98f769f6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371319"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439855"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
@@ -24,14 +24,11 @@ Vous pouvez utiliser votre propre clé de chiffrement pour protéger les donnée
 Vous devez utiliser l’un des magasins de clés Azure suivants pour stocker vos clés gérées par le client :
 
 - [Azure Key Vault](../../key-vault/general/overview.md)
-- [Module de sécurité matériel (HSM) géré par Azure Key Vault (préversion)](../../key-vault/managed-hsm/overview.md)
+- [Module de sécurité matériel (HSM) géré par Azure Key Vault](../../key-vault/managed-hsm/overview.md)
 
 Vous pouvez créer vos propres clés et les stocker dans le coffre de clés ou un HSM managé, ou utiliser les API d’Azure Key Vault pour générer des clés. Le compte de stockage et le coffre de clés ou le HSM managé doivent résider dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent se trouver dans des abonnements différents.
 
-> [!IMPORTANT]
->
-> Le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
->
+> [!NOTE]
 > Azure Key Vault et le module HSM managé par Azure Key Vault prennent en charge les mêmes API et interfaces de gestion pour la configuration.
 
 ## <a name="about-customer-managed-keys"></a>À propos des clés gérées par le client
@@ -76,7 +73,7 @@ Les clés gérées par le client ne peuvent être activées que sur des comptes 
 
 Vous pouvez basculer entre les clés gérées par le client et les clés managées par Microsoft à tout moment. Pour plus d’informations sur les clés managées par Microsoft, consultez [À propos de la gestion des clés de chiffrement](storage-service-encryption.md#about-encryption-key-management).
 
-Pour savoir comment configurer le chiffrement du service Stockage Azure avec des clés gérées par le client dans un coffre de clés, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md). Pour configurer des clés gérées par le client stockées dans un HSM managé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans un HSM managé par Azure Key Vault (préversion)](customer-managed-keys-configure-key-vault-hsm.md).
+Pour savoir comment configurer le chiffrement du service Stockage Azure avec des clés gérées par le client dans un coffre de clés, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md). Pour configurer des clés gérées par le client stockées dans un HSM managé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans un HSM managé par Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!IMPORTANT]
 > Les clés gérées par le client s’appuient sur des identités managées pour les ressources Azure, une fonctionnalité d’Azure AD. Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Quand vous configurez des clés managées par le client dans le portail Azure, une identité managée est affectée automatiquement à votre compte de stockage dans les coulisses. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le compte de stockage d’un annuaire Azure AD vers un autre, l’identité managée associée au compte de stockage n’est pas transférée vers le nouveau locataire ; les clés managées par le client risquent donc de ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
@@ -92,7 +89,7 @@ Lorsque vous configurez un chiffrement avec des clés gérées par le client, vo
 - **Mettre à jour automatiquement la version de la clé :** pour mettre à jour automatiquement une clé gérée par le client quand une nouvelle version est disponible, omettez la version de la clé lorsque vous activez le chiffrement avec des clés gérées par le client pour le compte de stockage. Si la version de la clé est omise, le service Stockage Azure vérifie quotidiennement le coffre de clés ou le HSM managé pour voir s’il existe une nouvelle version d’une clé gérée par le client. Le service Stockage Azure utilise automatiquement la dernière version de la clé.
 - **Mettre à jour manuellement la version de la clé :** pour utiliser une version spécifique d’une clé pour le chiffrement du service Stockage Azure, spécifiez la version de la clé lorsque vous activez le chiffrement avec les clés gérées par le client pour le compte de stockage. Si vous spécifiez la version de la clé, Stockage Azure utilise cette version pour le chiffrement jusqu’à ce que vous mettiez manuellement à jour la version de la clé.
 
-    Lorsque la version de la clé est spécifiée explicitement, vous devez mettre à jour manuellement le compte de stockage pour utiliser l’URI de la nouvelle version de la clé lors de la création d’une nouvelle version. Pour savoir comment mettre à jour le compte de stockage afin d’utiliser une nouvelle version de la clé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md) ou [Configurer le chiffrement avec des clés gérées par le client stockées dans un module HSM géré par Azure Key Vault Azure (préversion)](customer-managed-keys-configure-key-vault-hsm.md).
+    Lorsque la version de la clé est spécifiée explicitement, vous devez mettre à jour manuellement le compte de stockage pour utiliser l’URI de la nouvelle version de la clé lors de la création d’une nouvelle version. Pour savoir comment mettre à jour le compte de stockage afin d’utiliser une nouvelle version de la clé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md) ou [Configurer le chiffrement avec des clés gérées par le client stockées dans un module HSM géré par Azure Key Vault Azure](customer-managed-keys-configure-key-vault-hsm.md).
 
 Quand vous mettez à jour la version de la clé, la protection de la clé de chiffrement racine change, mais les données de votre compte de stockage Azure ne sont pas rechiffrées. Aucune autre action n’est requise de la part de l’utilisateur.
 
@@ -135,4 +132,4 @@ Les clés gérées par le client sont également disponibles pour la gestion du 
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
 - [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md)
-- [Configurer le chiffrement avec des clés gérées par le client stockées dans le HSM managé par Azure Key Vault (préversion)](customer-managed-keys-configure-key-vault-hsm.md)
+- [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: ab99d4aec732d2bc6b42576d30b59b0f8c0067c3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 828dd2cc5b83737a313156876c54c290a2a67d73
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772038"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238845"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Créer des stratégies et des initiatives de sécurité personnalisées
 
@@ -34,18 +34,18 @@ Comme nous l’avons vu dans la [documentation Azure Policy](../governance/polic
 
 1. Sélectionnez un abonnement ou un groupe d’administration auquel vous voulez ajouter une initiative personnalisée.
 
-    [![Sélection d’un abonnement pour lequel vous allez créer votre stratégie personnalisée](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+    [![Sélection d’un abonnement pour lequel vous allez créer votre stratégie personnalisée.](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
     > Vous devez ajouter des initiatives personnalisées au niveau de l’abonnement (ou à un niveau supérieur) pour qu’elles soient évaluées et affichées dans Security Center. Nous vous recommandons de sélectionner l’étendue la plus vaste disponible.
 
 1. Dans la page Stratégie de sécurité, sous vos initiatives personnalisées, cliquez sur **Ajouter une initiative personnalisée**.
 
-    [![Cliquez sur Ajouter une initiative personnalisée](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Cliquez sur Ajouter une initiative personnalisée.](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    La page suivante apparaît :
+    La page suivante apparaît :
 
-    ![Créer ou ajouter une stratégie](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Créer ou ajouter une stratégie.](media/custom-security-policies/create-or-add-custom-policy.png)
 
 1. Dans la page Ajouter des initiatives personnalisées, passez en revue la liste de stratégies personnalisées déjà créées dans votre organisation. Si vous en voyez une que vous souhaitez attribuer à votre abonnement, cliquez sur **Ajouter**. Si aucune initiative de la liste ne répond à vos besoins, ignorez cette étape.
 
@@ -70,7 +70,7 @@ Comme nous l’avons vu dans la [documentation Azure Policy](../governance/polic
 
 1. Pour afficher les recommandations qui en résultent pour votre stratégie, cliquez sur **Recommandations** dans la barre latérale pour ouvrir la page de recommandations. Les recommandations apparaissent avec une étiquette « Personnalisée » et sont disponibles dans un délai d’une heure environ.
 
-    [![Recommandations personnalisées](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![Recommandations personnalisées.](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 ::: zone-end
 

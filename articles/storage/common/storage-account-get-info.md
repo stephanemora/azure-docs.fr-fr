@@ -1,76 +1,104 @@
 ---
-title: Obtenez le type de compte de stockage et le nom de référence SKU avec .NET
+title: Obtenir les informations de configuration d’un compte de stockage
 titleSuffix: Azure Storage
-description: Découvrez comment obtenir le type de compte de stockage Azure et le nom de référence SKU à l’aide de la bibliothèque cliente .NET.
+description: Utilisez le portail Azure, PowerShell ou Azure CLI pour récupérer les propriétés de configuration du compte de stockage, y compris l’ID de ressource Azure Resource Manager, l’emplacement du compte, le type de compte et la référence SKU de réplication.
 services: storage
-author: normesta
-ms.author: normesta
-ms.date: 11/12/2020
+author: tamram
+ms.author: tamram
+ms.date: 06/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 94e8a76d48b8ff45d089a9ee375b3dc4a5e5de94
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f3f94dda19f11b1a0aad9a84e7ae624e41c5015c
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653098"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573649"
 ---
-# <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtenez le type de compte de stockage et le nom de référence SKU avec .NET
+# <a name="get-storage-account-configuration-information"></a>Obtenir les informations de configuration d’un compte de stockage
 
-Cet article explique comment obtenir le type de compte de stockage Azure et le nom de référence (SKU) pour un objet blob à l'aide de la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage).
+Cet article explique comment obtenir les informations de configuration et les propriétés d’un compte de stockage Azure à l’aide du portail Azure, de PowerShell ou d’Azure CLI.
 
-## <a name="about-account-type-and-sku-name"></a>À propos du type de compte et du nom de référence SKU
+## <a name="get-the-resource-id-for-a-storage-account"></a>Obtenir l’ID de ressource d’un compte de stockage
 
-**Type de compte** : Les types de comptes valides incluent `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` et `StorageV2`. [Vue d’ensemble du compte de stockage Azure](storage-account-overview.md) contient plus d’informations, notamment des descriptions des différents comptes de stockage.
+Chaque ressource Azure Resource Manager est associée à un ID de ressource qui permet de l’identifier. Certaines opérations nécessitent que vous fournissiez l’ID de ressource. Vous pouvez obtenir l’ID de ressource d’un compte de stockage à l’aide du portail Azure, de PowerShell ou d’Azure CLI.
 
-**Nom de la référence SKU** : Les noms de références SKU valides incluent `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`, et `Standard_ZRS`. Les noms de références sont sensibles à la casse et sont des champs de chaîne dans la [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname).
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-## <a name="retrieve-account-information"></a>Récupérer les informations de compte
+Pour afficher l’ID de ressource Azure Resource Manager d’un compte de stockage dans le portail Azure, effectuez les étapes suivantes :
 
-L’exemple de code suivant récupère et affiche les propriétés du compte en lecture seule.
+1. Accédez à votre compte de stockage dans le portail Azure.
+1. Dans la page **Vue d’ensemble**, dans la section **Essentials**, sélectionnez le lien **Affichage JSON**.
+1. L’ID de ressource du compte de stockage est affiché en haut de la page.
 
-# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
+    :::image type="content" source="media/storage-account-get-info/resource-id-portal.png" alt-text="Capture d’écran montrant comment copier l’ID de ressource du compte de stockage à partir du portail":::
 
-Pour obtenir le type de compte de stockage et le nom de la référence (SKU) associés à un objet blob, appelez la méthode [GetAccountInfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) ou [GetAccountInfoAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync).
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
+Pour retourner l’ID de ressource Azure Resource Manager d’un compte de stockage avec PowerShell, vous devez avoir installé le module [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage). Ensuite, appelez la commande [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) pour retourner le compte de stockage et voir son ID de ressource :
 
-# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
+```azurepowershell
+(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>).Id
+```
 
-Pour obtenir le type de compte de stockage et le nom de la référence (SKU) associés à un objet blob, appelez la méthode [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) ou [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync).
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```csharp
-private static async Task GetAccountInfoAsync(CloudBlob blob)
-{
-    try
-    {
-        // Get the blob's storage account properties.
-        AccountProperties acctProps = await blob.GetAccountPropertiesAsync();
+Pour retourner l’ID de ressource Azure Resource Manager d’un compte de stockage avec Azure CLI, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show) et interrogez l’ID de ressource :
 
-        // Display the properties.
-        Console.WriteLine("Account properties");
-        Console.WriteLine("  AccountKind: {0}", acctProps.AccountKind);
-        Console.WriteLine("      SkuName: {0}", acctProps.SkuName);
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine("HTTP error code {0}: {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-    }
-}
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query id \
+    --output tsv
 ```
 
 ---
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+Vous pouvez également obtenir l’ID de ressource d’un compte de stockage en appelant l’opération [StorageAccountGetProperties](/rest/api/storagerp/storage-accounts/get-properties) dans l’API REST.
+
+Pour plus d’informations sur les types de ressources gérés par Azure Resource Manager, consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+## <a name="get-the-account-type-location-or-replication-sku-for-a-storage-account"></a>Obtenir le type de compte, l’emplacement ou la référence SKU de réplication d’un compte de stockage
+
+Le type de compte, l’emplacement et la référence SKU de réplication font partie des propriétés d’un compte de stockage. Vous pouvez utiliser le portail Azure, PowerShell ou Azure CLI pour voir ces valeurs.
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+Pour afficher le type de compte, l’emplacement ou la référence SKU de réplication d’un compte de stockage dans le portail Azure, effectuez les étapes suivantes :
+
+1. Accédez à votre compte de stockage dans le portail Azure.
+1. Ces propriétés sont visibles dans la page **Vue d’ensemble** de la section **Essentials**.
+
+    :::image type="content" source="media/storage-account-get-info/account-configuration-portal.png" alt-text="Capture d’écran montrant la configuration du compte dans le portail":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour afficher le type de compte, l’emplacement ou la référence SKU de réplication d’un compte de stockage avec PowerShell, appelez la commande [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) pour retourner le compte de stockage, puis vérifiez les propriétés :
+
+```azurepowershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$account.Location
+$account.Sku
+$account.Kind
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour afficher le type de compte, l’emplacement ou la référence SKU de réplication d’un compte de stockage avec PowerShell, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show) puis interrogez les propriétés :
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query '[location,sku,kind]' \
+    --output tsv
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les autres opérations que vous pouvez effectuer sur un compte de stockage via le [portail Azure](https://portal.azure.com) et l’API REST Azure.
-
-- [Opération d’extraction des informations de compte (REST)](/rest/api/storageservices/get-account-information)
+- [Vue d’ensemble du compte de stockage](storage-account-overview.md)
+- [Créez un compte de stockage](storage-account-create.md)

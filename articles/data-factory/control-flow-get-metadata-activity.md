@@ -1,23 +1,26 @@
 ---
-title: Activité d’obtention des métadonnées dans Azure Data Factory
-description: Découvrez comment utiliser l’activité d’obtention des métadonnées dans un pipeline Data Factory.
+title: Activité d’obtention des métadonnées
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment utiliser l’activité d’obtention des métadonnées (Get Metadata) dans un pipeline Azure Data Factory ou Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6c375143217379b7ec795778f8947d88b70aa4bc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 15d7f6372982222e5bd2ecb4cfe4a784a9fda0b1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641373"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
+# <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Activité Get Metadata dans Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Vous pouvez utiliser l’activité d’obtention des métadonnées pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Vous pouvez utiliser la sortie de l’activité d’obtention des métadonnées dans des expressions conditionnelles pour effectuer la validation, ou consommer les métadonnées dans des activités subséquentes.
+Vous pouvez utiliser l’activité d’obtention des métadonnées (Get Metadata) pour extraire les métadonnées de n’importe quelles données d’un pipeline Azure Data Factory ou Synapse. Vous pouvez utiliser la sortie de l’activité d’obtention des métadonnées dans des expressions conditionnelles pour effectuer la validation, ou consommer les métadonnées dans des activités subséquentes.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -224,7 +227,7 @@ Les résultats de l’activité d’obtention des métadonnées sont indiqués d
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les ressources suivantes pour en savoir plus sur les autres activités de flux de contrôle prises en charge par Data Factory :
+Découvrez d’autres activités de flux de contrôle prises en charge :
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Activité ForEach](control-flow-for-each-activity.md)

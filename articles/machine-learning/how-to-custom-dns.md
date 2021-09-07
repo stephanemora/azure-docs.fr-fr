@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/04/2021
+ms.date: 08/03/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: 616354174f5eb4bdae8e4b76379106e309c0dd14
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6395f88f4841ef5447b8dfef5310fba6e0440e32
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969097"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771453"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -25,6 +25,15 @@ Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point
 > [!IMPORTANT]
 > Cet article explique comment obtenir les noms de domaine complets (FQDN) et les adresses IP de ces entrées si vous souhaitez inscrire manuellement des enregistrements DNS dans votre solution DNS. Il fournit également des recommandations sur l’architecture, indiquant comment configurer votre solution DNS personnalisée pour résoudre automatiquement les FQDN en adresses IP correctes. Cet article ne fournit pas d’informations sur la configuration des enregistrements DNS pour ces éléments. Pour savoir comment ajouter des enregistrements, consultez la documentation de votre logiciel DNS.
 
+> [!TIP]
+> Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
+>
+> * [Présentation du réseau virtuel](how-to-network-security-overview.md)
+> * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+> * [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+> * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+> * [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+> * [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)
 ## <a name="prerequisites"></a>Prérequis
 
 - Réseau virtuel Azure qui utilise [votre propre serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -50,6 +59,7 @@ Il existe deux architectures courantes pour l’utilisation de l’intégration 
 
 Vous pouvez utiliser ces exemples comme points de référence même s’ils ne correspondent pas précisément à votre architecture. Les deux exemples d’architectures incluent des procédures de résolution des problèmes vous permettant d’identifier des composants qui pourraient être mal configurés.
 
+Une autre option consiste à modifier le fichier `hosts` sur le client qui se connecte au réseau virtuel Azure (VNet) contenant votre espace de travail. Pour plus d’informations, consultez la section [Fichier hosts](#hosts).
 ### <a name="workspace-dns-resolution-path"></a>Chemin de résolution DNS de l’espace de travail
 
 L’accès à un espace de travail Azure Machine Learning donné par le biais d’une liaison privée implique une communication avec les noms de domaine complets listés ci-dessous (FQDN de l’espace de travail) :
@@ -86,7 +96,7 @@ Les noms de domaine complets sont résolus en noms canoniques (CNAME), appelés 
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.us```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.usgovcloudapi.net```
 
-Les FQDN sont résolus en adresses IP de l’espace de travail Azure Machine Learning dans cette région. Toutefois, la résolution des FQDN de liaison privée de l’espace de travail est remplacée quand la résolution est effectuée avec l’adresse IP du serveur virtuel Azure DNS dans un réseau virtuel lié aux zones DNS privées créées comme décrit plus haut.
+Les FQDN sont résolus en adresses IP de l’espace de travail Azure Machine Learning dans cette région. Toutefois, la résolution des noms de domaine complets de liaison privée de l’espace de travail peut être remplacée en utilisant un serveur DNS personnalisé hébergé dans le réseau virtuel. Pour obtenir un exemple de cette architecture, consultez l’exemple [Serveur DNS personnalisé hébergé dans un réseau virtuel](#example-custom-dns-server-hosted-in-vnet).
 
 ## <a name="manual-dns-server-integration"></a>Intégration de serveur DNS manuelle
 
@@ -147,10 +157,37 @@ Pour rechercher les adresses IP internes des noms de domaine complets dans le r�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azurecli
-az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'customDnsConfigs[*].{FQDN: fqdn, IPAddress: ipAddresses[0]}' --output table
-```
+1. Pour connaître l’ID de l’interface réseau du point de terminaison privé, utilisez la commande suivante :
 
+    ```azurecli
+    az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'networkInterfaces[*].id' --output table
+    ```
+
+1. Pour récupérer les informations sur l’adresse IP et le nom de domaine complet, utilisez la commande suivante. Remplacez `<resource-id>` par l’ID obtenu à l’étape précédente :
+
+    ```azurecli
+    az network nic show --ids <resource-id> --query 'ipConfigurations[*].{IPAddress: privateIpAddress, FQDNs: privateLinkConnectionProperties.fqdns}'
+    ```
+
+    Le résultat ressemble au texte suivant :
+
+    ```json
+    [
+        {
+            "FQDNs": [
+            "fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms",
+            "fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms"
+            ],
+            "IPAddress": "10.1.0.5"
+        },
+        {
+            "FQDNs": [
+            "ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net"
+            ],
+            "IPAddress": "10.1.0.6"
+        }
+    ]
+    ```
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -234,7 +271,10 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
 
 2. **Créer un point de terminaison privé avec intégration au DNS privé, ciblant la zone DNS privée liée au réseau virtuel du serveur DNS** :
 
-    L’étape suivante consiste à créer un point de terminaison privé vers l’espace de travail Azure Machine Learning. Un point de terminaison privé permet l’intégration au DNS privé. Le point de terminaison privé cible les deux zones DNS privées créées à l’étape 1. Ceci garantit que toutes les communications avec l’espace de travail sont effectuées par le biais du point de terminaison privé dans le réseau virtuel Azure Machine Learning.
+    L’étape suivante consiste à créer un point de terminaison privé vers l’espace de travail Azure Machine Learning. Le point de terminaison privé cible les deux zones DNS privées créées à l’étape 1. Ceci garantit que toutes les communications avec l’espace de travail sont effectuées par le biais du point de terminaison privé dans le réseau virtuel Azure Machine Learning.
+
+    > [!IMPORTANT]
+    > Le point de terminaison privé doit avoir l’intégration à un DNS privé activée pour que cet exemple fonctionne correctement.
 
 3. **Créer un redirecteur conditionnel dans le serveur DNS pour la redirection vers Azure DNS** : 
 
@@ -243,16 +283,19 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     Les zones concernées par la redirection conditionnelle sont listées ci-dessous. L’adresse IP du serveur virtuel Azure DNS est 168.63.129.16 :
 
     **Régions publiques Azure** :
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```
     
     **Régions Azure Chine** :
-    - ```privatelink.api.ml.azure.cn```
-    - ```privatelink.notebooks.chinacloudapi.cn```
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
     
     **Régions Azure US Government** :
-    - ```privatelink.api.ml.azure.us```
-    - ```privatelink.notebooks.usgovcloudapi.net```
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Les étapes de configuration du serveur DNS ne sont pas abordées ici, car de nombreuses solutions DNS peuvent être utilisées comme serveur DNS personnalisé. Reportez-vous à la documentation de votre solution DNS pour savoir comment configurer correctement la redirection conditionnelle.
@@ -274,9 +317,9 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
 
-5. **Le DNS public répond avec le CNAME** :
+5. **Azure DNS résout de manière récursive le domaine de l’espace de travail en CNAME** :
 
-    Le serveur DNS procède à la résolution des FQDN de l’étape 4 à partir du DNS public. Le DNS public répond avec l’un des domaines listés dans la section d’informations de l’étape 1.
+    Le serveur DNS résout les FQDN de l’étape 4 à partir d’Azure DNS. Azure DNS répond avec l’un des domaines listés à l’étape 1.
 
 6. **Le serveur DNS résout de manière récursive l’enregistrement CNAME du domaine de l’espace de travail à partir d’Azure DNS** :
 
@@ -361,7 +404,10 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
 
 2. **Créer un point de terminaison privé avec intégration au DNS privé, ciblant la zone DNS privée liée au réseau virtuel du serveur DNS** :
 
-    L’étape suivante consiste à créer un point de terminaison privé vers l’espace de travail Azure Machine Learning. Un point de terminaison privé permet l’intégration au DNS privé. Le point de terminaison privé cible les deux zones DNS privées créées à l’étape 1. Ceci garantit que toutes les communications avec l’espace de travail sont effectuées par le biais du point de terminaison privé dans le réseau virtuel Azure Machine Learning.
+    L’étape suivante consiste à créer un point de terminaison privé vers l’espace de travail Azure Machine Learning. Le point de terminaison privé cible les deux zones DNS privées créées à l’étape 1. Ceci garantit que toutes les communications avec l’espace de travail sont effectuées par le biais du point de terminaison privé dans le réseau virtuel Azure Machine Learning.
+
+    > [!IMPORTANT]
+    > Le point de terminaison privé doit avoir l’intégration à un DNS privé activée pour que cet exemple fonctionne correctement.
 
 3. **Créer un redirecteur conditionnel dans le serveur DNS pour la redirection vers Azure DNS** :
 
@@ -370,16 +416,19 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     Les zones concernées par la redirection conditionnelle sont listées ci-dessous. L’adresse IP du serveur virtuel Azure DNS est 168.63.129.16.
 
     **Régions publiques Azure** :
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```     
     
     **Régions Azure Chine** :
-    - ```privatelink.api.ml.azure.cn```
-    - ```privatelink.notebooks.chinacloudapi.cn```
-    
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
+
     **Régions Azure US Government** :
-    - ```privatelink.api.ml.azure.us```
-    - ```privatelink.notebooks.usgovcloudapi.net```
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Les étapes de configuration du serveur DNS ne sont pas abordées ici, car de nombreuses solutions DNS peuvent être utilisées comme serveur DNS personnalisé. Reportez-vous à la documentation de votre solution DNS pour savoir comment configurer correctement la redirection conditionnelle.
@@ -391,16 +440,19 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     Les zones concernées par la redirection conditionnelle sont listées ci-dessous. Les adresses IP vers lesquelles la redirection doit être effectuée sont celles de vos serveurs DNS :
 
     **Régions publiques Azure** :
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```
     
     **Régions Azure Chine** :
-    - ```privatelink.api.ml.azure.cn```
-    - ```privatelink.notebooks.chinacloudapi.cn```
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
     
     **Régions Azure US Government** :
-    - ```privatelink.api.ml.azure.us```
-    - ```privatelink.notebooks.usgovcloudapi.net```
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Les étapes de configuration du serveur DNS ne sont pas abordées ici, car de nombreuses solutions DNS peuvent être utilisées comme serveur DNS personnalisé. Reportez-vous à la documentation de votre solution DNS pour savoir comment configurer correctement la redirection conditionnelle.
@@ -423,26 +475,62 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
 
-6. **Le DNS public répond avec le CNAME** :
+6. **Le serveur DNS local résout de manière récursive le domaine de l’espace de travail** :
 
-    Le serveur DNS procède à la résolution des FQDN de l’étape 4 à partir du DNS public. Le DNS public répond avec l’un des domaines listés dans la section d’informations de l’étape 1.
+    Le serveur DNS local résout les noms de domaine complets de l’étape 5 à partir du serveur DNS. En raison de l’existence d’un redirecteur conditionnel (étape 4), le serveur DNS local envoie la demande au serveur DNS pour la résolution.
 
-7. **Le serveur DNS local résout de manière récursive l’enregistrement CNAME du domaine de l’espace de travail à partir du serveur DNS** :
+7. **Le serveur DNS résout le domaine de l’espace de travail en CNAME à partir d’Azure DNS** :
 
-    Le serveur DNS local procède à la résolution du CNAME reçu à l’étape 6 de manière récursive. Comme un redirecteur conditionnel a été configuré à l’étape 4, le serveur DNS local envoie la requête au serveur DNS pour la résolution.
+    Le serveur DNS résout les FQDN de l’étape 5 à partir d’Azure DNS. Azure DNS répond avec l’un des domaines listés à l’étape 1.
 
-8. **Le serveur DNS résout de manière récursive l’enregistrement CNAME du domaine de l’espace de travail à partir d’Azure DNS** :
+8. **Le serveur DNS local résout de manière récursive l’enregistrement CNAME du domaine de l’espace de travail à partir du serveur DNS** :
 
-    Le serveur DNS procède à la résolution du CNAME reçu à l’étape 5 de manière récursive. Comme un redirecteur conditionnel a été configuré à l’étape 3, le serveur DNS envoie la requête à l’adresse IP du serveur virtuel Azure DNS pour la résolution.
+    Le serveur DNS local procède à la résolution du CNAME reçu à l’étape 7 de manière récursive. Comme un redirecteur conditionnel a été configuré à l’étape 4, le serveur DNS local envoie la requête au serveur DNS pour la résolution.
 
-9. **Azure DNS retourne les enregistrements de la zone DNS privée** :
+9. **Le serveur DNS résout de manière récursive l’enregistrement CNAME du domaine de l’espace de travail à partir d’Azure DNS** :
+
+    Le serveur DNS procède à la résolution du CNAME reçu à l’étape 7 de manière récursive. Comme un redirecteur conditionnel a été configuré à l’étape 3, le serveur DNS envoie la requête à l’adresse IP du serveur virtuel Azure DNS pour la résolution.
+
+10. **Azure DNS retourne les enregistrements de la zone DNS privée** :
 
     Les enregistrements correspondants stockés dans les zones DNS privées sont retournés au serveur DNS, ce qui signifie que le serveur virtuel Azure DNS retourne les adresses IP du point de terminaison privé.
 
-10. **Le serveur DNS local résout le nom de domaine de l’espace de travail en adresse du point de terminaison privé** :
+11. **Le serveur DNS local résout le nom de domaine de l’espace de travail en adresse du point de terminaison privé** :
 
-    La requête du serveur DNS local au serveur DNS effectuée à l’étape 7 retourne finalement les adresses IP associées au point de terminaison privé vers l’espace de travail Azure Machine Learning. Ces adresses IP sont retournées au client d’origine, qui communique désormais avec l’espace de travail Azure Machine Learning sur le point de terminaison privé configuré à l’étape 1.
+    La requête du serveur DNS local au serveur DNS effectuée à l’étape 8 retourne finalement les adresses IP associées au point de terminaison privé vers l’espace de travail Azure Machine Learning. Ces adresses IP sont retournées au client d’origine, qui communique désormais avec l’espace de travail Azure Machine Learning sur le point de terminaison privé configuré à l’étape 1.
 
+<a id="hosts"></a>
+## <a name="example-hosts-file"></a>Exemple : fichier hosts
+
+Le fichier `hosts` est un document texte que Linux, macOS et Windows utilisent tous pour remplacer la résolution de noms pour l’ordinateur local. Le fichier contient une liste d’adresses IP et le nom d’hôte correspondant. Quand l’ordinateur local tente de résoudre un nom d’hôte, si ce dernier est listé dans le fichier `hosts`, le nom est résolu en l’adresse IP correspondante.
+
+> [!IMPORTANT]
+> Le fichier `hosts` remplace uniquement la résolution de noms pour l’ordinateur local. Si vous souhaitez utiliser un fichier `hosts` avec plusieurs ordinateurs, vous devez le modifier individuellement sur chaque ordinateur.
+
+Le tableau suivant liste l’emplacement du fichier `hosts` :
+
+| Système d’exploitation | Emplacement |
+| ----- | ----- |
+| Linux | `/etc/hosts` |
+| macOS | `/etc/hosts` |
+| Windows | `%SystemRoot%\System32\drivers\etc\hosts` |
+
+> [!TIP]
+> Le nom du fichier est `hosts` sans extension. Quand vous modifiez le fichier, utilisez un accès administrateur. Par exemple, sur Linux ou macOS, vous pouvez utiliser `sudo vi`. Sur Windows, exécutez le Bloc-notes en tant qu’administrateur.
+
+Voici un exemple d’entrées de fichier `hosts` pour Azure Machine Learning :
+
+```
+# For core Azure Machine Learning hosts
+10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
+10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
+10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+
+# For a compute instance named 'mycomputeinstance'
+10.1.0.5    mycomputeinstance.eastus.instances.azureml.ms
+```
+
+Pour plus d’informations sur le fichier `hosts`, consultez [https://wikipedia.org/wiki/Hosts_(file)](https://wikipedia.org/wiki/Hosts_(file)).
 
 #### <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -477,6 +565,15 @@ Si, après avoir effectué les étapes ci-dessus, vous ne parvenez pas à accéd
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’utilisation d’Azure Machine Learning avec un réseau virtuel, consultez [Présentation du réseau virtuel](how-to-network-security-overview.md).
+Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
+
+* [Présentation du réseau virtuel](how-to-network-security-overview.md)
+* [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+* [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+* [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+* [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+* [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)
 
 Pour plus d’informations sur l’intégration des points de terminaison privés dans votre configuration DNS, consultez [Configuration DNS du point de terminaison privé Azure](../private-link/private-endpoint-dns.md).
+
+Pour plus d’informations sur le déploiement de modèles avec un nom DNS personnalisé ou la sécurité TLS, consultez [Sécuriser des services web en utilisant TLS](how-to-secure-web-service.md).

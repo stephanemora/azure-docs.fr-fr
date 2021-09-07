@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/22/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 6811b899aa87a5b0c1987f2e86c07d8646a86ef4
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: b30856b5fe84f8c66e4029714e4bf39fca0470a9
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901274"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541299"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Créer des abonnements Contrat Entreprise Azure programmatiquement avec les API les plus récentes
 
@@ -232,7 +232,7 @@ L’état En cours est retourné comme un état `Accepted` sous `provisioningSta
 
 Pour installer la version la plus récente du module contenant la cmdlet `New-AzSubscriptionAlias`, exécutez `Install-Module Az.Subscription`. Pour installer une version récente de PowerShellGet, consultez [Obtenir le module PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Exécutez la commande [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) suivante à l’aide de l’étendue de facturation `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
+Exécutez la commande [New-AzSubscriptionAlias](/powershell/module/az.subscription/get-azsubscriptionalias) suivante à l’aide de l’étendue de facturation `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload "Production"
@@ -282,7 +282,7 @@ Vous recevez le subscriptionId dans la réponse à la commande.
 
 La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager).
 
-Le modèle suivant permet de créer un abonnement. Pour `billingScope` , indiquez l’ID du compte d’inscription. Pour `targetManagementGroup`, indiquez le groupe d’administration dans lequel vous souhaitez créer l’abonnement.
+Le modèle suivant permet de créer un abonnement. Pour `billingScope` , indiquez l’ID du compte d’inscription. L’abonnement est créé dans le groupe d’administration racine. Après avoir créé l’abonnement, vous pouvez le déplacer vers un autre groupe d’administration.
 
 ```json
 {
@@ -300,12 +300,6 @@ Le modèle suivant permet de créer un abonnement. Pour `billingScope` , indique
             "metadata": {
                 "description": "Provide the full resource ID of billing scope to use for subscription creation."
             }
-        },
-        "targetManagementGroup": {
-            "type": "string",
-            "metadata": {
-                "description": "Provide the ID of the target management group to place the subscription."
-            }
         }
     },
     "resources": [
@@ -317,8 +311,7 @@ Le modèle suivant permet de créer un abonnement. Pour `billingScope` , indique
             "properties": {
                 "workLoad": "Production",
                 "displayName": "[parameters('subscriptionAliasName')]",
-                "billingScope": "[parameters('billingScope')]",
-                "managementGroupId": "[tenantResourceId('Microsoft.Management/managementGroups/', parameters('targetManagementGroup'))]"
+                "billingScope": "[parameters('billingScope')]"
             }
         }
     ],
@@ -349,9 +342,6 @@ Avec le corps de la demande :
       },
       "billingScope": {
         "value": "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"
-      },
-      "targetManagementGroup": {
-        "value": "mg2"
       }
     },
     "mode": "Incremental"
@@ -368,8 +358,7 @@ New-AzManagementGroupDeployment `
   -ManagementGroupId mg1 `
   -TemplateFile azuredeploy.json `
   -subscriptionAliasName sampleAlias `
-  -billingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" `
-  -targetManagementGroup mg2
+  -billingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -380,10 +369,44 @@ az deployment mg create \
   --location eastus \
   --management-group-id mg1 \
   --template-file azuredeploy.json \
-  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321' targetManagementGroup=mg2
+  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321'
 ```
 
 ---
+
+Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez le modèle suivant.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMgId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the management group that you want to move the subscription to."
+            }
+        },
+        "subscriptionId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the existing subscription to move."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/",
+            "type": "Microsoft.Management/managementGroups/subscriptions",
+            "apiVersion": "2020-05-01",
+            "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
+            "properties": {
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 

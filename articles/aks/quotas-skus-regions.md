@@ -5,12 +5,12 @@ description: Découvrez les quotas par défaut, les tailles des références SKU
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 3e1e74834153584525d2093d2a1bb8ba8e991e5a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: ea32c0e58894fe57a51cd22fccce8b2fb2fb0489
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011462"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762294"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)
 
@@ -38,16 +38,34 @@ Chaque nœud d’un cluster AKS contient une quantité fixe de ressources de cal
 - Standard_A0
 - Standard_A1
 - Standard_A1_v2
+- Standard_B1ls
 - Standard_B1s
 - Standard_B1ms
 - Standard_F1
 - Standard_F1s
+- Standard_A2
+- D1 standard
+- Standard_D1_v2
+- Standard_DS1
+- Standard_DS1_v2
 
 Pour plus d’informations sur les types de machines virtuelles et leurs ressources de calcul, consultez [Tailles des machines virtuelles dans Azure][vm-skus].
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
 Pour obtenir la liste la plus récente des emplacements où vous pouvez déployer et exécuter des clusters, consultez [Disponibilité des régions AKS][region-availability].
+
+## <a name="cluster-configuration-presets-in-the-azure-portal"></a>Préréglages de configuration de cluster dans le portail Azure
+
+Lorsque vous créez un cluster à l’aide du portail Azure, vous pouvez choisir une configuration prédéfinie pour personnaliser rapidement en fonction de votre scénario. Vous pouvez modifier les valeurs prédéfinies à tout moment.
+
+| Préréglage           | Description                                                            |
+|------------------|------------------------------------------------------------------------|
+| standard         | Idéal si vous n’êtes pas sûr de ce que vous devez choisir. Fonctionne bien avec la plupart des applications. |
+| Développement/Test         | Idéal pour expérimenter avec AKS ou déployer une application de test. |
+| Optimisation des coûts   | Idéal pour réduire les coûts sur les charges de travail de production qui peuvent tolérer des interruptions. |
+| Traitement par lots | Idéal pour les charges de travail de Machine Learning, de calcul intensif et nécessitant beaucoup de ressources graphiques. Adapté aux applications nécessitant un scale-up et un scale-out rapides du cluster. |
+| Accès renforcé  | Idéal pour les grandes entreprises qui ont besoin d’un contrôle total de la sécurité et de la stabilité. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

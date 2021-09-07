@@ -8,33 +8,33 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c5b35e84d0e16b70b4abba8f784ba9c779c0169
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95494707"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380119"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Options de support d’Azure Spatial Anchors
 
 ## <a name="open-a-tech-support-ticket"></a>Ouvrir un ticket de support technique
 
-Pour ouvrir un ticket de support technique pour Azure Spatial Anchors au sein du portail Microsoft Azure, procédez comme suit :
+Pour ouvrir un ticket de support technique concernant Azure Spatial Anchors sur le portail Azure :
 
 1. Ouvrez le [portail Microsoft Azure](https://azure.microsoft.com/account/), et cliquez sur l’icône d’aide figurant dans la barre de menus supérieure, puis cliquez sur le bouton **Aide + Support**.
 
-![Aide et support du portail Microsoft Azure](./media/spatial-anchor-support.png)
+   ![Aide et support du portail Microsoft Azure](./media/spatial-anchor-support.png)
 
 1. Ouvrez la page Aide + Support, sélectionnez **+ Nouvelle demande de support**.
 
-![Nouvelle demande de support sur le Portail Microsoft Azure](./media/spatial-anchor-support2.png)
+   ![Nouvelle demande de support sur le Portail Microsoft Azure](./media/spatial-anchor-support2.png)
 
 1. Remplissez les champs d’un ticket de support comme suit :
 
-- Type de problème : technique
-- Service : Spatial Anchors
+   - Type de problème : technique
+   - Service : Spatial Anchors
 
-![Champs d’un ticket de support sur le portail Microsoft Azure](./media/spatial-anchor-support3.png)
+   ![Champs d’un ticket de support sur le portail Microsoft Azure](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>Support de la communauté pour les objets blob
 
@@ -50,4 +50,4 @@ Pour envoyer vos commentaires, partager une idée ou une suggestion concernant l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les questions fréquences (FAQ) relatives à Azure Spatial Anchors sont disponibles sur la page [FAQ](spatial-anchor-faq.md).
+Les questions fréquences (FAQ) relatives à Azure Spatial Anchors sont disponibles sur la page [FAQ](spatial-anchor-faq.yml).

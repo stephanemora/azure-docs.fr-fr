@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d97287657b1e1fe7d540e8811c90794aaa5fece
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6502779c4d301e760e10be8cf1a1766834ec2038
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739563"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604149"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Vue d’ensemble de la mise à jour des appareils pour IoT Hub Agent
 
 L’Agent de mise à jour des appareils se compose de deux couches conceptuelles :
 
-* La couche d’interface s’appuie sur [Azure IoT Plug-and-Play (PNP),](../iot-pnp/overview-iot-plug-and-play.md), ce qui permet aux messages de circuler entre l’Agent de mise à jour des appareils et les Services de mise à jour des appareils.
+* La couche d’interface s’appuie sur [Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), ce qui permet aux messages de circuler entre l’agent Device Update et les services Device Update.
 * La couche de plateforme est en charge des actions générales de mise à jour du téléchargement, de l’installation et de l’application qui peuvent être spécifiques à la plateforme ou aux appareils.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implémentations d’agent." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::

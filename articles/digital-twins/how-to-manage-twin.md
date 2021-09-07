@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2c83ac769cc4a8aec6148e1a45ec6435f117d73a
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: b670c244c502049cc9eb419aa6570ad40e5aafa7
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812030"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689927"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
 Les entités de votre environnement sont représentées par des [jumeaux numériques](concepts-twins-graph.md). La gestion de vos jumeaux numériques peut inclure la création, la modification et la suppression.
 
-Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [Procédure : Gérer le graphe des jumeaux avec des relations](how-to-manage-graph.md).
+Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [Gérer le graphe de jumeaux et les relations](how-to-manage-graph.md).
 
 > [!TIP]
 > Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
@@ -40,7 +40,7 @@ Pour créer un jumeau, vous utilisez la méthode `CreateOrReplaceDigitalTwinAsyn
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 Pour créer un jumeau numérique, vous devez fournir les éléments suivants :
-* L’ID souhaité pour le jumeau numérique
+* ID souhaité pour le jumeau numérique, que vous définissez ici
 * Le [modèle](concepts-models.md) à utiliser
 
 Si vous le souhaitez, vous pouvez fournir des valeurs initiales pour toutes les propriétés du jumeau numérique. Les propriétés sont traitées comme facultatives et peuvent être définies ultérieurement, mais **elles ne s’affichent pas dans le cadre d’un jumeau tant qu’elles n’ont pas été définies.**
@@ -57,7 +57,7 @@ Le modèle et les éventuelles valeurs des propriétés initiales sont fournis p
 
 Vous pouvez initialiser les propriétés d’un jumeau au moment de sa création. 
 
-L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Voir [Concepts : Jumeaux numériques et le graphe des jumeaux](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau. 
+L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Consultez [Jumeaux numériques et graphe des jumeaux](concepts-twins-graph.md) pour obtenir une description du format JSON d’un jumeau. 
 
 Tout d’abord, vous pouvez créer un objet de données pour représenter le jumeau et ses données de propriété. Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
 
@@ -86,7 +86,12 @@ Vous pouvez accéder aux détails de n’importe quel jumeau numérique en appel
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwinCall":::
 
-Cet appel retourne des données de jumeau sous forme de type d’objet fortement typé tel que `BasicDigitalTwin`. `BasicDigitalTwin` est une classe d’assistance de sérialisation incluse avec le Kit de développement logiciel (SDK), qui retourne les propriétés et les métadonnées de base du jumeau dans un format préalablement analysé. Voici un exemple d’utilisation pour afficher les détails du jumeau :
+Cet appel retourne des données de jumeau sous forme de type d’objet fortement typé tel que `BasicDigitalTwin`. `BasicDigitalTwin` est une classe d’assistance de sérialisation incluse avec le Kit de développement logiciel (SDK), qui retourne les propriétés et les métadonnées de base du jumeau dans un format préalablement analysé. Vous pouvez toujours désérialiser des données de jumeau à l’aide de la bibliothèque JSON de votre choix, comme `System.Text.Json` ou `Newtonsoft.Json`. Toutefois, si vous avez besoin d’un accès de base à un jumeau, les classes d’assistance peuvent vous faciliter la tâche.
+
+> [!NOTE]
+> `BasicDigitalTwin` utilise des attributs `System.Text.Json`. Pour pouvoir utiliser `BasicDigitalTwin` avec votre [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), vous devez initialiser le client avec le constructeur par défaut. Si vous voulez personnaliser l’option du sérialiseur, utilisez [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
+
+La classe d’assistance `BasicDigitalTwin` vous donne également accès aux propriétés définies dans le jumeau, par le biais d’un `Dictionary<string, object>`. Pour lister les propriétés du jumeau, vous pouvez utiliser ceci :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
@@ -95,7 +100,7 @@ Seules les propriétés qui ont été définies au moins une fois sont retourné
 >[!TIP]
 >La `displayName` pour un jumeau est une partie de ses métadonnées de modèle, donc elle ne s’affichera pas lors de l’obtention de données pour l’instance jumelle. Pour afficher cette valeur, vous pouvez [la récupérer à partir du modèle](how-to-manage-model.md#retrieve-models).
 
-Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [Procédure : Interroger le graphe des jumeaux](how-to-query-graph.md).
+Pour récupérer plusieurs jumeaux avec un seul appel d’API, consultez les exemples d’API de requête dans [Interroger le graphe de jumeaux](how-to-query-graph.md).
 
 Prenez pour exemple le modèle suivant (écrit en [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) qui définit une Lune :
 
@@ -137,7 +142,7 @@ Les propriétés définies du jumeau numérique sont retournées en tant que pro
   - État de synchronisation de chaque propriété accessible en écriture. Cela est très utile pour les appareils, où il est possible que le service et l’appareil aient des états différents (par exemple, lorsqu’un appareil est hors connexion). Actuellement, cette propriété s’applique uniquement aux appareils physiques connectés à IoT Hub. Avec les données dans la section des métadonnées, il est possible de comprendre l’état complet d’une propriété, ainsi que les horodatages des dernières modifications. Pour plus d’informations sur l’état de la synchronisation, consultez [ce tutoriel IoT Hub](../iot-hub/tutorial-device-twins.md) sur la synchronisation de l’état de l’appareil.
   - Les métadonnées spécifiques au service, par exemple à partir d’IoT Hub ou d’Azure Digital Twins. 
 
-Pour plus d’informations sur les classes d’assistance de sérialisation telles que `BasicDigitalTwin`, consultez [Concepts : API et SDK Azure Digital Twins](concepts-apis-sdks.md).
+Pour plus d’informations sur les classes d’assistance de sérialisation comme `BasicDigitalTwin`, consultez [API et SDK Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
 
 ## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
@@ -162,7 +167,7 @@ Voici un exemple de code de correctif JSON. Ce document remplace les valeurs des
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Vous pouvez créer des correctifs à l’aide du document [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) du SDK Azure .NET. Voici un exemple.
+Les appels de mise à jour pour les jumeaux et les relations utilisent une structure de [correctif JSON](http://jsonpatch.com/). Vous pouvez créer des correctifs à l’aide du document [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) du SDK Azure .NET. Voici un exemple.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -184,15 +189,7 @@ Quand un jumeau est créé à l’aide de ce modèle, il n’est pas nécessaire
 
 Pour ce faire, vous pouvez utiliser une opération de correctif JSON `add`, comme suit :
 
-```json
-[
-  {
-    "op": "add", 
-    "path": "/ObjectProperty", 
-    "value": {"StringSubProperty":"<string-value>"}
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-1.json":::
 
 >[!NOTE]
 > Si `ObjectProperty` a plusieurs propriétés, vous devez toutes les inclure dans le champ `value` de cette opération, même si vous n’en mettez qu’une seule à jour :
@@ -203,15 +200,7 @@ Pour ce faire, vous pouvez utiliser une opération de correctif JSON `add`, comm
 
 Une fois cette opération effectuée, il existe un chemin à `StringSubProperty` et il peut désormais être mis à jour directement avec une opération `replace` ordinaire :
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/ObjectProperty/StringSubProperty",
-    "value": "<string-value>"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-2.json":::
 
 Bien que la première étape ne soit pas nécessaire dans les cas où `ObjectProperty` a été instanciée lors de la création du jumeau, nous vous recommandons de l’utiliser chaque fois que vous mettez à jour une sous-propriété pour la première fois, car vous ne serez pas toujours certain que la propriété de l’objet a été instanciée initialement.
 
@@ -257,7 +246,7 @@ Voici un exemple de code permettant de supprimer des jumeaux et leurs relations.
 
 ### <a name="delete-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
-Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans le [Tutoriel : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllTwins()`.
+Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans [Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllTwins()`.
 
 ## <a name="runnable-digital-twin-code-sample"></a>Exemple de code de jumeau numérique exécutable
 
@@ -299,4 +288,4 @@ Voici la sortie de la console du programme ci-dessus :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer et gérer des relations entre vos jumeaux numériques :
-* [Guide pratique pour Gérer le graphe des jumeaux avec des relations](how-to-manage-graph.md)
+* [Gérer le graphe de jumeaux et les relations](how-to-manage-graph.md)

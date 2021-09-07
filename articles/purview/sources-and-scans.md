@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 15ade6fca3885bfabba7a23e2c3d8e561a9e6a0c
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: e5b2c5eaca13b26504c4229ef990abc4adce23c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738461"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524085"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Sources de données et types de fichiers pris en charge dans Azure Purview
 
@@ -32,7 +32,7 @@ Les types de fichiers suivants sont pris en charge pour l’analyse, ainsi que p
 - Purview prend également en charge les extensions de fichiers personnalisées et les analyseurs personnalisés.
  
 > [!Note]
-> Chaque fichier Gzip doit être mappé à un seul fichier csv contenu. Les fichiers Gzip sont soumis à des règles système et personnalisées de classification. Actuellement, nous ne prenons pas en charge l’analyse d’un fichier gzip mappé à plusieurs fichiers contenus, ou à n’importe quel autre type de fichier qui n’est pas csv. En outre, l’analyseur Purview prend en charge l’analyse des types de fichiers PARQUET et AVRO compressés pour l’extraction et la classification des schémas.
+> Chaque fichier Gzip doit être mappé à un seul fichier csv contenu. Les fichiers Gzip sont soumis à des règles système et personnalisées de classification. Actuellement, nous ne prenons pas en charge l’analyse d’un fichier gzip mappé à plusieurs fichiers contenus, ou à n’importe quel autre type de fichier qui n’est pas csv. En outre, l’analyseur Purview prend en charge l’analyse des types PARQUET compressés avec Snappy pour l’extraction et la classification des schémas. 
 
 > [!Note]
 > L’analyseur Purview ne prend pas en charge les types de données complexes dans les types de fichiers AVRO, ORC et PARQUET pour l’extraction des schémas.   
@@ -46,9 +46,10 @@ Dans la terminologie Purview,
 
 Pour tous les formats de fichiers structurés, l’analyseur Purview échantillonne les fichiers comme suit :
 
-- Pour les types de fichiers structurés, il échantillonne 128 lignes dans chaque colonne ou 1 Mo, selon la valeur la plus faible.
-- Pour les formats de fichiers de document, il échantillonne 20 Mo de chaque fichier.
+- Pour les types de fichiers structurés, il échantillonne les 128 premières lignes dans chaque colonne ou le premier Mo, selon ce qui est le plus petit.
+- Pour les formats de fichiers de document, il échantillonne les 20 premiers Mo de chaque fichier.
     - Un fichier de document dont la taille est supérieure à 20 Mo n’est pas soumis à une analyse détaillée (sous réserve de classification). Dans ce cas, Purview capture uniquement les métadonnées de base, telles que le nom de fichier et le nom complet.
+- Pour les **sources de données tabulaires (SQL, CosmosDB)** , il échantillonne les 128 premières lignes. 
 
 ## <a name="resource-set-file-sampling"></a>Échantillonnage de fichiers de jeu de ressources
 
@@ -64,7 +65,7 @@ Dans Purview, un dossier ou un groupe de fichiers de partition est détecté en 
 
 ## <a name="classification"></a>classification ;
 
-Toutes les règles de classification système 105 s’appliquent aux formats de fichiers structurés. Seules les règles de classification MCE s’appliquent aux types de fichiers de document (et non aux modèles regex natifs d’analyse des données, de détection basée sur les filtres). Pour plus d’informations sur les classifications prises en charge, consultez [Classifications prises en charge dans Azure Purview](supported-classifications.md).
+Toutes les 206 règles de classification système s’appliquent aux formats de fichiers structurés. Seules les règles de classification MCE s’appliquent aux types de fichiers de document (et non aux modèles regex natifs d’analyse des données, de détection basée sur les filtres). Pour plus d’informations sur les classifications prises en charge, consultez [Classifications prises en charge dans Azure Purview](supported-classifications.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

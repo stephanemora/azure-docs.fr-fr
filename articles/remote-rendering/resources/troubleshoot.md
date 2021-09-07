@@ -5,25 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: bef6439ae51c6e15f7be997758acbbd3722ae4ff
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575341"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223261"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
 Cette page liste les problèmes courants qui interfèrent avec Azure Remote Rendering et les façons de les résoudre.
 
+## <a name="client-cant-connect-to-server"></a>Le client ne peut pas se connecter au serveur
+
+Assurez-vous que vos pare-feu (sur l’appareil, les routeurs internes, etc.) ne bloquent pas les ports mentionnés dans la [Configuration requise](../overview/system-requirements.md#network-firewall).
+
+## <a name="failed-to-load-model"></a>Impossible de charger le modèle
+
+Si le chargement d’un modèle (par exemple, via un exemple Unity) échoue alors que la configuration des objets blob est correcte, il est probable que le stockage d’objets blob n’est pas correctement lié. Cela est expliqué dans le chapitre [Lier des comptes de stockage](../how-tos/create-an-account.md#link-storage-accounts). Notez qu’une fois la liaison correctement effectuée, la prise en compte des changements peut prendre jusqu’à 30 minutes.
+
 ## <a name="cant-link-storage-account-to-arr-account"></a>Impossibilité de lier un compte de stockage à un compte ARR
 
 Parfois, lors de la [liaison d’un compte de stockage](../how-tos/create-an-account.md#link-storage-accounts), le compte de rendu à distance (ARR, Remote Rendering Account) n’est pas répertorié. Pour résoudre ce problème, accédez au compte ARR dans le portail Azure, puis sélectionnez **Identité** dans le groupe **Paramètres** sur la gauche. Assurez-vous que l’**État** est **Activé**.
 ![Débogueur de frames Unity](./media/troubleshoot-portal-identity.png)
-
-## <a name="client-cant-connect-to-server"></a>Le client ne peut pas se connecter au serveur
-
-Assurez-vous que vos pare-feu (sur l’appareil, les routeurs internes, etc.) ne bloquent pas les ports mentionnés dans la [Configuration requise](../overview/system-requirements.md#network-firewall).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erreur : `Disconnected: VideoFormatNotAvailable`
 
@@ -161,6 +165,8 @@ Veillez à suivre à la lettre le [Tutoriel Unity : Afficher des modèles dista
 
 Ce problème peut être lié à MSAA, à HDR ou à l’activation du post-traitement. Vérifiez que le profil de qualité inférieure est sélectionné et défini comme valeur par défaut dans Unity. Pour ce faire, accédez à *Edit > Project Settings... > Quality* (Modifier > Paramètres du projet... > Qualité).
 
+Quand vous utilisez le plug-in OpenXR dans Unity 2020, certaines versions du pipeline de rendu universel (URP, Universal Render Pipeline) créent cette cible de rendu hors écran supplémentaire, quel que soit le post-traitement activé. Il est donc important d’effectuer une mise à niveau manuelle de la version du pipeline URP vers au moins la version 10.5.1 (ou une version ultérieure). Cette opération est décrite dans [Configuration système requise](../overview/system-requirements.md#unity-2020).
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Le code Unity utilisant l’API Remote Rendering ne se compile pas
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Utiliser Debug lors de la compilation dans l’éditeur Unity
@@ -183,9 +189,9 @@ Nous avons constaté de faux échecs lors de tentative de compilation d’exempl
 
 ## <a name="native-c-based-application-does-not-compile"></a>L’application basée sur C++ native ne se compile pas
 
-### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erreur « bibliothèque introuvable » pour une application ou dll UWP
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erreur « bibliothèque introuvable » pour une application ou DLL UWP
 
-Le package NuGet C++ contient un fichier `microsoft.azure.remoterendering.Cpp.targets` qui définit la version de fichier binaire à utiliser. Pour identifier `UWP`, les conditions dans le fichier vérifient la présence de `ApplicationType == 'Windows Store'`. Il faut donc vérifier que ce type est défini dans le projet. Cela devrait être le cas lors de la création d’une application ou dll UWP via l’Assistant Projet de Visual Studio.
+Le package NuGet C++ contient un fichier `microsoft.azure.remoterendering.Cpp.targets` qui définit la version de fichier binaire à utiliser. Pour identifier `UWP`, les conditions dans le fichier vérifient la présence de `ApplicationType == 'Windows Store'`. Il faut donc vérifier que ce type est défini dans le projet. Cela devrait être le cas lors de la création d’une application ou DLL UWP via l’Assistant Projet de Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologrammes instables
 
@@ -247,7 +253,7 @@ Les surfaces coplanaires peuvent avoir plusieurs causes :
 
 ## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefacts graphiques utilisant le rendu stéréo à plusieurs passes dans les applications C++ natives
 
-Dans certains cas, les applications C++ natives qui utilisent un mode de rendu stéréo à plusieurs passes pour le contenu local (rendu gauche et droite dans des passes séparées) après l’appel de [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) peuvent déclencher un bogue du pilote. Le bogue entraîne des problèmes de pixellisation non déterministes, provoquant la disparition aléatoire de triangles individuels ou de parties de triangles du contenu local. Pour des raisons de performances, il est de toute manière recommandé de rendre le contenu local avec une technique de rendu stéréo en une seule passe plus moderne, par exemple utilisant **SV_RenderTargetArrayIndex**.
+Dans certains cas, les applications C++ natives qui utilisent un mode de rendu stéréo à plusieurs passes pour le contenu local (rendu gauche et droite dans des passes séparées) après l’appel de [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image-openxr) peuvent déclencher un bogue du pilote. Le bogue entraîne des problèmes de pixellisation non déterministes, provoquant la disparition aléatoire de triangles individuels ou de parties de triangles du contenu local. Pour des raisons de performances, il est de toute manière recommandé de rendre le contenu local avec une technique de rendu stéréo en une seule passe plus moderne, par exemple utilisant **SV_RenderTargetArrayIndex**.
 
 ## <a name="conversion-file-download-errors"></a>Erreurs de téléchargement du fichier de conversion
 

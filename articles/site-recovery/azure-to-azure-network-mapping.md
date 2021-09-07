@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
-ms.openlocfilehash: ff1f80641dc3db1f6b69fc0223c60022f8cf8435
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7c4b0f75dd94a5aa61b75b99bbb553c98090aac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95811628"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524205"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
@@ -20,9 +20,11 @@ Cet article explique comment mapper deux instances de réseaux virtuels Azure si
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de mapper des réseaux, vous devez avoir des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible. 
+Avant de mapper des réseaux, vous devez avoir des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible.
 
 ## <a name="set-up-network-mapping-manually-optional"></a>Configurer le mappage réseau manuellement (facultatif)
+
+>[!REMARQUE La réplication peut désormais être effectuée entre toutes les régions Azure du monde. La réplication ne se limite plus au continent dans lequel se trouve l’utilisateur.
 
 Mappez les réseaux comme suit :
 
@@ -44,12 +46,12 @@ Si vous n’avez pas préparé le mappage réseau avant de configurer la récup�
 
 - En fonction de la cible sélectionnée, Site Recovery crée automatiquement des mappages réseau de la région source à la région cible et de la région cible à la région source.
 - Par défaut, Site Recovery crée dans la région cible un réseau qui est identique au réseau source. Site Recovery ajoute **-asr** comme suffixe au nom du réseau source. Vous pouvez personnaliser le réseau cible.
-- Si le mappage réseau s’est déjà produit pour un réseau source, le réseau cible mappé correspond toujours à la valeur par défaut lors de l’activation de la réplication pour davantage de machines virtuelles. Vous pouvez choisir de modifier le réseau virtuel cible en sélectionnant l’un des autres options disponibles dans la liste déroulante. 
+- Si le mappage réseau s’est déjà produit pour un réseau source, le réseau cible mappé correspond toujours à la valeur par défaut lors de l’activation de la réplication pour davantage de machines virtuelles. Vous pouvez choisir de modifier le réseau virtuel cible en sélectionnant l’un des autres options disponibles dans la liste déroulante.
 - Pour modifier le réseau virtuel cible par défaut des nouvelles réplications, vous devez modifier le mappage réseau existant.
 - Si vous souhaitez modifier un mappage réseau de la région A vers la région B, commencez par supprimer le mappage réseau de la région B vers la région A. Après la suppression du mappage inverse, modifiez le mappage réseau de la région A vers la région B, puis créez le mappage inverse adéquat.
 
 >[!NOTE]
->* La modification du mappage réseau n’affecte que les valeurs par défaut des nouvelles réplications de machines virtuelles. Cela n’affecte pas les sélections de réseaux virtuels cibles pour les réplications existantes. 
+>* La modification du mappage réseau n’affecte que les valeurs par défaut des nouvelles réplications de machines virtuelles. Cela n’affecte pas les sélections de réseaux virtuels cibles pour les réplications existantes.
 >* Si vous souhaitez modifier le réseau cible d’une réplication existante, accédez aux paramètres Calcul et réseau de l’élément répliqué.
 
 ## <a name="specify-a-subnet"></a>Spécifier un sous-réseau

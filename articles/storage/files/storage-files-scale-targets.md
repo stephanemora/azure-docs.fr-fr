@@ -7,17 +7,24 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 78ecf275a9c607273aef16e6351224709f230959
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 32ec83fb1c8de16f589d6a172a7612e5e5866647
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690522"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768225"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
 
 Les objectifs de performance et d’extensibilité répertoriés ici sont des objectifs haut de gamme, mais ils peuvent être affectés par d'autres variables de votre déploiement. Par exemple, le débit d’un fichier peut également être limité par votre bande passante réseau disponible, et pas seulement par les serveurs qui hébergent vos partages de fichiers Azure. Nous vous recommandons vivement de tester votre modèle d’utilisation pour déterminer si l’extensibilité et les performances d'Azure Files répondent à vos besoins. Nous sommes résolus à augmenter ces limites au fil du temps. 
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 ## <a name="azure-files-scale-targets"></a>Objectifs de mise à l’échelle Azure Files
 Les partages de fichiers Azure sont déployés dans des comptes de stockage, qui sont des objets de niveau supérieur représentant un pool partagé de stockage. Ce pool de stockage peut être utilisé pour déployer plusieurs partages de fichiers. Trois catégories doivent donc être prises en compte : les comptes de stockage, les partages de fichiers Azure et les fichiers.
@@ -52,7 +59,7 @@ Azure prend en charge plusieurs types de comptes de stockage pour différents sc
 | Unité d’augmentation/de réduction de taille approvisionnée | N/A | 1 Gio |
 | Taille maximale d’un partage de fichiers | <ul><li>100 Tio, avec la fonctionnalité de partage de fichiers volumineux activée<sup>2</sup></li><li>5 Tio, par défaut</li></ul> | 100 Tio |
 | Nombre maximal de fichiers dans un partage de fichiers | Aucune limite | Aucune limite |
-| Taux de requêtes maximal (IOPS max.) | <ul><li>10 000, avec la fonctionnalité de partage de fichiers volumineux activée<sup>2</sup></li><li>1 000 ou 100 requêtes par 100 ms, par défaut</li></ul> | <ul><li>IOPS de base : 400 + 1 IOPS par Gio, jusqu’à 100 000</li><li>IOPS en mode rafale : Max (4 000,3 x IOPS par Gio), jusqu’à 100 000</li></ul> |
+| Taux de requêtes maximal (IOPS max.) | <ul><li>20 000, avec la fonctionnalité de partage de fichiers volumineux activée<sup>2</sup></li><li>1 000 ou 100 requêtes par 100 ms, par défaut</li></ul> | <ul><li>IOPS de base : 400 + 1 IOPS par Gio, jusqu’à 100 000</li><li>IOPS en mode rafale : Max (4 000,3 x IOPS par Gio), jusqu’à 100 000</li></ul> |
 | Entrée maximale pour un partage de fichier unique | <ul><li>Jusqu’à 300 Mio/s, avec la fonctionnalité de partage de fichiers volumineux activée<sup>2</sup></li><li>Jusqu’à 60 Mio/s, par défaut</li></ul> | 40 Mio/s + 0,04 * Gio configurés |
 | Sortie maximale pour un partage de fichier unique | <ul><li>Jusqu’à 300 Mio/s, avec la fonctionnalité de partage de fichiers volumineux activée<sup>2</sup></li><li>Jusqu’à 60 Mio/s, par défaut</li></ul> | 60 Mio/s + 0,06 * Gio configurés |
 | Nombre maximal d’instantanés de partage | 200 instantanés | 200 instantanés |
@@ -64,7 +71,7 @@ Azure prend en charge plusieurs types de comptes de stockage pour différents sc
 
 <sup>1</sup> Les limites pour les partages de fichiers standard s’appliquent aux trois niveaux disponibles pour les partages de fichiers standard : transaction optimisée, chaud et froid.
 
-<sup>2</sup> Par défaut, la taille des partages de fichiers standard est de 5 Tio. Consultez [Activer et créer des partages de fichiers volumineux](./storage-files-how-to-create-large-file-share.md) pour savoir comment effectuer un scale-up des partages de fichiers jusqu’à 100 Tio.
+<sup>2</sup> La valeur par défaut sur les partages de fichiers standard est de 5 Tio. Pour plus d’informations sur la création de partages de fichiers de 100 Tio et l’augmentation de la taille de partages de fichiers standard existants (jusqu’à 100 Tio), consultez [Créer un partage de fichiers Azure](./storage-how-to-create-file-share.md).
 
 ### <a name="file-scale-targets"></a>Objectifs de mise à l'échelle de fichier
 | Attribut | Fichiers dans les partages de fichiers standard  | Fichiers dans les partages de fichiers Premium  |
@@ -90,7 +97,7 @@ Le tableau suivant indique les limites de tests réalisés par Microsoft, ainsi 
 | Points de terminaison de serveur par groupe de synchronisation | 100 points de terminaison de serveur | Oui |
 | Points de terminaison de serveur par serveur | 30 points de terminaison de serveur | Oui |
 | Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 100 millions d’objets | Non |
-| Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 5 millions d’objets | Oui |
+| Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire **(non récursif)** | 5 millions d’objets | Oui |
 | Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 64 Kio | Oui |
 | Taille du fichier | 100 Gio | Non |
 | Taille minimale d’un fichier à hiérarchiser | V9 et versions ultérieures : en fonction de la taille de cluster du système de fichiers (le double de cette taille). Par exemple, si la taille du cluster de système de fichiers est de 4 Kio, la taille de fichier minimale sera de 8 Kio.<br> V8 et versions antérieures : 64 Kio  | Oui |

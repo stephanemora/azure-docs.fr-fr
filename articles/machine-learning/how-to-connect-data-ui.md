@@ -1,5 +1,5 @@
 ---
-title: Se connecter à des données dans les services de stockage sur Azure
+title: Se connecter au stockage de données avec l’interface utilisateur de Studio
 titleSuffix: Azure Machine Learning
 description: Créez des magasins de données et des jeux de données pour vous connecter en toute sécurité aux données des services de stockage dans Azure avec Azure Machine Learning Studio.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
+ms.date: 07/06/2021
 ms.custom: data4ml
-ms.openlocfilehash: b85be179fa12e29ef17fe9fa488b22c3d8a3c69b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8764f237d3e5304df95357cb770738e32d8395dd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785112"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441879"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -37,7 +37,7 @@ Pour une première expérience de code, consultez les articles suivants pour uti
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Accédez au [studio Azure Machine Learning](https://ml.azure.com/).
 
@@ -85,8 +85,11 @@ Pour créer un jeu de données dans le studio :
 1. Sélectionnez le type de jeu de données **Tabulaire** ou **Fichier**.
 1. Sélectionnez **Suivant** pour ouvrir le formulaire **Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où conserver votre jeu de données après sa création, ainsi que les fichiers de données à utiliser pour votre jeu de données.
     1. Vous pouvez choisir d’ignorer la validation si vos données se trouvent dans un réseau virtuel. En savoir plus sur l’[isolement et la confidentialité des réseaux virtuels](how-to-enable-studio-virtual-network.md).
-    1. Pour les jeux de données de type Tabulaire, vous pouvez spécifier une caractéristique « timeseries » pour activer les opérations relatives au temps sur votre jeu de données. Découvrez comment [ajouter la caractéristique « timeseries » à votre jeu de données](how-to-monitor-datasets.md#studio-dataset).
+
 1. Sélectionnez **Suivant** pour renseigner les formulaires **Paramètres et aperçu** et **Schéma** ; ils sont renseignés intelligemment en fonction du type de fichier et vous pouvez configurer davantage votre jeu de données avant de le créer sur ces formulaires. 
+    1.  Dans le formulaire Paramètres et aperçu, vous pouvez indiquer si vos données contiennent des données à plusieurs lignes. 
+    1. Dans le formulaire Schéma, vous pouvez spécifier que votre TabularDataset a un composant horaire en sélectionnant le type **Horodateur** pour votre colonne de date ou d’heure. 
+        1. Si vos données sont mises en forme dans des sous-ensembles, par exemple des fenêtres de temps, et que vous souhaitez utiliser ces sous-ensembles pour l’entraînement, sélectionnez le type **Horodatage de partition**. Cela permet d’exécuter des opérations de série chronologique sur votre jeu de données. Découvrez-en plus sur la façon de [tirer parti des partitions dans votre jeu de données à des fins d’entraînement](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
 1. Sélectionnez **Suivant** pour passer en revue le formulaire **Confirmer les détails**. Vérifiez vos sélections et créez un profil de données facultatif pour votre jeu de données. En savoir plus sur le [profilage des données](#profile).
 1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
 

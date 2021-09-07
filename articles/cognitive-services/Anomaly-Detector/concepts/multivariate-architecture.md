@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
-ms.openlocfilehash: 4d379cfe01dcbd88531b98a32b45e0b30f6adeef
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9de0a774ab2464d3b59ee8875453255e92ea5c45
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318811"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297241"
 ---
 # <a name="predictive-maintenance-solution-with-anomaly-detector-multivariate"></a>Solution de maintenance prédictive avec Détecteur d’anomalies (multivarié)
 

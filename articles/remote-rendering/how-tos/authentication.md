@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01b2dbaa8ed318f08fd68660078ae6fb9923221d
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97724875"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969736"
 ---
 # <a name="configure-authentication"></a>configurer l’authentification ;
 
@@ -47,9 +47,25 @@ Azure Remote Rendering utilise un mécanisme d’authentification identique à [
 
 Les clés de compte sont recommandées pour un prototypage rapide, pendant le développement uniquement. Il est recommandé de ne pas envoyer votre application en production à l’aide d’une clé de compte incorporée. Il est recommandé d’utiliser une approche d’authentification Azure AD basée sur l’utilisateur ou sur le service.
 
- L’authentification Azure AD est décrite dans la section [Authentification utilisateur Azure AD](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) du service [Azure Spatial Anchors (ASA)](../../spatial-anchors/index.yml).
+### <a name="azure-ad-user-authentication"></a>Authentification utilisateur Azure AD
 
- Pour plus d’informations, consultez le [Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles - Authentification Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
+L’authentification Azure AD est décrite dans la [documentation d’Azure Spatial Anchors](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication).
+
+Suivez les étapes permettant de configurer l’authentification utilisateur Azure Active Directory dans le portail Azure.
+
+1. Inscrivez votre application dans Azure Active Directory. Dans le cadre de l’inscription, vous devez déterminer si votre application doit être multilocataire. Vous devez également fournir les URL de redirection autorisées pour votre application dans le panneau Authentification.
+:::image type="content" source="./media/azure-active-directory-app-setup.png" alt-text="Configuration de l’authentification":::
+
+1. Sous l’onglet API autorisées, demandez des **autorisations déléguées** pour l’étendue **mixedreality.signin** sous **mixedreality**.
+:::image type="content" source="./media/azure-active-directory-app-api-permissions.png" alt-text="API autorisées":::
+
+1. Accordez le consentement administrateur sous l’onglet Sécurité -> Autorisations. :::image type="content" source="./media/azure-active-directory-grant-admin-consent.png" alt-text="Consentement administrateur":::
+
+1. Ensuite, accédez à votre ressource Azure Remote Rendering. Dans le volet Contrôle d’accès, accordez les [rôles](#azure-role-based-access-control) souhaités pour vos applications et utilisateur, au nom desquels vous souhaitez utiliser des autorisations d’accès déléguées sur votre ressource Azure Remote Rendering.
+:::image type="content" source="./media/azure-remote-rendering-add-role-assignment.png" alt-text="Ajout d’autorisations":::
+:::image type="content" source="./media/azure-remote-rendering-role-assignments.png" alt-text="Affectations de rôle":::
+
+Pour plus d’informations sur l’utilisation de l’authentification utilisateur Azure AD dans votre code d’application, consultez le [Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles - Authentification Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication).
 
 ## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 

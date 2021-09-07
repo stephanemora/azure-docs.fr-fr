@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 92805b4f6c46a32718d755d19c9053705112fa48
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5192a740667217741b20d6bd335ca5662f3fc6aa
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321336"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690593"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
 
@@ -137,7 +137,7 @@ Dans cet exemple, vous créez un groupe de machines virtuelles identiques pour f
 3. Dans la zone de recherche, tapez *groupe identique* et appuyez sur « Entrée ».
 4. Sélectionnez **Groupe de machines virtuelles identiques**, puis **Créer**.
 5. Dans **Nom du groupe de machines virtuelles identiques**, saisissez *myvmss*.
-6. Pour l’image de disque du système d’exploitation, ** vérifiez que **Windows Server 2016 Datacenter** est sélectionné.
+6. Pour l’**image de disque du système d’exploitation**, veillez à ce que **Windows Server 2016 Datacenter** soit sélectionné.
 7. Pour le **Groupe de ressources**, sélectionnez **myResourceGroupAG**.
 8. Pour le **Nom d’utilisateur**, saisissez *azureuser*.
 9. Pour le **mot de passe**, saisissez *Azure123456!* , puis confirmez le mot de passe.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: debce0a1b4c09bb89cdceb1cd29e59e1976c939a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58120c05e4ee0c3310a5da75377cd941aa289de7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539148"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453065"
 ---
 # <a name="blob-snapshots"></a>Instantanés d’objet blob
 
@@ -25,7 +25,12 @@ Un instantané est une version en lecture seule d'un objet blob capturé à un i
 
 ## <a name="about-blob-snapshots"></a>À propos des instantanés blob
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+> [!IMPORTANT]
+> L’utilisation d’instantanés dans des comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée est actuellement en préversion.
+> Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+>
+> Pour vous inscrire à la préversion, voir [ce formulaire](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
 
 Un instantané d’un objet blob est identique à l’objet blob de base, à la différence que l’URI de l’objet blob a une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané a été pris. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané est du type `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 

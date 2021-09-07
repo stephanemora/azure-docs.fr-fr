@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 06/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 1ad86695510a8fe93bbeeab27db53f5afbef92fd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 9910ac4d817879812803cd41f6b184846e1b02be
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555922"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106242"
 ---
 # <a name="create-a-new-virtual-switch-in-azure-stack-edge-pro-gpu-via-powershell"></a>Créer un commutateur virtuel dans Azure Stack Edge Pro avec GPU via PowerShell
 
@@ -52,7 +52,7 @@ Avant de commencer, assurez-vous que :
     ```
     Voici un exemple de sortie :
     
-    ```powershell
+    ```output
         [10.100.10.10]: PS>Get-NetAdapter -Physical
         
         Name                      InterfaceDescription                    ifIndex Status       MacAddress       LinkSpeed
@@ -76,7 +76,7 @@ Avant de commencer, assurez-vous que :
  
     Voici un exemple de sortie :
 
-    ```powershell
+    ```output
     [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
     Name                          : vSwitch1
@@ -106,8 +106,8 @@ Utilisez la commande `Get-HcsExternalVirtualSwitch` pour identifier le commutate
 
 Voici un exemple de sortie :
 
-```powershell
-[10.100.10.10]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
+```output
+[10.100.10.10]: PS> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
 [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
 Name                          : vSwitch1
@@ -135,11 +135,69 @@ Type                          : External
 [10.100.10.10]: PS>
 ```
 
-## <a name="verify-network-subnet"></a>Vérifier le réseau, le sous-réseau 
+## <a name="verify-network-subnet-for-switch"></a>Vérifier le réseau, le sous-réseau pour le commutateur
 
 Une fois que vous avez créé le commutateur virtuel, Azure Stack Edge Pro avec GPU crée automatiquement un réseau virtuel et un sous-réseau correspondant. Vous pouvez utiliser ce réseau virtuel lors de la création de machines virtuelles.
 
-<!--To identify the virtual network and subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` command. This cmdlet will be released in April some time. -->
+Pour identifier le réseau virtuel et le sous-réseau associés au nouveau commutateur que vous avez créé, utilisez l’applet de commande `Get-HcsVirtualNetwork`. 
+
+## <a name="create-virtual-lans"></a>Créer des réseaux locaux virtuels
+
+Pour ajouter une configuration de réseau local virtuel (LAN) sur un commutateur virtuel, utilisez l’applet de commande suivante.
+
+```powershell
+Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -VnetName <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
+``` 
+
+Vous pouvez utiliser les paramètres suivants avec l’applet de commande `Add-HcsVirtualNetwork-VirtualSwitchName`.
+
+
+|Paramètres  |Description  |
+|---------|---------|
+|VNetName     |Nom du réseau local virtuel         |
+|VirtualSwitchName    |Nom du commutateur virtuel où vous souhaitez ajouter une configuration de réseau local virtuel         |
+|AddressSpace     |Espace d’adressage du sous-réseau pour le réseau local virtuel         |
+|GatewayIPAddress     |Passerelle pour le réseau virtuel         |
+|DnsServers     |Liste des adresses IP des serveurs DNS         |
+|DnsSuffix     |Nom DNS sans la partie hôte pour le sous-réseau du réseau local virtuel         |
+
+
+
+Voici un exemple de sortie :
+
+```output
+[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50&quot;,&quot;5.5.50.100&quot; -DnsSuffix &quot;name.domain.com"
+
+[10.100.10.10]: PS> Get-HcsVirtualNetwork
+ 
+Name             : vnet2015
+AddressSpace     : 10.128.48.0/22
+SwitchName       : vSwitch1
+GatewayIPAddress : 10.128.48.1
+DnsServers       : {}
+DnsSuffix        :
+VlanId           : 2015
+ 
+Name             : vnet3011
+AddressSpace     : 10.126.64.0/22
+SwitchName       : vSwitch1
+GatewayIPAddress : 10.126.64.1
+DnsServers       : {}
+DnsSuffix        :
+VlanId           : 3011
+```
+ 
+> [!NOTE]
+> - Vous pouvez configurer plusieurs réseaux locaux virtuels sur le même commutateur virtuel. 
+> - L’adresse IP de la passerelle doit appartenir au même sous-réseau que le paramètre passé en tant qu’espace d’adressage.
+> - Vous ne pouvez pas supprimer un commutateur virtuel sur lequel des réseaux locaux virtuels sont configurés. Pour supprimer un tel commutateur virtuel, vous devez au préalable supprimer chaque réseau local virtuel.
+
+## <a name="verify-network-subnet-for-virtual-lan"></a>Vérifier le réseau, le sous-réseau pour le réseau local virtuel
+
+Une fois que vous avez créé le réseau local virtuel, un réseau virtuel et un sous-réseau correspondant sont créés automatiquement. Vous pouvez utiliser ce réseau virtuel lors de la création de machines virtuelles.
+
+Pour identifier le réseau virtuel et le sous-réseau associés au nouveau commutateur que vous avez créé, utilisez l’applet de commande `Get-HcsVirtualNetwork`.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

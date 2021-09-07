@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ed79831559802efdf7e3813f48b74c2fd3c63e87
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: bfcbdeb2755f76d5391de4a3c64a934b43e8f0f2
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581873"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982939"
 ---
 # <a name="monitor-indexer-status-and-results-in-azure-cognitive-search"></a>Surveiller l’état et les résultats d’un indexeur Recherche cognitive Azure
 
@@ -48,7 +48,7 @@ Si vous rencontrez des problèmes spécifiques au document pendant l’exécutio
 
 Les avertissements sont courants avec certains types d’indexeurs et n’indiquent pas toujours un problème. Par exemple, les indexeurs qui utilisent des services cognitifs peuvent signaler des avertissements lorsque les fichiers image ou PDF ne contiennent pas de texte à traiter. 
 
-Pour plus d’informations sur l’analyse des erreurs et des avertissements de l’indexeur, consultez [Résoudre les problèmes courants des indexeurs dans Recherche cognitive Azure](search-indexer-troubleshooting.md).
+Pour plus d’informations sur l’investigation des erreurs et des avertissements liés à l’indexeur, consultez les [conseils d’aide sur la résolution des problèmes de l’indexeur](search-indexer-troubleshooting.md).
 
 ## <a name="monitor-using-get-indexer-status-rest-api"></a>Superviser avec Get Indexer Status (API REST)
 

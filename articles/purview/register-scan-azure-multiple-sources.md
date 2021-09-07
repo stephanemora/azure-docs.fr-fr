@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: ce78b36a07a0648e869a2a382554fdc41b408f96
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: ee5151b31e691b43d1d0df1694c636c3c35f9bc2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656323"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532398"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Inscrire et analyser plusieurs sources dans Azure Purview
 
@@ -59,7 +59,7 @@ Pour savoir comment ajouter des autorisations sur chaque type de ressource au se
 Pour inscrire plusieurs sources dans votre catalogue de données, procédez comme suit :
 
 1. Accédez à votre compte Azure Purview.
-1. Sélectionnez **Sources** dans le menu de gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 1. Sélectionnez **Enregistrer**.
 1. Sous **Inscrire des sources**, sélectionnez **Azure (Multiple)** .
 
@@ -80,7 +80,7 @@ Pour inscrire plusieurs sources dans votre catalogue de données, procédez comm
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Accédez à la section **Sources**.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
 1. Sélectionnez la source de données que vous avez inscrite.
 1. Cliquez sur **Afficher les détails** >  **+ Nouvelle analyse** ou utilisez l’icône d’action rapide d’**analyse** sur la vignette source.
 1. Pour **Nom**, entrez le nom.
@@ -112,7 +112,7 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
 ## <a name="view-your-scans-and-scan-runs"></a>Afficher vos analyses et exécutions d’analyse
 
-1. Pour afficher les détails de la source, sélectionnez **Afficher les détails** dans la vignette située sous la section **Sources**. 
+1. Pour afficher les détails de la source, sélectionnez **Afficher les détails** dans la vignette située sous la section **Data Map**. 
 
     :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Capture d’écran montrant les détails de la source."::: 
 

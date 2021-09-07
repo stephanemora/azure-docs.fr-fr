@@ -4,12 +4,12 @@ description: Découvrez les stratégies de support Azure Kubernetes Service (AKS
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 3e4f5e4411eb81ab14d844adf03433e9de0d73b2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1e85effa5a8efca59bfc88aada050ee5ddcc7fcf
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368107"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666438"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -127,7 +127,7 @@ Même si vous pouvez vous connecter aux nœuds d’agent et les modifier, ces op
 
 ## <a name="network-ports-access-and-nsgs"></a>Ports réseau, accès et groupes de sécurité réseau
 
-Vous pouvez uniquement personnaliser les groupes de sécurité réseau sur des sous-réseaux personnalisés. Vous ne pouvez pas personnaliser les groupes de sécurité réseau sur des sous-réseaux gérés ou au niveau de la carte réseau des nœuds de l’agent. AKS a des exigences de sortie sur des points de terminaison spécifiques. Pour contrôler la sortie et garantir la connectivité nécessaire, consultez [Limiter le trafic sortant](limit-egress-traffic.md).
+Vous pouvez uniquement personnaliser les groupes de sécurité réseau sur des sous-réseaux personnalisés. Vous ne pouvez pas personnaliser les groupes de sécurité réseau sur des sous-réseaux gérés ou au niveau de la carte réseau des nœuds de l’agent. AKS a des exigences de sortie sur des points de terminaison spécifiques. Pour contrôler la sortie et garantir la connectivité nécessaire, consultez [Limiter le trafic sortant](limit-egress-traffic.md). Pour l’entrée, les spécifications sont basées sur les applications que vous avez déployées sur le cluster.
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Clusters arrêtés ou désalloués
 

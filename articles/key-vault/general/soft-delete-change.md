@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7e1b2ee95864affa6e5e72e1f8354767dc95bdb1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 45eea8f8809e97f7e424a988140bcf76b47d5947
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753323"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609283"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La suppression réversible sera activée sur tous les coffres de clés
 
@@ -55,7 +55,7 @@ Si votre application part du principe que la suppression réversible n’est pas
 
 Les principaux de sécurité qui ont besoin d’un accès pour supprimer définitivement des secrets doivent disposer d’autorisations de stratégie d’accès supplémentaires pour supprimer définitivement ces secrets et le coffre de clés.
 
-Désactivez toute stratégie Azure sur vos coffres de clés qui impose que la suppression réversible soit désactivée. Il peut être nécessaire de faire remonter ce problème à un administrateur qui contrôle les stratégies Azure appliquées à votre environnement. Si cette stratégie n’est pas désactivée, vous risquez de perdre la capacité à créer de nouveaux coffres de clés dans l’étendue de la stratégie appliquée.
+Désactivez toutes les attributions Azure Policy sur vos coffres de clés qui imposent que la suppression réversible soit désactivée. Vous devrez peut-être faire remonter ce problème à un administrateur qui contrôle les attributions Azure Policy appliquées à votre environnement. Si cette attribution de stratégie n’est pas désactivée, vous risquez de perdre la capacité à créer de nouveaux coffres de clés dans l’étendue de l’attribution de stratégie appliquée.
 
 Si votre organisation est soumise à des exigences de conformité légales et qu’elle ne peut pas autoriser la suppression des coffres de clés et des secrets de façon à rester dans un état récupérable pendant une période étendue, vous devrez ajuster la période de conservation de la suppression réversible pour répondre aux normes de votre organisation. Vous pouvez configurer une période de conservation comprise entre sept et 90 jours.
 

@@ -1,5 +1,5 @@
 ---
-title: Journaux d’approvisionnement dans Azure Active Directory (préversion) | Microsoft Docs
+title: Provisionnement de journaux dans Azure Active Directory | Microsoft Docs
 description: Présentation des journaux d’approvisionnement dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42a1ea52c9de3332c2b73b5c03e203f6d6694c49
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: d110abaf9621b638d698bef08d579a5ab2c4285f
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017388"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362068"
 ---
-# <a name="provisioning-logs-in-azure-active-directory-preview"></a>Journaux d’approvisionnement dans Azure Active Directory (préversion)
+# <a name="provisioning-logs-in-azure-active-directory"></a>Provisionnement de journaux dans Azure Active Directory
 
 En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 

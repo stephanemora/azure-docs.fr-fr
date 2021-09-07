@@ -8,14 +8,17 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0e252a1822d36bf1d8aecbac7f38a0d315d38351
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641997"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371841"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utiliser Pare-feu Azure pour inspecter le trafic destiné à un point de terminaison privé
+
+> [!NOTE]
+> Si vous voulez sécuriser le trafic vers des points de terminaison privés dans Azure Virtual WAN en utilisant un hub virtuel sécurisé, consultez [Sécuriser le trafic destiné aux points de terminaison privés dans Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
 
 Le point de terminaison privé Azure est le composant fondamental d’Azure Private Link. Les points de terminaison privés permettent aux ressources Azure déployées dans un réseau virtuel de communiquer en privé avec des ressources de liaisons privées.
 
@@ -26,7 +29,7 @@ Vous devrez peut-être inspecter ou bloquer le trafic des clients vers les servi
 Les limites suivantes s'appliquent :
 
 * Les groupes de sécurité réseau (NSG) sont ignorés par le trafic provenant des points de terminaison privés
-* Les itinéraires définis par l’utilisateur (UDR) sont ignorés par le trafic provenant des points de terminaison privés
+* Les routes définies par l’utilisateur sont ignorées par le trafic provenant des points de terminaison privés. Les routes définies par l’utilisateur peuvent être utilisées pour forcer le trafic destiné au point de terminaison privé.
 * Une table de routage unique peut être attachée à un sous-réseau
 * Une table de routage prend en charge jusqu’à 400 itinéraires
 
@@ -173,7 +176,7 @@ Dans les étapes suivantes, remplacez les paramètres du tableau ci-dessous par 
     | **Compte administrateur** |  |
     | Type d'authentification | Sélectionnez **Mot de passe**. |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
-    | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/linux/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirmer le mot de passe | Retapez le mot de passe. |
     | **Règles des ports d’entrée** |  |
     | Aucun port d’entrée public | Sélectionnez **Aucun**. |
@@ -197,6 +200,8 @@ Dans les étapes suivantes, remplacez les paramètres du tableau ci-dessous par 
 6. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
 
 7. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
 

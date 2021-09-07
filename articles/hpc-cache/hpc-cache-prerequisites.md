@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: v-erkel
-ms.openlocfilehash: 59b83132f4de25886494bdc5c23819243240e962
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 202f942bc4fb47b2c71802667e31e08de7cfe13e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737327"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588810"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -93,7 +93,7 @@ Consultez les prérequis liés aux autorisations avant de créer votre cache.
 ## <a name="storage-infrastructure"></a>Infrastructure du stockage
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-Le cache prend en charge les conteneurs d’objets blob Azure, les exportations de stockage matériel NFS et les conteneurs d’objets blob ADLS montés NFS (actuellement en préversion). Ajoutez des cibles de stockage après avoir créé le cache.
+Le cache prend en charge les conteneurs d’objets blob Azure, les exportations de stockage matériel NFS et les conteneurs d’objets blob ADLS montés sur NFS. Ajoutez des cibles de stockage après avoir créé le cache.
 
 La taille de votre cache détermine le nombre de cibles de stockage qu’il peut prendre en charge, jusqu’à 10 cibles de stockage pour la plupart des caches, voire 20 pour les plus grandes tailles. Pour plus d’informations, consultez [Dimensionner correctement votre cache pour prendre en charge vos cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
@@ -104,7 +104,7 @@ Chaque type de stockage possède des conditions préalables spécifiques.
 Si vous souhaitez utiliser le stockage Blob Azure avec votre cache, vous aurez besoin d’un compte de stockage compatible, et soit d’un conteneur d’objets blob vide, soit d’un conteneur comprenant des données au format Azure HPC Cache. Pour plus d’informations, consultez [Déplacer des données vers le stockage Blob Azure](hpc-cache-ingest.md).
 
 > [!NOTE]
-> Des exigences différentes s’appliquent au stockage d’objets blob monté NFS. Pour plus d’informations, consultez [Exigences du stockage ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements-preview).
+> Des exigences différentes s’appliquent au stockage d’objets blob monté NFS. Pour plus d’informations, consultez [Exigences du stockage ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements).
 
 Créez le compte avant de tenter d’ajouter une cible de stockage. Vous pouvez créer un conteneur lorsque vous ajoutez la cible.
 
@@ -122,7 +122,7 @@ Il est recommandé d’utiliser un compte de stockage se trouvant dans la même 
 Vous devez également autoriser l’application de cache à accéder à votre compte de stockage Azure, tel que mentionné dans [Autorisations](#permissions), ci-dessus. Suivez la procédure indiquée dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès requis. Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
 
 ### <a name="nfs-storage-requirements"></a>Conditions requises pour le stockage NFS
-<!-- linked from configuration.md -->
+<!-- linked from configuration.md and add storage -->
 
 Si vous utilisez un système de stockage NFS (par exemple, un système NAS matériel local), assurez-vous qu’il répond à ces exigences. Vous devrez peut-être travailler avec les administrateurs réseau ou les managers de pare-feu de votre système de stockage (ou centre de données) pour vérifier ces paramètres.
 
@@ -171,14 +171,11 @@ Pour plus d’informations, consultez [Résoudre les problèmes de configuration
 
 * Le stockage back-end NFS doit être une plateforme matérielle ou logicielle compatible. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
 
-### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>Exigences du stockage d’objets blob monté NFS (ADLS-NFS) (PRÉVERSION)
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements"></a>Exigences du stockage d’objets blob montés sur NFS (ADLS-NFS)
 
 Azure HPC Cache peut également utiliser un conteneur d’objets blob monté avec le protocole NFS comme cible de stockage.
 
-> [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. La disponibilité est limitée et les fonctionnalités peuvent changer entre maintenant et le moment où la fonctionnalité sera proposée en disponibilité générale. N’utilisez pas la technologie en préversion dans des systèmes de production.
->
-> Pour plus d’informations sur cette fonctionnalité en préversion, consultez [Prise en charge du protocole NFS 3.0 dans le Stockage Blob Azure](../storage/blobs/network-file-system-protocol-support.md).
+Pour plus d’informations sur cette fonctionnalité, consultez [Prise en charge du protocole NFS 3.0 dans le Stockage Blob Azure](../storage/blobs/network-file-system-protocol-support.md).
 
 Les exigences en matière de compte de stockage sont différentes pour une cible de stockage d’objets blob ADLS-NFS et pour une cible de stockage d’objets blob standard. Suivez avec soin les instructions de [Montage du stockage blob avec le protocole NFS (Network File System) 3.0](../storage/blobs/network-file-system-protocol-support-how-to.md) pour créer et configurer le compte de stockage compatible NFS.
 

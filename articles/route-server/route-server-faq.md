@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: article
 ms.date: 06/07/2021
 ms.author: duau
-ms.openlocfilehash: 848134fec184febcdc5cde722fbec8e55d149d14
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8deecdc043a7a39f77e96e8be5eb8bb8ef4f6191
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747992"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527688"
 ---
 # <a name="azure-route-server-preview-faq"></a>Forum aux questions sur Azure Route Server (préversion)
 
@@ -25,17 +25,21 @@ ms.locfileid: "111747992"
 
 Azure Route Server est un service complètement managé qui vous permet de gérer facilement le routage entre votre appliance virtuelle réseau (NVA) et votre réseau virtuel.
 
+## <a name="why-does-azure-route-server-require-a-public-ip-address"></a>Pourquoi Serveur de routes Azure nécessite-t-il une adresse IP publique ?
+
+Serveur de routes Azure doit garantir la connectivité au service back-end qui gère la configuration de Serveur de routes, car une telle adresse IP publique est nécessaire. 
+
 ### <a name="is-azure-route-server-just-a-vm"></a>Azure Route Server est-il juste une machine virtuelle ?
 
 Non. Azure Route Server est un service conçu avec une haute disponibilité. S’il est déployé sur une région Azure qui prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), il offre une redondance au niveau de la zone.
 
 ### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>Combien de serveurs de routes est-ce que je peux créer dans un réseau virtuel ?
 
-Vous ne pouvez créer qu’un seul serveur de routes dans un réseau virtuel. Il doit être déployé dans un sous-réseau désigné appelé *RouteServerSubnet*.
+Vous ne pouvez créer qu’un seul serveur de routes dans un réseau virtuel. Il doit être déployé dans un sous-réseau dédié appelé *RouteServerSubnet*.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>Azure Route Server prend-il en charge le peering de réseaux virtuels ?
+### <a name="does-azure-route-server-support-virtual-network-peering"></a>Serveur de routes Azure prend-il en charge l’appairage de réseaux virtuels ?
 
-Oui. Si vous appairez un réseau virtuel hébergeant le serveur de routes Azure à un autre réseau virtuel et que vous activez l’utilisation de la passerelle distante sur ce dernier, le serveur de routes Azure apprend les espaces d’adressage de ce réseau virtuel et les envoie à toutes les appliances virtuelles réseau appairées. Il programme également les routes à partir des appliances virtuelles réseau dans la table de routage des machines virtuelles du réseau virtuel appairé. 
+Oui, si vous appairez un réseau virtuel hébergeant Serveur de routes Azure à un autre réseau virtuel et que vous activez l’utilisation de la passerelle distante sur le second réseau virtuel, Serveur de routes Azure apprend les espaces d’adressage de ce réseau virtuel et les envoie à toutes les appliances virtuelles réseau appairées. Il programme également les routes à partir des appliances virtuelles réseau dans la table de routage des machines virtuelles du réseau virtuel appairé. 
 
 
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>Quels sont les protocoles de routage pris en charge par Azure Route Server ?
@@ -72,11 +76,15 @@ Les ASN suivants sont réservés par Azure ou l’IANA :
 
 Non, Azure Route Server ne prend en charge que les numéros ASN 16 bits (2 octets).
 
+### <a name="can-i-configure-a-user-defined-route-udr-in-the-azurerouteserver-subnet"></a>Puis-je configurer une route définie par l’utilisateur dans le sous-réseau AzureRouteServer ?
+
+Non, Serveur de routes Azure ne prend pas en charge la configuration d’une route définie par l’utilisateur dans le sous-réseau AzureRouteServer.
+
 ### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>Puis-je homologuer deux serveurs de routage dans deux réseaux virtuels homologués et autoriser les appliances virtuelles réseau connectés aux serveurs de routage à communiquer entre eux ? 
 
 ***Topologie : NVA1-> RouteServer1-> (via VNet Peering)-> RouteServer2-> NVA2***
 
-Non, Azure Route Server ne transfère pas le trafic de données. Pour activer la connectivité de transit via l’appliance virtuelle réseau, configurez une connexion directe (par exemple, un tunnel IPsec) entre les appliances virtuelles réseau et tirez parti des serveurs de routage pour la propagation d’itinéraires dynamiques. 
+Non, Azure Route Server ne transfère pas le trafic de données. Pour activer la connectivité de transit via l’appliance virtuelle réseau, configurez une connexion directe (par exemple, un tunnel IPsec) entre les appliances virtuelles réseau et utilisez les serveurs de routage pour la propagation de routes dynamiques. 
 
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Limites de Route Server
 
@@ -89,7 +97,7 @@ Azure Route Server présente les limites suivantes (par déploiement).
 | Nombre de routes qu’Azure Route Server peut publier sur ExpressRoute ou la passerelle VPN | 200 |
 | Nombre de machines virtuelles du réseau virtuel (réseaux virtuels appairés compris) que Serveur de routes Azure peut prendre en charge | 6000 |
 
-Si votre appliance virtuelle réseau publie plus d’itinéraires que la limite, la session BGP est abandonnée. Si cela se produit pour la passerelle et le serveur de routage Azure, vous perdez la connectivité de votre réseau local à Azure. Pour plus d’informations, consultez [Diagnostiquer un problème de routage sur une machine virtuelle Azure](../virtual-network/diagnose-network-routing-problem.md).
+Si votre appliance virtuelle réseau publie plus de routes que la limite, la session BGP est abandonnée. Dans le cas où la session BGP d’événement est abandonnée entre la passerelle et Serveur de routes Azure, vous perdez la connectivité entre votre réseau local et Azure. Pour plus d’informations, consultez [Diagnostiquer un problème de routage sur une machine virtuelle Azure](../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

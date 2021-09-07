@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 01c985b0554fe5955010c1c8c286f81f8de6d3ee
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e48cdb3792a314166a29ced4d3828ba77de46621
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006002"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532342"
 ---
 # <a name="plan-to-manage-costs-for-azure-machine-learning"></a>Planifier la gestion des coûts d’Azure Machine Learning
 
@@ -51,10 +51,6 @@ Pour plus d’informations, consultez [Tarifs Azure Machine Learning](https://az
 Azure Machine Learning s’exécute sur l’infrastructure Azure qui accumule les coûts avec Azure Machine Learning lorsque vous déployez la nouvelle ressource. Il est important de comprendre qu’une infrastructure supplémentaire peut accumuler des frais. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées. 
 
 
-
-
-
-
 ### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Coûts qui s’accumulent généralement avec Azure Machine Learning
 
 Lorsque vous créez des ressources pour un espace de travail Azure Machine Learning, des ressources pour d’autres services Azure sont également créées. Il s'agit des éléments suivants :
@@ -62,8 +58,21 @@ Lorsque vous créez des ressources pour un espace de travail Azure Machine Learn
 * Compte de base [Azure Container Registry](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Stockage d'objets blob de blocs Azure](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (Usage général v1)
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+
+Quand vous créez une [instance de calcul](concept-compute-instance.md), la machine virtuelle reste allumée pour être disponible pour votre travail.  [Configurez une planification](how-to-create-manage-compute-instance.md#schedule) pour démarrer et arrêter automatiquement l’instance de calcul (préversion) afin de réduire les coûts quand vous n’envisagez pas de l’utiliser.
  
+### <a name="costs-might-accrue-before-resource-deletion"></a>Coûts qui peuvent s’accumuler avant la suppression de la ressource
+
+Avant que vous ne supprimiez un espace de travail Azure Machine Learning dans le portail Azure ou avec Azure CLI, les sous-ressources suivantes sont des coûts courants qui s’accumulent même quand vous ne travaillez pas activement dans l’espace de travail. Si vous envisagez de revenir à votre espace de travail Azure Machine Learning, ces ressources peuvent continuer à accroître les coûts.
+
+* Machines virtuelles
+* Load Balancer
+* Réseau virtuel
+* Bande passante
+
+Chaque machine virtuelle est facturée par heure d’exécution. Le coût dépend des spécifications de la machine virtuelle. Les machines virtuelles qui s’exécutent, mais qui ne travaillent pas activement sur un jeu de données, sont toujours facturées par le biais de l’équilibreur de charge. Pour chaque instance de calcul, un équilibreur de charge est facturé par jour. Un équilibreur de charge standard est facturé pour chaque groupe de 50 nœuds d’un cluster de calcul. Chaque équilibreur de charge est facturé autour de 0,33 $/jour. Pour éviter les coûts d’équilibreur de charge sur les instances de calcul et les clusters de calcul arrêtés, supprimez la ressource de calcul. Un réseau virtuel est facturé par abonnement et par région. Les réseaux virtuels ne peuvent pas s’étendre sur des régions ou des abonnements. La mise en place de points de terminaison privés dans des configurations de réseau virtuel peut également entraîner des frais. La bande passante est facturée selon l’utilisation ; plus vous transférez de données, plus vous êtes facturé.
+
 ### <a name="costs-might-accrue-after-resource-deletion"></a>Coûts qui peuvent s’accumuler après la suppression de la ressource
 
 Quand vous supprimez un espace de travail Azure Machine Learning dans le portail Azure ou avec l’interface de ligne de commande Azure, les ressources suivantes continuent d’exister. Les coûts continueront de s’accumuler jusqu’à ce que vous supprimiez ces ressources.
@@ -153,11 +162,13 @@ Utilisez les conseils suivants pour vous aider à gérer et à optimiser les co�
 - Définir des quotas sur votre abonnement et vos espaces de travail
 - Définir des stratégies de résiliation sur votre exécution d’entraînement
 - Utiliser des machines virtuelles de basse priorité
+- Planifier l’arrêt et le démarrage automatiques des instances de calcul
 - Utiliser une instance de machine virtuelle réservée Azure
 - Entraîner localement
 - Paralléliser l’entraînement
 - Définir des stratégies de conservation et de suppression des données
 - Déployer des ressources dans la même région
+- Supprimez les instances et les clusters si vous n’envisagez pas de les utiliser dans un avenir proche.
 
 Pour plus d’informations, consultez [Gérer et optimiser les coûts dans Azure Machine Learning](how-to-manage-optimize-cost.md).
 

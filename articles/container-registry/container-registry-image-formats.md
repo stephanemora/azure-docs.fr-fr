@@ -3,12 +3,12 @@ title: Formats de contenu pris en charge
 description: Découvrez les formats de contenu pris en charge par Azure Container Registry, y compris les images conteneur compatibles avec Docker, les charts Helm, les images OCI et les artefacts OCI.
 ms.topic: article
 ms.date: 03/02/2021
-ms.openlocfilehash: 218d98f3f16e8d0ca76a24692afbb2b69606564b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1203bc8cbebfd59ef28f03d19e939b73d707a3f3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223062"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438879"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formats de contenu pris en charge dans Azure Container Registry
 
@@ -28,7 +28,10 @@ Azure Container Registry prend en charge les images qui répondent à la [spéci
 
 ## <a name="oci-artifacts"></a>Artefacts OCI
 
-Azure Container Registry prend en charge la [spécification de distribution OCI](https://github.com/opencontainers/distribution-spec), une spécification indépendante du Cloud et du fournisseur pour stocker, partager, sécuriser et déployer des images conteneur et d’autres types de contenu (artefacts). La spécification permet à un registre de stocker un large éventail d’artefacts, en plus des images conteneur. Vous utilisez les outils appropriés à l’artefact pour envoyer (push) et tirer (pull) des artefacts. Pour obtenir un exemple, consultez [Envoyer (push) et tirer (pull) un artefact OCI à l’aide d’un registre de conteneurs Azure](container-registry-oci-artifacts.md).
+Azure Container Registry prend en charge la [spécification de distribution OCI](https://github.com/opencontainers/distribution-spec), une spécification indépendante du Cloud et du fournisseur pour stocker, partager, sécuriser et déployer des images conteneur et d’autres types de contenu (artefacts). La spécification permet à un registre de stocker un large éventail d’artefacts, en plus des images conteneur. Vous utilisez les outils appropriés à l’artefact pour envoyer (push) et tirer (pull) des artefacts. Pour obtenir des exemples, consultez :
+
+* [Envoyer (push) et tirer (pull) un artefact OCI à l’aide d’un registre de conteneurs Azure](container-registry-oci-artifacts.md)
+* [Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure](container-registry-helm-repos.md)
 
 Pour en savoir plus sur les artefacts OCI, consultez le dépôt [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) et le dépôt [OCI Artifacts](https://github.com/opencontainers/artifacts) sur GitHub.
 

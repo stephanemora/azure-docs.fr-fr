@@ -5,18 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/25/2019
+ms.date: 07/28/2019
 ms.author: duau
-ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 135c949afaeaa50a743869138a05acd2321332ec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571055"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532188"
 ---
-# <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
+# <a name="configure-network-performance-monitor-for-expressroute-deprecated"></a>Configurer Network Performance Monitor pour ExpressRoute (déprécié)
 
 Cet article vous permet de configurer une extension Network Performance Monitor pour superviser ExpressRoute. Network Performance Monitor (NPM) est une solution de supervision réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie des journaux d’Azure Monitor. NPM offre une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser le peering privé ou le peering Microsoft. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer. Ce service est également disponible pour le cloud Azure Government.
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous ne pourrez pas non plus ajouter de nouveaux moniteurs de connexion dans le moniteur de connexion (classique). Vous pouvez continuer d’utiliser les tests et moniteurs de connexion créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor ](../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) ou [effectuez une migration à partir du Moniteur de connexion (classique)](../network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic.md) vers le nouveau Moniteur de connexion dans Azure Network Watcher avant le 29 février 2024.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -83,7 +86,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
 1. Accédez à l’onglet **Paramètres communs** de la page **Configuration de Network Performance Monitor** de votre ressource. Cliquez sur l’agent qui correspond au processeur de votre serveur dans la section **Installer les agents Log Analytics**, puis téléchargez le fichier d’installation.
 2. Ensuite, copiez et collez **l’ID d’espace de travail** et la **clé primaire** dans le bloc-notes.
-3. Dans la section **Configurer les agents Log Analytics pour le monitoring avec le protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
+3. Dans la section **Configurer les agents Log Analytics pour la supervision à l’aide du protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
 
    ![Script PowerShell](./media/how-to-npm/7.png)
 

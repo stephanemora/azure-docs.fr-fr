@@ -3,18 +3,32 @@ title: Résoudre les problèmes d’identité managée Azure Automation (préver
 description: Cet article explique comment dépanner et résoudre les problèmes liés à l’utilisation d’une identité managée avec un compte Automation.
 services: automation
 ms.subservice: ''
-ms.date: 04/28/2021
+ms.date: 06/28/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 719b20190194779b834eb3de996c0920d50ad313
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 89d3785ef527eebc822eefbbae2c887dd40108ee
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787351"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687494"
 ---
 # <a name="troubleshoot-azure-automation-managed-identity-issues-preview"></a>Résoudre les problèmes d’identité managée Azure Automation (préversion)
 
 Cet article traite des solutions aux problèmes que vous pourriez rencontrer en utilisant une identité managée avec votre compte Automation. Pour obtenir des informations générales sur l’utilisation d’une identité managée avec des comptes Automation, consultez [Vue d’ensemble de l’authentification de compte Azure Automation](../automation-security-overview.md#managed-identities-preview).
+
+## <a name="scenario-fail-to-get-msi-token-for-account"></a>Scénario : Échec d’obtention du jeton MSI pour le compte
+
+### <a name="issue"></a>Problème
+
+Quand vous utilisez une identité managée affectée par l’utilisateur dans votre compte Automation, vous recevez une erreur semblable à la suivante : `Failed to get MSI token for account a123456b-1234-12a3-123a-aa123456aa0b`.
+
+### <a name="cause"></a>Cause
+
+Utilisation d’une identité managée affectée par l’utilisateur avant l’activation d’une identité managée affectée par le système pour votre compte Automation.
+
+### <a name="resolution"></a>Résolution
+
+Activez une identité managée affectée par le système pour votre compte Automation. Ensuite, utilisez l’identité managée affectée par l’utilisateur.  
 
 ## <a name="scenario-attempt-to-use-managed-identity-with-automation-account-fails"></a>Scénario : Échec de la tentative d’utilisation d’une identité managée avec un compte Automation
 

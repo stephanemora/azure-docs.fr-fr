@@ -6,28 +6,28 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: bdafee650ae6162e3943120fc9a9b460fd9e698a
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c033920b88f2863d34f43bf0affe4b9165995a3a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563507"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258777"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Réalimenter un objet blob archivé dans un niveau en ligne
 
-Pour lire un blob qui se trouve dans le niveau archive, vous devez d’abord réhydrater le blob au niveau chaud ou froid. Vous pouvez réhydrater un blob d’une de ces deux manières :
+Pour lire un objet blob qui se trouve dans le niveau Archive, vous devez d’abord réalimenter l’objet blob au niveau chaud ou froid. Vous pouvez réhydrater un blob d’une de ces deux manières :
 
 - En le copiant dans un nouveau blob dans le niveau chaud ou froid avec l’opération [Copier l’objet blob](/rest/api/storageservices/copy-blob) ou [Copier un objet blob à partir d’une URL](/rest/api/storageservices/copy-blob-from-url). Microsoft recommande cette option pour la plupart des scénarios.
 - En changeant son niveau d’archive à chaud ou froid avec l’opération [Définir un niveau d’objet blob](/rest/api/storageservices/set-blob-tier).
 
 Cette opération de réhydratation peut prendre jusqu’à 15 heures. Vous pouvez configurer Azure Event Grid pour déclencher un événement lorsque la réhydratation est terminée et exécuter le code d’application en réponse. Pour savoir comment gérer un événement qui exécute une fonction Azure quand l’opération de réhydratation de blob est terminée, consultez [Exécuter une fonction Azure en réponse à un événement de réhydratation de blob](archive-rehydrate-handle-event.md).
 
-## <a name="rehydrate-a-blob-with-a-copy-operation"></a>Réhydrater un blob à l’aide d’une opération de copie
+## <a name="rehydrate-a-blob-with-a-copy-operation"></a>Réactiver un objet blob à l’aide d’une opération de copie
 
 Pour réhydrater un blob à partir du niveau archive en le copiant sur un niveau en ligne, utilisez PowerShell, Azure CLI ou l’une des bibliothèques clientes de stockage Azure. Gardez à l’esprit que lorsque vous copiez un blob archivé sur un niveau en ligne, les blob source et de destination doivent avoir des noms différents.
 
@@ -85,7 +85,7 @@ az storage blob copy start \
 
 ---
 
-## <a name="rehydrate-a-blob-by-changing-its-tier"></a>Réhydrater un blob en modifiant son niveau
+## <a name="rehydrate-a-blob-by-changing-its-tier"></a>Réactiver un objet blob en modifiant son niveau
 
 Pour réalimenter un blob en modifiant son niveau de l’opération d’archivage à chaud ou froid, utilisez le portail Azure, PowerShell ou Azure CLI.
 
@@ -121,7 +121,7 @@ $ctx = (Get-AzStorageAccount `
 
 # Change the blob’s access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
+$blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -129,16 +129,20 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 Pour changer le niveau d’un blob d’archive à chaud ou froid avec Azure CLI, appelez la commande [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier). N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs :
 
 ```azurecli
-az storage blob set-tier /
-    --container-name <container> /
-    --name <archived-blob> /
-    --tier Hot /
-    --account-name <account-name> /
-    --rehydrate-priority High /
+az storage blob set-tier \
+    --container-name <container> \
+    --name <archived-blob> \
+    --tier Hot \
+    --account-name <account-name> \
+    --rehydrate-priority High \
     --auth-mode login
 ```
 
 ---
+
+## <a name="rehydrate-a-large-number-of-blobs"></a>Réhydratez un grand nombre d’objets BLOB
+
+Pour réhydrater un grand nombre d’objets BLOB à la fois, appelez l’opération [Blob Batch](/rest/api/storageservices/blob-batch) pour appeler [Set Blob Tier](/rest/api/storageservices/set-blob-tier) en tant qu’opération en bloc. Pour obtenir un exemple de code qui montre comment effectuer l’opération de traitement par lots, consultez [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
 ## <a name="check-the-status-of-a-rehydration-operation"></a>Vérifier l’état d’une opération de réhydratation
 
@@ -158,12 +162,12 @@ Lorsque la réhydratation est terminée, vous pouvez voir dans le portail Azure
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Pour vérifier l’état et la priorité d’une opération de réhydratation en attente avec PowerShell, appelez la commande [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) et vérifiez les propriétés **RehydrationStatus** et **RehydratePriority** du blob. Si la réhydratation est une opération de copie, vérifiez ces propriétés sur le blob de destination. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs :
+Pour vérifier l’état et la priorité d’une opération de réhydratation en attente avec PowerShell, appelez la commande [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) et vérifiez les propriétés **ArchiveStatus** et **RehydratePriority** du blob. Si la réhydratation est une opération de copie, vérifiez ces propriétés sur le blob de destination. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs :
 
 ```powershell
 $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+$rehydratingBlob.BlobProperties.ArchiveStatus
 $rehydratingBlob.BlobProperties.RehydratePriority
-$rehydratingBlob.ICloudBlob.Properties.RehydrationStatus
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -185,6 +189,6 @@ az storage blob show \
 ## <a name="see-also"></a>Voir aussi
 
 - [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
-- [Vue d’ensemble de la réhydratation de blob à partir du niveau archive](archive-rehydrate-overview.md)
-- [Exécuter une fonction Azure en réponse à un événement de réhydratation de blob](archive-rehydrate-handle-event.md)
+- [Vue d’ensemble de la réactivation des objets blob à partir du niveau Archive](archive-rehydrate-overview.md)
+- [Exécuter une fonction Azure en réponse à un événement de réactivation d’objet blob](archive-rehydrate-handle-event.md)
 - [Réaction aux événements de stockage Blob](storage-blob-event-overview.md)

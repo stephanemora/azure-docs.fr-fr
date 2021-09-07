@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: miag
-ms.openlocfilehash: 7122cfc12e47734b84aab752901fa9750b7e5164
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 34b83376a555b5fd06947049f959badc9a1aed67
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891992"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731075"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Prise en charge des identités managées par IoT Hub 
 
@@ -121,10 +121,10 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 ```
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur 
 Dans cette section, vous allez découvrir comment ajouter une identité managée affectée par l’utilisateur sur un hub IoT et comment l’en supprimer en utilisant le portail Azure.
-1.  Tout d’abord, vous devez créer une identité managée affectée par l’utilisateur en tant que ressource autonome. Vous pouvez suivre les instructions [ici](./../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) pour créer une identité managée affectée par l’utilisateur.
+1.  Tout d’abord, vous devez créer une identité managée affectée par l’utilisateur en tant que ressource autonome. Pour ce faire, vous pouvez suivre les instructions fournies dans [Créer une identité managée affectée par l’utilisateur](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 2.  Accédez à votre hub IoT, puis à l’**identité** dans le portail IoT Hub.
 3.  Sous l’onglet **Affectée par l’utilisateur**, cliquez sur **Ajouter une identité managée affectée par l’utilisateur**. Choisissez l’identité managée affectée par l’utilisateur que vous souhaitez ajouter à votre hub, puis cliquez sur **Sélectionner**. 
-4.  Vous pouvez supprimer une identité affectée par l’utilisateur d’un hub IoT. Choisissez l’identité affectée par l’utilisateur que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer**. Notez que vous le supprimez uniquement du hub IoT, et que cette suppression ne supprime pas l’identité affectée par l’utilisateur en tant que ressource. Pour supprimer l’identité affectée par l’utilisateur en tant que ressource, suivez les instructions fournies [ici](./../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#delete-a-user-assigned-managed-identity).
+4.  Vous pouvez supprimer une identité affectée par l’utilisateur d’un hub IoT. Choisissez l’identité affectée par l’utilisateur que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer**. Notez que vous le supprimez uniquement du hub IoT, et que cette suppression ne supprime pas l’identité affectée par l’utilisateur en tant que ressource. Pour supprimer l’identité affectée par l’utilisateur en tant que ressource, suivez les instructions fournies dans [Supprimer une identité managée affectée par l’utilisateur](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity).
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Capture d’écran montrant comment ajouter une identité managée affectée par l’utilisateur pour un hub IoT":::        
 
@@ -224,14 +224,14 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 ## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Connectivité entrante d’IoT Hub vers d'autres ressources Azure
 Dans IoT Hub, les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Vous pouvez choisir l’identité managée à utiliser pour chaque connectivité de sortie d’IoT Hub aux points de terminaison appartenant au client, y compris les comptes de stockage, les Event Hubs et les points de terminaison Service Bus. 
 
-### <a name="message-routing"></a>Routage de messages
+## <a name="configure-message-routing-with-managed-identities"></a>Configurer le routage des messages avec des identités managées
 Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-messages-d2c.md) vers le point de terminaison personnalisé de l’Event Hub en guise d’exemple. La même chose s’applique à d’autres points de terminaison personnalisés de routage. 
 
 1.  Tout d’abord, nous devons accéder à votre Event Hub dans Portail Azure pour attribuer l’accès approprié à l’identité managée. Dans votre Event Hub, accédez à l’onglet **Contrôle d’accès (IAM)** et cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle**.
 3.  Sélectionnez **Expéditeur de données Event Hubs en tant que rôle**.
 
     > [!NOTE] 
-    > Pour le compte de stockage, sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) en tant que **rôle**. Pour Service Bus, sélectionnez **Expéditeur de données Service Bus** en tant que **rôle**.
+    > Pour le compte de stockage, sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/blobs/assign-azure-role-data-access.md)) en tant que **rôle**. Pour Service Bus, sélectionnez **Expéditeur de données Service Bus** en tant que **rôle**.
 
 4.  Pour l’identité affectée par l’utilisateur, choisissez **Identité managée affectée par l’utilisateur** sous **Attribuer l’accès à**. Sélectionnez votre abonnement et votre identité managée affectée par l’utilisateur dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
@@ -258,7 +258,7 @@ Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-me
 
 10. Choisissez le nouveau type d’authentification à mettre à jour pour ce point de terminaison, puis cliquez sur **Enregistrer**.
 
-### <a name="file-upload"></a>Chargement de fichiers
+## <a name="configure-file-upload-with-managed-identities"></a>Configurer le chargement de fichiers avec des identités managées
 La fonctionnalité de [chargement de fichiers](iot-hub-devguide-file-upload.md) d’IoT Hub permet aux appareils de charger des fichiers sur un compte de stockage appartenant au client. Pour que le chargement de fichiers puisse fonctionner, IoT Hub doit être connecté au compte de stockage. À l’instar du routage des messages, vous pouvez choisir le type d’authentification et l’identité managée de votre choix pour la connectivité de sortie d’IoT Hub à votre compte de stockage Azure. 
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de votre compte de stockage, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
@@ -280,7 +280,7 @@ La fonctionnalité de [chargement de fichiers](iot-hub-devguide-file-upload.md) 
     > [!NOTE]
     > Dans le scénario de chargement de fichiers, le hub et votre appareil doivent tous deux se connecter à votre compte de stockage. Les étapes ci-dessus permettent de connecter votre hub IoT à votre compte de stockage avec le type d’authentification souhaité. Vous devez toujours connecter votre appareil au stockage à l’aide de l’URI SAS. Actuellement, l’URI SAS est généré à l’aide d’une chaîne de connexion. Prochainement, l’URI SAS pourra également être généré à l’aide d’une identité managée. Suivez la procédure décrite dans [Chargement de fichiers](iot-hub-devguide-file-upload.md).
 
-### <a name="bulk-device-importexport"></a>Importation/exportation d’appareils en bloc
+## <a name="configure-bulk-device-importexport-with-managed-identities"></a>Configurer l’importation/exportation d’appareils en bloc avec des identités managées
 
 IoT Hub prend en charge la fonctionnalité permettant d’[importer/exporter](iot-hub-bulk-identity-mgmt.md) en bloc les informations des appareils depuis/vers un stockage de blobs fourni par le client. Cette fonctionnalité nécessite une connectivité entre IoT Hub et le compte de stockage. 
 

@@ -3,15 +3,15 @@ title: Gérer des pré-scripts et des post-scripts dans votre déploiement Updat
 description: Cet article explique comment configurer et gérer des pré-scripts et des post-scripts pour les déploiements de mises à jour.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 07/20/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51067095b7ebb33da61908b1424752b481668f5f
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 57a8158dca53f4f60bc4405e1b95aa0ad9d2cf9b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830803"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472091"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
@@ -45,21 +45,57 @@ En plus de vos paramètres de runbook standard, le paramètre `SoftwareUpdateCon
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriétés SoftwareUpdateConfigurationRunContext
 
-|Propriété  |Description  |
-|---------|---------|
-|SoftwareUpdateConfigurationName     | Nom de la configuration de mises à jour logicielles.        |
-|SoftwareUpdateConfigurationRunId     | ID unique de l’exécution        |
-|SoftwareUpdateConfigurationSettings     | Collection de propriétés relatives à la configuration de mises à jour logicielles.         |
-|SoftwareUpdateConfigurationSettings.operatingSystem     | Systèmes d’exploitation ciblés pour le déploiement de mises à jour.         |
-|SoftwareUpdateConfigurationSettings.duration     | Durée maximale de l’exécution du déploiement de mises à jour, exprimée sous la forme `PT[n]H[n]M[n]S` conformément à ISO8601 ; également appelée fenêtre de maintenance.          |
-|SoftwareUpdateConfigurationSettings.Windows     | Collection de propriétés relatives aux ordinateurs Windows.         |
-|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Liste des bases de connaissances qui sont exclues du déploiement de mises à jour.        |
-|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classifications des mises à jour sélectionnées pour le déploiement de mises à jour.        |
-|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Paramètres de redémarrage pour le déploiement de mises à jour.        |
-|azureVirtualMachines     | Liste des ID de ressource (resourceIds) des machines virtuelles Azure dans le déploiement de mises à jour.        |
-|nonAzureComputerNames|Liste des noms de domaine complets des ordinateurs non-Azure dans le déploiement de mises à jour.|
+|Propriété  |Type |Description  |
+|---------|---------|---------|
+|SoftwareUpdateConfigurationName     |Chaîne | Nom de la configuration de mises à jour logicielles.        |
+|SoftwareUpdateConfigurationRunId     |GUID | ID unique de l’exécution        |
+|SoftwareUpdateConfigurationSettings     || Collection de propriétés relatives à la configuration de mises à jour logicielles.         |
+|SoftwareUpdateConfigurationSettings.OperatingSystem     |Int | Systèmes d’exploitation ciblés pour le déploiement de mises à jour. `1` = Windows et `2` = Linux        |
+|SoftwareUpdateConfigurationSettings.Duration     |Intervalle de temps (HH:MM:SS) | Durée maximale de l’exécution du déploiement de mises à jour, exprimée sous la forme `PT[n]H[n]M[n]S` conformément à ISO8601 ; également appelée fenêtre de maintenance.<br> Exemple : 02:00:00         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration     || Collection de propriétés relatives aux ordinateurs Windows.         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.excludedKbNumbers     |Chaîne | Liste séparée par des espaces des bases de connaissances qui sont exclues du déploiement de mises à jour.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.includedKbNumbers     |Chaîne | Liste séparée par des espaces des bases de connaissances qui sont incluses avec le déploiement de mises à jour.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.UpdateCategories     |Integer | 1 = "Critical"<br> 2 = "Security"<br> 4 = "UpdateRollUp"<br> 8 = "FeaturePack"<br> 16 = "ServicePack"<br> 32 = "Definition"<br> 64 = "Tools"<br> 128 = "Updates"        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.rebootSetting     |Chaîne | Paramètres de redémarrage pour le déploiement de mises à jour. Les valeurs sont `IfRequired`, `Never`, `Always`      |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration     || Collection de propriétés associées aux ordinateurs Linux.         |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageClassifications |Integer |0 = "Unclassified"<br> 1 = "Critical"<br> 2 = "Security"<br> 4 = "Other"|
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageNameMasks |Chaîne | Liste séparée par des espaces des noms de packages qui sont inclus avec le déploiement de mises à jour. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.ExcludedPackageNameMasks |Chaîne |Liste séparée par des espaces des noms de packages qui sont exclus du déploiement de mises à jour. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.RebootSetting |Chaîne |Paramètres de redémarrage pour le déploiement de mises à jour. Les valeurs sont `IfRequired`, `Never`, `Always`      |
+|SoftwareUpdateConfiguationSettings.AzureVirtualMachines     |Tableau de chaînes | Liste des ID de ressource (resourceIds) des machines virtuelles Azure dans le déploiement de mises à jour.        |
+|SoftwareUpdateConfigurationSettings.NonAzureComputerNames|Tableau de chaînes |Liste des noms de domaine complets des ordinateurs non-Azure dans le déploiement de mises à jour.|
 
-Voici un exemple de chaîne JSON transmise dans le paramètre **SoftwareUpdateConfigurationRunContext** :
+L’exemple suivant est une chaîne JSON transmise aux propriétés **SoftwareUpdateConfigurationSettings** pour un ordinateur Linux :
+
+```json
+"SoftwareUpdateConfigurationSettings": {
+     "OperatingSystem": 2,
+     "WindowsConfiguration": null,
+     "LinuxConfiguration": {
+         "IncludedPackageClassifications": 7,
+         "ExcludedPackageNameMasks": "fgh xyz",
+         "IncludedPackageNameMasks": "abc bin*",
+         "RebootSetting": "IfRequired"
+     },
+     "Targets": {
+         "azureQueries": null,
+         "nonAzureQueries": ""
+     },
+     "NonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+     ],
+     "AzureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
+     ],
+     "Duration": "02:00:00",
+     "PSComputerName": "localhost",
+     "PSShowComputerName": true,
+     "PSSourceJobInstanceId": "2477a37b-5262-4f4f-b636-3a70152901e9"
+ }
+```
+
+L’exemple suivant est une chaîne JSON transmise aux propriétés **SoftwareUpdateConfigurationSettings** pour un ordinateur Windows :
 
 ```json
 "SoftwareUpdateConfigurationRunContext": {
@@ -67,7 +103,7 @@ Voici un exemple de chaîne JSON transmise dans le paramètre **SoftwareUpdateCo
     "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
     "SoftwareUpdateConfigurationSettings": {
       "operatingSystem": "Windows",
-      "duration": "PT2H0M",
+      "duration": "02:00:00",
       "windows": {
         "excludedKbNumbers": [
           "168934",
@@ -77,9 +113,9 @@ Voici un exemple de chaîne JSON transmise dans le paramètre **SoftwareUpdateCo
         "rebootSetting": "IfRequired"
       },
       "azureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
       ],
       "nonAzureComputerNames": [
         "box1.contoso.com",

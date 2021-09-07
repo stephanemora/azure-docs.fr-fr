@@ -2,18 +2,17 @@
 title: Résoudre les problèmes d’Azure IoT Edge | Microsoft Docs
 description: Cet article vous permettra d’acquérir des compétences de diagnostic standard concernant Azure IoT Edge, telles que la récupération des journaux d’activité et de l’état des composants.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0ab6ddcf3566164746dce8e0b9ff4b4a2aa32b84
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3bca470114b5fb22409d86c333e92f93155759f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537980"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524566"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Résoudre les problèmes de votre appareil IoT Edge
 
@@ -125,6 +124,12 @@ Vous pouvez également utiliser l’appel de méthode directe intégré [UploadS
 
 > [!WARNING]
 > La sortie de la commande `support-bundle` peut contenir des noms d’hôte, d’appareil et de module, des informations journalisées par vos modules, etc. Soyez conscient de cela si vous partagez la sortie dans un forum public.
+
+## <a name="review-metrics-collected-from-the-runtime"></a>Examiner les métriques collectées à partir du runtime
+
+Les modules de runtime IoT Edge produisent des métriques qui vous permettent de superviser et de comprendre l’intégrité de vos appareils IoT Edge. Ajoutez le module **collecteur de métriques** à vos déploiements pour gérer la collecte de ces métriques et leur envoi au cloud afin de faciliter la supervision.
+
+Pour plus d’informations, consultez [Collecter et transporter les métriques](how-to-collect-and-transport-metrics.md).
 
 ## <a name="check-your-iot-edge-version"></a>Vérifier votre version d’IoT Edge
 

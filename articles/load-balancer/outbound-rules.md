@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: cbc5ff51a576cf2c784192bc33b06018c6f116c8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fd364d07202a486bfa47c513af601aeefe595bb5
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472090"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437789"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Règles de trafic sortant Azure Load Balancer
 
@@ -122,7 +122,7 @@ Si un groupe de sécurité réseau bloque les demandes de sonde d’intégrité 
 #### <a name="details"></a>Détails
 
 
-Utilisez ce scénario pour adapter les connexions sortantes à l’origine d’un ensemble d’adresses IP publiques. Ajoutez des adresses IP publiques ou des préfixes à une liste verte ou rouge en fonction de l’origine.
+Utilisez ce scénario pour adapter les connexions sortantes à l’origine d’un ensemble d’adresses IP publiques. Ajoutez des adresses IP publiques ou des préfixes à une liste d’autorisation ou de refus en fonction de l’origine.
 
 
 Cette adresse IP publique ou ce préfixe d’adresse IP publique peuvent être les mêmes que ceux utilisés par une règle d’équilibrage de charge. 
@@ -175,13 +175,13 @@ Utilisez un équilibreur de charge standard public afin de fournir la NAT de tra
 
 
 > [!NOTE]
-> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles sans nécessiter d’équilibreur de charge. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-overview.md).
+> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles sans nécessiter d’équilibreur de charge. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-gateway/nat-overview.md).
 
 ### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Scénario 4 : NAT de trafic sortant pour les machines virtuelles uniquement (pas en entrée)
 
 
 > [!NOTE]
-> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles sans nécessiter d’équilibreur de charge. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-overview.md).
+> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles sans nécessiter d’équilibreur de charge. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-gateway/nat-overview.md).
 
 #### <a name="details"></a>Détails
 
@@ -198,7 +198,7 @@ Pour ce scénario : Les règles de trafic sortant de l’équilibreur de charge
 
 
 
-Utilisez un préfixe ou une adresse IP publique pour mettre à l’échelle les ports [SNAT](load-balancer-outbound-connections.md). Ajoutez la source des connexions sortantes à une liste verte ou rouge.
+Utilisez un préfixe ou une adresse IP publique pour mettre à l’échelle les ports [SNAT](load-balancer-outbound-connections.md). Ajoutez la source des connexions sortantes à une liste d’autorisation ou de refus.
 
 
 
@@ -206,7 +206,7 @@ Utilisez un préfixe ou une adresse IP publique pour mettre à l’échelle les 
 
 
 > [!NOTE]
-> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles utilisant un équilibreur de charge standard interne. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-overview.md).
+> Une **NAT de réseau virtuel Azure** peut offrir une connectivité sortante pour des machines virtuelles utilisant un équilibreur de charge standard interne. Pour plus d’informations, consultez [Présentation du service NAT de réseau virtuel Azure](../virtual-network/nat-gateway/nat-overview.md).
 
 #### <a name="details"></a>Détails
 
@@ -255,4 +255,4 @@ Si vous utilisez uniquement des règles de NAT de trafic entrant, aucune NAT de 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Azure Standard Load Balancer](load-balancer-overview.md)
-- Consultez notre [foire aux questions relative à Azure Load Balancer](load-balancer-faqs.md)
+- Consultez notre [foire aux questions relative à Azure Load Balancer](load-balancer-faqs.yml)

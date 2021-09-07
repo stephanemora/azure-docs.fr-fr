@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f344b0f4dd93b921abc0c1c95c18c54e4486716
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 81e40a295d9572fb38a1289d4bdf661095b9ca7a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951891"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449120"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -188,6 +188,9 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
     ```powershell
     Import-Module AzureADPasswordProtection
     ```
+    
+    > [!WARNING]
+    > La version 64 bits de PowerShell doit être utilisée. Certaines applets de commande risquent de ne pas fonctionner avec PowerShell (x86).
 
 1. Pour vérifier que le service proxy de protection par mot de passe Azure AD est en cours d’exécution, utilisez la commande PowerShell suivante :
 

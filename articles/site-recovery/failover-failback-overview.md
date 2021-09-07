@@ -1,18 +1,20 @@
 ---
-title: À propos du basculement et de la restauration automatique dans Azure Site Recovery
-description: En savoir plus sur le basculement et les défaillances dans Azure Site Recovery.
+title: À propos du basculement et de la restauration automatique dans Azure Site Recovery - Classique
+description: En savoir plus sur le basculement et la restauration automatique dans Azure Site Recovery - Classique
 ms.topic: conceptual
-ms.date: 12/24/2019
-ms.openlocfilehash: b900655d6fdf1143d430ac842bfd84eb1dfdf34c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 06/30/2021
+ms.openlocfilehash: 97465622afb1a8b59601799ed14a625f49073a43
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98070740"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122566118"
 ---
-# <a name="about-on-premises-disaster-recovery-failoverfailback"></a>À propos du basculement/restauration de la récupération d’urgence au niveau local
+# <a name="about-on-premises-disaster-recovery-failoverfailback---classic"></a>À propos du basculement et de la restauration automatique pour une récupération d’urgence locale - Classique
 
-Cet article fournit une vue d’ensemble du basculement et de la restauration automatique lors de la récupération d’urgence des machines locales vers Azure avec [Azure Site Recovery](site-recovery-overview.md).
+Cet article fournit une vue d’ensemble du basculement et de la restauration automatique lors d’une récupération d’urgence de machines locales vers Azure à l’aide d’[Azure Site Recovery](site-recovery-overview.md) - Classique.
+
+Pour plus d’informations sur le basculement et la restauration automatique dans la préversion d’Azure Site Recovery, [consultez cet article](failover-failback-overview-preview.md).
 
 ## <a name="recovery-stages"></a>Étapes de la récupération
 

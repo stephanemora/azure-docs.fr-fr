@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/20/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39b1ebb4ca0a7daf5654c306382effa44d90c798
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 7bdad6175de60eaee602d8f91842a1b742196688
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845759"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609072"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -43,7 +43,7 @@ La réplication d'objets exige que les fonctionnalités de stockage Azure suivan
 
 L’activation de ces fonctionnalités peut entraîner des coûts supplémentaires. Pour plus d’informations, consultez la [page des tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-La réplication est prise en charge uniquement pour les comptes de stockage v2 universels. Les comptes source et de destination doivent être à usage général v2. 
+La réplication est prise en charge uniquement pour les comptes de stockage v2 universels. Les comptes source et de destination doivent être à usage général v2. La réplication d’objets prend en charge uniquement les objets blob de blocs. Les objets blob d’ajouts et les objets blob de pages ne sont pas pris en charge.
 
 ## <a name="how-object-replication-works"></a>Fonctionnement de la réplication d’objets
 
@@ -68,7 +68,7 @@ La réplication d’objets est prise en charge lorsque les comptes source et de 
 
 ### <a name="immutable-blobs"></a>Objets blob immuables
 
-La réplication d’objets ne prend pas en charge les objets blob immuables. Si un conteneur source ou de destination dispose d’une stratégie de rétention limitée dans le temps ou d’une conservation légale, la réplication d’objets échoue. Pour plus d’informations sur les objets blob immuables, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md).
+La réplication d’objets ne prend pas en charge les objets blob immuables. Si un conteneur source ou de destination dispose d’une stratégie de rétention limitée dans le temps ou d’une conservation légale, la réplication d’objets échoue. Pour plus d’informations sur les objets blob immuables, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
 
 ## <a name="object-replication-policies-and-rules"></a>Stratégies et règles de réplication d’objets
 

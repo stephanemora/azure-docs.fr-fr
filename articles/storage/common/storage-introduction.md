@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 494afe20edc4ffdeea9e0eb1cd4b1368782c3cda
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498147"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729035"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Présentation des principaux services de stockage Azure
 
@@ -111,7 +111,7 @@ Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type pren
 
 Chaque demande adressée au Stockage Azure doit être autorisée. Stockage Azure prend en charge les méthodes d’autorisation suivantes :
 
-- **Intégration d’Azure Active Directory (Azure AD) pour les données Blob et de files d’attente.** Stockage Azure prend en charge l'authentification et l'autorisation avec Azure AD pour les services Blob et File d'attente via le Contrôle d'accès en fonction du rôle Azure (Azure RBAC). L’autorisation des demandes avec Azure AD est recommandée pour davantage de sécurité et de facilité d’utilisation. Pour plus d’informations, voir [Autoriser l’accès aux objets blob et files d’attente Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
+- **Intégration d’Azure Active Directory (Azure AD) pour les données Blob, File d’attente et Table.** Stockage Azure prend en charge l'authentification et l'autorisation avec Azure AD pour les services Blob et File d'attente via le Contrôle d'accès en fonction du rôle Azure (Azure RBAC). L’autorisation avec Azure AD est également prise en charge pour le service Table en préversion. L’autorisation des demandes avec Azure AD est recommandée pour davantage de sécurité et de facilité d’utilisation. Pour plus d’informations, consultez [Autoriser l’accès aux données dans Stockage Azure](authorize-data-access.md).
 - **Autorisation Azure AD sur SMB pour Azure Files.** Azure Files prend en charge l’autorisation basée sur l’identité sur SMB (Server Message Block) via Azure Active Directory Domain Services (Azure AD DS) ou Active Directory Domain Services local (préversion). Vos machines virtuelles Windows jointes à un domaine peuvent accéder aux partages de fichiers Azure en utilisant des informations d’identification Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de la prise en charge de l’authentification basée sur l’identité Azure Files pour l’accès SMB](../files/storage-files-active-directory-overview.md) et [Planification d’un déploiement Azure Files](../files/storage-files-planning.md#identity).
 - **Autorisation avec Clé partagée.** Les services Azure Stockage Blob, Fichiers, Files d’attente et Table prennent en charge l’autorisation avec une clé partagée. Un client qui utilise l’autorisation Clé partagée transmet avec chaque demande un en-tête signé à l’aide de la clé d’accès au compte de stockage. Pour plus d’informations, consultez [Autoriser avec une clé partagée](/rest/api/storageservices/authorize-with-shared-key).
 - **Autorisation à l’aide de signatures d’accès partagé (SAP).** Une signature d’accès partagé (SAP) est une chaîne contenant un jeton de sécurité pouvant être ajouté à l’URI pour une ressource de stockage. Le jeton de sécurité encapsule des contraintes telles que les autorisations et l’intervalle d’accès. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAS)](storage-sas-overview.md).

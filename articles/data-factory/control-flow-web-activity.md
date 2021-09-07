@@ -1,23 +1,26 @@
 ---
-title: Activité web dans Azure Data Factory
-description: Découvrez comment utiliser Activité Web, l’une des activités de flux de contrôle prises en charge par Azure Data Factory, pour appeler un point de terminaison REST à partir d’un pipeline.
+title: Activité web
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment utiliser l’activité Web, l’une des activités de flux de contrôle prises en charge par Azure Data Factory et Azure Synapse Analytics, pour appeler un point de terminaison REST à partir d’un pipeline.
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 23b28b54e42b03007492424a58b6234ccc5233ce
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 88b7e1cb43fc10301f9dab46c6cca5f30c1e14d1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906671"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822480"
 ---
-# <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
+# <a name="web-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité Web dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
+L’activité Web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Azure Data Factory ou Synapse. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
 
 > [!NOTE]
 > L’activité web est également prise en charge pour appeler des URL hébergées sur un réseau virtuel privé en tirant parti du runtime d’intégration auto-hébergé. Le runtime d’intégration doit pouvoir visualiser le point de terminaison de l’URL. 
@@ -88,7 +91,7 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 
 | Type de valeur | Corps de la demande | Response body |
 |---|---|---|
-|Objet JSON | Prise en charge | Prise en charge |
+|Objet JSON | Pris en charge | Pris en charge |
 |Tableau JSON | Prise en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
 | Valeur JSON | Prise en charge | Non pris en charge |
 | Type non-JSON | Non pris en charge | Non pris en charge |
@@ -128,7 +131,7 @@ Spécifiez le contenu encodé en Base64 d’un fichier PFX et le mot de passe.
 
 ### <a name="managed-identity"></a>Identité managée
 
-Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à l’aide de l’identité managée pour la fabrique de données. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [page de vue d'ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Spécifiez l’URI de ressource pour lequel le jeton d’accès sera demandé à l’aide de l’identité managée pour l’instance de la fabrique de données ou de l’espace de travail Synapse. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [page de vue d'ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -138,7 +141,7 @@ Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à
 ```
 
 > [!NOTE]
-> Si votre fabrique de données est configurée avec un référentiel git, vous devez stocker vos informations d’identification dans Azure Key Vault pour utiliser l’authentification de base ou de certificat client. Azure Data Factory ne stocke pas les mots de passe dans Git.
+> Si la fabrique de données ou l’espace de travail Synapse est configuré avec un dépôt git, vous devez stocker vos informations d’identification dans Azure Key Vault pour utiliser l’authentification de base ou de certificat client. Le service ne stocke pas les mots de passe dans git.
 
 ## <a name="request-payload-schema"></a>Schéma de charge utile de demande
 Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la charge utile envoyée au point de terminaison. Vous pouvez transmettre des services liés et des jeux de données dans la charge utile. Voici le schéma de la charge utile :
@@ -258,7 +261,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory :
+Consultez d’autres activités de flux de contrôle prises en charge :
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Pour chaque activité](control-flow-for-each-activity.md)

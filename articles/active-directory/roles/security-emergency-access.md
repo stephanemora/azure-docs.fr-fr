@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4b836fa0f9628fa3a7d4f6b6064091db7289bc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 4f7fb48f71a891493220440d56a50e3c72510892
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796424"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524967"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -78,7 +78,8 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtenir les ID d’objet des comptes de secours
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte attribué au rôle Administrateur d'utilisateurs.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte affecté au rôle Administrateur d’utilisateurs.
+
 1. Sélectionnez **Azure Active Directory** > **Utilisateurs**.
 1. Recherchez le compte de secours et sélectionnez le nom de l’utilisateur.
 1. Copiez et enregistrez l’attribut ID d’objet afin de pouvoir l’utiliser ultérieurement.

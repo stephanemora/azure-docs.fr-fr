@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4fcbcf145dc417d2a7f78913e70429c3929cd902
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: edd90071125c65b7d4af3d0065e92b30f35e5f65
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508946"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114436950"
 ---
 # <a name="azcopy-v10-configuration-settings-azure-storage"></a>Paramètres de configuration d’AzCopy v10 (Stockage Azure)
 
@@ -37,6 +37,8 @@ Le tableau suivant décrit chaque variable d’environnement et fournit des lien
 | AZCOPY_CONCURRENCY_VALUE | Cette variable spécifie le nombre de demandes pouvant être effectuées simultanément. Vous pouvez utiliser cette variable pour augmenter le débit. Si votre ordinateur dispose de moins de 5 unités centrales, la valeur de cette variable est définie sur `32`. Sinon, la valeur par défaut est égale à 16 multiplié par le nombre d’unités centrales. La valeur maximale par défaut de cette variable est `3000`, mais vous pouvez l’augmenter ou la diminuer manuellement. Consultez [Augmenter les accès concurrentiels](storage-use-azcopy-optimize.md#increase-concurrency) |
 | AZCOPY_CONCURRENT_FILES | Remplace le nombre (approximatif) de fichiers en cours à un moment donné, en contrôlant le nombre de fichiers pour lesquels nous lançons des transferts simultanément. |
 | AZCOPY_CONCURRENT_SCAN | Contrôle le degré (maximal) de parallélisme utilisé lors de l’analyse. Affecte seulement les énumérateurs parallélisés, qui incluent Azure Files/Objets blob Azure et des systèmes de fichiers locaux. |
+| AZCOPY_CONTENT_TYPE_MAP  | Remplace un ou plusieurs mappages de types MIME par défaut définis par votre système d’exploitation. Définissez cette variable sur le chemin d’un fichier JSON qui définit un mappage.  Voici le contenu d’un exemple de fichier JSON : <br><br> {<br>&nbsp;&nbsp;"MIMETypeMapping": { <br>&nbsp;&nbsp;&nbsp;&nbsp;".323": "text/h323",<br>&nbsp;&nbsp;&nbsp;&nbsp;".aaf": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp; ".aca": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp;&nbsp;".accdb": "application/msaccess",<br>&nbsp;&nbsp;&nbsp;&nbsp;  }<br>}
+|
 | AZCOPY_DEFAULT_SERVICE_API_VERSION | Remplace la version de l’API de service afin pour qu’AzCopy puisse prendre en charge des environnements personnalisés comme Azure Stack. |
 | AZCOPY_DISABLE_HIERARCHICAL_SCAN | S’applique seulement quand Stockage Blob Azure est la source. L’analyse simultanée est plus rapide mais utilise l’API de liste hiérarchique, ce qui peut entraîner un coût plus élevé en matière d’E/S. Spécifiez « true » pour sacrifier les performances au profit du coût. |
 | AZCOPY_JOB_PLAN_LOCATION | Remplace l’emplacement de stockage des fichiers du plan de travail (utilisés pour le suivi de l’avancement et la reprise) pour éviter de saturer un disque. |

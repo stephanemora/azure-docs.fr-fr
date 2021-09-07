@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 21cb737cf6168f44c1e71815d90139a04ba1d37b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 97ba43602899ee60a6a2d24cdd699b12b8a1c687
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697095"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219706"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gérer l’accès, la puissance et le mode de connectivité de votre GPU Azure Stack Edge Pro
 
@@ -161,9 +161,12 @@ Pour plus d’informations sur la façon d’inscrire un fournisseur de ressourc
 
 Hormis le mode entièrement connecté par défaut, votre appareil peut également s’exécuter en mode partiellement déconnecté ou entièrement déconnecté. :
 
-- **Entièrement connecté** : c’est le mode normal par défaut dans lequel l’appareil fonctionne. Le chargement et le téléchargement cloud de données sont tous les deux activés dans ce mode. Vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale pour gérer l’appareil.
+- **Entièrement connecté** : c’est le mode normal par défaut dans lequel l’appareil fonctionne. Le chargement et le téléchargement cloud de données sont tous les deux activés dans ce mode. Vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale pour gérer l’appareil. 
 
-- **Partiellement déconnecté** : dans ce mode, l’appareil ne peut pas charger ou télécharger de données de partage. Il est en revanche possible de le gérer à l’aide du portail Azure.
+    > [!NOTE]
+    > Pour les déploiements de Network Function Manager, l’appareil Azure Stack Edge doit être **en ligne** et en mode Entièrement connecté.
+
+- **Partiellement déconnecté** : dans ce mode, l’appareil ne peut pas charger ni télécharger de données de partage. Vous pouvez gérer l’appareil via le portail Azure.
 
     Ce mode est généralement utilisé sur un réseau satellite limité, dans l’objectif de réduire la consommation de bande passante réseau. Une consommation réseau minimale peut subsister pour les opérations de monitoring des appareils.
 

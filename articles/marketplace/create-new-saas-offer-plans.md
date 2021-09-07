@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: 714197288708691cb35e887975d1fabbe27cb406
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/05/2021
+ms.openlocfilehash: ce68d4161762d47b8754cb69633a3918848085d0
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555377"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593830"
 ---
 # <a name="create-plans-for-a-saas-offer"></a>Créer des plans pour une offre SaaS
 
@@ -144,7 +144,7 @@ Une fois que vous avez créé un ou plusieurs plans, vous pouvez voir le nom de 
 Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensemble du plan** varient en fonction de l’état de votre plan et peuvent inclure les éléments suivants :
 
 - Si l’état du plan est **Brouillon**, le lien figurant dans la colonne **Action** indique **Supprimer le brouillon**.
-- Si l’état du plan est **Disponible**, le lien de la colonne **Action** est soit **Arrêter la vente du plan**, soit **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
+- Si l’état du plan est **Disponible**, le lien dans la colonne **Action** est **Arrêter la distribution d’un plan** ou **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
 
 ## <a name="before-you-publish-your-offer"></a>Avant de publier votre offre
 

@@ -5,25 +5,28 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/11/2020
+ms.date: 05/26/2021
 ms.author: memildin
-ms.openlocfilehash: 14523e814c85469aa02a860e87b86defd7823c16
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7bb65cf7e63dcb6f31eef73ccb3ad3186a56f0c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439593"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531964"
 ---
 # <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>Améliorer votre posture de sécurité réseau avec le durcissement de réseau adaptatif
-Découvrez comment configurer le renforcement du réseau adaptatif dans Security Center.
+
+Le renforcement de réseau adaptatif est une fonctionnalité sans agent d’Azure Security Center : rien ne doit être installé sur vos ordinateurs pour tirer parti de cet outil de renforcement de réseau.
+
+Cette page explique comment configurer et gérer le renforcement de réseau adaptatif dans Security Center.
 
 ## <a name="availability"></a>Disponibilité
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Disponibilité générale (GA)|
+|État de sortie :|Disponibilité générale|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
 |Rôles et autorisations obligatoires :|Autorisations en écriture sur les groupes de sécurité de la machine|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nationaux/souverains (Azure Government, Azure China 21Vianet)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Qu’est-ce que le renforcement du réseau adaptatif ?
@@ -31,17 +34,13 @@ L’application de [groupes de sécurité réseau (NSG)](../virtual-network/netw
 
 Le renforcement du réseau adaptatif fournit des recommandations visant à renforcer davantage les règles NSG. Il utilise un algorithme de Machine Learning factorisé dans le trafic réel, appelé une configuration approuvée, l’intelligence des menaces et d’autres indicateurs de compromis, puis fournit des suggestions pour autoriser uniquement le trafic provenant de tuples IP/port spécifiques.
 
-Par exemple, supposons que la règle NSG existante consiste à autoriser le trafic provenant de 140.20.30.10/24 sur le port 22. En se basant sur l’analyse du trafic, le renforcement du réseau adaptatif peut recommander de limiter la plage pour autoriser le trafic provenant de 140.23.30.10/29 et de refuser tout autre trafic sur ce port.
+Par exemple, supposons que la règle NSG existante consiste à autoriser le trafic provenant de 140.20.30.10/24 sur le port 22. En se basant sur l’analyse du trafic, le renforcement de réseau adaptatif peut recommander de limiter la plage pour autoriser le trafic provenant de 140.23.30.10/29 et de refuser tout autre trafic sur ce port. Pour obtenir la liste complète des ports pris en charge, consultez l’entrée FAQ [Quels sont les ports pris en charge ?](#which-ports-are-supported).
 
->[!Note]
-> Les recommandations de renforcement du réseau adaptatif sont uniquement prises en charge sur les ports spécifiques suivants (pour UDP et TCP) : 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
-
-
-## <a name="view-and-manage-hardening-alerts-and-rules"></a>Consulter et gérer les alertes et les règles de renforcement
+## <a name="view-hardening-alerts-and-recommended-rules"></a>Consulter les règles recommandées et les alertes de renforcement
 
 1. Dans le menu de Security Center, ouvrez le tableau de bord **Azure Defender**, puis sélectionnez la vignette de renforcement du réseau adaptatif (1) ou l’élément du panneau des insights relatif au renforcement du réseau adaptatif (2). 
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Accès aux outils de renforcement du réseau adaptatif" lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Accès aux outils de renforcement de réseau adaptatif." lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
     > [!TIP]
     > Le panneau des insights affiche le pourcentage de vos machines virtuelles actuellement protégées par le renforcement du réseau adaptatif. 
@@ -54,7 +53,7 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
       * **Les données disponibles sont insuffisantes** : Pour générer des suggestions de renforcement du trafic précises, Security Center requiert au moins 30 jours de données de trafic.
       * **La machine virtuelle n’est pas protégée par Azure Defender** : Seules les machines virtuelles protégées avec [Azure Defender pour les serveurs](defender-for-servers-introduction.md) peuvent bénéficier de cette fonctionnalité.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Page de détails de la recommandation « Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet »":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Page de détails de la recommandation « Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles sur Internet ».":::
 
 1. Dans l’onglet **Ressources non saines**, sélectionnez une machine virtuelle pour afficher ses alertes et les règles de renforcement recommandées à appliquer.
 
@@ -67,78 +66,96 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
     - [Supprimer une règle](#delete-rule) 
     - [Ajouter une règle](#add-rule)
 
-3. Sélectionnez les règles que vous souhaitez appliquer sur le groupe de sécurité réseau, puis cliquez sur **Appliquer**.
+3. Sélectionnez les règles que vous souhaitez appliquer sur le groupe de sécurité réseau, puis **Appliquer**.
 
     > [!TIP]
     > Si la valeur « Aucune » est indiquée pour les plages d’adresses IP sources autorisées, cela signifie que la règle recommandée est une règle de *refus* ; sinon, il s’agit d’une règle d’*autorisation*.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Gestion des règles de renforcement du réseau adaptatif":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Gestion des règles de renforcement de réseau adaptatif.":::
 
       > [!NOTE]
       > Les règles appliquées sont ajoutées aux groupes de sécurité réseau qui protègent la machine virtuelle. (Une machine virtuelle peut être protégée par un groupe de sécurité réseau qui est associé à sa carte réseau, ou le sous-réseau dans lequel réside la machine virtuelle, ou les deux)
 
-### <a name="modify-a-rule"></a>Modifier une règle <a name ="modify-rule"></a>
+## <a name="modify-a-rule"></a>Modifier une règle <a name ="modify-rule"></a>
 
 Vous souhaiterez peut-être modifier les paramètres d’une règle qui a été recommandée. Par exemple, vous souhaiterez modifier les plages d’IP recommandées.
 
 Voici des instructions importantes relatives à la modification d’une règle de renforcement du réseau adaptatif :
 
-* Vous pouvez modifier les paramètres de règles « allow » uniquement. 
-* Vous ne pouvez pas modifier des règles « allow » en règles « deny ». 
+- Vous ne pouvez pas transformer des règles **allow** en règles **deny**. 
 
-  > [!NOTE]
-  > La création et la modification de règles « deny » sont effectuées directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
+- Vous pouvez modifier les paramètres de règles **allow** uniquement. 
 
-* Une règle **Deny all traffic** (Refuser tout le trafic) est la seule règle de type « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez toutefois la supprimer (consultez [Supprimer une règle](#delete-rule)).
-  > [!NOTE]
-  > Une règle **Deny all traffic** (Refuser tout le trafic) est recommandée lorsque, suite à l’exécution de l’algorithme, Security Center n’identifie pas de trafic qui doit être autorisé en fonction de la configuration de groupe de sécurité réseau existante. Par conséquent, la règle recommandée consiste à refuser tout le trafic vers le port spécifié. Le nom de ce type de règle apparaît comme « *System Generated* » (Généré par le système). Après l’application de cette règle, son nom réel dans le groupe de sécurité réseau sera une chaîne constituée du protocole, de la direction du trafic, de « DENY » et d’un nombre aléatoire.
+    La création et la modification de règles « deny » sont effectuées directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
 
-*Pour modifier une règle de renforcement du réseau adaptatif :*
+- Une règle **Deny all traffic** (Refuser tout le trafic) est la seule règle de type « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez toutefois la supprimer (consultez [Supprimer une règle](#delete-rule)). Pour en savoir plus sur ce type de règle, consultez l’entrée FAQ [Quand dois-je utiliser une règle « Refuser tout le trafic » ?](#when-should-i-use-a-deny-all-traffic-rule).
 
-1. Pour modifier certains paramètres d’une règle, dans l’onglet **Règles**, cliquez sur les trois points (…) à la fin de la ligne de la règle, puis cliquez sur **Modifier**.
+Pour modifier une règle de renforcement du réseau adaptatif :
 
-   ![Modification d’une règle](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+1. Pour modifier certains paramètres d’une règle, sous l’onglet **Règles**, sélectionnez les trois points (…) à la fin de la ligne de la règle, puis **Modifier**.
 
-1. Dans la fenêtre **Modifier une règle**, mettez à jour les détails que vous souhaitez modifier, puis cliquez sur **Enregistrer**.
+   ![Modification d’une règle.](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+
+1. Dans la fenêtre **Modifier une règle**, mettez à jour les détails que vous souhaitez changer, puis sélectionnez **Enregistrer**.
 
    > [!NOTE]
-   > Après avoir cliqué sur **Enregistrer**, vous avez modifié avec succès de la règle. *Toutefois, vous ne l’avez pas appliquée au groupe de sécurité réseau.* Pour l’appliquer, vous devez sélectionner la règle dans la liste, puis sélectionnez **Appliquer** (comme expliqué dans l’étape suivante).
+   > Après avoir sélectionné **Enregistrer**, vous avez correctement modifié la règle. *Toutefois, vous ne l’avez pas appliquée au groupe de sécurité réseau.* Pour l’appliquer, vous devez sélectionner la règle dans la liste, puis sélectionnez **Appliquer** (comme expliqué dans l’étape suivante).
 
-   ![Sélection d’un enregistrement](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Sélection de l’option Enregistrer.](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
-3. Pour appliquer la règle mise à jour, sélectionnez la règle mise à jour dans la liste, puis cliquez sur **Appliquer**.
+3. Pour appliquer la règle mise à jour, sélectionnez-la dans la liste, puis cliquez sur **Appliquer**.
 
-    ![appliquer une règle](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![Appliquer une règle.](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>Ajouter une nouvelle règle <a name ="add-rule"></a>
+## <a name="add-a-new-rule"></a>Ajouter une nouvelle règle <a name ="add-rule"></a>
 
 Vous pouvez ajouter une règle « allow » qui n’a pas été recommandée par Security Center.
 
 > [!NOTE]
 > Seules des règles « allow » peuvent être ajoutées ici. Si vous souhaitez ajouter des règles « deny », vous pouvez le faire directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
 
-*Pour ajouter une règle de renforcement du réseau adaptatif :*
+Pour ajouter une règle de renforcement du réseau adaptatif :
 
-1. Cliquez sur **Ajouter une règle** (situé dans le coin supérieur gauche).
+1. Dans la barre d’outils supérieure, sélectionnez **Ajouter une règle**.
 
-   ![ajouter une règle](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
+   ![Ajouter une règle.](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. Dans la fenêtre **Nouvelle règle**, entrez les détails et cliquez sur **Ajouter**.
+1. Dans la fenêtre **Nouvelle règle**, entrez les détails et sélectionnez **Ajouter**.
 
    > [!NOTE]
-   > Après avoir cliqué sur **Ajouter**, vous avez ajouté la règle avec succès, et elle est répertoriée avec les autres règles recommandées. Toutefois, vous ne l’avez pas appliquée au groupe de sécurité réseau. Pour l’activer, vous devez sélectionner la règle dans la liste, puis cliquez sur **Appliquer** (comme expliqué dans l’étape suivante).
+   > Après avoir sélectionné **Ajouter**, vous avez correctement ajouté la règle et elle est listée avec les autres règles recommandées. Toutefois, vous ne l’avez pas *appliquée* au groupe de sécurité réseau. Pour l’activer, vous devez sélectionner la règle dans la liste, puis **Appliquer** (comme expliqué dans l’étape suivante).
 
-3. Pour appliquer la nouvelle règle, sélectionnez la nouvelle règle dans la liste, puis cliquez sur **Appliquer**.
+3. Pour appliquer la nouvelle règle, sélectionnez-la dans la liste, puis sélectionnez **Appliquer**.
 
-    ![appliquer une règle](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![Appliquer une règle.](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>Supprimer une règle <a name ="delete-rule"></a>
+## <a name="delete-a-rule"></a>Supprimer une règle <a name ="delete-rule"></a>
 
 Si nécessaire, vous pouvez supprimer une règle recommandée pour la session active. Par exemple, vous pouvez déterminer que l’application d’une règle suggérée est susceptible de bloquer du trafic légitime.
 
-*Pour supprimer une règle de renforcement du réseau adaptatif pour votre session actiuelle :*
+Pour supprimer une règle de renforcement du réseau adaptatif pour votre session actiuelle :
 
-1. Dans l’onglet **Règles**, cliquez sur les trois points (…) à la fin de la ligne de la règle, puis cliquez sur **Supprimer**.  
+- Sous l’onglet **Règles**, sélectionnez les trois points (…) à la fin de la ligne de la règle, puis **Supprimer**.  
 
-    ![Suppression d'une règle](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Suppression d’une règle.](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+
+
+## <a name="faq---adaptive-network-hardening"></a>FAQ - Renforcement de réseau adaptatif
+
+- [Quels sont les ports pris en charge ?](#which-ports-are-supported)
+- [Existe-t-il des prérequis ou des extensions de machine virtuelle nécessaires pour le renforcement de réseau adaptatif ?](#are-there-any-prerequisites-or-vm-extensions-required-for-adaptive-network-hardening)
+
+### <a name="which-ports-are-supported"></a>Quels sont les ports pris en charge ?
+
+Les recommandations de renforcement du réseau adaptatif sont uniquement prises en charge sur les ports spécifiques suivants (pour UDP et TCP) : 
+
+13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
+
+### <a name="are-there-any-prerequisites-or-vm-extensions-required-for-adaptive-network-hardening"></a>Existe-t-il des prérequis ou des extensions de machine virtuelle nécessaires pour le renforcement de réseau adaptatif ?
+
+Le renforcement de réseau adaptatif est une fonctionnalité sans agent d’Azure Security Center : rien ne doit être installé sur vos ordinateurs pour tirer parti de cet outil de renforcement de réseau.
+
+### <a name="when-should-i-use-a-deny-all-traffic-rule"></a>Quand utiliser une règle « Refuser tout le trafic » ?
+
+Une règle **Deny all traffic** (Refuser tout le trafic) est recommandée lorsque, suite à l’exécution de l’algorithme, Security Center n’identifie pas de trafic qui doit être autorisé en fonction de la configuration de groupe de sécurité réseau existante. Par conséquent, la règle recommandée consiste à refuser tout le trafic vers le port spécifié. Le nom de ce type de règle apparaît comme « *System Generated* » (Généré par le système). Après l’application de cette règle, son nom réel dans le groupe de sécurité réseau sera une chaîne constituée du protocole, de la direction du trafic, de « DENY » et d’un nombre aléatoire.

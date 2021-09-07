@@ -1,26 +1,28 @@
 ---
-title: Générer des modèles Machine Learning avec le concepteur
+title: Qu’est-ce que le concepteur Azure Machine Learning ?
 titleSuffix: Azure Machine Learning
-description: En savoir plus sur les termes, les concepts et le workflow qui composent le concepteur pour Azure Machine Learning.
+description: Découvrez le concepteur Azure Machine Learning et les tâches pour lesquelles vous pouvez l’utiliser. L’interface utilisateur par glisser-déposer permet d’entraîner et de déployer un modèle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 06/28/2020
-ms.custom: designer
-ms.openlocfilehash: e6738bf944c5a80d0cb54432ade7555ebdcfbd51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/03/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: c6bb9eefd7545a014faf10ad20afa655f7f4cd48
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503538"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563678"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Qu'est-ce que le concepteur Azure Machine Learning ? 
 
+Le concepteur Azure Machine Learning est une interface par glisser-déposer utilisée pour entraîner et déployer des modèles dans Azure Machine Learning. Cet article décrit les tâches que vous pouvez effectuer dans le concepteur.
 
-Le concepteur Azure Machine Learning vous permet de connecter visuellement les [jeux de données](#datasets) et les [modules](#module) sur un canevas interactif afin de créer des modèles Machine Learning. Pour plus d'informations sur la prise en main du concepteur, consultez [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)
+ - Pour commencer avec le concepteur, consultez [Tutoriel : Entraîner un modèle de régression sans code](tutorial-designer-automobile-price-train-score.md). 
+ - Pour découvrir les composants disponibles dans le concepteur, consultez les [informations de référence sur les algorithmes et les composants](/azure/machine-learning/algorithm-module-reference/module-reference).
 
 ![Exemple de concepteur Azure Machine Learning](./media/concept-designer/designer-drag-and-drop.gif)
 
@@ -35,22 +37,22 @@ Le concepteur utilise votre [espace de travail](concept-workspace.md) Azure Mach
 
 ## <a name="model-training-and-deployment"></a>Formation et déploiement du modèle
 
-Le concepteur vous donne un canevas visuel permettant de générer, tester et déployer des modèles Machine Learning. À l’aide du concepteur, vous pouvez :
+Utilisez un canevas visuel pour créer un workflow Machine Learning de bout en bout. Entraînez, testez et déployez des modèles, le tout dans le concepteur :
 
-+ Glisser-déplacer les [jeux de données](#datasets) et les [modules](#module) sur le canevas.
-+ Connecter les modules pour former un [brouillon de pipeline](#pipeline-draft).
-+ Envoyer une [exécution de pipeline](#pipeline-run) à l’aide des ressources de calcul de votre espace de travail Azure Machine Learning.
-+ Convertir vos **pipelines de formation** en **pipelines d’inférence**.
-+ [Publier](#publish) vos pipelines sur un **point de terminaison de pipeline** REST pour envoyer un nouveau pipeline qui s’exécute avec des paramètres et des jeux de données différents.
+1. Glisser-déplacer les [jeux de données](#datasets) et les [modules](#module) sur le canevas.
+1. Connecter les modules pour former un [brouillon de pipeline](#pipeline-draft).
+1. Envoyer une [exécution de pipeline](#pipeline-run) à l’aide des ressources de calcul de votre espace de travail Azure Machine Learning.
+1. Convertir vos **pipelines de formation** en **pipelines d’inférence**.
+1. [Publier](#publish) vos pipelines sur un **point de terminaison de pipeline** REST pour envoyer un nouveau pipeline qui s’exécute avec des paramètres et des jeux de données différents.
     + Publier un **pipeline de formation** pour réutiliser un pipeline unique afin d’effectuer l’apprentissage de plusieurs modèles tout en modifiant les paramètres et les jeux de données.
     + Publier un **pipeline d’inférence par lot** pour effectuer des prédictions sur de nouvelles données à l’aide d’un modèle préalablement formé.
-+ [Déployer](#deploy) un **pipeline d’inférence en temps réel** vers un point de terminaison en temps réel pour effectuer des prédictions sur de nouvelles données en temps réel.
+1. [Déployer](#deploy) un **pipeline d’inférence en temps réel** vers un point de terminaison en temps réel pour effectuer des prédictions sur de nouvelles données en temps réel.
 
 ![Diagramme de flux de travail pour la formation, l’inférence par lot et l’inférence en temps réel dans le concepteur](./media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Un [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) se compose de jeux de données et de modules d’analyse qui sont connectés. Les pipelines ont de nombreuses utilisations : vous pouvez créer un pipeline qui effectue l’apprentissage d’un modèle unique ou un pipeline qui effectue l’apprentissage de plusieurs modèles. Il est possible de créer un pipeline qui effectue des prédictions en temps réel ou par lot, ou qui se contente de nettoyer les données. Les pipelines vous permettent de réutiliser votre travail et d’organiser vos projets.
+Un [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) se compose de jeux de données et de modules algorithmiques qui sont connectés. Les pipelines ont de nombreuses utilisations : vous pouvez créer un pipeline qui effectue l’apprentissage d’un modèle unique ou un pipeline qui effectue l’apprentissage de plusieurs modèles. Vous pouvez créer un pipeline qui réalise des prédictions en temps réel ou par lot ou un pipeline qui nettoie uniquement les données. Les pipelines vous permettent de réutiliser votre travail et d’organiser vos projets.
 
 ### <a name="pipeline-draft"></a>Brouillon de pipeline
 
@@ -73,13 +75,13 @@ Les exécutions de pipeline sont regroupées en [expériences](concept-azure-mac
 
 ## <a name="datasets"></a>Groupes de données
 
-Un jeu de données Machine Learning facilite l’accès aux données et l’utilisation de ces dernières. Plusieurs exemples de jeux de données sont inclus dans le concepteur à des fins de test. Vous pouvez [inscrire](how-to-create-register-datasets.md) plusieurs jeux de données en fonction de vos besoins.
+Un jeu de données Machine Learning facilite l’accès aux données et l’utilisation de ces dernières. Plusieurs [exemples de jeux de données](samples-designer.md#datasets) sont inclus dans le concepteur à des fins de test. Vous pouvez [inscrire](how-to-create-register-datasets.md) plusieurs jeux de données en fonction de vos besoins.
 
 ## <a name="module"></a>Module
 
 Un module est un algorithme que vous appliquez à vos données. Le concepteur comporte plusieurs modules, allant de fonctions d’entrée des données à des processus d’entraînement, de scoring et de validation.
 
-Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle. Vous pouvez définir les ressources de calcul pour des modules individuels dans le concepteur. 
+Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre pipeline. Vous pouvez définir les ressources de calcul pour des modules individuels dans le concepteur. 
 
 :::image type="content" source="./media/concept-designer/properties.png" alt-text="Propriétés du module":::
 
@@ -93,7 +95,6 @@ Utilisez les ressources de calcul de votre espace de travail pour exécuter votr
 | Cible de calcul | Entrainement | Déploiement |
 | ---- |:----:|:----:|
 | Capacité de calcul Azure Machine Learning | ✓ | |
-| Instance de calcul Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Les cibles de calcul sont associées à votre [espace de travail Azure Machine Learning](concept-workspace.md). Vous gérez vos cibles de calcul dans votre espace de travail dans le [studio Azure Machine Learning](https://ml.azure.com).
@@ -105,6 +106,8 @@ Pour effectuer une inférence en temps réel, vous devez déployer un pipeline e
 Les points de terminaison en temps réel doivent être déployés sur un cluster Azure Kubernetes Service.
 
 Pour savoir comment déployer votre modèle, consultez [Tutoriel : Déployez un modèle Machine Learning avec le concepteur](tutorial-designer-automobile-price-deploy.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="publish"></a>Publish
 

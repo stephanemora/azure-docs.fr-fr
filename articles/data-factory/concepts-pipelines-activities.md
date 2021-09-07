@@ -1,33 +1,36 @@
 ---
-title: Pipelines et activités dans Azure Data Factory
-description: Découvrez les pipelines et les activités dans Azure Data Factory.
+title: Pipelines et activités
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez les pipelines et les activités dans Azure Data Factory et Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 8c910264a01967b62ebae80f63ac3f40e98ab48a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 06/19/2021
+ms.openlocfilehash: b86ae322999441fb4411854e8e11879907ed514f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773272"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534913"
 ---
-# <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
+# <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Pipelines et activités dans Azure Data Factory et Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Version actuelle](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour vos scénarios de déplacement des données et de traitement des données.
+Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory et Azure Synapse Analytics, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour vos scénarios de déplacement des données et de traitement des données.
 
-## <a name="overview"></a>Vue d’ensemble
-Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Par exemple, un pipeline peut contenir un ensemble d’activités qui ingèrent et nettoient des données de journal, puis lancent un flux de données de mappage pour analyser les données de journal. Le pipeline vous permet de gérer les activités en tant que groupe et non pas individuellement. Vous pouvez déployer et planifier le pipeline, plutôt que chaque activité séparément.
+## <a name="overview"></a>Vue d'ensemble
+Une instance Data Factory ou un espace de travail Synapse peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Par exemple, un pipeline peut contenir un ensemble d’activités qui ingèrent et nettoient des données de journal, puis lancent un flux de données de mappage pour analyser les données de journal. Le pipeline vous permet de gérer les activités en tant que groupe et non pas individuellement. Vous pouvez déployer et planifier le pipeline, plutôt que chaque activité séparément.
 
 Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local dans un stockage Blob Azure. Ensuite, utilisez une activité de flux de données ou une activité de Databricks Notebook pour traiter et transformer les données du stockage Blob en pool Azure Synapse Analytics sur lesquelles les solutions de création de rapports décisionnelles sont créées.
 
-Data Factory a trois groupes d’activités : les [activités de déplacement des données](copy-activity-overview.md), les [activités de transformation des données](transform-data.md) et les [activités de contrôle](#control-flow-activities). Une activité peut inclure zéro ou plusieurs [jeux de données](concepts-datasets-linked-services.md) d’entrée et produire un ou plusieurs [jeux de données](concepts-datasets-linked-services.md) de sortie. Le diagramme suivant montre la relation entre le pipeline, l’activité et le jeu de données dans Data Factory :
+Azure Data Factory et Azure Synapse Analytics ont trois groupes d’activités : les [activités de déplacement des données](copy-activity-overview.md), les [activités de transformation des données](transform-data.md) et les [activités de contrôle](#control-flow-activities). Une activité peut inclure zéro ou plusieurs [jeux de données](concepts-datasets-linked-services.md) d’entrée et produire un ou plusieurs [jeux de données](concepts-datasets-linked-services.md) de sortie. Le diagramme suivant montre la relation entre le pipeline, l’activité et le jeu de données :
 
 ![Relation entre le jeu de données, l’activité et le pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -42,18 +45,18 @@ L’activité de copie dans Data Factory permet de copier les données d’un ma
 Pour plus d’informations, consultez l’article [Activité de copie - vue d’ensemble](copy-activity-overview.md).
 
 ## <a name="data-transformation-activities"></a>Activités de transformation des données
-Azure Data Factory prend en charge les activités de transformation suivantes, qui peuvent être ajoutées à des pipelines, soit individuellement soit de façon chaînée avec une autre activité.
+Azure Data Factory et Azure Synapse Analytics prennent en charge les activités de transformation suivantes, qui peuvent être ajoutées soit individuellement soit de façon chaînée avec une autre activité.
 
 Activités de transformation des données | Environnement de calcul
 ---------------------------- | -------------------
-[Flux de données](control-flow-execute-data-flow-activity.md) | Azure Databricks géré par Azure Data Factory
+[Flux de données](control-flow-execute-data-flow-activity.md) | Clusters Apache Spark managés par Azure Data Factory
 [Fonction Azure](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Activités Azure Machine Learning Studio (classique) : exécution par lot et ressource de mise à jour](transform-data-using-machine-learning.md) | Azure VM
+[Activités ML Studio (classique) : Batch Execution et Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Procédure stockée](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Service Analytique Azure Data Lake
 [Activité personnalisée](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -69,17 +72,17 @@ Les activités de flux de contrôle suivantes sont prises en charge :
 Activité de contrôle | Description
 ---------------- | -----------
 [Ajouter une variable](control-flow-append-variable-activity.md) | Ajoutez une valeur à une variable de tableau existante.
-[Exécuter le pipeline](control-flow-execute-pipeline-activity.md) | L’activité d’exécution du pipeline permet à un pipeline Data Factory d’appeler un autre pipeline.
+[Exécuter le pipeline](control-flow-execute-pipeline-activity.md) | L’activité Execute Pipeline permet à un pipeline Data Factory ou Synapse d’appeler un autre pipeline.
 [Filter](control-flow-filter-activity.md) | Appliquer une expression de filtre à un tableau d’entrée
 [For Each](control-flow-for-each-activity.md) | L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
-[Obtenir les métadonnées](control-flow-get-metadata-activity.md) | L’activité d’obtention des métadonnées peut être utilisée pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory.
+[Obtenir les métadonnées](control-flow-get-metadata-activity.md) | L’activité GetMetadata peut être utilisée pour récupérer les métadonnées de n’importe quelle donnée dans un pipeline Data Factory ou Synapse.
 [Activité IfCondition](control-flow-if-condition-activity.md) | L’activité IfCondition peut être utilisée pour créer une branche en fonction de l’évaluation d’une condition par la valeur true ou false. L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d'activités si l'expression renvoie `true` et un autre ensemble d'activités si elle renvoie `false.`
 [Activité de recherche](control-flow-lookup-activity.md) | L’activité de recherche peut être utilisée pour lire ou rechercher un enregistrement, un nom de table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires.
 [Définir une variable](control-flow-set-variable-activity.md) | Récupérez la valeur d'une variable existante.
-[Activité jusqu’à](control-flow-until-activity.md) | Implémente une boucle Exécuter jusqu’à semblable à la structure Do-Until des langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory.
+[Activité jusqu’à](control-flow-until-activity.md) | Implémente une boucle Exécuter jusqu’à semblable à la structure Do-Until des langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until.
 [Activité de validation](control-flow-validation-activity.md) | Assurez-vous qu’un pipeline continue l’exécution uniquement si un jeu de données de référence existe, répond à un critère spécifié ou si un délai d’expiration a été atteint.
 [Activité d’attente](control-flow-wait-activity.md) | Lorsque vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l'exécution des activités suivantes.
-[Activité Web](control-flow-web-activity.md) | Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
+[Activité Web](control-flow-web-activity.md) | L’activité Web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
 [Activité de Webhook](control-flow-webhook-activity.md) | À l'aide de l'activité de Webhook, appelez un point de terminaison et transmettez une URL de rappel. L’exécution du pipeline attend que le rappel soit appelé avant de passer à l’activité suivante.
 
 ## <a name="pipeline-json"></a>Pipeline JSON
@@ -143,7 +146,7 @@ Tag | Description | Obligatoire
 name | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », \" | Oui</li></ul>
 description | Texte décrivant la raison motivant l’activité ou son utilisation | Oui
 type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities), [Activités de transformation des données](#data-transformation-activities) et [Activités de contrôle](#control-flow-activities) pour en savoir plus sur les différents types d’activités. | Oui
-linkedServiceName | Nom du service lié utilisé par l’activité.<br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. | Oui pour l’activité HDInsight, l’activité de calcul de score du lot Azure Machine Learning Studio (classique) et l’activité de procédure stockée. <br/><br/>Non pour toutes les autres
+linkedServiceName | Nom du service lié utilisé par l’activité.<br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. | Oui pour l’activité HDInsight, l’activité Batch Scoring ML Studio (classique) et l’activité Stored Procedure. <br/><br/>Non pour toutes les autres
 typeProperties | Les propriétés de la section typeProperties dépendent de chaque type d’activité. Pour afficher les propriétés de type d’une activité, cliquez sur les liens vers l’activité dans la section précédente. | Non
 policy | Stratégies affectant le comportement d’exécution de l’activité. Cette propriété inclut un comportement de délai d'expiration et de nouvelle tentative. Si aucune valeur n'est spécifiée, les valeurs par défaut sont utilisées. Pour plus d’informations, consultez la section [Stratégie d’activité](#activity-policy). | Non
 dependsOn | Cette propriété est utilisée pour définir des dépendances des activités, et la manière dont les activités suivantes dépendent des activités précédentes. Pour plus d’informations, consultez l’article [Dépendance des activités](#activity-dependency) | Non
@@ -311,7 +314,7 @@ Notez les points suivants :
 - L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. Consultez l’article [Jeux de données](concepts-datasets-linked-services.md) pour en savoir plus sur la définition de jeux de données dans JSON.
 - Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
 
-Pour obtenir une description complète de la création de ce pipeline, consultez l’article [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md).
+Pour obtenir une description complète de la création de ce pipeline, consultez [Démarrage rapide : Créer une fabrique de données](quickstart-create-data-factory-powershell.md).
 
 ## <a name="sample-transformation-pipeline"></a>Exemple de pipeline de transformation
 Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsightHive** in the **d’activités** . Dans cet exemple, [l’activité Hive HDInsight](transform-data-using-hadoop-hive.md) transforme les données d’un stockage blob Azure en exécutant un fichier de script Hive sur un cluster Hadoop Azure HDInsight.
@@ -403,3 +406,6 @@ Consultez les didacticiels suivants pour obtenir des instructions pas à pas de 
 
 - [Créer un pipeline avec une activité de copie](quickstart-create-data-factory-powershell.md)
 - [Créer un pipeline avec une activité de transformation des données](tutorial-transform-data-spark-powershell.md)
+
+Comment parvenir à l’intégration continue et la livraison continue (CI/CD) à l’aide d’Azure Data Factory
+- [Intégration et déploiement continus dans Azure Data Factory](continuous-integration-deployment.md)

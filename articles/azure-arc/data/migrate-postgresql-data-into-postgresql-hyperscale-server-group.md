@@ -1,36 +1,36 @@
 ---
-title: Migrer des données d’une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
-titleSuffix: Azure Arc enabled database services
-description: Migrer des données d’une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
+title: Migrer les données d’une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
+titleSuffix: Azure Arc-enabled database services
+description: Migrez les données d’une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 06860f9d09db7a9e9497431620e15cc5e3168206
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 25e19ac7512c26e9e6985d033ec46d76b4c5233a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411626"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524310"
 ---
-# <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrer une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
+# <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrer une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
 
-Ce document décrit les étapes à suivre pour faire de votre base de données PostgreSQL existante (qui n’est pas hébergée dans des Data Services compatibles Azure Arc) dans votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc.
+Ce document décrit les étapes à suivre pour placer votre base de données PostgreSQL existante (qui n’est pas hébergée dans les services de données avec Azure Arc) dans votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="considerations"></a>Considérations
 
-Un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc est la version de communauté de PostgreSQL et s’exécute avec l’extension CitusData activée. Par conséquent, tout outil qui fonctionne sur PostgreSQL en dehors d’Azure Arc doit fonctionner avec un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc.
+Un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc est la version de la communauté de PostgreSQL et s’exécute avec l’extension CitusData activée. Par conséquent, tout outil qui fonctionne sur PostgreSQL en dehors d’Azure Arc doit fonctionner avec un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 
 
 Par conséquent, avec l’ensemble d’outils que vous utilisez aujourd’hui pour Postgres, vous devez être en mesure d’effectuer les opérations suivantes :
 1. sauvegarder votre base de données Postgres à partir de votre instance hébergée en dehors d’Azure Arc ;
-2. la restaurer dans votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc.
+2. la restaurer dans votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 
 Voici ce qu’il vous reste à faire :
 - réinitialiser les paramètres du serveur ;
@@ -44,6 +44,8 @@ Pour effectuer cette opération de sauvegarde/restauration, vous pouvez utiliser
 - `pg_restore`
 - `psql`
 - ...
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## <a name="example"></a>Exemple
 Illustrons ces étapes à l’aide de l’outil `pgAdmin`.
@@ -68,13 +70,13 @@ Configurez-la :
 La sauvegarde se termine correctement :  
 :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrate-source-backup-completed":::
 
-### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créez une base de données vide sur le système de destination dans votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
+### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer une base de données vide sur le système de destination dans votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
 
 > [!NOTE]
 > Pour inscrire une instance Postgres dans l’outil `pgAdmin`, vous devez utiliser une adresse IP publique de votre instance dans votre cluster Kubernetes et définir le port et le contexte de sécurité de manière appropriée. Vous trouverez ces détails sur la ligne du point de terminaison `psql` après avoir exécuté la commande suivante :
 
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 Une sortie semblable à la suivante est renvoyée :
 ```console
@@ -112,7 +114,7 @@ Configurez la restauration :
    La restauration a réussi.  
    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-db-restore-completed":::
 
-### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Vérifiez que la base de données a été correctement restaurée dans votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
+### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Vérifier que la base de données a été correctement restaurée dans votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
 
 Utilisez l'une des méthodes suivantes :
 
@@ -128,8 +130,8 @@ Au sein de votre configuration Arc, vous pouvez utiliser `psql` pour vous connec
 
 1. Répertoriez les points de terminaison à partir de votre chaîne de connexion `psql` :
 
-   ```console
-   azdata arc postgres endpoint list -n postgres01
+   ```azurecli
+   az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
    [
      {
        "Description": "PostgreSQL Instance",
@@ -179,7 +181,7 @@ Au sein de votre configuration Arc, vous pouvez utiliser `psql` pour vous connec
    ```
 
 > [!NOTE]
-> - Vous ne verrez pas beaucoup d’avantages en matière de performances résultant de l’exécution sur PostgreSQL Hyperscale activé par Azure Arc jusqu’à effectuer un scale-out et partitionner/distribuer les données entre les nœuds Worker de votre groupe de serveurs PostgreSQL Hyperscale. Consultez les [Étapes suivantes](#next-steps).
+> - Vous ne verrez pas beaucoup d’avantages en matière de performances résultant de l’exécution sur PostgreSQL Hyperscale avec Azure Arc tant que vous n’aurez pas effectué un scale-out et partitionné/distribué les données entre les nœuds Worker de votre groupe de serveurs PostgreSQL Hyperscale. Consultez les [Étapes suivantes](#next-steps).
 >
 > - Il n’est pas possible aujourd’hui d’« intégrer dans Azure Arc » une instance Postgres existante qui s’exécuterait localement ou dans un autre cloud. En d’autres termes, il n’est pas possible d’installer une sorte d’« agent Azure Arc » sur votre instance Postgres existante pour en faire une configuration de Postgres activé par Azure Arc. Au lieu de cela, vous devez créer une nouvelle instance Postgres et y transférer des données. Vous pouvez utiliser la technique décrite ci-dessus pour effectuer cette opération, ou vous utiliser n’importe quel outil ETL de votre choix.
 
@@ -194,6 +196,6 @@ Au sein de votre configuration Arc, vous pouvez utiliser `psql` pour vous connec
     * [Concevoir une base de données multilocataire](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Concevoir un tableau de bord d’analytique en temps réel](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> *Dans ces documents, ignorez les sections **Connectez-vous au portail Azure** et **Créer un serveur Azure Database pour Postgres – Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
+> *Dans ces documents, ignorez les sections **Connectez-vous au portail Azure** et **Créer un serveur Azure Database pour Postgres – Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre instance PostgreSQL Hyperscale avec Azure Arc.
 
 - [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-in-postgresql-hyperscale-server-group.md)

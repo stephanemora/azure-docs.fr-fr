@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 176c36ee5c3addf655503e3a371767764e0d9968
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a7041f343eec34f16f4cfd7b32ae56157963dd09
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738050"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439357"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -718,6 +718,44 @@ Utilisez cette transformation de revendication pour analyser le nom de domaine d
   - **emailAddress** : joe@outlook.com
 - Revendications de sortie :
     - **domain** : outlook.com
+
+## <a name="setclaimifbooleansmatch"></a>SetClaimIfBooleansMatch
+
+Vérifie qu’une revendication booléenne est `true` ou `false`. Si c’est le cas, définit les revendications de sortie sur la valeur présente dans le paramètre d’entrée `outputClaimIfMatched`.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | claimToMatch | string | Type de la revendication, qui doit être vérifié. Une valeur null lève une exception. |
+| InputParameter | matchTo | string | Valeur à comparer à la revendication d’entrée `claimToMatch`. Valeurs possibles : `true` ou `false`.  |
+| InputParameter | outputClaimIfMatched | string | Valeur à définir si la revendication d’entrée est égale au paramètre d’entrée `matchTo`. |
+| OutputClaim | outputClaim | string | Si la revendication d’entrée `claimToMatch` est égale au paramètre d’entrée `matchTo`, cette revendication de sortie contient la valeur du paramètre d’entrée `outputClaimIfMatched`. |
+
+Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **hasPromotionCode** est égale à `true`. Si c’est le cas, retournez la valeur *Promotion code not found*.
+
+```xml
+<ClaimsTransformation Id="GeneratePromotionCodeError" TransformationMethod="SetClaimIfBooleansMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="hasPromotionCode" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="true" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Promotion code not found." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="promotionCode" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **claimToMatch** : true
+- Paramètres d’entrée :
+    - **matchTo** : true
+    - **outputClaimIfMatched** : "Promotion code not found."
+- Revendications de sortie :
+    - **outputClaim** : "Promotion code not found."
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 

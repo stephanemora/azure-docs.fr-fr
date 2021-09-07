@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 8dbfb23d4314f8ceb13ad36ca9733e446e176090
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 5acb23767f8c766de80961fb8e76297f4b31a5c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278179"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524681"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
@@ -35,7 +35,7 @@ Le pare-feu Azure inclut les fonctionnalités suivantes :
 - Adresses IP publiques multiples
 - Journalisation d’Azure Monitor
 - Tunneling forcé
-- Catégories web (préversion)
+- Catégories web
 - Certifications
 
 ## <a name="built-in-high-availability"></a>Haute disponibilité intégrée
@@ -68,6 +68,8 @@ Vous pouvez limiter le trafic HTTP/S sortant ou le trafic SQL Azure vers une li
 ## <a name="network-traffic-filtering-rules"></a>Règles de filtrage du trafic réseau
 
 Vous pouvez créer de façon centralisée des règles de filtrage réseau *autoriser* ou *refuser* par protocole, port et adresse IP source et de destination. Le service Pare-feu Azure étant entièrement avec état, il peut distinguer les paquets légitimes pour différents types de connexions. Les règles sont appliquées et consignées entre plusieurs abonnements et réseaux virtuels.
+
+Le Pare-feu Azure prend en charge le filtrage avec état des protocoles réseau de couche 3 et de couche 4. Les protocoles IP de couche 3 peuvent être filtrés en sélectionnant **n’importe quel** protocole dans la règle de réseau et en sélectionnant le caractère générique **\*** pour le port.
 
 ## <a name="fqdn-tags"></a>Balises FQDN
 
@@ -114,29 +116,17 @@ Le classeur Pare-feu Azure constitue un canevas flexible pour l’analyse de don
 
 Vous pouvez configurer le pare-feu Azure pour router tout le trafic Internet vers un tronçon suivant désigné au lieu d’accéder directement à Internet. Par exemple, vous pouvez disposer d’un pare-feu de périphérie local ou d’une autre appliance virtuelle réseau (NVA) pour traiter le trafic réseau avant qu’il ne soit dirigé vers Internet. Pour plus d’informations, consultez la page [Tunneling forcé du Pare-feu Azure](forced-tunneling.md).
 
-## <a name="web-categories-preview"></a>Catégories web (préversion)
+## <a name="web-categories"></a>Catégories web
 
-Les catégories web permettent aux administrateurs d’autoriser ou de refuser aux utilisateurs l’accès aux catégories de sites web telles que les sites web de jeux d’argent, les sites web de réseaux sociaux, etc. Les catégories web sont incluses dans le Pare-feu Azure Standard, mais elles sont plus précises dans la préversion du Pare-feu Azure Premium. Contrairement à la fonctionnalité de catégories web de la référence SKU Standard qui correspond à la catégorie basée sur un nom de domaine complet, la référence SKU Premium correspond à la catégorie en fonction de l’URL complète pour le trafic HTTP et HTTPS. Pour plus d’informations sur la préversion du Pare-feu Azure Premium, consultez [Fonctionnalités de la préversion du Pare-feu Azure Premium](premium-features.md).
+Les catégories web permettent aux administrateurs d’autoriser ou de refuser aux utilisateurs l’accès aux catégories de sites web telles que les sites web de jeux d’argent, les sites web de réseaux sociaux, etc. Les catégories web sont incluses dans le Pare-feu Azure Standard, mais elles sont plus précises dans le Pare-feu Azure Premium. Contrairement à la fonctionnalité de catégories web de la référence SKU Standard qui correspond à la catégorie basée sur un nom de domaine complet, la référence SKU Premium correspond à la catégorie en fonction de l’URL complète pour le trafic HTTP et HTTPS. Pour plus d’informations sur le Pare-feu Azure Premium, consultez [Fonctionnalités du Pare-feu Azure Premium](premium-features.md).
 
-Par exemple, si le Pare-feu Azure intercepte une requête HTTPS pour `www.google.com/news`, vous devriez avoir la catégorisation suivante : 
+Par exemple, si le Pare-feu Azure intercepte une demande HTTPS pour `www.google.com/news`, la catégorisation suivante est attendue : 
 
 - Pare-feu Standard : seule la partie du nom de domaine complet étant examinée, `www.google.com` est classé en tant que *Moteur de recherche*. 
 
 - Pare-feu Premium : l’URL complète étant examinée, `www.google.com/news` est classée en tant qu’*Actualités*.
 
 Les catégories sont organisées en fonction de leur gravité sous **Responsabilité**, **Bande passante élevée**, **Utilisation métier**, **Perte de productivité**, **Navigation générale** et **Sans catégorie**.
-
-### <a name="categorization-change"></a>Modification de la catégorisation
-
-Vous pouvez demander une modification de catégorisation si vous  :
-
- - pensez qu’un nom de domaine complet (FQDN) ou une URL doit être dans une catégorie différente 
- 
-or 
-
-- avez une catégorie suggérée pour un FQDN ou une URL sans catégorie
-
-Vous êtes invité à envoyer une demande à l’adresse [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
 
 ### <a name="category-exceptions"></a>Exceptions de catégorie
 
@@ -150,4 +140,4 @@ Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), S
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Fonctionnalités du Pare-feu Azure Premium - Préversion](premium-features.md)
+- [Fonctionnalités du Pare-feu Azure Premium](premium-features.md)

@@ -1,18 +1,18 @@
 ---
 title: Guide de publication par type d’offre - Place de marché commerciale Microsoft
-description: Cet article décrit les types d’offres disponibles dans la Place de marché commerciale Microsoft.
+description: Cet article décrit les types d’offres disponibles sur la Place de marché commerciale Microsoft (Place de marché Azure).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/06/2021
-ms.openlocfilehash: 72cae8aee9b1bcca286696b5685ef69b84167a8e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 08/20/2021
+ms.openlocfilehash: b5b969a5e390b59e60fb0dee47e2335541532730
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537851"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633767"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
@@ -42,6 +42,9 @@ Le tableau suivant montre les types d’offre de place de marché commerciale pr
 | [**Service géré**](./plan-managed-service-offer.md) | Créez des offres de service géré et gérez des abonnements ou des groupes de ressources délégués par le client via [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Application Power BI**<br/>**Microsoft 365**](marketplace-dynamics-365.md) | Publiez des offres AppSource qui s’ajoutent à Power BI et à Microsoft 365.|
 | [**Software as a Service**](plan-saas-offer.md) | Utilisez le type d’offre SaaS (Logiciel en tant que service) pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement. Pour obtenir des informations sur les exigences relatives à l’authentification unique pour les offres SaaS, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale](azure-ad-saas.md). |
+
+> [!IMPORTANT]
+> **Offres SaaS et compléments Microsoft 365** : Pour plus d’informations concernant l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la Place de marché, consultez [Transaction dans la Place de marché commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

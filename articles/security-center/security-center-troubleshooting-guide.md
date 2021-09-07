@@ -5,20 +5,28 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 08/15/2021
 ms.author: memildin
-ms.openlocfilehash: 96cd715a16c06dd6e35d042a6938de083ec262a9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ffa0970fe86ea832cb2c1df019bf5b0c65c70bba
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556781"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563661"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés à ce service.
 
 Security Center utilise l'agent Log Analytics pour collecter et stocker les données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](./security-center-enable-data-collection.md). Les informations contenues dans cet article représentent la fonctionnalité Security Center après la transition vers l'agent Log Analytics.
+
+> [!TIP]
+> Une partie dédiée des pages Security Center dans le portail Azure fournit un ensemble classé et qui ne cesse de s’allonger de documents d’aide autonome pour relever les défis courants liés à Security Center et Azure Defender.
+> 
+> Lorsque vous êtes confronté à un problème ou que vous recherchez des conseils auprès de notre équipe de support, la page **Diagnostiquer et résoudre les problèmes** est l’endroit idéal pour rechercher des solutions :
+> 
+> :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Page « Diagnostiquer et résoudre les problèmes » de Security Center":::
+
 
 ## <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -59,11 +67,11 @@ Security Center utilise l'agent Log Analytics (le même agent que celui utilisé
 
 Si vous ouvrez la console de management des services (services.msc), vous verrez également l'agent Log Analytics s'exécuter comme illustré ci-dessous :
 
-![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![de la distribution.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 Pour vérifier votre version de l'agent, ouvrez le **Gestionnaire des tâches** et, dans l'onglet **Processus**, localisez l'**agent Log Analytics**. Cliquez dessus avec le bouton droit de la souris, puis cliquez sur **Propriétés**. Dans l’onglet **Détails**, recherchez la version du fichier, comme indiqué ci-dessous :
 
-![Fichier](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+![Fichier.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
 ## <a name="log-analytics-agent-installation-scenarios"></a>Scénarios d'installation de l'agent Log Analytics
 
@@ -86,11 +94,11 @@ Il existe deux scénarios qui peuvent produire des résultats différents lors d
 | État d’alimentation hors tension | La machine virtuelle est arrêtée.  L'agent Log Analytics ne peut être installé que sur une machine virtuelle en cours d'exécution. | Redémarrez la machine virtuelle. |
 | Agent de machine virtuelle Azure manquant ou non valide | L'agent Log Analytics n'est pas encore installé.  Un agent de machine virtuelle Azure valide est requis pour que Security Center installe l’extension. | Installer, réinstaller ou mettre à niveau l’agent de machine virtuelle Azure sur la machine virtuelle. |
 | État de la machine virtuelle non prêt pour l’installation  | L'agent Log Analytics n'est pas encore installé car la machine virtuelle n'est pas prête pour l'installation. La machine virtuelle n’est pas prête pour l’installation en raison d’un problème avec l’agent de machine virtuelle ou l’approvisionnement de la machine virtuelle. | Vérifiez l’état de votre machine virtuelle. Revenez sur **Machines virtuelles** dans le portail, puis sélectionnez la machine virtuelle pour les informations sur l’état. |
-|Échec de l’installation - erreur générale | L'agent Log Analytics a été installé, mais a échoué en raison d'une erreur. | [Installez manuellement l’extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou désinstallez-la pour que Security Center tente de l’installer à nouveau. |
-| Échec de l'installation : agent local déjà installé | L'installation de l'agent Log Analytics a échoué. Security Center a identifié un agent local (Log Analytics ou System Center Operations Manager) déjà installé sur la machine virtuelle. Pour éviter une configuration multihébergement, où la machine virtuelle fait un rapport à deux espaces de travail distincts, l'installation de l'agent Log Analytics est arrêtée. | Il existe deux manières de résoudre ce problème : [installer manuellement l’extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) et la connecter à l’espace de travail souhaité. Ou, définir l’espace de travail souhaité comme espace de travail par défaut et activer l’approvisionnement automatique de l’agent.  Consultez la section [Activer l’approvisionnement automatique](security-center-enable-data-collection.md). |
+|Échec de l’installation - erreur générale | L'agent Log Analytics a été installé, mais a échoué en raison d'une erreur. | [Installez manuellement l’extension](../azure-monitor/vm/monitor-virtual-machine.md#agents) ou désinstallez-la pour que Security Center tente de l’installer à nouveau. |
+| Échec de l'installation : agent local déjà installé | L'installation de l'agent Log Analytics a échoué. Security Center a identifié un agent local (Log Analytics ou System Center Operations Manager) déjà installé sur la machine virtuelle. Pour éviter une configuration multihébergement, où la machine virtuelle fait un rapport à deux espaces de travail distincts, l'installation de l'agent Log Analytics est arrêtée. | Il existe deux manières de résoudre ce problème : [installer manuellement l’extension](../azure-monitor/vm/monitor-virtual-machine.md#agents) et la connecter à l’espace de travail souhaité. Ou, définir l’espace de travail souhaité comme espace de travail par défaut et activer l’approvisionnement automatique de l’agent.  Consultez la section [Activer l’approvisionnement automatique](security-center-enable-data-collection.md). |
 | L’agent ne peut pas se connecter à l’espace de travail | L'agent Log Analytics a été installé, mais a échoué suite à un problème de connectivité réseau.  Vérifiez que l’agent dispose d’un accès Internet ou qu’un proxy HTTP valide lui a été défini. | Consultez la section Configuration réseau requise pour Monitoring Agent. |
 | Agent connecté à un espace de travail manquant ou inconnu | Security Center a identifié que l'agent Log Analytics installé sur la machine virtuelle est connecté à un espace de travail auquel il n'a pas accès. | Cela peut se produire dans deux cas. L’espace de travail a été supprimé et n’existe plus. Réinstallez l’agent avec le bon espace de travail ou désinstallez l’agent et autorisez Security Center à terminer l’installation de l’approvisionnement automatique. Dans le deuxième cas, l’espace de travail fait partie d’un abonnement pour lequel Security Center ne possède pas d’autorisation. Security Center requiert des abonnements pour permettre au fournisseur de ressources de Microsoft Security d’y accéder. Pour l’activer, enregistrez l’abonnement dans le fournisseur de ressources de Microsoft Security. Cela peut être réalisé à l’aide d’une API, PowerShell, d’un portail ou simplement en filtrant l’abonnement dans le tableau de bord **Vue d’ensemble** de Security Center. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
-| L’agent ne répond pas ou l’ID est manquant | Security Center ne peut pas récupérer les données de sécurité analysées de la machine virtuelle, même si l’agent est installé. | L’agent ne rapporte aucune donnée, y compris les pulsations. L’agent peut être endommagé ou quelque chose bloque le trafic. Ou, l’agent rapporte des données mais il manque un ID de ressource Azure. Il est donc impossible de faire correspondre les données à la machine virtuelle Azure. Pour résoudre les problèmes associés à Linux, consultez [Troubleshooting Guide for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guide de résolution des problèmes pour Agent OMS pour Linux). Pour résoudre les problèmes associés à Windows, consultez [Troubleshooting Windows Virtual Machines](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support) (Résolution des problèmes de machines virtuelles Windows). |
+| L’agent ne répond pas ou l’ID est manquant | Security Center ne peut pas récupérer les données de sécurité analysées de la machine virtuelle, même si l’agent est installé. | L’agent ne rapporte aucune donnée, y compris les pulsations. L’agent peut être endommagé ou quelque chose bloque le trafic. Ou, l’agent rapporte des données mais il manque un ID de ressource Azure. Il est donc impossible de faire correspondre les données à la machine virtuelle Azure. Pour résoudre les problèmes associés à Linux, consultez [Troubleshooting Guide for OMS Agent for Linux](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guide de résolution des problèmes pour Agent OMS pour Linux). Pour résoudre les problèmes associés à Windows, consultez [Troubleshooting Windows Virtual Machines](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support) (Résolution des problèmes de machines virtuelles Windows). |
 | Agent non installé | La collecte de données est désactivée. | Activez la collecte de données dans la stratégie de sécurité ou installez manuellement l'agent Log Analytics. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Résolution des problèmes de configuration réseau requise de l’agent de surveillance <a name="mon-network-req"></a>

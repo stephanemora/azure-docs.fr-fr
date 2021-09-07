@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 908d9492a6eb699c999fe93b92697dc511dca082
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 0967e440a661d6bf51dc5206e5c21cdda45db073
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189290"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565127"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -57,7 +57,7 @@ En affectant des éléments journalisés à une catégorie, vous avez davantage 
 
 ### <a name="custom-telemetry-data"></a>Données de télémétrie personnalisées
 
-En [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) et en [JavaScript](functions-reference-node.md#log-custom-telemetry), vous pouvez utiliser un kit de développement logiciel d’Application Insights pour écrire des données de télémétrie personnalisées.
+En [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#log-custom-telemetry) et [Python](functions-reference-python.md#log-custom-telemetry), vous pouvez utiliser un kit SDK Application Insights pour écrire des données de télémétrie personnalisées.
 
 ### <a name="dependencies"></a>Dépendances
 
@@ -80,6 +80,7 @@ En plus de la collecte automatique des données de dépendance, vous pouvez éga
 
 + [Journaliser des données de télémétrie personnalisées dans les fonctions C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [Journaliser des données de télémétrie personnalisées dans les fonctions JavaScript](functions-reference-node.md#log-custom-telemetry) 
++ [Journaliser des données de télémétrie personnalisées dans les fonctions Python](functions-reference-python.md#log-custom-telemetry)
 
 ## <a name="writing-to-logs"></a>Écriture dans les journaux 
 
@@ -123,6 +124,10 @@ _Cette fonctionnalité est en préversion._
 Le [contrôleur de mise à l’échelle Azure Functions](./event-driven-scaling.md#runtime-scaling) surveille les instances de l’hôte Azure Functions sur lequel votre application s’exécute. Ce contrôleur prend des décisions concernant l’ajout ou la suppression d’instances en fonction des performances actuelles. Vous pouvez faire en sorte que le contrôleur de mise à l’échelle émette des journaux vers Application Insights pour mieux comprendre les décisions prises par ce contrôleur pour votre application de fonction. Vous pouvez également stocker les journaux générés dans le stockage d’objets blob à des fins d’analyse par un autre service. 
 
 Pour activer cette fonctionnalité, vous ajoutez un paramètre d’application nommé `SCALE_CONTROLLER_LOGGING_ENABLED` à vos paramètres d’application de fonction. Pour en savoir plus, consultez [Configurer les journaux de contrôleur de mise à l’échelle](configure-monitoring.md#configure-scale-controller-logs).
+
+## <a name="azure-monitor-metrics"></a>Mesures Azure Monitor
+
+En plus des données de télémétrie basées sur les journaux que collecte Application Insights, vous pouvez obtenir des données sur la façon dont l’application de fonction s’exécute à partir d’[Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). Pour en savoir plus, consultez [Utilisation d’Azure Monitor Metrics avec Azure Functions](monitor-metrics.md).
 
 ## <a name="report-issues"></a>Signaler des problèmes
 

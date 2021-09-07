@@ -2,22 +2,22 @@
 title: Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe à l’aide d’Azure AD
 description: Apprenez à gérer si les propriétaires de groupe et d’équipe peuvent donner leur consentement aux applications qui auront accès aux données du groupe ou de l’équipe.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 46b6d91846b2498ce046da7a80bc3c9bc6110929
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1ce7254f92c4cc3d2a7dcf77885be88eda37099b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076057"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567965"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe
 
@@ -113,6 +113,9 @@ Vous pouvez utiliser le Module Azure AD PowerShell Préversion, [AzureADPreview]
 
 ---
 
+> [!NOTE]
+> L’option « Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom », lorsqu’elle est désactivée, ne désactive pas l’option « Les utilisateurs peuvent autoriser les applications à accéder aux données d’entreprise pour les groupes qu’ils possèdent ».
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus :
@@ -124,4 +127,5 @@ Pour en savoir plus :
 * [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
+
 * [Azure AD sur Microsoft Q&A](/answers/topics/azure-active-directory.html)

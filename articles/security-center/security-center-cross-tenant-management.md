@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 65ab3d1e6229d3d6fad752b1bc336d0ad749b597
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: e4207bbc045f451b45f8b5da42fba08b406caeca
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787992"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237568"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 
@@ -39,7 +39,7 @@ Vous pouvez examiner et gérer les abonnements de plusieurs locataires de la mê
 
 Dans la barre de menus supérieure, cliquez sur l’icône de filtre, puis sélectionnez les abonnements de l’annuaire de chaque client que vous souhaitez voir.
 
-  ![Filtrer les locataires](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![Filtrer les locataires.](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
 Les vues et les actions sont plus ou moins identiques. Voici quelques exemples :
 

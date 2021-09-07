@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: a02be0938b1ab925fb0343351ce1c414cc59c615
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 82d406521ad534c77fc48c095631e07a74bfd080
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044836"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563723"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditer les requêtes et les activités Azure Sentinel
 
@@ -226,8 +226,35 @@ LAQueryLogs
 ```
 
 
+## <a name="monitor-azure-sentinel-with-workbooks-rules-and-playbooks"></a>Superviser Azure Sentinel avec des workbooks, des règles et des playbooks
+
+Utilisez les propres fonctionnalités d’Azure Sentinel pour superviser les événements et les actions qui se produisent dans Azure Sentinel.
+
+- **Supervisez avec des workbooks**. Les workbooks suivants ont été créés pour superviser l’activité de l’espace de travail :
+
+    - **Audit de l’espace de travail**. Contient des informations sur les utilisateurs de l’environnement qui effectuent des actions, sur les actions qu’ils ont effectuées et bien plus encore.
+    - **Efficacité analytique**. Fournit des insights sur les règles analytiques utilisées, les tactiques MITRE les plus couvertes et les incidents générés à partir des règles.
+    - **Efficacité des opérations de sécurité**. Présente les métriques sur les performances de l’équipe SOC, les incidents ouverts, les incidents fermés et plus encore. Ce workbook peut être utilisé pour afficher les performances de l’équipe et mettre en évidence les zones qui peuvent faire défaut et nécessitent une attention particulière.
+    - **Supervision de l’intégrité de la collecte de données**. Permet de surveiller les ingestions bloquées ou arrêtées. 
+
+    Pour plus d’informations, consultez [Workbooks Azure Sentinel couramment utilisés](top-workbooks.md).
+
+- **Surveillez le délai d’ingestion**.  Si vous avez des inquiétudes concernant le délai d’ingestion, [définissez une variable dans une règle analytique](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) pour représenter le délai. 
+
+    Par exemple, la règle analytique suivante peut aider à garantir que les résultats n’incluent pas de doublons et que les journaux ne sont pas oubliés lors de l’exécution des règles :
+
+    ```kusto
+    let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
+    -   Calculating ingestion delay
+    CommonSecurityLog| extend delay = ingestion_time() - TimeGenerated| summarize percentiles(delay,95,99) by DeviceVendor, DeviceProduct
+    ```
+
+    Pour plus d’informations, consultez [Automatiser la gestion des incidents dans Azure Sentinel à l’aide de règles d’automatisation](automate-incident-handling-with-automation-rules.md).
+
+- **Supervisez l’intégrité du connecteur de données** à l’aide du playbook [Connector Health Push Notification Solution](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) pour surveiller l’ingestion bloquée ou arrêtée et envoyer des notifications quand un connecteur a arrêté la collecte de données ou que des machines ont cessé de générer des rapports.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans Azure Sentinel, utilisez le classeur d’**audit de l’espace de travail** pour auditer les activités dans votre environnement SOC.
 
-Pour plus d’informations, consultez [Tutoriel : Visualiser et superviser vos données](tutorial-monitor-your-data.md).
+Pour plus d’informations, consultez [Visualiser et superviser vos données](monitor-your-data.md).

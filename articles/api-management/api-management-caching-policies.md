@@ -8,15 +8,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: 521c17efceab04d9f3622f7e0872b35d9b630cbd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4ff1e12aa6748ba6aa9b2d5465bbfa6603f67bbf
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063277"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106494"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
-Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
+
+Cet article est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
 
 > [!IMPORTANT]
 > Le cache intégré est volatile et partagé par toutes les unités de la même région dans le même service de gestion des API.
@@ -53,6 +54,9 @@ La stratégie `cache-lookup` permet d’effectuer une recherche dans le cache et
   <!-- optional, can repeated several times -->
 </cache-lookup>
 ```
+
+> [!NOTE]
+> Lorsque vous utilisez `vary-by-query-parameter`, vous pouvez déclarer les paramètres dans le modèle rewrite-uri ou affecter à l’attribut `copy-unmatched-params` la valeur `false`. En désactivant cet indicateur, les paramètres qui ne sont pas déclarés sont envoyés au back-end.
 
 ### <a name="examples"></a>Exemples
 

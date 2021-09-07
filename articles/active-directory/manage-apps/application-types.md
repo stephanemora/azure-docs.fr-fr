@@ -2,32 +2,38 @@
 title: Affichage des applications qui utilisent votre locataire Azure Active Directory pour la gestion des identités
 description: Découvrez comment afficher toutes les applications qui utilisent votre locataire Azure Active Directory pour la gestion des identités
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: mtillman
-ms.openlocfilehash: 95a5264582087d748c1cb0e6b924f14f34728ab6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 3f106a7153f9fd61c289516d129e31c9239b97fd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532150"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Affichage des applications qui utilisent votre locataire Azure AD pour la gestion des identités
+
 La [série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md) vous guide parmi les concepts de base. Vous y apprenez comment afficher toutes les applications qui utilisent votre locataire Azure AD pour la gestion des identités. Cet article aborde plus en détail les types d’applications que vous trouverez.
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Pourquoi une application spécifique apparaît-elle dans ma liste de toutes les applications ?
+
 Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les applications** affiche chaque objet Principal de service de votre locataire. Les objets Principal de service peuvent apparaître dans cette liste de différentes façons :
+
 - Lorsque vous ajoutez une application à partir de la galerie d’applications, y compris :
-   - **Azure AD – Applications d’entreprise** – Applications ajoutées à votre locataire à l’aide de l’option **Applications d’entreprise** sur le portail Azure AD. Applications généralement intégrées à l’aide de la norme SAML.
-   - **Azure AD – Inscriptions d’applications** – Applications ajoutées à votre locataire à l’aide de l’option **Inscriptions d’applications** sur le portail Azure AD. En général, les applications personnalisées développées à l’aide des normes Open ID Connect et OAuth.
-   - **Applications du proxy d’application** : applications s’exécutant dans votre environnement local, pour lesquelles vous souhaitez utiliser l’authentification unique en externe.
+
+  - **Azure AD – Applications d’entreprise** – Applications ajoutées à votre locataire à l’aide de l’option **Applications d’entreprise** sur le portail Azure AD. Applications généralement intégrées à l’aide de la norme SAML.
+  - **Azure AD – Inscriptions d’applications** – Applications ajoutées à votre locataire à l’aide de l’option **Inscriptions d’applications** sur le portail Azure AD. En général, les applications personnalisées développées à l’aide des normes Open ID Connect et OAuth.
+  - **Applications du proxy d’application** : applications s’exécutant dans votre environnement local, pour lesquelles vous souhaitez utiliser l’authentification unique en externe.
 - Lors de l’inscription ou de la connexion, une application tierce intégrée à Azure Active Directory. Exemple : [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 - Applications Microsoft telles que Microsoft 365.
+- Quand vous utilisez des identités managées pour des ressources Azure. Pour plus d’informations, consultez [Types d’identités managées](../managed-identities-azure-resources/overview.md#managed-identity-types).
 - Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Registre d’application](../develop/quickstart-register-app.md).
 - Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Portail d’inscription des applications V2.0](../develop/quickstart-register-app.md).
 - Lorsque vous ajoutez une application que vous développez à l’aide des [méthodes d’authentification ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou des [services connectés](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) de Visual Studio.
@@ -39,4 +45,5 @@ Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les app
 Pour plus d’informations sur la façon dont les applications sont ajoutées à votre annuaire et sur les raisons de cela, lisez [Comment et pourquoi les applications sont ajoutées à Azure AD](../develop/active-directory-how-applications-are-added.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Gestion des applications avec Azure Active Directory](what-is-application-management.md)

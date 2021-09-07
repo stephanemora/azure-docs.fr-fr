@@ -4,28 +4,27 @@ description: Découvrez comment accéder aux graphes, tendances et valeurs des d
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 8b76469697da62ed379d6854d2977e841080781d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
+ms.openlocfilehash: b9b3a1e651e6207cc037ab8e4c70f81a176c3d82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539892"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525104"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Résumé dans l’analytique de la Place de marché commerciale
 
 Cet article fournit des informations sur le tableau de bord Résumé de l’Espace partenaires. Ce tableau de bord présente les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour vos offres.
 
-Pour accéder au tableau de bord Résumé de l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Résumé**.
-
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).
 
 ## <a name="summary-dashboard"></a>Tableau de bord Résumé
 
-Le tableau de bord Résumé présente une vue d’ensemble de la Place de marché Azure et des performances commerciales des offres Microsoft AppSource. Le tableau de bord fournit une vaste vue d’ensemble des éléments suivants :
+Le [tableau de bord Résumé](https://go.microsoft.com/fwlink/?linkid=2165765) présente une vue d’ensemble de la Place de marché Azure et des performances commerciales des offres Microsoft AppSource. Le tableau de bord fournit une vaste vue d’ensemble des éléments suivants :
 
 - Commandes des clients
 - Clients
@@ -35,6 +34,8 @@ Le tableau de bord Résumé présente une vue d’ensemble de la Place de march�
 ## <a name="elements-of-the-summary-dashboard"></a>Éléments du tableau de bord Résumé
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Résumé et lire les données.
+
+Pour accéder au tableau de bord Résumé de l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Résumé**.
 
 ### <a name="month-range"></a>Plage de mois
 
@@ -47,7 +48,7 @@ Une sélection par plage de mois est disponible en haut à droite de chaque page
 
 ### <a name="orders-widget"></a>Widget Commandes
 
-Le widget Commandes du tableau de bord Résumé** affiche les commandes en cours pour toutes vos offres basées sur Transact. Le widget Commandes affiche le nombre et la tendance de toutes les commandes achetées (à l’exception des commandes annulées) pour la période de calcul sélectionnée. Le pourcentage sous **Commandes** représente la progression pendant la période de calcul sélectionnée.
+Le widget Commandes du tableau de bord **Résumé** affiche les commandes en cours pour toutes vos offres basées sur Transact. Le widget Commandes affiche le nombre et la tendance de toutes les commandes achetées (à l’exception des commandes annulées) pour la période de calcul sélectionnée. Le pourcentage sous **Commandes** représente la progression pendant la période de calcul sélectionnée.
 
 [![Illustre le widget Commandes dans le tableau de bord Résumé.](./media/summary-dashboard/orders-widget.png)](./media/summary-dashboard/orders-widget.png#lightbox)
 
@@ -109,4 +110,4 @@ Notez les points suivants :
 - Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord client dans l’analytique de la Place de marché commerciale](customer-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).

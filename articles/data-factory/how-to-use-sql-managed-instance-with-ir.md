@@ -4,14 +4,15 @@ description: Apprenez à utiliser Azure SQL Managed Instance avec SQL Server Int
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 18f73a379c32bf80893e00ff0e95cb9edf905724
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564139"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607758"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utiliser Azure SQL Managed Instance avec SQL Server Integration Services (SSIS) dans Azure Data Factory
 
@@ -93,7 +94,7 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
 
     1. Vérifiez qu’il n’existe aucun [verrou de ressource](../azure-resource-manager/management/lock-resources.md) sur le groupe de ressources/abonnement auquel appartient le réseau virtuel. Si vous configurez un verrou en lecture seule ou de suppression, le démarrage et l’arrêt du runtime d’intégration Azure-SSIS IR échoueront ou celui-ci ne répondra plus.
 
-    1. Vérifiez qu’aucune stratégie Azure n’empêche la création des ressources suivantes sous le groupe de ressources/abonnement auquel appartient le réseau virtuel :
+    1. Vérifiez qu’aucune définition Azure Policy n’empêche la création des ressources suivantes sous le groupe de ressources/abonnement auquel appartient le réseau virtuel :
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 

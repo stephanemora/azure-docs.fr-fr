@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc47e06643f3bb4ebf986382e149e13fd9bbc968
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727156"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532681"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Meilleures pratiques pour un niveau de performance optimal d’Azure Database pour MySQL – Serveur unique
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Apprenez à optimiser les performances d'Azure Database pour MySQL - Serveur unique. À mesure que nous ajouterons de nouvelles fonctionnalités à la plateforme, nous continuerons d'affiner les recommandations fournies dans cette section.
 
@@ -44,7 +46,7 @@ L’établissement d’une nouvelle connexion est toujours une tâche coûteuse 
 
 ## <a name="azure-database-for-mysql-memory-recommendations"></a>Recommandations relatives à la mémoire Azure Database pour MySQL
 
-Concernant le niveau de performance d’Azure Database pour MySQL, l’une des meilleures pratiques consiste à allouer suffisamment de RAM pour que la plage de travail se trouve presque entièrement en mémoire. 
+Concernant le niveau de performance d’Azure Database pour MySQL, une bonne pratique est d’allouer suffisamment de mémoire RAM pour que la plage de travail se trouve presque entièrement en mémoire. 
 
 - Vérifiez si le pourcentage de mémoire utilisé atteint les [limites](./concepts-pricing-tiers.md) à l’aide des [métriques du serveur MySQL](./concepts-monitoring.md). 
 - Configurez des alertes sur ces nombres afin de pouvoir prendre des mesures pour résoudre le problème quand les serveurs atteignent les limites. En fonction des limites définies, déterminez si un scale-up de la référence SKU de la base de données (taille de calcul supérieure ou meilleur niveau tarifaire) entraînerait une augmentation considérable du niveau de performance. 

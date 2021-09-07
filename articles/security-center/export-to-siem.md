@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 3ddc385b9d489e0c2ab4abf35a6ade011970342b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2014d2ecea91ae650ec1fb1d730ee9b64c66c98
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572946"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525877"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques
 
@@ -41,6 +41,15 @@ Azure Sentinel comprend des connecteurs intégrés pour Azure Security Center au
 
 - [Diffuser en continu des alertes vers Azure Sentinel au niveau de l’abonnement](../sentinel/connect-azure-security-center.md)
 - [Connecter tous les abonnements de votre locataire à Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
+
+Lorsque vous connectez Azure Defender à Azure Sentinel, l’état des alertes Azure Defender qui sont ingérées dans Azure Sentinel est synchronisé entre les deux services. Ainsi, par exemple, lorsqu’une alerte est fermée dans Azure Defender, cette alerte s’affiche également comme étant fermée dans Azure Sentinel. Le changement d’état d’une alerte dans Azure Defender n’affecte pas l’état des **incidents** Azure Sentinel qui contiennent l’alerte Azure Sentinel synchronisée, uniquement celui de l’alerte synchronisée.
+
+L’activation de la fonctionnalité en préversion, **synchronisation d’alerte bidirectionnelle**, synchronise automatiquement l’état des alertes Azure Defender d’origine avec les incidents Azure Sentinel qui contiennent les copies de ces alertes Azure Defender. Ainsi, par exemple, lorsqu’un incident Azure Sentinel contenant une alerte Azure Defender est fermé, Azure Defender ferme automatiquement l’alerte d’origine correspondante.
+
+Apprenez-en davantage dans [Connecter les alertes Azure Defender à partir d’Azure Security Center](../sentinel/connect-azure-security-center.md).
+
+> [!NOTE]
+> La fonctionnalité de synchronisation d’alerte bidirectionnelle n’est pas disponible dans le cloud Azure Government. 
 
 ### <a name="configure-ingestion-of-all-audit-logs-into-azure-sentinel"></a>Configurer l’ingestion de tous les journaux d’audit dans Azure Sentinel 
 

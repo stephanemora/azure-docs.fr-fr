@@ -2,13 +2,13 @@
 title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
-ms.date: 04/14/2021
-ms.openlocfilehash: b2cf2b0ebef2b460b626e45d6b52309c9281d6ce
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 06/21/2021
+ms.openlocfilehash: 42057f88d76fb0822207ecaf0ece340101c6ec6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739239"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531914"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -23,7 +23,8 @@ La fonctionnalité de géo-reprise d’activité après sinistre d’Event Hubs 
 La fonctionnalité de géo-reprise d’activité après sinistre garantit que la totalité de la configuration d’un espace de noms (Event Hubs, groupes de consommateurs et paramètres) est répliquée en continu d’un espace de noms principal vers un espace de noms secondaire quand ils sont jumelés. Elle permet également de lancer à tout moment un basculement ponctuel vers l’espace de noms secondaire. L’action de basculement fait pointer le nom d’alias choisi pour l’espace de noms vers l’espace de noms secondaire, puis arrête le jumelage. Le basculement est presque instantané une fois lancé. 
 
 > [!IMPORTANT]
-> La fonctionnalité permet une continuité instantanée des opérations avec la même configuration, mais **ne réplique pas les données d’événement**. À moins que l’incident ne soit à l’origine de la perte de toutes les zones, les données d’événement sont conservées dans l’Event Hub principal et seront récupérables après le basculement. De là, les événements historiques peuvent être obtenus une fois l’accès restauré. Pour répliquer des données d’événement et gérer les espaces de noms correspondants dans des configurations actives/actives de façon à faire face aux pannes et aux sinistres, ne vous contentez pas d’utiliser cette fonctionnalité de géo-reprise d’activité après sinistre. Suivez les [conseils de réplication](event-hubs-federation-overview.md).  
+> - La fonctionnalité permet une continuité instantanée des opérations avec la même configuration, mais **ne réplique pas les données d’événement**. À moins que l’incident ne soit à l’origine de la perte de toutes les zones, les données d’événement sont conservées dans l’Event Hub principal et seront récupérables après le basculement. De là, les événements historiques peuvent être obtenus une fois l’accès restauré. Pour répliquer des données d’événement et gérer les espaces de noms correspondants dans des configurations actives/actives de façon à faire face aux pannes et aux sinistres, ne vous contentez pas d’utiliser cette fonctionnalité de géo-reprise d’activité après sinistre. Suivez les [conseils de réplication](event-hubs-federation-overview.md).  
+> - Les attributions de contrôle d’accès en fonction du rôle (RBAC) Azure AD (Azure Active Directory) à des entités de l’espace de noms principal ne sont pas répliquées dans l’espace de noms secondaire. Créez manuellement des attributions de rôles dans l’espace de noms secondaire pour sécuriser leur accès. 
 
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 
@@ -37,7 +38,7 @@ La fonctionnalité de géorécupération d’urgence d’Azure Event Hubs est un
 
 La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. 
 
-La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/). Vous n’avez pas besoin de modifier de chaîne de connexion, car la connexion est établie à l’aide d’un alias.
+La fonctionnalité de géo-reprise d’activité après sinistre est disponible uniquement pour les [références SKU standard, premium et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/). Vous n’avez pas besoin de modifier de chaîne de connexion, car la connexion est établie à l’aide d’un alias.
 
 Cet article emploie les termes suivants :
 
@@ -50,12 +51,11 @@ Cet article emploie les termes suivants :
 ## <a name="supported-namespace-pairs"></a>Paires d’espaces de noms prises en charge
 Les combinaisons suivantes d’espaces de noms principaux et secondaires sont prises en charge :  
 
-| Espace de noms principal | Espace de noms secondaire | Prise en charge | 
-| ----------------- | -------------------- | ---------- |
-| standard | standard | Oui | 
-| standard | Dédié | Oui | 
-| Dédié | Dédié | Oui | 
-| Dédié | standard | Non | 
+| Niveau d’espace de noms principal | Niveau d’espace de noms secondaire autorisé |
+| ----------------- | -------------------- |
+| standard | Standard, Dédié | 
+| Premium | Premium | 
+| Dédié | Dédié | 
 
 > [!NOTE]
 > Vous ne pouvez pas associer des espaces de noms qui se trouvent dans le même cluster dédié. Vous pouvez associer des espaces de noms qui se trouvent dans des cluster distincts. 
@@ -64,7 +64,8 @@ Les combinaisons suivantes d’espaces de noms principaux et secondaires sont pr
 
 La section suivante présente une vue d’ensemble du processus de basculement et explique comment configurer le basculement initial. 
 
-![1][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="présentant la vue d’ensemble du processus de basculement":::
+
 
 ### <a name="setup"></a>Programme d’installation
 
@@ -112,7 +113,7 @@ Si vous lancez le basculement, deux étapes sont requises :
 > [!NOTE]
 > Seule la sémantique de transfert du basculement est prise en charge. Dans ce scénario, vous basculez puis effectuez un nouveau couplage avec un nouvel espace de noms. La restauration automatique n’est pas prise en charge ; par exemple, dans un cluster SQL. 
 
-![2][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image présentant le flux du basculement":::
 
 ## <a name="management"></a>Gestion
 
@@ -137,17 +138,11 @@ Tenez compte des points suivants :
 5. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
 ## <a name="availability-zones"></a>Zones de disponibilité 
+Event Hubs prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des pannes dans une région Azure. La prise en charge des zones de disponibilité est disponible uniquement dans les [régions Azure avec zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones). Les métadonnées aussi bien que les données (événements) sont répliquées dans les centres de données se trouvant dans la zone de disponibilité. 
 
-La référence SKU Event Hubs Standard prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant ainsi des emplacements isolés des défaillances au sein d'une région Azure. 
+Lors de la création d’un espace de noms, le message mis en évidence suivant s’affiche quand vous sélectionnez une région qui contient des zones de disponibilité. 
 
-> [!NOTE]
-> Pour Azure Event Hubs Standard, la prise en charge des zones de disponibilité s'applique uniquement aux [régions Azure](../availability-zones/az-region.md) où des zones de disponibilité sont déjà présentes.
-
-Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Event Hubs ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
-
-Lorsque vous utilisez des zones de disponibilité, les métadonnées et les données (événements) sont répliquées dans les centres de données de la zone de disponibilité. 
-
-![3][]
+:::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image montrant la page Créer un espace de noms avec une région comportant des zones de disponibilité":::
 
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 Cette section fournit des informations supplémentaires concernant l’utilisation de la géo-reprise d’activité après sinistre avec des espaces de noms qui utilisent des points de terminaison privés. Pour en savoir plus sur l’utilisation de points de terminaison privés avec Event Hubs en général, consultez [Configurer des points de terminaison privés](private-link-service.md).
@@ -184,6 +179,9 @@ L’avantage de cette approche est que le basculement peut se produire au niveau
 
 > [!NOTE]
 > Pour obtenir des conseils en matière de géo-reprise d’activité après sinistre d’un réseau virtuel, voir [Réseau virtuel – Continuité des activités](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+Les attributions de contrôle d’accès en fonction du rôle (RBAC) Azure AD (Azure Active Directory) à des entités de l’espace de noms principal ne sont pas répliquées dans l’espace de noms secondaire. Créez manuellement des attributions de rôles dans l’espace de noms secondaire pour sécuriser leur accès.
  
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les exemples ou la documentation de référence suivants. 
@@ -194,10 +192,8 @@ Consultez les exemples ou la documentation de référence suivants.
 - [Java - azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Java - exemples azure-eventhubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
 - [Exemples Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
-- [Exemples JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
-- [Exemples TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [Exemples JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [Exemples TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
 - [Référence d’API REST](/rest/api/eventhub/)
 
-[1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
-[3]: ./media/event-hubs-geo-dr/eh-az.png

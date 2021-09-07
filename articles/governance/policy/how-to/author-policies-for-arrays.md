@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies pour les propriétés de tableau sur des ressources
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 26fdc6c5b5dd09e77413285a8632d91e580e7162
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aefa5439e7176457494d6c21ffb9aa79acc4fd3c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752630"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534993"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -236,7 +236,7 @@ La condition field a un comportement implicite « Tous ». Si l’alias repré
 
 ### <a name="referencing-array-fields"></a>Référencement des champs de tableau
 
-Les propriétés de ressource de tableau sont généralement représentées par deux différents types d’alias. Un alias « normal » et des [alias de tableau](../concepts/definition-structure.md#understanding-the--alias) auxquels `[*]` est attaché :
+Les propriétés de ressource de tableau sont représentées par deux types d’alias différents. Un alias « normal » et des [alias de tableau](../concepts/definition-structure.md#understanding-the--alias) auxquels `[*]` est attaché :
 
 - `Microsoft.Test/resourceType/stringArray`
 - `Microsoft.Test/resourceType/stringArray[*]`

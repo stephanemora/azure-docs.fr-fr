@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f99516b0c93dfacfecdfa07f6f72a26effedd44
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a41cd57e64d1c3b9e6a88924805b1f2a6e77361a
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901940"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726893"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure
 
@@ -48,7 +48,7 @@ Pour plus d’informations sur la bibliothèque cliente Azure Identity pour .NET
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Attribuer des rôles Azure pour l’accès aux données
 
-Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob ou de file d’attente, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, le principal de sécurité doit se voir attribuer un rôle Azure qui accorde l’accès aux données de blob ou de file d’attente dans Stockage Azure. Pour plus d’informations sur l’attribution d’autorisations via Azure RBAC, consultez la section intitulée **Attribuer des rôles Azure pour les droits d’accès** dans [Autoriser l’accès aux blobs et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob ou de file d’attente, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, le principal de sécurité doit se voir attribuer un rôle Azure qui accorde l’accès aux données de blob ou de file d’attente dans Stockage Azure. Pour obtenir des informations sur l’attribution d’autorisations via le contrôle d’accès en fonction du rôle Azure, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
 > Lorsque vous créez un compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée via Azure AD. Vous devez vous attribuer explicitement un rôle Azure pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, groupe de ressources, compte de stockage, conteneur ou file d’attente.

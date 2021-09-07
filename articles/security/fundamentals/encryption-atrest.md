@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6c302b10baad157cd70751d49fe6d50911c2ce75
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: a73965d0ec5d0d3fbcf665d648137e1153506721
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074787"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525070"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -38,7 +38,7 @@ Le chiffrement est le codage sécurisé des informations utilisées pour protég
 - Une clé de chiffrement symétrique est utilisée pour chiffrer les données au fil de leur stockage.
 - La clé de chiffrement est utilisée pour déchiffrer ces données au fil de leur préparation à une utilisation en mémoire.
 - Les données peuvent être partitionnées, et des clés différentes peuvent être utilisées pour chaque partition.
-- Les clés doivent être stockées dans un emplacement sécurisé doté du contrôle d’accès basé sur l’identité et de stratégies d’audit. Les clés de chiffrement de données sont souvent chiffrées avec une clé de chiffrement de clé dans Azure Key Vault pour limiter davantage l’accès.
+- Les clés doivent être stockées dans un emplacement sécurisé doté du contrôle d’accès basé sur l’identité et de stratégies d’audit. Les clés de chiffrement des données qui sont stockées en dehors des emplacements sécurisés sont chiffrées avec une clé de chiffrement principale conservée dans un emplacement sécurisé.
 
 Dans la pratique, les scénarios de gestion et de contrôle des clés, ainsi que les garanties de scalabilité et de disponibilité, nécessitent des mécanismes supplémentaires. Les concepts et les composants du chiffrement des données au repos de Microsoft Azure sont décrits ci-dessous.
 
@@ -75,7 +75,7 @@ Plusieurs clés de chiffrement sont utilisées dans une implémentation du chiff
 - **Clé de chiffrement des données** : une clé symétrique AES256 utilisée pour chiffrer une partition ou un bloc de données.  Une même ressource peut avoir plusieurs partitions et de nombreuses clés de chiffrement des données. Le chiffrement de chaque bloc de données avec une clé différente rend les attaques d’analyse du chiffrement plus difficiles. L’accès aux clés de chiffrement des données est nécessaire au fournisseur de ressources ou à l’instance d’application qui chiffre et déchiffre un bloc spécifique. Quand une clé de chiffrement des données est remplacée par une nouvelle clé, seules les données du bloc qui y est associé doivent être rechiffrées avec la nouvelle clé.
 - **Clé de chiffrement des clés** : une clé de chiffrement utilisée pour chiffrer les clés de chiffrement des données. L’utilisation d’une clé de chiffrement des clés ne quittant jamais le coffre de clés permet le chiffrement et le contrôle des clés de chiffrement des données elles-mêmes. L’entité qui a accès à la clé de chiffrement des clés peut être différente de l’entité qui a besoin de la clé de chiffrement des données. Une entité peut répartir l’accès à la clé de chiffrement des clés pour limiter l’accès de chaque clé de chiffrement des clés vers une partition spécifique. Comme la clé de chiffrement des clés est nécessaire pour déchiffrer les clés de chiffrement des données, la clé de chiffrement des clés est dès lors le point unique par lequel les clés de chiffrement des données peuvent être supprimées en supprimant la clé de chiffrement des clés.
 
-Les clés de chiffrement des données chiffrées avec des clés de chiffrement des clés sont stockées séparément, et seule une entité ayant accès à la clé de chiffrement des clés peut déchiffrer ces clés de chiffrement des données. Différents modèles de stockage des clés sont pris en charge. Pour plus d’informations, consultez les [modèles de chiffrement de données](encryption-models.md).
+Les fournisseurs de ressources et les instances d’application stockent les clés de chiffrement des données chiffrées avec les clés de chiffrement principales, souvent en tant que métadonnées sur les données protégées par les clés de chiffrement des données. Seule une entité ayant accès à la clé de chiffrement principale peut déchiffrer ces clés de chiffrement des données. Différents modèles de stockage des clés sont pris en charge. Pour plus d’informations, consultez les [modèles de chiffrement de données](encryption-models.md).
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Chiffrement au repos dans les services cloud Microsoft
 

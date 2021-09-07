@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 292c23398950a367f77c4200925007f660702a34
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87875470"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562761"
 ---
 # <a name="get-started-with-device-twins-python"></a>Bien démarrer avec les jumeaux d’appareils (Python)
 
@@ -239,8 +239,8 @@ Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azu
 
 Utilisez les ressources suivantes :
 
-* Envoyez des données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](quickstart-send-telemetry-python.md).
+* Envoyez des données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python).
 
 * Pour savoir comment configurer des appareils à l’aide des propriétés de jumeau d’appareil souhaitées, suivez le didacticiel [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md).
 
-* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le didacticiel [Utiliser des méthodes directes](quickstart-control-device-python.md).
+* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le guide de démarrage rapide [Utiliser des méthodes directes](./quickstart-control-device.md?pivots=programming-language-python).

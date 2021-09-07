@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 07/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c060a029b1cdbdd890ced96cab732966cb652de0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94b00fb293913e5501bd70ecb782304c56314ed9
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500578"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430121"
 ---
 # <a name="userinfo-endpoint"></a>Point de terminaison UserInfo
 
@@ -266,6 +266,43 @@ Une réponse correcte se présente comme suit :
     "signInNames.emailAddress": "john.s@contoso.com"
 }
 ```
+
+## <a name="provide-optional-claims"></a>Fournir des revendications facultatives
+
+Pour fournir plus de revendications à votre application, effectuez les étapes suivantes :
+
+1. [Ajoutez des attributs utilisateur et personnalisez l’entrée utilisateur](configure-user-input.md).
+1. Modifiez l’élément OutputClaims du [profil technique de la stratégie Partie de confiance](relyingparty.md#technicalprofile) avec les revendications que vous souhaitez fournir. Utilisez l’attribut `DefaultValue` pour définir une valeur par défaut. Vous pouvez également définir la valeur par défaut sur un [résolveur de revendication](claim-resolver-overview.md) comme `{Context:CorrelationId}`. Pour forcer l’utilisation de la valeur par défaut, définissez l’attribut `AlwaysUseDefaultValue` sur `true`. L’exemple suivant ajoute la revendication de ville comme valeur par défaut.
+    
+    ```xml
+    <RelyingParty>
+      ...
+      <TechnicalProfile Id="PolicyProfile">
+        ...
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="city" DefaultValue="Berlin" />
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+  
+1. Modifiez l’élément InputClaims du profil technique UserInfoIssuer avec les revendications que vous souhaitez fournir. Utilisez l’attribut `PartnerClaimType` pour modifier le nom de la valeur retourné à votre application. L’exemple suivant ajoute la revendication « city » et modifie le nom de certaines des revendications.
+
+    ```xml
+    <TechnicalProfile Id="UserInfoIssuer">
+      ...
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="city" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
+        <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="familyName" />
+        <InputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+        <InputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+      </InputClaims>
+      ...
+    </TechnicalProfile>
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

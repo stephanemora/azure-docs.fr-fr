@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: b90ca39d7bf01b84400464240bb581a5e7bc922a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dc42882a15b70d7d656decebf8c7b2346c516c6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602381"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562605"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validation des alertes dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
@@ -33,12 +33,12 @@ Utilisez des exemples d’alertes pour :
 
 Pour créer des exemples d’alertes :
 
-1. En tant qu’utilisateur avec le rôle **Administrateur de la sécurité** ou **Collaborateur de l’abonnement**, dans la barre d’outils de la page Alertes, sélectionnez **Créer des exemples d’alertes**.
+1. En tant qu’utilisateur avec le rôle **Collaborateur de l’abonnement**, dans la barre d’outils de la page Alertes, sélectionnez **Créer des exemples d’alertes**.
 1. Sélectionnez l’abonnement.
 1. Sélectionnez le ou les plans Azure Defender appropriés pour lesquels vous souhaitez afficher les alertes. 
 1. Sélectionnez **Créer des exemples d’alertes**.
 
-    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Étapes de création d’exemples d’alertes dans Azure Security Center":::
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Étapes de création d’exemples d’alertes dans Azure Security Center.":::
     
     Une notification s’affiche pour vous informer que les exemples d’alertes sont en cours de création :
 
@@ -46,7 +46,7 @@ Pour créer des exemples d’alertes :
 
     Après quelques minutes, les alertes s’affichent dans la page des alertes de sécurité. Ils apparaîtront également dans tous les autres emplacements que vous avez configurés pour recevoir les alertes de sécurité de votre Azure Security Center (SIEM connectés, notifications par e-mail, etc.).
 
-    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Exemples d’alertes dans la liste des alertes de sécurité":::
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Exemples d’alertes dans la liste des alertes de sécurité.":::
 
     > [!TIP]
     > Les alertes concernent ont trait à des ressources simulées.

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b6ea85cfaf32ab9ba2c04c40befbe1fbf8ce915
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97387052"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445468"
 ---
 # <a name="display-controls"></a>Contrôles d’affichage
 
@@ -124,17 +124,15 @@ L’élément **ValidationClaimsExchange** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | Un profil technique pour valider toutes ou certaines des revendications d’affichage du profil technique de référencement. |
+| ValidationClaimsExchangeTechnicalProfile | 1:n | Un profil technique pour valider toutes ou certaines des revendications d’affichage du profil technique de référencement. |
 
-L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
+L’élément **ValidationClaimsExchangeTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
-|ContinueOnError|Non| Indique si la validation des profils techniques de validation suivants doit se poursuivre si ce profil technique de validation génère une erreur. Valeurs possibles : `true` ou `false` (par défaut, arrête le traitement des profils de validation suivants et renvoie une erreur). |
-|ContinueOnSuccess | Non | Indique si la validation des profils de validation suivants doit se poursuivre si ce profil technique de validation réussit. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`, ce qui signifie que le traitement des profils de validation suivants continue. |
+| TechnicalProfileReferenceId | Oui | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
 
-L’élément **ValidationTechnicalProfile** contient l’élément suivant :
+L’élément **ValidationClaimsExchangeTechnicalProfile** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |

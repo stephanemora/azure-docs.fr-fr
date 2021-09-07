@@ -1,6 +1,6 @@
 ---
 title: Plans de déploiement - Azure Active Directory | Microsoft Docs
-description: Conseils de bout en bout sur le déploiement d’un grand nombre de fonctionnalités Azure Active Directory.
+description: Conseils sur le déploiement d’un grand nombre de fonctionnalités Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,15 +12,15 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c521752558e58f19b408b5e85e84863cb4cad2f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8d2a64ec05fb3f6d353374684c14733dda9b302d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966179"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443047"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
-Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
+Vous souhaitez des conseils complets sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
 
 À partir de l’une des pages de plan, utilisez la fonctionnalité Imprimer dans un fichier PDF de votre navigateur pour créer une version hors connexion de la documentation.
 
@@ -29,26 +29,25 @@ Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnali
 
 | Fonctionnalité | Description|
 | -| -|
-| [Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure AD MFA contribue à sécuriser l’accès à vos données et à vos applications, tout en répondant à la nécessité de mettre en place un processus d’authentification simple. Regardez cette vidéo sur [comment configurer et appliquer l’authentification multifacteur dans votre locataire](https://www.youtube.com/watch?v=qNndxl7gqVM)|
+| [Authentification multifacteur Azure AD](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure AD MFA contribue à sécuriser l’accès à vos données et à vos applications, tout en répondant à la nécessité de mettre en place un processus d’authentification simple. Regardez cette vidéo sur [comment configurer et appliquer l’authentification multifacteur dans votre locataire](https://www.youtube.com/watch?v=qNndxl7gqVM)|
 | [Accès conditionnel](../conditional-access/plan-conditional-access.md)| Avec l’accès conditionnel, vous pouvez mettre en œuvre des décisions de contrôle d’accès automatisées pour déterminer qui peut accéder à vos applications cloud, sur la base de conditions. |
 | [Réinitialisation de mot de passe en libre service](../authentication/howto-sspr-deployment.md)| La réinitialisation de mot de passe en libre-service offre à vos utilisateurs la possibilité de réinitialiser leur mot de passe, sans intervention de l’administrateur, quand et où ils en ont besoin. |
-| [Sans mot de passe](../authentication/howto-authentication-passwordless-deployment.md) | Implémenter l’authentification par mot de passe à l’aide de l’application Microsoft Authenticator ou de clés de sécurité FIDO2 dans votre organisation |
+| [Sans mot de passe](../authentication/howto-authentication-passwordless-deployment.md) | Implémenter l’authentification par mot de passe à l’aide de l’application Microsoft Authenticator ou de clés de sécurité FIDO2 dans votre organisation |
 
 ## <a name="deploy-application-and-device-management"></a>Gestion des applications et périphériques de déploiement
 
 | Fonctionnalité | Description|
 | -| - |
-| [Authentification unique](../manage-apps/plan-sso-deployment.md)| Avec l’authentification unique, vos utilisateurs peuvent accéder à toutes les applications et ressources dont ils ont besoin pour travailler en se connectant une seule fois. Une fois qu’ils se sont connectés, ils peuvent passer de Microsoft Office à SalesForce, à Box ou à des applications internes sans devoir entrer encore une fois les informations d’identification. |
+| [Authentification unique](../manage-apps/plan-sso-deployment.md)| Avec l’authentification unique, vos utilisateurs peuvent accéder à toutes les applications et ressources dont ils ont besoin pour travailler en ne se connectant qu’une seule fois. Une fois qu’ils se sont connectés, ils peuvent passer de Microsoft Office à SalesForce, à Box ou à des applications internes sans devoir entrer encore une fois les informations d’identification. |
 | [Mes applications](../manage-apps/my-apps-deployment-plan.md)| Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs. |
 | [Appareils](../devices/plan-device-deployment.md) | Cet article vous aide à évaluer les méthodes d’intégration de votre périphérique avec Azure AD, à choisir le plan d’implémentation et fournit des liens clés vers les outils de gestion des périphériques pris en charge. |
 
 
-## <a name="deploy-hybrid-scenarios"></a>Déployer des scénarios hybrides
+## <a name="deploy-hybrid-scenarios"></a>Déployer des scénarios hybrides  
 
 | Fonctionnalité | Description|
 | -| -|
-| [ADFS et synchronisation de hachage de mot de passe](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Avec la synchronisation de hachage de mot de passe, les hachages des mots de passe utilisateur sont synchronisés sur Azure AD à partir de l’installation Active Directory locale. Ainsi, Azure AD permet d’authentifier les utilisateurs sans aucune interaction avec l’installation Active Directory locale. |
-| [ADFS et authentification directe](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| L’authentification directe Azure AD permet à vos utilisateurs de se connecter aux applications locales et aux applications cloud à l’aide des mêmes mots de passe. Cette fonctionnalité offre aux utilisateurs une meilleure expérience : moins de mots de passe à mémoriser et réduction des coûts de support technique informatique, car les utilisateurs sont moins susceptibles d’oublier comment se connecter. Lorsque les utilisateurs se connectent à l’aide d’Azure AD, cette fonctionnalité valide leurs mots de passe directement à partir de l’installation Active Directory locale. |
+| [Authentification utilisateur d’AD FS vers le cloud](../hybrid/migrate-from-federation-to-cloud-authentication.md)| Découvrez comment passer de l’authentification de fédération à l’authentification cloud pour votre authentification utilisateur, à l’aide de l’authentification directe ou de la synchronisation du hachage des mots de passe.
 | [Proxy d’application Azure AD](../app-proxy/application-proxy-deployment-plan.md) |Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils doivent accéder aux applications SaaS dans le cloud et aux applications d’entreprise locales. Le proxy Azure AD Application offre cet accès sans réseaux privés virtuels (VPN) ni zones démilitarisées (DMZ), qui sont des systèmes coûteux et complexes. |
 | [Authentification unique fluide](../hybrid/how-to-connect-sso-quick-start.md)| L’authentification unique transparente Azure Active Directory connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise. Avec cette fonctionnalité, les utilisateurs n’ont plus besoin de taper leur mot de passe pour se connecter à Azure AD ni même, dans la plupart des cas, d’entrer leur nom d’utilisateur. Cette fonctionnalité offre à vos utilisateurs autorisés un accès facilité à vos applications cloud sans nécessiter de composants locaux supplémentaires. |
 
@@ -78,7 +77,7 @@ Les rôles peuvent inclure :
 |Utilisateur final|Groupe représentatif des utilisateurs pour lesquels la fonctionnalité sera implémentée. Visualise souvent la préversion des changements dans un programme pilote.
 |Responsable du support informatique|Représentant de l’organisation de support informatique qui peut fournir une entrée sur la capacité de prise en charge de ce changement du point de vue du support technique.  
 |Architecte de l’identité ou administrateur général Azure|Représentant de l’équipe de gestion des identités, responsable de la définition de l’alignement de ce changement sur l’infrastructure principale de gestion des identités dans votre organisation.|
-|Responsable d’entreprise de l’application |Dans l’entreprise, responsable général de la ou des applications affectées, qui peuvent inclure la gestion de l’accès.  Il peut également fournir une entrée sur l’expérience utilisateur et l’utilité de ce changement du point de vue d’un utilisateur final.
+|Responsable d’entreprise de l’application |Dans l’entreprise, responsable général de la ou des applications affectées, qui peuvent inclure la gestion de l’accès.Il peut également fournir une entrée sur l’expérience utilisateur et l’utilité de ce changement du point de vue d’un utilisateur final.
 |Responsable de la sécurité|Représentant de l’équipe de sécurité qui peut valider que le plan répondra aux exigences de sécurité de votre organisation.|
 |Compliance Manager|Personne responsable au sein de votre organisation de la conformité aux exigences de l’entreprise, du secteur et du gouvernement.|
 
@@ -92,10 +91,9 @@ Les rôles peuvent inclure :
 
 - **I** nformé du plan de projet et des résultats
 
-
 ## <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote
-Un pilote vous permet de tester sur un petit groupe avant d’activer une fonctionnalité pour tout le monde. Vérifiez que, dans le cadre de vos tests, chaque cas d’usage au sein de votre organisation est soigneusement testé. Il est préférable de cibler un groupe spécifique d’utilisateurs pilotes avant le déploiement sur l’ensemble de votre organisation.
+Un pilote vous permet de tester une fonctionnalité sur un petit groupe avant de l’activer pour tout le monde. Vérifiez que, dans le cadre de vos tests, chaque cas d’usage au sein de votre organisation est soigneusement testé. Il est préférable de cibler un groupe d’utilisateurs pilotes avant le déploiement dans l’ensemble de votre organisation.
 
-Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Ces commentaires doivent être utilisés pour développer davantage les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner des insights sur les types de problèmes que votre personnel de support technique peut voir. 
+Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Utilisez ces commentaires pour enrichir les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner également des insights sur les types de problèmes que le personnel de votre support technique peut rencontrer. 
 
 L’extension du déploiement à des groupes d’utilisateurs plus importants doit être effectuée en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../enterprise-users/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.

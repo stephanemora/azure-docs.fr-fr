@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 06/10/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: b54fcdc25e6278aa4e98eebde948b5f67525d080
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 2a77d4992d5ee2e505f9e3f29112d45c3776d8d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987814"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438759"
 ---
 # <a name="troubleshoot-blob-storage-issues-for-an-azure-stack-edge-device"></a>Résoudre les problèmes de stockage d’objets blob pour un appareil Azure Stack Edge 
 
@@ -40,7 +40,7 @@ Voici les erreurs liées au stockage d’objets blob sur un appareil Azure Stack
 |The value for one of the HTTP headers is not in the correct format. (Le format de la valeur d’un des en-têtes HTTP est incorrect.)|La version installée de la bibliothèque Stockage Microsoft Azure pour Python n’est pas prise en charge par Azure Stack Edge. Pour connaître les versions de bibliothèques prises en charge, consultez [Bibliothèques clientes Azure prises en charge](azure-stack-edge-gpu-system-requirements-rest.md#supported-azure-client-libraries).|
 |… [SSL: CERTIFICATE_VERIFY_FAILED] …| Avant d’exécuter Python, définissez la variable d’environnement REQUESTS_CA_BUNDLE sur le chemin d’accès du fichier de certificat SSL codé en Base64 (consultez comment [Télécharger le certificat](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates)). Par exemple, exécutez :<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Vous pouvez également ajouter le certificat au magasin de certificats du système, puis définir cette variable d’environnement sur le chemin de ce magasin. Par exemple, sur Ubuntu, exécutez :<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`|
 |The connection times out. (La connexion arrive à expiration.)|Connectez-vous à votre appareil, puis vérifiez qu’il est déverrouillé. Chaque fois que l’appareil redémarre, il reste verrouillé jusqu’à ce qu’un utilisateur se connecte.|
-
+|Impossible de créer ou mettre à jour storageaccount. Vérifiez que la clé d’accès de votre compte de stockage est valide. S’il y a lieu, mettez à jour la clé sur l’appareil.|Synchronisez les clés de compte de stockage. Suivez les étapes présentées [ici](azure-stack-edge-gpu-manage-storage-accounts.md#sync-storage-keys).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

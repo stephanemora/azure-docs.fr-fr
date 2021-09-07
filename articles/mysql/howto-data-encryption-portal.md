@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5522f07ce9543af330b3526c4021a5916a3c80df
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96519057"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674449"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Chiffrement des données pour Azure Database pour MySQL à l’aide du Portail Azure
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Découvrez comment utiliser le Portail Azure pour configurer et gérer le chiffrement des données pour votre Azure Database pour MySQL.
 
@@ -52,7 +54,7 @@ Vous pouvez vérifier les attributs de la clé ci-dessus avec la commande suivan
 ```azurecli-interactive
 az keyvault key show --vault-name <key_vault_name> -n <key_name>
 ```
-
+* Azure Database pour MySQL - Serveur unique doit se trouver sur le niveau tarifaire Usage général ou Mémoire optimisée et sur Stockage v2 universel. Avant de poursuivre, consultez limitations pour le [chiffrement des données avec des clés gérées par le client](concepts-data-encryption-mysql.md#limitations).
 ## <a name="set-the-right-permissions-for-key-operations"></a>Définir les permissions appropriées pour les opérations sur les clés
 
 1. Dans Key Vault, sélectionnez **Stratégies d’accès** > **Ajouter une stratégie d’accès**.
@@ -110,4 +112,6 @@ Une fois Azure Database pour MySQL chiffré à l'aide d'une clé gérée par le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- Pour en savoir plus sur le chiffrement des données, consultez [Chiffrement des données Azure Database pour MySQL avec une clé gérée par le client](concepts-data-encryption-mysql.md).
+* [Validation du chiffrement des données pour Azure Database pour MySQL](howto-data-encryption-validation.md)
+* [Résoudre les problèmes de chiffrement des données dans Azure Database pour MySQL](howto-data-encryption-troubleshoot.md)
+* [Concepts du chiffrement des données avec des clés gérées par le client](concepts-data-encryption-mysql.md).

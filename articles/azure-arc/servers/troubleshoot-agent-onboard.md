@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes de connexion liés à l’agent Serveurs activés par Azure Arc
-description: Cet article explique comment résoudre les problèmes liés à l’agent Connected Machine qui surviennent avec des Serveurs activés par Azure Arc (préversion) lors de la tentative de connexion au service.
-ms.date: 04/12/2021
+title: Résoudre les problèmes de connexion de l’agent des serveurs avec Azure Arc
+description: Cet article explique comment résoudre les problèmes liés à l’agent Connected Machine qui surviennent avec des serveurs avec Azure Arc en tentant de se connecter au service.
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ae26b599a72129b5ed7f47d76d10353be5c0e8ac
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 8547e66ee8915c356b345bceb3cc52bde63713b0
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497997"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390164"
 ---
-# <a name="troubleshoot-azure-arc-enabled-servers-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l’agent Serveurs activés par Azure Arc
+# <a name="troubleshoot-azure-arc-enabled-servers-agent-connection-issues"></a>Résoudre les problèmes de connexion de l’agent des serveurs avec Azure Arc
 
-Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de configuration de l’agent Connected Machine de Serveurs activés par Azure Arc pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d’ordre général, consultez [Présentation de Serveurs avec Arc](./overview.md).
+Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors d’une tentative de configuration de l’agent Connected Machine des serveurs avec Azure Arc pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d’ordre général, consultez [serveurs avec Arc](./overview.md).
 
 ## <a name="agent-error-codes"></a>Codes d’erreur de l’agent
 
@@ -31,9 +31,9 @@ Si vous recevez une erreur lors de la configuration de l’agent des serveurs av
 | AZCM0017 | Le nom de ressource n’est pas valide | Spécifiez un nom qui utilise uniquement des caractères alphanumériques, des traits d’union et/ou des traits de soulignement. Le nom ne peut pas se terminer par un trait d’union ni un trait de soulignement. |
 | AZCM0018 | La commande a été exécutée sans privilèges administratifs | Réessayez la commande avec des privilèges d’administrateur ou racine dans une invite de commandes ou une session de console avec élévation de privilèges. |
 | AZCM0041 | Les informations d’identification fournies ne sont pas valides | Pour les connexions d’appareils, vérifiez que le compte d’utilisateur spécifié a accès au locataire et à l’abonnement où la ressource de serveur sera créée. Pour les connexions du principal de service, vérifiez que l’ID client et le secret sont corrects, la date d’expiration du secret et que le principal de service provient du même locataire que celui où la ressource de serveur sera créée. |
-| AZCM0042 | Échec de la création de la ressource de serveur avec Azure Arc | Vérifiez que l’utilisateur/le principal de service indiqué a accès pour créer des ressources de serveur avec Azure Arc dans le groupe de ressources spécifié. |
-| AZCM0043 | Échec de la suppression de la ressource de serveur avec Azure Arc | Vérifiez que l’utilisateur/le principal de service indiqué a accès pour supprimer des ressources de serveur avec Azure Arc dans le groupe de ressources spécifié. Si la ressource n’existe plus dans Azure, utilisez l’indicateur `--force-local-only` pour continuer. |
-| AZCM0044 | Une ressource du même nom existe déjà | Spécifiez un autre nom pour le paramètre `--resource-name` ou supprimez le serveur avec Azure Arc existant dans Azure, puis réessayez. |
+| AZCM0042 | Échec de la création de la ressource de serveur avec Arc | Vérifiez que l’utilisateur/le principal de service indiqué a accès pour créer des ressources de serveur avec Arc dans le groupe de ressources spécifié. |
+| AZCM0043 | Échec de la suppression de la ressource de serveur avec Arc | Vérifiez que l’utilisateur/le principal de service indiqué a accès pour supprimer des ressources de serveur avec Azure Arc dans le groupe de ressources spécifié. Si la ressource n’existe plus dans Azure, utilisez l’indicateur `--force-local-only` pour continuer. |
+| AZCM0044 | Une ressource du même nom existe déjà | Spécifiez un autre nom pour le paramètre `--resource-name` ou supprimez le serveur avec Arc existant dans Azure, puis réessayez. |
 | AZCM0061 | Impossible d’atteindre le service de l’agent | Vérifiez que vous exécutez la commande dans un contexte utilisateur avec élévation de privilèges (administrateur/racine) et que le service HIMDS est en cours d’exécution sur votre serveur. |
 | AZCM0062 | Une erreur s’est produite lors de la connexion du serveur | Passez en revue les autres codes d’erreur de la sortie pour obtenir des informations plus spécifiques. Si l’erreur s’est produite après la création de la ressource Azure, vous devez supprimer le serveur Arc de votre groupe de ressources avant d’effectuer une nouvelle tentative. |
 | AZCM0063 | Une erreur s’est produite lors de la déconnexion du serveur | Passez en revue les autres codes d’erreur de la sortie pour obtenir des informations plus spécifiques. Si vous continuez à rencontrer cette erreur, vous pouvez supprimer la ressource dans Azure, puis exécuter `azcmagent disconnect --force-local-only` sur le serveur pour déconnecter l’agent. |

@@ -3,20 +3,19 @@ title: Mettre à jour la version IoT Edge sur les appareils - Azure IoT Edge | M
 description: Guide pratique pour mettre à jour des appareils IoT Edge afin qu’ils exécutent les dernières versions du démon de sécurité et le runtime IoT Edge
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 04/07/2021
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fae824df8c8947198fe0d214cf3db5f71c55c98f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 798a46d2d77a3363a5540c3c490fd625fba3a9ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759578"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531651"
 ---
-# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
+# <a name="update-iot-edge"></a>Mettre à jour IoT Edge
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
@@ -32,10 +31,10 @@ Le démon de sécurité IoT Edge est un composant natif qui doit être mis à jo
 
 Vérifiez la version du démon de sécurité qui s’exécute sur votre appareil à l’aide de la commande `iotedge version`. Si vous utilisez IoT Edge pour Linux sur Windows, vous devez vous connecter par protocole SSH à la machine virtuelle Linux pour vérifier la version.
 
+# <a name="linux"></a>[Linux](#tab/linux)
+
 >[!IMPORTANT]
 >Si vous mettez à jour un appareil de la version 1.0 ou 1.1 vers la version 1.2, il existe des différences entre les processus d’installation et de configuration qui nécessitent des étapes supplémentaires. Pour plus d’informations, reportez-vous aux étapes décrites plus loin dans cet article : [Cas particulier : mise à jour de la version 1.0 ou 1.1 vers la version 1.2](#special-case-update-from-10-or-11-to-12).
-
-# <a name="linux"></a>[Linux](#tab/linux)
 
 Sur des appareils Linux x64, utilisez apt-get ou votre gestionnaire de package approprié pour mettre à jour le démon de sécurité vers la dernière version.
 
@@ -130,7 +129,18 @@ Si vous souhaitez effectuer une mise à jour vers la version la plus récente d�
 :::moniker-end
 <!-- end 1.2 -->
 
-Avec IoT Edge pour Linux sur Windows, IoT Edge s’exécute sur une machine virtuelle Linux hébergée sur un appareil Windows. Cette machine virtuelle est préinstallée avec IoT Edge et gérée avec Microsoft Update pour maintenir les composants à jour automatiquement.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+>[!IMPORTANT]
+>Si vous mettez à jour un appareil de la préversion publique d’IoT Edge pour Linux sur Windows vers la version en disponibilité générale, vous devez désinstaller et réinstaller Azure IoT Edge.
+>
+>Pour savoir si vous utilisez actuellement la préversion publique, accédez à **Paramètres** > **Applications** sur votre appareil Windows. Recherchez **Azure IoT Edge** dans la liste des applications et des fonctionnalités. Si la version indiquée est 1.0.x, vous exécutez la préversion publique. Désinstallez l’application, puis [installez et provisionnez IoT Edge pour Linux sur Windows](how-to-install-iot-edge-on-windows.md). Si la version indiquée est 1.1.x, vous exécutez la version en disponibilité générale et vous pouvez recevoir des mises à jour par le biais de Microsoft Update.
+
+Avec IoT Edge pour Linux sur Windows, IoT Edge s’exécute sur une machine virtuelle Linux hébergée sur un appareil Windows. Cette machine virtuelle est préinstallée avec IoT Edge, et vous ne pouvez pas mettre à jour ou modifier manuellement les composants IoT Edge. Au lieu de cela, la machine virtuelle est managée avec Microsoft Update pour maintenir automatiquement à jour les composants. 
+
+Pour trouver la dernière version d’Azure IoT Edge pour Linux sur Windows, consultez [Versions d’EFLOW](https://aka.ms/AzEFLOW-Releases).
+
 
 Afin de recevoir les mises à jour d’IoT Edge pour Linux sur Windows, l’hôte Windows doit être configuré pour recevoir les mises à jour d’autres produits Microsoft. Vous pouvez activer cette option en procédant comme suit :
 
@@ -141,6 +151,9 @@ Afin de recevoir les mises à jour d’IoT Edge pour Linux sur Windows, l’hô
 1. Sélectionnez **Options avancées**.
 
 1. Basculez le bouton *Recevoir les mises à jour d’autres produits Microsoft lorsque vous mettez à jour Windows* sur **Activé**.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -153,7 +166,13 @@ Afin de recevoir les mises à jour d’IoT Edge pour Linux sur Windows, l’hô
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Avec IoT Edge pour Windows, IoT Edge s’exécute directement sur l’appareil Windows. Pour obtenir des instructions de mise à jour avec des scripts PowerShell, consultez [Installation et gestion d’Azure IoT Edge pour Windows](how-to-install-iot-edge-windows-on-windows.md).
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ---
 

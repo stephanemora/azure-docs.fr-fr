@@ -2,13 +2,13 @@
 title: Rubriques personnalisées dans Azure Event Grid
 description: Décrit les rubriques personnalisées dans Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c211e529e5382fd655fca6d78ab32409cbff4453
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 07/27/2021
+ms.openlocfilehash: 54d331d2080d8adf96bf39c9250e7d6888723c1d
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736643"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727749"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Rubriques personnalisées dans Azure Event Grid
 Une rubrique Event Grid fournit un point de terminaison où la source envoie des événements. L’éditeur crée la rubrique Event Grid et décide si une source d’événements a besoin d’une ou plusieurs rubriques. Une rubrique est utilisée pour une collection d’événements connexes. Pour répondre à certains types d’événements, les abonnés décident des rubriques auxquelles ils souhaitent s’abonner.
@@ -67,6 +67,9 @@ Les sections suivantes contiennent des liens vers des tutoriels permettant de cr
 |---------|---------|
 | [Modèle Resource Manager : rubrique personnalisée et point de terminaison webhook](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid) | Modèle Resource Manager qui crée une rubrique personnalisée et un abonnement pour celle-ci. Il envoie les événements vers un webhook. |
 | [Modèle Resource Manager : rubrique personnalisée et point de terminaison Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| Modèle Resource Manager qui crée un abonnement pour une rubrique personnalisée. Il envoie les événements vers Azure Event Hubs. |
+
+> [!NOTE]
+> Azure Digital Twins peut acheminer les notifications d’événements vers des rubriques personnalisées que vous créez avec Event Grid. Pour plus d’informations, consultez [Gérer les points de terminaison et les routes dans Azure Digital Twins](../digital-twins/how-to-manage-routes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants : 

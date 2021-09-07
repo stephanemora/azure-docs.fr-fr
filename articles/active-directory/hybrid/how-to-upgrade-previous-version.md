@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b79e8d07c2d7ed93be0a4cd77a07ae72454f78a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729988"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652181"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : Effectuer une mise à niveau depuis une version précédente vers la dernière
 Cette rubrique décrit les différentes méthodes que vous pouvez utiliser pour mettre à niveau votre installation Azure Active Directory (Azure AD) Connect vers la dernière version.  Vous pouvez également suivre les étapes décrites dans la section [Migration « swing »](#swing-migration) lorsque vous appliquez une modification importante à la configuration.
@@ -60,7 +60,7 @@ Pendant la mise à niveau sur place, des modifications introduites peuvent néce
 Si vous utilisez Azure AD Connect avec un connecteur non standard (par exemple, le connecteur LDAP générique ou le connecteur SQL générique), vous devez actualiser la configuration du connecteur en question dans [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) après la mise à niveau sur place. Pour savoir comment actualiser la configuration du connecteur, reportez-vous à la section Résolution des problèmes de l’article [Historique de publication des versions du connecteur](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Si vous n’actualisez pas la configuration, les étapes d’importation et d’exportation ne fonctionneront pas correctement pour le connecteur. Vous recevrez le message d’erreur suivant dans le journal des événements de l’application : *« Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll". »* (La version de l’assembly dans la configuration du connecteur AAD (« X.X.XXX.X ») est antérieure à la version réelle (« X.X.XXX.X ») de « C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ».).
 
 ## <a name="swing-migration"></a>Migration « swing »
-Si vous avez un déploiement complexe ou un nombre d’objets élevé, il peut être difficile d’effectuer une mise à niveau sur place sur le système réel. Pour certains clients, ce processus peut prendre plusieurs jours pendant lesquels aucune modification différentielle n’est traitée. Vous pouvez également utiliser cette méthode lorsque vous envisagez d’apporter des modifications importantes à votre configuration et que vous souhaitez les tester avant de les envoyer dans le cloud.
+Si votre déploiement est complexe, si vous disposez d’un grand nombre d’objets ou si vous devez mettre à niveau le système d’exploitation Windows Server, il peut être difficile d’effectuer une mise à niveau sur place sur le système actif. Pour certains clients, ce processus peut prendre plusieurs jours pendant lesquels aucune modification différentielle n’est traitée. Vous pouvez également utiliser cette méthode lorsque vous envisagez d’apporter des modifications importantes à votre configuration et que vous souhaitez les tester avant de les envoyer dans le cloud.
 
 La méthode recommandée pour ces scénarios consiste à utiliser une migration « swing ». Vous devez avoir (au moins) deux serveurs : un serveur actif et un serveur intermédiaire. Le serveur actif (représenté par des lignes bleues continues dans l’image ci-dessous) est responsable de la charge de production active. Le serveur intermédiaire (représenté par des lignes violettes en pointillé) est préparé avec la nouvelle version ou configuration. Lorsqu’il est prêt, ce serveur devient actif. Le serveur actif précédent, sur lequel est désormais installée l’ancienne version ou configuration, devient le serveur intermédiaire et est mis à niveau.
 
@@ -137,6 +137,10 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
    > N’oubliez pas d’exécuter les étapes de synchronisation requises dès que vous le pourrez. Vous pouvez exécuter ces étapes manuellement à l’aide de Synchronization Service Manager ou rajouter les actions prioritaires à l’aide de l’applet de commande Set-ADSyncSchedulerConnectorOverride.
 
 Pour ajouter les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="upgrading-the-server-operating-system"></a>Mise à niveau du système d’exploitation serveur
+
+Si vous devez mettre à niveau le système d’exploitation de votre serveur Azure AD Connect, n’effectuez pas une mise à niveau sur place du système d’exploitation. Au lieu de cela, préparez un nouveau serveur avec le système d’exploitation souhaité et effectuez une [migration de type « swing »](#swing-migration).
 
 ## <a name="troubleshooting"></a>Dépannage
 La section suivante contient des informations et des solutions de dépannage que vous pouvez utiliser si vous rencontrez des difficultés lors de la mise à niveau d’Azure AD Connect.

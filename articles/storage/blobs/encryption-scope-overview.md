@@ -4,17 +4,17 @@ description: Les étendues de chiffrement permettent de gérer le chiffrement au
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d089ef587e209810fe0400871aba9a55cb9c0ed3
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 0d8f1a7e0312ea350a5a34c13d8389b240c14476
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372654"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472466"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Étendues de chiffrement pour le stockage d'objets blob
 
@@ -72,7 +72,7 @@ Lorsque vous désactivez une étendue de chiffrement, toutes les opérations de 
 
 Quand une étendue de chiffrement est désactivée, vous n’êtes plus facturé pour celle-ci. Désactivez les étendues de chiffrement qui ne sont pas nécessaires pour éviter les frais inutiles.
 
-Si votre étendue de chiffrement est protégée par une clé gérée par le client et que vous supprimez cette clé dans le coffre de clés, les données deviennent inaccessibles. Veillez également à désactiver l'étendue de chiffrement afin de ne pas être facturé pour celle-ci.
+Si votre étendue de chiffrement est protégée par une clé gérée par le client et que vous révoquez cette clé dans le coffre de clés, les données deviendront inaccessibles. Veillez à désactiver l’étendue de chiffrement avant de révoquer la clé dans le coffre de clés pour ne pas que l’étendue de chiffrement vous soit facturée.
 
 Gardez à l’esprit que les clés gérées par le client sont protégées par la suppression réversible et la protection contre le vidage dans le coffre de clés, et qu’une clé supprimée est soumise au comportement défini par ces propriétés. Pour plus d'informations, consultez les rubriques suivantes dans la documentation d’Azure Key Vault :
 

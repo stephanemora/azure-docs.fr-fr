@@ -4,16 +4,16 @@ description: Découvrez comment déployer la solution Azure Sentinel pour enviro
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a77fc691692d3eb6672e2cd80e52a90c117bc9ab
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7bddb61bbbab008fad4e538400bbe4396ac744b4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439913"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723457"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Déployer une surveillance continue des menaces SAP (préversion publique)
 
@@ -87,8 +87,8 @@ Cette procédure décrit comment vérifier que votre système SAP présente la c
 
 1. Téléchargez et installez l’une des demandes de modification de SAP suivantes à partir du dépôt GitHub Azure Sentinel, à l’adresse https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR:
 
-    - **SAP versions 750 ou ultérieures** : Installez la demande de modification SAP *141 (NPLK900141)*
-    - **SAP versions 740** : Installez la demande de modification SAP *142 (NPLK900142)*
+    - **SAP versions 750 ou ultérieures** : installez la demande de changement SAP *144 (NPLK900144)*
+    - **SAP versions 740** : installez la demande de changement SAP *146 (NPLK900146)*
 
     Lorsque vous effectuez cette étape, assurez-vous d’utiliser le mode binaire pour transférer les fichiers vers le système SAP et d’utiliser le code de transaction SAP **STMS_IMPORT**.
 
@@ -96,7 +96,7 @@ Cette procédure décrit comment vérifier que votre système SAP présente la c
     > Dans la zone **Options d’importation** de SAP, l’option **Ignorer la version du composant non valide** peut s’afficher. Si elle est affichée, sélectionnez-la avant de continuer.
     >
 
-1. Créez un rôle SAP nommé **/MSFTSEN/SENTINEL_CONNECTOR** en important la demande de modification SAP *14 (NPLK900114)* . Utilisez le code de transaction SAP **STMS_IMPORT**.
+1. Créez un rôle SAP nommé **/MSFTSEN/SENTINEL_CONNECTOR** en important la demande de changement *14 (NPLK900140)* . Utilisez le code de transaction SAP **STMS_IMPORT**.
 
     Vérifiez que le rôle est créé avec les autorisations requises, par exemple :
 
@@ -259,7 +259,7 @@ Ajoutez manuellement les watchlists liées à SAP à votre espace de travail Azu
 
     Pour afficher le contenu nouvellement déployé, accédez à :
 
-    - **Gestion des menaces** > **Classeurs** pour rechercher le classeur [SAP – Applications et produits système – Préversion](sap-solution-security-content.md#sap---system-applications-and-products-workbook).
+    - **Gestion des menaces** > **Classeurs** > **Mes classeurs**, pour trouver les [classeurs SAP intégrés](sap-solution-security-content.md#built-in-workbooks).
     - **Configuration** > **Analytique** pour rechercher une série de [règles d’analyse liées à SAP](sap-solution-security-content.md#built-in-analytics-rules).
 
 1. Ajoutez des watchlists liées à SAP à utiliser dans votre recherche, vos règles de détection, votre chasse des menaces et vos playbooks de réponse. Ces watchlists fournissent la configuration de la solution de surveillance continue des menaces SAP Azure Sentinel.
@@ -282,95 +282,6 @@ Ajoutez manuellement les watchlists liées à SAP à votre espace de travail Azu
 
     Pour plus d’informations, consultez [Informations de référence sur les journaux de la solution SAP Azure Sentinel (préversion publique)](sap-solution-log-reference.md).
 
-## <a name="sap-solution-deployment-troubleshooting"></a>Résolution des problèmes de déploiement de solution SAP
-
-Une fois le connecteur de données et le contenu de sécurité SAP déployés, il se peut que vous rencontriez les erreurs ou problèmes suivants :
-
-|Problème  |Solution de contournement  |
-|---------|---------|
-|Problèmes de connectivité réseau à l’environnement SAP ou à Azure Sentinel     |  Vérifiez votre connectivité réseau si nécessaire.       |
-|Informations d’identification d’utilisateur SAP ABAP incorrectes     |Vérifiez vos informations d’identification et corrigez-les en appliquant les valeurs correctes pour **ABAPUSER** et **ABAPPASS** dans Azure Key Vault.         |
-|Autorisations manquantes, telles que le rôle **/MSFTSEN/SENTINEL_CONNECTOR** non attribué à l’utilisateur SAP en fonction des besoins, ou inactif     |Corrigez cette erreur en attribuant le rôle et en veillant à ce qu’il soit actif dans votre système SAP.         |
-|Demande de modification SAP manquante     | Vérifiez que vous avez importé la demande de modification SAP appropriée, comme décrit dans [Configurer votre système SAP](#configure-your-sap-system).        |
-|Clé ou ID d’espace de travail Azure Sentinel incorrects entrés dans le script de déploiement     |  Pour corriger cette erreur, entrez les informations d’identification correctes dans Azure Key Vault.       |
-|Fichier du Kit de développement logiciel (SDK) SAP endommagé ou manquant     | Corrigez cette erreur en réinstallant le Kit de développement logiciel (SDK) SAP et en vous assurant que vous utilisez la version Linux 64 bits correcte.        |
-|Données manquantes dans votre classeur ou vos alertes     |    Assurez-vous que la stratégie **Auditlog** est correctement activée côté SAP, sans erreur dans le fichier journal. Utilisez la transaction **RSAU_CONFIG_LOG** pour cette étape.     |
-|     |         |
-
-> [!TIP]
-> Nous vous recommandons vivement d’examiner les journaux système après l’installation du connecteur de données. Exécutez :
->
-> ```bash
-> docker logs -f sapcon-[SID]
-> ```
->
-Pour plus d'informations, consultez les pages suivantes :
-
-- [Afficher tous les journaux d’exécution de Docker](#view-all-docker-execution-logs)
-- [Examiner et mettre à jour la configuration du connecteur de données SAP](#review-and-update-the-sap-data-connector-configuration)
-- [Commandes Docker utiles](#useful-docker-commands)
-
-### <a name="view-all-docker-execution-logs"></a>Afficher tous les journaux d’exécution de Docker
-
-Pour afficher tous les journaux d’exécution de Docker pour votre déploiement de connecteur de données SAP Azure Sentinel, exécutez l’une des commandes suivantes :
-
-```bash
-docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
-```
-
-ou
-
-```bash
-docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
-```
-
-Une sortie similaire à celle ci-après devrait s’afficher :
-
-```bash
-Logs directory:
-root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
-total 508
--rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
--rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
--rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
--rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
--rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
--rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
--rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
--rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
--rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
--rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
-```
-
-### <a name="review-and-update-the-sap-data-connector-configuration"></a>Examiner et mettre à jour la configuration du connecteur de données SAP
-
-Si vous souhaitez vérifier le fichier de configuration du connecteur de données SAP et effectuer des mises à jour manuelles, procédez comme suit :
-
-1. Sur votre machine virtuelle, dans le répertoire de base de l’utilisateur, ouvrez le fichier **~/sapcon/[SID]/systemconfig.ini**.
-1. Mettez à jour la configuration si nécessaire, puis redémarrez le conteneur :
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
-
-### <a name="useful-docker-commands"></a>Commandes Docker utiles
-
-Lors de la résolution des problèmes de votre connecteur de données SAP, les commandes suivantes peuvent être utiles :
-
-|Function  |Commande  |
-|---------|---------|
-|**Arrêter le conteneur Docker**     |  `docker stop sapcon-[SID]`       |
-|**Démarrer le conteneur Docker**     |`docker start sapcon-[SID]`         |
-|**Afficher les journaux système de Docker**     |  `docker logs -f sapcon-[SID]`       |
-|**Entrer le conteneur Docker**     |   `docker exec -it sapcon-[SID] bash`      |
-|     |         |
-
-Pour plus d’informations, consultez la [documentation sur l’interface de ligne de commande de Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="update-your-sap-data-connector"></a>Mettre à jour votre connecteur de données SAP
 
@@ -379,7 +290,7 @@ Si vous avez un conteneur Docker s’exécutant avec une version antérieure du 
 1. Assurez-vous que vous disposez des versions les plus récentes des scripts de déploiement appropriés du dépôt Github Azure Sentinel. Exécutez :
 
     ```azurecli
-    - wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
     ```
 
 1. Exécutez la commande suivante sur votre ordinateur connecteur de données SAP :
@@ -425,9 +336,10 @@ Si les journaux d’audit de la base de données SAP HANA sont configurés avec
 
 En savoir plus sur les solutions SAP Azure Sentinel :
 
-- [Déployer la solution SAP Azure Sentinel en utilisant d’autres déploiements](sap-solution-deploy-alternate.md)
+- [Options de configuration pour experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
 - [Exigences de SAP détaillées pour la solution SAP Azure Sentinel](sap-solution-detailed-requirements.md)
 - [Informations de référence sur les journaux de la solution SAP Azure Sentinel](sap-solution-log-reference.md)
 - [Solution SAP Azure Sentinel : contenu de sécurité intégré](sap-solution-security-content.md)
+- [Résolution des problèmes de déploiement de la solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)
 
 Pour plus d’informations, consultez [Solutions Azure Sentinel](sentinel-solutions.md).

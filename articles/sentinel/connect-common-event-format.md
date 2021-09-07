@@ -1,5 +1,5 @@
 ---
-title: Connecter des données CEF à Azure Sentinel en préversion | Microsoft Docs
+title: Connecter des données CEF à Azure Sentinel | Microsoft Docs
 description: Connectez une solution externe qui envoie des messages CEF (Common Event Format) à Azure Sentinel en utilisant une machine Linux en tant que redirecteur de journaux.
 services: sentinel
 documentationcenter: na
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 54fd6c0c085c0055f3114fde606f8f7d2f2e055e
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ccf05bb51c64a94c07a0277ed901912f9e4dda3e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772057"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524925"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Lorsque vous connectez une solution externe qui envoie des messages CEF, il existe trois étapes pour la connexion à Azure Sentinel :
 
@@ -49,6 +51,8 @@ Veillez à configurer la sécurité de la machine en fonction de la stratégie d
 Pour utiliser la communication TLS entre la source Syslog et le redirecteur Syslog, vous devez configurer le démon Syslog (rsyslog or syslog-ng) pour qu’il communique dans TLS : [Chiffrement du trafic Syslog avec TLS –rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Chiffrement des messages du journal avec TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
 ## <a name="prerequisites"></a>Prérequis
+
+Un espace de travail Azure Sentinel est requis pour ingérer des données CEF dans Log Analytics.
 
 Assurez-vous que la machine Linux que vous utilisez en tant que redirecteur de journaux exécute l’un des systèmes d’exploitation suivants :
 
@@ -101,5 +105,5 @@ Dans ce document, vous avez découvert la façon dont Azure Sentinel collecte le
 Pour en savoir plus sur la procédure à suivre avec les données que vous avez collectées dans Azure Sentinel, consultez les articles suivants :
 
 - Découvrez le [mappage de champs CEF et CommonSecurityLog](cef-name-mapping.md).
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./detect-threats-built-in.md).

@@ -3,12 +3,12 @@ title: Gérer les stratégies d’arrêt automatique dans Azure DevTest Labs et 
 description: Découvrez comment définir la stratégie d’arrêt automatique d’un labo afin que les machines virtuelles soient arrêtées automatiquement lorsqu’elles ne sont pas utilisées.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 946ee2a4d6f3503671664b0e46806fef7f71a459
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93318968"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301993"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
 
@@ -112,7 +112,7 @@ La notification est envoyée à l’URL du webhook si un webhook a été spécif
 
 Nous vous recommandons d’utiliser des webhooks, car ils sont largement pris en charge par diverses applications, telles que Azure Logic Apps et Slack.  Les webhooks vous permettent d’implémenter votre propre méthode d’envoi de notifications. À titre d’exemple, cet article vous explique comment configurer une notification d’arrêt automatique en vue d’envoyer un e-mail au propriétaire de machine virtuelle en utilisant les applications Azure Logic Apps. Tout d’abord, passons rapidement en revue les étapes de base pour activer la notification d’arrêt automatique dans votre laboratoire.
 
-### <a name="create-a-logic-app-that-receives-email-notifications"></a>Créer une application logique qui reçoit des notifications par e-mail
+### <a name="create-a-logic-app-that-sends-email-notifications"></a>Créer une application logique qui envoie des notifications par e-mail
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) fournit de nombreux connecteurs qui facilitent l’intégration d’un service dans d’autres clients, comme Office 365 et Twitter. Au niveau supérieur, les étapes de configuration d’une application Logic App pour la notification par e-mail peuvent être divisées en quatre phases :
 

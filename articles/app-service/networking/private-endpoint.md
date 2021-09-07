@@ -4,22 +4,22 @@ description: Connexion privée à une application web avec Azure Private Endpoin
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 07/01/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 6bb8343ae6281120d8bfef549946f47d8658cbba
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: da26939d6973792c237c84777daf2254ae27699d
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890156"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105630"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilisation de points de terminaison privés pour une application web Azure
 
 > [!IMPORTANT]
-> Le point de terminaison privé est disponible pour les applications web Windows et Linux, conteneurisées ou non, hébergées sur les plans App Service suivants : **Isolé**, **PremiumV2**, **PremiumV3**, **Functions Premium** (parfois appelé plan Premium élastique). 
+> Le point de terminaison privé est disponible pour les applications web Windows et Linux, conteneurisées ou non, hébergées sur les plans App Service suivants : **PremiumV2**, **PremiumV3**, **Functions Premium** (parfois appelé plan Premium élastique). 
 
 Vous pouvez utiliser un point de terminaison privé pour votre application web Azure afin de permettre aux clients situés dans votre réseau privé d’accéder de façon sécurisée à l’application via une liaison privée. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage de votre réseau virtuel Azure. Le trafic entre un client de votre réseau privé et l’application web traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine son exposition à l’Internet public.
 
@@ -38,6 +38,8 @@ Pour plus d’informations, consultez [Points de terminaison de service][service
 Un point de terminaison privé est l’interface réseau (NIC) spéciale de votre application web Azure qui se trouve dans un sous-réseau de votre réseau virtuel.
 Lorsque vous créez un point de terminaison privé pour votre application web, celui-ci fournit une connectivité sécurisée entre les clients de votre réseau privé et votre application web. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel.
 La connexion entre le point de terminaison privé et l’application Web utilise une [liaison privée][privatelink] sécurisée. Le point de terminaison privé est utilisé uniquement pour les flux entrants de votre application web. Les flux sortants n’utilisent pas ce point de terminaison privé, mais vous pouvez injecter des flux sortants de votre réseau dans un sous-réseau différent via la [fonctionnalité d’intégration au réseau virtuel][vnetintegrationfeature].
+
+Chaque emplacement d’une application est configuré séparément. Vous pouvez connecter jusqu’à 100 points de terminaison privés par emplacement. Vous ne pouvez pas partager un point de terminaison privé entre des emplacements.
 
 Le sous-réseau dans lequel vous connectez le point de terminaison privé peut comporter d’autres ressources. Vous n’avez pas besoin d’un sous-réseau vide dédié.
 Vous pouvez également déployer un point de terminaison privé dans une région différente de celle de l’application web. 
@@ -60,6 +62,7 @@ Les journaux HTTP web de votre application web contiennent l’adresse IP sourc
 
   > [!div class="mx-imgBorder"]
   > ![Vue d’ensemble des points de terminaison privés de l’application web](media/private-endpoint/global-schema-web-app.png)
+
 
 ## <a name="dns"></a>DNS
 
@@ -121,8 +124,6 @@ Vous pouvez connecter jusqu’à 100 points de terminaison privés à une appli
 La fonctionnalité de débogage à distance n’est pas disponible lorsque le point de terminaison privé est activé pour l’application web. Nous vous recommandons de déployer le code sur un emplacement et de le déboguer à distance à cet endroit.
 
 L’accès FTP est fourni par le biais de l’IP publique entrante. Le point de terminaison privé ne prend pas en charge l’accès FTP à l’application web.
-
-Il existe une limitation connue affectant les points de terminaison privés et le routage du trafic avec des emplacements ([fonctionnalité Test en production][TiP]). Depuis avril 2021, le routage automatique et manuel des requêtes entre les emplacements entraîne une erreur « 403 Accès refusé ». Cette limite sera supprimée dans une prochaine version.
 
 Nous améliorons régulièrement la fonctionnalité de liaison privée et le point de terminaison privé. Pour obtenir des informations à jour sur les limitations, voir [cet article][pllimitations].
 

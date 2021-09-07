@@ -1,18 +1,20 @@
 ---
 title: Copier et transformer des données dans Azure Database pour PostgreSQL
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Apprenez à copier et à transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/25/2021
-ms.openlocfilehash: d7d5ac30549667a6806b9f0c45328c0662a2e47e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: synapse
+ms.date: 06/16/2021
+ms.openlocfilehash: f3d0dca67391bd8bb5ee66e3fd186fcabb1ffd89
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785364"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642001"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory
 
@@ -173,7 +175,7 @@ Pour copier des données vers Azure Database pour PostgreSQL, les propriétés s
 |:--- |:--- |:--- |
 | type | La propriété type du récepteur d’activité de copie doit être définie sur **AzurePostgreSQLSink**. | Oui |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant d'écrire des données dans Azure Database pour PostgreSQL à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
-| writeMethod | Méthode utilisée pour écrire des données dans Azure Database pour PostgreSQL.<br>Les valeurs autorisées sont les suivantes : **CopyCommand** (préversion, qui est plus performante), **BulkInsert** (par défaut). | Non |
+| writeMethod | Méthode utilisée pour écrire des données dans Azure Database pour PostgreSQL.<br>Les valeurs autorisées sont **CopyCommand** (valeur par défaut et la plus performante) et **BulkInsert**. | Non |
 | writeBatchSize | Nombre de lignes chargées dans Azure Database pour PostgreSQL par lot.<br>La valeur autorisée est un entier qui représente le nombre de lignes. | Non (valeur par défaut : 1 000 000) |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br>Les valeurs autorisées sont des intervalles de temps. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:30:00) |
 

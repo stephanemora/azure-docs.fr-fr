@@ -12,12 +12,12 @@ author: rothja
 ms.author: jroth
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0d811953b191a661682767262c899b98119cdbc8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 75f30fe7263d14538ad14588a56aafecde96a126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786202"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524751"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Déplacer des ressources vers une nouvelle région - Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,6 +40,9 @@ Cet article fournit un flux de travail général pour déplacer des ressources v
 > [!NOTE]
 > Cet article s’applique aux migrations dans le cloud public Azure ou dans le même cloud souverain.
 
+> [!NOTE]
+> Pour déplacer des pools élastiques et des bases de données Azure SQL vers une autre région Azure, vous pouvez également utiliser Azure Resource Mover (préversion). Pour connaître les étapes détaillées, reportez-vous à ce [tutoriel](../../resource-mover/tutorial-move-region-sql.md).
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="move-a-database"></a>Déplacer une base de données
@@ -49,7 +52,13 @@ Cet article fournit un flux de travail général pour déplacer des ressources v
 1. Créez un serveur cible pour chaque serveur source.
 1. Configurez le pare-feu avec les exceptions appropriées à l’aide de [PowerShell](scripts/create-and-configure-database-powershell.md).  
 1. Configurez les serveurs avec les connexions appropriées. Si vous n’êtes pas administrateur de l’abonnement ou administrateur SQL Server, collaborez avec l’administrateur pour affecter les autorisations dont vous avez besoin. Pour plus d’informations, consultez [Guide pratique pour gérer la sécurité d’Azure SQL Database après la récupération d'urgence](active-geo-replication-security-configure.md).
-1. Si vos bases de données sont chiffrées avec la clé de chiffrement transparente et que vous utilisez votre propre clé de chiffrement dans Azure Key Vault, vérifiez que le matériel de chiffrement correct est provisionné dans les régions cibles. Pour plus d’informations, consultez [Azure SQL Transparent Data Encryption avec des clés managées dans Azure Key Vault](transparent-data-encryption-byok-overview.md).
+1. Si vos bases de données sont chiffrées avec TDE (Transparent Data Encryption) et que vous utilisez votre propre clé de chiffrement (BYOK ou clé gérée par le client) dans Azure Key Vault, vérifiez que le matériel de chiffrement correct est provisionné dans les régions cibles. 
+    - La méthode la plus simple consiste à ajouter la clé de chiffrement du coffre de clés existant (utilisée comme protecteur TDE sur le serveur source) au serveur cible, puis à définir la clé comme protecteur TDE sur le serveur cible.
+      > [!NOTE]
+      > Un serveur ou une instance managée dans une région peut désormais être connecté à un coffre de clés dans n’importe quelle autre région.
+    - Pour vérifier que le serveur cible a accès aux anciennes clés de chiffrement (nécessaires pour la restauration des sauvegardes de base de données), une bonne pratique consiste à exécuter la cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) sur le serveur source ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) sur l’instance managée source pour retourner la liste des clés disponibles et ajouter ces clés au serveur cible.
+    - Pour plus d’informations et pour connaître les bonnes pratiques relatives à la configuration du chiffrement TDE géré par le client sur le serveur cible, consultez [Azure SQL Transparent Data Encryption avec des clés gérées par le client dans Azure Key Vault](transparent-data-encryption-byok-overview.md).
+    - Pour déplacer le coffre de clés vers la nouvelle région, consultez [Déplacer un coffre de clés Azure d’une région à une autre](../../key-vault/general/move-region.md). 
 1. Si l’audit au niveau de la base de données est activé, désactivez-le et activez plutôt l’audit au niveau du serveur. Après le basculement, l’audit au niveau de la base de données nécessitera le trafic inter-régions, qui n’est pas souhaitable ou possible après le déplacement.
 1. Pour les audits au niveau du serveur, vérifiez que :
    - Le conteneur de stockage, Log Analytics ou le hub d’événements avec les journaux d’audit existants est déplacé vers la région cible.

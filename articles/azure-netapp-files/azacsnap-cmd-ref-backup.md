@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4e0091d1d94a173df07f956959580f7f862ec08f
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 5fd588cc9ff36f4213d62ee47ce296e9eadfc40e
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930026"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296754"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool"></a>Effectuer une sauvegarde à l’aide de l’outil Azure Application Consistent Snapshot Tool
 
@@ -85,9 +85,11 @@ azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
 
 La commande ne génère pas de sortie sur la console, mais écrit dans un fichier journal, un fichier de résultats et `/var/log/messages`.
 
-Le *fichier journal* est constitué du nom de commande + l’option -c + le nom du fichier config. Par défaut, le nom de fichier journal d’un argument `-c backup` s’exécute avec un nom de fichier de configuration par défaut : `azacsnap-backup-azacsnap.log`.
+Dans cet exemple, le nom du *fichier journal* est `azacsnap-backup-azacsnap.log` (consultez [Fichiers journaux](#log-files))
 
-Le fichier de *résultats* a le même nom de base que le fichier journal, avec `.result` comme suffixe, par exemple `azacsnap-backup-azacsnap.result` qui contient la sortie suivante :
+Lors de l’exécution de `-c backup` avec l’option `--volume data`, un fichier de résultats est également généré en tant que fichier pour permettre la vérification rapide du résultat d’une sauvegarde.  Le fichier de *résultats* a le même nom de base que le fichier journal, avec `.result` comme suffixe.
+
+Dans cet exemple, le nom du *fichier de résultats* est `azacsnap-backup-azacsnap.result` et contient la sortie suivante :
 
 ```bash
 cat logs/azacsnap-backup-azacsnap.result
@@ -124,7 +126,7 @@ azacsnap -c backup --volume other --prefix logs_TEST --retention 9
 
 La commande ne génère pas de sortie sur la console, mais écrit dans un fichier journal uniquement.  Elle n’écrit _pas_ dans un fichier de résultats ou `/var/log/messages`.
 
-Le *fichier journal* est constitué du nom de commande + l’option -c + le nom du fichier config. Par défaut, le nom de fichier journal d’un argument `-c backup` s’exécute avec un nom de fichier de configuration par défaut : `azacsnap-backup-azacsnap.log`.
+Dans cet exemple, le nom du *fichier journal* est `azacsnap-backup-azacsnap.log` (consultez [Fichiers journaux](#log-files)).
 
 ## <a name="example-with-other-parameter-to-backup-host-os"></a>Exemple avec le paramètre `other` (pour le système d’exploitation hôte de sauvegarde)
 
@@ -135,15 +137,17 @@ Le *fichier journal* est constitué du nom de commande + l’option -c + le nom 
 azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile bootVol.json
 ```
 
+> [!IMPORTANT]
+> Pour une grande instance Azure, le paramètre de volume de fichier de configuration pour le volume de démarrage risque de ne pas être visible au niveau du système d’exploitation de l’hôte.
+> Cette valeur peut être fournie par Microsoft Operations.
+
 La commande ne génère pas de sortie sur la console, mais écrit dans un fichier journal uniquement.  Elle n’écrit _pas_ dans un fichier de résultats ou `/var/log/messages`.
 
-Le nom du *fichier journal* dans cet exemple est `azacsnap-backup-bootVol.log`.
+Dans cet exemple, le nom du *fichier journal* est `azacsnap-backup-bootVol.log` (consultez [Fichiers journaux](#log-files)).
 
-> [!NOTE]
-> Le nom du fichier journal est constitué de « (nom de commande)-(option `-c`)-(nom du fichier config) ».  Par exemple, si vous utilisez l’option `-c backup` avec le nom de fichier journal `h80.json`, le fichier journal est appelé `azacsnap-backup-h80.log`.  Ou si vous utilisez l’option `-c test` avec le même fichier config, le fichier journal est appelé `azacsnap-test-h80.log`.
+## <a name="log-files"></a>Fichiers journaux
 
-- Type de grande instance HANA : Il existe deux valeurs valides avec `TYPEI` ou `TYPEII` en fonction de l’unité de grande instance HANA.
-- Consultez [les références SKU disponibles pour les grandes instances HANA](../virtual-machines/workloads/sap/hana-available-skus.md) pour confirmer les références disponibles.
+Le nom du fichier journal est élaboré comme suit : « (nom de la commande)-(option `-c`)-(nom du fichier de configuration) ».  Par exemple, si vous exécutez la commande `azacsnap -c backup --configfile h80.json --retention 5 --prefix one-off`, le fichier journal est appelé `azacsnap-backup-h80.log`.  Ou si vous utilisez l’option `-c test` avec le même fichier de configuration (p. ex. `azacsnap -c test --configfile h80.json`), le fichier journal est appelé `azacsnap-test-h80.log`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: b1a56c8acf1789690c01f1c16b7c37a237720e39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4fdcf88200b3c2a6b5371633c10d9246cfbf4c31
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564872"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730241"
 ---
 # <a name="limitations-of-azure-arc-enabled-postgresql-hyperscale"></a>Limitations de PostgreSQL Hyperscale avec Azure Arc
 
@@ -67,5 +67,5 @@ __Pourquoi Microsoft ne fournit pas de contrats SLA sur les services Azure Arc h
    3. [Créer un groupe de serveurs Azure Database pour PostgreSQL Hyperscale sur Azure Arc](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**
-   - [Découvrir plus d’informations sur les services de données activés pour Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+   - [En savoir plus sur les services de données avec Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
    - [Découvrir Azure Arc](https://aka.ms/azurearc)

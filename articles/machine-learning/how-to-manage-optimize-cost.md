@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: f5f0351e21588d6e01a633a11d5638358e4d706b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: bf29f435c2d9439659abdcc76a7f8d85cf51c2af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008263"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532181"
 ---
 # <a name="manage-and-optimize-azure-machine-learning-costs"></a>Gérer et optimiser les coûts d’Azure Machine Learning
 
@@ -26,6 +26,7 @@ Utilisez les conseils suivants pour vous aider à gérer et à optimiser les co�
 - Définir des quotas sur votre abonnement et vos espaces de travail
 - Définir des stratégies de résiliation sur votre exécution d’entraînement
 - Utiliser des machines virtuelles de basse priorité
+- Planifier l’arrêt et le démarrage automatiques des instances de calcul
 - Utiliser une instance de machine virtuelle réservée Azure
 - Entraîner localement
 - Paralléliser l’entraînement
@@ -55,7 +56,7 @@ Vous pouvez également configurer la durée d’inactivité du nœud avant l’e
 + Si vous effectuez une expérimentation moins itérative, réduisez ce délai pour réduire les coûts.
 + Si vous effectuez une expérimentation de développement/test hautement itérative, vous devrez peut-être augmenter la durée pour ne pas avoir à payer des mises à l’échelle constantes après chaque modification apportée à votre environnement ou script d’entraînement.
 
-Les clusters AmlCompute peuvent être configurés pour répondre aux besoins fluctuants de votre charge de travail dans le portail Azure, à l’aide de la [classe SDK AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) et de l’interface [CLI AmlCompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute) avec les [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Les clusters AmlCompute peuvent être configurés pour répondre aux besoins fluctuants de votre charge de travail dans le portail Azure, à l’aide de la [classe SDK AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) et de l’interface [CLI AmlCompute](/cli/azure/ml(v1)/computetarget/create#az_ml_v1__computetarget_create_amlcompute) avec les [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -86,6 +87,10 @@ Les machines virtuelles de basse priorité ont un quota unique distinct de la va
 
  Les machines virtuelles de basse priorité ne fonctionnent pas pour les instances de calcul, car elles doivent prendre en charge les expériences de notebook interactives.
 
+## <a name="schedule-compute-instances"></a>Planifier les instances de calcul
+
+Quand vous créez une [instance de calcul](concept-compute-instance.md), la machine virtuelle demeure allumée, afin qu’elle soit disponible pour votre travail.  [Configurez une planification](how-to-create-manage-compute-instance.md#schedule) pour démarrer et arrêter automatiquement l’instance de calcul (préversion) afin de réduire les coûts quand vous n’envisagez pas de l’utiliser.
+
 ## <a name="use-reserved-instances"></a>Utiliser des instances réservées
 
 Une autre façon d’économiser de l’argent sur les ressources de calcul est l’instance de machine virtuelle réservée Azure. Avec cette offre, vous vous engagez à des termes de 1 an ou 3 ans. Ces remises vont jusqu’à 72 % des prix de paiement à l’utilisation et s’appliquent directement sur votre facture Azure mensuelle.
@@ -104,7 +109,7 @@ L’une des principales méthodes d’optimisation des coûts et des performance
 
 ## <a name="set-data-retention--deletion-policies"></a>Définir des stratégies de conservation et de suppression des données
 
-Chaque fois qu’un pipeline est exécuté, des jeux de données intermédiaires sont générés à chaque étape. Au fil du temps, ces jeux de données intermédiaires occupent de l’espace dans votre compte de stockage. Réfléchissez à la configuration de stratégies pour gérer vos données tout au long de leur cycle de vie afin d’archiver et de supprimer vos jeux de données. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](/storage/blobs/storage-lifecycle-management-concepts.md).
+Chaque fois qu’un pipeline est exécuté, des jeux de données intermédiaires sont générés à chaque étape. Au fil du temps, ces jeux de données intermédiaires occupent de l’espace dans votre compte de stockage. Réfléchissez à la configuration de stratégies pour gérer vos données tout au long de leur cycle de vie afin d’archiver et de supprimer vos jeux de données. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## <a name="deploy-resources-to-the-same-region"></a>Déployer des ressources dans la même région
 

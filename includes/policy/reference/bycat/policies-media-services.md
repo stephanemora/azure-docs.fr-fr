@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4d6757b85e248562a5af845b5748fbeb99b0f4b8
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5b883801779732da01dcf0ea1048920142afbf95
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388649"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103263"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Les comptes Azure Media Services doivent désactiver l’accès au réseau public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8bfe3603-0888-404a-87ff-5c1b6b4cc5e3) |La désactivation de l’accès au réseau public améliore la sécurité en garantissant que les ressources Media Services ne sont pas exposées sur le réseau Internet public. La création de points de terminaison privés peut limiter l’exposition des ressources Media Services. Pour en savoir plus : [https://aka.ms/mediaservicesprivatelinkdocs](../../../../articles/media-services/latest/security-private-link-how-to.md). |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_PublicNetworkAccess_Audit.json) |
 |[Les comptes Azure Media Services doivent utiliser une API qui prend en charge Private Link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa77d8bb4-8d22-4bc1-a884-f582a705b480) |Les comptes Media Services doivent être créés avec une API qui prend en charge la liaison privée. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_RequirePrivateLinkSupport_Audit.json) |
 |[Les comptes Azure Media Services qui autorisent l’accès à l’API v2 héritée doivent être bloqués](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fccf93279-9c91-4143-a841-8d1f21505455) |L’API héritée Media Services v2 autorise les requêtes qui ne peuvent pas être managées à l’aide d’Azure Policy. Les ressources Media Services créées à l’aide de l’API 2020-05-01 ou version ultérieure bloquent l’accès à l’API v2 héritée. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_BlockRestV2_Audit.json) |
 |[Les stratégies de clé de contenu Azure Media Services doivent utiliser l’authentification par jeton](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdaccf7e4-9808-470c-a848-1c5b582a1afb) |Les stratégies de clés de contenu définissent les conditions requises pour accéder aux clés de contenu. Une restriction par jeton garantit que les clés de contenu sont accessibles uniquement aux utilisateurs qui ont des jetons valides à partir d’un service d’authentification, par exemple Azure Active Directory. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/ContentKeyPolicies_RequireTokenAuth_Audit.json) |

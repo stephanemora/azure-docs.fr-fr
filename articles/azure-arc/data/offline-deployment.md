@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e81ccc8ef133cdf7c454a7a50610a1bfdf2be442
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955363"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731267"
 ---
 # <a name="offline-deployment-overview"></a>Vue d’ensemble du déploiement hors connexion
 
-En général, les images conteneur utilisées lors de la création du contrôleur de données Azure Arc, de la création des instances managées SQL et des groupes de serveurs PostgreSQL Hyperscale sont directement extraites de Microsoft Container Registry (MCR). Dans certains cas, l’environnement sur lequel vous effectuez le déploiement ne dispose pas d’une connectivité à Microsoft Container Registry.  Dans une telle situation, vous pouvez extraire les images conteneur à l’aide d’un ordinateur qui _a_ accès au Registre de conteneurs Microsoft, puis les étiqueter et les envoyer (push) à un registre de conteneurs privé, qui _est_ connectable depuis l’environnement dans lequel vous souhaitez déployer des services de données activés pour Azure Arc.
+En général, les images conteneur utilisées lors de la création du contrôleur de données Azure Arc, de la création des instances managées SQL et des groupes de serveurs PostgreSQL Hyperscale sont directement extraites de Microsoft Container Registry (MCR). Dans certains cas, l’environnement sur lequel vous effectuez le déploiement ne dispose pas d’une connectivité à Microsoft Container Registry.  Dans une telle situation, vous pouvez extraire les images conteneur à l’aide d’un ordinateur qui _dispose_ d’un accès à Microsoft Container Registry, puis les étiqueter et les envoyer (push) à un registre de conteneurs privé, qui _peut_ être connecté depuis l’environnement où vous souhaitez déployer des services de données avec Azure Arc.
 
-Étant donné que les mises à jour mensuelles sont fournies pour les services de données Azure Arc et qu’il existe un grand nombre d’images conteneur, il est préférable d’utiliser un script pour effectuer ces processus d’extraction, d’étiquetage et d’envoi (push) des images conteneur vers un registre de conteneurs privé.  Le script peut être automatisé ou exécuté manuellement.
+Étant donné que les mises à jour mensuelles sont fournies pour les services de données avec Azure Arc et qu’il existe un grand nombre d’images conteneur, il est préférable d’utiliser un script pour effectuer ces processus d’extraction, d’étiquetage et d’envoi (push) des images conteneur vers un registre de conteneurs privé.  Le script peut être automatisé ou exécuté manuellement.
 
 Un [exemple de script](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) se trouve dans le dépôt GitHub Azure Arc.
 

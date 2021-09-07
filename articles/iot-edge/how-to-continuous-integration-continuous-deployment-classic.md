@@ -2,18 +2,17 @@
 title: Intégration continue et déploiement continu sur des appareils Azure IoT Edge (éditeur classique) - Azure IoT Edge
 description: Configurer l’intégration continue et le déploiement continu à l’aide de l’éditeur classique - Azure IoT Edge avec Azure DevOps, Azure Pipelines
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f7c28ecbaa58731c528a9ecb5f869eba2bc0c99f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 757ae7f71e5b03a5dc38b6e5438cdf22a0083965
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484419"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524788"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Intégration continue et déploiement continu sur des appareils Azure IoT Edge (éditeur classique)
 
@@ -32,7 +31,7 @@ Dans cet article, vous allez apprendre à utiliser les [tâches Azure IoT Edge](
  | Générer le manifeste de déploiement | Génère le fichier final du manifeste de déploiement IoT Edge à partir d’un fichier deployment.template.json et des variables. |
  | Déployer sur des appareils IoT Edge | Crée des déploiements IoT Edge sur un ou plusieurs appareils IoT Edge. |
 
-Sauf indication contraire, les procédures décrites dans cet article n’explorent pas toutes les fonctionnalités disponibles par le biais des paramètres de tâche. Pour plus d’informations, consultez les rubriques suivantes :
+Sauf indication contraire, les procédures décrites dans cet article n’explorent pas toutes les fonctionnalités disponibles par le biais des paramètres de tâche. Pour plus d’informations, consultez les ressources suivantes :
 
 * [Version de la tâche](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Avancé** - Le cas échéant, spécifiez les modules que vous ne souhaitez pas générer.
@@ -47,14 +46,17 @@ Sauf indication contraire, les procédures décrites dans cet article n’explor
 
    Pour cet article, vous avez uniquement besoin du dossier de solution créé par les modèles IoT Edge dans Visual Studio Code ou Visual Studio. Vous n'avez pas à créer, envoyer (push), déployer ou déboguer ce code avant de continuer. Vous configurerez ces processus dans Azure Pipelines.
 
-   Si vous créez une solution, commencez par cloner votre référentiel localement. Ensuite, lorsque vous créez la solution, vous pouvez choisir de le faire directement dans le dossier du référentiel. De là, vous pouvez facilement valider et envoyer (push) les nouveaux fichiers.
+  Vous devez connaître le chemin du fichier **deployment.template.json** dans votre solution ; il est utilisé dans plusieurs étapes. Si vous ne connaissez pas bien le rôle du modèle de déploiement, consultez [Découvrir comment déployer des modules et établir des routes](module-composition.md).
+
+  >[!TIP]
+  >Si vous créez une solution, commencez par cloner votre référentiel localement. Ensuite, lorsque vous créez la solution, vous pouvez choisir de le faire directement dans le dossier du référentiel. De là, vous pouvez facilement valider et envoyer (push) les nouveaux fichiers.
 
 * Registre de conteneurs vers lequel envoyer (push) vos images de module. Vous pouvez utiliser [Azure Container Registry](../container-registry/index.yml) ou un registre tiers.
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) Azure actif avec au moins deux appareils IoT Edge à des fins de test distinct des phases de déploiement de test et de production. Vous pouvez suivre les articles de démarrage rapide pour créer un appareil IoT Edge sur [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 
 ## <a name="create-a-build-pipeline-for-continuous-integration"></a>Créer un pipeline de build pour l’intégration continue
 
-Dans cette section, vous créez un pipeline de build. Vous configurez le pipeline afin qu’il s’exécute automatiquement lorsque vous archivez des modifications dans l’exemple de solution IoT Edge et qu’il publie des journaux de génération.
+Dans cette section, vous créez un pipeline de build. Vous configurez le pipeline de manière à exécuter et à publier automatiquement des journaux de génération chaque fois que vous archivez des changements dans la solution IoT Edge.
 
 1. Connectez-vous à votre organisation Azure DevOps (`https://dev.azure.com/{your organization}`), puis ouvrez le projet contenant votre référentiel de solution IoT Edge.
 
@@ -102,43 +104,49 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
 
 7. Sélectionnez la première tâche **Azure IoT Edge** pour la modifier. Cette tâche génère tous les modules de la solution avec la plateforme cible que vous spécifiez. Modifiez la tâche avec les valeurs suivantes :
 
-    | Paramètre | Description |
-    | --- | --- |
-    | Nom complet | Le nom d’affichage est automatiquement mis à jour lorsque le champ Action change. |
-    | Action | Sélectionnez **Générer les images de module**. |
-    | Fichier .template.json | Sélectionnez les points de suspension (**...**) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
-    | Plateforme par défaut | Sélectionnez le système d’exploitation approprié pour vos modules en fonction de l’appareil IoT Edge ciblé. |
-    | Variables de sortie | Fournissez un nom de référence à associer au chemin où le fichier deployment.json est généré, par exemple **edge**. |
+   | Paramètre | Description |
+   | --- | --- |
+   | Nom complet | Le nom d’affichage est automatiquement mis à jour lorsque le champ Action change. |
+   | Action | Sélectionnez **Générer les images de module**. |
+   | Fichier .template.json | Sélectionnez les points de suspension (**...**) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
+   | Plateforme par défaut | Sélectionnez le système d’exploitation approprié pour vos modules en fonction de l’appareil IoT Edge ciblé. |
+   | Variables de sortie | Fournissez un nom de référence à associer au chemin où le fichier deployment.json est généré, par exemple **edge**. |
+
+   Pour plus d’informations sur cette tâche et ses paramètres, consultez [Tâche Azure IoT Edge](/azure/devops/pipelines/tasks/build/azure-iot-edge).
 
    Ces configurations utilisent le référentiel et la balise de l’image qui sont définis dans le fichier `module.json` pour nommer et baliser l’image de module. **Générer des images de module** permet également de remplacer les variables par la valeur exacte que vous définissez dans le fichier `module.json`. Dans Visual Studio ou Visual Studio Code, vous spécifiez la valeur réelle dans un fichier `.env`. Dans Azure Pipelines, vous définissez la valeur dans l’onglet **Variables du pipeline**. Sélectionnez l’onglet **Variables** dans le menu de l’éditeur de pipeline et configurez le nom et la valeur comme suit :
 
-    * **ACR_ADDRESS** : valeur de votre **Serveur de connexion** Azure Container Registry. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le portail Azure.
+   * **ACR_ADDRESS** : valeur de votre **Serveur de connexion** Azure Container Registry. Vous pouvez récupérer la valeur du serveur de connexion à partir de la page de vue d’ensemble de votre registre de conteneurs dans le portail Azure.
 
-    Si votre projet contient d’autres variables, vous pouvez spécifier le nom et la valeur dans cet onglet. **Générer des images de module** reconnaît uniquement les variables qui sont au format `${VARIABLE}`. Veillez à utiliser ce format dans vos fichiers `**/module.json`.
+   Si votre projet contient d’autres variables, vous pouvez spécifier le nom et la valeur dans cet onglet. **Générer des images de module** reconnaît uniquement les variables qui sont au format `${VARIABLE}`. Veillez à utiliser ce format dans vos fichiers `**/module.json`.
 
 8. Sélectionnez la seconde tâche **Azure IoT Edge** pour la modifier. Cette tâche envoie (push) toutes les images de module vers le registre de conteneurs que vous sélectionnez.
 
-    | Paramètre | Description |
-    | --- | --- |
-    | Nom complet | Le nom d’affichage est automatiquement mis à jour lorsque le champ Action change. |
-    | Action | Sélectionnez **Envoyer les images de module**. |
-    | Type de registre de conteneurs | Utilisez le type par défaut : `Azure Container Registry`. |
-    | Abonnement Azure | Choisissez votre abonnement. |
-    | Azure Container Registry | Sélectionnez le type de registre de conteneurs que vous utilisez pour stocker vos images de module. Le formulaire change selon le type de registre que vous sélectionnez. Si vous choisissez **Azure Container Registry**, utilisez les listes déroulantes pour sélectionner l’abonnement Azure et le nom de votre registre de conteneurs. Si vous choisissez **Registre de conteneurs générique**, sélectionnez **Nouveau** pour créer une connexion de service de registre. |
-    | Fichier .template.json | Sélectionnez les points de suspension (**...**) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
-    | Plateforme par défaut | Sélectionnez le système d’exploitation approprié pour vos modules en fonction de l’appareil IoT Edge ciblé. |
-    | Ajouter les informations d’identification du registre au manifeste de déploiement | Spécifiez true pour ajouter les informations d’identification de registre pour l’envoi (push) d’images Docker au manifeste de déploiement. |
+   | Paramètre | Description |
+   | --- | --- |
+   | Nom complet | Le nom d’affichage est automatiquement mis à jour lorsque le champ Action change. |
+   | Action | Sélectionnez **Envoyer les images de module**. |
+   | Type de registre de conteneurs | Utilisez le type par défaut : `Azure Container Registry`. |
+   | Abonnement Azure | Choisissez votre abonnement. |
+   | Azure Container Registry | Sélectionnez le type de registre de conteneurs que vous utilisez pour stocker vos images de module. Le formulaire change selon le type de registre que vous sélectionnez. Si vous choisissez **Azure Container Registry**, utilisez les listes déroulantes pour sélectionner l’abonnement Azure et le nom de votre registre de conteneurs. Si vous choisissez **Registre de conteneurs générique**, sélectionnez **Nouveau** pour créer une connexion de service de registre. |
+   | Fichier .template.json | Sélectionnez les points de suspension (**...**) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
+   | Plateforme par défaut | Sélectionnez le système d’exploitation approprié pour vos modules en fonction de l’appareil IoT Edge ciblé. |
+   | Ajouter les informations d’identification du registre au manifeste de déploiement | Spécifiez true pour ajouter les informations d’identification de registre pour l’envoi (push) d’images Docker au manifeste de déploiement. |
+
+   Pour plus d’informations sur cette tâche et ses paramètres, consultez [Tâche Azure IoT Edge](/azure/devops/pipelines/tasks/build/azure-iot-edge).
 
    Si vous avez plusieurs registres de conteneurs pour héberger vos images de modules, vous devez dupliquer cette tâche, sélectionner un autre registre de conteneurs et utiliser **Ignorer les modules** dans les paramètres **Avancés** pour ignorer les images qui ne concernent pas ce registre spécifique.
 
 9. Sélectionnez la tâche **Copier des fichiers** pour la modifier. Utilisez cette tâche pour copier des fichiers dans le répertoire intermédiaire des artefacts.
 
-    | Paramètre | Description |
-    | --- | --- |
-    | Nom complet | Utiliser le nom par défaut ou personnaliser |
-    | Dossier source | Dossier contenant les fichiers à copier. |
-    | Contenu | Ajoutez deux lignes : `deployment.template.json` et `**/module.json`. Ces deux fichiers servent d’entrées pour générer le manifeste de déploiement IoT Edge. |
-    | Dossier cible | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](/azure/devops/pipelines/build/variables#build-variables). |
+   | Paramètre | Description |
+   | --- | --- |
+   | Nom complet | Utiliser le nom par défaut ou personnaliser |
+   | Dossier source | Dossier contenant les fichiers à copier. |
+   | Contenu | Ajoutez deux lignes : `deployment.template.json` et `**/module.json`. Ces deux fichiers servent d’entrées pour générer le manifeste de déploiement IoT Edge. |
+   | Dossier cible | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](/azure/devops/pipelines/build/variables#build-variables). |
+
+   Pour plus d’informations sur cette tâche et ses paramètres, consultez [Tâche de copie de fichiers](/azure/devops/pipelines/tasks/utility/copy-files?tabs=classic).
 
 10. Sélectionnez la tâche **Publier des artefacts de build** pour la modifier. Indiquez le chemin du répertoire intermédiaire des artefacts permettant d'accéder à la tâche afin que le chemin puisse être publié dans le pipeline de mise en production.
 
@@ -148,6 +156,8 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
     | Chemin de publication | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour plus d’informations, consultez [Variables de build](/azure/devops/pipelines/build/variables#build-variables). |
     | Nom de l’artefact | Utiliser le nom par défaut : **drop** |
     | Emplacement de publication des artefacts | Utilisez l’emplacement par défaut : **Azure Pipelines** |
+
+    Pour plus d’informations sur cette tâche et ses paramètres, consultez [Tâche Publier les artefacts de build](/azure/devops/pipelines/tasks/utility/publish-build-artifacts).
 
 11. Sélectionnez l’onglet **Déclencheurs**, puis la case à cocher **Activer l'intégration continue**. Assurez-vous que la branche qui contient votre code est incluse.
 
@@ -160,18 +170,18 @@ Ce pipeline est maintenant configuré pour s’exécuter automatiquement lorsque
 [!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
 
 >[!NOTE]
->Si vous souhaitez utiliser des **déploiements en couches** dans votre pipeline, sachez qu’ils ne sont pas encore pris en charge dans les tâches Azure IoT Edge dans Azure DevOps.
+>Les déploiements en couches ne sont pas encore pris en charge dans les tâches Azure IoT Edge dans Azure DevOps.
 >
 >Toutefois, vous pouvez utiliser une [tâche Azure CLI dans Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) pour créer votre déploiement en tant que déploiement en couches. Pour la valeur **Script inline**, vous pouvez utiliser la [commande az iot edge deployment create](/cli/azure/iot/edge/deployment) :
 >
->   ```azurecli-interactive
->   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
->   ```
+>```azurecli-interactive
+>az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>```
 
 [!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Exemple de bonnes pratiques IoT Edge DevOps dans [Azure DevOps Starter pour IoT Edge](how-to-devops-starter.md)
+* Exemple IoT Edge DevOps dans [Azure DevOps Starter pour IoT Edge](how-to-devops-starter.md)
 * Pour plus d’informations sur le déploiement IoT Edge, consultez [Comprendre les déploiements IoT Edge pour les appareils uniques ou à l’échelle](module-deployment-monitoring.md).
 * Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller les modules IoT Edge à grande échelle](how-to-deploy-at-scale.md).

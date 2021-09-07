@@ -1,5 +1,5 @@
 ---
-title: Guide de migration de MySQL local vers Azure Database pour MySQL – Évaluation
+title: 'Migrer MySQL local vers Azure Database pour MySQL : Évaluation'
 description: Avant de se lancer dans la migration d’une charge de travail MySQL, il convient d’effectuer un certain nombre de vérifications préalables.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9d7dc8626e86e7ab93c7a6e76cc426c3904147c2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 4510cbe04181da7badb10c61bd510bed084580e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082801"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284250"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-assessment"></a>Guide de migration de MySQL local vers Azure Database pour MySQL – Évaluation
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-assessment"></a>Migrer MySQL local vers Azure Database pour MySQL : Évaluation
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -82,19 +84,19 @@ Pour trouver des informations utiles sur les tables, utilisez la requête suivan
 
 ```dotnetcli
     SELECT 
-        tab.table_schema,   
-        tab.table_name,   
-        tab.engine as engine_type,   
-        tab.auto_increment,   
-        tab.table_rows,   
-        tab.create_time,   
-        tab.update_time,   
-        tco.constraint_type 
-    FROM information_schema.tables tab   
-    LEFT JOIN information_schema.table_constraints tco   
-        ON (tab.table_schema = tco.table_schema   
-            AND tab.table_name = tco.table_name   
-            )   
+        tab.table_schema,
+        tab.table_name,
+        tab.engine as engine_type,
+        tab.auto_increment,
+        tab.table_rows,
+        tab.create_time,
+        tab.update_time,
+        tco.constraint_type
+    FROM information_schema.tables tab
+    LEFT JOIN information_schema.table_constraints tco
+        ON (tab.table_schema = tco.table_schema
+            AND tab.table_name = tco.table_name
+            )
     WHERE  
         tab.table_schema NOT IN ('mysql', 'information_schema', 'performance_
 schema', 'sys')  
@@ -176,7 +178,7 @@ De nombreux outils et méthodes peuvent être utilisés pour évaluer les charge
 
 ### <a name="azure-migrate"></a>Azure Migrate
 
-Bien qu’[Azure Migrate](/azure/migrate/migrate-services-overview) ne prenne pas directement en charge la migration des charges de travail de bases de données MySQL, il peut être utilisé lorsque les administrateurs ne sont pas certains des utilisateurs et des applications qui consomment les données, qu’elles soient hébergées dans une machine virtuelle ou physique. L’[analyse des dépendances](/azure/migrate/concepts-dependency-visualization) peut être réalisée en installant et en exécutant l’agent d’analyse sur la machine hébergeant la charge de travail MySQL. L’agent recueille les informations sur une période définie, par exemple un mois. Les données de dépendance peuvent être analysées pour trouver les connexions inconnues établies avec la base de données. Les données de connexion peuvent aider à identifier les propriétaires d’applications qui doivent être informés de la migration en cours.
+Bien qu’[Azure Migrate](../../../migrate/migrate-services-overview.md) ne prenne pas directement en charge la migration des charges de travail de bases de données MySQL, il peut être utilisé lorsque les administrateurs ne sont pas certains des utilisateurs et des applications qui consomment les données, qu’elles soient hébergées dans une machine virtuelle ou physique. L’[analyse des dépendances](../../../migrate/concepts-dependency-visualization.md) peut être réalisée en installant et en exécutant l’agent d’analyse sur la machine hébergeant la charge de travail MySQL. L’agent recueille les informations sur une période définie, par exemple un mois. Les données de dépendance peuvent être analysées pour trouver les connexions inconnues établies avec la base de données. Les données de connexion peuvent aider à identifier les propriétaires d’applications qui doivent être informés de la migration en cours.
 
 En plus de l’analyse des dépendances des applications et des données de connectivité des utilisateurs, Azure Migrate peut également être utilisé pour analyser les [serveurs Hyper-V, VMware ou physiques](../../../migrate/migrate-appliance-architecture.md) afin de fournir des modèles d’utilisation des charges de travail de base de données et suggérer l’environnement cible approprié.
 
@@ -190,11 +192,11 @@ Muni des informations d’évaluation (UC, mémoire, stockage, etc.), l’utilis
 
 Il existe actuellement trois niveaux :
 
-  - **De base** : Charges de travail nécessitant des performances légères en matière de calcul et d’E/S.
+  - **De base** : charges de travail nécessitant des performances légères en matière de calcul et d’E/S.
 
-  - **Usage général** : La plupart des charges de travail métier nécessitant une capacité de calcul et de mémoire équilibrée avec un débit d’E/S évolutif.
+  - **Usage général** : la plupart des charges de travail métier nécessitant une capacité de calcul et de mémoire équilibrée avec un débit d’E/S évolutif.
 
-  - **À mémoire optimisée** : Charges de travail de base de données hautes performances nécessitant des performances en mémoire suffisantes pour un traitement transactionnel plus rapide et une concurrence plus élevée.
+  - **Mémoire optimisée** : charges de travail de base de données hautes performances nécessitant des performances en mémoire suffisantes pour un traitement transactionnel plus rapide et une concurrence plus élevée.
 
 Le choix du niveau peut être influencé par les exigences en matière de RTO et de RPO de la charge de travail de données. Lorsque la charge de travail de données nécessite plus de 4 To de stockage, une étape supplémentaire est requise. Examinez et sélectionnez [une région qui prend en charge](../../concepts-pricing-tiers.md#storage) jusqu’à 16 To de stockage.
 
@@ -207,38 +209,38 @@ En règle générale, la prise de décision se focalise sur les besoins en stock
 |---------|------|
 | **De base** | Machine de développement, pas besoin de performances élevées, avec un stockage inférieur à 1 To. |
 | **Usage général** | Besoins en IOPS supérieurs à ce que le niveau de base peut fournir, mais pour un stockage inférieur à 16 To et moins de 4 Go de mémoire. |
-| **Mémoire optimisée** | Charges de travail de données qui utilisent une grande quantité de mémoire ou une configuration de serveur liée à la mémoire cache et à la mémoire tampon, comme innodb_buffer_pool_instances à forte concurrence, les grandes tailles de BLOB ou les systèmes avec de nombreux subordonnés de réplication. |
+| **Mémoire optimisée** | Charges de travail de données qui utilisent une grande quantité de mémoire ou une configuration serveur liée à la mémoire cache et à la mémoire tampon, comme innodb_buffer_pool_instances à forte concurrence, de grandes tailles d’objets blob ou des systèmes avec de nombreuses copies de réplication |
 
 ### <a name="costs"></a>Coûts
 
 Après avoir évalué l’ensemble des charges de travail liées aux données MySQL de WWI, la société fictive WWI a déterminé qu’elle aurait besoin d’au moins 4 vCores et 20 Go de mémoire et au moins 100 Go d’espace de stockage avec une capacité de 450 IOPS. Du fait de cette exigence de 450 IOPS, elle doit allouer au moins 150 Go de stockage en raison de la [méthode d’allocation des IOPS d’Azure Database pour MySQL](../../concepts-pricing-tiers.md#storage). En outre, elle a besoin d’au moins 100 % de votre stockage serveur approvisionné comme stockage de sauvegarde et d’un réplica en lecture. Elle ne prévoit pas une sortie de plus de 5 Go.
 
-À l’aide de la [calculatrice de prix d’Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/), WWI a pu déterminer les coûts de l’instance Azure Database pour MySQL. À partir de septembre 2020, les coûts totaux de possession (coûts TCO) sont affichés dans le tableau suivant pour la base de données Conference de WWI :
+À l’aide de la [calculatrice de prix d’Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/), WWI a pu déterminer les coûts de l’instance Azure Database pour MySQL. À compter de septembre 2020, les coûts totaux de possession (coûts TCO) sont affichés dans le tableau suivant pour la base de données WWI Conference.
 
 | Ressource | Description | Quantité | Coût |
 |----------|-------------|----------|------|
-| **Capacité de calcul (Usage général)** | 4 vCores, 20 Go                   | 1 @ 0,351 USD/h                                               | 3074,76 USD/an |
-| **Stockage**                   | 5 Go                              | 12 x 150 @ 0,115 USD                                           | 207 USD/an     |
-| **Sauvegarde**                    | Jusqu’à 100 % du stockage approvisionné | Aucun coût supplémentaire jusqu’à 100 % du stockage serveur approvisionné      | 0 USD/an    |
-| **Réplica en lecture**              | Réplica de région de 1 s           | calcul + stockage                                           | 3281,76 USD/an |
-| **Réseau**                   | Sortie inférieure à 5 Go/mois                | Gratuit                                                        |               |
-| **Total**                     |                                   |                                                             | 6563,52 USD/an |
+| **Capacité de calcul (Usage général)** | 4 vCores, 20 Go                  | 1 @ 0,351 USD/h                                              | 3074,76 USD/an |
+| **Stockage**                   | 5 Go                             | 12 x 150 @ 0,115 USD                                          | 207 USD/an     |
+| **Sauvegarde**                    | Jusqu’à 100 % du stockage approvisionné| Aucun coût supplémentaire jusqu’à 100 % du stockage serveur approvisionné     | 0 USD/an    |
+| **Réplica en lecture**              | Réplica de région de 1 s          | calcul + stockage                                          | 3281,76 USD/an |
+| **Réseau**                   | Sortie inférieure à 5 Go/mois               | Gratuit                                                       |               |
+| **Total**                     |                                  |                                                            | 6563,52 USD/an |
 
-Après avoir examiné les coûts initiaux, le DSI de WWI a confirmé que la société utilisait Azure pour une période beaucoup plus longue que trois ans. Elle a décidé d’utiliser des [instances de réserve](../../concept-reserved-pricing.md) de 3 ans pour économiser \~4 000 USD/an :
+Après avoir examiné les coûts initiaux, le DSI de WWI a confirmé que la société utilisait Azure pour une période beaucoup plus longue que trois ans. Elle a décidé d’utiliser des [instances de réserve](../../concept-reserved-pricing.md) de 3 ans pour économiser \~4 000 USD/an.
 
 | Ressource | Description | Quantité | Coût |
 |----------|-------------|----------|------|
-| **Capacité de calcul (Usage général)** | 4 vCores                          | 1 @ 0,1375 USD/h                                               | 1204,5 USD/an |
-| **Stockage**                   | 5 Go                              | 12 x 150 @ 0,115 USD                                            | 207 USD/an    |
-| **Sauvegarde**                    | Jusqu’à 100 % du stockage approvisionné | Aucun coût supplémentaire jusqu’à 100 % du stockage serveur approvisionné       | 0 USD/an   |
-| **Réseau**                   | Sortie inférieure à 5 Go/mois                | Gratuit                                                         |              |
-| **Réplica en lecture**              | Réplica de région de 1 s           | calcul + stockage                                            | 1411,5 USD/an |
-| **Total**                     |                                   |                                                              | 2823 USD/an   |
+| **Capacité de calcul (Usage général)** | 4 vCores                          | 1 @ 0,1375 USD/h                                              | 1204,5 USD/an |
+| **Stockage**                   | 5 Go                              | 12 x 150 @ 0,115 USD                                           | 207 USD/an    |
+| **Sauvegarde**                    | Jusqu’à 100 % du stockage approvisionné | Aucun coût supplémentaire jusqu’à 100 % du stockage serveur approvisionné      | 0 USD/an   |
+| **Réseau**                   | Sortie inférieure à 5 Go/mois                | Gratuit                                                        |              |
+| **Réplica en lecture**              | Réplica de région de 1 s           | calcul + stockage                                           | 1411,5 USD/an |
+| **Total**                     |                                   |                                                             | 2823 USD/an   |
 
 Comme le montre le tableau ci-dessus, les sauvegardes, la sortie réseau et les éventuels réplicas en lecture doivent être pris en compte dans le coût total de possession (coût TCO). À mesure que des bases de données sont ajoutées, le stockage et le trafic générés sont les seuls facteurs de coût supplémentaire à prendre en compte.
 
 > [!NOTE]
-> Les estimations ci-dessus n’incluent pas les coûts associés à [ExpressRoute](/azure/expressroute/expressroute-introduction), [Azure App Gateway](/azure/application-gateway/overview), [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) ou [App Service](/azure/app-service/overview) pour les couches Application.
+> Les estimations ci-dessus n’incluent pas les coûts associés à [ExpressRoute](../../../expressroute/expressroute-introduction.md), [Azure App Gateway](../../../application-gateway/overview.md), [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) ou [App Service](../../../app-service/overview.md) pour les couches Application.
 >
 > La tarification ci-dessus peut changer à tout moment et varie en fonction de la région.
 
@@ -255,7 +257,7 @@ Enfin, modifiez le nom du serveur dans les chaînes de connexion de l’applicat
 
 ## <a name="wwi-scenario"></a>Scénario WWI
 
-WWI a commencé l’évaluation en recueillant des informations sur son patrimoine de données MySQL. Elle a pu compiler les éléments suivants :
+WWI a commencé l’évaluation en recueillant des informations sur son patrimoine de données MySQL, comme indiqué dans le tableau suivant.
 
 | Nom | Source | Moteur Bd | Taille | E/S par seconde | Version | Propriétaire | Temps d’arrêt |
 |------|--------|-----------|------|------|---------|-------|----------|
@@ -282,6 +284,8 @@ Pour la première phase, WWI s’est concentré uniquement sur la base de donné
   - Comprenez les exigences en matière de temps d’arrêt.
 
   - Soyez prêt à apporter des modifications à l’application.
+
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Planification](./04-planning.md)

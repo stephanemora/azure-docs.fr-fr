@@ -1,19 +1,19 @@
 ---
 title: Inscription à Azure Consumption Commitment - Place de marché Azure
 description: Cet article offre une vue d’ensemble du programme Microsoft Azure Consumption Commitment (MACC), vous explique comme voir si votre offre est inscrite au programme MACC, ainsi que les exigences relatives à ce dernier.
-author: mingshen-ms
-ms.author: mingshen
+author: posurnis
+ms.author: posurnis
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/03/2021
-ms.openlocfilehash: 55d3899630fe60b1b033bd21eeb65ab2050e57c0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 07/27/2021
+ms.openlocfilehash: a3fe8707df1270f8571ad86fe07406376f71ab93
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756272"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524930"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Inscription à Azure Consumption Commitment
 
@@ -21,13 +21,11 @@ Cet article s’adresse aux éditeurs de la place de marché commerciale et déc
 
 ## <a name="macc-program"></a>Programme MACC
 
-Le programme _Microsoft Azure Consumption Commitment (MACC)_ est destiné aux [offres pouvant faire l’objet de transactions](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-overview) publiées sur la Place de marché Azure. Le coût d’un client Azure correspondant aux offres pouvant faire l’objet de transaction inscrite dans ce programme contribue au programme Microsoft Azure Consumption Commitment de son organisation.
+Le programme _Microsoft Azure Consumption Commitment (MACC)_ est destiné aux [offres pouvant faire l’objet de transactions](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-overview) publiées sur la Place de marché Azure. Les achats sur la Place de marché Azure d’offres avec transaction qui sont inscrites à ce programme contribuent à l’engagement Microsoft Azure Consumption Commitment d’une organisation.
 
 ### <a name="requirements-for-an-offer-to-be-enrolled-in-macc"></a>Exigences relatives à une offre à des fins d’inscription au programme MACC
 
-Une offre doit remplir les conditions suivantes pour être inscrite au programme MACC. Les demandes d’exception à ces exigences ne seront pas prise en compte.
-
-Pour être inscrite au programme MACC, une offre doit répondre à ce qui suit :
+Une offre doit remplir les conditions suivantes pour être inscrite au programme MACC :
 
 - Pouvoir faire l’objet de transaction avec un plan tarification supérieur à 0 USD  
     > [!NOTE]
@@ -47,7 +45,7 @@ Pour être inscrite au programme MACC, une offre doit répondre à ce qui suit 
     ***Figure 1 : Offre inscrite au programme MACC***
 
 > [!NOTE]
-> L’état relatif au programme MACC pour les offres publiées dans la Place de marché Azure est mis à jour tous les lundis. Ainsi, si vous publiez une offre qui répond aux conditions d’éligibilité du programme MACC, l’état correspondant dans l’Espace partenaires n’affichera l’état Activée que le lundi suivant.
+> L’état relatif au programme MACC pour les offres publiées dans la Place de marché Azure est mis à jour tous les lundis. Ainsi, si vous publiez une offre qui répond aux conditions d’éligibilité du programme MACC, l’état correspondant dans l’Espace partenaires n’affichera l’état Inscrite que le lundi suivant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

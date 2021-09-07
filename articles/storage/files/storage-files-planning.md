@@ -4,32 +4,48 @@ description: Comprendre la planification d’un déploiement Azure Files. Vous p
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 7b1e8ba6ed5f3ffe4acebfb5bb3047ebb945e40f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e1736d94c50d5c145a66fc845936c5c26a8725cb
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477496"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224055"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
 
-- **Montage direct d'un partage de fichiers Azure** : Étant donné qu’Azure Files fournit un accès SMB (Server Message Block) ou NFS (Network File System), vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l’aide des clients SMB ou NFS standard disponibles dans votre système d’exploitation. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
+- **Montage direct d’un partage de fichiers Azure** : étant donné qu’Azure Files fournit un accès SMB ou NFS, vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l’aide des clients SMB ou NFS standard (en préversion) qui sont disponibles dans votre système d’exploitation. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
 
 - **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en un cache rapide de votre partage de fichiers SMB Azure. 
 
 Cet article traite principalement de considérations relatives au déploiement, afin de déployer un partage de fichiers Azure en vue de son montage directement par un client local ou un client cloud. Pour planifier un déploiement d’Azure File Sync, consultez [Planification d’un déploiement Azure File Sync](../file-sync/file-sync-planning.md).
 
 ## <a name="available-protocols"></a>Protocoles disponibles
+Azure Files propose deux protocoles standard pour le montage d’un partage de fichiers Azure : le protocole [SMB](files-smb-protocol.md) et le protocole [NFS](files-nfs-protocol.md). Azure Files vous permet de choisir le protocole de système de fichiers le mieux adapté à votre charge de travail. Vous ne pouvez pas utiliser à la fois le protocole SMB et le protocole NFS dans un même partage de fichiers Azure. Cependant, vous pouvez créer des partages de fichiers SMB et NFS au sein d’un même compte de stockage. NFS 4.1 n’est pris en charge que par le nouveau type de compte de stockage **FileStorage** (partages de fichiers Premium uniquement).
 
-Azure Files propose deux protocoles pouvant être utilisés lors du montage de vos partages de fichiers, SMB et NFS (Network File System). Pour plus d’informations sur ces protocoles, consultez [Protocoles de partage de fichiers Azure](storage-files-compare-protocols.md).
+Avec les partages de fichiers SMB et NFS, Azure Files propose des partages de fichiers d’entreprise qui peuvent être mis à l’échelle pour répondre à vos besoins de stockage et qui permettent l’accès simultané de milliers de clients.
 
-> [!IMPORTANT]
-> L’essentiel du contenu de cet article s’applique uniquement aux partages SMB. Tout ce qui s’applique aux partages NFS indique spécifiquement être applicable.
+| Fonctionnalité | SMB | NFS (préversion) |
+|---------|-----|---------------|
+| Versions des protocoles prises en charge | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
+| Système d’exploitation recommandé | <ul><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Noyau Linux version 5.3+</li></ul> | Noyau Linux version 4.3+ |
+| [Niveaux disponibles](storage-files-planning.md#storage-tiers)  | Premium, transaction optimisée, niveaux d’accès chaud et froid | Premium |
+| Modèle de facturation | <ul><li>[Capacité provisionnée pour les partages de fichiers Premium](./understanding-billing.md#provisioned-model)</li><li>[Paiement à l’utilisation pour les partages de fichiers standard](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Capacité allouée](./understanding-billing.md#provisioned-model) |
+| [Redondance](storage-files-planning.md#redundancy) | LRS, ZRS, GRS, GZRS | LRS, ZRS |
+| Sémantique du système de fichiers | Win32 | POSIX |
+| Authentication | Authentification basée sur l’identité (Kerberos), authentification par clé partagée (NTLMv2) | Authentification basée sur l’hôte |
+| Autorisation | Listes de contrôle d’accès de type Win32 | Autorisations de style UNIX |
+| Respect de la casse | Non sensible à la casse, casse conservée | Respect de la casse |
+| Suppression ou modification de fichiers ouverts | Avec verrou uniquement | Yes |
+| Partage de fichiers | [Mode de partage Windows](/windows/win32/fileio/creating-and-opening-files) | Gestionnaire conseil de verrouillage réseau de plage d’octets |
+| Prise en charge des liens physiques | Non prise en charge | Pris en charge |
+| Prise en charge des liens symboliques | Non prise en charge | Pris en charge |
+| Accessible par Internet (facultatif) | Oui (SMB 3.0+ uniquement) | No |
+| Prend en charge FileREST | Yes | Sous-ensemble : <br /><ul><li>[Opérations sur `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Opérations sur `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Opérations sur `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Opérations sur `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
 
 ## <a name="management-concepts"></a>Concepts de gestion
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -57,7 +73,7 @@ Les partages de fichiers Azure sont accessibles de n’importe quel endroit via 
 
 Pour débloquer l’accès à votre partage de fichiers Azure, vous avez principalement deux options à votre disposition :
 
-- Débloquer le port 445 pour le réseau local de votre organisation. Les partages de fichiers Azure sont uniquement accessibles en externe via le point de terminaison public utilisant des protocoles sûrs, comme SMB 3.x et l’API FileREST. Il s’agit du moyen le plus simple pour accéder à votre partage de fichiers Azure localement, car il ne nécessite pas de configuration réseau avancée au-delà de la modification des règles du port de sortie de votre organisation. Toutefois, nous vous recommandons de supprimer les versions héritées et dépréciées du protocole SMB, à savoir SMB 1.0. Pour savoir comment faire, consultez [Sécurisation de Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) et [Sécurisation de Linux](storage-how-to-use-files-linux.md#securing-linux).
+- Débloquer le port 445 pour le réseau local de votre organisation. Les partages de fichiers Azure sont uniquement accessibles en externe via le point de terminaison public utilisant des protocoles sûrs, comme SMB 3.x et l’API FileREST. Il s’agit du moyen le plus simple pour accéder à votre partage de fichiers Azure localement, car il ne nécessite pas de configuration réseau avancée au-delà de la modification des règles du port de sortie de votre organisation. Toutefois, nous vous recommandons de supprimer les versions héritées et dépréciées du protocole SMB, à savoir SMB 1.0. Pour savoir comment faire, consultez [Sécurisation de Windows/Windows Server](/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3) et [Sécurisation de Linux](files-remove-smb1-linux.md).
 
 - Accéder aux partages de fichiers Azure via une connexion ExpressRoute ou VPN. Lorsque vous accédez à votre partage de fichiers Azure via un tunnel réseau, vous pouvez monter votre partage de fichiers Azure comme un partage de fichiers en local, car le trafic SMB ne traverse pas les limites de votre organisation.   
 
@@ -78,7 +94,7 @@ Azure Files prend en charge deux types de chiffrement : le chiffrement en trans
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
 
 > [!IMPORTANT]
-> Cette section traite en détail du chiffrement en transit pour les partages SMB. Pour plus d’informations sur le chiffrement en transit avec les partages NFS, consultez [Sécurité](storage-files-compare-protocols.md#security).
+> Cette section traite en détail du chiffrement en transit pour les partages SMB. Pour plus d’informations sur le chiffrement en transit avec les partages NFS, consultez [Sécurité et réseau](files-nfs-protocol.md#security-and-networking).
 
 Par défaut, le chiffrement en transit est activé pour tous les comptes de stockage Azure. Cela signifie que, quand vous montez un partage de fichiers sur SMB ou y accédez en utilisant le protocole FileREST (par exemple, via le portail Azure, PowerShell/CLI ou des kits SDK Azure), Azure Files autorise la connexion uniquement si elle est établie à l’aide des protocoles SMB 3.x avec chiffrement ou HTTPS. Les clients qui ne prennent pas en charge le protocole SMB 3.x, ou qui prennent en charge le protocole SMB 3.x mais pas le chiffrement SMB, ne peuvent pas monter le partage de fichiers Azure si le chiffrement en transit est activé. Pour plus d’informations sur les systèmes d’exploitation prenant en charge SMB 3.x avec chiffrement, consultez notre documentation détaillée pour [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et [Linux](storage-how-to-use-files-linux.md). Toutes les versions actuelles de PowerShell, de CLI et des SDK prennent en charge le protocole HTTPS.  
 
@@ -117,10 +133,6 @@ Pour plus d’informations, consultez [Présentation d’Azure Defender pour le 
 
 ## <a name="storage-tiers"></a>Niveaux de stockage
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Activer les partages de fichiers Standard pour couvrir jusqu'à 100 Tio
-Par défaut, les partages de fichiers standard peuvent couvrir jusqu’à 5 Tio seulement. Cependant, vous pouvez augmenter la limite de partage jusqu’à 100 Tio. Pour découvrir comment augmenter la limite de votre partage, consultez [Activer et créer des partages de grands fichiers](storage-files-how-to-create-large-file-share.md).
-
 
 #### <a name="limitations"></a>Limites
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]

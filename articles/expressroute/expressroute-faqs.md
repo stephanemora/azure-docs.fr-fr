@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 50ae89aefda00f21d07a19051c9aaa6e85726f8a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 108c7c30ad84c83e895cade79bc8a6ad30029199
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741380"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534919"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -60,7 +60,9 @@ La passerelle ExpressRoute publie le ou les *espaces d’adressage* du réseau v
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Combien de préfixes peuvent être publiés d’un réseau virtuel vers un serveur local sur un Peering privé ExpressRoute ?
 
-Au maximum 1 000 préfixes publiés sur une connexion ExpressRoute unique, ou via VNET Peering utilisent le transit de passerelle. Par exemple, si vous avez 999 espaces d’adressage sur un seul réseau virtuel connecté à un circuit ExpressRoute, tous ces préfixes sont publiés localement. Ou bien, si vous avez un réseau virtuel activé pour autoriser le transit par passerelle avec 1 espace d’adressage et 500 réseaux virtuels spoke activés à l’aide de l’option « Autoriser la passerelle distante », le réseau virtuel déployé avec la passerelle publie 501 préfixes localement.
+Au maximum 1 000 préfixes IPv4 publiés sur une connexion ExpressRoute unique ou par le biais du peering de réseaux virtuels utilisent le transit par passerelle. Par exemple, si vous avez 999 espaces d’adressage sur un seul réseau virtuel connecté à un circuit ExpressRoute, tous ces préfixes sont publiés localement. Ou bien, si vous avez un réseau virtuel activé pour autoriser le transit par passerelle avec 1 espace d’adressage et 500 réseaux virtuels spoke activés à l’aide de l’option « Autoriser la passerelle distante », le réseau virtuel déployé avec la passerelle publie 501 préfixes localement.
+
+Si vous utilisez un circuit double pile, au maximum 100 préfixes IPv6 sur une connexion ExpressRoute unique ou par le biais du peering de réseaux virtuels utilisent le transit par passerelle. Cela s’ajoute aux limites décrites ci-dessus.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Que se passe-t-il si je dépasse la limite de préfixes sur une connexion ExpressRoute ?
 
@@ -240,7 +242,7 @@ Non. Dans une perspective de routage, l’ensemble des réseaux virtuels liés a
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Puis-je avoir un seul réseau virtuel connecté à plusieurs circuits ExpressRoute ?
 
-Oui. Vous pouvez lier un réseau virtuel avec quatre circuits ExpressRoute au maximum, au même emplacement de peering ou à des emplacements différents. 
+Oui. Vous pouvez lier un réseau virtuel à quatre circuits ExpressRoute au maximum au même emplacement ou à 16 circuits ExpressRoute au maximum à différents emplacements de peering. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Puis-je accéder à Internet à partir de mes réseaux virtuels connectés à des circuits ExpressRoute ?
 
@@ -297,7 +299,7 @@ Vous devez également effectuer un suivi avec votre fournisseur de connectivité
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Comment modifier la bande passante d’un circuit ExpressRoute ?
 
-Vous pouvez mettre à jour de la bande passante du circuit ExpressRoute à l’aide de l’API REST ou l’applet de commande PowerShell.
+Vous pouvez mettre à jour la bande passante du circuit ExpressRoute à l’aide du portail Azure, de l’API REST, de PowerShell ou de l’interface Azure CLI.
 
 ### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>J’ai reçu une notification concernant la maintenance sur mon circuit ExpressRoute. Quel est l’impact technique de cette maintenance ?
 

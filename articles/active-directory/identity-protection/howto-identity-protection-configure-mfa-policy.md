@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d2bfaef8f00f6246dfef17145666c817ed26d9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835864"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563143"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d'inscription Azure AD Multi-Factor Authentication
 
@@ -40,14 +40,12 @@ Pour plus d'informations sur Azure AD Multi-Factor Authentication, consultez [Pr
    1. Sous **Affectations**
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-   1. Sous **Contrôles**
-      1. Assurez-vous que la case **Exiger l'inscription Azure AD MFA** est cochée, puis choisissez **Sélectionner**.
    1. **Appliquer la stratégie** - **Activé**
    1. **Save**
 
 ## <a name="user-experience"></a>Expérience utilisateur
 
-Azure Active Directory Identity Protection invite vos utilisateurs à s’inscrire la prochaine fois qu’ils se connectent de façon interactive, et ils disposent de 14 jours pour terminer l’inscription. Pendant cette période de 14 jours, les utilisateurs peuvent contourner l’inscription, mais à la fin de la période, ils devront s’inscrire pour pouvoir aller au bout du processus de connexion.
+Azure Active Directory Identity Protection invite vos utilisateurs à s’inscrire la prochaine fois qu’ils se connectent de façon interactive, et ils disposent de 14 jours pour terminer l’inscription. Pendant cette période de 14 jours, les utilisateurs peuvent contourner l’inscription si l’authentification multifacteur n’est pas exigée. Toutefois, à la fin de la période, ils devront s’inscrire pour pouvoir aller au bout du processus de connexion.
 
 Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 

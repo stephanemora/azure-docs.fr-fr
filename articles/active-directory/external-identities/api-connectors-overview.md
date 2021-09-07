@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a5563ff1f57f6b3684834a2488fc0665ac5eddd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3ead99d955fbd82099b4ad577e99026e8e66aea5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102610040"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442411"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Utiliser des connecteurs d’API pour personnaliser et étendre l’inscription en libre-service 
 
@@ -35,18 +35,18 @@ Un connecteur d’API fournit à Azure Active Directory les informations nécess
 
 Il existe deux emplacements dans un flux utilisateur où vous pouvez activer un connecteur d’API :
 
-- après la connexion avec un fournisseur d’identité
+- Après la fédération avec un fournisseur d’identité lors de l’inscription
 - avant la création de l’utilisateur
 
 > [!IMPORTANT]
 > Dans ces deux cas, les connecteurs d’API sont appelés lors de l’**inscription** de l’utilisateur et non de la connexion.
 
-### <a name="after-signing-in-with-an-identity-provider"></a>après la connexion avec un fournisseur d’identité
+### <a name="after-federating-with-an-identity-provider-during-sign-up"></a>Après la fédération avec un fournisseur d’identité lors de l’inscription
 
 Un connecteur d’API à cette étape du processus d’inscription est appelé immédiatement après que l’utilisateur s’est authentifié auprès d’un fournisseur d’identité (comme Google, Facebook et Azure AD). Cette étape précède la ***page de collection d’attributs***, qui est le formulaire présenté à l’utilisateur pour collecter des attributs utilisateur. Cette étape n’est pas appelée si un utilisateur s’inscrit auprès d’un compte local. Voici quelques exemples de scénarios de connecteur d’API que vous pouvez activer à cette étape :
 
 - Utilisez l’adresse e-mail ou l’identité fédérée que l’utilisateur a fournie pour rechercher des revendications dans un système existant. Retournez ces revendications à partir du système existant, complétez la page de collection d’attributs, puis rendez-les disponibles pour retourner dans le jeton.
-- Implémentez une liste d’autorisation ou de blocage en fonction de l’identité sociale.
+- Implémentez une liste d’autorisation ou de refus en fonction de l’identité sociale.
 
 ### <a name="before-creating-the-user"></a>avant la création de l’utilisateur
 

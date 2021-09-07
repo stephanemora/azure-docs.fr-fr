@@ -7,26 +7,30 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: peterlu
-author: peterclu
-ms.date: 05/14/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 23caf21da3914dfa1af18ab96ec7cfe52e944f1c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 27c2b5d5af181aea982a6aed735997f5ac866b6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069754"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562825"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
 Dans cet article, vous allez apprendre à sécuriser les environnements d’inférence à l’aide d’un réseau virtuel dans Azure Machine Learning.
 
-Cet article est le quatrième d’une série de cinq de qui vous guide à travers le processus de sécurisation d’un workflow Azure Machine Learning. Nous vous recommandons vivement de parcourir tout d’abord la [Première partie : Présentation du réseau virtuel](how-to-network-security-overview.md) pour en savoir plus sur l’architecture globale. 
-
-Consultez les autres articles de cette série :
-
-[1. Présentation du réseau virtuel](how-to-network-security-overview.md) > [Sécurisation de l’espace de travail](how-to-secure-workspace-vnet.md) > [3. Sécurisation de l’environnement de formation](how-to-secure-training-vnet.md) > **4. Sécurisation de l’environnement d’inférence** > [5. Activation de la fonctionnalité de studio](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
+>
+> * [Présentation du réseau virtuel](how-to-network-security-overview.md)
+> * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+> * [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+> * [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+> * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+> * [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)
 
 Dans cet article, vous découvrirez comment sécuriser les ressources de calcul d’inférence dans un réseau virtuel :
 > [!div class="checklist"]
@@ -48,15 +52,21 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
     Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).
 
+## <a name="limitations"></a>Limites
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+* Lorsque vous utilisez Azure Container Instances dans un réseau virtuel, ce dernier doit se trouver dans le même groupe de ressources que votre espace de travail Azure Machine Learning. Sinon, le réseau virtuel peut se trouver dans un autre groupe de ressources.
+* Si votre espace de travail comporte un __point de terminaison privé__, le réseau virtuel utilisé pour Azure Container Instances doit être identique à celui utilisé par le point de terminaison privé de l’espace de travail.
+* Quand vous utilisez Azure Container Instances à l’intérieur du réseau virtuel, l’instance Azure Container Registry (ACR) de votre espace de travail ne peut pas se trouver dans le réseau virtuel.
+
 <a id="aksvnet"></a>
 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-Pour utiliser un cluster AKS dans un réseau virtuel, les exigences réseau suivantes doivent être satisfaites :
+> [!IMPORTANT]
+> Pour utiliser un cluster AKS dans un réseau virtuel, suivez d’abord les prérequis indiqués dans [Configurer un réseau avancé dans AKS (Azure Kubernetes Service)](../aks/configure-azure-cni.md#prerequisites).
 
-> [!div class="checklist"]
-> * Remplissez les conditions requises indiquées sur la page [Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)](../aks/configure-azure-cni.md#prerequisites).
-> * L’instance AKS et le réseau virtuel doivent être dans la même région. Si vous sécurisez le ou les comptes Stockage Azure utilisés par l’espace de travail dans un réseau virtuel, ils doivent se trouver aussi dans le même réseau virtuel que l’instance AKS.
 
 Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez les étapes suivantes :
 
@@ -164,9 +174,6 @@ Les clusters AKS par défaut ont un plan de contrôle (ou un serveur d’API) av
 
 Après avoir créé le cluster AKS privé, [attachez le cluster au réseau virtuel](how-to-create-attach-kubernetes.md) à utiliser avec Azure Machine Learning.
 
-> [!IMPORTANT]
-> Avant d’utiliser un cluster AKS accessible par liaison privée avec Azure Machine Learning, vous devez ouvrir un incident de support pour activer cette fonctionnalité. Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 ### <a name="internal-aks-load-balancer"></a>Équilibreur de charge AKS interne
 
 Par défaut, les déploiements AKS utilisent un [équilibreur de charge public](../aks/load-balancer-standard.md). Dans cette section, vous allez apprendre à configurer AKS pour utiliser un équilibreur de charge interne. Un équilibreur de charge interne (ou privé) est utilisé lorsque des adresses IP privées sont autorisées uniquement au niveau du serveur front-end. Les équilibreurs de charge internes sont utilisés pour équilibrer la charge du trafic au sein d’un réseau virtuel
@@ -230,7 +237,8 @@ az ml computetarget update aks \
                            -g myresourcegroup
 ```
 
-Pour plus d’informations, consultez la référence [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) et [az ml computetarget update aks](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_aks).
+
+Pour plus d’informations, consultez la référence [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) et [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks).
 
 ---
 
@@ -257,16 +265,7 @@ aks_target.wait_for_completion(show_output = True)
 
 ## <a name="enable-azure-container-instances-aci"></a>Activer Azure Container Instances (ACI)
 
-Les instances de conteneur Azure (ACI) sont créées dynamiquement lors du déploiement d’un modèle. Pour permettre à Azure Machine Learning de créer un réseau ACI à l’intérieur du réseau virtuel, vous devez activer la __délégation de sous-réseau__ pour le sous-réseau utilisé par le déploiement.
-
-> [!WARNING]
-> Lorsque vous utilisez Azure Container Instances dans un réseau virtuel, le réseau virtuel doit être :
-> * Dans le même groupe de ressources que votre espace de travail Azure Machine Learning.
-> * Si votre espace de travail comporte un __point de terminaison privé__, le réseau virtuel utilisé pour Azure Container Instances doit être identique à celui utilisé par le point de terminaison privé de l’espace de travail.
->
-> Lorsque vous utilisez Azure Container Instances à l’intérieur du réseau virtuel, l’instance Azure Container Registry (ACR) de votre espace de travail ne peut pas se trouver dans le réseau virtuel.
-
-Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez les étapes suivantes :
+Les instances de conteneur Azure (ACI) sont créées dynamiquement lors du déploiement d’un modèle. Pour permettre à Azure Machine Learning de créer un réseau ACI à l’intérieur du réseau virtuel, vous devez activer la __délégation de sous-réseau__ pour le sous-réseau utilisé par le déploiement. Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez les étapes suivantes :
 
 1. Pour activer la délégation de sous-réseau sur votre réseau virtuel, utilisez les informations de l’article [Ajouter ou supprimer une délégation de sous-réseau](../virtual-network/manage-subnet-delegation.md). Vous pouvez activer la délégation lors de la création d’un réseau virtuel ou l’ajouter à un réseau existant.
 
@@ -281,11 +280,11 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article est le quatrième volet d’une série de cinq articles sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
+Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
 
-* [Partie 1 : Vue d’ensemble des réseaux virtuels](how-to-network-security-overview.md)
-* [Partie 2 : Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
-* [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
-* [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)
-
-Consultez également l’article sur l’utilisation du [DNS personnalisé](how-to-custom-dns.md) pour la résolution de noms.
+* [Présentation du réseau virtuel](how-to-network-security-overview.md)
+* [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+* [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+* [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+* [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+* [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)

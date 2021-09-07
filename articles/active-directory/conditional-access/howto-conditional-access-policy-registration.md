@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 07/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05aca853e2eba98d224131c98751b4e2f4200024
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa38195c836c77e9f0fd621776e997d4b7fff7bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765644"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532431"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accès conditionnel : Sécurisation de l’inscription des informations de sécurité
 
-La sécurisation de l’inscription des utilisateurs à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service est possible avec les actions de l’utilisateur dans une stratégie d’accès conditionnel. Cette fonctionnalité est accessible aux organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité permet aux organisations de traiter le processus d’inscription comme n’importe quelle application dans une stratégie d’accès conditionnel et d’utiliser toute la puissance de l’accès conditionnel pour sécuriser l’expérience. 
+La sécurisation de l’inscription des utilisateurs à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service est possible avec les actions de l’utilisateur dans une stratégie d’accès conditionnel. Cette fonctionnalité est accessible aux organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité permet aux organisations de traiter le processus d’inscription comme n’importe quelle application dans une stratégie d’accès conditionnel et d’utiliser toute la puissance de l’accès conditionnel pour sécuriser l’expérience. Les utilisateurs qui se connectent à l’application Microsoft Authenticator ou qui activent la connexion par téléphone sans mot de passe sont soumis à cette stratégie.
 
 Certaines organisations du passé peuvent avoir utilisé l’emplacement réseau approuvé ou la conformité des appareils comme un moyen de sécuriser l’inscription. Avec l’ajout du [Passe d’accès temporaire](../authentication/howto-authentication-temporary-access-pass.md) dans Azure AD, les administrateurs peuvent configurer des informations d’identification limitées dans le temps à leurs utilisateurs, ce qui leur permet de s’inscrire à partir de n’importe quel appareil ou emplacement. Les informations d’identification du passe d’accès temporaire répondent aux exigences d’accès conditionnel pour l’authentification multifacteur.
 

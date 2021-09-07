@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure d’exemption de stratégie
 description: Décrit la définition d’exemption de stratégie utilisée par Azure Policy pour exempter des ressources de l’évaluation d’initiatives ou de définitions.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: ecf956d7507dfa2168e4f2591e4b661423801365
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 4c38f872a17869b957bce415204042582454dfd9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091733"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563917"
 ---
 # <a name="azure-policy-exemption-structure"></a>Structure d’exemption Azure Policy
 
@@ -108,7 +108,7 @@ Deux catégories d’exemption existent et sont utilisées pour regrouper les ex
 
 ## <a name="expiration"></a>Expiration
 
-Pour définir à quel moment une hiérarchie de ressources ou une ressource individuelle n’est plus _exempter_ à une affectation, définissez la propriété `expiresOn`. Cette propriété facultative doit être au format dateHeure ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+Pour définir à quel moment une hiérarchie des ressources ou une ressource individuelle n’est plus _exemptée_ d’affectation, définissez la propriété `expiresOn`. Cette propriété facultative doit être au format dateHeure ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 > [!NOTE]
 > Les exemptions de stratégie ne sont pas supprimées lorsque la `expiresOn` date est atteinte. L’objet est conservé pour la conservation des enregistrements, mais l’exemption n’est plus honorée.

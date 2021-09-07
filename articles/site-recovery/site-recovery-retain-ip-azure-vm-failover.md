@@ -2,16 +2,16 @@
 title: Conserver des adresses IP après un basculement des machines virtuelles Azure avec Azure Site Recovery
 description: Décrit comment conserver les adresses IP en cas de défaillance des machines virtuelles Azure pour la reprise après sinistre dans une région secondaire avec Azure Site Recovery.
 ms.service: site-recovery
-ms.date: 4/9/2019
+ms.date: 07/25/2021
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 782e6247bb17485e8e654c7e879f477fe531edc4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96023548"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532012"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conserver les adresses IP pendant le basculement
 
@@ -33,6 +33,8 @@ Cet article fournit des exemples permettant de conserver les adresses IP dans le
 Toutes les applications de la société A s’exécutent dans Azure.
 
 ### <a name="before-failover"></a>Avant le basculement
+
+>[!REMARQUE La réplication peut désormais être effectuée entre toutes les régions Azure du monde. La réplication ne se limite plus au continent dans lequel se trouve l’utilisateur.
 
 Voici l’architecture avant le basculement.
 
@@ -93,7 +95,7 @@ Avant le basculement, l’architecture est la suivante :
         - **Recovery VNet 1** et **Recovery VNet 2** ont chacun deux sous-réseaux qui correspondent aux sous-réseaux **Source VNet 1** and **Source VNet 2** - Asie Sud-Est a un réseau virtuel supplémentaire (**Azure VNet**) avec l’espace d’adressage 10.3.0.0/16
         - **Azure VNet** contient un sous-réseau (**Subnet 4**) avec l’espace d’adressage 10.3.4.0/24
         - Les nœuds de réplica pour SQL Server Always On, le contrôleur de domaine, et ainsi de suite, sont situés sur **Subnet 4**.
-- Il existe plusieurs connexions VPN de site à site : 
+- Il existe plusieurs connexions VPN de site à site :
     - **Source VNet 1** et **Azure VNet**
     - **Source VNet 2** et **Azure VNet**
     - **Source VNet 1** et **Source VNet 2** sont connectés avec un VPN de site à site
@@ -121,7 +123,7 @@ En cas de panne ou de problème qui affecte une seule application (dans **Source
 
 ## <a name="hybrid-resources-full-failover"></a>Ressources hybrides : basculement complet
 
-Dans ce scénario, la **société B** dispose d’une infrastructure hybride, une partie de son infrastructure d’applications s’exécutant sur Azure et le reste localement. 
+Dans ce scénario, la **société B** dispose d’une infrastructure hybride, une partie de son infrastructure d’applications s’exécutant sur Azure et le reste localement.
 
 ### <a name="before-failover"></a>Avant le basculement
 

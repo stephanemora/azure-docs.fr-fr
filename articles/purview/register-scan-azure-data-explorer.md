@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f218d87fe1f91e206c3b8873c9af0dddddd45b42
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: adf9f3da66908dc473388f9b3da14439de86ddcb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656490"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562866"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Inscription et analyse d’Azure Data Explorer
 
@@ -72,7 +72,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 Pour inscrire un nouveau compte Azure Data Explorer (Kusto) dans votre catalogue de données, procédez comme suit :
 
 1. Accédez à votre compte Purview.
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 1. Sélectionnez **Inscrire**.
 1. Sous **Inscrire des sources**, sélectionnez **Azure Data Explorer**.
 1. Sélectionnez **Continue** (Continuer)
@@ -89,7 +89,35 @@ Sur l’écran **Inscrire des sources (Azure Data Explorer (Kusto))** , procéde
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source Azure Data Explorer que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données. 
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/set-up-scan-data-explorer.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des bases de données spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/scope-your-scan-data-explorer.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/scan-rule-set-data-explorer.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

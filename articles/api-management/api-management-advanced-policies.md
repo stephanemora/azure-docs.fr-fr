@@ -1,23 +1,17 @@
 ---
 title: Stratégies avancées de la Gestion des API Azure | Microsoft Docs
 description: Découvrez les stratégies avancées disponibles dans la Gestion des API Azure. Consultez des exemples et affichez des ressources disponibles supplémentaires.
-services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 07/19/2021
+ms.service: api-management
 ms.author: apimpm
-ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 274c4d55955bb3ee7c95fc755660cb67de3bbbd3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562482"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467619"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -29,6 +23,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   [Forward request](#ForwardRequest) : transfère la demande vers le service principal.
 -   [Limit concurrency](#LimitConcurrency) : empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié.
 -   [Log to Event Hub](#log-to-eventhub) : envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements.
+-   [Émettre des métriques](#emit-metrics) – Envoie des métriques personnalisées à Application Insights lors de l’exécution.
 -   [Mock response](#mock-response) : abandonne l’exécution du pipeline et renvoie une réponse factice indiquée directement à l’appelant.
 -   [Retry](#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.
 -   [Return response](#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.
@@ -361,6 +356,80 @@ Toute chaîne peut être utilisée comme valeur à consigner dans Event Hubs. Da
 | logger-id     | ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.         | Oui                                                                  |
 | partition-id  | Spécifie l’index de la partition où les messages sont envoyés.             | facultatif. Cet attribut peut ne pas être utilisé si `partition-key` est utilisé. |
 | partition-key | Spécifie la valeur utilisée pour l’affectation de partitions lorsque des messages sont envoyés. | facultatif. Cet attribut peut ne pas être utilisé si `partition-id` est utilisé.  |
+
+### <a name="usage"></a>Usage
+
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
+
+-   **Sections de la stratégie :** inbound, outbound, backend, on-error
+
+-   **Étendues de la stratégie :** toutes les étendues
+
+## <a name="emit-metrics"></a>Émettre des métriques
+
+La stratégie `emit-metric` envoie des métriques personnalisées dans le format spécifié à Application Insights.
+
+> [!NOTE]
+> * Les métriques personnalisées sont une [fonctionnalité de préversion](../azure-monitor/essentials/metrics-custom-overview.md) d’Azure Monitor et soumises à des [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
+> * Pour plus d’informations sur les données de gestion des API ajoutées à Application Insights, consultez [Guide pratique pour intégrer la gestion des API Azure à Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+
+### <a name="policy-statement"></a>Instruction de la stratégie
+
+```xml
+<emit-metric name="name of custom metric" value="value of custom metric" namespace="metric namespace"> 
+    <dimension name="dimension name" value="dimension value" /> 
+</emit-metric> 
+```
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant envoie une métrique personnalisée pour compter le nombre de demandes d’API avec l’ID d’utilisateur, l’adresse IP du client et l’ID de l’API en tant que dimensions personnalisées.
+
+```xml
+<policies>
+  <inbound>
+    <emit-metric name="Request" value="1" namespace="my-metrics"> 
+        <dimension name="User ID" /> 
+        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
+        <dimension name="API ID" /> 
+    </emit-metric> 
+  </inbound>
+  <outbound>
+  </outbound>
+</policies>
+```
+
+### <a name="elements"></a>Éléments
+
+| Élément     | Description                                                                       | Obligatoire |
+| ----------- | --------------------------------------------------------------------------------- | -------- |
+| emit-metric | Élément racine. La valeur de cet élément est la chaîne pour émettre votre métrique personnalisée. | Yes      |
+| dimension   | Sous-élément. Ajoutez un ou plusieurs de ces éléments pour chaque dimension incluse dans la métrique personnalisée.  | Oui      |
+
+### <a name="attributes"></a>Attributs
+
+#### <a name="emit-metric"></a>emit-metric
+| Attribut | Description                | Obligatoire | Type               | Valeur par défaut  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Nom de la métrique personnalisée      | Yes      | string, expression | N/A            |
+| espace de noms | Espace de noms de la métrique personnalisée | No       | string, expression | Gestion des API |
+| value     | Valeur de la métrique personnalisée    | No       | int, expression    | 1              |
+
+#### <a name="dimension"></a>dimension
+| Attribut | Description                | Obligatoire | Type               | Valeur par défaut  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Nom de la dimension      | Yes      | string, expression | N/A            |
+| value     | Valeur de la dimension. Ne peut être omise que si `name` correspond à l’une des dimensions par défaut. Si c’est le cas, la valeur est fournie en fonction du nom de la dimension. | No       | string, expression | N/A |
+
+**Noms de dimension par défaut qui peuvent être utilisés sans valeur :**
+
+* ID d’API
+* ID de l'opération
+* Product ID
+* ID d'utilisateur
+* Identifiant d’abonnement
+* ID d’emplacement
+* ID de passerelle
 
 ### <a name="usage"></a>Usage
 

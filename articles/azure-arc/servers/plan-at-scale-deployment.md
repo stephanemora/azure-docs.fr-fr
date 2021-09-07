@@ -1,18 +1,18 @@
 ---
-title: Comment planifier et déployer des serveurs avec Azure Arc
-description: Découvrez comment activer un grand nombre de machines sur des serveurs avec Azure Arc afin de simplifier la configuration de fonctionnalités essentielles de sécurité, de gestion et de surveillance dans Azure.
-ms.date: 04/21/2021
+title: Guide pratique pour planifier et déployer des serveurs avec Azure Arc
+description: Découvrez comment activer un grand nombre de machines sur des serveurs avec Azure Arc, afin de simplifier la configuration des fonctionnalités essentielles de sécurité, de gestion et de surveillance dans Azure.
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c37b6dbe4233afd691c0da7743973b5956f2f720
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831975"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114391741"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planifier et déployer des serveurs avec Arc
 
-Le déploiement d’un service d’infrastructure informatique ou d’une application métier est un défi pour toute entreprise. Pour opérer la migration correctement et éviter les mauvaises surprises et les coûts imprévus, vous devez la planifier minutieusement afin de vous assurer que vous êtes aussi prêt que possible. La planification du déploiement à toute échelle de serveurs avec Azure Arc doit couvrir les critères de conception et de déploiement à remplir pour pouvoir accomplir correctement les tâches.
+Le déploiement d’un service d’infrastructure informatique ou d’une application métier est un défi pour toute entreprise. Pour opérer la migration correctement et éviter les mauvaises surprises et les coûts imprévus, vous devez la planifier minutieusement afin de vous assurer que vous êtes aussi prêt que possible. La planification du déploiement à toute échelle de serveurs avec Azure Arc doit couvrir les critères de conception et de déploiement à remplir pour pouvoir réaliser correctement les tâches.
 
 Pour que le déploiement se déroule sans problème, votre plan doit clairement établir les points suivants :
 
@@ -31,7 +31,7 @@ L’objectif de cet article est de vous aider à vérifier que vous êtes prêt 
 
 * Vos machines exécutent un [système d’exploitation pris en charge](agent-overview.md#supported-operating-systems) pour l’agent Connected Machine.
 * Vos machines disposent d’une connectivité à partir de votre réseau local ou d’un autre environnement cloud aux ressources Azure, directement ou via un serveur proxy.
-* Pour installer et configurer l’agent Connected Machine de serveurs avec Arc, vous disposez d’un compte doté de privilèges élevés (administrateur ou racine) sur les machines.
+* Pour installer et configurer l’agent Connected Machine des serveurs avec Arc, vous devez disposer d’un compte doté de privilèges élevés (administrateur ou racine) sur les machines.
 * Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure**.
 * Pour lire, modifier et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources Azure Connected Machine**.
 
@@ -52,22 +52,22 @@ Avant de déployer sur toutes les machines de production, commencez par évaluer
 
 ## <a name="phase-1-build-a-foundation"></a>Phase 1 : créer une fondation
 
-Au cours de cette phase, des ingénieurs système ou administrateurs activent les principales fonctionnalités de l’abonnement Azure de leur organisation afin d’établir une fondation avant d’activer vos machines pour la gestion par des serveurs avec Arc et d’autres services Azure.
+Au cours de cette phase, des administrateurs ou ingénieurs système activent les principales fonctionnalités de l’abonnement Azure de leur organisation afin d’établir une fondation avant d’activer vos machines pour la gestion par des serveurs avec Arc et d’autres services Azure.
 
 |Tâche |Detail |Duration |
 |-----|-------|---------|
 | [Créer un groupe de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Créez un groupe de ressources dédié pour inclure uniquement les serveurs avec Arc et centraliser la gestion et la surveillance de ces ressources. | 1 heure |
-| Appliquer des [étiquettes](../../azure-resource-manager/management/tag-resources.md) pour faciliter l’organisation des machines | Évaluez et développez une [stratégie d’étiquetage](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alignée sur le l’informatique, susceptible de vous aider à réduire la complexité de la gestion de vos serveurs avec Arc, ainsi qu’à simplifier la prise de décisions de gestion. | Un jour |
+| Appliquer des [étiquettes](../../azure-resource-manager/management/tag-resources.md) pour faciliter l’organisation des machines | Évaluez et développez une [stratégie d’étiquetage](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alignée sur les services informatiques, susceptible de vous aider à réduire la complexité de la gestion de vos serveurs avec Arc, ainsi qu’à simplifier la prise de décisions de gestion. | Un jour |
 | Concevoir et déployer des [journaux Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) | Évaluez les [considérations relatives à la conception et au déploiement](../../azure-monitor/logs/design-logs-deployment.md) afin de déterminer si votre organisation doit utiliser un espace de travail Log Analytics existant ou en implémenter un autre pour stocker les données de journal collectées à partir de serveurs et de machines hybrides<sup>1</sup>. | Un jour |
 | [Élaborer un plan de gouvernance Azure Policy](../../governance/policy/overview.md) | Déterminez comment vous allez implémenter la gouvernance de serveurs et de machines hybrides au niveau de l’abonnement ou de l’étendue du groupe de ressources avec Azure Policy. | Un jour |
-| Configurer un [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) | Élaborez un plan d’accès pour contrôler qui a accès à la gestion des serveurs avec Arc, et la capacité de ces personnes d’afficher leurs données à partir d’autres services et solutions Azure. | Un jour |
+| Configurer un [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) | Élaborez un plan d’accès pour contrôler qui a accès à la gestion des serveurs avec Arc, et la capacité de ces personnes à afficher leurs données à partir d’autres services et solutions Azure. | Un jour |
 | Identifier les machines sur lesquelles l’agent de Log Analytics est déjà installé | Exécutez la requête de journal suivante dans [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) pour opérer la conversion de déploiements d’agents Log Analytics existants en agents gérés par extension :<br> Heartbeat <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment | 1 heure |
 
 <sup>1</sup> Un aspect important à prendre en considération dans le cadre de l’évaluation de la conception de votre espace de travail Log Analytics est l’intégration avec Azure Automation pour la prise en charge de ses fonctionnalités Gestion des mises à jour et Suivi des modifications et inventaire, ainsi qu’avec Azure Security Center et Azure Sentinel. Si votre organisation dispose déjà d’un compte Automation et a activé ses fonctionnalités de gestion liées à un espace de travail Log Analytics, déterminez si vous pouvez centraliser et rationaliser les opérations de gestion, ainsi que réduire les coûts, en utilisant ces ressources existantes plutôt que de créer un compte, un espace de travail ou une autre ressources en double.
 
-## <a name="phase-2-deploy-arc-enabled-servers"></a>Phase 2 : déployer des serveurs avec Arc
+## <a name="phase-2-deploy-arc-enabled-servers"></a>Phase 2 : Déployer des serveurs avec Arc
 
-Ensuite, nous développons la fondation posée en phase 1 en préparant et en déployant l’agent Connected Machine des serveurs compatibles Arc.
+Ensuite, nous développons la fondation posée en phase 1 en préparant et en déployant l’agent Connected Machine des serveurs avec Arc.
 
 |Tâche |Detail |Duration |
 |-----|-------|---------|
@@ -84,7 +84,7 @@ Au cours de la phase 3, des administrateurs ou ingénieurs système activent l�
 |Créer une alerte Resource Health |Si un serveur cesse d’envoyer des pulsations à Azure pendant plus de 15 minutes, cela peut signifier qu’il est hors connexion, que la connexion réseau a été bloquée ou que l’agent n’est pas en cours d’exécution. Élaborez un plan décrivant la manière de répondre à ces incidents et d’investiguer à leur sujet, et utilisez des [alertes Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) pour être informé de leur démarrage.<br><br> Spécifiez les aspects suivants lors de la configuration de l’alerte :<br> **Type de ressource** = **Serveurs avec Azure Arc**<br> **État actuel de la ressource** = **Indisponible**<br> **État précédent de la ressource** = **Disponible** | 1 heure |
 |Créer une alerte Azure Advisor | Pour bénéficier d’une expérience optimale et des correctifs de sécurité et de bogues les plus récents, nous vous recommandons de tenir à jour l’agent des serveurs avec Azure Arc. Les agents obsolètes sont identifiés avec une [alerte Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Spécifiez les aspects suivants lors de la configuration de l’alerte :<br> **Type de recommandation** = **Opérer une mise à niveau vers la dernière version d’Azure Connected Machine Agent** | 1 heure |
 |[Attribuer des stratégies Azure](../../governance/policy/assign-policy-portal.md) à l’étendue de votre abonnement ou groupe de ressources |Attribuez la **stratégie** [Activer Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) (et d’autres qui répondent à vos besoins) à l’étendue de l’abonnement ou du groupe de ressources. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents nécessaires à VM Insights pour votre environnement.| Variable |
-|[Activer la Gestion des mises à jour pour vos serveurs avec Azure Arc](../../automation/update-management/enable-from-automation-account.md) |Configurez la Gestion des mises à jour dans Azure Automation afin de gérer les mises à jour de vos machines virtuelles Windows et Linux inscrites auprès de serveurs avec Arc. | 15 minutes |
+|[Activer la gestion des mises à jour pour vos serveurs avec Azure Arc](../../automation/update-management/enable-from-automation-account.md) |Configurez la gestion des mises à jour dans Azure Automation afin de gérer les mises à jour des systèmes d’exploitation de vos machines virtuelles Windows et Linux inscrites auprès de serveurs avec Arc. | 15 minutes |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

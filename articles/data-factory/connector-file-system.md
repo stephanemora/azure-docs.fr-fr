@@ -1,25 +1,28 @@
 ---
-title: Copier des données vers/à partir d’un système de fichiers à l’aide d’Azure Data Factory
-description: Découvrez comment copier des données d’un système de fichiers vers des banques de données réceptrices prises en charge (ou) depuis des banques de données sources prises en charge vers un système de fichiers à l’aide d’Azure Data Factory.
+title: Copier des données depuis/vers un système de fichiers
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment copier des données d’un système de fichiers vers des magasins de données récepteurs pris en charge (ou) de magasins de données sources pris en charge vers un système de fichiers en utilisant un pipeline Azure Data Factory ou Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: jianleishen
-ms.openlocfilehash: 16be6dee6a1afa8808220790dd4cb7bd40cf50cc
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 90ddcc4e5793027dd81a8882b8fdf0e5c7f8896d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488678"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641448"
 ---
-# <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
+# <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Version actuelle](connector-file-system.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment copier des données vers et depuis le système de fichiers. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article explique comment copier des données vers et depuis le système de fichiers. Pour en savoir plus, lisez l’article d’introduction d’[Azure Data Factory](introduction.md) ou d’[Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -47,7 +50,7 @@ Plus précisément, ce connecteur de système de fichiers prend en charge ce qui
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques du système de fichiers.
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités de pipeline Data Factory et Synapse spécifiques du système de fichiers.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -58,7 +61,7 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 | type | La propriété type doit être définie sur : **FileServer**. | Oui |
 | host | Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \" » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. | Oui |
 | userId | Spécifiez l’ID de l’utilisateur qui a accès au serveur. | Oui |
-| mot de passe | Spécifiez le mot de passe de l’utilisateur (userid). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| mot de passe | Spécifiez le mot de passe de l’utilisateur (userid). Marquez ce champ en tant que SecureString afin de le stocker de façon sécurisée, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exemples de définitions de jeux de données et de service liés
@@ -150,8 +153,8 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 | ***Recherchez les fichiers à copier :*** |  |  |
 | OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : filtre côté serveur<br>- fileFilter  | Filtre natif côté serveur de fichiers, qui offre de meilleures performances que le filtre de caractères génériques OPTION 3. Utilisez `*` pour faire correspondre zéro ou plusieurs caractères et `?` pour faire correspondre zéro ou un caractère. Apprenez-en davantage sur la syntaxe et les remarques dans **Remarques** sous [cette section](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | Non                                                          |
-| OPTION 3 : filtre côté client<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. Ce filtre intervient côté ADF, ADF énumère les dossiers/fichiers sous le chemin d’accès donné, puis applique le filtre de caractères génériques.<br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
-| OPTION 3 : filtre côté client<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. Ce filtre intervient côté ADF, ADF énumère les fichiers sous le chemin d’accès donné, puis applique le filtre de caractères génériques.<br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique.<br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
+| OPTION 3 : filtre côté client<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. Ce filtre au niveau du service énumère les dossiers/fichiers situés sous le chemin donné, puis applique le filtre de caractères génériques.<br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
+| OPTION 3 : filtre côté client<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. Ce filtre au niveau du service énumère les fichiers situés sous le chemin donné, puis applique le filtre de caractères génériques.<br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique.<br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 3 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Si vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
 | ***Paramètres supplémentaires :*** |  | |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
@@ -267,9 +270,9 @@ Cette section décrit le comportement résultant de l’utilisation du chemin d�
 
 En supposant que vous disposez de la structure de dossiers source suivante et que vous souhaitez copier les fichiers en gras :
 
-| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration ADF                                            |
+| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration du pipeline |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- chemin d’accès du dossier : `root/FolderA`<br><br>**Dans la source de l’activité de copie :**<br>- chemin d’accès à la liste de fichiers : `root/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès à la liste de fichiers pointe vers un fichier texte dans le même magasin de données qui contient la liste de fichiers que vous voulez copier, un fichier par ligne étant le chemin d’accès relatif au chemin d’accès configuré dans le jeu de données. |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- chemin d’accès du dossier : `root/FolderA`<br><br>**Dans la source de l’activité de copie :**<br>- chemin d’accès à la liste de fichiers : `root/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès à la liste de fichiers pointe vers un fichier texte dans le même magasin de données qui contient la liste de fichiers que vous voulez copier, un fichier par ligne étant le chemin d’accès relatif au chemin d’accès configuré dans le jeu de données. |
 
 ### <a name="recursive-and-copybehavior-examples"></a>exemples de valeurs recursive et copyBehavior
 
@@ -299,7 +302,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création peut désormais générer ce nouveau modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
@@ -430,4 +433,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

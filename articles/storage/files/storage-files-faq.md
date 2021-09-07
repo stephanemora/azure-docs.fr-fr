@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ff5d891b4374a61c8806666a48505a2ee4682a67
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47400f8e359f8f5f7a05119eb91106b318a0e798
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094471"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729575"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -200,7 +200,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     - Azure File Sync conserve et réplique toutes les listes de contrôle d’accès discrétionnaire, ou listes DACL (qu’elles soient locales ou basées sur Active Directory) sur tous les points de terminaison de serveur avec lesquels il effectue une synchronisation. 
     
-    Pour obtenir une représentation complète de tous les protocoles pris en charge sur les services de stockage Azure, vous pouvez consulter la rubrique [Autorisation de l’accès à Azure Storage](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+    Pour obtenir une représentation complète de tous les protocoles pris en charge sur les services de stockage Azure, vous pouvez consulter la rubrique [Autorisation de l’accès à Azure Storage](../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
     
 * <a id="encryption-at-rest"></a>
 **Comment puis-je m’assurer que mon partage de fichiers Azure est chiffré au repos ?**  
@@ -330,7 +330,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="when-to-use-nfs"></a>
 **Quand dois-je utiliser Azure Files NFS ?**
 
-    Consultez [Partages NFS (préversion)](storage-files-compare-protocols.md#nfs-shares-preview).
+    Consultez [Partages NFS (préversion)](files-nfs-protocol.md).
 
 * <a id="backup-nfs-data"></a>
 **Comment sauvegarder les données stockées dans les partages NFS ?**
@@ -451,7 +451,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="need-larger-share"></a>
 **Quelles sont les tailles disponibles pour les partages de fichiers Azure ?**  
-    Les tailles des partages de fichiers Azure (Premium et standard) ne peuvent pas dépasser 100 Tio. Consultez la section relative à [l’intégration de partages de fichiers plus grands (niveau standard)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) du guide de planification pour savoir comment intégrer des partages de fichiers plus grands au niveau standard.
+    Les tailles des partages de fichiers Azure (Premium et standard) ne peuvent pas dépasser 100 Tio. Pour plus d’informations, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
 
 * <a id="lfs-performance-impact"></a>
 **L’extension du quota de partage de fichiers a-t-elle un impact sur mes charges de travail ou Azure File Sync ?**

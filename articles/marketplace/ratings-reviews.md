@@ -4,15 +4,16 @@ description: Découvrez comment accéder à une vue consolidée des commentaires
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/03/2021
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 66b3254fd8079f555a7ba2b981df6d4c60262ad0
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/06/2021
+ms.openlocfilehash: d1a4f749e883ecc184ac54e16a7eeb5d83686ad6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542418"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531840"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Tableau de bord analytique Évaluations et avis dans l’Espace partenaires
 
@@ -22,7 +23,7 @@ Cet article donne des informations sur le tableau de bord Évaluations et avis d
 - Les avis sont publiés dans l’onglet Avis de la page produit de l’offre sur la Place de marché Azure ou sur AppSource. Les clients peuvent indiquer leur nom ou faire une publication anonyme.  
 
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale](analytics-faq.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale](analytics-faq.yml).
 
 ## <a name="access-the-dashboard"></a>Accéder au tableau de bord
 
@@ -54,7 +55,7 @@ Les avis sont affichés dans l’ordre chronologique de leur publication. Dans l
 
 ### <a name="responding-to-a-review"></a>Réponse à une révision
 
-Vous pouvez répondre aux avis des utilisateurs et la réponse sera visible sur la Place de marché Azure ou des vitrines AppSource. Pour répondre à une révision, procédez comme suit :
+Vous pouvez répondre aux avis des utilisateurs et la réponse sera visible sur la Place de marché Azure ou des vitrines AppSource. Cette fonctionnalité s’applique aux types d’offres suivants : Azure Application, Conteneur Azure, Machine virtuelle Azure, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 for Operations, Module IoT Edge, Service managé, Application Power BI et SaaS (software as a service). Pour répondre à une révision, procédez comme suit :
 
 1. Sélectionnez l’onglet **Évaluations et révisions**, puis sélectionnez **Place de marché Azure** ou **AppSource**. Vous pouvez sélectionner des **filtres** pour réduire la liste des révisions et afficher, par exemple, uniquement les révisions avec une évaluation spécifique
 

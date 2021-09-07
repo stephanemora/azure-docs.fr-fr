@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: 9746c6509673d3268a4afa15bcbeee9fa676d8c1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/03/2021
+ms.openlocfilehash: 12c4cd7848b0d58fd6b91e27e254ccc613ff5676
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554405"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563311"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 
@@ -24,8 +24,7 @@ Pour ajouter des nœuds, accédez à l’onglet **Calcul + stockage** dans votre
 
 > [!NOTE]
 >
-> Un groupe de serveurs Hyperscale (Citus) créé avec le [niveau de base (préversion)](concepts-hyperscale-tiers.md) n’a aucun Worker. Le fait d’augmenter le nombre de Worker fait passer automatiquement le groupe de serveurs au niveau standard.
-> Après avoir fait passer un groupe de serveurs au niveau standard, vous ne pouvez pas revenir au niveau de base.
+> Un groupe de serveurs Hyperscale (Citus) créé avec le [niveau de base](concepts-hyperscale-tiers.md) n’a pas de Workers. Le fait d’augmenter le nombre de Worker fait passer automatiquement le groupe de serveurs au niveau standard.  Après avoir fait passer un groupe de serveurs au niveau standard, vous ne pouvez pas revenir au niveau de base.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Curseurs de ressources":::
 
@@ -35,7 +34,7 @@ Cliquez sur le bouton **Enregistrer** pour que la valeur modifiée prenne effet.
 > Une fois nombre de nœuds worker augmenté et enregistré, le curseur ne permet plus de le réduire.
 
 > [!NOTE]
-> Pour tirer parti des nouveaux nœuds, vous devez rééquilibrer les [partitions de la table distribuée](howto-hyperscale-scale-rebalance.md), ce qui signifie déplacer des [partitions](concepts-hyperscale-distributed-data.md#shards) des nœuds existants vers les nouveaux.
+> Pour tirer parti des nouveaux nœuds, vous devez rééquilibrer les [partitions de la table distribuée](howto-hyperscale-scale-rebalance.md), ce qui signifie déplacer des [partitions](concepts-hyperscale-distributed-data.md#shards) des nœuds existants vers les nouveaux. Le rééquilibrage peut fonctionner en arrière-plan et ne nécessite pas de temps d’arrêt.
 
 ## <a name="increase-or-decrease-vcores-on-nodes"></a>Augmenter ou diminuer le nombre de cœurs virtuels sur les nœuds
 

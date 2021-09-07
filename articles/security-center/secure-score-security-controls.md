@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: e6582aedbc8357715f4e49cc8d5a780859ef3929
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: a3dc221ff4fa1caebad9dea601e208280b928558
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062067"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527686"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -29,7 +29,7 @@ Security Center évalue continuellement vos ressources, vos abonnements et votre
 
 Sur les pages du portail Azure, le niveau de sécurité est indiqué sous forme de pourcentage, mais les valeurs sous-jacentes sont également clairement présentées :
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Score de sécurité global comme indiqué dans le portail":::
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Degré de sécurisation global comme indiqué dans le portail.":::
 
 Pour renforcer votre sécurité, consultez la page des recommandations de Security Center. Chaque recommandation comprend des instructions pour vous aider à résoudre un problème spécifique.
 
@@ -47,7 +47,7 @@ Pour obtenir le nombre maximal de points que peut avoir un contrôle de sécurit
 
 ### <a name="example-scores-for-a-control"></a>Exemples de scores pour un contrôle
 
-:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Contrôle de sécurité Appliquer les mises à jour système" lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Contrôle de sécurité Appliquer les mises à jour système." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
 
 Dans cet exemple :
@@ -67,9 +67,9 @@ Dans cet exemple :
 
 |Métrique|Formule et exemple|
 |-|-|
-|**Degré de sécurisation actuel du contrôle de sécurité**|<br>![Équation pour le calcul du degré de sécurisation d’un contrôle de sécurité](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Chaque contrôle de sécurité individuel contribue au degré de sécurisation global. Chaque ressource concernée par une recommandation dans le contrôle contribue au degré de sécurisation actuel du contrôle. Le degré de sécurisation actuel de chaque contrôle correspond à la mesure de l’état des ressources *comprises* dans ce contrôle.<br>![Info-bulles présentant les valeurs utilisées lors du calcul du degré de sécurisation actuel du contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Dans cet exemple, le score (ou degré) maximal de 6 est divisé par 78, car il s’agit de la somme des ressources saines et non saines.<br>6 / 78 = 0,0769<br>En multipliant ce score par le nombre de ressources saines (4), vous obtenez le score actuel :<br>0,0769 \* 4 = **0,31**<br><br>|
+|**Degré de sécurisation actuel du contrôle de sécurité**|<br>![Équation pour le calcul du degré de sécurisation d’un contrôle de sécurité.](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Chaque contrôle de sécurité individuel contribue au degré de sécurisation global. Chaque ressource concernée par une recommandation dans le contrôle contribue au degré de sécurisation actuel du contrôle. Le degré de sécurisation actuel de chaque contrôle correspond à la mesure de l’état des ressources *comprises* dans ce contrôle.<br>![Info-bulles présentant les valeurs utilisées lors du calcul du degré de sécurisation actuel du contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Dans cet exemple, le score (ou degré) maximal de 6 est divisé par 78, car il s’agit de la somme des ressources saines et non saines.<br>6 / 78 = 0,0769<br>En multipliant ce score par le nombre de ressources saines (4), vous obtenez le score actuel :<br>0,0769 \* 4 = **0,31**<br><br>|
 |**Degré de sécurisation**<br>Abonnement unique|<br>![Équation pour le calcul du score sécurisé d’un abonnement](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Degré de sécurisation d’un abonnement avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Dans cet exemple, vous pouvez voir un abonnement pour lequel tous les contrôles de sécurité sont disponibles (avec un degré de sécurisation maximal potentiel de 60 points). Le degré de sécurisation indique 28 points sur 60 points possibles, et les 32 points restants correspondent aux valeurs figurant dans la colonne « Potential score increase » (Augmentation potentielle du degré de sécurisation) des contrôles de sécurité.<br>![Liste des contrôles et augmentation potentielle du score](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Degré de sécurisation**<br>Abonnements multiples|<br>![Équation pour le calcul du score sécurisé pour plusieurs abonnements](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Lors du calcul du score combiné pour plusieurs abonnements, Security Center comprend un *poids* pour chaque abonnement. Les pondérations relatives de vos abonnements sont déterminées par Security Center en fonction de facteurs tels que le nombre de ressources.<br>Le score actuel de chaque abonnement est calculé de la même façon que pour un abonnement unique, mais le poids est appliqué comme indiqué dans l’équation.<br>Quand vous consultez plusieurs abonnements, le degré de sécurisation évalue toutes les ressources de toutes les stratégies activées, et regroupe leur impact combiné sur le degré maximal de chaque contrôle de sécurité.<br>![Degré de sécurisation pour plusieurs abonnements avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Le score combiné **n’est pas** une moyenne. Il s’agit plutôt d’une évaluation de l’état de toutes les ressources de tous les abonnements.<br>Ici aussi, si vous accédez à la page des recommandations et si vous ajoutez les points que vous pouvez potentiellement gagner, vous constaterez qu’il s’agit de la différence entre le score actuel (24) et le score maximal possible (60).|
+|**Degré de sécurisation**<br>Abonnements multiples|<br>![Équation pour le calcul du degré de sécurisation de plusieurs abonnements.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Lors du calcul du score combiné pour plusieurs abonnements, Security Center comprend un *poids* pour chaque abonnement. Les pondérations relatives de vos abonnements sont déterminées par Security Center en fonction de facteurs tels que le nombre de ressources.<br>Le score actuel de chaque abonnement est calculé de la même façon que pour un abonnement unique, mais le poids est appliqué comme indiqué dans l’équation.<br>Quand vous consultez plusieurs abonnements, le degré de sécurisation évalue toutes les ressources de toutes les stratégies activées, et regroupe leur impact combiné sur le degré maximal de chaque contrôle de sécurité.<br>![Degré de sécurisation pour plusieurs abonnements avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Le score combiné **n’est pas** une moyenne. Il s’agit plutôt d’une évaluation de l’état de toutes les ressources de tous les abonnements.<br>Ici aussi, si vous accédez à la page des recommandations et si vous ajoutez les points que vous pouvez potentiellement gagner, vous constaterez qu’il s’agit de la différence entre le score actuel (24) et le score maximal possible (60).|
 
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Quelles sont les recommandations incluses dans les calculs du degré de sécurisation ?
@@ -80,7 +80,7 @@ Les recommandations marquées **Preview (Préversion)** ne sont pas incluses dan
 
 Exemple de recommandation de préversion :
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommandation portant l’indicateur Preview (Préversion)":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommandation portant l’indicateur de préversion.":::
 
 ## <a name="improve-your-secure-score"></a>Améliorer votre score de sécurité
 
@@ -124,12 +124,13 @@ Dans certains cas, vous verrez un score de contrôle maximal supérieur à zéro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article a décrit le degré de sécurisation, ainsi que les contrôles de sécurité qu’il introduit. Pour des informations connexes, consultez les articles suivants :
+Cet article a décrit le degré de sécurisation et les contrôles de sécurité inclus. 
+
+> [!div class="nextstepaction"]
+> [Accéder à votre degré de sécurisation et le suivre](secure-score-access-and-track.md)
+
+Pour des informations connexes, consultez les articles suivants :
 
 - [En savoir plus sur les différents éléments d’une recommandation](security-center-recommendations.md)
 - [Découvrez comment appliquer les recommandations](security-center-remediate-recommendations.md)
 - [Consulter les outils basés sur GitHub pour travailler par programmation avec un score sécurisé](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
-
-
-> [!div class="nextstepaction"]
-> [Accéder à votre degré de sécurisation et le suivre](secure-score-access-and-track.md)

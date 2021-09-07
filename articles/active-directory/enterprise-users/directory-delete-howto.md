@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 07/14/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7d889db98030394e27763122b3df4bdde942575
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861028"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219603"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Supprimer un locataire dans Azure Active Directory
 
@@ -29,7 +29,7 @@ La suppression d’une organisation Azure AD (locataire) a également pour effet
 
 Avant de supprimer une organisation d’Azure AD, vous devez faire quelques vérifications. Celles-ci limitent le risque d’un impact négatif de la suppression de l’organisation Azure AD sur l’accès des utilisateurs, par exemple sur leur capacité à se connecter à Microsoft 365 ou à accéder à des ressources dans Azure. En effet, en cas de suppression d’une organisation associée à un abonnement, les utilisateurs ne peuvent plus accéder aux ressources Azure de cet abonnement. Les conditions à remplir sont les suivantes :
 
-* L’organisation Azure AD (locataire) ne peut contenir aucun utilisateur, à l’exception de l’administrateur général qui doit la supprimer. Tous les autres utilisateurs doivent être supprimés au préalable. Si des utilisateurs se synchronisent à partir d’un emplacement local, la synchronisation doit être désactivée, et les utilisateurs supprimés de l’organisation cloud via le portail Azure ou à l’aide de cmdlets Azure PowerShell.
+* Le locataire Azure AD ne peut contenir aucun utilisateur, à l’exception de l’administrateur général qui doit supprimer l’organisation. Tous les autres utilisateurs doivent être supprimés au préalable. Si des utilisateurs se synchronisent à partir d’un emplacement local, la synchronisation doit être désactivée, et les utilisateurs supprimés de l’organisation cloud via le portail Azure ou à l’aide de cmdlets Azure PowerShell.
 * L’organisation ne doit contenir aucune application. Toute application doit être supprimée de l’organisation avant la suppression de celle-ci.
 * Aucun fournisseur d’authentification multifacteur ne peut être lié à l’organisation.
 * Aucun abonnement aux services en ligne Microsoft tels que Microsoft Azure, Microsoft 365 ou Azure AD Premium, ne peut être associé à l’organisation. Par exemple, si une organisation Azure AD par défaut a été créée pour vous dans Azure, vous ne pouvez pas supprimer celle-ci si votre abonnement Azure en dépend toujours pour l’authentification. De même, vous ne pouvez pas supprimer une organisation à laquelle un autre utilisateur a associé un abonnement.
@@ -94,6 +94,15 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 8. Une fois que vous avez supprimé un abonnement dans votre organisation et que le délai de 72 heures s’est écoulé, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun abonnement ne bloque plus la suppression de votre organisation. Vous devriez alors pouvoir supprimer votre organisation Azure AD.
   
    ![écran de vérification d’abonnement pour la suppression](./media/directory-delete-howto/delete-checks-passed.png)
+
+## <a name="enterprise-apps-with-no-way-to-delete"></a>Applications d’entreprise impossibles à supprimer
+
+Si vous constatez qu’il existe encore des applications d’entreprise que vous ne pouvez pas supprimer dans le portail, vous pouvez utiliser les commandes PowerShell suivantes pour les supprimer. Pour plus d’informations sur cette commande PowerShell, consultez [Remove-AzureADServicePrincipal](/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true).
+
+1. Ouvrez PowerShell en tant qu’administrateur.
+1. Exécutez `Connect-AzAccount -tenant <TENANT_ID>`
+1. Connecter le rôle Administrateur général Azure AD
+1. Exécutez `Get-AzADServicePrincipal | ForEach-Object { Remove-AzADServicePrincipal -ObjectId $_.Id -Force}`
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>J’ai un abonnement d’évaluation qui bloque la suppression
 

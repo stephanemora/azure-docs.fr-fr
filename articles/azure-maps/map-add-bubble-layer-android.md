@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: f3c175f30c5c0e6206f4fee274e0f3f000e55a74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3f4dc33347a7e4397a2cd53ecc56d87ed155378
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100166"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093514"
 ---
 # <a name="add-a-bubble-layer-to-a-map-android-sdk"></a>Ajouter un calque de bulles à une carte (Android SDK)
 
@@ -169,7 +169,7 @@ map.layers.add(
 
 ::: zone-end
 
-La capture d’écran suivante montre le code ci-dessus restituant un point dans un calque de bulles et une étiquette de texte pour le point avec une couche de symboles.
+La capture d’écran suivante montre le code ci-dessus affichant un point dans un calque de bulles et une étiquette de texte pour le point avec un calque de symboles.
 
 ![Carte avec point restitué à l’aide d’un calque de bulles et une étiquette de texte avec une couche de symboles](media/map-add-bubble-layer-android/android-bubble-symbol-layer.png)
 
@@ -179,6 +179,9 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 
 > [!div class="nextstepaction"]
 > [Créer une source de données](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Données de point de cluster](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une couche de symboles](how-to-add-symbol-to-android-map.md)

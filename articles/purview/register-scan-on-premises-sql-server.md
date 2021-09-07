@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 43a71f6260f688a1e9cc5e39e0c61f81d2265eb3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2f07ed4ca7bdb722a2563c5e81f7e30a57c79aeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531367"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Inscrire et analyser un serveur SQL local
 
@@ -31,10 +31,6 @@ La source de données locale du serveur SQL prend en charge :
 - toutes les versions, de SQL Server 2019 à SQL Server 2000 ;
 
 - méthode d’authentification Authentification SQL
-
-### <a name="known-limitations"></a>Limitations connues
-
-Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views) dans SQL Server.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -99,7 +95,7 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 
 1. Sous sources et analyse dans le volet de navigation de gauche, sélectionnez les **runtimes d’intégration**. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](manage-integration-runtimes.md) afin de créer un runtime d’intégration auto-hébergé pour les analyses sur une machine virtuelle locale ou Azure qui a accès à votre réseau local.
 
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
+1. Sélectionnez **Mappage de données** dans le volet de navigation de gauche.
 
 1. Sélectionnez **Inscrire**.
 

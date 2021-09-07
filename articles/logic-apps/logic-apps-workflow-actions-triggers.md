@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 95f2e47d3cf0b967f42b988b565da3643796534d
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: d45d17d8978134024cd41f49675fbe37b1a0dfe6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490758"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440138"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2403,6 +2403,8 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 | `IncludeAuthorizationHeadersInOutputs` | String | Pour les applications logiques qui [activent Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) pour autoriser l’accès aux appels entrants au point de terminaison d’un déclencheur de requête, incluez l’en-tête `Authorization` du jeton d’accès OAuth dans les sorties du déclencheur. Pour plus d’informations, consultez [Inclure l’en-tête « Authorization » dans les sorties du déclencheur de requête](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Déclencheurs : <p>[Requête](#request-trigger), <br>[Déclencheur HTTPWebhook](#http-webhook-trigger) | 
 | `Sequential` | String | Exécutez les itérations de boucle « for each » une à la fois, plutôt que toutes en même temps en parallèle. <p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.repetitions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p><p>Pour définir cette option, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each).| Action : <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Exécuter le déclencheur pour chaque instance d’application logique de manière séquentielle, et attendre que l’exécution active précédente se termine avant de déclencher l’instance d’application logique suivante. <p><p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.runs`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour définir cette option, consultez [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
+| `SuppressWorkflowHeaders` | Chaîne | Ne pas envoyer d’en-têtes de métadonnées `x-ms-*` dans les demandes sortantes. Par défaut, le service Azure Logic Apps inclut des en-têtes de métadonnées supplémentaires avec le préfixe `x-ms-` dans le nom d’en-tête dans le cadre des demandes sortantes. Toutefois, certains services hérités n’acceptent pas les demandes avec des en-têtes inconnus supplémentaires, ce qui entraîne l’échec des demandes. | Actions : <p>[HTTP](#http-action), <br>[Function](#function-action), <br>APIManagement | 
+| `SuppressWorkflowHeadersOnResponse` | Chaîne | Ne pas envoyer d’en-têtes de métadonnées `x-ms-*` dans les réponses aux demandes de déclencheur entrantes. Par défaut, le service Azure Logic Apps envoie des réponses aux demandes entrantes qui incluent des en-têtes de métadonnées supplémentaires avec le préfixe `x-ms-` dans le nom d’en-tête. Toutefois, certains services hérités n’acceptent pas les demandes ou réponses avec des en-têtes inconnus supplémentaires, ce qui entraîne l’échec des demandes. | Déclencheurs : <p>[Requête](#request-trigger), <br>[Déclencheur HTTPWebhook](#http-webhook-trigger) | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

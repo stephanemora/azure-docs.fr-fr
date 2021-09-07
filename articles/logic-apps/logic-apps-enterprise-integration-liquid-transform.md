@@ -1,19 +1,19 @@
 ---
 title: Convertir du code JSON et XML avec des modèles Liquid
-description: Transformez du code JSON et XML en utilisant des modèles Liquid en tant que mappages dans Azure Logic Apps
+description: Transformez du code JSON et XML en utilisant des modèles Liquid en tant que mappages dans Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/31/2020
-ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/25/2021
+ms.openlocfilehash: 01b5e9930353078406751001300a1baa3c23cf00
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94992707"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690556"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transformer du code JSON et XML en utilisant des modèles Liquid en tant que mappages dans Azure Logic Apps
 
@@ -132,9 +132,20 @@ Cet article vous explique comment effectuer ces tâches :
 
 ## <a name="test-your-logic-app"></a>Tester votre application logique
 
-Publiez l’entrée JSON dans votre application logique en utilisant [Postman](https://www.getpostman.com/postman) ou un outil similaire. La sortie JSON transformée à partir de votre application logique ressemble à ceci :
+1. En utilisant [Postman](https://www.getpostman.com/postman) ou un outil similaire et la méthode `POST`, envoyez un appel à l’URL du déclencheur Requête et incluez l’entrée JSON à transformer, par exemple :
 
-![Exemple de sortie](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+   ```json
+   {
+      "devices": "Surface, Windows Phone, Desktop computer, Monitors",
+      "firstName": "Dean",
+      "lastName": "Ledet",
+      "phone": "(111)5551111"
+   }
+   ```
+
+1. Une fois l’exécution de votre workflow terminée, accédez à l’historique des exécutions du workflow, puis examinez les entrées et sorties de l’action **Transformer de JSON en JSON**, par exemple :
+
+   ![Exemple de sortie](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
 <a name="template-considerations"></a>
 

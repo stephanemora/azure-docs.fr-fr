@@ -1,19 +1,22 @@
 ---
 title: Format de texte délimité dans Azure Data Factory
-description: Cette rubrique décrit comment traiter le format de texte délimité dans Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Cette rubrique explique comment traiter le format de texte délimité dans Azure Data Factory et Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jianleishen
-ms.openlocfilehash: 5589e772c7209b548a3bd8084b675ac917e4afca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 21f3803af53b0e3f61ee8832ac8a1fb985767ae1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090169"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641404"
 ---
-# <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
+# <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Format de texte délimité dans Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -88,8 +91,8 @@ Prise en charge des **paramètres de lecture du texte délimité** sous `formatS
 | type          | Le type de formatSettings doit être défini sur **DelimitedTextReadSettings**. | Oui      |
 | skipLineCount | Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. <br>Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-têtes sont lues à partir du fichier d’entrée. | Non       |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* ) |  S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
-| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings` ou `TarReadSettings`* )  | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **TarGzip**/**Tar**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers en double dans différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* ) |  S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , le service écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, le service écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
+| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings` ou `TarReadSettings`* )  | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **TarGzip**/**Tar**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , le service écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, le service écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers en double dans différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
 
 ```json
 "activities": [
@@ -156,6 +159,9 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Après l’exécution | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
+
+> [!NOTE]
+> La prise en charge des sources de flux de données pour la liste des fichiers est limitée à 1 024 entrées dans votre fichier. Pour inclure davantage de fichiers, utilisez des caractères génériques dans votre liste de fichiers.
 
 ### <a name="source-example"></a>Exemple de source
 

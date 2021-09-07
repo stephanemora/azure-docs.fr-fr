@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42b756e96829a19ddd25258087a8537c9a747b10
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895815"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668854"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Types d'interaction et raccourcis clavier dans le module Outils de dessin
 
@@ -140,6 +140,7 @@ Les outils de dessin prennent en charge les raccourcis clavier. Ces raccourcis c
 | `C` | Permet de terminer tout dessin en cours et de désactiver le mode Dessin. Le focus se déplace sur l'élément de carte de niveau supérieur.  |
 | `Escape` | Annule tout dessin en cours et désactive le mode Dessin. Le focus se déplace sur l'élément de carte de niveau supérieur.  |
 | `F` | Ajoute des coordonnées à un point, une ligne ou un polygone si la souris se trouve sur la carte. Action équivalant à un clic sur la carte en mode Clic ou Hybride. Ce raccourci permet des dessins plus précis et plus rapides. Vous pouvez utiliser une main pour positionner la souris et l’autre pour appuyer sur le bouton sans la faire bouger sous l’effet de la pression. |
+| `Delete` ou `Backspace` | Si des formes sont sélectionnées en mode d’édition, supprimez-les.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

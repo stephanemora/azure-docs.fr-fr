@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 874ecfc8c1c50816916fb0b04975477a1cbe0a71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc474bf8a6df613a8dc1e95169b4730251ff22b7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94698085"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472847"
 ---
 # <a name="azure-load-balancer-skus"></a>Références SKU Azure Load Balancer
 
@@ -39,7 +39,7 @@ Les machines virtuelles autonomes, les groupes à haute disponibilité et les gr
 | **[Sondes d’intégrité](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Comportement en cas de panne de sonde d’intégrité](./load-balancer-custom-probe-overview.md#probedown)** | Les connexions TCP restent actives sur une sonde d’instance en panne __et__ sur toutes les sondes en panne. | Les connexions TCP restent actives sur une sonde d’instance en panne. Toutes les connexions TCP se terminent quand toutes les sondes sont arrêtées. |
 | **Zones de disponibilité** | Front-ends redondants interzones et zonaux pour le trafic entrant et sortant. | Non disponible |
-| **Diagnostics** | [Métriques multidimensionnelles Azure Monitor](./load-balancer-standard-diagnostics.md) | [Journaux d’activité Azure Monitor](./load-balancer-monitor-log.md) |
+| **Diagnostics** | [Métriques multidimensionnelles Azure Monitor](./load-balancer-standard-diagnostics.md) | Non prise en charge |
 | **Ports HA** | [Disponibles pour l’équilibreur de charge interne](./load-balancer-ha-ports-overview.md) | Non disponible |
 | **Sécurisé par défaut** | Fermé aux flux entrants, sauf s’ils sont autorisés par un groupe de sécurité réseau. Le trafic interne du réseau virtuel vers l’équilibreur de charge interne est autorisé. | Ouvertes par défaut. Groupe de sécurité réseau facultatif. |
 | **Règles de trafic sortant** | [Configuration NAT déclarative de règles de trafic sortant](./load-balancer-outbound-connections.md#outboundrules) | Non disponible |
@@ -47,6 +47,7 @@ Les machines virtuelles autonomes, les groupes à haute disponibilité et les gr
 | **[Plusieurs front-ends](./load-balancer-multivip-overview.md)** | Entrant et [sortant](./load-balancer-outbound-connections.md) | Entrant uniquement |
 | **Opérations de gestion** | La plupart des opérations < 30 secondes | Généralement 60 à 90 secondes et plus |
 | **CONTRAT SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Non disponible | 
+| **Prise en charge du peering de réseaux virtuels mondial** | L’équilibrage de charge interne standard est pris en charge par le biais du peering de réseaux virtuels mondial | Non prise en charge | 
 
 Pour plus d’informations, consultez [Limites de Load balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Pour obtenir plus d’informations sur la référence SKU Standard de Load Balancer, consultez également la [présentation](./load-balancer-overview.md), la page relative à la [tarification](https://aka.ms/lbpricing) et la page relative au [SLA](https://aka.ms/lbsla).
 

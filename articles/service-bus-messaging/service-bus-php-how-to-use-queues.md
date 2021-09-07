@@ -1,21 +1,21 @@
 ---
 title: Guide pratique pour utiliser les files d’attente Azure Service Bus avec PHP
-description: Dans ce tutoriel, vous allez apprendre à créer des applications PHP afin d’envoyer des messages à une file d’attente Service Bus.
+description: Dans cet article, vous découvrez comment créer des applications PHP pour envoyer et recevoir des messages à destination et en provenance d’une file d’attente Service Bus.
 services: service-bus-messaging
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 46f2f4a532b8b2e3001ec7f0411498f74919a36b
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.topic: how-to
+ms.date: 07/23/2021
+ms.openlocfilehash: d0909c4e2ea5ef53a1438ce05f5ddad485c80248
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302557"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725133"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Démarrage rapide : utilisation des files d’attente Service Bus avec PHP
+# <a name="how-to-use-service-bus-queues-with-php"></a>Utilisation des files d’attente Service Bus avec PHP
 [!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
-Dans ce tutoriel, vous allez apprendre à créer des applications PHP afin d’envoyer des messages à une file d’attente Service Bus. 
+Dans cet article, vous découvrez comment créer des applications PHP pour envoyer et recevoir des messages à destination et en provenance d’une file d’attente Service Bus. 
 
 > [!IMPORTANT]
 > Depuis février 2021, le kit SDK Azure pour PHP est passé en phase de déclassement et n’est plus officiellement pris en charge par Microsoft. Pour plus d’informations, consultez [cette annonce](https://github.com/Azure/azure-sdk-for-php#important-annoucement) sur GitHub. Cet article sera bientôt retiré. 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à créer des applications PHP afin d’e
     3. Obtenez la **chaîne de connexion**. 
 
         > [!NOTE]
-        > Dans ce tutoriel, vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide du PHP. 
+        > Dans cet article, vous allez créer une **file d’attente** dans l’espace de noms Service Bus en PHP. 
 3. [Kit SDK Azure pour PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>Création d'une application PHP

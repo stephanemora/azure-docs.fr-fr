@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 72bf18bee387dc0602f543161afc20c73c2e4144
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c794d3e18eaf25241cb9c55c14a32e4e5c9ff7b0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562901"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692256"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Application d’Azure Hybrid Benefit aux machines virtuelles Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Azure Hybrid Benefit est un avantage de licence qui vous permet de réduire considérablement les coûts d’exploitation de vos machines virtuelles Red Hat Enterprise Linux (RHEL) et SUSE Linux Enterprise Server (SLES) dans le cloud. Grâce à cet avantage, vous payez uniquement les coûts d’infrastructure de votre machine virtuelle, car votre abonnement RHEL ou SLES couvre les frais liés aux logiciels. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
 

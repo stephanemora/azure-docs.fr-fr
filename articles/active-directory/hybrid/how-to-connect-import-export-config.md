@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 2ef5d481cebcdd4c7f08813e8523a03fd45d777b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226511"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768086"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importer et exporter des paramètres de configuration Azure AD Connect 
 
@@ -46,6 +46,9 @@ Pour importer des paramètres précédemment exportés :
 
 > [!NOTE]
 > Remplacez les paramètres de cette page, comme l’utilisation de SQL Server plutôt que la base de données locale ou l’utilisation d’un compte de service existant plutôt que l’attribut VSA par défaut. Ces paramètres ne sont pas importés à partir du fichier de paramètres de configuration. Ils sont destinés à des fins de comparaison et d’information.
+
+>[!NOTE]
+>Il n’est pas possible de modifier le fichier JSON exporté pour modifier la configuration.
 
 ### <a name="import-installation-experience"></a>Expérience d’importation de l’installation 
 

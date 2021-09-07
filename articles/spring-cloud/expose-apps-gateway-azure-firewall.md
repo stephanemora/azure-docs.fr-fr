@@ -1,18 +1,18 @@
 ---
 title: Exposer des applications à Internet à l’aide d’Application Gateway et de Pare-feu Azure
 description: Comment exposer des applications à Internet à l’aide d’Application Gateway et de Pare-feu Azure
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5183fe6560e0276efb3f9db85628a814abfe9e45
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: e87ccabeb2d0e0cd837a835c5ac637bebc68b8b4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791721"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525416"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Exposer des applications à Internet à l’aide d’Application Gateway et de Pare-feu Azure
 
@@ -24,9 +24,9 @@ Ce document explique comment exposer des applications à Internet à l’aide d�
 
 ## <a name="define-variables"></a>Définir des variables
 
-Définissez des variables pour le groupe de ressources et le réseau virtuel que vous avez créés comme indiqué dans [Déployer Azure Spring Cloud dans un réseau virtuel Azure (injection de réseau virtuel)](./how-to-deploy-in-azure-virtual-network.md). Personnalisez les valeurs en fonction de votre environnement réel.
+Définissez des variables pour le groupe de ressources et le réseau virtuel que vous avez créés comme indiqué dans [Déployer Azure Spring Cloud dans un réseau virtuel Azure (injection de réseau virtuel)](./how-to-deploy-in-azure-virtual-network.md). Personnalisez les valeurs en fonction de votre environnement réel.  Lorsque vous définissez SPRING_APP_PRIVATE_FQDN, supprimez « https » de l’URI.
 
-```
+```bash
 SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
@@ -36,11 +36,11 @@ APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
 
-## <a name="login-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à Azure CLI et choisissez votre abonnement actif.
+Connectez-vous à Azure CLI et choisissez votre abonnement actif.
 
-```
+```azurecli
 az login
 az account set --subscription ${SUBSCRIPTION}
 ```
@@ -49,7 +49,7 @@ az account set --subscription ${SUBSCRIPTION}
 
 La **passerelle applicative Azure** qui sera créée rejoindra le même réseau virtuel que l’instance de service Azure Spring Cloud, ou un réseau virtuel qui lui est appairé. Commencez par créer un sous-réseau pour la passerelle applicative dans le réseau virtuel en utilisant `az network vnet subnet create`, puis créez une IP publique en tant que serveur frontal de la passerelle applicative en utilisant `az network public-ip create`.
 
-```
+```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
 az network vnet subnet create \
     --name ${APPLICATION_GATEWAY_SUBNET_NAME} \
@@ -68,7 +68,7 @@ az network public-ip create \
 
 Créez une passerelle applicative en utilisant `az network application-gateway create` et spécifiez le nom de domaine complet (FQDN) privé de votre application en tant que serveurs dans le pool principal. Ensuite, mettez à jour le paramètre HTTP à l’aide de `az network application-gateway http-settings update` pour utiliser le nom d’hôte du pool principal.
 
-```
+```azurecli
 APPLICATION_GATEWAY_NAME='my-app-gw'
 APPLICATION_GATEWAY_PROBE_NAME='my-probe'
 APPLICATION_GATEWAY_REWRITE_SET_NAME='my-rewrite-set'
@@ -119,7 +119,7 @@ az network application-gateway rule update \
 
 La création de la passerelle d’application par Azure peut prendre jusqu’à 30 minutes. Après sa création, vérifiez l’intégrité du serveur principal à l’aide de `az network application-gateway show-backend-health`.  Il s’agit d’examiner si la passerelle applicative atteint votre application via son nom de domaine complet privé.
 
-```
+```azurecli
 az network application-gateway show-backend-health \
     --name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP}
@@ -127,7 +127,7 @@ az network application-gateway show-backend-health \
 
 La sortie indique l’état d’intégrité du pool principal.
 
-```
+```output
 {
   "backendAddressPools": [
     {
@@ -152,7 +152,7 @@ La sortie indique l’état d’intégrité du pool principal.
 
 Récupérez l’IP publique de la passerelle applicative en utilisant `az network public-ip show`.
 
-```
+```azurecli
 az network public-ip show \
     --resource-group ${RESOURCE_GROUP} \
     --name ${APPLICATION_GATEWAY_PUBLIC_IP_NAME} \
@@ -162,7 +162,7 @@ az network public-ip show \
 
 Copiez et collez l’adresse IP publique dans la barre d’adresse de votre navigateur.
 
-  ![Application dans l’IP publique](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
+![Application dans l’IP publique](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
 ## <a name="see-also"></a>Voir aussi
 

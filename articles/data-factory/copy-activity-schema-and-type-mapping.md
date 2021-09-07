@@ -1,17 +1,20 @@
 ---
 title: Mappage de schéma et de type de données dans l’activité de copie
-description: Découvrez comment l’activité de copie dans Azure Data Factory mappe les schémas et les types de données des données de la source aux données du récepteur.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment l’activité de copie dans les pipelines Azure Data Factory et Azure Synapse Analytics mappe les schémas et les types de données des données de la source aux données du récepteur.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jianleishen
-ms.openlocfilehash: 2bd616ddec207d2aad47608c6f0200c7b629471e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1070a9c59141dc5427c561faa9123410be2f7bb5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642026"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,14 +43,14 @@ Pour en savoir plus :
 - [De la source hiérarchique vers le récepteur tabulaire](#hierarchical-source-to-tabular-sink)
 - [De la source tabulaire/hiérarchique vers le récepteur hiérarchique](#tabularhierarchical-source-to-hierarchical-sink)
 
-Vous pouvez configurer le mappage sur Interface utilisateur Data Factory -> activité de copie -> onglet Mappage, ou spécifier programmatiquement le mappage dans activité de copie -> propriété `translator`. Les propriétés suivantes sont prises en charge dans `translator` -> `mappings` tableau -> objets -> `source` et `sink`, qui pointe vers la colonne/le champ spécifique pour mapper les données.
+Vous pouvez configurer le mappage dans l’interface utilisateur de création -> activité de copie -> onglet Mappage, ou spécifier programmatiquement le mappage dans activité de copie -> propriété `translator`. Les propriétés suivantes sont prises en charge dans `translator` -> `mappings` tableau -> objets -> `source` et `sink`, qui pointe vers la colonne/le champ spécifique pour mapper les données.
 
 | Propriété | Description                                                  | Obligatoire |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nom de la colonne/du champ source ou récepteur. Appliquer à la source tabulaire et au récepteur. | Oui      |
 | ordinal  | Index de colonne. Démarrer à partir de 1. <br>À appliquer et requis lors de l’utilisation de texte sans ligne d’en-tête délimité. | Non       |
 | path     | Expression de chemin JSON pour l’extraction ou le mappage de chaque champ. Appliquer à la source hiérarchique et au récepteur, par exemple, les connecteurs Cosmos DB, MongoDB ou REST.<br>Pour les champs situés sous l’objet racine, le chemin JSON commence par la racine `$` ; pour les champs qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau sans `$`. | Non       |
-| type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
+| type     | Type de données intermédiaire de la colonne source ou récepteur. En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
 | culture  | Culture de la colonne source ou récepteur. À appliquer lorsque le type est `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`.<br>En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
 | format   | Chaîne de format à utiliser lorsque le type est `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
 
@@ -175,11 +178,11 @@ Et que vous souhaitez copier ce fichier dans un fichier texte au format suivant 
 
 Vous pouvez définir un mappage de ce type sur l’interface utilisateur de création Data Factory :
 
-1. Dans activité de copie -> onglet de mappage, cliquez sur le bouton **Importer les schémas** pour importer les schémas source et récepteur. Comme Data Factory échantillonne les quelques objets les plus importants lors de l’importation d’un schéma, si un champ n’apparaît pas, vous pouvez l’ajouter à la couche appropriée de la hiérarchie : pointez sur un nom de champ existant et choisissez d’ajouter un nœud, un objet ou un tableau.
+1. Dans activité de copie -> onglet de mappage, cliquez sur le bouton **Importer les schémas** pour importer les schémas source et récepteur. Comme le service échantillonne les quelques objets les plus importants lors de l’importation d’un schéma, si un champ n’apparaît pas, vous pouvez l’ajouter à la couche appropriée de la hiérarchie : pointez sur un nom de champ existant et choisissez d’ajouter un nœud, un objet ou un tableau.
 
 2. Sélectionnez le tableau à partir duquel vous souhaitez effectuer une itération et extraire des données. Il sera automatiquement renseigné en tant que **Référence de collection**. Notez qu’un seul un tableau est pris en charge pour une telle opération.
 
-3. Mappez les champs nécessaires au récepteur. Data Factory détermine automatiquement les chemins JSON correspondants pour le côté hiérarchique.
+3. Mappez les champs nécessaires au récepteur. Le service détermine automatiquement les chemins JSON correspondants pour le côté hiérarchique.
 
 > [!NOTE]
 > Pour les enregistrements où le tableau marqué comme référence de collection est vide alors que la case est cochée, l’enregistrement entier est ignoré.
@@ -273,9 +276,9 @@ Si vous avez besoin d’un mappage explicite, vous pouvez procéder comme suit 
 
 L’activité de copie effectue un mappage des types de la source aux types du récepteur selon le flux suivant : 
 
-1. Conversion de types de données sources natives en types de données intermédiaires Azure Data Factory.
+1. Conversion de types de données natifs sources en types de données intermédiaires utilisés par les pipelines Azure Data Factory et Synapse.
 2. Conversion automatique du type de données intermédiaire en fonction des besoins pour les adapter aux types de récepteurs correspondants. Ceci est applicable à la fois au [mappage par défaut](#default-mapping) et au [mappage explicite](#explicit-mapping).
-3. Conversion de types de données sources Azure Data Factory intermédiaires en types de données de récepteur natives.
+3. Conversion de types de données intermédiaires en types de données natifs de récepteur.
 
 L’activité de copie prend actuellement en charge les types de données intermédiaires suivants : Boolean, Byte, Byte array, Datetime, DatetimeOffset, Decimal, Double, GUID, Int16, Int32, Int64, SByte, Single, String, Timespan, UInt16, UInt32 et UInt64.
 
@@ -307,7 +310,7 @@ Les propriétés suivantes sont prises en charge dans l’activité de copie pou
 
 | Propriété                         | Description                                                  | Obligatoire |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
-| typeConversion                   | Activez la nouvelle expérience de conversion de type de données. <br>La valeur par défaut est false en raison de la compatibilité descendante.<br><br>Pour les nouvelles activités de copie créées via l’interface utilisateur de création de Data Factory depuis la fin juin 2020, cette conversion de type de données est activée par défaut pour une expérience optimale. Vous pouvez voir les paramètres de conversion de type suivants sur activité de copie -> onglet de mappage pour les scénarios applicables. <br>Pour créer un pipeline programmatiquement, vous devez définir explicitement la propriété `typeConversion` sur true pour l’activer.<br>Pour les activités de copie existantes créées avant la publication de cette fonctionnalité, vous ne verrez pas les options de conversion de type sur l’interface utilisateur de création de Data Factory pour la compatibilité descendante. | Non       |
+| typeConversion                   | Activez la nouvelle expérience de conversion de type de données. <br>La valeur par défaut est false en raison de la compatibilité descendante.<br><br>Pour les nouvelles activités de copie créées via l’interface utilisateur de création de Data Factory depuis la fin juin 2020, cette conversion de type de données est activée par défaut pour une expérience optimale. Vous pouvez voir les paramètres de conversion de type suivants sur activité de copie -> onglet de mappage pour les scénarios applicables. <br>Pour créer un pipeline programmatiquement, vous devez définir explicitement la propriété `typeConversion` sur true pour l’activer.<br>Pour les activités de copie existantes créées avant la publication de cette fonctionnalité, vous ne verrez pas les options de conversion de type sur l’interface utilisateur de création pour la compatibilité descendante. | Non       |
 | typeConversionSettings           | Groupe de paramètres de conversion de type. Appliquer lorsque `typeConversion` a la valeur `true`. Les propriétés suivantes sont toutes sous ce groupe. | Non       |
 | *Sous : `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Autorisez la troncation des données lors de la conversion des données sources en récepteur avec un type différent pendant la copie, par exemple, de décimal à entier, de DatetimeOffset à DateTime. <br>La valeur par défaut est true. | Non       |
@@ -350,7 +353,7 @@ Les propriétés suivantes sont prises en charge dans l’activité de copie pou
 ## <a name="legacy-models"></a>Modèles hérités
 
 > [!NOTE]
-> Les modèles suivants pour mapper des colonnes/champs sources vers un récepteur sont toujours pris en charge tels quels à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle mentionné dans [mappage de schéma](#schema-mapping). L’interface utilisateur de création de Data Factory a basculé vers la génération du nouveau modèle.
+> Les modèles suivants pour mapper des colonnes/champs sources vers un récepteur sont toujours pris en charge tels quels à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle mentionné dans [mappage de schéma](#schema-mapping). L’interface utilisateur de création a basculé vers la génération du nouveau modèle.
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Autre mappage de colonnes (modèle hérité)
 

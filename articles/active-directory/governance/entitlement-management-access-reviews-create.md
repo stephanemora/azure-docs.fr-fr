@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf34223e44ddfb59a72f98d31f0df5d9a882e0eb
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 0f2497e47078f91c1649db107dd105227e219ae2
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713591"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565714"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Créer une révision d’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -53,16 +53,22 @@ Ce paramètre détermine la fréquence à laquelle les révisions d’accès aur
 
 1. Configurez la **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique sera ouverte pourra être modifiée par les réviseurs. Par exemple, vous pouvez planifier une révision annuelle qui commence le 1er janvier et qui est ouverte pour une période de 30 jours, de sorte que les réviseurs ont jusqu’à la fin du mois pour répondre.
 
-1. En regard de **Relecteurs**, sélectionnez **Révision automatique** si vous souhaitez que les utilisateurs effectuent leur propre révision d’accès ou sélectionnez **Réviseur(s) spécifique(s)** si vous souhaitez désigner un réviseur.
+1. En regard de **Relecteurs**, sélectionnez **Révision automatique** si vous souhaitez que les utilisateurs effectuent leur propre révision d’accès ou sélectionnez **Réviseur(s) spécifique(s)** si vous souhaitez désigner un réviseur. Vous pouvez également sélectionner **Manager** si vous souhaitez désigner comme réviseur le manager de l’utilisateur qui fait l’objet de la révision. Si vous sélectionnez cette option, vous devez ajouter un **réviseur de secours** à qui confier la révision dans le cas où le manager soit introuvable dans le système.
 
-    ![Sélectionner Ajouter des réviseurs](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
+1. Si vous avez sélectionné **Réviseur(s) spécifique(s)** , spécifiez les utilisateurs qui feront la révision d’accès : ![Sélectionnez Ajouter des réviseurs](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
-1. Si vous avez sélectionné **Réviseur(s) spécifique(s)** , spécifiez les utilisateurs qui feront la révision d’accès :
     1. Sélectionnez **Ajouter des réviseurs**.
     1. Dans le volet **Sélectionner des réviseurs**, recherchez et sélectionnez le ou les utilisateurs que vous souhaitez utiliser comme réviseurs.
     1. Une fois que vous avez sélectionné le ou les réviseurs, cliquez sur le bouton **Sélectionner**.
 
     ![Spécifier les réviseurs](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
+
+1. Si vous avez sélectionné  **Manager**, spécifiez le réviseur de secours : 
+    1. Sélectionnez  **Ajouter des réviseurs de secours**.
+    1. Dans le volet Sélectionner les réviseurs de secours, recherchez puis sélectionnez le ou les utilisateurs que vous souhaitez désigner comme réviseurs de secours pour le manager.
+    1. Une fois que vous avez sélectionné le ou les réviseurs de secours, cliquez sur le bouton  **Sélectionner**. 
+
+    ![Ajouter les réviseurs de secours](./media/entitlement-management-access-reviews/access-reviews-select-manager.png)
 
 1. Cliquez sur **Évaluer + Créer** si vous créez un nouveau package d’accès ou **Mettre à jour** si vous modifiez un package d’accès, en bas de la page.
 

@@ -7,23 +7,22 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 118c91ec204a2e207b28343fe0535c67b89b03b7
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92927445"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433343"
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe
 
-Un environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau de réseau virtuel Azure.
-
 > [!NOTE]
-> Chaque instance d’App Service Environment a une adresse IP virtuelle qui peut être utilisée pour contacter App Service Environment.
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
-Il existe deux façons de déployer un environnement App Service (ASE, App Service Environment) :
+Un environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau de réseau virtuel Azure. Il existe deux façons de déployer un environnement App Service (ASE, App Service Environment) :
 
-- avec une adresse IP virtuelle sur une adresse IP externe, solution souvent appelée ASE externe ;
+- avec une adresse IP virtuelle sur une adresse IP publique externe, solution souvent appelée ASE externe ;
 - avec l'adresse IP virtuelle sur une adresse IP interne, solution souvent appelée environnement App Service ILB car le point de terminaison interne est un équilibreur de charge interne (ILB, Internal Load Balancer).
 
 Cet article vous explique comment créer un ASE externe. Pour obtenir une présentation de l’environnement App Service, consultez [Présentation de l’environnement App Service Environment][Intro]. Pour plus d’informations sur la façon de créer un environnement App Service ILB, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE].

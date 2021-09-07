@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b45af43c9a5c76169deaef08c91ea7a9e8670c1
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: c44336e41c173cffad28a52bed3c29ec13df497f
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371684"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323157"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exiger un transfert sécurisé pour garantir des connexions sécurisées
 
@@ -29,7 +29,9 @@ Azure Policy fournit une stratégie intégrée pour veiller à ce qu’un transf
 La connexion à un partage de fichiers Azure via SMB sans chiffrement échoue lorsque le transfert sécurisé est requis pour le compte de stockage. Parmi les exemples de connexions non sécurisées figurent celles effectuées sur SMB 2.1 ou SMB 3 sans chiffrement.
 
 > [!NOTE]
-> Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé. En outre, les comptes de stockage classiques ne sont pas pris en charge.
+> Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé.
+> 
+> Ce paramètre de transfert sécurisé ne s’applique pas au protocole TCP. Les connexions effectuées via le protocole NFS 3.0 dans le Stockage Blob Azure avec le protocole TCP (qui n’est pas sécurisé) aboutiront.  
 
 ## <a name="require-secure-transfer-in-the-azure-portal"></a>Exiger un transfert sécurisé dans le portail Azure
 

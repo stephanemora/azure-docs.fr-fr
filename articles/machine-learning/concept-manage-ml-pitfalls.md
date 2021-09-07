@@ -10,20 +10,20 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8945a5766865f4df6175e7330d3bf9c947e1fa0d
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96922624"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600493"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Empêcher le surajustement et les données déséquilibrées avec le Machine Learning automatisé
 
-Les données surajustées et déséquilibrées sont des pièges courants lorsque vous générez des modèles Machine Learning. Par défaut, le Machine Learning automatisé d’Azure Machine Learning fournit des graphiques et des métriques vous permettant d’identifier ces risques et met en œuvre les meilleures pratiques pour les atténuer. 
+Les données surajustées et déséquilibrées sont des pièges courants quand vous générez des modèles Machine Learning. Par défaut, le Machine Learning automatisé d’Azure Machine Learning fournit des graphiques et des métriques vous permettant d’identifier ces risques et met en œuvre les meilleures pratiques pour les atténuer. 
 
-## <a name="identify-over-fitting"></a>Identifier les surajustements
+## <a name="identify-overfitting"></a>Identifier les surajustements
 
-Le surajustement en Machine Learning se produit quand un modèle ajuste trop bien les données d’entraînement, et est par conséquent dans l’incapacité de prédire avec précision des données de test invisibles. En d’autres termes, le modèle a simplement mémorisé du bruit et des patterns spécifiques dans les données d’entraînement, mais il n’est pas suffisamment flexible pour faire des prédictions sur des données réelles.
+Le surajustement en Machine Learning se produit quand un modèle ajuste trop bien les données d’entraînement, et est donc dans l’incapacité de prédire avec précision des données de test invisibles. En d’autres termes, le modèle a simplement mémorisé du bruit et des patterns spécifiques dans les données d’entraînement, mais il n’est pas suffisamment flexible pour faire des prédictions sur des données réelles.
 
 Considérez les modèles entraînés suivants et leurs précisions d’entraînement et de test correspondantes.
 
@@ -39,7 +39,7 @@ Si l’on compare les modèles **A** et **B**, le modèle **A** est meilleur, ca
 
 Le modèle **C** représente un cas clair de surajustement ; la précision d’entraînement est très élevée, mais la précision de test l’est beaucoup moins. Cette distinction est subjective, mais provient de la connaissance de votre problème et de vos données, ainsi que des amplitudes d’erreur acceptables.
 
-## <a name="prevent-over-fitting"></a>Empêcher le surajustement
+## <a name="prevent-overfitting"></a>Empêcher le surajustement
 
 Dans les cas les plus flagrants, un modèle surajusté suppose que les combinaisons de valeurs de caractéristiques vues lors de l’entraînement produiront toujours exactement la même sortie pour la cible.
 
@@ -54,21 +54,33 @@ La meilleure façon d’empêcher le surajustement consiste à respecter les bon
 
 Dans le contexte du ML automatisé, les trois premiers éléments ci-dessus sont des **bonnes pratiques que vous implémentez**. Les trois derniers éléments en gras sont **des bonnes pratiques implémentées par le ML automatisé** par défaut afin d’offrir une protection contre le surajustement. Dans les paramètres autres que le ML automatisé, il convient de respecter ces six bonnes pratiques pour éviter le surajustement des modèles.
 
-### <a name="best-practices-you-implement"></a>Bonnes pratiques que vous implémentez
+## <a name="best-practices-you-implement"></a>Bonnes pratiques que vous implémentez
 
-L’utilisation de **davantage** de données est le meilleur moyen (et le plus simple) d’empêcher le surajustement. En plus, cela permet généralement d’augmenter la justesse. Plus vous utilisez de données, plus il devient difficile pour le modèle de mémoriser des patterns exacts, et plus il est contraint de trouver des solutions plus flexibles pour prendre en charge davantage de conditions. Il est également important de reconnaître le **biais statistique** afin de garantir que vos données d’entraînement n’incluent pas de patterns isolés qui n’existeront pas dans les données de prédictions dynamiques. Ce scénario peut être difficile à résoudre, car il se peut qu’il n’y ait pas de surajustement entre vos jeux de test et d’entraînement, mais qu’il y en ait un par comparaison aux données de test dynamiques.
+### <a name="use-more-data"></a>Utiliser davantage de données
+
+L’utilisation de **davantage de données** est le meilleur moyen (et le plus simple) d’empêcher le surajustement et en prime, elle permet généralement d’augmenter la justesse. Plus vous utilisez de données, plus il devient difficile pour le modèle de mémoriser des patterns exacts, et plus il est contraint de trouver des solutions plus flexibles pour prendre en charge davantage de conditions. Il est également important de reconnaître le **biais statistique** afin de garantir que vos données d’entraînement n’incluent pas de patterns isolés qui n’existeront pas dans les données de prédictions dynamiques. Ce scénario peut être difficile à résoudre, car il se peut qu’il n’y ait pas de surajustement entre vos jeux de test et d’entraînement, mais qu’il y en ait un par comparaison aux données de test dynamiques.
+
+### <a name="prevent-target-leakage"></a>Empêcher la fuite de cible
 
 La **fuite de cible** est un problème similaire, où il est possible que le surajustement soit visible non pas entre les jeux d’entraînement et de test, mais au moment de la prédiction. La fuite de cible se produit quand votre modèle « triche » lors de l’entraînement en ayant accès à des données auxquelles il ne devrait normalement pas avoir accès au moment de la prédiction. Par exemple, si votre problème consiste à prédire, le lundi, quel sera le prix d’un produit le vendredi, mais que l’une de vos caractéristiques inclut accidentellement des données du jeudi, il s’agit de données auxquelles le modèle n’aura pas accès au moment de la prédiction, car il ne peut pas voir dans le futur. La fuite de cible est une erreur facile à manquer, mais elle est souvent caractérisée par une justesse anormalement élevée pour votre problème. Si vous tentez de prédire des cours boursiers et que vous avez entraîné un modèle à 95 % de justesse, il est probable qu’il existe des fuites de cible quelque part dans vos caractéristiques.
 
+### <a name="use-fewer-features"></a>Utiliser moins de caractéristiques
+
 La **suppression de caractéristiques** peut aussi aider en cas de surajustement, en empêchant que le modèle ait un trop grand nombre de champs à utiliser pour mémoriser des patterns spécifiques, ce qui le rend plus flexible. Cela peut être difficile à mesurer quantitativement, mais si vous pouvez supprimer des caractéristiques et conserver la même justesse, vous avez probablement rendu le modèle plus flexible et vous avez réduit le risque de surajustement.
 
-### <a name="best-practices-automated-ml-implements"></a>Meilleures pratiques implémentées par le ML automatisé
+## <a name="best-practices-automated-ml-implements"></a>Meilleures pratiques implémentées par le ML automatisé
+
+### <a name="regularization-and-hyperparameter-tuning"></a>Régularisation et réglage des hyperparamètres
 
 La **régularisation** est le processus qui consiste à minimiser une fonction de coût pour pénaliser les modèles complexes et surajustés. Il existe différents types de fonctions de régularisation, mais en général elles pénalisent toutes la complexité, la variance et la taille de coefficient du modèle. Le ML automatisé utilise L1 (Lasso), L2 (Ridge) et ElasticNet (L1 et L2 simultanément) dans différentes combinaisons avec des paramètres d’hyperparamètres de modèle différents qui contrôlent le surajustement. En termes simples, le ML automatisé peut varier le degré de régulation d’un modèle et choisir le résultat le plus juste.
 
+### <a name="model-complexity-limitations"></a>Limitations de la complexité des modèles
+
 Le ML automatisé implémente également des **limitations de complexité de modèle** explicites afin d’empêcher le surajustement. Dans la plupart des cas, cette implémentation concerne spécifiquement les algorithmes de forêt ou d’arbres de décision, où la profondeur maximale d’une arborescence donnée est limitée et le nombre total d’arbres utilisés dans les techniques de forêt ou d’ensemble est limité.
 
-La **validation croisée** est le processus qui consiste à prendre de nombreux sous-ensembles de vos données d’entraînement complètes et à entraîner un modèle sur chaque sous-ensemble. L’idée est qu’un modèle pourrait être « chanceux » et avoir une grande justesse avec un sous-ensemble, mais avec l’utilisation de nombreux sous-ensembles le modèle ne présentera pas cette justesse élevée à chaque fois. Avec la validation croisée, vous fournissez un jeu de données d’exclusion de validation, vous spécifiez vos plis de validation croisée (le nombre de sous-ensembles), et le ML automatisé entraîne votre modèle et ajuste les hyperparamètres afin de minimiser les erreurs sur votre jeu de validation. Il est possible qu’un pli de validation croisée présente un surajustement, mais l’utilisation de nombreux plis réduit la probabilité que votre modèle final soit surajusté. L’inconvénient est que la validation croisée entraîne des temps d’entraînement plus longs, et par conséquent un coût plus élevé, car au lieu d’entraîner un modèle une seule fois, vous l’entraînez une fois pour tous les *n* sous-ensembles de validation croisée. 
+### <a name="cross-validation"></a>Validation croisée
+
+La **validation croisée** est le processus qui consiste à prendre de nombreux sous-ensembles de vos données d’entraînement complètes et à entraîner un modèle sur chaque sous-ensemble. L’idée est qu’un modèle pourrait être « chanceux » et avoir une grande justesse avec un sous-ensemble, mais avec l’utilisation de nombreux sous-ensembles le modèle ne présentera pas cette justesse élevée à chaque fois. Avec la validation croisée, vous fournissez un jeu de données d’exclusion de validation, vous spécifiez vos plis de validation croisée (le nombre de sous-ensembles), et le ML automatisé entraîne votre modèle et ajuste les hyperparamètres afin de minimiser les erreurs sur votre jeu de validation. Il est possible qu’un pli de validation croisée soit surajusté, mais l’utilisation de nombreux plis réduit la probabilité que votre modèle final soit surajusté. L’inconvénient est que la validation croisée entraîne des temps d’entraînement plus longs, et par conséquent un coût plus élevé, car au lieu d’entraîner un modèle une seule fois, vous l’entraînez une fois pour tous les *n* sous-ensembles de validation croisée. 
 
 > [!NOTE]
 > La validation croisée n’est pas activée par défaut ; vous devez la configurer dans les paramètres de ML automatisé. Cependant, une fois que la validation croisée est configurée et qu’un jeu de données de validation a été fourni, le processus est automatisé. En savoir plus sur la [configuration de la validation croisée dans Auto ML](how-to-configure-cross-validation-data-splits.md)
@@ -112,5 +124,3 @@ Consultez les exemples et découvrez comment générer des modèles à l’aide 
 + Configurez les paramètres pour l’expérience d’apprentissage automatique :
   + Dans Azure Machine Learning Studio, [suivez ces étapes](how-to-use-automated-ml-for-ml-models.md).
   + Avec le Kit de développement logiciel (SDK) Python, [procédez comme suit](how-to-configure-auto-train.md).
-
-

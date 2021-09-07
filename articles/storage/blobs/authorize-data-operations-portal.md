@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3d654a84b6e0e5cfb00c7b5d5dd5742649ec7a81
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: b6af5e7efa14c7a8b2243e908b52ed6cf50c8272
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900770"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727216"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de blobs dans le portail Azure
 
@@ -54,7 +54,7 @@ Pour accéder aux données d’objet blob à partir du Portail Microsoft Azure �
 
 Le rôle **Lecteur** est un rôle d’Azure Resource Manager qui permet aux utilisateurs d’afficher les ressources de compte de stockage, mais pas de les modifier. Il ne fournit pas d’autorisations en lecture pour les données dans Stockage Azure, mais uniquement pour les ressources de gestion de compte. Le rôle **Lecteur** est nécessaire pour que les utilisateurs puissent accéder aux conteneurs d’objets blob du portail Azure.
 
-Pour plus d’informations sur les rôles intégrés qui prennent en charge l’accès aux données d’objet blob, consultez [Rôles Azure pour les objets blob](assign-azure-role-data-access.md#azure-roles-for-blobs).
+Pour plus d’informations sur les rôles intégrés qui prennent en charge l’accès aux données d’objets blob, consultez [Autoriser l’accès aux objets blob avec Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Les rôles personnalisés peuvent prendre en charge différentes combinaisons des mêmes autorisations fournies par les rôles intégrés. Pour plus d’informations sur la création de rôles Azure personnalisés, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) et [Présentation des définitions de rôles pour les ressources Azure](../../role-based-access-control/role-definitions.md).
 
@@ -110,5 +110,5 @@ Pour spécifier comment autoriser une opération de chargement d'objets blob, pr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Authentifier l’accès aux objets blob et aux files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md)
+- [Autoriser l’accès aux données dans le stockage Azure](../common/authorize-data-access.md)
 - [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md)

@@ -7,20 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 06/18/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d37ad4571df0912cdb2ac8954a2292df8c8a238e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f639d5ab175039d65d599aaa32f800afd6adfe5b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742802"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443907"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flux de code d’autorisation OAuth 2.0 dans Azure Active Directory B2C
 
-Vous pouvez utiliser l’octroi de code d’autorisation OAuth 2.0 dans les applications qui sont installées sur un appareil pour accéder à des ressources protégées, comme des API web. Grâce à l’implémentation Azure Active Directory B2C (Azure AD B2C) d’OAuth 2.0, vous pouvez ajouter l’inscription, la connexion et d’autres tâches de gestion des identités à vos applications monopages, à vos applications mobiles et à vos applications de bureau. Cet article est indépendant du langage. Il décrit comment envoyer et recevoir des messages HTTP sans utiliser de bibliothèque open source. Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge. Voir les [exemples d’applications qui utilisent une MSAL](code-samples.md).
+Vous pouvez utiliser l’octroi de code d’autorisation OAuth 2.0 dans les applications qui sont installées sur un appareil pour accéder à des ressources protégées, comme des API web. Grâce à l’implémentation Azure Active Directory B2C (Azure AD B2C) d’OAuth 2.0, vous pouvez ajouter l’inscription, la connexion et d’autres tâches de gestion des identités à vos applications monopages, à vos applications mobiles et à vos applications de bureau. Cet article est indépendant du langage. Il décrit comment envoyer et recevoir des messages HTTP sans utiliser de bibliothèque open source. Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge. Voir les [exemples d’applications qui utilisent une MSAL](integrate-with-app-code-samples.md).
 
 Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](https://tools.ietf.org/html/rfc6749). Vous pouvez l’utiliser pour les activités d’authentification et d’autorisation avec la plupart des [types d’applications](application-types.md), notamment les applications web, les applications monopages et les applications installées de façon native. Vous pouvez utiliser le flux de code d’autorisation OAuth 2.0 pour acquérir de manière sécurisée des jetons d’accès et des jetons d’actualisation pour vos applications, en vue d’accéder à des ressources sécurisées par un [serveur d’autorisation](protocols-overview.md).  Le jeton d’actualisation permet au client d’acquérir de nouveaux jetons d’accès (et d’actualisation) après l’expiration du jeton d’accès, soit généralement au bout d’une heure.
 
@@ -66,7 +66,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Obligatoire |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com). |
 | response_type |Obligatoire |Le type de réponse, qui doit inclure `code` pour le flux de code d’autorisation. |
 | redirect_uri |Obligatoire |URI de redirection de votre application, où votre application envoie et reçoit des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection que vous avez enregistrés dans le portail, sauf qu’il doit être encodé au format URL. |
-| scope |Obligatoire |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure Active Directory (Azure AD) les deux autorisations qui sont demandées. Utiliser l’ID de client comme étendue indique que votre application a besoin d’un jeton d’accès qui peut être utilisé avec votre propre service ou API web, représenté par le même ID de client.  L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources. Vous pouvez également utiliser l’étendue `openid` pour demander un jeton d’ID à partir d’Azure AD B2C. |
+| scope |Obligatoire |Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. L’étendue `offline_access` est facultative pour les applications web. Elle indique que votre application a besoin d’un *jeton d’actualisation* pour un accès étendu aux ressources. `https://{tenant-name}/{app-id-uri}/{scope}` indique une autorisation pour les ressources protégées telles qu’une API web. Pour plus d’informations, consultez [Demander un jeton d’accès](access-tokens.md#scopes). |
 | response_mode |Recommandé |Méthode à utiliser pour renvoyer le code d’autorisation résultant à votre application. Il peut s’agir de `query`, `form_post` ou `fragment`. |
 | state |Recommandé |Une valeur incluse dans la requête peut être une chaîne de n’importe quel contenu que vous voulez utiliser. Généralement, une valeur unique générée de manière aléatoire est utilisée, pour empêcher les attaques par falsification de requête intersites. L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification. Par exemple, la page dans laquelle l’utilisateur se trouvait ou le flux d’utilisateur en cours d’exécution. |
 | prompt |Facultatif |Type d’interaction utilisateur requis. Actuellement, la seule valeur valide est `login`, ce qui oblige l’utilisateur à entrer ses informations d’identification sur cette demande. L’authentification unique ne prendra pas effet. |

@@ -1,19 +1,19 @@
 ---
 title: Exigences en matière de co-vente | Place de marché Azure
-description: Découvrez les conditions qu’une offre de la Place de marché commerciale Microsoft doit remplir pour être éligible au statut « Prête pour la co-vente » ou « Co-vente avec incentives ».
+description: Découvrez les conditions qu’une offre de la Place de marché commerciale Microsoft doit remplir pour être éligible au statut « Prête pour la co-vente » ou « Incentive de co-vente ».
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 04/16/2021
-ms.openlocfilehash: 7a5e4375ebe289bb5ae012f94ba9dd050563bbbb
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/13/2021
+ms.openlocfilehash: 31ea2d07db013220db97ab9d3b0e7879f83bc3fe
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209856"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114388059"
 ---
 # <a name="co-sell-requirements"></a>Exigences en matière de co-vente
 
@@ -25,8 +25,8 @@ Ce tableau indique tous les statuts de co-vente possibles :
 | ------------ | ------------- |
 | Pas de co-vente prête | Les [conditions minimales requises pour le statut Prêt pour la co-vente](#requirements-for-co-sell-ready-status) ne sont pas remplies. |
 | Prêt pour la co-vente | Toutes les [conditions requises pour le statut Prêt pour la co-vente](#requirements-for-co-sell-ready-status) sont remplies. |
-| Co-vente Azure IP avec incentives | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](#requirements-for-azure-ip-co-sell-incentivized-status). |
-| Co-vente d'applications métier avec incentives | Ce statut s’applique aux offres Dynamics 365 et Power Apps dans le [Programme Business Applications ISV Connect](business-applications-isv-program.md). Il indique que toutes les [conditions requises pour ce statut](#requirements-for-business-applications-co-sell-incentivized-status) sont remplies. |
+| Incentive de co-vente Azure IP | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](#requirements-for-azure-ip-co-sell-incentive-status). |
+| Incentive de co-vente d’applications métier | Ce statut s’applique aux offres Dynamics 365 et Power Apps dans le [Programme Business Applications ISV Connect](business-applications-isv-program.md). Il indique que toutes les [conditions requises pour ce statut](#requirements-for-business-applications-co-sell-incentive-status) sont remplies. |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Conditions requises pour le statut Prêt pour la co-vente
@@ -64,9 +64,9 @@ Nous mettons des modèles à votre disposition pour vous aider à créer ces doc
 
 Pour être éligible au statut Prêt pour la co-vente, votre offre ou solution doit être publiée et active dans au moins l’un des magasins en ligne de la Place de marché commerciale : Place de marché Microsoft Azure ou Microsoft AppSource. Pour plus d’informations sur la publication d’offres sur la Place de marché commerciale, consultez [Guide de publication par type d’offre](publisher-guide-by-offer-type.md). Si vous n’avez encore jamais publié d’offre sur la Place de marché commerciale, vérifiez que vous disposez d’un [compte de Place de marché commerciale](create-account.md).
 
-## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Conditions requises pour le statut Co-vente Azure IP avec incentives
+## <a name="requirements-for-azure-ip-co-sell-incentive-status"></a>Exigences pour le statut Incentive de co-vente Azure IP
 
-Le statut Co-vente Azure IP avec incentives s’applique aux types d’offres suivants :
+Le statut Incentive de co-vente Azure IP s’applique aux types d’offres suivants :
 
 - Azure Application
 - Conteneur Azure
@@ -74,7 +74,7 @@ Le statut Co-vente Azure IP avec incentives s’applique aux types d’offres su
 - Module IoT Edge
 - SaaS (software as a service)
 
-Une fois le statut Prêt pour la co-vente atteint, trois conditions supplémentaires sont requises pour atteindre le statut Co-vente Azure IP avec incentives :
+Une fois le statut Prêt pour la co-vente atteint, trois exigences supplémentaires s’appliquent pour atteindre le statut Incentive de co-vente Azure IP :
 
 Condition 1 - accomplir ce qui suit :
 
@@ -86,7 +86,7 @@ Condition 2 - passer la validation technique Microsoft pour une solution basée 
 Condition 3 - fournir un diagramme d’architecture de référence :
 - Chargez un diagramme d’architecture de référence avec vos documents de co-vente dans l’Espace partenaires afin qu’il soit examiné. Pour obtenir des conseils sur la création de ce diagramme, consultez [Diagramme d’architecture de référence](reference-architecture-diagram.md). Pour plus d’informations sur le chargement du diagramme, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md).
 
-## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Conditions requises pour le statut d’incentives de co-vente Business Applications
+## <a name="requirements-for-business-applications-co-sell-incentive-status"></a>Exigences pour le statut Incentive de co-vente d’applications métier
 
 Ce statut s’applique aux solutions IP reposant sur Dynamics 365 ou Power Apps (à l’exception de Dynamics 365 Business Central) qui sont inscrits au programme ISV Connect. Toutefois, les offres doivent également remplir les conditions requises pour le statut prêt pour la co-vente (décrit ci-dessus), afin que les vendeurs Microsoft puissent co-vendre l’offre avec vous.
 

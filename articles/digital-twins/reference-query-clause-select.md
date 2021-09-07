@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 1118e44e822068566579fdc516479afeda294cf6
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: eeba36b200028d4e90e22cd32c9bab6dbe3799e0
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789494"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492862"
 ---
 # <a name="azure-digital-twins-query-language-reference-select-clause"></a>Informations de référence sur le langage de requête Azure Digital Twins : clause SELECT
 
@@ -35,7 +35,7 @@ Utilisez le caractère `*` dans une instruction SELECT pour projeter le document
 
 ### <a name="returns"></a>Retours
 
-Jeu de propriétés renvoyées par la requête.
+Jeu des propriétés qui sont retournées par la requête.
 
 ### <a name="example"></a>Exemple
 
@@ -93,7 +93,7 @@ Vous trouverez ci-dessous un exemple de requête qui projette une collection à 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectCollectionExample":::
 
-Voici la charge utile JSON renvoyée par cette requête :
+Voici la charge utile JSON qui est retournée par cette requête :
 
 ```json
 {
@@ -135,11 +135,11 @@ Voici la charge utile JSON renvoyée par cette requête :
 
 #### <a name="project-with-join-example"></a>Exemple de projection avec JOIN
 
-La projection est couramment utilisée pour renvoyer une collection spécifiée dans un `JOIN`. La requête suivante utilise la projection pour renvoyer les données du consommateur, de la fabrique et de la relation. Pour plus d’informations sur la syntaxe `JOIN` utilisée dans l’exemple, consultez [Informations de référence sur le langage de requête Azure Digital Twins : clause JOIN](reference-query-clause-join.md).
+La projection est couramment utilisée pour renvoyer une collection spécifiée dans un `JOIN`. La requête suivante utilise la projection pour retourner les données du consommateur, de la fabrique et de la relation. Pour plus d’informations sur la syntaxe `JOIN` utilisée dans l’exemple, consultez [Informations de référence sur le langage de requête Azure Digital Twins : clause JOIN](reference-query-clause-join.md).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectJoinExample":::
 
-Voici la charge utile JSON renvoyée par cette requête :
+Voici la charge utile JSON qui est retournée par cette requête :
 
 ```json
 {
@@ -191,7 +191,7 @@ Voici un exemple projetant une propriété. La requête suivante utilise la proj
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyExample":::
 
-Voici la charge utile JSON renvoyée par cette requête :
+Voici la charge utile JSON qui est retournée par cette requête :
 
 ```json
 {
@@ -215,7 +215,7 @@ Si une propriété incluse dans la projection n’est pas présente pour une lig
 
 Prenez l’exemple d’un ensemble de jumeaux représentant des personnes. Des âges sont associés à certains jumeaux, mais pas à d’autres.
 
-Voici une requête projetant les propriétés `name` et `age` :
+Voici une requête qui projette les propriétés `name` et `age` :
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyNotPresentExample":::
 
@@ -268,7 +268,7 @@ La requête suivante renvoie le nombre de relations de l’instance.
 
 ## <a name="select-top"></a>SELECT TOP
 
-Utilisez cette méthode pour renvoyer uniquement un certain nombre d’éléments principaux répondant aux exigences de requête.
+Utilisez cette méthode pour retourner uniquement les principaux éléments qui satisfont aux exigences de requête.
 
 ### <a name="syntax"></a>Syntaxe
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 23825bd3ab41891f775f26e2ee2b052e3a041401
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5cbf179cd28a36705379049a66010d02d2e7cf24
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560098"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532177"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Inscription et analyse d’Azure Cosmos DB (API SQL)
 
@@ -52,7 +52,7 @@ Si la méthode d’authentification sélectionnée est **Clé de compte**, vous 
 Pour inscrire un nouveau compte Azure Cosmos DB (API SQL) dans votre catalogue de données, procédez comme suit :
 
 1. Accédez à votre compte Purview.
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 1. Sélectionnez **Inscrire**.
 1. Sous **Inscrire des sources**, sélectionnez **Azure Cosmos DB (API SQL)** .
 1. Sélectionnez **Continue** (Continuer)

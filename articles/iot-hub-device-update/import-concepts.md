@@ -6,15 +6,26 @@ ms.author: andbrown
 ms.date: 2/10/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 4cd5e0c016b98a3dc9336237a5c1b14e6b0f5789
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 39a1acb596f4d56915aabfa0a64fc69d6e55aec2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040581"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769097"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub"></a>Importation de mises à jour dans Device Update pour IoT Hub
 Pour déployer une mise à jour sur des appareils à partir de Device Update pour IoT Hub, vous devez d’abord _importer_ cette mise à jour dans le service Device Update. Voici une vue d’ensemble de certains concepts importants à comprendre en ce qui concerne l’importation de mises à jour.
+
+## <a name="limits-on-importing-updates"></a>Limites sur l’importation des mises à jour
+Pour chaque instance Device Update pour IoT Hub, les limites suivantes sont appliquées :
+
+* 5 fournisseurs par instance ADU
+* 5 noms par fournisseur
+* 25 versions par nom
+
+Il existe également une limite de 100 versions de mise à jour cumulées (pour l’ensemble des fournisseurs et noms).
+
+La taille de fichier maximale autorisée est de 800 Mo pour tout fichier individuel dans une soumission de mise à jour. Le total _combiné_ de tous les fichiers dans une même soumission de mise à jour ne doit pas non plus dépasser 800 Mo.
 
 ## <a name="import-manifest"></a>Manifeste d’importation
 

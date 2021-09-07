@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/21/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f344496bab8f2864c8ccbdff4f98b57e1d6f432
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: fe8f41c2ecf92034f81f2332aabee5a55df66a92
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613250"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439251"
 ---
 # <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Renforcer un domaine géré des services de domaine Azure Active Directory
 
@@ -50,6 +50,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 1. Cliquez sur **Activer** ou **Désactiver** pour les paramètres suivants :
    - **Mode TLS 1.2 uniquement**
    - **Authentification NTLM**
+   - **Synchronisation de mot de passe à partir d’un emplacement local**
    - **Synchronisation de mot de passe NTLM à partir d’un emplacement local**
    - **Chiffrement RC4**
    - **Protection Kerberos**
@@ -64,6 +65,10 @@ En plus des **paramètres de sécurité**, Microsoft Azure stratégie a un param
 - Si l’attribution est **Refusée**, la conformité empêche la création d’une instance d’Azure AD DS si TLS 1.2 n’est pas requis et empêche toute mise à jour d’une instance Azure AD DS jusqu’à ce que TLS 1.2 soit requis.
 
 ![Capture d’écran des paramètres de conformité](media/secure-your-domain/policy-tls.png)
+
+## <a name="audit-ntlm-failures"></a>Auditer les échecs NTLM
+
+Bien que la désactivation de la synchronisation de mot de passe NTLM améliore la sécurité, de nombreuses applications et de nombreux services ne sont pas conçus pour fonctionner sans elle. Par exemple, la connexion à une ressource par son adresse IP, telle que la gestion de serveur DNS ou le protocole RDP, échoue avec l’erreur Accès refusé. Si vous désactivez la synchronisation de mot de passe NTLM et que votre application ou service ne fonctionne pas comme prévu, vous pouvez vérifier les échecs d’authentification NTLM en activant l’audit de sécurité pour la catégorie d’événements **Ouverture/fermeture de session** > **Auditer l’ouverture de session**, où NTLM est spécifié en tant que **package d’authentification** dans les détails de l’événement. Pour plus d’informations, consultez [Activer les audits de sécurité pour Azure Active Directory Domain Services](security-audit-events.md).
 
 ## <a name="use-powershell-to-harden-your-domain"></a>Utiliser PowerShell pour renforcer votre domaine
 

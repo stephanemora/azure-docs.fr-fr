@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 07/23/2021
+ms.openlocfilehash: 6c51a118b0581759f456b243b6dde25890b36f39
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587899"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668473"
 ---
 # <a name="understanding-resource-sets"></a>Présentation des jeux de ressources
 
@@ -27,7 +27,7 @@ Pour résoudre le problème de mappage d’un grand nombre de ressources de donn
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Comment Azure Purview détecte les jeux de ressources
 
-Azure Purview prend en charge la détection des jeux de ressources dans Stockage Blob Azure, ADLS Gen1 et ADLS Gen2.
+Azure Purview prend en charge la détection des ensembles de ressources dans Stockage Blob Azure, ADLS Gen1, ADLS Gen2, Azure Files et Amazon S3.
 
 Azure Purview détecte automatiquement les jeux de ressources lors de l’analyse. Cette fonctionnalité examine toutes les données qui sont ingérées par le biais de l’analyse et les compare à un ensemble de modèles définis.
 

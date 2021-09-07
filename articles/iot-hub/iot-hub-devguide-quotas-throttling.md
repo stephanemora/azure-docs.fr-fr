@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 - contperf-fy21q4
-ms.openlocfilehash: 127e511769a7c2aface1531c9f888e9ce213b999
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: f0c07da859ae34a030058ee2c99d2c7b72378f5d
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407018"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135624"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -70,7 +70,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 
 *  Le **quota** est le nombre total de messages que vous pouvez envoyer dans votre hub *par jour*. Vous trouverez la limite de quota de votre hub sous la colonne **Nombre total de messages/jour** sur la [page de tarification IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-*  Vos limites cloud-à-appareil et appareil-à-cloud déterminent la *vitesse* maximale à laquelle vous pouvez envoyer des messages, c’est-à-dire le nombre de messages, quels que soient les blocs de 4 Ko. Chaque message peut atteindre une taille de 256 Ko, soit la [taille de message maximale](iot-hub-devguide-quotas-throttling.md#other-limits).
+*  Vos limites cloud-à-appareil et appareil-à-cloud déterminent la *vitesse* maximale à laquelle vous pouvez envoyer des messages, c’est-à-dire le nombre de messages, quels que soient les blocs de 4 Ko. La taille des messages appareil-à-cloud (D2C) peut atteindre 256 Ko. Celle des messages cloud-à-appareil (C2D) peut atteindre 64 Ko. Il s’agit de la [taille maximale des messages] pour chaque type de message.
 
 *  Il est recommandé de limiter vos appels afin de ne pas atteindre/dépasser les limitations. Si vous atteignez la limite, IoT Hub répond avec le code d’erreur 429 et le client doit temporiser et effectuer une nouvelle tentative. Ces limites sont définies par hub (ou, dans certains cas, par hub/unité). Pour plus d’informations, consultez la rubrique [Gérer la connectivité et la messagerie fiable/Modèles de nouvelle tentative](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 

@@ -4,18 +4,17 @@ description: Modèles de mise à l’échelle automatique d’Azure pour Web App
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 5a49c9812848d9ef8cbe5a4499fb1430ca146855
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 42cef2578ed95e7d7935079569e34b221bdd6830
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738425"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454162"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](../../api-management/api-management-key-concepts.md).
 
 ## <a name="autoscale-concepts"></a>Concepts de la mise à l’échelle automatique
-
 * Une ressource ne peut avoir qu’ *un* paramètre de mise à l’échelle automatique
 * Un paramètre de mise à l’échelle automatique peut comporter un ou plusieurs profils et chaque profil peut avoir une ou plusieurs règles de mise à l’échelle automatique.
 * Un paramètre de mise à l’échelle automatique met à l’échelle les instances horizontalement, c’est-à-dire vers *l’extérieur* en augmentant la taille des instances et vers *l’intérieur* en diminuant la taille des instances.
@@ -26,15 +25,12 @@ La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [g
 * De même, toutes les opérations de mise à l’échelle réussies sont consignées dans le journal d’activité. Vous pouvez ensuite configurer une alerte de journal d’activité pour être informé par e-mail, SMS ou webhooks à chaque fois qu’une opération de mise à l’échelle automatique se termine avec succès. Vous pouvez également configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie via l’onglet Notifications du paramètre de mise à l’échelle automatique.
 
 ## <a name="autoscale-best-practices"></a>Meilleures pratiques relatives à la mise à l’échelle automatique
-
 Utilisez les meilleures pratiques suivantes lorsque vous utilisez la mise à l’échelle automatique.
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Vérifiez que les valeurs minimales et maximales sont différentes et séparées par une marge suffisante.
-
 Si le paramètre a une valeur minimum = 2, une valeur maximum = 2 et que le nombre d’instances actuel est égal à 2, aucune action de mise à l’échelle ne peut se produire. Conservez une marge suffisante entre les nombres d’instances minimum et maximum, qui sont inclusifs. La mise à l’échelle agit toujours entre ces limites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>La mise à l’échelle manuelle est réinitialisée par les valeurs min et max de mise à l’échelle
-
 Si vous mettez à jour manuellement le nombre d’instances avec une valeur inférieure au minimum ou supérieure au maximum, le moteur de mise à l’échelle s’ajuste automatiquement à la valeur minimale (si elle est inférieure) ou à la valeur maximale (le cas ci-dessus). Par exemple, vous définissez la plage entre 3 et 6. Si vous avez une seule instance en cours d’exécution, le moteur de mise à l’échelle automatique effectue la mise à l’échelle sur trois instances lors de sa prochaine exécution. De même, si vous définissez manuellement la mise à l’échelle sur huit instances, la mise à l’échelle sera redéfinie sur six instances lors de la prochaine exécution.  La mise à l’échelle manuelle est temporaire, sauf si vous réinitialisez aussi les règles de mise à l’échelle.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Utilisez toujours une combinaison de règle d’augmentation et de diminution de la taille des instances qui exécute une augmentation et une diminution
@@ -78,7 +74,7 @@ Dans ce cas
 > Si le moteur de mise à l’échelle automatique détecte un risque de bagottement en raison de la mise à l’échelle vers le nombre cible d’instances, il essaie également d’effectuer une mise à l’échelle avec un nombre différent d’instances entre le nombre actuel et le nombre cible. Si le bagottement ne se produit pas dans cette plage, la mise à l’échelle automatique continue l’opération de mise à l’échelle avec la nouvelle cible.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considérations relatives aux valeurs de seuil de la mise à l’échelle pour les mesures spéciales
- Pour les mesures spéciales, telles que les mesures de longueur de file d’attente Service Bus ou de stockage, le seuil correspond au nombre moyen de messages disponibles en fonction du nombre actuel d’instances. Choisissez soigneusement la valeur de seuil pour ce métrique.
+Pour les mesures spéciales, telles que les mesures de longueur de file d’attente Service Bus ou de stockage, le seuil correspond au nombre moyen de messages disponibles en fonction du nombre actuel d’instances. Choisissez soigneusement la valeur de seuil pour ce métrique.
 
 Examinons un exemple qui vous permettra de mieux comprendre ce comportement.
 
@@ -115,7 +111,6 @@ De même, lorsque la mise à l’échelle automatique bascule vers le profil par
 ![paramètres de mise à l’échelle automatique](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considérations relatives à la mise à l’échelle lorsque plusieurs règles sont configurées dans un profil
-
 Il existe des cas où vous devrez définir plusieurs règles dans un profil. Les règles de mise à l’échelle automatique suivantes sont utilisées par le moteur de mise à l’échelle automatique quand plusieurs règles sont définies.
 
 Pour *l’augmentation de la taille des instances*, la mise à l’échelle automatique s’exécute si une règle est respectée.

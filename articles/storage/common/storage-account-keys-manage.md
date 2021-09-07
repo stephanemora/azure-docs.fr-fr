@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6435fbffc6a78d82129443f15a9ebcc41ab52ce8
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 600c651601e4281b717c1c8fa7808f3663be4af6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109635190"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093938"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -28,18 +28,21 @@ Microsoft vous recommande d’utiliser Azure Key Vault pour gérer vos clés d�
 
 Vous pouvez afficher et copier les clés d’accès à votre compte avec le portail Azure, PowerShell ou Azure CLI. Le portail Azure fournit également une chaîne de connexion pour votre compte de stockage, que vous pouvez copier.
 
-# <a name="portal"></a>[Portail](#tab/azure-portal)
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour afficher et copier les clés d’accès ou la chaîne de connexion de votre compte de stockage à partir du portail Azure :
 
 1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
-1. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
-1. Recherchez la valeur de **Key** sous **key1**, puis cliquez sur le bouton **Copier** pour copier la clé du compte.
-1. Vous pouvez aussi copier la chaîne de connexion complète. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion.
+
+2. Sous **Paramètres**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
+
+3. Recherchez la valeur de **Key** sous **key1**, puis cliquez sur le bouton **Copier** pour copier la clé du compte.
+
+4. Vous pouvez aussi copier la chaîne de connexion complète. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion.
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Capture d’écran montrant comment afficher les clés d’accès dans le portail Azure":::
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour récupérer les clés d’accès à votre compte avec PowerShell, appelez la commande [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey).
 
@@ -52,7 +55,7 @@ $storageAccountKey = `
     -Name <storage-account>).Value[0]
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour répertorier les clés d’accès à votre compte avec Azure CLI, appelez la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), comme dans l’exemple suivant. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs. 
 
@@ -84,23 +87,138 @@ Deux clés d’accès sont assignées pour vous permettre de les permuter. L’e
 > [!WARNING]
 > La regénération des clés d’accès peut impacter des applications ou des services Azure qui ont une dépendance avec la clé du compte de stockage. Tous les clients qui utilisent la clé de compte pour accéder au compte de stockage doivent être mis à jour afin d’utiliser la nouvelle clé, y compris les services multimédias, les applications cloud, de bureau et mobiles, et les applications d’interface utilisateur graphique pour le stockage Azure, comme [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-# <a name="portal"></a>[Portail](#tab/azure-portal)
+Si vous envisagez de faire pivoter manuellement les clés d’accès, Microsoft vous recommande de définir une stratégie d’expiration des clés, puis d’utiliser des requêtes dans Azure Monitor pour déterminer à quel moment il est temps de faire pivoter une clé d’accès.
+
+### <a name="create-a-key-expiration-policy"></a>Créer une stratégie d’expiration de clé
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+La possibilité de définir une stratégie d’expiration de clé à l’aide du portail Azure n’est pas encore disponible. Vous pouvez utiliser PowerShell ou l’interface de ligne de commande Azure.
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour créer une stratégie d’expiration de clé, utilisez la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) et définissez le paramètre `-KeyExpirationPeriodInDay` sur le nombre de jours pendant lesquels une clé d’accès peut être active avant que l’utilisateur ne la fasse pivoter. 
+
+```powershell
+$account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
+    <storage-account-name>  -KeyExpirationPeriodInDay <period-in-days> 
+```
+
+> [!TIP]
+> Vous pouvez également définir la stratégie d’expiration de clé lorsque vous créez un compte de stockage en définissant le paramètre `-KeyExpirationPeriodInDay` de la commande [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+
+Pour vérifier que la stratégie a été appliquée, utilisez la propriété `KeyPolicy` de [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) retournée à la variable `$account` dans la commande précédente. 
+  
+```powershell
+$account.KeyPolicy
+``` 
+
+La période d’expiration de la clé apparaît dans la sortie de la console.
+
+> [!div class="mx-imgBorder"]
+> ![période d’expiration de la clé d’accès](./media/storage-account-keys-manage/key-policy-powershell.png)
+
+Vous souhaiterez peut-être faire pivoter les clés existantes si elles ont été actives pendant une période plus longue que la période d’expiration. Pour déterminer à quel moment une clé a été créée, utilisez la propriété `KeyCreationTime`. 
+  
+```powershell
+$account.KeyCreationTime
+``` 
+
+L’heure de création de la clé d’accès pour les deux clés d’accès apparaît dans la sortie de la console.
+
+> [!div class="mx-imgBorder"]
+> ![heures de création de clé d’accès](./media/storage-account-keys-manage/key-creation-time-powershell.png)
+
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour créer une stratégie d’expiration de clé au niveau de comptes de stockage existants, utilisez la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update) et définissez le paramètre `--key-exp-days` sur le nombre de jours pendant lesquels une clé d’accès peut être active avant que l’utilisateur ne la fasse pivoter. 
+
+```azurecli-interactive
+az storage account update \
+  -n <storage-account-name> \
+  -g <resource-group> --key-exp-days <period-in-days>
+```
+
+> [!TIP]
+> Vous pouvez également définir la stratégie d’expiration de clé lorsque vous créez un compte de stockage en définissant le paramètre `-KeyExpirationPeriodInDay` de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+
+Pour vérifier que la stratégie a été appliquée, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show) et utilisez la chaîne `{KeyPolicy:keyPolicy}` pour le paramètre `-query`.
+  
+```azurecli-interactive
+az storage account show \
+  -n <storage-account-name> \
+  -g <resource-group-name> \
+  --query "{KeyPolicy:keyPolicy}"
+```
+
+La période d’expiration de la clé apparaît dans la sortie de la console.
+
+```json
+{
+  "KeyPolicy": {
+    "keyExpirationPeriodInDays": 5
+  }
+}
+```
+
+
+Vous souhaiterez peut-être faire pivoter les clés existantes si elles ont été actives pendant une période plus longue que la période d’expiration. Pour déterminer à quel moment une clé a été créée, utilisez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show), puis utilisez la chaîne `keyCreationTime` pour le paramètre -query.
+  
+```azurecli-interactive
+az storage account show \
+  -n <storage-account-name> \
+  -g <resource-group-name> \
+  --query "keyCreationTime"
+```
+
+---
+
+### <a name="query-for-policy-violations"></a>Requête de violations de stratégie
+
+Si vous créez un paramètre de diagnostic qui [envoie des journaux à l’espace de travail Azure log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics), vous pouvez utiliser une requête de journal Azure Monitor pour déterminer si une clé a expiré. 
+
+Pour déterminer si une clé a expiré, entrez la requête suivante dans la barre de **recherche des journaux**.
+
+```Kusto
+StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
+```
+
+Vous pouvez également créer une requête qui vous permet de déterminer si une requête est proche de l’expiration. La requête suivante fournit ces informations.
+
+```Kusto
+resources  
+| where type =~ 'microsoft.storage/storageAccounts' 
+| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime)) 
+| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "") 
+| project name, days, KeyExpiryStatus  
+```
+
+### <a name="rotate-access-keys"></a>Faire pivoter les clés d’accès
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour opérer la rotation des clés d’accès de votre compte de stockage dans le portail Azure :
 
 1. Mettez à jour les chaînes de connexion dans votre code d’application pour désigner la clé d’accès secondaire du compte de stockage.
-1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
-1. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**.
-1. Pour régénérer la clé d’accès primaire de votre compte de stockage, sélectionnez le bouton **Régénérer** en regard de la clé d’accès primaire.
-1. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
-1. Régénérez la clé d’accès secondaire de la même manière.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+2. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
+
+3. Sous **Paramètres**, sélectionnez **Clés d’accès**.
+
+4. Pour régénérer la clé d’accès primaire de votre compte de stockage, sélectionnez le bouton **Régénérer** en regard de la clé d’accès primaire.
+
+5. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
+
+6. Régénérez la clé d’accès secondaire de la même manière.
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour opérer la rotation des clés d’accès de votre compte de stockage avec PowerShell :
 
 1. Mettez à jour les chaînes de connexion dans votre code d’application pour désigner la clé d’accès secondaire du compte de stockage.
-1. Appelez la commande [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) pour régénérer la clé d’accès primaire, comme illustré dans l’exemple suivant :
+
+2. Appelez la commande [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) pour régénérer la clé d’accès primaire, comme illustré dans l’exemple suivant :
 
     ```powershell
     New-AzStorageAccountKey -ResourceGroupName <resource-group> `
@@ -108,15 +226,17 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage avec P
       -KeyName key1
     ```
 
-1. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
-1. Régénérez la clé d’accès secondaire de la même manière. Pour régénérer la clé secondaire, utilisez `key2` comme nom de clé à la place de `key1`.
+3. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+4. Régénérez la clé d’accès secondaire de la même manière. Pour régénérer la clé secondaire, utilisez `key2` comme nom de clé à la place de `key1`.
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour opérer la rotation des clés d’accès de votre compte de stockage avec Azure CLI :
 
 1. Mettez à jour les chaînes de connexion dans votre code d’application pour désigner la clé d’accès secondaire du compte de stockage.
-1. Appelez la commande [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) pour régénérer la clé d’accès primaire, comme illustré dans l’exemple suivant :
+
+2. Appelez la commande [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) pour régénérer la clé d’accès primaire, comme illustré dans l’exemple suivant :
 
     ```azurecli-interactive
     az storage account keys renew \
@@ -126,7 +246,8 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage avec A
     ```
 
 1. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
-1. Régénérez la clé d’accès secondaire de la même manière. Pour régénérer la clé secondaire, utilisez `key2` comme nom de clé au lieu de `key1`.
+
+2. Régénérez la clé d’accès secondaire de la même manière. Pour régénérer la clé secondaire, utilisez `key2` comme nom de clé au lieu de `key1`.
 
 ---
 

@@ -6,16 +6,16 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 05/11/2021
-ms.openlocfilehash: 88886f46f028da19f5e5b75f42e5d96a09f2213a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1b13d49707402143c59078aa3e73cd93db1b10de
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795462"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525147"
 ---
 # <a name="handle-false-positives-in-azure-sentinel"></a>Gérer les faux positifs dans Azure Sentinel
 
-Les [règles analytiques Azure Sentinel](tutorial-detect-threats-built-in.md) vous avertissent lorsque quelque chose de suspect se produit sur votre réseau. Aucune règle analytique n’est parfaite et il est possible que vous receviez des faux positifs qu’il vous faudra gérer. Cet article explique comment gérer les faux positifs à l’aide de l’automatisation ou en modifiant les règles analytiques planifiées.
+Les [règles analytiques Azure Sentinel](detect-threats-built-in.md) vous avertissent lorsque quelque chose de suspect se produit sur votre réseau. Aucune règle analytique n’est parfaite et il est possible que vous receviez des faux positifs qu’il vous faudra gérer. Cet article explique comment gérer les faux positifs à l’aide de l’automatisation ou en modifiant les règles analytiques planifiées.
 
 ## <a name="false-positive-causes-and-prevention"></a>Causes et prévention des faux positifs
 
@@ -31,10 +31,10 @@ Cet article décrit deux méthodes permettant d’éviter les faux positifs :
 
 - Les **règles d’automatisation** créent des exceptions sans modifier les règles analytiques.
 - Les **modifications planifiées des règles analytiques** autorisent des exceptions plus détaillées et permanentes.
-  
+
 Le tableau suivant décrit les caractéristiques de chaque méthode.
 
-  
+
 |Méthode|Caractéristique|
 |-|-|
 |**Règles d’automatisation**|<ul><li>Peuvent s’appliquer à plusieurs règles analytiques.</li><li>Conservent une piste d’audit. Les exceptions empêchent la création d’incidents, mais les alertes sont toujours enregistrées à des fins d’audit.</li><li>Sont souvent générées par des analystes.</li><li>Autorisent l’application d’exceptions pendant une période limitée. Par exemple, le travail de maintenance peut déclencher des faux positifs qui, en dehors de la période de maintenance, constitueraient de véritables incidents.</li></ul>|
@@ -51,17 +51,17 @@ Pour ajouter une règle d’automatisation afin de gérer un faux positif :
 1. Dans la barre latérale **Créer une règle d’automatisation**, vous pouvez modifier le nom de la nouvelle règle plutôt que le nom de la règle d’alerte pour identifier l’exception.
 1. Sous **Conditions**, vous pouvez ajouter plusieurs **noms de règles analytiques** auxquelles ajouter l’exception.
 1. La barre latérale présente les entités spécifiques de l’incident susceptible d’avoir provoqué le faux positif. Conservez les suggestions automatiques ou modifiez-les pour affiner l’exception. Par exemple, vous pouvez modifier une condition sur une adresse IP à appliquer à un sous-réseau entier.
-   
+
    :::image type="content" source="media/false-positives/create-rule.png" alt-text="Capture d’écran montrant comment créer une règle d’automatisation pour un incident dans Azure Sentinel.":::
-   
+
 1. Après avoir défini le déclencheur, vous pouvez continuer à définir l’objectif de la règle :
-   
+
    :::image type="content" source="media/false-positives/apply-rule.png" alt-text="Capture d’écran montrant comment terminer la création et l’application d’une règle d’automatisation dans Azure Sentinel.":::
-   
+
    - La règle est déjà configurée pour fermer un incident répondant aux critères de l’exception.
    - Vous pouvez ajouter un commentaire à l’incident automatiquement fermé expliquant l’exception. Par exemple, vous pouvez indiquer que l’incident est lié à une activité administrative connue.
    - Par défaut, la règle est configurée pour expirer automatiquement après 24 heures. Cet expiration correspond peut-être à vos attentes et réduit les risques d’erreurs de faux négatifs. Pour une exception plus longue, définissez **Expiration de la règle** sur une période ultérieure.
-   
+
 1. Sélectionnez **Appliquer** pour activer l’exception.
 
 > [!TIP]
@@ -75,7 +75,7 @@ Pour implémenter des exceptions, une autre option consiste à modifier la requ�
 
 Pour modifier des règles analytiques existantes, sélectionnez **Automatisation** dans le menu de navigation gauche d’Azure Sentinel. Sélectionnez la règle que vous souhaitez modifier, puis **Modifier** en bas à droite pour ouvrir l'**Assistant règles analytiques**.
 
-Pour obtenir des instructions détaillées sur l’utilisation de l'**Assistant règles analytiques** afin de créer et de modifier des règles analytiques, consultez [Tutoriel : Créer des règles analytiques personnalisées pour détecter des menaces](tutorial-detect-threats-custom.md).
+Pour obtenir des instructions détaillées sur l’utilisation de l’**Assistant Règles analytiques** afin de créer et de modifier des règles analytiques, consultez [Créer des règles analytiques personnalisées pour détecter des menaces](detect-threats-custom.md).
 
 Pour implémenter une exception dans un préambule de règle classique, vous pouvez ajouter une condition comme `where IPAddress !in ('<ip addresses>')` près du début de la requête de règle. Cette ligne exclut des adresses IP spécifiques de la règle.
 
@@ -146,6 +146,7 @@ let subnets = _GetWatchlist('subnetallowlist');
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes :
+- [Utiliser les données UEBA pour analyser les faux positifs](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives)
 - [Automatiser la gestion des incidents dans Azure Sentinel à l’aide de règles d’automatisation](automate-incident-handling-with-automation-rules.md)
-- [Tutoriel : Créer des règles d’analytique personnalisées pour détecter des menaces](tutorial-detect-threats-custom.md)
+- [Créer des règles d’analytique personnalisées pour détecter des menaces](detect-threats-custom.md)
 - [Utiliser les Watchlists Azure Sentinel](watchlists.md)

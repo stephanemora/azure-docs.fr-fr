@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: eb6369e89066451779d05a97057acbdd451de192
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e065aa7d3d269632c77a810917ec913c43e518db
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146668"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605271"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>Que sont les stratégies, les initiatives et les recommandations de sécurité ?
 
@@ -21,7 +21,7 @@ Security Center applique des initiatives de sécurité à vos abonnements. Ces i
 
 ## <a name="what-is-a-security-policy"></a>Qu’est-ce qu’une stratégie de sécurité ?
 
-Une définition de stratégie Azure, créée dans Azure Policy, est une règle relative à des conditions de sécurité spécifiques que vous souhaitez contrôler. Les définitions intégrées incluent des éléments tels que le contrôle du type de ressources qui peut être déployé ou le respect des balises sur toutes les ressources. Vous pouvez également créer vos propres définitions de stratégies personnalisées.
+Une définition Azure Policy, créée dans Azure Policy, est une règle relative à des conditions de sécurité spécifiques que vous souhaitez contrôler. Les définitions intégrées incluent des éléments tels que le contrôle du type de ressources qui peut être déployé ou le respect des balises sur toutes les ressources. Vous pouvez également créer vos propres définitions de stratégies personnalisées.
 
 Pour implémenter ces définitions de stratégie (définitions intégrées et personnalisées), vous devez les attribuer. Vous pouvez affecter ces stratégies via le portail Azure, PowerShell ou Azure CLI.
 
@@ -29,7 +29,7 @@ Il existe différents types de stratégies dans Azure Policy. Security Center ut
 
 ## <a name="what-is-a-security-initiative"></a>Qu’est-ce qu’une initiative de sécurité ?
 
-Une initiative Azure est une collection de définitions ou de règles de stratégie Azure regroupées pour atteindre un objectif. Les initiatives Azure simplifient la gestion de vos stratégies en regroupant un ensemble de stratégies, de manière logique, en tant qu’élément unique.
+Une initiative Azure Policy est une collection de définitions ou de règles Azure Policy regroupées pour atteindre un objectif spécifique. Les initiatives Azure simplifient la gestion de vos stratégies en regroupant un ensemble de stratégies, de manière logique, en tant qu’élément unique.
 
 Une initiative de sécurité définit la configuration souhaitée de vos charges de travail, et vous permet de vous assurer que vous êtes en conformité avec les exigences de sécurité de votre organisation ou des régulateurs.
 
@@ -71,13 +71,13 @@ Comme indiqué ci-dessus, les recommandations intégrées de Security Center son
 
 Lorsque vous examinez les détails d’une recommandation, il est souvent utile de pouvoir consulter la stratégie sous-jacente. Pour chaque recommandation soutenue par une stratégie, utilisez le lien **Afficher la définition de stratégie** à partir de la page des détails de la recommandation pour accéder directement à l’entrée d’Azure Policy pour la stratégie correspondante :
 
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Lien vers la page Azure Policy de la stratégie spécifique prenant en charge une recommandation":::
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Lien vers la page Azure Policy de la stratégie spécifique prenant en charge une recommandation.":::
 
 Utilisez ce lien pour afficher la définition de stratégie et passer en revue la logique d’évaluation. 
 
 Si vous examinez la liste des recommandations de notre [Guide de référence des recommandations de sécurité](recommendations-reference.md), vous remarquerez également des liens vers les pages de définition de stratégie :
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accès à la page Azure Policy d’une stratégie particulière, directement à partir de la page de référence des recommandations d’Azure Security Center":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accès à la page Azure Policy d’une stratégie particulière, directement à partir de la page de référence des recommandations d’Azure Security Center.":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

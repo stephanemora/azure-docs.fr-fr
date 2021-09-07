@@ -3,12 +3,12 @@ title: Scalabilité - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur la mise à l'échelle d'Azure Event Hubs à l'aide de partitions et d'unités de débit.
 ms.topic: article
 ms.date: 05/26/2021
-ms.openlocfilehash: ef894e0f14c140691b43da121a1983017ab03150
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: ced3d366c87d05fc1d7e8370c6e7db793dfe2535
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616459"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583659"
 ---
 # <a name="scaling-with-event-hubs"></a>Mise à l’échelle avec Event Hubs
 
@@ -25,7 +25,7 @@ La capacité de débit des concentrateurs d’événements est contrôlée par l
 
 En cas de dépassement de la capacité des unités de débit achetées, l’entrée est limitée et une exception [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) est renvoyée. La sortie ne produit aucune exception de limitation, mais reste limitée à la capacité des unités de débit achetées. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d’unités de débit achetées pour l’espace de noms. Vous pouvez gérer des unités de débit sur le panneau **Mettre à l’échelle** des espaces de noms, dans le [portail Azure](https://portal.azure.com). Vous pouvez également gérer les unités de débit par programmation à l’aide des [API Event Hubs](./event-hubs-samples.md).
 
-Les unités de débit sont achetées à l’avance et facturées à l’heure. Une fois achetées, les unités de débit sont facturées au moins une heure. Vous pouvez acheter jusqu’à 20 unités de débit par espace de noms Azure Event Hubs. Ces unités sont partagées entre tous les hubs d’événements de l’espace de noms en question.
+Les unités de débit sont achetées à l’avance et facturées à l’heure. Une fois achetées, les unités de débit sont facturées au moins une heure. Vous pouvez acheter jusqu’à 40 unités de débit par espace de noms Event Hubs. Ces unités sont partagées entre tous les hubs d’événements de l’espace de noms en question.
 
 La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
 
@@ -48,7 +48,7 @@ Pour en savoir plus sur la configuration des unités de traitement pour un espac
 > Pour en savoir plus sur les quotas et les limites, consultez [Azure Event Hubs - quotas et limites](event-hubs-quotas.md).
 
 ## <a name="partitions"></a>Partitions
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 

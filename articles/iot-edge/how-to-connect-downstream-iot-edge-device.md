@@ -2,7 +2,6 @@
 title: Connexion d’appareils IoT Edge en aval – Azure IoT Edge | Microsoft Docs
 description: Guide pratique pour configurer un appareil IoT Edge en aval de sorte qu’il se connecte à des appareils de passerelle Azure IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: cdc7ce9fbb24dc593ebd4dedc7c2c4ce82afa3f0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2fbb03ae08d1146b51a4a73f1b2260443c1609d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094816"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531379"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge
 
@@ -148,7 +147,11 @@ Assurez-vous que l’utilisateur **iotedge** dispose d’autorisations d’accè
    ```
 
    >[!TIP]
-   >Si le fichier de configuration n’existe pas encore sur votre appareil, utilisez `/etc/aziot/config.toml.edge.template` comme modèle pour en créer un.
+   >Si le fichier de configuration n’existe pas encore sur votre appareil, utilisez la commande suivante pour le créer en fonction du fichier de modèle :
+   >
+   >```bash
+   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   >```
 
 1. Recherchez la section **HostName** dans le fichier config. Supprimez les marques de commentaire de la ligne contenant le paramètre `hostname`, et mettez à jour la valeur pour qu’elle corresponde au nom de domaine complet (FQDN) ou à l’adresse IP de l’appareil IoT Edge.
 
@@ -385,7 +388,7 @@ Le module proxy d’API a été conçu pour être personnalisé afin de gérer l
                        "edgeAgent": {
                            "settings": {
                                "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
-                               "createOptions": ""
+                               "createOptions": "{}"
                            },
                            "type": "docker"
                        },

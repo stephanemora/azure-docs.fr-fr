@@ -9,26 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/7/2020
+ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74cbbf13b3ecb0b784138df69a8436930c2766ef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ae74589dbbde2402d3acd916f2c5c1f58a7a5c7c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130896"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464128"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
-
 Le flux On-Behalf-Of (OBO) OAuth 2.0 répond au cas d’usage dans le cadre duquel une application appelle un service/une API web qui, à son tour, doit appeler un autre service/une autre API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès de la plateforme d’identité Microsoft pour le compte de l’utilisateur.
 
-Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
+Le flux OBO fonctionne uniquement pour les principaux d’utilisateurs. Un principal de service ne peut pas demander un jeton d’application uniquement, l’envoyer à une API et l’échanger à cette API contre un autre jeton représentant le principal de service d’origine. De plus, le flux OBO se concentre sur l’action au nom d’une autre partie, que l’on désigne sous le nom de scénario délégué. Cela signifie qu’il utilise uniquement des *étendues* déléguées et non des *rôles* d’application, pour tout ce qui touche aux autorisations. Les *rôles* restent attachés au principal (l’utilisateur) dans le flux, jamais à l’application s’exécutant au nom de l’utilisateur.
 
+Cet article explique comment programmer directement par rapport au protocole dans votre application. Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 
 Depuis mai 2018, il n’est pas possible d’utiliser un jeton `id_token` dérivé du flux implicite pour le flux OBO. Les applications à une seule page doivent passer un jeton d’**accès** à un client confidentiel de niveau intermédiaire pour effectuer des flux OBO à la place. Pour plus d’informations sur les clients pouvant effectuer des appels OBO, consultez [Limitations](#client-limitations).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
@@ -81,8 +83,8 @@ Host: login.microsoftonline.com/<tenant>
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-&client_id=2846f71b-a7a4-4987-bab3-760035b2f389
-&client_secret=BYyVnAt56JpLwUcyo47XODd
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&client_secret=sampleCredentia1s
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiIyO{a lot of characters here}
 &scope=https://graph.microsoft.com/user.read+offline_access
 &requested_token_use=on_behalf_of
@@ -153,16 +155,16 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 
 Le jeton d’accès ci-dessus est un jeton au format v1.0 pour Microsoft Graph. En effet, le format dépend de la **ressource** consultée et n’est pas lié aux points de terminaison utilisés pour le demander. Comme Microsoft Graph est configuré pour accepter des jetons v1.0, la plateforme d’identités Microsoft génère des jetons d’accès v1.0 quand un client demande des jetons pour Microsoft Graph. D’autres applications peuvent indiquer qu’elles veulent des jetons au format v2.0, au format v1.0 ou même dans un format propriétaire ou chiffré.  Les points de terminaison v1.0 et v2.0 peuvent émettre des jetons aux deux formats : ainsi, la ressource reçoit toujours le bon format, quels que soient la façon dont le jeton a été demandé par le client et l’endroit. 
 
-Seules les applications doivent examiner les jetons d’accès. Les clients **ne doivent pas** les inspecter. Si vous inspectez les jetons d’accès pour d’autres applications dans votre code, l’application subira une interruption inattendue lorsqu’elle modifiera le format de ses jetons ou commencera à les chiffrer. 
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
 
-Une réponse d’erreur est retournée par le point de terminaison du jeton lors de la tentative d’acquisition d’un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’[authentification multifacteur](../authentication/concept-mfa-howitworks.md) est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
+Une réponse d’erreur est retournée par le point de terminaison du jeton quand il tente d’acquérir un jeton d’accès pour l’API en aval, si celle-ci dispose d’une stratégie d’accès conditionnel (par exemple l’[authentification multifacteur](../authentication/concept-mfa-howitworks.md)). Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
 ```json
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multifactor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -202,7 +204,7 @@ Une demande de service à service pour obtenir une assertion SAML contient les p
 | assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête.|
 | client_id |Obligatoire | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_secret |Obligatoire | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
-| resource |obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Il s’agit de la ressource qui sera l’audience du jeton SAML. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| scope |Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). Par exemple, « https://testapp.contoso.com/user_impersonation openid » |
 | requested_token_use |obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | requested_token_type | Obligatoire | Spécifie le type de jeton demandé. La valeur peut être **urn:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1**, en fonction des exigences de la ressource. |
 

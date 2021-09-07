@@ -5,16 +5,16 @@ description: Découvrez comment activer HTTPS avec TLS version 1.2 pour sécuri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: aashishb
-author: aashishb
-ms.date: 03/11/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 9531862ffb62a92a3b9be33b38e4ecef97bf974e
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 10eb9d57b19968737077a595030bb2a986ec6c7b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884657"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564785"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 
@@ -83,7 +83,7 @@ Pour le déploiement ACI, vous pouvez activer la terminaison TLS au moment du d�
   > [!NOTE]
   > Les informations contenues dans cette section s’appliquent également lorsque vous déployez un service web sécurisé pour le concepteur. Si vous n’êtes pas habitué à utiliser le kit de développement logiciel (SDK) Python, consultez [Présentation du kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro).
 
-Lorsque vous [créez ou attachez un cluster AKS](how-to-create-attach-kubernetes.md) dans un espace de travail AML, vous pouvez activer la terminaison TLS avec les objets de configuration **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** et **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Les deux méthodes retournent un objet de configuration qui a une méthode **enable_ssl** et vous pouvez utiliser la méthode **enable_ssl** pour activer TLS.
+Lorsque vous [créez ou attachez un cluster AKS](how-to-create-attach-kubernetes.md) dans un espace de travail AML, vous pouvez activer la terminaison TLS avec les objets de configuration **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** et **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Les deux méthodes retournent un objet de configuration possédant une méthode **enable_ssl**, que vous pouvez utiliser pour activer le protocole TLS.
 
 Vous pouvez activer TLS à l’aide d’un certificat Microsoft ou d’un certificat personnalisé acheté auprès d’une autorité de certification. 
 
@@ -152,16 +152,21 @@ Pour plus d’informations, consultez [AciWebservice.deploy_configuration()](/py
 
 Pour un déploiement AKS avec un certificat personnalisé ou un déploiement ACI, vous devez mettre à jour votre enregistrement DNS de façon à ce qu’il pointe vers l’adresse IP du point de terminaison de scoring.
 
-  > [!IMPORTANT]
-  > Lorsque vous utilisez un certificat provenant de Microsoft pour un déploiement AKS, vous n’avez pas besoin de mettre à jour manuellement la valeur DNS pour le cluster. Cette valeur doit être définie automatiquement.
+> [!IMPORTANT]
+> Lorsque vous utilisez un certificat provenant de Microsoft pour un déploiement AKS, vous n’avez pas besoin de mettre à jour manuellement la valeur DNS pour le cluster. Cette valeur doit être définie automatiquement.
 
 Vous pouvez suivre les étapes ci-dessous afin de mettre à jour l’enregistrement DNS pour votre nom de domaine personnalisé :
-* Obtenez l’adresse IP du point de terminaison de scoring à partir de l’URI de point de terminaison de scoring, qui est généralement au format *http://104.214.29.152:80/api/v1/service/<service-name>/score* . 
-* Utilisez les outils de votre bureau d’enregistrement de noms de domaine pour mettre à jour l’enregistrement DNS pour votre nom de domaine. L’enregistrement doit pointer vers l’adresse IP du point de terminaison de scoring.
-* Après la mise à jour de l’enregistrement DNS, vous pouvez valider la résolution DNS à l’aide de la commande *nslookup custom-domain-name*. Si l’enregistrement DNS est correctement mis à jour, le nom de domaine personnalisé pointe alors vers l’adresse IP du point de terminaison de scoring.
-* Selon le bureau d’enregistrement et la durée de vie (TTL) configurée pour le nom de domaine, les clients peuvent avoir à patienter quelques minutes voire plusieurs heures avant de pouvoir résoudre le nom de domaine.
+1. Obtenez l’adresse IP du point de terminaison de scoring à partir de l’URI de point de terminaison de scoring, qui est généralement au format *http://104.214.29.152:80/api/v1/service/<service-name>/score* . Dans cet exemple, l’adresse IP est 104.214.29.152.
+1. Utilisez les outils de votre bureau d’enregistrement de noms de domaine pour mettre à jour l’enregistrement DNS pour votre nom de domaine. L’enregistrement mappe le nom de domaine complet (par exemple, www\.contoso.com) à l’adresse IP. L’enregistrement doit pointer vers l’adresse IP du point de terminaison de scoring.
 
+    > [!TIP]
+    > Microsoft n’est pas responsable de la mise à jour du DNS pour votre certificat ou nom DNS personnalisé. Vous devez le mettre à jour avec votre bureau d’enregistrement de noms de domaine.
 
+1. Après la mise à jour de l’enregistrement DNS, vous pouvez valider la résolution DNS à l’aide de la commande *nslookup custom-domain-name*. Si l’enregistrement DNS est correctement mis à jour, le nom de domaine personnalisé pointe alors vers l’adresse IP du point de terminaison de scoring.
+
+    Selon le bureau d’enregistrement et la durée de vie (TTL) configurée pour le nom de domaine, les clients peuvent avoir à patienter quelques minutes voire plusieurs heures avant de pouvoir résoudre le nom de domaine.
+
+Pour plus d’informations sur la résolution DNS avec Azure Machine Learning, consultez [Utilisation de votre espace de travail avec un serveur DNS personnalisé](how-to-custom-dns.md).
 ## <a name="update-the-tlsssl-certificate"></a>Mettre à jour le certificat TLS/SSL
 
 Les certificats TLS/SSL expirent et doivent être renouvelés. En général, cela se produit chaque année. Utilisez les informations des sections suivantes pour mettre à jour et renouveler votre certificat pour les modèles déployés sur Azure Kubernetes Service :
@@ -263,3 +268,4 @@ aks_target.update(update_config)
 Découvrez comment :
 + [Utiliser un modèle Machine Learning déployé en tant que service web](how-to-consume-web-service.md)
 + [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
++ [Utilisation de votre espace de travail avec un serveur DNS personnalisé](how-to-custom-dns.md)

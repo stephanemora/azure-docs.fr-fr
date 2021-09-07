@@ -14,12 +14,12 @@ ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29cc31121a4888c23ccbec1c549f2313d0c9e165
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92096349"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439319"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Installation personnalisée d’Azure Active Directory Connect
 Utilisez les *paramètres personnalisés* dans Azure Active Directory (Azure AD) lorsque vous souhaitez davantage d’options d’installation. Utilisez ces paramètres, par exemple, si vous avez plusieurs forêts ou si vous souhaitez configurer des fonctionnalités facultatives. Utilisez les paramètres personnalisés dans tous les cas où l’option d’[installation rapide](how-to-connect-install-express.md) ne convient pas à vos besoins de déploiement ou de topologie.
@@ -42,7 +42,7 @@ Dans la page **Paramètres Express**, sélectionnez **Personnaliser** pour déma
 - [Synchronisation](#sync-pages)
 
 ### <a name="install-required-components"></a>Installation des composants requis
-Lorsque vous installez les services de synchronisation, vous pouvez laisser la section de configuration facultative de côté. Azure AD Connect configure toutes les options automatiquement. Il configure une instance Base de données locale SQL Server 2012 Express, crée les groupes appropriés et attribue des autorisations. Si vous souhaitez modifier les valeurs par défaut, désactivez les cases appropriées.  Le tableau ci-dessous résume ces options et fournit des liens vers des informations supplémentaires. 
+Lorsque vous installez les services de synchronisation, vous pouvez laisser la section de configuration facultative de côté. Azure AD Connect configure toutes les options automatiquement. Il configure une instance de base de données locale SQL Server 2019 Express, crée les groupes appropriés et attribue des autorisations. Si vous souhaitez modifier les valeurs par défaut, désactivez les cases appropriées.  Le tableau ci-dessous résume ces options et fournit des liens vers des informations supplémentaires. 
 
 ![Capture d’écran montrant les sélections facultatives pour les composants d’installation requis dans Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
@@ -116,7 +116,7 @@ L'attribut *userPrincipalName* est utilisé par les utilisateurs lorsqu'ils se c
 
 Si l’attribut userPrincipalName n’est pas routable et ne peut pas être vérifié, vous pouvez sélectionner un autre attribut. Par exemple, vous pouvez choisir une adresse de messagerie électronique comme attribut contenant l’ID de connexion. Lorsque vous utilisez un attribut autre que userPrincipalName, il s’agit d’un *ID secondaire*. 
 
-La valeur de l’attribut ID secondaire doit suivre la norme RFC 822. Vous pouvez utiliser un ID secondaire avec la synchronisation de hachage de mot de passe, l’authentification directe et la fédération. Dans Active Directory, l’attribut ne peut pas être défini en tant que valeurs multiples, même s’il ne possède qu’une seule valeur. Pour plus d’informations sur l’ID secondaire, consultez [Authentification directe : questions fréquentes](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
+La valeur de l’attribut ID secondaire doit suivre la norme RFC 822. Vous pouvez utiliser un ID secondaire avec la synchronisation de hachage de mot de passe, l’authentification directe et la fédération. Dans Active Directory, l’attribut ne peut pas être défini en tant que valeurs multiples, même s’il ne possède qu’une seule valeur. Pour plus d’informations sur l’ID secondaire, consultez [Authentification directe : questions fréquentes](./how-to-connect-pta-faq.yml#does-pass-through-authentication-support--alternate-id--as-the-username--instead-of--userprincipalname--).
 
 >[!NOTE]
 > Lorsque vous activez l’authentification directe, vous devez disposer d’au moins un domaine vérifié pour pouvoir continuer l’assistant d’installation personnalisée.

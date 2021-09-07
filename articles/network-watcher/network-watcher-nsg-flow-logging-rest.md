@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 0c2725ff58e40bc56aac528a17fe4d66a128d475
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cede3018f8922c6771f81470a714eed430cd5cdf
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146938"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291874"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec l’API REST
 
@@ -115,6 +115,9 @@ La réponse renvoyée par l’exemple précédent est la suivante :
   }
 }
 ```
+> [!NOTE]
+> - L’API [Network Watchers - Définir la configuration des journaux de flux](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) utilisée ci-dessus est ancienne et peut être dépréciée prochainement.
+> - Il est recommandé d’utiliser à la place la nouvelle API REST [Journaux de flux - Créer ou mettre à jour](/rest/api/network-watcher/flow-logs/create-or-update).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Désactiver les journaux d’activité des flux de groupe de sécurité réseau
 
@@ -167,6 +170,10 @@ La réponse renvoyée par l’exemple précédent est la suivante :
 }
 ```
 
+> [!NOTE]
+> - L’API [Network Watchers - Définir la configuration des journaux de flux](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) utilisée ci-dessus est ancienne et peut être dépréciée prochainement.
+> - Il est recommandé d’utiliser les nouvelles API REST [Journaux de flux - Créer ou mettre à jour](/rest/api/network-watcher/flow-logs/create-or-update) pour désactiver les journaux de flux [Journaux de flux - Supprimer](/rest/api/network-watcher/flow-logs/delete) pour supprimer une ressource de journaux de flux.
+
 ## <a name="query-flow-logs"></a>Interroger les journaux d’activité des flux
 
 L’appel REST ci-après interroge l’état des journaux d’activité des flux sur un groupe de sécurité réseau.
@@ -204,6 +211,10 @@ Voici un exemple de la réponse renvoyée :
   }
 }
 ```
+
+> [!NOTE]
+> - L’API [Network Watchers - Obtenir l’état des journaux de flux](/rest/api/network-watcher/network-watchers/get-flow-log-status) utilisée ci-dessus nécessite une autorisation « lecteur » supplémentaire dans le groupe de ressources de Network Watcher. En outre, cette API est ancienne et peut être dépréciée prochainement.
+> - Il est recommandé d’utiliser à la place la nouvelle API REST [Journaux de flux - Obtenir](/rest/api/network-watcher/flow-logs/get).
 
 ## <a name="download-a-flow-log"></a>Télécharger un journal de flux
 

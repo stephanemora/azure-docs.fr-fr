@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 32391dc2106f0ebab73faaa857a1b53392f0416d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 4a88e8353d8f6ac0890f449060041ad54bda852d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903254"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "122641204"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub (Python)
 
@@ -26,7 +26,7 @@ Cet article explique comment utiliser les [fonctionnalités de chargement d’Io
 
 * Utiliser le client Python pour charger un fichier par le biais de votre hub IoT
 
-Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-python.md) présente les fonctionnalités de messages appareil-à-cloud de base d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
+Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) présente les fonctionnalités de messages appareil-à-cloud de base d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
 
 À la fin de ce didacticiel, vous allez exécuter l’application console Python :
 
@@ -48,7 +48,11 @@ Une version plus avancée de l’application de chargement de fichier se trouve 
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>Inscrire un nouvel appareil dans le hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Charger un fichier à partir d’une application d’appareil
 
@@ -183,7 +187,7 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 
     * **notify_blob_upload_status** notifie IoT Hub de l’état de votre opération de stockage Blob. Vous lui transmettez le correlation_id obtenu par la méthode **get_storage_info_for_blob**. IoT Hub utilise celui-ci pour notifier à un service qui pourrait écouter dans l’attente d’une notification sur l’état de la tâche de chargement de fichier.
 
-1. Enregistrez et fermez le fichier **UploadFile.py**.
+1. Enregistrez et fermez le fichier **FileUpload.py**.
 
 ## <a name="run-the-application"></a>Exécution de l'application
 

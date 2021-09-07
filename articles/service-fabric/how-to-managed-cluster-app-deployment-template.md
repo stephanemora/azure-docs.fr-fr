@@ -4,12 +4,12 @@ description: Déployez une application sur un cluster managé Azure Service Fabr
 ms.topic: how-to
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f2561b182689467598f2c939589295d9af72e4d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6a40dc23b0eeda4c680d0151b08cb1c8f1a84053
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671217"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290153"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>Déployer une application de cluster managé Service Fabric à l’aide d’un modèle ARM
 
@@ -55,7 +55,7 @@ Après avoir créé le compte de stockage, vous créez un conteneur d’objets b
 Les ressources de votre cluster peuvent être sécurisées en définissant le niveau d’accès public sur **privé**. Vous pouvez octroyer l’accès de plusieurs façons :
 
 * Autorisez l’accès aux objets blob et aux files d’attente en utilisant [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Octroyez l’accès aux données d’objet blob et de file d’attente Azure en utilisant le [contrôle d’accès en fonction du rôle (RBAC) Azure dans le portail Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+* Octroyez l’accès aux données d’objet blob et de file d’attente Azure en utilisant le [contrôle d’accès en fonction du rôle (RBAC) Azure dans le portail Azure](../storage/blobs/assign-azure-role-data-access.md).
 * Déléguez l’accès en utilisant une [signature d’accès partagé](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 L’exemple illustré dans la capture d’écran suivante utilise un accès en lecture anonyme pour les objets blob.
@@ -179,6 +179,17 @@ Pour supprimer une application qui a été déployée à l’aide du modèle de 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+
+## <a name="migration-from-classic-to-managed-clusters"></a>Migration d’un cluster classique vers un cluster managé
+
+Si vous effectuez la migration d’une ou plusieurs applications d’un cluster classique vers un cluster managé, vous devez vérifier que les types sont correctement spécifiés pour ne pas rencontrer d’erreurs. 
+
+Les points suivants sont mentionnés en raison de leur fréquence d’utilisation, mais ils ne sont pas censés constituer une liste exhaustive de différences. 
+
+* upgradeReplicaSetCheckTimeout est désormais un entier pour le SFRP managé, mais une chaîne dans le SFRP classique. 
+
+Pour connaître la liste complète des propriétés et des types, consultez [Types de ressources des applications de clusters managés](/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

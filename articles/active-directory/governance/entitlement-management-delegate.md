@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 7/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a66b53cbcc8a072dce6b4f5f2f1f0cf1dc6322f
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: af0269d2ae698a025682929818b601cdebec06ad
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714329"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286520"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD
 
-Par défaut, les administrateurs généraux et les administrateurs d’utilisateurs peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître toutes les situations dans lesquelles des packages d’accès sont exigés. D’ordinaire, il s’agit d’utilisateurs au sein des services, équipes ou projets respectifs qui savent avec qui ils collaborent, en utilisant quelles ressources et pendant combien de temps. Plutôt que d’accorder des autorisations illimitées aux non-administrateurs, vous pouvez accorder aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés.
+Par défaut, les administrateurs généraux et les administrateurs de la gouvernance des identités peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître toutes les situations dans lesquelles des packages d’accès sont exigés. D’ordinaire, il s’agit d’utilisateurs au sein des services, équipes ou projets respectifs qui savent avec qui ils collaborent, en utilisant quelles ressources et pendant combien de temps. Plutôt que d’accorder des autorisations illimitées aux non-administrateurs, vous pouvez accorder aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés.
 
 Cette vidéo fournit une vue d’ensemble de la délégation de la gouvernance des accès de l’administrateur informatique aux utilisateurs qui ne sont pas administrateurs.
 
@@ -65,7 +65,7 @@ Le diagramme suivant montre les catalogues contenant les ressources des services
 
 | Utilisateur | Fonction principale | Rôle Azure AD | Rôle de gestion des droits d’utilisation |
 | --- | --- | --- | --- |
-| Hana | Administrateur informatique | Administrateur général, administrateur de la gouvernance des identités ou administrateur d’utilisateurs |  |
+| Hana | Administrateur informatique | Administrateur général ou administrateur de la gouvernance des identités  |  |
 | Mamta | Directrice marketing | Utilisateur | Créateur du catalogue et propriétaire du catalogue |
 | Bob | Responsable marketing | Utilisateur | Propriétaire de catalogue |
 | Jessica | Chef de projet marketing | Utilisateur | Gestionnaire de package d’accès |
@@ -74,12 +74,13 @@ Le diagramme suivant montre les catalogues contenant les ressources des services
 
 La gestion des droits d’utilisation a les rôles suivants, qui sont spécifiques à la gestion des droits d’utilisation.
 
-| Rôle de gestion des droits d’utilisation | Description |
-| --- | --- |
-| Créateur de catalogue | Crée et gère des catalogues. Il s’agit, en général, d’un administrateur informatique qui n’est ni Administrateur d’entreprise, ni propriétaire de ressource pour une collection de ressources. La personne qui crée un catalogue devient automatiquement le premier propriétaire du catalogue et peut ajouter des propriétaires de catalogues. Un créateur de catalogue ne peut ni gérer ni voir les catalogues dont il n’est pas propriétaire, et ne peut pas ajouter à un catalogue les ressources dont il n’est pas propriétaire. Si le créateur de catalogue doit gérer un autre catalogue ou ajouter des ressources dont il n’est pas propriétaire, il peut demander à être copropriétaire de ce catalogue ou de cette ressource. |
-| Propriétaire de catalogue | Modifie et gère les catalogues existants. Il s’agit, en général, d’un administrateur informatique, d’un propriétaire de ressource ou d’un utilisateur désigné par le propriétaire du catalogue. |
-| Gestionnaire de package d’accès | Modifie et gère tous les packages d’accès existants au sein d’un catalogue. |
-| Gestionnaire d'attribution de package d'accès | Modifie et gère toutes les affectations de packages d’accès existantes. |
+| Rôle de gestion des droits d’utilisation | ID de définition de rôle | Description |
+| --- | --- | -- |
+| Créateur de catalogue | `ba92d953-d8e0-4e39-a797-0cbedb0a89e8` | Crée et gère des catalogues. Il s’agit, en général, d’un administrateur informatique qui n’est ni Administrateur d’entreprise, ni propriétaire de ressource pour une collection de ressources. La personne qui crée un catalogue devient automatiquement le premier propriétaire du catalogue et peut ajouter des propriétaires de catalogues. Un créateur de catalogue ne peut ni gérer ni voir les catalogues dont il n’est pas propriétaire, et ne peut pas ajouter à un catalogue les ressources dont il n’est pas propriétaire. Si le créateur de catalogue doit gérer un autre catalogue ou ajouter des ressources dont il n’est pas propriétaire, il peut demander à être copropriétaire de ce catalogue ou de cette ressource. |
+| Propriétaire de catalogue | `ae79f266-94d4-4dab-b730-feca7e132178` | Modifie et gère les catalogues existants. Il s’agit, en général, d’un administrateur informatique, d’un propriétaire de ressource ou d’un utilisateur désigné par le propriétaire du catalogue. |
+| Lecteur du catalogue | `44272f93-9762-48e8-af59-1b5351b1d6b3` | Affichez les packages d’accès existants dans un catalogue. |
+| Gestionnaire de package d’accès | `7f480852-ebdc-47d4-87de-0d8498384a83` | Modifie et gère tous les packages d’accès existants au sein d’un catalogue. |
+| Gestionnaire d'attribution de package d'accès | `e2182095-804a-4656-ae11-64734e9b7ae5` | Modifie et gère toutes les affectations de packages d’accès existantes. |
 
 De plus, l’approbateur choisi et un demandeur d’un package d’accès ont des droits, bien qu’il ne s’agisse pas de rôles.
 
@@ -116,9 +117,12 @@ Le tableau suivant liste les tâches que les rôles de gestion des droits d’ut
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Rôles requis pour ajouter des ressources à un catalogue
 
-Un Administrateur d’entreprise peut ajouter ou supprimer n’importe quel groupe (groupes de sécurité ou groupes Microsoft 365 créés dans le cloud), application ou site SharePoint Online d’un catalogue. Un administrateur d’utilisateurs peut ajouter ou supprimer tout groupe ou toute application dans un catalogue, à l’exception d’un groupe configuré comme étant assignable à un rôle d’annuaire. Notez qu’un administrateur d’utilisateurs peut manager des packages d’accès dans un catalogue qui comprend des groupes configurés comme pouvant se voir attribuer un rôle d’annuaire.  Pour plus d’informations sur les groupes avec attribution de rôle, consultez [Créer un groupe avec attribution de rôle dans Azure Active Directory](../roles/groups-create-eligible.md).
+Un Administrateur d’entreprise peut ajouter ou supprimer n’importe quel groupe (groupes de sécurité ou groupes Microsoft 365 créés dans le cloud), application ou site SharePoint Online d’un catalogue. Un administrateur d’utilisateurs peut ajouter ou supprimer tout groupe ou toute application dans un catalogue, à l’exception d’un groupe configuré comme étant assignable à un rôle d’annuaire.  Pour plus d’informations sur les groupes avec attribution de rôle, consultez [Créer un groupe avec attribution de rôle dans Azure Active Directory](../roles/groups-create-eligible.md).
 
-Afin qu’un utilisateur, qui n’est ni administrateur général, ni administrateur d’utilisateurs, puisse ajouter des groupes, des applications ou des sites SharePoint Online à un catalogue, cet utilisateur doit disposer *à la fois* du rôle d’annuaire Azure AD nécessaire et du rôle de gestion des droits d’utilisation de propriétaire de catalogue. Le tableau suivant répertorie les combinaisons de rôles nécessaires pour ajouter des ressources à un catalogue. Pour supprimer les ressources d’un catalogue, vous devez disposer des mêmes rôles.
+> [!NOTE]
+> Les utilisateurs qui se sont vu attribuer le rôle d’administrateur d’utilisateurs ne pourront plus créer de catalogues ni gérer les packages d’accès dans un catalogue dont ils ne sont pas propriétaires. Si le rôle d’administrateur d’utilisateurs de votre organisation a été attribué à des utilisateurs pour configurer des catalogues, des packages d’accès ou des stratégies de la gestion des droits d’utilisation, vous devez attribuer à ces utilisateurs le **rôle d’administrateur de gouvernance des identités**.
+
+Pour qu’un utilisateur qui n’est pas administrateur général puisse ajouter des groupes, des applications ou des sites SharePoint Online à un catalogue, il doit disposer *à la fois* d’un rôle d’annuaire Azure AD ou de la propriété de la ressource, et du rôle de gestion des droits d’utilisation du propriétaire du catalogue. Le tableau suivant répertorie les combinaisons de rôles nécessaires pour ajouter des ressources à un catalogue. Pour supprimer les ressources d’un catalogue, vous devez disposer des mêmes rôles.
 
 | Rôle d’annuaire Azure AD | Rôle de gestion des droits d’utilisation | Peut ajouter un groupe de sécurité | Peut ajouter un groupe Microsoft 365 | Peut ajouter une application | Peut ajouter un site SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -134,7 +138,21 @@ Afin qu’un utilisateur, qui n’est ni administrateur général, ni administra
 
 Pour déterminer le rôle le moins privilégié pour une tâche, vous pouvez également référencer les [rôles d’administrateur par tâche administrateur dans Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
+## <a name="manage-role-assignments-programmatically-preview"></a>Gérer les attributions de rôles par programmation (préversion)
+
+Vous pouvez également voir et mettre à jour les créateurs de catalogue ainsi que les attributions de rôles propres au catalogue de gestion des droits d’utilisation à l’aide de Microsoft Graph.  Un utilisateur disposant d’un rôle approprié et d’une application qui a l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API Graph pour [lister les définitions de rôles](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) de la gestion des droits d’utilisation et [lister les attributions de rôles](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) de ces définitions de rôles.
+
+Par exemple, pour voir les rôles propres à la gestion des droits d’utilisation qui ont été attribués à un utilisateur ou à un groupe, utilisez la requête Graph pour lister les attributions de rôles, puis indiquez l’ID de l’utilisateur ou du groupe comme valeur du filtre de requête `principalId` :
+
+```http
+GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=principalId eq '10850a21-5283-41a6-9df3-3d90051dd111'&$expand=roleDefinition&$select=id,appScopeId,roleDefinition
+```
+
+Dans le cas d’un rôle propre à un catalogue, le `appScopeId` de la réponse indique le catalogue dans lequel l’utilisateur se voit attribuer un rôle.  Notez que cette réponse récupère uniquement les affectations explicites de ce principal à des rôles dans la gestion des droits d’utilisation, mais qu’elle ne retourne pas de résultats pour un utilisateur qui dispose de droits d’accès via un rôle d’annuaire ou via l’appartenance à un groupe affecté à un rôle.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Déléguer la gouvernance des accès aux créateurs de catalogue](entitlement-management-delegate-catalog.md)
+- [Déléguer la gouvernance des accès aux gestionnaires de package d’accès](entitlement-management-delegate-managers.md)
 - [Créer et gérer un catalogue de ressources](entitlement-management-catalog-create.md)

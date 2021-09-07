@@ -2,23 +2,24 @@
 title: Configurer un runtime d’intégration auto-hébergé en tant que proxy pour SSIS
 description: Découvrez comment configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS Integration Runtime.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 05/19/2021
-ms.openlocfilehash: dde4c234a6a0459441a601813f4f4a42dfbbff1c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 07/19/2021
+ms.openlocfilehash: d015c5182b51c655d45365a2f45a9f9d08db582b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665465"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835627"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Cet article explique comment exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (Azure-SSIS IR) dans Azure Data Factory avec un runtime d’intégration auto-hébergé (IR auto-hébergé) configuré en tant que proxy. 
+Cet article explique comment exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (Azure-SSIS IR) dans Azure Data Factory (ADF) avec un runtime d’intégration auto-hébergé (IR auto-hébergé) configuré en tant que proxy. 
 
 Avec cette fonctionnalité, vous pouvez accéder aux données et exécuter des tâches localement sans avoir à [joindre votre instance d'Azure-SSIS IR à un réseau virtuel](./join-azure-ssis-integration-runtime-virtual-network.md). Cette fonctionnalité est utile quand votre réseau d’entreprise a une configuration trop complexe ou une stratégie trop restrictive pour pouvoir y injecter votre instance Azure-SSIS IR.
 
@@ -50,7 +51,7 @@ Pour finir, vous téléchargez et installez la dernière version de l'IR auto-h�
   
   Si vous utilisez des pilotes OLEDB/ODBC/ADO.NET pour d’autres systèmes de base de données, comme PostgreSQL, MySQL, Oracle, etc., vous pouvez télécharger les versions 64 bits à partir de leur site web.
 - Si vous utilisez des composants de flux de données d'Azure Feature Pack dans vos packages, [téléchargez et installez Azure Feature Pack pour SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) sur l'ordinateur où votre IR auto-hébergé est installé, si ce n'est déjà fait.
-- Si ce n’est pas déjà fait, [téléchargez et installez la version 64 bits du runtime Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) sur l’ordinateur où votre IR auto-hébergé est installé.
+- Si ce n’est pas déjà fait, [téléchargez et installez la version 64 bits du runtime Visual C++ (VC)](https://www.microsoft.com/en-us/download/details.aspx?id=40784) sur l’ordinateur où votre IR auto-hébergé est installé.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Utiliser l'authentification Windows pour des tâches locales
 
@@ -67,10 +68,10 @@ Vos tâches intermédiaires locales et vos tâches de traitement/d'exécution de
 Si ce n’est pas déjà fait, créez un service lié Stockage Blob Azure dans la fabrique de données où votre Azure-SSIS IR est configuré. Pour ce faire, consultez [Créer un service lié Azure Data Factory](./quickstart-create-data-factory-portal.md#create-a-linked-service). Veillez à effectuer les opérations suivantes :
 - Pour **Magasin de données**, sélectionnez **Stockage Blob Azure**.  
 - Pour **Se connecter via le runtime d'intégration**, sélectionnez **AutoResolveIntegrationRuntime** (et non votre IR auto-hébergé), afin que nous puissions l'ignorer et utiliser votre Azure-SSIS IR pour récupérer les informations d'accès à votre Stockage Blob Azure.
-- Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS**, **Principal du service** ou **Identité managée**.  
+- Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS**, **Principal du service** ou **Identité managée** ou **Identité managée affectée par l’utilisateur**.  
 
 >[!TIP]
->Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF un rôle approprié pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
+>Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**/**Identité managée affectée par l’utilisateur**, accordez à l’identité managée affectée par l’utilisateur/le système pour votre ADF un rôle approprié pour accéder au Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory (Azure AD) avec l’identité managée affectée par l’utilisateur/le système pour votre ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 ![Préparer le service lié de stockage d’objets blob Azure pour la préproduction](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -105,7 +106,7 @@ $DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-pre
 $DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
 $DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
 
-# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data access
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

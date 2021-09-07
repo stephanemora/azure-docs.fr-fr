@@ -2,13 +2,13 @@
 title: Azure Service Bus - exceptions de la messagerie | Microsoft Docs
 description: Cet article fournit la liste des exceptions de messagerie Azure Service Bus et les actions suggérées à entreprendre quand une exception se produit.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 6c980b81d18dbbcb5764b3d8c4ed040f930bce4f
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 08/04/2021
+ms.openlocfilehash: 1535ae6e125ee11d30fab1aeaa12afe57a66b0e5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108160976"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524602"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
 
@@ -48,7 +48,7 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |Demande d'une opération d'exécution sur une entité désactivée. |Activez l'entité. |Une nouvelle tentative peut aider si l'entité a été activée entre-temps. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Service Bus renvoie cette exception si vous envoyez un message à une rubrique avec le filtre préalable activé et si aucun des filtres ne correspond. |Assurez-vous qu'au moins un filtre correspond. |La nouvelle tentative ne résout pas le problème. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Une charge utile de message dépasse la limite de 256 Ko. La limite de 256 Ko correspond à la taille totale du message, qui peut inclure des propriétés système et toute surcharge .NET. |Réduisez la taille de la charge utile de message, puis recommencez l'opération. |La nouvelle tentative ne résout pas le problème. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception) |La transaction ambiante (*Transaction.Current*) n'est pas valide. Elle a peut-être été terminée ou annulée. Une exception en interne peut fournir des informations supplémentaires. | |La nouvelle tentative ne résout pas le problème. |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception) |La transaction ambiante (`Transaction.Current`) n'est pas valide. Elle a peut-être été terminée ou annulée. Une exception en interne peut fournir des informations supplémentaires. | |La nouvelle tentative ne résout pas le problème. |
 | [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |Une opération est tentée sur une transaction incertaine, ou une tentative est faite pour valider la transaction et la transaction devient incertaine. |Votre application doit gérer cette exception (comme un cas spécial), car la transaction a peut-être déjà été validée. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
@@ -189,6 +189,17 @@ Les étapes de résolution dépendent de la cause de la levée de l’exception 
 
    * Pour des **problèmes temporaires** (où **_isTransient_ *_ a la valeur _* _true_ *_) ou des _* problèmes de limitation**, une nouvelle tentative d’exécution de l’opération peut les résoudre. La stratégie de nouvelle tentative par défaut du Kit de développement logiciel (SDK) peut être utile à cette fin.
    * Pour les autres problèmes, les détails de l’exception indiquent que les étapes du problème et de sa résolution peuvent être déduits de l’exception.
+
+## <a name="storagequotaexceededexception"></a>StorageQuotaExceededException
+
+### <a name="cause"></a>Cause
+
+L’exception **StorageQuotaExceededException** est levée lorsque la taille totale des entités d’un espace de noms Premium dépasse la limite de 1 To par [unité de messagerie](service-bus-premium-messaging.md).
+
+### <a name="resolution"></a>Résolution
+
+- Augmenter le nombre d’unités de messagerie affectées à l’espace de noms Premium
+- Si vous utilisez déjà le nombre maximal d’unités de messagerie autorisées pour un espace de noms, créez un autre espace de noms. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

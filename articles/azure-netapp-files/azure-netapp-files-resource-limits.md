@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 08/24/2021
 ms.author: b-juche
-ms.openlocfilehash: b5abb26a5a96b73f06f25661c62061f664069ee3
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 0b05b934b4dc57b4db941755cfcfb2f8d21fc2c6
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903485"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824964"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -31,6 +31,7 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 
 |  Ressource  |  Limite par défaut  |  Ajustable via une demande de support  |
 |----------------|---------------------|--------------------------------------|
+|  [Quota de capacité régional par abonnement](#regional-capacity-quota)   |  25 Tio  |  Oui  |
 |  Nombre de comptes NetApp par région Azure par abonnement  |  10    |  Oui   |
 |  Nombre de pools de capacités par compte NetApp   |    25     |   Oui   |
 |  Nombre de volumes par abonnement   |    500     |   Oui   |
@@ -89,38 +90,50 @@ Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de 
 |    > 3 Tio mais <= 4 Tio    |    80 millions     |
 |    > 4 Tio                 |    100 millions    |
 
-Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles (inodes) au-delà de 100 millions. Tous les 100 millions de fichiers que vous augmentez (ou une fraction de ceux-ci), vous devez augmenter le quota de volume correspondant de 4 Tio.  Par exemple, si vous augmentez la limite maxfiles de 100 millions de fichiers à 200 millions de fichiers (ou n’importe quel nombre dans cette plage), vous devez augmenter le quota de volume de 4 Tio à 8 Tio.
+Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#request-limit-increase) afin d’augmenter la limite maxfiles (inodes) au-delà de 100 millions. Tous les 100 millions de fichiers que vous augmentez (ou une fraction de ceux-ci), vous devez augmenter le quota de volume correspondant de 4 Tio.  Par exemple, si vous augmentez la limite maxfiles de 100 millions de fichiers à 200 millions de fichiers (ou n’importe quel nombre dans cette plage), vous devez augmenter le quota de volume de 4 Tio à 8 Tio.
 
 Vous pouvez augmenter la limite maxfiles à 500 millions si votre quota de volume est d’au moins 20 Tio. <!-- ANF-11854 --> 
 
-## <a name="request-limit-increase"></a>Demander une augmentation de limite <a name="limit_increase"></a> 
+## <a name="regional-capacity-quota"></a>Quota de capacité régional
 
-Vous pouvez créer une demande de support Azure pour augmenter les limites ajustables à partir du tableau ci-dessus. 
+vous pouvez cliquer sur **Quota** sous Paramètres de Azure NetApp Files pour afficher les tailles de quota actuelles et par défaut pour la région. 
 
-À partir du volet de navigation du portail Azure : 
+Par exemple : 
 
-1. Cliquez sur **Aide + support**.
-2. Cliquez sur **Nouvelle demande de support**.
-3. Sous l’onglet De base, fournissez les informations suivantes : 
-    1. Type de problème : Sélectionnez **Limites du service et de l’abonnement (quotas)** .
-    2. Abonnements : Sélectionnez l’abonnement pour la ressource dont vous voulez augmenter le quota.
-    3. Type de quota : Sélectionnez **Stockage : limites d’Azure NetApp Files**.
-    4. Cliquez sur **Suivant : Solutions**.
-4. Sous l’onglet Détails :
-    1. Dans la zone Description, fournissez les informations suivantes pour le type de ressource correspondant :
+![Capture d’écran montrant comment afficher des informations de quota.](../media/azure-netapp-files/quota-display.png) 
 
-        |  Ressource  |    Ressources parentes      |    Nouvelles limites demandées     |    Raison de l’augmentation du quota       |
-        |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  Compte |  *Identifiant d’abonnement*   |  *Nouveau **nombre** maximal demandé*    |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
-        |  pool    |  *ID d’abonnement, URI de compte NetApp*  |  *Nouveau nombre maximal de **pools** demandé*   |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
-        |  Volume  |  *ID d’abonnement, URI de compte NetApp, URI de pool de capacité*   |  *Nouveau **volume** maximal demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
-        |  Maxfiles  |  *ID d’abonnement, URI de compte NetApp, URI de pool de capacité, URI de volume*   |  *Nouveau nombre maximal **maxfiles** demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
-        |  Volumes de protection des données de réplication inter-région  |  *ID d’abonnement, URI de compte NetApp de destination, URI de pool de capacité de destination, URI de compte NetApp source, URI de pool de capacité source, URI de volume source*   |  *Nouveau nombre maximal de **volumes de protection des données de réplication inter-région (volumes de destination)** _     |  _Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
+Vous pouvez [envoyer une demande de support](#request-limit-increase) pour une augmentation du quota de capacité régionale sans frais supplémentaires. La demande de support que vous envoyez sera envoyée à l’équipe de gestion de la capacité Azure pour traitement. Vous recevrez une réponse généralement dans un délai de 2 jours ouvrables. L’équipe de gestion de la capacité Azure peut vous contacter pour la gestion des requêtes volumineuses.  
 
-    2. Spécifiez la méthode de support appropriée et fournissez les informations relatives à votre contrat.
+Une augmentation du quota de capacité régional n’entraîne pas d’augmentation de la facturation. La facturation est toujours basée sur les pools de capacité approvisionnés.
+Par exemple, si vous disposez actuellement de 25 Tio de capacité approvisionnée, vous pouvez demander une augmentation de quota à 35 Tio.  Dans les deux jours ouvrables, votre augmentation du quota sera appliquée à la région demandée. Une fois l’augmentation du quota appliquée, vous payez toujours uniquement la capacité approvisionnée actuelle (25 Tio). Mais lorsque vous approvisionnez en fait les 10 Tio supplémentaires, vous êtes facturé pour 35 Tio.
 
-    3. Cliquez sur **Suivant : Vérifier + créer** pour créer la demande. 
+Les [limites de ressources](#resource-limits) actuelles pour Azure NetApp Files ne sont pas modifiées. Vous serez toujours en mesure d’approvisionner un pool de capacité de 500-Tio. Mais avant cela, le quota de capacité régionale doit être augmenté à 500 Tio.
 
+## <a name="request-limit-increase"></a>Augmentation de la limite de demandes
+
+Vous pouvez créer une demande de support Azure pour augmenter les limites ajustables à partir du tableau [Limites de ressource](#resource-limits). 
+
+1. Sous **Nouvelle demande de support**, sélectionnez **Suport + dépannage**.
+1. Sous l’onglet **Description du problème**, fournissez les informations demandées.
+1. Sous l’onglet **Détails supplémentaires**, cliquez sur **Entrer les détails** dans le champ Détails de la demande.  
+
+    ![Capture d’écran montrant l’onglet Détails et le champ Entrer les détails.](../media/azure-netapp-files/quota-additional-details.png)
+
+1. Dans la fenêtre Détails du quota qui s’affiche :  
+
+    1. Sous Type de quota, sélectionnez le type de ressource que vous souhaitez augmenter.  
+        Par exemple :  
+        * *Quota de capacité régional par abonnement (TiB)*
+        * *Nombre de comptes NetApp par région Azure par abonnement*
+        * *Nombre de volumes par abonnement*
+
+    1. Dans Région demandée, sélectionnez votre région.   
+        Les tailles actuelles et par défaut sont affichées sous État du quota.
+    1. Entrez une valeur pour demander une augmentation pour le type de quota que vous avez spécifié.
+    
+    ![Capture d’écran montrant comment afficher et demander une augmentation du quota régional.](../media/azure-netapp-files/quota-details-regional-request.png)
+
+1. Cliquez sur **Suivant** et **Vérifier + créer** pour créer la demande.
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

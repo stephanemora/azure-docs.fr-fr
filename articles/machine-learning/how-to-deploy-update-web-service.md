@@ -10,12 +10,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: 5a586d29fd25ee7332f11737345aef8209de8824
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: ed3b0512a7f73ae9e387b41871e2ee59607e731d
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889337"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597497"
 ---
 # <a name="update-a-deployed-web-service"></a>Mettre à jour un service web déployé
 
@@ -37,6 +37,14 @@ Consultez [Méthode de mise à jour du service ACI.](/python/api/azureml-core/az
 > Lorsque vous créez une nouvelle version d’un modèle, vous devez mettre à jour manuellement chacun des services pour lesquels vous souhaitez l’utiliser.
 >
 > Vous ne pouvez pas utiliser le kit de développement logiciel (SDK) pour mettre à jour un service web publié à partir du concepteur Azure Machine Learning.
+
+> [!IMPORTANT]
+> Azure Kubernetes Service utilise le [pilote Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) pour les versions 1.16 et antérieures et le [pilote CSI des objets blob](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) pour les versions 1.17 et ultérieures. 
+>
+> Ainsi, il est important de redéployer ou de mettre à jour le service web après la mise à niveau du cluster afin d’effectuer le déploiement avec la méthode blobfuse adéquate pour la version du cluster.
+
+> [!NOTE]
+> Quand une opération est déjà en cours, toute nouvelle opération sur le même service web répond avec une erreur de conflit 409. Par exemple, si une opération de création ou de mise à jour du service web est en cours et que vous déclenchez une nouvelle opération de suppression, une erreur est générée.
 
 **Avec le kit SDK**
 
@@ -86,14 +94,14 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > Pour mettre à jour le service afin d’utiliser un nouveau script ou environnement d’entrée, créez un [fichier de configuration d’inférence](./reference-azure-machine-learning-cli.md#inference-configuration-schema) et spécifiez-le avec le paramètre `ic`.
 
-Pour plus d’informations, consultez la documentation [az ml service update](/cli/azure/ml/service#az_ml_service_update).
+Pour plus d’informations, consultez la documentation [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre des problèmes d’échec de déploiement](how-to-troubleshoot-deployment.md)
 * [Déployer dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md)
-* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
+* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](./how-to-deploy-custom-container.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)

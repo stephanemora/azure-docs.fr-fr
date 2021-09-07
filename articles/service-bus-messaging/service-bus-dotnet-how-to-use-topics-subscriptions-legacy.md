@@ -1,29 +1,29 @@
 ---
-title: Prise en main des rubriques et abonnements Azure Service Bus | Microsoft Docs
+title: Utiliser les rubriques et les abonnements Azure Service Bus avec .NET (ancienne version)
 description: Écrivez une application de console .Net Core C# qui utilise les rubriques et les abonnements de messagerie Service Bus.
-ms.topic: quickstart
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/02/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4644cc6ed4c3f668c7a53ad963e7779740f0b771
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868156"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736271"
 ---
-# <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
-Ce tutoriel couvre les étapes suivantes :
+# <a name="use-service-bus-topics-and-subscriptions-with-net-old-package"></a>Utiliser les rubriques et les abonnements Service Bus avec .NET (ancien package)
+Cet article couvre les étapes suivantes :
 
 1. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la rubrique.
 2. Écrivez une application de console .NET Core pour recevoir ces messages de l’abonnement.
 
 > [!WARNING]
-> Ce démarrage rapide utilise l’ancien package Microsoft.Azure.ServiceBus. Pour un démarrage rapide qui utilise la version la plus récente du package Azure.Messaging.ServiceBus, consultez [Envoyer et recevoir des messages à l’aide du package Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Pour migrer votre application de l’ancienne bibliothèque vers la nouvelle, consultez [Guide to migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus (Guide de migration de Microsoft.Azure.ServiceBus vers Azure.Messaging.ServiceBus)](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
+> Cet article utilise l’ancien package Microsoft.Azure.ServiceBus. Pour accéder à un article qui utilise le dernier package Azure.Messaging.ServiceBus, consultez [Envoyer et recevoir des messages à l’aide du package Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Pour migrer votre application de l’ancienne bibliothèque vers la nouvelle, consultez [Guide to migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus (Guide de migration de Microsoft.Azure.ServiceBus vers Azure.Messaging.ServiceBus)](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Un abonnement Azure. Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créez un **espace de noms** Service Bus.
     2. Obtenez la **chaîne de connexion**.

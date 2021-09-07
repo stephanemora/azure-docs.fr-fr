@@ -8,24 +8,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 07/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 06f656fd45bfa0f8aedb086e95f5b991868656ff
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: fedae4f6593e14d812d1fb8fe123ca9a99f8476e
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314982"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114401007"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Google à l’aide d’Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 > [!IMPORTANT]
-> **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations Azure AD B2B ou Azure AD B2C, ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](../active-directory/external-identities/google-federation.md#deprecation-of-web-view-sign-in-support)
+> **À partir du 30 septembre 2021**, Google [déprécie la prise en charge de la connexion par vue web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue web incorporée et que vous utilisez la fédération Google avec Azure AD B2C, les utilisateurs de Google Gmail ne pourront pas s’authentifier. [Plus d’informations](../active-directory/external-identities/google-federation.md#deprecation-of-web-view-sign-in-support)
+
 
 ::: zone pivot="b2c-custom-policy"
 

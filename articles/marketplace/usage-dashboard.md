@@ -4,28 +4,27 @@ description: Découvrez comment accéder à toutes les métriques d’utilisatio
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/28/2021
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: fca763f307c8ae1437009b282e460fc249c40b60
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/15/2021
+ms.openlocfilehash: c68216675a41a71b21216ce558b03171781dbc43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540974"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563215"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
 Cet article fournit des informations sur le tableau de bord Utilisation de l’Espace partenaires. Ce tableau de bord présente toutes les métriques d’utilisation normalisée, d’utilisation brute et de facturation à l’usage des offres de machines virtuelles dans trois onglets distincts : utilisation normalisée des machines virtuelles, utilisation brute des machines virtuelles et utilisation de la facturation à l’usage.
 
-Pour accéder au tableau de bord Utilisation de l’Espace partenaires, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Utilisation** sous **Place de marché commerciale**.
-
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).
 
 ## <a name="usage-dashboard"></a>Tableau de bord de l’utilisation
 
-Le tableau de bord **Utilisation** du menu **Analyser** présente les commandes en cours pour l’ensemble de vos offres SaaS (software as a service). Vous pouvez afficher une représentation graphique des éléments suivants :
+Le [tableau de bord de l’utilisation](https://go.microsoft.com/fwlink/?linkid=2166106) présente les commandes en cours pour l’ensemble de vos offres Software as a Service (SaaS). Vous pouvez afficher une représentation graphique des éléments suivants :
 
 - Tendance d’utilisation
 - Utilisation normalisée selon les offres
@@ -40,6 +39,8 @@ Le tableau de bord **Utilisation** du menu **Analyser** présente les commandes 
 ## <a name="elements-of-the-usage-dashboard"></a>Éléments du tableau de bord Utilisation
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Utilisation et lire les données.
+
+Pour accéder au tableau de bord Utilisation de l’Espace partenaires, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Utilisation** sous **Place de marché commerciale**.
 
 ### <a name="month-range"></a>Plage de mois
 
@@ -122,7 +123,7 @@ _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 | ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Anciennement, GUID d’abonnement Azure. | MarketplaceSubscriptionId |
 | MonthStartDate | Date de début du mois | Mois de l’achat. | MonthStartDate |
 | Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. | OfferType |
-| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé Canal. Les valeurs possibles sont les suivantes :<ui><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> | AzureLicenseType |
+| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé Canal. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> | AzureLicenseType |
 | Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les valeurs possibles sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | Plan associé à l’offre. | SKU |
 | Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. | CustomerCountry |
@@ -162,6 +163,7 @@ _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 | Action entreprise à | Action entreprise à | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Spécifie le moment où l’éditeur a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | ActionTakenAt |
 | Action entreprise par | Action entreprise par | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Spécifie la personne qui a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | ActionTakenBy |
 | Impact financier estimé (USD) | Impact financier estimé en USD | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Lorsqu’Espace partenaires signale une utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme anormale, le champ spécifie l’impact financier estimé (en USD) de l’utilisation de dépassement anormale.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par des moyens programmatiques, la valeur sera Null._ | EstimatedFinancialImpactUSD |
+| N/A | ID de ressource | Identifiant complet de la ressource, y compris le nom et le type de la ressource. Notez qu’il s’agit d’un champ de données disponible dans les rapports de téléchargement uniquement.<br>Utilisez le format :<br> /subscriptions/{guid}/resourceGroups/{nom_groupe_ressources}/{espace_noms-fournisseur-ressources}/{type_ressource}/{nom_ressource} | N/A |
 |||||
 
 ### <a name="usage-page-filters"></a>Filtres de la page Utilisation
@@ -200,4 +202,4 @@ Si vous avez plusieurs offres qui utilisent des compteurs personnalisés, le rap
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la Place de marché commerciale](usage-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et de Microsoft AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+- Pour voir les questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).

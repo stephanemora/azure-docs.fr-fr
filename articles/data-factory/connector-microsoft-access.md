@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/20/2021
-ms.openlocfilehash: c4c5a619bb6c76b6f1fd339bfa18f9281e39d7fe
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.date: 08/30/2021
+ms.openlocfilehash: a17d6cf31b94aa2c737335a7c2cc1a746df1d323
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598418"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303196"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-using-azure-data-factory"></a>Copier des données vers ou à partir de Microsoft Access à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,6 +43,31 @@ Pour utiliser ce connecteur Microsoft Access, vous devez :
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-microsoft-access-using-ui"></a>Créer un service lié à Microsoft Access à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Microsoft Access dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Access et sélectionnez le connecteur Microsoft Access.
+
+   :::image type="content" source="media/connector-microsoft-access/microsoft-access-connector.png" alt-text="Sélectionnez le connecteur Microsoft Access.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-microsoft-access/configure-microsoft-access-linked-service.png" alt-text="Configurez un service lié à Microsoft Access.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir les entités Data Factory spécifiques au connecteur Microsoft Access.
 

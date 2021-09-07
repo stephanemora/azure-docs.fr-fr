@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 67dd2b35229c15ae4df5ec8acb357aa35621d67c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b5a607b9c0a64c6872ab511f13034e9d6eeb86d7
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102436632"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360503"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Résolution des erreurs de certificat
 
@@ -64,4 +64,5 @@ Le tableau suivant répertorie les erreurs de certificat courantes et des inform
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Conditions requises pour les certificats](azure-stack-edge-gpu-certificate-requirements.md)
+- Examiner les [Exigences des certificats](azure-stack-edge-gpu-certificate-requirements.md).
+- [Résoudre les problèmes à l’aide des journaux des appareils et des tests de diagnostic](azure-stack-edge-gpu-troubleshoot.md).

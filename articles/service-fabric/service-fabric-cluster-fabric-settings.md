@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ef89cb50770eecb7b61798562ba6228f0ecd0071
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5d6f15f4178b9f026be7205832a1f40c3dc01bab
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479818"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720677"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -65,6 +65,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |DeployedState |Valeur wstring, par défaut L"DSTS" |statique |Suppression en 2 étapes du CSS. |
+|UpdateEncryptionCertificateTimeout |TimeSpan, la valeur par défaut est Common::TimeSpan::MaxValue |statique |Spécifiez la durée en secondes. La valeur par défaut est devenue TimeSpan::MaxValue. Toutefois, les remplacements sont toujours respectés. Possibilité d’une dépréciation prochaine. |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -102,6 +103,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |AllowCreateUpdateMultiInstancePerNodeServices |Valeur booléenne (valeur par défaut : false) |Dynamique|Permet la création de plusieurs instances sans état d’un service par nœud. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. |
+|EnableAuxiliaryReplicas |Valeur booléenne (valeur par défaut : false) |Dynamique|Activez la création ou la mise à jour des réplicas auxiliaires dans les services. Si la valeur est true, les mises à niveau de SF version 8.1+ vers une targetVersion inférieure seront bloquées. |
 |PerfMonitorInterval |Durée en secondes (valeur par défaut : 1) |Dynamique|Spécifiez la durée en secondes. Interface de surveillance des performances. Une valeur nulle ou négative désactive la surveillance. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -144,11 +146,14 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|valeur booléenne, valeur par défaut : FALSE|statique|Indicateur permettant d’activer la prise en charge des requêtes DNS pour les services partitionnés. Cette fonctionnalité est désactivée par défaut. Pour en savoir plus, voir [Service DNS Service Fabric.](service-fabric-dnsservice.md)|
+|ForwarderPoolSize|Entier (valeur par défaut : 20)|statique|Nombre de redirecteurs dans le pool de redirection.|
+|ForwarderPoolStartPort|Entier, valeur par défaut : 16700|statique|Adresse de début du pool de redirection qui est utilisée pour les requêtes récursives.|
 |InstanceCount|entier, valeur par défaut : -1|statique|La valeur par défaut est 1, ce qui signifie que DnsService est en cours d’exécution sur chaque nœud. OneBox a besoin de cette option ait la valeur 1, dans la mesure où DnsService utilise le port 53 bien connu. Donc, il ne peut pas avoir plusieurs instances sur le même ordinateur.|
 |IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Active/désactive DnsService. DnsService est désactivé par défaut, et cette configuration doit être définie pour l’activer. |
 |PartitionPrefix|Chaîne (valeur par défaut : "--")|statique|Contrôle la valeur de la chaîne de préfixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>ne peut pas être une chaîne vide.</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|Chaîne (valeur par défaut : "")|statique|Contrôle la valeur de la chaîne de suffixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md). |
-|RetryTransientFabricErrors|Valeur booléenne (valeur par défaut : true)|statique|Le paramètre contrôle les fonctionnalités de nouvelle tentative lors de l’appel des API Service Fabric à partir de DnsService. Lorsqu’il est activé, il effectue jusqu’à trois tentatives en cas d’erreur temporaire.|
+|TransientErrorMaxRetryCount|Entier (valeur par défaut : 3)|statique|Contrôle le nombre de tentatives que SF DNS doit effectuer lorsqu’une erreur temporaire se produit lors de l’appel des API SF (par exemple, lorsque vous récupérez des noms et des points de terminaison).|
+|TransientErrorRetryIntervalInMillis|Entier (valeur par défaut : 0)|statique|Définit le délai (en millisecondes) entre chaque nouvelle tentative lorsque SF DNS appelle les API SF.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -356,6 +361,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DeploymentRetryBackoffInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(10)|Dynamique|Spécifiez la durée en secondes. Intervalle de temporisation pour l’échec du déploiement. À chaque échec de déploiement continu, le système retentera le déploiement jusqu'à la valeur MaxDeploymentFailureCount. L’intervalle entre chaque tentative est un produit de l’échec du déploiement continu et de l’intervalle de temporisation de déploiement. |
 |DisableContainers|valeur booléenne, valeur par défaut : FALSE|statique|Configuration pour la désactivation des conteneurs - utilisé à la place de DisableContainerServiceStartOnContainerActivatorOpen qui est un paramètre de configuration déprécié |
 |DisableDockerRequestRetry|valeur booléenne, valeur par défaut : FALSE |Dynamique| Par défaut SF communique avec DD (docker dameon) avec un délai d’expiration « DockerRequestTimeout » pour chaque requête http qui lui est envoyée. Si DD ne répond pas au cours de cette période, SF renvoie la requête s’il reste du temps dans l’opération de niveau supérieur.  Avec le conteneur Hyper-V ; DD prend parfois beaucoup plus de temps pour afficher le conteneur ou le désactiver. Dans ce cas, DD demande un délai d’expiration à partir de la perspective de SF et SF retente l’opération. Parfois, cela semble ajoute plus de pression sur DD. Cette configuration permet de désactiver cette nouvelle tentative et d’attendre la réponse de DD. |
+|DisableLivenessProbes | valeur wstring (valeur par défaut : L"") | statique | Configuration pour désactiver les probes liveness dans un cluster. Vous pouvez spécifier n’importe quelle valeur non vide pour que SF désactive les sondes. |
+|DisableReadinessProbes | valeur wstring (valeur par défaut : L"") | statique | Configuration pour désactiver les probes readiness dans un cluster. Vous pouvez spécifier n’importe quelle valeur non vide pour que SF désactive les sondes. |
 |DnsServerListTwoIps | Valeur booléenne, valeur par défaut : FALSE | statique | Cet indicateur ajoute deux fois le serveur DNS local pour aider à atténuer les problèmes intermittents. |
 | DockerTerminateOnLastHandleClosed | Valeur booléenne, valeur par défaut : TRUE | statique | Par défaut, si FabricHost gère dockerd (en fonction de : SkipDockerProcessManagement == false), ce paramètre configure ce qui se produit lorsque FabricHost ou dockerd se bloquent. Si lorsque la valeur est définie sur `true`, l’un des processus se bloque, tous les conteneurs en cours d’exécution sont arrêtés de force par HCS. Si la valeur est définie sur `false`, les conteneurs continuent de s’exécuter. Remarque : avant la version 8.0, ce comportement était intentionnellement équivalent à `false`. La valeur par défaut `true` correspond au comportement attendu par défaut par la suite pour que notre logique de nettoyage soit effective au redémarrage de ces processus. |
 | DoNotInjectLocalDnsServer | valeur booléenne, valeur par défaut : FALSE | statique | Empêche le runtime d’injecter l’adresse IP locale en tant que serveur DNS pour les conteneurs. |
@@ -536,6 +543,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ConstraintFixPartialDelayAfterNewNode | Durée en secondes (valeur par défaut : 120) |Dynamique| Spécifiez la durée en secondes. Ne corrigez pas les violations de contrainte FaultDomain et UpgradeDomain pendant cette période après l’ajout d’un nouveau nœud. |
 |ConstraintFixPartialDelayAfterNodeDown | Durée en secondes (valeur par défaut : 120) |Dynamique| Spécifiez la durée en secondes. Ne corrigez pas les violations de contrainte FaultDomain et UpgradeDomain pendant cette période après un événement d’arrêt de nœud. |
 |ConstraintViolationHealthReportLimit | Entier (valeur par défaut : 50) |Dynamique| Définit le nombre de fois qu’un réplica ne respectant pas la contrainte ne doit pas être corrigé de façon permanente avant que des diagnostics soient effectués et que des rapports d’intégrité soient émis. |
+|DecisionOperationalTracingEnabled | valeur booléenne, valeur par défaut : FALSE |Dynamique| Configuration qui active la trace structurelle opérationnelle des décisions CRM dans le magasin d’événements. |
 |DetailedConstraintViolationHealthReportLimit | Entier (valeur par défaut : 200) |Dynamique| Définit le nombre de fois qu’un réplica ne respectant pas la contrainte ne doit pas être corrigé de façon permanente avant que des diagnostics soient effectués et que des rapports d’intégrité détaillés soient émis. |
 |DetailedDiagnosticsInfoListLimit | Entier (valeur par défaut : 15) |Dynamique| Définit le nombre d’entrées de diagnostic (avec informations détaillées) par contrainte à inclure avant la troncation dans Diagnostics.|
 |DetailedNodeListLimit | Entier (valeur par défaut : 15) |Dynamique| Définit le nombre de nœuds par contrainte à inclure avant la troncation dans les rapports de réplica non placé. |
@@ -581,6 +589,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |TraceCRMReasons |Valeur booléenne (valeur par défaut : true) |Dynamique|Spécifie si les raisons des mouvements effectués par CRM doivent être envoyés au canal des événements opérationnels. |
 |UpgradeDomainConstraintPriority | Entier (valeur par défaut : 1)| Dynamique|Détermine la priorité de la contrainte de domaine de mise à niveau : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |UseMoveCostReports | Valeur booléenne (valeur par défaut : false) | Dynamique|Demande à LB d’ignorer l’élément de coût de la fonction de score, ce qui génère un nombre potentiellement important de déplacements et, donc, un placement mieux équilibré. |
+|UseSeparateAuxiliaryLoad | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre qui détermine si PLB doit utiliser une charge différente pour l’auxiliaire de chaque nœud Si UseSeparateAuxiliaryLoad est désactivé : - La charge signalée pour l’auxiliaire d’un nœud entraînera le remplacement de la charge pour chaque auxiliaire (sur tous les autres nœuds) Si UseSeparateAuxiliaryLoad est activé : - La charge signalée pour l’auxiliaire d’un nœud ne sera appliquée qu’à cet auxiliaire (sans effet sur les auxiliaires des autres nœuds) - Si le réplica plante : - Un nouveau réplica est créé avec la charge moyenne de tous les auxiliaires restants - Si PLB déplace le réplica existant : la charge est déplacée elle aussi. |
+|UseSeparateAuxiliaryMoveCost | Valeur booléenne (valeur par défaut : false) | Dynamique|Paramètre qui détermine si PLB doit utiliser un coût de déplacement différent pour l’auxiliaire de chaque nœud Si UseSeparateAuxiliaryMoveCost est désactivé : - Le coût de déplacement signalé pour l’auxiliaire d’un nœud entraînera le remplacement du coût de déplacement pour chaque auxiliaire (sur tous les autres nœuds) Si UseSeparateAuxiliaryMoveCost est activé : - Le coût de déplacement signalé pour l’auxiliaire d’un nœud ne sera appliqué qu’à cet auxiliaire (aucun effet sur les auxiliaires des autres nœuds) - Si le réplica plante : - Un nouveau réplica est créé avec le coût de déplacement par défaut indiqué au niveau du service - Si PLB déplace un réplica existant : le coût de déplacement est déplacé lui aussi. |
 |UseSeparateSecondaryLoad | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre déterminant si une charge distincte doit être utilisée pour les réplicas secondaires. |
 |UseSeparateSecondaryMoveCost | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre qui détermine si PLB doit utiliser un coût de déplacement différent pour le réplica secondaire sur chaque nœud. Si UseSeparateSecondaryMoveCost est désactivé : - Le coût de déplacement signalé pour le réplica secondaire sur un nœud entraîne le remplacement du coût de déplacement pour chaque réplica secondaire (sur tous les autres nœuds) Si UseSeparateSecondaryMoveCost est activé : - Le coût de déplacement signalé pour le réplica secondaire sur un nœud ne prend effet que sur ce réplica secondaire (aucun effet sur les réplicas secondaires sur les autres nœuds) - En cas d’incident du réplica - un nouveau réplica est créé avec le coût de déplacement par défaut indiqué dans le niveau de service - Si PLB déplace un réplica existant - le coût de déplacement est conservé. |
 |ValidatePlacementConstraint | Valeur booléenne (valeur par défaut : true) |Dynamique| Spécifie si l’expression PlacementConstraint d’un service est validée lors de la mise à jour du paramètre ServiceDescription d’un service. |
@@ -883,6 +893,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |MaxSecondaryReplicationQueueMemorySize |Valeur Uint (valeur par défaut : 0) | statique |Valeur maximale de la file d’attente de réplication secondaire en octets. |
 |MaxSecondaryReplicationQueueSize |Valeur Uint (valeur par défaut : 16384) | statique |Nombre maximum d’opérations pouvant exister dans la file d’attente de réplication secondaire. Ce nombre doit être une puissance de 2. |
 |ReplicatorAddress |Chaîne (valeur par défaut : "localhost:0") | statique | Point de terminaison sous la forme d’une chaîne « IP:port» utilisée par le réplicateur Windows Fabric pour se connecter à d’autres réplicas afin d’envoyer/recevoir des opérations. |
+|ShouldAbortCopyForTruncation |valeur booléenne, valeur par défaut : FALSE | statique | Permet à la troncation du journal en attente d’être effectuée pendant la copie. Quand ce paramètre est activé, l’étape de copie des builds peut être annulée si le journal est plein et s’il s’agit d’une troncation de bloc. |
 
 ## <a name="transport"></a>Transport
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau** |**Conseils ou brève description** |

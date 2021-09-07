@@ -5,14 +5,15 @@ author: shirleywangmsft
 ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 48c0f47b3b8ca5eddef76c66ad220a18018dc321
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: a5032ce26fcce2dbee2a95385292c5b455904586
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904889"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563223"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 
@@ -184,22 +185,22 @@ Dans ce scénario, vous souhaitez supprimer des fichiers d’origine d’un Stoc
 | Création d’un pipeline | 6 entités de lecture/écriture (2 pour la création du pipeline, 4 pour les références de jeu de données) |
 | Récupération d’un pipeline | 2 entités en lecture/écriture |
 | Exécution d’un pipeline | 6 exécutions d’activité (2 pour l’exécution du déclencheur, 4 pour les exécutions d’activité) |
-| Exécuter une activité de suppression : chaque durée d’exécution = 5 min. L’exécution de l’activité de suppression dans le premier pipeline a lieu de 10:00 UTC à 10:05 UTC. L’exécution de l’activité de suppression dans le deuxième pipeline a lieu de 10:02 UTC à 10:07 UTC.|Exécution d’activité de pipeline totale de 7 minutes dans le VNET managé. L’activité de pipeline prend en charge jusqu’à 50 accès simultanés dans le VNET managé. |
-| Hypothèse de copie de données : chaque durée d’exécution = 10 min. L’exécution de la copie dans le premier pipeline a lieu de 10:06 UTC et 10:15 UTC. L’exécution de l’activité de suppression dans le deuxième pipeline a lieu de 10:08 UTC à 10:17 UTC. | 10 * 4 Azure Integration Runtime (paramètre DIU par défaut = 4) – pour plus d’informations sur les unités d’intégration de données et l’optimisation des performances de copie, voir [cet article](copy-activity-performance.md) |
+| Exécuter une activité de suppression : chaque durée d’exécution = 5 min. L’exécution de l’activité de suppression dans le premier pipeline a lieu de 10:00 UTC à 10:05 UTC. L’exécution de l’activité de suppression dans le deuxième pipeline a lieu de 10:02 UTC à 10:07 UTC.|Exécution d’activité de pipeline totale de 7 minutes dans le VNET managé. L’activité de pipeline prend en charge jusqu’à 50 accès simultanés dans le VNET managé. L’activité de pipeline a une durée de vie (TTL) de 60 minutes.|
+| Hypothèse de copie de données : chaque durée d’exécution = 10 min. L’exécution de la copie dans le premier pipeline a lieu de 10:06 UTC et 10:15 UTC. L’exécution de l’activité de copie dans le deuxième pipeline a lieu de 10:08 UTC à 10:17 UTC. | 10 * 4 Azure Integration Runtime (paramètre DIU par défaut = 4) – pour plus d’informations sur les unités d’intégration de données et l’optimisation des performances de copie, voir [cet article](copy-activity-performance.md) |
 | Monitoring du pipeline – hypothèse : Seules 2 exécutions ont eu lieu | 6 enregistrements d’exécution de monitoring récupérés (2 pour l’exécution du pipeline, 4 pour l’exécution d’activité) |
 
 
-**Prix total du scénario : 0,45523 USD**
+**Prix total du scénario : 1,45523 USD**
 
 - Opérations Data Factory = 0,00023 USD
   - Lecture/écriture = 20*00001 = 0,0002 USD [1 R/W = 0,50 USD/50000 = 0,00001]
   - Monitoring = 6*000005 = 0,00003 USD [1 Monitoring = 0,25 USD/50000 = 0,000005]
-- Exécution et orchestration du pipeline = 0,455 USD
+- Exécution et orchestration du pipeline = 1,455 USD
   - Exécutions d’activité = 0,001*6 = 0,006 [1 exécution = 1 USD/1000 = 0,001]
   - Activités de déplacement des données = 0,333 USD (au prorata de 10 minutes de durée d’exécution, à 0,25 $/h par Azure Integration Runtime)
-  - Activité du pipeline externe = 0,116 USD (au prorata de 7 minutes de durée d’exécution, à 1 USD/h par Azure Integration Runtime)
+  - Activité du pipeline = 1,116 USD (au prorata de 7 minutes de durée d’exécution plus TTL de 60 minutes. à 1 USD/h par Azure Integration Runtime)
 
-> [!NOTE]
+> [!NOTE] 
 > Ces prix sont fournis uniquement à titre d’exemple.
 
 **FORUM AUX QUESTIONS**

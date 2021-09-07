@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 4c3b33400340fc4dd13e74437aa9fddf6921e710
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 8a86c3d9c81d332fdd1072f937d8e222d5a6436d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804499"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525077"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Superviser les journaux d’activité et les métriques du Pare-feu Azure
 
@@ -107,11 +107,11 @@ Vous pouvez afficher et analyser les données du journal d’activité en utilis
 * **Power BI** : si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’activité Azure pour Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
 * **Azure Sentinel** : Vous pouvez connecter des journaux Pare-feu Azure à Azure Sentinel, ce qui vous permet d’afficher les données des journaux dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer votre investigation. Le connecteur de données Pare-feu Azure dans Azure Sentinel est en préversion publique. Pour plus d’informations, consultez [Connecter des données à partir du Pare-feu Azure](../sentinel/connect-azure-firewall.md).
 
+   Pour obtenir une vue d’ensemble, consultez la vidéo suivante de Mohit Kumar :
+   > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]
+
+
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Afficher et analyser les journaux d’activité de règles et d’application et de réseau
-
-Les [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) collectent les compteurs et les fichiers journaux des événements. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux d’activité.
-
-Pour accéder aux exemples de requêtes d’analytique des journaux d’activité de Pare-feu Azure, consultez [Exemples d’analytique des journaux d’activité de pare-feu](./firewall-workbook.md).
 
 Le [classeur Pare-feu Azure](firewall-workbook.md) constitue un canevas flexible pour l’analyse de données du Pare-feu Azure. Il permet de créer des rapports visuels enrichis au sein du Portail Azure. Vous pouvez exploiter plusieurs pare-feu déployés à travers l’écosystème Azure et les combiner dans des expériences interactives unifiées.
 

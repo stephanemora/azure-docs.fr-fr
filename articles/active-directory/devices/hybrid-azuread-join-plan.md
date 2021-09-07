@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c0d0fa394c8b962206879a80d600987753f2f6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: db8be2618ee4bdeab517242870d593e88f631cfa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953476"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532222"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -36,6 +36,14 @@ Cet article suppose que vous avez lu la [Présentation de la gestion des identit
 
 > [!NOTE]
 > La version de contrôleur de domaine minimale requise pour une jonction Azure AD Hybride Windows 10 est Windows Server 2008 R2.
+
+Les appareils à jointure hybride Azure AD doivent avoir périodiquement une visibilité réseau directe vers vos contrôleurs de domaine. Sans cette connexion, les appareils deviennent inutilisables.
+
+Scénarios sans visibilité directe vers vos contrôleurs de domaine :
+
+- Changement de mot de passe de l’appareil
+- Changement de mot de passe utilisateur (informations d’identification mises en cache)
+- Réinitialisation du module de plateforme sécurisée
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
@@ -93,7 +101,7 @@ La première étape de la planification consiste à examiner l’environnement e
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Gestion des appareils avec l’état inscrit auprès d’Azure AD
 
-Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](overview.md#getting-devices-in-azure-ad) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
+Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](concept-azure-ad-register.md) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
 
 - Tout état existant inscrit sur Azure AD pour un utilisateur est automatiquement supprimé <i>dès lors que l’appareil est joint à Azure AD Hybride et que le même utilisateur se connecte</i>. Par exemple, si l’utilisateur A a un état Azure AD inscrit sur l’appareil, le double état de l’utilisateur A est nettoyé uniquement lorsque l’utilisateur A se connecte à l’appareil. S’il y a plusieurs utilisateurs sur le même appareil, le double état est nettoyé individuellement quand ces utilisateurs se connectent. En plus de supprimer l’état inscrit auprès d’Azure AD, Windows 10 désinscrit également l’appareil d’Intune ou d’autres GPM, si l’inscription s’est produite dans le cadre de l’inscription d’Azure AD via l’inscription automatique.
 - L’état inscrit auprès d’Azure AD sur tous les comptes locaux sur l’appareil n’est pas affecté par cette modification. S’applique uniquement aux comptes de domaine. L’état inscrit auprès d’Azure AD sur les comptes locaux n’est donc pas supprimé automatiquement, même après l’ouverture de session de l’utilisateur, car l’utilisateur n’est pas un utilisateur de domaine. 
@@ -108,7 +116,7 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 Pour inscrire des appareils en tant que jonction Azure AD Hybride auprès des locataires respectifs, les organisations doivent configurer le SCP sur les appareils et pas dans AD. Pour plus d’informations sur la procédure à suivre, consultez l’article [Validation contrôlée de la jonction Azure AD Hybride](hybrid-azuread-join-control.md). Il est également important que les organisations sachent que certaines fonctionnalités d’Azure AD ne sont pas disponibles dans les configurations à une seule forêt et plusieurs locataires Azure AD.
 - La [réécriture d'appareil](../hybrid/how-to-connect-device-writeback.md) n’est pas disponible. Cela impacte l’[accès conditionnel basé sur les appareils pour les applications locales fédérées à l’aide d’ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). Cela impacte aussi le [déploiement de Windows Hello Entreprise avec le modèle d’approbation de certificat hybride](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
 - La [réécriture de groupes](../hybrid/how-to-connect-group-writeback.md) n’est pas disponible. Cela impacte la réécriture des groupes Office 365 dans une forêt avec Exchange installé.
-- L’[authentification unique fluide](../hybrid/how-to-connect-sso.md) n’est pas disponible. Cela impacte les scénarios d’authentification unique que les organisations utilisent éventuellement dans des environnements multiplateformes système d’exploitation/navigateur, par exemple iOS/Linux avec Firefox, Safari, Chrome sans l’extension Windows 10.
+- L’[authentification unique fluide](../hybrid/how-to-connect-sso.md) n’est pas disponible. Cela impacte les scénarios d’authentification SSO (authentification unique) que les organisations utilisent éventuellement sur les plateformes comprenant différents OS/navigateurs, par exemple iOS/Linux avec Firefox, Safari, Chrome sans l’extension Windows 10.
 - La [jonction Azure AD Hybride pour les appareils Windows de bas niveau dans un environnement managé](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices) n’est pas disponible. Par exemple, la jonction Azure AD Hybride sur Windows Server 2012 R2 dans un environnement managé nécessite une authentification unique transparente, mais comme ce mode d’authentification n’est pas disponible, la jonction Azure AD Hybride ne l’est pas non plus dans cette configuration.
 - La [protection locale par mot de passe Azure AD](../authentication/concept-password-ban-bad-on-premises.md) n’est pas disponible. Cela empêche les changements et réinitialisations de mots de passe sur les contrôleurs de domaine AD DS (Active Directory Domain Services) locaux utilisant les mêmes listes de mots de passe interdits globaux et personnalisés qui sont stockées dans Azure AD.
 
@@ -183,7 +191,7 @@ Le tableau ci-dessous fournit des détails sur la prise en charge de ces UPN AD 
 | ----- | ----- | ----- | ----- |
 | Routable | Adresses IP fédérées | À partir de la version 1703 | Mise à la disposition générale |
 | Non routable | Adresses IP fédérées | À partir de la version 1803 | Mise à la disposition générale |
-| Routable | Adresses IP gérées | À partir de la version 1803 | Mis à la disposition générale, Azure AD SSPR sur l’écran de verrouillage Windows n’est pas pris en charge. Le nom UPN local doit être synchronisé avec l’attribut `onPremisesUserPrincipalName` dans Azure AD |
+| Routable | Adresses IP gérées | À partir de la version 1803 | En disponibilité générale, Azure AD SSPR sur l’écran de verrouillage Windows n’est pas pris en charge. Le nom UPN local doit être synchronisé avec l’attribut `onPremisesUserPrincipalName` dans Azure AD |
 | Non routable | Adresses IP gérées | Non pris en charge | |
 
 ## <a name="next-steps"></a>Étapes suivantes

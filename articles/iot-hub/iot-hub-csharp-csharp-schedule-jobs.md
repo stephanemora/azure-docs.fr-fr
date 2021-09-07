@@ -2,19 +2,18 @@
 title: Planifier des travaux avec Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Procédure de planification d’une tâche Azure IoT Hub pour appeler une méthode directe sur plusieurs appareils. Vous utilisez le Kit de développement logiciel Azure IoT device SDK pour .NET afin d’implémenter les applications d’appareil simulé et une application de service pour exécuter le travail.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5c068f9c6810551a768b801b065cf526e0565ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92142456"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532091"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Planifier et diffuser des travaux (.NET)
 
@@ -34,7 +33,7 @@ Pour plus d’informations sur chacune de ces fonctionnalités, consultez les pa
 
 * Jumeau d’appareil et propriétés : [Bien démarrer avec des jumeaux d’appareils](iot-hub-csharp-csharp-twin-getstarted.md) et [Tutoriel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
 
-* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [Didacticiel : Utiliser des méthodes directes](quickstart-control-device-dotnet.md)
+* Méthodes directes : [Guide du développeur IoT Hub - Méthodes directes](iot-hub-devguide-direct-methods.md) et [Démarrage rapide : Utiliser des méthodes directes](./quickstart-control-device.md?pivots=programming-language-csharp)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

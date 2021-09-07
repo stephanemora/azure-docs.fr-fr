@@ -1,30 +1,32 @@
 ---
 title: Fonctionnalités d’optimisation des performances de l’activité de copie
-description: Découvrez les fonctionnalités clés qui vous aident à optimiser les performances de l’activité de copie dans Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez les fonctionnalités clés qui vous aident à optimiser les performances de l’activité de copie dans les pipelines Azure Data Factory et Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/24/2020
-ms.openlocfilehash: e161ddbeaad0f9e366baa1265622bede93d5b567
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 9be8ef1772da6259441a8de4c85fa44d54945c7d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482612"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821814"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Fonctionnalités d’optimisation des performances de l’activité de copie
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit les fonctionnalités d’optimisation des performances de l’activité de copie dont vous pouvez tirer parti dans Azure Data Factory.
+Cet article décrit les fonctionnalités d’optimisation des performances de l’activité de copie dont vous pouvez tirer parti dans les pipelines Azure Data Factory et Synapse.
 
 ## <a name="data-integration-units"></a>Unités d’intégration de données
 
-Une unité d’intégration de données est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Azure Data Factory. Une unité d’intégration de données s’applique seulement à [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), et non pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Une unité d’intégration de données est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans le service. Une unité d’intégration de données s’applique seulement à [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), et non pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Le nombre d’unités d’intégration de données autorisées pour dynamiser l’exécution d’une activité de copie se situe **entre 2 et 256**. S’il n’est pas spécifié ou si vous choisissez « Auto » dans l’interface utilisateur, Data Factory applique dynamiquement le paramètre d’unités d’intégration de données optimal en fonction de la paire source-récepteur et du modèle de données. Le tableau suivant liste les plages d’unités d’intégration de données prises en charge et le comportement par défaut dans différents scénarios de copie :
+Le nombre d’unités d’intégration de données autorisées pour dynamiser l’exécution d’une activité de copie se situe **entre 2 et 256**. Si ce paramètre n’est pas spécifié ou si vous choisissez « Auto » dans l’interface utilisateur, le service applique dynamiquement le paramètre d’unités d’intégration de données optimal en fonction de la paire source-récepteur et du modèle de données. Le tableau suivant liste les plages d’unités d’intégration de données prises en charge et le comportement par défaut dans différents scénarios de copie :
 
 | Scénario de copie | Plage d’unités d’intégration de données prise en charge | Unités d’intégration de données par défaut déterminées par service |
 |:--- |:--- |---- |
@@ -77,10 +79,10 @@ Vous pouvez définir la copie parallèle (propriété `parallelCopies`) sur l’
 
 La copie parallèle est orthogonale aux [unités d’intégration de données](#data-integration-units) ou aux [nœuds de runtime d’intégration auto-hébergé](#self-hosted-integration-runtime-scalability). Elle est comptée sur toutes les unités d’intégration de données ou tous les nœuds de runtime d’intégration auto-hébergé.
 
-Pour chaque exécution d’activité de copie, par défaut, Azure Data Factory applique dynamiquement le paramètre de copie en parallèle optimal en fonction de la paire source-récepteur et du modèle de données. 
+Pour chaque exécution d’activité de copie, par défaut, le service applique dynamiquement le paramètre de copie en parallèle optimal en fonction de la paire source-récepteur et du modèle de données. 
 
 > [!TIP]
-> Le comportement par défaut de la copie parallèle vous donne généralement le meilleur débit, déterminé automatiquement par ADF en fonction de votre paire source-récepteur, du modèle de données et du nombre d’unités d’intégration de données ou du nombre de processeurs/mémoire/nœuds du runtime d’intégration auto-hébergé. Reportez-vous à [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md) pour savoir quand ajuster la copie en parallèle.
+> Le comportement par défaut de la copie parallèle vous donne généralement le meilleur débit, déterminé automatiquement par le service en fonction de votre paire source-récepteur, du modèle de données et du nombre d’unités d’intégration de données ou du nombre de processeurs/mémoire/nœuds de l’IR auto-hébergé. Reportez-vous à [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md) pour savoir quand ajuster la copie en parallèle.
 
 Le tableau suivant liste le comportement de copie en parallèle :
 
@@ -131,7 +133,7 @@ Lorsque vous copiez des données entre un magasin de données source et un magas
 
 ### <a name="how-staged-copy-works"></a>Fonctionnement de la copie intermédiaire
 
-Lorsque vous activez la fonctionnalité intermédiaire, les données sont d’abord copiées à partir du magasin de données source vers le stockage intermédiaire (votre propre objet blob Azure ou Azure Data Lake Storage Gen2). Ensuite, les données sont copiées à partir du stockage intermédiaire vers le magasin de données récepteur. L’activité de copie d’Azure Data Factory gère automatiquement pour vous le flux en deux étapes, et nettoie les données temporaires du stockage intermédiaire une fois le déplacement des données terminé.
+Lorsque vous activez la fonctionnalité intermédiaire, les données sont d’abord copiées à partir du magasin de données source vers le stockage intermédiaire (votre propre objet blob Azure ou Azure Data Lake Storage Gen2). Ensuite, les données sont copiées à partir du stockage intermédiaire vers le magasin de données récepteur. L’activité de copie gère automatiquement le flux en deux étapes, et nettoie les données temporaires du stockage intermédiaire une fois le déplacement des données terminé.
 
 ![copie intermédiaire](media/copy-activity-performance/staged-copy.png)
 

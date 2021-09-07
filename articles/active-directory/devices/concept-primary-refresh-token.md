@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c2a687dc1165b2eca52213811721b35e998a6d9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 87fd2189222828eef2ff03a82125e0b6dcf7111e
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033281"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525703"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -29,7 +29,7 @@ Cet article suppose que vous connaissez déjà les différents états des appare
 Les composants Windows suivants jouent un rôle clé dans la demande et l’utilisation d’un PRT :
 
 * **Fournisseur d’authentification cloud** (CloudAP): CloudAP est un fournisseur d’authentification moderne pour les connexions Windows. Il vérifie l’identité des utilisateurs ouvrant une session sur un appareil Windows 10. CloudAP fournit une infrastructure de plug-in sur laquelle les fournisseurs d’identités peuvent s’appuyer pour activer l’authentification à Windows avec les informations d’identification de ce fournisseur d’identité.
-* **Gestonnaire de comptes web** (WAM): WAM est le broker à jetons par défaut sur les appareils Windows 10. WAM fournit également une infrastructure de plug-in sur laquelle les fournisseurs d’identités peuvent s’appuyer pour activer l’authentification unique sur les applications qui en dépendent.
+* **Gestonnaire de comptes web** (WAM): WAM est le broker à jetons par défaut sur les appareils Windows 10. WAM fournit également une infrastructure de plug-in sur laquelle les fournisseurs d’identités peuvent s’appuyer pour activer l’authentification unique sur les applications qui en dépendent. (Non inclus dans les builds LTSC de Windows Server 2016)
 * **Plug-in Azure AD CloudAP** : Un plug-in propre à Azure AD basé sur l’infrastructure CloudAP, qui vérifie les informations d’identification de l’utilisateur avec Azure AD pendant la connexion à Windows.
 * **Plug-in Azure AD WAM** : Un plug-in propre à Azure AD basé sur l’infrastructure WAM, qui active l’authentification unique s’appuyant sur Azure AD pour l’authentification.
 * **Dsreg** : Un composant spécifique d’Azure AD sur Windows 10, qui gère le processus d’inscription de l’appareil quel que soit son état.
@@ -59,7 +59,7 @@ Le PRT est émis lors de l’authentification de l’utilisateur sur un appareil
 
 * Appareil **joint à Azure AD** ou à **Azure AD hybride** : Un PRT est émis au cours de l’ouverture de session Windows lorsqu’un utilisateur se connecte avec ses informations d’identification de leur organisation. Un PRT est émis avec toutes les informations d’identification prises en charge par Windows 10, par exemple, un mot de passe et Windows Hello Entreprise. Dans ce scénario, le plug-in Azure AD CloudAP est l’autorité principale pour le PRT.
 * **Appareil inscrit sur Azure AD** : Un PRT est émis lorsqu’un utilisateur ajoute un compte professionnel secondaire sur leur appareil Windows 10. Les utilisateurs peuvent ajouter un compte à Windows 10 de deux manières différentes :  
-   * Ajout d’un compte via l’invite **Utiliser ce compte partout sur votre appareil** après vous être connecté à une application (par exemple Outlook)
+   * Ajout d’un compte via l’invite **Autoriser mon organisation à gérer mes appareils** après la connexion à une application (par exemple Outlook)
    * Ajout d’un compte depuis **Paramètres** > **Comptes** > **Accès Professionnel ou Scolaire** > **Se connecter**
 
 Dans les scénarios avec appareils inscrits dans Azure AD, le plug-in Azure AD WAM est l’autorité principale pour le PRT puisque l’ouverture de session Windows n’utilise pas ce compte Azure AD.
@@ -122,8 +122,6 @@ Un PRT peut recevoir une revendication MFA (authentification multifacteur) dans 
 * **Authentification multifacteur pendant la connexion interactive WAM** : Pendant une demande de jeton via WAM, si un utilisateur doit avoir recours à l’authentification multifacteur pour accéder à l’application, le PRT renouvelé pendant cette interaction contient une revendication MFA.
    * Dans ce cas, la revendication MFA n’est pas actualisée en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
    * Lorsqu’un PRT et un RT existants sont utilisés pour accéder à une application, le PRT et le RT sont considérés comme la première preuve d’authentification. Un nouveau AT sera requis avec une deuxième preuve et une revendication MFA imprimée. Cela génère également un nouveau PRT et RT.
-* **Authentification multifacteur pendant l’inscription d’un appareil** : Si un administrateur a configuré ses paramètres d’appareil dans Azure AD pour que [soit exigée une authentification multifacteur pour inscrire des appareils](device-management-azure-portal.md#configure-device-settings), l’utilisateur doit utiliser l’authentification multifacteur pour terminer l’inscription. Pendant ce processus, le PRT émis pour l’utilisateur reçoit la revendication MFA lors de l’inscription. Cette fonctionnalité s’applique uniquement au propriétaire enregistré de l’appareil, pas aux autres utilisateurs qui se connectent sur cet appareil.
-   * Comme pour la connexion interactive WAM, la revendication MFA n’est pas mise à jour en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
 
 Windows 10 gère une liste partitionnée de PRT pour chaque information d’identification. Par conséquent, il existe un PRT pour chacune : Windows Hello Entreprise, mot de passe ou carte à puce. Ce partitionnement garantit que les revendications MFA sont isolées selon les informations d’identification utilisées et qu’elles ne sont pas mélangées pendant les demandes de jeton.
 
@@ -182,9 +180,9 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 | Étape | Description |
 | :---: | --- |
 | Un | Une application (par exemple Outlook, OneNote, etc.) initie une demande de jeton au WAM. Ce dernier demande à son tour au plug-in Azure AD WAM de traiter la demande de jeton. |
-| B | Si un jeton d’actualisation est déjà disponible pour l’application, le plug-in Azure AD WAM l’utilise pour demander un jeton d’accès. Pour fournir la preuve de la liaison de l’appareil, le plug-in WAM signe la demande avec la clé de session. Azure AD valide la clé de session et émet un jeton d’accès ainsi qu’un nouveau jeton d’actualisation pour l’application, chiffrés avec la clé de session. Le plug-in WAM demande au plug-in Cloud AP de déchiffrer les jetons, et ce dernier demande à son tour au TPM de les déchiffrer à l’aide de la clé de session. Le plug-in WAM obtient alors les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache.  |
+| B | Si un jeton d’actualisation est déjà disponible pour l’application, le plug-in Azure AD WAM l’utilise pour demander un jeton d’accès. Pour fournir la preuve de la liaison de l’appareil, le plug-in WAM signe la demande avec la clé de session. Azure AD valide la clé de session et émet un jeton d’accès ainsi qu’un nouveau jeton d’actualisation pour l’application, chiffrés avec la clé de session. Le plug-in WAM demande au plug-in CloudAP de déchiffrer les jetons. Ce dernier demande à son tour au module TPM de les déchiffrer à l’aide de la clé de session. Ainsi, le plug-in WAM obtient les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache.  |
 | C |  Si aucun jeton d’actualisation n’est disponible pour l’application, le plug-in Azure AD WAM utilise le PRT pour demander un jeton d’accès. Pour fournir une preuve de possession, le plug-in WAM signe la demande contenant le PRT avec la clé de session. Azure AD valide la signature de la clé de session en comparant cette dernière à la clé de session incorporée dans le PRT, il vérifie que l’appareil est valide et émet un jeton d’accès et un jeton d’actualisation pour l’application. En outre, Azure AD peut émettre de nouveaux PRT (en fonction du cycle d’actualisation), tous chiffrés par la clé de session. |
-| D | Le plug-in WAM demande au plug-in Cloud AP de déchiffrer les jetons, et ce dernier demande à son tour au TPM de les déchiffrer à l’aide de la clé de session. Le plug-in WAM obtient alors les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache. Le plug-in WAM utilisera le jeton d’actualisation à l’avenir pour cette application. Le plug-in WAM restitue également le nouveau PRT au plug-in CloudAP, qui le valide avec Azure AD avant de le mettre à jour dans son propre cache. Le plug-in CloudAP utilisera le nouveau PRT à l’avenir. |
+| D | Le plug-in WAM demande au plug-in CloudAP de déchiffrer les jetons. Ce dernier demande à son tour au module TPM de les déchiffrer à l’aide de la clé de session. Ainsi, le plug-in WAM obtient les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache. Le plug-in WAM utilisera le jeton d’actualisation à l’avenir pour cette application. Le plug-in WAM restitue également le nouveau PRT au plug-in CloudAP, qui le valide auprès d’Azure AD avant de le mettre à jour dans son propre cache. À l’avenir, le plug-in CloudAP utilisera le nouveau PRT. |
 | E | Le gestionnaire de comptes web fournit le jeton d’accès qui vient d’être émis au plug-in WAM, qui à son tour le retransmet à l’application appelante.|
 
 ### <a name="browser-sso-using-prt"></a>Authentification unique dans le navigateur avec le PRT

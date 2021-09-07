@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 51af9ff4972f5edef02426a6e81e8582123c9a7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b331180e40d1baf92a3c1408f3e003a257fa114a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98107852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524678"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Utiliser le Pare-feu Azure pour protéger des déploiements d’Azure Kubernetes Service (AKS)
 
@@ -21,6 +21,10 @@ Azure Kubernetes service (AKS) offre un cluster Kubernetes managé sur Azure. Il
 Kubernetes orchestre les clusters de machines virtuelles et planifie les conteneurs à exécuter sur ces machines virtuelles en fonction de leurs ressources de calcul disponibles et des besoins en ressources de chaque conteneur. Les conteneurs sont regroupés en pods, unités opérationnelles de base dans Kubernetes, qui adaptent leur échelle à l’état de votre choix.
 
 Pour la gestion et à des fins opérationnelles, les nœuds d’un cluster AKS doivent accéder à certains ports et noms de domaine complet (FQDN). Ces actions peuvent consister à communiquer avec le serveur d’API, ou à télécharger, puis installer les principaux composants de cluster Kubernetes et des mises à jour de sécurité des nœuds. Le Pare-feu Azure peut vous aider à verrouiller votre environnement et à filtrer le trafic sortant.
+
+Pour obtenir une vue d’ensemble, consultez la vidéo suivante de Jorge Cortes :
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWIcAo]
 
 Suivez les instructions de cet article pour renforcer la protection de votre cluster Azure Kubernetes à l’aide du Pare-feu Azure.
 

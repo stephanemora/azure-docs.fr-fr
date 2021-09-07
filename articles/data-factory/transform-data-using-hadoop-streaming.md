@@ -1,18 +1,20 @@
 ---
 title: Transformer des données à l’aide d’une activité de streaming Hadoop
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Explique comment utiliser l’activité de diffusion en continu Hadoop dans Azure Data Factory pour transformer des données en exécutant des programmes de diffusion en continu Hadoop sur un cluster Hadoop.
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/08/2020
-ms.openlocfilehash: e2a9bc9d664ba15da3cdefa5cf28519ab703d6ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4285ee6ae7c5799fa8b65df6bf5adfa79861e3c0
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361432"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527634"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -92,5 +94,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
+* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

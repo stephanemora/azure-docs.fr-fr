@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2500d1872c2c70c8d39afa0b564c35a8bb9bcb9b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532657"
 ---
 # <a name="securing-external-access-with-groups"></a>Sécurisation de l’accès externe avec des groupes 
 
-Les groupes constituent une part essentielle de toute stratégie de contrôle d’accès. Les groupes de sécurité Azure Active Directory (Azure AD) et les groupes Microsoft 365 (M365) peuvent être utilisés comme base pour sécuriser l’accès aux ressources.
+Les groupes constituent une part essentielle de toute stratégie de contrôle d’accès. Les groupes de sécurité Azure Active Directory (Azure AD) et les groupes Microsoft 365 peuvent servir de base pour sécuriser l’accès aux ressources.
 
 Les groupes sont la meilleure option à utiliser comme base pour les mécanismes de contrôle d’accès suivants :
 
@@ -30,7 +30,7 @@ Les groupes sont la meilleure option à utiliser comme base pour les mécanismes
 
 * Packages d’accès à la gestion des droits d’utilisation 
 
-* Accès aux ressources M365, à Microsoft Teams et aux sites SharePoint
+* Accès aux ressources Microsoft 365, à Microsoft Teams et aux sites SharePoint
 
 Les groupes ont les rôles suivants :
 
@@ -52,7 +52,7 @@ Au fur et à mesure que vous développez votre stratégie de groupe pour sécuri
 
       * Vous pouvez également [configurer la gestion de groupes en libre-service dans Azure Active Directory](../enterprise-users/groups-self-service-management.md). 
 
-   * *Par défaut, tous les utilisateurs peuvent créer des groupes M365 et les groupes sont ouverts à tous les utilisateurs (internes et externes) figurant dans votre locataire*. 
+   * *Par défaut, tous les utilisateurs peuvent créer des groupes Microsoft 365 et les groupes sont ouverts à tous les utilisateurs (internes et externes) figurant dans votre locataire*. 
 
       * [Vous pouvez limiter la création de groupes Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups) aux membres d’un groupe de sécurité particulier. Utilisez Windows PowerShell pour configurer ce paramètre. 
 
@@ -98,15 +98,15 @@ Nous recommandons d’utiliser une convention d’affectation de noms pour les g
 
 ### <a name="types-of-groups"></a>Types de groupes
 
-Vous pouvez créer des groupes de sécurité Azure AD et des groupes Microsoft 365 à partir du portail Azure AD ou du portail d’administration M365. Ces deux types peuvent être utilisés comme base pour sécuriser l’accès externe :
+Vous pouvez créer des groupes de sécurité Azure AD et des groupes Microsoft 365 à partir du portail Azure AD ou du portail d’administration Microsoft 365. Ces deux types peuvent être utilisés comme base pour sécuriser l’accès externe :
 
 |Considérations | Groupes de sécurité Azure AD (manuels et dynamiques)| Groupes Microsoft 365 |
 | - | - | - |
 | Que peut contenir le groupe ?| Utilisateurs<br>Groupes<br>Principes de service<br>Appareils| Utilisateurs uniquement |
-| Où le groupe est-il créé ?| Portail Azure AD<br>Portail M365 (s’il doit être à extension messagerie)<br>PowerShell<br>Microsoft Graph<br>Portail de l’utilisateur final| Portail M365<br>Portail Azure AD<br>PowerShell<br>Microsoft Graph<br>Dans les applications Microsoft 365 |
+| Où le groupe est-il créé ?| Portail Azure AD<br>Portail Microsoft 365 (s’il doit être à extension messagerie)<br>PowerShell<br>Microsoft Graph<br>Portail de l’utilisateur final| Portail Microsoft 365<br>Portail Azure AD<br>PowerShell<br>Microsoft Graph<br>Dans les applications Microsoft 365 |
 | Qui le crée par défaut ?| Administrateurs <br>Utilisateurs finaux| Administrateurs<br>Utilisateurs finaux |
 | Qui peut être ajouté par défaut ?| Utilisateurs internes (membres)| Membres de locataire et invités de toute organisation |
-| À quoi accorde-t-il l’accès ?| Aux seules ressources auxquelles il est affecté.| À toutes les ressources associées au groupe :<br>(boîte aux lettres de groupe, site, équipe, conversations et autres ressources M365 incluses)<br>À toutes les autres ressources auxquelles le groupe est ajouté |
+| À quoi accorde-t-il l’accès ?| Aux seules ressources auxquelles il est affecté.| À toutes les ressources associées au groupe :<br>(boîte aux lettres de groupe, site, équipe, conversations et autres ressources Microsoft 365 incluses)<br>À toutes les autres ressources auxquelles le groupe est ajouté |
 | Peut être utilisé avec| Accès conditionnel<br>Gestion des droits d’utilisation<br>Licences de groupe| Accès conditionnel<br>Gestion des droits d’utilisation<br>Étiquette de confidentialité |
 
 
@@ -127,9 +127,9 @@ Les [groupes de sécurité Azure AD](./active-directory-manage-groups.md) peuve
 
 Les groupes de sécurité Azure AD peuvent également être utilisés pour :
 
-* attribuer des licences pour des services tels que M365, Dynamics 365 et Enterprise Mobility et Security. Pour plus d’informations, consultez [Gestion des licences par groupe](./active-directory-licensing-whatis-azure-portal.md).
+* attribuer des licences pour des services tels que Microsoft 365, Dynamics 365 et Enterprise Mobility et Security. Pour plus d’informations, consultez [Gestion des licences par groupe](./active-directory-licensing-whatis-azure-portal.md).
 
-* affecter des autorisations élevées. Pour plus d’informations, consultez [Utiliser des groupes cloud pour gérer les attributions de rôles (préversion](../roles/groups-concept.md)). 
+* affecter des autorisations élevées. Pour plus d’informations, consultez [Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure AD](../roles/groups-concept.md). 
 
 Pour créer un groupe [dans le portail Azure](./active-directory-groups-create-azure-portal.md), accédez à Azure Active Directory, puis à Groupes. Vous pouvez également créer des groupes de sécurité Azure AD à l’aide des [applets de commande PowerShell](../enterprise-users/groups-settings-v2-cmdlets.md). 
 
@@ -150,9 +150,9 @@ Les organisations hybrides possèdent une infrastructure locale et une infrastru
 
 ## <a name="microsoft-365-groups"></a>Groupes Microsoft 365
 
-Les [groupes Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) sont le service d’appartenance de base qui pilote tous les accès dans M365. Ils peuvent être créés à partir du [portail Azure](https://portal.azure.com/) ou du [portail M365](https://admin.microsoft.com/). Lorsqu’un groupe M365 est créé, vous accordez l’accès à un groupe de ressources utilisé pour collaborer. Consultez [Vue d’ensemble des groupes Microsoft 365 pour les administrateurs](/microsoft-365/admin/create-groups/office-365-groups) pour obtenir la liste complète de ces ressources.
+Les [groupes Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) sont le service d’appartenance de base qui pilote tous les accès dans Microsoft 365. Ils peuvent être créés à partir du [portail Azure](https://portal.azure.com/) ou du [portail Microsoft 365](https://admin.microsoft.com/). Lorsqu’un groupe Microsoft 365 est créé, vous accordez l’accès à un groupe de ressources utilisé pour collaborer. Consultez [Vue d’ensemble des groupes Microsoft 365 pour les administrateurs](/microsoft-365/admin/create-groups/office-365-groups) pour obtenir la liste complète de ces ressources.
 
-Les groupes M365 ont les nuances suivantes pour leurs rôles
+Les groupes Microsoft 365 ont les nuances suivantes pour leurs rôles
 
 * **Propriétaires** – Les propriétaires de groupe peuvent ajouter ou supprimer des membres et disposent d’autorisations uniques, telles que la possibilité de supprimer des conversations de la boîte de réception partagée ou de modifier les paramètres du groupe. Les propriétaires de groupe peuvent renommer le groupe, mettre à jour sa description ou l’image, etc.
 
@@ -162,7 +162,7 @@ Les groupes M365 ont les nuances suivantes pour leurs rôles
 
  
 
-### <a name="m365-group-settings"></a>Paramètres des groupes M365
+### <a name="microsoft-365-group-settings"></a>Paramètres de groupe Microsoft 365
 
 Vous sélectionnez un alias de messagerie, la confidentialité et si vous souhaitez activer le groupe pour Teams au moment de la configuration. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2a95821b615c934a2bf22f52406f2c257b9be91b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 8a8f6052ba2ce66e22208972fa84b7af1f48dd3e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542223"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532178"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturation à la consommation de la Place de marché
 
@@ -255,6 +255,7 @@ Description du code d’état référencé dans la réponse de l’API `BatchUsa
 | `Error` | Code d’erreur. |
 | `ResourceNotFound` | La ressource d’utilisation fournie n’est pas valide. |
 | `ResourceNotAuthorized` | Vous n’êtes pas autorisé à fournir l’utilisation pour cette ressource. |
+| `ResourceNotActive` | La ressource est suspendue ou n’a jamais été activée. |
 | `InvalidDimension` | La dimension pour laquelle l’utilisation est transmise n’est pas valide pour cette offre/ce plan. |
 | `InvalidQuantity` | La quantité passée est inférieure ou égale à 0. |
 | `BadArgument` | L’entrée est manquante ou incorrecte. |
@@ -277,4 +278,4 @@ Suivez les instructions de la section [Support technique pour le programme Place
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les API de service de mesure, consultez [FAQ sur l’API de service de mesure de la Place de marché](marketplace-metering-service-apis-faq.md).
+Pour plus d’informations sur les API de service de mesure, consultez [FAQ sur l’API de service de mesure de la Place de marché](marketplace-metering-service-apis-faq.yml).

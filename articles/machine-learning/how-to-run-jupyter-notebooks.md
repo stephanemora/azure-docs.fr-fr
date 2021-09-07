@@ -9,13 +9,13 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: 0a95d95842d0b361a1a276566b01b7ea735c4670
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 07/22/2021
+ms.openlocfilehash: 890330700e21c34b1a3d9ae78068f577f5f64c6b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952077"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562828"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur la création et la gestion de fichiers, y compris
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="edit-a-notebook"></a>Exécuter un bloc-notes
@@ -72,6 +72,31 @@ Vous pouvez parcourir liste et y rechercher des extraits de code à l’aide de 
 À partir du panneau des extraits de code, vous pouvez également envoyer une demande d’ajout d’extrait de code.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Le panneau d’extrait de code vous permet de proposer un nouvel extrait de code":::
+
+## <a name="collaborate-with-notebook-comments-preview"></a>Collaborer avec des commentaires de notebook (préversion)
+
+Utilisez un commentaire de notebook pour collaborer avec d’autres personnes qui ont accès à votre notebook.
+
+Activez ou désactivez le volet des commentaires avec l’outil **Commentaires de notebook** en haut du notebook.  Si votre écran n’est pas assez large, recherchez cet outil en sélectionnant d’abord **...** à la fin de l’ensemble d’outils.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/notebook-comments-tool.png" alt-text="Capture d’écran de l’outil de commentaires de notebook dans la barre d’outils supérieure.":::  
+
+Que le volet des commentaires soit visible ou non, vous pouvez ajouter un commentaire dans n’importe quelle cellule de code :
+
+1. Sélectionnez du texte dans la cellule de code.  Vous pouvez uniquement commenter le texte dans une cellule de code.
+1. Utilisez l’outil **Nouveau thread de commentaires** pour créer votre commentaire.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/comment-from-code.png" alt-text="Capture d’écran de l’outil d’ajout d’un commentaire à une cellule de code.":::
+1. Si le volet des commentaires était masqué, il s’ouvre.  
+1. Tapez votre commentaire et publiez-le avec l’outil ou utilisez **Ctrl + Entrée**.
+1. Une fois qu’un commentaire a été publié, sélectionnez **...** en haut à droite pour :
+    * Modifier le commentaire
+    * Résoudre le thread
+    * Supprimer le thread
+
+Le texte qui a été commenté apparaît avec une mise en surbrillance violette dans le code. Quand vous sélectionnez un commentaire dans le volet des commentaires, votre notebook défile jusqu’à la cellule qui contient le texte mis en surbrillance.
+
+> [!NOTE]
+> Les commentaires sont enregistrés dans les métadonnées de la cellule de code.
 
 ## <a name="clean-your-notebook-preview"></a>Nettoyer votre notebook (préversion)
 
@@ -163,7 +188,7 @@ Ces actions ne modifient pas l’état du bloc-notes ou les valeurs des variable
 
 Les actions ci-après ont pour effet de réinitialiser l’état du bloc-notes et toutes les variables dans celui-ci.
 
-|Action  |Résultats  |
+|Action  |Résultat  |
 |---------|---------| --------|
 | Modifier le noyau | Le bloc-notes utilise le nouveau noyau. |
 | Changer d’instance de calcul    |     Le bloc-notes utilise automatiquement la nouvelle instance de calcul. |
@@ -288,9 +313,11 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
 
-* Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
+* Quand l’instance de calcul est déployée dans un espace de travail avec un point de terminaison privé, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
 
-* Si votre noyau s'est bloqué et a été redémarré, vous pouvez exécuter la commande suivante pour consulter le journal jupyter et obtenir plus de détails. `sudo journalctl -u jupyter`. Si les problèmes de noyau persistent, n'hésitez pas à utiliser une instance de calcul offrant davantage de mémoire.
+* Si votre noyau a planté et a été redémarré, vous pouvez exécuter la commande suivante pour consulter le journal jupyter et obtenir plus de détails: `sudo journalctl -u jupyter`. Si les problèmes de noyau persistent, n’hésitez pas à utiliser une instance de calcul offrant davantage de mémoire.
+
+* Si vous rencontrez un problème de jeton expiré, déconnectez-vous du studio Azure Machine Learning, reconnectez-vous, puis redémarrez le noyau de notebook.
     
 ## <a name="next-steps"></a>Étapes suivantes
 

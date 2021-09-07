@@ -8,39 +8,41 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb616bce2f169061a6384148e3cbbe463c83be8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c14580790891190f40dd2866aaac25ad2c286137
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085903"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532326"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Créer un groupe avec attribution de rôle dans Azure Active Directory
 
-Il n’est possible d’attribuer un rôle qu’à un groupe créé avec la propriété « isAssignableToRole » définie sur True ou créé sur le Portail Azure avec l’option **Des rôles Azure AD peuvent être attribués au groupe** activée. Avec cet attribut, le groupe peut être attribué à un rôle dans Azure AD (Azure Active Directory). Cet article explique comment créer ce type de groupe spécial. **Remarque :** Un groupe dont la propriété isAssignableToRole a la valeur true ne peut pas être de type d’appartenance dynamique. Pour plus d’informations, consultez [Utilisation d’un groupe pour gérer des attributions de rôles Azure AD](groups-concept.md).
+Il n’est possible d’attribuer un rôle qu’à un groupe créé avec la propriété « isAssignableToRole » définie sur True ou créé sur le Portail Azure avec l’option **Des rôles Azure AD peuvent être attribués au groupe** activée. Avec cet attribut, le groupe peut être attribué à un rôle dans Azure AD (Azure Active Directory). Cet article explique comment créer ce type de groupe spécial. **Remarque :** Un groupe dont la propriété isAssignableToRole a la valeur true ne peut pas être de type d’appartenance dynamique. Pour plus d’informations, consultez [Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure AD](groups-concept.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Licence Azure AD Premium P1 ou P2
 - Administrateur de rôle privilégié ou Administrateur général
-- Module AzureADPreview (avec PowerShell)
-- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+- Module AzureAD (avec PowerShell)
+- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
 
 Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
-1. Sélectionnez **Groupes** > **Tous les groupes** > **Nouveau groupe**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Groupes** > **Tous les groupes** > **Nouveau groupe**.
 
     [![Ouvrez Azure Active Directory et créez un groupe.](./media/groups-create-eligible/new-group.png "Ouvrez Azure Active Directory et créez un groupe.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. Sous l’onglet **Nouveau groupe**, spécifiez un type, un nom et une description pour le groupe.
+
 1. Activez l’option **Des rôles Azure AD peuvent être attribués au groupe**. Ce commutateur est visible uniquement pour les utilisateurs autorisés à le définir, c’est-à-dire ceux qui ont le rôle Administrateur de rôle privilégié ou Administrateur général.
 
     [![Rendre le nouveau groupe éligible à l’attribution de rôle](./media/groups-create-eligible/eligible-switch.png "Rendre le nouveau groupe éligible à l’attribution de rôle")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
@@ -69,9 +71,9 @@ Pour ce type de groupe, `isPublic` est toujours false et `isSecurityEnabled` est
 
 ```powershell
 #Basic set up
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-Get-Module -Name AzureADPreview
+Install-Module -Name AzureAD
+Import-Module -Name AzureAD
+Get-Module -Name AzureAD
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -123,6 +125,6 @@ Pour ce type de groupe, `isPublic` est toujours false et `isSecurityEnabled` est
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Attribuer un rôle à un groupe cloud](groups-assign-role.md)
-- [Utiliser des groupes cloud pour gérer les attributions de rôles](groups-concept.md)
-- [Résoudre les problèmes de rôles attribués aux groupes cloud](groups-faq-troubleshooting.md)
+- [Attribuer des rôles Azure AD aux groupes](groups-assign-role.md)
+- [Utiliser des groupes Azure AD pour gérer les attributions de rôles](groups-concept.md)
+- [Résoudre les problèmes de rôles Azure AD attribués aux groupes](groups-faq-troubleshooting.yml)

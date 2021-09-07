@@ -7,12 +7,12 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 87f188b414791636e147a19202b6fcf314d6f307
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 0c087838029a5e7863359564682a6843238421c5
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683644"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964587"
 ---
 # <a name="transform-data-for-iot-central"></a>Transformation de données pour IoT Central
 
@@ -35,7 +35,7 @@ Le tableau suivant présente trois exemples de types de transformation :
 |------------------------|-------------|----------|-------|
 | Format de message         | Convertit ou manipule des messages JSON. | CSV vers JSON  | À l’entrée. IoT Central accepte uniquement les messages JSON avec valeur. Pour en savoir plus, consultez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md). |
 | Calculs           | Fonctions mathématiques qu’[Azure Functions](../../azure-functions/index.yml) peuvent exécuter. | Conversion d’unités de Fahrenheit en Celsius.  | Transformation à l’aide du modèle de sortie pour tirer parti de l’entrée de l’appareil scalable via une connexion directe à IoT Central. La transformation des données vous permet d’utiliser des fonctionnalités d’IoT Central telles que les visualisations et les travaux. |
-| Enrichissement de message     | Enrichissements provenant de sources de données externes introuvables dans les propriétés ou la télémétrie de l’appareil. Pour en savoir plus sur les enrichissements internes, consultez [Exporter des données IoT vers des destinations cloud à l’aide des fonctionnalités d’exportation de données](howto-export-data.md) | Ajoutez des informations météorologiques aux messages à l’aide des données d’emplacement des appareils. | Transformation à l’aide du modèle de sortie pour tirer parti de l’entrée de l’appareil scalable via une connexion directe à IoT Central. |
+| Enrichissement de message     | Enrichissements provenant de sources de données externes introuvables dans les propriétés ou la télémétrie de l’appareil. Pour en savoir plus sur les enrichissements internes, consultez [Exporter des données IoT vers des destinations cloud à l’aide des fonctionnalités d’exportation de données](howto-export-data.md) | Ajoutez des informations météorologiques aux messages à l’aide des [données d’emplacement](howto-use-location-data.md) des appareils. | Transformation à l’aide du modèle de sortie pour tirer parti de l’entrée de l’appareil scalable via une connexion directe à IoT Central. |
 
 ## <a name="prerequisites"></a>Prérequis
 

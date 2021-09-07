@@ -2,13 +2,13 @@
 title: Remise d’événements à l’aide du service de liaison privée
 description: Cet article explique la procédure de contournement de l’impossibilité de remettre des événements à l’aide du service de liaison privée.
 ms.topic: how-to
-ms.date: 02/12/2021
-ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 07/01/2021
+ms.openlocfilehash: 0672b2b93cf7413ac9a3d46e8d824354276ba89f
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309429"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286114"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Remise d’événements à l’aide du service de liaison privée
 Actuellement, il n’est pas possible de remettre des événements à l’aide de [points de terminaison privés](../private-link/private-endpoint-overview.md). Autrement dit, il n’y a pas de prise en charge si vous avez des exigences strictes en matière d’isolement réseau lorsque le trafic des événements remis ne doit pas sortir de l’espace IP privé. 
@@ -44,9 +44,9 @@ Pour remettre des événements à des files d’attente ou des rubriques Service
 Pour remettre des événements dans les files d’attente de stockage à l’aide d’une identité managée, procédez comme suit :
 
 1. Activez l'identité attribuée par le système : [rubriques système](enable-identity-system-topics.md), [rubriques personnalisées et domaines](enable-identity-custom-topics-domains.md). 
-1. [Ajoutez l'identité au rôle **Expéditeur de messages de données en file d'attente du stockage**](../storage/common/storage-auth-aad-rbac-portal.md) dans la file d'attente de Stockage Azure.
-1. [Configurez l’abonnement aux événements](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) qui utilise une file d’attente ou une rubrique Service Bus comme point de terminaison pour utiliser l’identité attribuée au système.
+1. [Ajoutez l'identité au rôle **Expéditeur de messages de données en file d'attente du stockage**](../storage/blobs/assign-azure-role-data-access.md) dans la file d'attente de Stockage Azure.
+1. [Configurez l’abonnement aux événements](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) qui utilise une file d’attente de stockage comme point de terminaison pour utiliser l’identité affectée par le système.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la remise d’événements à l’aide d’une identité managée, consultez [Remise d’événement à l’aide d’une identité managée](managed-service-identity.md). 
+Pour plus d’informations sur la remise d’événements à l’aide d’une identité managée, consultez [Remise d’événement à l’aide d’une identité managée](managed-service-identity.md).

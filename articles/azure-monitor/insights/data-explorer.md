@@ -1,24 +1,24 @@
 ---
-title: Azure Data Explorer Insights (ADX Insights - préversion)| Microsoft Docs
+title: Azure Data Explorer Insights (ADX Insights)| Microsoft Docs
 description: Cet article décrit Azure Data Explorer Insights (ADX Insights).
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 274d907c4fd8d09e444b938447365a4df64af3e4
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 872c1e29b6c85f24c4e9841dca359a9429b92321
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061629"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458113"
 ---
-# <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer Insights (préversion)
+# <a name="azure-data-explorer-insights"></a>Azure Data Explorer Insights
 
-Azure Data Explorer Insights (préversion) fournit une supervision complète de vos clusters grâce à une vue unifiée des performances, des opérations, de l’utilisation et des défaillances de vos clusters.
-Cet article vous aidera à comprendre comment intégrer et utiliser Azure Data Explorer Insights (préversion).
+Azure Data Explorer Insights fournit une supervision complète de vos clusters grâce à une vue unifiée des performances, des opérations, de l’utilisation et des défaillances de vos clusters.
+Cet article vous aidera à comprendre comment intégrer et utiliser Azure Data Explorer Insights.
 
-## <a name="introduction-to-azure-data-explorer-insights-preview"></a>Introduction à Azure Data Explorer Insights (préversion)
+## <a name="introduction-to-azure-data-explorer-insights"></a>Introduction à Azure Data Explorer Insights
 
 Avant de vous lancer dans cette expérience, vous devez comprendre comment cette fonctionnalité présente et affiche les informations.
 -    **Perspective à grande l’échelle** offrant une vue instantanée des principales métriques de vos clusters, pour suivre facilement les performances des requêtes, l’ingestion et les opérations d’exportation.
@@ -33,7 +33,7 @@ Pour afficher les performances de vos clusters sur l’ensemble de vos abonnemen
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Surveillance** dans le volet gauche du portail Azure, puis dans la section Hub Insights, sélectionnez **Clusters Azure Data Explorer (préversion)** .
+2. Sélectionnez **Surveillance** dans le volet gauche du portail Azure, puis dans la section Hub Insights, sélectionnez **Clusters Azure Data Explorer**.
 
 ![Capture d’écran de l’expérience de vue d’ensemble avec plusieurs graphiques](./media/data-explorer/insights-hub.png)
 
@@ -77,7 +77,7 @@ Pour accéder à Azure Data Explorer Insights directement à partir d’un clust
 
 1. Dans le portail Azure, sélectionnez **Clusters Azure Data Explorer**.
 
-2. Dans la liste, choisissez un cluster Azure Data Explorer. Dans la section Supervision, choisissez **Insights (préversion)** .
+2. Dans la liste, choisissez un cluster Azure Data Explorer. Dans la section de surveillance, choisissez **Insights**.
 
 Vous pouvez également accéder à ces vues en sélectionnant le nom de ressource d’un cluster Azure Data Explorer à partir de la vue Insights d’Azure Monitor.
 
@@ -114,7 +114,7 @@ L’onglet **Utilisation** permet aux utilisateurs d’approfondir les performan
 
 L’onglet **Tables** affiche les propriétés les plus récentes et l’historique des propriétés des tables du cluster. Vous pouvez voir quelles tables consomment le plus d’espace, suivre l’historique de croissance par taille de table, les données à chaud ainsi que le nombre de lignes dans le temps.
 
-L’onglet **Cache** permet aux utilisateurs d’analyser leurs modèles de fenêtre de recherche en arrière des requêtes réelles et de les comparer à la stratégie de cache configurée (pour chaque table). Vous pouvez identifier les tables utilisées par le plus grand nombre de requêtes ainsi que les tables qui ne sont pas interrogées, et adapter ainsi la stratégie de cache en conséquence. Vous pouvez obtenir des recommandations particulières de stratégie de cache sur des tables spécifiques dans Azure Advisor (actuellement, les recommandations de cache sont disponibles uniquement à partir du [tableau de bord principal d’Azure Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), en fonction de la fenêtre de recherche en arrière des requêtes réelles au cours des 30 derniers jours et d’une stratégie de cache non optimisée pour au moins 95 % des requêtes. Des recommandations de réduction du cache dans Azure Advisor sont disponibles pour les clusters « délimités par les données », ce qui signifie que le cluster a une faible utilisation du processeur et une faible ingestion, mais qu’en raison d’une capacité de données élevée, le cluster ne peut pas faire l’objet d’un scale-in ou d’un scale-down.
+L’onglet **Cache** permet aux utilisateurs d’analyser leurs modèles de fenêtre de recherche en arrière des requêtes réelles et de les comparer à la stratégie de cache configurée (pour chaque table). Vous pouvez identifier les tables utilisées par le plus grand nombre de requêtes ainsi que les tables qui ne sont pas interrogées, et adapter ainsi la stratégie de cache en conséquence. Vous pouvez obtenir des recommandations particulières de stratégie de cache sur des tables spécifiques dans Azure Advisor (actuellement, les recommandations de cache sont disponibles uniquement à partir du [tableau de bord principal d’Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), en fonction de la fenêtre de recherche en arrière des requêtes réelles au cours des 30 derniers jours et d’une stratégie de cache non optimisée pour au moins 95 % des requêtes. Des recommandations de réduction du cache dans Azure Advisor sont disponibles pour les clusters « délimités par les données », ce qui signifie que le cluster a une faible utilisation du processeur et une faible ingestion, mais qu’en raison d’une capacité de données élevée, le cluster ne peut pas faire l’objet d’un scale-in ou d’un scale-down.
 
 [![Capture d’écran des détails du cache](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -148,7 +148,7 @@ Les personnalisations sont enregistrées dans un classeur personnalisé pour év
 
 Pour obtenir des conseils généraux sur la résolution des problèmes, reportez-vous à [l’article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur les workbooks.
 
-Cette section a pour but de vous aider à diagnostiquer et à résoudre certains des problèmes courants que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Data Explorer Insights (préversion). La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
+Cette section vous aidera à diagnostiquer et à résoudre certains des problèmes courants que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Data Explorer Insights. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Pourquoi ne puis-je pas voir tous mes abonnements dans le sélecteur d’abonnement ?
 

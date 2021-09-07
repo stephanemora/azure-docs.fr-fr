@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 7ba00e1f3bd28b3fa24b14bc31080655a8d4c98b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 9ea96613425ec3802080277da9ac674af4e87c52
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792080"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669086"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Créer une source de données (SDK Android)
 
@@ -86,6 +86,9 @@ feature.addStringProperty("custom-property", "value")
 //Add the feature to the data source.
 source.add(feature)
 ```
+
+> [!TIP]
+> Les données GeoJSON peuvent être ajoutées à une instance `DataSource` à l’aide de l’une des trois méthodes suivantes : `add`, `importDataFromUrl` et `setShapes`. La méthode `setShapes` offre un moyen efficace de remplacer toutes les données d’une source de données. Si vous appelez les méthodes `clear` puis `add` pour remplacer toutes les données d’une source de données, deux appels de rendu sont effectués sur la carte. La méthode `setShape` efface et ajoute les données à la source de données avec un appel de rendu unique à la carte.
 
 ::: zone-end
 
@@ -264,7 +267,49 @@ val featureString = feature.toJson()
 
 La plupart des fichiers GeoJSON contiennent une classe FeatureCollection. Lisez les fichiers GeoJSON en tant que chaînes et utilisez la méthode `FeatureCollection.fromJson` pour les désérialiser.
 
-Le code suivant est une classe réutilisable qui permet d’importer des données à partir d’un dossier web ou de ressources locales sous forme de chaîne et de les renvoyer au thread d’interface utilisateur par le biais d’une fonction de rappel.
+La classe `DataSource` a une méthode intégrée appelée `importDataFromUrl` qui peut être chargée dans des fichiers GeoJSON à l’aide d’une URL vers un fichier sur le web ou dans le dossier de ressources. Cette méthode **doit** être appelée avant que la source de données soit ajoutée à la carte.
+
+zone_pivot_groups : azure-maps-android
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data");
+
+//Examples:
+//source.importDataFromUrl("asset://sample_file.json");
+//source.importDataFromUrl("https://example.com/sample_file.json");
+
+//Add data source to the map.
+map.sources.add(source);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+var source = new DataSource()
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data")
+
+//Examples:
+//source.importDataFromUrl("asset://sample_file.json")
+//source.importDataFromUrl("https://example.com/sample_file.json")
+
+//Add data source to the map.
+map.sources.add(source)
+```
+
+::: zone-end
+
+La méthode `importDataFromUrl` offre un moyen simple de charger un flux GeoJSON dans une source de données, mais offre un contrôle limité sur la façon dont les données sont chargées et sur ce qui se produit après leur chargement. Le code suivant est une classe réutilisable pour l’importation des données à partir d’un dossier web ou de ressources et leur renvoi au thread d’interface utilisateur par le biais d’une fonction de rappel. Dans ce rappel, vous pouvez ajouter une logique d’après chargement supplémentaire pour traiter les données, les ajouter à la carte, calculer leur cadre englobant et mettre à jour la caméra de la carte.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -516,8 +561,8 @@ Le code ci-dessous montre comment utiliser cet utilitaire pour importer des donn
 
 ```java
 //Create a data source and add it to the map.
-DataSource dataSource = new DataSource();
-map.sources.add(dataSource);
+DataSource source = new DataSource();
+map.sources.add(source);
 
 //Import the geojson data and add it to the data source.
 Utils.importData("URL_or_FilePath_to_GeoJSON_data",
@@ -527,7 +572,7 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
         FeatureCollection fc = FeatureCollection.fromJson(result);
 
         //Add the feature collection to the data source.
-        dataSource.add(fc);
+        source.add(fc);
 
         //Optionally, update the maps camera to focus in on the data.
 
@@ -576,6 +621,149 @@ Utils.importData("SamplePoiDataSet.json", this) {
 
 ::: zone-end
 
+### <a name="update-a-feature"></a>Mettre à jour une fonctionnalité
+
+La classe `DataSource` facilite l’ajout et la suppression de fonctionnalités. La mise à jour de la géométrie ou des propriétés d’une fonctionnalité nécessite de remplacer la fonctionnalité dans la source de données. Il existe deux méthodes qui peuvent être utilisées pour mettre à jour une ou plusieurs fonctionnalités :
+
+1. Créez la ou les nouvelles fonctionnalités avec les mises à jour souhaitées et remplacez toutes les fonctionnalités de la source de données à l’aide de la méthode `setShapes`. Cette méthode fonctionne bien lorsque vous souhaitez mettre à jour toutes les fonctionnalités d’une source de données.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+DataSource source;
+
+private void onReady(AzureMap map) {
+    //Create a data source and add it to the map.
+    source = new DataSource();
+    map.sources.add(source);
+
+    //Create a feature and add it to the data source.
+    Feature myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
+    myFeature.addStringProperty("Name", "Original value");
+
+    source.add(myFeature);
+}
+
+private void updateFeature(){
+    //Create a new replacement feature with an updated geometry and property value.
+    Feature myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10));
+    myNewFeature.addStringProperty("Name", "New value");
+
+    //Replace all features to the data source with the new one.
+    source.setShapes(myNewFeature);
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+var source: DataSource? = null
+
+private fun onReady(map: AzureMap) {
+    //Create a data source and add it to the map.
+    source = DataSource()
+    map.sources.add(source)
+
+    //Create a feature and add it to the data source.
+    val myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
+    myFeature.addStringProperty("Name", "Original value")
+    source!!.add(myFeature)
+}
+
+private fun updateFeature() {
+    //Create a new replacement feature with an updated geometry and property value.
+    val myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0))
+    myNewFeature.addStringProperty("Name", "New value")
+
+    //Replace all features to the data source with the new one.
+    source!!.setShapes(myNewFeature)
+}
+```
+
+::: zone-end
+
+2. Effectuez le suivi de l’instance de fonctionnalité dans une variable et transmettez-la dans la méthode `remove` de sources de données pour la supprimer. Créez la ou les nouvelles fonctionnalités avec les mises à jour souhaitées, mettez à jour la référence de variable et ajoutez-la à la source de données à l’aide de la méthode `add`.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+DataSource source;
+Feature myFeature;
+
+private void onReady(AzureMap map) {
+    //Create a data source and add it to the map.
+    source = new DataSource();
+    map.sources.add(source);
+
+    //Create a feature and add it to the data source.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
+    myFeature.addStringProperty("Name", "Original value");
+
+    source.add(myFeature);
+}
+
+private void updateFeature(){
+    //Remove the feature instance from the data source.
+    source.remove(myFeature);
+
+    //Get properties from original feature.
+    JsonObject props = myFeature.properties();
+
+    //Update a property.
+    props.addProperty("Name", "New value");
+
+    //Create a new replacement feature with an updated geometry.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10), props);
+
+    //Re-add the feature to the data source.
+    source.add(myFeature);
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+var source: DataSource? = null
+var myFeature: Feature? = null
+
+private fun onReady(map: AzureMap) {
+    //Create a data source and add it to the map.
+    source = DataSource()
+    map.sources.add(source)
+
+    //Create a feature and add it to the data source.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
+    myFeature.addStringProperty("Name", "Original value")
+    source!!.add(myFeature)
+}
+
+private fun updateFeature() {
+    //Remove the feature instance from the data source.
+    source!!.remove(myFeature)
+
+    //Get properties from original feature.
+    val props = myFeature!!.properties()
+
+    //Update a property.
+    props!!.addProperty("Name", "New value")
+
+    //Create a new replacement feature with an updated geometry.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0), props)
+
+    //Re-add the feature to the data source.
+    source!!.add(myFeature)
+}
+```
+
+::: zone-end
+
+> [!TIP]
+> Si vous avez des données qui vont être régulièrement mises à jour et d’autres données qui seront rarement modifiées, il est préférable de les fractionner en instances de source de données distinctes. Quand une mise à jour se produit dans une source de données, elle force la carte à repeindre toutes les fonctionnalités dans la source de données. En fractionnant ces données, seules les fonctionnalités mises à jour régulièrement sont repeintes lorsqu’une mise à jour se produit dans cette source de données alors que les fonctionnalités de l’autre source de données n’auraient pas besoin d’être repeintes. Les performances s’en trouvent donc améliorées.
+
 ## <a name="vector-tile-source"></a>Source de mosaïque vectorielle
 
 Une source de vignettes vectorielles décrit comment accéder à un calque de vignettes vectorielles. Utilisez la classe `VectorTileSource` pour instancier une source de vignettes vectorielles. Les calques de vignettes vectorielles sont similaires aux calques de vignettes, mais ils ne sont pas identiques. Un calque de vignettes est une image raster. Une couche de vignette vectorielle est un fichier compressé au format **PBF**. Ce fichier compressé contient les données d’une carte vectorielle et un ou plusieurs calques. Le fichier peut être rendu et stylisé sur le client, en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Il y a plusieurs avantages à utiliser les calques de vignettes vectorielles au lieu des calques de vignettes raster :
@@ -587,10 +775,10 @@ Une source de vignettes vectorielles décrit comment accéder à un calque de vi
 
 Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec), qui est un standard ouvert. Azure Maps fournit les services de vignettes vectorielles suivants dans le cadre de la plateforme :
 
-- Vignettes routières : [Documentation](/rest/api/maps/renderv2/getmaptilepreview) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- Vignettes routières : [Documentation](/rest/api/maps/render-v2/get-map-tile) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Incidents de circulation : [Documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - Débit de circulation : [Documentation](/rest/api/maps/traffic/gettrafficflowtile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu V2-API Get Map Tile](/rest/api/maps/renderv2/getmaptilepreview)
+- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu V2-API Get Map Tile](/rest/api/maps/render-v2/get-map-tile)
 
 > [!TIP]
 > Si vous utilisez des vignettes d’images vectorielles ou raster issues du service de rendu Azure Maps avec le kit SDK web, vous pouvez remplacer `atlas.microsoft.com` par l’espace réservé `azmapsdomain.invalid`. Cet espace réservé sera remplacé par le domaine de la carte et ajoutera automatiquement les mêmes informations d’authentification. L’authentification auprès du service de rendu avec Azure Active Directory s’en trouve grandement simplifiée.
@@ -704,32 +892,16 @@ Le code suivant montre comment créer une source de données, l’ajouter à la 
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data");
+
+//Add data source to the map.
 map.sources.add(source);
 
 //Create a layer that defines how to render points in the data source and add it to the map.
 BubbleLayer layer = new BubbleLayer(source);
 map.layers.add(layer);
-
-//Import the geojson data and add it to the data source.
-Utils.importData("URL_or_FilePath_to_GeoJSON_data",
-    this,
-    (String result) -> {
-        //Parse the data as a GeoJSON Feature Collection.
-        FeatureCollection fc = FeatureCollection.fromJson(result);
-
-        //Add the feature collection to the data source.
-        dataSource.add(fc);
-
-        //Optionally, update the maps camera to focus in on the data.
-
-        //Calculate the bounding box of all the data in the Feature Collection.
-        BoundingBox bbox = MapMath.fromData(fc);
-
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20));
-    });
 ```
 
 ::: zone-end
@@ -739,31 +911,12 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
 ```kotlin
 //Create a data source and add it to the map.
 val source = DataSource()
-map.sources.add(source)
-
-//Create a layer that defines how to render points in the data source and add it to the map.
-val layer = BubbleLayer(source)
-map.layers.add(layer)
 
 //Import the geojson data and add it to the data source.
-Utils.importData("URL_or_FilePath_to_GeoJSON_data", this) { 
-    result: String? ->
-        //Parse the data as a GeoJSON Feature Collection.
-        val fc = FeatureCollection.fromJson(result!!)
-    
-        //Add the feature collection to the data source.
-        dataSource.add(fc)
-    
-        //Optionally, update the maps camera to focus in on the data.
-        //Calculate the bounding box of all the data in the Feature Collection.
-        val bbox = MapMath.fromData(fc)
-    
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20)
-        )
-    }
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data")
+
+//Add data source to the map.
+map.sources.add(source)
 ```
 
 ::: zone-end
@@ -867,6 +1020,9 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 
 > [!div class="nextstepaction"]
 > [Utiliser des expressions de style basées sur les données](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Données de point de cluster](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une couche de symboles](how-to-add-symbol-to-android-map.md)

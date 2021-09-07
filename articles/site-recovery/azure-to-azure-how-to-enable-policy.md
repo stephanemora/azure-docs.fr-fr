@@ -4,14 +4,14 @@ description: Découvrez comment activer la prise en charge de Policy pour proté
 author: rishjai-msft
 ms.author: rishjai
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 7707fb0688a10c1791556f0605b40cacc54b5a85
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1c936df9ffb467d732e0c07651e7c6fb31f28b5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532171"
 ---
 # <a name="using-policy-with-azure-site-recovery-public-preview"></a>Utilisation de Policy avec Azure Site Recovery (Préversion publique)
 
@@ -48,7 +48,7 @@ Récupération d’urgence zone à zone  | Prise en charge
 Interopérabilité avec d’autres stratégies appliquées par défaut par Azure (le cas échéant) | Prise en charge
 
 >[!NOTE]
->Dans les cas suivants, la récupération de site ne sera pas activée. Toutefois, elle apparaîtra comme _Non conforme_ dans Conformité des ressources : 
+>Dans les cas suivants, la récupération de site ne sera pas activée. Toutefois, elle apparaîtra comme _Non conforme_ sous Conformité des ressources :
 >1. Si une machine virtuelle non prise en charge est créée dans le cadre de la stratégie.
 >1. Si une machine virtuelle fait partie d’un groupe à haute disponibilité et de PPG.
 
@@ -77,11 +77,11 @@ Vous êtes sur le point de créer une stratégie pour activer Azure Site Recover
     - **Région source** : Région source des machines virtuelles pour lesquelles la stratégie s’appliquera.
     >[!NOTE]
     >La stratégie s’appliquera à toutes les machines virtuelles appartenant à la région source dans l’étendue de la stratégie. Les machines virtuelles qui ne sont pas présentes dans la région source ne sont pas incluses dans _Conformité des ressources_.
-    - **Région cible** : Emplacement où vos données de machines virtuelles sources sont répliquées. Site Recovery fournit la liste des régions cibles appropriées selon l’emplacement de la machine sélectionnée. Nous vous recommandons d’utiliser le même emplacement que celui du coffre Recovery Services.
+    - **Région cible** : Emplacement où vos données de machines virtuelles sources sont répliquées. Site Recovery fournit la liste des régions cibles dans lesquelles le client peut effectuer une réplication. Nous vous recommandons d’utiliser le même emplacement que celui du coffre Recovery Services.
     - **Groupe de ressources cible** : Groupe de ressources auquel appartiennent toutes vos machines virtuelles répliquées. Par défaut, Site Recovery crée un groupe de ressources dans la région cible.
     - **Groupe de ressources du coffre** : Groupe de ressources dans lequel se trouve le coffre Recovery Services.
-    - **Coffre Recovery Services** : Coffre sur lequel toutes les machines virtuelles de l’étendue seront protégées.
-    - **Réseau virtuel de récupération** : Choisissez un réseau virtuel dans la région cible à utiliser pour la machine virtuelle de récupération.
+    - **Coffre Recovery Services** : Coffre sur lequel toutes les machines virtuelles de l’étendue seront protégées. Policy peut créer un coffre à votre place, si nécessaire.
+    - **Réseau virtuel de récupération** : Choisissez un réseau virtuel dans la région cible à utiliser pour la machine virtuelle de récupération. Policy peut également créer un réseau virtuel, si nécessaire.
     - **Zone de disponibilité cible** : Entrez la zone de disponibilité de la région cible dans laquelle la machine virtuelle sera basculée.
     >[!NOTE]
     >Pour un scénario zone à zone, vous devez choisir la même région cible que la région source et choisir une zone de disponibilité différente dans _Zone de disponibilité cible_.     

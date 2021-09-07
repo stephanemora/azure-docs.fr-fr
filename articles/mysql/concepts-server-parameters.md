@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8220afc8020e5a6a4ba77c46a98ee3c220c3f37e
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720951"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675313"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Cet article fournit des considérations et des instructions pour la configuration des paramètres de serveur dans Azure Database pour MySQL.
 
@@ -65,7 +67,7 @@ Le format de journalisation binaire est toujours **ROW** et toutes les connexion
 
 Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) pour en savoir plus sur ce paramètre.
 
-#### <a name="servers-supporting-up-to-4-tb-storage"></a>Serveurs prenant en charge jusqu’à 4 To de stockage
+#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-4-tb"></a>Serveurs sur [Stockage v1 universel (prenant en charge jusqu’à 4 To)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
 
 |**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut (octets)**|**Valeur minimale (octets)**|**Valeur maximale (octets)**|
 |---|---|---|---|---|
@@ -83,7 +85,7 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 |Mémoire optimisée|16|65498251264|134217728|65498251264|
 |Mémoire optimisée|32|132070244352|134217728|132070244352|
 
-#### <a name="servers-support-up-to-16-tb-storage"></a>Serveurs prenant en charge jusqu’à 16 To de stockage
+#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-16-tb"></a>Serveurs sur [Stockage v1 universel (prenant en charge jusqu’à 16 To)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut (octets)**|**Valeur minimale (octets)**|**Valeur maximale (octets)**|
 |---|---|---|---|---|
@@ -104,11 +106,11 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table` peut seulement être mise à jour aux niveaux tarifaires Usage général et Mémoire optimisée.
+> `innodb_file_per_table` peut être mis à jour seulement aux niveaux tarifaires Usage général et Mémoire optimisée sur [Stockage universel v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage).
 
 MySQL stocke la table InnoDB dans différents espaces de stockage en fonction de la configuration que vous avez fournie lors de la création de la table. L’[espace disque logique du système](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) est la zone de stockage pour le dictionnaire de données InnoDB. Un [espace disque logique de fichier par table](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contient des données et des index pour une table InnoDB unique, et est stocké dans son propre fichier de données au sein du système de fichiers. Ce comportement est contrôlé par le paramètre de serveur `innodb_file_per_table`. La définition de `innodb_file_per_table` sur `OFF` amène InnoDB à créer des tables dans l’espace disque logique du système. Autrement, InnoDB crée des tables dans des espaces disques logiques de fichier par table.
 
-Azure Database pour MySQL prend en charge jusqu’à **4 To**, dans un fichier de données unique. Si la taille de votre base de données est supérieure à 4 To, vous devez créer la table dans l’espace disque logique [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si vous avez une table d’une taille supérieure à 4 To, vous devez utiliser la table de partition.
+Azure Database pour MySQL prend en charge jusqu’à **4 To** dans un même fichier de données sur [Stockage v2 universel](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage). Si la taille de votre base de données est supérieure à 4 To, vous devez créer la table dans l’espace disque logique [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si vous avez une table d’une taille supérieure à 4 To, vous devez utiliser la table de partition.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 

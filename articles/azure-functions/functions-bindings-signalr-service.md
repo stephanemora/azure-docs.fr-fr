@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34460fb0076c4cb666242d996add913cc2b74d22
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97763487"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108636"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Liaisons de service SignalR pour Azure Functions
 
@@ -53,6 +53,10 @@ Pour utiliser les annotations SignalR Service dans les fonctions Java, vous deve
     <version>1.0.0</version>
 </dependency>
 ```
+
+## <a name="connection-string-settings"></a>Paramètres de la chaîne de connexion
+
+Ajoutez la clé `AzureSignalRConnectionString` au fichier _host.json_ qui pointe vers le paramètre d’application avec votre chaîne de connexion. Pour un développement local, cette valeur peut exister dans le fichier _local.settings.json_.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

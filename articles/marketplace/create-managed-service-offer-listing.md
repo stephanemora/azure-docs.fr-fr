@@ -1,21 +1,21 @@
 ---
-title: Comment configurer les détails du référencement de votre offre Service managé dans l’Espace partenaires Microsoft
-description: Découvrez comment configurer les détails du référencement de votre offre Service managé sur la Place de marché Azure à l’aide de l’Espace partenaires.
+title: Configurer les détails du référencement de l’offre Service managé dans l’Espace partenaires Microsoft
+description: Configurez les détails du référencement de l’offre Service managé sur la Place de marché Azure.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: 5ab831ae6ab761804fc7a4665000a13ab61acadc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/12/2021
+ms.openlocfilehash: 1b2171c300fd52403da29d23f9f34d3f94961b3d
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97917957"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204496"
 ---
-# <a name="how-to-configure-your-managed-service-offer-listing-details"></a>Comment configurer les détails du référencement de votre offre Service managé
+# <a name="configure-managed-service-offer-listing-details"></a>Configurer les détails du référencement de l’offre Service managé
 
 Les informations que vous fournissez sur la page **Référencement de l’offre** de l’Espace partenaires s’affichent sur la Place de marché Azure. Elles comprennent le nom, la description, le support et divers éléments de marketing de votre offre.
 
@@ -32,7 +32,7 @@ Sur la page **Référencement de l’offre** de l’Espace partenaires, fourniss
 4. Dans le champ **Description**, décrivez votre offre Service managé. Vous pouvez entrer dans cette zone jusqu’à 2 000 caractères, balises HTML et espaces compris. Pour plus d’informations sur la mise en forme HTML, consultez [Balises HTML prises en charge dans les descriptions d’offres](./supported-html-tags.md).
 5. Dans la zone **Lien de la politique de confidentialité**, entrez un lien (commençant par https) vers la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre offre respecte les lois et réglementations en matière de confidentialité, et à proposer une politique de confidentialité conforme.
 
-## <a name="useful-links"></a>Liens utiles
+## <a name="product-information-links"></a>Liens vers les informations produit
 
 Vous avez la possibilité de fournir des documents en ligne complémentaires à propos de votre solution :
 
@@ -43,7 +43,7 @@ Vous avez la possibilité de fournir des documents en ligne complémentaires à 
 
 Entrez le nom, l’adresse e-mail et le numéro de téléphone de deux personnes de votre entreprise (vous pouvez être l’une d’elles) : un contact pour le support et un contact pour l’ingénierie. Nous utiliserons ces informations pour communiquer avec vous concernant votre offre. Elles ne sont pas présentées aux clients, mais peuvent être communiquées à des partenaires fournisseurs de solutions cloud (CSP).
 
-## <a name="support-urls"></a>URL de support technique
+## <a name="support-link"></a>Lien de support
 
 Si vous avez des sites web de support pour les clients Azure Global et/ou les clients Azure Government, fournissez ces URL, qui doivent commencer par https.
 
@@ -56,9 +56,9 @@ Si vous avez des sites web de support pour les clients Azure Global et/ou les cl
 
 Sous **Logos**, chargez un **Grand** logo au format .PNG d’une taille comprise entre 216 x 216 et 350 x 350 pixels. L’Espace partenaires crée automatiquement un **moyen** et un **petit** logos, que vous pourrez remplacer ultérieurement.
 
-* Le grand logo (d’une taille comprise entre 216 x 216 et 350 x 350 pixels) apparaît dans le référencement de votre offre dans la Place de marché Azure.
-* Le logo moyen (90 x 90 pixels) s’affiche lors de la création d’une ressource.
-* Le petit logo (48 x 48 pixels) s’affiche dans les résultats de la recherche de la Place de marché Azure.
+- Le grand logo (d’une taille comprise entre 216 x 216 et 350 x 350 pixels) apparaît dans le référencement de votre offre dans la Place de marché Azure.
+- Le logo moyen (90 x 90 pixels) s’affiche lors de la création d’une ressource.
+- Le petit logo (48 x 48 pixels) s’affiche dans les résultats de la recherche de la Place de marché Azure.
 
 ### <a name="add-screenshots-optional"></a>Captures d’écran (facultatif)
 
@@ -78,8 +78,8 @@ Vous pouvez ajouter des liens vers des vidéos YouTube ou Vimeo illustrant votre
 3. Glissez-déposez un fichier PNG (1280 x 720 pixels) dans la zone **Miniature** grisée.
 4. Pour ajouter une autre vidéo, répétez les étapes 1 à 3.
 
-Avant de passer à l’onglet suivant, sélectionnez **Enregistrer le brouillon** : **Public de la préversion**.
+Avant de passer à l’onglet suivant, sélectionnez **Enregistrer le brouillon**, **Public de la préversion**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Ajouter un public pour la préversion](create-managed-service-offer-preview.md)
+- [Ajouter un public pour la préversion](create-managed-service-offer-preview.md)

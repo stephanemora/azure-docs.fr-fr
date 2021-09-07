@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d7bed3847465c48914453a3fd167384e1c180b6
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099248"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435814"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -40,7 +40,7 @@ Security Center offre également une analyse des vulnérabilités pour les élé
 ## <a name="how-security-solutions-are-integrated"></a>Comment sont intégrées les solutions de sécurité
 Les solutions de sécurité Azure déployées à partir de Security Center sont automatiquement connectées. Vous pouvez également connecter d’autres sources de données de sécurité, notamment des ordinateurs s’exécutant en local ou dans d’autres clouds.
 
-[![Partner solutions integration](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
+:::image type="content" source="./media/security-center-partner-integration/security-solutions-page.png" alt-text="Intégration de solutions de partenaires." lightbox="./media/security-center-partner-integration/security-solutions-page.png":::
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gérer des solutions de sécurité Azure intégrées et d’autres sources de données
 
@@ -54,7 +54,7 @@ Sur la page **Solutions de sécurité**, vous pouvez voir l’intégrité des so
 
 La section **Solutions connectées** inclut les solutions de sécurité qui sont connectées à Security Center. Elle indique également l’état d’intégrité de chaque solution.  
 
-![Solutions connectées](./media/security-center-partner-integration/connected-solutions.png)
+![Solutions connectées.](./media/security-center-partner-integration/connected-solutions.png)
 
 L’état d’une solution de partenaire peut être :
 
@@ -75,7 +75,7 @@ Sélectionnez **AFFICHAGE** pour obtenir des informations et des options supplé
    - **Supprimer la solution**
    - **Configurer**
 
-   ![Détail de la solution partenaire](./media/security-center-partner-integration/partner-solutions-detail.png)
+   ![Détail de la solution de partenaire.](./media/security-center-partner-integration/partner-solutions-detail.png)
 
 
 ### <a name="discovered-solutions"></a>Solutions découvertes
@@ -91,7 +91,7 @@ Sélectionnez **CONNECTER** sous une solution pour l’intégrer à Security Cen
 
 La section **Ajouter des sources de données** comprend d’autres sources de données disponibles qui peuvent être connectées. Pour obtenir des instructions sur l’ajout de données à partir d’une de ces sources, cliquez sur **AJOUTER**.
 
-![Sources de données](./media/security-center-partner-integration/add-data-sources.png)
+![Sources de données.](./media/security-center-partner-integration/add-data-sources.png)
 
 
 

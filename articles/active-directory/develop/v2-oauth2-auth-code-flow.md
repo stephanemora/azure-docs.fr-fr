@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 07/19/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1d2c2f3131c8ee8fb73dfd52df3d7545b52b0044
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0042d12941107c4704364dc261f95d3521b8208f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075148"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464145"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -27,6 +27,8 @@ L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications q
 Cet article explique comment programmer directement par rapport au protocole dans votre application en utilisant n’importe quel langage.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 
 Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](https://tools.ietf.org/html/rfc6749). Il est utilisé pour exécuter des activités d’authentification et d’autorisation dans la majorité des types d’applications, notamment les [applications monopages](v2-app-types.md#single-page-apps-javascript), les [applications web](v2-app-types.md#web-apps) et les [applications installées de façon native](v2-app-types.md#mobile-and-native-apps). Le flux permet aux applications d’acquérir en toute sécurité des jetons d’accès (access_tokens) utilisables pour accéder à des ressources sécurisées par la plateforme d’identités Microsoft, ainsi que des jetons d’actualisation pour obtenir des jetons d’accès supplémentaires, ainsi que des jetons d’identification pour l’utilisateur connecté.
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
@@ -46,7 +48,7 @@ Si vous tentez d’utiliser le flux de code d’autorisation et voyez le message
 
 Accédez ensuite à votre inscription d’application et mettez à jour l’URI de redirection de votre application sur le type `spa`.
 
-Les applications ne peuvent pas utiliser un URI de redirection `spa` avec des flux non SPA, par exemple des applications natives ou des flux d'informations d'identification de clients. Pour garantir la sécurité, Azure AD renverra une erreur si vous essayez d'utiliser un URI de redirection `spa` dans ces scénarios, par exemple à partir d'une application native qui n'envoie pas d'en-tête `Origin`. 
+Les applications ne peuvent pas utiliser un URI de redirection `spa` avec des flux non SPA, par exemple des applications natives ou des flux d'informations d'identification de clients. Pour garantir la sécurité et le respect des bonnes pratiques, la plateforme d’identités Microsoft retourne une erreur si vous tentez d’utiliser un URI de redirection `spa` sans en-tête `Origin`. De même, la plateforme d’identités Microsoft empêche également l’utilisation des informations d’identification du client (dans le flux OBO, il s’agit du flux d’informations d’identification du client et du flux de code d’authentification) en présence d’un en-tête `Origin`. Ainsi, la non-utilisation des secrets à partir du navigateur est garantie. 
 
 ## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 
@@ -72,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Paramètre    | Obligatoire ou facultatif | Description |
 |--------------|-------------|--------------|
-| `tenant`    | Obligatoire    | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
+| `tenant`    | Obligatoire    | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). Notez que dans les scénarios d’invités, où vous connectez l’utilisateur d’un locataire à un autre locataire, vous *devez* impérativement fournir l’identificateur du locataire pour connecter correctement l’utilisateur au locataire des ressources.|
 | `client_id`   | Obligatoire    | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908).  |
 | `response_type` | Obligatoire    | Doit inclure `code` pour le flux de code d’autorisation. Peut également inclure `id_token` ou `token` si vous utilisez le [flux hybride](#request-an-id-token-as-well-hybrid-flow). |
 | `redirect_uri`  | obligatoire | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications mobiles et natives, vous devez utiliser l’une des valeurs recommandées : `https://login.microsoftonline.com/common/oauth2/nativeclient` pour les applications utilisant des navigateurs incorporés ou `http://localhost` pour les applications qui utilisent des navigateurs système. |
@@ -80,8 +82,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode`   | recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Il peut s'agir d'une des méthodes suivantes :<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fournit le code en tant que paramètre d’une chaîne de requête sur votre URI de redirection. Si vous demandez un jeton ID à l’aide du flux implicite, vous ne pouvez pas utiliser `query` comme indiqué dans les [spécifications OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si vous ne demandez que le code, vous pouvez utiliser `query`, `fragment` ou `form_post`. `form_post` exécute une requête POST contenant le code pour votre URI de redirection. |
 | `state`                 | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur peut également encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle il était. |
 | `prompt`  | facultatif    | Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none`, `consent` et `select_account`.<br/><br/>- `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique.<br/>Avec - `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, la plateforme d’identités Microsoft renvoie une erreur `interaction_required`.<br/>- `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth après la connexion de l'utilisateur, afin de lui demander d'octroyer des autorisations d'accès à l'application.<br/>- `prompt=select_account` interrompt l’authentification unique en fournissant une expérience de sélection de compte répertoriant tous les comptes dans la session ou tout compte mémorisé, ou une option pour choisir d’utiliser un autre compte.<br/> |
-| `login_hint`  | facultatif    | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.   |
-| `domain_hint`  | facultatif    | S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur, par exemple, en le dirigeant vers son fournisseur d’identité fédéré. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`.  |
+| `login_hint` | Facultatif | Vous pouvez utiliser ce paramètre pour remplir au préalable le champ réservé au nom d’utilisateur et à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre durant la réauthentification, après avoir extrait la [revendication facultative](active-directory-optional-claims.md) `login_hint` à partir d’une connexion antérieure. |
+| `domain_hint`  | facultatif    | S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur, par exemple, en le dirigeant vers son fournisseur d’identité fédéré. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente.  |
 | `code_challenge`  | recommandé/obligatoire | Utilisé pour sécuriser l’octroi du code d’autorisation par PKCE (Proof Key for Code Exchange). Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Il s’agit désormais d’une recommandation pour tous les types d’application (clients publics et confidentiels) et d’une exigence de la Plateforme d’identités Microsoft pour les [applications monopages qui utilisent le flux de code d’autorisation](reference-third-party-cookies-spas.md). |
 | `code_challenge_method` | recommandé/obligatoire | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Ce *DEVRAIT* être `S256`, mais la spécification autorise l’utilisation de `plain` si, pour une raison quelconque, le client ne peut pas prendre en charge SHA256. <br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. La plateforme d’identités Microsoft prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cela est obligatoire pour les [applications monopages utilisant le flux de code d’autorisation](reference-third-party-cookies-spas.md).|
 
@@ -163,7 +165,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |---------------|-------------|--------------|
 |`response_type`| Obligatoire | L’ajout de `id_token` indique au serveur que l’application aimerait un jeton d’ID dans la réponse du point de terminaison `/authorize`.  |
 |`scope`| Obligatoire | Pour les jetons d’ID, doit être mis à jour pour inclure les étendues de jeton d’ID : `openid` et éventuellement `profile` et `email`. |
-|`nonce`| Obligatoire|     Valeur incluse dans la requête, générée par l’application, qui sera incluse dans l’id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la requête. |
+|`nonce`| Obligatoire|     Valeur incluse dans la requête, générée par l’application, qui sera incluse dans l’id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur pour atténuer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la requête. |
 |`response_mode`| Recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut, `query` pour seulement un code d’autorisation, mais `fragment` si la requête comprend un id_token `response_type`.  Toutefois, il est recommandé que les applications utilisent `form_post`, en particulier si `http://localhost` est utilisé comme URI de redirection. |
 
 L’utilisation de `fragment` comme mode de réponse entraîne des problèmes pour les applications web qui lisent le code à partir de la redirection, dans la mesure où les navigateurs ne transmettent pas le fragment au serveur web.  Dans ces situations, les applications doivent utiliser le mode de réponse `form_post` pour garantir l’envoi de toutes les données au serveur. 
@@ -208,9 +210,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
-
-> [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! N’oubliez pas de remplacer le `code`[![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://www.getpostman.com/collections/dba7e9c2e0870702dfc6)
 
 | Paramètre  | Obligatoire ou facultatif | Description     |
 |------------|-------------------|----------------|
@@ -271,7 +270,7 @@ Une réponse de jeton réussie se présente ainsi :
 
 | Paramètre     | Description   |
 |---------------|------------------------------|
-| `access_token`  | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web.  |
+| `access_token`  | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour s’authentifier auprès de la ressource sécurisée, telle qu’une API web. |
 | `token_type`    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. |
 | `expires_in`    | La durée de validité (en secondes) du jeton d’accès. |
 | `scope`         | L’étendue de validité du jeton d’accès. Facultatif : il s’agit d’un jeton non standard et, s’il est omis, le jeton sera destiné aux étendues demandées sur la branche initiale du flux. |
@@ -326,9 +325,6 @@ Les réponses d’erreur se présentent comme suit :
 
 Maintenant que vous avez acquis un jeton `access_token`, vous pouvez l’utiliser dans des requêtes adressées à des API web en l’incluant dans l’en-tête `Authorization` :
 
-> [!TIP]
-> Exécutez cette requête dans Postman ! Commencez par remplacez le `Authorization`[![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
@@ -354,16 +350,12 @@ POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &grant_type=refresh_token
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps. This secret needs to be URL-Encoded
+&client_secret=sampleCredentia1s    // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
-
-> [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! N’oubliez pas de remplacer le `refresh_token`[![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
->
 
 | Paramètre     | Type           | Description        |
 |---------------|----------------|--------------------|
@@ -397,6 +389,8 @@ Une réponse de jeton réussie se présente ainsi :
 | `scope`         | L’étendue de validité du jeton d’accès.    |
 | `refresh_token` | Un nouveau jeton d’actualisation OAuth 2.0. Vous devez remplacer l’ancien jeton d’actualisation par ce nouveau jeton d’actualisation nouvellement acquis, afin de vous assurer que vos jetons d’actualisation demeurent valident le plus longtemps possible. <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée.|
 | `id_token`      | Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton, afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. Pour en savoir plus sur id_tokens, consultez [`id_token reference`](id-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 #### <a name="error-response"></a>Réponse d’erreur
 

@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f1eb7a5b4697801775d23091c610ab594b0b27ec
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 065a06955adc9c157134e138a25aaee9f54f5bea
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813377"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525423"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
-Apprenez-en davantage sur l’architecture et les concepts pour [Azure Machine Learning](overview-what-is-azure-ml.md).  Cet article fournit une description générale des composants et de la façon dont ils co-opèrent pour faciliter le processus de création, de déploiement et de maintenance des modèles Machine Learning.
+Apprenez-en davantage sur l’architecture et les concepts pour [Azure Machine Learning](overview-what-is-azure-machine-learning.md).  Cet article fournit une description générale des composants et de la façon dont ils co-opèrent pour faciliter le processus de création, de déploiement et de maintenance des modèles Machine Learning.
 
 ## <a name="workspace"></a><a name="workspace"></a> Espace de travail
 
@@ -197,7 +197,7 @@ Pour plus d’informations sur ces composants, consultez [Déployer des modèles
 
 [Espace de travail](#workspace) > **Points de terminaison**
 
-Un point de terminaison est une instanciation de votre modèle soit dans un service web pouvant être hébergé dans le cloud, soit dans un module IoT pour les déploiements d’appareils intégrés.
+Un point de terminaison est une instanciation de votre modèle dans un service web pouvant être hébergé dans le cloud.
 
 #### <a name="web-service-endpoint"></a>Point de terminaison de service Web
 
@@ -232,13 +232,7 @@ Les points de terminaison de pipeline vous permettent d’appeler vos [pipelines
 Un point de terminaison de pipeline est une collection de pipelines publiés. Cette organisation logique vous permet de gérer et d’appeler plusieurs pipelines à l’aide du même point de terminaison. Chaque pipeline publié dans un point de terminaison de pipeline est associé à une version. Vous pouvez sélectionner un pipeline par défaut pour le point de terminaison ou spécifier une version dans l’appel REST.
  
 
-#### <a name="iot-module-endpoints"></a>Points de terminaison de module IoT
 
-Un point de terminaison de module IoT déployé est un conteneur Docker qui inclut votre modèle, ainsi que le script ou l’application associés et toutes les dépendances supplémentaires. Vous déployez ces modules à l’aide d’Azure IoT Edge sur les périphériques en mode Edge.
-
-Si vous avez activé la supervision, Azure collecte les données de télémétrie à partir du modèle qui se trouve dans le module Azure IoT Edge. Vous seul pouvez accéder aux données de télémétrie qui sont stockées dans votre instance de compte de stockage.
-
-Azure IoT Edge garantit l’exécution de votre module et supervise l’appareil qui l’héberge. 
 ## <a name="automation"></a>Automatisation
 
 ### <a name="azure-machine-learning-cli"></a>Interface CLI Azure Machine Learning 
@@ -261,7 +255,7 @@ Azure Machine Learning propose les fonctionnalités de supervision et de journal
    * [Suivre des expériences avec MLflow](how-to-use-mlflow.md)
    * [Visualiser les exécutions avec TensorBoard](how-to-monitor-tensorboard.md)
 * En tant qu’__Administrateur__, vous pouvez surveiller les informations sur l’espace de travail, les ressources Azure associées et les événements tels que la création et la suppression de ressources à l’aide d’Azure Monitor. Pour plus d’informations, consultez [Supervision d’Azure Machine Learning](monitor-azure-machine-learning.md).
-* En tant que __DevOps__ ou __MLOps__, vous pouvez surveiller les informations générées par les modèles déployés en tant que services web ou modules IoT Edge pour identifier les problèmes liés aux déploiements et collecter les données envoyées au service. Pour plus d’informations, consultez [Collecter des données de modèle](how-to-enable-data-collection.md) et [Analyser avec Application Insights](how-to-enable-app-insights.md).
+* En tant que __DevOps__ ou __MLOps__, vous pouvez superviser les informations générées par les modèles déployés en tant que services web pour identifier les problèmes liés aux déploiements et collecter les données envoyées au service. Pour plus d’informations, consultez [Collecter des données de modèle](how-to-enable-data-collection.md) et [Analyser avec Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interaction avec votre espace de travail
 
@@ -283,15 +277,13 @@ Le studio est également l’emplacement où vous accédez aux outils interactif
 > La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interagissez avec le service dans un environnement Python avec le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro).
-+ Interagissez avec le service dans un environnement R avec le [Kit de développement logiciel (SDK) Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (préversion).
 + Utilisez le [Concepteur Azure Machine Learning](concept-designer.md) pour effectuer les étapes de workflow sans écrire de code. 
 + Utiliser l’[interface de ligne de commande d’Azure Machine Learning](./reference-azure-machine-learning-cli.md) pour l’automatisation.
-+ L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’effectuer l’apprentissage, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour bien démarrer avec Azure Machine Learning, voir :
 
-* [Qu'est-ce que Microsoft Azure Machine Learning ?](overview-what-is-azure-ml.md)
+* [Qu'est-ce que Microsoft Azure Machine Learning ?](overview-what-is-azure-machine-learning.md)
 * [Création d’un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md)
 * [Tutoriel (partie 1) : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)

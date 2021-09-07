@@ -13,12 +13,12 @@ ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cf1ca72d7afaace847fb1b8321723f57fbe133f6
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 27c56804eeb3b27bfda9f581f13b853edc8e4b4e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802164"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453787"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -203,7 +203,8 @@ Pour en savoir plus sur les rôles des applications, consultez les ressources su
 
 - Exemples de code sur GitHub
   - [Ajouter une autorisation à une application web ASP.NET Core à l’aide de groupes et revendications de groupes](https://aka.ms/groupssample)
-  - [Application monopage Angular (SPA) appelant une API web .NET Core et utilisant des rôles d’application et des groupes de sécurité](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+  - [Application monopage Angular (SPA) appelant une API web .NET Core et utilisant des rôles d’application et des groupes de sécurité](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
+  - [Application monopage (SPA) React appelant une API web Node.js et utilisant des rôles d’application ainsi que des groupes de sécurité](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - Documentation de référence
   - [Manifeste de l’application Azure AD](./reference-app-manifest.md)
   - [Jetons d’accès Azure AD](access-tokens.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 8b363d90d05e95b017c3a655b57dbabc3712a155
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88a9a842709d6a70f766f7ced84e144bb9a9861b
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965542"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288875"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
@@ -53,7 +53,7 @@ Cet exemple utilise la configuration minimale de Graylog (c’est-à-dire une se
 
 Vous pouvez installer Graylog de bien des façons, selon votre plateforme et vos préférences. Pour obtenir une liste complète des méthodes d’installation possibles, reportez-vous à la [documentation](https://docs.graylog.org/en/2.2/pages/installation.html) officielle de Graylog. L’application serveur Graylog s’exécute sur les distributions Linux et implique les prérequis suivants :
 
--  Java SE 8 ou version ultérieure – [Documentation d’Azul Azure JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+-  Java SE 8 ou ultérieur - [Documentation d’installation de JDK](/azure/developer/java/fundamentals/java-jdk-install)
 -  Elastic Search 2.x (2.1.0 ou version ultérieure) - [Documentation d’installation Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 ou version ultérieure – [Documentation d’installation MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2021
 ms.custom: subject-rbac-steps
 ms.author: memildin
-ms.openlocfilehash: 14cad6e5d95492b889a4e1a09abac9bd3ee8e603
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: a4b95636052db0d5d244c5b451ec33dfa4e812f0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887288"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237387"
 ---
 # <a name="organize-subscriptions-into-management-groups-and-assign-roles-to-users"></a>Organiser des abonnements en groupes d’administration et attribuer des rôles à des utilisateurs
 
@@ -43,13 +43,13 @@ Pour une présentation détaillée des groupes d’administration, consultez l�
 
 1. À partir du [portail Azure](https://portal.azure.com), utilisez la zone de recherche dans la barre supérieure pour rechercher et ouvrir **Groupes d'administration**.
 
-    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accès à vos groupes d'administration":::
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accès à vos groupes d’administration.":::
 
     La liste de vos groupes d’administration s’affiche.
 
 1. Pour créer un groupe d’administration, sélectionnez **Ajouter un groupe d’administration**, entrez les informations appropriées, puis sélectionnez **Enregistrer**.
 
-    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Ajout d’un groupe d’administration à Azure":::
+    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Ajout d’un groupe d’administration à Azure.":::
 
     - L’**ID du groupe d’administration** est l’identificateur unique de l’annuaire utilisé pour envoyer des commandes sur ce groupe d’administration. Cet identificateur n’est pas modifiable après sa création car il est utilisé dans tout le système Azure pour identifier ce groupe. 
     - Le champ du nom d’affichage correspond au nom qui s’affiche dans le portail Azure. Un nom d’affichage distinct est un champ facultatif lors de la création du groupe d’administration. Il peut être modifié à tout moment.  
@@ -60,13 +60,13 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 
 1. À partir du Portail Azure, ouvrez **Groupes d’administration** et sélectionnez le groupe d’administration pour votre abonnement.
 
-    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Sélectionner un groupe d’administration pour votre abonnement":::
+    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Sélectionner un groupe d’administration pour votre abonnement.":::
 
 1. Lorsque la page du groupe s’ouvre, sélectionnez **Abonnements**.
 
 1. Dans la page des abonnements, sélectionnez **Ajouter**, choisissez vos abonnements, puis sélectionnez **Enregistrer**. Répétez les étapes pour tous les abonnements concernés.
 
-    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Ajout d’un abonnement à un groupe d’administration":::
+    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Ajout d’un abonnement à un groupe d’administration.":::
 
    > [!IMPORTANT]
    > Les groupes d’administration peuvent contenir à la fois des abonnements et des groupes d’administration enfants. Lorsque vous attribuez un rôle Azure à un utilisateur dans le groupe d’administration parent, l’accès est hérité par les abonnements du groupe d’administration enfant. Les stratégies définies au niveau du groupe d’administration parent sont aussi héritées par les enfants. 
@@ -79,7 +79,7 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 
 1. À partir du [portail Azure](https://portal.azure.com), utilisez la zone de recherche dans la barre supérieure pour rechercher et ouvrir **Groupes d'administration**.
 
-    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accès à vos groupes d'administration":::
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accès à vos groupes d’administration.":::
 
     La liste de vos groupes d’administration s’affiche.
 
@@ -87,11 +87,11 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 
 1. Sélectionnez **Contrôle d’accès (IAM)** , ouvrez l’onglet **Attributions de rôle**, puis sélectionnez **Ajouter** > **Ajouter une attribution de rôle**.
 
-    :::image type="content" source="./media/security-center-management-groups/add-user.png" alt-text="Ajout d’un utilisateur à un groupe d’administration":::
+    :::image type="content" source="./media/security-center-management-groups/add-user.png" alt-text="Ajout d’un utilisateur à un groupe d’administration.":::
 
 1. Dans la page **Ajouter une attribution de rôle**, sélectionnez le rôle approprié.
 
-    :::image type="content" source="./media/security-center-management-groups/add-role-assignment-page.png" alt-text="Page Ajouter une attribution de rôle":::
+    :::image type="content" source="./media/security-center-management-groups/add-role-assignment-page.png" alt-text="Page Ajouter une attribution de rôle.":::
 
 1. Dans l’onglet **Membres**, sélectionnez **+ Sélectionner des membres** et attribuez le rôle aux membres appropriés.
 
@@ -110,7 +110,7 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 
 3. Quand vous y êtes invité, connectez-vous avec des informations d’identification d’administrateur général. 
 
-    ![Capture d’écran de l’invite de connexion](./media/security-center-management-groups/azurerm-sign-in.PNG)
+    ![Capture d’écran de l’invite de connexion.](./media/security-center-management-groups/azurerm-sign-in.PNG)
 
 4. Accordez les autorisations du rôle de lecteur en exécutant la commande suivante :
 

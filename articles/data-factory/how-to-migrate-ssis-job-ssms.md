@@ -4,14 +4,15 @@ description: Cet article explique comment migrer des travaux SQL Server Integrat
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a9e69b0672a5b4235effcd68b50eeddc5ec9f82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379588"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524574"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrer des travaux SQL Server Agent vers ADF avec SSMS
 
@@ -30,7 +31,7 @@ En général, pour les travaux SQL Agent sélectionnés avec les types d’étap
 |---------|---------|---------|
 |Travail SQL Agent|pipeline     |Le nom du pipeline sera *généré pour \<job name>* . <br> <br> Les travaux d’agent intégrés ne sont pas applicables : <li> Travail de maintenance de serveur SSIS <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
 |Étape de travail SSIS|Activité Exécuter le package SSIS|<li> Le nom de l’activité sera \<step name>. <li> Le compte proxy utilisé dans l’étape de travail sera migré en tant qu’authentification Windows de cette activité. <li> Les *options d’exécution* (sauf *Utiliser le runtime 32 bits*) définies dans l’étape de travail seront ignorées lors de la migration. <li> La *vérification* définie dans l’étape de travail sera ignorée lors de la migration.|
-|schedule      |déclencheur de planification        |Le nom du déclencheur de planification sera *généré pour \<schedule name>* . <br> <br> Les options ci-dessous de planification du travail SQL Agent seront ignorées lors de la migration : <li> Intervalle de second niveau. <li> *Lancer automatiquement au démarrage de SQL Server Agent* <li> *Démarrer dès que les processeurs sont inactifs* <li> *jour ouvrable* et *week-end* <time zone> <br> Vous trouverez ci-dessous les différences après la migration de la planification du travail SQL Agent vers le déclencheur de planification ADF : <li> L’exécution suivante du déclencheur de planification ADF est indépendante de l’état de l’exécution déclenchée précédemment. <li> La configuration de la périodicité du déclencheur de planification ADF diffère de la fréquence quotidienne dans le travail SQL Agent.|
+|schedule      |déclencheur de planification        |Le nom du déclencheur de planification sera *généré pour \<schedule name>* . <br> <br> Les options ci-dessous de planification du travail SQL Agent seront ignorées lors de la migration : <li> Intervalle de second niveau. <li> *Lancer automatiquement au démarrage de SQL Server Agent* <li> *Démarrer dès que les processeurs sont inactifs* <li> *jour ouvrable* et *week-end* &gt;fuseau horaire&lt; <br> Vous trouverez ci-dessous les différences après la migration de la planification du travail SQL Agent vers le déclencheur de planification ADF : <li> L’exécution suivante du déclencheur de planification ADF est indépendante de l’état de l’exécution déclenchée précédemment. <li> La configuration de la périodicité du déclencheur de planification ADF diffère de la fréquence quotidienne dans le travail SQL Agent.|
 
 - Générer des modèles Azure Resource Manager (ARM) dans le dossier de sortie local, et les déployer directement ou ultérieurement dans la fabrique de données. Pour plus d’informations sur les modèles ADF Resource Manager, consultez [Types de ressources Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 

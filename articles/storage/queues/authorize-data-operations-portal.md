@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 35f4e76a437c5ea5926a95b199e433c6e5b1eb76
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: da6dfb018885ce55323e4a05e738501692c68a58
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901256"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727973"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de files d’attente dans le portail Azure
 
@@ -28,7 +28,7 @@ Selon la façon dont vous souhaitez autoriser l’accès aux données de la file
 
 ### <a name="use-the-account-access-key"></a>Utiliser la clé d'accès au compte
 
-Pour accéder aux données de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent les suivants, dans l’ordre croissant des autorisations :
+Pour accéder aux données de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent les suivants, dans l’ordre croissant des autorisations :
 
 - Le rôle [Lecteur et accès aux données](../../role-based-access-control/built-in-roles.md#reader-and-data-access)
 - Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
@@ -52,7 +52,7 @@ Pour accéder aux données de file d’attente à partir du Portail Microsoft Az
 
 Le rôle **Lecteur** est un rôle d’Azure Resource Manager qui permet aux utilisateurs d’afficher les ressources de compte de stockage, mais pas de les modifier. Il ne fournit pas d’autorisations en lecture pour les données dans Stockage Azure, mais uniquement pour les ressources de gestion de compte. Le rôle **Lecteur** est nécessaire pour que les utilisateurs puissent accéder aux files d’attente du portail Azure.
 
-Pour plus d’informations sur les rôles intégrés qui prennent en charge l’accès aux données de la file d’attente, consultez [Rôles Azure pour les files d’attente](assign-azure-role-data-access.md#azure-roles-for-queues).
+Pour plus d’informations sur les rôles intégrés qui prennent en charge l’accès aux données de la file d’attente, consultez [Autoriser l’accès aux files d’attente avec Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Les rôles personnalisés peuvent prendre en charge différentes combinaisons des mêmes autorisations fournies par les rôles intégrés. Pour plus d’informations sur la création de rôles Azure personnalisés, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) et [Présentation des définitions de rôles pour les ressources Azure](../../role-based-access-control/role-definitions.md).
 
@@ -93,5 +93,5 @@ Les files d’attente ne sont pas répertoriées dans le portail si vous n’ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Authentifier l’accès aux objets blob et aux files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md)
+- [Autoriser l’accès aux données dans le stockage Azure](../common/authorize-data-access.md)
 - [Attribuer un rôle Azure pour l’accès aux données de file d’attente](assign-azure-role-data-access.md)

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0ed20af6b27822f1f437f584e9b73eb416941d6f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 00f01e184b254e4fbc40fefa79506498bae30597
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065995"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634909"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Authentification et autorisation pour les applications Azure Static Web Apps
 
@@ -123,6 +123,8 @@ Pour empêcher la plateforme de fournir ces informations lors de demandes ultér
 https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
+Notez que si vous utilisez Azure Active Directory, vous devrez utiliser `aad` comme valeur de l’espace réservé `<AUTHENTICATION_PROVIDER_NAME>`.
+
 ## <a name="system-folder"></a>Dossier système
 
 Azure Static Web Apps utilise le dossier système `/.auth` pour fournir l’accès aux API associées aux autorisations. Au lieu d’exposer les itinéraires situés dans le dossier `/.auth` directement aux utilisateurs finaux, créez des [règles d’acheminement](configuration.md#routes) pour créer des URL conviviales.
@@ -194,7 +196,7 @@ Pour bloquer un fournisseur, vous pouvez créer des [règles d’acheminement](c
 ```json
 {
   "route": "/.auth/login/twitter",
-  "statusCode": "404"
+  "statusCode": 404
 }
 ```
 

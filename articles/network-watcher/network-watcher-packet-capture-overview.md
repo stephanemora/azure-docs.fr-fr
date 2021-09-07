@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78be49efd75db5a0bbff7f01734b418c9a0a7685
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966426"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290761"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Présentation de la capture de paquets variable dans Azure Network Watcher
 
 La fonctionnalité de capture de paquets variable de Network Watcher vous permet de créer des sessions de capture de paquets afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc.
 
-La capture de paquets est une extension de machine virtuelle qui est démarrée à distance par le biais de Network Watcher. Cette fonctionnalité allège la tâche d’exécution manuelle d’une capture de paquets sur la machine virtuelle souhaitée et permet ainsi d’économiser un temps précieux. La capture de paquets peut être déclenchée par l’intermédiaire du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Les alertes de machine virtuelle constituent un exemple de mode de déclenchement de la capture de paquets. Des filtres sont fournis pour la session de capture afin de vous permettre de capturer uniquement le trafic que vous souhaitez analyser. Ces filtres reposent sur des informations à 5 tuples (protocole, adresse IP locale, adresse IP distante, port local et port distant). Les données capturées sont stockées dans le disque local ou dans un objet blob de stockage. Il existe une limite de 10 sessions de capture de paquets par région par abonnement. Cette limite s’applique uniquement aux sessions, mais pas aux fichiers de capture de paquets enregistrés localement sur la machine virtuelle ou dans un compte de stockage.
+La capture de paquets est une extension de machine virtuelle qui est démarrée à distance par le biais de Network Watcher. Cette fonctionnalité allège la tâche d’exécution manuelle d’une capture de paquets sur la machine virtuelle souhaitée et permet ainsi d’économiser un temps précieux. La capture de paquets peut être déclenchée par l’intermédiaire du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Les alertes de machine virtuelle constituent un exemple de mode de déclenchement de la capture de paquets. Des filtres sont fournis pour la session de capture afin de vous permettre de capturer uniquement le trafic que vous souhaitez analyser. Ces filtres reposent sur des informations à 5 tuples (protocole, adresse IP locale, adresse IP distante, port local et port distant). Les données capturées sont stockées dans le disque local ou dans un objet blob de stockage. 
 
 > [!IMPORTANT]
 > La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux).
@@ -46,6 +46,10 @@ Pour capturer uniquement les informations qui vous intéressent, vous disposez d
 |**Port local** | Cette valeur filtre la capture de paquets sur ceux dont le port local correspond à cette valeur de filtre.|
 |**Adresse IP distante** | Cette valeur filtre la capture de paquets sur ceux dont l’adresse IP distante correspond à cette valeur de filtre.|
 |**Port distant** | Cette valeur filtre la capture de paquets sur ceux dont le port distant correspond à cette valeur de filtre.|
+
+
+## <a name="considerations"></a>Considérations
+Il existe une limite de 10 000 sessions parallèles de capture de paquets par région par abonnement. Cette limite s’applique uniquement aux sessions, mais pas aux fichiers de capture de paquets enregistrés localement sur la machine virtuelle ou dans un compte de stockage. Consultez la [page Limites du service Network Watcher](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) pour obtenir la liste complète des limites. 
 
 ### <a name="next-steps"></a>Étapes suivantes
 

@@ -2,23 +2,22 @@
 title: Charger des fichiers sur Azure IoT Hub à partir d’appareils en Java | Microsoft Docs
 description: Guide pratique pour charger des fichiers sur le cloud à partir d’un appareil avec Azure IoT device SDK pour Java. Les fichiers téléchargés sont stockés dans un conteneur d’objets blob de stockage Azure.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 06/28/2017
+ms.date: 07/18/2021
 ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: dc87ad0af7eac71d7f2835b2b0d582fe8d1ec1b9
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a280e7b156ebb31269e4a65508596f8ba03c3caf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985379"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524235"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub (Java)
 
@@ -26,7 +25,7 @@ ms.locfileid: "111985379"
 
 Ce tutoriel vous montre comment utiliser les fonctions de chargement de fichiers de IoT Hub à l’aide de Java. Pour obtenir une vue d’ensemble du processus de chargement de fichiers, consultez [Charger des fichiers avec IoT Hub](iot-hub-devguide-file-upload.md).
 
-Le guide de démarrage rapide [Envoyer des données de télémétrie à partir d’un appareil à un hub IoT](quickstart-send-telemetry-java.md) et le tutoriel [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-java-java-c2d.md) illustrent les fonctionnalités de messages appareil-à-cloud et cloud-à-appareil de base offertes par IoT Hub. Le tutoriel [Configurer le routage des messages avec IoT Hub](tutorial-routing.md) décrit un moyen de stocker de façon fiable les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple :
+Le guide de démarrage rapide [Envoyer des données de télémétrie à partir d’un appareil à un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) et le tutoriel [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-java-java-c2d.md) illustrent les fonctionnalités de messages appareil-à-cloud et cloud-à-appareil de base offertes par IoT Hub. Le tutoriel [Configurer le routage des messages avec IoT Hub](tutorial-routing.md) décrit un moyen de stocker de façon fiable les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple :
 
 * Fichiers volumineux qui contiennent des images
 * Vidéos
@@ -54,7 +53,11 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>Inscrire un nouvel appareil dans le hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## <a name="create-a-project-using-maven"></a>Créer un projet au moyen de Maven
 
@@ -165,10 +168,9 @@ Cela génère un répertoire portant le même nom que *artifactId* et une struct
 
 ```
 
+## <a name="upload-a-file-from-a-device-app"></a>Charger un fichier à partir d’une application d’appareil
 
-## <a name="upload-a-file"></a>Charger un fichier
-
-Copiez le fichier que vous souhaitez charger dans le dossier `my-app` de votre arborescence de projets. À l’aide d’un éditeur de texte, remplacez App.java par le code suivant. Fournissez votre chaîne de connexion et le nom de votre fichier là où c’est indiqué.
+Copiez le fichier que vous souhaitez charger dans le dossier `my-app` de votre arborescence de projets. À l’aide d’un éditeur de texte, remplacez App.java par le code suivant. Indiquez la chaîne de connexion et le nom de fichier de votre appareil à l’endroit indiqué. Vous avez copié la chaîne de connexion de l’appareil au moment de l’inscription de ce dernier.
 
 ```java
 package com.mycompany.app;
@@ -284,23 +286,8 @@ public class App
     }
 }
 ```
-## <a name="get-the-device-connection-string"></a>Obtention de la chaîne de connexion de l’appareil
 
-Exécutez la commande suivante dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ de votre appareil. Remplacez les espaces réservés ci-dessous par le nom que vous avez choisi pour votre hub IoT et le nom de votre appareil.
-
-```azurecli-interactive
-az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDevice} --output table
-```
-    
-Copiez la chaîne de connexion de l’appareil, qui ressemble à ce qui suit, et placez-la dans l’exemple de code, là où c’est indiqué.
-  
-```cmd/sh
-HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
-```
-
-Placez le chemin d’accès au fichier à charger dans l’exemple de code, là où c’est indiqué.
-    
-## <a name="build-and-run-the-application"></a>Générer et exécuter l’application
+## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 
 Dans une invite de commandes, exécutez la commande suivante dans le dossier `my-app` :
 

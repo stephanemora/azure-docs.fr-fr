@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: memildin
-ms.openlocfilehash: b48adf5e6c2c7b91e98ef410c71802b5d47d2845
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b7c8003bd40df21fb749fcb576afeaec5dacead9
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459786"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236838"
 ---
 # <a name="manage-security-policies"></a>Gérer les stratégies de sécurité
 
@@ -35,7 +35,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 1. Dans le tableau de bord **Security Center**, sélectionnez **Stratégie de sécurité**.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Page Gestion des stratégies":::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Page Gestion de stratégie.":::
 
    Dans l’écran **Gestion de stratégie**, vous pouvez voir le nombre de groupes d’administration, d’abonnements et d’espaces de travail, ainsi que votre structure de groupes d’administration.
 
@@ -56,7 +56,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
     1. Pour afficher et modifier l’initiative par défaut, sélectionnez **Afficher la stratégie actuelle**, puis procédez de la manière décrite ci-dessous. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Écran Stratégie actuelle":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Écran Stratégie actuelle.":::
 
        L’écran **Stratégie de sécurité** reflète l’action effectuée par les stratégies affectées sur l’abonnement ou le groupe d’administration que vous avez sélectionnés.
        
@@ -80,7 +80,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
 1. Dans la section **Stratégie et conformité** de Security Center, sélectionnez **Stratégie de sécurité**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center.":::
 
 1. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez désactiver la recommandation (et la stratégie).
 
@@ -93,7 +93,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
 1. Dans la liste déroulante, remplacez la valeur de la stratégie correspondante par **Désactivé**.
 
-   ![désactiver une stratégie](./media/tutorial-security-policy/disable-policy.png)
+   ![Désactiver une stratégie.](./media/tutorial-security-policy/disable-policy.png)
 
 1. Sélectionnez **Enregistrer**.
 
@@ -109,7 +109,7 @@ Pour activer une stratégie désactivée et vous assurer qu’elle est évaluée
 
 1. Dans la section **Stratégie et conformité** de Security Center, sélectionnez **Stratégie de sécurité**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center.":::
 
 1. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez activer la recommandation (et la stratégie).
 

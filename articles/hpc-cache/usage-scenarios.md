@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: v-erkel
-ms.openlocfilehash: 36e0135102fbede5505e96fb1aa255588b2f2ae2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 84d5948cd4d3fbf69c3e8e983dedc280f1f7d950
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259902"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585732"
 ---
 # <a name="is-your-job-a-good-fit-for-azure-hpc-cache"></a>Votre travail est-il adapté à Azure HPC Cache ?
 
@@ -19,7 +19,7 @@ Azure HPC Cache peut accélérer l’accès aux données pour les travaux inform
 
 L’article [Vue d’ensemble](hpc-cache-overview.md) fournit également un plan bref du moment où utiliser Azure HPC Cache et quelques exemples de cas d’usage.
 
-Consultez également [cet article](nfs-blob-considerations.md) sur la façon d’utiliser efficacement le [stockage Blob monté sur NFS](../storage/blobs/network-file-system-protocol-support.md), qui est en préversion.
+Consultez également [cet article](nfs-blob-considerations.md) sur la façon d’utiliser efficacement le [stockage d’objets blob monté sur NFS](../storage/blobs/network-file-system-protocol-support.md).
 
 ## <a name="nfs-version-30-applications"></a>Applications NFS version 3.0
 
@@ -54,4 +54,4 @@ En utilisant Azure HPC Cache, vous ne devez pas remanier l’architecture du pip
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur la planification et la configuration d’un cache dans les articles [Vue d’ensemble](hpc-cache-overview.md) et [Prérequis](hpc-cache-prerequisites.md)
-* Lire les considérations relatives à l’utilisation du [stockage d’objets Blob compatible NFS](nfs-blob-considerations.md) (PRÉVERSION) avec Azure HPC Cache
+* Lire les considérations relatives à l’utilisation du [stockage d’objets blob compatible NFS](nfs-blob-considerations.md) avec Azure HPC Cache

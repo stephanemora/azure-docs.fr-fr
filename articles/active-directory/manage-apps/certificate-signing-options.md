@@ -1,26 +1,27 @@
 ---
-title: Options avancées de signature de certificat de jeton SAML pour les applications Azure AD
+title: Options avancées de signature de certificat dans un jeton SAML
+titleSuffix: Azure AD
 description: Découvrez comment utiliser les options avancées de signature de certificats dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.date: 07/30/2021
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3ca6af6a70abd1781a62337ba67ea1d3f4961a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8c44d2a346dcd77352715b63937e5bad5274f2d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080234"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532147"
 ---
-# <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Options avancées de signature de certificats dans le jeton SAML pour les applications de galerie dans Azure Active Directory
+# <a name="advanced-certificate-signing-options-in-a-saml-token"></a>Options avancées de signature de certificat dans un jeton SAML
 
 Aujourd’hui Azure Active Directory (Azure AD) prend en charge des milliers d’applications pré-intégrées dans la galerie d’applications Azure Active Directory. Plus de 500 applications prennent en charge l’authentification unique à l’aide du protocole [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0, comme l’application [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite). Lorsqu’un client s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant SAML, Azure AD envoie un jeton à l’application (via HTTP POST). L’application valide et utilise ce jeton pour connecter le client, au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML sont signés avec le certificat unique qui est généré dans Azure AD et par des algorithmes standard spécifiques.
 
@@ -52,7 +53,7 @@ Pour modifier les options de signature de certificat SAML d’une application, a
 
 1. Dans le [Portail Microsoft Azure Active Directory](https://aad.portal.azure.com/), connectez-vous à votre compte. La page du **Centre d’administration Azure Active Directory** s’affiche.
 1. Dans le volet gauche, sélectionnez **Applications d’entreprise**. Une liste des applications d’entreprise de votre compte s’affiche.
-1. Sélectionnez une application. Une page de vue d’ensemble de l’application s’affiche.
+1. Sélectionnez une application. Une page de vue d’ensemble de l’application s’affiche. Dans cet exemple, l’application Salesforce est utilisée.
 
    ![Exemple : Page Vue d’ensemble de l’application](./media/certificate-signing-options/application-overview-page.png)
 

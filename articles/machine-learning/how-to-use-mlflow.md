@@ -1,7 +1,7 @@
 ---
 title: MLflow Tracking pour les expériences ML
 titleSuffix: Azure Machine Learning
-description: Configurez MLflow avec Azure Machine Learning pour enregistrer les métriques et les artefacts de modèles de ML, et déployez vos modèles ML en tant que service web.
+description: Configurez MLflow Tracking avec Azure Machine Learning pour journaliser des métriques et des artefacts à partir de modèles ML.
 services: machine-learning
 author: shivp950
 ms.author: shipatel
@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 783be7d595022ba08d7896540683635dbc59ade4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 867f4a7c2c45a73c3ebc651a0f2d7a4b38156b90
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378836"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031100"
 ---
 # <a name="track-ml-models-with-mlflow-and-azure-machine-learning"></a>Suivre des modèles ML avec MLflow et Azure Machine Learning
 
@@ -26,11 +26,13 @@ Les fonctionnalités prises en charge sont les suivantes :
 
 + Suivre et journaliser les métriques et les artefacts des expériences dans votre [espace de travail Azure Machine Learning](./concept-azure-machine-learning-architecture.md#workspace). Si vous utilisez déjà MLflow Tracking pour vos expériences, l’espace de travail fournit un emplacement centralisé, sécurisé et évolutif pour stocker les métriques et les modèles d’entraînement.
 
-+ [Soumettre des tâches d’entraînement avec des projets MLflow en utilisant la prise en charge back-end Azure Machine Learning (préversion)](how-to-train-mlflow-projects.md). Vous pouvez envoyer des tâches en local en utilisant le suivi Azure Machine Learning ou migrer vos exécutions vers le cloud, par exemple, via une [capacité de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md)de calcul.
++ [Soumettre des tâches d’entraînement avec des projets MLflow en utilisant la prise en charge back-end Azure Machine Learning](how-to-train-mlflow-projects.md). Vous pouvez envoyer des tâches en local en utilisant le suivi Azure Machine Learning ou migrer vos exécutions vers le cloud, par exemple, via une [capacité de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md)de calcul.
 
 + Suivre et gérer des modèles dans MLflow et un registre de modèles Azure Machine Learning.
 
 [MLflow](https://www.mlflow.org) est une bibliothèque open source permettant de gérer le cycle de vie de vos expériences de Machine Learning. MLFlow Tracking est un composant de MLflow qui journalise et suit vos artefacts de modèle et métriques d’exécution d’apprentissage, quel que soit l’environnement de votre expérience, localement sur votre ordinateur, sur une cible de calcul distante, sur une machine virtuelle ou sur un [cluster Azure Databricks](how-to-use-mlflow-azure-databricks.md). 
+
+Consultez [MLflow et Azure Machine Learning](concept-mlflow.md) pour bénéficier d’intégrations supplémentaires de fonctionnalités MLflow et Azure Machine Learning.
 
 Le diagramme suivant montre qu’avec MLflow Tracking, vous suivez les métriques d’exécution d’une expérience et vous stockez les artefacts du modèle dans votre espace de travail Azure Machine Learning.
 
@@ -41,24 +43,6 @@ Le diagramme suivant montre qu’avec MLflow Tracking, vous suivez les métrique
 
 > [!NOTE] 
 > Vous pouvez utiliser le [client MLflow Skinny](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst), un package MLflow léger sans dépendances de stockage SQL, serveur, interface utilisateur ni science des données. Ce client est recommandé pour les utilisateurs qui ont principalement besoin des fonctionnalités de suivi et de journalisation et qui ne souhaitent pas importer la suite complète des fonctionnalités MLflow qui comprend des déploiements. 
-
-## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Comparer les clients MLflow et Azure Machine Learning
-
- Le tableau suivant récapitule les différents clients pouvant utiliser Azure Machine Learning et leurs fonctionnalités respectives.
-
- MLflow Tracking offre des fonctionnalités de stockage de journalisation de métriques et d’artefact qui ne sont autrement disponibles que via le [Kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/intro).
-
-| Fonctionnalité | Suivi et déploiement MLflow | SDK Python Azure Machine Learning |  Interface CLI Azure Machine Learning | Azure Machine Learning Studio|
-|---|---|---|---|---|
-| Gérer l'espace de travail |   | ✓ | ✓ | ✓ |
-| Utiliser des magasins de données  |   | ✓ | ✓ | |
-| Journaliser les métriques      | ✓ | ✓ |   | |
-| Charger les artefacts | ✓ | ✓ |   | |
-| Afficher les mesures     | ✓ | ✓ | ✓ | ✓ |
-| Gérer le calcul   |   | ✓ | ✓ | ✓ |
-| Déployer des modèles    | ✓ | ✓ | ✓ | ✓ |
-|Surveiller les performances d'un modèle||✓|  |   |
-| Détecter une dérive de données |   | ✓ |   | ✓ |
 
 ## <a name="prerequisites"></a>Prérequis
 

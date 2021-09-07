@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: cfd57c60c4bfd60976eb28822c696412cabda212
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 5bf02173d105ab81807bdc4ee68e3b8f9bc8e0a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023814"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532580"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-limits-and-limitations"></a>Limites et restrictions d’Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -23,45 +23,23 @@ La section suivante décrit les limites fonctionnelles et les limites de capacit
 Chaque connexion PostgreSQL (même inactive) utilise au moins 10 Mo de mémoire. Il est donc important de limiter les connexions simultanées. Voici les limites que nous avons choisies pour maintenir l’intégrité des nœuds :
 
 * Nœud coordinateur
-   * Nombre maximal de connexions : 300
-   * Nombre maximal de connexions utilisateur : 297
+   * Nombre maximal de connexions
+       * 300 pour 0-3 vCores
+       * 500 pour 4-15 vCores
+       * 1000 pour 16 vCores ou plus
+   * Nombre maximal de connexions utilisateur
+       * 297 pour 0 à 3 vCores
+       * 497 pour 4 à 15 vCores
+       * 997 pour 16 vCores ou plus
 * Nœud Worker
-   * Nombre maximal de connexions : 600
-   * Nombre maximal de connexions utilisateur : 597
-
-> [!NOTE]
-> Dans un groupe de serveurs dont les [fonctionnalités en préversion](hyperscale-preview-features.md) sont activées, les limites de connexion au coordinateur sont légèrement différentes :
->
-> * Connexions maximales du nœud coordinateur
->    * 300 pour 0-3 vCores
->    * 500 pour 4-15 vCores
->    * 1000 pour 16 vCores ou plus
+   * Nombre maximal de connexions
+       * 600
 
 Au-delà de ces limites, les tentatives de connexion échouent et génèrent une erreur. Le système réserve trois connexions pour les nœuds de surveillance. C’est pourquoi il y a trois connexions disponibles de moins pour les requêtes utilisateur que le total des connexions.
 
 ### <a name="connection-pooling"></a>Regroupement de connexions
 
-L’établissement de nouvelles connexions prend du temps. Ce point est problématique pour la plupart des applications, qui demandent de nombreuses connexions de courte durée. Nous vous recommandons d’utiliser un dispositif de regroupement de connexions pour réduire les transactions inactives et réutiliser les connexions existantes. Pour en savoir plus, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
-
-Vous pouvez exécuter votre propre pool de connexions, ou utiliser PgBouncer géré par Azure.
-
-#### <a name="managed-pgbouncer-preview"></a>PgBouncer géré (préversion)
-
-> [!IMPORTANT]
-> Le regroupement de connexions PgBouncer géré dans Hyperscale (Citus) est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
->
-> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans les [fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
-
-Les regroupeurs de connexion tels que PgBouncer permettent à un plus grand nombre de clients de se connecter en même temps au nœud coordinateur. Les applications se connectent au regroupement et le regroupement relaie les commandes vers la base de données de destination.
-
-Lorsque les clients se connectent par le biais de PgBouncer, le nombre de connexions qui peuvent s’exécuter activement dans la base de données ne change pas. Au lieu de cela, PgBouncer met en file d’attente les connexions en excès et les exécute lorsque la base de données est prête.
-
-Hyperscale (Citus) offre désormais une instance gérée PgBouncer pour les groupes de serveurs (en préversion). Il prend en charge jusqu’à 2 000 connexions clientes simultanées.
-Pour vous connecter par le biais de PgBouncer, procédez comme suit :
-
-1. Accédez à la page **Chaînes de connexion** de votre groupe de serveurs dans le portail Azure.
-2. Activez la case à cocher **Chaînes de connexion PgBouncer**. (Les chaînes de connexion répertoriées varient.)
-3. Mettez à jour les applications clientes pour qu’elles se connectent à la nouvelle chaîne.
+Vous pouvez augmenter davantage le nombre de connexions en utilisant le [regroupement de connexions](concepts-hyperscale-connection-pool.md). Hyperscale (Citus) offre un regroupeur de connexions pgBouncer managé, configuré pour jusqu’à 2 000 connexions clientes simultanées.
 
 ## <a name="storage-scaling"></a>Mise à l’échelle du stockage
 
@@ -99,4 +77,5 @@ Hyperscale (Citus) présente actuellement ces limitations avec les [tables en co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [créer un groupe de serveurs Hyperscale (Citus) dans le portail](quickstart-create-hyperscale-portal.md).
+* Découvrez comment [créer un groupe de serveurs Hyperscale (Citus) dans le portail](quickstart-create-hyperscale-portal.md).
+* Découvrez comment activer le [regroupement de connexions](concepts-hyperscale-connection-pool.md).

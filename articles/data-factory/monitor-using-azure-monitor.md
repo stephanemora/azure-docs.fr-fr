@@ -5,14 +5,15 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: da0a9b457127400bdeb67c671b2710447b37784e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3029f7756d50e509d7bd539dc5fde8de8a075424
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903197"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527650"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -567,13 +568,13 @@ Voici les attributs du journal des opérations de démarrage/arrêt/maintenance 
 | Propriété                   | Type   | Description                                                   | Exemple                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | Heure de l’événement au format UTC :`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Nom de votre opération IR SSIS                            | `Start/Stop/Maintenance` |
+| **operationName**          | String | Nom de votre opération IR SSIS                            | `Start/Stop/Maintenance/Heartbeat` |
 | **category**               | String | Catégorie de journaux de diagnostic                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | ID unique pour le suivi d’une opération particulière             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | Nom de votre ADF                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                      | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                  | `Informational` |
-| **resultType**             | String | Résultat de votre opération IR SSIS                          | `Started/InProgress/Succeeded/Failed` |
+| **resultType**             | String | Résultat de votre opération IR SSIS                          | `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy` |
 | **message**                | String | Message de sortie de votre opération IR SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | String | ID unique de la ressource ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -895,9 +896,20 @@ Pour plus d’informations sur les attributs/propriétés du journal opérationn
 
 Les journaux d’exécution de package SSIS sélectionnés sont toujours envoyés à Log Analytics, indépendamment de leurs méthodes d’invocation. Par exemple, vous pouvez appeler des exécutions de packages sur des SSDT compatible avec Azure, via T-SQL sur SSMS, SQL Server Agent ou d’autres outils désignés, et comme des exécutions déclenchées ou de débogage d’activités d’exécution de package SSIS dans des pipelines ADF.
 
-Lorsque vous interrogez des journaux des opérations de runtime d’intégration SSIS sur Logs Analytics, vous pouvez utiliser les propriétés **OperationName** et **ResultType** définies respectivement sur `Start/Stop/Maintenance` et `Started/InProgress/Succeeded/Failed`. 
+Lorsque vous interrogez des journaux des opérations de runtime d’intégration SSIS sur Logs Analytics, vous pouvez utiliser les propriétés **OperationName** et **ResultType** définies respectivement sur `Start/Stop/Maintenance/Heartbeat` et `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy`.
 
 ![Interrogation des journaux des opérations de runtime d’intégration SSIS sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+Pour interroger l’état des nœuds SSIS IR, vous pouvez définir la propriété **OperationName** sur `Heartbeat`. Chaque nœud envoie un enregistrement `Heartbeat` par minute à Log Analytics avec la propriété **ResultType** qui indique son état : `Healthy` quand le nœud est disponible pour les exécutions de package, et `Unhealthy` sinon. Par exemple, si votre SSIS IR a deux nœuds disponibles, vous voyez toujours les enregistrements `Heartbeat` avec la propriété **ResultType** définie sur `Healthy` à chaque période d’une minute.
+
+![Interrogation des pulsations SSIS IR sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query-3.png)
+
+Vous pouvez interroger les modèles suivants pour détecter si un ou plusieurs nœuds SSIS IR sont indisponibles :
+
+* Il manque des enregistrements `Heartbeat` dans de nombreuses périodes d’une minute durant l’exécution de votre SSIS IR.
+* Il y a des enregistrements `Heartbeat` avec la propriété **ResultType** définie sur `Unhealthy` dans de nombreuses périodes d’une minute durant l’exécution de votre SSIS IR.
+
+Vous pouvez convertir les requêtes ci-dessus en [alertes](../azure-monitor/alerts/alerts-unified-log.md) et accéder à la [page de supervision SSIS IR](monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) pour confirmer à la réception de ces alertes.
 
 Lors de l’interrogation des journaux d’exécution des packages SSIS sur Logs Analytics, vous pouvez les joindre à l’aide des propriétés **OperationId**/**ExecutionId**/**CorrelationId**. Les propriétés **OperationId**/**ExecutionId** ont toujours la valeur `1` pour toutes les opérations/exécutions relatives à des packages **non** stockés dans SSISDB/invoqués via T-SQL.
 

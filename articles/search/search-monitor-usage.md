@@ -7,26 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 5cd9438eecc973524d8e5f7218ad0c92ab627f87
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 01/27/2021
+ms.openlocfilehash: 5e9e09508591e2b6e58b6bae17df281c23a5129d
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559875"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414788"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Superviser les opérations et l’activité de Recherche cognitive Azure
 
-Cet article consiste en une vue d’ensemble des concepts et des outils de monitoring pour la Recherche cognitive Azure. Pour une surveillance complète, vous pouvez utiliser conjointement des fonctionnalités intégrées et des services complémentaires comme Azure Monitor.
+Cet article consiste en une vue d’ensemble des concepts et des outils de monitoring pour la Recherche cognitive Azure. Pour une supervision holistique, vous devez combiner l’utilisation de fonctionnalités intégrées et de services complémentaires tels qu’Azure Monitor.
 
 Cela vous permettra d’effectuer le suivi des éléments suivants :
 
-* Service : intégrité/disponibilité et modifications apportées à la configuration du service.
-* Stockage : à la fois utilisé et disponible, avec le volume de chaque type de contenu par rapport au quota autorisé pour le niveau de service.
+* Service de recherche : intégrité et changements apportés à la configuration du service.
+* Consommation du stockage : utilisé et disponible.
+* Limites d’objets sur les index, les indexeurs et les autres objets, avec un nombre correspondant à chaque type, par rapport à la [valeur maximale autorisée](search-limits-quotas-capacity.md) pour le niveau de service.
 * Activité de requête : volume, latence et requêtes limitées ou annulées. [Azure Monitor](#add-azure-monitor) est nécessaire pour les demandes de requêtes journalisées.
 * Activité d’indexation : [journalisation des diagnostics](#add-azure-monitor) requise avec Azure Monitor.
 
-Comme un service de recherche ne prend pas en charge l’authentification par utilisateur, aucune information d’identité ne sera trouvée dans les journaux.
+Dans la mesure où un service de recherche ne prend pas en charge l’authentification par utilisateur, aucune information d’identité de l’utilisateur ne se trouve dans les journaux.
 
 ## <a name="built-in-monitoring"></a>Monitoring intégré
 
@@ -48,9 +49,9 @@ La capture d’écran suivante vous aide à trouver les informations de monitori
 
 <a name="monitoring-apis"> </a>
 
-### <a name="apis-useful-for-monitoring"></a>API utiles pour le monitoring
+### <a name="rest-apis-useful-for-monitoring"></a>API REST utiles pour la supervision
 
-Vous pouvez utiliser les API suivantes pour récupérer les mêmes informations que dans les onglets Monitoring et Utilisation du portail.
+Vous pouvez utiliser [Postman](search-get-started-rest.md) et les API suivantes pour récupérer les mêmes informations que celles présentes sous les onglets Supervision et Utilisation du portail. Vous devez fournir une [clé API d’administrateur](search-security-api-keys.md) pour obtenir les informations système.
 
 * [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 * [GET Index Statistics](/rest/api/searchservice/get-index-statistics)

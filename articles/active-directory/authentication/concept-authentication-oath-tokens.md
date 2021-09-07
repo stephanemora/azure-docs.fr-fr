@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 07/26/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d0dd081e3e1a681ba55e3457b79a548d6b2bb7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c5d5e34ee5013a6f4ad28779e92536ff2d8ef868
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530386"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730765"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Méthodes d’authentification dans Azure Active Directory – Jetons OATH 
 
@@ -31,7 +31,7 @@ Certains jetons matériels TOTP OATH sont programmables, ce qui signifie qu’il
 
 ## <a name="oath-hardware-tokens-preview"></a>Jetons matériels OATH (préversion)
 
-Azure AD prend en charge l’utilisation de jetons OATH-TOTP SHA-1 qui actualisent les codes toutes les 30 ou 60 secondes. Les clients peuvent acheter ces jetons auprès du fournisseur de leur choix.
+Azure AD prend en charge l’utilisation de jetons OATH-TOTP SHA-1 qui actualisent les codes toutes les 30 ou 60 secondes. Les clients peuvent acheter ces jetons auprès du fournisseur de leur choix. 
 
 Les jetons matériels OATH TOTP sont généralement fournis avec une clé secrète, ou valeur initiale, préprogrammée dans le jeton. Ces clés doivent être entrées dans Azure AD comme décrit dans les étapes suivantes. Les clés secrètes sont limitées à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. La clé secrète ne peut contenir que les caractères *a à z* ou *A à Z* et les chiffres *2 à 7*, et doit être encodée en *Base32*.
 
@@ -62,3 +62,4 @@ Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer les méthodes d’authentification à l’aide de l’[API REST Microsoft Graph](/graph/api/resources/authenticationmethods-overview).
+Découvrez les [fournisseurs de clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-key-providers) compatibles avec l’authentification sans mot de passe.

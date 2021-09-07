@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/09/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9d7a8e74767982d5089a1308ca36108eb5f106
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 00edf144e06710204bf5d6eb477187668b3e5237
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111972525"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525789"
 ---
 # <a name="azure-active-directory-azure-ad-identity-provider-for-external-identities"></a>Fournisseur d’identité Azure Active Directory (Azure AD) pour External Identities
 
@@ -38,6 +38,14 @@ Lorsque vous [invitez un utilisateur invité](add-users-administrator.md) dans B
 Le compte Azure AD est une option de fournisseur d’identité pour vos flux d’utilisateurs d’inscription en libre-service. Les utilisateurs peuvent s’inscrire à vos applications à l’aide de leurs propres comptes Azure AD. Dans un premier temps, vous devez [activer l’inscription en libre-service](self-service-sign-up-user-flow.md) pour votre locataire. Puis, vous devez configurer un flux d’utilisateurs pour l’application et sélectionner Azure Active Directory parmi les options de connexion.
 
 ![Compte Azure AD dans un flux d’utilisateurs d’inscription en libre-service](media/azure-ad-account/azure-ad-account-user-flow.png)
+
+## <a name="verifying-the-applications-publisher-domain"></a>Vérification du domaine de l’éditeur de l’application
+Depuis novembre 2020, les inscriptions de nouvelles applications s’affichent comme étant non vérifiées dans l’invite de consentement de l’utilisateur, sauf si [le domaine de l’éditeur de l’application a été vérifié](../develop/howto-configure-publisher-domain.md) ***et*** si l’identité de l’entreprise a été vérifiée auprès de Microsoft Partner Network puis associée à l’application. ([En savoir plus sur ce changement](../develop/publisher-verification-overview.md)) Notez que pour les flux d’utilisateurs Azure AD, le domaine de l’éditeur s’affiche uniquement lorsque vous utilisez un [compte Microsoft](microsoft-account.md) ou un autre locataire Azure AD comme fournisseur d’identité. Pour répondre à ces nouvelles conditions, effectuez les étapes suivantes :
+
+1. [Vérifiez l’identité de votre entreprise avec votre compte Microsoft Partner Network (MPN)](/partner-center/verification-responses). Ce processus vérifie les informations relatives à votre société et au contact principal de votre entreprise.
+1. Effectuez le processus de vérification de l’éditeur pour associer votre compte MPN à votre inscription d’application à l’aide de l’une des options suivantes :
+   - Si l’inscription d’application pour le fournisseur d’identité du compte Microsoft se trouve dans un locataire Azure AD, [vérifiez votre application dans le portail d’inscription des applications](../develop/mark-app-as-publisher-verified.md).
+   - Si l’inscription de votre application pour le fournisseur d’identité du compte Microsoft se trouve dans un locataire Azure AD B2C, [marquez votre application comme étant validée par l’éditeur à l’aide des API Microsoft Graph](../develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (par exemple, à l’aide de l’Afficheur Graph).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,8 +1,8 @@
 ---
-title: Utiliser des files d’attente Service Bus avec Java
-description: Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’envoyer des messages à une file d’attente Azure Service Bus.
-ms.date: 06/23/2020
-ms.topic: quickstart
+title: Utiliser les files d’attente Azure Service Bus avec Java (ancienne version)
+description: Dans cet article, vous allez apprendre à créer des applications Java afin d’envoyer des messages à une file d’attente Azure Service Bus.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
 - seo-java-july2019
@@ -10,24 +10,24 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: 38657f333fea4ca18fb76eb5832649067bfd01b4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 28b57d309c673cfe57bd6d743d876c07685b6353
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562669"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Démarrage rapide : Utiliser des files d’attente Azure Service Bus avec Java pour envoyer et recevoir des messages
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages-old-package"></a>Utiliser des files d’attente Azure Service Bus avec Java pour envoyer et recevoir des messages (ancien package)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’envoyer des messages à une file d’attente Azure Service Bus. 
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+Dans cet article, vous allez apprendre à créer des applications Java afin d’envoyer des messages à une file d’attente Azure Service Bus. 
 
 > [!WARNING]
->  Ce guide de démarrage rapide utilise les anciens packages `azure-servicebus`. Pour un guide de démarrage rapide qui utilise le package `azure-messaging-servicebus` le plus récent, consultez [Envoyer et recevoir des messages à l’aide de `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
+>  Cet article utilise les anciens packages `azure-servicebus`. Pour consulter un article qui utilise le package `azure-messaging-servicebus` le plus récent, consultez [Envoyer et recevoir des messages à l’aide de `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
 
 
 ## <a name="prerequisites"></a>Prérequis
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Un abonnement Azure. Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
     1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 
     2. Créez un **espace de noms** Service Bus. 

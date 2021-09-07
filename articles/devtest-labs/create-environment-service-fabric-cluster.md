@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e85e4dd34a63500b569b75bb953a4c6061aefe5e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85484007"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586002"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs
 Cet article fournit des informations sur la création d’un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs. 

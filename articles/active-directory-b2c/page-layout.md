@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2021
+ms.date: 08/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb2a0cbba9d1aaf4a4465de7d4b994cde45f6df1
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: aa60cf86a8bc59b9eed2adc8ac0ba2cfb89be584
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590177"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835609"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
@@ -26,17 +26,39 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
 > Azure Active Directory B2C publie des améliorations et des correctifs avec chaque nouvelle version de mise en page. Nous vous recommandons vivement de maintenir vos versions de mise en page à jour afin que tous les éléments de la page reflètent les dernières améliorations en matière de sécurité et de normes d’accessibilité ainsi que vos commentaires.
 >
 
-## <a name="jquery-version"></a>Version jQuery
+## <a name="jquery-and-handlebars-versions"></a>Versions de jQuery et de Handlebars
 
-La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèque jQuery](https://jquery.com/) :
+La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèque jQuery](https://jquery.com/) et les [modèles Handlebars](https://handlebarsjs.com/) :
 
-|De la version de mise en page  |Version jQuery  |
-|---------|---------|
-|2.1.4 | 3.5.1 |
-|1.2.0 | 3.4.1 |
-|1.1.0 | 1.10.2 |
+|Élément |Plage de versions de mise en page |Version jQuery  |Version de l’exécution Handlebars |Version du compilateur Handlebars |
+|---------|---------|------|--------|----------|
+|multifacteur |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Page autodéclarée (selfasserted)
+
+**2.1.7**
+- Correction d’un problème d’encodage linguistique qui provoque l’échec de la requête.
+- Correction d’un bogue d’accessibilité pour afficher des messages d’erreur inclus uniquement lors de l’envoi d’un formulaire.
 
 **2.1.6**
 - Correction d’une erreur de mot de passe effacé lorsque vous tapez trop rapidement dans un autre champ.
@@ -133,6 +155,7 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 
 - Ajout de la prise en charge de plusieurs liens d’inscription.
 - Ajout de la prise en charge de la validation des entrées utilisateur conformément aux règles de prédicat définies dans la stratégie.
+- Lorsque l'[option de connexion](sign-in-options.md) est définie sur E-mail, l’en-tête de connexion affiche « Connectez-vous avec votre nom de connexion ». Le champ de nom d’utilisateur affiche « nom de la connexion ». Pour plus d'informations, consultez [localisation](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
 **1.2.0**
 
@@ -154,6 +177,9 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 - Version initiale
 
 ## <a name="mfa-page-multifactor"></a>Page MFA (multifactor)
+
+**1.2.5**
+- Correction d’un problème d’encodage linguistique qui provoque l’échec de la requête.
 
 **1.2.4**
 - JQuery mis à jour vers la version 3.5.1.

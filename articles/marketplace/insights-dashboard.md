@@ -4,27 +4,26 @@ description: Accédez à un résumé de l’analytique web de la Place de march�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 03/23/2021
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: b02d5d4ae412867237d253e488fdb6cd8dd19769
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: a4bd78c15d2015eabf95926e2b4bcf43d6cbcdcb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539941"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524561"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale
 
 Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé de l’analytique web de la Place de marché commerciale, qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produit référencées dans les magasins en ligne de la Place de marché commerciale : Microsoft AppSource et Place de marché Azure
 
-Pour accéder au tableau de bord **Insights sur la Place de marché** de l’Espace partenaires, sous Place de marché commerciale, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Insights sur la Place de marché**.
-
-Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).
 
 ## <a name="marketplace-insights-dashboard"></a>Tableau de bord des insights de la Place de marché
 
-Le tableau de bord Insights sur la Place de marché présente une vue d’ensemble des performances commerciales des offres de la Place de marché Azure et d’AppSource. Ce tableau de bord fournit une vaste vue d’ensemble des éléments suivants :
+Le [tableau de bord des insights de la Place de marché](https://go.microsoft.com/fwlink/?linkid=2165936) présente une vue d’ensemble des performances commerciales des offres de la Place de marché Azure et d’AppSource. Ce tableau de bord fournit une vaste vue d’ensemble des éléments suivants :
 
 - Tendance des visites de la page
 - Tendance des appels d’actions
@@ -40,6 +39,8 @@ Le tableau de bord Insights de la Place de marché fournit des données de parco
 ## <a name="elements-of-the-marketplace-insights-dashboard"></a>Éléments du tableau de bord Insights sur la Place de marché
 
 Le tableau de bord Insights sur la Place de marché affiche des détails de télémétrie web pour la Place de marché Microsoft Azure et AppSource dans deux onglets distincts. Les sections suivantes expliquent comment utiliser le tableau de bord Insights sur la Place de marché et lire les données.
+
+Pour accéder au tableau de bord **Insights sur la Place de marché** de l’Espace partenaires, sous Place de marché commerciale, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Insights sur la Place de marché**.
 
 ### <a name="month-range"></a>Plage de mois
 
@@ -127,4 +128,4 @@ Ce tableau affiche la liste des visites de page et des appels d’actions des pa
 - Pour des informations détaillées sur vos clients, y compris des tendances de croissance, voir [Tableau de bord client dans l’analytique de la place de marché commerciale](customer-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](analytics-faq.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](analytics-faq.yml).

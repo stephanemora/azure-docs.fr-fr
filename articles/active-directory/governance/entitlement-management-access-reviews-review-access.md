@@ -3,7 +3,7 @@ title: Révision de l’accès d’un package d’accès dans la gestion des dro
 description: Découvrez comment effectuer une révision d’accès pour les packages d’accès de gestion des droits d’utilisation dans les révisions d’accès Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: amsliu
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
-ms.author: ajburnle
+ms.date: 07/22/2021
+ms.author: amsliu
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a3a146b2622963fb20deeb2a8915eadb028ac3
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: a1d034d3e64e6c74b076ba636822bbd6e04ad1f5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714401"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440220"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Révision de l’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -29,11 +29,14 @@ La gestion des droits d'utilisation d’Azure AD simplifie la gestion de l’acc
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour examiner les attributions de packages d’accès actives des utilisateurs, vous devez remplir les conditions préalables requises pour effectuer une révision d’accès :
+Pour réviser les attributions de packages d’accès actives de l’utilisateur, le créateur d’une révision doit remplir les prérequis suivants :
 - Azure AD Premium P2
 - Administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
 
 Pour plus d’informations, consultez [Exigences des licences](entitlement-management-overview.md#license-requirements).
+
+>[!NOTE]
+>Le réviseur peut être n’importe quelle personne que le créateur d’une révision sélectionne (le propriétaire du groupe, le manager de l’utilisateur, l’utilisateur lui-même ou tout utilisateur ou groupe sélectionné).
 
 
 ## <a name="open-the-access-review"></a>Ouvrir la révision d’accès
@@ -86,7 +89,7 @@ Une fois la révision d’accès ouverte, vous verrez les noms des utilisateurs 
 S’il existe plusieurs réviseurs, la dernière réponse envoyée est enregistrée. Prenons un exemple où un administrateur désigne deux réviseurs : Alice et Bob. Alice ouvre d’abord la révision et approuve l’accès. Avant la fin de la révision, Bob ouvre la révision et refuse l’accès. Dans ce cas, la dernière décision de refuser l’accès est enregistrée.
 
 >[!NOTE]
->Si l’accès est refusé à un utilisateur, il n’est pas immédiatement supprimé du package d’accès. L’utilisateur est supprimé du package d’accès à la fin de la révision ou si un administrateur arrête la révision.
+>Si l’accès est refusé à un utilisateur, il n’est pas immédiatement supprimé du package d’accès. L’utilisateur est supprimé du package d’accès à la fin de la révision ou si un administrateur arrête la révision. Toutefois, lorsqu’un utilisateur se voit accorder l’accès, l’approbation est instantanée, et elle est accordée même si la période de révision est toujours ouverte.
 
 ### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Approuver ou refuser l’accès à l’aide des recommandations générées par le système
 

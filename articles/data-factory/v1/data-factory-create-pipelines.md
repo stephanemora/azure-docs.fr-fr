@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83d7066ca003cc935526abd6b7fd4d456b4dd7d1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b2c166da02d145e9995526279121c1dd360557ad
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665841"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563962"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -134,7 +134,7 @@ Le tableau suivant décrit des propriétés de la définition JSON de l’activi
 | type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities) et [Activités de transformation des données](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |Oui |
 | inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Oui |
 | outputs |Les tables de sortie utilisées par l’activité.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Oui |
-| linkedServiceName |Nom du service lié utilisé par l’activité. <br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. |Oui pour l’activité HDInsight et l’activité de scoring par lots Azure Machine Learning <br/><br/>Non pour toutes les autres |
+| linkedServiceName |Nom du service lié utilisé par l’activité. <br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. |Oui pour l’activité HDInsight et l’activité de scoring par lots ML Studio (classique) <br/><br/>Non pour toutes les autres |
 | typeProperties |Les propriétés de la section **typeProperties** dépendent du type de l’activité. Pour afficher les propriétés de type d’une activité, cliquez sur les liens vers l’activité dans la section précédente. | Non |
 | policy |Stratégies affectant le comportement d’exécution de l’activité. Si aucune valeur n’est spécifiée, les stratégies par défaut sont utilisées. |Non |
 | scheduler | La propriété « scheduler » est utilisée pour définir la planification souhaitée pour l’activité. Ses sous-propriétés sont les mêmes que celles de la [propriété de disponibilité dans un jeu de données](data-factory-create-datasets.md#dataset-availability). |Non |

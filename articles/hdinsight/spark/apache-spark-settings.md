@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 25ff8611cc988c9777b52a313cfd74d4ee0a638c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9b434852764508899f091cbb88aa0817654e08c0
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870294"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650736"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurer les paramètres d’Apache Spark
 
@@ -47,7 +47,7 @@ spark.sql.files.maxPartitionBytes 1099511627776
 spark.sql.files.openCostInBytes 1099511627776
 ```
 
-L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Ces valeurs sont le codec de compression, la taille minimale de fractionnement MapReduce Apache Hadoop et la taille des blocs Parquet, ainsi que la valeur par défaut de la partition Spark SQL et de la taille des fichiers ouverts.  Ces modifications de configuration sont choisies parce que les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité est meilleure avec ces paramètres de configuration personnalisés.
+L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Ces valeurs sont le codec de compression, la taille minimale de fractionnement MapReduce Apache Hadoop et la taille des blocs Parquet, ainsi que la valeur par défaut de la partition Spark SQL et de la taille des fichiers ouverts.  Ces modifications de configuration sont choisies parce que les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité est meilleure avec ces paramètres de configuration personnalisés.
 
 ---
 

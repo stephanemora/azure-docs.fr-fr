@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 789233ce1ede751276f965143716694c6feca3ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 320f9ef1285f16a3f7b38b3b4be3e5c51eff269f
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032787"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729796"
 ---
 # <a name="system-requirements"></a>Configuration système requise
 
@@ -96,7 +96,6 @@ Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloque
 | 8266              | UDP      | Sortant | Transfert de données |
 | 5000, 5433, 8443  | TCP      | Sortant | Requis pour l’[outil ArrInspector](../resources/tools/arr-inspector.md)|
 
-
 ## <a name="software"></a>Logiciel
 
 Les logiciels suivants doivent être installés :
@@ -111,10 +110,26 @@ Les logiciels suivants doivent être installés :
 
 ## <a name="unity"></a>Unity
 
-Pour le développement avec Unity, installez une version actuelle de Unity 2019.3 ou 2019.4 LTS [(Télécharger)](https://unity3d.com/get-unity/download). Nous vous recommandons d’utiliser Unity Hub pour gérer les installations.
+Pour le développement avec Unity, installez une version prise en charge de Unity [(Télécharger)](https://unity3d.com/get-unity/download). Nous vous recommandons d’utiliser Unity Hub pour gérer les installations.
 Veillez à inclure les modules suivants dans votre installation de Unity :
 * **UWP** : prise en charge de la build de la plateforme Windows universelle
 * **IL2CPP** : prise en charge de la build Windows (IL2CPP)
+
+### <a name="unity-2019"></a>Unity 2019
+
+Pour Unity 2019, la version 2019.3 ou 2019.4 LTS est prise en charge. Toutefois, pour utiliser la version OpenXR du plug-in, une version 2020 est requise.
+
+ARR pour Unity 2019 prend en charge l’intégration **XR prédéfinie** héritée pour Windows Mixed Reality et le nouveau framework de plug-in du **SDK XR**.
+
+### <a name="unity-2020"></a>Unity 2020
+
+Pour Unity 2020, utilisez la dernière version de Unity 2020.3.
+
+> [!IMPORTANT]
+> Quand vous utilisez la version OpenXR du plug-in, vous devez vérifier que le *pipeline de rendu universel* dispose d’une version 10.5.1 ou supérieure. Pour vérifier cela, ouvrez le *Gestionnaire de package* à partir du menu *Windows* (Fenêtres) de Unity et reportez-vous à la section *Universal RP* (Pipeline de rendu universel) : ![Version du pipeline de rendu universel](./media/unity-universal-rp-version-10-5-1.png)
+
+> [!IMPORTANT]
+> Le **plug-in WMR (Windows Mixed Reality) pour Unity 2020.3** connaît une détérioration des performances avec ARR. Pour une meilleure expérience, nous vous suggérons de rester sur Unity 2019.X ou de passer à la version OpenXR.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

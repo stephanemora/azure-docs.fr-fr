@@ -1,5 +1,5 @@
 ---
-title: Gérer le graphe de jumeaux avec des relations
+title: Gérer le graphe de jumeaux et les relations
 titleSuffix: Azure Digital Twins
 description: Consultez la procédure de gestion d’un graphique de jumeaux numériques via la connexion de ceux-ci à des relations.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c48f62d193af953ec080fcd559c9d7593428d99e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e43617a2874a7a6817dc8126bca8e1af79436eb2
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454605"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689965"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
@@ -20,7 +20,7 @@ Azure Digital Twins consiste en un [graphique de jumeaux](concepts-twins-graph.m
 
 Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-portal.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins.
 
-Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [Procédure : Gestion des jumeaux numériques](how-to-manage-twin.md).
+Cet article se concentre sur la gestion globale des relations et du graphe. Pour utiliser des jumeaux numériques individuels, consultez [Gérer des jumeaux numériques](how-to-manage-twin.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,13 +52,13 @@ L’exemple de code suivant illustre la procédure de création d’une relation
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
-Cette fonction personnalisée peut désormais être appelée pour créer une relation _contains_ comme ceci : 
+Cette fonction personnalisée peut maintenant être appelée pour créer une relation _contains_ de cette manière : 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
 Si vous souhaitez créer plusieurs relations, vous pouvez répéter des appels à la même méthode, en passant différents types de relations dans l’argument. 
 
-Pour plus d’informations sur la classe d’assistance `BasicRelationship`, consultez [Concepts : API et kits de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
+Pour plus d’informations sur la classe d’assistance `BasicRelationship`, consultez [API et SDK Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
 
 ### <a name="create-multiple-relationships-between-twins"></a>Créer plusieurs relations entre jumeaux
 
@@ -67,15 +67,23 @@ Les relations peuvent être classées comme suit :
 * Relations sortantes : relations appartenant à ce jumeau qui pointent vers l’extérieur pour le connecter à d’autres jumeaux. La méthode `GetRelationshipsAsync()` est utilisée pour obtenir les relations sortantes d’un jumeau.
 * Relations entrantes : relations appartenant à d’autres jumeaux qui pointent vers ce jumeau pour créer un lien « entrant ». La méthode `GetIncomingRelationshipsAsync()` est utilisée pour obtenir les relations entrantes d’un jumeau.
 
-Il n’existe aucune restriction du nombre de relations que vous pouvez avoir entre deux jumeaux : vous pouvez avoir autant de relations entre jumeaux que vous le souhaitez. 
+Il n’existe aucune restriction du nombre de relations entre deux jumeaux : vous pouvez avoir autant de relations entre jumeaux que vous le souhaitez. 
 
 Cela signifie que vous pouvez exprimer plusieurs types de relations entre deux jumeaux à la fois. Par exemple, le Jumeau A peut avoir une relation *stockée* et une relation *fabriquée* avec le Jumeau B.
 
-Vous pouvez même créer plusieurs instances du même type de relation entre les deux mêmes jumeaux si vous le souhaitez. Dans cet exemple, le Jumeau A peut avoir deux relations *stockées* différentes avec le Jumeau B, à condition que les relations aient différents ID de relation.
+Vous pouvez même créer plusieurs instances du même type de relation entre les deux mêmes jumeaux si vous le voulez. Dans cet exemple, le Jumeau A peut avoir deux relations *stockées* différentes avec le Jumeau B, à condition que les relations aient différents ID de relation.
 
 ## <a name="list-relationships"></a>Lister les relations
 
-Pour accéder à la liste des relations **sortantes** pour un jumeau donné dans le graphe, vous pouvez utiliser la méthode `GetRelationships()` comme suit :
+### <a name="list-properties-of-a-single-relationship"></a>Lister les propriétés d’une relation unique
+
+Vous pouvez toujours désérialiser les données de relation vers le type de votre choix. Pour un accès de base à une relation, utilisez le type `BasicRelationship`. La classe d’assistance `BasicRelationship` vous donne également accès aux propriétés définies dans la relation, par le biais d’un `IDictionary<string, object>`. Pour lister les propriétés, vous pouvez utiliser ceci :
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
+
+### <a name="list-outgoing-relationships-from-a-digital-twin"></a>Lister les relations sortantes d’un jumeau numérique
+
+Pour accéder à la liste des relations **sortantes** pour un jumeau donné dans le graphe, vous pouvez utiliser la méthode `GetRelationships()` comme suit : 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
@@ -89,11 +97,11 @@ Vous pouvez à présent appeler cette méthode personnalisée pour voir les rela
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
-Vous pouvez utiliser les relations récupérées pour accéder à d’autres jumeaux de votre graphique. Pour ce faire, lisez le champ `target` à partir de la relation retournée et utilisez-le comme ID de votre prochain appel à `GetDigitalTwin()`.
+Vous pouvez utiliser les relations récupérées pour accéder à d’autres jumeaux dans votre graphe en lisant le champ `target` de la relation retournée et en l’utilisant comme ID de votre prochain appel de `GetDigitalTwin()`.
 
-### <a name="find-incoming-relationships-to-a-digital-twin"></a>Rechercher des relations entrantes avec un jumeau numérique
+### <a name="list-incoming-relationships-to-a-digital-twin"></a>Lister les relations entrantes vers un jumeau numérique
 
-Azure Digital Twins dispose également d’une API permettant de rechercher toutes les relations **entrantes** avec un jumeau donné. Cela s’avère souvent utile pour la navigation inverse ou lors de la suppression d’un jumeau.
+Azure Digital Twins fournit également un appel d’API qui permet de rechercher toutes les relations **entrantes** vers un jumeau donné. Ce SDK s’avère souvent utile pour la navigation inverse ou lors de la suppression d’un jumeau.
 
 >[!NOTE]
 > Les appels à `IncomingRelationship` ne retournent pas le corps complet de la relation. Pour plus d’informations sur la classe `IncomingRelationship`, consultez sa [documentation de référence](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
@@ -108,7 +116,7 @@ Vous pouvez à présent appeler cette méthode personnalisée pour voir les rela
 
 ### <a name="list-all-twin-properties-and-relationships"></a>Répertorier toutes les propriétés de jumeau et les relations
 
-En utilisant les méthodes ci-dessus pour répertorier les relations sortantes et entrantes en lien avec un jumeau, vous pouvez créer une méthode qui imprime des informations complètes sur le jumeau, notamment les propriétés et les deux types de ses relations. Voici un exemple de méthode personnalisée montrant comment combiner les méthodes personnalisées ci-dessus à cette fin.
+En utilisant les méthodes ci-dessus pour répertorier les relations sortantes et entrantes en lien avec un jumeau, vous pouvez créer une méthode qui imprime des informations complètes sur le jumeau, notamment les propriétés et les deux types de ses relations. Voici un exemple de méthode personnalisée qui montre comment combiner les méthodes personnalisées ci-dessus à cette fin.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
@@ -123,9 +131,12 @@ Les relations sont mises à jour à l’aide de la méthode `UpdateRelationship`
 >[!NOTE]
 >Cette méthode permet de mettre à jour les **propriétés** d’une relation. Si vous êtes amené à changer le jumeau source ou le jumeau cible de la relation, vous devez [supprimer la relation](#delete-relationships) et [en recréer une](#create-relationships) à l’aide des nouveaux jumeaux.
 
-Les paramètres obligatoires pour l’appel du client sont l’ID du jumeau source (jumeau d’où provient la relation), l’ID de la relation à mettre à jour ainsi qu’un document [JSON Patch](http://jsonpatch.com/) contenant les propriétés et les nouvelles valeurs que vous souhaitez mettre à jour.
+Les paramètres obligatoires pour l’appel client sont les suivants :
+- L’ID du jumeau source (le jumeau à l’origine de la relation).
+- L’ID de la relation à mettre à jour.
+- Un document [JSON Patch](http://jsonpatch.com/) contenant les propriétés et les nouvelles valeurs à mettre à jour.
 
-Voici un exemple de code montrant comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
+Voici un exemple de code qui montre comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
 
@@ -137,7 +148,7 @@ Voici un exemple d’appel de cette méthode personnalisée, qui passe un docume
 
 Le premier paramètre spécifie le jumeau source (le jumeau à l’origine de la relation). L’autre paramètre est l’ID de relation. Vous avez besoin de l’ID de jumeau et de l’ID de relation, car les ID de relation ne sont uniques que dans l’étendue d’un jumeau.
 
-Voici un exemple de code montrant comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
+Voici un exemple de code qui montre comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod" highlight="5":::
 
@@ -158,9 +169,9 @@ Examinez le tableau de données suivant, qui décrit un ensemble de jumeaux num�
 | dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
 | dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-L’une des méthodes permettant d’obtenir ces données dans Azure Digital Twins consiste à convertir la table en fichier CSV et à écrire du code pour interpréter le fichier en commandes permettant de créer des jumeaux et des relations. L’exemple de code suivant illustre la lecture des données du fichier CSV et la création d’un graphe de jumeaux dans Azure Digital Twins.
+L’une des méthodes permettant d’obtenir ces données dans Azure Digital Twins consiste à convertir le tableau en fichier CSV. Une fois ce tableau converti, le code peut être écrit pour interpréter le fichier en commandes permettant de créer des jumeaux et des relations. L’exemple de code suivant illustre la lecture des données du fichier CSV et la création d’un graphe de jumeaux dans Azure Digital Twins.
 
-Dans le code ci-dessous, le fichier CSV est appelé *data.csv* et il existe un espace réservé représentant le **nom d’hôte** de votre instance Azure Digital Twins. L’exemple utilise aussi plusieurs packages que vous pouvez ajouter à votre projet pour faciliter ce processus.
+Dans le code ci-dessous, le fichier CSV est appelé *data.csv* ; il contient un espace réservé représentant le **nom d’hôte** de votre instance Azure Digital Twins. L’exemple utilise aussi plusieurs packages que vous pouvez ajouter à votre projet pour faciliter ce processus.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 
@@ -190,7 +201,7 @@ Ensuite, effectuez les étapes ci-après pour configurer votre code de projet :
       dotnet add package Azure.Identity
       ```
 
-Vous devez également configurer des informations d’identification locales si vous souhaitez exécuter l’exemple directement. La section suivante décrit cette procédure.
+Vous devez également configurer des informations d’identification locales si vous souhaitez exécuter l’exemple directement. La section suivante décrit ce processus pas à pas.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ### <a name="run-the-sample"></a>Exécution de l'exemple
@@ -207,5 +218,5 @@ Voici la sortie de la console du programme :
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur l’interrogation d’un graphique de jumeaux Azure Digital Twins :
-* [Concepts : Langage de requête](concepts-query-language.md)
-* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)
+* [Langage de requête](concepts-query-language.md)
+* [Interroger le graphe de jumeaux](how-to-query-graph.md)

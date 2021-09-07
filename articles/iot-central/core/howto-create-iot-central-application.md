@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 956e84e8eb7281541fbb787a6ce7557a1f5fee03
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: c9f9dec23209d8bc401313a7213239dff52a1023
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586489"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586200"
 ---
 # <a name="create-an-iot-central-application"></a>Créer une application IoT Central
 
@@ -49,8 +49,6 @@ Le tableau suivant récapitule les différences entre les trois plans standard 
 | S0        | 2            | 400            | Quelques messages par jour |
 | S1        | 2            | 5 000          | Quelques messages par heure |
 | S2        | 2            | 30,000         | Messages tous les quelques minutes |
-
-Pour en savoir plus, consultez [Gérer sa facture dans une application IoT Central](howto-view-bill.md).
 
 ### <a name="application-name"></a>Nom de l'application
 
@@ -89,14 +87,79 @@ La page **Mes applications** répertorie toutes les applications IoT Central au
 > [!TIP]
 > Toutes les applications que vous créez à l’aide d’un plan tarifaire standard sur le site d’Azure IoT Central utilisent le groupe de ressources **IOTC** dans votre abonnement. Les approches décrites dans la section suivante vous permettent de choisir un groupe de ressources à utiliser.
 
+## <a name="copy-an-application"></a>Copier une application
+
+Vous pouvez créer une copie de n’importe quelle application, à l’exception des instances d’appareils, de l’historique des données d’un appareil et des données utilisateur. La copie utilise un plan tarifaire Standard qui vous sera facturé. Vous ne pouvez pas créer une application qui utilise le plan Gratuit en copiant une application.
+
+Sélectionnez **Copier**. Dans la boîte de dialogue, entrez les détails de la nouvelle application. Ensuite, sélectionnez **Copier** pour confirmer que vous souhaitez continuer. Pour plus d’informations sur les champs du formulaire, consultez [Créer une application](howto-create-iot-central-application.md).
+
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Capture d’écran montrant la page des paramètres de l’application.":::
+
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-2.png" alt-text="Capture d’écran montrant la page de paramètres « Copier l’application ».":::
+
+Une fois l’application correctement copiée, vous pouvez accéder à la nouvelle application à l’aide du lien.
+
+La copie d’une application copie également la définition des règles et de l’action de messagerie. Certaines actions, comme Flow et Logic Apps, sont liées à des règles spécifiques par le biais de l’ID de règle. Quand une règle est copiée dans une autre application, elle obtient son propre ID de règle. Dans ce cas, les utilisateurs doivent créer une action, puis lui associer la nouvelle règle. En général, il est judicieux de vérifier que les règles et les actions sont à jour dans la nouvelle application.
+
+> [!WARNING]
+> Si un tableau de bord inclut des vignettes qui affichent des informations d’appareils spécifiques, ces vignettes affichent alors **La ressource demandée est introuvable** dans la nouvelle application. Vous devez reconfigurer ces vignettes pour qu’elles affichent des informations sur les appareils de votre nouvelle application.
+
+## <a name="create-and-use-a-custom-application-template"></a>Créer et utiliser un modèle d’application personnalisé
+
+Lorsque vous créez une application Azure IoT Central, vous avez un choix de plusieurs exemples de modèles intégrés. Vous pouvez également créer vos propres modèles d’application à partir des applications IoT Central existantes. Vous pouvez ensuite utiliser vos propres modèles d’application lorsque vous créez des applications.
+
+Lorsque vous créez un modèle d’application, il comprend les éléments suivants de votre application existante :
+
+- Le tableau de bord par défaut de l’application, dont la disposition et toutes les vignettes que vous avez définies.
+- Les modèles d’appareil, dont les mesures, les paramètres, les propriétés, les commandes et le tableau de bord.
+- Les règles. Toutes les définitions de règle sont incluses. Toutefois, les actions, à l’exception des actions de messagerie, ne sont pas incluses.
+- Groupes d’appareils, ce qui inclut leurs requêtes.
+
+> [!WARNING]
+> Si un tableau de bord inclut des vignettes qui affichent des informations d’appareils spécifiques, ces vignettes affichent alors **La ressource demandée est introuvable** dans la nouvelle application. Vous devez reconfigurer ces vignettes pour qu’elles affichent des informations sur les appareils de votre nouvelle application.
+
+Lorsque vous créez un modèle d’application, il n’inclut pas les éléments suivants :
+
+- Appareils
+- Utilisateurs
+- Définitions des exportations de données continues
+
+Ajoutez ces éléments manuellement à toutes les applications créées depuis un modèle d’application.
+
+Pour créer un modèle d’application à partir d’une application IoT Central existante :
+
+1. Accédez à la section **Administration** de votre application.
+1. Sélectionnez **Exportation de modèle d’application**.
+1. Sur la page **Exportation de modèle d’application**, entrez un nom et une description pour votre modèle.
+1. Sélectionnez le bouton **Exporter** pour créer le modèle d’application. Vous pouvez désormais copier le **Lien de partage** pour permettre à quelqu’un de créer une application depuis le modèle :
+
+:::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Capture d’écran montrant la création d’un modèle d’application.":::
+
+:::image type="content" source="media/howto-create-iot-central-application/create-template-2.png" alt-text="Capture d’écran montrant l’exportation d’un modèle d’application.":::
+
+### <a name="use-an-application-template"></a>Utiliser un modèle d’application
+
+Pour utiliser un modèle d’application afin de créer une application IoT Central, vous devez d’abord avoir créé un **Lien de partage**. Collez le **Lien de partage** dans la barre d’adresse de votre navigateur. La page **Créer une application** s’affiche avec les modèles d’application personnalisés sélectionnés :
+
+:::image type="content" source="media/howto-create-iot-central-application/create-app.png" alt-text="Capture d’écran montrant la création d’une application à partir d’un modèle.":::
+
+Sélectionnez votre plan tarifaire et remplissez les autres champs du formulaire. Sélectionnez ensuite **Créer** pour créer une application IoT Central à partir d’un modèle d’application.
+
+### <a name="manage-application-templates"></a>Gérer des modèles d’application
+
+Sur la page **Exportation de modèle d’application**, vous pouvez supprimer ou mettre à jour le modèle d’application.
+
+Si vous supprimez un modèle d’application, vous ne pouvez plus utiliser le lien de partage généré précédemment pour créer des applications.
+
+Pour mettre à jour votre modèle d’application, modifiez le nom du modèle ou sa description sur la page **Exportation de modèle d’application**. Sélectionnez ensuite le bouton **Exporter**. Cette action génère un nouveau **Lien de partage** et rend non valide les **Liens de partage** précédents.
+
 ## <a name="other-approaches"></a>Autres approches
 
 Vous pouvez également utiliser les approches suivantes pour créer une application IoT Central :
 
 - [Créer une application IoT Central à partir du portail Azure](howto-manage-iot-central-from-portal.md#create-iot-central-applications)
-- [Créer une application IoT Central à l’aide d’Azure CLI](howto-manage-iot-central-from-cli.md#create-an-application)
-- [Créer une application IoT Central à l’aide de PowerShell](howto-manage-iot-central-from-powershell.md#create-an-application)
-- [Créer une application IoT Central par programmation](howto-manage-iot-central-programmatically.md)
+- [Créer une application IoT Central à l’aide de la ligne de commande](howto-manage-iot-central-from-cli.md#create-an-application)
+- [Créer une application IoT Central par programmation](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

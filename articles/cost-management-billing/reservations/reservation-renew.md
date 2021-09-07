@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2021
 ms.author: banders
-ms.openlocfilehash: bf7945c56fc05c33ae3cfed1c67085b3b28f847f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3b6f6a0700915263187f4f31b60a4d2d8b72d9fd
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690508"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634201"
 ---
 # <a name="automatically-renew-reservations"></a>Renouvellement automatique de réservations
 
@@ -36,7 +36,7 @@ Sélectionnez le Portail Microsoft Azure, puis cliquez sur **Réservations**.
 
 ## <a name="if-you-dont-renew"></a>Si vous n’optez pas pour le renouvellement
 
-Vos services continuent de s’exécuter normalement. Vous êtes facturé au tarif du paiement à l’utilisation après l’arrivée à expiration de la réservation.
+Vos services continuent de s’exécuter normalement. Vous êtes facturé au tarif du paiement à l’utilisation après l’arrivée à expiration de la réservation. Si la réservation n’a pas été définie pour un renouvellement automatique avant l’expiration, vous ne pouvez pas renouveler une réservation ayant expiré. Pour continuer à réaliser des économies, vous pouvez acheter une nouvelle réservation.
 
 ## <a name="required-renewal-permissions"></a>Autorisations de renouvellement requises
 
@@ -61,7 +61,7 @@ Une nouvelle réservation est achetée au moment où la réservation existante a
 Si vous apportez l’une des modifications suivantes à la réservation arrivant à expiration, le renouvellement de la réservation est annulé :
 
 - Split
-- Fusionner
+- Fusionner (Merge)
 - Transfert de la réservation d’un compte à un autre
 - Transfert de la réservation d’un abonnement WebDirect vers un abonnement de Contrat Entreprise (EA) ou toute autre méthode d’achat
 - Renouveler une inscription
@@ -84,6 +84,8 @@ Azure peut ne pas traiter le renouvellement si :
 Si l’une des conditions précédentes se produit et que le renouvellement est désactivé, vous recevez une notification par e-mail.
 
 ## <a name="renewal-notification"></a>Notification de renouvellement
+
+Les e-mails de notification de renouvellement sont envoyés 30 jours avant l’expiration, puis une deuxième fois à la date d’expiration. L’adresse e-mail d’envoi est `azure-noreply@microsoft.com`. Si vous le souhaitez, vous pouvez ajouter l’adresse e-mail à vos expéditeurs approuvés ou à votre liste verte.
 
 Les e-mails sont envoyés à différentes personnes en fonction de votre méthode d’achat :
 

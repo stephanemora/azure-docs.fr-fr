@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Gestion des services web – Azure'
-description: Gérez vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
+description: Gérez vos services web Machine Learning Studio (classique) avec le portail des services web Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,27 +9,27 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: d3aea23c816b9d8b32b0563d3116cdc2b92e080f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19ee8f56fffe3fcaf8d344f8aa4832ef63d346bb
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101094313"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581265"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio (classique)
+# <a name="manage-a-web-service-using-the-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web avec le portail des services web Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
+Vous pouvez gérer vos services web Machine Learning Studio (classique) avec le portail des services web Machine Learning. 
 
 Le portail des services web Azure Machine Learning vous permet d’effectuer les opérations suivantes :
 
 * surveiller l’utilisation du service web ;
 * configurer la description, mettre à jour les clés du service web (nouveau uniquement), mettre à jour votre clé de compte de stockage (nouveau uniquement), activer l’enregistrement (nouveau uniquement) et activer ou désactiver les exemples de données ;
 * supprimer le service web ;
-* créer, supprimer ou mettre à jour des plans de facturation (nouveau uniquement) ;
-* ajouter et supprimer des points de terminaison (classique uniquement).
+* créer, supprimer ou mettre à jour des plans de facturation : [Azure Machine Learning uniquement](../index.yml) ;
+* ajouter et supprimer des points de terminaison : ML Studio (classique) uniquement.
 
 >[!NOTE]
 >Vous pouvez également gérer les services web classiques dans [Machine Learning Studio (classique)](https://studio.azureml.net) dans l’onglet **Services web**.
@@ -38,11 +38,11 @@ Le portail des services web Azure Machine Learning vous permet d’effectuer les
 
 De nouveaux services web sont déployés en tant que ressources Azure. Par conséquent, vous devez disposer des autorisations appropriées pour déployer et gérer de nouveaux services web.  Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
 
-Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux ressources dans le portail Service web Machine Learning, il recevra le message d’erreur suivant s’il tente de déployer un service web :
+Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux ressources dans le portail Service web Machine Learning, il reçoit le message d’erreur suivant s’il tente de déployer un service web :
 
 *Échec du déploiement d’un service web. Ce compte n’a pas de droits d’accès suffisants à l’abonnement Azure qui contient l’espace de travail. Pour déployer un service web sur Azure, le même compte doit être invité à l’espace de travail et disposer de l’accès à l’abonnement Azure qui contient l’espace de travail.*
 
-Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio (classique)](create-workspace.md).
+Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et partager un espace de travail Machine Learning Studio (classique)](create-workspace.md).
 
 Pour plus d’informations sur la définition d’autorisations d’accès, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur la définition d’autorisations d’accès, cons
 ## <a name="manage-new-web-services"></a>Gérer de nouveaux services web
 Pour gérer vos nouveaux service web :
 
-1. Connectez-vous au portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
+1. Connectez-vous au portail [Services web Machine Learning](https://services.azureml.net/quickstart) avec votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 2. Dans le menu, cliquez sur **Services Web**.
 
 La liste des services web déployés pour votre abonnement s’affiche. 
@@ -111,13 +111,13 @@ Le tableau de bord du plan affiche les informations suivantes :
 
 ## <a name="manage-classic-web-services"></a>Gérer des services web classiques
 > [!NOTE]
-> Les procédures décrites dans cette section ont trait à la gestion de services web classiques via le portail des services web Azure Machine Learning. Pour plus d’informations sur la gestion des services web classiques par le biais de Machine Learning Studio (classique) et le Portail Microsoft Azure, consultez [Gérer un espace de travail Azure Machine Learning Studio (classique)](manage-workspace.md).
+> Les procédures décrites dans cette section ont trait à la gestion de services web classiques via le portail des services web Machine Learning. Pour plus d’informations sur la gestion des services web classiques par le biais de Machine Learning Studio (classique) et le Portail Microsoft Azure, consultez [Gérer un espace de travail Machine Learning Studio (classique)](manage-workspace.md).
 > 
 > 
 
 Pour gérer vos services web classiques :
 
-1. Connectez-vous au portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
+1. Connectez-vous au portail [Services web Machine Learning](https://services.azureml.net/quickstart) avec votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 2. Dans le menu, cliquez sur **Services web classiques**.
 
 Pour gérer un Service web classique, cliquez sur **Services web classiques**. Dans la page Services web classiques, vous pouvez :

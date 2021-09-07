@@ -9,21 +9,20 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: f00c25396405678312e4c18a345840d628c15848
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 32fc672bf41c35881baf082b5694d1800084889d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114340825"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745962"
 ---
-Metrics Advisor est un service conçu pour la détection, le diagnostic et l’analyse des anomalies dans les séries chronologiques. En tant que service basé sur l’intelligence artificielle, il utilise vos données pour entraîner le modèle utilisé. Ce service accepte des tables de données agrégées avec les colonnes suivantes :
+Azure Metrics Advisor est un service de détection, de diagnostic et d’analyse d’anomalies dans les séries chronologiques. En tant que service basé sur l’IA, il tire parti de vos données pour entraîner le modèle utilisé. Ce service accepte des tables de données agrégées avec les colonnes suivantes :
 
 * **Mesure** (obligatoire) : Une mesure est un terme fondamental ou spécifique à une unité et une valeur quantifiable de la métrique. Elle désigne une ou plusieurs colonnes contenant des valeurs numériques.
-* **Horodatage** (facultatif) : zéro ou une colonne de type `DateTime` ou `String`. Lorsque cette colonne n’est pas définie, l’horodatage est défini comme heure de début de chaque période d’ingestion. Mettez l’horodatage sous la forme : `yyyy-MM-ddTHH:mm:ssZ`. 
-* **Dimension** (obligatoire) : Une dimension désigne une ou plusieurs valeurs catégoriques. Une combinaison de ces valeurs identifie une série chronologique particulière à une seule dimension, par exemple : pays, langue, abonné, etc. Les colonnes de la dimension peuvent être de n’importe quel type de données. Soyez prudent lorsque vous travaillez avec de grands volumes de colonnes et de valeurs, afin d’éviter le traitement d’un nombre excessif de dimensions.
+* **Horodatage** (facultatif) : zéro ou une colonne de type `DateTime` ou `String`. Quand cette colonne n’est pas définie, l’horodatage est défini en tant qu’heure de début de chaque période d’ingestion. Mettez en forme l’horodatage de la manière suivante : `yyyy-MM-ddTHH:mm:ssZ`. 
+* **Dimension** (obligatoire) : Une dimension désigne une ou plusieurs valeurs catégoriques. La combinaison de ces valeurs identifie une série chronologique univariée particulière (par exemple le pays, la langue et le locataire). Les colonnes de la dimension peuvent être de n’importe quel type de données. Soyez prudent lorsque vous travaillez avec de grands volumes de colonnes et de valeurs, afin d’éviter le traitement d’un nombre excessif de dimensions.
 
-Voici un exemple de schéma de métriques attendu : 
+Si vous utilisez des sources de données telles qu’Azure Data Lake Storage ou Stockage Blob Azure, vous pouvez agréger vos données pour les aligner sur le schéma de métriques attendu. En effet, ces sources de données utilisent un fichier en tant qu’entrée de métriques.
 
-<!-- ![Screenshot of metrics schema example](../media/tutorial/metric-schema.png) -->
+Si vous utilisez des sources de données telles qu’Azure SQL ou Azure Data Explorer, vous pouvez tirer parti des fonctions d’agrégation pour agréger les données dans le schéma attendu. En effet, ces sources de données prennent en charge l’exécution d’une requête permettant d’obtenir des données de métriques à partir de sources.
 
-Agrégez vos données à l’avance pour vous aligner sur le schéma de métriques attendu si vous utilisez des sources de données comme ADLS, Azure Blob et autres, qui utilisent un fichier comme entrée de métriques. Toutefois, si vous utilisez des sources de données comme Azure SQL Server, Azure Data Explorer ou d’autres sources, qui prennent en charge l’exécution d’une requête pour obtenir des données de métriques à partir des sources, vous pouvez utiliser des fonctions d’agrégation pour agréger les données dans le schéma attendu.

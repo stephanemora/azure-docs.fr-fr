@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/14/2021
 ms.author: banders
-ms.openlocfilehash: 8366ba41ee302747fd5ede3cddc72814f29d30ec
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 402f2b9b8d4e7528e6578f9735e0360b4a049878
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147447"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112114518"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Affichage des transactions d’achat et de remboursement de réservations
 
@@ -46,7 +46,7 @@ Un administrateur de facturation d’Accord de Mise en Œuvre Entreprise ou de C
 
 ## <a name="view-reservation-transactions-in-power-bi"></a>Affichage des transactions de réservation dans Power BI
 
-Un administrateur de facturation d’Accord de Mise en Œuvre Entreprise ou de Contrat client Microsoft peut afficher les transactions de réservation dans l’application Power BI Cost Management.
+Un administrateur d’inscription Entreprise peut voir les transactions de réservation dans l’application Power BI Cost Management.
 
 1. Téléchargez [l’application Power BI Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 1. Accédez au rapport d’achats RI.

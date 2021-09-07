@@ -2,13 +2,13 @@
 title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
-ms.date: 06/09/2021
-ms.openlocfilehash: 1831b103dc037b5f92f9ca53be1c71ce1bb3f558
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 07/29/2021
+ms.openlocfilehash: 952b5521a16ebc955e71319efe1f0b2bc48e47a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889798"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531662"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -174,6 +174,10 @@ Les valeurs les plus récentes des quotas de calcul Azure Machine Learning sont 
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+## <a name="azure-netapp-files"></a>Azure NetApp Files
+
+[!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
+
 ## <a name="azure-policy-limits"></a>Limites d’Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
@@ -243,6 +247,10 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 ## <a name="database-migration-service-limits"></a>Limites Database Migration Service
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## <a name="device-update-for-iot-hub--limits"></a>Limites Device Update pour IoT Hub
+
+[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
 
 ## <a name="digital-twins-limits"></a>Limites Digital Twins
 

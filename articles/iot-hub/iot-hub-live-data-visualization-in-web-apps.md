@@ -5,19 +5,18 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 4f2f0678b421ac6965b2848cc25564b4e95c7c6b
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: df82f61559a2ede3da477118f090f664e3389437
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567046"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "122641202"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 
@@ -29,11 +28,13 @@ Cet article explique comment visualiser en temps réel les données de capteur q
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
+* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). Ces articles demandent les éléments suivants :
 
   * Un abonnement Azure actif
   * Un IoT Hub associé à votre abonnement
   * Une application cliente qui envoie des messages à votre IoT Hub
+
+* [Node.js](https://nodejs.org) version 10.6 ou ultérieure. Pour vérifier la version de Node, exécutez `node --version`.
 
 * [Télécharger Git](https://www.git-scm.com/downloads)
 
@@ -58,7 +59,7 @@ Notez le nom que vous choisissez, vous en aurez besoin plus loin dans ce tutorie
 Les hubs IoT sont créés avec plusieurs stratégies d’accès par défaut. L’une d’elles, la stratégie **service**, fournit des autorisations suffisantes pour qu’un service lise et écrive les points de terminaison du hub IoT. Exécutez la commande suivante afin d’obtenir une chaîne de connexion pour votre hub IoT qui respecte la stratégie de service :
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIotHub --policy-name service
+az iot hub connection-string show --hub-name YourIotHub --policy-name service
 ```
 
 La chaîne de connexion doit ressembler à l’extrait suivant :

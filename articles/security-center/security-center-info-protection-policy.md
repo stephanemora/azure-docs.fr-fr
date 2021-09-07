@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2020
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 86edda1fa9aff73a5f6daca1494a81ab94aa9e3b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099401"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534945"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Stratégie de protection des informations SQL dans Azure Security Center
  
@@ -31,10 +31,7 @@ Le mécanisme de classification est basé sur les deux éléments suivants :
 
 Les options de la stratégie de protection des informations dans Security Center fournissent un ensemble prédéfini d’étiquettes et de types d’informations qui servent de valeurs par défaut pour le moteur de classification. Vous pouvez personnaliser la stratégie en fonction des besoins de votre organisation, comme décrit ci-dessous.
 
-> [!IMPORTANT]
-> Pour personnaliser la stratégie de protection des informations de votre locataire Azure, vous devez disposer de privilèges administratifs sur le groupe d’administration racine du locataire. Pour en savoir plus, consultez [Accorder et demander une visibilité à l’échelle du locataire](tenant-wide-permissions-management.md).
-
-:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="Page affichant votre stratégie de protection des informations SQL":::
+:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="Page affichant votre stratégie de protection des informations SQL.":::
  
 
 
@@ -60,7 +57,7 @@ Dans la page des **tarifs et des paramètres** de Security Center, sélectionnez
 > [!NOTE]
 > Cette option s’affiche uniquement pour les utilisateurs disposant d’autorisations au niveau du locataire. [Accordez-vous des autorisations à l’échelle du locataire](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accès à la stratégie de protection des informations SQL depuis la page des tarifs et des paramètres d’Azure Security Center":::
+:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accès à la stratégie de protection des informations SQL depuis la page des tarifs et des paramètres d’Azure Security Center.":::
 
 
 
@@ -72,7 +69,7 @@ Utilisez la recommandation de Security Center, « Les données sensibles de vos
 
 1. Dans la page **Recommendations de Security Center**, recherchez la recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Recherche de la recommandation qui fournit l’accès aux stratégies de protection des informations SQL":::
+    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Recherche de la recommandation qui fournit l’accès aux stratégies de protection des informations SQL.":::
 
 1. Dans la page des détails de la recommandation, sélectionnez une base de données dans les onglets les répertoriant comme **saines** ou **non saines**.
 
@@ -88,13 +85,13 @@ Utilisez la recommandation de Security Center, « Les données sensibles de vos
 
 1. Dans le portail Azure, ouvrez SQL Azure.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Ouverture de SQL Azure à partir du portail Azure":::
+    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Ouverture de SQL Azure à partir du portail Azure.":::
 
 1. Sélectionnez une base de données.
 
 1. Dans la zone **Sécurité** du menu, ouvrez la page **Découverte et classification des données** (1) et sélectionnez **Configurer** (2).
 
-    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Ouverture de la stratégie de protection des informations SQL depuis SQL Azure":::
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Ouverture de la stratégie de protection des informations SQL depuis SQL Azure.":::
 
 --- 
 
@@ -105,11 +102,11 @@ Pour gérer et personnaliser les types d’informations :
 
 1. Sélectionnez **Gérer les types d’informations**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Gérer les types d’informations pour votre stratégie de protection des informations":::
+    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Gérer les types d’informations pour votre stratégie de protection des informations.":::
 
 1. Pour ajouter un nouveau type, sélectionnez **Créer un type d’informations**. Vous pouvez définir un nom, une description et des chaînes de motif de recherche pour le type d’informations. Les chaînes de motif de recherche peuvent éventuellement utiliser des mots clés avec des caractères génériques (en utilisant le caractère « % »), que le moteur de découverte automatique utilise pour identifier les données sensibles dans vos bases de données, à partir des métadonnées de la colonne.
  
-    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configurer un nouveau type d’informations pour votre stratégie de protection des informations":::
+    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configurer un nouveau type d’informations pour votre stratégie de protection des informations.":::
 
 1. Vous pouvez également modifier les types intégrés en ajoutant des chaînes de motif de recherche supplémentaires, en désactivant certaines chaînes existantes ou en modifiant la description. 
 
@@ -129,11 +126,19 @@ Pour gérer et personnaliser les types d’informations :
 
 Vous pouvez télécharger un fichier JSON avec vos étiquettes et types d’informations définis, modifier le fichier dans l’éditeur de votre choix, puis importer le fichier mis à jour. 
 
-:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exportation et importation de votre stratégie de protection des informations":::
+:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exportation et importation de votre stratégie de protection des informations.":::
 
 > [!NOTE]
 > Vous devez disposer d’autorisations au niveau du locataire pour importer un fichier de stratégie. 
 
+
+## <a name="permissions"></a>Autorisations
+
+Pour personnaliser la stratégie de protection des informations de votre locataire Azure, vous avez besoin des actions suivantes sur le groupe d’administration racine du locataire :
+  - Microsoft.Security/informationProtectionPolicies/read
+  - Microsoft.Security/informationProtectionPolicies/write 
+
+Pour en savoir plus, consultez [Accorder et demander une visibilité à l’échelle du locataire](tenant-wide-permissions-management.md).
 
 ## <a name="manage-sql-information-protection-using-azure-powershell"></a>Gérer la protection des informations SQL à l’aide d’Azure PowerShell
 

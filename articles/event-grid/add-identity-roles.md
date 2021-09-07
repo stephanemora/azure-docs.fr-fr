@@ -3,12 +3,12 @@ title: Ajouter une identité managée à un rôle sur une destination Azure Eve
 description: Cet article explique comment ajouter une identité managée aux rôles Azure sur des destinations telles que Azure Service Bus et Azure Event Hubs.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 1578e4c24201614ce89351b3c3cee52a09cadc30
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c2bfc10f0019b6753e9290d20c84ba5e2bbb59fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280477"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532587"
 ---
 # <a name="grant-managed-identity-the-access-to-event-grid-destination"></a>Accorder à une identité managée l’accès à une destination Event Grid
 Cette section décrit comment ajouter l’identité pour votre rubrique système ou rubrique personnalisés à un rôle Azure. 
@@ -28,9 +28,8 @@ Actuellement, Azure Event Grid prend en charge les rubriques et domaines personn
 | ----------- | --------- | 
 | Files d’attente et rubriques Service Bus | [Expéditeur de données Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Hubs d'événements Azure | [Expéditeur de données Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Stockage Blob Azure | [Contributeur aux données Blob du stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
-| Stockage File d’attente Azure |[Expéditeur de messages de données en file d’attente du stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
-
+| Stockage Blob Azure | [Contributeur aux données Blob du stockage](../storage/blobs/assign-azure-role-data-access.md) |
+| Stockage File d’attente Azure |[Expéditeur de messages de données en file d’attente du stockage](../storage/blobs/assign-azure-role-data-access.md) | 
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 Vous pouvez utiliser le portail Azure pour affecter à l’identité de la rubrique ou du domaine personnalisés un rôle approprié afin que la rubrique ou le domaine personnalisés puissent transférer les événements vers la destination. 
@@ -39,11 +38,24 @@ L’exemple suivant ajoute une identité managée pour une rubrique personnalis�
 
 1. Accédez à votre **espace de noms Service Bus** sur le [Portail Azure](https://portal.azure.com). 
 1. Sélectionnez **Contrôle d’accès** dans le volet gauche. 
-1. Dans la section **Ajouter une attribution de rôle**, sélectionnez **Ajouter**. 
-1. Dans la page **Ajouter une attribution de rôle**, effectuez les étapes suivantes :
-    1. Sélectionnez le rôle. Dans ce cas, il s’agit du rôle **Expéditeur de données Azure Service Bus**. 
-    1. Sélectionnez l’**identité** pour votre rubrique ou domaine personnalisés Event Grid. 
-    1. Sélectionnez **Enregistrer** pour enregistrer la configuration.
+1. Dans la section **Ajouter une attribution de rôle (préversion)** , sélectionnez **Ajouter**. 
+
+    :::image type="content" source="./media/add-identity-roles/add-role-assignment-menu.png" alt-text="Image montrant la sélection du menu Ajouter une attribution de rôle (préversion)":::
+1. Dans la page **Ajouter une attribution de rôle**, sélectionnez **Expéditeur de données Azure Service Bus**, puis **Suivant**.  
+    
+    :::image type="content" source="./media/add-identity-roles/select-role.png" alt-text="Image montrant la sélection du rôle Expéditeur de données Azure Service Bus":::
+1. Sous l’onglet **Membres**, effectuez les étapes suivantes : 
+    1. Sélectionnez **Utilisateur, groupe ou principal de service**, puis cliquez sur **+ Sélectionner les membres**. L’option **Identité managée** ne prend pas encore en charge les identités Event Grid. 
+    1. Dans la fenêtre **Sélectionner les membres**, recherchez et sélectionnez le principal de service portant le même nom que votre rubrique personnalisée. Dans l’exemple suivant, il s’agit de **spcustomtopic0728**.
+    
+        :::image type="content" source="./media/add-identity-roles/select-managed-identity-option.png" alt-text="Image montrant la sélection de l’option Utilisateur, groupe ou principal de service":::    
+    1. Dans la fenêtre **Sélectionner les membres**, cliquez sur **Sélectionner**. 
+
+        :::image type="content" source="./media/add-identity-roles/managed-identity-selected.png" alt-text="Image montrant la sélection de l’option Identité managée":::            
+1. À présent, sous l’onglet **Membres**, sélectionnez **Suivant**. 
+
+    :::image type="content" source="./media/add-identity-roles/members-select-next.png" alt-text="Image montrant la sélection du bouton Suivant dans la page Membres":::                
+1. Dans la page **Vérifier + attribuer**, sélectionnez **Vérifier + attribuer** après avoir vérifié les paramètres. 
 
 Les étapes sont similaires pour l’ajout d’une identité à d’autres rôles mentionnés dans le tableau. 
 
@@ -90,5 +102,3 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez affecté une identité attribuée par le système à votre rubrique système, à une rubrique personnalisée ou à un domaine, et que vous avez ajouté l’identité aux rôles appropriés sur les destinations, consultez l’article [Remise d’événement avec une identité managée](managed-service-identity.md) pour savoir comment remettre des événements vers des destinations selon l’identité.
-
-

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 07/28/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b8f1404e95ed2ccceb8400fdabeff2d60b6706
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f27cee969d666d8605c0c87552eed1f305e1e4c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766112"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524974"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -58,7 +58,7 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
    * Si le service de réécriture n’est pas disponible, l’utilisateur est informé que son mot de passe ne peut pas être réinitialisé pour l’instant.
 1. Ensuite, l’utilisateur transite par les portails d’authentification appropriés et atteint la page de **réinitialisation du mot de passe**.
 1. L’utilisateur sélectionne un nouveau mot de passe et le confirme.
-1. Lorsqu’il clique sur **Envoyer**, le mot de passe en texte brut est chiffré avec une clé de contenu créée durant le processus de configuration de réécriture.
+1. Quand l’utilisateur sélectionne **Envoyer**, le mot de passe en texte brut est chiffré avec une clé publique créée durant le processus de configuration de la réécriture.
 1. Le mot de passe chiffré est inclus dans une charge utile qui est envoyée via un canal HTTPS à votre relais Service Bus spécifique à l’abonné (configuré pour vous lors du processus d’installation de la réécriture). Ce relais est protégé par un mot de passe généré de manière aléatoire, connu uniquement de votre installation locale.
 1. Une fois que le message a atteint le Service Bus, le point de terminaison de réinitialisation de mot de passe sort automatiquement du mode veille et découvre qu’une demande de réinitialisation est en attente.
 1. Ce service recherche alors l’utilisateur concerné à l’aide de l’attribut d’ancrage de cloud. Pour que cette recherche réussisse, les conditions suivantes doivent être remplies :

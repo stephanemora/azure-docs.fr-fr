@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 05/06/2021
-ms.openlocfilehash: 450f4f8d93261412db4963579f8b8525c2028f46
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0d5fb976bfeb496e6c69e7df401ed0a756985475
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482117"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113295881"
 ---
 # <a name="log-analytics-workspace-insights-preview"></a>Log Analytics Workspace Insights (préversion)
 
@@ -108,7 +108,7 @@ Dans notre espace de travail de démonstration, vous pouvez constater clairement
 
 ### <a name="health-tab"></a>Onglet d’intégrité
 
-Cet onglet affiche l’état d’intégrité de l’espace de travail et le moment où il a été signalé pour la dernière fois, ainsi que les erreurs et avertissements opérationnels (récupérés à partir de la table _LogOperation).
+Cet onglet affiche l’état d’intégrité de l’espace de travail et le moment où il a été signalé pour la dernière fois, ainsi que les [erreurs et avertissements](../logs/monitor-workspace.md) opérationnels (récupérés à partir de la table _LogOperation). Vous trouverez plus d’informations sur les problèmes répertoriés, ainsi que sur les étapes d’atténuation [ici](../logs/monitor-workspace.md#categories).
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-health.png" alt-text="Capture d’écran de l’onglet intégrité de l’espace de travail" lightbox="media/log-analytics-workspace-insights-overview/workspace-health.png":::
 
@@ -118,7 +118,7 @@ Cet onglet fournit des informations sur les agents qui envoient des journaux à 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-agents.png" alt-text="Capture d’écran de l’onglet agents de l’espace de travail" lightbox="media/log-analytics-workspace-insights-overview/workspace-agents.png":::
 
 * Erreurs d’opération et avertissements : il s’agit d’erreurs et d’avertissements liés spécifiquement aux agents. Ils sont regroupés par le titre d’erreur/d’avertissement pour vous aider à obtenir une vue plus claire des différents problèmes qui peuvent se produire, mais qui peuvent être développés pour afficher l’heure exacte et les ressources auxquelles ils font référence. Notez également que vous pouvez cliquer sur « exécuter la requête dans les journaux » pour interroger la table _LogOperation via l’expérience des journaux, voir les données brutes et l’analyser plus en détails.
-* Agents de l’espace de travail : il s’agit des agents qui ont envoyé des journaux à l’espace de travail pendant l’intervalle de temps sélectionné. Vous pouvez voir les types d’agents (direct, passerelle, SCOM ou serveurs d'administration SCOM) et l’état d’intégrité. Les agents marqués comme sains ne fonctionnent pas nécessairement correctement : ils ont seulement indiqué qu’ils ont envoyé une pulsation au cours de la dernière heure. Un état d’intégrité plus détaillé est détaillé dans la grille ci-dessous.
+* Agents de l’espace de travail : il s’agit des agents qui ont envoyé des journaux à l’espace de travail pendant l’intervalle de temps sélectionné. Vous pouvez voir les types et l’état d’intégrité des agents. Les agents marqués comme sains ne fonctionnent pas nécessairement correctement : ils ont seulement indiqué qu’ils ont envoyé une pulsation au cours de la dernière heure. Un état d’intégrité plus détaillé est détaillé dans la grille ci-dessous.
 * Activité des agents : cette grille affiche des informations sur tous les agents, les agents sains ou non sains. Ici, « sain » indique seulement que l’agent envoie une pulsation au cours de la dernière heure. Pour mieux comprendre son état, passez en revue la tendance affichée dans la grille : elle indique le nombre de pulsations envoyées par cet agent dans le temps. L’état d’intégrité réel peut être déduit uniquement si vous savez comment la ressource surveillée fonctionne, par exemple, si un ordinateur est intentionnellement arrêté à des moments particuliers, vous pouvez vous attendre à ce que les pulsations de l’agent s’affichent de façon intermittente, dans un modèle de correspondance.
 
 

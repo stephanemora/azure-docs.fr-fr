@@ -6,18 +6,18 @@ ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb18cca782b85e608c3c7ddb001ecb03b86055f6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a2d78b83ac7725f07060b3b61b01e57837fb053b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833523"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465899"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
 Cet article contient plusieurs rubriques expliquant comment les données sont protégées et sécurisées dans un environnement Azure Automation.
 
-## <a name="tls-12-enforcement-for-azure-automation"></a>Mise en œuvre du protocole TLS 1.2 pour Azure Automation
+## <a name="tls-12-for-azure-automation"></a>TLS 1.2 pour Azure Automation
 
 Pour garantir la sécurité des données en transit vers Azure Automation, nous vous encourageons vivement à configurer l’utilisation du protocole TLS (Transport Layer Security) 1.2. Voici une liste de méthodes ou de clients qui communiquent via HTTPS avec le service Automation :
 
@@ -46,7 +46,7 @@ Quand vous supprimez une ressource dans Azure Automation, elle est conservée pe
 
 Le tableau suivant récapitule la stratégie de rétention pour les différentes ressources.
 
-| Données | Policy |
+| Données | Stratégie |
 |:--- |:--- |
 | Comptes |Un compte est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur. |
 | Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. Les ressources incluent des variables, des planifications, des informations d’identification, des certificats, des packages Python 2 et des connexions. |

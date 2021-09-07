@@ -4,12 +4,12 @@ description: Présentation du modèle de communication Reliable Services, notamm
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d6f9d3ca44161674a829c4839e0a889c227b6f2
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97912612"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113597844"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Utilisation des API de communication de Reliable Services
 Azure Service Fabric, en tant que plateforme, est totalement indépendant de la communication entre les services. Tous les protocoles et toutes les piles sont acceptables, de UDP à HTTP. C'est au développeur de services de choisir comment les services doivent communiquer. L’infrastructure d’application de Reliable Services fournit des piles de communication intégrées, ainsi que des API que vous pouvez utiliser pour générer vos composants de communication personnalisés.
@@ -86,7 +86,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-Dans les deux cas, vous retournez une collection d’écouteurs. Cela permet à votre service d’écouter sur plusieurs points de terminaison, utilisant éventuellement différents protocoles, à l’aide de plusieurs écouteurs. Par exemple, vous pouvez avoir un écouteur HTTP et un écouteur WebSocket distinct. Chaque écouteur obtient un nom et la collection qui résulte des paires *nom : adresse* est représentée en tant qu’objet JSON quand un client demande les adresses d’écoute pour une instance de service ou une partition.
+Dans les deux cas, vous retournez une collection d’écouteurs. L’utilisation de plusieurs écouteurs permet à votre service d’écouter plusieurs points de terminaison, en utilisant éventuellement différents protocoles. Par exemple, vous pouvez avoir un écouteur HTTP et un écouteur WebSocket distinct. Pour passer d’une communication à distance non sécurisée à une communication à distance sécurisée, vous devez d’abord permettre les deux scénarios en utilisant à la fois un écouteur non sécurisé et un écouteur sécurisé. Chaque écouteur obtient un nom et la collection qui résulte des paires *nom : adresse* est représentée en tant qu’objet JSON quand un client demande les adresses d’écoute pour une instance de service ou une partition.
 
 Dans un service sans état, la substitution retourne une collection de ServiceInstanceListeners. Un `ServiceInstanceListener` contient une fonction permettant de créer un `ICommunicationListener(C#) / CommunicationListener(Java)` et de lui donner un nom. Pour les services avec état, la substitution retourne une collection de ServiceReplicaListener. Cela diffère légèrement de son homologue sans état, car un `ServiceReplicaListener` a une option pour ouvrir un `ICommunicationListener` sur des réplicas secondaires. Non seulement vous pouvez utiliser plusieurs écouteurs de communication dans un service, mais vous pouvez également spécifier ceux qui acceptent les demandes sur les réplicas secondaires, et ceux qui écoutent uniquement sur les réplicas principaux.
 

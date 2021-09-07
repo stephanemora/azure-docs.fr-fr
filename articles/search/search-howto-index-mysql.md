@@ -1,27 +1,34 @@
 ---
-title: Se connecter à du contenu Azure MySQL et l’indexer à l’aide d’un indexeur Recherche cognitive Azure (préversion)
+title: Indexer les données d’Azure MySQL (préversion)
 titleSuffix: Azure Cognitive Search
-description: Importez des données à partir d’Azure MySQL dans un index pouvant faire l’objet d’une recherche dans Recherche cognitive Azure. Les indexeurs automatisent l’ingestion des données pour les sources de données sélectionnées telles que MySQL.
+description: Configurez un indexeur de recherche pour indexer les données stockées dans Azure MySQL en vue d’une recherche en texte intégral dans Recherche cognitive Azure.
 author: markheff
-manager: luisca
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 4dee2250d49d437d47148b873cfe8c7ce1e8f5ea
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c4ac7266f61596490805c00af079dfe7bdee76aa
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754436"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525765"
 ---
-# <a name="connect-to-and-index-azure-mysql-content-using-an-azure-cognitive-search-indexer-preview"></a>Se connecter à du contenu Azure MySQL et l’indexer à l’aide d’un indexeur Recherche cognitive Azure (préversion)
+# <a name="index-data-from-azure-mysql"></a>Indexer les données d’Azure MySQL
 
 > [!IMPORTANT] 
-> La prise en charge de MySQL est actuellement disponible en préversion publique. Les fonctionnalités d’évaluation sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vous pouvez demander l’accès aux préversions en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). L’[API REST version 2020-06-30-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe actuellement aucune prise en charge du Kit de développement logiciel (SDK) ni aucune prise en charge du portail.
+> MySQL est pris en charge en préversion publique dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Demandez l’accès](https://aka.ms/azure-cognitive-search/indexer-preview) à cette fonctionnalité. Une fois l’accès activée, utilisez une [API REST en préversion (préversion du 30/06/2020 ou ultérieure)](search-api-preview.md) pour indexer votre contenu. Il n’existe actuellement aucune prise en charge du Kit de développement logiciel (SDK) ni aucune prise en charge du portail.
 
-L’indexeur Recherche cognitive Azure pour MySQL analyse votre base de données MySQL sur Azure, extrait les données pouvant faire l’objet d’une recherche et les indexe dans Recherche cognitive Azure. L’indexeur prend en compte toutes les modifications, tous les chargements et toutes les suppressions de votre base de données MySQL et reflète ces modifications dans Recherche cognitive Azure.
+L’indexeur Recherche cognitive Azure pour MySQL analyse votre base de données MySQL sur Azure, extrait les données pouvant faire l’objet d’une recherche et les indexe dans Recherche cognitive Azure. L’indexeur prend en compte l’ensemble des changements, des chargements et des suppressions effectués dans votre base de données MySQL, et les reflète dans votre index de recherche.
+
+Vous pouvez configurer un indexeur Azure MySQL à l’aide de l’un des clients suivants :
+
+* [Azure portal](https://ms.portal.azure.com)
+* [API REST](/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) de Recherche cognitive Azure
+
+Cet article utilise les API REST. 
 
 ## <a name="create-an-azure-mysql-indexer"></a>Créer un indexeur Azure MySQL
 

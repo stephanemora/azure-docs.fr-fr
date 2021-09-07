@@ -2,24 +2,22 @@
 title: Concepts d’enrichissement incrémentiel (préversion)
 titleSuffix: Azure Cognitive Search
 description: Mettez en cache le contenu intermédiaire et les modifications incrémentielles du pipeline d’enrichissement par IA dans le stockage Azure pour protéger les investissements dans les documents traités existants. Cette fonctionnalité est actuellement disponible en préversion publique.
-manager: nitinme
-author: Vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: f3d9d9481821902246721c5c27ed99451f323ba3
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 7b3d0fc85afbff58641edea332576f921c96b672
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539814"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727783"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enrichissement incrémentiel et mise en cache dans Recherche cognitive Azure
 
 > [!IMPORTANT] 
-> L’enrichissement incrémentiel est actuellement en version préliminaire publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> [Les préversions de l'API REST](search-api-preview.md) offrent cette fonctionnalité. Il n’y a pas de prise en charge de portail ou de SDK .NET pour l’instant.
+> Cette fonctionnalité est en préversion publique dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST en préversion](/rest/api/searchservice/index-preview) prend en charge cette fonctionnalité.
 
 *L’enrichissement incrémentiel* est une fonctionnalité qui cible des [ensembles de compétences](cognitive-search-working-with-skillsets.md). Elle tire parti du Stockage Azure pour enregistrer la sortie de traitement émise par un pipeline d’enrichissement en vue d’une réutilisation dans de futures exécutions de l’indexeur. Dans la mesure du possible, l’indexeur réutilise toute sortie mise en cache qui est toujours valide. 
 
@@ -37,12 +35,12 @@ Pour plus d’informations sur les étapes et les considérations à prendre en 
 
 ## <a name="indexer-cache"></a>Cache d’indexeur
 
-L’enrichissement incrémentiel ajoute un cache au pipeline d’enrichissement. Cet indexeur met en cache les résultats du craquage de document, ainsi que les résultats de chaque compétence pour chaque document. Quand un ensemble de compétences est mis à jour, seules les compétences ayant changé ou situées en aval sont réexécutées. Les résultats mis à jour sont écrits dans le cache. Le document est mis à jour dans l’index ou dans la base de connaissances.
+L’enrichissement incrémentiel ajoute un cache au pipeline d’enrichissement. L’indexeur met en cache les résultats du [craquage de document](search-indexer-overview.md#document-cracking) ainsi que les sorties de chaque compétence pour chaque document. Quand un ensemble de compétences est mis à jour, seules les compétences ayant changé ou situées en aval sont réexécutées. Les résultats mis à jour sont écrits dans le cache. Le document est mis à jour dans l’index ou dans la base de connaissances.
 
 Physiquement, le cache est stocké dans un conteneur d’objets blob de votre compte de stockage Azure. Le cache utilise également le stockage table pour un enregistrement interne des mises à jour de traitement. Tous les index d’un service de recherche peuvent partager le même compte de stockage pour le cache de l’indexeur. Chaque indexeur se voir affecté un identificateur de cache unique et non modifiable au conteneur qu’il utilise.
 
 > [!NOTE]
-> Le cache de l’indexeur requiert un compte de stockage à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](/storage/common/storage-account-overview#types-of-storage-accounts).
+> Le cache de l’indexeur requiert un compte de stockage à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ## <a name="cache-configuration"></a>Configuration du cache
 

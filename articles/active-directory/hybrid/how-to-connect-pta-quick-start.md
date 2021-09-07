@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5e71522d53bd4e528b2a5a106a4dcc344df3ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a85f2d5d928d93bf9e85899e53439a2cc4710448
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732854"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455602"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -51,13 +51,13 @@ Vérifiez que les prérequis suivants sont remplis.
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter Azure AD Connect. Le cas échéant, [activez TLS 1.2 sur le serveur](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe. Notez que l’installation de l’agent d’authentification directe sur les versions Windows Server Core n’est pas prise en charge. 
+1. Identifiez un serveur Windows Server 2016 ou ultérieur sur lequel exécuter Azure AD Connect. Le cas échéant, [activez TLS 1.2 sur le serveur](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe. Notez que l’installation de l’agent d’authentification directe sur les versions Windows Server Core n’est pas prise en charge. 
 2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si vous exécutez déjà Azure AD Connect, vérifiez qu’il s’agit de la version 1.1.750.0 ou d’une version ultérieure.
 
     >[!NOTE]
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](./reference-connect-version-history.md).
 
-3. Identifiez un ou plusieurs serveurs supplémentaires (exécutant Windows Server 2012 R2 ou version ultérieure, avec TLS 1.2 activé) sur lesquels vous pouvez exécuter des agents d’authentification autonomes. Ces serveurs supplémentaires sont nécessaires pour garantir une haute disponibilité des requêtes de connexion. Ajoutez ces serveurs à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
+3. Identifiez un ou plusieurs serveurs supplémentaires (exécutant Windows Server 2016 ou version ultérieure, avec TLS 1.2 activé) sur lesquels vous pouvez exécuter des agents d’authentification autonomes. Ces serveurs supplémentaires sont nécessaires pour garantir une haute disponibilité des requêtes de connexion. Ajoutez ces serveurs à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
 
     >[!IMPORTANT]
     >Dans les environnements de production, nous vous recommandons l’utilisation d’au moins 3 agents d’authentification s’exécutant sur votre locataire. Il existe une limite système de 40 agents d’authentification par client. En tant que bonne pratique, traitez tous les serveurs exécutant des agents d’authentification comme des systèmes de niveau 0 (voir [référence](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -179,7 +179,7 @@ Le verrouillage intelligent empêche les personnes malveillantes de deviner vos 
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
 - [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et non pris en charge avec l'authentification directe.
 - [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne la fonctionnalité d'authentification directe.
-- [Forum Aux Questions](how-to-connect-pta-faq.md) : obtenez des réponses aux questions fréquemment posées.
+- [Forum Aux Questions](how-to-connect-pta-faq.yml) : obtenez des réponses aux questions fréquemment posées.
 - [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
 - [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques sur la fonctionnalité d'authentification directe.
 - [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.

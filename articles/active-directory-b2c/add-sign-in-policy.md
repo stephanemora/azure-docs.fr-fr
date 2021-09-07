@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2310bd39c39036b6d6ac919517fa5539d7b70779
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bfe50bc80e3aa2a8c924002efdba2a020dbe9ef
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581862"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198761"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurer un flux de connexion dans Azure Active Directory B2C
 
@@ -52,8 +52,15 @@ Pour ajouter une stratégie de connexion :
 1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Connexion**.
 1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**. ([Apprenez-en davantage](user-flow-versions.md) sur les version de flux utilisateur.)
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
-1. Pour **Fournisseurs d’identité**, sélectionnez **Connexion par e-mail**.
-1. Pour **Revendications de l’application**, choisissez les revendications et attributs que vous souhaitez renvoyer à votre application. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et revendications pour **Nom d’affichage**, **Prénom**, **Nom de famille** et **ID d’objet de l’utilisateur**. Cliquez sur **OK**.
+1. Sous **Fournisseurs d’identité**, sélectionnez au moins un fournisseur d’identité :
+
+   * Sous **Comptes locaux**, sélectionnez l’une des options suivantes : **Connexion par e-mail**, **Connexion par ID utilisateur**, **Connexion par téléphone**, **Connexion par téléphone/e-mail**, **Connexion par ID utilisateur/e-mail**, ou **Aucun**. [Plus d’informations](sign-in-options.md)
+   * Sous **Fournisseurs d’identité sociale**, sélectionnez l’un des fournisseurs d’identité sociale ou d’entreprise externes que vous avez configurés. [Plus d’informations](add-identity-provider.md)
+1. Sous **Authentification multifacteur**, si vous voulez demander aux utilisateurs de vérifier leur identité avec une deuxième méthode d’authentification, choisissez le type de méthode et le moment auquel appliquer l’authentification multifacteur (MFA). [Plus d’informations](multi-factor-authentication.md)
+1. Sous **Accès conditionnel**, si vous avez configuré des stratégies d’accès conditionnel pour votre locataire Azure AD B2C et que vous souhaitez les activer pour ce flux d’utilisateurs, cochez la case **Appliquer des stratégies d’accès conditionnel**. Vous n’avez pas besoin de spécifier un nom de stratégie. [Plus d’informations](conditional-access-user-flow.md?pivots=b2c-user-flow)
+1. Sous **Revendications de l’application**, choisissez les revendications que vous souhaitez retourner à l’application dans le jeton. Pour la liste complète des valeurs, sélectionnez **Afficher plus**, choisissez les valeurs, puis sélectionnez **OK**.
+   > [!NOTE]
+   > Vous pouvez également [créer des attributs personnalisés](user-flow-custom-attributes.md?pivots=b2c-user-flow) afin de les utiliser dans votre locataire Azure AD B2C.
 1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur

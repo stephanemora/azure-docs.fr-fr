@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 1625c4a73252f202a45dbdefba1576776ea843a0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 7acca746acf17a6ef6dd837907a159cddb20be10
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209537"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004193"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Résoudre les erreurs courantes liées à l’intégration d’Automanage
 Automanage peut échouer à intégrer un ordinateur sur le service. Ce document explique comment résoudre les échecs de déploiement, partage quelques raisons courantes pour lesquelles les déploiements peuvent échouer et décrit les étapes suivantes possibles d’atténuation.
@@ -23,14 +23,14 @@ L’intégration d’une machine à Automanage entraînera la création d’un d
 
 :::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Menu volant détaillant les échecs d’Automanage.":::
 
-### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>Vérifier les déploiements pour le groupe de ressources contenant la machine virtuelle ayant échoué
+### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-machine"></a>Vérifier les déploiements pour le groupe de ressources contenant la machine ayant échoué
 Le menu volant d’échec contiendra un lien vers les déploiements dans le groupe de ressources contenant la machine dont l’intégration a échoué. Le menu volant contient également un nom de préfixe que vous pouvez utiliser pour filtrer les déploiements. Cliquez sur le lien de déploiement pour accéder au panneau des déploiements, où vous pouvez ensuite filtrer les déploiements pour voir les déploiements Automanage sur votre ordinateur. Si vous effectuez un déploiement dans plusieurs régions, veillez à cliquer sur le déploiement dans la bonne région.
 
-### <a name="check-the-deployments-for-the-subscription-containing-the-failed-vm"></a>Vérifier les déploiements pour l’abonnement contenant la machine virtuelle ayant échoué
-Si vous ne constatez aucun échec dans le déploiement du groupe de ressources, l’étape suivante consiste à examiner les déploiements de votre abonnement contenant la machine virtuelle dont l’intégration a échoué. Cliquez sur le lien **Déploiements pour l’abonnement** dans le menu volant des échecs et filtrez les déploiements à l’aide du filtre **Automanage-DefaultResourceGroup**. Utilisez le nom du groupe de ressources du panneau des échecs pour filtrer les déploiements. Le nom du déploiement sera suivi d’un nom de région. Si vous effectuez un déploiement dans plusieurs régions, veillez à cliquer sur le déploiement dans la bonne région.
+### <a name="check-the-deployments-for-the-subscription-containing-the-failed-machine"></a>Vérifier les déploiements pour l’abonnement contenant la machine ayant échoué
+Si vous ne constatez aucun échec dans le déploiement du groupe de ressources, l’étape suivante consiste à examiner les déploiements de votre abonnement contenant la machine dont l’intégration a échoué. Cliquez sur le lien **Déploiements pour l’abonnement** dans le menu volant des échecs et filtrez les déploiements à l’aide du filtre **Automanage-DefaultResourceGroup**. Utilisez le nom du groupe de ressources du panneau des échecs pour filtrer les déploiements. Le nom du déploiement sera suivi d’un nom de région. Si vous effectuez un déploiement dans plusieurs régions, veillez à cliquer sur le déploiement dans la bonne région.
 
 ### <a name="check-deployments-in-a-subscription-linked-to-a-log-analytics-workspace"></a>Vérifier les déploiements dans un abonnement lié à un espace de travail Log Analytics
-Si vous ne voyez aucun échec de déploiement dans le groupe de ressources ou l’abonnement contenant votre machine virtuelle ayant échoué, et si votre machine virtuelle ayant échoué est connectée à un espace de travail Log Analytics dans un autre abonnement, accédez à l’abonnement lié à votre espace de travail Log Analytics et vérifiez les échecs de déploiement.
+Si vous ne voyez aucun échec de déploiement dans le groupe de ressources ou l’abonnement contenant votre machine ayant échoué, et si votre machine ayant échoué est connectée à un espace de travail Log Analytics dans un autre abonnement, accédez à l’abonnement lié à votre espace de travail Log Analytics et vérifiez les échecs de déploiement.
 
 ## <a name="common-deployment-errors"></a>Erreurs de déploiement courantes
 
@@ -51,4 +51,4 @@ Le déploiement du modèle a échoué à cause de la violation de stratégie. Po
 * [En savoir plus sur Azure Automanage](./automanage-virtual-machines.md)
 
 > [!div class="nextstepaction"]
-> [Activer le service Automanage pour machines virtuelles dans le portail Azure](quick-create-virtual-machines-portal.md)
+> [Activer le service Automanage pour machines dans le portail Azure](quick-create-virtual-machines-portal.md)

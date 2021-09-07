@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 4/15/2021
-ms.openlocfilehash: bb4a0cd58c316a9e40a3346d4f5417fe911c2c0e
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 07/13/2021
+ms.openlocfilehash: c50db3a7127959539d4a03f7f9a04cb2943dec79
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111420965"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866950"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Présentation de la co-vente avec les équipes de vente et les partenaires Microsoft
 
@@ -44,11 +44,11 @@ Statuts de co-vente pour Azure :
 
 - Pas de co-vente prête
 - Prêt pour la co-vente
-- Co-vente Azure IP avec incentives
+- Incentive de co-vente Azure IP
 
 Statuts de co-vente pour applications métier
-- Co-vente d'applications métier avec incentives Standard
-- Co-vente d'applications métier avec incentives Premium  
+- Incentive de co-vente d’applications métier Standard
+- Incentive de co-vente d’applications métier Premium  
 
 Pour plus d’informations sur les conditions requises pour atteindre ces statuts de co-vente, consultez [Conditions de la co-vente](co-sell-requirements.md).
 
@@ -56,13 +56,13 @@ Pour plus d’informations sur les conditions requises pour atteindre ces statut
 
 Le statut Prêt pour la co-vente expose vos solutions aux équipes de vente Microsoft. La co-vente avec les équipes de vente Microsoft et les partenaires Microsoft vous donne accès à une vaste communauté de clients gérés par Microsoft et vous permet de collaborer sur des opportunités de vente qui stimulent la croissance de votre entreprise.
 
-Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Co-vente Azure IP, consultez [Conditions des statuts Prêt pour la co-vente et Co-vente avec incentives](co-sell-requirements.md).
+Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Co-vente Azure IP, consultez [Exigences pour les statuts Prêt pour la co-vente et Incentive de co-vente](co-sell-requirements.md).
 
-## <a name="benefits-of-co-sell-incentivized-status"></a>Avantages du statut Co-vente avec incentives
+## <a name="benefits-of-co-sell-incentive-status"></a>Avantages du statut Incentive de co-vente
 
-Le statut _Co-vente avec incentives_ comprend _Co-vente Azure IP avec incentives_ et _Co-vente d'applications métier avec incentives (Standard et Premium)_ . Ces statuts encouragent les équipes de vente Microsoft à vendre votre offre. Pour les atteindre, vous devez également atteindre le statut Prêt pour la co-vente. Le statut Co-vente avec incentives accumule tous les avantages du statut prêt pour la co-vente, peut accumuler des incentives supplémentaires pour les équipes de vente Microsoft, et être éligible à d’autres avantages de la place de marché commerciale.
+Le statut _Co-vente avec incentives_ comprend _Co-vente Azure IP avec incentives_ et _Co-vente d'applications métier avec incentives (Standard et Premium)_ . Ces statuts encouragent les équipes de vente Microsoft à vendre votre offre. Pour les atteindre, vous devez également atteindre le statut Prêt pour la co-vente. Le statut Incentive de co-vente accumule tous les avantages du statut Prêt pour la co-vente, peut accumuler des incentives supplémentaires pour les équipes de vente Microsoft, et être éligible à d’autres avantages de la place de marché commerciale.
 
-Le statut Co-vente Azure IP avec incentives peut être appliqué à ces types d’offres :
+Le statut Incentive de co-vente Azure IP peut être appliqué à ces types d’offres :
 
 - Azure Application
 - Conteneur Azure
@@ -70,23 +70,22 @@ Le statut Co-vente Azure IP avec incentives peut être appliqué à ces types d�
 - Module IoT Edge
 - SaaS (software as a service)
 
-Le statut Co-vente d'applications métier avec incentives (Standard et Premium) peut être appliqué à ces types d’offres :
+Le statut Incentive de co-vente d’applications métier (Standard et Premium) peut être appliqué à ces types d’offres :
 
-- Dynamics 365 for Customer Engagement et PowerApps
+- Dynamics 365 pour Customer Engagement et Power Apps
 - Dynamics 365 for Operations
 
 Les offres qui obtiennent le statut de _Co-vente Azure IP avec incentives_ bénéficient des avantages suivants sur la Place de marché commerciale :
 
-- Les frais de service de la place de marché passent de 20 % à 10 %. Cette remise s’applique à votre solution IaaS (infrastructure as a service) ou SaaS (software as a service) vendue sur la Place de marché commerciale. Pour plus d’informations, consultez [Frais de service du marketplace commercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Les partenaires fournisseurs de solutions cloud (CSP) reçoivent une prime de 10 % pour vendre votre offre SaaS ou solution IaaS. Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](cloud-solution-providers.md).
 - Les ventes de votre offre via la Place de marché Azure contribueront aux engagements Azure Consumption Commitment des clients. Pour les clients éligibles, l’offre sera accompagnée de la mention **Éligible à Azure Benefit** dans le portail Azure. Pour en savoir plus sur la façon dont le programme MACC profite aux clients et sur le moyen dont ils peuvent trouver des solutions qui sont activées pour MACC, consultez [Avantage d’Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit). Pour plus d’informations sur la façon dont les éditeurs peuvent inscrire leur offre commercialisable dans MACC, consultez [Inscription à Azure Consumption Commitment](azure-consumption-commitment-enrollment.md).
 - Les offres qui atteignent le statut _Co-vente Azure IP avec incentives_ ou qui sont inscrites dans le [Programme Microsoft Business Applications ISV Connect](business-applications-isv-program.md) avec le statut de préparation pour la co-vente recevront un badge **Solutions Microsoft préférées** dans la page d’annonce de l’offre dans les magasins en ligne : [Place de marché Azure](https://azuremarketplace.microsoft.com/) et [AppSource](https://appsource.microsoft.com/).  Une fois qu’une offre a atteint l’état correspondant, le badge de la solution préférée peut prendre jusqu’à 30 jours pour s’afficher dans le magasin en ligne. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis.
 
-Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Co-vente avec incentives, consultez [Conditions des statuts Prêt pour la co-vente et Co-vente avec incentives](co-sell-requirements.md).
+Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Incentive de co-vente, consultez [Exigences pour les statuts Prêt pour la co-vente et Incentive de co-vente](co-sell-requirements.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les conditions, consultez [Conditions des statuts Prêt pour la co-vente et Co-vente avec incentives](co-sell-requirements.md).
-- Pour configurer une offre pour la co-vente, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md).
+- Pour plus d’informations sur les conditions, consultez [Exigences pour les statuts Prêt pour la co-vente et Incentive de co-vente](co-sell-requirements.md).
+- Pour configurer une offre pour la co-vente, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](co-sell-configure.md).
 - Pour vérifier le statut de co-vente, consultez [Vérifier le statut de co-vente d’une offre](co-sell-status.md).
 - Découvrez plus en détail la [Co-vente avec Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 02/25/2021
-ms.openlocfilehash: 50ab34a73a7709a47efdf6904acf005cd5db9da5
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9373806b87144005407861b2043799f0c62ce982
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753590"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237902"
 ---
 # <a name="access-and-track-your-secure-score"></a>Accéder et suivre votre score de sécurisation
 
@@ -48,7 +48,7 @@ Pour récapituler, votre niveau de sécurité apparaît aux emplacements suivant
 
 Vous pouvez accéder à votre degré de sécurisation par le biais de l’API Degré de sécurisation. Les méthodes de l’API offrent la flexibilité nécessaire pour interroger les données et créer votre propre mécanisme de création de rapports sur vos degrés de sécurisation au fil du temps. Par exemple, vous pouvez utiliser l’API [Degré de sécurisation](/rest/api/securitycenter/securescores) pour obtenir le degré de sécurisation d’un abonnement spécifique. En outre, vous pouvez utiliser l’API [Contrôles du degré de sécurisation](/rest/api/securitycenter/securescorecontrols) pour répertorier les contrôles de sécurité et le degré de sécurisation actuel de vos abonnements.
 
-![Récupération d’un score sécurisé unique via l’API](media/secure-score-security-controls/single-secure-score-via-api.png)
+![Récupération d’un degré de sécurisation unique via l’API.](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Pour obtenir des exemples d’outils créés sur la base de l’API de degré de sécurisation, consultez [la zone consacrée au degré de sécurisation de notre communauté GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
 
@@ -105,7 +105,7 @@ Le tableau de bord contient les deux rapports suivants pour vous aider à analys
 - **Résumé des ressources** : fournit des données résumées concernant l’intégrité de vos ressources.
 - **Synthèse des scores sécurisés** : fournit des données résumées concernant la progression de votre score. Utilisez le graphique « Score sécurisé dans le temps par abonnement » pour afficher les modifications apportées au score. Si vous remarquez une modification spectaculaire de votre score, consultez la table « modifications détectées qui peuvent affecter votre score sécurisé » pour les éventuelles modifications susceptibles d’avoir provoqué la modification. Ce tableau présente les ressources supprimées, les ressources récemment déployées ou les ressources dont le statut de sécurité a changé pour l’une des recommandations.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Le tableau de bord Power BI de score sécurisé facultatif pour le suivi de vos scores sécurisés au fil du temps et l’examen des modifications":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Tableau de bord Power BI sur le degré de sécurisation dans le temps facultatif pour le suivi de votre degré de sécurisation au fil du temps et l’examen des modifications.":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,17 +1,17 @@
 ---
-title: Configurer une appliance de montée en puissance parallèle Azure Migrate pour une migration VMware sans agent
+title: Configurer une appliance scale-out Azure Migrate pour une migration VMware sans agent
 description: Découvrez comment configurer une appliance de montée en puissance parallèle Azure Migrate pour migrer des machines virtuelles Hyper-V.
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: b0f5bf01080d89e6dc6d6843312d96243b8526ba
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 5c8858e50707209b47eb61d554a8e4f7313c92c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484538"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562432"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -60,42 +60,45 @@ Pour ajouter une appliance de montée en puissance parallèle, procédez de la m
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. Télécharger le programme d’installation pour l’appliance de montée en puissance parallèle
 
 Dans **Télécharger l’appliance Azure Migrate**, cliquez sur **Télécharger**. Vous devez télécharger le script du programme d’installation PowerShell pour déployer l’appliance de montée en puissance parallèle sur un serveur existant exécutant Windows Server 2016 et présentant la configuration matérielle requise (32 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et accès Internet, directement ou via un proxy).
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Télécharger le script pour l’appliance de montée en puissance parallèle":::
 
 > [!TIP]
 > Vous pouvez valider la somme de contrôle du fichier zip téléchargé en procédant comme suit :
 >
-> 1. Ouvrez une invite de commandes en tant qu’administrateur.
+> 1. Sur le serveur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 > 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation du cloud public : ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
-> 3. Téléchargez la dernière version du programme d’installation de l’appliance de montée en puissance parallèle à partir du portail si la valeur de hachage calculée ne correspond pas à la chaîne suivante : 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
+    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+> 3. Téléchargez la dernière version du programme d’installation de l’appliance de scale-out à partir du portail si la valeur de hachage calculée ne correspond pas à cette chaîne : b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
-Le script du programme d’installation effectue les opérations suivantes :
 
-- Installe l’agent de passerelle et le gestionnaire de configuration d’appliance pour effectuer davantage de réplications de serveur simultanées.
-- Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS.
-- Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
-- Crée les fichiers suivants sous le chemin :
-    - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
-    - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
-
-Exécutez le script comme suit :
-
-1. Extrayez le fichier .zip dans un dossier sur le serveur qui hébergera l’appliance de montée en puissance parallèle.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
+1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
-3. Remplacez le répertoire PowerShell par le dossier dans lequel a été extrait le contenu du fichier compressé téléchargé.
-4. Exécutez le script nommé **AzureMigrateInstaller.ps1** à l’aide de la commande suivante :
+3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    - Pour le cloud public : 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    Le script lance le gestionnaire de configuration d’appliance une fois l’exécution terminée.
+5. Sélectionnez parmi les options de scénario, de cloud, de configuration et de connectivité pour déployer l’appliance souhaitée. Par exemple, la sélection présentée ci-dessous configure une **appliance de scale-out** pour lancer des réplications concurrentes sur des serveurs s’exécutant dans votre environnement VMware vers un projet Azure Migrate avec une connectivité **par défaut _(point de terminaison public)_**  sur le **cloud public Azure**.
 
-Si vous rencontrez des problèmes, vous pouvez accéder aux journaux de script à l’adresse : <br/> C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>.log pour la résolution des problèmes.
+    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Capture d’écran montrant comment configurer une appliance de scale-out." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
+
+6. Le script du programme d’installation effectue les opérations suivantes :
+
+    - Installe l’agent de passerelle et le gestionnaire de configuration d’appliance pour effectuer davantage de réplications de serveur simultanées.
+    - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
+    - Télécharge et installe un module réinscriptible IIS.
+    - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
+    - Crée les fichiers suivants sous le chemin :
+        - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
+        - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
+
+Une fois que le script a été exécuté avec succès, le gestionnaire de configuration de l’appliance est lancé automatiquement.
+
+> [!NOTE]
+> Si vous rencontrez des problèmes, vous pouvez accéder aux journaux de script dans C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>horodatage</em>.log pour les résoudre.
 
 
 ### <a name="4-configure-the-appliance"></a>4. Configurer l’appliance
@@ -121,7 +124,8 @@ Avant de commencer, assurez-vous que [ces points de terminaison Azure](migrate-a
 
 1. Collez la **clé de projet Azure Migrate** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Évaluation de serveur > Découvrir > Gérer les appliances existantes**, sélectionnez le nom de l’appliance principale, recherchez l’appliance de montée en puissance parallèle qui y est associée, puis copiez la clé correspondante.
 1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Boîte de dialogue modale indiquant le code de l’appareil":::
+
+   :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Boîte de dialogue modale indiquant le code de l’appareil":::
 
 1. Cliquez sur **Copier le code et se connecter** pour copier le code de l’appareil et ouvrir une invite de connexion Azure dans un nouvel onglet de navigateur. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
 1. Sous le nouvel onglet, collez le code de l’appareil, puis connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 142c8b1439447da4d535dd97e191a0ada503fe94
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 14a357bf5f7fece43ce72b58142aa0047213bfab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632598"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532081"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui 
 
 ## <a name="about-acls"></a>À propos des listes de contrôle d’accès
 
-Vous pouvez associer un [principal de sécurité](../../role-based-access-control/overview.md#security-principal) à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans une *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès. Lorsqu’un principal de sécurité tente une opération sur un fichier ou un répertoire, une vérification de la liste de contrôle d’accès détermine si ce principal de sécurité (utilisateur, groupe, principal du service ou identité managée) a le niveau d’autorisation approprié pour effectuer l’opération.
+Vous pouvez associer un [principal de sécurité](../../role-based-access-control/overview.md#security-principal) à un niveau d’accès pour les fichiers et répertoires. Chaque association est capturée comme une entrée d’une *liste de contrôle d’accès*. Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès. Lorsqu’un principal de sécurité tente une opération sur un fichier ou un répertoire, une vérification de la liste de contrôle d’accès détermine si ce principal de sécurité (utilisateur, groupe, principal du service ou identité managée) a le niveau d’autorisation approprié pour effectuer l’opération.
 
 > [!NOTE]
 > Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité dans le même locataire et ne s’appliquent pas aux utilisateurs qui utilisent l’authentification par jeton de clé partagée ou de signature d’accès partagé (SAS). En effet, aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée.  
@@ -94,7 +94,7 @@ Dans le modèle POSIX utilisé par Data Lake Storage Gen2, les autorisations d�
 
 Le tableau suivant vous montre les entrées de liste de contrôle d’accès requises pour permettre à un principal de sécurité d’effectuer les opérations indiquées dans la colonne **Opérations**. 
 
-Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`\`), un sous-répertoire nommé **Oregon**, un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt**. 
+Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`/`), un sous-répertoire nommé **Oregon**, un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt**. 
 
 > [!IMPORTANT]
 > Ce tableau suppose que vous utilisez **uniquement** des ACL sans attributions de rôle Azure. Pour voir une table similaire qui combine Azure RBAC avec des ACL, consultez [Tableau des autorisations : Combinaison d’Azure RBAC et ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
@@ -154,11 +154,21 @@ Le groupe propriétaire peut être modifié par :
 > [!NOTE]
 > Le groupe propriétaire ne peut pas modifier les ACL d’un fichier ou d’un répertoire.  Alors que le groupe d’appartenance est défini sur l’utilisateur qui a créé le compte dans le cas du répertoire racine, **Cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe d’appartenance. Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
 
-## <a name="access-check-algorithm"></a>Algorithme de vérification des accès
+## <a name="how-permissions-are-evaluated"></a>Évaluation des autorisations
 
-Le pseudocode suivant représente l’algorithme de vérification des accès pour les comptes de stockage.
+Les identités sont évaluées dans l’ordre suivant : 
 
-```console
+1. Superutilisateur
+2. Utilisateur propriétaire
+3. Utilisateur nommé, principal de service ou identité managée
+4. Groupe propriétaire ou groupe nommé
+5. Tous les autres utilisateurs
+
+Si plusieurs de ces identités s’appliquent à un principal de sécurité, le niveau d’autorisation associé à la première identité est accordé. Par exemple, si un principal de sécurité est à la fois l’utilisateur propriétaire et un utilisateur nommé, le niveau d’autorisation associé à l’utilisateur propriétaire s’applique.
+
+Le pseudocode suivant représente l’algorithme de vérification des accès pour les comptes de stockage. Cet algorithme indique l’ordre dans lequel les identités sont évaluées.
+
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -206,7 +216,7 @@ Pour un nouveau conteneur Data Lake Storage Gen2, la valeur par défaut du masqu
 
 |Entité|Répertoires|Files|
 |--|--|--|
-|Utilisateur propriétaire|`rwx`|`r-w`|
+|Utilisateur propriétaire|`rwx`|`rw-`|
 |groupe propriétaire|`r-x`|`r--`|
 |Autre|`---`|`---`|
 

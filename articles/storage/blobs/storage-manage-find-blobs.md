@@ -1,22 +1,22 @@
 ---
-title: Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
+title: Gérer et rechercher des données blob Azure dans l’index d’objet blob
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
 author: normesta
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: bd1738c0a5d63ad9eacaa1500a6ce10268a93b04
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c4ff918be67d74d536159ebbd3e707c1d7e68e8b
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664876"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730745"
 ---
-# <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
+# <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Gérer et rechercher des données blob Azure dans l’index d’objet blob
 
 Plus les jeux de données croissent, plus la recherche d’un objet spécifique dans une mer de données peut s’avérer difficile. Les balises d’index de blob fournissent des capacités de gestion et de découverte de données à l’aide d’attributs de balise d’index clé-valeur. Vous pouvez classer et rechercher des objets dans un seul conteneur ou dans tous les conteneurs de votre compte de stockage. À mesure que les exigences en matière de données changent, les objets peuvent être catégorisés dynamiquement en mettant à jour leurs balises d’index. Les objets peuvent rester à leur emplacement avec leur organisation de conteneur actuelle.
 
@@ -28,9 +28,6 @@ Les balises d’index de blob vous permettent d’effectuer les actions suivante
 - Utiliser des balises d’index pour les contrôles avancés sur les fonctionnalités telles que la [gestion du cycle de vie des blobs](storage-lifecycle-management-concepts.md)
 
 Imaginez un scénario dans lequel vous avez des millions de blobs dans votre compte de stockage, accessibles par de nombreuses applications différentes. Vous souhaitez rechercher toutes les données associées à un projet. Vous n’êtes pas certain de l’étendue concernée, car les données peuvent être réparties sur plusieurs conteneurs avec des conventions d’affectation de noms différentes. Toutefois, vos applications chargent toutes les données avec des balises en fonction de leur projet. Au lieu de rechercher parmi des millions de blobs et de comparer les noms et les propriétés, vous pouvez utiliser `Project = Contoso` comme critère de découverte. Un index de blob filtrera tous les conteneurs sur l’ensemble de votre compte de stockage pour rechercher et renvoyer rapidement un simple ensemble de 50 blobs à partir de `Project = Contoso`.
-
-> [!IMPORTANT]
-> Les balises d’index d’objets blob sont actuellement en **PRÉVERSION** et sont disponibles dans toutes les régions publiques. Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pour bien démarrer, consultez des exemples d’utilisation d’un index de blob dans [Utiliser des balises d’index de blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
 
@@ -222,7 +219,7 @@ L’exemple de règle de gestion du cycle de vie suivant s’applique aux objets
 
 Vous pouvez autoriser l’accès aux balises d’index de blob à l’aide de l’une des approches suivantes :
 
-- En utilisant le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité Azure Active Directory (Azure AD). Utilisez Azure AD pour une meilleure sécurité et une plus grande facilité d’utilisation. Pour plus d’informations sur l’utilisation d’Azure AD avec les opérations d’objet blob, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](../common/storage-auth-aad.md).
+- En utilisant le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité Azure Active Directory (Azure AD). Utilisez Azure AD pour une meilleure sécurité et une plus grande facilité d’utilisation. Pour plus d’informations sur l’utilisation d’Azure AD avec les opérations blob, consultez [Autoriser l’accès aux données dans le stockage Azure](../common/authorize-data-access.md).
 - En utilisant une signature d’accès partagé (SAP) pour déléguer l’accès à l’index de blob. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../common/storage-sas-overview.md).
 - En utilisant les clés d’accès au compte pour autoriser les opérations avec une clé partagée. Pour plus d’informations, consultez [Autoriser avec une clé partagée](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -230,7 +227,7 @@ Les balises d’index de blob sont une sous-ressource des données blob. Un util
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Les appelants utilisant une [identité Azure AD](../common/storage-auth-aad.md) peuvent se voir accorder les autorisations suivantes pour effectuer des opérations sur les étiquettes d’index d’objet blob.
+Les appelants utilisant une [identité Azure AD](../common/authorize-data-access.md) peuvent se voir accorder les autorisations suivantes pour effectuer des opérations sur les étiquettes d’index d’objet blob.
 
 | Opérations sur les balises d’index de blob                                          | Action Azure RBAC                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -282,7 +279,7 @@ Le tableau suivant récapitule les différences entre les métadonnées et les �
 
 ## <a name="pricing"></a>Tarifs
 
-Les tarifs d’index de blob sont en préversion publique et sujets à modification en ce qui concerne la disponibilité générale. Vous êtes facturé pour le nombre moyen mensuel de balises d’index dans un compte de stockage. Aucun coût ne s’applique au moteur d’indexation. Les demandes pour Définir des étiquettes de blob, Obtenir des étiquettes de blob et Rechercher des étiquettes de blob sont facturées aux tarifs de transaction respectifs actuels. Notez que le nombre de transactions de liste consommées lors de la réalisation d’une transaction Rechercher des blobs par étiquette est égal au nombre de clauses dans la demande. Par exemple, la requête (StoreID = 100) est une transaction de liste.  La requête (StoreID = 100 AND SKU = 10010) est deux transactions de liste. Consultez [Tarification d’objet blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) pour en savoir plus.
+Vous êtes facturé pour le nombre moyen mensuel de balises d’index dans un compte de stockage. Aucun coût ne s’applique au moteur d’indexation. Les demandes pour Définir des étiquettes de blob, Obtenir des étiquettes de blob et Rechercher des étiquettes de blob sont facturées aux tarifs de transaction respectifs actuels. Notez que le nombre de transactions de liste consommées lors de la réalisation d’une transaction Rechercher des blobs par étiquette est égal au nombre de clauses dans la demande. Par exemple, la requête (StoreID = 100) est une transaction de liste.  La requête (StoreID = 100 AND SKU = 10010) est deux transactions de liste. Consultez [Tarification d’objet blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) pour en savoir plus.
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilité régionale et prise en charge des comptes de stockage
 
@@ -295,42 +292,20 @@ Les balises d’index d’objets blob sont actuellement disponibles dans toutes 
 Pour commencer, consultez [Utiliser des balises d’index de blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
-> Vous devez inscrire votre abonnement avant de pouvoir utiliser la préversion de l’index de blob sur vos comptes de stockage. Consultez la section [Conditions et problèmes connus](#conditions-and-known-issues) de cet article.
-
-### <a name="register-your-subscription-preview"></a>Inscrire votre abonnement (préversion)
-
-Étant donné que les balises d’index de blob sont uniquement disponibles en préversion publique, vous devez inscrire votre abonnement avant de pouvoir utiliser la fonctionnalité. Pour soumettre une requête, exécutez les commandes PowerShell ou CLI suivantes.
-
-#### <a name="register-by-using-powershell"></a>S’inscrire à l’aide de PowerShell
-
-```powershell
-Register-AzProviderFeature -FeatureName BlobIndex -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-#### <a name="register-by-using-azure-cli"></a>S’inscrire à l’aide d’Azure CLI
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name BlobIndex
-az provider register --namespace 'Microsoft.Storage'
-```
+> Vous devez inscrire votre abonnement avant de pouvoir utiliser l’index d’objet blob dans vos comptes de stockage. Consultez la section [Conditions et problèmes connus](#conditions-and-known-issues) de cet article.
 
 ## <a name="conditions-and-known-issues"></a>Conditions et problèmes connus
 
-Cette section décrit les problèmes connus et les conditions de la préversion publique des balises d’index de blob. Cette fonctionnalité ne doit pas être utilisée pour les charges de travail de production avant d’avoir atteint la disponibilité générale (GA), car le comportement peut changer.
+Cette section décrit les problèmes connus et les conditions dans lesquelles ils se produisent.
 
-- Pour la préversion, vous devez d’abord inscrire votre abonnement avant de pouvoir utiliser l’index d’objet blob pour votre compte de stockage dans les régions en préversion.
-- Seuls les comptes v2 universels sont pris en charge dans la préversion. Les objets blob de blocs Premium, les objets blob hérités et les comptes avec un espace de noms hiérarchique activé ne sont pas pris en charge. Les comptes v1 universels ne sont pas pris en charge.
+- Seuls les comptes v2 universels sont pris en charge. Les objets blob de blocs Premium, les objets blob hérités et les comptes avec un espace de noms hiérarchique activé ne sont pas pris en charge. Les comptes v1 universels ne sont pas pris en charge.
 - Le chargement d’objets blob de pages avec des balises d’index ne conserve pas les balises. Définissez les balises après le chargement d’un objet blob de pages.
 - Lorsque le filtrage est limité à un conteneur individuel, il est possible de passer `@container` seulement si toutes les étiquettes d’index dans l’expression de filtre sont des contrôles d’égalité (clé=valeur).
 - Lorsque vous utilisez l’opérateur de comparaison avec la condition `AND`, vous pouvez uniquement spécifier le même nom de clé de balise d’index (`"Age" > '013' AND "Age" < '100'`).
-- Le contrôle de version et l’index de blob ne sont pas pris en charge. Les balises d’index de blob sont conservées pour les versions, mais ne sont pas transmises au moteur d’index de blob.
+- Si le contrôle de version est activé, vous pouvez continuer à utiliser des balises d’index dans la version actuelle. Dans les versions précédentes, les balises d’index sont conservées pour les versions, mais elles ne sont pas passées au moteur d’index d’objets blob. Vous ne pouvez pas interroger des balises d’index pour récupérer les versions précédentes.
 - Il n’existe aucune API permettant de déterminer si les balises d’index sont indexées.
-- Le basculement de compte n’est pas pris en charge. L’index d’objet blob peut ne pas être mis à jour correctement après le basculement.
 - La gestion du cycle de vie prend en charge uniquement les contrôles d’égalité avec correspondance d’index de blob.
 - `Copy Blob` ne copie pas les balises d’index de blob du blob source dans le nouveau blob de destination. Vous pouvez spécifier les étiquettes que vous souhaitez appliquer à l’objet blob de destination pendant l’opération de copie.
-- En cas d’utilisation de `Copy Blob` (copie asynchrone) à partir d’un autre compte de stockage avec des balises appliquées sur le blob de destination, le moteur d’index de blob ne retourne pas le blob ni ses balises dans le jeu de filtres. Utilisez `Copy Blob` à partir de l’URL (copie de synchronisation).
-- Les balises sont conservées lors de la création d’instantanés. Toutefois, la promotion d’un instantané n’est pas prise en charge et peut aboutir à un jeu de balises vide.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

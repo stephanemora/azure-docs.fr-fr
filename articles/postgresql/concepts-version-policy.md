@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 08/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f4cf4c0109d524d0a8fe62ae1930165173db170
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6d66d030514f121fabe8de36783d879afe0b5ea9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407054"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524147"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Stratégie de contrôle de version Azure Database pour PostgreSQL
 
@@ -24,14 +24,12 @@ Azure Database pour PostgreSQL prend en charge les versions de base de données 
 
 | Version | Serveur unique | Serveur flexible (préversion) | Hyperscale (Citus) |
 | ----- | :------: | :----: | :----: |
-| PostgreSQL 13 |  | X  | X\* |
-| PostgreSQL 12 |  | X  | X\* |
+| PostgreSQL 13 |  | X  | X |
+| PostgreSQL 12 |  | X  | X |
 | PostgreSQL 11 | X | X | X |
 | PostgreSQL 10 | X |  |  |
 | PostgreSQL 9.6 | X |  |  |
 | *PostgreSQL 9.5 (retiré)* | X |  |  |
-
-(\* PostgreSQL 12 et 13 sont disponibles en tant que fonctionnalité d’évaluation dans Hyperscale (Citus).)
 
 ## <a name="major-version-support"></a>Prise en charge de la version principale
 Chaque version principale de PostgreSQL est prise en charge par Azure Database pour PostgreSQL à partir de la date du début de la prise en charge de la version par Azure et jusqu’à ce que la version soit supprimée par la communauté PostgreSQL, comme indiqué dans la [stratégie de contrôle de version de la communauté PostgreSQL](https://www.postgresql.org/support/versioning/).
@@ -55,7 +53,7 @@ Le tableau ci-dessous fournit les détails relatifs au retrait des versions prin
 
 Vous pouvez continuer à exécuter la version supprimée dans Azure Database pour PostgreSQL. Toutefois, notez les restrictions suivantes après la date de suppression pour chaque version de la base de données PostgreSQL :
 - Dans la mesure où la communauté ne publie plus de correctifs de bogues ou de correctifs de sécurité, Azure Database pour PostgreSQL n’effectue pas de mise à jour corrective sur le moteur de base de données supprimé pour la résolution de bogues ou de problèmes de sécurité. Il n’y aura pas non plus de mesures de sécurité concernant le moteur de base de données supprimé. Vous pouvez dès lors être confronté à des failles de sécurité ou à d’autres problèmes. Toutefois, Azure continuera à effectuer des opérations de maintenance et de mise à jour périodiques pour l’hôte, le système d’exploitation, les conteneurs et tout autre composant lié aux services.
-- Si un problème de prise en charge rencontré est lié à la base de données PostgreSQL, il est possible que nous ne puissions pas vous venir en aide. Dans ce cas, vous devrez mettre à niveau votre base de données afin que nous puissions intervenir.
+- Si un problème de support que vous pouvez rencontrer est lié au moteur PostgreSQL lui-même, dans la mesure où la Communauté ne fournit plus les correctifs, nous ne sommes pas en mesure de vous fournir du support technique. Dans ce cas, vous devrez mettre à niveau votre base de données vers une des versions prises en charge.
 - Vous ne serez plus en mesure de créer des serveurs de base de données pour la version supprimée. Toutefois, vous pouvez effectuer des récupérations à un instant dans le passé et créer des réplicas de lecture pour vos serveurs existants.
 - Les nouvelles fonctionnalités de service développées par Azure Database pour PostgreSQL peuvent uniquement être disponibles pour les versions de serveur de base de données prises en charge.
 - Les contrats de niveau de service de durée de fonctionnement s’appliquent uniquement aux problèmes liés au service Azure Database pour PostgreSQL et non aux temps d’arrêt causés par des bogues liés au moteur de base de données.  

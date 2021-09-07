@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 792801c568255b471487c14b6a812942298ad0d4
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 925c468ff744df8b543618e4282ec9b6a9dda78a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906545"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524034"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -64,6 +64,8 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 Le nouvel emplacement de déploiement n’a aucun contenu, même si vous clonez les paramètres à partir d’un autre emplacement. Par exemple, vous pouvez [publier sur cet emplacement avec Git](./deploy-local-git.md). Vous pouvez effectuer un déploiement sur l’emplacement à partir d’une autre branche du dépôt, ou d’un dépôt différent.
 
+L’URL de l’emplacement sera au format `http://sitename-slotname.azurewebsites.net`. Pour conserver la longueur de l’URL dans les limites DNS nécessaires, le nom du site sera tronqué à 40 caractères, le nom de l’emplacement sera tronqué à 19 caractères, et 4 caractères aléatoires supplémentaires seront ajoutés pour garantir l’unicité du nom de domaine obtenu. 
+
 <a name="AboutConfiguration"></a>
 
 ## <a name="what-happens-during-a-swap"></a>Que se passe-t-il pendant un échange ?
@@ -94,6 +96,9 @@ Lorsque vous échangez deux emplacements (en général, vous passez d’un empla
 1. Maintenant que l’emplacement source dispose de l’application de l’emplacement cible avant échange, effectuez la même opération en appliquant tous les paramètres et en redémarrant les instances.
 
 Lors d’une opération d’échange, l’intégralité du processus d’initialisation des applications échangées se déroule dans l’emplacement source. L’emplacement cible reste en ligne pendant la préparation et l’initialisation de l’emplacement source, que l’échange ait réussi ou échoué. Pour échanger un emplacement de préproduction avec un emplacement de production, vérifiez que l’emplacement de production est toujours l’emplacement cible. De cette façon, l’opération d’échange n’affectera pas votre application de production.
+
+> [!NOTE]
+> Les instances de vos anciennes instances de production (qui seront échangées dans l’environnement intermédiaire après cette opération d’échange) seront recyclées rapidement au cours de la dernière étape du processus d’échange. Si vous avez des opérations de longue durée dans votre application, elles sont abandonnées, lors du recyclage des travaux. Cela s’applique également aux applications de fonction. Par conséquent, votre code d’application doit être écrit d’une manière tolérante aux pannes. 
 
 ### <a name="which-settings-are-swapped"></a>Quels sont les paramètres échangés ?
 
@@ -173,7 +178,7 @@ Si des erreurs se produisent dans l’emplacement cible (par exemple, l’emplac
 ## <a name="configure-auto-swap"></a>Configurer l’échange automatique
 
 > [!NOTE]
-> L’échange automatique n’est pas pris en charge dans les applications web sur Linux.
+> L’échange automatique n’est pas pris en charge dans les applications web sur Linux et Web App pour conteneurs.
 
 L’échange automatique simplifie les scénarios Azure DevOps impliquant un déploiement de l’application en continu, sans démarrage à froid ni temps d’arrêt pour les utilisateurs de l’application. Lorsque vous activez l’échange automatique d’un emplacement vers l’emplacement de production, chaque fois que vous envoyez (push) des modifications de votre code à cet emplacement, App Service [fait basculer automatiquement l’application vers la production](#swap-operation-steps) après son initialisation dans l’emplacement source.
 

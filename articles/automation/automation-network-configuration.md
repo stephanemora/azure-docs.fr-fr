@@ -4,12 +4,12 @@ description: Cet article fournit des détails sur les informations réseau requi
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c3b00a3d60db16c3b768494f8630587a16033d8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708881"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465796"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Détails de la configuration réseau d’Azure Automation
 
@@ -36,7 +36,7 @@ Si vos nœuds se trouvent dans un réseau privé, le port et les URL définis ci
 
 Si vous utilisez des ressources DSC qui communiquent entre des nœuds, telles que les [ressources WaitFor*](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), vous devez également autoriser le trafic entre les nœuds. Pour connaître la configuration réseau requise, consultez la documentation de chaque ressource DSC.
 
-Pour comprendre la configuration requise du client pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Pour comprendre les exigences client pour TLS 1.2, consultez [TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
 
 ## <a name="update-management-and-change-tracking-and-inventory"></a>Update Management et Suivi des modifications et inventaire
 

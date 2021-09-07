@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f2219f5052aee0c0a9cd43aa87df8789adbcae2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 73c91e1c4d72fce5757b0b1a0caafc22e0fbcc60
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783086"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114230514"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)
 
@@ -127,7 +127,7 @@ Configuration requise pour l’utilisation de votre propre adresse IP publique o
 
 - Les adresses IP publiques personnalisées doivent être créées et détenues par l’utilisateur. Les adresses IP publiques gérées créées par AKS ne peuvent pas être réutilisées comme adresses IP personnalisées car cela peut entraîner des conflits de gestion.
 - Vous devez vérifier que l’identité de cluster AKS (principal du service ou identité managée) dispose des autorisations nécessaires pour accéder à l’adresse IP sortante. Conformément à la [liste des autorisations d’adresses IP publiques requises](kubernetes-service-principal.md#networking).
-- Assurez-vous que vous respectez les [conditions préalables et contraintes](../virtual-network/public-ip-address-prefix.md#constraints) requises pour configurer des adresses IP sortantes ou des préfixes d’adresses IP sortantes.
+- Assurez-vous que vous respectez les [conditions préalables et contraintes](../virtual-network/public-ip-address-prefix.md#limitations) requises pour configurer des adresses IP sortantes ou des préfixes d’adresses IP sortantes.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Mettre à jour le cluster avec votre propre adresse IP publique sortante
 
@@ -342,7 +342,7 @@ Souvent, la cause racine de l’épuisement des ressources SNAT est un anti-mod�
 ### <a name="steps"></a>Étapes
 1. Vérifiez si vos connexions restent inactives pendant une longue période et s’appuient sur le délai d’expiration par défaut pour libérer ce port. Dans ce cas, le délai d’expiration par défaut de 30 minutes devra éventuellement être réduit pour votre scénario.
 2. Examinez comment votre application crée une connectivité sortante (par exemple, la révision de code ou la capture de paquets).
-3. Déterminez si cette activité est un comportement attendu ou si l’application ne fonctionne pas correctement. Utilisez des [métriques](../load-balancer/load-balancer-standard-diagnostics.md) et des [journaux d’activité](../load-balancer/load-balancer-monitor-log.md) dans Azure Monitor pour justifier vos découvertes. Utilisez la catégorie « Échec » pour la métrique Connexions SNAT, par exemple.
+3. Déterminez si cette activité est un comportement attendu ou si l’application ne fonctionne pas correctement. Utilisez des [métriques](../load-balancer/load-balancer-standard-diagnostics.md) et des [journaux d’activité](../load-balancer/monitor-load-balancer.md) dans Azure Monitor pour justifier vos découvertes. Utilisez la catégorie « Échec » pour la métrique Connexions SNAT, par exemple.
 4. Évaluez si les [modèles](#design-patterns) appropriés sont suivis.
 5. Évaluez si l’épuisement des ports SNAT doit être atténué avec des [adresses IP sortantes supplémentaires + des ports sortants alloués supplémentaires](#configure-the-allocated-outbound-ports).
 

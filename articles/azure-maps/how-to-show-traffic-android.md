@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: aabe246c343537a42c33d3eaad0bfae3989022fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 012fdf6e35b0b0c27f8ad9afe10b5f70709fcc64
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604513"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093555"
 ---
 # <a name="show-traffic-data-on-the-map-android-sdk"></a>Affichage des données de trafic sur la carte (Android SDK)
 
@@ -31,12 +31,12 @@ Deux types de données de trafic sont disponibles dans Azure Maps :
 - Données d’incident : elles se composent de données de type point et ligne pour des éléments tels que les travaux, les fermetures de route et les accidents.
 - Données de circulation : elles fournissent des métriques concernant la circulation sur les routes. Les données de circulation sont souvent utilisées pour colorer les routes. Les couleurs dépendent du volume de circulation qui entraîne un ralentissement par rapport à la limite de vitesse ou à une autre métrique. Quatre valeurs peuvent être passées dans l’option TrafficFlow de la carte.
 
-    |Valeur de flux | Description|
+    |Enum de flux | Description|
     | :-- | :-- |
-    | TrafficFlow.NONE | N’affiche pas de données de trafic sur la carte |
-    | TrafficFlow.RELATIVE | Affiche des données de trafic relatives à la vitesse dans des conditions de circulation routière fluide |
-    | TrafficFlow.RELATIVE_DELAY | Affiche les zones qui sont plus lentes que le délai moyen attendu |
-    | TrafficFlow.ABSOLUTE | Affiche la vitesse absolue de tous les véhicules circulant sur la route |
+    | `TrafficFlow.NONE` | N’affiche pas de données de trafic sur la carte |
+    | `TrafficFlow.RELATIVE` | Affiche des données de trafic relatives à la vitesse dans des conditions de circulation routière fluide |
+    | `TrafficFlow.RELATIVE_DELAY` | Affiche les zones qui sont plus lentes que le délai moyen attendu |
+    | `TrafficFlow.ABSOLUTE` | Affiche la vitesse absolue de tous les véhicules circulant sur la route |
 
 Le code suivant montre comment afficher les données de trafic sur la carte.
 
@@ -182,6 +182,77 @@ map.events.add(OnFeatureClick { features: List<Feature>? ->
 La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, des informations de trafic en temps réel sur la carte avec un message flottant indiquant les détails de l’incident.
 
 ![Carte présentant des informations de trafic en temps réel avec un message toast indiquant les détails de l’incident](media/how-to-show-traffic-android/android-traffic-details.png)
+
+## <a name="filter-traffic-incidents"></a>Filtrer les incidents de circulation
+
+Dans la plupart des grandes villes, au cours d’une journée ordinaire, il peut y avoir une multitude d’incidents de circulation. Toutefois, selon votre scénario, il peut être souhaitable de filtrer et d’afficher un sous-ensemble de ces incidents. Lors de la définition des options de circulation, il existe les options `incidentCategoryFilter` et `incidentMagnitudeFilter` qui acceptent en entrée un tableau de catégories d’incidents, d’énumérateurs de grandeur ou de valeurs de chaîne.
+
+Le tableau suivant indique toutes les catégories d’incidents de circulation qui peuvent être utilisées dans l’option `incidentCategoryFilter`.
+
+| Enum de catégorie | Valeur de chaîne | Description |
+|--------------------|--------------|-------------|
+| `IncidentCategory.UNKNOWN` | `"unknown"` | Incident qui ne correspond à aucune des catégories définies ou qui n’a pas encore été classifié. |
+| `IncidentCategory.ACCIDENT` | `"accident"` | Accident de circulation. |
+| `IncidentCategory.FOG` | `"fog"` | Brouillard qui réduit la visibilité, ce qui réduit probablement le flux de circulation et augmente éventuellement le risque d’accident. |
+| `IncidentCategory.DANGEROUS_CONDITIONS` | `"dangerousConditions"` | Situation dangereuse sur la route, telle qu’un objet sur la chaussée. |
+| `IncidentCategory.RAIN` | `"rain"` | Forte pluie susceptible de réduire la visibilité, de compliquer les conditions de conduite et d’augmenter éventuellement le risque d’accident. |
+| `IncidentCategory.ICE` | `"ice"` | Conditions de verglas qui peuvent compliquer la conduite ou la rendre dangereuse. |
+| `IncidentCategory.JAM` | `"jam"` | Embouteillage entraînant un ralentissement de la circulation. |
+| `IncidentCategory.LANE_CLOSED` | `"laneClosed"` | Fermeture d’une voie sur la chaussée. |
+| `IncidentCategory.ROAD_CLOSED` | `"roadClosed"` | Fermeture d’une route. |
+| `IncidentCategory.ROAD_WORKS` | `"roadWorks"` | Travaux/construction dans cette zone. |
+| `IncidentCategory.WIND` | `"wind"` | Vents violents qui peuvent compliquer la conduite des véhicules avec un profil de grande taille ou un centre de gravité élevé. |
+| `IncidentCategory.FLOODING` | `"flooding"` | Chaussée inondée. |
+| `IncidentCategory.DETOUR` | `"detour"` | Le trafic est dirigé vers une déviation. |
+| `IncidentCategory.CLUSTER` | `"cluster"` | Cluster d’incidents de circulation de différentes catégories. Si vous effectuez un zoom sur la carte, le cluster se décompose en incidents individuels. |
+| `IncidentCategory.BROKEN_DOWN_VEHICLE` | `"brokenDownVehicle"` | Véhicule en panne sur la chaussée ou au bord de la route. |
+
+Le tableau suivant indique toutes les grandeurs d’incidents de circulation qui peuvent être utilisées dans l’option `incidentMagnitudeFilter`.
+
+| Enum de grandeur | Valeur de chaîne | Description |
+|--------------------|--------------|-------------|
+| `IncidentMagnitude.UNKNOWN` | `"unknown"` | Incident dont la grandeur n’a pas encore été classifiée. |
+| `IncidentMagnitude.MINOR` | `"minor"` | Problème de circulation mineur, souvent indiqué à titre d’information et qui a un impact minimal sur le flux de circulation. |
+| `IncidentMagnitude.MODERATE` | `"moderate"` | Problème de circulation modéré qui a un impact sur le flux de circulation. |
+| `IncidentMagnitude.MAJOR` | `"major"` |  Problème de circulation majeur qui a un impact significatif sur le flux de circulation. |
+
+Le code suivant filtre les incidents de circulation, de sorte que seuls les embouteillages modérés et les incidents présentant un danger sont affichés sur la carte.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+map.setTraffic(
+    incidents(true),
+    incidentMagnitudeFilter(new String[] { IncidentMagnitude.MODERATE }),
+    incidentCategoryFilter(new String[] { IncidentCategory.DANGEROUS_CONDITIONS, IncidentCategory.JAM })              
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setTraffic(
+    incidents(true),
+    incidentMagnitudeFilter(*arrayOf(IncidentMagnitude.MODERATE)),
+    incidentCategoryFilter(
+        *arrayOf(
+            IncidentCategory.DANGEROUS_CONDITIONS,
+            IncidentCategory.JAM
+        )
+    )
+)
+```
+
+::: zone-end
+
+La capture d’écran suivante montre une carte des embouteillages modérés et des incidents présentant un danger.
+
+![Carte des embouteillages modérés et incidents présentant un danger.](media/how-to-show-traffic-android/android-traffic-incident-filters.jpg)
+
+> [!NOTE]
+> Plusieurs catégories peuvent être affectées à certains incidents de circulation. Si un incident a une catégorie qui correspond à une option transmise dans `incidentCategoryFilter`, il est affiché. La catégorie d’incident principale peut être différente des catégories spécifiées dans le filtre et afficher ainsi une icône différente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

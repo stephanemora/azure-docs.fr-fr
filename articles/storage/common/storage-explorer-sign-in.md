@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: chuye
-ms.openlocfilehash: 26ce15bfe474f96aaef17f186f56e36ce42b7239
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7ef07280d65f3533e1def6475e40a65b16f0f6c3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950529"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563910"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Se connecter à l’Explorateur Stockage
 
@@ -50,7 +50,7 @@ Par défaut, la connexion s’effectue dans le **navigateur web par défaut** de
 
 Sous **Paramètres (icône d'engrenage à gauche)**  > **Application** > **Se connecter**, recherchez le paramètre **Se connecter avec**. Vous disposez de trois options :
 - **Navigateur web par défaut** : la connexion s’effectue dans le **navigateur web par défaut** de votre système d’exploitation. Cette option est recommandée.
-- **Connexion intégrée** : la connexion va s’effectuer dans une fenêtre d’Explorateur Stockage. Cette option peut être utile si vous essayez de vous connecter avec plusieurs comptes Microsoft à la fois. Vous pouvez rencontrer des problèmes avec certaines stratégies d’accès conditionnel si vous choisissez cette option.
+- **Connexion intégrée** : la connexion va s’effectuer dans une fenêtre d’Explorateur Stockage. Cette option peut vous être utile si vous rencontrez des difficultés pour vous connecter à l’aide de votre **navigateur web par défaut**.
 - **Flux de code d’appareil** : Explorateur Stockage va vous donner un code à entrer dans une fenêtre du navigateur. Cette option n’est pas recommandée. Le flux de code d’appareil n’est pas compatible avec de nombreuses stratégies d’accès conditionnel.
 
 ## <a name="troubleshooting-sign-in-issues"></a>Résolution des problèmes de connexion

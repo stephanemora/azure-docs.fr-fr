@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: security-recommendations
-ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 260f8682766187ba9cedb3b5bf951e06548c0048
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592158"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727937"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recommandations de sécurité pour le Stockage File d’attente
 
@@ -37,7 +37,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 
 | Recommandation | Commentaires | Security Center |
 |-|----|--|
-| Utiliser Azure Active Directory (Azure AD) pour autoriser l’accès aux données d’objet de file d’attente | Azure AD offre une sécurité et une facilité d’utilisation supérieures à celles de l’autorisation Clé partagée pour l’autorisation des requêtes envoyées au Stockage File d’attente. Pour plus d’informations, voir [Autoriser l’accès aux objets blob et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Utiliser Azure Active Directory (Azure AD) pour autoriser l’accès aux données d’objet de file d’attente | Azure AD offre une sécurité et une facilité d’utilisation supérieures à celles de l’autorisation Clé partagée pour l’autorisation des requêtes envoyées au Stockage File d’attente. Pour plus d’informations, consultez [Autoriser l’accès aux données dans Stockage Azure](../common/authorize-data-access.md). | - |
 | Garder à l’esprit le principe du moindre privilège lors de l’attribution d’autorisations à un principal de sécurité Azure AD via Azure RBAC | Quand vous attribuez un rôle à un utilisateur, un groupe ou une application, accordez à ce principal de sécurité seulement les autorisations nécessaires pour effectuer ses tâches. La limitation de l’accès aux ressources permet d’éviter une mauvaise utilisation accidentelle et malveillante de vos données. | - |
 | Sécuriser vos clés d’accès de compte avec Azure Key Vault | Microsoft recommande d’utiliser Azure AD pour autoriser les demandes auprès de Stockage Azure. Cependant, si vous devez utiliser l’autorisation Clé partagée, sécurisez vos clés de compte avec Azure Key Vault. Vous pouvez récupérer les clés du coffre de clés au Moment de l’exécution, au lieu de les enregistrer avec votre application. | - |
 | Regénérer régulièrement vos clés de compte | Effectuer une rotation des clés de compte régulièrement réduit le risque d’exposer vos données à des acteurs malveillants. | - |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: b375ad72d3ef459635c4a786391ef7b9836d8a99
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b1dc3b61c73894d7792835000f0e13e0bc8b412b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411581"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524281"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Activer Azure Defender pour serveurs SQL Server sur des machines 
 
@@ -30,10 +30,10 @@ Vous voyez s’afficher des alertes en cas d’activités de base de données su
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Disponibilité générale (GA)|
+|État de sortie :|Disponibilité générale|
 |Prix :|**Azure Defender pour serveurs SQL Server sur des machines** est facturé conformément à la [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Versions de SQL protégées :|Azure SQL Server (toutes les versions couvertes par le support Microsoft)|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Configurer Azure Defender pour les serveurs SQL sur des machines
@@ -73,11 +73,11 @@ Pour activer ce plan :
 
     - Si vous utilisez un **espace de travail autre que celui par défaut**, sélectionnez **l’espace de travail** approprié (entrez le nom de l’espace de travail dans le filtre, si nécessaire) :
 
-        ![Recherche de votre espace de travail non défini par défaut par titre](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![Recherche de votre espace de travail non défini par défaut par titre.](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 1. Définissez l’option pour le plan **Azure Defender pour les serveurs SQL Server sur les machines** à  **sur**. 
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Page de tarification Security Center avec des plans facultatifs":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Page de tarification Security Center avec des plans facultatifs.":::
 
     Le plan est activé sur tous les serveurs SQL connectés à l’espace de travail sélectionné. La protection sera complètement active après le premier redémarrage de l’instance SQL Server.
 

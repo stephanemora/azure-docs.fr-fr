@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/17/2021
+ms.openlocfilehash: 61fb6de73567b7a83e2c4db2010c717a160aebe0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562033"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473985"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classement sémantique dans Recherche cognitive Azure
 
 > [!IMPORTANT]
-> Les fonctionnalités de recherche sémantique sont disponibles en préversion publique, uniquement via l’API REST en préversion et le portail. Les fonctionnalités en préversion sont proposées telles quelles, sous des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), et ne sont pas garanties d’avoir la même implémentation lors de la mise à la disposition générale. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarifs](semantic-search-overview.md#availability-and-pricing).
+> La fonctionnalité de recherche sémantique est en préversion publique dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, la préversion de l’API REST et les Kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
 
 Le classement sémantique est une extension du pipeline d’exécution de requête qui améliore la précision en reclassant les meilleures correspondances d’un jeu de résultats initial. Le classement sémantique s’appuie sur de grands réseaux basés sur un transformateur, formés pour capturer la sémantique de termes de requête, par opposition à la correspondance linguistique de mots clés. Contrairement à l’[algorithme de classement de similarité par défaut](index-ranking-similarity.md), le classeur sémantique utilise le contexte et le sens des mots pour déterminer la pertinence.
 
@@ -40,8 +40,10 @@ Avant d’évaluer la pertinence, le contenu doit être réduit à un nombre gé
 
 Chaque document est désormais représenté par une seule chaîne longue.
 
+La chaîne est composée de jetons, et non de caractères ou de mots. Le nombre maximal de jetons est de 128 jetons uniques. À des fins d’estimation, vous pouvez supposer que 128 jetons sont à peu près équivalents à une chaîne de 128 mots. 
+
 > [!NOTE]
-> La chaîne est composée de jetons, et non de caractères ou de mots. La segmentation du texte en unités lexicales est déterminée en partie par l’affectation de l’analyseur à des champs pouvant faire l’objet d’une recherche. Si vous utilisez un analyseur spécialisé, tel que nGram ou EdgeNGram, vous pouvez exclure ce champ de searchFields. Pour obtenir des informations sur la façon dont les chaînes sont segmentées en unités lexicales, vous pouvez examiner la sortie de jeton d’un analyseur à l’aide de l’[API REST Analyseur de test](/rest/api/searchservice/test-analyzer).
+>La segmentation du texte en unités lexicales est déterminée en partie par l’affectation de l’analyseur à des champs pouvant faire l’objet d’une recherche. Si vous utilisez un analyseur spécialisé, tel que nGram ou EdgeNGram, vous pouvez exclure ce champ de searchFields. Pour obtenir des informations sur la façon dont les chaînes sont segmentées en unités lexicales, vous pouvez examiner la sortie de jeton d’un analyseur à l’aide de l’[API REST Analyseur de test](/rest/api/searchservice/test-analyzer).
 
 ## <a name="extraction"></a>Extraction
 

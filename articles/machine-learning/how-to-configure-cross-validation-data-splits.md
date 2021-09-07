@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: 00c3cd6f6a4e5878a3a426aa5622cc53487f2bdd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 82ea26a5522d44bb39adc30f388f996688cb1ad5
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131401"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525706"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurer les fractionnements de données et la validation croisée dans les opérations de Machine Learning automatisé
 
@@ -44,6 +44,8 @@ Pour cet article, vous avez besoin des éléments suivants :
     * [À propos des données de formation, de validation et de test dans le Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Comprendre la validation croisée dans le Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Fractionnements de données et validation croisée par défaut dans le Machine Learning
 
@@ -74,7 +76,7 @@ Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cr
 Dans ce cas, vous pouvez démarrer avec un seul fichier de données et le fractionner en jeux de données de formation et de validation, ou vous pouvez fournir un fichier de données distinct pour le jeu de validation. Dans les deux cas, le paramètre `validation_data` de votre objet `AutoMLConfig` assigne les données à utiliser comme jeu de validation. Ce paramètre n’accepte que les jeux de données sous la forme d’un [jeu données Azure Machine Learning](how-to-create-register-datasets.md) ou d’un cadre de données Pandas.   
 
 > [!NOTE]
-> Le paramètre `validation_size` n’est pas pris en charge dans les scénarios de prévision.
+> Le paramètre `validation_data` nécessite que les paramètres `training_data` et `label_column_name` soient également définis. Vous ne pouvez définir qu’un seul paramètre de validation ; en d’autres termes, vous ne pouvez spécifier que `validation_data` ou `n_cross_validations`, pas les deux.
 
 L’exemple de code suivant définit explicitement la partie des données fournies dans `dataset` à utiliser pour l’apprentissage et la validation.
 

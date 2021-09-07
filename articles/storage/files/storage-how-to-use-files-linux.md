@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Files avec Linux | Microsoft Docs
+title: Monter un partage de fichiers SMB Azure sur Linux | Microsoft Docs
 description: Découvrez comment monter un partage de fichiers Azure via SMB sur Linux. Consultez la liste des conditions requises. Passez en revue les considérations relatives à la sécurité SMB sur les clients Linux.
 author: roygara
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7e02d85fe5385b8918fbfdb037382aeeef444267
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 629770f2ef539f2f6e7ca8121adb941928943534
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088351"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117732"
 ---
-# <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
+# <a name="mount-smb-azure-file-share-on-linux"></a>Monter un partage de fichiers SMB Azure sur Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS).
 
 La méthode recommandée pour monter un partage de fichiers Azure sur Linux est d’utiliser SMB 3.1.1. Par défaut, Azure Files exige un chiffrement en transit, que SMB 3.0+ prend en charge. Azure Files prend aussi en charge SMB 2.1, qui ne prend pas en charge le chiffrement en transit, mais des impératifs de sécurité peuvent vous interdire de monter des partages de fichiers Azure avec SMB 2.1 à partir d’une autre région Azure ou de votre environnement local. À moins que votre application nécessite spécifiquement SMB 2.1, utilisez SMB 3.1.1.
@@ -35,6 +35,13 @@ uname -r
 
 > [!Note]  
 > La prise en charge de SMB 2.1 a été ajoutée à la version 3.7 du noyau Linux. Si vous utilisez une version du noyau Linux après la 3.7, elle devrait prendre en charge SMB 2.1.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 <a id="smb-client-reqs"></a>
@@ -297,88 +304,9 @@ La dernière étape consiste à redémarrer le service `autofs`.
 sudo systemctl restart autofs
 ```
 
-## <a name="securing-linux"></a>Sécurisation de Linux
-Le port 445 doit être accessible pour monter un partage de fichiers Azure avec SMB. De nombreuses organisations bloquent le port 445 en raison des risques de sécurité inhérents à SMB 1. SMB 1, aussi appelé CIFS (Common Internet File System), est un protocole de système de fichiers hérité intégré à de nombreuses distributions Linux. SMB 1 est un protocole obsolète, inefficace et qui pose surtout des problèmes de sécurité. La bonne nouvelle, c’est qu’Azure Files ne prend pas en charge SMB 1 et qu’à partir de la version 4.18 de son noyau, Linux permet de désactiver SMB 1. Dans tous les cas, nous vous [recommandons vivement](https://aka.ms/stopusingsmb1) de désactiver SMB 1 sur vos clients Linux avant d’utiliser des partages de fichiers SMB en production.
-
-À partir de la version 4.18 du noyau Linux, le module de noyau SMB, appelé `cifs` pour des raisons d’héritage, expose un nouveau paramètre de module (souvent appelé *param* par diverses documentations externes) sous le nom `disable_legacy_dialects`. Bien qu’ils aient été introduits dans la version 4.18 du noyau Linux, certains fournisseurs ont rétroporté cette modification sur des noyaux plus anciens qu’ils prennent en charge. Pour des raisons pratiques, le tableau suivant détaille la disponibilité de ce paramètre de module sur les distributions Linux courantes.
-
-| Distribution | Possibilité de désactivation de SMB 1 |
-|--------------|-------------------|
-| Ubuntu 14.04-16.04 | Non |
-| Ubuntu 18.04 | Oui |
-| Ubuntu 19.04+ | Oui |
-| Debian 8-9 | Non |
-| Debian 10+ | Oui |
-| Fedora 29+ | Oui |
-| CentOS 7 | Non | 
-| CentOS 8+ | Oui |
-| Red Hat Enterprise Linux 6.x-7.x | Non |
-| Red Hat Enterprise Linux 8+ | Oui |
-| openSUSE Leap 15.0 | Non |
-| openSUSE Leap 15.1+ | Oui |
-| openSUSE Tumbleweed | Oui |
-| SUSE Linux Enterprise 11.x-12.x | Non |
-| SUSE Linux Enterprise 15 | Non |
-| SUSE Linux Enterprise 15.1 | Non |
-
-Vous pouvez vérifier si votre distribution Linux prend en charge le paramètre de module `disable_legacy_dialects` via la commande suivante.
-
-```bash
-sudo modinfo -p cifs | grep disable_legacy_dialects
-```
-
-Cette commande doit générer le message suivant :
-
-```output
-disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
-```
-
-Avant de désactiver SMB 1, vous devez vérifier que le module SMB n’est pas actuellement chargé sur votre système (ce qui se produit automatiquement si vous avez monté un partage SMB). Pour cela, vous pouvez utiliser la commande suivante, qui ne doit générer aucun résultat si SMB n’est pas chargé :
-
-```bash
-lsmod | grep cifs
-```
-
-Pour décharger le module, commencez par démonter tous les partages SMB (à l’aide de la commande `umount` comme décrit ci-dessus). Vous pouvez identifier tous les partages SMB montés sur votre système à l’aide de la commande suivante :
-
-```bash
-mount | grep cifs
-```
-
-Une fois que vous avez démonté tous les partages de fichiers SMB, vous pouvez décharger le module sans risque. Pour cela, utilisez la commande `modprobe` :
-
-```bash
-sudo modprobe -r cifs
-```
-
-Vous pouvez charger manuellement le module avec SMB 1 déchargé à l’aide de la commande `modprobe` :
-
-```bash
-sudo modprobe cifs disable_legacy_dialects=Y
-```
-
-Enfin, vous pouvez vérifier que le module SMB a bien été chargé avec le paramètre en examinant les paramètres chargés dans `/sys/module/cifs/parameters` :
-
-```bash
-cat /sys/module/cifs/parameters/disable_legacy_dialects
-```
-
-Pour désactiver de façon permanente SMB 1 sur les distributions Ubuntu et Debian, vous devez créer un fichier (si vous n’avez pas déjà d’options personnalisées pour d’autres modules) sous le nom `/etc/modprobe.d/local.conf` avec le paramètre. Pour ce faire, vous pouvez utiliser la commande suivante :
-
-```bash
-echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
-```
-
-Vous pouvez vérifier que cela a fonctionné en chargeant le module SMB :
-
-```bash
-sudo modprobe cifs
-cat /sys/module/cifs/parameters/disable_legacy_dialects
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files :
 
-* [Planification d’un déploiement Azure Files](storage-files-planning.md)
-* [FORUM AUX QUESTIONS](./storage-files-faq.md)
-* [Dépannage](storage-troubleshoot-linux-file-connection-problems.md)
+- [Planification d’un déploiement Azure Files](storage-files-planning.md)
+- [Supprimer SMB 1 de Linux](files-remove-smb1-linux.md)
+- [Dépannage](storage-troubleshoot-linux-file-connection-problems.md)

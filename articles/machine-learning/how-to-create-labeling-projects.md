@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: c4edd4317bf125b4aa8dd8ebf404613c7fab3ba8
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 54ed2504063cc3a0479d37127888ccb727fbd671
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290477"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562707"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes
 
@@ -26,7 +26,8 @@ Découvrez comment créer et exécuter des projets pour étiqueter des images ou
 > [!Important]
 > Les images ou le texte des données doivent être disponibles dans un magasin de données d’objets blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des fichiers pendant la création du projet.)
 
-Les données image peuvent être des fichiers des types suivants : .jpg, .jpeg, .png, .jpe, .jfif, .bmp, .tif, .tiff. Chaque fichier est un élément à étiqueter.
+Les données image peuvent être des fichiers des types suivants : .jpg, .jpeg, .png, .jpe, .jfif, .bmp, .tif, .tiff, .dcm, .dicom Chaque fichier est un élément à étiqueter.
+ 
 Les données de texte peuvent être des fichiers .txt ou .csv.
 
 * Pour les fichiers .txt, chaque fichier représente un seul élément à étiqueter.
@@ -44,7 +45,7 @@ L’étiquetage des données Azure Machine Learning est un emplacement central p
 - Les données à étiqueter, dans des fichiers locaux ou un stockage Blog Azure.
 - L’ensemble d’étiquettes à appliquer.
 - Des instructions pour l’étiquetage.
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-a-data-labeling-project"></a>Créer un projet d’étiquetage des données
@@ -66,7 +67,6 @@ Pour créer un projet, sélectionnez **Ajouter un projet**. Donnez-lui un nom ap
   * Choisissez **Identification d’objet (cadre englobant)** pour les projets où vous souhaitez affecter une étiquette et un cadre englobant à chaque objet d’une image.
   * Choisissez **Segmentation d’instance (polygone)** pour les projets quand vous voulez attribuer une étiquette et tracer un polygone autour de chaque objet dans une image.
 
-    
 * Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
 
 ### <a name="text-labeling-project-preview"></a>Projet d’étiquetage de texte (préversion)
@@ -100,7 +100,9 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 
 1. Sélectionnez **Créer un jeu de données** > **À partir du magasin de données**.
 1. Affectez un **Nom** à votre jeu de données.
-1. Choisissez le **type de jeu de données**.  Seuls les jeux de données de type fichier sont pris en charge pour les images. Les types fichier et tabulaire sont disponibles pour l’étiquetage de texte.
+1. Choisissez le **type de jeu de données**.  Seuls les jeux de données de type fichier sont pris en charge pour les images. Pour un projet d’étiquetage de texte :
+    * Sélectionnez **Tabulaire** si vous utilisez un fichier .csv, où chaque ligne est une réponse.
+    * Sélectionnez **Fichier** si vous utilisez des fichiers .txt distincts pour chaque réponse.
 1. Sélectionnez le magasin de données.
 1. Si vos données se trouvent dans un sous-dossier de votre Stockage Blob, choisissez **Parcourir** pour sélectionner le chemin.
     * Ajoutez « /** » au chemin pour inclure tous les fichiers des sous-dossiers du chemin sélectionné.
@@ -115,7 +117,9 @@ Pour charger directement vos données :
 
 1. Sélectionnez **Créer un jeu de données** > **À partir de fichiers locaux**.
 1. Affectez un **Nom** à votre jeu de données.
-1. Choisissez le **type de jeu de données**.  Seuls les jeux de données de type fichier sont pris en charge pour les images. Les types fichier et tabulaire sont disponibles pour l’étiquetage de texte.
+1. Choisissez le **type de jeu de données**.   Seuls les jeux de données de type fichier sont pris en charge pour les images. Pour un projet d’étiquetage de texte :
+    * Sélectionnez **Tabulaire** si vous utilisez un fichier .csv, où chaque ligne est une réponse.
+    * Sélectionnez **Fichier** si vous utilisez des fichiers .txt distincts pour chaque réponse.
 1. *Facultatif :* Sélectionnez **Paramètres avancés** pour personnaliser le magasin de données, le conteneur et le chemin de vos données.
 1. Sélectionnez **Parcourir** pour choisir les fichiers locaux à charger.
 1. Fournissez une description de votre jeu de données.
@@ -164,7 +168,7 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 
 ## <a name="use-ml-assisted-data-labeling"></a>Utiliser l’étiquetage des données assisté par ML
 
-La page **Étiquetage assisté par ML** vous permet de déclencher des modèles Machine Learning automatiques pour accélérer les tâches d’étiquetage. Elle est uniquement disponible pour l’étiquetage d’images.
+La page **Étiquetage assisté par ML** vous permet de déclencher des modèles Machine Learning automatiques pour accélérer les tâches d’étiquetage. Elle est uniquement disponible pour l’étiquetage d’images. Les images médicales (« .dcm ») ne sont pas incluses dans l’étiquetage assisté.
 
 Au début de votre projet d’étiquetage, les éléments sont mélangés dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos éléments appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
 
@@ -274,7 +278,7 @@ Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes su
 Utilisez le bouton **Exporter** de la page **Détails du projet** de votre projet d’étiquetage. Vous pouvez exporter les données d’étiquette pour Machine Learning - Expérimentation à tout moment. 
 
 * Vous pouvez exporter des étiquettes de texte sous forme de :
-    * Fichier AvCSV. Le fichier CSV est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé dans *Labeling/export/csv*. 
+    * Fichier CSV. Le fichier CSV est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé dans *Labeling/export/csv*. 
     * [Jeu de données Azure Machine Learning comportant des étiquettes](how-to-use-labeled-dataset.md). 
 
 * Vous pouvez exporter des étiquettes d’image sous forme de :

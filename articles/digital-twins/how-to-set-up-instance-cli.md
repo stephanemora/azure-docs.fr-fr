@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d44e73b7d4c2988fb26c947100faac2ebcbe8f8f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6f64791df0c564183900fd75c718ac4e5f9d0976
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474591"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468841"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurer une instance Azure Digital Twins et l’authentification (interface CLI)
 
@@ -21,8 +21,8 @@ ms.locfileid: "110474591"
 Cet article explique comment **configurer une nouvelle instance Azure Digital Twins**, notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide de l’interface CLI.
-* Pour suivre ces étapes manuellement à l’aide du portail Azure, consultez la version de cet article relative au portail : [Guide pratique : Configurer une instance et l’authentification (portail)](how-to-set-up-instance-portal.md) .
-* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [Guide pratique : Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md) .
+* Pour suivre ces étapes manuellement dans le portail Azure, consultez la version portail de cet article dans [Configurer une instance et l’authentification (portail)](how-to-set-up-instance-portal.md).
+* Pour effectuer une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version scriptée de cet article dans [Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -41,7 +41,7 @@ Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital 
 * Une région pour le déploiement. Pour connaître les régions qui prennent en charge Azure Digital Twins, visitez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * Un nom pour votre instance. Si votre abonnement a une autre instance Azure Digital Twins dans la région qui utilise déjà le nom spécifié, vous êtes invité à choisir un autre nom.
 
-Utilisez ces valeurs dans la commande suivante pour créer l’instance :
+Utilisez ces valeurs dans la [commande az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) suivante pour créer l’instance :
 
 ```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
@@ -101,7 +101,7 @@ Vous disposez maintenant d’une instance Azure Digital Twins prête à l’empl
 
 Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Concepts : Ensemble de commandes CLI Azure Digital Twins](concepts-cli.md)
+* [Ensemble de commandes CLI Azure Digital Twins](concepts-cli.md)
 
 Vous pouvez également découvrir comment connecter une application cliente à votre instance avec un code d’authentification :
-* [Guide pratique : Écrire le code d’authentification de l’application](how-to-authenticate-client.md)
+* [Écrire le code d’authentification de l’application](how-to-authenticate-client.md)

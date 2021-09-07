@@ -6,21 +6,23 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 133b77653abea93ef87b58ff223b7cbb267921c5
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 46a451fd41f460165435305f2abf5d56fca4837d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562687"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Se connecter à Azure Database pour MySQL - Serveur flexible en utilisant des connexions chiffrées
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > La fonctionnalité Serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
 
 Le serveur flexible Azure Database pour MySQL prend en charge la connexion de vos applications clientes au serveur MySQL en utilisant le protocole SSL (Secure Sockets Layer) avec le protocole TLS (Transport Layer Security). TLS est un protocole standard qui garantit la sécurité des connexions réseau entre votre serveur de base de données et vos applications clientes, ce qui vous permet de respecter les exigences de conformité.
 
-Le serveur flexible Azure Database pour MySQL prend en charge par défaut les connexions chiffrées à l’aide du protocole TLS 1.2 (Transport Layer Security), donc toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées par défaut. Vous pouvez modifier la configuration de la mise en œuvre de la connexion chiffrée ou de la version TLS sur votre serveur flexible, tel qu’abordé dans cet article. 
+Le serveur flexible Azure Database pour MySQL prend en charge par défaut les connexions chiffrées à l’aide du protocole TLS 1.2 (Transport Layer Security), donc toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées par défaut. Vous pouvez modifier la configuration de la mise en œuvre de la connexion chiffrée ou de la version TLS sur votre serveur flexible, tel qu’abordé dans cet article.
 
 Voici les différentes configurations des paramètres SSL et TLS possibles pour votre serveur flexible :
 
@@ -35,32 +37,36 @@ Voici les différentes configurations des paramètres SSL et TLS possibles pour 
 > Les modifications apportées au chiffrement SSL sur le serveur flexible ne sont pas prises en charge. Les suites de chiffrement FIPS sont appliquées par défaut quand tls_version est défini sur TLS version 1.2. Pour les versions TLS autres que la version 1.2, le chiffrement SSL est défini sur les paramètres par défaut qui sont fournis avec l’installation de MySQL Community.
 
 Dans cet article, vous allez apprendre à :
-* Configurer votre serveur flexible 
-  * Avec SSL désactivé 
+
+* Configurer votre serveur flexible
+  * Avec SSL désactivé
   * Avec SSL appliqué à la version TLS < 1.2
-* Connectez-vous à votre serveur flexible à l’aide de la ligne de commande mysql 
+* Connectez-vous à votre serveur flexible à l’aide de la ligne de commande mysql
   * Avec les connexions chiffrées désactivées
   * Avec les connexions chiffrées activées
 * Vérifier l’état du chiffrement pour votre connexion
 * Connectez-vous à votre serveur flexible avec des connexions chiffrées à l’aide de différentes infrastructures d’application
 
 ## <a name="disable-ssl-enforcement-on-your-flexible-server"></a>Désactivation de la contrainte d’application de SSL sur votre serveur flexible
+
 Si votre application cliente ne prend pas en charge les connexions chiffrées, vous devez désactiver la mise en œuvre des connexions chiffrées sur votre serveur flexible. Pour désactiver la mise en application des connexions chiffrées, vous devez définir require_secure_transport paramètre Server sur OFF comme indiqué dans la capture d’écran et enregistrer la configuration du paramètre de serveur pour qu’elle prenne effet. require_secure_transport est un **paramètre de serveur dynamique** qui prend effet immédiatement et ne nécessite pas le redémarrage du serveur pour prendre effet.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Capture d’écran montrant comment désactiver SSL avec Azure Database pour serveur flexible MySQL.":::
 
 ### <a name="connect-using-mysql-command-line-client-with-ssl-disabled"></a>Se connecter à l’aide du client de ligne de commande mysql avec SSL désactivé
 
-L’exemple suivant montre comment vous connecter à votre serveur à l’aide de l’interface de ligne de commande mysql. Utilisez le paramètre de chaîne de connexion `--ssl-mode=DISABLED` pour désactiver la connexion TLS/SSL à partir du client mysql. Remplacez les valeurs par le nom et le mot de passe réels de votre serveur. 
+L’exemple suivant montre comment vous connecter à votre serveur à l’aide de l’interface de ligne de commande mysql. Utilisez le paramètre de chaîne de connexion `--ssl-mode=DISABLED` pour désactiver la connexion TLS/SSL à partir du client mysql. Remplacez les valeurs par le nom et le mot de passe réels de votre serveur.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
 ```
+
 Il est important de noter que le fait de définir require_secure_transport sur OFF ne signifie pas que les connexions chiffrées ne seront pas prises en charge côté serveur. Si vous définissez require_secure_transport sur OFF sur un serveur flexible, mais que le client se connecte avec une connexion chiffrée, il est toujours accepté. La connexion suivante utilisant le client mysql à un serveur flexible configuré avec require_secure_transport=OFF fonctionne également comme indiqué ci-dessous.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED
 ```
+
 ```output
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 17
@@ -94,6 +100,7 @@ Si votre application prend en charge les connexions à MySQL Server avec SSL, ma
 ## <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Se connecter à l’aide du client de ligne de commande mysql avec le protocole TLS/SSL
 
 ### <a name="download-the-public-ssl-certificate"></a>Télécharger le certificat SSL public
+
 Pour utiliser des connexions chiffrées avec vos applications clientes, vous devez télécharger le [certificat SSL public](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) qui est également disponible dans le panneau du réseau du portail Azure, comme indiqué dans la capture d’écran ci-dessous.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/download-ssl.png" alt-text="Capture d’écran montrant comment télécharger un certificat SSL public à partir du Portail Azure.":::
@@ -104,15 +111,16 @@ Si vous avez créé votre serveur flexible avec l’option *Accès privé (inté
 
 Si vous avez créé votre serveur flexible avec l’option *Accès public (adresses IP autorisées)* , vous pouvez ajouter votre adresse IP locale à la liste des règles de pare-feu sur votre serveur.
 
-Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou [MySQL Workbench](./connect-workbench.md) pour vous connecter au serveur à partir de votre environnement local. 
+Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou [MySQL Workbench](./connect-workbench.md) pour vous connecter au serveur à partir de votre environnement local.
 
-L’exemple suivant montre comment vous connecter à votre serveur à l’aide de l’interface de ligne de commande mysql. Utilisez le paramètre de chaîne de connexion `--ssl-mode=REQUIRED` pour appliquer la vérification du certificat TLS/SSL. Passez le chemin d’accès du fichier de certificat local au paramètre `--ssl-ca`. Remplacez les valeurs par le nom et le mot de passe réels de votre serveur. 
+L’exemple suivant montre comment vous connecter à votre serveur à l’aide de l’interface de ligne de commande mysql. Utilisez le paramètre de chaîne de connexion `--ssl-mode=REQUIRED` pour appliquer la vérification du certificat TLS/SSL. Passez le chemin d’accès du fichier de certificat local au paramètre `--ssl-ca`. Remplacez les valeurs par le nom et le mot de passe réels de votre serveur.
 
 ```bash
 sudo apt-get install mysql-client
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
 > [!Note]
 > Vérifiez que la valeur passée à `--ssl-ca` correspond au chemin de fichier du certificat que vous avez enregistré.
 
@@ -129,7 +137,8 @@ Exécutez la commande mysql **status** pour vérifier que vous êtes connecté �
 ```dos
 mysql> status
 ```
-Vérifiez que la connexion est chiffrée en examinant la sortie, qui doit indiquer : **SSL: Cipher in use is **. Cette suite de chiffrement est un exemple basé sur le client. Celle que vous voyez peut être différente.
+
+Vérifiez que la connexion est chiffrée en examinant la sortie, qui doit indiquer : **SSL: Cipher in use is**. Cette suite de chiffrement est un exemple basé sur le client. Celle que vous voyez peut être différente.
 
 ## <a name="connect-to-your-flexible-server-with-encrypted-connections-using-various-application-frameworks"></a>Connectez-vous à votre serveur flexible avec des connexions chiffrées à l’aide de différentes infrastructures d’application
 
@@ -138,7 +147,8 @@ Les chaînes de connexion prédéfinies dans la page « Chaînes de connexion 
 Pour établir une connexion chiffrée à votre serveur flexible par le biais du protocole TLS/SSL à partir de votre application, reportez-vous aux exemples de code suivants :
 
 ### <a name="wordpress"></a>WordPress
-Téléchargez le [certificat public SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et ajoutez les lignes suivantes dans le fichier wp-config.php après la ligne ```// ** MySQL settings - You can get this info from your web host ** //```.
+
+Téléchargez le [certificat public SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et ajoutez les lignes suivantes dans le fichier wp-config.php après la ligne ```// **MySQL settings - You can get this info from your web host** //```.
 
 ```php
 //** Connect with SSL** //
@@ -238,6 +248,7 @@ db, _ := sql.Open("mysql", connectionString)
 
 ```java
 # generate truststore and keystore in code
+
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -252,6 +263,7 @@ sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
@@ -267,6 +279,7 @@ conn = DriverManager.getConnection(url, properties);
 
 ```java
 # generate truststore and keystore in code
+
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -281,6 +294,7 @@ sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
@@ -311,6 +325,7 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 ```
 
 ### <a name="nodejs"></a>Node.js
+
 ```node
 var fs = require('fs');
 var mysql = require('mysql');
@@ -332,8 +347,9 @@ conn.connect(function(err) {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Utilisation de MySQL Workbench pour vous connecter et interroger des données sur le serveur flexible Azure Database pour MySQL](./connect-workbench.md)
-- [Utilisation de PHP pour vous connecter et interroger des données sur le serveur flexible Azure Database pour MySQL](./connect-php.md)
-- [Création et gestion d’un réseau virtuel de serveur flexible Azure Database pour MySQL à l’aide d’Azure CLI](./how-to-manage-virtual-network-cli.md)
-- En savoir plus sur la [mise en réseau sur le serveur flexible Azure Database pour MySQL](./concepts-networking.md)
-- En savoir plus sur les [règles de pare-feu du serveur flexible Azure Database pour MySQL](./concepts-networking.md#public-access-allowed-ip-addresses)
+
+* [Utilisation de MySQL Workbench pour vous connecter et interroger des données sur le serveur flexible Azure Database pour MySQL](./connect-workbench.md)
+* [Utilisation de PHP pour vous connecter et interroger des données sur le serveur flexible Azure Database pour MySQL](./connect-php.md)
+* [Création et gestion d’un réseau virtuel de serveur flexible Azure Database pour MySQL à l’aide d’Azure CLI](./how-to-manage-virtual-network-cli.md)
+* En savoir plus sur la [mise en réseau sur le serveur flexible Azure Database pour MySQL](./concepts-networking.md)
+* En savoir plus sur les [règles de pare-feu du serveur flexible Azure Database pour MySQL](./concepts-networking-public.md#public-access-allowed-ip-addresses)
