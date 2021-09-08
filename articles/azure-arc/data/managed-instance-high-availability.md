@@ -1,29 +1,29 @@
 ---
-title: Haute disponibilité Managed Instance avec Azure Arc
-titleSuffix: Deploy Azure Arc enabled Managed Instance with high availability
-description: Découvrez comment déployer Managed Instance avec Azure Arc avec la haute disponibilité.
+title: Haute disponibilité de l’Instance managée SQL avec Azure Arc
+titleSuffix: Deploy Azure Arc-enabled SQL Managed Instance with high availability
+description: Découvrez comment déployer l’Instance managée SQL avec Azure Arc et en haute disponibilité.
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: 2214fa45650e1c68ec0d286e26cc91f7e8f6a2b3
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 89cce59f1e68d1398a6907c3a4b2b3bee50502cd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524640"
 ---
-# <a name="azure-arc-enabled-managed-instance-high-availability"></a>Haute disponibilité Managed Instance avec Azure Arc
+# <a name="azure-arc-enabled-sql-managed-instance-high-availability"></a>Haute disponibilité de l’Instance managée SQL avec Azure Arc
 
-Managed Instance avec Azure Arc est déployé sur Kubernetes en tant qu’application conteneurisée et utilise des constructions Kubernetes, telles que des ensembles avec état et un stockage persistant, pour fournir des mécanismes intégrés de surveillance de l’intégrité, de détection des défaillances et de basculement permettant de maintenir l’intégrité du service. Pour plus de fiabilité, vous pouvez également configurer Managed Instance avec Azure Arc à des fins de déploiement avec des réplicas supplémentaires dans une configuration haute disponibilité. La surveillance, la détection des défaillances et le basculement automatique sont gérés par le contrôleur de données des services de données Arc. Ce service assure toutes les opérations, sans intervention de l’utilisateur, de la configuration du groupe de disponibilité jusqu’à l’ajout de bases de données au groupe de disponibilité et à la coordination du basculement et des mises à niveau, en passant par la configuration des points de terminaison de mise en miroir de bases de données. Ce document explore les deux types de haute disponibilité.
+L’Instance managée SQL avec Azure Arc est déployée sur Kubernetes en tant qu’application conteneurisée et utilise des constructions Kubernetes, telles que des ensembles avec état et un stockage persistant, pour fournir des mécanismes intégrés de surveillance de l’intégrité, de détection des défaillances et de basculement permettant de maintenir l’intégrité du service. Pour plus de fiabilité, vous pouvez également configurer l’Instance managée SQL avec Azure Arc à des fins de déploiement avec des réplicas supplémentaires dans une configuration de haute disponibilité. La surveillance, la détection des défaillances et le basculement automatique sont gérés par le contrôleur de données des services de données Arc. Ce service assure toutes les opérations, sans intervention de l’utilisateur, de la configuration du groupe de disponibilité jusqu’à l’ajout de bases de données au groupe de disponibilité et à la coordination du basculement et des mises à niveau, en passant par la configuration des points de terminaison de mise en miroir de bases de données. Ce document explore les deux types de haute disponibilité.
 
 ## <a name="built-in-high-availability"></a>Haute disponibilité intégrée 
 
-La haute disponibilité intégrée est fournie par Kubernetes lorsque le stockage persistant distant est configuré et partagé avec des nœuds utilisés par le déploiement du service de données Arc. Dans cette configuration, Kubernetes joue le rôle de l’orchestrateur de cluster. En cas de défaillance de l’instance gérée dans d’un conteneur ou du nœud sous-jacent, l'orchestrateur démarre une autre instance du conteneur et s’attache au même stockage persistant. Ce type est activé par défaut lorsque vous déployez Managed Instance avec Azure Arc.
+La haute disponibilité intégrée est fournie par Kubernetes lorsque le stockage persistant distant est configuré et partagé avec des nœuds utilisés par le déploiement du service de données Arc. Dans cette configuration, Kubernetes joue le rôle de l’orchestrateur de cluster. En cas de défaillance de l’instance gérée dans d’un conteneur ou du nœud sous-jacent, l'orchestrateur démarre une autre instance du conteneur et s’attache au même stockage persistant. Ce type est activé par défaut lorsque vous déployez l’Instance managée SQL avec Azure Arc.
 
 ### <a name="verify-built-in-high-availability"></a>Vérifier la haute disponibilité intégrée
 
@@ -32,7 +32,7 @@ Dans cette section, vous allez vérifier la haute disponibilité intégrée four
 ### <a name="prerequisites"></a>Prérequis
 
 - Le cluster Kubernetes doit disposer d’un [stockage distant partagé](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration) 
-- Managed Instance avec Azure Arc déployé avec un réplica (par défaut)
+- Une Instance managée SQL avec Azure Arc déployée avec un réplica (par défaut)
 
 1. Affichez les pods. 
 
@@ -71,11 +71,11 @@ Une fois tous les conteneurs du pod récupérés, vous pouvez vous connecter à 
 
 ## <a name="deploy-with-always-on-availability-groups"></a>Déployer avec des groupes de disponibilité Always On
 
-Pour plus de fiabilité, vous pouvez configurer Managed Instance avec Azure Arc à des fins de déploiement avec des réplicas supplémentaires dans une configuration haute disponibilité. 
+Pour plus de fiabilité, vous pouvez configurer l’Instance managée SQL avec Azure Arc à des fins de déploiement avec des réplicas supplémentaires dans une configuration de haute disponibilité. 
 
 Fonctionnalités activées par les groupes de disponibilité :
 
-- En cas de déploiement avec plusieurs réplicas, un seul groupe de disponibilité nommé `containedag` est créé. Par défaut, `containedag` a trois réplicas, y compris un réplica principal. Toutes les opérations CRUD pour le groupe de disponibilité sont gérées en interne, y compris la création du groupe de disponibilité ou la jonction des réplicas au groupe de disponibilité créé. Aucun groupe de disponibilité supplémentaire ne peut être créé dans Managed Instance avec Azure Arc.
+- En cas de déploiement avec plusieurs réplicas, un seul groupe de disponibilité nommé `containedag` est créé. Par défaut, `containedag` a trois réplicas, y compris un réplica principal. Toutes les opérations CRUD pour le groupe de disponibilité sont gérées en interne, y compris la création du groupe de disponibilité ou la jonction des réplicas au groupe de disponibilité créé. Aucun groupe de disponibilité supplémentaire ne peut être créé dans l’Instance managée SQL avec Azure Arc.
 
 - Toutes les bases de données sont automatiquement ajoutées au groupe de disponibilité, y compris toutes les bases de données utilisateur et système telles que `master` et `msdb`. Cette fonctionnalité fournit une vue monosystème sur les réplicas des groupes de disponibilité. Notez les bases de données `containedag_master` et `containedag_msdb` si vous vous connectez directement à l’instance. Les bases de données `containedag_*` représentent `master` et `msdb` au sein du groupe de disponibilité.
 
@@ -85,27 +85,27 @@ Fonctionnalités activées par les groupes de disponibilité :
 
 Pour déployer une instance gérée avec des groupes de disponibilité, exécutez la commande suivante.
 
-```console
-azdata arc sql mi create -n <name of instance> --replicas 3
+```azurecli
+az sql mi-arc create -n <name of instance> --replicas 3 --k8s-namespace <namespace> --use-k8s
 ```
 
 ### <a name="check-status"></a>Vérification du statut
 Une fois l’instance déployée, exécutez les commandes suivantes pour vérifier l’état de votre instance :
 
-```console
-azdata arc sql mi list
-azdata arc sql mi show -n <name of instance>
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
+az sql mi-arc show -n <name of instance> --k8s-namespace <namespace> --use-k8s
 ```
 
 Exemple de sortie :
 
 ```output
-user@pc:/# azdata arc sql mi list
+user@pc:/# az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ExternalEndpoint    Name    Replicas    State
 ------------------  ------  ----------  -------
 20.131.31.58,1433   sql2    3/3         Ready
 
-user@pc:/#  azdata arc sql mi show -n sql2
+user@pc:/#  az sql mi-arc show -n sql2 --k8s-namespace <namespace> --use-k8s
 {
 ...
   "status": {
@@ -219,8 +219,8 @@ Des étapes supplémentaires sont nécessaires pour restaurer une base de donné
 
 ### <a name="limitations"></a>Limites
 
-Les groupes de disponibilité Managed Instance avec Azure Arc présentent les mêmes limitations [ que les groupes de disponibilité de cluster Big Data. Cliquez ici pour en savoir plus.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
+Les groupes de disponibilité de l’Instance managée SQL avec Azure Arc présentent les mêmes [limitations que les groupes de disponibilité Cluster Big Data. Cliquez ici pour en savoir plus.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrir plus d’informations sur les [fonctionnalités et les capacités de SQL Managed Instance avec Azure Arc](managed-instance-features.md)
+En savoir plus sur les [fonctionnalités et les capacités de SQL Managed Instance avec Azure Arc](managed-instance-features.md)

@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: service-bus-messaging
 author: spelluru
@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 06/08/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc0ea990b9bb41279e5670456c6a81d11a4753c2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 226377f2a8df895c078d05b58d5ed49c4bba9117
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761493"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121803575"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
-| Nom du quota | Étendue | Notes | Valeur |
+| Nom du quota | Étendue | Valeur | Notes | 
 | --- | --- | --- | --- |
-| Nombre maximal d’espaces de noms par abonnement Azure |Espace de noms | Les demandes suivantes d’espaces de noms supplémentaires sont rejetées. | 1 000 (valeur par défaut et maximale) |
-| Taille de la file d’attente ou de la rubrique |Entité |Définie lors de la création/mise à jour de la file d’attente ou de la rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 Go.<br /><br />Dans la référence SKU Premium, ainsi que la référence SKU Standard avec le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) activé, la taille maximale de file d’attente/rubrique est de 80 Go. |
-| Nombre de connexions simultanées sur un espace de noms |Espace de noms |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées. |Messagerie Net : 1 000.<br /><br />AMQP : 5 000. |
-| Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement |Entité |Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique. |5 000 |
-| Nombre de rubriques/files d’attente par espace de noms |Espace de noms |Les requêtes suivantes de création de rubrique ou de file d’attente dans l’espace de noms sont rejetées. Par conséquent, en cas de configuration via le [portail Azure][Azure portal], un message d’erreur est généré. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |10 000 pour le niveau De base ou Standard. Le nombre total de rubriques et de files d’attente dans un espace de noms doit être inférieur ou égal à 10 000. <br/><br/>Pour le niveau Premium, 1 000 par unité de messagerie. |
-| Nombre de [rubriques/files d’attente partitionnées](../articles/service-bus-messaging/service-bus-partitioning.md) par espace de noms |Espace de noms |Les requêtes suivantes de création de rubrique ou de file d’attente partitionnée dans l’espace de noms sont rejetées. Par conséquent, en cas de configuration via le [portail Azure][Azure portal], un message d’erreur est généré. Si elle est appelée à partir de l’API de gestion, l’exception **QuotaExceededException** est reçue par le code appelant. |Niveaux de base et standard : 100.<br/><br/>Les entités partitionnées ne sont pas prises en charge dans le niveau [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Chaque file d’attente ou rubrique partitionnée est comptabilisée dans le quota de 1 000 entités par espace de noms. |
+| Nombre maximal d’espaces de noms par abonnement Azure |Espace de noms |  1 000 (valeur par défaut et maximale) |Les demandes suivantes d’espaces de noms supplémentaires sont rejetées. |
+| Taille de la file d’attente ou de la rubrique |Entité | 1, 2, 3, 4 ou 5 Go.<p>Dans la référence SKU Premium, ainsi que la référence SKU Standard avec le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) activé, la taille maximale de file d’attente/rubrique est de 80 Go.</p><p>La limite de taille totale pour un espace de noms Premium est de 1 To par [unité de messagerie](../articles/service-bus-messaging/service-bus-premium-messaging.md). La taille totale de toutes les entités dans un espace de noms ne peut pas dépasser cette limite.</p> | Définie lors de la création/mise à jour de la file d’attente ou de la rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |
+| Nombre de connexions simultanées sur un espace de noms |Espace de noms |Messagerie Net : 1 000.<br /><br />AMQP : 5 000. | Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées. |
+| Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement |Entité | 5 000 |Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique. |
+| Nombre de rubriques/files d’attente par espace de noms |Espace de noms | 10 000 pour le niveau De base ou Standard. Le nombre total de rubriques et de files d’attente dans un espace de noms doit être inférieur ou égal à 10 000. <br/><br/>Pour le niveau Premium, 1 000 par unité de messagerie. | Les requêtes suivantes de création de rubrique ou de file d’attente dans l’espace de noms sont rejetées. Par conséquent, en cas de configuration via le [portail Azure][Azure portal], un message d’erreur est généré. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |
+| Nombre de [rubriques/files d’attente partitionnées](../articles/service-bus-messaging/service-bus-partitioning.md) par espace de noms |Espace de noms | Niveaux de base et standard : 100.<br/><br/>Les entités partitionnées ne sont pas prises en charge dans le niveau [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Chaque file d’attente ou rubrique partitionnée est comptabilisée dans le quota de 1 000 entités par espace de noms. | Les requêtes suivantes de création de rubrique ou de file d’attente partitionnée dans l’espace de noms sont rejetées. Par conséquent, en cas de configuration via le [portail Azure][Azure portal], un message d’erreur est généré. Si elle est appelée à partir de l’API de gestion, l’exception **QuotaExceededException** est reçue par le code appelant. <p>Si vous souhaitez avoir plus d’entités partitionnées dans un espace de noms de niveau de base ou standard, créez des espaces de noms supplémentaires. </p>|
 | Taille maximale de tout chemin d’entité de messagerie : file d’attente ou rubrique |Entité |- |260 caractères. |
 | Taille maximale de tout nom d’entité de messagerie : espace de noms, abonnement ou règle d’abonnement |Entité |- |50 caractères. |
 | Taille maximale de l’ID d’un message | Entité |- | 128 |

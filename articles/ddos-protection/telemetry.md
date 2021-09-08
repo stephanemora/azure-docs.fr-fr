@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a04c6c58f8bfa5370a6529b81a5a85090413a2a
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6dc086aae55f3b35dbb7dc787df6a65b7ade108f
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107531"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674202"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Afficher et configurer la télémétrie de la protection DDoS
 
@@ -30,6 +30,12 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Valider et tester la télémétrie de la protection DDoS
 
 ### <a name="metrics"></a>Mesures
+
+Les noms des métriques présentent différents types de paquets et les octets/paquets, et les noms de balise sur chaque métrique sont essentiellement construits comme suit :
+
+- **Nom de balise des paquets supprimés** (par exemple, **Paquets entrants ignorés DDoS) :** nombre de paquets supprimés/nettoyés par le système de protection DDoS.
+- **Nom de balise des paquets transférés** (par exemple, **Paquets entrants transférés DDoS) :** nombre de paquets transférés par le système DDoS vers l’adresse IP virtuelle de destination (trafic qui n’a pas été filtré).
+- **Nom de balise du nombre de paquets** (par exemple, **Paquets entrants DDoS**) : nombre total de paquets ayant atteint le système de nettoyage, représentant la somme des paquets supprimés et transférés.
 
 > [!NOTE]
 > Bien que plusieurs options pour **Agrégation** soient affichées sur le portail Azure, seuls les types d’agrégation répertoriés dans le tableau ci-dessous sont pris en charge pour chaque mesure. Nous vous prions de nous excuser pour cette confusion et nous travaillons à résoudre cette erreur.
@@ -70,26 +76,35 @@ Les [mesures](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkp
 
 ## <a name="view-ddos-protection-telemetry"></a>Afficher la télémétrie de la protection DDoS
 
-Les données de télémétrie pour une attaque sont fournies par le biais d’Azure Monitor en temps réel. Les données de télémétrie ne sont disponibles que quand une adresse IP publique a été atténuée. 
+Les données de télémétrie pour une attaque sont fournies par le biais d’Azure Monitor en temps réel. Bien que les [déclencheurs d'atténuation](#view-ddos-mitigation-policies) pour TCP SYN, TCP & UDP soient disponibles pendant les périodes de repos, d’autres données de télémétrie sont uniquement disponibles quand une adresse IP publique a été atténuée. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) et accédez à votre plan de protection DDoS.
+Vous pouvez afficher les données de télémétrie DDoS pour une adresse IP publique protégée par le biais de trois types de ressources différents : le plan de protection DDoS, le réseau virtuel et l’adresse IP publique.
+
+### <a name="ddos-protection-plan"></a>Plan de protection DDoS
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre plan de protection DDoS.
+2. Sous **Supervision**, sélectionnez **Métriques**.
+3. Sélectionnez **Étendue**. Sélectionnez l’**Abonnement** qui contient l’adresse IP publique que vous souhaitez journaliser, sélectionnez **Adresse IP publique** comme **Type de ressource**, sélectionnez l’adresse IP publique spécifique pour laquelle vous souhaitez enregistrer les mesures, puis sélectionnez **Appliquer**.
+4. Définissez le type **d’agrégation** sur **Max**. 
+
+### <a name="virtual-network"></a>Réseau virtuel
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez au réseau virtulel sur lequel est activé votre plan de protection DDoS.
 2. Sous **Supervision**, sélectionnez **Métriques**.
 3. Sélectionnez **Étendue**. Sélectionnez l’**Abonnement** qui contient l’adresse IP publique que vous souhaitez journaliser, sélectionnez **Adresse IP publique** comme **Type de ressource**, sélectionnez l’adresse IP publique spécifique pour laquelle vous souhaitez enregistrer les mesures, puis sélectionnez **Appliquer**.
 4. Définissez le type **d’agrégation** sur **Max**.
+5. Sélectionnez **Ajouter un filtre**. Sous **Propriété**, sélectionnez **Adresse IP protégée**, et l’opérateur doit être défini sur **=** . Sous **Valeurs**, vous verrez une liste déroulante d’adresses IP publiques, associées au réseau virtuel, qui sont protégées par la protection DDoS activée. 
 
-Les noms des métriques présentent différents types de paquets et les octets/paquets, et les noms de balise sur chaque métrique sont essentiellement construits comme suit :
+![Paramètres de diagnostic DDoS](./media/ddos-attack-telemetry/vnet-ddos-metrics.png)
 
-- **Nom de balise des paquets supprimés** (par exemple, **Paquets entrants ignorés DDoS) :** nombre de paquets supprimés/nettoyés par le système de protection DDoS.
-- **Nom de balise des paquets transférés** (par exemple, **Paquets entrants transférés DDoS) :** nombre de paquets transférés par le système DDoS vers l’adresse IP virtuelle de destination (trafic qui n’a pas été filtré).
-- **Nom de balise du nombre de paquets** (par exemple, **Paquets entrants DDoS**) : nombre total de paquets ayant atteint le système de nettoyage, représentant la somme des paquets supprimés et transférés.
+### <a name="public-ip-address"></a>Adresse IP publique
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre adresse IP publique.
+2. Sous **Surveillance**, sélectionnez **Métriques**.
+3. Définissez le type **d’agrégation** sur **Max**.
 
 ## <a name="view-ddos-mitigation-policies"></a>Voir les stratégies d’atténuation des risques liés à DDoS
 
-DDoS Protection Standard applique trois stratégies de prévention réglées automatiquement (TCP SYN, TCP et UDP) pour chaque adresse IP publique de la ressource protégée, dans le réseau virtuel sur lequel la protection DDoS est activée. Vous pouvez voir les seuils de stratégie en sélectionnant les métriques **Paquets TCP entrants pour déclencher l’atténuation des risques liés à DDoS** et **Paquets UDP entrants pour déclencher l’atténuation des risques liés à DDoS** avec le type **d’agrégation** défini sur « Max », comme indiqué dans l’image suivante :
+La Protection Standard DDoS applique trois stratégies de prévention réglées automatiquement (TCP SYN, TCP et UDP) pour chaque adresse IP publique de la ressource protégée, dans le réseau virtuel sur lequel la protection DDoS est activée. Vous pouvez voir les seuils de stratégie en sélectionnant les métriques **Paquets TCP entrants pour déclencher l’atténuation des risques liés à DDoS** et **Paquets UDP entrants pour déclencher l’atténuation des risques liés à DDoS** avec le type **d’agrégation** défini sur « Max », comme indiqué dans l’image suivante :
 
 ![Voir les stratégies d’atténuation des risques](./media/manage-ddos-protection/view-mitigation-policies.png)
-
-Les seuils de stratégie sont configurés automatiquement par le biais du système de profilage du trafic réseau basé sur l’apprentissage automatique Azure. L’atténuation des risques liés à DDoS pour l’adresse IP n’a lieu que si le seuil de stratégie est franchi.
 
 ## <a name="validate-and-test"></a>Valider et tester
 

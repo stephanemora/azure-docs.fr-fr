@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/18/2020
-ms.openlocfilehash: 03f80ebeb7b30d8c0fe14060335541d77b7523b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/18/2021
+ms.openlocfilehash: 08cf192a650c592d7e5624c556ee8dfc766292fa
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90898615"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831619"
 ---
 # <a name="create-python-model-module"></a>Module Create Python Model
 
@@ -46,6 +46,7 @@ Cet article explique comment utiliser le module **Créer un modèle Python** ave
 
 > [!NOTE]
 > Portez une attention particulière aux commentaires de l’exemple de code du script et vérifiez que votre script respecte strictement la condition, y compris le nom de la classe, les méthodes ainsi que la signature de la méthode. Toute violation entraîne des exceptions. 
+> **Créer un modèle Python** prend en charge uniquement la création d’un modèle sklearn à entraîner à l’aide de **Train Model**.
 
    L’exemple suivant de code de classifieur Naive Bayes à deux classes utilise le package populaire *sklearn* :
 

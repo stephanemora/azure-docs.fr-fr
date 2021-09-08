@@ -1,21 +1,21 @@
 ---
 title: Meilleures pratiques pour le choix d’un ID de série chronologique - Azure Time Series Insights | Microsoft Docs
 description: Découvrez les meilleures pratiques pour le choix d’un ID de série chronologique dans la préversion d’Azure Time Series Insights Gen2.
-author: shipramishra
-ms.author: shmishr
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 3a15b0c74ebe9a4696c2b61b6dd3b16d9f4b9d10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950737"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531755"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -37,7 +37,7 @@ Consultez le tutoriel sur l’approvisionnement de l’environnement pour obteni
 > * Une *propriété immuable* : une fois créée, elle ne peut pas être modifiée.
 
 > [!TIP]
-> Si votre source d’événement est un hub IoT, votre ID de série chronologique sera probablement ***iothub-Connection-Device-ID***.
+> Si votre source d’événement est un hub IoT, votre ID de série chronologique sera probablement ***iothub-connection-device-id***. Si vous envisagez d’utiliser IoT Plug-and-Play des modèles d’appareil IoT Plug and Play ou si vous les utilisez sans composants, vous devez inclure ***dt-subject*** en tant que partie de la clé composite au cas où vous en auriez besoin à l’avenir.
 
 Les bonnes pratiques principales à suivre sont les suivantes :
 

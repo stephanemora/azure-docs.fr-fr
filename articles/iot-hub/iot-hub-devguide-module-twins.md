@@ -10,12 +10,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e38fb4068b695eebe78c7e9b8709862aca07531
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91996472"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524093"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -225,13 +225,13 @@ En plus de ces opérations, le back-end de solution peut interroger les jumeaux 
 
 L’application de module opère sur le jumeau de module en utilisant les opérations atomiques suivantes :
 
-* **Récupérer le jumeau de module**. Cette opération retourne le contenu du document du jumeau de module, à savoir les Tags (Balises) et les propriétés système souhaitées (Desired) et signalées (Reported), pour le module connecté.
+* **Récupérer le jumeau de module**. Cette opération retourne le document du jumeau de module (y compris les propriétés système souhaitées et signalées ) pour le module actuellement connecté.
 
 * **Mettre à jour partiellement les propriétés signalées (Reported)** . Cette opération permet la mise à jour partielle des propriétés signalées du module connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
 
 * **Observer les propriétés souhaitées (Desired)** . Le module connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. Le module reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le backend de la solution.
 
-Toutes les opérations précédentes nécessitent l’autorisation **ModuleConnect**, comme défini dans l’article [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
+Toutes les opérations précédentes nécessitent l’autorisation **DeviceConnect**, comme défini dans l’article [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
 
 Les kits [Azure IoT device SDK](iot-hub-devguide-sdks.md) simplifient l’utilisation des opérations précédentes dans un grand nombre de langages et de plateformes.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2b6b3e9a6bdead4e4da7f1a829698d86cfbf52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eeed96b87aa5c115994ee73d1985526b26af11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92366171"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524512"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Accès conditionnel : Exiger MFA pour la gestion Azure
 
@@ -26,7 +26,7 @@ Les organisations utilisent divers services Azure et les gèrent à partir d’o
 * Azure PowerShell
 * Azure CLI
 
-Ces outils peuvent offrir un accès privilégié aux ressources, ce qui permet de modifier les configurations à l’échelle de l’abonnement, les paramètres du service et la facturation des abonnements. Pour protéger ces ressources privilégiées, Microsoft recommande d’exiger l’authentification multifacteur pour tous les utilisateurs qui accèdent à ces ressources.
+Ces outils peuvent offrir un accès privilégié aux ressources, ce qui permet de modifier les configurations à l’échelle de l’abonnement, les paramètres du service et la facturation des abonnements. Pour protéger ces ressources privilégiées, Microsoft recommande d’exiger l’authentification multifacteur pour tous les utilisateurs qui accèdent à ces ressources. Dans Azure AD ces outils sont regroupés dans une suite appelée [Gestion Microsoft Azure](concept-conditional-access-cloud-apps.md#microsoft-azure-management). Pour Azure Government, il doit s’agir de l’application API de gestion Cloud Azure Government. 
 
 ## <a name="user-exclusions"></a>Exclusions d’utilisateurs
 
@@ -39,7 +39,7 @@ Les stratégies d’accès conditionnel sont des outils puissants. Nous vous rec
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour demander à ceux pouvant accéder à l’application [Gestion de Microsoft Azure](concept-conditional-access-cloud-apps.md#microsoft-azure-management) d’effectuer l’authentification multifacteur.
+Les étapes suivantes vous aideront à créer une stratégie d’Accès conditionnel pour demander à ceux pouvant accéder à la suite[Gestion de Microsoft Azure](concept-conditional-access-cloud-apps.md#microsoft-azure-management) d’effectuer l’authentification multifacteur.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
@@ -50,7 +50,6 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Sélectionner les applications**, choisissez **Gestion Microsoft Azure**, puis **Sélectionner** et **Terminé**.
-1. Sous **Conditions** > **Applications clientes (préversion)** > **Sélectionnez les applications clientes auxquelles cette stratégie s’applique**, laissez toutes les valeurs par défaut sélectionnées et sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.

@@ -9,16 +9,24 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b3fc9f12dfa6ad4edcc120ac7c9592c9435a0e4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 2f7af8ebc054b49df03a7f03c512db08a5098f2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830175"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524033"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Patch à chaud pour les nouvelles machines virtuelles (préversion)
 
-La mise à jour corrective à chaud est une nouvelle façon d’installer les mises à jour sur les nouvelles machines virtuelles Windows Server Azure Edition, qui ne nécessite pas de redémarrage après l’installation. Cet article contient des informations sur le programme Hotpatch pour machines virtuelles Windows Server Azure Edition, qui présente les avantages suivants :
+> [!IMPORTANT]
+> La gestion Automanage pour les Services du serveur Windows est actuellement en Version préliminaire publique. Une procédure de consentement est requise pour utiliser la fonctionnalité de Patch à chaud (Hotpatch) décrite ci-dessous.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> Les fonctionnalités de Patch à chaud se trouvent dans l’une de ces images de l’_Edition du serveur Windows Azure_  : centre de données du serveur Windows 2019 : édition azure (core), centre de données du serveur Windows 2022 : édition azure (core)
+
+La Mise à jour corrective à chaud est une nouvelle façon d’installer les mises à jour sur les nouvelles machines virtuelles de l’_Edition du serveur Windows Azure_ ne nécessitant pas de redémarrage après l’installation. Cet article contient des informations relatives à Hotpatch pour les machines virtuelles de l’_Edition du serveur Windows Azure_ présentant les avantages suivants :
 * Impact plus faible sur la charge de travail avec moins de redémarrages
 * Déploiement plus rapide des mises à jour, car les packages sont plus petits, s’installent plus rapidement et offrent une orchestration des patchs plus facile à mettre en œuvre avec Azure Update Manager
 * Meilleure protection, car les packages de mise à jour Hotpatch se limitent à l’étendue des mises à jour de sécurité Windows, qui s’installent plus rapidement et sans redémarrage
@@ -41,16 +49,16 @@ Hotpatch est disponible dans toutes les régions Azure du monde, en préversion.
 ## <a name="how-to-get-started"></a>Pour commencer
 
 > [!NOTE]
-> Pendant la phase de préversion, vous pouvez uniquement démarrer en utilisant [ce lien](https://aka.ms/AzureAutomanageHotPatch) dans le portail Azure.
+> Pendant la phase de préversion, vous pouvez démarrer en utilisant [ce lien](https://aka.ms/AutomanageWindowsServerPreview) dans le portail Azure.
 
 Pour commencer à utiliser Hotpatch sur une nouvelle machine virtuelle, suivez les étapes ci-dessous :
 1.  Activer l’accès à la préversion
     * Une seule activation de l’accès à la préversion est nécessaire par abonnement.
     * L’accès à la préversion peut être activé via une API, PowerShell ou l’interface CLI, comme indiqué dans la section suivante.
 1.  Créer une machine virtuelle à partir du portail Azure
-    * Pendant la phase de préversion, vous devez démarrer en utilisant [ce lien](https://aka.ms/AzureAutomanageHotPatch).
+    * Pendant la phase de préversion, vous devez démarrer en utilisant [ce lien](https://aka.ms/AutomanageWindowsServerPreview).
 1.  Fournir les détails de la machine virtuelle
-    * Vérifiez que _Windows Server 2019 Datacenter : Azure Edition_ est sélectionné dans la liste déroulante Image)
+    * Assurez-vous que l’image du _Serveur Windows Edition Azure_ prise en charge que vous souhaitez utiliser est sélectionnée dans la liste déroulante Image.  Les images prises en charge sont répertoriées en haut de cet article.
     * À l’étape de l’onglet Management (Gestion), faites défiler la liste jusqu’à la section « Guest OS updates » (Mises à jour du système d’exploitation invité). Vous verrez que la mise à jour corrective à chaud est activée et que l’installation des patchs correspond par défaut aux mises à jour correctives orchestrées par Azure.
     * La fonctionnalité Automanage des bonnes pratiques pour les machines virtuelles est activée par défaut
 1. Créer votre machine virtuelle
@@ -130,21 +138,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Installation du patch
 
-Durant la préversion, la [mise à jour corrective automatique de la machine virtuelle invitée](../virtual-machines/automatic-vm-guest-patching.md) est activé automatiquement pour toutes les machines virtuelles créées avec _Windows Server 2019 Datacenter : Azure Edition_. Quand la mise à jour corrective automatique de la machine virtuelle invitée est activée :
+Durant la préversion, la [Mise à jour corrective automatique invité de la machine virtuelle](../virtual-machines/automatic-vm-guest-patching.md) est activée automatiquement pour toutes les machines virtuelles créées avec une image prise en charge par le _Serveur Windows Edition Azure_. Quand la mise à jour corrective automatique de la machine virtuelle invitée est activée :
 * Les patchs classés comme Critique ou Sécurité sont automatiquement téléchargés et appliqués sur la machine virtuelle.
 * Les patchs sont appliqués pendant les heures creuses dans le fuseau horaire de la machine virtuelle.
-* L’orchestration des patchs est gérée par Azure et les patchs sont appliqués selon les [principes de première disponibilité](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
+* L’orchestration des patchs est gérée par Azure et les patchs sont appliqués selon les [principes de première disponibilité](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates).
 * L’intégrité des machines virtuelles, telle que déterminée par les signaux d’intégrité de la plateforme, est surveillée pour détecter les échecs de mise à jour corrective.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>Fonctionnement de la mise à jour corrective automatique de l’invité de machine virtuelle
 
 Quand la [mise à jour corrective automatique de la machine virtuelle invitée](../virtual-machines/automatic-vm-guest-patching.md) est activée sur une machine virtuelle, les patchs critiques et de sécurité disponibles sont téléchargés et appliqués automatiquement. Ce processus se lance automatiquement chaque mois quand de nouveaux patchs sont publiés. L’évaluation et l’installation des patchs sont automatiques, et le processus comprend le redémarrage de la machine virtuelle le cas échéant.
 
-Une fois Hotpatch activé pour les machines virtuelles _Windows Server 2019 Datacenter : Azure Edition_, la plupart des mises à jour de sécurité mensuelles sont fournies sous forme de patchs à chaud qui ne nécessitent pas de redémarrage. Les dernières mises à jour cumulatives envoyées au cours des mois où sont publiées des bases de référence planifiées ou non nécessitent le redémarrage de la machine virtuelle. Des patchs critiques ou de sécurité supplémentaires peuvent également être disponibles périodiquement, ce qui nécessite parfois le redémarrage de la machine virtuelle.
+Une fois Hotpatch activé sur les machines virtuelles prises en charge par le _Serveur Windows Edition Azure_, la plupart des mises à jour de sécurité mensuelles sont fournies sous forme de patchs à chaud ne nécessitant pas de redémarrage. Les dernières mises à jour cumulatives envoyées au cours des mois où sont publiées des bases de référence planifiées ou non nécessitent le redémarrage de la machine virtuelle. Des patchs critiques ou de sécurité supplémentaires peuvent également être disponibles périodiquement, ce qui nécessite parfois le redémarrage de la machine virtuelle.
 
 La machine virtuelle est évaluée automatiquement, régulièrement et plusieurs fois sur une période de 30 jours pour déterminer les patchs applicables. Cette évaluation automatique garantit que tous les patchs manquants sont découverts dès que possible.
 
-Les patchs sont installés dans les 30 jours qui suivent les publications de patchs mensuelles, selon les [principes de première disponibilité](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Les patchs sont installés uniquement pendant les heures creuses de la machine virtuelle, en fonction de son fuseau horaire. La machine virtuelle doit fonctionner pendant les heures creuses pour que les patchs soient installés automatiquement. Si une machine virtuelle est mise hors tension pendant une évaluation périodique, elle est évaluée, et les patchs applicables sont installés automatiquement au cours de la prochaine évaluation périodique au moment de la mise sous tension de la machine virtuelle. La prochaine évaluation périodique a lieu généralement quelques jours après.
+Les patchs sont installés dans les 30 jours qui suivent les publications de patchs mensuelles, selon les [principes de première disponibilité](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates). Les patchs sont installés uniquement pendant les heures creuses de la machine virtuelle, en fonction de son fuseau horaire. La machine virtuelle doit fonctionner pendant les heures creuses pour que les patchs soient installés automatiquement. Si une machine virtuelle est mise hors tension pendant une évaluation périodique, elle est évaluée, et les patchs applicables sont installés automatiquement au cours de la prochaine évaluation périodique au moment de la mise sous tension de la machine virtuelle. La prochaine évaluation périodique a lieu généralement quelques jours après.
 
 Les mises à jour de définitions et autres patchs non classifiés comme critiques ou de sécurité ne sont pas installés via la mise à jour corrective automatique de la machine virtuelle invitée.
 
@@ -165,14 +173,14 @@ Comme pour l’évaluation à la demande, vous pouvez également installer des p
 
 Hotpatch couvre les mises à jour de sécurité Windows et maintient la parité avec le contenu des mises à jour de sécurité émises dans le canal des mises à jour Windows standard (hors Hotpatch).
 
-Il existe des points importants à prendre en compte pour l’exécution d’une machine virtuelle Windows Server Azure Edition avec activation de Hotpatch. Des redémarrages sont toujours nécessaires pour installer les mises à jour qui ne sont pas incluses dans le programme Hotpatch. Des redémarrages sont également nécessaires périodiquement après l’installation d’une nouvelle base de référence. Ces redémarrages permettent de maintenir la machine virtuelle synchronisée par rapport aux patchs non liés à la sécurité, et qui sont inclus dans la dernière mise à jour cumulative.
+Il existe des points importants à prendre en compte pour l’exécution d’une machine virtuelle prise en charge par le _Serveur Windows Edition Azure_ avec activation du Patch à chaud. Des redémarrages sont toujours nécessaires pour installer les mises à jour qui ne sont pas incluses dans le programme Hotpatch. Des redémarrages sont également nécessaires périodiquement après l’installation d’une nouvelle base de référence. Ces redémarrages permettent de maintenir la machine virtuelle synchronisée par rapport aux patchs non liés à la sécurité, et qui sont inclus dans la dernière mise à jour cumulative.
 * Les patchs qui ne sont pas inclus dans le programme Hotpatch incluent les mises à jour non liées à la sécurité et publiées pour Windows ainsi que les mises à jour non Windows (par exemple les patchs .NET).  Ces types de patch doivent être installés durant la publication mensuelle d’une base de référence et nécessitent un redémarrage.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="what-is-hotpatching"></a>Qu’est-ce que la mise à jour corrective à chaud ?
 
-* La mise à jour corrective à chaud est une nouvelle façon d’installer les mises à jour sur une machine virtuelle Windows Server 2019 Datacenter : Azure Edition dans Azure, qui ne nécessite pas de redémarrage après l’installation. Elle consiste à effectuer une mise à jour corrective du code en mémoire pour les processus en cours d’exécution, sans qu’il soit nécessaire de les redémarrer.
+* La mise à jour corrective à chaud est une nouvelle façon d’installer les mises à jour sur une machine virtuelle prise en charge par le _Serveur Windows Edition Azure_ ne nécessitant pas de redémarrage après l’installation. Elle consiste à effectuer une mise à jour corrective du code en mémoire pour les processus en cours d’exécution, sans qu’il soit nécessaire de les redémarrer.
 
 ### <a name="how-does-hotpatching-work"></a>Comment fonctionne la mise à jour corrective à chaud ?
 
@@ -180,7 +188,7 @@ Il existe des points importants à prendre en compte pour l’exécution d’une
 
 ### <a name="why-should-i-use-hotpatch"></a>Pourquoi dois-je utiliser Hotpatch ?
 
-* Quand vous utilisez Hotpatch sur Windows Server 2019 Datacenter : Azure Edition, votre machine virtuelle a une disponibilité plus élevée (moins de redémarrages) et bénéficie de mises à jour plus rapides (packages plus petits qui sont installés plus rapidement sans qu’il soit nécessaire de redémarrer les processus). Il en résulte une machine virtuelle toujours à jour et sécurisée.
+* Quand vous utilisez le Patch à chaud sur une image prise en charge par le _Serveur Windows Edition Azure_, votre machine virtuelle a une disponibilité plus élevée (moins de redémarrages) et bénéficie de mises à jour plus rapides (packages plus petits qui sont installés plus rapidement sans qu’il ne soit nécessaire de redémarrer les processus). Il en résulte une machine virtuelle toujours à jour et sécurisée.
 
 ### <a name="what-types-of-updates-are-covered-by-hotpatch"></a>Quels sont les types de mise à jour couverts par Hotpatch ?
 
@@ -210,7 +218,7 @@ Il existe des points importants à prendre en compte pour l’exécution d’une
 
 ### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>Puis-je effectuer une mise à niveau à partir de mon OS Windows Server existant ?
 
-* La mise à niveau à partir de versions existantes de Windows Server (c’est-à-dire des éditions non Azure de Windows Server 2016 ou 2019) n’est pas prise en charge pour le moment. La mise à niveau vers les versions ultérieures de Windows Server Azure Edition est prise en charge.
+* La mise à niveau à partir de versions existantes du Serveur Windows (à savoir, les éditions non Azure du Serveur Windows 2016 ou 2019) vers _le centre de données du Serveur Windows 2022 : Edition Azure_  est prise en charge. La mise à niveau vers le _Centre de données du Serveur Windows 2019 : Edition Azure_ n’est pas prise en charge.
 
 ### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>Puis-je utiliser Hotpatch pour les charges de travail de production durant la préversion ?
 
@@ -218,7 +226,7 @@ Il existe des points importants à prendre en compte pour l’exécution d’une
 
 ### <a name="will-i-be-charged-during-the-preview"></a>Vais-je être facturé durant la phase de préversion ?
 
-* La licence pour Windows Server Azure Edition est gratuite durant la préversion. Toutefois, le coût des infrastructures sous-jacentes configurées pour votre machine virtuelle (stockage, calcul, réseau, etc.) est toujours facturé sur votre abonnement.
+* La licence pour le _Serveur Windows Edition Azure_ est gratuite durant la préversion. Toutefois, le coût des infrastructures sous-jacentes configurées pour votre machine virtuelle (stockage, calcul, réseau, etc.) est toujours facturé sur votre abonnement.
 
 ### <a name="how-can-i-get-troubleshooting-support-for-hotpatching"></a>Comment puis-je obtenir un support pour la résolution des problèmes de mise à jour corrective à chaud ?
 

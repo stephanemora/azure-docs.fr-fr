@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203ea5bb372c3afc77eb62508d1c95dc5f00bb4b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c5d12c45554897a9acfef1d32a2216d1eb410133
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315720"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459559"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Ajouter un flux de travail d’approbation personnalisé à l’inscription en libre-service
 
@@ -28,7 +28,9 @@ Cet article fournit un exemple d’intégration à un système d’approbation. 
 - Déclencher une révision manuelle. Si la requête est approuvée, le système d’approbation utilise Microsoft Graph pour approvisionner le compte d’utilisateur. Le système d’approbation peut également informer l’utilisateur que son compte a été créé.
 
 > [!IMPORTANT]
-> **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion via vue web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+>
+> - **À partir du 12 juillet 2021**, si les clients B2B d’Azure AD configurent de nouvelles intégrations Google pour une utilisation avec l’inscription en libre-service pour leurs applications métier ou personnalisées, l’authentification avec les identités Google ne fonctionnera pas tant que les authentifications ne sont pas déplacées vers les vues web du système. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+> - **À partir du 30 septembre 30, 2021**, Google [déprécie la prise en charge de la connexion aux vues web intégrée](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue web incorporée et que vous utilisez Google Federation avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations utilisateur externes](google-federation.md) ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne pourront pas s’authentifier. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
 
 ## <a name="register-an-application-for-your-approval-system"></a>Inscrire une application pour votre système d’approbation
 
@@ -84,7 +86,7 @@ Pour créer ces connecteurs, suivez les étapes dans [créer un connecteur d’A
 4. Sélectionnez **Flux d’utilisateurs**, puis sélectionnez le flux d’utilisateurs pour lequel vous souhaitez activer le connecteur d’API.
 5. Sélectionnez **Connecteurs d’API**, puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
 
-   - **Après vous être connecté avec un fournisseur d’identité**: Sélectionnez votre connecteur d’API d’état d’approbation, par exemple _Vérifier l’état d’approbation_.
+   - **Une fois la fédération effectuée à l’aide d’un fournisseur d’identité lors de la connexion** : Sélectionnez votre connecteur d’API d’état d’approbation, par exemple _Vérifier l’état d’approbation_.
    - **Avant de créer l’utilisateur** : Sélectionnez votre connecteur d’API de requête d’approbation, par exemple _Approbation de demande_.
 
    ![Ajouter des API au workflow de l’utilisateur](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)

@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 08/11/2021
 ms.author: aahi
-ms.openlocfilehash: 20334f48866875614e313ea35403f3d2694ad275
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c1b4d8801013eeb25c18b837ef4ff5a0245739e5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110164859"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524525"
 ---
 > [!NOTE]
 > Pour détecter des informations médicales protégées, utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` (ou une version ultérieure).
 >
-> Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+> Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-Les catégories d’entité suivantes sont retournées lorsque vous envoyez des requêtes au point de terminaison `/v3.1-preview.5/entities/recognition/pii`.
+Les catégories d’entité suivantes sont retournées lorsque vous envoyez des requêtes au point de terminaison `/v3.1/entities/recognition/pii`.
 
 
 | Category   |  Description                          |
@@ -33,7 +33,7 @@ Les catégories d’entité suivantes sont retournées lorsque vous envoyez des 
 | [Adresse](#category-address) | Adresses postales complètes.  |
 | [E-mail](#category-email) | Adresses e-mail.   |
 | [URL](#category-url) | URL vers des sites web.  |
-| [IP](#category-ip) | Adresses IP du réseau.  |
+| [IPAddress](#category-ipaddress) | Adresses IP du réseau.  |
 | [DateTime](#category-datetime) | Dates et heures du jour. | 
 | [Quantité](#category-quantity) | Nombres et quantités numériques.  |
 | [Informations Azure](#azure-information) | Informations Azure identifiables, telles que les informations d’authentification.  |
@@ -55,7 +55,7 @@ Cette catégorie contient l’entité suivante :
 
         Noms des personnes. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Person` au `pii-categories` paramètre. `Person` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Person` au `piiCategories` paramètre. `Person` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     
@@ -84,7 +84,7 @@ Cette catégorie contient l’entité suivante :
 
         Type de tâche ou rôle d’une personne.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `PersonType` au `pii-categories` paramètre. `PersonType` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `PersonType` au `piiCategories` paramètre. `PersonType` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -112,7 +112,7 @@ Cette catégorie contient l’entité suivante :
 
         Numéros de téléphone (Numéros de téléphone américains et européens uniquement). Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `PhoneNumber` au `pii-categories` paramètre. `PhoneNumber` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `PhoneNumber` au `piiCategories` paramètre. `PhoneNumber` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -142,7 +142,7 @@ Cette catégorie contient l’entité suivante :
 
         Sociétés, partis politiques, groupes de musique, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Organization` au `pii-categories` paramètre. `Organization` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Organization` au `piiCategories` paramètre. `Organization` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -171,7 +171,7 @@ L’entité de cette catégorie peut contenir les sous-catégories suivantes.
 
         Sociétés et groupes médicaux.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationMedical` au `pii-categories` paramètre. `OrganizationMedical` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationMedical` au `piiCategories` paramètre. `OrganizationMedical` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -193,7 +193,7 @@ L’entité de cette catégorie peut contenir les sous-catégories suivantes.
 
         Groupes de bourse. 
 
-        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationStockExchange` au `pii-categories` paramètre. `OrganizationStockExchange`  est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationStockExchange` au `piiCategories` paramètre. `OrganizationStockExchange`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -214,7 +214,7 @@ L’entité de cette catégorie peut contenir les sous-catégories suivantes.
 
         Les organisations liées au sport.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationSports` au `pii-categories` paramètre. `OrganizationSports`  est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationSports` au `piiCategories` paramètre. `OrganizationSports`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -243,7 +243,7 @@ Cette catégorie contient l’entité suivante :
 
         Adresse postale complète. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Address` au `pii-categories` paramètre. `Address` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Address` au `piiCategories` paramètre. `Address` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -272,7 +272,7 @@ Cette catégorie contient l’entité suivante :
 
         Adresses e-mail. Également retourné avec `domain=phi`.
       
-        Pour accéder à cette catégorie d’entité, ajoutez `Email` au `pii-categories` paramètre. `Email` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Email` au `piiCategories` paramètre. `Email` est retourné dans la réponse de l’API si elle est détectée.
 
     :::column-end:::
     :::column span="":::
@@ -300,7 +300,7 @@ Cette catégorie contient l’entité suivante :
 
         URL vers des sites web. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `URL` au `pii-categories` paramètre. `URL` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `URL` au `piiCategories` paramètre. `URL` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -313,7 +313,7 @@ Cette catégorie contient l’entité suivante :
 
 :::row-end:::
 
-### <a name="category-ip"></a>Catégorie : IP
+### <a name="category-ipaddress"></a>Catégorie : IPAddress
 
 Cette catégorie contient l’entité suivante :
 
@@ -321,7 +321,7 @@ Cette catégorie contient l’entité suivante :
     :::column span="":::
         **Entité**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::
@@ -329,7 +329,7 @@ Cette catégorie contient l’entité suivante :
 
         Adresses IP du réseau. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `IP` au `pii-categories` paramètre. `IP` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `IPAddress` au `piiCategories` paramètre. `IPAddress` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -357,7 +357,7 @@ Cette catégorie contient les entités suivantes :
 
         Dates et heures du jour. 
 
-        Pour accéder à cette catégorie d’entité, ajoutez `DateTime` au `pii-categories` paramètre. `DateTime` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `DateTime` au `piiCategories` paramètre. `DateTime` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 :::column span="":::
@@ -384,7 +384,7 @@ L’entité de cette catégorie peut contenir les sous-catégories suivantes.
 
         Dates du calendrier. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Date` au `pii-categories` paramètre. `Date` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Date` au `piiCategories` paramètre. `Date` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="2":::
@@ -411,7 +411,7 @@ Cette catégorie contient les entités suivantes :
 
         Nombres et quantités numériques.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Quantity` au `pii-categories` paramètre. `Quantity` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Quantity` au `piiCategories` paramètre. `Quantity` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="2":::
@@ -438,7 +438,7 @@ L’entité de cette catégorie peut contenir les sous-catégories suivantes.
 
         Ages. 
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Age` au `pii-categories` paramètre. `Age` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Age` au `piiCategories` paramètre. `Age` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="2":::
@@ -465,7 +465,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Clé d’autorisation d’un serveur Azure CosmosDB.   
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureDocumentDBAuthKey` au `pii-categories` paramètre. `AzureDocumentDBAuthKey` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureDocumentDBAuthKey` au `piiCategories` paramètre. `AzureDocumentDBAuthKey` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -486,7 +486,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Chaîne de connexion pour une base de données IaaS (infrastructure as a service) Azure et chaîne de connexion SQL.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureIAASDatabaseConnectionAndSQLString` au `pii-categories` paramètre. `AzureIAASDatabaseConnectionAndSQLString` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureIAASDatabaseConnectionAndSQLString` au `piiCategories` paramètre. `AzureIAASDatabaseConnectionAndSQLString` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -505,7 +505,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Chaîne de connexion pour Azure IoT. 
       
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureIoTConnectionString` au `pii-categories` paramètre. `AzureIoTConnectionString` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureIoTConnectionString` au `piiCategories` paramètre. `AzureIoTConnectionString` est retourné dans la réponse de l’API si elle est détectée.
 
     :::column-end:::
     :::column span="":::
@@ -524,7 +524,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Mot de passe pour les paramètres de publication Azure.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzurePublishSettingPassword` au `pii-categories` paramètre. `AzurePublishSettingPassword` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzurePublishSettingPassword` au `piiCategories` paramètre. `AzurePublishSettingPassword` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -543,7 +543,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Chaîne de connexion pour un cache Redis
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureRedisCacheString` au `pii-categories` paramètre. `AzureRedisCacheString` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureRedisCacheString` au `piiCategories` paramètre. `AzureRedisCacheString` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -562,7 +562,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Chaîne de connexion pour SaaS (software as a service) Azure.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureSAS` au `pii-categories` paramètre. `AzureSAS` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureSAS` au `piiCategories` paramètre. `AzureSAS` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -581,7 +581,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Chaîne de connexion pour Azure Service Bus.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureServiceBusString` au `pii-categories` paramètre. `AzureServiceBusString` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureServiceBusString` au `piiCategories` paramètre. `AzureServiceBusString` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -600,7 +600,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Clé d’un compte de stockage Azure. 
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureStorageAccountKey` au `pii-categories` paramètre. `AzureStorageAccountKey` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureStorageAccountKey` au `piiCategories` paramètre. `AzureStorageAccountKey` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -619,7 +619,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Clé générique d’un compte de stockage Azure.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `AzureStorageAccountGeneric` au `pii-categories` paramètre. `AzureStorageAccountGeneric` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `AzureStorageAccountGeneric` au `piiCategories` paramètre. `AzureStorageAccountGeneric` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::
@@ -638,7 +638,7 @@ Ces catégories d’entités englobent les informations Azure identifiables, not
 
         Chaîne de connexion pour un ordinateur exécutant SQL Server.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `SQLServerConnectionString` au `pii-categories` paramètre. `SQLServerConnectionString` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `SQLServerConnectionString` au `piiCategories` paramètre. `SQLServerConnectionString` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="":::

@@ -2,7 +2,6 @@
 title: Configuration du module proxy d’API – Azure IoT Edge | Microsoft Docs
 description: Découvrez comment personnaliser le module proxy d’API pour les hiérarchies de passerelle IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
@@ -12,25 +11,24 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f55c3a1f699f8a087eb97eaba347a3f21c124cc9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 100d67f30066b74fdcd6e70cfc714be7f7ee5ccd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307314"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532806"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configuration du module proxy d’API pour un scénario de hiérarchie de passerelle (préversion)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-Le module proxy d’API offre aux appareils IoT Edge la possibilité d’envoyer des requêtes HTTP par le biais de passerelles au lieu d’établir des connexions directes aux services cloud. Cet article présente les options de configuration qui vous permettent de personnaliser le module en fonction des exigences de votre hiérarchie de passerelle.
+Cet article présente les options de configuration pour le module proxy d’API qui vous permettent de le personnaliser conformément aux exigences de votre hiérarchie de passerelle.
 
->[!NOTE]
->Les conteneurs Linux doivent posséder la version 1.2 de IoT Edge, en préversion publique.
+Le module proxy d’API simplifie la communication pour les appareils IoT Edge lorsque plusieurs services sont déployés et qu’ils prennent tous en charge le protocole HTTPS et sont liés au port 443. Cela s’avère particulièrement utile dans les déploiements hiérarchiques des appareils IoT Edge dans des architectures isolées du réseau basées sur ISA-95, comme celles décrites dans [Appareils en aval isolés du réseau](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices), car les clients sur les appareils enfants ne peuvent pas se connecter directement au Cloud.
 
-Dans certaines architectures réseau, les appareils IoT Edge situés derrière des passerelles ne possèdent pas d’accès direct au cloud. Les modules qui tentent de se connecter aux services cloud échouent. Le module proxy d’API prend en charge les appareils IoT Edge en aval dans cette configuration en réacheminant les connexions des modules à travers les couches d’une hiérarchie de passerelle. Il offre aux clients un moyen sécurisé de communiquer avec plusieurs services via le protocole HTTPS sans tunneling, mais en terminant les connexions au niveau de chaque couche. Il fonctionne comme un module proxy entre les appareils IoT Edge dans une hiérarchie de passerelle jusqu’à ce qu’ils atteignent l’appareil IoT Edge de la couche supérieure. Les services qui s’exécutent sur cet appareil gèrent alors ces demandes, et le module proxy d’API redirige tout le trafic HTTP des services locaux vers le cloud sur un seul port.
+Par exemple, pour permettre aux appareils IoT Edge enfants d’extraire des images Docker, vous devez déployer un module de registre Docker. Pour autoriser le téléchargement d’objets blob, vous devez déployer un module de Stockage Blob Azure sur le même appareil IoT Edge. Ces deux services utilisent le protocole HTTPS pour la communication. Le proxy d’API active ces déploiements sur un appareil IoT Edge. Au lieu de chaque service, le module de proxy d’API est lié au port 443 sur l’appareil hôte et achemine la requête vers le module de service correct exécuté sur cet appareil par des règles configurables par l’utilisateur. Les services individuels sont toujours responsables du traitement des demandes, y compris l’authentification et l’autorisation des clients.
 
-Le module proxy d’API offre de nombreux cas d’usage avec les hiérarchies de passerelle. Il permet notamment aux appareils de couche inférieure de tirer (pull) des images conteneur ou d’envoyer (push) des objets blob dans un système de stockage. C’est la configuration des règles du proxy qui définit le mode de routage des données. Cet article décrit plusieurs options de configuration courantes.
+Sans le proxy d’API, chaque module de service doit être lié à un port distinct sur l’appareil hôte, ce qui nécessite une modification de configuration fastidieuse et sujette aux erreurs sur chaque appareil enfant qui se connecte à l’appareil IoT Edge parent.
 
 ## <a name="deploy-the-proxy-module"></a>Déploiement du module proxy
 

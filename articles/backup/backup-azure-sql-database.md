@@ -2,13 +2,13 @@
 title: Sauvegarder des bases de données SQL Server sur Azure
 description: Cet article explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: b6daf631248958948e799b20284d84a1e59e5dfe
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 08/20/2021
+ms.openlocfilehash: aae8493579c96607c5623bb04495ec21c99cf667
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518862"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101437"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -18,6 +18,9 @@ La [sauvegarde Azure](backup-overview.md) offre une solution spécialisée basé
 2. RPO (objectif de point de récupération) de 15 minutes avec des sauvegardes de fichier journal fréquentes
 3. Récupération jusqu’à une date et heure d’une seconde maximum
 4. Sauvegarde et restauration individuelles au niveau de la base de données
+
+>[!Note]
+>La sauvegarde basée sur une capture instantanée pour les bases de données SQL dans une machine virtuelle Azure est à présent en préversion. Cette offre unique combine l’intérêt des captures instantanées, ce qui permet d’obtenir un meilleur RTO et un faible impact sur le serveur, ainsi que les avantages des sauvegardes de journaux fréquentes pour un RPO faible. Pour toute requête/accès, écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 Pour voir les scénarios de sauvegarde et de restauration que nous prenons en charge aujourd’hui, consultez la [matrice de prise en charge](sql-support-matrix.md#scenario-support).
 

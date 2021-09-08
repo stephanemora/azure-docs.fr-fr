@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: azure-monitor
 author: rboucher
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 704697a88a723182c2dbbcb2f25eb18df7be34c1
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: b8ada581eabe0a2fedda08d0fbb1fa9585da0cca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430644"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801846"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -47,7 +47,7 @@ ms.locfileid: "111430644"
 | Taille maximale d’une publication | 30 Mo | Fractionner les volumes plus importants en plusieurs publications. |
 | Taille maximale des valeurs de champ  | 32 Ko | Les champs de plus de 32 Ko de champs sont tronqués. |
 
-**API Recherche**
+**API de requête**
 
 | Category | Limite | Commentaires |
 |:---|:---|:---|
@@ -60,8 +60,8 @@ ms.locfileid: "111430644"
 
 | Category | Limite | Commentaires |
 |:---|:---|:---|
+| Taille maximale des données | ~ 16.7 Mo (~ 16 Mio) | L’infrastructure de connecteur impose que la limite soit définie sur une valeur inférieure à la limite de l’API de requête |
 | Nombre maximal d’enregistrements | 500 000 | |
-| Taille maximale des données retournées | ~ 104 Mo (~ 100 Mio) | |
 | Délai d’expiration maximal des requêtes | 110 secondes | |
 | Graphiques | | La visualisation dans la page Journaux et le connecteur utilisent des bibliothèques graphiques différentes, et certaines fonctionnalités ne sont actuellement pas disponibles dans le connecteur. |
 

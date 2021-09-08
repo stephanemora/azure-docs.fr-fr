@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f6cf40e7b384c9b0e88db679f9de8ac9bbba1607
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e05dd70ab0919ca4429cee15ecfc9d6ac9ee627
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "112078764"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122261707"
 ---
 La configuration des clés gérées par le client pour vos disques vous oblige à créer des ressources dans un ordre particulier si vous les utilisez pour la première fois. Tout d’abord, vous devez créer et configurer un Azure Key Vault.
 
@@ -27,7 +27,7 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
     > [!IMPORTANT]
     > Pour que le déploiement aboutisse, votre coffre de clés Azure, le jeu de chiffrement de disque, les machines virtuelles, les disques et les captures instantanées doivent tous se trouver dans la même région et le même abonnement.
 
-1. Sélectionnez **+Ajouter** pour créer un coffre de clés Key Vault.
+1. Sélectionnez **+Créer** pour créer un nouveau Coffre de clés.
 1. Créez un groupe de ressources.
 1. Entrez un nom de coffre de clés, sélectionnez une région, puis sélectionnez un niveau tarifaire.
 
@@ -47,7 +47,7 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
 1. Laissez **Type de clé** défini sur **RSA** et **Taille de clé RSA** défini sur **2048**.
 1. Renseignez les autres sélections comme vous le souhaitez, puis sélectionnez **Créer**.
 
-    ![Capture d’écran du panneau Créer une clé qui apparaît une fois que le bouton Générer/importer est sélectionné](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Capture d’écran du volet Créer une clé qui apparaît une fois que le bouton générer/importer est sélectionné](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ### <a name="add-an-azure-rbac-role"></a>Ajouter un rôle RBAC Azure
 
@@ -59,7 +59,7 @@ Maintenant que vous avez créé le coffre de clés Azure et une clé, vous devez
 ## <a name="set-up-your-disk-encryption-set"></a>Configuration du jeu de chiffrement de disque
 
 1. Recherchez **Ensembles de chiffrement de disque** et sélectionnez-le.
-1. Ouvrez le panneau **Ensembles de chiffrement de disque** et sélectionnez **+ Ajouter**.
+1. Dans le volet **Jeux de chiffrement de disque** sélectionnez **+ Créer**.
 
     ![Capture d’écran de l’écran principal du portail de chiffrement de disque. Mise en surbrillance du bouton Ajouter](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
@@ -74,4 +74,4 @@ Maintenant que vous avez créé le coffre de clés Azure et une clé, vous devez
 1. Appuyez sur **Sélectionner**.
 1. Sélectionnez **Vérifier + créer**, puis **Créer**.
 
-    ![Capture d’écran du panneau de création du chiffrement de disque. Indique l’abonnement, le groupe de ressources, le nom du jeu de chiffrement de disque, la région et le coffre de clés + sélecteur de clé.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    ![Capture d’écran du volet de création du chiffrement de disque. Indique l’abonnement, le groupe de ressources, le nom du jeu de chiffrement de disque, la région et le coffre de clés + sélecteur de clé.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)

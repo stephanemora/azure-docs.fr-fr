@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48888f9ca840888310aebcc82d38d2af351a8611
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 9fc7a8d5b27da251f13f2c9dfeffa03f7cdbd149
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277891"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114452556"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -38,6 +38,9 @@ Le bac à sable cloud prend en charge un maximum de 48 appels système et restr
 En raison du nombre de modules et de cmdlets inclus, il est difficile de connaître au préalable les cmdlets qui ne sont pas prises en charge. En général, les problèmes concernent les cmdlets qui nécessitent un accès avec des privilèges élevés, qui requièrent des informations d’identification en tant que paramètres ou les cmdlets associées à la mise en réseau. Les cmdlets qui effectuent des opérations de réseau complètes ne sont pas prises en charge dans le bac à sable, notamment [Connect-AipService](/powershell/module/aipservice/connect-aipservice) du module PowerShell AIPService et [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) du module DNSClient.
 
 Il s’agit de limitations connues du bac à sable. La solution de contournement recommandée consiste à déployer un [Runbook Worker hybride](../automation-hybrid-runbook-worker.md) ou à utiliser [Azure Functions](../../azure-functions/functions-overview.md).
+
+> [!IMPORTANT] 
+> N’incluez pas le mot clé « AzureRm » dans un script conçu pour être exécuté avec le module AZ. L’inclusion du mot clé, même dans un commentaire, peut entraîner le chargement du AzureRm, puis un conflit avec le module AZ.
 
 ## <a name="default-modules"></a>Modules par défaut
 

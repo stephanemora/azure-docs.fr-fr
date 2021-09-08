@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 03/05/2020
+ms.date: 07/20/2021
 adobe-target: true
-ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebe02e264a9f3faea2812253eeced6d56319627d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100367054"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562915"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Aide-mémoire de l’algorithme Machine Learning pour le concepteur Azure Machine Learning
 
@@ -23,13 +23,13 @@ L'**Aide-mémoire d’algorithme Azure Machine Learning Studio** vous permet de 
 
 Azure Machine Learning dispose d'une grande bibliothèque d'algorithmes des familles ***classification** _, _*_systèmes de recommandation_*_, _*_clustering_*_, _*_détection d'anomalie_*_, _*_régression_*_ et _ *_analyse de texte_* *. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
 
-Pour obtenir des instructions supplémentaires, consultez [Guide pratique pour sélectionner des algorithmes](how-to-select-algorithms.md).
+Pour plus d'informations, consultez [Comment sélectionner des algorithmes](how-to-select-algorithms.md).
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Télécharger : Aide-mémoire de l’algorithme Machine Learning
 
 **Téléchargez l’aide-mémoire ici : [Aide-mémoire de l’algorithme Machine Learning (11 x 17 pouces)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
 
-![Aide-mémoire de l’algorithme Machine Learning : Découvrez comment choisir un algorithme Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
+![Aide-mémoire de l’algorithme Machine Learning : Découvrez comment choisir un algorithme Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
 
 Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning au format tabloïd pour l’avoir à portée de main et obtenir de l’aide lors du choix d’un algorithme.
 
@@ -59,9 +59,9 @@ Dans l’apprentissage par renforcement, l’algorithme choisit une action en r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Prenez connaissance de conseils supplémentaires avec le [Guide pratique pour sélectionner des algorithmes](how-to-select-algorithms.md)
+* Vous trouverez davantage d'informations sur [Comment sélectionner des algorithmes](how-to-select-algorithms.md).
 
-* [En savoir plus sur Studio dans Azure Machine Learning et le Portail Azure](overview-what-is-azure-ml.md).
+* [En savoir plus sur Studio dans Azure Machine Learning et le Portail Azure](overview-what-is-azure-machine-learning.md).
 
 * [Tutoriel : Générer un modèle de prévision dans le concepteur Azure Machine Learning](tutorial-designer-automobile-price-train-score.md).
 

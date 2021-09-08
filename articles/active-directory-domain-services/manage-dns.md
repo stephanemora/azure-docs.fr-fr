@@ -8,24 +8,27 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
-ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 935abb1a1eae362e3036c323da35aa5fd7b9b018
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619349"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707972"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrer DNS et créer des redirecteurs conditionnels dans un domaine managé Azure Active Directory Domain Services
 
-Dans Azure Active Directory Domain Services (Azure AD DS), DNS est un composant clé. Azure AD DS inclut un serveur DNS qui fournit la résolution de noms pour le domaine managé. Ce serveur DNS comprend des enregistrements DNS intégrés et des mises à jour pour les composants clés qui permettent l’exécution du service.
+Azure AD DS inclut un serveur DNS qui fournit la résolution de noms pour le domaine managé. Ce serveur DNS comprend des enregistrements DNS intégrés et des mises à jour pour les composants clés qui permettent l’exécution du service.
 
 Lorsque vous exécutez vos propres applications et services, il se peut que vous deviez créer des enregistrements DNS pour des machines qui ne sont pas jointes au domaine, ou configurer des adresses IP virtuelles pour des équilibreurs de charge ou des redirecteurs DNS externes. Les utilisateurs qui appartiennent au groupe *Administrateurs AAD DC* bénéficient de privilèges d’administration DNS sur le domaine managé Azure AD DS, et peuvent créer et modifier des enregistrements DNS personnalisés.
 
 Dans un environnement hybride, les zones DNS et les enregistrements configurés dans d'autres espaces de noms DNS, comme un environnement AD DS local, ne sont pas synchronisés avec le domaine managé. Pour résoudre les ressources nommées dans d’autres espaces de noms DNS, créez et utilisez des redirecteurs conditionnels pointant vers des serveurs DNS existants dans votre environnement.
 
 Cet article explique comment installer les Outils du serveur DNS, puis utiliser la console DNS pour gérer les enregistrements et créer des redirecteurs conditionnels dans Azure AD DS.
+
+>[!NOTE]
+>La création ou la modification de redirecteurs DNS au niveau du serveur n’est pas prise en charge et causera des problèmes au domaine managé Azure AD DS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

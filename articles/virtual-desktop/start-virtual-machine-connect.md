@@ -3,23 +3,19 @@ title: Démarrer une machine virtuelle lors de la connexion – Azure
 description: Comment configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e4ca9a6cfc87844bf74131b145c19aecd964554
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 301a2b0626b6dd40f90a8b693e3284c12d948fa1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524272"
 ---
-# <a name="start-virtual-machine-on-connect-preview"></a>Démarrer une machine virtuelle lors de la connexion (préversion)
+# <a name="start-virtual-machine-on-connect"></a>Démarrer une machine virtuelle lors de la connexion
 
-> [!IMPORTANT]
-> La fonctionnalité de démarrage de machine virtuelle lors de la connexion est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-La fonctionnalité Démarrer la machine virtuelle à la connexion (préversion) vous permet de réduire les coûts en permettant aux utilisateurs finaux d’activer leurs machines virtuelles uniquement quand ils en ont besoin. Vous pouvez ensuite désactiver les machines virtuelles lorsqu’elles ne sont pas nécessaires.
+La fonctionnalité de Démarrage de machine virtuelle lors de la connexion vous permet de réduire les coûts en permettant aux utilisateurs finaux d’activer leurs machines virtuelles uniquement quand ils en ont besoin. Vous pouvez ensuite désactiver les machines virtuelles lorsqu’elles ne sont pas nécessaires.
 
 >[!NOTE]
 >Azure Virtual Desktop (classique) ne prend pas en charge cette fonctionnalité.
@@ -30,12 +26,13 @@ Vous pouvez activer la fonctionnalité Démarrer une machine virtuelle lors de l
 
 Les clients Bureau à distance prenant en charge la fonctionnalité de démarrage de machine virtuelle lors de la connexion sont les suivants :
 
-- [client web](connect-web.md) ;
-- [client Windows (version 1.2748 ou ultérieure)](connect-windows-7-10.md).
-- [Le client Android (version 10.0.10 ou ultérieure)](connect-android.md)
-- [Le client macOS (version 10.6.4 ou ultérieure)](connect-macos.md)
-
-Vous pouvez trouver des annonces sur les mises à jour et la prise en charge de client sur le [Forum Tech Community](https://aka.ms/wvdtc).
+- [client web](./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) ;
+- [Le client Windows (version 1.2.2061 ou ultérieure)](./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Le client Android (version 10.0.10 ou ultérieure)](./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Le client macOS (version 10.6.4 ou ultérieure)](./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Le client iOS (version 10.2.5 ou ultérieure)](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Le client Microsoft Store (version 10.2.2005.0 ou ultérieure)](./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- Les clients dynamiques listés dans la [prise en charge des Clients dynamiques](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Créer un rôle personnalisé pour démarrer une machine virtuelle lors de la connexion
 
@@ -69,7 +66,7 @@ Pour attribuer le rôle personnalisé :
 
 2. Sélectionnez le site que vous venez de créer.
 
-3. Dans la barre de recherche, entrez et sélectionnez **Azure Virtual Desktop**.
+3. Dans la barre de recherche, entrez et sélectionnez **Bureau virtuel Windows** (mise à jour prochaine vers « Azure Virtual Desktop »).
 
       >[!NOTE]
       >Il se peut que deux applications s’affichent si vous avez déployé Azure Virtual Desktop (classique). Attribuez le rôle aux deux applications que vous voyez.
@@ -79,30 +76,33 @@ Pour attribuer le rôle personnalisé :
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>Créer un rôle personnalisé avec un modèle JSON
 
-Si vous utilisez un fichier JSON pour créer le rôle personnalisé, l’exemple suivant présente un modèle de base que vous pouvez utiliser. Veillez à remplacer la valeur d’ID d’abonnement par l’ID d’abonnement auquel vous voulez attribuer le rôle.
+Si vous utilisez un fichier JSON pour créer le rôle personnalisé, l’exemple suivant présente un modèle de base que vous pouvez utiliser. Veillez à remplacer la valeur d’ID d’abonnement dans *AssignableScopes* par l’ID d’abonnement auquel vous voulez affecter le rôle.
 
 ```json
 {
-    "properties": {
-        "roleName": "start VM on connect",
-        "description": "Friendly description.",
-        "assignableScopes": [
-            "/subscriptions/<SubscriptionID>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/virtualMachines/start/action",
-                    "Microsoft.Compute/virtualMachines/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-    }
+  "Name": "Start VM on connect (Custom)",
+  "IsCustom": true,
+  "Description": "Start VM on connect with AVD (Custom)",
+  "Actions": [
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/read"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
+
+Pour utiliser le modèle JSON, enregistrez le fichier JSON, ajoutez les informations d’abonnement appropriées aux *étendues attribuables*, puis exécutez l’applet de commande suivante dans PowerShell :
+
+```powershell
+New-AzRoleDefinition -InputFile "C:\temp\filename"
+```
+
+Pour en savoir plus sur la création de rôles personnalisés, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure PowerShell](../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template).
 
 ## <a name="configure-the-start-vm-on-connect-feature"></a>Configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion
 

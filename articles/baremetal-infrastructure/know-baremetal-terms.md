@@ -2,19 +2,19 @@
 title: Connaître les termes d’Azure BareMetal Infrastructure
 description: Connaître les termes d’Azure BareMetal Infrastructure.
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.openlocfilehash: 91270b2c16a1b642b697fd4ffb6a9c635608110e
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 07/13/2021
+ms.openlocfilehash: a4bf8b24bc412215f595e12128c0a63f40e8fbfd
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576312"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767109"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Connaître les termes relatifs à BareMetal Infrastructure
 
 Dans cet article, nous allons aborder des termes importants liés à BareMetal Infrastructure.
 
-- **Révision** : Il existe deux révisions de tampons pour les tampons BareMetal Infrastructure (HANA - Grandes instances). Elles diffèrent des ordinateurs hôtes de l’ordinateur virtuel Azure par leur architecture et leur proximité :
+- **Révision** : Il existe deux révisions de tampons pour les tampons BareMetal Infrastructure (HANA - Grandes instances). Ces révisions diffèrent des hôtes de machines virtuelles Azure en termes d’architecture et de proximité :
     - « Révision 3 » (Rév. 3) : La conception originale déployée mi-2016.
     - « Révision 4.2 » (Rév. 4.2) : Une nouvelle conception qui offre une plus grande proximité avec les ordinateurs hôtes de l’ordinateur virtuel Azure, avec une latence réseau ultra-faible entre les machines virtuelles Azure et HANA - Grandes instances. Les ressources du portail Azure sont appelées « BareMetal Infrastructure », et les clients peuvent accéder à leurs ressources en tant qu’instances BareMetal à partir du portail Azure.
 
@@ -24,7 +24,7 @@ Dans cet article, nous allons aborder des termes importants liés à BareMetal I
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez présenté une terminologie importante de BareMetal Infrastructure, vous pouvez en savoir plus sur les éléments suivants :
-- Plus d’informations sur [BareMetal Infrastructure](concepts-baremetal-infrastructure-overview.md).
-- Comment [Connecter des instances BareMetal Infrastructure dans Azure](connect-baremetal-infrastructure.md).
+Apprenez-en davantage sur l’Infrastructure BareMetal.
 
+> [!div class="nextstepaction"]
+> [BareMetal Infrastructure](concepts-baremetal-infrastructure-overview.md)

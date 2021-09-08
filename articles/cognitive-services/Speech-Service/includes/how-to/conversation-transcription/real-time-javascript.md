@@ -1,27 +1,29 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: trbye
-ms.openlocfilehash: d2fae1c08132c855f570750a4528a9a37343434e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: lajanuar
+ms.openlocfilehash: cdf9b7132b6509b936d7a3c4d0d41a23933ef389
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105105432"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533071"
 ---
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
 Avant de pouvoir faire quoi que ce soit, vous devez installer le <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK Speech pour JavaScript</a>. Suivez les instructions ci-dessous, en fonction de votre plateforme :
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navigateur web </a>
 
 ## <a name="create-voice-signatures"></a>Créer des signatures vocales
 
-La première étape consiste à créer des signatures vocales pour les orateurs à la conversation afin qu’ils puissent être identifiés en tant qu’orateurs uniques. Le fichier son `.wav` d’entrée permettant de créer des signatures vocales doit correspondre à 16 bits, à un taux d’échantillonnage de 16 kHz et à un format à canal unique (mono). La longueur recommandée de chaque échantillon audio se situe entre trente secondes et deux minutes. Le fichier `.wav` doit être un échantillon de voix **d’une personne** afin qu’un profil vocal unique puisse être créé.
+(Vous pouvez ignorer cette étape si vous ne souhaitez pas utiliser les profils utilisateur pré-inscrits pour identifier des participants spécifiques.)
+
+Si vous souhaitez inscrire des profils utilisateur, la première étape consiste à créer des signatures vocales pour les participants à la conversation afin qu’ils puissent être identifiés en tant qu’orateurs uniques. Le fichier son `.wav` d’entrée permettant de créer des signatures vocales doit correspondre à 16 bits, à un taux d’échantillonnage de 16 kHz et à un format à canal unique (mono). La longueur recommandée de chaque échantillon audio se situe entre trente secondes et deux minutes. Un échantillon audio trop court entraînera une réduction de la précision lors de la reconnaissance de l’orateur. Le fichier `.wav` doit être un échantillon de voix **d’une personne** afin qu’un profil vocal unique puisse être créé.
 
 L’exemple suivant montre comment créer une signature vocale à l’aide de l’[API REST](https://aka.ms/cts/signaturegenservice) en JavaScript. Notez que vous devez remplacer `subscriptionKey`, `region` et le chemin d’un fichier d’échantillon `.wav` par des valeurs réelles.
 
@@ -62,6 +64,11 @@ L’exécution de ce script retourne une chaîne de signature vocale dans la var
 ## <a name="transcribe-conversations"></a>Transcrire des conversations
 
 L’exemple de code suivant montre comment transcrire les conversations en temps réel pour deux intervenants. Il part du principe que vous avez déjà créé des chaînes de signature vocale pour chaque intervenant, comme indiqué ci-dessus. Remplacez `subscriptionKey`, `region` et le chemin `filepath` pour le son que vous souhaitez transcrire par des informations réelles.
+
+Si vous n’utilisez pas de profils utilisateur préinscrits, quelques secondes supplémentaires seront nécessaires pour effectuer la première reconnaissance des utilisateurs inconnus en tant que Speaker1, speaker2, etc.
+
+> [!NOTE]
+> Assurez-vous que le même `subscriptionKey` est utilisé dans votre application pour la création de la signature, autrement vous rencontrerez des erreurs. 
 
 Cet exemple de code effectue les opérations suivantes :
 

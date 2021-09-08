@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/06/2021
+ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dce2e30f5177a26229f6c20d9500bbf5c824c3e
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104278"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535332"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -51,24 +51,25 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 
 | Nom                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
+| `acct`                | Statut du compte utilisateur dans le locataire | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
-| `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
+| `ctry`                     | Pays/Région de l’utilisateur | JWT |  | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur du champ est un code de pays/région à deux lettres standard, tel que FR, JP, SZ, etc. |
+| `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, Azure AD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|
+| `fwd`                      | Adresse IP.| JWT    |   | Ajoute l’adresse IPv4 d’origine du client demandeur (quand il se trouve sur un réseau virtuel). |
+| `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé avec le paramètre GroupMembershipClaims dans le [manifeste de l’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
+| `idtyp`                    | Type de jeton   | Jetons d’accès JWT | Spécial : uniquement dans les jetons d’accès à l’application uniquement |  La valeur est `app` lorsque le jeton est un jeton uniquement de l’application. Il s’agit de la façon la plus précise pour une API de déterminer si un jeton est un jeton d’application ou un jeton d’application + un jeton d’utilisateur.|
+| `login_hint`               | Indicateur de connexion   | JWT | MSA, Azure AD | Une revendication d’indicateur de connexion opaque et fiable.  Cette revendication est la meilleure valeur à utiliser pour le `login_hint` paramètre OAuth dans tous les flux pour obtenir l’authentification unique.  Elle peut être transmise entre les applications pour les aider à utiliser l’authentification unique en mode silencieux, de même l’application A peut connecter un utilisateur, lire la revendication `login_hint`, puis envoyer la revendication et le contexte du locataire actuel à l’application B dans la chaîne de requête ou le fragment lorsque l’utilisateur clique sur un lien qui le dirige vers l’application B. Pour éviter les conditions de concurrence et les problèmes de fiabilité, la `login_hint` *n’inclut pas* le locataire actuel pour l’utilisateur, et par défaut le locataire d’hébergement de l’utilisateur lorsqu’il est utilisé.  Si vous êtes dans un scénario invité, où l’utilisateur provient d’un autre locataire, vous devez toujours fournir un identificateur de locataire dans la requête de connexion et le transmettre aux applications avec lesquelles vous êtes partenaire. Cette revendication est destinée à être utilisée avec les fonctionnalités existantes de votre kit de développement logiciel (SDK) `login_hint`, toutefois elle est exposée. |
 | `sid`                      | ID de session utilisé pour la déconnexion de l’utilisateur après chaque session. | JWT        |  Comptes personnels et Azure AD.   |         |
+| `tenant_ctry`              | Pays/Région du locataire de la ressource | JWT | | Identique à `ctry` sauf si défini au niveau du locataire par un administrateur.  Doit également être une valeur standard à deux lettres. |
+| `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](../authentication/howto-authentication-use-email-signin.md) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt les revendications de jeton d’ID suivantes pour afficher l’état de connexion à l’utilisateur : `preferred_username` ou `unique_name` pour les jetons v1 et `preferred_username` pour les jetons v2. Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité. Vous devez utiliser la revendication `login_hint` pour l’utilisation `login_hint`. Les identificateurs lisibles explicites comme UPN ne sont pas fiables.|
 | `verified_primary_email`   | Obtenu à partir du PrimaryAuthoritativeEmail de l’utilisateur      | JWT        |           |         |
 | `verified_secondary_email` | Obtenu à partir du SecondaryAuthoritativeEmail de l’utilisateur   | JWT        |           |        |
 | `vnet`                     | Informations sur le spécificateur de réseau virtuel. | JWT        |           |      |
-| `fwd`                      | Adresse IP.| JWT    |   | Ajoute l’adresse IPv4 d’origine du client demandeur (quand il se trouve sur un réseau virtuel). |
-| `ctry`                     | Pays/Région de l’utilisateur | JWT |  | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur du champ est un code de pays/région à deux lettres standard, tel que FR, JP, SZ, etc. |
-| `tenant_ctry`              | Pays du locataire de ressource | JWT | | Identique à `ctry` sauf si défini au niveau du locataire par un administrateur.  Doit également être une valeur standard à deux lettres. |
 | `xms_pdl`             | Emplacement de données par défaut   | JWT | | Pour les locataires multigéographiques, l’emplacement de données par défaut est le code à trois lettres indiquant la région géographique où se trouve l’utilisateur. Pour plus d’informations, voir la [documentation Azure AD Connect sur l’emplacement par défaut des données](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Par exemple : `APC` pour l’Asie-Pacifique. |
 | `xms_pl`                   | Langue par défaut de l’utilisateur  | JWT ||La langue par défaut de l’utilisateur, si celle-ci a été définie. Dans les scénarios d’accès invité, provient du locataire de base. Au format langue-pays (« fr-fr »). |
 | `xms_tpl`                  | Langue par défaut du locataire| JWT | | Langue par défaut du locataire de la ressource, si celle-ci est définie. Au format langue (« fr »). |
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, Azure AD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|
-| `acct`                | Statut du compte utilisateur dans le locataire | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
-| `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé avec le paramètre GroupMembershipClaims dans le [manifeste de l’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](../authentication/howto-authentication-use-email-signin.md) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt les revendications de jeton d’ID suivantes pour afficher l’état de connexion à l’utilisateur : `preferred_username` ou `unique_name` pour les jetons v1 et `preferred_username` pour les jetons v2. Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
-| `idtyp`                    | Type de jeton   | Jetons d’accès JWT | Spécial : uniquement dans les jetons d’accès à l’application uniquement |  La valeur est `app` lorsque le jeton est un jeton uniquement de l’application. Il s’agit de la façon la plus précise pour une API de déterminer si un jeton est un jeton d’application ou un jeton d’application + un jeton d’utilisateur.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Ensemble de revendications facultatives spécifiques à v2.0
 

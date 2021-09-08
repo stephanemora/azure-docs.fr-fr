@@ -2,19 +2,17 @@
 title: Configurer une connexion à une source de données à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
-manager: luisca
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: efb7d0a239d31d82b55b5cd5066e6003391ace45
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/02/2021
+ms.openlocfilehash: bd4d10c32f1c850adf6dc886672b16937b553222
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558786"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533174"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
 
@@ -31,9 +29,22 @@ Ces problèmes peuvent être résolus en configurant votre connexion à l’aide
 
 ## <a name="using-managed-identities"></a>Utilisation des identités managées
 
-[Identités managées](../active-directory/managed-identities-azure-resources/overview.md) est une fonctionnalité qui fournit aux services Azure une identité gérée automatiquement dans Azure Active Directory (Azure AD). Vous pouvez utiliser cette fonctionnalité dans Recherche cognitive Azure pour créer un objet source de données doté d’une chaîne de connexion qui n’inclut aucune information d’identification. Au lieu de cela, votre service de recherche disposera de l’accès à la source de données via le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
+[Identités managées](../active-directory/managed-identities-azure-resources/overview.md) est une fonctionnalité qui fournit aux applications une identité gérée automatiquement dans le répertoire actif Azure (Azure AD). Vous pouvez utiliser cette fonctionnalité dans Recherche cognitive Azure pour créer un objet source de données doté d’une chaîne de connexion qui n’inclut aucune information d’identification. Au lieu de cela, votre service de recherche disposera de l’accès à la source de données via le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 En configurant une source de données à l’aide d’une identité managée, vous pouvez modifier vos informations d’identification de source de données le cas échéant : vos indexeurs pourront toujours se connecter à la source de données. Vous pouvez également créer des objets sources de données dans votre code sans avoir à inclure de clé de compte ni à utiliser Key Vault pour récupérer une clé de compte.
+
+Il existe deux types d’identités managées. La Recherche cognitive Azure prend en charge les identités managées affectées par le système et les identités managées affectées par l’utilisateur.
+
+### <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
+
+Une [Identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) peut être affectée à un service Azure unique. Vous pouvez affecter une identité managée affectée par le système à un service de Recherche cognitive Azure unique, laquelle est liée au cycle de vie de ce service de recherche.
+
+### <a name="user-assigned-managed-identity-preview"></a>Identité managée affectée par l’utilisateur (préversion)
+
+> [!IMPORTANT]
+>Cette fonctionnalité est en préversion publique et soumise à des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Les versions API REST 2021-04-30-Preview et [API REST Gestion 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) offrent cette fonctionnalité.
+
+Une [identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) est une ressource Azure autonome qui peut être affectée à un ou plusieurs services Azure. Un service de Recherche cognitive Azure unique peut avoir une ou plusieurs identités managées affectées par l’utilisateur. Une identité managée affectée par l’utilisateur unique peut être affectée à plusieurs services de recherche.
 
 ## <a name="limitations"></a>Limites
 

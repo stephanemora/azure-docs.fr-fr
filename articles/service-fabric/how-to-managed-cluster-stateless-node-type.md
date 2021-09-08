@@ -2,13 +2,13 @@
 title: Déployer un cluster managé Service Fabric avec des types de nœud sans état
 description: Découvrez comment créer et déployer des types de nœuds sans état dans des clusters managés Service Fabric.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 2e7ebd2ec3098cc90c8fb044472c348c68aed689
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.date: 8/23/2021
+ms.openlocfilehash: 1d6cd328a195e35bd2523fa24aed9153267bd83e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033710"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867335"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>Déployer un cluster managé Service Fabric avec des types de nœud sans état
 
@@ -16,7 +16,8 @@ Les types de nœuds Service Fabric viennent avec l’hypothèse inhérente qu’
 
 * Les types de nœuds principaux ne peuvent pas être configurés pour être sans état
 * Les types de nœud sans état nécessitent la version d’API **2021-05-01** ou ultérieure
-
+* La propriété **multipleplacementgroup** est automatiquement définie sur **true**. Pour en savoir plus, consultez [cette page](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
+* Cela permet la prise en charge de jusqu’à 1 000 nœuds pour le type de nœud donné.
 
 Des exemples de modèles sont disponibles : [Modèle de types de nœuds sans état Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 

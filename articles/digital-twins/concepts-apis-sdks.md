@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/30/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2ae52b60b425f113c57950e816d93d1adc2f52ea
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 6a69e1eeeb1861f7d2a14e1a96c959c18a090682
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616271"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438742"
 ---
 # <a name="azure-digital-twins-apis-and-sdks"></a>API et SDK Azure Digital Twins
 
@@ -24,7 +24,7 @@ Cet article donne une vue d’ensemble des API disponibles, ainsi que des métho
 
 ## <a name="overview-control-plane-apis"></a>Vue d’ensemble : API de plan de contrôle
 
-Les API de plan de contrôle sont des API [ARM](../azure-resource-manager/management/overview.md) utilisées pour la gestion de votre instance Azure Digital Twins dans son ensemble. Elles permettent donc d’effectuer des opérations telles que la création ou la suppression de votre instance dans son intégralité. Elles permettent également de créer et de supprimer des points de terminaison.
+Les API de plan de contrôle sont des API [ARM](../azure-resource-manager/management/overview.md) utilisées pour la gestion de votre instance Azure Digital Twins dans son ensemble. Elles permettent donc d’effectuer des opérations telles que la création ou la suppression de votre instance dans son intégralité. Vous utiliserez également ces API afin de créer et de supprimer des points de terminaison.
 
 La version la plus récente de l’API de plan de contrôle est _**2020-12-01**_.
 
@@ -41,7 +41,7 @@ Vous pouvez également utiliser des API de plan de contrôle en interagissant av
 
 ## <a name="overview-data-plane-apis"></a>Vue d’ensemble : API de plan de données
 
-Les API de plan de données sont les API Azure Digital Twins utilisées pour gérer les éléments compris dans votre instance Azure Digital Twins. Elles permettent d’effectuer des opérations telles que la création de routes, le chargement de modèles, la création de relations et la gestion des jumeaux. Elles peuvent être réparties dans les catégories suivantes :
+Les API de plan de données sont les API Azure Digital Twins utilisées pour gérer les éléments compris dans votre instance Azure Digital Twins. Elles incluent des opérations telles que la création d’itinéraires, le chargement de modèles, la création de relations et la gestion de jumeaux, lesquelles peuvent être réparties dans les catégories suivantes :
 * **DigitalTwinModels** : la catégorie DigitalTwinModels contient des API permettant de gérer des [modèles](concepts-models.md) dans une instance Azure Digital Twins. Les activités de gestion incluent le chargement, la validation, la récupération et la suppression des modèles créés dans DTDL.
 * **DigitalTwins** : la catégorie DigitalTwins contient les API qui permettent aux développeurs de créer, de modifier et de supprimer les [jumeaux numériques](concepts-twins-graph.md) et leurs relations dans une instance Azure Digital Twins.
 * **Query** : la catégorie Query permet aux développeurs de [trouver des jeux de jumeaux numériques dans le graphe jumeau](how-to-query-graph.md) parmi les relations.
@@ -81,42 +81,12 @@ Le SDK .NET (C#) Azure Digital Twins fait partie du SDK Azure pour .NET. Il est 
 > Pour obtenir des informations détaillées sur la conception des kit de développement logiciel (SDK), consultez les [principes de conception pour les kits de développement logiciel (SDK) Azure](https://azure.github.io/azure-sdk/general_introduction.html) généraux, ainsi que les [instructions de conception de .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) spécifiques.
 
 Pour utiliser le SDK, incluez le package NuGet **Azure.DigitalTwins.Core** dans votre projet. Vous aurez également besoin de la dernière version du package **Azure.Identity**. Dans Visual Studio, vous pouvez ajouter ces packages à l’aide du gestionnaire de package NuGet (accessible via *Outils > Gestionnaire de package NuGet > Gérer les packages NuGet pour la solution*). Vous pouvez également utiliser l’outil de ligne de commande .NET avec les commandes disponibles dans les liens des packages NuGet ci-dessous pour les ajouter à votre projet :
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
-* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity). Cette bibliothèque fournit des outils pour faciliter l’authentification auprès d’Azure.
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): Le package pour le [Kit de développement logiciel (SDK) Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) : bibliothèque qui fournit des outils pour faciliter l’authentification auprès d’Azure.
 
-Pour obtenir une procédure détaillée de l’utilisation des API dans la pratique, consultez le [Tutoriel : Coder une application cliente](tutorial-code.md). 
+Pour obtenir une procédure détaillée de l’utilisation des API dans la pratique, consultez le [Coder une application cliente](tutorial-code.md). 
 
-### <a name="net-sdk-usage-examples"></a>Exemples d’utilisation du SDK .NET
-
-Voici quelques exemples de code illustrant l’utilisation du SDK .NET.
-
-S’authentifier auprès du service :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_basic":::
-
-[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-note.md)] 
-
-Charger un modèle :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
-
-Lister les modèles :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
-
-Créer des jumeaux :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
-
-Interroger les jumeaux et parcourir les résultats :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
-
-Pour obtenir la procédure pas à pas de cet exemple de code d’application, consultez le [Tutoriel : Coder une application cliente](tutorial-code.md). 
-
-Vous trouverez d’autres exemples dans le [dépôt GitHub du SDK .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
-
-#### <a name="serialization-helpers"></a>Applications d’assistance de sérialisation
+### <a name="serialization-helpers"></a>Applications d’assistance de sérialisation
 
 Les assistances de sérialisation sont des fonctions d’assistance disponibles dans le kit de développement logiciel (SDK) pour créer ou désérialiser rapidement des données de jumeaux pour accéder à des informations de base. Étant donné que les méthodes principales du kit de développement logiciel (SDK) retournent des données de jumeaux au format JSON par défaut, il peut être utile d’utiliser ces classes d’assistance pour décomposer les données de jumeaux.
 
@@ -126,49 +96,6 @@ Les classes d’assistance disponibles sont les suivantes :
 * `BasicRelationship` : représente de façon générique les données de base d’une relation
 * `DigitalTwinsJsonPropertyName` : contient les constantes de chaîne à utiliser dans la sérialisation et la désérialisation JSON pour les types de jumeaux numériques personnalisés
 
-##### <a name="deserialize-a-digital-twin"></a>Désérialiser un jumeau numérique
-
-Vous pouvez toujours désérialiser des données de jumeau à l’aide de la bibliothèque JSON de votre choix, comme `System.Text.Json` ou `Newtonsoft.Json`. Si vous avez besoin d’un accès de base à un jumeau, les classes d’assistance peuvent vous faciliter la tâche.
-
-La classe d’assistance `BasicDigitalTwin` vous donne également accès aux propriétés définies dans le jumeau, par le biais d’un `Dictionary<string, object>`. Pour lister les propriétés du jumeau, vous pouvez utiliser ceci :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
-
-> [!NOTE]
-> `BasicDigitalTwin` utilise des attributs `System.Text.Json`. Pour pouvoir utiliser `BasicDigitalTwin` avec votre [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), vous devez initialiser le client avec le constructeur par défaut. Si vous voulez personnaliser l’option du sérialiseur, utilisez [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
-
-##### <a name="create-a-digital-twin"></a>Créer un jumeau numérique
-
-À l’aide de la classe `BasicDigitalTwin`, vous pouvez préparer des données pour créer une instance de jumeau :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
-
-Le code ci-dessus équivaut à la variante « manuelle » suivante :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
-
-##### <a name="deserialize-a-relationship"></a>Désérialiser une relation
-
-Vous pouvez toujours désérialiser les données de relation vers le type de votre choix. Pour un accès de base à une relation, utilisez le type `BasicRelationship`.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
-
-La classe d’assistance `BasicRelationship` vous donne également accès aux propriétés définies dans la relation, par le biais d’un `IDictionary<string, object>`. Pour lister les propriétés, vous pouvez utiliser ceci :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
-
-##### <a name="create-a-relationship"></a>Créer une relation
-
-À l’aide de la classe `BasicRelationship`, vous pouvez également préparer des données pour créer des relations dans une instance de jumeau :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
-
-##### <a name="create-a-patch-for-twin-update"></a>Créer un correctif pour une mise à jour de jumeau
-
-Les appels de mise à jour pour les jumeaux et les relations utilisent une structure de [correctif JSON](http://jsonpatch.com/). Pour créer des listes d’opérations de correctif JSON, vous pouvez utiliser le `JsonPatchDocument`, comme indiqué ci-dessous.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
-
 ## <a name="general-apisdk-usage-notes"></a>Remarques générales sur l’utilisation des API et des SDK
 
 > [!NOTE]
@@ -176,10 +103,10 @@ Les appels de mise à jour pour les jumeaux et les relations utilisent une struc
 
 La liste suivante fournit des instructions générales et des détails supplémentaires concernant l’utilisation des API et des SDK.
 
-* Vous pouvez utiliser un outil de test REST HTTP comme Postman pour effectuer des appels directs aux API Azure Digital Twins. Pour plus d’informations sur ce processus, consultez [Procédure : Faire des demandes avec Postman](how-to-use-postman.md).
-* Pour utiliser le SDK, instanciez la classe `DigitalTwinsClient`. Le constructeur exige des informations d’identification qui peuvent être obtenues avec diverses méthodes d’authentification dans le package `Azure.Identity`. Pour plus d’informations sur `Azure.Identity`, consultez la [documentation sur son espace de noms](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
+* Vous pouvez utiliser un outil de test REST HTTP comme Postman pour effectuer des appels directs aux API Azure Digital Twins. Pour plus d’informations sur ce processus, consultez [Effectuer des demandes d’API avec Postman](how-to-use-postman.md).
+* Pour utiliser le SDK, instanciez la classe `DigitalTwinsClient`. Le constructeur exige des informations d’identification qui peuvent être obtenues par le biais de diverses méthodes d’authentification dans le package `Azure.Identity`. Pour plus d’informations sur `Azure.Identity`, consultez la [documentation sur son espace de noms](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
 * Vous pourrez trouver `InteractiveBrowserCredential` utile dans les débuts. Toutefois, il existe plusieurs autres options, comme les informations d’identification pour l’[identité managée](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), qui permettent d’authentifier les [fonctions Azure configurées avec MSI](../app-service/overview-managed-identity.md?tabs=dotnet) dans Azure Digital Twins. Pour plus d’informations sur `InteractiveBrowserCredential`, consultez la [documentation sur sa classe](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
-* Les demandes envoyées aux API Azure Digital Twins nécessitent un utilisateur ou un principal de service qui fait partie du locataire [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) où réside l’instance Azure Digital Twins. Pour empêcher l’analyse malveillante des points de terminaison Azure Digital Twins, les demandes avec des jetons d’accès qui ne proviennent pas du locataire d’origine recevront le message d’erreur « 404 Sous-domaine introuvable ». Cette erreur est retournée *même si* l’utilisateur ou le principal de service a reçu le rôle de Lecteur de données Azure Digital Twins Data ou de Propriétaire de données Azure Digital Twins Data par le biais de la collaboration [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md). Pour savoir comment accéder à plusieurs locataires, consultez  [Écrire le code d’authentification de l’application cliente](how-to-authenticate-client.md#authenticate-across-tenants).
+* Les demandes envoyées aux API Azure Digital Twins nécessitent un utilisateur ou un principal de service qui fait partie du même locataire de[Répertoire actif Azure](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) où réside l’instance Azure Digital Twins. Pour empêcher l’analyse malveillante des points de terminaison Azure Digital Twins, les demandes avec des jetons d’accès qui ne proviennent pas du locataire d’origine recevront le message d’erreur « 404 Sous-domaine introuvable ». Cette erreur est retournée *même si* l’utilisateur ou le principal de service a reçu le rôle de Lecteur de données Azure Digital Twins Data ou de Propriétaire de données Azure Digital Twins Data par le biais de la collaboration [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md). Pour savoir comment accéder à plusieurs locataires, consultez [ Écrire le code d’authentification de l’application](how-to-authenticate-client.md#authenticate-across-tenants).
 * Tous les appels d’API de service sont exposés comme des fonctions membres dans la classe `DigitalTwinsClient`.
 * Toutes les fonctions de service existent dans une version synchrone et une version asynchrone.
 * Toutes les fonctions de service lèvent une exception pour tout état de retour de 400 (ou supérieur). Veillez à wrapper les appels dans une section `try` et à intercepter au moins `RequestFailedExceptions`. Pour plus d’informations sur ce type d’exception, consultez sa [documentation de référence](/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true).
@@ -204,7 +131,7 @@ Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twi
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment adresser des demandes directes aux API à l’aide de Postman :
-* [Guide pratique : Faire des demandes avec Postman](how-to-use-postman.md)
+* [Faire des demandes d’API avec Postman](how-to-use-postman.md)
 
 Ou bien, dans la pratique, utilisez le Kit de développement logiciel (SDK) .NET en créant une application cliente à l’aide de ce tutoriel :
-* [Tutoriel : Coder une application cliente](tutorial-code.md)
+* [Coder une application cliente](tutorial-code.md)

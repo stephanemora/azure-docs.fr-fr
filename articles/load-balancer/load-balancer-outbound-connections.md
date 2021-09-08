@@ -7,18 +7,18 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 05/05/2021
+ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: f0c8d42538cd437d4817f75552133efca96b8d6e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 78412ba9e71465761d68899e0d48e95864f444f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451819"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531842"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Utilisation de SNAT (Source Network Address Translation) pour les connexions sortantes
 
-Certains scénarios requièrent des machines virtuelles ou des instances de calcul pour disposer d’une connectivité sortante à Internet. Les adresses IP front-end d’un équilibreur de charge public Azure peuvent être utilisées pour fournir une connectivité sortante à Internet pour des instances back-end. Cette configuration utilise la **traduction d’adresses réseau source (SNAT)** , car l’adresse IP de la machine virtuelle ou de la **source** est traduite en adresse IP publique. La SNAT mappe l’adresse IP du back-end sur l’adresse IP publique de votre équilibreur de charge. Cela permet d’empêcher des sources externes d’avoir une adresse directe vers les instances back-end.
+Certains scénarios requièrent des machines virtuelles ou des instances de calcul pour disposer d’une connectivité sortante à Internet. Les adresses IP front-end d’un équilibreur de charge public Azure peuvent être utilisées pour fournir une connectivité sortante à Internet pour des instances back-end. Cette configuration utilise la **traduction d’adresses réseau source (SNAT)** , car l’adresse IP de la machine virtuelle ou de la **source** est traduite en adresse IP publique. La SNAT mappe l’adresse IP du back-end sur l’adresse IP publique de votre équilibreur de charge. SNAT permet d’empêcher des sources externes d’avoir une adresse directe vers les instances principales.  
 
 ## <a name="azures-outbound-connectivity-methods"></a><a name="scenarios"></a>Méthodes de connectivité sortante d’Azure
 
@@ -26,15 +26,17 @@ La connectivité sortante à Internet peut être activée des manières suivante
 
 | # | Méthode | Type d’allocation des ports | Qualité de production ? | Rating |
 | ------------ | ------------ | ------ | ------------ | ------------ |
-| 1 | Utilisation des adresses IP frontales d’un équilibreur de charge pour le trafic sortant via des règles sortantes | Statique, explicite | Oui, mais pas à l’échelle | OK | 
+| 1 | Utilisation d’une ou plusieurs adresse(s) IP frontale(s) d’un équilibreur de charge pour le trafic sortant via des Règles de trafic sortant | Statique, explicite | Oui, mais pas à l’échelle | OK | 
 | 2 | Association d’une passerelle NAT au sous-réseau | Statique, explicite | Oui | La meilleure | 
 | 3 | Attribution d’une adresse IP publique à la machine virtuelle | Statique, explicite | Oui | OK | 
-| 4 | Utilisation des adresses IP frontales d’un équilibreur de charge pour les messages sortants (et entrants) | Par défaut, implicite | Non | Pire
+| 4 | Utilisation de la ou des adresse(s) IP frontale(s) d’un équilibreur de charge pour les messages sortants (et entrants) | Implicite | No | Deuxième pire |
+| 5 | Utilisation de l’accès sortant par défaut | Implicite | Non | Pire |
 
+## <a name="using-the-frontend-ip-address-of-a-load-balancer-for-outbound-via-outbound-rules"></a><a name="outboundrules"></a>Utilisation de l’adresse IP frontale d’un équilibreur de charge pour le trafic sortant via des règles de trafic sortant
 
-## <a name="leveraging-the-frontend-ip-address-of-a-load-balancer-for-outbound-via-outbound-rules"></a><a name="outboundrules"></a>Utilisation de l’adresse IP frontale d’un équilibreur de charge pour le trafic sortant via des règles sortantes
+Les règles de trafic sortant vous permettent de définir explicitement la traduction d’adresses réseau sources (SNAT) pour un équilibreur de charge standard public. 
 
-Les règles de trafic sortant vous permettent de définir explicitement la traduction d’adresses réseau sources (source network address translation, SNAT) pour un équilibreur de charge Standard public. Cette configuration vous permet d’utiliser les adresses IP publiques de votre équilibreur de charge pour fournir une connectivité Internet sortante pour vos instances de serveur principal.
+Cette configuration vous permet d’utiliser la ou les adresse(s) IP publique(s) de votre équilibreur de charge pour la connectivité sortante des instances principales.
 
 Cette configuration permet :
 
@@ -49,19 +51,19 @@ Pour plus d’informations sur les règles de trafic sortant, consultez [Règles
 >[!Important]
 > Lorsqu’un pool principal est configuré par adresse IP, il se comporte comme un équilibreur de charge de base avec l’option sortant par défaut activée. Pour une configuration et des applications sécurisées par défaut avec des besoins sortants exigeants, configurez le pool principal par carte réseau.
 
-## <a name="associating-a-vnet-nat-to-the-subnet"></a>Association d’un réseau virtuel NAT au sous-réseau
+## <a name="associating-a-nat-gateway-to-the-subnet"></a>Association d’une passerelle NAT au sous-réseau
 
-La traduction d’adresses réseau (NAT) simplifie la connectivité Internet sortante-uniquement pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées. Une connectivité sortante est possible sans équilibreur de charge ni adresses IP publiques directement attachées aux machines virtuelles. NAT est complètement managé et hautement résilient.
+Le NAT de Réseau virtuel simplifie la connectivité Internet uniquement sortante pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées. Une connectivité sortante est possible sans équilibreur de charge ni adresses IP publiques directement attachées aux machines virtuelles. NAT est complètement managé et hautement résilient.
 
-L’utilisation d’un NAT de réseau virtuel est la meilleure méthode pour la connectivité sortante, car elle est hautement évolutive, fiable et n’est pas susceptible à l’épuisement des ports SNAT.
+L’utilisation d’une passerelle NAT est la meilleure méthode pour la connectivité sortante. Une passerelle NAT est hautement extensible, fiable et n’a pas les mêmes préoccupations en matière d’épuisement des ports SNAT.
 
-Pour plus d’informations sur le service NAT de réseau virtuel Azure, consultez [Qu’est-ce que le service NAT de réseau virtuel ?](../virtual-network/nat-overview.md)
+Pour plus d’informations sur le service NAT de réseau virtuel Azure, consultez [Qu’est-ce que le service NAT de réseau virtuel ?](../virtual-network/nat-gateway/nat-overview.md)
 
 ##  <a name="assigning-a-public-ip-to-the-virtual-machine"></a>Attribution d’une adresse IP publique à la machine virtuelle
 
  | Associations | Méthode | Protocoles IP |
  | ---------- | ------ | ------------ |
- | Adresse IP publique sur la carte réseau de la machine virtuelle | [SNAT (Source Network Address Translation, traduction d’adresses réseau sources)](#snat) </br> non utilisée. | Protocole TCP (Transmission Control Protocol) </br> Protocole UDP (User Datagram Protocol) </br> Protocole ICMP (Internet Control Message Protocol) </br> Protection ESP (Encapsulating Security Payload) |
+ | Adresse IP publique sur la carte réseau de la machine virtuelle | [SNAT (Source Network Address Translation, traduction d’adresses réseau sources)](#snat) </br> n’est pas utilisée. | Protocole TCP (Transmission Control Protocol) </br> Protocole UDP (User Datagram Protocol) </br> Protocole ICMP (Internet Control Message Protocol) </br> Protection ESP (Encapsulating Security Payload) |
 
  Tout le trafic est retourné au client demandeur à partir de l’adresse IP publique de la machine virtuelle (IP au niveau de l’instance).
  
@@ -69,39 +71,58 @@ Pour plus d’informations sur le service NAT de réseau virtuel Azure, consulte
 
  Une adresse IP publique affectée à une machine virtuelle constitue une relation 1:1 (non pas une relation 1-à-plusieurs) ; elle est implémentée comme un NAT 1:1 sans état.
 
-
-
-## <a name="leveraging-the-frontend-ip-address-of-a-load-balancer-for-outbound-and-inbound"></a><a name="snat"></a> Utilisation de l’adresse IP frontale d’un équilibreur de charge pour les messages sortants (et entrants)
+## <a name="using-the-frontend-ip-address-of-a-load-balancer-for-outbound-and-inbound"></a><a name="snat"></a> Utilisation de l’adresse IP frontale d’un équilibreur de charge pour les messages sortants (et entrants)
 >[!NOTE]
-> Cette méthode n’est **PAS recommandée** pour les charges de travail de production, car elle augmente le risque d’épuisement des ports. N’hésitez pas à utiliser cette méthode pour les charges de travail de production afin d’éviter les échecs de connexion potentiels. 
+> Cette méthode n’est **PAS recommandée** pour les charges de travail de production, car elle augmente le risque d’épuisement des ports. Évitez d’utiliser cette méthode pour les charges de travail de production afin d’éviter les échecs de connexion potentiels dus à l’épuisement des ports SNAT. 
 
+Une ressource dans le serveur principal d’un équilibreur de charge sans :
 
-Si les ressources principales d’un équilibreur de charge n’ont pas de règles de trafic sortant, d’adresses IP publiques de niveau instance ou de NAT de réseau virtuel configurés, elles établissent une connectivité sortante via l’adresse IP frontale de l’équilibreur de charge. C’est ce qu’on appelle SNAT par défaut.
+* Règles de trafic sortant
+* Adresses IP publiques au niveau de l’instance
+* Passerelle NAT configurée
 
+crée des connexions sortantes via l’adresse IP frontale de l’équilibreur de charge et s’appuie sur SNAT par défaut (également appelé accès sortant par défaut).
+
+## <a name="default-outbound-access"></a>Accès sortant par défaut
+
+Une ressource sans :
+
+* Règles de trafic sortant
+* Adresses IP publiques au niveau de l’instance
+* Passerelle NAT configurée
+* un équilibreur de charge
+
+crée des connexions sortantes par le biais de SNAT par défaut. C’est ce que l’on appelle l’accès sortant par défaut. Un autre exemple de scénario utilisant le SNAT par défaut est une machine virtuelle dans Azure (sans les associations mentionnées ci-dessus). Dans ce cas, la connectivité sortante est fournie par l’adresse IP d’accès sortant par défaut. Il s’agit d’une adresse IP dynamique affectée par Azure que vous ne pouvez pas contrôler. SNAT par défaut n’est pas recommandé pour les charges de travail de production
 
 ### <a name="what-are-snat-ports"></a>Que sont les ports SNAT ?
+
 Les ports sont utilisés pour générer des identificateurs uniques, eux-mêmes utilisés pour gérer des flux distincts. Internet utilise cinq tuples pour fournir cette distinction.
 
 Si un port est utilisé pour des connexions entrantes, il a un **écouteur** pour les requêtes de connexions entrantes sur ce port. Ce port ne peut pas être utilisé pour les connexions sortantes. Pour établir une connexion sortante, utilisez un **port éphémère** pour fournir un port à la destination, afin de communiquer et de maintenir un flux de trafic distinct. Quand ces ports éphémères sont utilisés pour SNAT, ils sont appelés **ports SNAT** 
 
-Par définition, chaque adresse IP a 65 535 ports. Chaque port peut être utilisé pour les connexions entrantes ou sortantes pour les protocoles TCP (Transmission Control Protocol) et UDP (User Datagram Protocol). Quand une IP publique est ajoutée en tant qu’IP front-end à un équilibreur de charge, Azure accorde 64 000 ports éligibles pour SNAT.
+Par définition, chaque adresse IP a 65 535 ports. Chaque port peut être utilisé pour les connexions entrantes ou sortantes pour les protocoles TCP (Transmission Control Protocol) et UDP (User Datagram Protocol). Quand une adresse IP publique est ajoutée en tant qu’IP frontale à un équilibreur de charge, 64 000 ports sont éligibles pour SNAT.
 
-Chaque port utilisé pour une règle NAT de trafic entrant ou d’équilibrage de charge utilise une plage de huit ports dans ces 64 000 ports, ce qui réduit le nombre de ports éligibles à la SNAT. Si une règle NAT entrante ou d’équilibrage de charge se trouve dans la même plage de huit qu’une autre règle, elle ne consomme pas de ports supplémentaires. 
+Un port utilisé pour un équilibrage de charge ou une règle NAT de trafic entrant utilise huit ports des ports 64 000. Cette utilisation permet de réduire le nombre de ports éligibles pour SNAT. Si une règle NAT de trafic entrant ou d’équilibrage de charge se trouve dans la même plage de huit qu’une autre règle, elle ne consomme pas de ports supplémentaires. 
 
 ### <a name="how-does-default-snat-work"></a>Comment fonctionne le SNAT par défaut ?
-Quand une machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source en adresse IP publique du front-end de l’équilibreur de charge public. Cette traduction s’effectue par le biais de la [SNAT](#snat). 
 
-Si vous utilisez la SNAT par défaut par le biais d’une règle d’équilibrage de charge, les ports SNAT sont pré-alloués comme décrit dans le [tableau d’allocation des ports SNAT par défaut](#snatporttable).
+Quand la machine virtuelle crée un flux sortant, Azure traduit l’adresse IP source en adresse IP éphémère. Cette traduction s’effectue par le biais de la [SNAT](#snat). 
+
+Si vous utilisez SNAT par défaut par le biais d’une règle d’équilibrage de charge, les ports SNAT sont préalloués comme décrit dans le [tableau d’allocation des ports SNAT par défaut](#snatporttable).
  
-Lorsque vous utilisez un équilibreur de charge interne Standard, il n’y a pas d’utilisation d’adresses IP éphémères pour SNAT. Cette fonctionnalité prend en charge la sécurité par défaut. Cette fonctionnalité garantit que toutes les adresses IP utilisées par les ressources sont configurables et peuvent être réservées. Pour obtenir une connectivité sortante à Internet lors de l’utilisation d’un équilibreur de charge interne standard, configurez :
+Lorsque vous utilisez un équilibreur de charge interne standard, il n’y a pas d’utilisation d’adresse IP éphémère pour SNAT. Cette fonctionnalité prend en charge la sécurité par défaut. Cette fonctionnalité garantit que toutes les adresses IP utilisées par les ressources sont configurables et peuvent être réservées. 
+
+Pour obtenir une connectivité sortante à Internet lors de l’utilisation d’un équilibreur de charge interne standard, configurez :
+
 - Une adresse IP publique au niveau de l’instance 
-- NAT de réseau virtuel
--  les instances back-end à un équilibreur de charge public standard avec une règle de trafic sortant configurée.  
+- Passerelle NAT
+- Ajouter des instances principales à un équilibreur de charge public standard avec une règle de trafic sortant configurée.  
 
 ### <a name="what-is-the-ip-for-default-snat"></a>Quelle est l’adresse IP SNAT par défaut ?
 Quand la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source en adresse IP source publique spécifiée dynamiquement. Cette adresse IP publique **n’est pas configurable** et ne peut pas être réservée. Cette adresse n’est pas comptabilisée dans la limite des ressources IP publiques de l’abonnement. 
 
 L’adresse IP publique est publiée et une nouvelle adresse IP publique est demandée si vous redéployez ce qui suit : 
+
  * Machine virtuelle
  * Groupe à haute disponibilité
  * Jeu de mise à l’échelle de machine virtuelle 
@@ -110,11 +131,11 @@ L’adresse IP publique est publiée et une nouvelle adresse IP publique est dem
 > Cette méthode n’est **PAS recommandée** pour les charges de travail de production, car elle augmente le risque d’épuisement des ports. N’hésitez pas à utiliser cette méthode pour les charges de travail de production afin d’éviter les échecs de connexion potentiels. 
 
 | Type | Comportement sortant | 
- | ------------ | ------ | 
- | Équilibreur de charge public Standard | Utilisation des IP front-end de l’équilibreur de charge pour la SNAT 
- | Équilibreur de charge interne Standard | Aucune connectivité Internet, sécurisé par défaut | 
-Équilibreur de charge public de base | Utilisation des IP front-end de l’équilibreur de charge pour la SNAT |
-Équilibreur de charge interne de base | SNAT avec adresse IP dynamique inconnue| 
+| ------------ | ------ | 
+| Équilibreur de charge public Standard | Utilisation des IP front-end de l’équilibreur de charge pour la SNAT |
+| Équilibreur de charge interne Standard | Aucune connectivité Internet, sécurisé par défaut | 
+| Équilibreur de charge public de base | Utilisation des IP front-end de l’équilibreur de charge pour la SNAT |
+| Équilibreur de charge interne de base | SNAT avec adresse IP dynamique inconnue |
 
 ## <a name="exhausting-ports"></a> Épuisement des ports
 
@@ -142,7 +163,7 @@ Cela permet de réutiliser un port pour un nombre illimité de connexions. Le po
 
 Chaque adresse IP publique allouée en tant qu’adresse IP front-end de votre équilibreur de charge reçoit 64 000 ports SNAT pour ses membres de pool back-end. Les ports ne peuvent pas être partagés avec des membres du pool back-end. Une plage de ports SNAT ne peut être utilisée que par une seule instance back-end pour garantir le routage correct des paquets de retour. 
 
-Si vous utilisez l’allocation automatique de port SNAT sortant par le biais d’une règle d’équilibrage de charge, la table d’allocation définira votre allocation de port.
+Si vous utilisez l’allocation automatique de port SNAT sortant par le biais d’une règle d’équilibrage de charge, la table d’allocation définira votre allocation de port pour chaque adresse IP.
 
 Le tableau suivant <a name="snatporttable"></a>présente les préaffectations de ports SNAT pour les différents niveaux de tailles de pool back-end :
 
@@ -164,6 +185,7 @@ Le tableau suivant <a name="snatporttable"></a>présente les préaffectations de
   * Un port UDP SNAT est nécessaire si le port de destination est unique ou non. Pour chaque connexion UDP à une adresse IP de destination, un port UDP SNAT est utilisé.
   * Un port TCP SNAT peut être utilisé pour plusieurs connexions à la même adresse IP de destination, à condition que les ports de destination soient différents.
 *   L’épuisement des ports SNAT se produit lorsqu’une instance back-end n’a pas assez de ports SNAT. Un équilibreur de charge peut toujours avoir des ports SNAT inutilisés. Si une instance back-end utilise plus de ports SNAT que ceux qui lui sont alloués, elle ne pourra pas établir de nouvelles connexions sortantes.
+*   Les paquets fragmentés seront supprimés, sauf si le trafic sortant se fait via une adresse IP publique au niveau de l’instance sur la carte réseau de la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

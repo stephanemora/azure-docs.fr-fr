@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 02/21/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 092484b09af008770260c64cd6b7e0ea15265811
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706031"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121803285"
 ---
 Voici une liste des comptes de stockage et des types de stockage pris en charge pour un appareil Data Box. Pour obtenir la liste complète de toutes les capacités pour tous les types de comptes de stockage, consultez [Types de comptes de stockage](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
@@ -49,3 +49,4 @@ Pour les commandes d’exportation, le tableau suivant indique les comptes de st
 > - Les données chargées dans des objets blob de pages doivent être alignées sur 512 octets (p. ex., disques durs virtuels).
 > - Le volume maximal de données exportées est de 80 To.
 > - L’historique des fichiers et les instantanés d’objets blob ne sont pas exportés.
+> - Les objets BLOB d’archive ne sont pas pris en charge pour l’exportation. Réalimentez les objets BLOB au niveau Archive avant d’exporter. Pour plus d’informations, consultez [réalimentation d’un objet BLOB archivé sur un niveau en ligne](../articles/storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).

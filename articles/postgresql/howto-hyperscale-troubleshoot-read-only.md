@@ -7,13 +7,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 6/4/2021
-ms.openlocfilehash: 13d0c630c38e71b243a32404b26e3a141a20a6b2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/03/2021
+ms.openlocfilehash: 48ea5fbeacf1769f73b9d505e6cc8fb55e8c3a44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111561654"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524863"
 ---
 # <a name="troubleshoot-read-only-access-to-azure-database-for-postgresql---hyperscale-citus"></a>Résoudre les problèmes d’accès en lecture seule à Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -28,13 +28,13 @@ Plus précisément, un nœud Hyperscale (Citus) passe en lecture seule lorsqu’
 ### <a name="on-the-coordinator-node"></a>Sur le nœud coordinateur
 
 * [Augmenter la taille de stockage](howto-hyperscale-scale-grow.md#increase-storage-on-nodes) sur le nœud coordinateur, et/ou
-* Distribuer des tables locales aux nœuds Worker ou supprimer des données. Quelle que soit l’option choisie, vous devez exécuter `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE` une fois que vous êtes connecté à la base de données et avant d’exécuter d’autres commandes.
+* Distribuer des tables locales aux nœuds Worker ou supprimer des données. Vous devrez exécuter `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE` une fois que vous êtes connecté à la base de données et avant d’exécuter d’autres commandes.
 
 ### <a name="on-a-worker-node"></a>Sur un nœud Worker
 
 * [Augmenter la taille de stockage](howto-hyperscale-scale-grow.md#increase-storage-on-nodes) sur les nœuds Worker et/ou
 * [Rééquilibrer les données](howto-hyperscale-scale-rebalance.md) sur d’autres nœuds ou supprimer des données.
-    * Quelle que soit l’option choisie, vous devez définir le nœud Worker en lecture-écriture temporairement. Envoyez une demande de support pour effectuer cette opération. Sinon, si vous exécutez un groupe de serveurs Hyperscale (Citus) en préversion, vous pouvez vous connecter directement aux nœuds Worker et utiliser `SET SESSION CHARACTERISTICS` comme décrit ci-dessus pour le nœud coordinateur.
+    * Vous devrez définir le nœud Worker en lecture-écriture temporairement. Vous pouvez vous connecter directement aux nœuds Worker et utiliser `SET SESSION CHARACTERISTICS` comme décrit ci-dessus pour le nœud coordinateur.
 
 ## <a name="prevention"></a>Prévention
 

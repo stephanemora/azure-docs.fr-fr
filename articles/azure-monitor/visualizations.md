@@ -2,15 +2,15 @@
 title: Visualisation des données à partir d’Azure Monitor | Microsoft Docs
 description: Récapitulatif des méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 01/25/2021
-ms.openlocfilehash: 1da3f75fb95488d45a3f29284bdc8c7424b6bc9a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+author: rboucher
+ms.author: robb
+ms.date: 07/28/2021
+ms.openlocfilehash: 4a98a44cd56691947536779103f55b4e713c74df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459102"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524122"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -85,6 +85,9 @@ Voici une procédure vidéo expliquant la création de tableaux de bord.
 
 ![Capture d’écran montrant des visualisations Grafana.](media/visualizations/grafana.png)
 
+> [!IMPORTANT]
+> Le navigateur Internet Explorer et les anciens navigateurs de Microsoft Edge ne sont pas compatibles avec Grafana, vous devez utiliser un navigateur basé sur le chrome, y compris Microsoft Edge. Voir [navigateurs pris en charge pour Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+
 ### <a name="advantages"></a>Avantages
 - Visualisations riches.
 - Écosystème de sources de données riche.
@@ -95,6 +98,15 @@ Voici une procédure vidéo expliquant la création de tableaux de bord.
 - Aucune intégration à Azure. Ne peut pas gérer les tableaux de bord et les modèles par le biais d’Azure Resource Manager.
 - Coût lié à la prise en charge d’une infrastructure Grafana supplémentaire ou coûts supplémentaires liés à Grafana Cloud.
 
+## <a name="azure-monitor-partners"></a>Partenaires Azure Monitor
+Certains [Partenaires Azure Monitor](./partners.md) peuvent fournir des fonctionnalités de visualisation. Le lien précédent répertorie les partenaires évalués par Microsoft. 
+
+### <a name="advantages"></a>Avantages
+- Peut fournir des visualisations prêtes à l’emploi qui vous permettent de gagner du temps
+
+### <a name="limitations"></a>Limites
+- Peut avoir des coûts supplémentaires
+- Temps de recherche et d’évaluation des offres des partenaires
 
 ## <a name="build-your-own-custom-application"></a>Créer votre propre application personnalisée
 Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure Monitor via leur API à l’aide de n’importe quel client REST, et créer ainsi vos propres applications et sites web personnalisés.
@@ -105,7 +117,6 @@ Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure
 
 ### <a name="disadvantages"></a>Inconvénients
 - Effort d’ingénierie significatif requis.
-
 
 ## <a name="azure-monitor-views"></a>Affichages Azure Monitor
 
@@ -140,4 +151,3 @@ Les [affichages dans Azure Monitor](visualize/view-designer.md) vous permettent 
 - Découvrez [l’importation de données de journal dans Power BI](./visualize/powerbi.md).
 - Découvrez le [plug-in de source de données Azure Monitor pour Grafana](./visualize/grafana-plugin.md).
 - Découvrez les [affichages dans Azure Monitor](visualize/view-designer.md).
-

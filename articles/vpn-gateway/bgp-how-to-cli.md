@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 1b7d1c1928425dca7e1924bca09f2cd21e0ea06a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 47097be22fc9c75d7c56c8cb4d1f384936f7033a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290269"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532569"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configurer BGP sur une passerelle VPN Azure à l’aide de CLI
 
-Cet article vous permet d’activer BGP sur une connexion VPN de site à site (S2S) intersite et une connexion de réseau virtuel à réseau virtuel en utilisant le modèle de déploiement Azure Resource Manager et Azure CLI.
+Cet article vous permet d’activer BGP sur une connexion VPN de site à site (S2S) intersite et une connexion de réseau virtuel à réseau virtuel (à savoir, une connexion entre réseaux virtuels) en utilisant le [modèle de déploiement du Gestionnaire de ressources](../azure-resource-manager/management/deployment-models.md) Azure et l’interface de ligne de commande Azure.
 
 ## <a name="about-bgp"></a>À propos du protocole BGP
 
@@ -92,7 +92,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Créer la passerelle VPN avec le numéro AS
 
-Créez la passerelle de réseau virtuel pour TestVNet1. BGP requiert l’utilisation d’une passerelle VPN basée sur un itinéraire. Vous avez également besoin du paramètre supplémentaire `-Asn` pour définir le numéro de système autonome (NSA) de TestVNet1. La création d’une passerelle peut prendre un certain temps (45 minutes ou plus). 
+Créez la passerelle de réseau virtuel pour TestVNet1. BGP requiert l’utilisation d’une passerelle VPN basée sur un itinéraire. Vous avez également besoin du paramètre supplémentaire `-Asn` pour définir le numéro de système autonome (NSA) de TestVNet1. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
 Si vous exécutez cette commande à l’aide du paramètre `--no-wait`, vous ne voyez aucun commentaire ni sortie. Le paramètre `--no-wait` permet à la passerelle d’être créée à l’arrière-plan. Cela ne signifie pas que la passerelle VPN est immédiatement créée.
 

@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 06/30/2021
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18aa1e49ad3f87ab3e222f250354c2bc5e2aca16
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93394728"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563189"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
@@ -54,7 +54,7 @@ Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre r
 | Security Administrator</br>(Activé/éligible) | Non | Oui* | Oui |
 | Administrateur général</br>(Activé/éligible) | Non | Oui* | Oui |
 
-\* Si le paramètre [**Notifications**](pim-how-to-change-default-settings.md#notifications) a la valeur **Activer**.
+\* Si le paramètre [**Notifications**](pim-how-to-change-default-settings.md) a la valeur **Activer**.
 
 L’exemple suivant montre un exemple d’e-mail envoyé quand un utilisateur active un rôle Azure AD pour l’organisation fictive Contoso.
 
@@ -66,16 +66,16 @@ Un e-mail Privileged Identity Management récapitulatif pour les rôles Azure A
 
 ![E-mail Privileged Identity Management de synthèse hebdomadaire pour les rôles Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
 
-Cet e-mail comprend quatre vignettes :
+Cet e-mail comprend :
 
 | Vignette | Description |
 | --- | --- |
 | **Utilisateurs activés** | Nombre de fois que les utilisateurs ont activé leur rôle éligible au sein de l’organisation. |
 | **Utilisateurs devenus permanents** | Nombre de fois que les utilisateurs avec une attribution éligible sont devenus permanents. |
 | **Attributions de rôle dans Privileged Identity Management** | Nombre de fois que les utilisateurs se voient attribuer un rôle éligible dans Privileged Identity Management. |
-| **Attributions de rôles en dehors de PIM** | Nombre de fois que les utilisateurs se voient attribuer un rôle permanent en dehors de Privileged Identity Management (dans Azure AD). |
+| **Attributions de rôles en dehors de PIM** | Nombre de fois que les utilisateurs se voient attribuer un rôle permanent en dehors de Privileged Identity Management (dans Azure AD). Cette alerte et l’e-mail qui l’accompagne peuvent être activés ou désactivés en ouvrant les paramètres d’alerte. |
 
-La **vue d’ensemble des rôles principaux** liste les cinq rôles principaux de votre organisation en fonction du nombre total d’administrateurs permanents et éligibles pour chaque rôle. Le lien **Entreprendre une action** ouvre l’[Assistant PIM](pim-security-wizard.md) dans lequel vous pouvez convertir des administrateurs permanents en administrateurs éligibles par lots.
+La **vue d’ensemble des rôles principaux** liste les cinq rôles principaux de votre organisation en fonction du nombre total d’administrateurs permanents et éligibles pour chaque rôle. Le lien **Entreprendre une action** ouvre [Discovery & Insights](pim-security-wizard.md) où vous pouvez convertir des administrateurs permanents en administrateurs éligibles par lots.
 
 ## <a name="email-timing-for-activation-approvals"></a>Chronologie des e-mails pour les approbations d’activation
 
@@ -84,7 +84,7 @@ Lorsque des utilisateurs activent leur rôle et que le paramètre de rôle néce
 - Demande d’approbation ou de refus de la demande d’activation de l’utilisateur (envoyée par le moteur d’approbation des demandes)
 - La demande de l’utilisateur est approuvée (envoyée par le moteur d’approbation des demandes)
 
-En outre, les administrateurs généraux et les administrateurs de rôle privilégié reçoivent un e-mail pour chaque approbation :
+En outre, les Administrateurs généraux et les Administrateurs de rôle privilégié reçoivent un e-mail pour chaque approbation :
 
 - Le rôle de l’utilisateur est activé (envoyé par Privileged Identity Management)
 

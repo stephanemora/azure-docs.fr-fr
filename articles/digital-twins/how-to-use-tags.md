@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a161df47047ffb92b1557b84e457363ee9d2507c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 30e199b87f2cd6436f9d088bc8b2acd4ba8fdcaf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524098"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
@@ -38,13 +38,35 @@ Voici un extrait d’un modèle de jumeau qui implémente une balise de marqueur
 
 Une fois que la propriété `tags` fait partie d’un modèle de jumeau numérique, vous pouvez définir la balise de marqueur dans le jumeau numérique en définissant la valeur de cette propriété. 
 
-Voici un exemple qui remplit la propriété `tags` de marqueur pour trois jumeaux :
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
-
-Voici un exemple de code permettant de définir le marqueur `tags` d'un jumeau à l'aide du [kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) :
+Voici un exemple de code permettant de définir le marqueur `tags` pour un jumeau à l'aide du [kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
+Une fois que vous avez créé le jumeau avec les propriétés de balise selon l’exemple ci-dessus, le jumeau ressemble à ceci :
+
+```JSON
+{
+  "$dtId": "myTwinID",
+  "$etag": "W/\"e7429259-6833-46b4-b443-200a77a468c2\"",
+  "$metadata": {
+    "$model": "dtmi:example:Room;1",
+    "Temperature": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    },
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    }
+  },
+  "Temperature": 75,
+  "tags": {
+    "VIP": true,
+    "oceanview": true
+  }
+}
+```
+
+>[!TIP]
+> Vous pouvez visualiser une représentation JSON de jumeau en l’[interrogeant](how-to-query-graph.md)via l’interface CLI ou les API.
 
 ### <a name="query-with-marker-tags"></a>Requête avec des balises de marqueur
 
@@ -74,11 +96,44 @@ Voici un extrait d’un modèle de jumeau qui implémente une balise de valeur e
 
 Comme avec les balises de marqueur, vous pouvez définir la balise de valeur dans un jumeau numérique en définissant la valeur de cette propriété `tags` à partir du modèle. Pour utiliser une balise de valeur comme balise de marqueur, vous pouvez définir le champ `tagValue` sur la valeur de chaîne vide (`""`). 
 
-Voici un exemple qui remplit la propriété `tags` de valeur pour trois jumeaux :
+Voici les corps JSON de deux jumeaux qui ont des balises de valeur pour représenter leurs tailles. Les jumeaux dans l’exemple ont également des balises de valeur pour « rouge » ou « violet » qui sont utilisées comme balises de marqueur.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
+Exemple Twin1, avec une balise de valeur pour Grande taille et une balise de marqueur « rouge » :
 
-Notez que `red` et `purple` sont utilisés comme balises de marqueur dans cet exemple.
+```JSON
+{
+  "$dtId": "Twin1",
+  "$etag": "W/\"d3997593-cc5f-4d8a-8683-957becc2bcdd\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:02.3150852Z"
+    }
+  },
+  "tags": {
+    "red": "",
+    "size": "large"
+  }
+}
+```
+
+Exemple Twin2, avec une balise de valeur de Petite taille et une balise de marqueur « violet » :
+```JSON
+{
+  "$dtId": "Twin2",
+  "$etag": "W/\"e215e586-b14a-4234-8ddb-be69ebfef878\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:53.1517123Z"
+    }
+  },
+  "tags": {
+    "purple": "",
+    "size": "small"
+  }
+}
+```
 
 ### <a name="query-with-value-tags"></a>Requête avec des balises de valeur
 
@@ -95,7 +150,7 @@ Voici une requête permettant d’obtenir toutes les entités qui sont de petite
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus d’informations sur la conception et la gestion de modèles de jumeaux numériques :
-* [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md)
+* [Gérer des modèles DTDL](how-to-manage-model.md)
 
 Découvrez plus d’informations sur l’interrogation du graphe de jumeaux :
-* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)
+* [Interroger le graphe de jumeaux](how-to-query-graph.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c22465ab66e1425139a8440a2b4ca9e0e5e539a
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419012"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535092"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -136,16 +136,14 @@ Les adresses [IPv4](#ipv4) et IPv6 privées permettent à une machine virtuelle 
 
 Par défaut, les serveurs DHCP Azure assignent l’adresse IPv4 privée pour la [configuration IP principale](#primary) de l’interface réseau Azure à l’interface réseau située au sein du système d’exploitation de la machine virtuelle. Sauf obligation, vous ne devez jamais définir manuellement l’adresse IP d’une interface réseau au sein du système d’exploitation de la machine virtuelle.
 
-> [!WARNING]
-> Si l’adresse IPv4 définie en tant qu’adresse IP principale d’une interface réseau au sein du système d’exploitation d’une machine virtuelle diffère de l’adresse IPv4 privée assignée à la configuration IP principale de l’interface réseau principale attachée à une machine virtuelle dans Azure, la connectivité à la machine virtuelle est interrompue.
-
 Il est parfois nécessaire de définir manuellement l’adresse IP d’une interface réseau au sein du système d’exploitation de la machine virtuelle. Par exemple, vous devez définir manuellement les adresses IP principales et secondaires d’un système d’exploitation Windows lors de l’ajout de plusieurs adresses IP à une machine virtuelle Azure. Pour une machine virtuelle Linux, vous devrez peut-être uniquement définir manuellement les adresses IP secondaires. Consultez [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config) pour en savoir plus. Si vous devez modifier l’adresse assignée à une configuration IP, il est recommandé de :
 
-1. Assurez-vous que la machine virtuelle reçoit une adresse à partir des serveurs DHCP Azure. Ensuite, redéfinissez l’attribution de l’adresse IP sur la valeur DHCP au sein du système d’exploitation, puis redémarrez la machine virtuelle.
-2. Arrêter (libérer) la machine virtuelle.
-3. Modifier l’adresse IP pour la configuration IP dans Azure.
-4. Démarrez la machine virtuelle.
-5. [Configurer manuellement](virtual-network-multiple-ip-addresses-portal.md#os-config) les adresses IP secondaires dans le système d’exploitation (ainsi que l’adresse IP principale dans Windows) pour obtenir ce que vous avez défini dans Azure.
+1. Assurez-vous que la machine virtuelle reçoit une adresse à partir des serveurs DHCP Azure. Ne définissez pas cette adresse dans le système d’exploitation si vous exécutez une machine virtuelle Linux.
+2. Supprimez la configuration IP à modifier.
+3. Créez une nouvelle configuration IP avec la nouvelle adresse que vous souhaitez définir.
+4. [Configurer manuellement](virtual-network-multiple-ip-addresses-portal.md#os-config) les adresses IP secondaires dans le système d’exploitation (ainsi que l’adresse IP principale dans Windows) pour obtenir ce que vous avez défini dans Azure. Ne définissez pas manuellement l’adresse IP principale dans la configuration de réseau du système d’exploitation sur Linux, ou il se peut qu’elle ne puisse pas se connecter à Internet lorsque la configuration est rechargée.
+5. Rechargez la configuration réseau sur le système d’exploitation invité. Pour ce faire, il suffit de redémarrer le système ou d’exécuter « nmcli con Down » System eth0 &amp;&amp; nmcli con « System eth0 » dans les systèmes Linux exécutant NetworkManager.
+6. Vérifiez que la configuration de mise en réseau est la plus appropriée. Tester la connectivité pour toutes les adresses IP du système.
 
 Si vous suivez les étapes précédentes, l’adresse IP privée assignée à l’interface réseau dans Azure reste identique à celle assignée dans le système d’exploitation de la machine virtuelle. Pour garder une trace des machines virtuelles de votre abonnement au sein desquelles vous avez défini manuellement les adresses IP dans un système d’exploitation, pensez à ajouter une [balise](../azure-resource-manager/management/tag-resources.md) Azure aux machines virtuelles. Vous pouvez utiliser « attribution d’adresses IP : statique », par exemple. De cette manière, vous pouvez facilement trouver les machines virtuelles de votre abonnement pour lesquelles vous avez défini manuellement l’adresse IP dans le système d’exploitation.
 

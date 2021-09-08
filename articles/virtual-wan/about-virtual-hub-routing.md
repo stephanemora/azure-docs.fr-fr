@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 641fc76775d4aa535490d3c6f720d81777665b36
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 154680d5f62140b95e7ada3a37678ee3be1c5b24
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533020"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 
@@ -28,7 +28,30 @@ Les sections suivantes décrivent les concepts clés du routage de hub virtuel.
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Table de routes du hub
 
-Une table de routage de hub virtuel peut contenir une ou plusieurs routes. Une route comprend un nom, une étiquette, un type de destination, une liste de préfixes de destination et des informations de tronçon suivant pour le routage d’un paquet. Une **connexion** a généralement une configuration de routage liée par association ou propagation à une table de routage.
+Une table de routage de hub virtuel peut contenir une ou plusieurs routes. Une route comprend un nom, une étiquette, un type de destination, une liste de préfixes de destination et des informations de tronçon suivant pour le routage d’un paquet. Une **Connexion** a généralement une configuration de routage liée par association ou propagation à une table de routage.
+
+### <a name="hub-routing-intent-and-policies"></a><a name= "hub-route"></a> Intention et stratégies de routage Hub
+>[!NOTE]  
+> Les stratégies de routage Hub sont actuellement en Préversion managée. 
+>  
+>Pour obtenir l’accès à la préversion, veuillez contacter previewinterhub@microsoft.com avec l’ID du WAN virtuel, l’ID de l’abonnement et la région Azure dans laquelle vous souhaitez configurer les Stratégies de routage. Vous recevrez une réponse dans un délai de 24-48 heures avec confirmation de l’activation des fonctionnalités. 
+>
+> Pour plus d’informations sur la configuration de l’intention et des stratégies de routage, consultez le [document](how-to-routing-policies.md) suivant.
+
+
+Les clients qui utilisent le gestionnaire de Pare-feu Azure pour configurer des stratégies pour le trafic public et privé peuvent désormais configurer leurs réseaux de manière plus simple à l’aide des Stratégies de routage et d’Intention de routage.
+
+Les stratégies de routage et d’intention de routage vous permettent de spécifier la manière dont le hub Virtual WAN transfère le trafic Internet et privé (de point à site, de site à site, ExpressRoute, Appliances virtuelles réseau dans le hub Virtual WAN et le Réseau virtuel). Il existe deux types de stratégies de routage : les stratégies de routage du trafic Internet et du trafic privé. Chaque hub Virtual WAN peut avoir au plus une stratégie de routage du trafic Internet et une stratégie de routage du trafic privé, chacune avec une ressource de tronçon suivant. 
+
+Alors que le trafic privé comprend des préfixes d’adresses de branche et de réseau virtuel, les stratégies de routage les considèrent comme une entité unique dans les concepts d’intention de routage.
+
+
+* **Stratégie de routage du trafic Internet** : lorsqu’une stratégie de routage du trafic Internet est configurée sur un hub Virtual WAN, toutes les connexions de branche (VPN utilisateur (VPN de point à site), VPN de site à site et ExpressRoute) et les connexions de réseau virtuel à ce hub Virtual WAN transfèreront le trafic Internet vers la ressource de pare-feu Azure ou au fournisseur de sécurité tiers spécifié dans la stratégie de routage.
+ 
+
+* **Stratégie de routage du trafic privé** : Lorsqu’une stratégie de routage du trafic privé est configurée sur un hub Virtual WAN, **tout** le trafic de la branche et du réseau virtuel entrant et sortant du hub Virtual WAN, y compris le trafic entre hubs, sera transmis à la ressource de Pare-feu Azure du tronçon suivant spécifiée dans la stratégie de routage du trafic privé. 
+
+Pour plus d’informations sur la configuration de l’intention et des stratégies de routage, consultez le [document](how-to-routing-policies.md) suivant.
 
 ### <a name="connections"></a><a name="connection"></a>Connexions
 
@@ -47,7 +70,7 @@ Chaque connexion est associée à une table de routage. L’association d’une 
 
 Par défaut, toutes les connexions sont associées à une **table de routage par défaut** dans un hub virtuel. Chaque hub virtuel a sa propre table de routage par défaut que vous pouvez modifier pour ajouter une ou plusieurs routes statiques. Les routes ajoutées de manière statique ont priorité sur les routes apprises de manière dynamique pour les mêmes préfixes.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association"lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
 ### <a name="propagation"></a><a name="propagation"></a>Propagation
 
@@ -90,7 +113,7 @@ Lors de la configuration du routage de Virtual WAN, tenez compte de ce qui suit�
 * La propagation de branche à branche via le Pare-feu Azure n’est actuellement pas pris en charge.
 * Lorsque vous utilisez le Pare-feu Azure dans plusieurs régions, tous les réseaux virtuels en étoile doivent être associés à la même table de routage. Par exemple, il n’est pas possible d’avoir un sous-ensemble de réseaux virtuels transitant par le Pare-feu Azure, tandis que d’autres réseaux virtuels contournent celui-ci dans le même hub virtuel.
 * Vous ne pouvez configurer qu'une seule adresse IP par connexion de réseau virtuel pour le tronçon suivant.
-
+* Toutes les informations relatives à l'itinéraire 0.0.0.0/0 sont limitées à la table de routage d'un hub local. Cet itinéraire ne se propage pas entre les hubs.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour configurer le routage, consultez le [guide pratique pour configurer le routage de hub virtuel](how-to-virtual-hub-routing.md).

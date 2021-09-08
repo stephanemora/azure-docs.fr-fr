@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
-ms.openlocfilehash: ce1620982aac833472102dce8a80b0c4195eb61d
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 5cb84ad912e5430948d0dedc71d94e69d1dd1a86
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109811753"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251898"
 ---
 # <a name="discover-and-deploy-azure-sentinel-solutions"></a>Découvrir et déployer des solutions Azure Sentinel
 
@@ -46,7 +46,7 @@ Les solutions peuvent se composer de tout ou partie des composants suivants :
 
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Liste des solutions":::
 
-    - Si vous faites défiler la liste vers le bas, mais que vous ne trouvez pas ce que vous recherchez, cliquez sur le lien **Charger plus** en bas pour développer la liste.
+    - Si vous faites défiler la liste vers le bas, mais que vous ne trouvez pas ce que vous recherchez, sélectionnez le lien **Charger plus** en bas pour développer la liste.
 
         :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="Charger plus de solutions":::
 
@@ -68,7 +68,7 @@ Les solutions peuvent se composer de tout ou partie des composants suivants :
 
 1. Entrez l’abonnement, le groupe de ressources et l’espace de travail dans lequel vous souhaitez déployer la solution. 
 
-1. Cliquez sur **Suivant** pour parcourir les autres onglets (correspondant aux composants inclus dans la solution), où vous pouvez en savoir plus sur et, dans certains cas, configurer, chacun des composants.
+1. Sélectionnez **Suivant** pour parcourir les autres onglets (correspondant aux composants inclus dans la solution), où vous pouvez en savoir plus sur et, dans certains cas, configurer, chacun des composants.
 
     > [!NOTE]
     > Les onglets répertoriés ci-dessous correspondent aux composants proposés par la solution indiquée dans les captures d’écran qui l’accompagnent. Différentes solutions peuvent avoir différents types de composants. Par conséquent, vous ne verrez peut-être pas les mêmes onglets dans chaque solution et vous risquez de voir des onglets non présentés ci-dessous.
@@ -80,7 +80,7 @@ Les solutions peuvent se composer de tout ou partie des composants suivants :
     1. Onglet **Playbooks** : vous devez entrer ici des informations d’identification Proofpoint TAP valides, afin que le playbook puisse s’authentifier auprès de votre système Proofpoint pour prendre les mesures de réponse prescrites.
         :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="Onglet Playbooks de l’Assistant Déploiement":::
 
-1. Enfin, dans l’onglet **Vérifier + créer**, attendez le message « Validation réussie », puis cliquez sur **Créer** pour déployer la solution. Vous pouvez également sélectionner le lien **Télécharger un modèle d’automatisation** afin d’obtenir un lien pour déployer la solution en tant que code.
+1. Enfin, sous l’onglet **Vérifier + créer**, attendez que le message Validation réussie s’affiche, puis sélectionnez **Créer** pour déployer la solution. Vous pouvez également sélectionner le lien **Télécharger un modèle d’automatisation** afin d’obtenir un lien pour déployer la solution en tant que code.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="Onglet Vérifier et créer de l’Assistant Déploiement":::
 

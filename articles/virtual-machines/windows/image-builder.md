@@ -1,21 +1,22 @@
 ---
-title: Créer une machine virtuelle Windows avec le Générateur d’images Azure (préversion)
+title: Créer une machine virtuelle Windows avec le Générateur d’images Azure
 description: Créer une machine virtuelle Windows avec le Générateur d’images Azure.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: cd941868cd03a456ba78b57bcfeae5f8adfb59f4
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 651a67414c34bcfae45663dd1bcfbd9d97e63598
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948200"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527909"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Windows avec le Générateur d’images Azure
+# <a name="create-a-windows-vm-with-azure-image-builder"></a>Créer une machine virtuelle Windows avec le Générateur d’images Azure
 
 Cet article vous montre comment créer une image Windows personnalisée à l’aide du Générateur d’images de machine virtuelle Azure. L’exemple de cet article utilise des [personnalisateurs](../linux/image-builder-json.md#properties-customize) pour la personnalisation de l’image :
 - PowerShell (ScriptUri) – télécharger et exécuter un [script PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -28,29 +29,19 @@ Cet article vous montre comment créer une image Windows personnalisée à l’a
 - identity : fournir une identité pour qu’Azure Image Builder l’utilise pendant la génération.
 
 
-Vous pouvez également spécifier un `buildTimeoutInMinutes`. La valeur par défaut est de 240 minutes, et vous pouvez augmenter le temps de génération pour permettre l’exécution de builds plus longues.
+Vous pouvez également spécifier un `buildTimeoutInMinutes`. La valeur par défaut est de 240 minutes, et vous pouvez augmenter le temps de génération pour permettre l’exécution de builds plus longues. La valeur minimale autorisée est 6 minutes ; des valeurs plus courtes entraînent des erreurs.
 
 Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier .json que nous utilisons est : [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
-> [!IMPORTANT]
-> Le Générateur d’images Azure est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> Pour les utilisateurs de Windows, les exemples de Azure CLI ci-dessous peuvent être exécutés sur [Azure Cloud Shell](https://shell.azure.com) à l’aide de Bash.
 
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
 
-Pour utiliser le Générateur d’images Azure pendant la préversion, vous devez inscrire la nouvelle fonctionnalité.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Vérifiez l’état d’inscription de la fonctionnalité.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Pour utiliser Azure Image Builder, vous devez inscrire cette fonctionnalité.
 
 Vérifiez votre inscription.
 
@@ -135,7 +126,7 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 

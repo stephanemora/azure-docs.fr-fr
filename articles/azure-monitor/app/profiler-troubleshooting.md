@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2c80362c3407f1404c6657997de89c2741264909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4d8a3df98730b5bdcb6e32d3f3c51ad9d01bf3a
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026553"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867254"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -126,7 +126,7 @@ Une page d’état similaire à celle ci-dessous s’affiche : ![Page d’état
     
 ### <a name="manual-installation"></a>Installation manuelle
 
-Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramètres de l’application web. Si votre environnement l’exige, vous pouvez appliquer les mises à jour manuellement. Cela peut être le cas, par exemple, si votre application s’exécute dans un environnement d’applications web pour PowerApps. Pour appliquer manuellement les mises à jour :
+Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramètres de l’application web. Si votre environnement l’exige, vous pouvez appliquer les mises à jour manuellement. Cela peut être le cas, par exemple, si votre application s’exécute dans un environnement d’applications web pour Power Apps. Pour appliquer manuellement les mises à jour :
 
 1. Dans le **volet de contrôle de l’application web**, ouvrez **Paramètres**.
 

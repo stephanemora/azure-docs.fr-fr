@@ -1,15 +1,15 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: trbye
-ms.openlocfilehash: 3985e2bb2058a033bcbbccde286ba3aa7aa77b96
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: lajanuar
+ms.openlocfilehash: bc4709eeb59f0333a086336b4f61474671dac3af
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105105030"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533070"
 ---
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
@@ -23,7 +23,9 @@ Avant de pouvoir faire quoi que ce soit, vous devez installer le SDK Speech. Sui
 
 ## <a name="create-voice-signatures"></a>Créer des signatures vocales
 
-La première étape consiste à créer des signatures vocales pour les orateurs à la conversation afin qu’ils puissent être identifiés en tant qu’orateurs uniques. Le fichier son `.wav` d’entrée permettant de créer des signatures vocales doit correspondre à 16 bits, à un taux d’échantillonnage de 16 kHz et à un format à canal unique (mono). La longueur recommandée de chaque échantillon audio se situe entre trente secondes et deux minutes. Le fichier `.wav` doit être un échantillon de voix **d’une personne** afin qu’un profil vocal unique puisse être créé.
+(Vous pouvez ignorer cette étape si vous ne souhaitez pas utiliser les profils utilisateur pré-inscrits pour identifier des participants spécifiques.)
+
+Si vous souhaitez inscrire des profils utilisateur, la première étape consiste à créer des signatures vocales pour les participants à la conversation afin qu’ils puissent être identifiés en tant qu’orateurs uniques. Le fichier son `.wav` d’entrée permettant de créer des signatures vocales doit correspondre à 16 bits, à un taux d’échantillonnage de 16 kHz et à un format à canal unique (mono). La longueur recommandée de chaque échantillon audio se situe entre trente secondes et deux minutes. Un échantillon audio trop court entraînera une réduction de la précision lors de la reconnaissance de l’orateur. Le fichier `.wav` doit être un échantillon de voix **d’une personne** afin qu’un profil vocal unique puisse être créé.
 
 L’exemple suivant montre comment créer une signature vocale à l’aide de l’[API REST](https://aka.ms/cts/signaturegenservice) en C#. Notez que vous devez remplacer `subscriptionKey`, `region` et le chemin d’un fichier d’échantillon `.wav` par des valeurs réelles.
 
@@ -97,11 +99,16 @@ L’exécution de la fonction `GetVoiceSignatureString()` retourne une chaîne d
 
 L’exemple de code suivant montre comment transcrire les conversations en temps réel pour deux intervenants. Il part du principe que vous avez déjà créé des chaînes de signature vocale pour chaque intervenant, comme indiqué ci-dessus. Remplacez `subscriptionKey`, `region` et le chemin `filepath` pour le son que vous souhaitez transcrire par des informations réelles.
 
+Si vous n’utilisez pas de profils utilisateur préinscrits, quelques secondes supplémentaires seront nécessaires pour effectuer la première reconnaissance des utilisateurs inconnus en tant que Speaker1, speaker2, etc.
+
+> [!NOTE]
+> Assurez-vous que le même `subscriptionKey` est utilisé dans votre application pour la création de la signature, autrement vous rencontrerez des erreurs. 
+
 Cet exemple de code effectue les opérations suivantes :
 
-* Crée un `AudioStreamReader` à partir de l’exemple du fichier d’échantillon `.wav` à transcrire.
+* Crée un `AudioConfig` à partir de l’exemple du fichier d’échantillon `.wav` à transcrire.
 * Crée une `Conversation` à l’aide de `CreateConversationAsync()`.
-* Crée un `ConversationTranscriber` à l’aide du constructeur et s’abonne aux événements nécessaires
+* Crée un `ConversationTranscriber` à l’aide du constructeur et s’abonne aux événements nécessaires.
 * Ajoute des participants à la conversation. Les chaînes `voiceSignatureStringUser1` et `voiceSignatureStringUser2` doivent être générées en sortie des étapes ci-dessus à partir de la fonction `GetVoiceSignatureString()`.
 * Joint la conversation et commence la transcription.
 
@@ -112,7 +119,12 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Transcription;
+
+class transcribe_conversation
+{
+// all your other code
 
 public static async Task TranscribeConversationsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
 {
@@ -122,9 +134,10 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
+    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
     var stopRecognition = new TaskCompletionSource<int>();
 
-    using (var audioInput = AudioStreamReader.OpenWavFile(filepath))
+    using (var audioInput = AudioConfig.FromWavFileInput(filepath))
     {
         var meetingID = Guid.NewGuid().ToString();
         using (var conversation = await Conversation.CreateConversationAsync(config, meetingID))
@@ -190,5 +203,6 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
             }
         }
     }
+}
 }
 ```

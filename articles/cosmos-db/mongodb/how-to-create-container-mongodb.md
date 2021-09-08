@@ -4,16 +4,16 @@ description: Découvrez comment créer un conteneur dans l’API Azure Cosmos D
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 511c629aa0d8ce5388895d4ce56ccee24c7794ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 40458740092c7b462683512e3c419eff417019da
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524474"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038521"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Créer un conteneur dans API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -71,3 +71,6 @@ Si vous rencontrez une exception de délai d’expiration lors de la création d
 * [Unités de requête dans Azure Cosmos DB](../request-units.md)
 * [Provisionner le débit sur les conteneurs et les bases de données](../set-throughput.md)
 * [Utiliser un compte Azure Cosmos](../account-databases-containers-items.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

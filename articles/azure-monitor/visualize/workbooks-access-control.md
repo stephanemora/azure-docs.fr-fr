@@ -5,13 +5,13 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: e1f5b06d40ca6883092193493143f668ec999b1c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710819"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114452452"
 ---
 # <a name="access-control"></a>Contrôle d’accès
 
@@ -21,8 +21,7 @@ Dans les classeurs, le contrôle d’accès fait référence à deux éléments�
 
 * Accès requis pour enregistrer des classeurs
 
-    - L’enregistrement de classeurs `("My")` privés ne nécessite pas de privilèges supplémentaires. Tous les utilisateurs peuvent enregistrer des classeurs privés, auquel cas ils sont seuls à pouvoir voir ces classeurs.
-    - L’enregistrement des classeurs partagés requiert des privilèges d’écriture dans un groupe de ressources pour enregistrer le classeur. Ces privilèges sont généralement spécifiés par le rôle [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor), mais peuvent également être définis via le rôle *Contributeur de classeurs*.
+    - L’enregistrement des classeurs requiert des privilèges d’écriture dans un groupe de ressources pour enregistrer le classeur. Ces privilèges sont généralement spécifiés par le rôle [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor), mais peuvent également être définis via le rôle *Contributeur de classeurs*.
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>Rôles standard avec privilèges associés à un classeur
 
@@ -30,11 +29,10 @@ Dans les classeurs, le contrôle d’accès fait référence à deux éléments�
 
 [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor) inclut des privilèges `/write` généraux utilisés par divers outils de surveillance pour l’enregistrement d’éléments (y compris le privilège `workbooks/write` pour l’enregistrement des classeurs partagés).
 « Collaborateur Workbooks » ajoute des privilèges « workbooks/écriture » à un objet pour enregistrer les classeurs partagés.
-Aucun privilège spécial n’est nécessaire pour permettre aux utilisateurs d’enregistrer les classeurs privés qu’ils peuvent voir.
 
 Pour les rôles personnalisés :
 
-Ajoutez `microsoft.insights/workbooks/write` pour enregistrer les workbooks partagés. Pour plus d’informations, consultez le rôle [Collaborateur du workbook](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
+Ajouter `microsoft.insights/workbooks/write` pour enregistrer les classeurs. Pour plus d’informations, consultez le rôle [Collaborateur du workbook](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

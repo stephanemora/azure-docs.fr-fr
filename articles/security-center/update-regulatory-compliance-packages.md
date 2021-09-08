@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/05/2021
 ms.author: memildin
-ms.openlocfilehash: f1fe1f15d2a2a2a3da7a7978b2d7645db65beae1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 523375ff69d6139a1e910b9253a6816235bfecc4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146686"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524862"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire
 
@@ -65,7 +65,7 @@ La procédure suivante permet d’ajouter un package pour surveiller la conformi
     > [!TIP]
     > Nous vous recommandons de sélectionner l’étendue la plus élevée pour laquelle la norme est applicable afin que les données de conformité soient agrégées et suivies pour toutes les ressources imbriquées. 
 
-1. Pour ajouter les normes et standards correspondant à votre organisation, cliquez sur **Ajouter d’autres normes et standards**. 
+1. Pour ajouter les standards pertinents pour votre organisation, développez la section **normes industrielles et règlementaires** et sélectionnez **Ajouter d’autres standards**.
 
 1. Sur la page **Ajouter des normes de conformité réglementaire**, vous pouvez rechercher les normes disponibles, notamment :
 
@@ -79,7 +79,7 @@ La procédure suivante permet d’ajouter un package pour surveiller la conformi
     - **CMMC niveau 3**
     - **New Zealand ISM Restricted**
     
-    ![Ajout de normes réglementaires au tableau de bord de conformité réglementaire d’Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Ajout de normes réglementaires au tableau de bord de conformité réglementaire d’Azure Security Center.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Sélectionnez **Ajouter** et entrez tous les détails nécessaires pour l’initiative spécifique, comme l’étendue, les paramètres et la correction.
 
@@ -90,7 +90,7 @@ La procédure suivante permet d’ajouter un package pour surveiller la conformi
     > [!NOTE]
     > L’affichage d’une norme nouvellement ajoutée dans le tableau de bord de conformité peut prendre quelques heures.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="remove-a-standard-from-your-dashboard"></a>Supprimer une norme de votre tableau de bord
 
@@ -107,7 +107,7 @@ Pour supprimer une norme :
 
     La page Stratégie de sécurité s’ouvre. Pour l’abonnement sélectionné, il affiche la stratégie par défaut, le secteur et les normes réglementaires, ainsi que les initiatives personnalisées que vous avez créées.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Suppression d’une norme réglementaire de votre tableau de bord de conformité réglementaire dans Azure Security Center":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Suppression d’une norme réglementaire de votre tableau de bord de conformité réglementaire dans Azure Security Center.":::
 
 1. Pour la norme que vous souhaitez supprimer, sélectionnez **Désactiver**. Une fenêtre de confirmation s’ouvre.
 

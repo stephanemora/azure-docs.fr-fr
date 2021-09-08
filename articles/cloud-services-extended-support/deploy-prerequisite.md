@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: bce09fad6ffa169a019628498a686226eff266c7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: f21dc3251a64a3a432320e1d7a1f64abc124b61e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384973"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532888"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prérequis du déploiement d’Azure Cloud Services (support étendu)
 
@@ -35,6 +35,7 @@ Pour les réseaux virtuels appartenant au même groupe de ressources que le serv
        <Subnet name="<subnet-name>"/> 
      </Subnets> 
     </InstanceAddress> 
+  </AddressAssignments> 
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>Réseau virtuel situé dans un groupe de ressources différent
@@ -46,6 +47,7 @@ Pour les réseaux virtuels appartenant au même groupe de ressources que le serv
         <Subnet name="<subnet-name>"/> 
        </Subnets> 
      </InstanceAddress> 
+   </AddressAssignments>
 ```
 ### <a name="2-remove-the-old-plugins"></a>2) Supprimer les anciens plug-ins
 
@@ -110,6 +112,9 @@ Les déploiements qui utilisaient les anciens plug-ins de diagnostic ont besoin 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## <a name="access-control"></a>Contrôle d’accès
+
+L’abonnement contenant des ressources de mise en réseau doit disposer d’un accès [collaborateur réseau](../role-based-access-control/built-in-roles.md#network-contributor) ou supérieur pour les services Cloud (prise en charge étendue). Pour plus d’informations, veuillez vous référer aux [rôles RBAC intégrés](../role-based-access-control/built-in-roles.md)
 
 ## <a name="key-vault-creation"></a>Création d’un coffre de clés 
 
@@ -118,5 +123,5 @@ Key Vault est utilisé pour stocker les certificats associés à Azure Cloud Ser
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
 - Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
-- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
+- Consultez la [foire aux questions (FAQ)](faq.yml) relative à Azure Cloud Services (support étendu).
 - Rendez-vous sur le [référentiel d’exemples d’Azure Cloud Services (support étendu)](https://github.com/Azure-Samples/cloud-services-extended-support).

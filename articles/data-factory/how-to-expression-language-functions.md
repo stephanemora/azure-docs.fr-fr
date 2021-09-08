@@ -5,14 +5,15 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: c9e1abc5fb6f66981f56bc262319587d9fc4265e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 41689a842bff067fb36dd97f980c10b71e533f8d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566657"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535322"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Guide pratique pour utiliser des paramètres, des expressions et des fonctions dans Azure Data Factory
 
@@ -25,7 +26,7 @@ Dans ce document, nous allons essentiellement nous concentrer sur les concepts f
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Interface utilisateur et paramètres Azure Data Factory
 
-Si vous débutez avec l’utilisation des paramètres Azure Data Factory dans l’interface utilisateur ADF, consultez [Interface utilisateur Data Factory pour les services liés avec des paramètres](./parameterize-linked-services.md#data-factory-ui) et [Interface utilisateur Data Factory pour le pipeline piloté par les métadonnées avec des paramètres](./how-to-use-trigger-parameterization.md#data-factory-ui) afin d’obtenir une explication visuelle.
+Si vous débutez avec l’utilisation des paramètres Azure Data Factory dans l’interface utilisateur ADF, consultez l’[Interface utilisateur Data Factory pour les services liés avec les paramètres](./parameterize-linked-services.md#ui-experience) et l’[Interface utilisateur Data Factory pour le pipeline piloté par les métadonnées avec les paramètres](./how-to-use-trigger-parameterization.md#data-factory-ui) afin d’obtenir une explication visuelle.
 
 ## <a name="parameter-and-expression-concepts"></a>Concepts des paramètres et des expressions 
 
@@ -175,7 +176,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 
 Vous pouvez appeler des fonctions dans des expressions. Les sections suivantes fournissent des informations sur les fonctions qui peut être utilisées dans une expression.  
 
-### <a name="string-functions"></a>Fonctions de chaîne  
+### <a name="string-functions"></a>Fonctions de chaînes  
 
 Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions).
 Les fonctions de chaîne sont uniquement utilisables sur des chaînes.

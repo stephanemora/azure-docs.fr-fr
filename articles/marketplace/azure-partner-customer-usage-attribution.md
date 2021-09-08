@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: b1f40ff5175de88e101bfe8f22f9593502e7d6d0
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 9536002cb5c3e30f32479b74e761d7128090af26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005876"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524341"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribution de l’utilisation client Azure
 
@@ -33,6 +33,11 @@ Il existe des cas d’usage secondaires pour l’attribution de l’utilisation 
 ## <a name="commercial-marketplace-azure-apps"></a>Applications Azure de la place de marché commerciale
 
 Le suivi de l’utilisation d’Azure à partir d’applications Azure publiées sur la place de marché commerciale est en grande partie automatique. Lorsque vous chargez un modèle Resource Manager dans le cadre de la [configuration technique du plan de votre application Azure sur la place de marché](./azure-app-solution.md#define-the-technical-configuration), l’Espace partenaires ajoute un ID de suivi lisible par Azure Resource Manager.
+
+>[!NOTE]
+>Pour vous assurer que l’utilisation de votre application est correctement attribuée dans nos systèmes :
+>1. Si vous définissez l’ID de suivi dans le type de ressource Microsoft. Resources/Deployment avec une variable, remplacez la variable par l’ID de suivi visible dans l’Espace partenaires sur la page de **Configuration technique** du plan (voir [Ajouter un GUID à un modèle Resource Manager](#add-a-guid-to-a-resource-manager-template) ci-dessous).
+>2. Si votre modèle Resource Manager utilise des ressources de type Microsoft.Resources/Deployments à d’autres fins que l’attribution de l’utilisation du client, Microsoft ne pourra pas ajouter un ID de suivi de l’attribution de l’utilisation client pour votre compte. Ajoutez un nouveau type de ressource Microsoft. Resources/Deployment et l’ID de suivi visible dans l’Espace partenaires sur la page de **Configuration technique** du plan (voir [Ajouter un GUID à un modèle Resource Manager](#add-a-guid-to-a-resource-manager-template) ci-dessous).
 
 Si vous utilisez des API Azure Resource Manager, vous devez ajouter votre ID de suivi conformément aux [instructions ci-dessous](#use-resource-manager-apis) pour le transmettre à Azure Resource Manager à mesure que votre code déploie des ressources. Cet ID est visible dans l’Espace partenaires sur la page de configuration technique de votre plan. 
 

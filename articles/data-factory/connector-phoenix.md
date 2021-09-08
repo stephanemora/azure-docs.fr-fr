@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 82f2e7062dbd2523f2d7f90063074a12fe8ae274
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7feb79fd6c5d75bda4f0837d38f576be2896c4f1
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641514"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311917"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copier des données de Phoenix à l’aide d’Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,6 +39,31 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-phoenix-using-ui"></a>Créer un service lié à Phoenix à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Phoenix dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse, sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Phoenix et sélectionnez le connecteur Phoenix.
+
+   :::image type="content" source="media/connector-phoenix/phoenix-connector.png" alt-text="Capture d’écran du connecteur Phoenix.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-phoenix/configure-phoenix-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Phoenix.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration du connecteur
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Phoenix.
 

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f7e7e9261eb0ea2969dbfb752426ca16dd3b33c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999431"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524264"
 ---
 Cette fonctionnalité est facile à configurer, mais il est possible que vous rencontriez des problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console du Portail Azure. Pour accéder à la console Kudu à partir de votre application, accédez à **Outils** > **Kudu**. Vous pouvez également accéder à la console Kudo via le site [nom du site].scm.azurewebsites.net. Une fois le site chargé, accédez à l’onglet **Console de débogage**. Pour accéder à la console hébergée par le Portail Azure à partir de votre application, accédez à **Outils** > **Console**.
 
@@ -43,7 +43,7 @@ Plusieurs choses peuvent empêcher votre application d’atteindre un hôte et u
 Si ces éléments ne suffisent pas à résoudre vos problèmes, commencez par vous poser les questions suivantes :
 
 **Intégration au réseau virtuel régional**
-* Votre destination est-elle une adresse non RFC1918 alors que la valeur de WEBSITE_VNET_ROUTE_ALL n’est pas 1 ?
+* Votre destination est-elle une adresse non RFC1918 sans l’Itinéraire activé ?
 * Y a-t-il un groupe de sécurité réseau qui bloque la sortie de votre sous-réseau d’intégration ?
 * Si elle transite par Azure ExpressRoute ou un VPN, votre passerelle locale est-elle configurée pour réacheminer le trafic vers Azure ? Si vous pouvez accéder à des points de terminaison dans votre réseau virtuel, mais pas en local, vérifiez vos routes.
 * Disposez-vous d’autorisations suffisantes pour définir la délégation sur le sous-réseau d’intégration ? Durant la configuration de l’intégration au réseau virtuel régional, votre sous-réseau d’intégration est délégué à Microsoft.Web/serverFarms. L’interface utilisateur de l’intégration au réseau virtuel délègue automatiquement le sous-réseau à Microsoft.Web/serverFarms. Si votre compte ne dispose pas d’autorisations de mise en réseau suffisantes pour définir la délégation, vous devez demander à une personne autorisée de configurer les attributs de votre sous-réseau d’intégration de manière à déléguer celui-ci. Pour déléguer manuellement le sous-réseau d’intégration, accédez à l’interface utilisateur du sous-réseau de Réseau virtuel Microsoft Azure et définissez la délégation sur Microsoft.Web/serverFarms.

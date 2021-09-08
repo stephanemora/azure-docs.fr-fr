@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 95f69f04ec1aa0fb0c5588647709d8d938ad2a53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554496"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441369"
 ---
 ### <a name="neural-and-standard-voices"></a>Voix neuronales et standard
 
@@ -77,8 +77,8 @@ Le tableau suivant détaille la prise en charge régionale des fonctionnalités 
 |---|---|
 | Hébergement du modèle vocal | USA Est, USA Ouest 2, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, Australie Est |
 | Caractères en temps réel | USA Est, USA Ouest 2, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, Australie Est |
-| Caractères d’audio long | USA Est, Europe Ouest, Royaume-Uni Sud, Asie Sud-Est, Inde Centre |
-| Formation neuronale personnalisée | USA Est, Royaume-Uni Sud |
+| Caractères d’audio long | USA Est, Europe Ouest, Asie Sud-Est, Royaume-Uni Sud, Inde Centre |
+| Formation neuronale personnalisée | USA Est, Asie Sud-Est, Royaume-Uni Sud |
 
 ### <a name="long-audio-api"></a>API Audio long
 

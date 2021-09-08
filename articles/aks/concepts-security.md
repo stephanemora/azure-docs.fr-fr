@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 7f754aa8d454949c74ccd31e3f52423f755b2fa4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf589591ae1c4f9fa3dca2b16cc5382def0740e7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372391"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532955"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -58,11 +58,9 @@ Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds so
 ### <a name="node-security-patches"></a>Correctifs de sécurité du nœud
 
 #### <a name="linux-nodes"></a>Nœuds Linux
-La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation aux nœuds Linux chaque nuit. Si une mise à jour de la sécurité du système d’exploitation Linux nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez :
-* Redémarrez manuellement les nœuds Linux.
-* Utilisez [Kured][kured], un démon de redémarrage Open Source pour Kubernetes. Kured s’exécute comme un [DaemonSet][aks-daemonsets] et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. 
+Chaque soir, les nœuds Linux dans AKS obtiennent les correctifs de sécurité par le biais de leur canal de mise à jour de distribution. Ce comportement est configuré automatiquement à mesure que les nœuds sont déployés dans un cluster AKS. Pour minimiser les perturbations et l’impact potentiel sur les charges de travail en cours d’exécution, les nœuds ne sont pas automatiquement redémarrés si un correctif de sécurité ou mise à jour du noyau l’exige. Pour plus d’informations sur le traitement des redémarrages de nœud, consultez la section[Appliquer des mises à jour de sécurité et du noyau à des nœuds dans AKS][aks-kured].
 
-Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
+Les mises à jour nocturnes appliquent les mises à jour de sécurité au système d’exploitation sur le nœud, mais l’image de nœud utilisée pour créer les nœuds de votre cluster reste inchangée. Si un nouveau nœud Linux est ajouté à votre cluster, l’image d’origine est utilisée pour créer le nœud. Ce nouveau nœud recevra toutes les mises à jour de sécurité et de noyau disponibles au cours de la vérification automatique chaque nuit, mais restera non corrigé jusqu’à ce que toutes les vérifications et tous les redémarrages soient terminés. Vous pouvez utiliser la mise à niveau d’image de nœud pour vérifier et mettre à jour les images de nœud utilisées par votre cluster. Pour plus d’informations sur la mise à niveau d’une image de nœud, consultez [mise à niveau d’une image de nœud dans le Service Azure Kubernetes (AKS)][node-image-upgrade].
 
 #### <a name="windows-server-nodes"></a>Nœuds Windows Server
 
@@ -113,7 +111,7 @@ Pour la connectivité et la sécurité avec les réseaux locaux, vous pouvez dé
 
 Pour filtrer le flux du trafic dans les réseaux virtuels, Azure utilise des règles de groupe de sécurité réseau. Ces règles définissent les plages d’adresses IP source et de destination, les ports et les protocoles qui se voient autoriser ou refuser l’accès aux ressources. Des règles par défaut sont créées pour autoriser le trafic TLS vers le serveur d’API Kubernetes. Vous créez des services avec des équilibreurs de charge, des mappages de port ou des itinéraires entrants. AKS modifie automatiquement le groupe de sécurité réseau pour le flux de trafic.
 
-Si vous fournissez votre propre sous-réseau pour votre cluster AKS, **ne modifiez pas** le groupe de sécurité réseau de niveau sous-réseau géré par AKS. Au lieu de cela, créez d’autres groupes de sécurité réseau au niveau du sous-réseau pour modifier le flux du trafic. Assurez-vous qu’ils n’interfèrent pas avec le trafic nécessaire qui gère le cluster, par exemple l’accès à l’équilibreur de charge, la communication avec le plan de contrôle et la [sortie][aks-limit-egress-traffic].
+Si vous fournissez votre propre sous-réseau pour votre cluster AKS (que vous utilisiez l’interface Azure CNI ou Kubernet), **ne modifiez pas** le groupe de sécurité réseau au niveau de la carte réseau gérée par AKS. Au lieu de cela, créez d’autres groupes de sécurité réseau au niveau du sous-réseau pour modifier le flux du trafic. Assurez-vous qu’ils n’interfèrent pas avec le trafic nécessaire qui gère le cluster, par exemple l’accès à l’équilibreur de charge, la communication avec le plan de contrôle et la [sortie][aks-limit-egress-traffic].
 
 ### <a name="kubernetes-network-policy"></a>Stratégie de réseau Kubernetes
 
@@ -166,6 +164,7 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-kured]: node-updates-kured.md
 [aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
@@ -174,3 +173,4 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
+[node-image-upgrade]: node-image-upgrade.md

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/03/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 12ee5a02b0451fd70df0e7155e9460290943f5b2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4bede3a7f5c39f8665d47984fb91cf2503842cae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962049"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524848"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurer l’approvisionnement à l’aide des API Microsoft Graph
 
@@ -42,12 +42,12 @@ Le portail Azure constitue un moyen pratique pour configurer séparément l’ap
 1. Une fois connecté, les détails du compte d’utilisateur apparaissent dans le volet de gauche.
 
 ### <a name="retrieve-the-gallery-application-template-identifier"></a>Récupérer l’identificateur du modèle de l’application de galerie
-Les applications de la galerie d’applications Azure AD disposent toutes d’un [modèle d’application](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) qui décrit les métadonnées de cette dernière. À l’aide de ce modèle, vous pouvez créer une instance de l’application et du principal de service dans votre locataire à des fins de gestion.
+Les applications de la galerie d’applications Azure AD disposent toutes d’un [modèle d’application](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true) qui décrit les métadonnées de cette dernière. À l’aide de ce modèle, vous pouvez créer une instance de l’application et du principal de service dans votre locataire à des fins de gestion. Récupérer l’identificateur du modèle de l’application pour **l’Accès à l’authentification unique AWS** et, à partir de la réponse, enregistrer la valeur de la propriété d’**identification** à utiliser ultérieurement dans ce didacticiel.
 
 #### <a name="request"></a>Requête
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/beta/applicationTemplates
+GET https://graph.microsoft.com/beta/applicationTemplates?$filter=displayName eq 'AWS Single-Account Access'
 ```
 #### <a name="response"></a>response
 
@@ -61,6 +61,7 @@ GET https://graph.microsoft.com/beta/applicationTemplates
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
+
 {
   "value": [
   {
@@ -80,14 +81,14 @@ Content-type: application/json
              "developerServices"
          ],
          "publisher": "Amazon",
-         "description": null    
+         "description": "Federate to a single AWS account and use SAML claims to authorize access to AWS IAM roles. If you have many AWS accounts, consider using the AWS Single Sign-On gallery application instead."    
   
 }
 ```
 
 ### <a name="create-the-gallery-application"></a>Créer l’application de galerie
 
-Utilisez l’ID de modèle récupéré pour votre application lors de la dernière étape pour [créer une instance](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta) de l’application et du principal du service dans votre locataire.
+Utilisez l’ID de modèle récupéré pour votre application lors de la dernière étape pour [créer une instance](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta&preserve-view=true) de l’application et du principal du service dans votre locataire.
 
 #### <a name="request"></a>Requête
 
@@ -95,6 +96,7 @@ Utilisez l’ID de modèle récupéré pour votre application lors de la derniè
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
 Content-type: application/json
+
 {
   "displayName": "AWS Contoso"
 }
@@ -105,6 +107,7 @@ Content-type: application/json
 ```http
 HTTP/1.1 201 OK
 Content-type: application/json
+
 {
     "application": {
         "objectId": "cbc071a6-0fa5-4859-8g55-e983ef63df63",
@@ -142,7 +145,7 @@ Content-type: application/json
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Récupérer le modèle pour le connecteur d’approvisionnement
 
-Les applications de la galerie dont l’approvisionnement est activé disposent de modèles destinés à simplifier la configuration. Utilisez la requête ci-dessous pour [récupérer le modèle pour la configuration de l’approvisionnement](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta). Notez que vous devrez fournir l’ID. L’ID fait référence à la ressource précédente, qui, dans ce cas, est la ressource servicePrincipal. 
+Les applications de la galerie dont l’approvisionnement est activé disposent de modèles destinés à simplifier la configuration. Utilisez la requête ci-dessous pour [récupérer le modèle pour la configuration de l’approvisionnement](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true). Notez que vous devrez fournir l’ID. L’ID fait référence à la ressource précédente, qui, dans ce cas, est la ressource servicePrincipal. 
 
 #### <a name="request"></a>Requête
 
@@ -153,6 +156,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 #### <a name="response"></a>response
 ```http
 HTTP/1.1 200 OK
+
 {
     "value": [
         {
@@ -168,13 +172,14 @@ HTTP/1.1 200 OK
 ```
 
 ### <a name="create-the-provisioning-job"></a>Créer le travail d’approvisionnement
-Pour activer l’approvisionnement, vous devez [créer un travail](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta) au préalable. Utilisez la requête suivante pour créer un travail d’approvisionnement. Spécifiez l’ID de modèle susmentionné en tant que modèle à utiliser pour le travail.
+Pour activer l’approvisionnement, vous devez [créer un travail](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true) au préalable. Utilisez la requête suivante pour créer un travail d’approvisionnement. Spécifiez l’ID de modèle susmentionné en tant que modèle à utiliser pour le travail.
 
 #### <a name="request"></a>Requête
 
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 Content-type: application/json
+
 { 
     "templateId": "aws"
 }
@@ -184,6 +189,7 @@ Content-type: application/json
 ```http
 HTTP/1.1 201 OK
 Content-type: application/json
+
 {
     "id": "{jobId}",
     "templateId": "aws",
@@ -212,15 +218,20 @@ Content-type: application/json
 
 ### <a name="test-the-connection-to-the-application"></a>Tester la connexion à l’application
 
-Testez la connexion à l’application tierce. L’exemple suivant est destiné à une application nécessitant une clé secrète client et un jeton secret. Chaque application possède ses propres exigences. Les applications utilisent souvent une adresse de base à la place d’une clé secrète client. Pour déterminer les informations d’identification requises pour votre application, accédez à la page de configuration de l’approvisionnement de votre application, puis, en mode développeur, cliquez sur **Tester la connexion**. Le trafic réseau indique les paramètres utilisés pour les informations d’identification. Pour obtenir une liste complète des informations d’identification, consultez [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta). La plupart des applications, telles qu’Azure Databricks, s’appuient sur BaseAddress et SecretToken. BaseAddress est désigné comme une URL de locataire dans le Portail Azure. 
+Testez la connexion à l’application tierce. L’exemple suivant est destiné à une application nécessitant une clé secrète client et un jeton secret. Chaque application possède ses propres exigences. Les applications utilisent souvent une adresse de base à la place d’une clé secrète client. Pour déterminer les informations d’identification requises pour votre application, accédez à la page de configuration de l’approvisionnement de votre application, puis, en mode développeur, cliquez sur **Tester la connexion**. Le trafic réseau indique les paramètres utilisés pour les informations d’identification. Pour obtenir une liste complète des informations d’identification, consultez [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta&preserve-view=true). La plupart des applications, telles qu’Azure Databricks, s’appuient sur BaseAddress et SecretToken. BaseAddress est désigné comme une URL de locataire dans le Portail Azure. 
 
 #### <a name="request"></a>Requête
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
+
 { 
     "credentials": [ 
-        { "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx" },
-        { "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx" }
+        { 
+            "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx" 
+        },
+        {
+            "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx"
+        }
     ]
 }
 ```
@@ -231,7 +242,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="save-your-credentials"></a>Enregistrer vos informations d’identification
 
-La configuration de l’approvisionnement nécessite d’établir une relation de confiance entre Azure AD et l’application. Autorisez l’accès à l’application tierce. L’exemple suivant est destiné à une application nécessitant une clé secrète client et un jeton secret. Chaque application possède ses propres exigences. Consultez la [documentation sur les API](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta) pour voir les options disponibles. 
+La configuration de l’approvisionnement nécessite d’établir une relation de confiance entre Azure AD et l’application. Autorisez l’accès à l’application tierce. L’exemple suivant est destiné à une application nécessitant une clé secrète client et un jeton secret. Chaque application possède ses propres exigences. Consultez la [documentation sur les API](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta&preserve-view=true) pour voir les options disponibles. 
 
 #### <a name="request"></a>Requête
 ```msgraph-interactive
@@ -239,8 +250,12 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
  
 { 
     "value": [ 
-        { "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx" },
-        { "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx" }
+        { 
+            "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx"
+        },
+        {
+            "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx"
+        }
     ]
 }
 ```
@@ -251,7 +266,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="step-4-start-the-provisioning-job"></a>Étape 4 : Démarrer le travail d’approvisionnement
-Maintenant que le travail d’approvisionnement est configuré, utilisez la commande suivante pour [démarrer le travail](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
+Maintenant que le travail d’approvisionnement est configuré, utilisez la commande suivante pour [démarrer le travail](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
 
 #### <a name="request"></a>Requête
@@ -282,7 +297,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 2577
+
 {
     "id": "{jobId}",
     "templateId": "aws",
@@ -316,7 +331,7 @@ Content-length: 2577
 
 
 ### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Surveiller les événements d’approvisionnement à l’aide des journaux d’approvisionnement
-Outre la supervision de l’état du travail d’approvisionnement, vous pouvez utiliser les [journaux d’approvisionnement](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta) pour interroger tous les événements qui se produisent. Par exemple, interrogez un utilisateur particulier et déterminez s’il a été correctement approvisionné.
+Outre la supervision de l’état du travail d’approvisionnement, vous pouvez utiliser les [journaux d’approvisionnement](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta&preserve-view=true) pour interroger tous les événements qui se produisent. Par exemple, interrogez un utilisateur particulier et déterminez s’il a été correctement approvisionné.
 
 #### <a name="request"></a>Requête
 ```msgraph-interactive
@@ -326,6 +341,7 @@ GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
+
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#auditLogs/provisioning",
     "value": [
@@ -363,5 +379,5 @@ Content-type: application/json
 ```
 ## <a name="see-also"></a>Voir aussi
 
-- [Consultez la documentation Microsoft Graph sur la synchronisation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Consultez la documentation Microsoft Graph sur la synchronisation](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
 - [Intégrer une application SCIM personnalisée à Azure AD](./use-scim-to-provision-users-and-groups.md)

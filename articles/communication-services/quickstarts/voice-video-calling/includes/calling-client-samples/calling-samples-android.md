@@ -2,14 +2,14 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
-ms.openlocfilehash: 31fd56299fb88a0f30843dade782743085ffe852
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ef54504f0299e9726de384f5bbf88bef72a83cf7
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560493"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339857"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -409,12 +409,6 @@ Pour voir si le microphone actuel est désactivé, inspectez la propriété `mut
 boolean muted = call.isMuted();
 ```
 
-Pour voir si l’appel en cours est en train d’être enregistré, inspectez la propriété `isRecordingActive` :
-
-```java
-boolean recordingActive = call.isRecordingActive();
-```
-
 Pour inspecter les flux vidéo actifs, vérifiez la collection `localVideoStreams` :
 
 ```java
@@ -430,7 +424,21 @@ Context appContext = this.getApplicationContext();
 call.mute(appContext).get();
 call.unmute(appContext).get();
 ```
+### <a name="change-the-volume-of-the-call"></a>Modifier le volume de l’appel
+    
+Pendant que vous êtes en communication, les clés de volume matériel sur le téléphone doivent autoriser l’utilisateur à modifier le volume d’appel.
+Cette opération est effectuée en utilisant la méthode `setVolumeControlStream` avec le type de flux `AudioManager.STREAM_VOICE_CALL` sur l’Activité d’où est passé l’appel.
+Cela permet aux clés de volume matériel de modifier le volume de l’appel (indiqué par une icône de téléphone ou une valeur similaire sur le curseur de volume), empêchant ainsi de modifier le volume pour d’autres profils audio, comme les alarmes, les médias ou le volume pour l’ensemble du système. Pour plus d’informations, vous pouvez vérifier la [Gestion des modifications dans la sortie audio | Développeurs Android](https://developer.android.com/guide/topics/media-apps/volume-and-earphones).
+    
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    ...
+    setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+}
+```
 
+    
 ### <a name="start-and-stop-sending-local-video"></a>Démarrer et arrêter l’envoi de vidéo locale
 
 Pour démarrer une vidéo, vous devez énumérer les caméras à l’aide de l’API `getCameraList` sur l’objet `deviceManager`. Cela crée une nouvelle instance de `LocalVideoStream` transmettant la caméra souhaitée, et en la transmettant dans l’API `startVideo` comme argument :
@@ -668,6 +676,95 @@ VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
+
+## <a name="record-calls"></a>Enregistrer les appels
+> [!WARNING]
+> Jusqu’à la version 1.1.0 et bêta, la version 1.1.0-beta.1 de ACS Calling Android SDK possède le `isRecordingActive` et les `addOnIsRecordingActiveChangedListener` font partie de l’`Call`objet. Pour les nouvelles versions bêta, ces API ont été déplacées comme une fonctionnalité étendue de `Call` tout comme décrit ci-dessous.
+
+> [!NOTE]
+> Cet API est fourni en tant qu’aperçu pour les développeurs et peut être modifié en fonction des commentaires que nous avons reçus. N’utilisez pas cet API dans un environnement de production. Pour utiliser cette API, utilisez la version bêta de ACS Calling Android SDK
+
+L’enregistrement des appels est une fonctionnalité étendue de l’API `Call` principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité d’enregistrement :
+
+```java
+RecordingFeature callRecordingFeature = call.api(RecordingFeature.class);
+```
+
+Ensuite, pour vérifier si l’appel est en train d’être enregistré, inspectez la propriété `isRecordingActive` de `callRecordingFeature`. Elle retourne `boolean`.
+
+```java
+boolean isRecordingActive = callRecordingFeature.isRecordingActive();
+```
+
+Vous pouvez également vous abonner à l’enregistrement des modifications :
+
+```java
+private void handleCallOnIsRecordingChanged(PropertyChangedEvent args) {
+    boolean isRecordingActive = callRecordingFeature.isRecordingActive();
+}
+
+callRecordingFeature.addOnIsRecordingActiveChangedListener(handleCallOnIsRecordingChanged);
+
+```
+
+Si vous souhaitez commencer l’enregistrement à partir de votre application, suivez d'abord la [présentation de l’enregistrement des appels](../../../../concepts/voice-video-calling/call-recording.md) pour savoir comment configurer l’enregistrement des appels.
+
+Une fois que vous avez configuré l’enregistrement des appels sur votre serveur, à partir de votre application Android, vous devez obtenir la `ServerCallId` valeur de l’appel, puis l’envoyer à votre serveur pour démarrer le processus d’enregistrement. La `ServerCallId` valeur peut être trouvée à l’aide de `getServerCallId()` à partir de la classe `CallInfo`, laquelle peut être trouvée dans l’objet de classe à l’aide de `getInfo()`.
+
+```java
+try {
+    String serverCallId = call.getInfo().getServerCallId().get();
+    // Send serverCallId to your recording server to start the call recording.
+} catch (ExecutionException | InterruptedException e) {
+} catch (UnsupportedOperationException unsupportedOperationException) {
+}
+```
+
+Lorsque l’enregistrement débute à partir du serveur, l’événement `handleCallOnIsRecordingChanged` se déclenche et la valeur de `callRecordingFeature.isRecordingActive()` sera `true`.
+
+Tout comme le démarrage de l’enregistrement des appels, si vous souhaitez arrêter l’enregistrement des appels, vous devez obtenir le `ServerCallId` et l’envoyer à votre serveur d’enregistrement afin qu’il puisse arrêter l’enregistrement des appels.
+
+```java
+try {
+    String serverCallId = call.getInfo().getServerCallId().get();
+    // Send serverCallId to your recording server to stop the call recording.
+} catch (ExecutionException | InterruptedException e) {
+} catch (UnsupportedOperationException unsupportedOperationException) {
+}
+```
+
+Lorsque l’enregistrement est stoppé à partir du serveur, l’événement `handleCallOnIsRecordingChanged` se déclenche et la valeur de `callRecordingFeature.isRecordingActive()` sera `false`.
+
+
+## <a name="call-transcription"></a>Transcription de l’appel
+> [!WARNING]
+> Jusqu’à la version 1.1.0 et bêta, la version 1.1.0-beta.1 de ACS Calling Android SDK possède le `isTranscriptionActive` et les `addOnIsTranscriptionActiveChangedListener` font partie de l’`Call`objet. Pour les nouvelles versions bêta, ces API ont été déplacées comme une fonctionnalité étendue de `Call` tout comme décrit ci-dessous.
+    
+> [!NOTE]
+> Cet API est fourni en tant qu’aperçu pour les développeurs et peut être modifié en fonction des commentaires que nous avons reçus. N’utilisez pas cet API dans un environnement de production. Pour utiliser cette API, utilisez la version bêta de ACS Calling Android SDK
+
+La transcription des appels est une fonctionnalité étendue de l’API `Call` principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité de transcription :
+
+```java
+TranscriptionFeature callTranscriptionFeature = call.api(TranscriptionFeature.class);
+```
+
+Ensuite, pour vérifier si l’appel est en cours d’enregistrement, vérifiez la propriété `isTranscriptionActive` de `callTranscriptionFeature`. Elle retourne `boolean`.
+
+```java
+boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+```
+
+Vous pouvez également vous abonner aux modifications apportées à la transcription :
+
+```java
+private void handleCallOnIsTranscriptionChanged(PropertyChangedEvent args) {
+    boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+}
+
+callTranscriptionFeature.addOnIsTranscriptionActiveChangedListener(handleCallOnIsTranscriptionChanged);
+
+```    
 
 ## <a name="eventing-model"></a>Modèle d’événements
 Vous pouvez vous abonner à la plupart des propriétés et collections pour être averti quand des valeurs changent.

@@ -1,19 +1,19 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 02/18/2021
+ms.date: 06/25/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7035cff720b7eee4467f355a533a19f059c4baa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101102935"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531663"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -33,6 +33,7 @@ ms.locfileid: "101102935"
 | Longueur de nom de paramètre du corps POST du pare-feu d’applications web | 256 |
 | Longueur du nom d’en-tête HTTP du pare-feu d’applications web | 256 |
 | Longueur du nom de cookie du pare-feu d’applications web | 256 |
+| Limite d’exclusion du pare-feu d’applications Web | 100 |
 | Taille du corps de la requête HTTP inspectée du pare-feu d'applications web | 128 Ko |
 | Longueur du corps de la réponse personnalisée du pare-feu d’applications web | 2 Ko |
 
@@ -51,6 +52,8 @@ ms.locfileid: "101102935"
 | Nombre maximal de règles par ensemble de règles | 100 | 100 |
 | Nombre maximal d’origins par groupe d’origine | 50 | 50 |
 | Nombre maximal d’itinéraires par point de terminaison | 100 | 200 |
+| URL dans un appel de vidage du cache unique | 100 | 100 |
+| Règles personnalisées de pare-feu d’applications web par stratégie | 100 | 100 |
 | Conditions de correspondance du pare-feu d'applications web par règle personnalisée | 10 | 10 |
 | Plages d’adresses IP du pare-feu d'applications web par condition de correspondance | 600 | 600 |
 | Valeurs de correspondance de chaîne du pare-feu d'applications web par condition de correspondance | 10 | 10 |
@@ -61,25 +64,28 @@ ms.locfileid: "101102935"
 | Taille du corps de la requête HTTP inspectée du pare-feu d'applications web | 128 Ko | 128 Ko |
 | Longueur du corps de la réponse personnalisée du pare-feu d’applications web | 2 Ko | 2 Ko |
 
-### <a name="timeout-values"></a>Valeurs de délai d’expiration
-#### <a name="client-to-front-door"></a>Du client à Front Door
+#### <a name="timeout-values"></a>Valeurs de délai d’expiration
+##### <a name="client-to-front-door"></a>Du client à Front Door
 * Front Door a un délai de 61 secondes pour les connexions TCP inactives.
 
-#### <a name="front-door-to-application-back-end"></a>De Front Door au serveur d’applications back-end
+##### <a name="front-door-to-application-back-end"></a>De Front Door au serveur d’applications back-end
 * Si la réponse est mémorisée en bloc, un code d’état de 200 est renvoyé lors de la réception du premier bloc.
 * Une fois que la requête HTTP est transférée au serveur principal, Front Door attend 30 secondes l’arrivée du premier paquet depuis le serveur principal. Ensuite, il renvoie une erreur 503 au client. Vous pouvez configurer cette valeur par le biais du champ sendRecvTimeoutSeconds dans l’API.
-    * Pour les scénarios de mise en cache, ce délai d’expiration n’est pas configurable. Par conséquent, si une requête est mise en cache et qu’elle prend plus de 30 secondes pour le premier paquet en provenance de Front Door ou du back-end, une erreur 504 est retournée au client. 
+    * Si une requête est mise en cache et qu’elle prend plus de 30 secondes pour le premier paquet en provenance de Front Door ou du back-end, une erreur 504 est retournée au client. 
 * Lorsqu’il reçoit le premier paquet du serveur principal, Front Door attend 30 secondes (délai d’inactivité). Ensuite, il renvoie une erreur 503 au client. Cette valeur de délai d’expiration n’est pas configurable.
 * Le délai d’expiration d’une session TCP entre Front Door et le back-end est de 90 secondes.
 
-### <a name="upload-and-download-data-limit"></a>Taille limite pour le chargement et le téléchargement des données
+#### <a name="upload-and-download-data-limit"></a>Taille limite pour le chargement et le téléchargement des données
 
 |  | Avec encodage de transfert mémorisé en bloc (CTE) | Sans segmentation HTTP |
 | ---- | ------- | ------- |
 | **Télécharger** | La taille du téléchargement n’est pas limitée. | La taille du téléchargement n’est pas limitée. |
 | **Charger** |    Aucune limite tant que la taille de chaque chargement avec encodage de transfert mémorisé en bloc est inférieure à 2 Go. | Elle ne peut pas être supérieure à 2 Go. |
 
-### <a name="other-limits"></a>Autres limites
+#### <a name="other-limits"></a>Autres limites
 * Taille d’URL maximale : 8 192 octets - Spécifie la longueur maximale de l’URL brute (schéma + nom d’hôte + port + chemin + chaîne de requête de l’URL)
 * Taille maximale de chaîne de requête : 4 096 octets - Spécifie la longueur maximale de la chaîne de requête en octets.
 * Taille maximale d’en-tête de réponse HTTP à partir de l’URL de la sonde d’intégrité - 4096 octets - Spécifie la longueur maximale de tous les en-têtes de réponse des sondes d’intégrité. 
+* Nombre de caractères maximum de la valeur d’en-tête de l’action du moteur de règles : 640 caractères.
+* Nombre de caractères maximum de la valeur d’en-tête de condition du moteur de règles : 256 caractères.
+* Taille maximale de l’en-tête ETag : 128 octets

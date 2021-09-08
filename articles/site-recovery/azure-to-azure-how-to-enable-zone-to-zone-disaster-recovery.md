@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: deb9e103e44da97b9352f4f349505b3cb90df214
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 85ca00bd47fa0b81a14fe6529b949ae92af702b0
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853511"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525881"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Activer la récupération d’urgence des machines virtuelles Azure entre les zones de disponibilité
 
@@ -20,7 +20,7 @@ Cet article explique comment répliquer, basculer et restaurer automatiquement d
 
 >[!NOTE]
 >
->- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée aux régions suivantes : Asie Sud-Est, Japon Est, Australie Est, Inde Ouest JIO, Royaume-Uni Sud, Europe Ouest, Europe Nord, France Centre, USA Centre, USA Est, USA Est 2 et USA Ouest 2.  
+>- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée aux régions suivantes : Asie Sud-Est, Japon Est, Australie Est, Royaume-Uni Sud, Europe Ouest, Europe Nord, France Centre, Canada Centre, USA Centre, USA Centre-Sud, USA Est, USA Est 2, USA Ouest 2 et USA Ouest 3.  
 >- Site Recovery ne déplace pas et ne stocke pas les données client hors de la région dans laquelle il est déployé lorsque le client utilise la récupération d’urgence de zone à zone. S’ils le souhaitent, les clients peuvent sélectionner un coffre Recovery Services dans une autre région. Le coffre Recovery Services contient des métadonnées, mais pas de données client réelles.
 
 Le service Site Recovery contribue à votre stratégie de continuité d’activité et reprise d’activité en veillant à ce que vos applications métier restent opérationnelles lors d’interruptions planifiées ou non. Il s’agit de l’option de récupération d’urgence recommandée pour maintenir vos applications opérationnelles en cas de pannes régionales.
@@ -77,7 +77,7 @@ Avant de déployer une récupération d’urgence de zone à zone pour des machi
 |Disques managés    |    Prise en charge    |
 |Clés gérées par le client    |    Prise en charge    |
 |Groupes de placements de proximité    |    Prise en charge    |
-|Interopérabilité de la sauvegarde    |    La sauvegarde et la restauration au niveau fichier sont prises en charge. La sauvegarde et restauration aux niveaux disque et machine virtuelle ne sont pas prises en charge.    |
+|Interopérabilité de la sauvegarde    |    La sauvegarde et la restauration au niveau fichier sont prises en charge. La sauvegarde et la restauration au niveau du disque et de la machine virtuelle ne sont pas prises en charge.    |
 |Ajout/suppression à chaud    |    Il est possible d’ajouter des disques après activation de la réplication de zone à zone. La suppression de disques après l’activation de la réplication de zone à zone n’est pas prise en charge.    | 
 
 ## <a name="set-up-site-recovery-zone-to-zone-disaster-recovery"></a>Configurer la récupération d’urgence de zone à zone de Site Recovery

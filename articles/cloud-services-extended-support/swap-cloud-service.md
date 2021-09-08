@@ -8,12 +8,12 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: f5e01075ffb460c7ddd70b40a6b19f7ea70dd776
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d9e30d77708ad5ae8c5249a15d28685a56fd0216
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748815"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462981"
 ---
 # <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Échanger ou basculer des déploiements dans Azure Cloud Services (support étendu)
 
@@ -24,9 +24,14 @@ Une fois que vous avez échangé les déploiements, vous pouvez déplacer votre 
 > [!NOTE]
 > Vous ne pouvez pas échanger un déploiement Azure Cloud Services (classique) et un déploiement Azure Cloud Services (support étendu).
 
-Vous devez rendre un service cloud échangeable avec un autre service cloud lorsque vous déployez le deuxième service d’une paire de services cloud.
+Vous devez rendre un service Cloud échangeable avec un autre service cloud lorsque vous déployez le deuxième service d’une paire de services cloud pour la première fois. Une fois la deuxième paire de service Cloud déployée, elle ne peut pas être remplacée par un service Cloud existant dans les mises à jour ultérieures.
 
 Vous pouvez échanger les déploiements en utilisant un modèle Azure Resource Manager (modèle ARM), le portail Azure ou l’API REST.
+
+Lors du déploiement du deuxième service Cloud, les deux services Cloud ont leur propriété SwappableCloudService définie de sorte qu’ils pointent entre eux. Toute mise à jour ultérieure de ces services Cloud devra spécifier l’échec de cette propriété, indiquant qu’une erreur est renvoyée, indiquant que la propriété SwappableCloudService ne peut pas être supprimée ou mise à jour.
+
+Une fois définie, la propriété SwappableCloudService est traitée comme ReadOnly. Elle ne peut pas être supprimée ou remplacée par une autre valeur. La suppression de l’un des services Cloud (de la paire remplaçable) entraînera l’effacement de la propriété SwappableCloudService du service Cloud restant.
+
 
 ## <a name="arm-template"></a>Modèle ARM
 
@@ -114,7 +119,7 @@ L’échange de services cloud est généralement rapide, car il s’agit seulem
 ## <a name="next-steps"></a>Étapes suivantes 
 
 * Consultez les [prérequis du déploiement](deploy-prerequisite.md) d’Azure Cloud Services (support étendu).
-* Consultez la [FAQ](faq.md) pour Azure Cloud Services (support étendu).
+* Consultez la [FAQ](faq.yml) pour Azure Cloud Services (support étendu).
 * Déployez un service cloud Azure Cloud Services (support étendu) en utilisant l’une des options suivantes :
   * [Azure portal](deploy-portal.md)
   * [PowerShell](deploy-powershell.md)

@@ -6,21 +6,33 @@ author: mlee3gsd
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 12/2/2020
+ms.date: 08/19/2021
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 6422c33f17879aa8ec4844cc6de63411528a388b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c674813aee7702e9887e909e4a8baf7ace074a2c
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606155"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597644"
 ---
 # <a name="apache-spark-pool-configurations-in-azure-synapse-analytics"></a>Configurations des pools Apache Spark dans Azure Synapse Analytics
 
 Un pool Spark est un ensemble de métadonnées qui définit les besoins en ressources de calcul et les caractéristiques de comportement associées lorsqu’une instance Spark est instanciée. Ces caractéristiques incluent entre autres le nom, le nombre de nœuds, la taille de nœud, le comportement de mise à l’échelle et la durée de vie. Un pool Spark en lui-même ne consomme pas de ressources. La création de pools Spark est gratuite. Les frais ne sont facturés qu’une fois qu’un travail Spark est exécuté sur le pool Spark cible et que l’instance Spark est instanciée à la demande.
 
 Pour découvrir comment créer un pool Spark et afficher toutes ses propriétés, consultez [Bien démarrer avec les pools Spark dans Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md).
+
+## <a name="isolated-compute"></a>Calcul isolé
+
+L’option de calcul isolé offre une sécurité supplémentaire aux ressources de calcul Spark à partir de services non fiables en dédiant la ressource de calcul physique à un client unique.
+L’option de calcul isolé est la plus adaptée aux charges de travail qui nécessitent un niveau élevé d’isolement par rapport aux charges de travail des autres clients pour des raisons de conformité et d’exigences réglementaires, entre autres.  
+L’option de calcul isolé est disponible uniquement avec la taille de nœud XXXLarge (80 vCPU/504 Go) et n’est disponible que dans les régions suivantes.  L’option de calcul isolé peut être activée ou désactivée après la création du pool, bien que l’instance doive peut-être être redémarrée.  Si vous envisagez d’activer cette fonctionnalité à l’avenir, assurez-vous que votre espace de travail Synapse est créé dans une région prise en charge par le calcul isolé.
+
+* USA Est
+* USA Ouest 2
+* États-Unis - partie centrale méridionale
+* Gouvernement des États-Unis – Arizona
+* Gouvernement américain - Virginie
 
 ## <a name="nodes"></a>Nœuds
 
@@ -37,6 +49,7 @@ Un pool Spark peut être défini avec des tailles de nœuds allant d’un petit 
 |Large|16|128 Go|
 |XLarge|32|256 Go|
 |XXLarge|64|432 Go|
+|XXX grande (calcul isolé)|80|504 Go|
 
 ## <a name="autoscale"></a>Mise à l’échelle automatique
 

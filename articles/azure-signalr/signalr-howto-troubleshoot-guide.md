@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: ba75af247888a2404619ec0a3db3b0a5d3310502
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1e909273ae2413a67da6e3975e5a2bc50a68685d
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142420"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186818"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guide de dépannage pour résoudre des problèmes courants rencontrés avec Azure SignalR Service
 
@@ -73,7 +73,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 * ASP.NET « Aucun serveur disponible » erreur [#279](https://github.com/Azure/azure-signalr/issues/279)
 * ASP.NET « la connexion n’est pas active. Impossible d’envoyer des données au service ». Erreur [#324](https://github.com/Azure/azure-signalr/issues/324)
-* « Une erreur s’est produite lors de l’envoi de la requête HTTP à https://<API endpoint>. Cette erreur peut être due au fait que le certificat de serveur n’est pas configuré correctement avec HTTP.SYS pour HTTPS. Une autre cause possible de cette erreur est une non-correspondance de la liaison de sécurité entre le client et le serveur. »
+* « Une erreur s’est produite lors de l’envoi de la requête HTTP à `https://<API endpoint>`. Cette erreur peut être due au fait que le certificat de serveur n’est pas configuré correctement avec HTTP.SYS pour HTTPS. Une autre cause possible de cette erreur est une non-correspondance de la liaison de sécurité entre le client et le serveur. »
 
 ### <a name="root-cause"></a>Cause racine
 
@@ -428,33 +428,33 @@ Pour trouver la cause racine de l’insuffisance du pool de threads :
 
 <a name="view_request"></a>
 
-* Comment afficher la demande sortante du client ?
+### <a name="how-to-view-the-outgoing-request-from-the-client"></a>Comment afficher la demande sortante du client ?
+
 Prenons ASP.NET Core par exemple (ASP.NET est similaire) :
-    * À partir d’un navigateur :
 
-        Prenons par exemple Chrome. Vous pouvez utiliser la touche **F12** pour ouvrir la fenêtre de console et basculer vers l’onglet **Réseau**. Il se peut que vous deviez actualiser la page à l’aide de la touche **F5** pour capturer le réseau dès le début.
+* Dans le navigateur :   Prenons l’exemple de Chrome. Vous pouvez utiliser la touche **F12** pour ouvrir la fenêtre de console, puis passer à l’onglet **Réseau**. Vous devrez peut-être actualiser la page à l’aide de **F5** pour capturer le réseau à partir du tout début.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Affichage Réseau dans Chrome":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Affichage Réseau dans Chrome":::
 
-    * À partir d’un client C# :
+* À partir d’un client C# :
 
-        Vous pouvez afficher les trafics web locaux à l’aide de [Fiddler](https://www.telerik.com/fiddler). Les trafics WebSocket sont pris en charge depuis Fiddler version 4.5.
+    Vous pouvez afficher les trafics web locaux à l’aide de [Fiddler](https://www.telerik.com/fiddler). Les trafics WebSocket sont pris en charge depuis Fiddler version 4.5.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Affichage Réseau dans Fiddler" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Affichage Réseau dans Fiddler" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
 
 <a name="restart_connection"></a>
 
-* Comment redémarrer une connexion client ?
+### <a name="how-to-restart-client-connection"></a>Comment redémarrer une connexion client ?
     
-    Voici les [exemples de code](https://github.com/Azure/azure-signalr/tree/dev/samples) contenant une logique de redémarrage de connexion avec une stratégie *TOUJOURS RÉESSAYER* :
+Voici les [exemples de code](https://github.com/Azure/azure-signalr/tree/dev/samples) contenant une logique de redémarrage de connexion avec une stratégie *TOUJOURS RÉESSAYER* :
 
-    * [Client C# ASP.NET Core](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
+* [Client C# ASP.NET Core](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-    * [Client JavaScript ASP.NET Core](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
+* [Client JavaScript ASP.NET Core](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net50/wwwroot/index.html#L171)
 
-    * [Client C# ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
+* [Client C# ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
-    * [Client JavaScript ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+* [Client JavaScript ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
 [Vous avez des problèmes ou des commentaires sur la résolution des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/survey/troubleshooting)
 

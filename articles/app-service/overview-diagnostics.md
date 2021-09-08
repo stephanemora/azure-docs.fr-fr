@@ -2,17 +2,15 @@
 title: Outil de diagnostic et de résolution
 description: Découvrez comment résoudre les problèmes liés à votre application dans Azure App Service grâce à l’outil de diagnostic et de résolution du portail Azure.
 keywords: app service, azure app service, diagnostics, prise en charge, application web, dépannage, auto-assistance
-author: jen7714
 ms.topic: article
 ms.date: 10/18/2019
-ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf044baf233c159ff271221522f0f9faf15cc1ed
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962806"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451585"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service
 
@@ -28,7 +26,7 @@ Pour accéder aux diagnostics App Service, accédez à votre application App Ser
 
 Pour Azure Functions, accédez à votre application de fonction puis, dans le volet de navigation supérieur, cliquez sur **Fonctionnalités de plateforme** et sélectionnez **Diagnostiquer et résoudre les problèmes** dans la section **Gestion des ressources**.
 
-Sur la page d’accueil des diagnostics App Service, vous pouvez choisir la catégorie qui décrit le mieux le problème rencontré avec votre application. Vous pouvez pour cela utiliser les mots clés dans chaque vignette de page d’accueil. C’est également sur cette page que vous trouverez les **Outils de diagnostic** pour les applications Windows. Consultez la section [Outils de diagnostic (uniquement pour une application Windows)](#diagnostic-tools-only-for-windows-app).
+Sur la page d’accueil des diagnostics App Service, vous pouvez choisir la catégorie qui décrit le mieux le problème rencontré avec votre application. Vous pouvez pour cela utiliser les mots clés dans chaque vignette de page d’accueil. C’est également sur cette page que vous trouverez les **Outils de diagnostic**. Voir [Outils de diagnostic](#diagnostic-tools).
 
 ![Page d’accueil](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
@@ -83,21 +81,23 @@ Si un problème appartenant à une catégorie de problèmes spécifique est dét
 
 ![Application Insights, résolution des problèmes et étapes suivantes](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>Outils de diagnostic (uniquement pour une application Windows)
+## <a name="diagnostic-tools"></a>Outils de diagnostic 
 
 Les Outils de diagnostics incluent des outils de diagnostic plus avancés qui vous aident à examiner les problèmes de code d’application, de lenteur, de chaînes de connexion, etc. Ils incluent également des outils proactifs qui vous aident à atténuer les problèmes liés à l’utilisation de l’UC, aux demandes et à la mémoire.
 
-### <a name="proactive-cpu-monitoring"></a>Surveillance proactive de l’UC
+### <a name="proactive-cpu-monitoring-only-for-windows-app"></a>Surveillance Proactive de l’UC (uniquement pour l’application Windows)
 
 La surveillance proactive de l’UC vous offre un moyen simple et proactif pour intervenir lorsque votre application ou le processus enfant de votre application consomme des ressources d’UC de façon intensive. Vous pouvez définir vos propres règles de seuil d’UC pour atténuer temporairement un problème d’utilisation intensive de l’UC jusqu’à ce que la véritable cause du problème inattendu soit identifiée. Pour plus d’informations, consultez [Atténuer vos problèmes d’UC avant qu’ils ne se produisent](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
 ![Surveillance proactive de l’UC](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="auto-healing-and-proactive-auto-healing"></a>Réparation automatique et réparation automatique proactive
+### <a name="auto-healing"></a>Réparation automatique 
 
-La réparation automatique est une action d’atténuation que vous pouvez entreprendre quand votre application présente un comportement inattendu. Vous pouvez définir vos propres règles selon le nombre de demandes, la lenteur des demandes, la limite de mémoire et le code d’état HTTP pour déclencher des actions d’atténuation. Utilisez l’outil pour atténuer temporairement les effets d’un comportement inattendu jusqu’à ce que vous trouviez la cause racine. Pour plus d’informations, consultez [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+La réparation automatique est une action d’atténuation que vous pouvez entreprendre quand votre application présente un comportement inattendu. Vous pouvez définir vos propres règles selon le nombre de demandes, la lenteur des demandes, la limite de mémoire et le code d’état HTTP pour déclencher des actions d’atténuation. Utilisez l’outil pour atténuer temporairement les effets d’un comportement inattendu jusqu’à ce que vous trouviez la cause racine. Cet outil est actuellement disponible pour les Applications Web Windows, Applications Web Linux et Conteneurs personnalisés Linux. Les conditions prises en charge et l’atténuation varient en fonction du type de l’application Web. Pour plus d’informations, consultez [Annonce de la nouvelle expérience de réparation automatique dans les diagnostics de service de l’application](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) et [Annonce de la Réparation automatique pour Linux](https://azure.github.io/AppService/2021/04/21/Announcing-Autoheal-for-Azure-App-Service-Linux.html).
 
 ![Réparation automatique](./media/app-service-diagnostics/auto-healing-10.png)
+
+### <a name="proactive-auto-healing-only-for-windows-app"></a>Réparation automatique proactive (uniquement pour l’application Windows)
 
 Comme la supervision proactive du processeur, la réparation automatique proactive constitue une solution idéale pour atténuer un comportement inattendu de votre application. La réparation automatique proactive redémarre votre application quand App Service détermine que votre application est dans un état irrécupérable. Pour plus d’informations, consultez [Présentation de la répartition automatique proactive](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
 

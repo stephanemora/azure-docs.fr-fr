@@ -2,13 +2,13 @@
 title: Restaurer des bases de données SQL Server sur une machine virtuelle Azure
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/06/2021
+ms.openlocfilehash: 312cf2918356c44b010097de4abf66be03f172a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734400"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524116"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -173,7 +173,7 @@ Si la taille totale de la chaîne des fichiers dans une base de données dépass
 
 parmi les options de restauration, la restauration entre régions (CRR) vous permet de restaurer des bases de données SQL hébergées sur des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure.
 
-Pour intégrer la fonctionnalité à la préversion, lisez la [section Avant de commencer](./backup-create-rs-vault.md#set-cross-region-restore).
+Pour commencer à utiliser la fonctionnalité, lisez la [section Avant de commencer](./backup-create-rs-vault.md#set-cross-region-restore).
 
 Pour voir si la CRR est activée, suivez les instructions indiquées dans [Configurer la restauration interrégion](backup-create-rs-vault.md#configure-cross-region-restore)
 
@@ -193,19 +193,15 @@ Si la CRR est activée, vous pouvez afficher les éléments de sauvegarde dans l
 
 ### <a name="restore-in-secondary-region"></a>Restaurer dans la région secondaire
 
-L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire.
+L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire. Un coffre doit exister dans la région secondaire et le serveur SQL doit être inscrit dans le coffre dans la région secondaire.
 
 ![Où et comment restaurer](./media/backup-azure-sql-database/restore-secondary-region.png)
-
->[!NOTE]
->Le réseau virtuel de la région secondaire doit être attribué de manière unique et ne peut être utilisé pour aucune autre machine virtuelle de ce groupe de ressources.
 
 ![Déclencher la notification de restauration en cours](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 >[!NOTE]
->
 >- Une fois la restauration déclenchée et au cours de la phase de transfert des données, le travail de restauration ne peut pas être annulé.
->- Les rôles Azure nécessaires à la restauration dans la région secondaire sont les mêmes que ceux de la région primaire.
+>- Les niveaux rôle/accès requis pour effectuer l’opération de restauration inter-régions sont le rôle _Opérateur de sauvegarde_ dans l’abonnement et l’accès _Contributeur(écriture)_ sur les machines virtuelles source et cible. Pour afficher les tâches de sauvegarde, _ Backup reader_ est la permission minimale requise dans l’abonnement.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Surveillance des travaux de restauration de la région secondaire
 

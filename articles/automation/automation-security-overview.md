@@ -4,15 +4,15 @@ description: Cet article fournit une vue d’ensemble de l’authentification de
 keywords: sécurité de l’automatisation ; automation sécurisée ; authentification d’automatisation
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 33402eb41ed9c22cf38890229d833cd2ab00d65d
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 78b188b270ec08aa546311b449f908d47313a9a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279511"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524371"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Vue d’ensemble de l’authentification de compte Azure Automation
 
@@ -38,7 +38,7 @@ Une identité managée issue d’Azure Active Directory (Azure AD) permet à vot
 
 Voici quelques-uns des avantages de l’utilisation des identités managées :
 
-- Vous pouvez utiliser des identités managées pour vous authentifier auprès d’un service Azure qui prend en charge l’authentification Azure AD. Elles peuvent être utilisées pour les tâches cloud et hybrides. Les tâches hybrides peuvent utiliser des identités managées lorsqu’elles sont exécutées sur un runbook Worker hybride qui s’exécute sur une machine virtuelle Azure ou non Azure.
+- L’utilisation d’une identité managée au lieu du compte d’identification Automation simplifie la gestion. Vous n’avez pas à renouveler le certificat utilisé par le compte d’identification.
 
 - Les identités managées peuvent être utilisées sans coût supplémentaire.
 
@@ -52,8 +52,8 @@ Deux types d’identités peuvent être accordés à un compte Automation :
 
 - Une identité attribuée par l’utilisateur est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur.
 
->[!NOTE]
-> Les identités affectées par l’utilisateur ne sont pas encore prises en charge.
+> [!NOTE]
+> Les identités affectées par l’utilisateur sont uniquement prises en charge pour les tâches Cloud. Pour en savoir plus sur les différentes identités managées, consultez [Gérer les types d’identité](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 Pour plus d’informations sur l’utilisation des identités gérées, consultez [Activer une identité managée pour Azure Automation (préversion)](enable-managed-identity-for-automation.md).
 
@@ -61,8 +61,37 @@ Pour plus d’informations sur l’utilisation des identités gérées, consulte
 
 Les comptes d’identification dans Azure Automation fournissent une authentification pour la gestion des ressources Azure Resource Manager ou des ressources déployées sur le modèle de déploiement Classic. Il existe deux types de comptes d’identification dans Azure Automation :
 
-* Compte d’identification Azure : Vous permet de gérer les ressources Azure en fonction du déploiement Azure Resource Manager et du service de gestion pour Azure.
-* Compte d’identification Azure Classic : Vous permet de gérer les ressources classiques d’Azure en fonction du modèle de déploiement Classic.
+Pour créer ou renouveler un compte d’identification, les autorisations sont nécessaires à trois niveaux :
+
+- Abonnement,
+- Répertoire actif (Azure AD) et
+- Compte Automation
+
+### <a name="subscription-permissions"></a>Autorisations d’abonnement
+
+Vous devez avoir l’`Microsoft.Authorization/*/Write`autorisation. Cette autorisation est obtenue via l’appartenance à l’un des rôles intégrés Azure suivants :
+
+- [Propriétaire](../role-based-access-control/built-in-roles.md#owner)
+- [Administrateur de l'accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator)
+
+Pour configurer ou renouveler des comptes d’identification Classic, vous devez disposer du rôle Coadministrateur au niveau de l’abonnement. Pour en savoir plus sur les autorisations d’abonnement Classic, consultez [Administrateurs d’abonnement Azure Classic](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+
+### <a name="azure-ad-permissions"></a>Autorisations Azure AD
+
+Pour être en mesure de créer ou de renouveler le principal du service, vous devez être membre de l’un des rôles intégrés Azure AD suivants :
+
+- [Administrateur d’application](../active-directory/roles/permissions-reference.md#application-administrator)
+- [Développeur d’applications](../active-directory/roles/permissions-reference.md#application-developer)
+
+L’appartenance peut être attribuée à **TOUS** les utilisateurs dans le locataire au niveau du répertoire, ce qui est le comportement par défaut. Vous pouvez accorder l’appartenance à l’un des rôles au niveau du répertoire. Pour plus d’informations, consultez [Qui a l'autorisation d'ajouter des applications à mon instance Azure AD ?](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+
+### <a name="automation-account-permissions"></a>Autorisations du compte Automation
+
+Pour être en mesure de créer ou de mettre à jour le compte Automation, vous devez être membre de l’un des rôles de compte Automation suivants :
+
+- [Propriétaire](./automation-role-based-access-control.md#owner)
+- [Contributeur](./automation-role-based-access-control.md#contributor)
+- [Contributeur Automatisation Azure Sentinel](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)
 
 Pour en savoir plus sur les modèles de déploiement Azure Resource Manager et Classic, consultez [Déploiement Resource Manager et déploiement classique](../azure-resource-manager/management/deployment-models.md).
 
@@ -130,13 +159,16 @@ Pour vérifier que la situation produisant le message d’erreur a été corrig�
 1. Dans le volet Azure Active Directory du portail Azure, sélectionnez **Utilisateurs et groupes**.
 2. Sélectionnez **Tous les utilisateurs**.
 3. Choisissez votre nom, puis sélectionnez **Profil**.
-4. Vérifiez que la valeur de l’attribut **Usertype** sous votre profil d’utilisateur n’est pas définie sur **Invité**.
+4. Vérifiez que la valeur de l’attribut **Type d’utilisateur** sous votre profil d’utilisateur n’est pas définie sur **Invité**.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
 Le contrôle d’accès en fonction du rôle est disponible avec Azure Resource Manager pour attribuer des actions autorisées à un compte d’utilisateur Azure AD et à un compte d’identification, et pour authentifier le principal du service. Pour obtenir plus d’informations susceptibles de vous aider à développer votre modèle de gestion des autorisations Automation, consultez l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 
 Si vous avez des contrôles de sécurité stricts pour l’attribution d’autorisations dans des groupes de ressources, vous devez affecter l’appartenance au compte d’identification au rôle **Contributeur** dans le groupe de ressources.
+
+> [!NOTE]
+> Nous vous recommandons de ne pas utiliser le rôle **Contributeur Log Analytics** pour exécuter des tâches Automation. Créez plutôt le rôle personnalisé Contributeur Azure Automation et utilisez-le pour les actions associées au compte Automation. Pour plus d’informations, consultez [rôle de Contributeur personnalisé Azure Automation](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
 
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Authentification des runbooks avec Runbook Worker hybride
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: 6fbfb138f8c4605b12c5c4ff6cd0ac8c9b0c43dd
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ecedf0854d7d670cf88a8dcb729a01adaa88b646
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525268"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatiser les réponses aux déclencheurs Security Center
 
@@ -25,10 +25,10 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Disponibilité générale (GA)|
+|État de sortie :|Disponibilité générale|
 |Prix :|Gratuit|
 |Rôles et autorisations obligatoires :|**Rôle d’administrateur de sécurité** ou **Propriétaire** sur le groupe de ressources<br>Doit également disposer d’autorisations en écriture sur la ressource cible<br><br>Pour utiliser des workflows Azure Logic Apps, vous devez également disposer des autorisations/rôles Logic Apps suivants :<br> - Les autorisations [Opérateur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-operator) sont nécessaires pour lire/déclencher des applications logiques (ce rôle ne permet pas la création ni la modification d’applications logiques ; il sert uniquement à *exécuter* des applications existantes)<br> - Les autorisations [Contributeur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-contributor) sont requises pour la création et la modification d’applications logiques<br>Si vous souhaitez utiliser des connecteurs d’applications logiques, vous pouvez avoir besoin d’informations d’identification supplémentaires pour vous connecter à leurs services respectifs (par exemple, vos instances Outlook/Teams/Slack).|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png":::National/Souverain (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -37,7 +37,7 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 
 1. Dans la barre latérale de Security Center, sélectionnez **Automatisation des workflows**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Liste d’automatisations de workflows":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Liste d’automatisations des workflows.":::
 
     À partir de cette page, vous pouvez créer des règles d’automatisation, et activer, désactiver ou supprimer des règles existantes.
 
@@ -52,13 +52,13 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 
     1. L’application logique à exécuter lorsque les conditions du déclencheur définies seront remplies. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Volet Ajouter des automations de workflow":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Volet Ajouter des automatisations de workflow.":::
 
 1. Dans la section Actions, cliquez sur **Create a new one** (Créer) pour commencer le processus de création de l’application logique.
 
     Vous êtes redirigé vers le service Azure Logic Apps.
 
-    [![Création d’une application logique](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    [![Création d’une nouvelle Application logique.](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
 1. Entrez un nom, un groupe de ressources et un emplacement, puis cliquez sur **Créer**.
 
@@ -78,11 +78,11 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
     > [!NOTE]
     > Si vous utilisez le déclencheur hérité « Quand une réponse à une alerte Azure Security Center est déclenchée », votre application logique n’est pas lancée par la fonctionnalité Automatisation des workflows. À la place, utilisez l’un des déclencheurs mentionnés ci-dessus. 
 
-    [![Exemple d’application logique](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![Exemple d’application logique.](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
 1. Après avoir défini votre application logique, revenez au volet de définition de l’automatisation des workflows (« Ajouter une automatisation de workflow »). Cliquez sur **Actualiser** afin de rendre votre nouvelle application logique disponible pour la sélection.
 
-    ![Actualiser](media/workflow-automation/refresh-the-list-of-logic-apps.png)
+    ![Actualiser :](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
 1. Sélectionnez votre application logique et enregistrez l’automatisation. Notez que la liste déroulante Application logique affiche uniquement les applications logiques disposant des connecteurs Security Center pris en charge mentionnés ci-dessus.
 
@@ -93,7 +93,7 @@ Vous pouvez également exécuter des applications logiques manuellement quand un
 
 Pour exécuter manuellement une application logique, ouvrez une alerte ou une recommandation, puis cliquez sur **Déclencher l’application logique** :
 
-[![Déclencher manuellement une application logique](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+[![Déclencher manuellement une Application logique.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
 
 ## <a name="configure-workflow-automation-at-scale-using-the-supplied-policies"></a>Configurer l’automatisation des workflows à grande échelle à l’aide des stratégies fournies
@@ -118,11 +118,11 @@ Pour implémenter ces stratégies :
     > [!TIP]
     > Vous pouvez également les trouver faisant une recherche dans Azure Policy :
     > 1. Ouvrez Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accès à Azure Policy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accès à Azure Policy.":::
     > 2. Dans le menu Azure Policy, sélectionnez **Définitions** et recherchez-les par nom. 
 
 1. Dans la page Azure Policy appropriée, sélectionnez **Attribuer**.
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Attribution de la stratégie Azure":::
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Attribution d’Azure Policy.":::
 
 1. Ouvrez chaque onglet et définissez les paramètres comme vous le souhaitez :
     1. Sous l’onglet **Général**, définissez l’étendue de la stratégie. Pour utiliser la gestion centralisée, attribuez la stratégie au groupe d’administration contenant les abonnements qui utiliseront la configuration de l’automatisation des workflows. 
@@ -131,7 +131,7 @@ Pour implémenter ces stratégies :
         > Chaque paramètre est accompagné d’une info-bulle qui explique les options disponibles.
         >
         > L’onglet Paramètres d’Azure Policy (1) donne accès à des options de configuration similaires à celles de la page d’automatisation des workflows de Security Center (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparaison des paramètres de l’automatisation des workflows avec Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparaison des paramètres de l’automatisation des workflows avec Azure Policy." lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Si vous le souhaitez, pour appliquer cette attribution à des abonnements existants, ouvrez l’onglet **Correction** et sélectionnez l’option permettant de créer une tâche de correction.
 

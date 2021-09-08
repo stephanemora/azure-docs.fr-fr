@@ -1,61 +1,51 @@
 ---
-title: Authentifier avec des identités gérées
-description: Accéder aux ressources protégées par Azure Active Directory sans devoir se connecter à l’aide d’informations d’identification ou de secrets, grâce à une identité managée
+title: Authentifier les flux de travail avec des identités managées
+description: Utiliser une identité managée pour authentifier les déclencheurs et les actions pour les ressources protégées Azure AD sans informations d’identification ou secrets
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 03/30/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aa408d0ae548e9d532f0e26562070847c0cc38c8
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/25/2021
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.openlocfilehash: 76edcac6b77b70928cb2d6cd378b421b68b3d3ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531778"
 ---
-# <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
+# <a name="authenticate-access-to-azure-resources-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
-Pour accéder facilement à d’autres ressources protégées par Azure Active Directory (Azure AD) et authentifier votre identité, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity) à la place d’informations d’identification, de secrets ou de jetons Azure AD. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’avez pas besoin de gérer les secrets ou d’utiliser directement des jetons Azure AD.
+Pour la prise en charge, certains déclencheurs et actions pour les flux de travail d’application logique utilisent une [identité managée](../active-directory/managed-identities-azure-resources/overview.md), précédemment connue sous le nom d’*Identité de service managée (MSI)* , pour l’authentification lors de la connexion à des ressources protégées par Azure Active Directory (Azure AD). Lorsque la ressource de votre application logique a une identité managée activée et configurée, vous n’êtes pas obligé d’utiliser vos propres informations d’identification, secrets ou jetons Azure AD. Azure gère cette identité et permet de sécuriser les informations d’authentification dans la mesure où vous n’avez à gérer ni les secrets ni les jetons.
 
-Azure Logic Apps prend en charge les identités managées [*affectées par le système*](../active-directory/managed-identities-azure-resources/overview.md) et [*affectées par l’utilisateur*](../active-directory/managed-identities-azure-resources/overview.md). Votre application logique ou vos connexions individuelles peuvent utiliser soit l’identité affectée par le système, soit *une seule* identité affectée par l’utilisateur, que vous pouvez partager dans un groupe d’applications logiques, mais pas les deux.
-
-<a name="triggers-actions-managed-identity"></a>
-
-## <a name="where-can-logic-apps-use-managed-identities"></a>Où Logic Apps peut-il utiliser des identités managées ?
-
-Actuellement, seuls [des déclencheurs et des actions intégrés spécifiques](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) et [des connecteurs gérés spécifiques](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) qui prennent en charge Azure AD OAuth peuvent utiliser une identité managée pour l’authentification. Par exemple, voici une sélection :
-
-<a name="built-in-managed-identity"></a>
-
-**Déclencheurs et actions intégrés**
-
-* Gestion des API Azure
-* Azure App Services
-* Azure Functions
-* HTTP
-* HTTP + Webhook
-
-> [!NOTE]
-> Même si l’action et le déclencheur HTTP peuvent authentifier les connexions aux comptes Stockage Azure derrière des pare-feu Azure à l’aide de l’identité managée affectée par le système, ils ne peuvent pas utiliser l’identité managée affectée par l’utilisateur pour authentifier les mêmes connexions.
-
-<a name="managed-connectors-managed-identity"></a>
-
-**Connecteurs gérés**
-
-* Azure Automation
-* Azure Event Grid
-* Azure Key Vault
-* Azure Resource Manager
-* HTTP avec Azure AD
-
-La prise en charge des connecteurs gérés est actuellement proposée en préversion. Pour obtenir la liste actuelle, consultez [Types d’authentification pour les déclencheurs et les actions qui prennent en charge l’authentification](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
-
-Cet article montre comment configurer les deux genres d’identité managée pour votre application logique. Pour plus d’informations, consultez les rubriques suivantes :
+Cet article montre comment configurer les deux genres d’identité managée pour votre application logique. Pour plus d’informations, consultez la documentation suivante :
 
 * [Déclencheurs et actions qui prennent en charge les identités managées](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 * [Limites sur les identités managées pour les applications logiques](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Services Azure qui prennent en charge l’authentification Azure AD avec des identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+
+<a name="triggers-actions-managed-identity"></a>
+
+## <a name="where-to-use-managed-identities"></a>Où utiliser les identités managées ?
+
+Azure Logic Apps prend en charge les [*identités managées* affectées par le système](../active-directory/managed-identities-azure-resources/overview.md) et les [*identités managées* affectées par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md), que vous pouvez partager dans un groupe d’applications logiques, selon l’emplacement d’exécution de vos flux de travail d’application logique :
+
+* Une application logique basée multilocataire (plan de consommation) prend en charge l’identité affectée par le système et une identité affectée par l’utilisateur *unique*. Toutefois, au niveau de l’application logique ou au niveau de la connexion, vous ne pouvez utiliser qu’un seul type d’identité managée, car vous ne pouvez pas activer les deux à la fois.
+
+  Une application logique à locataire unique (plan standard) prend actuellement en charge uniquement l’identité affectée par le système.
+
+  Pour plus d’informations sur les applications multilocataire (plan de consommation) et à locataire unique (plan standard), consultez la documentation [Comparaison entre locataire unique et multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
+
+<a name="built-in-managed-identity"></a>
+<a name="managed-connectors-managed-identity"></a>
+
+* Seules les opérations de connecteur intégrées et managées spécifiques qui prennent en charge l’authentification ouverte Azure AD peuvent utiliser une identité managée pour l’authentification. Le tableau suivant fournit uniquement une *sélection d’exemples*. Pour obtenir une liste plus complète, consultez [Types d’authentification pour les déclencheurs et les actions qui prennent en charge l’authentification](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+  | Type d'opération | Opérations prises en charge |
+  |----------------|----------------------|
+  | Intégré | - Gestion des API Azure <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p><p> **Remarque** : même si les opérations HTTP peuvent authentifier les connexions aux comptes de Stockage Azure derrière des pare-feu Azure à l’aide de l’identité managée affectée par le système, elles ne prennent pas en charge l’identité managée affectée par l’utilisateur pour authentifier les mêmes connexions. |
+  | Connecteur managé (**Préversion**) | - Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP avec Azure AD |
+  |||
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -81,13 +71,13 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 À la différences des identités attribuées par l’utilisateur, vous n’avez pas besoin de créer manuellement l’identité attribuée par le système. Pour configurer l’identité affectée par le système dans le cadre de votre application logique, voici les options que vous pouvez utiliser :
 
 * [Azure portal](#azure-portal-system-logic-app)
-* [Modèles Microsoft Azure Resource Manager](#template-system-logic-app)
+* [Modèle Azure Resource Manager (modèle ARM)](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
 #### <a name="enable-system-assigned-identity-in-azure-portal"></a>Activer une identité attribuée par le système sur le portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez votre application logique dans le nouveau concepteur.
 
 1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**. Sélectionnez **Affecté(e) par le système** > **Actif** > **Enregistrer**. Quand Azure vous invite à confirmer l’opération, sélectionnez **Oui**.
 
@@ -100,7 +90,7 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 
    ![ID d’objet pour l’identité attribuée par le système](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propriété | Value | Description |
+   | Propriété | Valeur | Description |
    |----------|-------|-------------|
    | **ID d’objet** | <*identity-resource-ID*> | GUID (identificateur global unique) qui représente l’identité affectée par le système pour votre application logique dans un locataire Azure AD |
    ||||
@@ -109,9 +99,9 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 
 <a name="template-system-logic-app"></a>
 
-#### <a name="enable-system-assigned-identity-in-azure-resource-manager-template"></a>Activer l’identité attribuée par le système dans un modèle Resource Manager
+#### <a name="enable-system-assigned-identity-in-an-arm-template"></a>Activer une identité affectée par le système dans un modèle ARM
 
-Pour automatiser la création et le déploiement de ressources Azure telles que des applications logiques, vous pouvez utiliser des [modèles Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Pour activer l’identité managée attribuée par le système pour votre application logique dans le modèle, ajoutez l’objet `identity` et la propriété enfant `type` à la définition de ressource de l’application logique dans le modèle, par exemple :
+Pour automatiser la création et le déploiement de ressources Azure telles que des applications logiques, vous pouvez utiliser un [modèle ARM](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Pour activer l’identité managée attribuée par le système pour votre application logique dans le modèle, ajoutez l’objet `identity` et la propriété enfant `type` à la définition de ressource de l’application logique dans le modèle, par exemple :
 
 ```json
 {
@@ -136,7 +126,7 @@ Pour automatiser la création et le déploiement de ressources Azure telles que 
 }
 ```
 
-Quand Azure crée la définition de ressource de votre application logique, l’objet `identity` reçoit les propriétés supplémentaires suivantes :
+Quand Azure crée la définition de ressource de votre application logique, l’`identity`objet obtient les propriétés supplémentaires suivantes :
 
 ```json
 "identity": {
@@ -159,7 +149,7 @@ Quand Azure crée la définition de ressource de votre application logique, l’
 Pour configurer une identité managée affectée par l’utilisateur dans le cadre de votre application logique, vous devez d’abord créer cette identité en tant que ressource Azure autonome distincte. Voici les options que vous pouvez utiliser :
 
 * [Azure portal](#azure-portal-user-identity)
-* [Modèles Microsoft Azure Resource Manager](#template-user-identity)
+* [Modèle ARM](#template-user-identity)
 * Azure PowerShell
   * [Créer une identité affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
   * [Ajouter une attribution de rôle](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
@@ -176,7 +166,7 @@ Pour configurer une identité managée affectée par l’utilisateur dans le cad
 
 1. Dans le [portail Azure](https://portal.azure.com), dans la zone de recherche de n’importe quelle page, entrez `managed identities`, puis sélectionnez **Identités managées**.
 
-   ![Rechercher et sélectionner « Identités managées »](./media/create-managed-service-identity/find-select-managed-identities.png)
+   ![Capture d’écran montrant le portail avec l’option « Identités managées » sélectionnée.](./media/create-managed-service-identity/find-select-managed-identities.png)
 
 1. Sous **Identités managées**, sélectionnez **Ajouter**.
 
@@ -196,13 +186,13 @@ Pour configurer une identité managée affectée par l’utilisateur dans le cad
 
    Une fois ces détails validés, Azure crée votre identité managée. À présent, vous pouvez ajouter l’identité affectée par l’utilisateur à votre application logique. Vous ne pouvez pas ajouter plusieurs identités affectées par l’utilisateur à votre application logique.
 
-1. Dans le portail Azure, recherchez et ouvrez votre application logique dans le Concepteur d’application logique.
+1. Dans le Portail Azure, ouvrez votre application logique dans le nouveau concepteur.
 
 1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**, puis **Affecté(e) par l’utilisateur** > **Ajouter**.
 
    ![Ajouter une identité managée affectée par l’utilisateur](./media/create-managed-service-identity/add-user-assigned-identity-logic-app.png)
 
-1. Dans le volet **Ajouter une identité managée affectée par l’utilisateur**, dans la liste **Abonnement**, sélectionnez votre abonnement Azure, si cela n’est pas déjà fait. Dans la liste qui montre *toutes* les identités managées de cet abonnement, recherchez et sélectionnez l’identité affectée par l’utilisateur qui vous intéresse. Pour filtrer la liste, dans la zone de recherche **Identités managées affectées par l’utilisateur**, entrez le nom de l’identité ou du groupe de ressources. Une fois que vous avez terminé, sélectionnez **Ajouter**.
+1. Dans le volet **Ajouter une identité managée affectée par l’utilisateur**, dans la liste **Abonnement**, sélectionnez votre abonnement Azure, si cela n’est pas déjà fait. Dans la liste qui montre *toutes* les identités managées de cet abonnement, sélectionnez l’identité affectée par l’utilisateur qui vous intéresse. Pour filtrer la liste, dans la zone de recherche **Identités managées affectées par l’utilisateur**, entrez le nom de l’identité ou du groupe de ressources. Une fois que vous avez terminé, sélectionnez **Ajouter**.
 
    ![Sélectionner l’identité affectée par l’utilisateur à employer](./media/create-managed-service-identity/select-user-assigned-identity.png)
 
@@ -217,9 +207,9 @@ Pour configurer une identité managée affectée par l’utilisateur dans le cad
 
 <a name="template-user-identity"></a>
 
-#### <a name="create-user-assigned-identity-in-an-azure-resource-manager-template"></a>Créer une identité affectée par l’utilisateur dans un modèle Azure Resource Manager
+#### <a name="create-user-assigned-identity-in-an-arm-template"></a>Créer une identité affectée par l’utilisateur dans un modèle ARM
 
-Pour automatiser la création et le déploiement de ressources Azure telles que les applications logiques, vous pouvez utiliser des [modèles Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Ceux-ci prennent en charge les [identités affectées par l’utilisateur pour l’authentification](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). Dans la section `resources` de votre modèle, la définition de ressource de votre application logique nécessite les éléments suivants :
+Pour automatiser la création et le déploiement de ressources Azure telles que les applications logiques, vous pouvez utiliser un [modèle ARM](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), lequel prend en charge les [identités affectées par l’utilisateur pour l’authentification](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). Dans la section `resources` de votre modèle, la définition de ressource de votre application logique nécessite les éléments suivants :
 
 * Objet `identity` dont la propriété `type` a la valeur `UserAssigned`
 
@@ -308,66 +298,46 @@ Si votre modèle inclut également la définition de ressource de l’identité 
 
 ## <a name="give-identity-access-to-resources"></a>Accorder à une identité l’accès aux ressources
 
-Pour pouvoir vous servir de l’identité managée de votre application logique dans le cadre de l’authentification, configurez l’accès de cette identité à la ressource Azure où vous prévoyez de l’utiliser. Pour effectuer cette tâche, attribuez le rôle approprié à cette identité sur la ressource Azure cible. Voici les options que vous pouvez utiliser :
+Avant de pouvoir utiliser l’identité gérée de votre application logique pour l’authentification, sur la ressource Azure dans laquelle vous souhaitez utiliser l’identité, vous devez configurer l’accès à votre identité à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
+
+Pour effectuer cette tâche, attribuez le rôle approprié à cette identité sur la ressource Azure via l’une des options suivantes :
 
 * [Azure portal](#azure-portal-assign-access)
-* [Modèle Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI ([az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* [Modèle ARM](../role-based-access-control/role-assignments-template.md)
+* [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 * [API REST Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
 
-### <a name="assign-access-in-the-azure-portal"></a>Accorder l’accès dans le portail Azure
+### <a name="assign-managed-identity-role-based-access-in-the-azure-portal"></a>Attribuer un accès d’identité managée basée sur le rôle dans le Portail Azure
 
-Sur la ressource Azure cible à laquelle vous souhaitez que l’identité managée ait accès, attribuez à l’identité l’accès en fonction du rôle à la ressource cible.
+Sur la ressource Azure dans laquelle vous souhaitez utiliser l’identité managée, vous devez affecter votre identité à un rôle qui peut accéder à la ressource cible. Pour plus d’informations générales sur cette tâche, consultez [Attribuer un accès d’identité managée à une autre ressource à l’aide du RBAC Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la ressource Azure à laquelle vous souhaitez que votre identité managée ait accès.
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez la ressource où vous souhaitez utiliser l’identité.
 
-1. Dans le menu de la ressource, sélectionnez **Contrôle d’accès (IAM)**  > **Attributions de rôle** pour examiner les attributions de rôles actuelles pour cette ressource. Dans la barre d’outils, sélectionnez **Ajouter** > **Ajouter une attribution de rôle**.
+1. Dans le menu de la ressource, sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter** > **Ajouter une attribution de rôle**.
 
-   ![Sélectionner « Ajouter » > « Ajouter une attribution de rôle »](./media/create-managed-service-identity/add-role-to-resource.png)
+   > [!NOTE]
+   > Si l’option **Ajouter une attribution de rôle** est désactivée, vous n’avez pas les autorisations pour attribuer les rôles. Pour plus d’informations, consultez [Rôles intégrés Azure AD](../active-directory/roles/permissions-reference.md).
 
-   > [!TIP]
-   > Si l’option **Ajouter une attribution de rôle** est désactivée, vous n’avez probablement pas les autorisations appropriées. Pour plus d’informations sur les autorisations permettant de gérer des rôles pour des ressources, voir [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference.md).
+1. À présent, attribuez le rôle nécessaire à votre identité managée. Dans l’onglet **Rôle**, attribuez un rôle à votre identité qui lui permette d’accéder à la ressource actuelle.
 
-1. Sous **Ajouter une attribution de rôle**, sélectionnez un **rôle** qui donne à votre identité l’accès nécessaire à la ressource cible.
+   Pour cet exemple, attribuez le rôle nommé **Contributeur aux données Blob de stockage**, qui comprend un accès en écriture aux objets blob dans un conteneur de Stockage Azure. Pour plus d’informations sur les rôles de conteneur de stockage spécifiques, passez en revue les [Rôles qui peuvent accéder aux objets blob dans un conteneur Stockage Azure](../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights).
 
-   Pour l’exemple de cette rubrique, votre identité a besoin d’un [rôle pouvant accéder au blob dans un conteneur de stockage Azure](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights). Sélectionnez donc le rôle **Contributeur aux données Blob du stockage** pour l’identité managée.
+1. Ensuite, choisissez l’identité managée dans laquelle vous souhaitez affecter le rôle. Sous **Attribuer l’accès à**, sélectionnez **Identité managée** > **Ajouter des membres**.
 
-   ![Sélectionner « Contributeur aux données Blob du stockage »](./media/create-managed-service-identity/select-role-for-identity.png)
+1. En fonction du type de votre identité managée, sélectionnez ou fournissez les valeurs suivantes :
 
-1. Suivez les étapes ci-dessous pour votre identité managée :
+   | Type | Instance de service Azure | Abonnement | Membre |
+   |------|------------------------|--------------|--------|
+   | **Attribué par le système** | **Application logique** | <*Azure-subscription-name*> | <*your-logic-app-name*> |
+   | **Affecté par l’utilisateur** | Non applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
+   |||||
 
-   * **Identité affectée par le système**
+   Pour plus d’informations sur l’attribution de rôles, consultez la documentation,[Attribution de rôles à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-     1. Dans la zone **Attribuer l’accès à**, sélectionnez **Application logique**. Quand la propriété **Abonnement** s’affiche, sélectionnez l’abonnement Azure associé à votre identité.
-
-        ![Sélectionner l’accès pour un identité attribuée par le système](./media/create-managed-service-identity/assign-access-system.png)
-
-     1. Dans la zone **Sélectionner**, sélectionnez votre application logique dans la liste. Si la liste est trop longue, utilisez la zone **Sélectionner** pour filtrer la liste.
-
-        ![Sélectionner une application logique pour l’identité attribuée par le système](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
-
-   * **Identité affectée par l’utilisateur**
-
-     1. Dans la zone **Attribuer l’accès à**, sélectionnez **Identité managée affectée par l’utilisateur**. Quand la propriété **Abonnement** s’affiche, sélectionnez l’abonnement Azure associé à votre identité.
-
-        ![Sélectionner l’accès pour l’identité affectée par l’utilisateur](./media/create-managed-service-identity/assign-access-user.png)
-
-     1. Sous la case **Sélectionner**, sélectionnez votre identité dans la liste. Si la liste est trop longue, utilisez la zone **sélectionner** pour filtrer la liste.
-
-        ![Sélectionner votre identité affectée par l’utilisateur](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
-
-1. Quand vous avez terminé, sélectionnez **Enregistrer**.
-
-   La liste d’attributions de rôle de la ressource cible affiche maintenant l’identité et le rôle managés sélectionnés. Cet exemple montre comment vous pouvez utiliser l’identité affectée par le système pour une application logique, et une identité affectée par l’utilisateur pour un autre groupe d’applications logiques.
-
-   ![Identités et rôles managés ajoutés à la ressource cible](./media/create-managed-service-identity/added-roles-for-identities.png)
-
-   Pour plus d’informations, consultez [Attribuer à une identité managée un accès à une ressource à l’aide du portail Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
-
-1. À présent, suivez les [étapes pour authentifier l’accès avec l’identité](#authenticate-access-with-identity) dans un déclencheur ou une action prenant en charge les identités managées.
+1. Une fois que vous avez fini de configurer l’accès pour l’identité, vous pouvez utiliser l’identité pour [authentifier l’accès aux déclencheurs et aux actions qui prennent en charge les identités managées](#authenticate-access-with-identity).
 
 <a name="authenticate-access-with-identity"></a>
 
@@ -380,7 +350,7 @@ Une fois que vous avez [activé l’identité managée pour votre application lo
 
 Ces étapes montrent comment utiliser l’identité managée avec un déclencheur ou une action via le portail Azure. Pour spécifier l’identité managée dans la définition JSON sous-jacente d’un déclencheur ou d’une action, voir [Authentification d’identité managée](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez votre application logique dans le nouveau concepteur.
 
 1. Si ce n’est encore fait, ajoutez [le déclencheur ou l’action prenant en charge les identités managées](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
@@ -427,7 +397,7 @@ Le déclencheur ou l’action HTTP peuvent utiliser l’identité affectée par
 À titre d’exemple, supposons que vous souhaitez exécuter l’[opération de capture instantanée d’objet blob](/rest/api/storageservices/snapshot-blob) sur un blob dans le compte de Stockage Azure où vous avez précédemment configuré l’accès pour votre identité. Toutefois, le [connecteur de Stockage Blob Azure](/connectors/azureblob/) ne propose pas cette opération actuellement. Au lieu de cela, vous pouvez l’exécuter à l’aide de l’[action HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou d’une autre [opération de l’API REST du service BLOB](/rest/api/storageservices/operations-on-blobs).
 
 > [!IMPORTANT]
-> Pour accéder aux comptes de stockage Azure derrière des pare-feu en utilisant des requêtes HTTP et des identités managées, veillez à configurer également votre compte de stockage avec l’[exception qui autorise l’accès de services Microsoft approuvés](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+> Pour accéder aux comptes de stockage Azure derrière des pare-feu en utilisant des requêtes HTTP et des identités managées, veillez à configurer également votre compte de stockage avec l’[exception qui autorise l’accès de services Microsoft approuvés](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-with-managed-identities).
 
 Pour exécuter l’[opération de capture instantanée d’objet blob](/rest/api/storageservices/snapshot-blob), l’action HTTP spécifie les propriétés suivantes :
 
@@ -467,6 +437,8 @@ Voici l’exemple d’action HTTP qui affiche toutes ces valeurs de propriété�
    Cet exemple se poursuit avec **Identité managée affectée par le système**.
 
 1. Sur certains déclencheurs et actions, la propriété **Audience** apparaît également pour vous permettre de définir l’ID de ressource cible. Affectez à la propriété **Audience** la valeur de l’[ID de ressource de la ressource ou du service cible](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Autrement, par défaut, la propriété **Audience** utilise l’ID de ressource `https://management.azure.com/`, qui est l’ID de ressource pour Azure Resource Manager.
+  
+    Par exemple, si vous souhaitez authentifier l’accès à une [ressource de Coffre de clés dans le cloud global Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), vous devez définir la propriété **Audience** *précisément* sur l’ID de ressource suivante : `https://vault.azure.net`. Veuillez noter que cet ID de ressource spécifique ne possède *pas* de barres obliques de fin. En réalité, l’inclusion d’une barre oblique de fin pourrait produire soit une erreur `400 Bad Request` soit une erreur `401 Unauthorized`.
 
    > [!IMPORTANT]
    > Vérifiez que l’ID de ressource cible *correspond exactement* à la valeur qu’attend Azure Active Directory, y compris les barres obliques de fin obligatoires. Par exemple, l’ID de ressource pour tous les comptes de Stockage Blob Azure requiert une barre oblique finale. Toutefois, l’ID de ressource pour un compte de stockage spécifique ne requiert pas de barre oblique finale. Vérifiez les [ID de ressource des services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
@@ -477,7 +449,7 @@ Voici l’exemple d’action HTTP qui affiche toutes ces valeurs de propriété�
 
    Pour plus d’informations sur l’autorisation de l’accès avec Azure AD pour Azure Storage, consultez les rubriques suivantes :
 
-   * [Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory](../storage/common/storage-auth-aad.md)
+   * [Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
    * [Autoriser l’accès au Stockage Azure avec Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continuez à créer l’application logique comme vous le souhaitez.
@@ -592,7 +564,7 @@ Par exemple, voici la définition de ressource de connexion sous-jacente pour un
 Pour arrêter d’utiliser une identité managée pour votre application logique, vous disposez des options suivantes :
 
 * [Azure portal](#azure-portal-disable)
-* [Modèles Microsoft Azure Resource Manager](#template-disable)
+* [Modèle ARM](#template-disable)
 * Azure PowerShell
   * [Supprimer une attribution de rôle](../role-based-access-control/role-assignments-powershell.md)
   * [Supprimer une identité affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -630,7 +602,7 @@ L’identité managée est maintenant supprimée et n’a plus accès à la ress
 
 #### <a name="disable-managed-identity-on-logic-app"></a>Désactiver l’identité managée sur l’application logique
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez votre application logique dans le nouveau concepteur.
 
 1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**, puis suivez les étapes correspondant à votre identité :
 
@@ -646,9 +618,9 @@ L’identité managée est désormais désactivée sur votre application logique
 
 <a name="template-disable"></a>
 
-### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Désactiver une identité managée dans un modèle Azure Resource Manager
+### <a name="disable-managed-identity-in-an-arm-template"></a>Désactiver l’identité managée dans un modèle ARM
 
-Si vous avez créé l’identité managée de l’application logique à l’aide d’un modèle Azure Resource Manager, affectez la valeur `None` à la propriété enfant `type` de l’objet `identity`.
+Si vous avez créé l’identité managée de l’application logique à l’aide d’un modèle ARM, définissez la propriété enfant de l’`identity`objet `type` sur `None`.
 
 ```json
 "identity": {

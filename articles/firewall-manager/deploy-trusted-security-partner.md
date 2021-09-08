@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 08/06/2021
 ms.author: victorh
-ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7b8dd13c5d2c3c080ca20115dfc41b23dd6e545e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109507"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524157"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Déployer un fournisseur de partenaire de sécurité
 
@@ -69,6 +69,9 @@ N’oubliez pas qu’une passerelle VPN doit être déployée pour convertir un 
 
 Pour que vous puissiez configurer des tunnels vers la passerelle VPN de votre hub virtuel, les fournisseurs tiers doivent disposer de droits d’accès à votre hub. Pour ce faire, associez un principal de service à votre abonnement ou groupe de ressources, puis accordez des droits d’accès. Vous devez ensuite fournir ces informations d’identification au tiers à l’aide de son portail.
 
+> [!NOTE]
+> Les fournisseurs de sécurité tiers créent un site VPN en votre nom. Ce site VPN n’apparaît pas dans le portail Azure.
+
 ### <a name="create-and-authorize-a-service-principal"></a>Créer et autoriser un principal de service
 
 1. Créer un principal de service Azure Active Directory (AD) : vous pouvez ignorer l’URL de redirection. 
@@ -103,6 +106,8 @@ Pour que vous puissiez configurer des tunnels vers la passerelle VPN de votre hu
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configuration de la sécurité":::
 5. De plus, si votre organisation utilise des plages d’adresses IP publiques dans des réseaux virtuels et des filiales, vous devez spécifier ces préfixes IP explicitement à l’aide de **Préfixes de trafic privé**. Les adresses IP publiques peuvent être spécifiées individuellement ou en tant qu’agrégats.
+
+   Si vous utilisez des adresses non RFC1918 pour vos préfixes de trafic privé, vous devrez peut-être configurer des stratégies SNAT pour votre pare-feu pour désactiver SNAT pour le trafic privé non RFC1918. Par défaut, le pare-feu Azure SNATs considère tout le trafic non RFC1918.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Trafic Internet de filiale ou de réseau virtuel via un service tiers
 

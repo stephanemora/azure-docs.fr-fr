@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: reference
 ms.date: 03/11/2021
-ms.openlocfilehash: 437a4481a7b9c7f36d5037a238efe4db881fdda3
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7a586af353b4812195ec90c0fa21fddbec77d91d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176087"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110062"
 ---
 # <a name="choose-the-server-sdks"></a>Choix des kits SDK serveur
 
@@ -19,16 +19,16 @@ Le service Azure Web PubSub fournit le kit de développement logiciel (SDK) serv
 
 ## <a name="server-sdk---c"></a>Kit SDK serveur – C#
 
-[Instructions relatives au kit SDK serveur C#](https://azure.github.io/azure-webpubsub/references/server-sdks/csharp-server-sdks)
+[Instructions relatives au kit SDK serveur C#](reference-server-sdk-csharp.md)
 
 ## <a name="server-sdk---java"></a>Kit SDK serveur – Java
 
-[Instructions relatives au kit SDK serveur Java](https://azure.github.io/azure-webpubsub/references/server-sdks/java-server-sdks)
+[Instructions relatives au kit SDK serveur Java](reference-server-sdk-java.md)
 
 ## <a name="server-sdk---javascript"></a>Kit SDK serveur – JavaScript
 
-[Instructions relatives au kit SDK serveur JavaScript](https://azure.github.io/azure-webpubsub/references/server-sdks/js-server-sdks)
+[Instructions relatives au kit SDK serveur JavaScript](reference-server-sdk-js.md)
 
 ## <a name="server-sdk---python"></a>Kit SDK serveur – Python
 
-[Instructions relatives au kit SDK serveur Python](https://azure.github.io/azure-webpubsub/references/server-sdks/python-server-sdks)
+[Instructions relatives au kit SDK serveur Python](reference-server-sdk-python.md)

@@ -4,17 +4,17 @@ description: Décrit comment déployer une ressource de manière conditionnelle 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 9636444af81b000443dc72cf6e3fc1d8d6da5093
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/30/2021
+ms.openlocfilehash: f3c845757d6cd251905e39999c9858224ee67269
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537078"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562191"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Déploiement conditionnel dans Bicep
 
-Parfois, vous devez déployer une ressource de manière conditionnelle dans Bicep. Utilisez le mot clé `if` pour spécifier si la ressource est déployée. La valeur de la condition est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
+Parfois, vous devez déployer une ressource ou un module de manière conditionnelle dans Bicep. Utilisez le mot clé `if` pour spécifier si la ressource ou le module est déployé(e). La valeur de la condition est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource ou du module.
 
 > [!NOTE]
 > L’exécution du déploiement conditionnel n’inclut pas les [ressources enfants](child-resource-name-type.md). Si vous souhaitez déployer une ressource et ses ressources enfants de manière conditionnelle, vous devez appliquer la même condition à chaque type de ressource.
@@ -32,7 +32,17 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 }
 ```
 
-Les conditions peuvent être utilisées avec des déclarations de dépendance. Si l’identificateur de la ressource conditionnelle est spécifié dans `dependsOn` d’une autre ressource (dépendance explicite), la dépendance est ignorée si la condition prend la valeur false au moment du déploiement du modèle. Si la condition prend la valeur true, la dépendance est respectée. Le référencement d’une propriété d’une ressource conditionnelle (dépendance implicite) est autorisé, mais peut générer une erreur d’exécution dans certains cas.
+L’exemple suivant déploie un module de manière conditionnelle.
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
+
+Les conditions peuvent être utilisées avec des déclarations de dépendance. Pour les [dépendances explicites](resource-declaration.md#set-resource-dependencies), Azure Resource Manager les supprime automatiquement des dépendances requises lorsque la ressource n’est pas déployée. Pour les dépendances implicites, le référencement d’une propriété d’une ressource conditionnelle est autorisé mais peut générer une erreur de déploiement.
 
 ## <a name="new-or-existing-resource"></a>Ressource nouvelle ou existante
 
@@ -64,8 +74,6 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 
 Lorsque le paramètre `newOrExisting` a la valeur **new**, la condition donne le résultat true. Le compte de stockage est déployé. En revanche, quand le paramètre `newOrExisting` a la valeur **existing**, la condition donne le résultat false et le compte de stockage n’est pas déployé.
 
-Pour un exemple de modèle complet qui utilise l’élément `condition`, consultez [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions) (Machine virtuelle avec un réseau virtuel, un stockage et une adresse IP publique nouveaux ou existants).
-
 ## <a name="runtime-functions"></a>Fonctions de runtime
 
 Si vous utilisez une fonction de [référence](./bicep-functions-resource.md#reference) ou de [liste](./bicep-functions-resource.md#list) avec une ressource qui est déployée conditionnellement, la fonction est évaluée même si la ressource n’est pas déployée. Vous obtenez une erreur si la fonction fait référence à une ressource qui n’existe pas.
@@ -96,8 +104,6 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
-
-Vous définissez une [ressource comme étant dépendante](./resource-declaration.md#set-resource-dependencies) d’une ressource conditionnelle exactement comme vous le feriez pour une autre ressource. Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

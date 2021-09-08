@@ -2,59 +2,21 @@
 title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 07/27/2021
+ms.openlocfilehash: a6055a99e717dd379dc6bd43411c73456bdaede8
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276737"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730328"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
-
-Cet article décrit comment Azure Event Grid gère les événements en l’absence d’accusé de réception d’une distribution.
-
-Event Grid assure une distribution fiable. Il distribue chaque message **au moins une fois** pour chaque abonnement. Les événements sont envoyés immédiatement au point de terminaison inscrit de chaque abonnement. Si un point de terminaison n’accuse pas réception d’un événement, Event Grid effectue une nouvelle tentative de distribution.
+Event Grid assure une distribution fiable. Il tente de livrer chaque message **au moins une fois** immédiatement pour chaque abonnement correspondant. Si le point de terminaison d’un abonné n’accuse pas réception d’un événement ou en cas de défaillance, Event Grid effectue une nouvelle tentative de livraison conformément à une [planification](#retry-schedule) et à une [stratégie de nouvelles tentatives](#retry-policy) fixes. Par défaut, le module Event Grid fournit un événement à la fois à l’abonné. La charge utile est cependant un tableau avec un seul événement.
 
 > [!NOTE]
 > Event Grid ne garantit pas l’ordre de distribution des événements, de sorte que les abonnés peuvent les recevoir dans le désordre. 
 
-## <a name="batched-event-delivery"></a>Livraison d’événements par lot
-
-Par défaut, Event Grid envoie chaque événement individuellement aux abonnés. L’abonné reçoit un tableau ne comprenant qu’un seul événement. Vous pouvez configurer Event Grid pour que les événements soient livrés par lot afin d’améliorer les performances HTTP dans les scénarios à débit élevé.
-
-La livraison par lot a deux paramètres :
-
-* **Nombre maximum d’événements par lot** : nombre maximum d’événements qu’Event Grid livrera par lot. Ce nombre ne sera jamais dépassé, mais moins d’événements peuvent être livrés si aucun autre événement n’est disponible au moment de la publication. Event Grid ne retarde pas la livraison des événements pour créer un lot si moins d’événements sont disponibles. Doit être compris entre 1 et 5 000.
-* **Taille de lot préférée en kilo-octets** : plafond cible pour la taille de lot en kilo-octets. Comme pour le nombre maximum d’événements, la taille du lot peut être plus petite si aucun autre événement n’est disponible au moment de la publication. Il est possible qu’un lot soit plus grand que la taille de lot préférée *si* un événement unique est plus volumineux que la taille préférée. Par exemple, si la taille préférée est de 4 Ko et qu’un événement de 10 Ko est envoyé (push) à Event Grid, l’événement de 10 Ko sera tout de même livré dans son propre lot plutôt que d’être abandonné.
-
-La livraison en lot est configurée sur la base d’un abonnement par événement via le portail, l’interface CLI, PowerShell ou les Kits de développement logiciel (SDK).
-
-### <a name="azure-portal"></a>Portail Azure : 
-![Paramètres de livraison en lot](./media/delivery-and-retry/batch-settings.png)
-
-### <a name="azure-cli"></a>Azure CLI
-Lorsque vous créez un abonnement aux événements, utilisez les paramètres suivants : 
-
-- **max-events-per-batch** : nombre maximum d’événements dans un lot. Doit être un nombre compris entre 1 et 5000.
-- **preferred-batch-size-in-kilobytes**  taille de lot préférée en kilo-octets. Doit être un nombre compris entre 1 et 1024.
-
-```azurecli
-storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
-endpoint=https://$sitename.azurewebsites.net/api/updates
-
-az eventgrid event-subscription create \
-  --resource-id $storageid \
-  --name <event_subscription_name> \
-  --endpoint $endpoint \
-  --max-events-per-batch 1000 \
-  --preferred-batch-size-in-kilobytes 512
-```
-
-Pour plus d’informations sur l’utilisation d’Azure CLI avec Event Grid, consultez [Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
-
-## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
-
+## <a name="retry-schedule"></a>Planification des nouvelles tentatives
 Quand EventGrid reçoit une erreur lors d’une tentative de remise d’événement, EventGrid décide s’il doit retenter la remise, mettre l’événement dans la file d’attente de lettres mortes ou supprimer l’événement en fonction du type d’erreur. 
 
 Si l’erreur retournée par le point de terminaison abonné est liée à la configuration et ne peut pas être corrigée avec des nouvelles tentatives (par exemple, si le point de terminaison est supprimé), Event Grid met l’événement dans la file d’attente de lettres mortes ou supprime l’événement si la file d’attente de lettres mortes n’est pas configurée.
@@ -89,12 +51,68 @@ Si le point de terminaison répond dans les 3 minutes, Event Grid tente de suppr
 
 Event Grid ajoute une légère randomisation à toutes les étapes de nouvelle tentative et peut ignorer de façon opportuniste certaines nouvelles tentatives si un point de terminaison est systématiquement non sain, inactif pendant une longue période ou semble être surchargé.
 
-Pour un comportement déterministe, définissez la durée de l’événement de durée de vie et de nombre maximum de tentatives de remise dans les [stratégies de nouvelle tentative d’abonnement](manage-event-delivery.md).
+## <a name="retry-policy"></a>Stratégie de nouvelles tentatives
+Vous pouvez personnaliser la stratégie de nouvelle tentative lors de la création d’un abonnement aux événements à l’aide des deux configurations suivantes. Un événement est abandonné si l’une des limites de la stratégie de nouvelles tentatives est atteinte. 
 
-Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures. Vous pouvez [personnaliser la stratégie de nouvelle tentative](manage-event-delivery.md) lors de la création d’un abonnement à un événement. Vous fournissez le nombre maximal de tentatives de remise (par défaut, 30) et la durée de vie de l’événement (par défaut, 1 440 minutes).
+- **Nombre maximum de tentatives**: la valeur doit être un entier compris entre 1 et 30. La valeur par défaut est 30.
+- **Durée de vie de l’événement (TTL)**  : la valeur doit être un entier compris entre 1 et 1 440. La valeur par défaut est 1 440 minutes
+
+Pour obtenir un exemple de commande CLI et PowerShell permettant de configurer ces paramètres, consultez [Définir une stratégie de nouvelle tentative](manage-event-delivery.md#set-retry-policy).
+
+## <a name="output-batching"></a>Traitement par lot des sorties 
+Par défaut, Event Grid envoie chaque événement individuellement aux abonnés. L’abonné reçoit un tableau ne comprenant qu’un seul événement. Vous pouvez configurer Event Grid pour que les événements soient livrés par lot afin d’améliorer les performances HTTP dans les scénarios à débit élevé. Le traitement par lot est désactivé par défaut et peut être activé pour chaque abonnement.
+
+### <a name="batching-policy"></a>Stratégie de traitement par lot
+La livraison par lot a deux paramètres :
+
+* **Nombre maximum d’événements par lot** : nombre maximum d’événements qu’Event Grid livrera par lot. Ce nombre ne sera jamais dépassé, mais moins d’événements peuvent être livrés si aucun autre événement n’est disponible au moment de la publication. Event Grid ne retarde pas la livraison des événements pour créer un lot si moins d’événements sont disponibles. Doit être compris entre 1 et 5 000.
+* **Taille de lot préférée en kilo-octets** : plafond cible pour la taille de lot en kilo-octets. Comme pour le nombre maximum d’événements, la taille du lot peut être plus petite si aucun autre événement n’est disponible au moment de la publication. Il est possible qu’un lot soit plus grand que la taille de lot préférée *si* un événement unique est plus volumineux que la taille préférée. Par exemple, si la taille préférée est de 4 Ko et qu’un événement de 10 Ko est envoyé (push) à Event Grid, l’événement de 10 Ko sera tout de même livré dans son propre lot plutôt que d’être abandonné.
+
+La livraison en lot est configurée sur la base d’un abonnement par événement via le portail, l’interface CLI, PowerShell ou les Kits de développement logiciel (SDK).
+
+### <a name="batching-behavior"></a>Comportement du traitement par lots
+
+* Tout ou aucun
+
+  Le service Event Grid fonctionne selon le principe du tout ou rien. Il ne prend pas en charge la réussite partielle d’une livraison par lot. Les abonnés doivent veiller à demander un nombre d’événements par lot ne dépassant pas ce qu’il peuvent raisonnablement gérer en 60 secondes.
+
+* Traitement par lot optimiste
+
+  Les paramètres de stratégie de traitement par lot n’imposent pas de limites strictes au comportement du traitement par lot. Ils sont donc respectés dans la limite des possibilités. Lorsque les fréquences d’événements sont faibles, vous observerez souvent que la taille de lot est inférieure au nombre maximal d’événements demandés par lot.
+
+* La valeur par défaut est DÉSACTIVÉ
+
+  Par défaut, Event Grid ajoute un seul événement à chaque demande de livraison. Pour activer le traitement par lot, définissez l’un des paramètres mentionnés plus haut dans l’article, dans le JSON d’abonnement aux événements.
+
+* Valeurs par défaut
+
+  Lors de la création d’un abonnement aux événements, il n’est pas nécessaire de spécifier les deux paramètres (nombre maximal d’événements par lot et taille de lot approximative en kilo-octets). Si un seul paramètre est défini, Event Grid utilise des valeurs par défaut (configurables). Pour connaître les valeurs par défaut et la manière de les remplacer, consultez les sections suivantes.
+
+### <a name="azure-portal"></a>Portail Azure : 
+![Paramètres de livraison en lot](./media/delivery-and-retry/batch-settings.png)
+
+### <a name="azure-cli"></a>Azure CLI
+Lorsque vous créez un abonnement aux événements, utilisez les paramètres suivants : 
+
+- **max-events-per-batch** : nombre maximum d’événements dans un lot. Doit être un nombre compris entre 1 et 5000.
+- **preferred-batch-size-in-kilobytes**  taille de lot préférée en kilo-octets. Doit être un nombre compris entre 1 et 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Pour plus d’informations sur l’utilisation d’Azure CLI avec Event Grid, consultez [Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
+
 
 ## <a name="delayed-delivery"></a>Livraison retardée
-
 En cas d'échec de livraison d'un point de terminaison, Event Grid commence à retarder la livraison et retente les événements sur ce point de terminaison. Par exemple, si les dix premiers événements publiés sur un point de terminaison échouent, Event Grid supposera que le point de terminaison rencontre des problèmes et retardera toutes les tentatives suivantes *et les nouvelles* livraisons pendant un certain laps de temps, parfois même pendant plusieurs heures.
 
 La livraison retardée a pour objectif de protéger les points de terminaison non sains, ainsi que le système Event Grid. Sans temporisation et retard de livraison sur les points de terminaison non sains, la stratégie de nouvelle tentative d'Event Grid peut aisément saturer un système.

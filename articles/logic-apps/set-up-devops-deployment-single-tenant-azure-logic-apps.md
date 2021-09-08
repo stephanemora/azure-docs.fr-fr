@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 41cc4c174028ff23cdcc248c6b10d746e5669349
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 08/11/2021
+ms.openlocfilehash: 010fbfc3b6a2df9c8cdca1221fb4f25a5d288d70
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751232"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532351"
 ---
 # <a name="set-up-devops-deployment-for-single-tenant-azure-logic-apps"></a>Configurer le déploiement DevOps pour Azure Logic Apps monolocataire
 
@@ -31,7 +31,7 @@ Cet article explique comment déployer un projet d’application logique monoloc
 
 ## <a name="deploy-infrastructure-resources"></a>Déployer des ressources d’infrastructure
 
-Si vous ne disposez pas déjà d’un projet ou d’une infrastructure d’application logique, vous pouvez utiliser les exemples de projets suivants pour déployer un exemple d’application et d’infrastructure, en fonction des options de source et de déploiement que vous préférez utiliser :
+Si vous n’avez pas encore configuré de projet ou d’infrastructure d’application logique, vous pouvez utiliser les exemples de projets suivants pour déployer un exemple d’application et d’infrastructure, en fonction des options de source et de déploiement que vous préférez utiliser :
 
 - [Exemple GitHub pour Azure Logic Apps monolocataire](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -47,7 +47,7 @@ Les deux exemples incluent les ressources suivantes qu’une application logique
 |---------------|----------|-------------|
 | Application logique (standard) | Yes | Cette ressource Azure contient les workflows qui s’exécutent dans Azure Logic Apps monolocataire. |
 | Plan d’hébergement Functions Premium ou App Service | Yes | Cette ressource Azure spécifie les ressources d’hébergement à utiliser pour l’exécution de votre application logique, telles que le calcul, le traitement, le stockage, le réseau, etc. <p><p>**Important** : Dans l’expérience actuelle, la ressource **Application logique (standard)** nécessite le [plan d’hébergement **Workflow Standard**](logic-apps-pricing.md#standard-pricing), qui est basé sur le plan d’hébergement Functions Premium. |
-| Compte Azure Storage | Oui, pour les workflows sans état | Cette ressource Azure stocke les métadonnées, l’état, les entrées, les sorties, l’historique des exécutions et d’autres informations sur vos workflows. |
+| Compte Azure Storage | Oui, pour les flux de travail avec et sans état | Cette ressource Azure stocke les métadonnées, les clés de contrôle d’accès, l’état, les entrées, les sorties, l’historique des exécutions et d’autres informations sur vos flux de travail. |
 | Application Insights | Facultatif | Cette ressource Azure fournit des fonctionnalités de supervision pour vos workflows. |
 | Connexions d’API | Facultatif, s’il n’en existe aucune | Ces ressources Azure définissent toutes les connexions d’API managées que vos workflows utilisent pour exécuter des opérations de connecteur managé, comme Office 365, SharePoint, etc. <p><p>**Important** : Dans votre projet d’application logique, le fichier **connections.json** contient des métadonnées, des points de terminaison et des clés pour toutes les connexions d’API managées et fonctions Azure utilisées par vos workflows. Pour utiliser des connexions et des fonctions différentes dans chaque environnement, veillez à paramétriser le fichier **connections.json** et à mettre à jour les points de terminaison. <p><p>Pour plus d’informations, consultez [Ressources de connexion d’API et stratégies d’accès](#api-connection-resources). |
 | Modèle Azure Resource Manager (ARM) | Facultatif | Cette ressource Azure définit un déploiement d’infrastructure de référence que vous pouvez réutiliser ou [exporter](../azure-resource-manager/templates/template-tutorial-export-template.md). Le modèle comprend également les stratégies d’accès requises, par exemple, pour utiliser des connexions d’API managées. <p><p>**Important** : L’exportation du modèle ARM n’inclut pas tous les paramètres associés pour les ressources de connexion d’API utilisées par vos workflows. Pour plus d’informations, consultez [Rechercher les paramètres de connexion d’API](#find-api-connection-parameters). |
@@ -81,7 +81,7 @@ Si vos workflows utilisent des connexions d’API managées, l’utilisation de 
 
 Pour rechercher les valeurs que vous devez utiliser dans l’objet `properties` afin d’élaborer la définition de la ressource de connexion, vous pouvez utiliser l’API suivante pour un connecteur spécifique :
 
-`PUT https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2018–07–01-preview`
+`GET https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2016-06-01`
 
 Dans la réponse, recherchez l’objet `connectionParameters`, qui contient toutes les informations permettant d’élaborer la définition de ressource pour ce connecteur spécifique. L’exemple suivant illustre une définition de ressource pour une connexion managée SQL :
 
@@ -217,9 +217,16 @@ Si vous utilisez d’autres outils de déploiement, vous pouvez déployer votre 
 
 ##### <a name="install-azure-logic-apps-standard-extension-for-azure-cli"></a>Installer l’extension Azure Logic Apps (Standard) pour Azure CLI
 
-Installez l’extension Azure Logic Apps monolocataire (Standard) *en préversion* pour Azure CLI en exécutant la commande `az extension add` avec les paramètres obligatoires suivants :
+Actuellement, seule la version *préversion* est disponible pour cette extension. Si vous n’avez pas déjà installé cette extension, exécutez la commande, `az extension add`, avec les paramètres requis suivants :
 
 ```azurecli-interactive
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+Pour récupérer la dernière extension, à savoir la version 0.1.1, exécutez les commandes suivantes pour supprimer l’extension existante, puis installez la dernière version à partir de la source :
+
+```azurecli-interactive
+az extension remove --name logicapp
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 

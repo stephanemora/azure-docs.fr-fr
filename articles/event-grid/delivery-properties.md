@@ -2,13 +2,13 @@
 title: Azure Event Grid – Définir des en-têtes personnalisés sur des événements remis
 description: Décrit comment vous pouvez définir des en-têtes personnalisés (ou des propriétés de remise) sur les événements remis.
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 515f2687781329d0f9f9648460663a0a30f7c637
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 08/13/2021
+ms.openlocfilehash: de16c3b4981dc02a54a68269d4eef743d9f48c4b
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887441"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525550"
 ---
 # <a name="custom-delivery-properties"></a>Propriétés de remise personnalisées
 Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. Vous pouvez configurer jusqu’à 10 en-têtes lors de la création d’un abonnement aux événements. La valeur de chaque en-tête ne doit pas être supérieure à 4 096 (4 Ko) octets.
@@ -33,6 +33,20 @@ Vous souhaiterez spécifier **Est secrète** lorsque vous fournissez des donnée
 Vous pouvez définir la valeur d’un en-tête en fonction d’une propriété dans un événement entrant. Utilisez la syntaxe JsonPath pour faire référence à la valeur de propriété d’un événement entrant à utiliser comme valeur pour un en-tête dans des demandes sortantes. Par exemple, pour définir la valeur d’un en-tête nommé **Channel** à l’aide de la valeur du **système** de propriétés d’événement entrant dans les données d’événement, configurez votre abonnement aux événements comme suit :
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Propriétés de remise – Dynamique":::
+
+## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+Utilisez le paramètre `--delivery-attribute-mapping` lors de la création d’un abonnement à l’aide la commande `az eventgrid event-subscription create`. Voici un exemple :
+
+```azurecli
+az eventgrid event-subscription create -n es1 \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1
+    --endpoint-type storagequeue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/sa1/queueservices/default/queues/q1 \
+    --enable-advanced-filtering-on-arrays true
+    --delivery-attribute-mapping staticproperty1 static somestaticvalue2 true 
+    --delivery-attribute-mapping staticproperty2 static somestaticvalue3 false 
+    --delivery-attribute-mapping dynamicproperty1 dynamic data.key1
+```
 
 ## <a name="examples"></a>Exemples
 Cette section fournit quelques exemples d’utilisation d’utilisation des propriétés de remise.

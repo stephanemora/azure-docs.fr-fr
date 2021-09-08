@@ -1,31 +1,30 @@
 ---
 title: Supervision, analytique des journaux, Portail Azure (SQL Managed Instance)
-description: Supervisez les services de données Azure Arc pour SQL Managed Instance.
+description: Supervisez les services de données compatibles avec Azure Arc pour l’Instance managée SQL.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: 88c7d29681146f7b81f085bdf6452d5b35fb7dae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e022605e014e3394847b0557a61b5bb905cffaf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90930280"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562724"
 ---
 # <a name="monitoring-log-analytics-billing-information-azure-portal-sql-managed-instance"></a>Supervision, analytique des journaux d’activité, informations de facturation, Portail Azure (Azure SQL Managed Instance)
 
-Cet article liste les expériences supplémentaires que vous pouvez avoir avec les services de données activés pour Azure Arc.
+Cet article liste d’autres expériences que vous pouvez avoir avec les services de données compatibles avec Azure Arc.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="experiences"></a>Expériences
 
 [!INCLUDE [azure-arc-common-monitoring](../../../includes/azure-arc-common-monitoring.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Découvrir une vue d’ensemble des services de données activés pour Azure Arc](overview.md)
-- [Explorer les modes de connectivité et les spécifications pour les services de données activés pour Azure Arc](connectivity.md)
+- [Découvrir la vue d’ensemble des services de données compatibles avec Azure Arc](overview.md)
+- [Découvrir les modes de connectivité et les spécifications pour les services de données compatibles avec Azure Arc](connectivity.md)

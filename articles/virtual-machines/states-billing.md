@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d710038c00dff56d4840f7252dcb992dcb1b8c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596295"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532723"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>États et facturation des machines virtuelles Azure
 
@@ -43,10 +43,10 @@ Le tableau suivant contient une description de l’état de chaque instance et i
 
 | État d’alimentation | Description | Facturation |  
 |---|---|---|
-| Démarrage en cours| La machine virtuelle est en cours de mise sous tension. |Pas de facturation* | 
+| Démarrage en cours| La machine virtuelle est en cours de mise sous tension. | Facturation | 
 | Exécution en cours | La machine virtuelle est entièrement opérationnelle. Il s’agit de l’état de fonctionnement standard. | Facturation | 
 | En cours d’arrêt | Il s’agit d’un état transitoire entre l’exécution et l’arrêt. | Facturation| 
-|Arrêté | La machine virtuelle a été arrêtée à partir du système d’exploitation invité ou à l’aide des API PowerOff. Dans cet état, la machine virtuelle loue toujours le matériel sous-jacent. Cet état est également appelé *Arrêté (alloué)* . | Facturation | 
+|Arrêté | La Machine virtuelle est allouée sur un ordinateur hôte, mais pas en cours d’exécution. Egalement appelé état PoweredOff ou *Arrêté (Alloué)* . Cela peut être le résultat de l’appel de l’opération de l’API hors tension ou de l’appel de l’arrêt depuis le système d’exploitation invité. L’état Arrêté peut également être observé brièvement lors de la création de la machine virtuelle ou lors du démarrage d’une machine virtuelle à partir de l’état Désalloué.  | Facturation | 
 | Libération | Il s’agit de l’état transitoire entre l’exécution et la désallocation. | Pas de facturation* | 
 | Libéré | La machine virtuelle a libéré le bail sur le matériel sous-jacent et est entièrement mise hors tension. Cet état est également appelé *Arrêté (désalloué)* . | Pas de facturation* | 
 

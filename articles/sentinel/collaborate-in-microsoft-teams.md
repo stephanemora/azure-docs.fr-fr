@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2021
+ms.date: 06/17/2021
 ms.author: bagol
-ms.openlocfilehash: fed86c1982e78c527c211d4f4ec530386e13425a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3aefed370606b80249eabeac35123223b2ad5255
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796893"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524337"
 ---
 # <a name="collaborate-in-microsoft-teams-public-preview"></a>Collaborer dans Microsoft Teams (préversion publique)
 
@@ -39,6 +39,16 @@ Les organisations qui utilisent déjà Microsoft Teams pour la communication et 
 
 Une équipe de gestion des incidents Azure Sentinel dispose toujours des données les plus récentes et à jour d’Azure Sentinel, ce qui garantit que vos équipes ont les données les plus pertinentes à portée de main.
 
+## <a name="required-permissions"></a>Autorisations requises
+
+Pour créer des équipes à partir d’Azure Sentinel :
+
+- L’utilisateur qui crée l’équipe doit avoir des Autorisations d’écriture d’incident dans Azure Sentinel. Par exemple, le rôle de [Répondeur Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)est idéal, étant le rôle minimum pour ce privilège.
+
+- L’utilisateur qui crée l’équipe doit également être autorisé à créer des équipes dans Microsoft Teams.
+
+- Tous les utilisateurs Azure Sentinel, y compris les utilisateurs ayant les rôles de [Lecteur](../role-based-access-control/built-in-roles.md#azure-sentinel-reader), [Répondeur](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) ou [Contributeur](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)peuvent obtenir l’accès à l’équipe créée en formulant la demande.
+
 ## <a name="use-an-incident-team-to-investigate"></a>Utiliser une équipe de gestion des incidents pour investiguer
 
 Investiguez en collaboration avec une *équipe de gestion des incidents* en intégrant Microsoft Teams directement depuis votre incident.
@@ -55,7 +65,7 @@ Investiguez en collaboration avec une *équipe de gestion des incidents* en int�
 
     - **Nom de l’équipe** : Défini automatiquement comme nom de votre incident. Modifiez le nom le cas échéant afin qu’il soit facilement identifiable.
     - **Description** : Entrez une description significative pour votre équipe de gestion des incidents.
-    - **Ajouter des groupes** : Sélectionnez un ou plusieurs groupes Azure AD à ajouter à votre équipe de gestion des incidents. Les utilisateurs individuels ne sont pas pris en charge.
+    - **Ajouter des groupes** : Sélectionnez un ou plusieurs groupes Azure AD à ajouter à votre équipe de gestion des incidents. Les utilisateurs individuels ne sont pas pris en charge sur cette page. Si vous devez ajouter des utilisateurs individuels, [faites-le dans Microsoft Teams](#more-users) après la création de l’équipe.
 
         > [!TIP]
         > Si vous travaillez régulièrement avec les mêmes équipes, vous pouvez sélectionner l’étoile :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: pour les enregistrer en favoris.
@@ -77,14 +87,14 @@ Investiguez en collaboration avec une *équipe de gestion des incidents* en int�
 Poursuivez la conversation sur l’investigation dans Teams aussi longtemps que nécessaire. Les détails complets concernant l’incident se trouvent directement dans Teams.
 
 > [!TIP]
-> Lorsque vous [fermez un incident](tutorial-investigate-cases.md#closing-an-incident), l’équipe de gestion des incidents associée que vous avez créée dans Microsoft Teams est archivée.
+> - <a name="more-users"></a>Si vous devez ajouter des utilisateurs individuels à votre équipe, vous pouvez le faire dans Microsoft Teams à l’aide du bouton **Ajouter plus de personnes** dans l’onglet **Publications**.
 >
-> Si l’incident est rouvert, l’équipe de gestion des incidents associée est également rouverte dans Microsoft Teams pour vous permettre de continuer la conversation là où vous l’avez laissée.
+> - Lorsque vous [fermez un incident](investigate-cases.md#closing-an-incident), l’équipe de gestion des incidents associée que vous avez créée dans Microsoft Teams est archivée. Si l’incident est rouvert, l’équipe de gestion des incidents associée est également rouverte dans Microsoft Teams pour vous permettre de continuer la conversation là où vous l’avez laissée.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Tutoriel : Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutoriel : Examiner les incidents avec Azure Sentinel](investigate-cases.md)
 - [Vue d’ensemble des équipes et des chaînes dans Microsoft Teams](/microsoftteams/teams-channels-overview/)

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 544f871f62481243cda2409db24b0d067df28c32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.openlocfilehash: cb88998009ab05eb91b8945a138ef935660dac35
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580583"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710752"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -20,9 +20,17 @@ La surveillance des données relatives à vos serveurs vous aide à résoudre le
 
 ## <a name="metrics"></a>Mesures
 
-Hyperscale (Citus) fournit des mesures pour chaque nœud dans un groupe de serveurs. Les mesures permettent de mieux comprendre le comportement des ressources de prise en charge. Chaque métrique est émise selon une fréquence d’une minute et est conservée jusqu’à 30 jours dans l’historique.
+Hyperscale (Citus) fournit des mesures pour les nœuds dans un groupe de serveurs, et des mesures agrégées pour le groupe dans son ensemble. Les mesures permettent de mieux comprendre le comportement des ressources de prise en charge. Chaque métrique est émise selon une fréquence d’une minute et est conservée jusqu’à 30 jours dans l’historique.
 
-Outre l’affichage des graphiques des mesures, vous pouvez configurer des alertes. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-hyperscale-alert-on-metric.md).  Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/data-platform.md).
+Outre l’affichage des graphiques des mesures, vous pouvez configurer des alertes. Pour obtenir des instructions pas à pas, consultez [Guide pratique pour configurer des alertes](howto-hyperscale-alert-on-metric.md).  Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/data-platform.md).
+
+### <a name="per-node-vs-aggregate"></a>Par nœud versus agrégat
+
+Par défaut, le Portail Azure agrège les mesures Hyperscale (Citus) sur les nœuds dans un groupe de serveurs. Toutefois, certaines mesures, telles que le pourcentage d’utilisation du disque, sont plus détaillées au niveau de chaque nœud. Pour voir les mesures par nœud affichées individuellement, utilisez le [fractionnement des métriques](../azure-monitor/essentials/metrics-charts.md#metric-splitting) Azure Monitor par nom de serveur.
+
+> [!NOTE]
+>
+> Certains groupes de serveurs Hyperscale (Citus) ne prennent pas en charge le fractionnement des mesures. Sur ces groupes de serveurs, vous pouvez afficher les mesures des nœuds individuels en cliquant sur le nom du nœud dans la page **vue d’ensemble** du groupe de serveurs. Puis ouvrez la page **Mesures** pour le nœud.
 
 ### <a name="list-of-metrics"></a>Liste des métriques
 
@@ -44,3 +52,4 @@ Azure ne fournit aucune mesure agrégée pour le cluster dans son ensemble, mais
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez le [guide pratique pour configurer des alertes](howto-hyperscale-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
+- Découvrez comment effectuer le[Fractionnement des métriques](../azure-monitor/essentials/metrics-charts.md#metric-splitting) pour contrôler les mesures par nœud dans un groupe de serveurs.

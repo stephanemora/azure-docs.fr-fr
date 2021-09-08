@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c42fef2abddc5f04a2d74f30df5fcf54e1b1b3
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 3a1c9bcec2a9aec2673e29a3f578146cad7de5d6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854411"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562422"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -177,12 +177,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (toutes les plateformes)
 
-Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Chaque utilisateur doit ajouter manuellement l’URL Azure AD à ses paramètres Firefox comme suit :
-1. Exécutez Firefox et entrez `about:config` dans la barre d’adresses. Ignorez les notifications que vous voyez.
-2. Recherchez la préférence **network.negotiate-auth.trusted-URI**. Cette préférence répertorie les sites de confiance de Firefox pour l’authentification Kerberos.
-3. Cliquez avec le bouton droit et sélectionnez **Modifier**.
-4. Entrez `https://autologon.microsoftazuread-sso.com` dans le champ.
-5. Sélectionnez **OK** puis rouvrez le navigateur.
+Si vous utilisez les paramètres de stratégie d’[Authentification](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication)dans votre environnement, veillez à ajouter l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`) à la **section** SPNEGO. Vous pouvez également définir l’option **PrivateBrowsing** sur vrai pour autoriser l’authentification unique transparente en mode de navigation privée.
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
@@ -198,17 +193,20 @@ En ce qui concerne Microsoft Edge basé sur Chromium sur macOS et les autres pla
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 
-Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
+Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) ou [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
-#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS et autres plateformes non-Windows)
+#### <a name="macos"></a>macOS
 
-En ce qui concerne Google Chrome sur macOS et sur les autres plateformes non-Windows, consultez la [liste de stratégies des projets Chromium](https://chromeenterprise.google/policies/) afin d’obtenir plus d’informations sur le mode de contrôle de la liste verte de l’URL Azure AD pour l’authentification intégrée.
-
-L’utilisation des extensions de stratégie de groupe Active Directory tierces afin de déployer l’URL Azure AD pour les utilisateurs de Firefox et de Google Chrome sur Mac n’est pas couverte par cet article.
+L’utilisation d’extensions de Stratégie de groupe tierces Active Directory afin de déployer l’URL Azure AD pour les utilisateurs de Firefox et de Google Chrome sur MacOS n’est pas couverte par cet article.
 
 #### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
-L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. L’authentification unique transparente prend en charge la prochaine version de Microsoft Edge basée sur Chromium et est conçue pour fonctionner en modes InPrivate et Invité. Microsoft Edge (hérité) n'est plus pris en charge.
+L’authentification unique transparente ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. L’authentification unique transparente prend en charge la prochaine version de Microsoft Edge basée sur Chromium et est conçue pour fonctionner en modes InPrivate et Invité. Microsoft Edge (hérité) n'est plus pris en charge. 
+
+ `AmbientAuthenticationInPrivateModesEnabled`peut devoir être configuré pour les utilisateurs InPrivate et/ou invités en fonction des documents correspondants :
+ 
+   - [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled)
+   - [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled)
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 
@@ -232,7 +230,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 >[!IMPORTANT]
 >Si elle est divulguée, la clé de déchiffrement Kerberos d’un compte d’ordinateur peut être utilisée pour générer des tickets Kerberos à l’attention de n’importe quel utilisateur dans sa forêt Active Directory. Les personnes malveillantes peuvent emprunter l’identité de connexions Azure AD pour des utilisateurs compromis. Nous vous recommandons vivement de renouveler ces clés de déchiffrement Kerberos au moins tous les 30 jours.
 
-Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](how-to-connect-sso-faq.md). Nous étudions actuellement la possibilité d’introduire le déploiement de clés automatisé.
+Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](how-to-connect-sso-faq.yml).
 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.
@@ -240,6 +238,6 @@ Pour obtenir des instructions sur la substitution des clés, voir [Authentificat
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation technique approfondie](how-to-connect-sso-how-it-works.md) : Découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
-- [Forum Aux Questions](how-to-connect-sso-faq.md) : Obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.
+- [Forum Aux Questions](how-to-connect-sso-faq.yml) : Obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.
 - [Résoudre les problèmes](tshoot-connect-sso.md) : Découvrez comment résoudre les problèmes courants liés à la fonctionnalité Authentification unique transparente.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

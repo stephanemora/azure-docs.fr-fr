@@ -12,14 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
-ms.openlocfilehash: af8523486b42af8c0722a56bdd813d6449692c14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf9aa35951ef770cda56a68e2d6200b3ea64611d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676880"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721084"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuration de Pacemaker sur Red Hat Entreprise Linux dans Azure
 
@@ -90,7 +91,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   En attachant un pool à une image PAYG RHEL de la Place de marché Azure, vous serez doublement facturé pour votre utilisation de RHEL : une fois pour l’image PAYG et une fois pour le droit d’utilisation de RHEL dans le pool que vous attachez. Pour limiter ceci, Azure fournit désormais des images RHEL BYOS. Des informations supplémentaires sont disponibles [ici](../redhat/byos.md).  
+   En attachant un pool à une image PAYG RHEL de la Place de marché Azure, vous serez doublement facturé pour votre utilisation de RHEL : une fois pour l’image PAYG et une fois pour le droit d’utilisation de RHEL dans le pool que vous attachez. Pour limiter ceci, Azure fournit désormais des images RHEL BYOS. Pour plus d’informations, consultez [Images Azure bring-your-own-subscription (Apportez votre propre abonnement) de Red Hat Enterprise Linux](../redhat/byos.md).
 
 1. **[A]** Activer RHEL pour les référentiels SAP. Cette étape n’est pas requise si vous utilisez des images RHEL SAP compatibles avec la haute disponibilité.  
 
@@ -271,19 +272,9 @@ Utilisez le contenu suivant pour le fichier d’entrée. Vous devez adapter le c
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Affecter le rôle personnalisé au principal de service
 
-Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (Rôle d’agent d’isolation Linux) créé dans la section précédente. N’utilisez plus le rôle Propriétaire !
-
-1. Accédez à https://portal.azure.com
-1. Ouvrez le panneau Toutes les ressources
-1. Sélectionnez la machine virtuelle du premier nœud de cluster.
-1. Cliquez sur Contrôle d’accès (IAM)
-1. Cliquez sur Ajouter une attribution de rôle.
-1. Sélectionnez le rôle Linux Fence Agent Role (Rôle d’agent d’isolation Linux).
-1. Entrez le nom de l’application que vous avez créée ci-dessus
-1. Cliquez sur Enregistrer.
-
-Répétez les étapes ci-dessus pour le deuxième nœud de cluster.
-
+Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (Rôle d’agent d’isolation Linux) créé dans la section précédente. N’utilisez plus le rôle Propriétaire ! Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../../role-based-access-control/role-assignments-portal.md).   
+Veillez à attribuer le rôle pour les deux nœuds de cluster.    
+      
 ### <a name="1-create-the-stonith-devices"></a>**[1]** Créer les appareils STONITH
 
 Une fois que vous avez modifié les autorisations pour les machines virtuelles, vous pouvez configurer les appareils STONITH dans le cluster.
@@ -298,15 +289,19 @@ sudo pcs property set stonith-timeout=900
 
 Pour RHEL **7.x**, utilisez la commande suivante pour configurer l’appareil de clôture :    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 Pour RHEL **8.x**, utilisez la commande suivante pour configurer l’appareil de clôture :  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+> [!TIP]
+> Configurez l’attribut `pcmk_delay_max` uniquement dans des clusters Pacemaker à deux nœuds. Pour plus d’informations sur la prévention des situations de clôture dans un cluster Pacemaker à deux nœuds, consultez [Retarder l’isolation dans un cluster à deux nœuds afin d’éviter les situations de clôture des scénarii de « fence death »](https://access.redhat.com/solutions/54829). 
+ 
 
 > [!IMPORTANT]
 > Les opérations de surveillance et de clôture sont désérialisées. Par conséquent, s’il y a une opération de surveillance plus longue et un événement de clôture simultanés, il n’y a aucun délai pour le basculement du cluster en raison de l’opération de surveillance en cours d’exécution.  
@@ -319,6 +314,101 @@ op monitor interval=3600
 > [!TIP]
 >L’agent d’isolation Azure requiert une connectivité sortante vers les points de terminaison publics comme indiqué, ainsi que des solutions possibles évoquées dans [Connectivité de point de terminaison public pour les machines virtuelles utilisant un équilibreur de charge interne standard](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
+
+## <a name="optional-stonith-configuration"></a>Configuration STONITH facultative  
+
+> [!TIP]
+> Cette section s’applique uniquement si vous souhaitez configurer un appareil de clôture spécial `fence_kdump`.  
+
+S’il est nécessaire de collecter des informations de diagnostic au sein de la machine virtuelle, il peut être utile de configurer un appareil STONITH supplémentaire, en fonction de l’agent de clôture `fence_kdump`. L’agent `fence_kdump` peut détecter qu’un nœud est entré dans la récupération d’urgence kdump et peut autoriser le service de récupération après incident à se terminer, avant d’appeler d’autres méthodes de clôture. Notez que `fence_kdump` ne remplace pas les mécanismes de clôture traditionnels, tels que l’agent de clôture Azure lors de l’utilisation de machines virtuelles Azure.   
+
+> [!IMPORTANT]
+> Sachez que lorsque `fence_kdump` est configuré comme un premier niveau de stonith, il introduira des retards dans les opérations de clôture et les retards respectifs dans le basculement des ressources de l’application.  
+> 
+> Si un vidage sur incident est correctement détecté, la clôture sera retardée jusqu’à ce que le service de récupération après incident se termine. Si le nœud défaillant est inaccessible ou s’il ne répond pas, les clôtures seront retardées dans le temps, selon le nombre d’itérations configuré et le `fence_kdump` délai d’expiration. Pour plus d’informations, consultez [Comment configurer fence_kdump dans un cluster Pacemaker Red Hat](https://access.redhat.com/solutions/2876971).  
+> Il peut être nécessaire d’adapter le délai d’expiration de la fence_kdump proposée à l’environnement spécifique.
+>     
+> Nous vous recommandons de configurer `fence_kdump` stonith uniquement lorsque cela est nécessaire pour collecter les diagnostics au sein de la machine virtuelle et toujours en combinaison avec la méthode de clôture traditionnelle comme agent de clôture Azure.   
+
+Les Bases de connaissances Red Hat suivantes contiennent des informations importantes sur la configuration de `fence_kdump` stonith :
+
+* [Comment configurer fence_kdump dans un cluster Pacemaker Red Hat](https://access.redhat.com/solutions/2876971).
+* [Comment configurer/gérer des niveaux STONITH dans le cluster RHEL avec Pacemaker](https://access.redhat.com/solutions/891323)
+* [fence_kdump échoue avec « délai d’expiration après X secondes » dans un cluster à haute disponibilité RHEL 6 ou 7 avec kexec-tools antérieurs à 2.0.14](https://access.redhat.com/solutions/2388711)
+* Pour plus d’informations sur la modification du délai d’expiration par défaut, consultez [Comment configurer kdump pour une utilisation avec le module complémentaire à haute disponibilité RHEL 6, 7, 8](https://access.redhat.com/articles/67570)
+* Pour plus d’informations sur la réduction du délai de basculement, lors de l’utilisation de `fence_kdump`, consultez [ Puis-je réduire le délai attendu de basculement lors de l’ajout de la configuration fence_kdump](https://access.redhat.com/solutions/5512331)
+   
+Exécutez les étapes facultatives suivantes pour ajouter `fence_kdump` en tant que configuration de premier niveau STONITH, en plus de la configuration de l’agent de clôture Azure. 
+
+
+1. **[A]** Vérifiez que kdump est actif et configuré.  
+    ```
+    systemctl is-active kdump
+    # Expected result
+    # active
+    ```
+2. **[A]**  Installez l’agent de clôture `fence_kdump`.  
+    ```
+    yum install fence-agents-kdump
+    ```
+3. **[1]** Créez`fence_kdump` l’appareil stonith dans le cluster.   
+    <pre><code>
+    pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>" timeout=30
+    </code></pre>
+
+4. **[1]** Configurez des niveaux stonith, de sorte que le mécanisme de clôture `fence_kdump` est engagé en premier.  
+    <pre><code>
+    pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>"
+    pcs stonith level add 1 <b>prod-cl1-0</b> rsc_st_kdump
+    pcs stonith level add 1 <b>prod-cl1-1</b> rsc_st_kdump
+    pcs stonith level add 2 <b>prod-cl1-0</b> rsc_st_azure
+    pcs stonith level add 2 <b>prod-cl1-1</b> rsc_st_azure
+    # Check the stonith level configuration 
+    pcs stonith level
+    # Example output
+    # Target: <b>prod-cl1-0</b>
+    # Level 1 - rsc_st_kdump
+    # Level 2 - rsc_st_azure
+    # Target: <b>prod-cl1-1</b>
+    # Level 1 - rsc_st_kdump
+    # Level 2 - rsc_st_azure
+    </code></pre>
+
+5. **[A]** Autorisez les ports requis pour `fence_kdump` via le pare-feu
+    ```
+    firewall-cmd --add-port=7410/udp
+    firewall-cmd --add-port=7410/udp --permanent
+    ```
+
+6. **[A]** Veillez à ce que le fichier d’images `initramfs` contienne les fichiers `fence_kdump` et `hosts`. Pour plus d’informations, consultez [Comment configurer fence_kdump dans un cluster Pacemaker Red Hat](https://access.redhat.com/solutions/2876971).   
+    ```
+    lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
+    # Example output 
+    # -rw-r--r--   1 root     root          208 Jun  7 21:42 etc/hosts
+    # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
+    ```
+
+7. **[A]** Réalisez la configuration `fence_kdump_nodes` dans `/etc/kdump.conf` afin d’éviter `fence_kdump`l’échec avec délai d’attente pour certaines versions `kexec-tools`. Pour plus d’informations, consultez [fence_kdump expire lorsque fence_kdump_nodes n’est pas spécifié avec kexec-tools version 2.0.15 ou ultérieure](https://access.redhat.com/solutions/4498151) et [fence_kdump échoue avec « délai d’expiration après X secondes » dans un cluster à haute disponibilité RHEL 6 ou 7 avec des versions de kexec-tools antérieures à 2.0.14](https://access.redhat.com/solutions/2388711). L’exemple de configuration pour un cluster à deux nœuds est présenté ci-dessous. Après avoir apporté une modification dans `/etc/kdump.conf`, l’image kdump doit être régénérée. Cela peut être obtenu en redémarrant le service `kdump`.  
+
+    <pre><code>
+    vi /etc/kdump.conf
+    # On node <b>prod-cl1-0</b> make sure the following line is added
+    fence_kdump_nodes  <b>prod-cl1-1</b>
+    # On node <b>prod-cl1-1</b> make sure the following line is added
+    fence_kdump_nodes  <b>prod-cl1-0</b>
+
+    # Restart the service on each node
+    systemctl restart kdump
+    </code></pre>
+
+8. Testez la configuration en bloquant un nœud. Pour plus d’informations, consultez [Comment configurer fence_kdump dans un cluster Pacemaker Red Hat](https://access.redhat.com/solutions/2876971).  
+
+    > [!IMPORTANT]
+    > Si le cluster est déjà utilisé en mode productif, planifiez le test en conséquence, car le blocage d’un nœud aura un impact sur l’application.   
+
+    ```
+    echo c > /proc/sysrq-trigger
+    ```
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Planification et implémentation de machines virtuelles Azure pour SAP][planning-guide]

@@ -2,155 +2,259 @@
 title: Fonctions PowerShell pour Azure IoT Edge pour Linux sur Windows | Microsoft Docs
 description: Informations de référence sur les fonctions PowerShell pour Azure IoT Edge pour Linux sur Windows pour déployer, approvisionner et obtenir l’état IoT Edge pour Linux sur des machines virtuelles Windows.
 author: v-tcassi
-manager: philmea
-ms.author: v-tcassi
-ms.date: 02/16/2021
+ms.author: fcabrera
+ms.date: 06/18/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 4b22df004649f6708efe512059ad41b870d4350a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a5af992bdfe3bb97383d3c8ed1ccd0e57dd1efb7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776401"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524460"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>Fonctions PowerShell pour IoT Edge pour Linux sur Windows
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-Découvrez les fonctions PowerShell qui déploient, approvisionnent et obtiennent l’état de votre IoT Edge pour Linux sur une machine virtuelle Windows.
+Découvrez les fonctions PowerShell qui déploient, approvisionnent et obtiennent l’état de votre IoT Edge pour Linux sur une machine virtuelle Windows (EFLOW).
 
-Les commandes décrites dans cet article proviennent du fichier `AzureEFLOW.psm1`, qui se trouve sur votre système dans votre répertoire `WindowsPowerShell` sous `C:\Program Files\WindowsPowerShellModules\AzureEFLOW`.
+## <a name="prerequisites"></a>Configuration requise
+
+Les commandes décrites dans cet article proviennent du fichier `AzureEFLOW.psm1`, qui se trouve sur votre système dans votre répertoire `WindowsPowerShell` sous `C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW`.
+
+Si vous n’avez pas le dossier **AzureEflow** dans votre répertoire PowerShell, suivez les étapes ci-dessous pour télécharger et installer Azure IoT Edge pour Linux sur Windows : 
+
+1. Dans une session PowerShell avec élévation de privilèges, exécutez chacune des commandes suivantes pour télécharger IoT Edge pour Linux sur Windows.
+
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
+   ```
+
+1. Installez IoT Edge pour Linux sur Windows sur votre appareil.
+
+   ```powershell
+   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
+   ```
+
+   Vous pouvez spécifier des répertoires d’installation et VHDX personnalisés en ajoutant les paramètres `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"`à la commande d’installation.
+
+1. Définissez la stratégie d’exécution sur l’appareil cible sur `AllSigned` si ce n’est pas déjà fait.
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
+   ```
+
+## <a name="connect-eflowvm"></a>Connect-EflowVM
+
+La commande **Connect-EflowVM** se connecte à la machine virtuelle via SSH. Le seul compte autorisé à accéder via SSH à la machine virtuelle est celui de l’utilisateur qui l’a créée.
+
+Cette commande fonctionne uniquement sur une session PowerShell en cours d’exécution sur l’appareil hôte. Elle ne fonctionnera pas lors de l’utilisation du centre d’administration Windows ou de PowerShell ISE.
+
+Pour plus d'informations, utilisez la commande `Get-Help Connect-EflowVM -full`.
+
+## <a name="copy-eflowvmfile"></a>Copy-EflowVmFile
+
+La commande **Copy-EflowVmFile** copie le fichier vers ou à partir de la machine virtuelle à l’aide de SCP. Utilisez les paramètres facultatifs pour spécifier les chemins d’accès aux fichiers source et de destination, ainsi que la direction de la copie.
+
+L’utilisateur **iotedge-user** doit disposer de l’autorisation de lecture sur tous les répertoires d’origine ou d’une autorisation d’écriture sur les répertoires de destination de l’ordinateur virtuel.
+
+| Paramètre | Valeurs acceptées | Commentaires |
+| --------- | --------------- | -------- |
+| fromFile | Chaîne représentant le chemin d’accès au fichier | Définit le fichier à partir duquel effectuer la lecture. |
+| toFile | Chaîne représentant le chemin d’accès au fichier |  Définit le fichier dans lequel écrire. |
+| pushFile | Aucune | Cet indicateur indique la direction de la copie. Si présent, la commande transmet le fichier à la machine virtuelle. Si absent, la commande extrait le fichier à partir de la machine virtuelle. |
+
+Pour plus d'informations, utilisez la commande `Get-Help Copy-EflowVMFile -full`.
 
 ## <a name="deploy-eflow"></a>Deploy-Eflow
 
-La commande **Deploy-Eflow** est la principale méthode de déploiement. La commande de déploiement crée la machine virtuelle, approvisionne des fichiers et déploie le module d’agent IoT Edge. Si aucun des paramètres n’est requis, vous pouvez les utiliser pour approvisionner votre appareil IoT Edge pendant le déploiement et modifier les paramètres de la machine virtuelle lors de la création. Pour obtenir la liste complète, utilisez la commande `Get-Help Deploy-Eflow -full`.  
-
->[!NOTE]
->Pour le type d’approvisionnement, **X509** fait actuellement référence exclusivement à l’approvisionnement X509 à l’aide d’un [Service Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md). La méthode d’approvisionnement X509 manuelle n’est pas prise en charge actuellement.
+La commande **Deploy-Eflow** est la principale méthode de déploiement. La commande de déploiement crée la machine virtuelle, approvisionne des fichiers et déploie le module d’agent IoT Edge. Si aucun des paramètres n’est requis, vous pouvez les utiliser pour approvisionner votre appareil IoT Edge pendant le déploiement et modifier les paramètres de la machine virtuelle lors de la création.
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
-| eflowVhdxDir | Chemin du répertoire | Répertoire dans lequel le déploiement stocke le fichier VHDX pour la machine virtuelle. |
-| provisioningType | **manuel**, **TPM**, **X509** ou **symétrique** |  Définit le type d’approvisionnement que vous souhaitez utiliser pour votre appareil IoT Edge. |
-| devConnString | Chaîne de connexion d’un appareil IoT Edge existant | Chaîne de connexion d’appareil pour l’approvisionnement manuel d’un appareil IoT Edge (**manuel**). |
-| symmKey | Clé primaire pour une inscription DPS existante ou clé primaire d’un appareil IoT Edge existant inscrit à l’aide de clés symétriques | Clé symétrique pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| scopeId | ID d’étendue pour une instance DPS existante. | ID d’étendue pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| registrationId | ID d’inscription d’un appareil IoT Edge existant | ID d’inscription pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| identityCertLocVm | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu du certificat d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| identityCertLocWin | Chemin du répertoire | Chemin d’accès source absolu du certificat d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| identityPkLocVm | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu de la clé privée d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| identityPkLocWin | Chemin du répertoire | Chemin d’accès source absolu de la clé privée d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| vmSizeDefintion | Pas plus de 30 caractères | Définition du nombre de cœurs et de RAM disponible pour la machine virtuelle. **Valeur par défaut** : Standard_K8S_v1. |
-| vmDiskSize | Entre 8 Go et 256 Go | Taille de disque maximale du disque dur virtuel de taille dynamique. **Valeur par défaut** : 16 Go. |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
-| vnetType | **Transparent** ou **ICS** | Type de commutateur virtuel. **Valeur par défaut** : Transparent. Transparent fait référence à un commutateur externe, alors qu’ICS fait référence à un commutateur interne. |
-| vnetName | Pas plus de 64 caractères | Nom du commutateur virtuel. **Valeur par défaut** : Externe. |
-| enableVtpm | None | **Paramètre booléen**. Créez la machine virtuelle avec le TPM activé ou désactivé. |
-| mobyPackageVersion | Pas plus de 30 caractères |  Version du package Moby à vérifier ou à installer sur la machine virtuelle.  **Valeur par défaut :** 19.03.11. |
-| iotedgePackageVersion | Pas plus de 30 caractères | Version du package IoT Edge à vérifier ou à installer sur la machine virtuelle. **Valeur par défaut :** 1.1.0. |
-| installPackages | None | **Paramètre booléen**. Lorsqu’il est activé, la fonction tente d’installer les packages Moby et IoT Edge plutôt que de vérifier seulement si les packages sont présents. |
+| acceptEula | **Oui** ou **Non** | Raccourci pour accepter/refuser le CLUF et contourner l’invite du CLUF. |
+| acceptOptionalTelemetry | **Oui** ou **Non** |  Raccourci permettant d’accepter/de refuser la télémétrie facultative et de contourner l’invite de télémétrie. |
+| cpuCount | Valeur entière comprise entre 1 et les cœurs d’UC de l’appareil |  Nombre de cœurs de processeur pour la machine virtuelle.<br><br>**Valeur par défaut**: 1 vCore. |
+| memoryInMB | Valeur entière comprise entre 1 024 et la quantité maximale de mémoire disponible de l’appareil |Mémoire allouée pour la machine virtuelle.<br><br>**DValeur par défaut**  : 1 024 Mo. |
+| vmDiskSize | Entre 8 Go et 256 Go | Taille de disque maximale du disque dur virtuel de taille dynamique.<br><br>**Valeur par défaut** : 16 Go. |
+| vswitchName | Nom du commutateur virtuel |  Nom du commutateur virtuel affecté à la machine virtuelle EFLOW. |
+| vswitchType | **Interne** ou **externe** | Nom du commutateur virtuel affecté à la machine virtuelle EFLOW. |
+| ip4Address | Adresse IPv4 dans la plage de l’étendue du serveur DCHP | Adresse IPv4 statique de la machine virtuelle EFLOW. _Remarque : uniquement pris en charge avec le commutateur par défaut ICS_. |
+| ip4PrefixLength | Longueur du préfixe IPv4 du sous-réseau | Longueur de préfixe de sous-réseau IPv4 uniquement valide lorsque l’adresse IPv4 statique est spécifiée.  _Remarque : uniquement pris en charge avec le commutateur par défaut ICS_. |
+| ip4GatewayAddress | Adresse IPv4 de la passerelle de sous-réseau | Adresse IPv4 de la passerelle, valide uniquement lorsque l’adresse IPv4 statique est spécifiée.  _Remarque : uniquement pris en charge avec le commutateur par défaut ICS_. |
+| gpuName | Nom du Périphérique GPU |  Nom du périphérique GPU à utiliser pour le relais. |
+| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, ou aucun (CPU uniquement) |  Type de relais GPU |
+| gpuCount | Valeur entière comprise entre 1 et le nombre de cœurs GPU de l’appareil | Nombre de périphériques GPU pour la machine virtuelle. <br><br>**Remarque** : Si vous utilisez Paravirtualization, veillez à définir gpuCount = 1 |
 
->[!NOTE]
->Par défaut, si le processus ne trouve pas de commutateur externe portant le nom `External`, il recherchera tout commutateur externe existant permettant d’obtenir une adresse IP. Si aucun commutateur externe n’est disponible, il recherche un commutateur interne. Si aucun commutateur interne n’est disponible, il tente de créer le commutateur par défaut qui lui permettra d’obtenir une adresse IP.
+Pour plus d'informations, utilisez la commande `Get-Help Deploy-Eflow -full`.  
 
-## <a name="verify-eflowvm"></a>Verify-EflowVm
+## <a name="get-eflowhostconfiguration"></a>Get-EflowHostConfiguration
 
-La commande **Verify-EflowVm** est une fonction exposée pour vérifier si IoT Edge pour Linux sur une machine virtuelle Windows a été créé. Il accepte uniquement des paramètres communs et retourne la valeur **true** si la machine virtuelle a été créée et **false** dans le cas contraire. Pour toute information supplémentaire, utilisez la commande `Get-Help Verify-EflowVm -full`.
+La commande **Get-EflowHostConfiguration** renvoie la configuration de l’hôte. Cette commande n’accepte aucun paramètre. Elle retourne un objet qui contient quatre propriétés :
 
-## <a name="provision-eflowvm"></a>Provision-EflowVm
+* FreePhysicalMemoryInMB
+* NumberOfLogicalProcessors
+* DiskInfo
+* GpuInfo
 
-La commande **Provision-EflowVm** ajoute les informations d’approvisionnement de votre appareil IoT Edge au fichier `config.yaml` IoT Edge de la machine virtuelle. L’approvisionnement peut également être effectué pendant la phase de déploiement en définissant des paramètres dans la commande **Deploy-Eflow**. Pour toute information supplémentaire, utilisez la commande `Get-Help Provision-EflowVm -full`.
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowHostConfiguration -full`.
 
-| Paramètre | Valeurs acceptées | Commentaires |
-| --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
-| provisioningType | **manuel**, **TPM**, **X509** ou **symétrique** |  Définit le type d’approvisionnement que vous souhaitez utiliser pour votre appareil IoT Edge. |
-| devConnString | Chaîne de connexion d’un appareil IoT Edge existant | Chaîne de connexion d’appareil pour l’approvisionnement manuel d’un appareil IoT Edge (**manuel**). |
-| symmKey | Clé primaire pour une inscription DPS existante ou clé primaire d’un appareil IoT Edge existant inscrit à l’aide de clés symétriques | Clé symétrique pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **symétrique**). |
-| scopeId | ID d’étendue pour une instance DPS existante. | ID d’étendue pour l’approvisionnement d’un appareil IoT Edge (**DPS**). |
-| registrationId | ID d’inscription d’un appareil IoT Edge existant | ID d’inscription pour l’approvisionnement d’un appareil IoT Edge (**DPS**). |
-| identityCertLocVm | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu du certificat d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
-| identityCertLocWin | Chemin du répertoire | Chemin d’accès source absolu du certificat d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
-| identityPkLocVm  | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu de la clé privée d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
-| identityPkLocWin | Chemin du répertoire | Chemin d’accès source absolu de la clé privée d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
-
-## <a name="get-eflowvmname"></a>Get-EflowVmName
-
-La commande **Get-EflowVmName** est utilisée pour interroger le nom d’hôte actuel de la machine virtuelle. Cette commande permet de tenir compte du fait que le nom d’hôte Windows peut changer dans le temps. Elle accepte uniquement des paramètres communs et retourne le nom d’hôte actuel de la machine virtuelle. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmName -full`.
 
 ## <a name="get-eflowlogs"></a>Get-EflowLogs
 
-La commande **Get-EflowLogs** est utilisée pour collecter et regrouper les journaux d’IoT Edge pour le déploiement Linux sur Windows. Elle génère les journaux regroupés sous la forme d’un dossier `.zip`. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowLogs -full`.
+La commande **Get-EflowLogs** collecte et regroupe les journaux et les packs ed’IoT Edge pour le déploiement et l’installation de Linux sur Windows. Elle génère les journaux regroupés sous la forme d’un dossier `.zip`.
 
-| Paramètre | Valeurs acceptées | Commentaires |
-| --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowLogs -full`.
 
-## <a name="get-eflowvmtpmprovisioninginfo"></a>Get-EflowVmTpmProvisioningInfo
+## <a name="get-eflowvm"></a>Get-EflowVm
 
-La commande **Get-EflowVmTpmProvisioningInfo** est utilisée pour collecter et afficher les informations d’approvisionnement vTPM de la machine virtuelle. Si la machine virtuelle a été créée sans vTPM, la commande signale qu’elle n’a pas pu trouver les informations d’approvisionnement TPM. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
+La commande **Get-EflowVm** renvoie la configuration actuelle de la machine virtuelle. Cette commande n’accepte aucun paramètre. Elle retourne un objet qui contient quatre propriétés :
 
-| Paramètre | Valeurs acceptées | Commentaires |
-| --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
+* VmConfiguration
+* EdgeRuntimeVersion
+* EdgeRuntimeStatus
+* SystemStatistics
+
+Pour afficher une propriété spécifique dans une liste lisible, exécutez la commande `Get-EflowVM` avec la propriété développée. Par exemple :
+
+```powershell
+Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
+```
+
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowVm -full`.
 
 ## <a name="get-eflowvmaddr"></a>Get-EflowVmAddr
 
-La commande **Get-EflowVmAddr** est utilisée pour rechercher et afficher les adresses IP et Mac de la machine virtuelle. Elle accepte uniquement des paramètres communs. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmAddr -full`.
+La commande **Get-EflowVmAddr** est utilisée pour interroger les adresses IP et Mac de la machine virtuelle. Cette commande existe afin de tenir compte du fait que les adresses IP et Mac peuvent changer dans le temps.
 
-## <a name="get-eflowvmsysteminformation"></a>Get-EflowVmSystemInformation
+Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmAddr -full`.
 
-La commande **Get-EflowVmSystemInformation** est utilisée pour collecter et afficher des informations système de la machine virtuelle, telles que la mémoire et l’utilisation du stockage. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmSystemInformation -full`.
+## <a name="get-eflowvmfeature"></a>Get-EflowVmFeature
 
-| Paramètre | Valeurs acceptées | Commentaires |
-| --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
-
-## <a name="get-eflowvmedgeinformation"></a>Get-EflowVmEdgeInformation
-
-La commande **Get-EflowVmEdgeInformation** est utilisée pour collecter et afficher des informations IoT Edge de la machine virtuelle, telles que la version d’IoT Edge exécutée par la machine virtuelle. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmEdgeInformation -full`.
+La commande **Get-EflowVmFeature** renvoie l’état de l’activation d’IoT Edge pour les fonctionnalités Linux sur Windows.
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
+| fonctionnalité | **DpsTpm** | Nom de la fonctionnalité à activer/désactiver. |
 
-## <a name="get-eflowvmedgemodulelist"></a>Get-EflowVmEdgeModuleList
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowVmFeature -full`.
 
-La commande **Get-EflowVmEdgeModuleList** est utilisée pour interroger et afficher la liste des modules IoT Edge exécutés sur la machine virtuelle. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmEdgeModuleList -full`.
+## <a name="get-eflowvmname"></a>Get-EflowVmName
+
+La commande **Get-EflowVmName** renvoie le nom d’hôte actuel de la machine virtuelle. Cette commande permet de tenir compte du fait que le nom d’hôte Windows peut changer dans le temps.
+
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowVmName -full`.
+
+## <a name="get-eflowvmtelemetryoption"></a>Get-EflowVmTelemetryOption
+
+La commande **Get-EflowVmTelemetryOption** affiche l’état de la télémétrie (soit **Facultatif** soit **Requis**) au sein de la machine virtuelle.
+
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowVmTelemetryOption -full`.
+
+
+## <a name="get-eflowvmtpmprovisioninginfo"></a>Get-EflowVmTpmProvisioningInfo
+
+La commande **Get-EflowVmTpmProvisioningInfo** renvoie les informations d’approvisionnement du Module de plateforme sécurisée (TPM). Cette commande n’accepte aucun paramètre. Elle retourne un objet qui contient quatre propriétés :
+
+* EK (Endorsement Key)
+* ID d’inscription 
+
+Pour plus d'informations, utilisez la commande `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
+
+
+
+## <a name="invoke-eflowvmcommand"></a>Invoke-EflowVmCommand
+
+La commande **Invoke-EflowVMCommand** exécute une commande Linux dans la machine virtuelle et renvoie le résultat. Cette commande fonctionne uniquement pour les commandes Linux qui retournent une sortie finie. Elle ne peut pas être utilisée pour les commandes Linux qui nécessitent une interaction de l’utilisateur ou qui s’exécutent indéfiniment.
+
+Les paramètres facultatifs suivants peuvent être utilisés pour spécifier la commande à l’avance.
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
+| commande | Chaîne | Commande à exécuter sur la machine virtuelle. |
+| ignoreError | Aucune |  Si cet indicateur est présent, ignorez les erreurs de la commande. |
 
-## <a name="get-eflowvmedgestatus"></a>Get-EflowVmEdgeStatus
+Pour plus d'informations, utilisez la commande `Get-Help Invoke-EflowVmCommand -full`.
 
-La commande **Get-EflowVmEdgeStatus** est utilisée pour interroger et afficher l’état du runtime IoT Edge sur la machine virtuelle. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmEdgeStatus -full`.
+## <a name="provision-eflowvm"></a>Provision-EflowVm
 
-| Paramètre | Valeurs acceptées | Commentaires |
-| --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
-
-## <a name="get-eflowvmusername"></a>Get-EflowVmUserName
-
-La commande **Get-EflowVmUserName** est utilisée pour interroger et afficher le nom d’utilisateur de la machine virtuelle qui a été utilisé pour créer la machine virtuelle à partir du Registre. Elle accepte uniquement des paramètres communs. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmUserName -full`.
-
-## <a name="get-eflowvmsshkey"></a>Get-EflowVmSshKey
-
-La commande **Get-EflowVmSshKey** est utilisée pour interroger et afficher la clé SSH utilisée par la machine virtuelle. Elle accepte uniquement des paramètres communs. Pour toute information supplémentaire, utilisez la commande `Get-Help Get-EflowVmSshKey -full`.
-
-## <a name="ssh-eflowvm"></a>Ssh-EflowVm
-
-La commande **Ssh-EflowVm** est utilisée pour la connexion SSH à la machine virtuelle. Le seul compte autorisé à accéder via SSH à la machine virtuelle est celui de l’utilisateur qui l’a créée. Pour toute information supplémentaire, utilisez la commande `Get-Help Ssh-EflowVm -full`.
+La commande **Provision-EflowVm** ajoute les informations d’approvisionnement de votre appareil IoT Edge au fichier `config.yaml` IoT Edge de la machine virtuelle.
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
-| vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
+| provisioningType | **ManualConnectionString**, **ManualX509**, **DpsTPM**, **DpsX509** ou **DpsSymmetricKey** |  Définit le type d’approvisionnement que vous souhaitez utiliser pour votre appareil IoT Edge. |
+| devConnString | Chaîne de connexion d’un appareil IoT Edge existant | Chaîne de connexion d’appareil pour l’approvisionnement manuel d’un appareil IoT Edge (**ManualConnectionString**). |
+| iotHubHostname | Nom d’hôte d’un IoT hub existant | Nom d’hôte Azure IoT Hub pour l’approvisionnement d’un appareil IoT Edge (**ManualX509**). |
+| deviceId | ID d’appareil d’un appareil IoT Edge existant | ID d’appareil pour l’approvisionnement d’un appareil IoT Edge (**ManualX509**). |
+| scopeId | ID d’étendue pour une instance DPS existante. | ID d’étendue pour l’approvisionnement d’un appareil IoT Edge (**DpsTPM**, **DpsX509**, ou **DpsSymmetricKey**). |
+| symmKey | Clé primaire pour une inscription DPS existante ou clé primaire d’un appareil IoT Edge existant inscrit à l’aide de clés symétriques | Clé symétrique pour l’approvisionnement d’un appareil IoT Edge (**DpsSymmetricKey**). |
+| registrationId | ID d’inscription d’un appareil IoT Edge existant | ID d’inscription pour l’approvisionnement d’un appareil IoT Edge (**DpsSymmetricKey**). |
+| identityCertPath | Chemin du répertoire | Chemin d’accès de la destination absolue du certificat d’identité sur votre machine hôte Windows (**ManualX509**, **DpsX509**). |
+| identityPrivKeyPath | Chemin du répertoire | Chemin d’accès de la destination absolue de la clé privée d’identité sur votre machine hôte Windows (**ManualX509**, **DpsX509**). |
+
+Pour plus d'informations, utilisez la commande `Get-Help Provision-EflowVm -full`.
+
+## <a name="set-eflowvm"></a>Set-EflowVM
+
+La commande **Set-EflowVM** actualise la configuration de la machine virtuelle avec les propriétés requises. Utilisez les paramètres facultatifs pour définir une configuration spécifique pour la machine virtuelle.
+
+| Paramètre | Valeurs acceptées | Commentaires |
+| --------- | --------------- | -------- |
+| cpuCount | Valeur entière comprise entre 1 et les cœurs GPU de l’appareil | Nombre de cœurs de processeur pour la machine virtuelle. |
+| memoryInMB | Valeur entière comprise entre 1 024 et la quantité maximale de mémoire disponible de l’appareil | Mémoire allouée pour la machine virtuelle. |
+| gpuName | Nom du Périphérique GPU |  Nom du périphérique GPU à utiliser pour le relais. |
+| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, ou aucun (pas de relais) |  Type de relais GPU |
+| gpuCount | Valeur entière comprise entre 1 et les cœurs GPU de l’appareil | Nombre d’appareils GPU pour la machine virtuelle. **Remarque** : uniquement valide en cas d’utilisation de DirectDeviceAssignment |
+| sans affichage | Aucune | Si cet indicateur est présent, il détermine si l’utilisateur doit confirmer en cas d’émission d’un avertissement de sécurité. |
+
+Pour plus d'informations, utilisez la commande `Get-Help Set-EflowVM -full`.
+
+## <a name="set-eflowvmfeature"></a>Set-EflowVmFeature
+
+La commande **Set-EflowVmFeature** active ou désactive l’état d’IoT Edge pour les fonctionnalités Linux sur Windows.
+
+| Paramètre | Valeurs acceptées | Commentaires |
+| --------- | --------------- | -------- |
+| fonctionnalité | **DpsTpm** | Nom de la fonctionnalité à activer/désactiver. |
+| enable | Aucune | Si cet indicateur est présent, la commande active la fonctionnalité. |
+
+Pour plus d'informations, utilisez la commande `Get-Help Set-EflowVmFeature -full`.
+
+## <a name="set-eflowvmtelemetryoption"></a>Set-EflowVmTelemetryOption
+
+La commande **Set-EflowVmTelemetryOption** active ou désactive la télémétrie facultative au sein de la machine virtuelle.
+
+| Paramètre | Valeurs acceptées | Commentaires |
+| --------- | --------------- | -------- |
+| optionalTelemetry | **True** ou **False** | Si la télémétrie facultative est sélectionnée. |
+
+Pour plus d'informations, utilisez la commande `Get-Help Set-EflowVmTelemetryOption -full`.
+
+## <a name="start-eflowvm"></a>Start-EflowVm
+
+La commande **Start-EflowVm** démarre la machine virtuelle. Si la machine virtuelle est déjà démarrée, aucune action n’est effectuée.
+
+Pour plus d'informations, utilisez la commande `Get-Help Start-EflowVm -full`.
+
+## <a name="stop-eflowvm"></a>Stop-EflowVm
+
+La commande **Stop-EflowVm** arrête la machine virtuelle. Si la machine virtuelle est déjà arrêtée, aucune action n’est effectuée.
+
+Pour plus d'informations, utilisez la commande `Get-Help Stop-EflowVm -full`.
+
+## <a name="verify-eflowvm"></a>Verify-EflowVm
+
+La commande **Verify-EflowVm** est une fonction exposée pour vérifier si la machine virtuelle IoT Edge pour Linux sur Windows a été créée. Elle accepte uniquement des paramètres communs et retourne la valeur **True** si la machine virtuelle a été créée et **False** dans le cas contraire.
+
+Pour plus d'informations, utilisez la commande `Get-Help Verify-EflowVm -full`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment utiliser ces commandes dans l’article suivant :
+Découvrez comment utiliser ces commandes pour installer et configurer IoT Edge pour Linux sur Windows dans l’article suivant :
 
 * [Installer Azure IoT Edge pour Linux sur Windows](./how-to-install-iot-edge-windows-on-windows.md)

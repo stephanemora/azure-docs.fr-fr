@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c15c4e2f269791dfce80d89edf22d5041be636b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531947"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -244,13 +244,11 @@ Après avoir acheté le domaine App Service, vous disposez de cinq jours pour an
 
 1. Dans la section **Domaines App Service**, sélectionnez le domaine que vous souhaitez configurer.
 
-1. Dans le menu de navigation gauche du domaine, sélectionnez **Liaisons de noms d’hôte**. Les liaisons de nom d’hôte de tous les services Azure sont répertoriées ici.
+1. Dans le menu de navigation gauche du domaine, sélectionnez **Verrous**. 
 
-    ![Capture d’écran montrant la page de liaisons de nom d’hôte.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    Un verrou de suppression a été créé pour votre domaine. Tant qu’un verrou de suppression existe, vous ne pouvez pas supprimer le domaine App Service.
 
-1. Supprimez chaque liaison de nom d’hôte en sélectionnant **...**  > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
-
-    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
+1. Cliquez **Supprimer** pour annuler le verrou de suppression.
 
 1. Dans le menu de navigation gauche du domaine, sélectionnez **Vue d’ensemble**. 
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: feb6462fef89a73a8e7a1d0df6808f0c58817b35
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a959a7b424a855f47a2e128b5c77727d21a9e0aa
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982157"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449774"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps"></a>Configurer le développement local pour Azure Static Web Apps
 
@@ -63,6 +63,9 @@ Le graphique suivant montre comment les demandes sont gérées localement.
 - **Site Azure Static Web Apps existant** : si vous n'en avez pas, commencez avec l'application de démarrage [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate).
 - **[Node.js](https://nodejs.org) avec npm** : exécutez la version [Node.js LTS](https://nodejs.org), qui inclut l'accès à [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**  : utilisé pour le débogage de l'application API, mais non requis pour l'interface CLI.
+
+> [!NOTE]
+> Pour s’exécuter `swa` avec une [API localement](add-api.md#run-the-frontend-and-api-locally), les Outils Core des Fonctions Azure sont requis.
 
 ## <a name="get-started"></a>Bien démarrer
 

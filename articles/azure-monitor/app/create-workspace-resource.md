@@ -4,12 +4,12 @@ description: En savoir plus sur les étapes requises pour activer les nouvelles 
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0ae01212eaa73deeac4774f7e13f5b46976ee7e2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 21cf89c7d89e310f98fea4421076d298405b6fc3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075589"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464457"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
@@ -24,10 +24,10 @@ Cela permet également de disposer d’un contrôle d’accès en fonction du r�
 
 Les Application Insights basées sur l’espace de travail vous permettent de tirer profit des dernières fonctionnalités d’Azure Monitor et Log Analytics, y compris :
 
-* [Les clés gérées par le client (CMK)](../logs/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
+* [Les Clés gérées par le client (CMK)](../logs/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
 * [Azure Private Link](../logs/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
 * [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
-* Les [niveaux de réservation de capacité](../logs/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25 % par rapport au tarif du paiement à l’utilisation. 
+* Les [Niveaux d’engagement](../logs/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 30 % par rapport au tarif du Paiement à l’utilisation. 
 * Ingestion plus rapide des données via l’ingestion de diffusion en continu Log Analytics.
 
 ## <a name="create-workspace-based-resource"></a>Créer une ressource basée sur un espace de travail

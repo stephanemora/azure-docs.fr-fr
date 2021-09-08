@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b7aefa537c9b822572f38501920afdaa45bc01c3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c1fa9d27bbdfe91eebb74186e69cf707166384fd
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955047"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525886"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -42,7 +42,7 @@ La gestion d’Azure Active Directory nécessite l’exécution continue de tâc
 | Trier et examiner les utilisateurs avec indicateur de risque et les rapports de vulnérabilité d’Azure AD Identity Protection | Équipe des opérations InfoSec |
 
 > [!NOTE]
-> Azure AD Identity Protection nécessite une licence Azure AD Premium P2. Pour trouver la licence adaptée à vos besoins, consultez [Comparaison des fonctionnalités généralement disponibles des éditions Azure AD Free et Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection nécessite une licence Azure AD Premium P2. Pour trouver la licence adaptée à vos besoins, consultez [Comparaison des fonctionnalités généralement disponibles des éditions Azure AD Free et Azure AD Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 Quand vous passerez votre liste en revue, vous devrez peut-être affecter un propriétaire à des tâches qui en sont dépourvues, ou modifier la propriété des tâches avec propriétaires qui ne sont pas conformes aux suggestions ci-dessus.
 

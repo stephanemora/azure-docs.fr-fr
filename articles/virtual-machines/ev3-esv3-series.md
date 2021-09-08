@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: e96c54fb5e0bab71a68bd6a9749a358843b76a0c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5920a7c0aecd02e4d5b7bbcac9c5254a14d7f192
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083311"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525332"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 et Esv3
 
@@ -32,13 +32,13 @@ Machines virtuelles de série Ev3 dotées de la technologie Hyper-Threading d’
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Cartes réseau (max)/Bande passante réseau |
 |---|---|---|---|---|---|---|
-| Standard_E2_v3  | 2  | 16  | 50   | 4  | 3000/46/23     | 2/1 000  |
+| Standard_E2_v3<sup>1</sup>  | 2  | 16  | 50   | 4  | 3000/46/23     | 2/1 000  |
 | Standard_E4_v3  | 4  | 32  | 100  | 8  | 6000/93/46     | 2/2 000  |
 | Standard_E8_v3  | 8  | 64  | 200  | 16 | 12000/187/93   | 4/4 000  |
 | Standard_E16_v3 | 16 | 128 | 400  | 32 | 24000/375/187  | 8/8 000  |
@@ -48,6 +48,7 @@ Machines virtuelles de série Ev3 dotées de la technologie Hyper-Threading d’
 | Standard_E64_v3 | 64 | 432 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
 | Standard_E64i_v3 <sup>2</sup> | 64 | 432 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
 
+<sup>1</sup>La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. 
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
 ## <a name="esv3-series"></a>Série Esv3
@@ -62,13 +63,13 @@ Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d�
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit de stockage temporaire et débit de rafale mis en cache : IOPS/Mbits/s<sup>3</sup> | Débit du disque non mis en cache max. : IOPS/Mbits/s |  Débit du disque non mis en cache en rafale : IOPS/Mbits/s<sup>3</sup>| Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v3                | 2  | 16  | 32  | 4  | 4 000/32 (50)       | 4 000/100    | 3 200/48    | 4 000/100 | 2/1 000 |
+| Standard_E2s_v3<sup>4</sup>                | 2  | 16  | 32  | 4  | 4 000/32 (50)       | 4 000/100    | 3 200/48    | 4 000/100 | 2/1 000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8 000/64 (100)      | 8 000/200    | 6 400/96    | 8 000/200 | 2/2 000 |
 | Standard_E8s_v3 <sup>1</sup>   | 8  | 64  | 128 | 16 | 16 000/128 (200)    | 16 000/400   | 12 800/192  | 16 000/400 | 4/4 000 |
 | Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32 000/256 (400)    | 32 000/800   | 25 600/384  | 32 000/800 | 8/8 000 |
@@ -78,11 +79,11 @@ Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d�
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128 000/1 024 (1 600) | 128 000/2 000 | 80 000/1 200 | 80 000/2 000 | 8/30 000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128 000/1 024 (1 600) | 128 000/2 000 | 80 000/1 200 | 80 000/2 000 | 8/30 000 |
 
-<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).
+<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).<br>
+<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.<br>
+<sup>3</sup> Les machines virtuelles de la série Esv3 peuvent [augmenter via le mode rafale](./disk-bursting.md) leurs performances de disque et atteindre le maximum du mode rafale pendant au plus 30 minutes à la fois.<br>
+<sup>4</sup>La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. 
 
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
-
-<sup>3</sup> Les machines virtuelles de la série Esv3 peuvent [augmenter via le mode rafale](./disk-bursting.md) leurs performances de disque et atteindre le maximum du mode rafale pendant au plus 30 minutes à la fois.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

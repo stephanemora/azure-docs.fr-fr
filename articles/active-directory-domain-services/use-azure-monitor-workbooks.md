@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5aab12a0d3c24ef7bef9eee6c02b244e33c11e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574210"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531609"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure Active Directory Domain Services à l’aide d’Azure Monitor Workbooks
 
@@ -54,7 +54,7 @@ Pour vous aider à mieux comprendre l’utilisation et à identifier les menaces
 
 Pour accéder au modèle de classeur pour le rapport de vue d’ensemble de la sécurité, procédez comme suit :
 
-1. Recherchez et sélectionnez **Azure Active Directory Domain Services** dans le Portail Microsoft Azure.
+1. Sur le portail Azure, recherchez et sélectionnez **Services de domaine Azure AD**.
 1. Sélectionnez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Dans le menu de gauche, choisissez **Supervision > Classeurs**
 
@@ -83,7 +83,7 @@ Pour vous aider à résoudre les problèmes liés à un compte d’utilisateur s
 
 Pour accéder au modèle de classeur pour le rapport d’activité du compte, procédez comme suit :
 
-1. Recherchez et sélectionnez **Azure Active Directory Domain Services** dans le Portail Microsoft Azure.
+1. Sur le portail Azure, recherchez et sélectionnez **Services de domaine Azure AD**.
 1. Sélectionnez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Dans le menu de gauche, choisissez **Supervision > Classeurs**
 1. Choisissez le **rapport d’activité de compte**.

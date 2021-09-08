@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: bdf5f2708daee0a3dc05ec8bc3d861633a3b7b7f
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 083a568f6fad664c59073e2f6858900302e9d971
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590573"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524339"
 ---
 # <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Utiliser l’intelligence artificielle pour traiter et analyser le contenu d’un objet blob dans Recherche cognitive Azure
 
@@ -62,7 +62,7 @@ L’enrichissement par IA est une extension du pipeline d’indexation, et dans 
 
 Les blobs dans le service Stockage Azure sont indexés à l’aide de l’[indexeur de blobs](search-howto-indexing-azure-blob-storage.md). Vous pouvez appeler cet indexeur à partir de l’Assistant **Importation de données**, d’une API REST ou d’un Kit de développement logiciel (SDK). Un indexeur de blobs est appelé quand la source de données que l’indexeur utilise est un conteneur d’objets blob Azure. Vous pouvez indexer un sous-ensemble de vos blobs en créant un répertoire virtuel, que vous pouvez ensuite transmettre comme paramètre, ou en filtrant sur une extension de type de fichier.
 
-Un indexeur effectue le « craquage de document » en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office, les images et d’autres types de contenu sont détectés. Le craquage de document avec extraction de texte n’est pas facturé. Le craquage de document avec extraction d’images est facturé aux tarifs indiqués dans la [page des tarifs](https://azure.microsoft.com/pricing/details/search/).
+Un indexeur effectue le [« craquage de document »](search-indexer-overview.md#document-cracking) en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office, les images et d’autres types de contenu sont détectés. Le craquage de document avec extraction de texte n’est pas facturé. Le craquage de document avec extraction d’images est facturé aux tarifs indiqués dans la [page des tarifs](https://azure.microsoft.com/pricing/details/search/).
 
 Même si le craquage concerne tous les documents, l’enrichissement ne se produit que si vous fournissez explicitement les compétences nécessaires. Par exemple, si votre pipeline est constitué exclusivement par l’analyse d’images, le texte contenu dans votre conteneur ou vos documents est ignoré.
 
@@ -82,7 +82,7 @@ L’*ensemble de compétences* est l’assortiment de compétences utilisé dans
 
 Si les compétences personnalisées peuvent paraître complexes, elles peuvent s’avérer simples du point de vue de l’implémentation. Si les packages dont vous disposez fournissent des critères spéciaux ou des modèles de classification, le contenu que vous extrayez des objets blob peut être transmis à ces modèles pour traitement. Comme l’enrichissement par IA est basé sur Azure, votre modèle doit aussi se trouver dans Azure. Certaines méthodologies d’hébergement courantes incluent l’utilisation d’[Azure Functions](cognitive-search-create-custom-skill-example.md) ou de [Containers](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-Les compétences intégrées adossées à Cognitive Services nécessitent une clé d’abonnement tout-en-un [Cognitive Services ](cognitive-search-attach-cognitive-services.md) attachée qui vous donne accès à la ressource. Une clé tout-en-un vous fait bénéficier de l’analyse d’images, de la détection de langue, de la traduction de texte et de l’analyse de texte. Les autres compétences intégrées sont les fonctionnalités de Recherche cognitive Azure et ne nécessitent pas de service ou de clé supplémentaire. Les fonctionnalités de mise en forme, de fractionnement et de fusion de texte sont des exemples de compétences d’assistance qui sont parfois nécessaires au moment de concevoir le pipeline.
+Les compétences intégrées adossées à Cognitive Services nécessitent une clé d’abonnement tout-en-un [Cognitive Services ](cognitive-search-attach-cognitive-services.md) attachée qui vous donne accès à la ressource. Une clé tout-en-un vous fait bénéficier de l’analyse d’images, de la détection de langue, de la traduction de texte et de l’analyse de texte. Les autres compétences intégrées sont les fonctionnalités de Recherche cognitive Azure et ne nécessitent pas de service ou de clé supplémentaire. Les fonctionnalités de mise en forme, de fractionnement et de fusion sont des exemples de compétences d’assistance qui sont parfois nécessaires au moment de concevoir le pipeline.
 
 Si vous utilisez uniquement des compétences personnalisées et des compétences d’utilitaire intégrées, il n’existe aucune dépendance ou de coûts en rapport avec Cognitive Services.
 

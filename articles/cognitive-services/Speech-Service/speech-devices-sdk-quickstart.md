@@ -3,20 +3,20 @@ title: 'Démarrage rapide : Exécuter le SDK Speech Devices sur Windows, Linux 
 titleSuffix: Azure Cognitive Services
 description: Cet article contient les prérequis et des instructions pour bien démarrer avec un SDK Speech Devices Windows, Linux ou Android.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
-ms.author: lajanuar
+ms.author: pafarley
 zone_pivot_groups: platforms-set-of-three
-ms.openlocfilehash: ba4356d39c0e5646f9caef54c824a64a3f71ba9f
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: a5f58eb49c076845bf70bb6c1d2084e7493190b7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067994"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540607"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Windows, Linux ou Android
 

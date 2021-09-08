@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/31/2021
-ms.openlocfilehash: 0f92a5313622ffafe5ea5cbe2fdedc77d685b0ab
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/10/2021
+ms.openlocfilehash: 0a5ab1b8e79c3cfacb2944369b5f9234355ba4c8
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792218"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534764"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -22,8 +22,8 @@ Ce document explique les étapes nécessaires pour connecter un compte Azure Dat
 
 Plusieurs fabriques de données Azure peuvent se connecter à un même Data Catalog Azure Purview pour envoyer des informations de traçabilité. La limite actuelle vous permet de connecter dix comptes Data Factory à la fois à partir du centre d’administration Purview. Pour afficher la liste des comptes Data Factory connectés à votre Data Catalog Purview, effectuez les étapes suivantes :
 
-1. Sélectionnez **Centre de gestion** dans le volet de navigation gauche.
-2. Sous **Connexions externes**, sélectionnez **Connexion Data Factory**.
+1. Sélectionnez **Gestion** dans le volet de navigation gauche.
+2. Sous **Connexions de traçabilité**, sélectionnez **Data Factory**.
 3. La liste de connexions Data Factory s’affiche.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Capture d’écran montrant une liste de connexions Data Factory." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
@@ -38,7 +38,7 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
  >- Contributeur
  >- Propriétaire
  >- Lecteur
- >- Administrateur de l'accès utilisateur
+ >- Administrateur de l’accès utilisateur
 
 ## <a name="create-new-data-factory-connection"></a>Créer une connexion Data Factory
 
@@ -49,10 +49,10 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
 >
 > De plus, les utilisateurs doivent être le « contributeur » ou le « propriétaire » de la fabrique de données. 
 
-Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à votre Data Catalog Purview.
+Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à votre Catalogue de données Purview.
 
-1. Sélectionnez **Centre de gestion** dans le volet de navigation gauche.
-2. Sous **Connexions externes**, sélectionnez **Connexion Data Factory**.
+1. Sélectionnez **Gestion** dans le volet de navigation gauche.
+2. Sous **Connexions de traçabilité**, sélectionnez **Data Factory**.
 3. Dans la page **Connexion Data Factory**, sélectionnez **Nouveau**.
 
 4. Sélectionnez votre compte Data Factory dans la liste, puis **OK**. Vous pouvez également filtrer par nom d’abonnement pour affiner la liste.
@@ -63,7 +63,6 @@ Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à 
 
     Un message d’avertissement s’affiche si l’une des fabriques de données sélectionnées est déjà connectée à un autre compte Purview. Si vous sélectionnez OK, la connexion Data Factory à l’autre compte Purview sera déconnectée. Aucune confirmation supplémentaire n’est requise.
 
-
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Capture d’écran montrant un avertissement pour déconnecter Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
 
 >[!Note]
@@ -71,7 +70,7 @@ Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à 
 
 ### <a name="how-does-the-authentication-work"></a>Comment fonctionne l’authentification ?
 
-Lorsqu’un utilisateur Purview inscrit un Data Factory auquel il a accès, les événements suivants se produisent dans le serveur principal :
+Lorsqu’un utilisateur Purview inscrit une fabrique de données auquel il a accès, les événements suivants se produisent dans le serveur principal :
 
 1. **L’identité managée Data Factory** est ajoutée au rôle RBAC Purview **Curateur de données Purview**.
 
@@ -88,10 +87,6 @@ Pour supprimer une connexion Data Factory, effectuez les étapes suivantes :
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Capture d’écran montrant comment sélectionner des fabriques de données pour supprimer la connexion." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configuration d’un runtime d’intégration auto-hébergé pour collecter la traçabilité
-
-La traçabilité de l’activité Copy Data Factory est disponible pour les magasins de données locaux comme les bases de données SQL. Si vous exécutez un runtime d’intégration auto-hébergé pour le déplacement des données avec Azure Data Factory et que vous souhaitez capturer la traçabilité dans Azure Purview, vérifiez que la version est supérieure ou égale à 5.0. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
-
 ## <a name="supported-azure-data-factory-activities"></a>Activités Azure Data Factory prises en charge
 
 Azure Purview capture la traçabilité du runtime à partir des activités Azure Data Factory suivantes :
@@ -105,55 +100,9 @@ Azure Purview capture la traçabilité du runtime à partir des activités Azure
 
 L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-ensemble des systèmes de données pris en charge par Data Factory, comme décrit dans les sections suivantes.
 
-### <a name="data-factory-copy-activity-support"></a>Prise en charge de l’activité Copy Data Factory
+[!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-| Banque de données | Prise en charge | 
-| ------------------- | ------------------- | 
-| Stockage Blob Azure | Oui |
-| Recherche cognitive Azure | Oui | 
-| Azure Cosmos DB\* (API SQL) | Oui | 
-| API d’Azure Cosmos DB pour MongoDB\* | Oui |
-| Azure Data Explorer\* | Oui | 
-| Azure Data Lake Storage Gen1 | Oui | 
-| Azure Data Lake Storage Gen2 | Oui | 
-| Azure Database for Maria DB \* | Oui | 
-| Azure Database pour MySQL\* | Oui | 
-| Azure Database pour PostgreSQL \* | Oui |
-| Stockage Fichier Azure | Oui | 
-| Azure SQL Database \* | Oui | 
-| Azure SQL Managed Instance\* | Oui | 
-| Azure Synapse Analytics\* | Oui | 
-| Stockage de table Azure | Oui |
-| Amazon S3 | Oui | 
-| Hive\* | Oui | 
-| SAP ECC\* | Oui |
-| SAP Table | Oui |
-| SQL Server \* | Oui | 
-| Teradata\* | Oui |
-
-*\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
-
-> [!Note]
-> La fonctionnalité de traçabilité implique certaines surcharges de performances dans l’activité de copie Data Factory. Ceux qui configurent des connexions Data Factory dans Purview constateront peut-être que certaines tâches de copie prennent davantage de temps. Le plus souvent, l’impact est négligeable, voire nul. Veuillez contacter le support en indiquant la comparaison de durée si les travaux de copie prennent beaucoup plus de temps que d’habitude.
-
-#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitations connues de la traçabilité de l’activité Copy
-
-Si vous utilisez les fonctionnalités suivantes de l’activité Copy, la traçabilité n’est pas encore prise en charge :
-
-- Copie de données dans Azure Data Lake Storage Gen1 au format binaire
-- Copie de données dans Azure Synapse Analytics avec PolyBase ou l’instruction COPY
-- Paramètre de compression pour les fichiers binaires, texte délimité, Excel, JSON et XML
-- Options de partition source pour Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server et la table SAP
-- Option de détection de partition source pour les magasins basés sur des fichiers
-- Copie de données dans un récepteur basé sur des fichiers avec paramètre de nombre maximal de lignes par fichier
-- Ajout de colonnes supplémentaires pendant la copie
-
-En plus de la traçabilité des données, le schéma de la ressource de données (affiché sous l’onglet Ressource -> Schéma) est signalé pour les connecteurs suivants :
-
-- Fichiers CSV et Parquet sur Azure Blob,Azure File Storage, ADLS Gen1, ADLS Gen2 et Amazon S3
-- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
-
-### <a name="data-factory-data-flow-support"></a>Prise en charge de Data Flow dans Data Factory
+### <a name="data-flow-support"></a>Prise en charge de flux de données
 
 | Banque de données | Prise en charge |
 | ------------------- | ------------------- | 
@@ -169,23 +118,13 @@ En plus de la traçabilité des données, le schéma de la ressource de données
 
 *\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
 
-### <a name="data-factory-execute-ssis-package-support"></a>Prise en charge de l’exécution d’un package SSIS dans Data Factory
+### <a name="execute-ssis-package-support"></a>Exécuter la prise en charge du Package SSIS
 
-| Banque de données | Prise en charge |
-| ------------------- | ------------------- |
-| Stockage Blob Azure | Oui |
-| Azure Data Lake Storage Gen1 | Oui |
-| Azure Data Lake Storage Gen2 | Oui |
-| Stockage Fichier Azure | Oui |
-| Azure SQL Database \* | Oui |
-| Azure SQL Managed Instance\*| Oui |
-| Azure Synapse Analytics\* | Oui |
-| SQL Server \* | Oui |
+Consultez les [magasins de données pris en charge](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-*\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
+## <a name="bring-data-factory-lineage-into-purview"></a>Transférer la traçabilité Data Factory dans Purview
 
-> [!Note]
-> Azure Data Lake Storage Gen2 est maintenant en disponibilité générale. Nous vous recommandons de commencer à l’utiliser dès aujourd'hui. Pour plus d’informations, consultez la [page du produit](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+Pour une procédure pas à pas de bout en bout, reportez-vous au [Didacticiel : transmettre les données de traçabilité Data Factory à Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
 
 ## <a name="supported-lineage-patterns"></a>Modèles de traçabilité pris en charge
 
@@ -249,5 +188,8 @@ Dans l’exemple suivant, un ensemble de ressources Azure Data Lake Gen2 est gé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide de l’utilisateur sur la traçabilité Data Catalog](catalog-lineage-user-guide.md)
-- [Lien vers Azure Data Share pour la traçabilité](how-to-link-azure-data-share.md)
+[Tutoriel : Envoyer les données de traçabilité Data Factory à Azure Purview](../data-factory/turorial-push-lineage-to-purview.md)
+
+[Guide de l’utilisateur sur la traçabilité Data Catalog](catalog-lineage-user-guide.md)
+
+[Lien vers Azure Data Share pour la traçabilité](how-to-link-azure-data-share.md)

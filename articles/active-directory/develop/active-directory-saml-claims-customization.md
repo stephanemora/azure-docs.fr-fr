@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 25e737afb524cb8c6f45ac8e99f46a8064ae7855
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f0f943475fc397acf61c51fc3dc34cc9efdb1cfb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598837"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450564"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -50,7 +50,7 @@ Pour modifier le NameID (valeur d’identificateur du nom) :
 
 Si la requête SAML contient l’élément NameIDPolicy dans un format spécifique, la plateforme d’identités Microsoft respecte le format de la requête.
 
-Si la requête SAML ne contient aucun élément pour NameIDPolicy, alors la plateforme d’identités Microsoft émet la revendication NameID au format que vous spécifiez. Si aucun format n’est spécifié, la plateforme d’identités Microsoft utilise le format source par défaut associé à la source de la revendication sélectionnée.
+Si la requête SAML ne contient aucun élément pour NameIDPolicy, alors la plateforme d’identités Microsoft émet la revendication NameID au format que vous spécifiez. Si aucun format n’est spécifié, la plateforme d’identités Microsoft utilise le format source par défaut associé à la source de la revendication sélectionnée. Si une transformation génère une valeur null ou non conforme, Azure AD envoie un identificateur de paire persistant dans le nameIdentifier. 
 
 Dans le menu déroulant **Choisir le format du nom de l’identificateur**, vous pouvez sélectionner l’une des options suivantes.
 
@@ -98,7 +98,6 @@ Vous pouvez également utiliser les fonctions de transformation de revendication
 | Fonction | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Supprime le suffixe de domaine de l’adresse e-mail ou du nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com). |
-| **Join()** | Joint un attribut avec un domaine vérifié. Si la valeur d’identificateur utilisateur sélectionné possède un domaine, extrait le nom d’utilisateur pour ajouter le domaine vérifié sélectionné. Par exemple, si vous sélectionnez l’adresse e-mail (joe_smith@contoso.com) comme valeur d’identificateur utilisateur et que vous sélectionnez contoso.onmicrosoft.com comme domaine vérifié, le résultat est joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Convertit les caractères de l’attribut sélectionné en minuscules. |
 | **ToUpper()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
 
@@ -125,7 +124,7 @@ Vous pouvez utiliser les fonctions suivantes pour transformer des revendications
 | Fonction | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Supprime le suffixe de domaine de l’adresse e-mail ou du nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com). |
-| **Join()** | Crée une nouvelle valeur en joignant deux attributs. Si vous le souhaitez, vous pouvez utiliser un séparateur entre les deux attributs. Pour la transformation de revendication NameID, la jointure est limitée à un domaine vérifié. Si la valeur d’identificateur utilisateur sélectionné possède un domaine, extrait le nom d’utilisateur pour ajouter le domaine vérifié sélectionné. Par exemple, si vous sélectionnez l’adresse e-mail (joe_smith@contoso.com) comme valeur d’identificateur utilisateur et que vous sélectionnez contoso.onmicrosoft.com comme domaine vérifié, le résultat est joe_smith@contoso.onmicrosoft.com. |
+| **Join()** | Crée une nouvelle valeur en joignant deux attributs. Si vous le souhaitez, vous pouvez utiliser un séparateur entre les deux attributs. |
 | **ToLowercase()** | Convertit les caractères de l’attribut sélectionné en minuscules. |
 | **ToUppercase()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
 | **Contains()** | Génère un attribut ou une constante si l’entrée correspond à la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication où la valeur est l’adresse e-mail utilisateur si elle contient le domaine «@contoso.com». Dans ce cas, nous vous conseillons de générer le nom d’utilisateur principal. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.email<br/>*Valeur* : "@contoso.com"<br/>Paramètre 2 (sortie) : user.email<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.userprincipalname |
@@ -142,6 +141,13 @@ Vous pouvez utiliser les fonctions suivantes pour transformer des revendications
 | **IfNotEmpty()** | Génère un attribut ou une constante en sortie si l’entrée n’est pas Null ou vide.<br/>Par exemple, si vous souhaitez générer un attribut stocké dans un extensionattribute si l’ID d’employé pour un utilisateur donné n’est pas vide. Pour ce faire, configurez les valeurs suivantes :<br/>Paramètre 1 (entrée) : user.employeeid<br/>Paramètre 2 (sortie) : user.extensionattribute1 |
 
 Si vous avez besoin de transformations supplémentaires, soumettez votre idée dans le [Forum de commentaires Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) sous la catégorie *Application SaaS*.
+
+## <a name="add-the-upn-claim-to-saml-tokens"></a>Ajouter la revendication UPN à des jetons SAML
+
+La `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` revendication fait partie du [jeu de revendications restreint SAML](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set). Vous ne pouvez donc pas l’ajouter dans la section **Attributs et Revendications utilisateur**.  Pour contourner ce problème, vous pouvez l’ajouter en tant que [revendication facultative](active-directory-optional-claims.md) via **les Inscriptions d’applications** dans le portail Azure. 
+
+Ouvrez l’application dans **Inscriptions d’applications** et sélectionnez **Configuration du jeton**, puis **Ajouter une revendication facultative**. Sélectionnez le type de jeton **SAML**, choisissez **upn** dans la liste, et cliquez sur **Ajouter** pour obtenir la revendication du jeton.
+
 
 ## <a name="emitting-claims-based-on-conditions"></a>Émission de revendications basées sur des conditions
 

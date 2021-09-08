@@ -1,20 +1,20 @@
 ---
-title: 'Préversion : Créer une version d’image chiffrée avec vos propres clés'
+title: Créer une version d’image chiffrée avec vos propres clés
 description: Créez une version d’image dans une galerie d’images partagées à l’aide de clés de chiffrement gérées par le client.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/3/2020
-ms.author: cynthn
+ms.date: 7/1/2021
+ms.author: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20e5d4f0d9d3f8f8ab168ca7699f99bc40919b32
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c04dffcad178694f4f2548f38aa4c1d512c6fe60
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669475"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534948"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
@@ -48,40 +48,9 @@ Quand vous utilisez des clés gérées par le client pour chiffrer des images da
 - Après avoir utilisé vos propres clés pour chiffrer un disque ou une image, vous ne pouvez pas revenir à l’utilisation de clés gérées par la plateforme pour chiffrer ces disques ou images.
 
 
-> [!IMPORTANT]
-> Le chiffrement au moyen de clés gérées par le client est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 ## <a name="powershell"></a>PowerShell
 
-Pour la préversion publique, vous devez d’abord vous inscrire à la fonctionnalité :
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
-```
-
-L’inscription peut prendre quelques minutes. Utilisez `Get-AzProviderFeature` pour vérifier l’état de l’inscription de la fonctionnalité :
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
-```
-
-Quand `RegistrationState` retourne `Registered`, vous pouvez passer à l’étape suivante.
-
-Vérifiez l’inscription de votre fournisseur. Assurez-vous qu’elle retourne `Registered`.
-
-```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
-```
-
-Si elle ne retourne pas `Registered`, utilisez le code suivant pour inscrire les fournisseurs :
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-Afin de spécifier un jeu de chiffrement de disque pour une version d’image, utilisez [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) avec le paramètre `-TargetRegion` : 
+Afin de spécifier un jeu de chiffrement de disque pour une version d’image, utilisez [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion) avec le paramètre `-TargetRegion` : 
 
 ```azurepowershell-interactive
 
@@ -136,33 +105,6 @@ Pour les disques de données, ajoutez le paramètre `-DiskEncryptionSetId $setID
 
 ## <a name="cli"></a>Interface de ligne de commande 
 
-Pour la préversion publique, vous devez d’abord vous inscrire à la fonctionnalité. L’inscription prend environ 30 minutes.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name SIGEncryption
-```
-
-Vérifiez l’état d’inscription de la fonctionnalité :
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
-```
-
-Quand ce code retourne `"state": "Registered"`, vous pouvez passer à l’étape suivante.
-
-Vérifiez votre inscription :
-
-```azurecli-interactive
-az provider show -n Microsoft.Compute | grep registrationState
-```
-
-S’il ne retourne pas Registered, exécutez la commande suivante :
-
-```azurecli-interactive
-az provider register -n Microsoft.Compute
-```
-
-
 Afin de spécifier un jeu de chiffrement de disque pour une version d’image, utilisez [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create) avec le paramètre `--target-region-encryption`. Le format pour `--target-region-encryption` est une liste de clés, séparée par des virgules, pour le chiffrement des disques de système d’exploitation et de données. Ce que vous obtenez doit ressembler à ceci : `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 Si la source du disque du système d’exploitation est un disque managé ou une machine virtuelle, utilisez `--managed-image` pour spécifier la source de la version de l’image. Dans cet exemple, la source est une image managée qui possède un disque de système d’exploitation et un disque de données au numéro d’unité logique 0. Le disque du système d’exploitation sera chiffré avec DiskEncryptionSet1 et le disque de données avec DiskEncryptionSet2.
@@ -206,10 +148,6 @@ Vous pouvez créer une machine virtuelle à partir d’une galerie d’images pa
 ## <a name="portal"></a>Portail
 
 Quand vous créez votre version d’image dans le portail, vous pouvez utiliser l’onglet **Chiffrement** pour apliquer vos jeux de chiffrement de stockage.
-
-> [!IMPORTANT]
-> Pour utiliser le double chiffrement, vous devez utiliser le lien [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) pour accéder au portail Azure. Le double chiffrement au repos n’est actuellement pas visible dans le portail Azure public sans utiliser ce lien.
-
 
 1. Dans la page **Créer une version d’image**, sélectionnez l’onglet **Chiffrement**.
 2. Dans **Type de chiffrement**, sélectionnez **Chiffrement au repos avec une clé gérée par le client** ou **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**. 

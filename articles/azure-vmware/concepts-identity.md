@@ -2,27 +2,27 @@
 title: Concepts - Identité et accès
 description: Découvrir les concepts d’identité et d’accès de Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 832e2906656ef4da6cc9ad054927f17611fbbaf4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/29/2021
+ms.openlocfilehash: 7d6bcfc9426761615d1f9220f36834cc19eb09f8
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953165"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525549"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concepts d’identité d’Azure VMware Solution
 
-Les clouds privés Azure VMware Solution sont approvisionnés avec vCenter Server et NSX-T Manager. Vous utilisez vCenter pour gérer les charges de travail des machines virtuelles, et NSX-T Manager pour gérer et étendre le cloud privé. La gestion des accès et des identités utilise le rôle CloudAdmin pour vCenter et des droits d’administrateur restreints pour NSX-T Manager. 
+Les clouds privés Azure VMware Solution sont approvisionnés avec vCenter Server et NSX-T Manager. Vous utiliserez vCenter pour gérer les charges de travail des machines virtuelles et NSX-T Manager pour gérer et étendre le cloud privé. Le rôle de CloudAdmin est utilisé pour vCenter et les droits d’administrateur restreints pour NSX-T Manager. 
 
 ## <a name="vcenter-access-and-identity"></a>Identité et accès vCenter
 
-Dans Azure VMware Solution, vCenter a un utilisateur local intégré appelé cloudadmin et affecté au rôle CloudAdmin. L’utilisateur local cloudadmin est utilisé pour configurer des utilisateurs dans Active Directory (AD). En général, le rôle CloudAdmin crée et gère les charges de travail dans votre cloud privé. Toutefois, dans Azure VMware Solution, le rôle CloudAdmin dispose de privilèges vCenter qui diffèrent d’autres solutions cloud VMware.     
+Dans la Azure VMware Solution, vCenter possède un utilisateur local intégré appelé cloudadmin et affecté au rôle CloudAdmin. L’utilisateur local cloudadmin est utilisé pour configurer des utilisateurs dans Active Directory (AD). En général, le rôle CloudAdmin crée et gère les charges de travail dans votre cloud privé. Toutefois, dans Azure VMware Solution, le rôle CloudAdmin dispose de privilèges vCenter qui diffèrent d’autres solutions cloud VMware.     
 
 - Dans un déploiement local vCenter et ESXi, l’administrateur a accès au compte administrateur vCenter\@vsphere.local. Il peut également avoir d’autres utilisateurs et groupes AD attribués. 
 
 - Dans un déploiement Azure VMware Solution, l’administrateur n’a pas accès au compte d’utilisateur administrateur. Il peut cependant attribuer des utilisateurs et groupes AD au rôle CloudAdmin sur vCenter.  
 
-L’utilisateur de cloud privé n’a pas accès et ne peut pas configurer de composants de gestion spécifiques pris en charge et gérés par Microsoft. Par exemple, les clusters, les hôtes, les magasins de données et les commutateurs virtuels distribués.
+L’utilisateur de Cloud privé ne peut pas configurer les composants de gestion spécifiques pris en charge et gérés par Microsoft et n’y a pas accès. Par exemple, les clusters, les hôtes, les magasins de données et les commutateurs virtuels distribués.
 
 > [!IMPORTANT]
 > Azure VMware Solution propose des rôles personnalisés sur vCenter, mais pas sur le portail Azure VMware Solution. Pour plus d’informations, consultez la section [Créer des rôles personnalisés sur vCenter](#create-custom-roles-on-vcenter) plus loin dans cet article. 
@@ -31,13 +31,13 @@ L’utilisateur de cloud privé n’a pas accès et ne peut pas configurer de co
 
 Vous pouvez afficher les privilèges accordés au rôle CloudAdmin d’Azure VMware Solution sur votre instance vCenter de cloud privé Azure VMware Solution.
 
-1. Connectez-vous au client vSphere et accédez à **Menu** > **Administration**.
+1. Connectez-vous au Client vSphere et accédez à **Menu** > **Administration**.
 
 1. Sous **Access Control**, sélectionnez **Rôles**.
 
 1. Dans la liste des rôles, sélectionnez **CloudAdmin**, puis **Privilèges**. 
 
-   :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Comment afficher les privilèges du rôle CloudAdmin dans le client vSphere":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Capture d’écran montrant les rôles et les privilèges pour CloudAdmin dans le Client vSphere.":::
 
 Le rôle CloudAdmin dans Azure VMware Solution dispose des privilèges suivants sur vCenter. Pour plus d’informations, consultez la [documentation produit de VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
@@ -87,31 +87,31 @@ Pour empêcher la création de rôles qui ne peuvent pas être attribués ou sup
 
 #### <a name="apply-a-custom-role"></a>Appliquer un rôle personnalisé
 
-1. Accédez à l’objet qui requiert l’autorisation ajoutée. Par exemple, pour appliquer l’autorisation à un dossier, accédez à **Menu** > **Ordinateurs virtuels et modèles** > **Nom du dossier**.
+1. Accédez à l’objet qui requiert l’autorisation ajoutée. Par exemple, pour appliquer l’autorisation à un dossier, accédez à **Menu** > **Machines virtuelles et Modèles** > **Nom de dossier**.
 
 1. Cliquez avec le bouton droit sur l’objet et sélectionnez **Ajouter une autorisation**.
 
-1. Dans la fenêtre **Ajouter une autorisation**, sélectionnez la source d’identité dans la liste déroulante **Utilisateur** où se trouve le groupe ou l’utilisateur.
+1. Sélectionnez la Source d’identité dans la liste déroulante **Utilisateur** où se trouve le groupe ou l’utilisateur.
 
 1. Recherchez l’utilisateur ou le groupe après avoir sélectionné la source d’identité dans la section **Utilisateur**. 
 
-1. Sélectionnez le rôle qui sera appliqué à l’utilisateur ou au groupe.
+1. Sélectionnez le rôle que vous souhaitez appliquer à l’utilisateur ou au groupe.
 
 1. Activez la case à cocher **Se propager aux enfants** si nécessaire, puis sélectionnez **OK**. L’autorisation ajoutée s’affiche dans la section **Autorisations**.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Identité et accès du gestionnaire NSX-T
 
 >[!NOTE]
->NSX-T 2.5 est actuellement pris en charge pour tous les nouveaux clouds privés.
+>NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] est actuellement pris en charge pour tous les nouveaux clouds privés.
 
-Utilisez le compte *Administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. Les privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le portail Azure pour demander toute modification de votre passerelle NSX-T T0.
+Utilisez le compte *Administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. En outre, ces privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le Portail Azure pour demander toute modification de votre passerelle NSX-T T0.
 
  
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez abordé les concepts d’accès et d’identité d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
-- [Comment activer la ressource Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [Comment activer la ressource Azure VMware Solution](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)  
 - [Détails de chaque privilège](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
 - [Surveillance et réparation des clouds privés Azure VMware Solution](./concepts-private-clouds-clusters.md#host-monitoring-and-remediation)
 

@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: e49abce74f5f4ab3a624def8ec1eb1d674711462
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 8e5c39cbd31757116ec17df502c0958830841b07
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108759917"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468691"
 ---
 Azure Digital Twins utilise [Azure Active Directory (AAD)](../articles/active-directory/fundamentals/active-directory-whatis.md) pour le contrôle d’accès en fonction du rôle (RBAC). Cela signifie qu’avant qu’un utilisateur puisse effectuer des appels de plan de données à votre instance Azure Digital Twins, il doit se voir attribuer un rôle disposant des autorisations appropriées.
 
-Pour Azure Digital Twins, ce rôle est **Propriétaire de données Azure Digital Twins**. Pour en savoir plus sur les rôles et la sécurité, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](../articles/digital-twins/concepts-security.md).
+Pour Azure Digital Twins, ce rôle est **Propriétaire de données Azure Digital Twins**. Vous pouvez en savoir plus sur les rôles et la sécurité dans [Sécurité pour les solutions Azure Digital Twins](../articles/digital-twins/concepts-security.md).
 
 > [!NOTE]
 > Ce rôle diffère du rôle Azure AD **Propriétaire** qui peut également être attribué à l’étendue de l’instance Azure Digital Twins. Il s’agit de deux rôles de gestion distincts. Le rôle Propriétaire n’octroie pas d’accès aux fonctionnalités de plan de données qui sont accordées avec le rôle **Propriétaire de données Azure Digital Twins**.

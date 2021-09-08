@@ -11,29 +11,35 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconnaissance de l’intention
-ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: c4a81c5f666b9cb42b642390ba79ca2a1bf7232b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210361"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710090"
 ---
 # <a name="what-is-intent-recognition"></a>Qu’est-ce que la reconnaissance de l’intention ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Dans cette vue d’ensemble, vous découvrez les avantages et les capacités du service de reconnaissance de l’intention. Le SDK Speech de Cognitive Services s’intègre au Language Understanding Intelligent Service (LUIS) pour fournir la reconnaissance des intentions. Une intention est quelque chose que l’utilisateur souhaite faire : réserver un vol, vérifier la météo ou effectuer un appel.
-Grâce à la reconnaissance de l’intention, vos applications, outils et appareils peuvent déterminer ce que l’utilisateur souhaite lancer ou faire en fonction des options que vous définissez dans LUIS.
+Dans cette vue d’ensemble, vous découvrez les avantages et les capacités de la reconnaissance de l’intention. Le kit de développement logiciel (SDK) des Cognitive Services Speech fournit deux méthodes pour reconnaître les intentions, lesquelles sont décrites ci-dessous. Une intention est quelque chose que l’utilisateur souhaite faire : réserver un vol, vérifier la météo ou effectuer un appel. Grâce à la reconnaissance de l’intention, vos applications, outils et appareils peuvent déterminer ce que l’utilisateur souhaite lancer ou faire en fonction des options que vous définissez dans le Module de reconnaissance de l’intention ou dans LUIS.
 
-## <a name="luis-key-required"></a>Clé LUIS obligatoire
+## <a name="pattern-matching"></a>Critères spéciaux
+Le kit de développement logiciel (SDK) fournit un matching de modèle incorporé que vous pouvez utiliser pour reconnaître les intentions de manière très stricte. Cela est utile lorsque vous avez besoin d’une solution hors connexion rapide. Cela fonctionne particulièrement bien lorsque l’utilisateur sera formé d’une certaine façon ou qu’il est supposé qu’il utilisera des expressions spécifiques pour déclencher des intentions. Par exemple : « Aller au 7e étage » ou « Allumer la lampe », etc. Nous vous recommandons de commencer ici et, si cela ne répond plus à vos besoins, de passer à l’utilisation de LUIS ou une combinaison des deux. 
+
+## <a name="luis-language-understanding-intent-service"></a>LUIS (Language Understanding Intent Service)
+Le service Microsoft LUIS est disponible sous la forme d’un service d’intention d’IA complet qui fonctionne bien lorsque votre domaine d’intentions possibles est important et que vous ne savez pas vraiment ce que l’utilisateur va dire. Il prend en charge de nombreux scénarios complexes, des intentions et des entités.
+
+### <a name="luis-key-required"></a>Clé LUIS obligatoire
 
 * LUIS s’intègre au service Speech pour reconnaître les intentions à partir de la reconnaissance vocale. Vous n’avez besoin que de LUIS, aucun abonnement au service Speech n’est nécessaire.
 * La reconnaissance de l’intention de Speech est intégrée au Kit de développement logiciel (SDK). Vous pouvez utiliser une clé LUIS avec le service Speech.
 * La reconnaissance de l’intention par le biais du Kit de développement logiciel (SDK) Speech est [proposée dans un sous-ensemble de régions pris en charge par LUIS](./regions.md#intent-recognition).
 
 ## <a name="get-started"></a>Bien démarrer
+Consultez ce [guide](how-to-use-simple-language-pattern-matching.md) pour la prise en main des critères spéciaux.
 
-Consultez le [démarrage rapide](get-started-intent-recognition.md) pour prendre en main la reconnaissance de l’intention.
+Consultez ce [démarrage rapide](get-started-intent-recognition.md) pour prendre en main la reconnaissance de l’intention LUIS.
 
 ## <a name="sample-code"></a>Exemple de code
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: b15ee7091a68f7fcc79c71877c4af28b511b84de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0145460746665756f007c50845a279743dc60ae1
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680137"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666317"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
-Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données. Elles servent à représenter la densité de données à l’aide d’une palette de couleurs et affichent les « zones réactives » des données sur une carte. Les cartes thermiques sont un excellent moyen de restituer des jeux de données dotés d’un grand nombre de points. 
+Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données. Elles servent à représenter la densité de données à l’aide d’une palette de couleurs et affichent les « zones réactives » des données sur une carte. Les cartes thermiques sont un excellent moyen de restituer des jeux de données dotés d’un grand nombre de points.
 
 Le rendu de dizaines de milliers de points sous forme de symboles peut couvrir la plus grande partie de la surface de la carte. Dans ce cas, il est probable que de nombreux symboles se chevauchent. Il est alors difficile d’avoir une meilleure compréhension des données. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où la densité ainsi que la densité relative de chaque point de données.
 
@@ -68,19 +68,19 @@ Voici l’exemple complet du code précédent.
 Dans l’exemple précédent, la carte thermique a été personnalisée à l’aide des options de rayon et d’opacité. La couche de carte thermique offre plusieurs options de personnalisation, dont :
 
 * `radius`: définit un rayon de pixels dans lequel restituer chaque point de données. Vous pouvez définir le rayon en tant que nombre fixe ou expression. Il est possible, avec une expression, d’adapter le rayon en fonction du niveau de zoom, pour représenter une zone spatiale cohérente sur la carte (par exemple, un rayon de 5 miles).
-* `color`: spécifie la façon dont la carte thermique est colorisée. Un dégradé de couleur est une caractéristique courante des cartes thermiques. Vous pouvez obtenir l’effet grâce à une expression `interpolate`. Vous pouvez également utiliser une expression `step` pour coloriser la carte thermique décompose visuellement la densité en plages. Elle ressemble ainsi davantage à une carte de style de contours ou de radars. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité. 
+* `color`: spécifie la façon dont la carte thermique est colorisée. Un dégradé de couleur est une caractéristique courante des cartes thermiques. Vous pouvez obtenir l’effet grâce à une expression `interpolate`. Vous pouvez également utiliser une expression `step` pour coloriser la carte thermique décompose visuellement la densité en plages. Elle ressemble ainsi davantage à une carte de style de contours ou de radars. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité.
 
-  Vous spécifiez les valeurs de couleurs des cartes thermiques comme expressions de valeur `heatmap-density`. La couleur de la zone dans laquelle aucune donnée n’existe est définie au niveau de l’index 0 de l’expression « Interpolation » ou par la couleur par défaut d’une expression « en étapes ». Vous pouvez utiliser cette valeur pour définir une couleur d’arrière-plan. Souvent, cette valeur est définie sur une couleur noire transparente ou semi-transparente. 
-   
+  Vous spécifiez les valeurs de couleurs des cartes thermiques comme expressions de valeur `heatmap-density`. La couleur de la zone dans laquelle aucune donnée n’existe est définie au niveau de l’index 0 de l’expression « Interpolation » ou par la couleur par défaut d’une expression « en étapes ». Vous pouvez utiliser cette valeur pour définir une couleur d’arrière-plan. Souvent, cette valeur est définie sur une couleur noire transparente ou semi-transparente.
+
   Voici des exemples d’expressions de couleurs :
 
   | Expression d’interpolation des couleurs | Expression d’échelle de couleurs | 
   |--------------------------------|--------------------------|
-  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |   
+  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |
 
 - `opacity`: spécifie le niveau d’opacité ou de transparence de la couche de carte thermique.
 - `intensity`: applique un multiplicateur à l’épaisseur de chaque point de données pour augmenter l’intensité globale de la carte thermique. Cela différencie l’épaisseur des points de données et facilite la visualisation.
-- `weight`: par défaut, tous les points de données ont une épaisseur de 1, et ont donc tous la même épaisseur. L’option d’épaisseur fait office de multiplicateur, et vous pouvez la définir en tant que nombre ou expression. Si un nombre est défini comme épaisseur, cela équivaut à placer deux fois chaque point de données sur la carte. Par exemple, si l’épaisseur est de 2, alors la densité est doublée. Le fait de définir l’option d’épaisseur sur un nombre permet d’afficher la carte thermique comme vous le feriez à l’aide d’une option d’intensité. 
+- `weight`: par défaut, tous les points de données ont une épaisseur de 1, et ont donc tous la même épaisseur. L’option d’épaisseur fait office de multiplicateur, et vous pouvez la définir en tant que nombre ou expression. Si un nombre est défini comme épaisseur, cela équivaut à placer deux fois chaque point de données sur la carte. Par exemple, si l’épaisseur est de 2, alors la densité est doublée. Le fait de définir l’option d’épaisseur sur un nombre permet d’afficher la carte thermique comme vous le feriez à l’aide d’une option d’intensité.
 
   Toutefois, si vous utilisez une expression, le poids de chaque point de données peut être basé sur les propriétés de chaque point de données. Par exemple, supposons que chaque point de données représente un tremblement de terre. La valeur de magnitude est une métrique importante de chaque point de données de tremblement de terre. Des tremblements de terre se produisent constamment, mais la plupart d’entre eux ont une magnitude faible et ne sont pas remarqués. Utilisez la valeur de magnitude dans une expression pour attribuer l’épaisseur à chaque point de données. Le fait d’utiliser la valeur de magnitude pour attribuer une épaisseur vous donne une meilleure représentation de la précision des tremblements de terre sur la carte thermique.
 - `source` et `source-layer` : vous permettent de mettre à jour la source de données.
@@ -94,9 +94,9 @@ Voici un outil permettant de tester les options de couche de carte thermique.
 
 ## <a name="consistent-zoomable-heat-map"></a>Carte thermique homogène pouvant faire l’objet d’un zoom
 
-Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Lorsque vous zoomez sur la carte, les données sont agrégées, et la couche de carte thermique change d’aspect. 
+Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Lorsque vous zoomez sur la carte, les données sont agrégées, et la couche de carte thermique change d’aspect.
 
-Utilisez une expression `zoom` pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Cette expression fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. 
+Utilisez une expression `zoom` pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Cette expression fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent.
 
 La mise à l’échelle du rayon de sorte qu’il soit multiplié par deux avec chaque niveau de zoom crée une carte thermique qui paraît cohérente sur tous les niveaux de zoom. Pour appliquer cette mise à l’échelle, utilisez `zoom` avec une expression `exponential interpolation` de base 2, avec le rayon de pixels défini pour le niveau de zoom minimal et un rayon mis à l’échelle pour le niveau de zoom maximal calculé en tant que `2 * Math.pow(2, minZoom - maxZoom)` comme indiqué dans l’exemple suivant. Effectuez un zoom sur la carte pour voir comment la carte thermique évolue avec le niveau de zoom.
 
@@ -106,8 +106,20 @@ La mise à l’échelle du rayon de sorte qu’il soit multiplié par deux avec 
 Consultez <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zoomable heat map</a> (Carte thermique pouvant faire l’objet d’un zoom) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+L’expression `zoom` peut uniquement être utilisée avec dans les expressions `step` et `interpolate`. L’expression suivante peut être utilisée pour rapprocher un rayon en mètres. Cette expression utilise un espace réservé `radiusMeters` que vous devez remplacer par le rayon de votre choix. Cette expression calcule le rayon de pixel approximatif pour un niveau de zoom à l’Équateur pour les niveaux de zoom 0 et 24, et utilise une `exponential interpolation` expression pour mettre à l’échelle ces valeurs de la même façon que le système de mosaïques dans la carte.
+
+```json
+[
+    `'interpolate', 
+    ['exponential', 2],
+    ['zoom'],
+    0, ['*', radiusMeters, 0.000012776039596366526],
+    24, [`'*', radiusMeters, 214.34637593279402]
+]
+```
+
 > [!TIP]
-> Lorsque vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Vous pouvez utiliser le nombre de points de chaque cluster comme expression d’épaisseur pour la carte thermique. Cela peut réduire de manière significative le nombre de points à restituer. Le nombre de points d’un cluster est stocké dans une propriété `point_count` de la fonctionnalité de point : 
+> Lorsque vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Vous pouvez utiliser le nombre de points de chaque cluster comme expression d’épaisseur pour la carte thermique. Cela peut réduire de manière significative le nombre de points à restituer. Le nombre de points d’un cluster est stocké dans une propriété `point_count` de la fonctionnalité de point :
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']

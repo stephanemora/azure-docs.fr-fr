@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 810a62dee277453d4cc2f41c72d0868549d711cf
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: b11fff95543abb4fc74b2087deffe56786998e28
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653217"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525673"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
@@ -75,7 +75,7 @@ Le niveau d’accès froid possède des coûts de stockage plus faibles et des c
 
 ## <a name="archive-access-tier"></a>Niveau d’accès archive
 
-Le niveau d’accès archive dispose du plus faible coût de stockage, mais les coûts d’extraction de données sont plus élevés par rapport aux niveaux chaud et froid. Les données doivent rester dans le niveau d’accès archive pendant au moins 180 jours ; sinon, elles sont soumises à des frais de suppression anticipée. La récupération des données du niveau de stockage archive peut prendre plusieurs heures selon la priorité de la réactivation spécifiée. Pour les petits objets, une réactivation de haute priorité permet de récupérer l’objet à partir de l’archive en moins d’une heure. Pour en savoir plus, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
+Le niveau d’accès archive dispose du plus faible coût de stockage, mais les coûts d’extraction de données sont plus élevés par rapport aux niveaux chaud et froid. Les données doivent rester dans le niveau d’accès archive pendant au moins 180 jours ; sinon, elles sont soumises à des frais de suppression anticipée. La récupération des données du niveau de stockage archive peut prendre plusieurs heures selon la priorité de la réactivation spécifiée. Pour les petits objets, une réactivation de haute priorité permet de récupérer l’objet à partir de l’archive en moins d’une heure. Voir [Vue d’ensemble de la réactivation des objets blob à partir du niveau Archive](archive-rehydrate-overview.md) pour en savoir plus.
 
 Tant qu’un objet blob se trouve dans un stockage archive, les données blob sont hors connexion et ne peuvent pas être lues ni modifiées. Pour lire ou télécharger un objet blob dans une archive, vous devez d’abord le réalimenter vers un niveau en ligne. Vous ne pouvez pas prendre de captures instantanées d’un objet blob dans un stockage archive. Toutefois, les métadonnées de l’objet blob restent en ligne et disponibles, ce qui vous permet de lister l’objet blob, ses propriétés, ses métadonnées et ses balises d’index. Ni la définition ni la modification des métadonnées d’objet blob ne sont autorisées dans l’archive. Toutefois, vous pouvez définir et modifier les balises d’index des objets blob. Pour les objets blob en archive, les seules opérations valides sont [Obtenir les propriétés d’un objet blob](/rest/api/storageservices/get-blob-properties), [Obtenir les métadonnées de l’objet blob](/rest/api/storageservices/get-blob-metadata), [Définir des étiquettes d’objet blob](/rest/api/storageservices/set-blob-tags), [Obtenir les étiquettes d’objet blob](/rest/api/storageservices/get-blob-tags), [Rechercher des objets blob par étiquettes](/rest/api/storageservices/find-blobs-by-tags), [Liste des blobs](/rest/api/storageservices/list-blobs), [Définir un niveau d’objet blob](/rest/api/storageservices/set-blob-tier), [Copier l’objet blob](/rest/api/storageservices/copy-blob) et [Supprimer l’objet blob](/rest/api/storageservices/delete-blob).
 
@@ -122,7 +122,7 @@ Lorsqu’un objet blob est chargé ou que son niveau est modifié, il est factur
 
 Quand un objet blob est déplacé vers un niveau plus froid (chaud -> froid, chaud -> archive ou froid -> archive), l’opération est facturée comme une opération d’écriture dans le niveau de destination, où les taux du niveau de destination s’appliquent également aux opérations d’écriture (par 10 000) ainsi qu’à l’écriture des données (par Go).
 
-Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, archive->chaud ou froid->chaud), l’opération est facturée comme une lecture à partir du niveau source, facturée aux tarifs des opérations de lecture (par 10 000) et d’extraction de données (par Go) du niveau source. Des frais de [suppression anticipée](#cool-and-archive-early-deletion) peuvent également s’appliquer pour tout objet blob déplacé hors du niveau froid ou archive. [La réactivation des données à partir du niveau archive](storage-blob-rehydration.md) prend du temps et les données sont facturées au prix du niveau archive jusqu’à leur restauration en ligne et la définition du niveau chaud ou froid pour le blob.
+Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, archive->chaud ou froid->chaud), l’opération est facturée comme une lecture à partir du niveau source, facturée aux tarifs des opérations de lecture (par 10 000) et d’extraction de données (par Go) du niveau source. Des frais de [suppression anticipée](#cool-and-archive-early-deletion) peuvent également s’appliquer pour tout objet blob déplacé hors du niveau froid ou archive. [La réactivation des données à partir du niveau archive](archive-rehydrate-overview.md) prend du temps et les données sont facturées au prix du niveau archive jusqu’à leur restauration en ligne et la définition du niveau chaud ou froid pour le blob.
 
 Le tableau suivant résume la facturation des changements de niveau.
 
@@ -155,7 +155,7 @@ Le tableau suivant présente une comparaison du stockage d’objets blob de bloc
 
 <sup>1</sup> Les objets du niveau froid sur des comptes GPv2 ont une durée de rétention minimale de 30 jours. Les comptes Stockage Blob n’ont pas de durée de rétention minimale pour le niveau d’accès froid.
 
-<sup>2</sup> Stockage archive prend actuellement en charge deux priorités de réactivation, haute et standard, offrant différents coûts et latences d’extraction. Pour plus d’informations, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
+<sup>2</sup> Stockage archive prend actuellement en charge deux priorités de réactivation, haute et standard, offrant différents coûts et latences d’extraction. Pour plus d’informations, voir [Vue d’ensemble de la réactivation d’objets blob à partir du niveau Archive](archive-rehydrate-overview.md).
 
 > [!NOTE]
 > Les comptes Stockage Blob présentent les mêmes objectifs de performance et de scalabilité que les comptes de stockage à usage général v2. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour Stockage Blob](scalability-targets.md).

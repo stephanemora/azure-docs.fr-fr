@@ -2,14 +2,14 @@
 title: Fournisseurs et types de ressources
 description: Décrit les fournisseurs de ressources qui prennent en charge Azure Resource Manager. Il décrit leurs schémas, les versions d’API disponibles et les régions qui peuvent héberger les ressources.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d33debc8a7cfd72e919f7e93e1af50a653fa651e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7e8ebf6217296b4792887dc0af2c40fc66a9dd85
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968277"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038953"
 ---
 # <a name="azure-resource-providers-and-types"></a>Fournisseurs et types de ressources Azure
 
@@ -32,16 +32,19 @@ Pour obtenir la liste qui mappe les fournisseurs de ressources aux services Azur
 
 ## <a name="register-resource-provider"></a>S’inscrire auprès du fournisseur de ressources
 
-Pour pouvoir utiliser un fournisseur de ressources, votre abonnement Azure doit être inscrit pour le fournisseur de ressources. L’inscription permet de configurer votre abonnement pour qu’il fonctionne avec le fournisseur de ressources. Certains fournisseurs de ressources sont inscrits par défaut. Pour obtenir la liste des fournisseurs de ressources inscrits par défaut, consultez [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
-
-D’autres fournisseurs de ressources sont inscrits automatiquement lorsque vous effectuez certaines actions. Lorsque vous déployez un modèle Azure Resource Manager, tous les fournisseurs de ressources requis sont automatiquement inscrits. Lorsque vous créez une ressource via le portail, le fournisseur de ressources est généralement inscrit pour vous. Pour d’autres scénarios, il se peut que vous deviez inscrire manuellement un fournisseur de ressources. 
-
-Cet article vous montre comment vérifier l’état d’inscription d’un fournisseur de ressources et comment l’inscrire si nécessaire. Vous devez être autorisé à effectuer l’opération `/register/action` pour le fournisseur de ressources. Cette autorisation est incluse dans les rôles Contributeur et Propriétaire.
+Pour pouvoir utiliser un fournisseur de ressources, votre abonnement Azure doit être inscrit pour le fournisseur de ressources. L’inscription permet de configurer votre abonnement pour qu’il fonctionne avec le fournisseur de ressources. 
 
 > [!IMPORTANT]
 > Inscrivez un fournisseur de ressources uniquement au moment où vous êtes prêt à l’utiliser. L’étape d’inscription vous permet de conserver les privilèges minimaux dans votre abonnement. Un utilisateur malveillant ne peut pas utiliser de fournisseurs de ressources qui ne sont pas inscrits.
 
-Votre code d’application ne doit pas bloquer la création de ressources pour un fournisseur de ressources qui est **en cours d’inscription**. Lorsque vous inscrivez le fournisseur de ressources, l’opération est effectuée individuellement pour chaque région prise en charge. Pour créer des ressources dans une région, l’inscription doit uniquement être effectuée dans cette région. En ne bloquant pas le fournisseur de ressources à l’état d’inscription en cours, votre application peut poursuivre beaucoup plus tôt qu’en attendant la fin de l’inscription pour toutes les régions.
+Certains fournisseurs de ressources sont inscrits par défaut. Pour obtenir la liste des fournisseurs de ressources inscrits par défaut, consultez [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
+
+D’autres fournisseurs de ressources sont inscrits automatiquement lorsque vous effectuez certaines actions. Lorsque vous déployez un modèle Azure Resource Manager, tous les fournisseurs de ressources requis sont automatiquement inscrits. Lorsque vous créez une ressource via le portail, le fournisseur de ressources est généralement inscrit pour vous. Pour d’autres scénarios, il se peut que vous deviez inscrire manuellement un fournisseur de ressources. 
+
+> [!IMPORTANT]
+> Votre code d’application **ne doit pas bloquer la création de ressources** pour un fournisseur de ressources qui est **en cours d’inscription**. Lorsque vous inscrivez le fournisseur de ressources, l’opération est effectuée individuellement pour chaque région prise en charge. Pour créer des ressources dans une région, l’inscription doit uniquement être effectuée dans cette région. En ne bloquant pas le fournisseur de ressources à l’état d’inscription en cours, votre application peut poursuivre beaucoup plus tôt qu’en attendant la fin de l’inscription pour toutes les régions.
+
+Vous devez être autorisé à effectuer l’opération `/register/action` pour le fournisseur de ressources. Cette autorisation est incluse dans les rôles Contributeur et Propriétaire.
 
 Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources quand vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
@@ -67,6 +70,10 @@ Pour afficher tous les fournisseurs de ressources et l'état d'inscription de vo
 6. Recherchez le fournisseur de ressources que vous souhaitez inscrire, puis sélectionnez **Inscrire**. Pour conserver les privilèges minimaux dans votre abonnement, inscrivez uniquement les fournisseurs de ressources que vous êtes prêt à utiliser.
 
    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Inscription des fournisseurs de ressources":::
+
+> [!IMPORTANT]
+> Comme [indiqué précédemment](#register-resource-provider), **ne bloquez pas la création de ressources** pour un fournisseur de ressources qui est **en cours d’inscription**. En ne bloquant pas le fournisseur de ressources à l’état d’inscription en cours, votre application peut poursuivre beaucoup plus tôt qu’en attendant la fin de l’inscription pour toutes les régions.
+
 
 ### <a name="view-resource-provider"></a>Afficher un fournisseur de ressources
 
@@ -102,7 +109,7 @@ Pour afficher tous les fournisseurs de ressources dans Azure et l’état de l�
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
-Qui retourne des résultats semblables à :
+Cette commande renvoie :
 
 ```output
 ProviderNamespace                RegistrationState
@@ -126,7 +133,7 @@ Pour conserver les privilèges minimaux dans votre abonnement, inscrivez uniquem
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-Qui retourne des résultats semblables à :
+Cette commande renvoie :
 
 ```output
 ProviderNamespace : Microsoft.Batch
@@ -135,13 +142,16 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
+> [!IMPORTANT]
+> Comme [indiqué précédemment](#register-resource-provider), **ne bloquez pas la création de ressources** pour un fournisseur de ressources qui est **en cours d’inscription**. En ne bloquant pas le fournisseur de ressources à l’état d’inscription en cours, votre application peut poursuivre beaucoup plus tôt qu’en attendant la fin de l’inscription pour toutes les régions.
+
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-Qui retourne des résultats semblables à :
+Cette commande renvoie :
 
 ```output
 {ProviderNamespace : Microsoft.Batch
@@ -158,7 +168,7 @@ Pour afficher les types de ressources pour un fournisseur de ressources, utilise
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-Résultat :
+Cette commande renvoie :
 
 ```output
 batchAccounts
@@ -175,7 +185,7 @@ Pour obtenir les versions d’API disponibles pour un type de ressource, utilise
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-Résultat :
+Cette commande renvoie :
 
 ```output
 2017-05-01
@@ -193,7 +203,7 @@ Pour obtenir les emplacements pris en charge pour un type de ressource, utilisez
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-Résultat :
+Cette commande renvoie :
 
 ```output
 West Europe
@@ -211,7 +221,7 @@ Pour afficher tous les fournisseurs de ressources dans Azure et l’état de l�
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-Qui retourne des résultats semblables à :
+Cette commande renvoie :
 
 ```output
 Provider                         Status
@@ -235,7 +245,7 @@ Pour conserver les privilèges minimaux dans votre abonnement, inscrivez uniquem
 az provider register --namespace Microsoft.Batch
 ```
 
-Qui retourne un message indiquant que l’inscription est en cours.
+La commande retourne un message indiquant que l’inscription est en cours.
 
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
@@ -243,7 +253,7 @@ Pour afficher des informations pour un fournisseur de ressources particulier, ut
 az provider show --namespace Microsoft.Batch
 ```
 
-Qui retourne des résultats semblables à :
+Cette commande renvoie :
 
 ```output
 {
@@ -256,13 +266,16 @@ Qui retourne des résultats semblables à :
 }
 ```
 
+> [!IMPORTANT]
+> Comme [indiqué précédemment](#register-resource-provider), **ne bloquez pas la création de ressources** pour un fournisseur de ressources qui est **en cours d’inscription**. En ne bloquant pas le fournisseur de ressources à l’état d’inscription en cours, votre application peut poursuivre beaucoup plus tôt qu’en attendant la fin de l’inscription pour toutes les régions.
+
 Pour afficher les types de ressources pour un fournisseur de ressources, utilisez :
 
 ```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-Résultat :
+Cette commande renvoie :
 
 ```output
 Result
@@ -281,7 +294,7 @@ Pour obtenir les versions d’API disponibles pour un type de ressource, utilise
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-Résultat :
+Cette commande renvoie :
 
 ```output
 Result
@@ -301,7 +314,7 @@ Pour obtenir les emplacements pris en charge pour un type de ressource, utilisez
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-Résultat :
+Cette commande renvoie :
 
 ```output
 Result

@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 325a2feb0cf29a03a88249e2d0ac3a22f685d498
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2a725512f3fa18a9af43d2725cda4ce1248e796a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694558"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524639"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -30,6 +30,14 @@ Une copie de base de données est un instantané cohérent d’un point de vue t
 
 > [!NOTE]
 > La redondance configurable du stockage de sauvegarde Azure SQL Database est actuellement disponible uniquement en préversion publique dans la région Brésil Sud et mise à la disposition générale dans la région Azure Asie Sud-Est. Dans la préversion, si la base de données source est créée avec une redondance de stockage de sauvegarde localement redondante ou redondante interzone, la copie de la base de données sur un serveur dans une région Azure différente n’est pas prise en charge. 
+
+## <a name="database-copy-for-azure-sql-hyperscale"></a>Copie de base de données pour Azure SQL Hyperscale
+
+Pour Azure SQL Hyperscale, la base de données cible détermine si la copie est une copie rapide ou une taille de copie des données.
+
+Copie rapide : lorsque la copie est effectuée dans la même région que la source, la copie est créée à partir des captures instantanées d’objets BLOB, cette copie est une opération rapide, quelle que soit la taille de la base de données.
+
+Taille de la copie des données : lorsque la base de données cible se trouve dans une autre région que la source ou si la redondance du stockage de la sauvegarde de la base de données (locale, zonale, géo) de la cible diffère de celle de la base de données source, l’opération de copie est une taille de l’opération de données. L’heure de copie ne sera pas directement proportionnelle à la taille, car les objets blob de serveur de pages sont copiés en parallèle.
 
 ## <a name="logins-in-the-database-copy"></a>Connexions dans la copie de la base de données
 
@@ -86,7 +94,11 @@ Démarrez la copie de la base de données source avec l’instruction [CREATE DA
 
 > [!NOTE]
 > L’arrêt de l’instruction T-SQL ne met pas fin à l'opération de copie de la base de données. Pour mettre fin à l'opération, supprimez la base de données cible.
->
+> [!NOTE]
+> La copie de base de données n’est pas prise en charge lorsque les serveurs source et/ou de destination ont un point de terminaison privé configuré et que l’accès au réseau public est désactivé. Si le point de terminaison privé est configuré mais que l’accès au réseau public est autorisé, le lancement de la copie de la base de données lors de la connexion au serveur de destination à partir d’une adresse IP publique réussira.
+Pour déterminer l’adresse IP source de la connexion actuelle, exécutez `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`
+ 
+
 
 > [!IMPORTANT]
 > La sélection de la redondance du stockage de sauvegarde lors de l’utilisation de la commande T-SQL CREATE DATABASE... AS COPY OF n’est pas encore prise en charge. 

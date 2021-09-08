@@ -2,13 +2,13 @@
 title: App Service sur Azure Arc
 description: Introduction à l’intégration d’App Service avec Azure arc pour opérateurs Azure.
 ms.topic: article
-ms.date: 05/03/2021
-ms.openlocfilehash: bbdb7fb1426a5c63e579929806caa1b2008f11eb
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/17/2021
+ms.openlocfilehash: bd5e257d48ec009ccb79696f4c299fd93568f1c9
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590087"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527774"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>App Service, Functions et Logic Apps sur Azure Arc (préversion)
 
@@ -73,8 +73,10 @@ Une seule ressource d’environnement Kubernetes peut être créée dans un empl
 - [Quelles sont les fonctionnalités d’App Service prises en charge ?](#which-app-service-features-are-supported)
 - [Les fonctionnalités réseau sont-elles prises en charge ?](#are-networking-features-supported)
 - [Les identités gérées sont-elles prises en charge ?](#are-managed-identities-supported)
+- [Existe-t-il des limites de mise à l’échelle ?](#are-there-any-scaling-limits)
 - [Quels journaux sont collectés ?](#what-logs-are-collected)
 - [Que dois-je faire si une erreur d’inscription du fournisseur s’affiche ?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [Puis-je déployer l’extension des Services d’application sur un cluster basé sur ARM64 ?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 
 ### <a name="how-much-does-it-cost"></a>Quel est son coût ?
 
@@ -104,6 +106,10 @@ Non. Les fonctionnalités de mise en réseau, telles que les connexions hybrides
 
 Non. Les applications ne peuvent pas recevoir d’identités managées lors de l’exécution dans Azure Arc. Si votre application a besoin d’une identité pour travailler avec une autre ressource Azure, envisagez d’utiliser un [principal de service d’application](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à la place.
 
+### <a name="are-there-any-scaling-limits"></a>Existe-t-il des limites de mise à l’échelle ?
+
+Toutes les applications déployées avec Azure App Service sur Kubernetes avec Azure Arc peuvent être mises à l’échelle dans les limites du cluster Kubernetes sous-jacent.  Si le cluster Kubernetes sous-jacent ne dispose pas des ressources de calcul disponibles (principalement du processeur et de la mémoire), les applications peuvent alors uniquement mettre à l’échelle le nombre d’instances de l’application que Kubernetes peut planifier avec la ressource disponible.
+
 ### <a name="what-logs-are-collected"></a>Quels journaux sont collectés ?
 
 Les journaux des composants système et de vos applications sont écrits dans une sortie standard. Il est possible de collecter les deux types de journaux à des fins d’analyse à l’aide d’outils Kubernetes standard. Vous pouvez également configurer l’extension de cluster App Service avec un [espace de travail Log Analytics](../azure-monitor/logs/log-analytics-overview.md) afin d’envoyer tous les journaux à cet espace de travail.
@@ -113,6 +119,10 @@ Par défaut, les journaux des composants système sont envoyés à l’équipe A
 ### <a name="what-do-i-do-if-i-see-a-provider-registration-error"></a>Que dois-je faire si une erreur d’inscription du fournisseur s’affiche ?
 
 Lors de la création d’une ressource d’environnement Kubernetes, certains abonnements peuvent recevoir un message d’erreur indiquant qu’Aucun fournisseur de ressources inscrit n’a été trouvé. Les détails de l’erreur peuvent inclure un ensemble d’emplacements et de versions d’API considérés comme valides. Dans ce cas, il se peut que l’abonnement doive être réinscrit auprès du fournisseur Microsoft.Web. Cette opération n’a aucune incidence sur les applications ou API existantes. Pour vous réinscrire, dans Azure CLI, exécutez la commande `az provider register --namespace Microsoft.Web --wait`. Réexécutez ensuite la commande d’environnement Kubernetes.
+
+### <a name="can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster"></a>Puis-je déployer l’extension des Services d’application sur un cluster basé sur ARM64 ?
+
+Les clusters basés sur ARM64 ne sont pas pris en charge pour l’instant.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
