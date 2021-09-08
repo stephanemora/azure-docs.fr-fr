@@ -1,16 +1,16 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/04/2021
-ms.author: lajanuar
-ms.openlocfilehash: da985c405dde8b66e8562abd8689acaba405b60f
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 67fc77b58d484c9fbb85029f0222e0d352e17428
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071732"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543310"
 ---
 Pour terminer le démarrage rapide de reconnaissance de l’intention, vous devez créer un compte LUIS et un projet à partir de la préversion du portail LUIS. Ce guide de démarrage rapide nécessite un abonnement LUIS [dans une région où la reconnaissance d’intention est disponible](../../../regions.md#intent-recognition). Il n’est *pas* nécessaire de disposer d’un abonnement au service Speech.
 

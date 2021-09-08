@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 011420abfbd6bf5994aa65024651f2bbd34e1bf4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab030e8e4b86fc669325099e13650f8e1c178986
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532418"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835330"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Règles d’évaluation pour la migration de SQL Server vers Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -409,7 +409,7 @@ Informations supplémentaires : [Fonctionnalité du moteur de base de données 
 **Catégorie** : Avertissement   
 
 **Description**   
-Les procédures stockées étendues et système non prises en charge suivantes ne peuvent pas être utilisées dans Azure SQL Database - `sp_dboption`, `sp_addserver`, `sp_dropalias`, `sp_activedirectory_obj`, `sp_activedirectory_scp` et `sp_activedirectory_start`.
+Les procédures stockées étendues et système non prises en charge suivantes ne peuvent pas être utilisées dans Azure SQL Database :`sp_dboption`, `sp_addserver`, `sp_dropalias`, `sp_activedirectory_obj`, `sp_activedirectory_scp` et `sp_activedirectory_start`.
 
 
 **Recommandation**    

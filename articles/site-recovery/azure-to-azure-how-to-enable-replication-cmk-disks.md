@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/25/2021
 ms.author: mayg
-ms.openlocfilehash: 9f9052f51c5bab0ea738e9fd15d8f62f45ff0c9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a0e7696cb631bee8b114cf2277a277b9c81cbd1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146533"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524449"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Répliquer des machines avec des disques activées par les clés gérées par le client
 
@@ -37,7 +37,7 @@ Pour cet exemple, la région principale Azure est Asie Est et la région seconda
 
 4. Dans **Paramètres**, vous pouvez configurer les paramètres de site/cible suivants.
 
-    - **Emplacement cible** : Emplacement où vos données de machines virtuelles sources sont répliquées. Site Recovery fournit la liste des régions cibles appropriées selon l’emplacement de la machine sélectionnée. Nous vous recommandons d’utiliser le même emplacement que celui du coffre Recovery Services.
+    - **Emplacement cible :** L’emplacement où vos données de machines virtuelles sources seront répliquées. Nous vous recommandons d’utiliser le même emplacement que celui du coffre Recovery Services.
     - **Abonnement cible** : abonnement cible utilisé pour la reprise d’activité. Par défaut, l’abonnement cible est identique à l’abonnement source.
     - **Groupe de ressources cible** : groupe de ressources auquel appartiennent toutes vos machines virtuelles répliquées. Par défaut, Site Recovery crée un groupe de ressources dans la région cible. Son nom porte le suffixe `asr`. S’il existe déjà un groupe de ressources créé par Azure Site Recovery, il est réutilisé. Vous pouvez également choisir de le personnaliser, comme indiqué dans la section suivante. L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle les machines virtuelles sources sont hébergées.
     - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible. Son nom porte le suffixe `asr`. Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](./azure-to-azure-network-mapping.md) sur le mappage réseau.
@@ -85,4 +85,3 @@ Suivez ces étapes pour modifier les paramètres cibles par défaut de Site Reco
 * J’ai activé des clés gérées par la plateforme et celles par le client. Comment puis-je protéger mes disques ?
 
     L’activation du double chiffrement avec les clés gérées par la plateforme et celles gérées par le client est prise en charge par Site Recovery. Suivez les instructions de cet article pour protéger votre machine. Vous devez créer à l’avance un DES pour lequel le double chiffrement est activé dans la région cible. Au moment d’activer la réplication pour une machine virtuelle de ce type, vous pouvez fournir ce DES à Site Recovery.
-

@@ -13,12 +13,12 @@ ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
-ms.openlocfilehash: cc636c60ee88d69e263ae5a2d9d599e2230184cd
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 4dcdb90daa9bb8cd1df79ec399eb9372fca02c61
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533078"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037187"
 ---
 # <a name="authorization-basics"></a>Notions de base des autorisations
 
@@ -43,7 +43,7 @@ La forme d’autorisation la plus simple est peut-être d’accorder ou de refus
 
 L’autorisation via des listes de contrôle d’accès (ACL) implique la conservation de listes explicites d’entités spécifiques qui ont ou n’ont pas accès à une ressource ou à une fonctionnalité. Les ACL offrent un contrôle plus précis de l’authentification en tant qu’autorisation, mais deviennent difficiles à gérer à mesure que le nombre d’entités augmente.
 
-### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle 
+### <a name="role-based-access-control"></a>Contrôle d'accès en fonction d'un rôle 
 
 Le contrôle d’accès en fonction du rôle (RBAC) est probablement l’approche la plus courante pour appliquer les autorisations dans les applications. Lorsque vous utilisez le RBAC, les rôles sont définis pour décrire les types d’activités qu’une entité peut effectuer. Un développeur d’applications accorde l’accès aux rôles plutôt qu’aux entités individuelles. Un administrateur peut ensuite attribuer des rôles à différentes entités pour contrôler lesquelles ont accès à quelles ressources et fonctionnalités.
 
@@ -59,6 +59,8 @@ Le contrôle d’accès en fonction de l’attribut (ABAC) est un mécanisme de 
 L’un des avantages de l’ABAC est qu’il est possible d’obtenir un contrôle d’accès plus granulaire et dynamique grâce à des évaluations de règles et de conditions sans avoir à créer un grand nombre de rôles et d’affectations de RBAC très spécifiques.
 
 L’une des méthodes permettant d’obtenir un ABAC avec Azure Active Directory consiste à utiliser des [groupes dynamiques](../enterprise-users/groups-create-rule.md). Les groupes dynamiques permettent aux administrateurs d’affecter dynamiquement des utilisateurs à des groupes basés sur des attributs utilisateur spécifiques avec les valeurs souhaitées.  Par exemple, un groupe Auteurs peut être créé là où tous les utilisateurs ayant comme fonction Auteur sont affectés dynamiquement au groupe Auteurs.  Les groupes dynamiques peuvent être utilisés en association avec le RBAC pour l’autorisation dans laquelle vous mappez des rôles à des groupes et attribuez dynamiquement des utilisateurs à des groupes.
+
+[Azure ABAC](../../role-based-access-control/conditions-overview.md) est un exemple de solution ABAC disponible actuellement. Azure ABAC s’appuie sur Azure RBAC en ajoutant des conditions d’attribution de rôle en fonction des attributs dans le contexte d’actions spécifiques. 
 
 ## <a name="implementing-authorization"></a>Implémentation des autorisations
 
