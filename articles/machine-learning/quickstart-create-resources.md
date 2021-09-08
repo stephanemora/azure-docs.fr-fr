@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 0d4c85ec1075e3925fa5657783ffce618faaa6ea
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a5bc3ebfb58a41761b4a41439b6482592c58a7b0
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760141"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037306"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : créer les ressources d’espace de travail nécessaires pour commencer à utiliser Azure Machine Learning
 
@@ -44,10 +44,10 @@ Vous pouvez installer Azure Machine Learning sur votre propre ordinateur.  Toute
 Créez une *instance de calcul* afin d’utiliser cet environnement de développement pour le reste des tutoriels et des guides de démarrage rapide.
 
 1. Si vous n’avez pas sélectionné **Accéder à l’espace de travail** dans la section précédente, connectez-vous au [studio Azure Machine Learning](https://ml.azure.com) maintenant, et sélectionnez votre espace de travail.
-1. Sur le côté gauche, sous **Gérer**, sélectionnez **Calcul**.
-1. Sélectionnez **+Nouveau** pour créer une instance de calcul.
-1. Conservez toutes les valeurs par défaut sur la première page, puis sélectionnez **Suivant**.
-1. Indiquez un nom, puis sélectionnez **Créer**.
+1. Sur la gauche, sélectionnez **Calcul**.
+1. Sélectionnez **+ Créer** pour créer une instance de calcul.
+1. Fournissez un nom et conservez toutes les valeurs par défaut dans la première page.
+1. Sélectionnez **Create** (Créer).
  
 Dans environ deux minutes, vous verrez l’**État** de l’instance de calcul passer de *Création en cours* à *En cours d’exécution*.  Il sera prêt à ce moment-là.  
 
@@ -86,6 +86,10 @@ Passez en revue les différentes parties du studio dans la barre de navigation d
 * La section **Composants** du studio vous aide à suivre les composants que vous créez au fur et à mesure de l’exécution de vos travaux.  Si vous avez un nouvel espace de travail, ces sections ne contiennent rien.
 
 * Vous avez déjà utilisé la section **Gérer** du studio pour créer vos ressources de calcul.  Cette section vous permet également de créer et de gérer des données ainsi que des services externes que vous liez à votre espace de travail.  
+
+### <a name="workspace-diagnostics"></a>Diagnostics de l’espace de travail
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="clean-up-resources"></a><a name="clean-up"></a>Supprimer des ressources
 

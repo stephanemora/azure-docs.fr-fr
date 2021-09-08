@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/10/2021
-ms.openlocfilehash: 338405fd04617d3b1d563b7ac95d7233d23a8678
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 5495feb3e4cfe8080b9be4ee1ec0bc3804232089
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641393"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314315"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-mysql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour MySQL à l’aide d’Azure Data Factory
 
@@ -35,6 +35,31 @@ Ce connecteur Azure Database pour MySQL est pris en charge pour les activités s
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-database-for-mysql-using-ui"></a>Créer un service lié à une base de données Azure Database pour MySQL à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Azure Database pour MySQL dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur d’Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Cherchez MySQL et sélectionnez le connecteur Azure Database pour MySQL.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/azure-database-for-mysql-connector.png" alt-text="Sélectionnez le connecteur Azure Database pour MySQL.":::    
+
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/configure-azure-database-for-mysql-linked-service.png" alt-text="Configurez un service lié à Azure Database pour MySQL.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Azure Database pour MySQL.
 

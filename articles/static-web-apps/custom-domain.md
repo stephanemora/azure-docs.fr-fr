@@ -5,14 +5,14 @@ services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 08/04/2021
 ms.author: buhollan
-ms.openlocfilehash: fd8df4e162b33aef8a0e929da818e8b961953d9b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 07da31c48d70f25a2364b4af242bc0d1331d7036
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066109"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563260"
 ---
 # <a name="set-up-a-custom-domain-with-free-certificate-in-azure-static-web-apps"></a>Configurez un domaine personnalisé avec un certificat gratuit dans Azure Static Web Apps
 
@@ -80,7 +80,7 @@ Vous devez configurer un enregistrement CNAME auprès de votre fournisseur de do
 
 1. Créez un jeu d’enregistrements **CNAME** avec les valeurs suivantes.
 
-   | Paramètre          | Value                                     |
+   | Paramètre          | Valeur                                     |
    | ---------------- | ----------------------------------------- |
    | Nom             | Votre sous-domaine, par exemple `www`             |
    | Type             | CNAME                                     |
@@ -174,13 +174,13 @@ Vous devez configurer un enregistrement TXT auprès de votre fournisseur de doma
 
 1. Créez un jeu d’enregistrements **TXT** avec les valeurs suivantes.
 
-   | Paramètre  | Value                                       |
-   | -------- | ------------------------------------------- |
-   | Nom     | `@` pour le domaine racine ou entrez le sous-domaine |
-   | Type     | TXT                                         |
-   | TTL      | Laisser la valeur par défaut                      |
-   | Unité TTL | Laisser la valeur par défaut                      |
-   | Value    | Coller le code à partir de votre presse-papiers          |
+   | Paramètre  | Valeur                                                                           |
+   | -------- | ------------------------------------------------------------------------------- |
+   | Name     | `@` pour le domaine racine ou entrez `_dnsauth.<YOUR_SUBDOMAIN>` pour le sous-domaine         |
+   | Type     | TXT                                                                             |
+   | TTL      | Laisser la valeur par défaut                                                          |
+   | Unité TTL | Laisser la valeur par défaut                                                          |
+   | Value    | Coller le code à partir de votre presse-papiers                                              |
 
 1. Sélectionnez **OK**.
 
@@ -211,15 +211,15 @@ Vous devez configurer un enregistrement TXT auprès de votre fournisseur de doma
 
 1. Créez un enregistrement **TXT** avec les valeurs suivantes...
 
-   | Paramètre             | Valeur                                       |
-   | ------------------- | ------------------------------------------- |
-   | Type                | TXT                                         |
-   | Hôte                | `@` pour le domaine racine ou entrez le sous-domaine |
-   | Value               | Coller le code à partir de votre presse-papiers          |
-   | TTL (le cas échéant) | Laisser la valeur par défaut                      |
+   | Paramètre             | Valeur                                                                        |
+   | ------------------- | ---------------------------------------------------------------------------- |
+   | Type                | TXT                                                                          |
+   | Hôte                | `@` pour le domaine racine ou entrez `_dnsauth.<YOUR_SUBDOMAIN>` pour le sous-domaine      |
+   | Value               | Coller le code à partir de votre presse-papiers                                           |
+   | TTL (le cas échéant) | Laisser la valeur par défaut                                                       |
 
 > [!NOTE]
-> Certains fournisseurs DNS remplaceront automatiquement « @ » par votre domaine racine (par exemple, mydomain.com). Cela est attendu et le processus de validation fonctionne toujours.
+> Certains fournisseurs DNS remplaceront automatiquement « @" to indicate a root domain or they change the "@ » par votre domaine racine (par exemple, mydomain.com). Cela est attendu et le processus de validation fonctionne toujours.
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
 
@@ -240,9 +240,9 @@ Un enregistrement ALIAS mappe un domaine à un autre. Il est utilisé spécifiqu
 
 1. Créez un jeu d’enregistrements **A** avec les valeurs suivantes.
 
-   | Paramètre          | Value                              |
+   | Paramètre          | Valeur                              |
    | ---------------- | ---------------------------------- |
-   | Nom             | @                                  |
+   | Name             | @                                  |
    | Type             | A - Enregistrement Alias sur l’adresse IPv4   |
    | Jeu d’enregistrements d’alias | Yes                                |
    | Type d’alias       | Ressource Azure                     |
@@ -292,6 +292,38 @@ Un enregistrement ALIAS mappe un domaine à un autre. Il est utilisé spécifiqu
 À présent que le domaine racine est configuré, le fournisseur DNS peut prendre plusieurs heures pour propager les modifications dans le monde entier.
 
 ---
+
+## <a name="redirect-requests-to-a-default-domain"></a>Rediriger les requêtes vers un domaine par défaut
+
+Vous pouvez accéder à votre application Web statique à l’aide de son domaine généré automatiquement et de tous les domaines personnalisés que vous avez configurés. Si vous le souhaitez, vous pouvez configurer votre application pour rediriger tout le trafic vers un domaine par défaut.
+
+### <a name="set-a-default-domain"></a>Paramétrer un domaine par défaut
+
+Lorsque vous désignez un domaine personnalisé comme domaine par défaut de votre application, les requêtes envoyées à d’autres domaines sont automatiquement redirigées vers le domaine par défaut. Un seul domaine personnalisé peut être défini par défaut.
+
+Suivez les étapes ci-dessous pour définir un domaine personnalisé comme domaine par défaut.
+
+1. Dans votre application Web statique ouverte dans le portail Azure, sélectionnez **Domaines personnalisés** dans le menu.
+
+1. Sélectionnez le domaine personnalisé que vous souhaitez configurer comme domaine par défaut.
+
+1. Sélectionnez **Définir par défaut**.
+
+   :::image type="content" source="media/custom-domain/set-default.png" alt-text="Définir un domaine personnalisé comme domaine par défaut":::
+
+1. Une fois l’opération terminée, actualisez la table pour confirmer que votre domaine est défini comme « par défaut ».
+
+### <a name="unset-a-default-domain"></a>Annuler un domaine par défaut
+
+Pour arrêter la redirection de domaines vers un domaine par défaut, suivez les étapes ci-dessous.
+
+1. Dans votre application Web statique ouverte dans le portail Azure, sélectionnez **Domaines personnalisés** dans le menu.
+
+1. Sélectionnez le domaine personnalisé que vous avez configuré par défaut.
+
+1. Sélectionnez **Annuler par défaut**.
+
+1. Une fois l’opération terminée, actualisez la table pour confirmer qu’aucun domaine n’est défini comme « par défaut ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

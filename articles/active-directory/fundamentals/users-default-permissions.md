@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/04/2021
 ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348f1b4e6182739b3afbc96597853a5b887877c1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0d9cc1e931e0ec2b607e176b404aa93041437dc2
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748769"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535407"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -43,7 +43,9 @@ Stratégies | <ul><li>Lire toutes les propriétés des stratégies<li>Gérer tou
 
 ## <a name="restrict-member-users-default-permissions"></a>Restreindre les autorisations par défaut des utilisateurs membres 
 
-Vous pouvez restreindre les autorisations par défaut des utilisateurs membres comme suit :
+Il est possible d’ajouter des restrictions aux autorisations par défaut des utilisateurs. Certaines organisations peuvent avoir besoin de limiter l’accès des utilisateurs au portail. Cette fonctionnalité doit être utilisée si vous ne souhaitez pas que tous les utilisateurs du répertoire aient accès au répertoire/portail d’administration Azure AD. 
+
+Par exemple, une université aura de nombreux utilisateurs dans son répertoire, et l’administrateur peut ne pas souhaiter que tous les étudiants du répertoire soient en mesure de voir le répertoire complet et de violer la confidentialité des autres élèves. L’utilisation de cette fonctionnalité est facultative et à la discrétion de l’administrateur Azure AD. Vous pouvez restreindre les autorisations par défaut des utilisateurs membres comme suit :
 
 Autorisation | Explication du paramètre
 ---------- | ------------
@@ -51,8 +53,10 @@ Les utilisateurs peuvent inscrire l’application | Définir cette option sur No
 Autoriser les utilisateurs à connecter un compte professionnel ou scolaire avec LinkedIn | Définir cette option sur Non empêche les utilisateurs de connecter leur compte professionnel ou scolaire avec leur compte LinkedIn. Pour plus d’informations, voir [Consentement et partage de données connexions de compte LinkedIn](../enterprise-users/linkedin-user-consent.md).
 Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md).
 Possibilité de créer des groupes Microsoft 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Microsoft 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Microsoft 365. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes Microsoft 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md).
-Limiter l’accès au portail d’administration Azure AD | L’attribution de la valeur Non à cette option permet aux non-administrateurs d’utiliser le portail d’administration Azure AD pour lire et gérer les ressources Azure AD. Oui, interdit à tous les non-administrateurs l’accès aux données Azure AD sur le portail d’administration.<p>**Remarque**: ce paramètre ne limite pas l’accès aux données d’Azure AD à l’aide de PowerShell ou d’autres clients tels que Visual Studio. Quand la valeur est définie sur Oui, pour accorder à un utilisateur non-administrateur spécifique la possibilité d’utiliser le portail d’administration Azure AD, attribuez un rôle d’administrateur tel que le rôle Lecteurs de répertoire.<p>Ce rôle permet de lire les informations de base relatives aux annuaires, ce dont les utilisateurs membres disposent par défaut (les invités et les principaux du service n’en bénéficient pas).
+Limiter l’accès au portail d’administration Azure AD | <p>L’attribution de la valeur Non à cette option permet aux non-administrateurs d’utiliser le portail d’administration Azure AD pour lire et gérer les ressources Azure AD. Oui, interdit à tous les non-administrateurs l’accès aux données Azure AD sur le portail d’administration.</p><p>**Remarque**: ce paramètre ne limite pas l’accès aux données d’Azure AD à l’aide de PowerShell ou d’autres clients tels que Visual Studio. Quand la valeur est définie sur Oui, pour accorder à un utilisateur non-administrateur spécifique la possibilité d’utiliser le portail d’administration Azure AD, attribuez un rôle d’administrateur tel que le rôle Lecteurs de répertoire.</p><p>**Remarque** : ces paramètres bloquent les utilisateurs non-administrateurs qui sont propriétaires de groupes ou d’applications via l’utilisation du Portail Azure pour gérer leurs ressources détenues.</p><p>Ce rôle permet de lire les informations de base relatives aux annuaires, ce dont les utilisateurs membres disposent par défaut (les invités et les principaux du service n’en bénéficient pas).</p>
 Possibilité de lire d’autres utilisateurs | Ce paramètre est uniquement disponible dans PowerShell. Définir cet indicateur sur $false empêche tous les utilisateurs non administrateurs de lire les informations utilisateur dans le répertoire. Cet indicateur n’empêche pas de lire les informations utilisateur dans d’autres services Microsoft comme Exchange Online. Ce paramètre est destiné à des circonstances particulières et définir cet indicateur sur $false n’est pas recommandé.
+
+>![REMARQUE] Il est supposé que l’utilisateur moyen utilise uniquement le portail pour accéder à Azure AD et n’utilise pas PowerShell ou l’interface CLI pour accéder à ses ressources. Actuellement, la restriction de l’accès aux autorisations par défaut des utilisateurs se produit uniquement lorsque l’utilisateur tente d’accéder au répertoire au sein du Portail Azure.
 
 ## <a name="restrict-guest-users-default-permissions"></a>Restreindre les autorisations par défaut des utilisateurs invités
 
@@ -128,6 +132,9 @@ Les utilisateurs peuvent effectuer les actions suivantes sur les appareils qu’
 
 #### <a name="owned-groups"></a>Groupes possédés
 Les utilisateurs peuvent effectuer les actions suivantes sur les groupes qu’ils possèdent.
+
+> [!NOTE]
+> Les propriétaires de groupes dynamiques doivent avoir un rôle Administrateur général, Administrateur de groupe, Administrateur Intune ou Administrateur d’utilisateurs pour modifier les règles d’appartenance aux groupes. Pour plus d’informations, consultez [Créer ou mettre à jour un groupe dynamique dans Azure Active Directory.](../enterprise-users/groups-create-rule.md)
 
 | **Actions** | **Description** |
 | --- | --- |

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 92cb780a80f1010fd1c2f5d19fe616e0285de73b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 29fccb3051fda96d47a54e8efb831980df262059
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564524"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562245"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
 
@@ -81,7 +81,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Disponibilit�
 
 **Q : Comment être averti d’une maintenance planifiée ?**
 
-**R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux administrateurs, aux coadministrateurs, aux propriétaires et aux contributeurs d’abonnement (un e-mail par abonnement). Il est possible de configurer des canaux et des destinataires supplémentaires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Dans le cas où vous déployez une machine virtuelle dans une région où la planification de la maintenance est déjà effectuée, vous ne recevez pas la notification. Au lieu de cela, vous devez vérifier l’état de maintenance de la machine virtuelle.
+**R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux administrateurs, aux coadministrateurs, aux propriétaires et aux contributeurs d’abonnement (un e-mail par abonnement avec l’ensemble des destinataires ajoutés). Il est possible de configurer des canaux et des destinataires supplémentaires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Dans le cas où vous déployez une machine virtuelle dans une région où la planification de la maintenance est déjà effectuée, vous ne recevez pas la notification. Au lieu de cela, vous devez vérifier l’état de maintenance de la machine virtuelle.
 
 **Q : Je ne vois aucune indication de maintenance planifiée dans le portail, dans PowerShell ou dans l’interface CLI. D’où vient le problème ?**
 

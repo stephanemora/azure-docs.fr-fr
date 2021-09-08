@@ -5,15 +5,15 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: 26f6b62ece1fcde8ca69ffbb804d9ab24b3c1ac3
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: ff6d911b85558e5efe9cc8302b9cb857cb7a9706
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112455731"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830656"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
-Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
+Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor, Service Health et Azure Advisor utilisent des groupes d’actions pour informer les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
 
 Cet article vous montre comment créer et gérer des groupes d’actions dans le portail Azure.
 

@@ -3,7 +3,7 @@ title: Présentation des unités réservées Multimédia | Microsoft Docs
 description: Cet article présente la mise à l'échelle du traitement multimédia à l'aide d'Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,53 +11,38 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2021
+ms.date: 08/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: d0692996c27f969ffc90078db2ddcc849ee15ab1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19454d90b55ab92c92d2e9132198f918f38c6e2c
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012715"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835381"
 ---
 # <a name="media-reserved-units"></a>Unités réservées Multimédia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-Azure Media Services vous permet de procéder à la mise à l'échelle du traitement multimédia en gérant les unités réservées Multimédia (MRU). Une MRU fournit la capacité de calcul supplémentaire requise pour l'encodage multimédia. Le nombre de MRU détermine la vitesse à laquelle vos tâches multimédias sont traitées et le nombre de tâches multimédias qui peuvent être traitées simultanément sur un compte. Par exemple, si votre compte comporte cinq MRU et que des tâches doivent être traitées, cinq tâches multimédias peuvent être exécutées simultanément. Toutes les tâches restantes sont mises en file d'attente et peuvent être sélectionnées pour être traitées dans l'ordre lorsque l'exécution d'une tâche se termine. Chaque MRU que vous approvisionnez entraîne une réservation de capacité mais ne vous fournit pas de ressource dédiée. En période de très forte demande, il se peut que vos MRU ne soient pas toutes traitées immédiatement.
+Les unités réservées Multimédia (MRU) ont été précédemment utilisées pour contrôler l’accès concurrentiel et les performances d’encodage. Les unités réservées Multimédia sont utilisées uniquement pour les processeurs multimédia hérités suivants qui seront bientôt obsolètes. Consultez [Composants Azure Media Services hérités](legacy-components.md) pour obtenir des informations sur la mise hors service pour ces processeurs hérités :
 
-## <a name="choosing-between-different-reserved-unit-types"></a>Choix entre les différents types d’unités réservées
+* Media Encoder Premium Workflow
+* Media Indexer V1 et V2
 
-Le tableau suivant vous aide à choisir entre les différentes vitesses d’encodage.  Il indique la durée d'encodage d'une vidéo 1080p de 7 minutes selon la MRU utilisée.
-
-|Type de RU|Scénario|Exemple de résultats pour la vidéo 1080p de 7 min |
-|---|---|---|
-| **S1**|Encodage à débit binaire unique. <br/>Fichiers avec une résolution SD ou inférieure, insensibles à l’heure, à moindre coût.|Avec l'option « H264 – Vitesse de transmission unique – 16 x 9 SD », l'encodage à débit unique sous la forme d'un fichier MP4 de résolution SD prend environ 7 minutes.|
-| **S2**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Utilisation normale de l’encodage SD et HD.|L'encodage avec la présélection « H264 – Vitesse de transmission unique – 720 pixels » prend environ 6 minutes.<br/><br/>L'encodage avec la présélection « H264 – Vitesse de transmission multiple – 720 pixels » prend environ 12 minutes.|
-| **S3**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Vidéos avec une résolution HD complète et 4K. Encodage sensible à l’heure, plus rapide.|L’encodage avec la présélection « H264 à débit binaire simple 1080p » prend environ 3 minutes.<br/><br/>L’encodage avec la présélection « H264 à débit binaire multiple 1080p » prend environ 8 minutes.|
-
-> [!NOTE]
-> Si vous n'approvisionnez pas de MRU pour votre compte, vos tâches multimédias seront traitées avec les performances d'une MRU S1 et les tâches seront récupérées dans l'ordre. Aucune capacité de traitement n'est réservée, de sorte que le temps d'attente entre l'achèvement d'une tâche et le démarrage de la suivante dépend de la disponibilité des ressources dans le système.
-
-## <a name="considerations"></a>Considérations
-
-* Pour les travaux d'analyse audio et d'analyse vidéo déclenchés par Media Services v3 ou Video Indexer, il est fortement recommandé d'approvisionner le compte avec dix unités S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support à l’aide du [Portail Azure](https://portal.azure.com/).
-* Pour les tâches d'encodage qui n'ont pas de MRU, il n'existe aucune limite supérieure à la durée que vos tâches peuvent passer en file d'attente, et au maximum une seule tâche sera exécutée à la fois.
+Pour tous les autres processeurs multimédia, vous n’avez plus besoin de gérer des unités réservées Multimédia ou de demander des augmentations de quota pour un compte Media Services, car le système est automatiquement mis à l’échelle en fonction de la charge. Vous verrez également les performances qui sont égales ou améliorées par rapport à l’utilisation d’unités réservées Multimédia.
 
 ## <a name="billing"></a>Facturation
 
-Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unités réservées Multimédia sont approvisionnées dans votre compte. Ceci est indépendant d'éventuels travaux en cours d'exécution dans votre compte. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).
+Bien qu’il y ait eu précédemment des frais pour les unités réservées Multimédia, à compter du 17 avril, 2021 il n’y a plus de frais pour les comptes qui ont une configuration pour les unités réservées Multimédia.
 
-## <a name="quotas-and-limitations"></a>Quotas et limitations
+## <a name="scaling-mrus"></a>Mise à l’échelle des unités réservées Multimédia
 
-Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Essayez de procéder à la mise à l'échelle du traitement multimédia à l'aide de l'une des technologies suivantes :
+Pour des raisons de compatibilité, vous pouvez continuer à utiliser la Portail Azure ou les API suivantes pour gérer et mettre à l’échelle les unités réservées Multimédia :
 
 [.NET](media-services-dotnet-encoding-units.md)
 [Portal](media-services-portal-scale-media-processing.md)
 [REST](/rest/api/media/operations/encodingreservedunittype)
 [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+
+Toutefois, par défaut, aucune des dernières configurations que vous avez définies ne sera utilisée pour contrôler l’accès concurrentiel ou les performances de l’encodage. La seule exception à cette configuration a lieu si vous encodez avec l’un des processeurs multimédias hérités suivants : Media Encoder Premium Workflow ou Media Indexer V1.  

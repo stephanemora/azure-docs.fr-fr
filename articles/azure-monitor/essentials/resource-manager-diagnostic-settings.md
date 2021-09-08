@@ -5,12 +5,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 5b6e83909d3a8ccd224169e1571def422c7456c4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: b422bbad06b419f35e8f4a1107c60e4312abba4d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006326"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304027"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour créer des paramètres de diagnostic destinés à une ressource Azure. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -127,6 +127,9 @@ L’exemple suivant crée un paramètre de diagnostic pour un journal d’activi
 
 ## <a name="diagnostic-setting-for-azure-key-vault"></a>Paramètre de diagnostic pour Azure Key Vault 
 L’exemple suivant crée un paramètre de diagnostic pour un coffre de clés Azure en ajoutant une ressource de type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` au modèle.
+
+> [!IMPORTANT]
+> Pour Azure Key Vault, le hub d’événements doit se trouver dans la même région que le coffre de clés.
 
 ### <a name="template-file"></a>Fichier de modèle
 

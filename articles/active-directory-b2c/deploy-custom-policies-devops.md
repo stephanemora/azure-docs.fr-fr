@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 08/26/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 470fcebf33e995d4c81d916970d80015b8f7c8f6
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d24e1cf8394b697348492ffcddc4634646ebbbb6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783748"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967085"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Déployer des stratégies personnalisées avec Azure Pipelines
 
@@ -56,8 +56,8 @@ Param(
     [Parameter(Mandatory = $true)][string]$ClientID,
     [Parameter(Mandatory = $true)][string]$ClientSecret,
     [Parameter(Mandatory = $true)][string]$TenantId,
-    [Parameter(Mandatory = $true)][string]$PolicyId,
-    [Parameter(Mandatory = $true)][string]$PathToFile
+    [Parameter(Mandatory = $true)][string]$Folder,
+    [Parameter(Mandatory = $true)][string]$Files
 )
 
 try {
@@ -70,15 +70,42 @@ try {
     $headers.Add("Content-Type", 'application/xml')
     $headers.Add("Authorization", 'Bearer ' + $token)
 
-    $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
-    $policycontent = Get-Content $PathToFile
+    # Get the list of files to upload
+    $filesArray = $Files.Split(",")
 
-    # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
-    # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
+    Foreach ($file in $filesArray) {
 
-    $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+        $filePath = $Folder + $file.Trim()
 
-    Write-Host "Policy" $PolicyId "uploaded successfully."
+        # Check if file exists
+        $FileExists = Test-Path -Path $filePath -PathType Leaf
+
+        if ($FileExists) {
+            $policycontent = Get-Content $filePath
+
+            # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
+            # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
+    
+    
+            # Get the policy name from the XML document
+            $match = Select-String -InputObject $policycontent  -Pattern '(?<=\bPolicyId=")[^"]*'
+    
+            If ($match.matches.groups.count -ge 1) {
+                $PolicyId = $match.matches.groups[0].value
+    
+                Write-Host "Uploading the" $PolicyId "policy..."
+    
+                $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+    
+                Write-Host "Policy" $PolicyId "uploaded successfully."
+            }
+        }
+        else {
+            $warning = "File " + $filePath + " couldn't be not found."
+            Write-Warning -Message $warning
+        }
+    }
 }
 catch {
     Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__
@@ -145,35 +172,18 @@ Une tâche de pipeline est un script prédéfini qui effectue une action. Ajoute
     * **Nom d'affichage** : Nom de la stratégie que cette tâche doit charger. Par exemple, *B2C_1A_TrustFrameworkBase*.
     * **Type** : Chemin d'accès au fichier
     * **Chemin d’accès au script** : Sélectionnez les points de suspension (**_..._* _), accédez au dossier _Scripts*, puis sélectionnez le fichier *DeployToB2C.ps1*.
-    * **Arguments :**
+    * **Arguments** : entrez le script PowerShell suivant. 
 
-        Entrez les valeurs suivantes pour les **Arguments**. Remplacez `{alias-name}` par l’alias que vous avez spécifié dans la section précédente. Remplacez `{policy-id}` par le nom de la stratégie. Remplacez `{policy-file-name}` par le nom du fichier de stratégie.
-
-        La première stratégie que vous chargez doit être la stratégie *TrustFrameworkBase.xml*.
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId {policy-id} -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/{policy-file-name}
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
-
-        L’ID `PolicyId` est une valeur trouvée au début d’un fichier de stratégie XML au sein du nœud TrustFrameworkPolicy. Par exemple, l’ID `PolicyId` dans le fichier XML de stratégie suivant est *B2C_1A_TrustFrameworkBase* :
-
-        ```xml
-        <TrustFrameworkPolicy
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-        PolicySchemaVersion="0.3.0.0"
-        TenantId="your-tenant.onmicrosoft.com"
-        PolicyId= "B2C_1A_TrustFrameworkBase"
-        PublicPolicyUri="http://your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
-        ```
-
-        Vos arguments finaux doivent ressembler à l’exemple suivant :
-
-        ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
-        ```
-
+        
+        Le paramètre `-Files` est une liste délimitée par des virgules des fichiers de stratégie à déployer. Mettez à jour la liste avec vos fichiers de stratégie.
+        
+        > [!IMPORTANT]
+        >  Vérifiez que les stratégies sont chargées dans le bon ordre. Tout d’abord, la stratégie de base, la stratégie d’extensions, puis les stratégies de la partie de confiance. Par exemple : `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        
 1. Sélectionnez **Enregistrer** pour enregistrer le Travail de l’agent.
 
 ## <a name="test-your-pipeline"></a>Tester votre pipeline
@@ -186,17 +196,6 @@ Pour tester votre pipeline de mise en production :
 
 Vous devez voir une bannière de notification indiquant qu’une mise en production a été mise en file d’attente. Pour afficher son état, sélectionnez le lien dans la bannière de notification ou dans la liste sous l’onglet **Mises en production**.
 
-## <a name="add-more-pipeline-tasks"></a>Ajouter des tâches de pipeline supplémentaires
-
-Pour déployer vos autres stratégies, répétez les [étapes précédentes](#add-pipeline-tasks) pour chaque fichier de stratégie personnalisée.
-
-Lors de l’exécution des agents et du chargement des fichiers de stratégie, assurez-vous que ceux-ci sont chargés dans l’ordre approprié :
-
-1. *TrustFrameworkBase.xml*
-1. *TrustFrameworkExtensions.xml*
-1. *SignUpOrSignin.xml*
-1. *ProfileEdit.xml*
-1. *PasswordReset.xml*
 
 ## <a name="next-steps"></a>Étapes suivantes
 

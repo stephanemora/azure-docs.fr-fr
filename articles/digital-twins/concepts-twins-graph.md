@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Comprendre le concept de jumeau numérique et comment leurs relations aboutissent à un graphique.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 29430671cd5879f140127c94541dd50d765fa87e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1145525fe3d2e7c42204aa675153d4eb099cccce
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460273"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534885"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -23,7 +23,7 @@ Dans une solution Azure Digital Twins, les entités de votre environnement sont 
 
 ## <a name="digital-twins"></a>Jumeaux numériques
 
-Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [Concepts : Modèles personnalisés](concepts-models.md).
+Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [Modèles personnalisés](concepts-models.md).
 
 Après avoir créé et chargé un modèle, votre application cliente peut créer une instance du type ; il s’agit d’un jumeau numérique. Par exemple, après la création d’un modèle Étage, vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type Étage appelé Rez-de-chaussée, un autre appelé Étage2, etc.).
 
@@ -39,13 +39,15 @@ Le résultat de ce processus est un ensemble de nœuds (les jumeaux numériques)
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Capture d’écran d’Azure Digital Twins Explorer montrant des exemples de modèles et de jumeaux" lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## <a name="create-with-the-apis"></a>Création avec des API
 
 Cette section montre à quoi ressemble la création de jumeaux numériques et de relations à partir d’une application cliente. Il contient des exemples de code .NET qui utilisent les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), afin de fournir un contexte supplémentaire sur ce qui se passe à l’intérieur de chacun de ces concepts.
 
 ### <a name="create-digital-twins"></a>Créer des jumeaux numériques
 
-Vous trouverez ci-dessous un extrait de code client qui utilise les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour instancier un jumeau de type Salle.
+Vous trouverez ci-dessous un extrait de code client qui utilise les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour instancier un jumeau de type Salle avec un `twinId` qui est défini durant l’instanciation.
 
 Vous pouvez initialiser les propriétés d’un jumeau lors de sa création, ou les définir ultérieurement. Pour créer un jumeau avec des propriétés initialisées, créez un document JSON qui fournit les valeurs d’initialisation nécessaires.
 
@@ -162,8 +164,8 @@ Voici un exemple de relation sous la forme d’un objet JSON :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Voir comment gérer des éléments graphiques avec les API Azure Digital Twins :
-* [Guide pratique pour gérer des jumeaux numériques](how-to-manage-twin.md)
-* [Guide pratique pour gérer le graphe de jumeaux avec des relations](how-to-manage-graph.md)
+* [Gérer des jumeaux numériques](how-to-manage-twin.md)
+* [Gérer le graphe de jumeaux et les relations](how-to-manage-graph.md)
 
 Ou découvrez comment interroger le graphe de jumeaux Azure Digital Twins pour obtenir des informations :
-* [Concepts : langage de requête](concepts-query-language.md)
+* [Langage de requête](concepts-query-language.md)

@@ -6,18 +6,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 07/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1be0ecfe773bfa56900295db8701d9a582389046
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ddcb49b1ce2bd882590b1d85cb634846ef3b4d40
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554675"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562394"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
-Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à un réseau virtuel à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site (S2S) lorsqu’un nombre restreint de clients doit se connecter à un réseau virtuel. Cet article s'applique au modèle de déploiement Resource Manager.
+Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à un réseau virtuel à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site (S2S) lorsqu’un nombre restreint de clients doit se connecter à un réseau virtuel. Cet article s'applique au [Modèle de déploiement de Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>Quel protocole est utilisé par le P2S ?
 
@@ -25,13 +25,13 @@ La connexion VPN point à site peut utiliser un des protocoles suivants :
 
 * **Protocole OpenVPN®**, un protocole VPN basé sur SSL/TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (11.0 et versions ultérieures), Windows, Linux et Mac (macOS 10.13 et versions ultérieures).
 
-* Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
+* Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP et prend en charge TLS 1.2 (Windows 8.1 et versions ultérieures).
 
 * Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (macOS 10.11 et versions ultérieures).
 
 
 >[!NOTE]
->IKEv2 et OpenVPN pour P2S sont uniquement disponibles pour le modèle de déploiement Resource Manager. Ils ne sont pas disponibles pour le modèle de déploiement classique.
+>IKEv2 et OpenVPN pour P2S ne sont disponibles que pour le [modèle de déploiement du Gestionnaire de ressource](../azure-resource-manager/management/deployment-models.md). Ils ne sont pas disponibles pour le modèle de déploiement classique.
 >
 
 ## <a name="how-are-p2s-vpn-clients-authenticated"></a><a name="authentication"></a>Comment les clients VPN P2S sont-ils authentifiés ?

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 05/10/2021
-ms.openlocfilehash: 1bbbf7266fdcac552972f563e0d958bf035de984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 68c657b7e8e045b8756bc2db8de2b4024b7530b8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563284"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256491"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -411,7 +411,7 @@ Notez les limitations suivantes :
 - Il n’est pas possible de créer des groupes de basculement entre deux serveurs ou instances au sein des mêmes régions Azure.
 - Les groupes de basculement ne peuvent pas être renommés. Vous devrez supprimer le groupe puis le recréer sous un autre nom.
 - Le renommage d’une base de données n’est pas pris en charge pour les instances situées dans un groupe de basculement. Vous devez supprimer temporairement le groupe de basculement pour pouvoir renommer une base de données.
-- Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système ne peuvent pas être appliqués sur l’instance secondaire, à moins que ces objets ne soient créés manuellement sur cette dernière.
+- Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système requièrent que les objets soient créés manuellement sur les instances secondaires et soient également synchronisés manuellement après toute modification apportée à l’instance principale. La seule exception est la clé principale de Service (SMK) pour SQL Managed Instance, qui est répliquée automatiquement vers l’instance secondaire lors de la création du groupe de basculement. Toutefois, toute modification ultérieure de SMK sur l’instance principale ne sera pas répliquée vers l’instance secondaire.
 
 ## <a name="programmatically-managing-failover-groups"></a>Gestion par programmation des groupes de basculement
 

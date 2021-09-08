@@ -9,18 +9,18 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 12b3b1dddfa7ff37d8d8fa80562699cf9242148e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cf1df8645a6b5c7a33305c87732a9c3b108b523d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641341"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256632"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory (hérité)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-*Cet article s’applique aux connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Stockage Fichier Azure](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).*
+*Cet article s’applique aux connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Stockage Fichier Azure](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).*
 
 >[!IMPORTANT]
 >Data Factory a introduit un nouveau modèle de jeu de données en fonction du format. Pour plus d’informations, consultez l’article relatif à chaque format : <br>- [Format Avro](format-avro.md)<br>- [Format binaire](format-binary.md)<br>- [Format de texte délimité](format-delimited-text.md)<br>- [Format JSON](format-json.md)<br>- [Format ORC](format-orc.md)<br>- [Format Parquet](format-parquet.md)<br>Les autres configurations mentionnées dans cet article sont toujours prises en charge telles quelles pour des raisons de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir. 

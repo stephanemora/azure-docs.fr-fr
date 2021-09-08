@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 05/19/2021
-ms.openlocfilehash: 937fcc60e8be144fce10748345b71cc05703c04f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 87f211976f74fef5ed2c0cef992d82099e141a29
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638513"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038168"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>Tutoriel : Migrer MongoDB vers l'API Azure Cosmos DB pour MongoDB hors connexion
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -232,6 +232,12 @@ Au terme de la migration, vous pouvez consulter votre compte Azure Cosmos DB pou
 ## <a name="post-migration-optimization"></a>Optimisation de la post-migration
 
 Après avoir migré les données stockées dans la base de données MongoDB vers l'API Azure Cosmos DB pour MongoDB, vous pouvez vous connecter à Azure Cosmos DB et gérer les données. Vous pouvez également effectuer d'autres étapes d'optimisation post-migration. Il peut s'agir de l'optimisation de la stratégie d'indexation, de la mise à jour du niveau de cohérence par défaut ou de la configuration de la distribution globale pour votre compte Azure Cosmos DB. Pour plus d'informations, consultez [Optimisation de la post-migration](../cosmos-db/mongodb-post-migration.md).
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ?
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../cosmos-db/convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

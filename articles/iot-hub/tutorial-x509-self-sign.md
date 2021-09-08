@@ -11,16 +11,19 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 7d6bd2233c4167a992d3493fb7bee9d5b5466586
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b6e79ee61440ffeb9fdd5f05cdb840480112a14a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740379"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304790"
 ---
 # <a name="tutorial-using-openssl-to-create-self-signed-certificates"></a>Tutoriel : Utilisation d’OpenSSL pour créer des certificats auto-signés
 
 Vous pouvez authentifier un appareil auprès de votre hub IoT en utilisant deux certificats d’appareil auto-signés. C’est ce que l’on appelle parfois l’authentification par empreinte, car les certificats contiennent des empreintes (valeurs de hachage) que vous envoyez au hub IoT. Les étapes suivantes vous indiquent comment créer deux certificats auto-signés.
+
+> [!NOTE]
+> Cet exemple a été créé avec Cygwin64 pour Windows. Cygwin est une collection d’outils open source qui permet d’exécuter des applications Unix ou linux sur Windows à partir d’une interface de type Linux. CygWin64 est fourni avec OpenSSL. Si vous utilisez Linux, OpenSSL est probablement déjà installé. 
 
 ## <a name="step-1---create-a-key-for-the-first-certificate"></a>Étape 1 : Créer une clé pour le premier certificat
 
@@ -54,10 +57,16 @@ openssl req -text -in device1.csr -noout
 ## <a name="step-4---self-sign-certificate-1"></a>Étape 4 : Auto-signer le certificat 1
 
 ```bash
-openssl x509 -req -days 365 -in device1.csr -signkey device1.key -out device.crt
+openssl x509 -req -days 365 -in device1.csr -signkey device1.key -out device1.crt
 ```
 
-## <a name="step-5---create-a-key-for-certificate-2"></a>Étape 5 : Créer une clé pour le certificat 2
+## <a name="step-5---create-a-key-for-the-second-certificate"></a>Étape 5 : Créer une clé pour le second certificat
+
+```bash
+openssl genpkey -out device2.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+```
+
+## <a name="step-6---create-a-csr-for-the-second-certificate"></a>Étape 6 : Créer une demande de signature de certificat pour le second certificat
 
 Quand vous y êtes invité, spécifiez le même ID d’appareil que celui utilisé pour le certificat 1.
 
@@ -71,34 +80,34 @@ Organization Name (eg, company) [Default Company Ltd]:.
 Organizational Unit Name (eg, section) []:.
 Common Name (eg, your name or your server hostname) []:{your-device-id}
 Email Address []:
-
 ```
 
-## <a name="step-6---self-sign-certificate-2"></a>Étape 6 : Auto-signer le certificat 2
+## <a name="step-7---self-sign-certificate-2"></a>Étape 7 : Auto-signer le certificat 2
 
 ```bash
 openssl x509 -req -days 365 -in device2.csr -signkey device2.key -out device2.crt
 ```
 
-## <a name="step-7---retrieve-the-thumbprint-for-certificate-1"></a>Étape 7 : Récupérer l’empreinte du certificat 1
+## <a name="step-8---retrieve-the-thumbprint-for-certificate-1"></a>Étape 8 : Récupérer l’empreinte du certificat 1
 
 ```bash
-openssl x509 -in device.crt -noout -fingerprint
+openssl x509 -in device1.crt -noout -fingerprint
 ```
 
-## <a name="step-8---retrieve-the-thumbprint-for-certificate-2"></a>Étape 8 : Récupérer l’empreinte du certificat 2
+## <a name="step-9---retrieve-the-thumbprint-for-certificate-2"></a>Étape 9 : Récupérer l’empreinte du certificat 2
 
 ```bash
 openssl x509 -in device2.crt -noout -fingerprint
 ```
 
-## <a name="step-9---create-a-new-iot-device"></a>Étape 9 : Créer un appareil IoT
+## <a name="step-10---create-a-new-iot-device"></a>Étape 10 : Créer un appareil IoT
 
 Accédez à votre hub IoT dans le portail Azure et créez une identité d’appareil IoT avec les caractéristiques suivantes :
 
 * Fournissez l’**ID d’appareil** qui correspond au nom du sujet de vos deux certificats.
 * Sélectionnez le type d’authentification **X.509 autosigné**.
 * Collez les empreintes des chaînes hexadécimales que vous avez copiées à partir du certificat primaire et du certificat secondaire de votre appareil. Assurez-vous que les chaînes hexadécimales n’ont pas les deux-points comme délimiteurs.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

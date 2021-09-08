@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/23/2021
-ms.openlocfilehash: 5e568e0e41b4273b94f12006d998a711229335c5
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.date: 08/26/2021
+ms.openlocfilehash: 7e8e1db98ac79c2be6dbb399a14368ce3e2f898c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112893507"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033494"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Mettre à niveau votre base de données PostgreSQL par vidage et restauration
 
@@ -46,7 +46,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 - Un serveur de base de données PostgreSQL **source** exécutant une version antérieure du moteur que vous souhaitez mettre à niveau.
 - Un serveur de base de données PostgreSQL **cible** avec la version majeure souhaitée d’[Azure Database pour PostgreSQL – Serveur unique](quickstart-create-server-database-portal.md) ou d’[Azure Database pour PostgreSQL – Serveur flexible](./flexible-server/quickstart-create-server-portal.md). 
-- Un système client PostgreSQL pour exécuter les commandes de sauvegarde et de restauration.
+- Un système client PostgreSQL pour exécuter les commandes de sauvegarde et de restauration. Il est recommandé d’utiliser la version de base de données la plus récente. Par exemple, si vous effectuez une mise à niveau de PostgreSQL version 9.6 vers 11, utilisez le client PostgreSQL version 11. 
   - Il peut s’agir d’un client Linux ou Windows sur lequel PostgreSQL et les utilitaires de ligne de commande [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) et [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) sont installés. 
   - Vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com) ou cliquer sur Azure Cloud Shell dans la barre de menus en haut à droite du [portail Azure](https://portal.azure.com). Vous devez vous connecter à votre compte `az login` avant d’exécuter les commandes de vidage et de restauration.
 - Votre client PostgreSQL s’exécute de préférence dans la même région que les serveurs source et cible. 
@@ -55,10 +55,10 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 ## <a name="additional-details-and-considerations"></a>Détails et considérations supplémentaires
 - Vous pouvez trouver la chaîne de connexion aux bases de données source et cible en cliquant sur « Chaînes de connexion » dans le portail. 
 - Il se peut que vous exécutiez plusieurs bases de données sur votre serveur. Vous pouvez trouver la liste des bases de données en vous connectant à votre serveur source et en exécutant `\l`.
-- Créez les bases de données correspondantes dans le serveur de base de données cible.
-- Vous pouvez ignorer la mise à niveau de `azure_maintenance` ou des bases de données modèles.
+- Créez les bases de données correspondantes dans le serveur de base de données cible ou ajoutez l'option `-C` à la commande `pg_dump` qui crée les bases de données.
+- Vous ne devez pas mettre à niveau `azure_maintenance` ou les bases de données de modèles. Si vous avez apporté des modifications aux bases de données de modèles, vous pouvez choisir de migrer les modifications ou d’effectuer ces modifications dans la base de données cible.
 - Reportez-vous aux tableaux ci-dessus pour déterminer si la base de données convient à ce mode de migration.
-- Si vous souhaitez utiliser Azure Cloud Shell, notez que la session expire après 20 minutes. Si la taille de votre base de données est < 10 Go, vous pourrez peut-être terminer la mise à niveau sans dépasser le délai d’expiration de la session. Sinon, vous devrez peut-être conserver la session ouverte par d’autres moyens, par exemple en appuyant sur la touche <Enter> une fois toutes les 10-15 minutes. 
+- Si vous souhaitez utiliser Azure Cloud Shell, notez que la session expire après 20 minutes. Si la taille de votre base de données est < 10 Go, vous pourrez peut-être terminer la mise à niveau sans dépasser le délai d’expiration de la session. Sinon, vous devrez peut-être conserver la session ouverte par d’autres moyens, par exemple en appuyant sur une touche une fois toutes les 10-15 minutes. 
 
 
 ## <a name="example-database-used-in-this-guide"></a>Exemple de base de données utilisé dans ce guide
@@ -76,7 +76,7 @@ Dans ce guide, les serveurs source et cible et les noms de base de données suiv
  | Nom d’utilisateur cible | pg@pg-11 |
 
 >[!NOTE]
-> Le serveur flexible prend en charge PostgreSQL versions 11 et ultérieures. Par ailleurs, le nom d’utilisateur du serveur flexible ne doit pas contenir @<servername>.
+> Le serveur flexible prend en charge PostgreSQL versions 11 et ultérieures. Par ailleurs, le nom d’utilisateur du serveur flexible ne doit pas contenir @dbservername.
 
 ## <a name="upgrade-your-databases-using-offline-migration-methods"></a>Mettre à niveau vos bases de données à l’aide de méthodes de migration hors connexion
 Vous pouvez choisir d’utiliser l’une des méthodes décrites dans cette section pour vos mises à niveau. Vous pouvez utiliser les conseils suivants lors de l’exécution des tâches.
@@ -88,13 +88,35 @@ Vous pouvez choisir d’utiliser l’une des méthodes décrites dans cette sect
 - Sur la ligne de commande Windows, exécutez la commande `SET PGSSLMODE=require` avant d’exécuter la commande pg_restore. Dans Linux ou Bash, exécutez la commande `export PGSSLMODE=require` avant d’exécuter la commande pg_restore.
 
 >[!Important]
-> Il est conseillé de tester et valider les commandes dans un environnement de test avant de les utiliser en production.
+> Les étapes et les méthodes fournies dans ce document donnent des exemples de commandes pg_dump/pg_restore et ne représentent pas toutes les façons possibles d’effectuer des mises à niveau. Il est conseillé de tester et valider les commandes dans un environnement de test avant de les utiliser en production.
 
-### <a name="method-1-migrate-using-dump-file"></a>Méthode 1 : Migrer en utilisant un fichier de sauvegarde
+### <a name="migrate-the-roles"></a>Migrer les rôles
 
-Cette méthode implique deux étapes. Tout d’abord, créez une sauvegarde du serveur source. La deuxième étape consiste à restaurer le fichier de sauvegarde sur le serveur cible. Pour plus d’informations, consultez la documentation [Migrer à l’aide de la sauvegarde et de la restauration](howto-migrate-using-dump-and-restore.md). Il s’agit de la méthode recommandée si vous avez des bases de données volumineuses et que votre système client dispose d’un espace de stockage suffisant pour stocker le fichier de sauvegarde.
+Les rôles (utilisateurs) sont des objets globaux et doivent être migrés séparément vers le nouveau cluster avant de restaurer la base de données. Vous pouvez utiliser l’option `pg_dumpall` binaire avec -r (-roles-only) pour les vider.
+Pour vider tous les rôles du serveur source :
 
-### <a name="method-2-migrate-using-streaming-the-dump-data-to-the-target-database"></a>Méthode 2 : Migrer en utilisant la diffusion en continu des données de sauvegarde vers la base de données cible
+```azurecli-interactive
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+```
+
+et restaurer à l’aide de psql sur le serveur cible :
+
+```azurecli-interactive
+psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
+```
+
+Le script de vidage ne doit pas être s’exécuter complètement sans erreurs. En particulier, étant donné que le script émet CREATE ROLE pour chaque rôle existant dans le cluster source, vous êtes assuré d’obtenir une erreur « le rôle existe déjà » pour le super-utilisateur de démarrage tel que azure_pg_admin ou azure_superuser. Cette erreur est inoffensive et peut être ignorée. L’utilisation de l'option `--clean` est susceptible de générer des messages d’erreur inoffensifs supplémentaires sur les objets inexistants, bien que vous puissiez les réduire en ajoutant `--if-exists`.
+
+
+### <a name="method-1-using-pg_dump-and-psql"></a>Méthode 1 : utilisation de pg_dump et psql
+
+Cette méthode implique deux étapes. Tout d’abord de vider un fichier de SQL du serveur source à l’aide de `pg_dump`. La deuxième étape consiste à importer le fichier sur le serveur cible à l’aide de `psql`. Pour plus d’informations, consultez la documentation [Migrer à l’aide de l’exportation et de l’importation](howto-migrate-using-export-and-import.md).
+
+### <a name="method-2-using-pg_dump-and-pg_restore"></a>Méthode 2 : utilisation de pg_dump et pg_restore
+
+Dans cette méthode de mise à niveau, vous créez d’abord un vidage du serveur source à l’aide de `pg_dump`. Vous restaurez ensuite ce fichier de vidage sur le serveur cible à l’aide de `pg_restore`. Pour plus d’informations, consultez la documentation [Migrer à l’aide du vidage et de la restauration](howto-migrate-using-dump-and-restore.md). 
+
+### <a name="method-3-using-streaming-the-dump-data-to-the-target-database"></a>Méthode 3 : utilisation de la diffusion en continu des données de vidage vers la base de données cible
 
 Si vous n’avez pas de client PostgreSQL ou si vous souhaitez utiliser Azure Cloud Shell, vous pouvez utiliser cette méthode. La sauvegarde de la base de données est transmise directement au serveur de base de données cible et n’est pas stockée dans le client. Par conséquent, elle peut être utilisée avec un client disposant d’un stockage limité et peut même être exécutée à partir d’Azure Cloud Shell. 
 
@@ -109,13 +131,13 @@ Si vous n’avez pas de client PostgreSQL ou si vous souhaitez utiliser Azure Cl
 
 2. Exécutez le vidage et la restauration en tant que ligne de commande unique à l’aide d’un canal. 
     ```azurecli-interactive
-    pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
+    pg_dump -Fc --host=mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore  --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
     ```
 
     Par exemple,
 
     ```azurecli-interactive
-    pg_dump -Fc -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
+    pg_dump -Fc --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
     ```  
 3. Une fois le processus de mise à niveau (migration) terminé, vous pouvez tester votre application avec le serveur cible. 
 4. Répétez ce processus pour toutes les bases de données sur le serveur.
@@ -130,19 +152,26 @@ Si vous n’avez pas de client PostgreSQL ou si vous souhaitez utiliser Azure Cl
 | 50 Go | 1-1,5 heures |
 | 100 Go | 2,5-3 heures|
    
-### <a name="method-3-migrate-using-parallel-dump-and-restore"></a>Méthode 3 : Migrer en utilisant la sauvegarde et la restauration parallèles 
+### <a name="method-4-using-parallel-dump-and-restore"></a>Méthode 4 : utilisation du vidage et de la restauration parallèles 
 
 Vous pouvez envisager cette méthode si vous avez peu de tables volumineuses dans votre base de données et que vous souhaitez paralléliser le processus de sauvegarde et de restauration pour cette base de données. Vous avez également besoin d’un espace de stockage suffisant dans votre système client pour pouvoir effectuer des copies de sauvegarde. Ce processus de vidage et de restauration parallèles réduit le temps nécessaire pour mener à bien l’ensemble de la migration. Par exemple, la migration de la base de données pgbench 50 Go qui a nécessité entre 1 h et 1 h 30 en utilisant les méthodes 1 et 2 a été effectuée en moins de 30 minutes à l’aide de cette méthode.
 
 1. Pour chaque base de données dans votre serveur source, créez une base de données correspondante sur le serveur cible.
 
-   ```bash
+    ```azurecli-interactive
     psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
-    postgresl> create database myDB;
+    ```
+
+    ```SQL
+    postgres> create database myDB;
    ```
+
    Par exemple,
     ```bash
     psql "host=pg-11.postgres.database.azure.com port=5432 dbname=postgres user=pg@pg-11 password=###### sslmode=require"
+    psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 13.3)
+    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+    Type "help" for help.
 
     postgres> create database bench5gb;
     postgres> \q
@@ -150,7 +179,7 @@ Vous pouvez envisager cette méthode si vous avez peu de tables volumineuses dan
 
 2. Exécutez la commande pg_dump dans un format de répertoire avec le nombre de travaux = 4 (nombre de tables dans la base de données). Avec un niveau de calcul plus élevé et plus de tables, vous pouvez passer à un nombre plus élevé. Cette commande pg_dump crée un répertoire pour stocker les fichiers compressés pour chaque travail.
 
-    ```bash
+    ```azurecli-interactive
     pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
     ```
     Par exemple,
@@ -159,7 +188,7 @@ Vous pouvez envisager cette méthode si vous avez peu de tables volumineuses dan
     ```
 
 3. Ensuite, restaurez la sauvegarde sur le serveur cible.
-    ```bash
+    ```azurecli-interactive
     $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
     ```
     Par exemple,

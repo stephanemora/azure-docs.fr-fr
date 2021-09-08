@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2e3dbc292108507793de0dd095e30ea2f63a7dab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966909"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531619"
 ---
 # <a name="what-are-security-partner-providers"></a>Que sont les fournisseurs de partenaire de sécurité ?
 
@@ -25,6 +25,10 @@ Vous pouvez déployer des hubs sécurisés configurés avec le partenaire de sé
 Les partenaires de sécurité pris en charge sont **Zscaler**, **[Check Point](check-point-overview.md)** et **iboss**.
 
 ![Fournisseurs de partenaire de sécurité](media/trusted-security-partners/trusted-security-partners.png)
+
+Consultez la vidéo suivante par Jack Tracey pour obtenir une vue d’ensemble du Zscaler :
+
+ > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4n8]
 
 ## <a name="key-scenarios"></a>Principaux scénarios
 

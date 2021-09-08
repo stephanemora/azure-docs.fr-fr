@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7803d14a46978c21d5fea65211abe0506c4cc1c8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6af10befe614ecd353bd5bd2185fcd9c7097f058
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677059"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535250"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -137,7 +137,7 @@ Le tableau suivant décrit les domaines requis pour la communication :
 
 Si &ast;.afs.azure.net ou &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communications du serveur aux seules instances régionales explicites du service Azure Files Sync. Les instances à définir dépendent de la région du service de synchronisation de stockage où vous avez déployé et inscrit le serveur. Cette région est appelée « URL de point de terminaison principal » dans le tableau ci-dessous.
 
-Pour des raisons de récupération d’urgence et de continuité d’activité (BCDR) vous avez peut-être spécifié des partages de vos fichiers Azure dans un compte de stockage globalement redondant (GRS). Si tel est le cas, vos partages de fichiers Azure basculeront vers la région jumelée en cas de panne régionale durable. Azure File Sync utilise les même paires régionales en tant que stockage. Par conséquent, si vous utilisez des comptes de stockage GRS, vous devez activer des URL supplémentaires pour permettre à votre serveur de communiquer avec la région jumelée pour Azure File Sync. Le tableau ci-dessous appelle cela « Région Jumelée ». De plus, il existe une URL du profil de gestionnaire de trafic qui doit être activée également. Ainsi, le trafic réseau peut être à nouveau routé en toute transparence vers la région jumelée en cas de basculement et est appelé « URL de détection » dans le tableau ci-dessous.
+Aux fins de continuité de l’activité et de récupération d’urgence (BCDR), vous avez peut-être créé vos partages de fichiers Azure dans un compte de stockage configuré pour le stockage géoredondant (GRS). Si tel est le cas, vos partages de fichiers Azure basculeront vers la région jumelée en cas de panne régionale durable. Azure File Sync utilise les même paires régionales en tant que stockage. Par conséquent, si vous utilisez des comptes de stockage GRS, vous devez activer des URL supplémentaires pour permettre à votre serveur de communiquer avec la région jumelée pour Azure File Sync. Le tableau ci-dessous appelle cela « Région Jumelée ». De plus, il existe une URL du profil de gestionnaire de trafic qui doit être activée également. Ainsi, le trafic réseau peut être à nouveau routé en toute transparence vers la région jumelée en cas de basculement et est appelé « URL de détection » dans le tableau ci-dessous.
 
 | Cloud  | Région | URL de point de terminaison principal | Région jumelée | URL de détection |
 |--------|--------|----------------------|---------------|---------------|
@@ -173,9 +173,9 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 | Gouvernement américain | Gouvernement des États-Unis – Arizona | https:\//usgovarizona01.afs.azure.us | Gouvernement des États-Unis – Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Gouvernement américain | Gouvernement des États-Unis – Texas | https:\//usgovtexas01.afs.azure.us | Gouvernement des États-Unis – Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
-- Si vous utilisez des comptes de stockage localement redondants (LRS) ou des comptes de stockage de redondants dans une zone (ZRS), vous devez uniquement activer l’URL répertoriée sous « URL de point de terminaison principal ».
+- Si vous utilisez un compte de stockage configuré pour le stockage localement redondant (LRS) ou le stockage redondant dans une zone (ZRS), vous devez uniquement activer l’URL indiquée sous « URL du point de terminaison principal ».
 
-- Si vous utilisez des comptes de stockage géoredondants (GRS), activez les trois URL.
+- Si vous utilisez un compte de stockage configuré pour GRS, activez trois URL.
 
 **Exemple :** vous déployez un service de synchronisation de stockage dans `"West US"` et inscrivez votre serveur avec celui-ci. Les URL permettant au serveur de communiquer sont dans ce cas :
 

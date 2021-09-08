@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.openlocfilehash: b87f36b755037519d29881eeaefddfa8c92f6a3f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 07/21/2021
+ms.openlocfilehash: e3ae63b202d826e48789bd8d15a197048d5566b7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744932"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563491"
 ---
 # <a name="create-a-query-that-invokes-semantic-ranking-and-returns-semantic-captions"></a>Créer une requête qui appelle le classement sémantique et renvoie les légendes sémantiques
 
 > [!IMPORTANT]
-> La recherche sémantique est en préversion publique dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, la préversion de l’API REST et les Kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
+> La fonctionnalité de recherche sémantique est en préversion publique et soumise à des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, la préversion de l’API REST et les Kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
 
 La recherche sémantique est une fonctionnalité premium de Recherche cognitive Azure qui appelle un algorithme de classement sémantique sur un jeu de résultats et renvoie des légendes sémantiques (et éventuellement des [réponses sémantiques](semantic-answers.md)), avec une mise en évidence des termes et expressions les plus pertinents. Tant les légendes que les réponses sont renvoyées dans des demandes de requête formulées à l’aide du type de requête « sémantique ».
 
@@ -30,7 +30,7 @@ Les légendes et réponses sont extraites du texte littéral du document de rech
 
 + [S’inscrire pour la préversion](https://aka.ms/SemanticSearchPreviewSignup). Le délai d’exécution prévu est d’environ deux jours ouvrables.
 
-+ Un index de recherche existant avec du contenu dans une [langue prise en charge](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
++ Un index de recherche existant avec du contenu dans une [langue prise en charge](/rest/api/searchservice/preview-api/search-documents#queryLanguage). La recherche sémantique fonctionne mieux sur du contenu qui est à titre d’information ou descriptif.
 
 + Un client de recherche pour l’envoi de requêtes.
 
@@ -104,7 +104,7 @@ Le tableau suivant récapitule les paramètres utilisés dans une requête séma
 | queryLanguage | String | Obligatoire pour les requêtes sémantiques. Le lexique que vous spécifiez s’applique également au classement sémantique, aux légendes, aux réponses et à la vérification orthographique. Pour plus d’informations, consultez [Langues prises en charge (informations de référence sur l’API REST)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). |
 | searchFields | String | Liste délimitée par des virgules des champs pouvant faire l’objet d’une recherche. Spécifie les champs sur lesquels le classement sémantique se produit, à partir desquels les légendes et réponses sont extraites. </br></br>Contrairement aux types requête simple et requête complète, l’ordre dans lequel les champs sont répertoriés détermine la priorité. Pour plus d’informations sur l’utilisation, reportez-vous à [Étape 2 : définir searchFields](#searchfields). |
 | Vérificateur d’orthographe | String | Paramètre facultatif, non spécifique aux requêtes sémantiques, qui corrige les termes mal orthographiés avant qu’ils n’atteignent le moteur de recherche. Pour plus d’informations, consultez [Ajouter une correction orthographique à des requêtes](speller-how-to-add.md). |
-| answers |String | Paramètres facultatifs indiquant que les réponses sémantiques doivent être incluses dans le résultat ou pas. Actuellement, seule l’option « extractive » est implémentée. Les réponses peuvent être configurées pour être retournées au nombre de cinq maximum. La valeur par défaut est 1. Cet exemple montre un nombre de trois réponses : "extractive\|count3"`. Pour plus d’informations, consultez [Retourner des réponses sémantiques](semantic-answers.md).|
+| answers |String | Paramètres facultatifs indiquant que les réponses sémantiques doivent être incluses dans le résultat ou pas. Actuellement, seule l’option « extractive » est implémentée. Les réponses peuvent être configurées pour être retournées au nombre de cinq maximum. La valeur par défaut est 1. Cet exemple montre un nombre de trois réponses :`extractive\|count-3`. Pour plus d’informations, consultez [Retourner des réponses sémantiques](semantic-answers.md).|
 
 ### <a name="formulate-the-request"></a>Formuler la requête
 
@@ -163,9 +163,13 @@ L’ordre des champs est essentiel, car le classement sémantique limite la quan
 
   + Faites suivre les champs ci-dessus d’autres champs descriptifs, où la réponse aux requêtes sémantiques peut être trouvée (contenu principal d’un document, par exemple).
 
-#### <a name="step-3-remove-orderby-clauses"></a>Étape 3 : Supprimer les clauses orderBy
+#### <a name="step-3-remove-or-bracket-query-features-that-bypass-relevance-scoring"></a>Étape 3 : supprimer ou mettre entre guillemets les fonctionnalités de requête qui contournent le score de pertinence
 
-Supprimez les clauses orderBy du code de requête existant. Le score sémantique est utilisé pour trier les résultats, et si vous incluez une logique de tri explicite, une erreur HTTP 400 est retournée.
+Plusieurs fonctionnalités de requête dans Recherche cognitive ne subissent pas de notation de pertinence, et d’autres contournent complètement le moteur de recherche en texte intégral. Si votre logique de requête comprend les fonctionnalités suivantes, vous n’obtiendrez pas de score de pertinence ou de classement sémantique sur vos résultats :
+
++ Les filtres, les requêtes de recherche approximative et les expressions régulières effectuent une itération sur du texte qui n’a pas de jetons et analysent les correspondances textuelles dans le contenu. Les scores de recherche pour tous les formulaires de requête ci-dessus sont uniformes 1.0 et ne fourniront pas d’entrée significative pour le classement sémantique.
+
++ Le tri (clauses orderBy) sur des champs spécifiques remplacera également les scores de recherche et le score sémantique. Étant donné que le score sémantique est utilisé pour ordonner les résultats, même la logique de tri explicite renverra une erreur HTTP 400.
 
 #### <a name="step-4-add-answers"></a>Étape 4 : ajouter des réponses
 
@@ -190,6 +194,17 @@ Définissez tous les autres paramètres que vous souhaitez inclure dans la requ�
 ```
 
 Le style de surbrillance est appliqué aux légendes dans la réponse. Vous pouvez utiliser le style par défaut ou personnaliser éventuellement le style de surbrillance appliqué aux légendes. Les légendes appliquent le format de surbrillance aux passages importants dans le document qui résument la réponse. Par défaut, il s’agit de `<em>`. Si vous souhaitez spécifier le type de mise en forme (par exemple un arrière-plan jaune), vous pouvez définir highlightPreTag et highlightPostTag.
+
+## <a name="query-using-azure-sdks"></a>Interroger en utilisant les Kits de développement logiciel (SDK) Azure
+
+Les versions bêta des kits de développement logiciel (SDK) Azure incluent la prise en charge de la recherche sémantique. Étant donné que les kits de développement logiciel (SDK) sont des versions bêta, il n’existe pas de documentation ou d’exemples, mais vous pouvez vous reporter à la section API REST ci-dessus pour obtenir des informations sur le fonctionnement des API.
+
+| Kit de développement logiciel (SDK) Azure | Paquet |
+|-----------|---------|
+| .NET | [Azure.Search.Documents package 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2)  |
+| Java | [com.azure:azure-search-documents 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar)  |
+| JavaScript | [azure/search-documents 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2)|
+| Python | [azure-search-documents 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## <a name="evaluate-the-response"></a>Évaluer la réponse
 

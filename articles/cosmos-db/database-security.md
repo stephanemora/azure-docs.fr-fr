@@ -4,14 +4,14 @@ description: Découvrez comment Azure Cosmos DB garantit la protection de la bas
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 08/30/2021
 ms.author: mjbrown
-ms.openlocfilehash: 19b4c8466e88159839ce1f43a5ba282b1bb3ec9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee5b5421ea0cb43371f790eecc31f22cc4ae7142
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94636909"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257826"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Indexation dans Azure Cosmos DB - Vue d’ensemble
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -84,22 +84,194 @@ La capture d’écran suivante montre comment utiliser l’enregistrement d’au
 
 <a id="primary-keys"></a>
 
-## <a name="primary-keys"></a>Clés primaires
+## <a name="primarysecondary-keys"></a>Clés primaire/secondaire
 
-Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Elles présentent les caractéristiques suivantes :
+Les clés primaire/secondaire donnent accès à toutes les ressources administratives du compte de base de données. Clés primaire/secondaire :
 
 - Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
 - Ne peuvent pas être utilisées pour fournir un accès précis aux conteneurs et aux documents.
 - Sont créées lors de la création d’un compte.
 - Peuvent être régénérées à tout moment.
 
-Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données.
+Chaque compte comporte deux clés : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données.
 
-Outre les deux clés primaires du compte Azure Cosmos DB, il existe deux clés en lecture seule. Ces clés en lecture seule autorisent uniquement les opérations de lecture sur le compte. Les clés en lecture seule ne permettent pas de lire les ressources d’autorisation.
+Les clés primaire/secondaire sont disponibles en deux versions : lecture/écriture et lecture seule. Les clés en lecture seule autorisent uniquement les opérations de lecture sur le compte, mais ne fournissent pas d’accès aux ressources des autorisations de lecture.
 
-Les clés primaire, secondaire, en lecture seule, et en lecture et en écriture peuvent être récupérées et régénérées à l’aide du Portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](manage-with-cli.md#regenerate-account-key).
+### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> Rotation et régénération des clés
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL":::
+Le processus de rotation et de régénération des clés est simple. Tout d’abord, assurez-vous que **votre application utilise régulièrement la clé primaire ou la clé secondaire** pour accéder à votre compte Azure Cosmos DB. Puis, suivez les étapes présentées ci-dessous.
+
+# <a name="sql-api"></a>[API SQL](#tab/sql-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si votre application utilise actuellement la clé primaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+1. Vérifiez que la nouvelle clé secondaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé primaire par votre clé secondaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si votre application utilise actuellement la clé secondaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+1. Vérifiez que la nouvelle clé primaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé secondaire par votre clé primaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+# <a name="azure-cosmos-db-api-for-mongodb"></a>[API Azure Cosmos DB pour MongoDB](#tab/mongo-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si votre application utilise actuellement la clé primaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Chaîne de connexion** dans le menu de gauche, puis sélectionnez **Régénérer le mot de passe** à partir de l’ellipse sur la droite de votre mot de passe secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+1. Vérifiez que la nouvelle clé secondaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé primaire par votre clé secondaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si votre application utilise actuellement la clé secondaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Chaîne de connexion** dans le menu de gauche, puis sélectionnez **Régénérer le mot de passe** à partir de l’ellipse sur la droite de votre mot de passe primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+1. Vérifiez que la nouvelle clé primaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé secondaire par votre clé primaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+# <a name="cassandra-api"></a>[API Cassandra](#tab/Cassandra-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si votre application utilise actuellement la clé primaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Chaîne de connexion** dans le menu de gauche, puis sélectionnez **Régénérer le mot de passe secondaire de lecture/écriture** à partir de l’ellipse sur la droite de votre mot de passe secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+1. Vérifiez que la nouvelle clé secondaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé primaire par votre clé secondaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si votre application utilise actuellement la clé secondaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Chaîne de connexion** dans le menu de gauche, puis sélectionnez **Régénérer le mot de passe primaire de lecture/écriture** à partir de l’ellipse sur la droite de votre mot de passe primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+1. Vérifiez que la nouvelle clé primaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé secondaire par votre clé primaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+# <a name="gremlin-api"></a>[API Gremlin](#tab/gremlin-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si votre application utilise actuellement la clé primaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+1. Vérifiez que la nouvelle clé secondaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé primaire par votre clé secondaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si votre application utilise actuellement la clé secondaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+1. Vérifiez que la nouvelle clé primaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé secondaire par votre clé primaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+# <a name="table-api"></a>[API de table](#tab/table-api)
+
+#### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si votre application utilise actuellement la clé primaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Chaîne de connexion** dans le menu de gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+1. Vérifiez que la nouvelle clé secondaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé primaire par votre clé secondaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+#### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si votre application utilise actuellement la clé secondaire
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Chaîne de connexion** dans le menu de gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+1. Vérifiez que la nouvelle clé primaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé secondaire par votre clé primaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

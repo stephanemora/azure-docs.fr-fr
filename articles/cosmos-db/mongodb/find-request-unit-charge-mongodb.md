@@ -6,14 +6,14 @@ ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b3a43805e77157b875948ca093c5f04935ffe68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c2ad6ef764fa13a6876f1727314d5a7944ce7d31
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524106"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035208"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Rechercher les frais des unités de requête pour les opérations exécutées dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -97,3 +97,6 @@ Pour en savoir plus sur l’optimisation de votre consommation d’unités de re
 * [Unités de requête et débit dans Azure Cosmos DB](../request-units.md)
 * [Optimiser le coût du débit approvisionné dans Azure Cosmos DB](../optimize-cost-throughput.md)
 * [Optimiser le coût de requête dans Azure Cosmos DB](../optimize-cost-reads-writes.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur [estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant [estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

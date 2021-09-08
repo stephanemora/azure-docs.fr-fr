@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4740a4b4aac59ac2e0e57797f39c489c6beaf75c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567251"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252181"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Exigences en matière de stockage d’objets BLOB Azure Stack Edge
 
@@ -25,12 +25,12 @@ Nous vous recommandons de consulter attentivement les informations avant de vous
 
 |     Fonctionnalité                                             |     Stockage Azure                                     |     Stockage d’objets BLOB Azure Stack Edge |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Présentation du stockage de fichiers                                   |    Partages de fichiers SMB sur le cloud pris en charge              |    Non pris en charge      |
+|    Azure Files                                   |    Partages de fichiers SMB et NFS sur le cloud pris en charge              |    Non pris en charge      |
 |    Type de compte de stockage                                 |    Comptes de stockage à usage général et comptes de stockage d’objets blob Azure    |    Comptes de stockage à usage général v1 uniquement|
 |    Nom de l’objet blob                                            |    1 024 caractères (2 048 octets)                     |    880 caractères (1 760 octets)|
-|    Taille maximale des objets blob de blocs                              |    4,75 To (100 Mo X 50 000 blocs)                   |    4,75 To (100 Mo x 50 000 blocs) pour Azure Stack Edge|
-|    Taille maximale des objets blob de pages                               |    8 To                                               |    1 To                   |
-|    Taille de page d’un objet blob de pages                                  |    512 octets                                          |    4 Ko                   |
+|    Taille maximale des objets blob de blocs                              |    4,75 Tio (100 Mio X 50 000 blocs)                   |    4,75 Tio (100 Mo x 50 000 blocs) pour Azure Stack Edge|
+|    Taille maximale des objets blob de pages                               |    8 Tio                                               |    1 Tio                   |
+|    Taille de page d’un objet blob de pages                                  |    512 octets                                          |    4 Kio                   |
 
 ## <a name="supported-api-versions"></a>Versions d'API prises en charge
 

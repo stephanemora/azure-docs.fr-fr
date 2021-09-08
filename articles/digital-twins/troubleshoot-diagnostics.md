@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment activer la journalisation avec les paramètres de diagnostic et comment interroger les journaux pour un affichage immédiat.
 author: baanders
 ms.author: baanders
-ms.date: 2/24/2021
+ms.date: 8/24/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ced6f28bb7174bc3510de9025569646210e87782
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1479e2b6b715e8f80ea9e02b0b57a3995da2bfd9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475703"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219709"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
-Azure Digital Twins peut collecter les journaux de votre instance de service pour superviser ses performances, son accès et d’autres données. Vous pouvez utiliser ces journaux pour obtenir un aperçu de ce qui se passe dans votre instance Azure Digital Twins et effectuer une analyse de cause racine sur des problèmes sans avoir besoin de contacter le support Azure.
+Azure Digital Twins peut collecter les journaux de votre instance de service pour superviser ses performances, son accès et d’autres données. Vous pouvez utiliser ces journaux pour obtenir un aperçu de ce qui se passe dans votre instance Azure Digital Twins et analyser des causes racines sur des problèmes sans avoir besoin de contacter le support Azure.
 
 Cet article explique comment [configurer les paramètres de diagnostic](#turn-on-diagnostic-settings) dans le [portail Azure](https://portal.azure.com) pour commencer à collecter des journaux à partir de votre instance Azure Digital Twins. Vous pouvez également spécifier l’emplacement de stockage des journaux (comme Log Analytics ou un compte de stockage de votre choix).
 
@@ -65,12 +65,12 @@ Voici plus d’informations sur les catégories de journaux collectées par Azur
 
 | Catégorie de journal | Description |
 | --- | --- |
-| ADTModelsOperation | Consigner tous les appels d’API se rapportant à des modèles |
-| ADTQueryOperation | Consigner tous les appels d’API se rapportant à des requêtes |
+| ADTModelsOperation | Consigner tous les appels d’API en lien avec des modèles |
+| ADTQueryOperation | Consigner tous les appels d’API en lien avec des requêtes |
 | ADTEventRoutesOperation | Consigner tous les appels d’API se rapportant aux itinéraires d’événements, ainsi que la sortie d’événements provenant d’Azure Digital Twins vers un service de point de terminaison comme Event Grid, Event Hubs et Service Bus |
-| ADTDigitalTwinsOperation | Consigner tous les appels d’API appartenant à des jumeaux individuels |
+| ADTDigitalTwinsOperation | Consigner tous les appels d’API en lien avec des jumeaux individuels |
 
-Chaque catégorie de journal se compose d'opérations d'écriture, de lecture, de suppression et d'action.  Ces opérations sont mappées à des appels d'API REST, comme suit :
+Chaque catégorie de journal se compose d'opérations d'écriture, de lecture, de suppression et d'action. Ces opérations sont mappées à des appels d'API REST, comme suit :
 
 | Type d'événement | Opérations de l'API REST |
 | --- | --- |
@@ -279,7 +279,7 @@ Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui n’est **
 
 ### <a name="egress-log-schemas"></a>Schéma des journaux de sortie
 
-Il s’agit du schéma pour les journaux `ADTEventRoutesOperation` spécifiques au nom d’opération `Microsoft.DigitalTwins/eventroutes/action`. Ceux-ci contiennent des détails sur les exceptions et les opérations d'API relatives aux points de terminaison de sortie connectés à une instance d'Azure Digital Twins.
+L’exemple suivant est un schéma pour les journaux `ADTEventRoutesOperation` spécifiques au nom d’opération `Microsoft.DigitalTwins/eventroutes/action`. Ceux-ci contiennent des détails sur les exceptions et les opérations d'API relatives aux points de terminaison de sortie connectés à une instance d'Azure Digital Twins.
 
 |Nom du champ | Type de données | Description |
 |-----|------|-------------|
@@ -303,7 +303,7 @@ Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types 
 
 #### <a name="adteventroutesoperation-for-microsoftdigitaltwinseventroutesaction"></a>ADTEventRoutesOperation pour Microsoft.DigitalTwins/eventroutes/action
 
-Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui est de `Microsoft.DigitalTwins/eventroutes/action` type.
+Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui est de type `Microsoft.DigitalTwins/eventroutes/action`.
 
 ```json
 {

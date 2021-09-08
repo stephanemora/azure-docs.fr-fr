@@ -2,13 +2,13 @@
 title: Utiliser un hub d’événements à partir de l’application Apache Kafka - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur la prise en charge d’Apache Kafka par Azure Event Hubs.
 ms.topic: article
-ms.date: 09/25/2020
-ms.openlocfilehash: 5402769b00a142551672098829dcf8f3ef6ea670
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.date: 08/30/2021
+ms.openlocfilehash: f0ea6469d17248a0d37a7ababf767d494545fbbb
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527658"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250649"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utiliser Azure Event Hubs à partir d’applications Apache Kafka
 Event Hubs fournit un point de terminaison compatible avec les API de producteur et de consommateur Apache Kafka® que la plupart des applications clientes Apache Kafka existantes peuvent utiliser comme alternative à l'exécution de votre propre cluster Apache Kafka. Event Hubs prend en charge les clients d'API de producteur et de consommateur Apache Kafka à partir de la version 1.0.
@@ -42,7 +42,7 @@ La mise à l’échelle en Event Hubs est contrôlée par le nombre [d'unités d
 
 ### <a name="is-apache-kafka-the-right-solution-for-your-workload"></a>Apache Kafka convient-il à votre charge de travail ?
 
-Après avoir créé des applications à l'aide d'Apache Kafka, il vous sera également utile de savoir qu'Azure Event Hubs fait partie d'un ensemble de services qui englobe [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) et [Azure Event Grid](../event-grid/overview.md). 
+Après avoir créé des applications à l'aide d'Apache Kafka, il est également utile de savoir qu'Azure Event Hubs fait partie d'un ensemble de services qui englobe [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) et [Azure Event Grid](../event-grid/overview.md). 
 
 Certains fournisseurs de distributions commerciales d'Apache Kafka présentent Apache Kafka comme un guichet unique pour tous vos besoins en matière de plateforme de messagerie. Mais en réalité, Apache Kafka n'implémente pas, par exemple, le modèle de file d'attente [consommateur simultané](/azure/architecture/patterns/competing-consumers), ne prend pas en charge le mode [publication/abonnement](/azure/architecture/patterns/publisher-subscriber) à un niveau qui permet aux abonnés d'accéder aux messages entrants sur la base de règles évaluées par le serveur autres que les décalages simples, et il ne dispose d'aucune fonctionnalité pour suivre le cycle de vie d'un travail initié par un message ou pour mettre les messages défectueux de côté dans une file d'attente de lettres mortes, or ces fonctionnalités sont toutes fondamentales pour de nombreux scénarios de messagerie d'entreprise.
 
@@ -51,14 +51,14 @@ Pour comprendre les différences entre les modèles et déterminer quel modèle 
 Si vous avez besoin de fonctionnalités Apache Kafka spécifiques non disponibles via l'interface d'Event Hubs pour Apache Kafka, ou si votre modèle d'implémentation dépasse les [quotas d'Event Hubs](event-hubs-quotas.md), vous pouvez également exécuter un [cluster Apache Kafka natif dans Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction.md).  
 
 ## <a name="security-and-authentication"></a>Sécurité et authentification
-Chaque fois que vous publiez ou utilisez des événements à partir d'une instance Event Hubs pour Kafka, votre client tente d'accéder aux ressources Event Hubs. Vous voulez assurer l'accès aux ressources à l’aide d’une entité autorisée. Lorsque vous utilisez le protocole Apache Kafka avec vos clients, vous pouvez utiliser des mécanismes SASL pour définir votre configuration à des fins d’authentification et de chiffrement. L’utilisation d'Event Hubs pour Kafka nécessite le chiffrement TLS (car toutes les données en transit avec Event Hubs sont chiffrées avec le protocole TLS). Pour ce faire, vous pouvez spécifier l'option SASL_SSL dans votre fichier de configuration. 
+Chaque fois que vous publiez ou utilisez des événements à partir d'une instance Event Hubs pour Kafka, votre client tente d'accéder aux ressources Event Hubs. Vous voulez assurer l'accès aux ressources à l’aide d’une entité autorisée. Lorsque vous utilisez le protocole Apache Kafka avec vos clients, vous pouvez utiliser des mécanismes SASL pour définir votre configuration à des fins d’authentification et de chiffrement. Quand l'utilisation d'Event Hubs pour Kafka nécessite le chiffrement TLS (comme toutes les données en transit avec Event Hubs sont chiffrées avec TLS), vous pouvez spécifier l'option SASL_SSL dans votre fichier de configuration. 
 
 Azure Event Hubs propose plusieurs options afin d'autoriser l’accès à vos ressources sécurisées. 
 
 - OAuth 2.0
 - Signature d’accès partagé (SAP)
 
-#### <a name="oauth-20"></a>OAuth 2.0
+### <a name="oauth-20"></a>OAuth 2.0
 Event Hubs s'intègre à Azure Active Directory (Azure AD), qui fournit un serveur d'autorisation centralisé compatible avec **OAuth 2.0**. Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour accorder des autorisations affinées à vos identités clientes. Vous pouvez utiliser cette fonctionnalité avec vos clients Kafka en spécifiant **SASL_SSL** pour le protocole et **OAUTHBEARER** pour le mécanisme. Pour plus d’informations sur les niveaux et les rôles Azure pour limiter l’accès, consultez [Autoriser l’accès avec Azure AD](authorize-access-azure-active-directory.md).
 
 ```properties
@@ -69,7 +69,7 @@ sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginMo
 sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
-#### <a name="shared-access-signature-sas"></a>Signature d’accès partagé (SAS)
+### <a name="shared-access-signature-sas"></a>Signature d’accès partagé (SAS)
 Event Hubs fournit également les **signatures d'accès partagé (SAP)** à des fins d'accès délégué aux ressources Event Hubs pour Kafka. Autoriser l’accès à l’aide d’un mécanisme basé sur les jetons OAuth 2.0 offre une sécurité et une facilité d'utilisation supérieures par rapport aux SAP. Grâce aux rôles intégrés, il n'est plus nécessaire de recourir à une autorisation basée sur une liste de contrôle d’accès, qui doit être gérée par l’utilisateur. Vous pouvez utiliser cette fonctionnalité avec vos clients Kafka en spécifiant **SASL_SSL** pour le protocole et **PLAIN** pour le mécanisme. 
 
 ```properties
@@ -117,7 +117,7 @@ La charge utile de tout événement Event Hub est un flux d'octets, et le conten
 
 ### <a name="log-compaction"></a>Compactage des journaux
 
-La fonctionnalité de compactage des journaux Apache Kafka permet de supprimer d'une partition tous les enregistrements à l'exception du dernier de chaque clé, ce qui transforme une rubrique Apache Kafka en magasin de paires clé-valeur où la dernière valeur ajoutée remplace la précédente. Actuellement, cette fonctionnalité n’est pas implémentée par Azure Event Hubs. Le modèle de magasin de paires clé-valeur, même avec des mises à jour fréquentes, est bien mieux pris en charge par les services de base de données comme [Azure Cosmos DB](../cosmos-db/introduction.md). Pour plus d’informations, consultez la rubrique [Projection de journaux](event-hubs-federation-overview.md#log-projections) dans les conseils de fédération Event Hubs. 
+La fonctionnalité de compactage des journaux Apache Kafka permet de supprimer d'une partition tous les enregistrements à l'exception du dernier de chaque clé, ce qui transforme une rubrique Apache Kafka en magasin de paires clé-valeur où la dernière valeur ajoutée remplace la précédente. Actuellement, cette fonctionnalité n’est pas implémentée par Azure Event Hubs. Le modèle de magasin de paires clé-valeur, même avec des mises à jour fréquentes, est bien mieux pris en charge par les services de base de données comme [Azure Cosmos DB](../cosmos-db/introduction.md). Pour plus d’informations, consultez [Projection de journal](event-hubs-federation-overview.md#log-projections). 
 
 ### <a name="kafka-streams"></a>Kafka Streams
 

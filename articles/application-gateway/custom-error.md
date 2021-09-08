@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5187f30bd1de87e930e1a2d28ab9c68ec861cff6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5bdae2055f46f6f933325c95b86d427951c6cfbc
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321516"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222665"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Créer des pages d’erreur personnalisées pour Application Gateway
 
@@ -41,9 +41,9 @@ Pour créer une page d’erreur personnalisée, vous devez disposer des élémen
 - un blob de Stockage Azure accessible publiquement pour cet emplacement
 - une extension de type *.htm ou *.html 
 
-La taille de la page d’erreur doit être inférieure à 1 Mo. Si des images sont liées dans la page d’erreur, il doit s’agir d’images incluses dans la page d’erreur personnalisée, soit sous forme d’URL absolues accessibles publiquement, soit sous forme d’images codées en base64. Les liens relatifs contenant des images situées dans le même emplacement blob ne sont actuellement pas pris en charge. 
+La taille de la page d’erreur doit être inférieure à 1 Mo. Vous pouvez référencer des images/CSS internes ou externes pour ce fichier HTML. Pour les ressources référencées en externe, utilisez des URL absolues accessibles publiquement. Tenez compte de la taille du fichier HTML quand vous utilisez des images internes (image inline codée en base64) ou CSS. Les liens relatifs contenant des fichiers situés dans le même emplacement blob ne sont actuellement pas pris en charge.
 
-Après avoir spécifié une page d’erreur, la passerelle d’application la télécharge à partir de l’emplacement d’objets blob de stockage et l’enregistre dans le cache local de la passerelle d’application. Par la suite, la page d’erreur est prise en charge directement à partir de la passerelle d’application. Pour modifier une page d’erreur personnalisée existante, vous devez pointer vers un autre emplacement d’objet blob dans la configuration de la passerelle d’application. La passerelle d’application ne vérifie pas régulièrement l’emplacement des objets blob pour extraire les nouvelles versions.
+Après avoir spécifié une page d’erreur, la passerelle d’application la télécharge à partir de l’emplacement d’objets blob de stockage et l’enregistre dans le cache local de la passerelle d’application. Ensuite, cette page HTML est servie par la passerelle de l’application, tandis que les ressources référencées en externe sont extraites directement par le client. Pour modifier une page d’erreur personnalisée existante, vous devez pointer vers un autre emplacement d’objet blob dans la configuration de la passerelle d’application. La passerelle d’application ne vérifie pas régulièrement l’emplacement des objets blob pour extraire les nouvelles versions.
 
 ## <a name="portal-configuration"></a>Configuration du portail
 

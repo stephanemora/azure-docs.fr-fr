@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be51077c5aad6056cf4e28656c0552bc052a7ead
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88934852"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829909"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Syntaxe OData $filter dans Recherche cognitive Azure
 
@@ -75,7 +75,7 @@ Les types d’expressions booléennes incluent les suivants :
 
 Si vous écrivez une expression de filtre sans parenthèses autour de ses sous-expressions, Recherche cognitive Azure l’évalue en fonction d’un ensemble de règles de priorité d’opérateur. Ces règles sont basées sur les opérateurs utilisés pour combiner des sous-expressions. Le tableau suivant répertorie les groupes d’opérateurs dans l’ordre de la priorité la plus élevée à la plus faible :
 
-| Group | Opérateur(s) |
+| Groupe | Opérateur(s) |
 | --- | --- |
 | Opérateurs logiques | `not` |
 | Opérateurs de comparaison | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |
@@ -242,6 +242,12 @@ Recherchez les hôtels où les termes « hôtel » et « aéroport » sont sépa
 
 ```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
+
+Recherchez des documents qui ont un mot commençant par les lettres « Lux » dans le champ Description. Cette requête utilise la [recherche de préfixe](query-simple-syntax.md#prefix-queries) en association avec `search.ismatch`.
+
+```odata-filter-expr
+    $filter=search.ismatch('lux*', 'Description')
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes  

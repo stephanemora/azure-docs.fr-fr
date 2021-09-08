@@ -4,14 +4,14 @@ description: Sécuriser l’accès aux entrées, aux sorties, aux déclencheurs 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
-ms.topic: conceptual
-ms.date: 05/01/2021
-ms.openlocfilehash: 50087ed6066ba97a866cc2fd40901397a3825e37
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.topic: how-to
+ms.date: 07/29/2021
+ms.openlocfilehash: 296a743924de2093ff9418333bdf8ef7e2f6f0f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983921"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562436"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur la sécurité dans Azure, consultez les rubriques
 
 Les appels entrants qu’une application logique reçoit via un déclencheur basé sur des requêtes, tel que le déclencheur de [demande](../connectors/connectors-native-reqres.md) ou le déclencheur [Webhook HTTP](../connectors/connectors-native-webhook.md), prennent en charge le chiffrement et sont sécurisés avec [au minimum Transport Layer Security (TLS) 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment appelé Secure Sockets Layer (SSL). Logic Apps applique cette version lors de la réception d’un appel entrant au déclencheur de requête ou d’un rappel du déclencheur ou d’une action Webhook HTTP. Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](/security/solving-tls1-problem).
 
-Les appels entrants prennent en charge les suites de chiffrement suivantes :
+Pour les appels entrants, utilisez les suites de chiffrement suivantes :
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -50,6 +50,24 @@ Les appels entrants prennent en charge les suites de chiffrement suivantes :
 * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+> [!NOTE]
+> À des fins de compatibilité descendante, Azure Logic Apps prend actuellement en charge certaines suites de chiffrement plus anciennes. Cependant, *n’utilisez pas* de suites de chiffrement plus anciennes lorsque vous développez de nouvelles applications car ces suites *peuvent ne pas* être prises en charge à l’avenir. 
+>
+> Par exemple, vous pouvez trouver les suites de chiffrement suivantes si vous examinez les messages d’établissement d’une liaison TLS lors de l’utilisation du service Azure Logic Apps ou à l’aide d’un outil de sécurité sur l’URL de votre application logique. De nouveau, *n’utilisez pas* les suites de chiffrement plus anciennes suivantes :
+>
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+> * TLS_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_RSA_WITH_AES_256_CBC_SHA256
+> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> * TLS_RSA_WITH_AES_256_CBC_SHA
+> * TLS_RSA_WITH_AES_128_CBC_SHA
+> * TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 La liste suivante inclut d’autres façons de limiter l’accès aux déclencheurs qui reçoivent des appels entrants à votre application logique afin que seuls des clients autorisés puissent appeler votre application logique :
 
@@ -553,8 +571,17 @@ Dans votre modèle ARM, spécifiez les plages d’adresses IP en utilisant la se
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Sécuriser les données dans l’historique des exécutions à l’aide d’une obfuscation
 
-De nombreux déclencheurs et actions disposent de paramètres permettant sécuriser les entrées et/ou sorties dans l’historique d’exécution d’une application logique. Avant d’utiliser ces paramètres pour sécuriser ces données, prenez connaissance des considérations suivantes :
+De nombreux déclencheurs et actions disposent de paramètres permettant sécuriser les entrées et/ou sorties dans l’historique d’exécution d’une application logique. L’ensemble des *[connecteurs managés](/connectors/connector-reference/connector-reference-logicapps-connectors) et des [connecteurs personnalisés](/connectors/custom-connectors/)* prennent en charge ces options. Cependant, les [opérations intégrées](../connectors/built-in.md) suivantes ***ne prennent pas en charge les options suivantes*** :
+     
+| Entrées sécurisées - non prises en charge | Sorties sécurisées - non prises en charge |
+|-----------------------------|------------------------------|
+| Ajouter à une variable tableau <br>Ajouter à une variable chaîne <br>Décrémenter une variable <br>Pour chaque <br>Si <br>Incrémenter une variable <br>Initialiser la variable <br>Périodicité <br>Étendue <br>Définir une variable <br>Commutateur <br>Terminate <br>Jusqu’à | Ajouter à une variable tableau <br>Ajouter à une variable chaîne <br>Composer <br>Décrémenter une variable <br>Pour chaque <br>Si <br>Incrémenter une variable <br>Initialiser la variable <br>Analyse JSON <br>Périodicité <br>response <br>Étendue <br>Définir une variable <br>Commutateur <br>Terminate <br>Jusqu’à <br>Wait |
+|||
 
+#### <a name="considerations-for-securing-inputs-and-outputs"></a>Considérations relatives à la sécurisation des entrées et des sorties
+
+Avant d’utiliser ces paramètres pour sécuriser ces données, prenez connaissance des considérations suivantes :
+                 
 * Quand vous rendez secrètes les entrées ou les sorties d’un déclencheur ou d’une action, Logic Apps n’envoie pas les données sécurisées à Azure Log Analytics. De plus, vous ne pouvez pas ajouter de [propriétés suivies](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) à ce déclencheur ou à cette action à des fins de supervision.
 
 * L’[API Logic Apps qui permet de gérer l’historique des workflows](/rest/api/logic/) ne retourne pas de sorties sécurisées.
@@ -1027,7 +1054,7 @@ Sur les déclencheurs de requête, vous pouvez utiliser [Azure Active Directory 
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentification** | `type` | Oui | **OAuth Active Directory** <br>or <br>`ActiveDirectoryOAuth` | Type d’authentification à utiliser. Logic Apps suit actuellement le [protocole OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | Non | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’accès. Par défaut, cette valeur est définie sur `https://login.windows.net`. |
+| **Authority** | `authority` | Non | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’accès, par exemple `https://login.microsoftonline.com/` pour les régions du service global Azure. Pour les autres Clouds nationaux, passez en revue [Points de terminaison d’authentification Azure AD - Choix de votre autorité d’identité](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). |
 | **Locataire** | `tenant` | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD |
 | **Public ciblé** | `audience` | Oui | <*ressource à autoriser*> | Ressource à utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation |
@@ -1121,7 +1148,7 @@ Quand l’option [Identité managée](../active-directory/managed-identities-azu
    | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentification** | `type` | Oui | **Identité gérée** <br>or <br>`ManagedServiceIdentity` | Type d’authentification à utiliser |
-   | **Identité gérée** | `identity` | Oui | * **Identité managée affectée par le système** <br>or <br>`SystemAssigned` <p><p>* <*nom-identité-affectée-par-utilisateur*> | Identité managée à utiliser |
+   | **Identité gérée** | `identity` | Oui | * **Identité managée affectée par le système** <br>or <br>`SystemAssigned` <p><p>* <*user-assigned-identity-ID*> | Identité managée à utiliser |
    | **Public ciblé** | `audience` | Oui | <*target-resource-ID*> | ID de la ressource cible à laquelle vous souhaitez accéder. <p>Par exemple, `https://storage.azure.com/` rend les [jetons d’accès](../active-directory/develop/access-tokens.md) pour l’authentification valides pour tous les comptes de stockage. Toutefois, vous pouvez également spécifier une URL de service racine, par exemple `https://fabrikamstorageaccount.blob.core.windows.net` pour un compte de stockage spécifique. <p>**Remarque** : La propriété **Audience** peut être masquée dans certains déclencheurs ou certaines actions. Pour que la propriété apparaisse, dans le déclencheur ou l’action, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez **Audience**. <p><p>**Important !** Vérifiez que cet ID de ressource cible *correspond exactement* à ce qu’attend Azure AD, notamment les barres obliques de fin obligatoires. Ainsi, l’ID de ressource `https://storage.azure.com/` pour tous les comptes Stockage blob Azure requiert une barre oblique finale. Toutefois, l’ID de ressource pour un compte de stockage spécifique ne requiert pas de barre oblique finale. Pour rechercher ces ID de ressource, consultez les [services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
@@ -1162,11 +1189,11 @@ Si votre organisation n’autorise pas la connexion à des ressources spécifiqu
 
 ## <a name="isolation-guidance-for-logic-apps"></a>Conseils d’isolation pour les applications logiques
 
-Vous pouvez utiliser Azure Logic Apps dans [Azure Government](../azure-government/documentation-government-welcome.md), qui prend en charge tous les niveaux d’impact dans les régions décrites par les guides [Conseils d’isolation pour le niveau d’impact 5 Azure Government](../azure-government/documentation-government-impact-level-5.md#azure-logic-apps) et [Guide des exigences de sécurité (SRG) du cloud computing du département de la Défense des États-Unis](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). Pour répondre à ces exigences, Logic Apps gère la possibilité de créer et d’exécuter des flux de travail dans un environnement comportant des ressources dédiées, ce qui vous permet de réduire l’impact sur les performances d’autres locataires Azure sur vos applications logiques et d’éviter de partager des ressources de calcul avec d’autres locataires.
+Vous pouvez utiliser Azure Logic Apps dans [Azure Government](../azure-government/documentation-government-welcome.md), qui prend en charge tous les niveaux d’impact dans les régions décrites par les [Conseils d’isolation pour le niveau d’impact 5 Azure Government](../azure-government/documentation-government-impact-level-5.md). Pour répondre à ces exigences, Logic Apps gère la possibilité de créer et d’exécuter des flux de travail dans un environnement comportant des ressources dédiées, ce qui vous permet de réduire l’impact sur les performances d’autres locataires Azure sur vos applications logiques et d’éviter de partager des ressources de calcul avec d’autres locataires.
 
 * Pour exécuter votre propre code ou effectuer une transformation XML, [créez et appelez une fonction Azure](../logic-apps/logic-apps-azure-functions.md), au lieu respectivement d’utiliser la [fonctionnalité de code inline](../logic-apps/logic-apps-add-run-inline-code.md) ou de fournir des [assemblys à utiliser comme mappages](../logic-apps/logic-apps-enterprise-integration-maps.md). En outre, configurez l’environnement d’hébergement de votre application de fonction de façon à respecter vos exigences d’isolation.
 
-  Par exemple, pour répondre aux exigences du niveau d’impact 5, créez votre application de fonction avec le [plan App Service](../azure-functions/dedicated-plan.md) suivant le [niveau tarifaire **isolé**](../app-service/overview-hosting-plans.md), ainsi qu’un [environnement ASE (App Service Environment)](../app-service/environment/intro.md) qui utilise également le niveau tarifaire **Isolé**. Dans cet environnement, les applications de fonction s’exécutent sur des machines virtuelles et des réseaux virtuels Azure dédiés, ce qui assure à vos applications l’isolement réseau en plus de l’isolation du calcul, ainsi que des capacités de Scale-out maximales. Pour plus d’informations, consultez [Conseils d’isolation pour le niveau d’impact 5 Azure Government – Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Par exemple, pour répondre aux exigences du niveau d’impact 5, créez votre application de fonction avec le [plan App Service](../azure-functions/dedicated-plan.md) suivant le [niveau tarifaire **isolé**](../app-service/overview-hosting-plans.md), ainsi qu’un [environnement ASE (App Service Environment)](../app-service/environment/intro.md) qui utilise également le niveau tarifaire **Isolé**. Dans cet environnement, les applications de fonction s’exécutent sur des machines virtuelles et des réseaux virtuels Azure dédiés, ce qui assure à vos applications l’isolement réseau en plus de l’isolation du calcul, ainsi que des capacités de Scale-out maximales.
 
   Pour plus d’informations, consultez la documentation suivante :
 

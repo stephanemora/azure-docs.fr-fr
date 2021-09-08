@@ -3,9 +3,8 @@ title: Isolation dans le cloud public Azure | Microsoft Docs
 description: Découvrez comment Azure assure une isolation contre les utilisateurs malveillants et non malveillants et propose différents choix d’isolation aux architectes.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: TomSh
 manager: rkarlin
-editor: TomSh
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
-ms.author: TomSh
-ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.author: terrylan
+ms.openlocfilehash: 3ef9f5cb6e0175a501b05da6e79194da76b18dae
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94842836"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257252"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 
@@ -42,9 +41,9 @@ La location Azure (abonnement Azure) fait référence à une relation « client
 
 Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les ressources de l’abonnement Azure. Vous pouvez affecter ces droits d’accès à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure. Un client Azure AD est logiquement isolé à l’aide de limites de sécurité afin qu’aucun client ne puisse accéder aux autres clients, ni leur nuire intentionnellement ou accidentellement. Azure AD s’exécute sur les serveurs de « systèmes nus » isolés sur un segment réseau séparé, où le filtrage de paquets au niveau de l’hôte et le pare-feu Windows bloquent le trafic et les connexions indésirables.
 
-- L’accès aux données dans Azure AD requiert l’authentification des utilisateurs via un service d’émission de jeton de sécurité (STS). Les informations sur l’existence de l’utilisateur, l’état activé et le rôle sont utilisées par le système d’autorisation pour déterminer si l’accès demandé au client cible est autorisé pour cet utilisateur dans cette session.
+:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagramme montrant la location Azure." border="false":::
 
-![Location Azure](./media/isolation-choices/azure-isolation-fig1.png)
+- L’accès aux données dans Azure AD requiert l’authentification des utilisateurs via un service d’émission de jeton de sécurité (STS). Les informations sur l’existence de l’utilisateur, l’état activé et le rôle sont utilisées par le système d’autorisation pour déterminer si l’accès demandé au client cible est autorisé pour cet utilisateur dans cette session.
 
 - Les clients sont des conteneurs discrets n’ayant aucune relation entre eux.
 
@@ -90,7 +89,7 @@ Certaines autres fonctionnalités pour Azure Active Directory incluent :
 
 - Azure AD fournit l’identité en tant que service par le biais de la fédération en utilisant les [services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), la synchronisation et la réplication avec les annuaires locaux.
 
-- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) est le service d'authentification multifacteur qui impose aux utilisateurs une vérification des connexions à l'aide d'une application mobile, d'un appel téléphonique ou d'un SMS. Ce service est utilisable avec Azure AD afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu’avec des applications et annuaires personnalisés à l’aide du Kit de développement logiciel (SDK).
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) demande aux utilisateurs de vérifier les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un SMS. Ce service est utilisable avec Azure AD afin de sécuriser les ressources locales avec le serveur Multi-Factor Authentication, ainsi qu’avec des applications et annuaires personnalisés à l’aide du Kit de développement logiciel (SDK).
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) vous permet de joindre des machines virtuelles Azure à un domaine Active Directory sans déployer de contrôleurs de domaine. Vous pouvez vous connecter à ces machines virtuelles avec vos informations d’identification Active Directory d’entreprise, et administrer les machines virtuelles jointes au domaine en utilisant une stratégie de groupe pour appliquer des lignes de base de sécurité sur toutes vos machines virtuelles Azure.
 
@@ -131,7 +130,7 @@ Chaque nœud a également une machine virtuelle racine spéciale qui exécute le
 
 La plateforme Azure utilise un environnement virtualisé. Les instances utilisateur fonctionnent comme des machines virtuelles autonomes qui n’ont pas accès au serveur hôte physique.
 
-L’hyperviseur d’Azure agit comme un micronoyau et transfère toutes les demandes d’accès matériel des machines virtuelles invitées vers l’hôte à des fins de traitement au moyen d’une interface de mémoire partagée appelée VMBus. Cela empêche les utilisateurs d’obtenir un accès brut en lecture/écriture/exécution au système, et réduit le risque de partage des ressources système.
+L’hyperviseur d’Azure agit comme un micronoyau et transfère toutes les demandes d’accès matériel des machines virtuelles invitées vers l’hôte à des fins de traitement au moyen d’une interface de mémoire partagée appelée VM Bus. Cela empêche les utilisateurs d’obtenir un accès brut en lecture/écriture/exécution au système, et réduit le risque de partage des ressources système.
 
 ### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>Algorithme de placement de machine virtuelle avancé et protection contre les attaques par canal auxiliaire
 

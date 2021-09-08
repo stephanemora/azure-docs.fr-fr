@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4376a57b677b95b2de7d261b30ac4c0ad24956cc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f5f06f87ece24377aac380e80c308b4e40906255
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796177"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259296"
 ---
 # <a name="cloud-tiering-policies"></a>Stratégies de hiérarchisation Cloud
 
@@ -24,43 +24,43 @@ Les fichiers des niveaux de **stratégie de date** ont été consultés il y a a
 
 ## <a name="how-both-policies-work-together"></a>Comment les deux stratégies fonctionnent-elles ensemble ?
 
-Nous allons utiliser un exemple pour illustrer le fonctionnement de ces stratégies. Supposons que vous avez configuré Azure File Sync sur un volume local de 500 Go et que la hiérarchisation Cloud n’a jamais été activée. Il s’agit des fichiers de votre partage de fichiers :
+Nous allons utiliser un exemple pour illustrer le fonctionnement de ces stratégies. Supposons que vous avez configuré Azure File Sync sur un volume local de 500 Gio et que la hiérarchisation cloud n’a jamais été activée. Il s’agit des fichiers de votre partage de fichiers :
 
 |Nom de fichier |Dernier accès  |Taille du fichier  |Stockage dans |
 |----------|------------------|-----------|----------|
-|Fichier 1    | il y a 2 jours  | 10 Go | Serveur et partage de fichiers Azure
-|Fichier 2    | Il y a 10 jours | 30 Go | Serveur et partage de fichiers Azure
-|Fichier 3    | il y a 1 an | 200 Go | Serveur et partage de fichiers Azure
-|Fichier 4    | 1 an, il y a 2 jours | 130 Go | Serveur et partage de fichiers Azure
-|Fichier 5    | 2 ans, il y a 1 jour | 140 Go | Serveur et partage de fichiers Azure
+|Fichier 1    | il y a 2 jours  | 10 Gio | Serveur et partage de fichiers Azure
+|Fichier 2    | Il y a 10 jours | 30 Gio | Serveur et partage de fichiers Azure
+|Fichier 3    | il y a 1 an | 200 Gio | Serveur et partage de fichiers Azure
+|Fichier 4    | 1 an, il y a 2 jours | 130 Gio | Serveur et partage de fichiers Azure
+|Fichier 5    | 2 ans, il y a 1 jour | 140 Gio | Serveur et partage de fichiers Azure
 
-**Modification 1 :** vous avez activé la hiérarchisation Cloud, défini une stratégie d’espace libre de volume de 20 % et conservé la stratégie de date désactivée. Avec cette configuration, la hiérarchisation Cloud garantit que 20 % (dans ce cas 100 Go) d’espace sont conservés gratuitement et disponibles sur l’ordinateur local. Par conséquent, la capacité totale du cache local est de 400 Go. Ces 400 Go stockent les fichiers les plus récents et les plus fréquemment consultés sur le volume local.
+**Modification 1 :** vous avez activé la hiérarchisation Cloud, défini une stratégie d’espace libre de volume de 20 % et conservé la stratégie de date désactivée. Avec cette configuration, la hiérarchisation cloud garantit que 20 % (dans ce cas 100 Gio) d’espace sont conservés gratuitement et disponibles sur l’ordinateur local. Par conséquent, la capacité totale du cache local est de 400 Gio. Ces 400 Gio stockent les fichiers les plus récents et les plus fréquemment consultés sur le volume local.
 
-Avec cette configuration, seuls les fichiers 1 à 4 sont stockés dans le cache local, et le fichier 5 est hiérarchisé. Seuls 370 Go sur les 400 Go peuvent être utilisés. Le fichier 5 a une taille de 140 Go et la limite de 400 Go serait dépassée s’il était mis en cache localement. 
+Avec cette configuration, seuls les fichiers 1 à 4 sont stockés dans le cache local, et le fichier 5 est hiérarchisé. Seuls 370 Gio sur les 400 Gio peuvent être utilisés. Le fichier 5 a une taille de 140 Gio et la limite de 400 Gio serait dépassée s’il était mis en cache localement. 
 
-**Modification 2 :** supposons qu’un utilisateur accède au fichier 5. Cela fait du fichier 5 le fichier le plus récemment consulté dans le partage. Par conséquent, le fichier 5 est stocké dans le cache local et s’ajuste à la limite de 400 Go, le fichier 4 est hiérarchisé. Le tableau suivant indique l’emplacement de stockage des fichiers, avec ces mises à jour :
+**Modification 2 :** supposons qu’un utilisateur accède au fichier 5. Cela fait du fichier 5 le fichier le plus récemment consulté dans le partage. Par conséquent, le fichier 5 est stocké dans le cache local et s’ajuste à la limite de 400 Gio, le fichier 4 est hiérarchisé. Le tableau suivant indique l’emplacement de stockage des fichiers, avec ces mises à jour :
 
 |Nom de fichier |Dernier accès  |Taille du fichier  |Stockage dans |
 |----------|------------------|-----------|----------|
-|Fichier 5    | Il y a 2 heures | 140 Go | Serveur et partage de fichiers Azure
-|Fichier 1    | il y a 2 jours  | 10 Go | Serveur et partage de fichiers Azure
-|Fichier 2    | Il y a 10 jours | 30 Go | Serveur et partage de fichiers Azure
-|Fichier 3    | il y a 1 an | 200 Go | Serveur et partage de fichiers Azure
-|Fichier 4    | 1 an, il y a 2 jours | 130 Go | Partage de fichiers Azure, hiérarchisés localement
+|Fichier 5    | Il y a 2 heures | 140 Gio | Serveur et partage de fichiers Azure
+|Fichier 1    | il y a 2 jours  | 10 Gio | Serveur et partage de fichiers Azure
+|Fichier 2    | Il y a 10 jours | 30 Gio | Serveur et partage de fichiers Azure
+|Fichier 3    | il y a 1 an | 200 Gio | Serveur et partage de fichiers Azure
+|Fichier 4    | 1 an, il y a 2 jours | 130 Gio | Partage de fichiers Azure, hiérarchisés localement
 
-**Modification 3 :** supposons que vous avez mis à jour les stratégies afin que la stratégie de hiérarchisation basée sur la date soit de 60 jours et que la stratégie d’espace libre du volume soit de 70 %. Désormais, 150 Go maximum peuvent être stockés dans le cache local. Bien que vous ayez consulté le Fichier 2 depuis moins de 60 jours, la stratégie d’espace libre du volume remplace la stratégie de date et le Fichier 2 est hiérarchisé pour conserver l’espace libre de 70 %.
+**Modification 3 :** supposons que vous avez mis à jour les stratégies afin que la stratégie de hiérarchisation basée sur la date soit de 60 jours et que la stratégie d’espace libre du volume soit de 70 %. Désormais, 150 Gio maximum peuvent être stockés dans le cache local. Bien que vous ayez consulté le Fichier 2 depuis moins de 60 jours, la stratégie d’espace libre du volume remplace la stratégie de date et le Fichier 2 est hiérarchisé pour conserver l’espace libre de 70 %.
 
 **Modification 4 :** si vous avez remplacé la stratégie d’espace libre du volume par 20 %, puis utilisé `Invoke-StorageSyncFileRecall` pour rappeler tous les fichiers qui sont sur le lecteur local tout en adhérant aux stratégies de hiérarchisation Cloud, le tableau ressemble à ceci :
 
 |Nom de fichier |Dernier accès  |Taille du fichier  |Stockage dans |
 |----------|------------------|-----------|----------|
-|Fichier 5    | il y a 1 heure  | 140 Go | Serveur et partage de fichiers Azure
-|Fichier 1    | il y a 2 jours  | 10 Go | Serveur et partage de fichiers Azure
-|Fichier 2    | Il y a 10 jours | 30 Go | Serveur et partage de fichiers Azure
-|Fichier 3    | il y a 1 an | 200 Go | Partage de fichiers Azure, hiérarchisés localement
-|Fichier 4    | 1 an, il y a 2 jours | 130 Go | Partage de fichiers Azure, hiérarchisés localement
+|Fichier 5    | il y a 1 heure  | 140 Gio | Serveur et partage de fichiers Azure
+|Fichier 1    | il y a 2 jours  | 10 Gio | Serveur et partage de fichiers Azure
+|Fichier 2    | Il y a 10 jours | 30 Gio | Serveur et partage de fichiers Azure
+|Fichier 3    | il y a 1 an | 200 Gio | Partage de fichiers Azure, hiérarchisés localement
+|Fichier 4    | 1 an, il y a 2 jours | 130 Gio | Partage de fichiers Azure, hiérarchisés localement
 
-Dans ce cas, les fichiers 1, 2 et 5 sont mis en cache localement et les fichiers 3 et 4 sont hiérarchisés. Étant donné que la stratégie de date est de 60 jours, les fichiers 3 et 4 sont hiérarchisés, même si la stratégie d’espace libre du volume autorise jusqu’à 400 Go localement.
+Dans ce cas, les fichiers 1, 2 et 5 sont mis en cache localement et les fichiers 3 et 4 sont hiérarchisés. Étant donné que la stratégie de date est de 60 jours, les fichiers 3 et 4 sont hiérarchisés, même si la stratégie d’espace libre du volume autorise jusqu’à 400 Gio localement.
 
 > [!NOTE] 
 > Les fichiers ne sont pas automatiquement rappelés quand les clients modifient la stratégie d’espace libre du volume sur une valeur inférieure (par exemple, de 20 % à 10 %) ou remplacent la valeur de la stratégie de date par une valeur plus élevée (par exemple, de 20 jours à 50 jours).

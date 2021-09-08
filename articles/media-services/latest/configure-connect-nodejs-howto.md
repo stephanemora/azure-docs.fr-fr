@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: fcb9fd9f0539b42d9253db783fd5da840f358e66
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 7c6bba2084247d76a79de9ae9efb1b3ea356a5c4
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960722"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221497"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API Media Services v3 – Node.js
 
@@ -47,7 +47,7 @@ Vous travaillerez avec certains fichiers contenus dans des exemples Azure. Clone
 git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
 ```
 
-## <a name="install-the-packages"></a>Installer les packages
+## <a name="install-the-nodejs-packages"></a>Installer les packages Node.js
 
 ### <a name="install-azurearm-mediaservices"></a>Installer @azure/arm-mediaservices
 
@@ -96,11 +96,12 @@ Pour cet exemple, vous utiliserez les packages suivants dans le fichier `package
 
 ## <a name="connect-to-nodejs-client-using-typescript"></a>Se connecter à un client Node.js à l’aide de TypeScript
 
-
-
 ### <a name="sample-env-file"></a>Exemple de fichier *.env*
 
 Copiez le contenu de ce fichier dans un fichier nommé *.env*. Il doit être stocké à la racine de votre référentiel de travail. Il s’agit des valeurs que vous avez obtenues à partir de la page Accès aux API pour votre compte Media Services dans le portail.
+
+Pour accéder aux valeurs nécessaires à l’entrée dans le fichier *.env*, il est recommandé de lire d’abord et de consulter l’article de procédure [Accéder à l’API](./access-api-howto.md).
+Vous pouvez utiliser le portail Azure ou l’interface CLI pour récupérer les valeurs nécessaires à l’entrée dans le fichier de variables d’environnement de cet exemple.
 
 Une fois le fichier *.env* créé, vous pouvez commencer à utiliser les exemples.
 

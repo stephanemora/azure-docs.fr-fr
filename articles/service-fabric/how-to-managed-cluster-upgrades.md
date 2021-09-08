@@ -2,17 +2,17 @@
 title: Mettre à niveau des clusters managés Azure Service Fabric
 description: Découvrez les options de mise à niveau de votre cluster managé Azure Service Fabric.
 ms.topic: how-to
-ms.date: 06/16/2021
-ms.openlocfilehash: 50af042be1dc69f39e61447901d4d5f07da2a1e7
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 08/23/2021
+ms.openlocfilehash: b30f240325eda83428a19377e63d5a7f37f88169
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290086"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865054"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Gérer les mises à niveau des clusters managés Service Fabric
 
-Un cluster Azure Service Fabric est une ressource qui vous appartient, mais qui est en partie gérée par Microsoft. Voici la façon de gérer quand et comment Microsoft met à jour votre cluster managé Azure Service Fabric.
+Un cluster Azure Service Fabric est une ressource qui vous appartient, mais qui est en partie gérée par Microsoft. Voici la façon de gérer quand et comment Microsoft met à jour votre runtime de cluster managé Azure Service Fabric.
 
 ## <a name="set-upgrade-mode"></a>Définir le mode de mise à niveau
 
@@ -28,8 +28,8 @@ Avec le déploiement par vagues, vous pouvez créer un pipeline pour mettre à n
 Pour activer le déploiement par vagues à des fins de mise à niveau automatique, déterminez d’abord la vague à attribuer à votre cluster :
 
 * **Vaque 0** (`Wave0`) : Les clusters sont mis à jour dès qu’une nouvelle build de Service Fabric est publiée.
-* **Vague 1** (`Wave1`) : Les clusters sont mis à jour après la Vague 0 pour permettre une durée de baking. Cela intervient après un minimum de 7 jours suivant la Vague 0
-* **Vague 2** (`Wave2`) : Les clusters sont mis à jour en dernier pour permettre une plus longue durée de baking. Cela intervient après un minimum de 14 jours suivant la Vague 0
+* **Vague 1** (`Wave1`) : Les clusters sont mis à jour après la Vague 0 pour permettre une durée de baking. La vague 1 intervient après un minimum de 7 jours suivant la Vague 0.
+* **Vague 2** (`Wave2`) : Les clusters sont mis à jour en dernier pour permettre une plus longue durée de baking. La vague 2 intervient après un minimum de 14 jours suivant la Vague 0.
 
 ## <a name="set-the-wave-for-your-cluster"></a>Définir la Vague de votre cluster
 
@@ -70,7 +70,7 @@ Si une restauration se produit, corrigez les problèmes à l’origine et initie
 
 #### <a name="automatic-upgrade-with-wave-deployment"></a>Mise à niveau automatique avec déploiement par vagues
 
-Pour configurer les mises à niveau automatiques et le déploiement par vagues, vérifiez simplement que `ClusterUpgradeMode` est défini sur `Automatic` et que la propriété `upgradeWave` est définie avec l’une des valeurs de vague répertoriées ci-dessus dans votre modèle Resource Manager.
+Pour configurer les mises à niveau automatiques et le déploiement par vagues, vérifiez simplement que `ClusterUpgradeMode` est défini sur `Automatic` et que la propriété `clusterUpgradeCadence` est définie avec l’une des valeurs de vague répertoriées ci-dessus dans votre modèle Resource Manager.
 
 ```json
 {
@@ -78,12 +78,12 @@ Pour configurer les mises à niveau automatiques et le déploiement par vagues, 
 "type": "Microsoft.ServiceFabric/managedClusters",
 "properties": {
         "ClusterUpgradeMode": "Automatic",
-        "upgradeWave": "Wave1",
+        "clusterUpgradeCadence": "Wave1",
         }  
 }
 ```
 
-Une fois que vous avez déployé le modèle mis à jour, votre cluster sera inscrit dans la vague spécifiée pour la prochaine période de mise à niveau et après celle-ci.
+Une fois que vous avez déployé le modèle mis à jour, votre cluster sera inscrit dans la vague spécifiée pour les mises à jour automatiques.
 
 ## <a name="query-for-supported-cluster-versions"></a>Requête sur les versions de cluster prises en charge
 

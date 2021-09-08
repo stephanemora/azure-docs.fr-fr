@@ -4,14 +4,14 @@ description: Informations et étapes relatives à la configuration d’une clé 
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/21/2021
+ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fc66f79e09021a10c2dde3cc973cd608baeedc32
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: ef47a97381c0c01afb13b66495167795c49b03c3
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061611"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527921"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -27,9 +27,9 @@ Azure Monitor veille à ce que toutes les données et requêtes enregistrées so
 
 La clé gérée par le client est fournie sur des [clusters dédiés](./logs-dedicated-clusters.md) offrant un niveau de protection et un contrôle plus élevés. Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou de clés gérées par le client, et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement et de deux clés différents. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview).
 
-Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
+Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le second semestre 2021.
 
-Les clusters dédiés Log Analytics utilisent un [modèle de tarification](./logs-dedicated-clusters.md#cluster-pricing-model) de réservation de capacité d’au moins 1000 Go/jour.
+Le [modèle de tarification](./logs-dedicated-clusters.md#cluster-pricing-model) des Clusters dédiés Log Analytics requiert un niveau d’engagement à partir de 500 Go/jour et peut avoir des valeurs de 500, 1 000, 2 000 ou 5 000 Go/jour.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Fonctionnement de la clé gérée par le client dans Azure Monitor
 
@@ -93,12 +93,12 @@ N/A
 
 Lors de l’utilisation de REST, la réponse retourne initialement un code d’état HTTP 202 (Accepté) et un en-tête avec la propriété *Azure-AsyncOperation* :
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 Vous pouvez vérifier l’état de l’opération asynchrone, envoyez une requête GET au point de terminaison dans l’en-tête *Azure-AsyncOperation* :
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -117,8 +117,7 @@ Ces paramètres peuvent être mis à jour dans Key Vault par le biais de l’int
 
 ## <a name="create-cluster"></a>Créer un cluster
 
-Les clusters prennent en charge deux [types d’identités managées](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) : affectée par le système et affectée par l’utilisateur, tandis qu’une seule identité peut être définie dans un cluster en fonction de votre scénario. 
-- L’identité managée affectée par le système est plus simple et générée automatiquement avec la création du cluster lorsque le `type` de l’identité est défini sur « *SystemAssigned* ». Cette identité peut être utilisée ultérieurement pour autoriser l’accès au stockage à votre coffre de clés pour les opérations d’enveloppage et désenveloppage. 
+Les clusters prennent en charge l’identité managée affectée par le système et la propriété d’identité `type` doit avoir la valeur de `SystemAssigned`. L’identité est générée automatiquement avec la création du cluster et peut être utilisée ultérieurement pour accorder l’accès au stockage à votre Coffre de clés pour les opérations d’enveloppement et de désenveloppement. 
   
   Paramètres d’identité dans le cluster pour l’identité managée affectée par le système
   ```json
@@ -129,23 +128,7 @@ Les clusters prennent en charge deux [types d’identités managées](../../acti
   }
   ```
 
-- Si vous souhaitez configurer une clé gérée par le client au moment de la création du cluster, vous devez avoir préalablement défini une clé et accordé une identité affectée par l’utilisateur dans votre coffre de clés. Créez ensuite le cluster avec les paramètres suivants : `type` d’identité « *UserAssigned* », `UserAssignedIdentities` avec l’*ID de ressource* de votre identité.
-
-  Paramètres d’identité dans le cluster pour l’identité managée affectée par l’utilisateur
-  ```json
-  {
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
-      }
-  }
-  ```
-
-> [!IMPORTANT]
-> Vous ne pouvez pas utiliser une identité managée affectée par l’utilisateur si votre coffre de clés se trouve dans Azure Private Link (réseau virtuel). Dans ce scénario, vous pouvez utiliser une identité managée affectée par le système.
-
-Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./logs-dedicated-clusters.md#creating-a-cluster). 
+Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./logs-dedicated-clusters.md#create-a-dedicated-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Octroi d’autorisations d’accès au coffre de clés
 
@@ -192,7 +175,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 # <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -205,14 +188,14 @@ Content-type: application/json
   },
   "sku": {
     "name": "CapacityReservation",
-    "capacity": 1000
+    "capacity": 500
   }
 }
 ```
 
 **Réponse**
 
-La propagation de la clé prend quelques minutes. Vous pouvez vérifier l’état de la mise à jour de deux manières :
+La propagation de la clé prend quelques instants. Vous pouvez vérifier l’état de la mise à jour de deux manières :
 1. Copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[contrôle de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
 2. Envoyez une requête GET sur le cluster, puis examinez les propriétés *KeyVaultProperties*. Les détails de la clé récemment mise à jour doivent être retournés dans la réponse.
 
@@ -222,13 +205,12 @@ Une réponse à la requête GET doit ressembler à ceci lorsque la mise à jour 
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principle-id"
-    },
+    "principalId": "principal-id"
+  },
   "sku": {
-    "name": "capacityReservation",
-    "capacity": 1000,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
+    "name": "capacityreservation",
+    "capacity": 500
+  },
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
@@ -236,13 +218,21 @@ Une réponse à la requête GET doit ressembler à ceci lorsque la mise à jour 
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "billingType": "cluster",
-    "clusterId": "cluster-id"
+    "clusterId": "cluster-id",
+    "billingType": "Cluster",
+    "lastModifiedDate": "last-modified-date",
+    "createdDate": "created-date",
+    "isDoubleEncryptionEnabled": false,
+    "isAvailabilityZonesEnabled": false,
+    "capacityReservationProperties": {
+      "lastSkuUpdate": "last-sku-modified-date",
+      "minCapacity": 500
+    }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
   "name": "cluster-name",
   "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
+  "location": "cluster-region"
 }
 ```
 
@@ -255,7 +245,7 @@ Une réponse à la requête GET doit ressembler à ceci lorsque la mise à jour 
 
 Pour effectuer cette opération, vous devez disposer des autorisations « écrire » sur votre espace de travail et le cluster, ce qui implique notamment `Microsoft.OperationalInsights/workspaces/write` et `Microsoft.OperationalInsights/clusters/write`.
 
-Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
 ## <a name="key-revocation"></a>Révocation de la clé
 
@@ -319,7 +309,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -363,7 +353,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -424,10 +414,10 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
 - Actuellement, Lockbox n’est pas disponible en Chine. 
 
 - Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) est automatiquement configuré pour les clusters créés depuis octobre 2020 dans les régions prises en charge. Pour vérifier si votre cluster est configuré pour le chiffrement double, envoyez une requête GET sur le cluster et observez la valeur de `isDoubleEncryptionEnabled`. Une valeur `true` correspond aux clusters pour lesquels le chiffrement double est activé. 
-  - Si vous créez un cluster et recevez une erreur « <region-name> ne prend pas en charge le chiffrement double pour les clusters. », vous pouvez toujours créer le cluster sans le double chiffrement en ajoutant `"properties": {"isDoubleEncryptionEnabled": false}` dans le corps de la demande REST.
+  - Si vous créez un cluster et recevez une erreur « region-name ne prend pas en charge le chiffrement double pour les clusters », vous pouvez toujours créer le cluster sans le double chiffrement en ajoutant `"properties": {"isDoubleEncryptionEnabled": false}` dans le corps de la demande REST.
   - Le paramètre de double chiffrement ne peut pas être modifié une fois le cluster créé.
 
-  - La définition de `identity` `type` du cluster sur `None` accusé de réception révoque également l’accès à vos données, mais cette approche n’est pas recommandée, car vous ne pouvez pas l’annuler sans contacter le support. La méthode recommandée pour révoquer l’accès à vos données est la [révocation de clé](#key-revocation).
+  - La définition de `identity` `type` du cluster sur `None` révoque également l’accès à vos données, mais cette approche n’est pas recommandée, car vous ne pouvez pas l’annuler sans contacter le support. La méthode recommandée pour révoquer l’accès à vos données est la [révocation de clé](#key-revocation).
 
   - Vous ne pouvez pas utiliser une clé gérée par le client avec une identité managée affectée par l’utilisateur si votre coffre de clés se trouve dans Azure Private Link (réseau virtuel). Dans ce scénario, vous pouvez utiliser une identité managée affectée par le système.
 
@@ -436,11 +426,9 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
 - Comportement avec disponibilité du Key Vault
   - En temps normal, le Stockage met en cache la clé AEK pendant de courtes périodes et revient régulièrement dans Key Vault pour la désencapsulation.
     
-  - Erreurs de connexion temporaires : le Stockage gère les erreurs temporaires (délais d’attente, échecs de connexion, problèmes DNS) en autorisant les clés à rester en cache pendant un peu plus de temps, compensant toute courte période d’indisponibilité. Les fonctionnalités de requête et d’ingestion se poursuivent sans interruption.
+  - Erreurs de connexion du Coffre de clés : Le stockage gère les erreurs temporaires (délais d’attente, échecs de connexion, problèmes DNS) en autorisant les clés à rester en cache pendant la durée du problème de disponibilité, ce qui compense les problèmes de blocages et de disponibilité. Les fonctionnalités de requête et d’ingestion se poursuivent sans interruption.
     
-  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Une fois l’accès à Key Vault restauré, la requête est disponible et les données en cache temporaires sont ingérées dans le magasin de données et chiffrées avec une clé gérée par le client.
-
-  - Taux d’accès au Key Vault : la fréquence à laquelle le stockage Azure Monitor accède au Key Vault pour les opérations d’encapsulation (wrap) et de désencapsulation (unwrap) est comprise entre 6 et 60 secondes.
+- Taux d’accès au Key Vault : la fréquence à laquelle le stockage Azure Monitor accède au Key Vault pour les opérations d’encapsulation (wrap) et de désencapsulation (unwrap) est comprise entre 6 et 60 secondes.
 
 - Si vous mettez à jour votre cluster alors que le cluster est en cours d’approvisionnement ou de mise à jour, la mise à jour échoue.
 
@@ -467,10 +455,9 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
   -  400 -- Le corps de la demande a la valeur null ou est dans un format incorrect.
   -  400 -- Nom de SKU non valide. Définissez le nom de la SKU sur capacityReservation.
   -  400 -- La capacité a été fournie, mais la référence SKU n’est pas capacityReservation. Définissez le nom de la SKU sur capacityReservation.
-  -  400 -- Xapacité manquante dans la SKU. Définissez la valeur de capacité sur 1 000 ou plus par degrés de 100 (Go).
-  -  400 -- La capacité dans la SKU n’est pas comprise dans la plage. Doit être au minimum de 1 000 et jusqu’à la capacité maximale autorisée, disponible sous « Utilisation et coût estimé » dans votre espace de travail.
+  -  400 -- Xapacité manquante dans la SKU. Définissez la valeur de capacité sur 500, 1 000, 2 000 ou 5 000 Go/jour.
   -  400 -- La capacité est verrouillée pendant 30 jours. La réduction de la capacité est autorisée 30 jours après la mise à jour.
-  -  400 -- Aucune SKU n’a été définie. Définissez le nom de la SKU sur capacityReservation et la valeur de capacité sur 1 000 ou plus par degrés de 100 (Go).
+  -  400 -- Aucune SKU n’a été définie. Définissez le nom du niveau tarifaire sur capacityReservation et la valeur de capacité sur 500, 1 000, 2 000 ou 5 000 Go/jour.
   -  400 -- L’identité a la valeur nul ou est vide. Définissez l’identité avec le type systemAssigned.
   -  400 -- Les KeyVaultProperties sont définies à la création. Mettez à jour les KeyVaultProperties après la création du cluster.
   -  400 -- Impossible d’exécuter une opération pour le moment. L’opération asynchrone est dans un état autre que réussi. Le cluster doit effectuer cette opération avant l’exécution d’une opération de mise à jour.

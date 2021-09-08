@@ -8,14 +8,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de888e76e9ba27fa653905084193e6f8e25d2a81
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369224"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315260"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure
 
@@ -48,7 +48,7 @@ Si un rôle existant ne dispose pas de toutes les autorisations dont vous avez b
 
     La capture d’écran suivante montre la page Contrôle d’accès (IAM) ouverte pour un abonnement.
 
-    ![Page Contrôle d’accès (IAM) pour un abonnement](./media/custom-roles-portal/access-control-subscription.png)
+    ![Page Contrôle d’accès (IAM) pour un abonnement](./media/shared/sub-access-control.png)
 
 1. Cliquez sur l’onglet **Rôles** pour afficher une liste de tous les rôles intégrés et personnalisés.
 
@@ -176,13 +176,13 @@ Pour ajouter ou supprimer des autorisations pour votre rôle personnalisé, proc
 
     Une liste de cartes de fournisseur de ressources s’affiche en fonction de votre chaîne de recherche. Pour obtenir une liste qui mappe des fournisseurs de ressources à des services Azure, voir [Fournisseurs de ressources pour les services Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-    ![Volet Ajouter des autorisations avec fournisseur de ressources](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Volet Ajouter des autorisations avec fournisseur de ressources](./media/shared/add-permissions-provider.png)
 
 1. Cliquez sur une carte de fournisseur de ressources susceptible d’avoir les autorisations que vous souhaitez ajouter à votre rôle personnalisé, par exemple **Facturation Microsoft**.
 
     Une liste des autorisations de gestion pour ce fournisseur de ressources s’affiche en fonction de votre chaîne de recherche.
 
-    ![Liste Ajouter des autorisations](./media/custom-roles-portal/add-permissions-list.png)
+    ![Liste Ajouter des autorisations](./media/shared/add-permissions-list.png)
 
 1. Si vous recherchez des autorisations qui s’appliquent au plan de données, cliquez sur **Actions de données**. Dans le cas contraire, laissez le bouton bascule des actions positionné sur **Actions** pour répertorier les autorisations qui s’appliquent au plan de gestion. Pour plus d’informations sur les différences entre le plan de gestion et le plan de données, voir [Opérations de gestion et sur les données](role-definitions.md#management-and-data-operations).
 
@@ -241,7 +241,9 @@ Lorsque vous excluez une autorisation, celle-ci est ajoutée en tant que `NotAct
 
 ## <a name="step-5-assignable-scopes"></a>Étape 5 : Étendues attribuables
 
-Sous l’onglet **Étendues attribuables**, spécifiez l’emplacement où votre rôle personnalisé est disponible pour affectation, par exemple, un abonnement ou un groupe de ressources. Selon la façon dont vous avez choisi de commencer, cet onglet peut répertorier l’étendue dans laquelle vous avez ouvert la page Contrôle d’accès (IAM). La définition de l’étendue attribuable sur l’étendue racine (« / ») n’est pas prise en charge. Actuellement, vous ne pouvez pas ajouter un groupe d’administration en tant qu’étendue attribuable.
+Sous l’onglet **Étendues attribuables**, spécifiez l’emplacement où votre rôle personnalisé est disponible pour affectation, par exemple, une groupe d’administration, un abonnement ou un groupe de ressources. Selon la façon dont vous avez choisi de commencer, cet onglet peut déjà répertorier l’étendue dans laquelle vous avez ouvert la page Contrôle d’accès (IAM).
+
+ Vous ne pouvez définir qu’un seul groupe d’administration dans des étendues attribuables. L’ajout d’un groupe d’administration à des étendues attribuables est actuellement en préversion. La définition de l’étendue attribuable sur l’étendue racine (« / ») n’est pas prise en charge.
 
 1. Cliquez sur **Ajouter des étendues attribuables** pour ouvrir le volet Ajouter des étendues attribuables.
 

@@ -3,17 +3,17 @@ title: Intégration et livraison continues pour l’espace de travail Synapse
 description: Découvrez comment utiliser l’intégration et la livraison continues pour déployer les changements dans un espace de travail d’un environnement (développement, test, production) à un autre.
 author: liudan66
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 833478d956560c981bd6cc3ba03b48bb602f563c
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: a590a2a0470710a74a6f1441a1f1859f974c2f97
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739671"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259405"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -21,9 +21,9 @@ ms.locfileid: "107739671"
 
 L’intégration continue (CI) est le processus d’automatisation de création et de test du code chaque fois qu’un membre de l’équipe valide les modifications apportées au contrôle de version. Le déploiement continu (CD) est le processus de création, de test, de configuration et de déploiement de plusieurs environnements de test ou intermédiaires dans un environnement de production.
 
-Dans un espace de travail Microsoft Azure Synapse Analytics, l’intégration continue et la livraison continue (CI/CD) déplacent toutes les entités d’un environnement (développement, test, production) à un autre. Pour promouvoir votre espace de travail vers un autre espace de travail, il y a deux parties. Tout d’abord, utilisez un [modèle Azure Resource Manager (modèle ARM)](../../azure-resource-manager/templates/overview.md) pour créer ou mettre à jour des ressources d’espace de travail (pools et espace de travail). Ensuite, migrez les artefacts (scripts SQL, notebook, définition de tâche Spark, pipelines, jeux de données, flux de données, etc.) dans Azure DevOps avec les outils CI/CD d’Azure Synapse Analytics. 
+Dans un espace de travail Microsoft Azure Synapse Analytics, l’intégration continue et la livraison continue (CI/CD) déplacent toutes les entités d’un environnement (développement, test, production) à un autre. Pour promouvoir votre espace de travail vers un autre espace de travail, il y a deux parties. Tout d’abord, utilisez un [modèle Azure Resource Manager (modèle ARM)](../../azure-resource-manager/templates/overview.md) pour créer ou mettre à jour des ressources d’espace de travail (pools et espace de travail). Ensuite, migrez les artefacts (scripts SQL, notebook, définition de tâche Spark, pipelines, jeux de données, flux de données, etc.) vers Azure DevOps ou GitHub à l’aide des outils CI/CD d’Azure Synapse Analytics. 
 
-Cet article décrit comment utiliser un pipeline de mise en production Azure DevOps pour automatiser le déploiement d’un espace de travail Azure Synapse Analytics dans plusieurs environnements.
+Cet article décrit comment utiliser un pipeline de mise en production Azure DevOps et une action GitHub pour automatiser le déploiement d’un espace de travail Azure Synapse Analytics dans plusieurs environnements.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,16 +32,22 @@ Ces prérequis et configurations doivent être en place pour automatiser le dép
 ### <a name="azure-devops"></a>Azure DevOps
 
 - Un projet Azure DevOps a été préparé pour exécuter le pipeline de mise en production.
-- [Accordez à tous les utilisateurs qui enregistreront le code un accès « de base » au niveau de l’organisation](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page), afin qu’ils puissent voir le référentiel.
+- [Accordez à tous les utilisateurs qui enregistreront le code un accès « de base » au niveau de l’organisation](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), afin qu’ils puissent voir le référentiel.
 - Accordez des droits de propriétaire au référentiel Azure Synapse Analytics.
 - Assurez-vous d’avoir créé un agent de machine virtuelle Azure DevOps auto-hébergé ou d’utiliser un agent hébergé Azure DevOps.
-- Assurez-vous d’avoir les autorisations permettant de [créer une connexion au service Azure Resource Manager pour le groupe de ressources](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
+- Assurez-vous d’avoir les autorisations permettant de [créer une connexion au service Azure Resource Manager pour le groupe de ressources](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
 - Un administrateur Azure Active Directory (Azure AD) doit [installer l’extension de l’agent de déploiement d’espace de travail Synapse Azure DevOps dans l’organisation Azure DevOps](/azure/devops/marketplace/install-extension).
 - Créez ou nommez un compte de service pour l’exécution du pipeline. Vous pouvez utiliser un jeton d’accès personnel au lieu d’un compte de service, mais vos pipelines ne fonctionneront pas une fois le compte d’utilisateur supprimé.
 
+### <a name="github"></a>GitHub
+
+- Dépôt GitHub avec les artefacts d’espace de travail et le modèle d’espace de travail Synapse 
+- Assurez-vous d’avoir créé un exécuteur auto-hébergé, ou utilisez un exécuteur hébergé par GitHub.
+
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-- Dans Azure AD, créez un principal de service à utiliser pour le déploiement. La tâche de déploiement de l’espace de travail Synapse ne prend pas en charge l’utilisation d’une identité managée dans les versions 1* et antérieures.
+- Dans Azure AD, créez un principal de service à utiliser pour le déploiement si vous utilisez un principal de service. 
+- Pour utiliser une identité managée, vous devez activer l’identité managée attribuée par le système dans votre machine virtuelle Azure en tant qu’agent ou exécuteur, puis l’ajouter à votre studio Synapse en tant qu’administrateur Synapse.
 - Des droits d’administrateur Azure AD sont nécessaires pour cette action.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -55,27 +61,26 @@ Ces prérequis et configurations doivent être en place pour automatiser le dép
 
   1. Créez un espace de travail Azure Synapse Analytics.
   1. Accordez les droits de contributeur de l’agent de machine virtuelle et du principal de service au groupe de ressources dans lequel le nouvel espace de travail est hébergé.
-  1. Dans le nouvel espace de travail, ne configurez pas la connexion au référentiel Git.
+  1. Dans l’espace de travail cible, ne configurez pas la connexion au dépôt Git.
   1. Dans le portail Azure, recherchez le nouvel espace de travail Azure Synapse Analytics et accordez à vous-même et à toute personne qui exécutera le pipeline Azure DevOps les droits de propriétaire sur l’espace de travail Azure Synapse Analytics. 
   1. Ajoutez l’agent de machine virtuelle Azure DevOps et le principal du service au rôle Contributeur de l’espace de travail (cela devrait avoir été hérité, mais vérifiez que c’est le cas).
-  1. Dans l’espace de travail Azure Synapse Analytics, accédez à **Studio** > **Gérer** > **Gestion des identités et des accès**. Ajoutez l’agent de machine virtuelle Azure DevOps et le principal du service au groupe d’administrateurs de l’espace de travail.
+  1. Dans l’espace de travail Azure Synapse Analytics, accédez à **Studio** > **Gérer** > **Contrôle d’accès**. Ajoutez l’agent de machine virtuelle Azure DevOps et le principal du service au groupe d’administrateurs de l’espace de travail.
   1. Ouvrez le compte de stockage utilisé pour l’espace de travail. Dans Gestion des identités et des accès, ajoutez l’agent de machine virtuelle et le principal du service au rôle Contributeur aux données Blob du stockage.
   1. Créez un coffre de clés dans l’abonnement au support et assurez-vous que l’espace de travail existant et le nouvel espace de travail disposent au moins des autorisations GET et LIST sur le coffre.
   1. Pour que le déploiement automatisé fonctionne, assurez-vous que toutes les chaînes de connexion spécifiées dans vos services liés se trouvent dans le coffre de clés.
 
 ### <a name="additional-prerequisites"></a>Autres composants requis
  
- - Les pools Spark et les runtimes d’intégration auto-hébergé ne sont pas créés dans un pipeline. Si vous avez un service lié qui utilise un runtime d’intégration auto-hébergé, créez-le manuellement dans le nouvel espace de travail.
- - Si vous développez des notebooks et qu’ils sont connectés à un pool Spark, recréez le pool Spark dans l’espace de travail.
- - Les notebooks qui sont liés à un pool Spark qui n’existe pas dans un environnement ne seront pas déployés.
- - Les noms des pools Spark doivent être les mêmes dans les deux espaces de travail.
- - Nommez toutes les bases de données, tous les pools SQL et toutes les autres ressources de la même façon dans les deux espaces de travail.
+ - Les pools Spark et les runtimes d’intégration auto-hébergés ne sont pas créés dans une tâche de déploiement d’espace de travail. Si vous avez un service lié qui utilise un runtime d’intégration auto-hébergé, créez-le manuellement dans le nouvel espace de travail.
+ - Si les éléments dans l’espace de travail de développement sont attachés aux pools spécifiques, assurez-vous que vous avez créé les mêmes noms de pools dans l’espace de travail cible, ou paramétré les pools dans le fichier de paramètres.  
  - Si vos pools SQL approvisionnés sont suspendus lorsque vous tentez d’effectuer le déploiement, ce dernier peut échouer.
 
 Pour plus d’informations, consultez [CI/CD dans Azure Synapse Analytics, partie 4 : Le pipeline de mise en production](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
 
 
-## <a name="set-up-a-release-pipeline"></a>Configurer un pipeline de mise en production
+## <a name="set-up-a-release-pipeline-in-azure-devops"></a>Créer un pipeline de mise en production dans Azure DevOps
+
+Dans cette partie, vous allez apprendre à déployer une synapse dans Azure DevOps. 
 
 1.  Dans [Azure DevOps](https://dev.azure.com/), ouvrez le projet créé pour la mise en production.
 
@@ -103,7 +108,7 @@ Pour plus d’informations, consultez [CI/CD dans Azure Synapse Analytics, parti
 
     ![Ajouter un artefact](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>Configurer une tâche intermédiaire pour un modèle ARM afin de créer et mettre à jour une ressource 
+### <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>Configurer une tâche intermédiaire pour un modèle ARM afin de créer et mettre à jour une ressource 
 
 Si vous disposez d’un modèle ARM pour déployer une ressource, comme un espace de travail Azure Synapse Analytics, des pools Spark et SQL ou un coffre de clés, ajoutez une tâche de déploiement Azure Resource Manager pour créer ou mettre à jour ces ressources :
 
@@ -134,7 +139,7 @@ Si vous disposez d’un modèle ARM pour déployer une ressource, comme un espa
  > [!WARNING]
 > En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées**. Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
-## <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Configurer une tâche intermédiaire pour le déploiement d’artefacts Synapse 
+### <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Configurer une tâche intermédiaire pour le déploiement d’artefacts Synapse 
 
 Utilisez l’extension de [déploiement d’espace de travail Synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) pour déployer d’autres éléments dans l’espace de travail Synapse, comme un jeu de données, un script SQL, un notebook, une définition de travail Spark, un flux de données, un pipeline, un service lié, des informations d’identification et un runtime d'intégration.  
 
@@ -158,18 +163,113 @@ Utilisez l’extension de [déploiement d’espace de travail Synapse](https://m
 
 1. Sélectionnez la connexion, le groupe de ressources et le nom de l’espace de travail cible. 
 
-1. Sélectionnez **…** à côté de la case **Remplacer les paramètres du modèle**, entrez les valeurs de paramètre souhaitées pour l’espace de travail cible, notamment les chaînes de connexion et les clés de compte qui sont utilisées dans vos services liés. [Cliquez ici pour plus d’informations.](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
+1. Sélectionnez **…** à côté de la case **Remplacer les paramètres du modèle**, entrez les valeurs de paramètre souhaitées pour l’espace de travail cible, notamment les chaînes de connexion et les clés de compte qui sont utilisées dans vos services liés. Pour plus d’informations, consultez l’article [CI/CD dans Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
 
     ![Déployer un espace de travail Synapse](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > Dans les scénarios d’intégration et de livraison continues, le type de runtime d’intégration (IR) doit être le même dans les différents environnements. Par exemple, si vous avez un runtime d’intégration auto-hébergé dans l’environnement de développement, le même runtime d’intégration doit aussi être de type auto-hébergé dans les autres environnements (test, production). De même, si vous partagez des runtimes d’intégration dans plusieurs phases, vous devez les configurer comme étant liés et auto-hébergés dans tous les environnements (développement, test, production).
 
-## <a name="create-release-for-deployment"></a>Créer une mise en production pour le déploiement 
+### <a name="create-release-for-deployment"></a>Créer une mise en production pour le déploiement 
 
 Après avoir enregistré toutes les modifications, vous pouvez sélectionner **Créer une version** pour créer manuellement une mise en production. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Sélectionner Créer une mise en production](media/release-creation-manually.png)
+
+## <a name="set-up-a-release-with-github-action"></a>Configurer une mise en production avec une action GitHub 
+
+Dans cette partie, vous allez apprendre à créer des flux de travail GitHub à l’aide de GitHub Actions pour le déploiement d’un espace de travail Synapse.
+Vous pouvez utiliser l’action [Déployer un modèle Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) pour automatiser le déploiement d’un modèle Azure Resource Manager (modèle ARM) sur Azure pour l’espace de travail et les pools de calcul.
+
+### <a name="workflow-file-overview"></a>Vue d’ensemble du fichier de workflow
+
+Un flux de travail GitHub Actions est défini par un fichier YAML (.yml) dans le chemin /.github/workflows/ de votre dépôt. Cette définition contient les étapes et les paramètres qui composent le workflow.
+
+Le fichier comporte deux sections :
+
+|Section  |Tâches  |
+|---------|---------|
+|**Authentification** | 1. Définissez un principal de service. <br /> 2. Créez un secret GitHub. |
+|**Déployer** | 1. Déployez les artefacts d’espace de travail. |
+
+### <a name="configure-the-github-secrets"></a>Configurer les secrets GitHub
+
+Les secrets sont des variables d’environnement qui sont chiffrées. Toute personne disposant d’un accès collaborateur à ce référentiel peut utiliser ces secrets pour des actions.
+
+1. Accédez au dépôt et sélectionnez **Paramètres**, accédez à Secrets, puis cliquez sur Nouveau secret.
+
+    ![Créer un secret](media/create-secret-new.png)
+
+1. Ajoutez de nouveaux secrets pour l’ID client, et une clé secrète client si vous utilisez le principal du service pour le déploiement. Vous pouvez également choisir d’enregistrer l’ID d’abonnement et l’ID de locataire en tant que secrets. 
+
+### <a name="add-your-workflow"></a>Ajouter votre workflow
+
+Accédez au menu **Actions** de votre dépôt GitHub. 
+
+1. Sélectionnez **Configurer vous-même un workflow**. 
+1. Supprimez tous les éléments après la section `on:` de votre fichier de workflow. Par exemple, votre workflow restant peut ressembler à ce qui suit. 
+
+    ```yaml
+    name: CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+    ```
+
+1. Renommez votre flux de travail et recherchez l’action de déploiement d’espace de travail Synapse dans la place de marché, puis ajoutez l’action. 
+
+     ![Rechercher l’action](media/search-the-action.png)
+
+1. Spécifiez les valeurs requises et le modèle d’espace de travail.
+
+    ```yaml
+    name: workspace deployment
+
+    on:
+        push:
+            branches: [ publish_branch ]
+    jobs:
+        release:
+            # You can also use the self-hosted runners
+            runs-on: windows-latest
+            steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            - uses: azure/synapse-workspace-deployment@release-1.0
+            with:
+              TargetWorkspaceName: 'target workspace name'
+              TemplateFile: './path of the TemplateForWorkspace.json'
+              ParametersFile: './path of the TemplateParametersForWorkspace.json'
+              OverrideArmParameters: './path of the parameters.yaml'
+              environment: 'Azure Public'
+              resourceGroup: 'target workspace resource group'
+              clientId: ${{secrets.CLIENTID}}
+              clientSecret:  ${{secrets.CLIENTSECRET}}
+              subscriptionId: 'subscriptionId of the target workspace'
+              tenantId: 'tenantId'
+              DeleteArtifactsNotInTemplate: 'true'
+              managedIdentity: 'False'
+    ``` 
+
+1. Vous êtes maintenant prêt à valider vos modifications. Sélectionnez Start commit (Démarrer la validation), tapez le titre, puis ajoutez une description (facultatif). Ensuite, cliquez sur Commit new file (Valider le nouveau fichier).
+
+    ![Commiter le workflow](media/commit-the-workflow.png)    
+
+
+1. Le fichier apparaît dans le dossier `.github/workflows` de votre référentiel.
+
+> [!NOTE]
+> Managed Identity est pris en charge uniquement avec les machines virtuelles auto-hébergées sur Azure. Définissez l’exécuteur comme auto-hébergé. Activez l’identité managée attribuée par le système pour votre machine virtuelle, puis ajoutez-la à votre studio Synapse en tant qu’administrateur Synapse.
+
+### <a name="review-your-deployment"></a>Vérifier votre déploiement
+
+1. Accédez au menu Actions de votre dépôt GitHub.
+1. Ouvrez le premier résultat pour afficher les journaux détaillés de l’exécution de votre flux de travail.
+
+    ![Examiner le déploiement](media/review-deploy-status.png)    
 
 ## <a name="use-custom-parameters-of-the-workspace-template"></a>Utiliser des paramètres personnalisés du modèle d’espace de travail 
 

@@ -1,27 +1,22 @@
 ---
 title: Services IoT Azure Allemagne | Microsoft Docs
-description: Offre un point de départ pour IoT Suite pour Azure Allemagne
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: Cet article fournit un point de départ pour Azure IoT Suite pour Azure Allemagne.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/01/2018
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 932f9457cc5d33063714ae9c9678174a8b64d156
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 16259a816413bcf7f57475b12f46c9410cb3ca44
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033494"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "122562093"
 ---
 # <a name="azure-germany-iot-services"></a>Services IoT Azure Allemagne
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 ## <a name="iot-solution-accelerators"></a>Accélérateurs de solution IoT
 Tous les services requis pour Azure IoT Suite sont disponibles dans Azure Allemagne. 
@@ -45,13 +40,15 @@ Les deux solutions peuvent être déployées de deux manières, via le site Web 
 
 ### <a name="deploy-via-website"></a>Déployer via le site Web
 
-Suivez les instructions du [tutoriel pour les solutions préconfigurées](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md) à l’aide de la page d’accueil mentionnée précédemment.
+Suivez les instructions du [tutoriel pour les solutions préconfigurées](/previous-versions/azure/iot-accelerators/about-iot-accelerators) à l’aide de la page d’accueil mentionnée précédemment.
 
-### <a name="deploy-via-powershell"></a>Déployer via PowerShell
+### <a name="deploy-via-powershell"></a>Déployer avec PowerShell
 
 Il existe une version complète (utilisant des modèles Azure Resource Manager et Visual Studio) pour la solution de *surveillance à distance*. Effectuez le téléchargement à partir du [référentiel Azure-IoT-Remote-Monitoring sur GitHub](https://github.com/Azure/azure-iot-remote-monitoring). Le déploiement de PowerShell est prêt pour d’autres environnements, tels que Azure Allemagne. Indiquez le paramètre d’*environnement* « AzureGermanCloud » afin qu’il ressemble à ce qui suit :
 
-    build.cmd cloud debug AzureGermanCloud
+```powershell
+build.cmd cloud debug AzureGermanCloud
+```
 
 Bing Maps n’est actuellement pas disponible dans Azure Allemagne. Par conséquent, il est impossible de s’y abonner automatiquement. Vous pouvez résoudre ce problème en vous abonnant au service dans Azure global et en utilisant le service à cet endroit. 
 
@@ -60,11 +57,11 @@ Bing Maps n’est actuellement pas disponible dans Azure Allemagne. Par conséqu
 
 Voici la marche à suivre :
 
-1. Créez une API Bings Maps dans le portail Azure global en cliquant sur **+ Nouveau**, en recherchant**Bing Maps API pour Entreprise** et en suivant la procédure.
+1. Créez une API Bings Maps dans le portail Azure global en cliquant sur **+ Nouveau**, en recherchant **Bing Maps API pour Entreprise** et en suivant la procédure.
 2. Obtenez votre clé Bing Maps API pour Entreprise sur le portail Azure global : 
     1. Accédez au groupe de ressources contenant Bing Maps API pour Entreprise dans le portail Azure global.
     2. Cliquez sur **Tous les paramètres** > **Gestion des clés**. 
-    3. Deux clés sont proposées : MasterKey et QueryKey. Copiez la valeur de QueryKey.
+    3. Vous voyez deux clés : MasterKey et QueryKey. Copiez la valeur de QueryKey.
 3. Déroulez le code le plus récent dans le [référentiel Azure-IoT-Remote-Monitoring sur GitHub](https://github.com/Azure/azure-iot-remote-monitoring).
 4. Effectuez un déploiement dans le cloud dans votre environnement selon les instructions de déploiement par ligne de commande dans le dossier `/docs/` du référentiel. 
 5. Une fois le déploiement effectué, recherchez dans votre dossier racine le fichier **.user.config** créé. Ouvrez ce fichier dans un éditeur de texte. 
@@ -74,4 +71,4 @@ Voici la marche à suivre :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Allemagne](https://blogs.msdn.microsoft.com/azuregermany/).
+Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Allemagne](/archive/blogs/azuregermany/).

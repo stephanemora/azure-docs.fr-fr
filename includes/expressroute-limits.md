@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -8,20 +8,23 @@ ms.topic: include
 ms.date: 01/12/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 17d08d0ffbb33d1aef35374dd5ead518b27e9ba0
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 4648693bc0dd7cebd8f8aec1cf878a8c3abfc49e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108285160"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122636439"
 ---
 | Ressource | Limite |
 | --- | --- |
-| Circuits ExpressRoute par abonnement |10 |
+| Circuits ExpressRoute par abonnement |50 |
 | Circuits ExpressRoute par région par abonnement, avec Azure Resource Manager |10 |
-| Nombre maximal d’itinéraires publiés vers le peering privé Azure avec ExpressRoute Standard |4 000 |
-| Nombre maximal d’itinéraires publiés vers le peering privé Azure avec le module complémentaire ExpressRoute Premium |10 000 |
-| Nombre maximal d'itinéraires publiés depuis le peering privé Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute | 1 000 |
+| Nombre maximal d’itinéraires IPv4 publiés vers le peering privé Azure avec ExpressRoute Standard |4 000 |
+| Nombre maximal d’itinéraires IPv4 publiés vers le peering privé Azure avec le module complémentaire ExpressRoute Premium |10 000 |
+| Nombre maximal d’itinéraires IPv6 publiés vers le peering privé Azure avec ExpressRoute Standard |100 |
+| Nombre maximal d’itinéraires IPv6 publiés vers le peering privé Azure avec le module complémentaire ExpressRoute Premium |100 |
+| Nombre maximal d'itinéraires IPv4 publiés depuis le peering privé Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute | 1 000 |
+| Nombre maximal d'itinéraires IPv6 publiés depuis le peering privé Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute | 1 000 |
 | Nombre maximal d’itinéraires publiés vers le peering Microsoft avec ExpressRoute Standard |200 |
 | Nombre maximal d’itinéraires publiés vers le peering Microsoft avec le module complémentaire ExpressRoute Premium |200 |
 | Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans le même emplacement de peering |4 |

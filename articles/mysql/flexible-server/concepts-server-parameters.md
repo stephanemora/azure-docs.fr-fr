@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 68837732adf4d2ed66fdc547eb140c86b2e8dc27
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 43f544cb2782fc80dd574a1d8c425283c51a0ed3
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641117"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256471"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Paramètres de serveur dans Azure Database pour MySQL – Serveur flexible
 
@@ -124,6 +124,12 @@ Ce paramètre peut être défini au niveau de la session à l’aide de `init_co
 ### <a name="time_zone"></a>time_zone
 
 Lors du déploiement initial, un serveur flexible Azure pour MySQL contient des tables système pour les informations relatives au fuseau horaire, mais ces tables ne sont pas renseignées. Les tables de fuseaux horaires peuvent être remplies en appelant la procédure stockée `mysql.az_load_timezone` à partir d’un outil tel que la ligne de commande MySQL ou MySQL Workbench. Pour savoir comment appeler la procédure stockée et définir les fuseaux horaires au niveau global ou au niveau de la session, consultez les articles relatifs au [Portail Azure](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) ou à [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter).
+
+### <a name="binlog_expire_logs_seconds"></a>binlog_expire_logs_seconds 
+
+Dans Azure Database pour MySQL, ce paramètre spécifie le nombre de secondes pendant lesquelles le service attend avant de vider le fichier journal binaire.
+
+Le journal binaire contient des « événements » décrivant des modifications de base de données telles que des opérations de création de table ou de modification de données de table. Il contient également des événements pour des instructions susceptibles d’avoir été modifiées. Les journaux binaires sont principalement utilisés des opérations de réplication et de récupération de données.  En règle générale, les journaux binaires sont purgés dès que le descripteur est libre de tout service, sauvegarde ou jeu de réplicas. En présence de plusieurs réplicas, il attend que le réplica le plus lent lise les modifications avant d’être purgé. Si vous souhaitez conserver les journaux binaires plus longtemps, vous pouvez configurer le paramètre binlog_expire_logs_seconds. Si la valeur du paramètre binlog_expire_logs_seconds est 0, la valeur par défaut, le descripteur du journal binaire est purgé dès sa libération. Si la valeur du paramètre binlog_expire_logs_seconds est supérieure à 0, le descripteur est purgé une fois le nombre de secondes configuré écoulé. Pour Azure Database pour MySQL, des fonctions managées telles que la sauvegarde et la purge de réplica de lecture des fichiers binaires sont gérées en interne. Lorsque vous répliquez les données à partir du service Azure Database pour MySQL, ce paramètre doit être défini dans le fichier primaire pour éviter la purge des journaux binaires avant que le réplica lise les modifications du fichier primaire. Si vous définissez le paramètre binlog_expire_logs_seconds sur une valeur supérieure, les journaux binaires ne sont pas purgés suffisamment tôt et peuvent entraîner une augmentation de la facturation du stockage. 
 
 ## <a name="non-modifiable-server-parameters"></a>Paramètres de serveur non modifiables
 

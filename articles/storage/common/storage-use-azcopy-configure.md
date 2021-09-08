@@ -8,19 +8,19 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d3b956803e9a796c49288f90873e88c3b69f1c7b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 1f07907d3a4f421fa9f7a03c48d5f74496a1d45a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502893"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303073"
 ---
 # <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>Rechercher des erreurs et reprendre des travaux à l’aide des fichiers journaux et de plan dans AzCopy
 
 AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des blobs ou des fichiers vers ou depuis un compte de stockage. Cet article vous aide à utiliser les journaux pour diagnostiquer les erreurs, puis à utiliser des fichiers de plan pour reprendre des travaux. Cet article explique également comment configurer les fichiers journaux et de plan en modifiant leur niveau de détail et l’emplacement par défaut où ils sont stockés.
 
 > [!NOTE]
-> Si vous recherchez du contenu pour vous aider à bien démarrer avec AzCopy, consultez [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md).
+> Si vous recherchez du contenu pour vous aider à bien démarrer avec AzCopy, consultez [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md). Cet article s’applique à AzCopy **V10**, qui est la version actuellement prise en charge d’AzCopy. Si vous avez besoin d’utiliser une version antérieure d’AzCopy, consultez la section [Utiliser la version précédente d’AzCopy](storage-use-azcopy-v10.md#previous-version).
 
 ## <a name="log-and-plan-files"></a>Fichiers journaux et de plan
 
@@ -74,8 +74,7 @@ azcopy jobs show <job-id> --with-status=Failed
 Utilisez la commande suivante pour reprendre un travail annulé/ayant échoué. Cette commande utilise son identificateur ainsi que le jeton SAP, car il n’est pas persistant pour des raisons de sécurité :
 
 ```
-azcopy jobs resume <job-id> --source-sas="<sas-token>"
-azcopy jobs resume <job-id> --destination-sas="<sas-token>"
+azcopy jobs resume <job-id> --source-sas="<sas-token>" --destination-sas="<sas-token>"
 ```
 
 > [!TIP]

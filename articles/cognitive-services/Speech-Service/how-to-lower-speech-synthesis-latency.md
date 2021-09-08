@@ -12,12 +12,12 @@ ms.date: 04/29/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 8aaa087d1de85b77c9407f8d39e029e3bf2696f2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 38af8d1ffd422b151bebc2fea42c575f181cc72e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614844"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532281"
 ---
 # <a name="lower-speech-synthesis-latency-using-speech-sdk"></a>Réduire la latence de synthèse vocale avec le SDK Speech
 
@@ -343,7 +343,8 @@ Par exemple, nous avons résolu un problème de paramètre `TCP_NODELAY` dans la
 Vous pouvez utiliser un test de charge pour tester la capacité et la latence du service de synthèse vocale.
 Voici quelques instructions.
 
- - Le service de synthèse vocale est capable de se mettre à l’échelle automatiquement, mais il a besoin de temps pour effectuer un scale-out. Si la concurrence est augmentée en peu de temps, le client risque d’obtenir une latence longue ou un code d’erreur `429` (trop de demandes). Ainsi, nous vous recommandons d’augmenter votre concurrence progressivement lors du test de charge. [Consultez cet article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) pour plus d’informations.
+ - Le service de synthèse vocale est capable de se mettre à l’échelle automatiquement, mais il a besoin de temps pour effectuer un scale-out. Si la concurrence est augmentée en peu de temps, le client risque d’obtenir une latence longue ou un code d’erreur `429` (trop de demandes). Ainsi, nous vous recommandons d’augmenter votre concurrence progressivement lors du test de charge. Pour plus de détails, [consultez cet article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling), notamment [cet exemple de modèles de charge de travail](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice).
+ - Vous pouvez utiliser notre exemple à l’aide du pool d’objets ([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) et[Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java)) pour charger le test et obtenir le nombre de latence. Vous pouvez modifier les tours de test et l’accès concurrentiel dans l’exemple pour répondre à votre accès concurrentiel cible.
  - Le service a une limite de quota en fonction du trafic réel. Par conséquent, si vous voulez effectuer un test de charge avec une concurrence bien supérieure à votre trafic réel, connectez-vous avant votre test.
 
 ## <a name="next-steps"></a>Étapes suivantes

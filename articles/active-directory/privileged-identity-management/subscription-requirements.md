@@ -17,12 +17,12 @@ ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6570e378aa75843c525cb21ed58c9da5fd4fb574
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552629"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527964"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Licences requises pour utiliser Privileged Identity Management
 
@@ -30,7 +30,7 @@ Pour utiliser Azure Active Directory (Azure AD) Privileged Identity Management (
 
 ## <a name="valid-licenses"></a>Licences valides
 
-Vous aurez besoin de [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] pour utiliser PIM et tous ses paramètres. Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires.
+Vous aurez besoin d’une licence Azure AD pour utiliser PIM et tous ses paramètres. Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="licenses-you-must-have"></a>Licences que vous devez avoir
 

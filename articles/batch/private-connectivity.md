@@ -2,14 +2,14 @@
 title: Utiliser des points de terminaison privés avec des comptes Azure Batch
 description: Découvrez comment vous connecter en privé à un compte Azure Batch à l’aide de points de terminaison privés.
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad3a869f2eee259133c6ab5dd18e1e615825a718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920001"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562230"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utiliser des points de terminaison privés avec des comptes Azure Batch
 
@@ -20,7 +20,7 @@ Par défaut, les [comptes Azure Batch](accounts.md) possèdent un point de termi
 Private Link permet aux utilisateurs d’accéder à un compte Azure Batch à partir du réseau virtuel ou de tout réseau virtuel appairé. Les ressources mappées à Private Link sont également accessibles localement via un Peering privé par le biais d’un VPN ou d’[Azure ExpressRoute](../expressroute/expressroute-introduction.md). Vous pouvez vous connecter à un compte Azure Batch configuré avec Private Link en utilisant les [méthodes d’approbation automatique ou manuelle](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> La prise en charge de la connectivité privée dans Azure Batch est actuellement disponible pour toutes les régions à l’exception des régions suivantes : Allemagne Centre, Allemagne Nord-Est, Chine Est, Chine Est 2, Chine Nord et Chine Nord 2.
+> La prise en charge de la connectivité privée dans Azure Batch est actuellement disponible pour toutes les régions à l’exception de l’Allemagne centrale et de l’Allemagne Nord-Est.
 
 Cet article décrit les étapes permettant de créer un compte Batch privé et d’y accéder à l’aide d’un point de terminaison privé.
 

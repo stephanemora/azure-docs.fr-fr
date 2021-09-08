@@ -1,18 +1,18 @@
 ---
-title: Configurer la disponibilité d'une offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure)
-description: Configurer la disponibilité d'une offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure)
+title: Configurez la disponibilité d'une offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure).
+description: Configurez la disponibilité d'une offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: b79c4e2763715102688214708fec4481fdfe3a00
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 779b580c38152967d7bbe64bca3455ec304be266
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314856"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864658"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-availability"></a>Configurer la disponibilité d'une offre Dynamics 365 pour Customer Engagement et Power Apps
 

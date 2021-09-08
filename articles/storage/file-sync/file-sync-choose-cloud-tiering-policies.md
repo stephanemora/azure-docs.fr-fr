@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0bf41e1a847335a99b3e8f2e9ecbac504c3179e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: daa13c090ad9c10dbc21c082871f02ee1cc9f241
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796195"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563857"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Choisir des stratégies de hiérarchisation Cloud
 
@@ -56,9 +56,9 @@ Azure File Sync est pris en charge sur les volumes NTFS avec Windows Server 201
 |256 To - 512 To| 128 Ko              |
 |512 To - 1 Po  | 256 KB              |
 |1 Po - 2 Po    | 512 Ko              |
-|2 To - 4 Po    | 1 024 Ko             |
-|4 To - 8 To    | 2 048 Ko (taille max)  |
-|> 8 To         | non pris en charge       |
+|2 Po - 4 Po    | 1 024 Ko             |
+|4 Po - 8 Po    | 2 048 Ko (taille max)  |
+|>8 Po         | non pris en charge       |
 
 Lors de la création du volume, il est possible que vous ayez mis en forme manuellement le volume avec une taille de cluster différente. Si votre volume provient d’une version antérieure de Windows, les tailles de cluster par défaut peuvent également être différentes. [Cet article contient des informations supplémentaires sur les tailles de cluster par défaut.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Même si vous choisissez une taille de cluster inférieure à 4 ko, la limite de 8 ko comme plus petite taille de fichier pouvant être hiérarchisée s’applique toujours. (Même si, techniquement, le double de la taille du cluster équivaut à moins de 8 ko.)
 

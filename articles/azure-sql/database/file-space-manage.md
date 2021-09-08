@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, sstein
-ms.date: 05/28/2021
-ms.openlocfilehash: fb5ee8b096f64faa47756642b4e94bae429fb879
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.reviewer: jrasnick, wiassaf
+ms.date: 08/09/2021
+ms.openlocfilehash: 27adb19b07dc67a91d1bdafb6aac54ad59eaa778
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591257"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563498"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gérer l'espace de fichier des bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,31 +36,19 @@ La surveillance de l’utilisation de l’espace de fichiers et la réduction de
 - Autoriser la réduction de la taille maximale d’une base de données unique ou d’un pool élastique.
 - Autoriser la modification d’une base de données unique ou d’un pool élastique pour les faire passer à un niveau de service ou à un niveau de performance avec une taille maximale inférieure.
 
+> [!NOTE]
+> Les opérations de réduction ne doivent pas être considérées comme une opération de maintenance régulière. Les fichiers de données et les fichiers journaux qui augmentent en raison d’opérations d’entreprise périodiques régulières ne nécessitent pas d’opérations de réduction. 
+
 ### <a name="monitoring-file-space-usage"></a>Surveillance de l’utilisation de l’espace de fichiers
 
 La plupart des métriques d’espace de stockage affichées dans les API suivantes mesurent seulement la taille des pages de données utilisées :
 
 - API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](/powershell/module/az.monitor/get-azmetric) PowerShell
-- T-SQL : [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Cependant, les API suivantes mesurent aussi la taille de l’espace alloué pour les bases de données et les pools élastiques :
 
 - T-SQL : [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL : [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
-
-### <a name="shrinking-data-files"></a>Réduction des fichiers de données
-
-Azure SQL Database ne réduit pas automatiquement les fichiers de données pour récupérer l'espace alloué inutilisé en raison de l'impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space).
-
-### <a name="shrinking-transaction-log-file"></a>Réduction du fichier journal de transactions
-
-Contrairement aux fichiers de données, Azure SQL Database réduit automatiquement le fichier journal de transactions afin d’éviter une utilisation excessive de l’espace, qui peut entraîner des erreurs d’insuffisance d’espace. Il n’est généralement pas nécessaire pour les clients de réduire le fichier journal de transactions.
-
-Dans les niveaux de service Premium et Critique pour l’entreprise, si le journal de transactions devient volumineux, il peut contribuer considérablement à la l’utilisation du stockage local jusqu’à la limite de [stockage local maximal](resource-limits-logical-server.md#storage-space-governance). Si l’utilisation du stockage local est proche de la limite, les clients peuvent choisir de réduire le journal des transactions à l’aide de la commande [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql), comme dans l’exemple suivant. Cela libère le stockage local dès la fin de la commande, sans attendre l’opération de réduction automatique périodique.
-
-```tsql
-DBCC SHRINKFILE (2);
-```
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Appréhender les types d’espace de stockage d’une base de données
 
@@ -210,31 +198,77 @@ ORDER BY end_time DESC;
 
 ## <a name="reclaim-unused-allocated-space"></a>Récupérer l’espace alloué non utilisé
 
-> [!NOTE]
+> [!IMPORTANT]
 > Les commandes de réduction ont un impact sur les performances de la base de données pendant l’exécution et, si possible, doivent être exécutées pendant les périodes de faible utilisation.
 
-### <a name="dbcc-shrink"></a>Réduire avec DBCC
+### <a name="shrinking-data-files"></a>Réduction des fichiers de données
 
-Une fois que les bases de données ont été identifiées pour la récupération de l’espace alloué non utilisé, changez le nom de la base de données dans la commande suivante pour réduire les fichiers de données pour chaque base de données.
+En raison d’un impact potentiel sur les performances de la base de données, la Base de données Azure SQL ne réduit pas automatiquement les fichiers de données. Cependant, les clients peuvent réduire les fichiers de données via une opération en libre-service quand ils le souhaitent. Cela ne doit pas être une opération planifiée régulièrement, mais plutôt un événement à usage unique en réponse à une réduction majeure de la consommation d’espace utilisée par le fichier de données.
+
+Dans la Base de données Azure SQL, pour réduire des fichiers vous pouvez utiliser `DBCC SHRINKDATABASE` ou `DBCC SHRINKFILE` les commandes :
+
+- `DBCC SHRINKDATABASE` réduira tous les fichiers journaux et de données de la base de données, ce qui n’est généralement pas nécessaire. La commande réduit un fichier à la fois. Elle [réduira également le fichier journal](#shrinking-transaction-log-file). La Base de données Azure SQL réduit automatiquement les fichiers journaux, si nécessaire.
+- `DBCC SHRINKFILE`la commande prend en charge des scénarios plus avancés :
+    - Elle peut cibler des fichiers individuels en fonction des besoins, au lieu de réduire tous les fichiers de la base de données.
+    - Chaque `DBCC SHRINKFILE`commande peut s’exécuter en parallèle avec d’autres `DBCC SHRINKFILE` commandes pour réduire la taille de la base de données plus rapidement, au détriment d’une utilisation des ressources et d’une probabilité de blocage plus grandes des requêtes utilisateur, si elles s’exécutent pendant la réduction.
+    - Si la fin du fichier ne contient pas de données, cela peut réduire la taille de fichier allouée beaucoup plus rapidement en spécifiant l’argument TRUNCATEONLY. Cela ne nécessite pas le déplacement des données dans le fichier.
+- Pour plus d’informations concernant ces commandes de réduction, consultez [DBCC SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql) ou [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql).
+
+Les exemples suivants doivent être exécutés lors d’une connexion à la base de données utilisateur cible, et non à la `master` base de données.
+
+Pour utiliser `DBCC SHRINKDATABASE` pour réduire l’ensemble des données et des fichiers journaux dans une base de données spécifique :
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1');
+DBCC SHRINKDATABASE (N'database_name');
 ```
 
-Les commandes de réduction ont un impact sur les performances de la base de données pendant l’exécution et, si possible, doivent être exécutées pendant les périodes de faible utilisation.  
+Dans la Base de données Azure SQL, une base de données peut posséder un ou plusieurs fichiers de données. Des fichiers de données supplémentaires peuvent uniquement être créés automatiquement. Pour déterminer la disposition des fichiers de votre base de données, interrogez l'`sys.database_files`affichage catalogue à l’aide de l’exemple de script suivant :
 
-Vous devez également être conscient du possible impact négatif sur les performances que peut avoir la réduction des fichiers de base de données. Voir [**Reconstruire des index**](#rebuild-indexes) ci-dessous.
+```sql
+-- Review file properties, including file_id values to reference in shrink commands
+SELECT file_id,
+       name,
+       CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8 / 1024. AS space_used_mb,
+       CAST(size AS bigint) * 8 / 1024. AS space_allocated_mb,
+       CAST(max_size AS bigint) * 8 / 1024. AS max_size_mb
+FROM sys.database_files
+WHERE type_desc IN ('ROWS','LOG');
+GO
+```
 
-Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Exécutez une réduction sur un fichier uniquement par le biais de la `DBCC SHRINKFILE` commande, par exemple :
+
+```sql
+-- Shrink database data file named 'data_0` by removing all unused at the end of the file, if any.
+DBCC SHRINKFILE ('data_0', TRUNCATEONLY);
+GO
+```
+
+Vous devez également être conscient du possible impact négatif sur les performances que peut avoir la réduction des fichiers de la base de données. Voir [Reconstruire des index](#rebuild-indexes) ci-dessous. 
+
+### <a name="shrinking-transaction-log-file"></a>Réduction du fichier journal de transactions
+
+Contrairement aux fichiers de données, Azure SQL Database réduit automatiquement le fichier journal de transactions afin d’éviter une utilisation excessive de l’espace, qui peut entraîner des erreurs d’insuffisance d’espace. Il n’est généralement pas nécessaire pour les clients de réduire le fichier journal de transactions.
+
+Dans les niveaux de service Premium et Critique pour l’entreprise, si le journal de transactions devient volumineux, il peut contribuer considérablement à la l’utilisation du stockage local jusqu’à la limite de [stockage local maximal](resource-limits-logical-server.md#storage-space-governance). Si l’utilisation du stockage local est proche de la limite, les clients peuvent choisir de réduire le journal des transactions à l’aide de la commande [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql), comme dans l’exemple suivant. Cela libère le stockage local dès la fin de la commande, sans attendre l’opération de réduction automatique périodique.
+
+Les exemples suivants doivent être exécutés lors d’une connexion à la base de données utilisateur cible, et non à la base de données de référence.
+
+```tsql
+-- Shrink the database log file (always file_id = 2), by removing all unused space at the end of the file, if any.
+DBCC SHRINKFILE (2, TRUNCATEONLY);
+```
 
 ### <a name="auto-shrink"></a>Réduction automatique
 
-Vous pouvez aussi activer la réduction automatique pour une base de données.  La réduction automatique a pour effet de réduire la complexité de la gestion des fichiers, et a moins d’impact sur les performances des bases de données que les commandes `SHRINKDATABASE` ou `SHRINKFILE`. La réduction automatique peut être particulièrement utile pour gérer des pools élastiques avec de nombreuses bases de données qui connaissent une croissance et une réduction significatives de l’espace utilisé. Cependant, elle peut être moins efficace pour récupérer de l’espace de fichiers que `SHRINKDATABASE` et `SHRINKFILE`.
+Vous pouvez aussi activer la réduction automatique pour une base de données. Cependant, elle peut être moins efficace pour récupérer de l’espace de fichiers que `DBCC SHRINKDATABASE` et `DBCC SHRINKFILE`.  
+
+La réduction automatique peut être utile dans un scénario spécifique où un pool élastique contient de nombreuses bases de données qui subissent une croissance et une réduction significatives de l’espace utilisé pour les fichiers de données. Ce scénario n’est pas très courant. 
 
 Par défaut, la réduction automatique est désactivée, ce qui est recommandé pour la plupart des bases de données. S’il est nécessaire d’activer la réduction automatique, il est recommandé de la désactiver une fois les objectifs de gestion de l’espace atteints, au lieu de la conserver indéfiniment. Pour plus d’informations, consultez [Considérations relatives à AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
 
-Pour activer la réduction automatique, exécutez la commande suivante dans votre base de données (et non pas dans la base de données master).
+Pour activer la réduction automatique, exécutez la commande suivante en étant connecté dans votre base de données (et non pas dans la base de données de référence).
 
 ```sql
 -- Enable auto-shrink for the current database.
@@ -243,9 +277,11 @@ ALTER DATABASE CURRENT SET AUTO_SHRINK ON;
 
 Pour plus d’informations sur cette commande, consultez les options de [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
-### <a name="rebuild-indexes"></a>Reconstruire des index
+### <a name="index-maintenance-before-or-after-shrink"></a><a name="rebuild-indexes"></a>Maintenance de l’index avant ou après la réduction
 
-Une fois les fichiers de données réduits, les index peuvent devenir fragmentés et perdre en efficacité au niveau de l’optimisation des performances. En cas de dégradation des performances, vous pouvez envisager de reconstruire les index de la base de données. Pour plus d’informations sur la fragmentation et la maintenance des index, consultez [Optimiser la maintenance des index pour améliorer les performances des requêtes et réduire la consommation des ressources](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Après l’exécution d’une opération de réduction sur les fichiers de données, les index peuvent être fragmentés et perdent leur efficacité d’optimisation des performances pour certaines charges de travail, telles que les requêtes utilisant des analyses volumineuses. Si la dégradation des performances se produit une fois l’opération de réduction terminée, envisagez la maintenance des index pour reconstruire les index. 
+
+Si la densité de page de la base de données est faible, la réduction prendra plus de temps, car elle devra déplacer plus de pages dans chaque fichier de données. Microsoft recommande de déterminer la densité de page moyenne avant d’exécuter les commandes de réduction. Si la densité de page est faible, régénérez ou réorganisez les index pour augmenter la densité de page avant d’exécuter la réduction. Pour plus d’informations, notamment un exemple de script pour déterminer la densité des pages, consultez [optimiser la maintenance des index pour améliorer les performances des requêtes et réduire la consommation des ressources](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -254,5 +290,3 @@ Une fois les fichiers de données réduits, les index peuvent devenir fragmenté
   - [Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU](resource-limits-dtu-single-databases.md)
   - [Limites du modèle d’achat vCore Azure SQL Database pour les pools élastiques](resource-limits-vcore-elastic-pools.md)
   - [Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU](resource-limits-dtu-elastic-pools.md)
-- Pour plus d’informations sur la commande `SHRINKDATABASE`, consultez [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
-- Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

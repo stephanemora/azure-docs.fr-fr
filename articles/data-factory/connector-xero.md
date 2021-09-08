@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 16722f7b9047ef5bf4e3d0f823a9fad2a2bcba08
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c95efb768dc66dd35a88d0cd57d37e4d7e43ce3c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641264"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311121"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copier des données de Xero à l’aide d’Azure Data Factory
 
@@ -39,6 +39,31 @@ Plus précisément, ce connecteur Xero prend en charge ce qui suit :
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-xero-using-ui"></a>Créer un service lié à Xero à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Xero dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Xero et sélectionnez le connecteur Xero.
+
+   :::image type="content" source="media/connector-xero/xero-connector.png" alt-text="Sélectionnez le connecteur Xero.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-xero/configure-xero-linked-service.png" alt-text="Configurez un service lié à Xero.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Xero.
 

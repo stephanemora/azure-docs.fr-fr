@@ -4,12 +4,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 08/06/2021
-ms.openlocfilehash: f8db880daf99f48fcd5df2d707b5f2c1ed24a8f7
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: e6690e62c2364cd305ff6146ea08618440a1f7df
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444273"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227658"
 ---
 Suivez les tutoriels listés ci-dessous pour commencer à créer votre propre application.
 
@@ -20,7 +20,13 @@ Suivez les tutoriels listés ci-dessous pour commencer à créer votre propre ap
 > [Tutoriel : Créer un salon de conversation simple avec Azure Web PubSub](./../tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
+> [Tutoriel : Streaming client à l’aide du sous-protocole pris en charge par le service](./../tutorial-subprotocol.md)
+
+> [!div class="nextstepaction"]
 > [Tutoriel : Créer une conversation serverless avec Azure Functions et Web PubSub](./../quickstart-serverless.md)
+
+> [!div class="nextstepaction"]
+> [Expérimentez les démonstrations en direct](https://aka.ms/awps/livedemos)
 
 > [!div class="nextstepaction"]
 > [Explorer d’autres exemples Azure Web PubSub](https://aka.ms/awps/samples)

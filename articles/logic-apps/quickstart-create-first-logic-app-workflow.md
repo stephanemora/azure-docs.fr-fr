@@ -1,24 +1,24 @@
 ---
-title: Démarrage rapide - Créer des workflows d’intégration avec Azure Logic Apps dans le portail Azure
+title: Démarrage rapide - Créer des workflows automatisés avec Azure Logic Apps dans le portail Azure
 description: Créez votre premier workflow d’intégration automatisé avec Azure Logic Apps multilocataire dans le portail Azure.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 05/25/2021
-ms.openlocfilehash: b7419986137632561cae71b91dd55a2af64912a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/24/2021
+ms.openlocfilehash: a2b3533a1af6740b1d847a2a3e452bbe45aacc05
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373282"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831262"
 ---
 # <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>Démarrage rapide - Créer un workflow d’intégration avec Azure Logic Apps multilocataire et le portail Azure
 
-Ce guide de démarrage rapide montre comment créer un exemple de workflow automatisé qui intègre deux services, un flux RSS pour un site web et un compte de messagerie quand vous utilisez [Azure Logic Apps](logic-apps-overview.md) *multilocataire*. Bien que cet exemple soit basé sur le cloud, Azure Logic Apps prend en charge les workflows qui connectent des applications, des données, des services et des systèmes dans le cloud, localement et dans des environnements hybrides. Pour plus d’informations sur le modèle multilocataire par rapport au modèle monolocataire, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
+Ce guide de démarrage rapide montre comment créer un exemple de workflow automatisé qui intègre deux services, un flux RSS pour un site web et un compte de messagerie quand vous utilisez [Azure Logic Apps *multilocataire*](logic-apps-overview.md). Bien que cet exemple soit basé sur le cloud, Azure Logic Apps prend en charge les workflows qui connectent des applications, des données, des services et des systèmes dans le cloud, localement et dans des environnements hybrides. Pour plus d’informations sur Azure Logic Apps multilocataire par rapport à Azure Logic Apps monolocataire, passez en revue les [environnements monolocataires ou multilocataires et les services d’intégration](single-tenant-overview-compare.md).
 
-Dans cet exemple, vous créez un workflow qui utilise le connecteur RSS et le connecteur Office 365 Outlook. Le connecteur RSS dispose d’un déclencheur qui vérifie un flux RSS en fonction d’une planification. Le connecteur Office 365 Outlook comporte une action qui envoie un e-mail pour chaque nouvel élément. Les connecteurs de cet exemple sont uniquement deux des [centaines de connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) que vous pouvez utiliser dans un workflow.
+Dans cet exemple, vous créez une ressource d’application logique et un workflow qui utilise le connecteur RSS et le connecteur Office 365 Outlook. La ressource s’exécute dans Azure Logic Apps multilocataire et est basée sur le [modèle tarifaire Consumption](logic-apps-pricing.md#consumption-pricing). Le connecteur RSS dispose d’un déclencheur qui vérifie un flux RSS en fonction d’une planification. Le connecteur Office 365 Outlook comporte une action qui envoie un e-mail pour chaque nouvel élément. Les connecteurs de cet exemple sont uniquement deux des [centaines de connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) que vous pouvez utiliser dans un workflow.
 
 La capture d’écran ci-dessous montre l’exemple de workflow général :
 
@@ -26,13 +26,13 @@ La capture d’écran ci-dessous montre l’exemple de workflow général :
 
 À mesure que vous progresserez dans ce guide de démarrage rapide, vous découvrirez les étapes de base suivantes :
 
-* Créez une ressource d’application logique qui s’exécute dans l’environnement de service Logic Apps multilocataire.
+* Créez une ressource d’application logique qui s’exécute dans l’environnement Azure Logic Apps multilocataire.
 * Sélectionnez le modèle d’application logique vide.
 * Ajoutez un déclencheur qui spécifie quand exécuter le workflow.
 * Ajoutez une action qui exécute une tâche après l’activation du déclencheur.
 * Exécutez votre workflow.
 
-Pour créer et gérer une application logique à l’aide d’autres outils, passez en revue les autres guides de démarrage rapide Logic Apps suivants :
+Pour créer et gérer une ressource d’application logique à l’aide d’autres outils, passez en revue les autres guides de démarrage rapide Azure Logic Apps suivants :
 
 * [Créer et gérer des applications logiques dans Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Créer et gérer des applications logiques dans Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
@@ -42,16 +42,16 @@ Pour créer et gérer une application logique à l’aide d’autres outils, pas
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+* Compte et abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un compte de messagerie d’un service qui fonctionne avec Azure Logic Apps, comme Office 365 Outlook ou Outlook.com. Pour connaître les autres fournisseurs de messagerie pris en charge, consultez [Connecteurs pour Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+* Un compte de messagerie d’un service qui fonctionne avec Azure Logic Apps, comme Office 365 Outlook ou Outlook.com. Pour connaître les autres fournisseurs de messagerie pris en charge, consultez [Connecteurs pour Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
   > [!NOTE]
   > Si vous voulez utiliser le [connecteur Gmail](/connectors/gmail/), seuls les comptes G Suite peuvent utiliser ce connecteur sans restriction dans Azure Logic Apps. Si vous avez un compte Gmail personnel, vous pouvez uniquement utiliser ce connecteur avec certains services approuvés par Google, sauf si vous [créez une application cliente Google pour les besoins d’authentification auprès de votre connecteur Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Si vous avez un pare-feu qui limite le trafic vers des adresses IP spécifiques, configurez-le pour autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service Logic Apps dans la région Azure où se trouve votre application logique.
+* Si vous avez un pare-feu qui limite le trafic vers des adresses IP spécifiques, configurez-le pour autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service Logic Apps dans la région Azure où vous créez votre workflow d’application logique.
 
-  Cet exemple utilise également les connecteurs RSS et Office 365 Outlook [gérés par Microsoft](../connectors/managed.md). Ces connecteurs exigent que vous configuriez votre pare-feu de façon à autoriser l’accès pour *toutes* les [adresses IP sortantes du connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de l’application logique.
+  Cet exemple utilise les connecteurs RSS et Office 365 Outlook [gérés par Microsoft](../connectors/managed.md). Ces connecteurs exigent que vous configuriez votre pare-feu de façon à autoriser l’accès pour *toutes* les [adresses IP sortantes du connecteur managé](/connectors/common/outbound-ip-addresses) dans la région Azure de votre ressource d’application logique.
 
 <a name="create-logic-app-resource"></a>
 
@@ -59,43 +59,41 @@ Pour créer et gérer une application logique à l’aide d’autres outils, pas
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
 
-1. Dans la zone de recherche Azure, entrez `logic apps`, puis sélectionnez **Logic Apps**.
+1. Dans la zone de recherche Azure, entrez `logic apps`, puis sélectionnez **Applications logiques**.
 
    ![Capture d’écran montrant la zone de recherche du portail Azure, avec « logic apps » comme terme de recherche et « Logic Apps » comme résultat sélectionné.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
-1. Dans la page **Logic Apps**, sélectionnez **Ajouter** > **Consommation**.
+1. Dans la page **Applications logiques**, sélectionnez **Ajouter**.
 
-   Cette étape crée une ressource d’application logique qui s’exécute dans l’environnement de service Logic Apps multilocataire et utilise un [modèle tarifaire de la consommation](logic-apps-pricing.md).
+   ![Capture d’écran montrant le portail Azure avec la page de service Applications logiques et l’option « Ajouter » sélectionnée.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-   ![Capture d’écran montrant le portail Azure et la page du service Logic Apps avec la liste des applications logiques, le menu « Ajouter » ouvert et l’option « Consommation » sélectionnée.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+1. Dans le volet **Créer une application logique**, sélectionnez l’abonnement Azure à utiliser, créez un [groupe de ressources](../azure-resource-manager/management/overview.md#terminology) pour votre ressource d’application logique et fournissez les détails de base sur celle-ci.
 
-1. Dans le volet **Logic Apps**, entrez les détails de base et les paramètres de votre application logique. Créez un [groupe de ressources](../azure-resource-manager/management/overview.md#terminology) pour cet exemple d’application logique.
-
-   | Propriété | Value | Description |
+   | Property | Value | Description |
    |----------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |
    | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md#terminology), qui doit être unique entre les régions. Cet exemple utilise « My-First-LA-RG ». |
-   | **Nom de l’application logique** | <*logic-app-name*> | Nom de votre application logique. Ce nom doit être unique d’une région à l’autre. Cet exemple utilise « My-First-Logic-App ». <p><p>**Important** : Ce nom peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`), des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`).  |
-   | **Région** | <*Azure-region*> | Région du centre de données Azure où stocker les informations de votre application. Cet exemple utilise la région « USA Ouest ». |
-   | **Associer à l’environnement de service d’intégration** | Désactivé | Sélectionnez cette option uniquement quand vous voulez déployer cette application logique dans un [environnement de service d’intégration](connect-virtual-network-vnet-isolated-environment-overview.md). Pour cet exemple, laissez cette option désactivée. |
-   | **Activer l’analytique des journaux** | Désactivé | Sélectionnez cette option uniquement quand vous voulez activer la journalisation des diagnostics. Pour cet exemple, laissez cette option désactivée. |
+   | **Type** | **Consommation** | Type de ressource d’application logique et modèle de facturation à utiliser pour votre ressource : <p><p>- **Consommation** : ce type de ressource d’application logique s’exécute dans Azure Logic Apps multilocataire global et utilise le [modèle de facturation Consommation](logic-apps-pricing.md#consumption-pricing). Cet exemple utilise le modèle **Consommation**. <p>- **Standard** : ce type de ressource d’application logique s’exécute dans Azure Logic Apps monolocataire et utilise le [modèle de facturation Standard](logic-apps-pricing.md#standard-pricing). |
+   | **Nom de l’application logique** | <*logic-app-name*> | Nom de votre ressource d’application logique. Ce nom doit être unique d’une région à l’autre. Cet exemple utilise « My-First-Logic-App ». <p><p>**Important** : Ce nom peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`), des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`).  |
+   | **Région** | <*Azure-region*> | Région du centre de données Azure où stocker les informations de votre application. Cet exemple utilise la région « USA Ouest ». <p>**Remarque** : Si votre abonnement est associé à un [environnement de service d’intégration](connect-virtual-network-vnet-isolated-environment-overview.md), cette liste comprend ces environnements. |
+   | **Activer l’analytique des journaux** | **Non** | Changez cette option uniquement quand vous voulez activer la journalisation des diagnostics. Pour cet exemple, laissez cette option désactivée. |
    ||||
 
-   ![Capture d’écran montrant le portail Azure et la page de création d’applications logiques avec les détails de la nouvelle application logique.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![Capture d’écran montrant le portail Azure et la page de création de ressources d’application logique avec les détails de la nouvelle application logique.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
 1. Quand vous êtes prêt, sélectionnez **Vérifier + créer**. Dans la page de validation, vérifiez les détails que vous avez fournis, puis sélectionnez **Créer**.
 
 ## <a name="select-the-blank-template"></a>Sélectionner le modèle vide
 
-1. Une fois qu’Azure a déployé votre application, sélectionnez **Accéder à la ressource**. Ou bien, recherchez et sélectionnez votre application logique en tapant son nom dans la zone de recherche Azure.
+1. Une fois qu’Azure a déployé votre application, sélectionnez **Accéder à la ressource**. Ou bien, recherchez et sélectionnez votre ressource d’application logique en tapant son nom dans la zone de recherche Azure.
 
    ![Capture d’écran montrant la page de déploiement de ressource et le bouton sélectionné, « Accéder à la ressource ».](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   Le Concepteur d’application logique s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés.
+   Le concepteur de workflow s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés.
 
 1. Sous **Modèles**, sélectionnez **Application logique vide**.
 
-   ![Capture d’écran montrant la galerie de modèles du Concepteur Logic Apps et le modèle sélectionné, « Application logique vide ».](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![Capture d’écran montrant le concepteur de workflow, la galerie de modèles et le modèle sélectionné, « Application logique vide ».](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
    Une fois le modèle sélectionné, le concepteur affiche une surface de workflow vide.
 
@@ -103,15 +101,15 @@ Pour créer et gérer une application logique à l’aide d’autres outils, pas
 
 ## <a name="add-the-trigger"></a>Ajouter le déclencheur
 
-Un workflow commence toujours par un seul [déclencheur](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work), qui spécifie la condition à respecter avant d’exécuter des actions dans le workflow. Chaque fois que le déclencheur est activé, le service Logic Apps crée et exécute une instance de workflow. Si le déclencheur n’est pas activé, aucune instance n’est créée ou exécutée. Vous pouvez démarrer un workflow en effectuant un choix parmi de nombreux déclencheurs différents.
+Un workflow commence toujours par un seul [déclencheur](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work), qui spécifie la condition à respecter avant d’exécuter des actions dans le workflow. Chaque fois que le déclencheur se met en œuvre, Azure Logic Apps crée et exécute une instance de workflow. Si le déclencheur n’est pas activé, aucune instance n’est créée ou exécutée. Vous pouvez démarrer un workflow en effectuant un choix parmi de nombreux déclencheurs différents.
 
 Cet exemple utilise un déclencheur RSS qui vérifie un flux RSS en fonction d’une planification. S’il existe un nouvel élément dans le flux, le déclencheur est activé et l’exécution d’une nouvelle instance de workflow commence. S’il existe plusieurs nouveaux éléments entre les vérifications, le déclencheur est activé pour chaque élément, et une nouvelle instance de workflow distincte s’exécute pour chaque élément.
 
-1. Dans le **Concepteur Logic Apps**, sous la zone de recherche, sélectionnez **Tout**.
+1. Dans le concepteur de workflow, sous la zone de recherche, sélectionnez **Tout**.
 
 1. Pour rechercher le déclencheur RSS, dans la zone de recherche, entrez `rss`. Dans la liste **Déclencheurs**, sélectionnez le déclencheur RSS **Lors de la publication d’un élément de flux**.
 
-   ![Capture d’écran montrant le Concepteur Logic Apps avec « rss » dans la zone de recherche et le déclencheur RSS « Lors de la publication d’un élément de flux » sélectionné.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
+   ![Capture d’écran montrant le concepteur de workflow avec « rss » dans la zone de recherche et le déclencheur RSS « Lors de la publication d’un élément de flux » sélectionné.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. Indiquez les informations suivantes dans les détails du déclencheur :
 
@@ -218,7 +216,7 @@ Cet exemple utilise une action Office 365 Outlook qui envoie un e-mail chaque 
       | `Link:` | **Lien du flux principal** | URL de l’élément. |
       ||||
 
-      ![Capture d’écran montrant le Concepteur Logic Apps, l’action « Envoyer un e-mail » et les propriétés sélectionnées dans la zone « Corps ».](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
+      ![Capture d’écran montrant le concepteur de workflow, l’action « Envoyer un e-mail » et les propriétés sélectionnées dans la zone « Corps ».](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
 1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
@@ -226,11 +224,11 @@ Cet exemple utilise une action Office 365 Outlook qui envoie un e-mail chaque 
 
 ## <a name="run-your-workflow"></a>Exécuter votre workflow
 
-Pour vérifier que le workflow s’exécute correctement, vous pouvez attendre que le déclencheur vérifie le flux RSS en fonction de la planification définie. Vous pouvez aussi exécuter manuellement le workflow en sélectionnant **Exécuter** dans la barre d’outils du Concepteur Logic Apps, comme illustré dans la capture d’écran suivante. 
+Pour vérifier que le workflow s’exécute correctement, vous pouvez attendre que le déclencheur vérifie le flux RSS en fonction de la planification définie. Vous pouvez aussi exécuter manuellement le workflow en sélectionnant **Exécuter** dans la barre d’outils du concepteur de workflow, comme illustré dans la capture d’écran suivante.
 
-![Capture d’écran montrant le Concepteur Logic Apps et le bouton « Exécuter » sélectionné dans la barre d’outils du concepteur.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
+![Capture d’écran montrant le concepteur de workflow et le bouton « Exécuter » sélectionné dans la barre d’outils du concepteur.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
 
-Si le flux RSS a de nouveaux éléments, votre workflow envoie un e-mail pour chaque nouvel élément. Dans le cas contraire, votre workflow attend l’intervalle suivant pour revérifier le flux RSS. 
+Si le flux RSS a de nouveaux éléments, votre workflow envoie un e-mail pour chaque nouvel élément. Dans le cas contraire, votre workflow attend l’intervalle suivant pour revérifier le flux RSS.
 
 La capture d’écran suivante montre un exemple d’e-mail envoyé par l’exemple de workflow. L’e-mail contient les détails de chaque sortie de déclencheur que vous avez sélectionnée, ainsi que le texte descriptif que vous avez inclus pour chaque élément.
 
@@ -241,11 +239,12 @@ La capture d’écran suivante montre un exemple d’e-mail envoyé par l’exem
 Si vous ne recevez pas d’e-mails du workflow comme prévu :
 
 * Vérifiez si le message n’a pas été incorrectement filtré et placé dans votre dossier de courrier indésirable ou de spam.
+
 * Assurez-vous que le flux RSS que vous utilisez a publié des éléments depuis la dernière vérification planifiée ou manuelle.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous avez terminé ce guide de démarrage rapide, nettoyez l’exemple d’application logique et toutes les ressources associées en supprimant le groupe de ressources que vous avez créé pour cet exemple.
+Quand vous avez terminé ce guide de démarrage rapide, supprimez l’exemple de ressource d’application logique et toutes les ressources associées en supprimant le groupe de ressources que vous avez créé pour cet exemple.
 
 1. Dans la zone de recherche Azure, entrez `resource groups`, puis sélectionnez **Groupes de ressources**.
 

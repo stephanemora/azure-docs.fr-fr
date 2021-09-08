@@ -11,12 +11,12 @@ author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
 ms.date: 06/03/2019
-ms.openlocfilehash: 7216978845921e4b35c4cb3485379054cbf5cfff
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 8e1c8288317ee5d0424ee633a14431d87a78175f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591803"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866354"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Les recommandations de réglage automatique Azure SQL Database peuvent être con
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatiser les notifications par e-mail pour les recommandations de réglage automatique
 
-La solution suivante automatise l’envoi des notifications par e-mail contenant des recommandations de réglage automatique. La solution décrite comprend l’automatisation de l’exécution d’un script PowerShell pour récupérer les recommandations de réglage à l’aide [d’Azure Automation](../../automation/automation-intro.md) et l’automatisation de la planification de la tâche de remise du courrier à l’aide de [Microsoft Flow](https://flow.microsoft.com).
+La solution suivante automatise l’envoi des notifications par e-mail contenant des recommandations de réglage automatique. La solution décrite comprend l’automatisation de l’exécution d’un script PowerShell pour récupérer les recommandations de réglage à l’aide [d’Azure Automation](../../automation/automation-intro.md) et l’automatisation de la planification de la tâche de remise du courrier à l’aide de [Microsoft Power Automate](https://flow.microsoft.com).
 
 ## <a name="create-azure-automation-account"></a>Créer un compte Azure Automation
 
@@ -89,7 +89,7 @@ Si vous avez plusieurs abonnements, vous pouvez les ajouter en les séparant par
 ```powershell
 # PowerShell script to retrieve Azure SQL Database automatic tuning recommendations.
 #
-# Provided "as-is&quot; with no implied warranties or support.
+# Provided "as-is" with no implied warranties or support.
 # The script is released to the public domain.
 #
 # Replace <SUBSCRIPTION_ID_WITH_DATABASES> in the header with your Azure subscription ID.
@@ -97,7 +97,7 @@ Si vous avez plusieurs abonnements, vous pouvez les ajouter en les séparant par
 # Microsoft Azure SQL Database team, 2018-01-22.
 
 # Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID
-$subscriptions = (&quot;<SUBSCRIPTION_ID_WITH_DATABASES>&quot;, &quot;<SECOND_SUBSCRIPTION_ID_WITH_DATABASES>&quot;, &quot;<THIRD_SUBSCRIPTION_ID_WITH_DATABASES>")
+$subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_WITH_DATABASES>", "<THIRD_SUBSCRIPTION_ID_WITH_DATABASES>")
 
 # Get credentials
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -181,17 +181,17 @@ Veillez à ajuster le contenu en personnalisant le script PowerShell en fonction
 
 Grâce aux étapes ci-dessus, le script PowerShell visant à récupérer les recommandations de réglage automatique est chargé dans Azure Automation. L’étape suivante consiste à automatiser et à planifier la tâche de remise du courrier.
 
-## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatiser les tâches de messagerie avec Microsoft Flow
+## <a name="automate-the-email-jobs-with-microsoft-power-automate"></a>Automatiser les tâches de messagerie avec Microsoft Power Automate
 
-Pour terminer la solution, la dernière étape consiste à créer un flux d’automation dans Microsoft Flow composé de trois actions (tâches) :
+Pour terminer la solution, la dernière étape consiste à créer un flux d’automation dans Microsoft Power Automate composé de trois actions (tâches) :
 
 - « **Azure Automation – Créer un travail** » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
 - « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
 - « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte professionnel ou scolaire de la personne qui crée le flux.
 
-Pour en savoir plus sur les fonctionnalités de Microsoft Flow, consultez [Bien démarrer avec Microsoft Flow](/flow/getting-started).
+Pour en savoir plus sur les fonctionnalités de Microsoft Power Automate, consultez [Bien démarrer avec Microsoft Power Automate](/power-automate/getting-started).
 
-Les prérequis pour cette étape consistent à créer un compte [Microsoft Flow](https://flow.microsoft.com) et à s’y connecter. Une fois dans la solution, suivez ces étapes pour configurer un **nouveau flux** :
+Les prérequis pour cette étape consistent à créer un compte [Microsoft Power Automate](https://flow.microsoft.com) et à s’y connecter. Une fois dans la solution, suivez ces étapes pour configurer un **nouveau flux** :
 
 1. Accédez à l’élément de menu « **Mes flux** ».
 1. Dans Mes flux, sélectionnez le lien « **+ Créer entièrement** » en haut de la page.

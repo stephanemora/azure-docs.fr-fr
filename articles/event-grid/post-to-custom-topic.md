@@ -2,20 +2,18 @@
 title: Publier un événement dans une rubrique Azure Event Grid personnalisée
 description: Cet article explique comment publier un événement dans une rubrique personnalisée. Il montre le format des données de publication et d’événement.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b662cd2034fc1035a5da64c19d9aba87b180af8f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3c3be5c11341ddd7bb381134a0d0b50ba8745709
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701142"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122528034"
 ---
-# <a name="post-to-custom-topic-for-azure-event-grid"></a>Publier dans une rubrique personnalisée pour Azure Event Grid
+# <a name="post-to-azure-event-grid-custom-topics-using-access-keys"></a>Publier des rubriques personnalisées dans Azure Event Grid à l’aide des clés d’accès
 
-Cet article explique comment publier un événement dans une rubrique personnalisée. Il montre le format des données de publication et d’événement. Le [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) s’applique uniquement aux publications qui correspondent au format attendu.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Cet article explique comment publier un événement dans une rubrique personnalisée à l’aide d’une clé d’accès. Il montre le format des données de publication et d’événement. Le [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) s’applique uniquement aux publications qui correspondent au format attendu.
 
 ## <a name="endpoint"></a>Point de terminaison
 

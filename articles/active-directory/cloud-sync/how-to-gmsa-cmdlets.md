@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64eb6e15c2c53a8c82b51027471192de4e3679f2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 5fc33aaa51a687cc6f9df8aea494d5790dad22a2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634320"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306154"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-gmsa-powershell-cmdlets"></a>Cmdlets PowerShell gMSA de l’agent de provisionnement cloud Azure AD Connect
 
@@ -73,7 +73,7 @@ Les prérequis suivants sont nécessaires pour utiliser ces cmdlets.
 |PasswordWriteBack|Cf. autorisations [PasswordWriteBack](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) pour Azure AD Connect|
 |HybridExchangePermissions|Cf. autorisations [HybridExchangePermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) pour Azure AD Connect|
 |ExchangeMailPublicFolderPermissions| Cf. autorisations [ExchangeMailPublicFolderPermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders) pour Azure AD Connect|
-|CloudHR| Applique « Contrôle total » aux « Objets utilisateur descendants » et « Créer/supprimer objets utilisateur » à « Cet objet et tous les objets descendants »|
+|CloudHR| Applique « Créer/supprimer des objets utilisateur » sur « Cet objet et tous les objets descendants »|
 |Tous|Ajoute toutes les autorisations ci-dessus.|
 
 AADCloudSyncPermissions peut être utilisé de deux manières :

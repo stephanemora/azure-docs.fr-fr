@@ -3,12 +3,12 @@ title: Notification et aide concernant la mise hors service d’Azure Blockchain
 description: Migrer Azure Blockchain Service vers une offre de blockchain managée ou automanagée
 ms.date: 05/10/2021
 ms.topic: how-to
-ms.openlocfilehash: 6fb86e426e446ba5515a285b04587093ee6fe4e5
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d461698cf27bc425da337de7829e3e8f0b355196
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752730"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309808"
 ---
 # <a name="migrate-azure-blockchain-service"></a>Migrer Azure Blockchain Service
 
@@ -99,6 +99,8 @@ L’équipe Azure Blockchain Service suspend le consortium, exporte un instantan
 
 ### <a name="download-data"></a>Télécharger des données
 
+#### <a name="data-format-v1"></a>Format de données v1
+
 Utilisez le lien URL SAS à courte durée de vie fourni par Support Microsoft pour télécharger les données.
 
 > [!IMPORTANT]
@@ -110,6 +112,20 @@ Déchiffrez les données à l’aide de la clé d’accès API. Vous pouvez [obt
 > Seule la clé d’accès à l’API du nœud de transaction par défaut 1 est utilisée pour chiffrer toutes les données des nœuds de ce membre.
 >
 > Ne réinitialisez pas la clé d’accès à l’API au cours de la migration.
+
+#### <a name="data-format-v2"></a>Format de données v2
+
+Dans cette version, le jeton SAS est chiffré au lieu des données, ce qui entraîne une création plus rapide des instantanés. *Si* vous choisissez de migrer vers le service ConsenSys Quorum Blockchain, l’importation sur le service de Quorum Blockchain est également plus rapide.
+
+Une fois le jeton SAS déchiffré, les données peuvent être téléchargées normalement. Les données elles-mêmes n’ont pas de couche supplémentaire de chiffrement.
+
+> [!IMPORTANT]
+> La création d’un instantané au format de données v2 est environ 8-10 fois plus rapide, ce qui réduit le temps d’arrêt.
+
+> [!CAUTION]
+> La clé d’accès d’API 1 du nœud de transaction par défaut est utilisée pour chiffrer le jeton SAS.
+>
+> Ne réinitialisez pas la clé d’accès à l’API entre ou au cours de la migration.
 
 Vous pouvez utiliser les données avec ConsenSys Quorum Blockchain Service ou votre déploiement basé sur une machine virtuelle IaaS.
 

@@ -1,19 +1,21 @@
 ---
 title: Transformation du récepteur dans le flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Apprenez à configurer une transformation de récepteur dans le flux de données de mappage.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/06/2021
-ms.openlocfilehash: 8996e7a30756877b5329ef959b86529bdfcbd943
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/27/2021
+ms.openlocfilehash: e74e4f6eca483a9d250cd3ade4687f6279f6f8af
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789659"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535129"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -21,7 +23,7 @@ ms.locfileid: "110789659"
 
 Une fois que vous avez terminé de transformer vos données, écrivez-les dans un magasin de destination à l’aide de la transformation du récepteur. Chaque flux de données requiert la transformation d'au moins un récepteur. Vous pouvez cependant écrire dans autant de récepteurs que nécessaire pour terminer votre flux de transformations. Pour écrire dans des récepteurs supplémentaires, créez de nouveaux flux via de nouvelles branches et des fractionnements conditionnels.
 
-Chaque transformation de récepteur est associée exactement à un objet de jeu de données Azure Data Factory ou à un service lié. La transformation du récepteur détermine la forme et l’emplacement des données sur lesquelles vous souhaitez écrire.
+Chaque transformation de récepteur est associée à exactement un objet de jeu de données ou à un service lié unique. La transformation du récepteur détermine la forme et l’emplacement des données sur lesquelles vous souhaitez écrire.
 
 ## <a name="inline-datasets"></a>Jeux de données inlined
 
@@ -34,6 +36,15 @@ Les jeux de données inlined sont recommandés lorsque vous utilisez des schéma
 Pour utiliser un jeu de données inlined, sélectionnez le format de votre choix à l’aide du sélecteur **Type de récepteur**. Au lieu de sélectionner un jeu de données récepteur, sélectionnez le service lié auquel vous souhaitez vous connecter.
 
 ![Capture d’écran montrant l’option Inlined sélectionnée.](media/data-flow/inline-selector.png "Capture d’écran montrant l’option Inlined sélectionnée.")
+
+## <a name="workspace-db-synapse-workspaces-only"></a>BASE de l’espace de travail (espaces de travail Synapse uniquement)
+
+Lorsque vous utilisez des flux de données dans des espaces de travail Azure Synapse, vous disposez d’une option supplémentaire pour recevoir vos données directement dans un type de base de données qui se trouve à l’intérieur de votre espace de travail synapse. Cela permet d’éviter d’ajouter des services liés ou des jeux de données pour ces bases de données.
+
+> [!NOTE]
+> Le connecteur de base de données de l’espace de travail Azure Synapse est actuellement en version préliminaire publique et peut uniquement fonctionner avec les bases de données Spark Lake pour l’instant
+
+![Capture d’écran montrant la base de donnée de l’espace de travail sélectionnée.](media/data-flow/syms-sink.png "Capture d’écran montrant l’option Inlined sélectionnée.")
 
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Types de récepteurs pris en charge
 
@@ -55,7 +66,7 @@ Le flux de données de mappage suit une approche basée sur l’extraction, le c
 
 Les paramètres spécifiques à ces connecteurs se trouvent dans l’onglet **Paramètres**. Vous trouverez des informations et des exemples de scripts de flux de données concernant ces paramètres dans la documentation relative aux connecteurs.
 
-Azure Data Factory a accès à plus de [90 connecteurs natifs](connector-overview.md). Pour écrire des données sur ces autres sources à partir de votre flux de données, utilisez l’activité de copie pour charger ces données à partir d’un récepteur pris en charge.
+Le service a accès à plus de [90 connecteurs natifs](connector-overview.md). Pour écrire des données sur ces autres sources à partir de votre flux de données, utilisez l’activité de copie pour charger ces données à partir d’un récepteur pris en charge.
 
 ## <a name="sink-settings"></a>Paramètres de récepteur
 
@@ -67,7 +78,7 @@ La vidéo suivant explique un certain nombre d’options de récepteur pour les 
 
 ![Capture d’écran montrant les paramètres du récepteur.](media/data-flow/sink-settings.png "Capture d’écran montrant les paramètres du récepteur.")
 
-**Dérive de schéma** : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de Data Factory à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes. Activez **Autoriser la dérive de schéma** pour écrire des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur.
+**Dérive de schéma** : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité du service à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes. Activez **Autoriser la dérive de schéma** pour écrire des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur.
 
 **Valider le schéma** : Si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne du schéma source entrant est introuvable dans la projection source ou que les types de données ne correspondent pas. Utilisez ce paramètre pour que les données sources respectent le contrat de votre projection définie. Il est utile dans les scénarios de source de base de données pour signaler que les noms ou les types de colonne ont changé.
 
@@ -111,11 +122,11 @@ Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordr
 
 ### <a name="sink-groups"></a>Groupes de récepteurs
 
-Vous pouvez regrouper les récepteurs en appliquant le même numéro d’ordre pour une série de récepteurs. ADF traitera ces récepteurs comme des groupes qui peuvent s’exécuter en parallèle. Les options d’exécution en parallèle s’affichent dans l’activité de flux de données du pipeline.
+Vous pouvez regrouper les récepteurs en appliquant le même numéro d’ordre pour une série de récepteurs. Le service traitera ces récepteurs comme des groupes qui peuvent s’exécuter en parallèle. Les options d’exécution en parallèle s’affichent dans l’activité de flux de données du pipeline.
 
 ## <a name="error-row-handling"></a>Gestion des lignes d’erreur
 
-Lors de l’écriture dans des bases de données, certaines lignes de données peuvent échouer en raison de contraintes définies par la destination. Par défaut, l’exécution d’un flux de données échouera à la première erreur rencontrée. Dans certains connecteurs, vous pouvez choisir de **Continuer en cas d’erreur**, ce qui permet à votre flux de données de se terminer, même si des lignes individuelles comportent des erreurs. Actuellement, cette fonctionnalité n’est disponible que dans Azure SQL Database. Pour plus d’informations, consultez [Gestion des lignes d’erreurs dans Azure SQL Database](connector-azure-sql-database.md#error-row-handling).
+Lors de l’écriture dans des bases de données, certaines lignes de données peuvent échouer en raison de contraintes définies par la destination. Par défaut, l’exécution d’un flux de données échouera à la première erreur rencontrée. Dans certains connecteurs, vous pouvez choisir de **Continuer en cas d’erreur**, ce qui permet à votre flux de données de se terminer, même si des lignes individuelles comportent des erreurs. Actuellement, cette fonctionnalité n’est disponible que dans Azure Synapse et Azure SQL Database. Pour plus d’informations, consultez [Gestion des lignes d’erreurs dans Azure SQL Database](connector-azure-sql-database.md#error-row-handling).
 
 Vous trouverez ci-dessous un didacticiel vidéo sur l’utilisation automatique de la gestion des lignes d’erreur de base de données dans votre transformation du récepteur.
 

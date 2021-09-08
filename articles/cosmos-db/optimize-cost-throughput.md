@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 08/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b1ee7be04083c887bbd37b799a274f988aaf158
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: ffe0c1ffe4004cc441213d1781a2bb26b54d4d34
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112517072"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029119"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -179,6 +179,9 @@ Les étapes suivantes vous aider à rendre vos solutions hautement évolutives e
 
 Pour continuer à développer vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
 
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de la charge de travail actuelle des bases de données, consultez [Estimation des unités de requête avec Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md)
 * En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
 * En savoir plus sur les [factures Azure Cosmos DB](understand-your-bill.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)

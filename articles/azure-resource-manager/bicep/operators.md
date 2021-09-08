@@ -4,25 +4,51 @@ description: Décrit les opérateurs Bicep disponibles pour les déploiements Az
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 154a42d1bcdc78eee63241286e8f65ab7777bc6b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/29/2021
+ms.openlocfilehash: 143c7881d3f22bf67b3dfabf74ca54825efffc94
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026451"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532287"
 ---
 # <a name="bicep-operators"></a>Opérateurs Bicep
 
-Cet article décrit les opérateurs Bicep disponibles lorsque vous créez un modèle Bicep et utilisez Azure Resource Manager pour déployer des ressources. Ces opérateurs sont utilisés pour calculer et comparer des valeurs, ou évaluer des conditions. Il existe trois types d’opérateurs Bicep :
+Cet article décrit les opérateurs Bicep. Ces opérateurs sont utilisés pour calculer et comparer des valeurs, ou évaluer des conditions. Il existe quatre types d’opérateurs Bicep :
 
+- [accesseur](#accessor)
 - [Opérateurs de comparaison](#comparison)
 - [Opérateurs logiques](#logical)
 - [numeric](#numeric)
 
+## <a name="operator-precedence-and-associativity"></a>Priorité des opérateurs et associativité
+
+Les opérateurs ci-dessous sont répertoriés par ordre de priorité décroissant (plus la position est élevée, plus la priorité est élevée). Les opérateurs de même niveau ont une priorité identique.
+
+| Symbole | Type d’opération | Associativité |
+|:-|:-|:-|
+| `(` `)` `[` `]` `.` `::` | Parenthèses, indexeurs de tableaux, accesseurs de propriété et accesseur de ressource imbriquée  | De gauche à droite |
+| `!` `-` | Unaire | De droite à gauche |
+| `%` `*` `/` | Multiplicatif | De gauche à droite |
+| `+` `-` | Additive | De gauche à droite |
+| `<=` `<` `>` `>=` | Relationnel | De gauche à droite |
+| `==` `!=` `=~` `!~` | Égalité | De gauche à droite |
+| `&&` | ET logique | De gauche à droite |
+| `||` | OU logique | De gauche à droite |
+| `?` `:` | Expression conditionnelle (terniaire) | De droite à gauche
+| `??` | Coalesce | De gauche à droite
+
 La délimitation d’une expression entre `(` et `)` vous permet de substituer la priorité d’opérateur Bicep par défaut. Par exemple, l’expression x + y / z évalue d’abord la division, puis l’addition. Mais l’expression (x + y) / z évalue d’abord l’addition, puis la division.
 
-Pour plus d’informations sur l’accès à une ressource par le biais de l'opérateur `::`, consultez [Définir le nom et le type des ressources enfants dans Bicep](child-resource-name-type.md).
+## <a name="accessor"></a>Accesseur
+
+Les opérateurs d’accesseur sont utilisés pour accéder aux ressources et aux propriétés imbriquées sur les objets.
+
+| Opérateur | Nom | Description |
+| ---- | ---- | ---- |
+| `::` | [Accesseur de ressource imbriquée](./operators-access.md#nested-resource-accessor) | Accédez à une ressource imbriquée à partir de l’extérieur de la ressource parente. |
+| `.` | [Accesseur de propriété](./operators-access.md#property-accessor) | Propriétés d’accès d’un objet. |
+| `.` | [Accesseur de fonction](./operators-access.md#function-accessor) | Appeler une fonction sur une ressource. |
 
 ## <a name="comparison"></a>Comparaison
 
@@ -66,6 +92,7 @@ Les opérateurs numériques utilisent des entiers pour effectuer des calculs et 
 
 > [!NOTE]
 > Soustraire et Moins utilisent le même opérateur. La fonctionnalité est différente, car Soustraire utilise deux opérandes et Moins en utilise un seul.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

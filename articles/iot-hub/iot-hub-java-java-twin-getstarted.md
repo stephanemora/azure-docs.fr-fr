@@ -2,7 +2,6 @@
 title: Bien démarrer avec les jumeaux d’appareils Azure IoT Hub (Java) | Microsoft Docs
 description: Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter l’application pour appareils et Azure IoT service SDK afin d’implémenter une application de service qui ajoute les balises et exécute la requête IoT Hub.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 53a82ba545fa1709d1b79f3ff6b18f1817736bb7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 044eb2543c2476cd53d73e78a6ac810b2bafa1ca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217854"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563177"
 ---
 # <a name="get-started-with-device-twins-java"></a>Bien démarrer avec les jumeaux d’appareils (Java)
 
@@ -408,6 +407,6 @@ Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azu
 
 Utilisez les ressources suivantes :
 
-* Envoyez des données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](quickstart-send-telemetry-java.md).
+* Envoyez des données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java).
 
-* Contrôlez les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur) en suivant le didacticiel [Utiliser des méthodes directes](quickstart-control-device-java.md).
+* Contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), avec le guide de démarrage rapide [Utiliser des méthodes directes](./quickstart-control-device.md?pivots=programming-language-java).

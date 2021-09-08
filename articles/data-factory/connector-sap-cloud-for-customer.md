@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 73cfb11f914edf2034f18bb581473a23774818c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 9e35ae73304fa6eb06bc1d4a363c8009e870a861
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642046"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307890"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copier des données de SAP Cloud for Customer (C4C) avec Azure Data Factory
 
@@ -39,6 +39,31 @@ Plus précisément, ce connecteur permet à Azure Data Factory de copier des don
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-sap-cloud-for-customer-using-ui"></a>Créer un service lié à SAP Cloud for Customer à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à SAP Cloud for Customer dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez SAP et sélectionnez le connecteur SAP Cloud for Customer.
+
+   :::image type="content" source="media/connector-sap-cloud-for-customer/sap-cloud-for-customer-connector.png" alt-text="Sélectionnez le connecteur SAP Cloud for Customer.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-sap-cloud-for-customer/configure-sap-cloud-for-customer-linked-service.png" alt-text="Configurez un service lié à SAP Cloud for Customer.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur SAP Cloud for Customer.
 

@@ -2,13 +2,13 @@
 title: Annotations de version pour Application Insights | Microsoft Docs
 description: Découvrez comment créer des annotations pour suivre le déploiement ou d’autres événements importants avec Application Insights.
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.openlocfilehash: cfd1c9b28a79d68983e49ef5d6dfd70dd357ab47
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.date: 07/20/2021
+ms.openlocfilehash: 230d02c26b29bb38ec4c8260109f75f1a8eca468
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071026"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532292"
 ---
 # <a name="release-annotations-for-application-insights"></a>Annotations de version pour Application Insights
 
@@ -57,6 +57,25 @@ Si vous ne pouvez pas utiliser l’une des tâches de déploiement de la section
 
     :::image type="content" source="./media/annotations/inline-script.png" alt-text="Capture d’écran des paramètres de tâche Azure CLI avec les paramètres Type de script, Emplacement du script, Script inlined et Arguments de script mis en évidence." lightbox="./media/annotations/inline-script.png":::
 
+    Voici un exemple de métadonnées que vous pouvez définir dans l’argument facultatif releaseProperties à l’aide des variables [générer](/azure/devops/pipelines/build/variables#build-variables-devops-services) et [exécuter](/azure/devops/pipelines/release/variables#default-variables---release).
+    
+
+    ```powershell
+    -releaseProperties @{
+     "BuildNumber"="$(Build.BuildNumber)";
+     "BuildRepositoryName"="$(Build.Repository.Name)";
+     "BuildRepositoryProvider"="$(Build.Repository.Provider)";
+     "ReleaseDefinitionName"="$(Build.DefinitionName)";
+     "ReleaseDescription"="Triggered by $(Build.DefinitionName) $(Build.BuildNumber)";
+     "ReleaseEnvironmentName"="$(Release.EnvironmentName)";
+     "ReleaseId"="$(Release.ReleaseId)";
+     "ReleaseName"="$(Release.ReleaseName)";
+     "ReleaseRequestedFor"="$(Release.RequestedFor)";
+     "ReleaseWebUrl"="$(Release.ReleaseWebUrl)";
+     "SourceBranch"="$(Build.SourceBranch)";
+     "TeamFoundationCollectionUri"="$(System.TeamFoundationCollectionUri)" }
+    ```            
+
 1. Enregistrez.
 
 ## <a name="create-release-annotations-with-azure-cli"></a>Créer des annotations de version avec Azure CLI
@@ -103,6 +122,7 @@ Vous pouvez utiliser le script PowerShell CreateReleaseAnnotation pour créer de
 |releaseName | Nom à donner à l’annotation de version créée. | | 
 |releaseProperties | Utilisé pour joindre des métadonnées personnalisées à l’annotation. | Facultatif|
 
+
 ## <a name="view-annotations"></a>Afficher les annotations
 
 > [!NOTE]
@@ -132,6 +152,72 @@ Désormais, lorsque vous utilisez le modèle de mise en production pour déploye
     :::image type="content" source="./media/annotations/workbook-show-annotations.png" alt-text="Capture d’écran du menu Paramètres avancés avec la case à cocher Afficher les annotations en évidence.":::
 
 Sélectionnez un marqueur d’annotation pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, le pipeline de mise en production et l’environnement.
+
+## <a name="release-annotations-using-api-keys"></a>Annotations d’exécution à l’aide de clés API
+
+Les annotations de mise en production sont une fonctionnalité du service Azure Pipelines basé sur le cloud d’Azure DevOps.
+
+### <a name="install-the-annotations-extension-one-time"></a>Installer l’extension Annotations (une fois)
+
+Pour pouvoir créer des annotations de mise en production, vous devez installer l’une des nombreuses extensions Azure DevOps disponibles dans Visual Studio Marketplace.
+
+1. Connectez-vous à votre projet [Azure DevOps](https://azure.microsoft.com/services/devops/).
+   
+1. Sur la page [Extension des annotations de mise en production](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) de Visual Studio Marketplace, sélectionnez votre organisation Azure DevOps, puis choisissez **Installer** pour ajouter l’extension à votre organisation Azure DevOps.
+   
+   ![Sélectionnez une organisation Azure DevOps, puis choisissez Installer.](./media/annotations/1-install.png)
+   
+Vous ne devez installer l’extension qu’une seule fois pour votre organisation Azure DevOps. Vous pouvez désormais configurer des annotations de mise en production pour tout projet au sein de votre organisation.
+
+### <a name="configure-release-annotations-using-api-keys"></a>Configurer les annotations d’exécution à l’aide de clés API
+
+Créez une clé API distincte pour chacun de vos modèles de mise en production Azure Pipelines.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. Si vous n’en avez pas, [créez une ressource Application Insights](create-workspace-resource.md).
+   
+1. Ouvrez l’onglet **Accès à l’API** et copiez l’**ID d’Application Insights**.
+   
+   ![Sous Accès d’API, copiez l’ID d’application.](./media/annotations/2-app-id.png)
+
+1. Dans une fenêtre de navigateur distincte, ouvrez ou créez le modèle de mise en production qui gère vos déploiements Azure Pipelines.
+   
+1. Sélectionnez **Ajouter une tâche**, puis choisissez la tâche **Annotation de mise en production Application Insights** dans le menu.
+   
+   ![Sélectionnez Ajouter une tâche, puis choisissez la tâche Annotation de mise en production Application Insights.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > Actuellement, la tâche d’annotation de mise en production ne prend en charge que les agents Windows. Elle ne s’exécute pas sur Linux, macOS ou d’autres types d’agents.
+   
+1. Sous **ID d’application**, collez l’ID Application Insights que vous avez copié à partir de l’onglet **Accès d’API**.
+   
+   ![Coller l’ID Application Insights](./media/annotations/4-paste-app-id.png)
+   
+1. De retour dans la fenêtre **Accès d’API**  d’Application Insights, sélectionnez **Créer une clé API**. 
+   
+   ![Sous l’onglet Accès d’API, sélectionnez Créer une clé API.](./media/annotations/5-create-api-key.png)
+   
+1. Dans la fenêtre **Créer une clé API**, entrez une description, sélectionnez **Écrire des annotations**, puis sélectionnez **Générer une clé**. Copiez la nouvelle clé.
+   
+   ![Dans la fenêtre Créer une clé API, entrez une description, sélectionnez Écrire des annotations, puis sélectionnez Générer une clé.](./media/annotations/6-create-api-key.png)
+   
+1. Dans la fenêtre du modèle de mise en production, sous l’onglet **Variables**, sélectionnez **Ajouter** pour créer une définition de variable pour la nouvelle clé API.
+
+1. Sous **Nom**, entrez `ApiKey`, et sous **Valeur**, collez la clé API que vous avez copiée à partir de l’onglet **Accès d’API**.
+   
+   ![Dans l’onglet Variables Azure DevOps, sélectionnez Ajouter, nommez la variable ApiKey, puis collez la clé API sous Valeur.](./media/annotations/7-paste-api-key.png)
+   
+1. Sélectionnez **Enregistrer** dans la fenêtre principale du modèle de mise en production pour enregistrer le modèle.
+
+
+   > [!NOTE]
+   > Les limites pour les clés API sont décrites dans la [documentation relative aux limites de taux de l’API REST](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
+
+### <a name="transition-to-the-new-release-annotation"></a>Transition vers la nouvelle annotation d’exécution
+
+Pour utiliser les nouvelles annotations d’exécution : 
+1. [Supprimez l’extension Annotations d’exécution](/azure/devops/marketplace/uninstall-disable-extensions).
+1. Supprimez la tâche d’Annotation d’exécution des Insights d’application dans votre déploiement Azure Pipelines. 
+1. Créez de nouvelles annotations d’exécution avec [Azure Pipelines](#release-annotations-with-azure-pipelines-build) ou l’interface [Azure CLI](#create-release-annotations-with-azure-cli).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,18 +1,18 @@
 ---
 title: État des applications dans Azure Spring Cloud
 description: En savoir plus sur les catégories d’état des applications dans Azure Spring Cloud
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 93ceb1f006b39ebaae95bb77fd3fcb474e006eb9
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 2ab7e8b548df93c5b28a3265e71ff383765bcd0d
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877411"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563430"
 ---
 # <a name="app-status-in-azure-spring-cloud"></a>État des applications dans Azure Spring Cloud
 
@@ -21,14 +21,14 @@ ms.locfileid: "104877411"
 L’interface utilisateur d’Azure Spring Cloud fournit des informations sur l’état des applications en cours d’exécution.  Il existe une option **Applications** pour chaque groupe de ressources dans un abonnement qui affiche l’état général des types d’applications.  Pour chaque type d’application, il y a un affichage des **instances d’application**.
 
 ## <a name="apps-status"></a>État des applications
+
 Pour afficher l’état général d’un type d’application, sélectionnez **Applications** dans le volet de navigation gauche d’un groupe de ressources. Le résultat affiche l’état de l’application déployée :
 
 * **État d’approvisionnement** indique l’état d’approvisionnement du déploiement.
 * **Instance en cours d’exécution** indique le nombre d’instances d’application en cours d’exécution ou le nombre souhaité d’instances d’application. Si l’application doit être arrêtée, cette colonne indique *Arrêté*.
 * **Instance inscrite** indique le nombre d’instances d’application inscrite à Eureka ou le nombre souhaité d’instances d’application. Si l’application doit être arrêtée, cette colonne indique *Arrêté*.
 
-
- ![État des applications](media/spring-cloud-concept-app-status/apps-ui-status.png)
+![État des applications](media/spring-cloud-concept-app-status/apps-ui-status.png)
 
 **Les différents états de déploiement signalés sont les suivants :**
 
@@ -49,11 +49,12 @@ Pour afficher l’état général d’un type d’application, sélectionnez **A
 
 ## <a name="app-instances-status"></a>État des instances d’application
 
-Pour afficher l’état d’une instance spécifique d’une application déployée, cliquez sur le **nom** de l’application dans l’interface utilisateur **Applications**. Les résultats afficheront :
+Pour afficher l’état d’une instance spécifique d’une application déployée, cliquez sur le **Nom** de l’application dans l’interface utilisateur **Applications**. Les résultats afficheront :
+
 * **État** : indique que l’instance est en cours d’exécution ou son état
 * **État de la découverte** : état inscrit de l’instance d’application dans le serveur Eureka
 
- ![État des instances d’application](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
+![État des instances d’application](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
 **Les différents états d’instance signalés sont les suivants :**
 
@@ -72,6 +73,6 @@ Pour afficher l’état d’une instance spécifique d’une application déploy
 | OUT_OF_SERVICE | L’instance d’application est inscrite auprès d’Eureka et peut recevoir le trafic, mais s’arrête pour le trafic intentionnellement. |
 | INACTIF | L’instance d’application n’est pas inscrite auprès d’Eureka ou est inscrite, mais ne peut pas recevoir le trafic. |
 
-
 ## <a name="see-also"></a>Voir aussi
+
 * [Préparer le déploiement d’une application Spring ou Steeltoe dans Azure Spring Cloud](how-to-prepare-app-deployment.md)

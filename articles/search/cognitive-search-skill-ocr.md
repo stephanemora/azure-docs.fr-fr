@@ -2,18 +2,17 @@
 title: Compétence cognitive OCR
 titleSuffix: Azure Cognitive Search
 description: Extrayez le texte de fichiers image à l’aide de la reconnaissance optique de caractères (OCR) dans un pipeline d’enrichissement dans la Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 12b6c8e71052d8d821d4b253d5f921bbff82e02d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/12/2021
+ms.openlocfilehash: b0ed1860abe3d8a85e87e2bf2746812e1ca67d2e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532913"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
 
@@ -32,10 +31,10 @@ La compétence **OCR** extrait le texte de fichiers d’image. Les formats de fi
 + .TIFF
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
+> Cette compétence est liée aux  Services cognitifs et nécessite [une ressource facturable](cognitive-search-attach-cognitive-services.md) pour les transactions dépassant 20 documents par indexeur et par jour. L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> 
+> En outre, l’extraction d’images est [facturable par la Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
-
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
 
@@ -209,6 +208,8 @@ L’exemple d’ensemble de compétences ci-dessus suppose l’existence d’un 
 ```
 
 ## <a name="see-also"></a>Voir aussi
+
++ [Présentation de la Reconnaissance optique de caractères](../cognitive-services/computer-vision/overview-ocr.md)
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Compétence Fusion de texte](cognitive-search-skill-textmerger.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)

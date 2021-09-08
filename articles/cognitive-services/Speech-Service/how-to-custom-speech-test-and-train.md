@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: e4c5efc165c864576191b6d74030d1dc2f5dc2a5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: cd1fbd5d0ae9a917ff96fed0af9c14d4c7fc0a7a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527739"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256342"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -49,14 +49,14 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 | Type de données | Utilisé pour le test | Quantité recommandée | Utilisé pour l’entraînement | Quantité recommandée |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Oui<br>Utilisé pour l’inspection visuelle | 5 fichiers audio et plus | Non | N/A |
+| [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-trainingtesting) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 | [Texte brut](#plain-text-data-for-training) | Non | n/a | Oui | 1 – 200 Mo de texte associé |
 | [Prononcer](#pronunciation-data-for-training) | Non | n/a | Oui | 1 ko à 1 Mo de texte de prononciation |
-| [Transcriptions audio + étiquetées à la main](#audio-and-human-labeled-transcript-data) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier .zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
 > [!TIP]
-> Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par [le texte](#plain-text-data-for-training). Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux. L’apprentissage avec du texte est beaucoup plus rapide que l’apprentissage avec audio (quelques minutes au lieu de quelques jours).
+> Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par le texte brut. Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux. L’apprentissage avec du texte est beaucoup plus rapide que l’apprentissage avec audio (quelques minutes au lieu de quelques jours).
 
 > [!NOTE]
 > Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text). Même si un modèle de base prend en charge l’apprentissage avec des données audio, il est possible que le service n’utilise qu’une partie de l’audio. Il utilisera néanmoins toutes les transcriptions.
@@ -69,9 +69,9 @@ Les fichiers doivent être regroupées par type dans un jeu de données et charg
 
 ## <a name="upload-data"></a>Charger des données
 
-Pour charger vos données, accédez au <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech </a>. Après avoir créé un projet, accédez à l’onglet **Jeux de données Speech**, puis cliquez sur **Charger des données** pour lancer l’Assistant et créer votre premier jeu de données. Vous êtes alors invité à sélectionner un type de données vocales pour votre jeu de données avant d’être autorisé à charger vos données.
+Pour charger vos données, accédez au <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech </a>. Après avoir créé un projet, accédez à l’onglet **Jeux de données Speech**, puis cliquez sur **Charger des données** pour lancer l’Assistant et créer votre premier jeu de données. Sélectionnez un type de données vocal pour votre jeu de données, puis chargez vos données.
 
-Tout d’abord, vous devez spécifier si le jeu de données doit être utilisé pour la **formation** ou le **test**. Il existe plusieurs types de données qui peuvent être chargés et utilisés à des fins de **formation** ou de **test**. Chaque jeu de données que vous chargez doit respecter les exigences associé au type de données choisi. Vos données doivent être correctement mises en forme avant d’être chargées. Des données correctement mises en forme garantissent un traitement précis par le service Custom Speech. Les exigences sont listées dans les sections suivantes.
+Tout d’abord, vous devez spécifier si le jeu de données doit être utilisé pour l’**apprentissage** ou le **test**. Il existe de nombreux types de données qui peuvent être chargés et utilisés à des fins d’**apprentissage** ou de **test**. Chaque jeu de données que vous chargez doit être correctement formaté et doit respecter les exigences associées au type de données que vous choisissez. Les exigences sont listées dans les sections suivantes.
 
 Une fois que votre jeu de données est chargé, vous disposez de plusieurs options :
 
@@ -79,62 +79,7 @@ Une fois que votre jeu de données est chargé, vous disposez de plusieurs optio
 * Vous pouvez accéder à l’onglet **Tester des modèles** pour inspecter visuellement la qualité avec des données audio uniquement ou évaluer la précision avec des données audio + transcription étiquetée à la main.
 
 
-## <a name="plain-text-data-for-training"></a>Données de texte brut pour la formation
-
-Les phrases relatives à un domaine peuvent être utilisées pour améliorer la précision de la reconnaissance des noms de produits ou du jargon spécifique à un secteur. Les phrases peuvent être fournies sous la forme d’un fichier texte unique. Pour améliorer la précision, utilisez des données texte plus proches des énoncés prononcés attendus. 
-
-La formation avec du texte brut se termine généralement en quelques minutes.
-
-Pour créer un modèle personnalisé en utilisant des phrases, vous devez fournir une liste d’exemples d’énoncés. Ces énoncés ne doivent _pas_ nécessairement être des phrases complètes ou grammaticalement correctes. En revanche, elles doivent refléter précisément l’entrée parlée que vous attendez en production. Pour donner plus de poids à certains termes, ajoutez plusieurs phrases contenant ces termes spécifiques.
-
-En règle générale, l’adaptation du modèle est plus efficace quand le texte d’entraînement est le plus proche possible du texte réel attendu en production. Le jargon et les expressions spécifiques à un domaine que vous voulez améliorer doivent être inclus dans le texte d’entraînement. Dans la mesure du possible, essayez d’avoir une phrase ou un mot clé contrôlé sur une ligne distincte. Pour les mots clés et les expressions qui sont importants pour vous (par exemple des noms de produits), vous pouvez les copier plusieurs fois. Gardez cependant à l’esprit qu’il ne faut pas les copier un trop grand nombre de fois, car cela pourrait affecter le taux de reconnaissance global.
-
-Servez-vous de ce tableau pour vérifier que votre fichier de données associées présente le bon format pour les énoncés :
-
-| Propriété | Valeur |
-|----------|-------|
-| Encodage de texte | UTF-8 BOM |
-| Nb d’énoncés par ligne | 1 |
-| Taille maximale du fichier | 200 Mo |
-
-Par ailleurs, vous devez prendre en compte les restrictions suivantes :
-
-* Évitez de répéter des caractères, des mots ou des groupes de mots plus de trois fois. Par exemple : « aaaa », « oui oui oui oui » ou « c’est tout c’est tout c’est tout c’est tout ». Le service Speech peut supprimer des lignes avec un trop grand nombre de répétitions.
-* N’utilisez pas de caractères spéciaux ou de caractères UTF-8 au-delà de `U+00A1`.
-* Les URI sont rejetés.
-
-## <a name="pronunciation-data-for-training"></a>Données de prononciation pour la formation
-
-Si vos utilisateurs sont appelés à rencontrer ou à utiliser des termes peu communs qui se prononcent d’une façon particulière, vous pouvez fournir un fichier de prononciation personnalisé pour améliorer la reconnaissance. 
-> [!IMPORTANT]
-> Il est déconseillé d’utiliser des fichiers de prononciation personnalisée pour altérer la prononciation des mots communs.
-
-Les prononciations doivent être fournies sous forme de fichier texte unique. Ce tableau contient des exemples d’énoncés oraux et une prononciation personnalisée pour chacun d’eux :
-
-| Forme reconnue/affichée | Forme orale (en anglais) |
-|--------------|--------------------------|
-| 3CPO | trois c p o |
-| CNTK (Computational Network Toolkit de Microsoft Research) | c n t k |
-| IEEE | i triple e |
-
-La forme orale est la séquence phonétique décomposée. Elle peut être constituée de lettres, de mots, de syllabes ou d’une combinaison des trois.
-
-La prononciation personnalisée est disponible en anglais (`en-US`) et en allemand (`de-DE`). Ce tableau présente les caractères pris en charge par langue :
-
-| Langage | Paramètres régionaux | Caractères |
-|----------|--------|------------|
-| Anglais | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| Allemand | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-
-Utilisez le tableau suivant pour vérifier que votre fichier de données associées est correctement mis en forme. Les fichiers de prononciation sont petits et doivent se limiter à quelques Ko.
-
-| Propriété | Valeur |
-|----------|-------|
-| Encodage de texte | UTF-8 BOM (ANSI est également pris en charge pour l’anglais) |
-| Nbre de prononciations par ligne | 1 |
-| Taille maximale du fichier | 1 Mo (1 Ko pour le niveau gratuit) |
-
-## <a name="audio-and-human-labeled-transcript-data"></a>Données audio et transcription étiquetée à la main
+## <a name="audio--human-labeled-transcript-data-for-trainingtesting"></a>Données audio + transcription étiquetée à la main pour l’apprentissage/le test
 
 Les données audio + transcription étiquetée à la main peuvent être utilisées à des fins de formation et de test. Pour améliorer les aspects acoustiques, tels que les légers accents, les styles d’élocution, les bruits de fond, ou pour mesurer la précision de la reconnaissance vocale de Microsoft lors du traitement de vos fichiers audio, vous devez fournir des transcriptions étiquetées à la main (mot à mot) à des fins de comparaison. Si la transcription étiquetée à la main prend souvent beaucoup de temps, elle est nécessaire pour évaluer la précision et entraîner le modèle pour vos cas d’usage. Gardez à l’esprit que les améliorations de la reconnaissance seront proportionnelles à la qualité des données fournies. C’est pourquoi il est important de charger uniquement des transcriptions de grande qualité.
 
@@ -151,13 +96,6 @@ Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregi
 | Taille maximale de zip         | 2 Go                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
-
-> [!TIP]
-> Vous n’avez même pas d’audio réel ? Vous pouvez également télécharger un fichier texte (.txt) en sélectionnant le type **Transcription (synthèse audio automatique)** comme **Données de test** afin d’obtenir une idée de base des niveaux de précision actuels, et la paire audio pour chaque énoncé parlé sera automatiquement synthétisée en utilisant la [Synthèse vocale](text-to-speech.md). 
-> 
-> Notez que les ressources audio synthétisées ne sont généralement **PAS** recommandés pour être utilisés comme **données d’apprentissage**.
-> 
-> La taille de fichier maximale est de 500 ko. Nous synthétiserons une ressource audio pour chaque ligne, et la taille maximale de chaque ligne est de 65535 octets.
 
 > [!NOTE]
 > Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez effectuer des tests qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée. De plus, chaque fichier d’entraînement ne peut pas dépasser 60 secondes. Dans le cas contraire, il génère une erreur.
@@ -188,13 +126,69 @@ Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-
 
 Tous les modèles de base ne prennent pas en charge les données audio. Si le modèle de base ne les prend pas en charge, le service ignore l’audio et effectue simplement un apprentissage avec le texte des transcriptions. Dans ce cas, l’apprentissage est le même que celui avec du texte associé. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
 
+## <a name="plain-text-data-for-training"></a>Données de texte brut pour la formation
+
+Vous pouvez utiliser des phrases relatives à un domaine pour améliorer la précision de la reconnaissance des noms de produits ou du jargon spécifique à un secteur. Fournissez des phrases dans un fichier texte unique. Pour améliorer la précision, utilisez des données texte plus proches des énoncés prononcés attendus. 
+
+La formation avec du texte brut se termine généralement en quelques minutes.
+
+Pour créer un modèle personnalisé en utilisant des phrases, vous devez fournir une liste d’exemples d’énoncés. Ces énoncés ne doivent _pas_ nécessairement être des phrases complètes ou grammaticalement correctes. En revanche, elles doivent refléter précisément l’entrée parlée que vous attendez en production. Pour donner plus de poids à certains termes, ajoutez plusieurs phrases contenant ces termes spécifiques.
+
+En règle générale, l’adaptation du modèle est plus efficace quand le texte d’entraînement est le plus proche possible du texte réel attendu en production. Le jargon et les expressions spécifiques à un domaine que vous voulez améliorer doivent être inclus dans le texte d’entraînement. Dans la mesure du possible, essayez d’avoir une phrase ou un mot clé contrôlé sur une ligne distincte. Pour les mots clés et les expressions qui sont importants pour vous (par exemple des noms de produits), vous pouvez les copier plusieurs fois. Gardez cependant à l’esprit qu’il ne faut pas les copier un trop grand nombre de fois, car cela pourrait affecter le taux de reconnaissance global.
+
+Servez-vous de ce tableau pour vérifier que votre fichier de données associées présente le bon format pour les énoncés :
+
+| Propriété | Valeur |
+|----------|-------|
+| Encodage de texte | UTF-8 BOM |
+| Nb d’énoncés par ligne | 1 |
+| Taille maximale du fichier | 200 Mo |
+
+Par ailleurs, vous devez prendre en compte les restrictions suivantes :
+
+* Évitez de répéter des caractères, des mots ou des groupes de mots plus de trois fois. Par exemple : « aaaa », « oui oui oui oui » ou « c’est tout c’est tout c’est tout c’est tout ». Le service Speech peut supprimer des lignes avec un trop grand nombre de répétitions.
+* N’utilisez pas de caractères spéciaux ou de caractères UTF-8 au-delà de `U+00A1`.
+* Les URI sont rejetés.
+* Pour certaines langues (le japonais ou le coréen par exemple), l’importation de grandes quantités de données texte peut prendre beaucoup de temps ou expirer. Envisagez de diviser les données chargées dans des fichiers texte jusqu’à 20 000 lignes chacun.
+
+## <a name="pronunciation-data-for-training"></a>Données de prononciation pour la formation
+
+Si vos utilisateurs sont appelés à rencontrer ou à utiliser des termes peu communs qui se prononcent d’une façon particulière, vous pouvez fournir un fichier de prononciation personnalisé pour améliorer la reconnaissance. 
+> [!IMPORTANT]
+> Il est déconseillé d’utiliser des fichiers de prononciation personnalisée pour altérer la prononciation des mots communs.
+
+Fournissez des prononciations dans un fichier texte unique. Ce tableau contient des exemples d’énoncés oraux et une prononciation personnalisée pour chacun d’eux :
+
+| Forme reconnue/affichée | Forme orale (en anglais) |
+|--------------|--------------------------|
+| 3CPO | trois c p o |
+| CNTK (Computational Network Toolkit de Microsoft Research) | c n t k |
+| IEEE | i triple e |
+
+La forme orale est la séquence phonétique décomposée. Elle peut être constituée de lettres, de mots, de syllabes ou d’une combinaison des trois.
+
+La prononciation personnalisée est disponible en anglais (`en-US`) et en allemand (`de-DE`). Ce tableau présente les caractères pris en charge par langue :
+
+| Langage | Paramètres régionaux | Caractères |
+|----------|--------|------------|
+| Anglais | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Allemand | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+
+Utilisez le tableau suivant pour vérifier que votre fichier de données associées est correctement mis en forme. Les fichiers de prononciation sont petits et doivent se limiter à quelques Ko.
+
+| Propriété | Valeur |
+|----------|-------|
+| Encodage de texte | UTF-8 BOM (ANSI est également pris en charge pour l’anglais) |
+| Nbre de prononciations par ligne | 1 |
+| Taille maximale du fichier | 1 Mo (1 Ko pour le niveau gratuit) |
+
 ## <a name="audio-data-for-testing"></a>Données audio pour tester
 
-Les données audio sont optimales pour tester la précision du modèle de reconnaissance vocale de référence de Microsoft ou d’un modèle personnalisé. Gardez à l’esprit que les données audio sont utilisées pour inspecter la précision de la reconnaissance vocale par rapport à un modèle spécifique. Si vous cherchez à quantifier la précision d’un modèle, utilisez du [contenu audio + données de transcription étiquetés à la main](#audio-and-human-labeled-transcript-data).
+Les données audio sont optimales pour tester la précision du modèle de reconnaissance vocale de référence de Microsoft ou d’un modèle personnalisé. Gardez à l’esprit que les données audio sont utilisées pour inspecter la précision de la reconnaissance vocale par rapport à un modèle spécifique. Si vous souhaitez quantifier la précision d’un modèle, utilisez des [transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-trainingtesting).
 
-Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio convient pour une utilisation avec Custom Speech :
+Custom Speech nécessite des fichiers audio avec les propriétés suivantes :
 
-| Propriété                 | Valeur                 |
+| Property                 | Valeur                 |
 |--------------------------|-----------------------|
 | Format de fichier              | RIFF (WAV)            |
 | Échantillonnage              | 8 000 Hz ou 16 000 Hz |
@@ -206,15 +200,15 @@ Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio con
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-> [!TIP]
+> [!NOTE]
 > Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Si vous avez besoin de plus de données pour l’entraînement, divisez-le en plusieurs fichiers .zip et chargez-les séparément. Plus tard, vous pouvez choisir d’effectuer l’entraînement à partir de *plusieurs* jeux de données. Cependant, vous ne pouvez tester qu’à partir d’un *seul* jeu de données.
 
-Utilisez <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX </a> pour vérifier les propriétés audio ou pour convertir les données audio existantes aux formats appropriés. Vous trouverez ci-dessous quelques exemples de la façon dont chacune de ces activités peut être effectuée via la ligne de commande SoX :
+Utilisez <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> pour vérifier les propriétés audio ou pour convertir les données audio existantes aux formats appropriés. Voici quelques exemples de commandes SoX :
 
-| Activité | Description | Commande SoX |
-|----------|-------------|-------------|
-| Vérifier le format audio | Utilisez cette commande pour vérifier<br>le format du fichier audio. | `sox --i <filename>` |
-| Convertir le format audio | Utilisez cette commande pour convertir<br>le fichier audio en un canal unique, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+| Activité | Commande SoX |
+|---------|-------------|
+| Vérifiez le format du fichier audio. | `sox --i <filename>` |
+| Convertissez le fichier audio en un canal unique, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

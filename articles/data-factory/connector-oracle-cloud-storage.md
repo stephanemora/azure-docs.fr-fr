@@ -6,14 +6,14 @@ author: jianleishen
 ms.service: data-factory
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 817b1a8c1b98f5eae3277f906cbd970e7ccebb9f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: caf817d8b31743f091a4655f6b9ddcfc0007e130
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641282"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311939"
 ---
 # <a name="copy-data-from-oracle-cloud-storage-by-using-azure-data-factory"></a>Copier des données de Oracle Cloud Storage à l’aide d’Azure Data Factory
 
@@ -39,7 +39,32 @@ Pour copier des données à partir d’Oracle Cloud Storage, veuillez vous repor
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-oracle-cloud-storage-using-ui"></a>Créez un service lié à Oracle Cloud Storage à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Oracle Cloud Storage dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Recherchez Oracle et sélectionnez le connecteur Oracle Cloud Stockage.
+
+   :::image type="content" source="media/connector-oracle-cloud-storage/oracle-cloud-storage-connector.png" alt-text="Capture d’écran du connecteur Oracle Cloud Stockage.":::    
+
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-oracle-cloud-storage/configure-oracle-cloud-storage-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Oracle Cloud Stockage.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs 
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Oracle Cloud Storage.
 
@@ -132,7 +157,7 @@ Les propriétés prises en charge pour Oracle Cloud Storage sous les paramètres
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propriété **type** sous `storeSettings` doit être définie sur **OracleCloudStorageReadSettings**. | Oui                                                         |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : préfixe Oracle Cloud Storage<br>- prefix | Préfixe du nom de la clé Oracle Cloud Storage sous le compartiment donné configuré dans le jeu de données pour filtrer les fichiers source Oracle Cloud Storage. Les clés sélectionnées sont les clés Oracle Cloud Storage dont le nom commence par `bucket_in_dataset/this_prefix`. Elles utilisent le filtre côté service d’Oracle Cloud Storage, qui offre de meilleures performances qu’un filtre de caractères génériques. | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le compartiment et le chemin d’accès du dossier donnés (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |

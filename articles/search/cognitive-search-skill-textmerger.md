@@ -2,25 +2,24 @@
 title: Compétence cognitive Fusion de texte
 titleSuffix: Azure Cognitive Search
 description: Fusionne en un seul champ consolidé du texte issu d’une collection de champs. Utilisez cette compétence cognitive dans un pipeline d’enrichissement par IA dans Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 4ea7681a28cf8f17c53e42e9ad05ddf12b5d2f9b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88924637"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532921"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Compétence cognitive Fusion de texte
 
 La compétence **Fusion de texte** consolide en un champ unique du texte issu d’une collection de champs. 
 
 > [!NOTE]
-> Cette compétence n’est pas liée à une API Cognitive Services et son utilisation ne vous est pas facturée. Toutefois, vous devez toujours [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource **Gratuit** qui vous limite à un petit nombre d’enrichissements quotidiens par jour.
+> Cette compétence n’est pas liée à Cognitive Services Elle n’est pas facturable et aucune clé Cognitive Services n’est requise.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

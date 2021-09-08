@@ -7,18 +7,17 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 24abb1ece1d307276be736b384c3e5e3c7d40f2a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: dbc2f2efffcab9800deff27e42e4130061c531d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562888"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Créer une instance gérée Azure SQL à l’aide des outils Kubernetes
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +29,7 @@ Pour créer une instance gérée SQL à l’aide des outils Kubernetes, vous dev
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Pour créer une instance gérée SQL, vous devez créer un secret Kubernetes pour stocker votre identifiant et votre mot de passe d’administrateur système en toute sécurité et une ressource personnalisée d’instance gérée SQL basée sur la définition de la ressource personnalisée sqlmanagedinstance.
+Pour créer une instance managée SQL, vous devez créer un secret Kubernetes pour stocker votre identifiant et votre mot de passe d’administrateur système en toute sécurité et une ressource personnalisée d’instance managée SQL basée sur la définition de la ressource personnalisée SqlManagedInstance.
 
 ## <a name="create-a-yaml-file"></a>Créer un fichier YAML
 
@@ -48,8 +47,8 @@ metadata:
   name: sql1-login-secret
 type: Opaque
 ---
-apiVersion: sql.arcdata.microsoft.com/v1alpha1
-kind: sqlmanagedinstance
+apiVersion: sql.arcdata.microsoft.com/v1
+kind: SqlManagedInstance
 metadata:
   name: sql1
   annotations:
@@ -133,7 +132,7 @@ Conditions requises pour les requêtes et les limites de ressources :
 - La valeur limite des cœurs est **obligatoire** à des fins de facturation.
 - Les autres requêtes et limites de ressources sont facultatives.
 - La limite et la requête de cœurs doivent être une valeur entière positive, le cas échéant.
-- Deux cœurs au minimum sont obligatoires pour une requête de cœurs, le cas échéant.
+- Un cœur au minimum est obligatoire pour la requête de cœurs, le cas échéant.
 - Le format de la valeur de mémoire respecte la notation Kubernetes.  
 - Au minimum, 2 Go sont requis pour la requête de mémoire, le cas échéant.
 - En règle générale, vous devez disposer de 4 Go de RAM pour chaque cœur pour les cas d’usage de production.
@@ -187,4 +186,4 @@ Si vous rencontrez des problèmes avec la création, consultez le [Guide de rés
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Se connecter à SQL Managed Instance avec Azure Arc](connect-managed-instance.md)
+[Se connecter à l’Instance managée SQL avec Azure Arc](connect-managed-instance.md)

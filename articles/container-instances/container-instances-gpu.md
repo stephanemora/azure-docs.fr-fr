@@ -3,12 +3,12 @@ title: Déployer une instance de conteneur compatible GPU
 description: Découvrez comment déployer des instances de conteneur Azure pour exécuter des applications de conteneur nécessitant beaucoup de ressources système à l’aide de ressources GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 6ffe4840d024c1e1f551966d05673c4ba83e1259
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fd9441f0ba92f4753271df4daba88ed690c9ee30
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764060"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108376"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
@@ -66,10 +66,16 @@ Lors du déploiement des ressources GPU, définissez des ressources UC et mémoi
   À ce stade, nous prenons en charge uniquement CUDA 9.0. Par exemple, vous pouvez utiliser les images de base suivantes pour votre fichier Docker :
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+
+  > [!NOTE]
+  > Pour améliorer la fiabilité lors de l’utilisation d’une image de conteneur publique depuis Docker Hub, importez et gérez l’image dans un registre de conteneurs Azure privé et mettez à jour votre fichier Dockerfile pour qu’il utilise votre image de base gérée en privé. [En savoir plus sur l’utilisation des images publiques](../container-registry/buffer-gate-public-content.md).
     
 ## <a name="yaml-example"></a>Exemple YAML
 
 Une façon d’ajouter des ressources GPU est de déployer un groupe de conteneurs en utilisant un [fichier YAML](container-instances-multi-container-yaml.md). Copiez le YAML suivant dans un nouveau fichier nommé *gpu-deploy-aci.yaml*, puis enregistrez le fichier. Ce YAML crée un groupe de conteneurs nommé *gpucontainergroup* et spécifie une instance de conteneur avec un GPU K80. L’instance exécute un exemple d’application d’ajout de vecteur CUDA. Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
+
+ > [!NOTE]
+  > L’exemple suivant utilise une image conteneur publique. Pour améliorer la fiabilité, importez et gérez l’image dans un registre de conteneurs Azure privé et mettez à jour votre fichier YAML pour qu’il utilise votre image de base gérée en privé. [En savoir plus sur l’utilisation des images publiques](../container-registry/buffer-gate-public-content.md).
 
 ```YAML
 additional_properties: {}

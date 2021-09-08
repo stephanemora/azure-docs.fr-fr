@@ -2,345 +2,364 @@
 title: 'Tutoriel : Configurer le réacheminement de port - Portail Azure'
 titleSuffix: Azure Load Balancer
 description: Ce didacticiel montre comment configurer la redirection de port à l’aide d’Azure Load Balancer pour créer des connexions à des machines virtuelles dans un réseau virtuel Azure.
-services: load-balancer
-documentationcenter: na
 author: asudbring
-manager: twooley
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/26/2019
 ms.author: allensu
-ms.custom: seodec18
-ms.openlocfilehash: 27851a44dbe3085610fadc8b9bdaf400b4d2876c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.service: load-balancer
+ms.topic: tutorial
+ms.date: 8/26/2021
+ms.custom: template-tutorial
+ms.openlocfilehash: 0d36be9f0ba0fc9e1b29e3fdaf0b3f9857db2204
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056060"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112097"
 ---
-# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutoriel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
+# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-azure-portal"></a>Tutoriel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail Azure
 
 La redirection de port vous permet de vous connecter à des machines virtuelles dans un réseau virtuel Azure à l’aide de l’adresse IP publique et du numéro de port d’un Azure Load Balancer. 
 
-Dans ce didacticiel, vous avez configuré la redirection de port sur un Azure Load Balancer. Vous allez apprendre à effectuer les actions suivantes :
+Dans ce tutoriel, vous apprenez à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer un équilibreur de charge standard public pour équilibrer le trafic réseau sur des machines virtuelles. 
-> * Créer un réseau virtuel et des machines virtuelles avec une règle de groupe de sécurité réseau (NSG). 
-> * Ajouter les machines virtuelles au pool d’adresses principales de l’équilibreur de charge.
-> * Créer une sonde d’intégrité d’équilibreur de charge et des règles de trafic.
-> * Créer des règles de redirection de port NAT de trafic entrant d’équilibreur de charge.
-> * Installer et configurer IIS sur les machines virtuelles pour voir l’équilibrage de charge et la redirection de port en action.
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
-
-Pour toutes les étapes de ce didacticiel, connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
+> * Créer un réseau virtuel et des machines virtuelles
+> * Créer une passerelle NAT pour l’accès Internet sortant pour le pool de back-ends
+> * Créer un équilibreur de charge public de référence SKU standard avec une adresse IP de front-end, une sonde d’intégrité, une configuration de back-end, une règle d’équilibrage de charge et des règles NAT de trafic entrant
+> * Installer et configurer un serveur web sur les machines virtuelles afin d’illustrer les règles de réacheminement de port et d’équilibrage de charge
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure.
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
+## <a name="create-virtual-network-and-virtual-machines"></a>Créer un réseau virtuel et des machines virtuelles
 
-Commencez par créer un équilibreur de charge standard public qui permet d’équilibrer la charge du trafic sur les machines virtuelles. Un équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez un équilibreur de charge standard, vous créez également une adresse IP publique standard qui est configurée en tant qu’équilibreur de charge frontal et nommée **LoadBalancerFrontend** par défaut. 
+Un réseau virtuel et un sous-réseau sont nécessaires pour les ressources du tutoriel. Dans cette section, vous allez créer un réseau virtuel et des machines virtuelles pour les étapes ultérieures.
 
-1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+
+2. Dans la zone de recherche située en haut du portail, entrez **Machine virtuelle**. Sélectionnez **Machines virtuelles** dans les résultats de la recherche.
+
+3. Dans **Machines virtuelles**, sélectionnez **+ Créer** > **Machine virtuelle**.
+   
+4. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Détails du projet** |   |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Resource group | Sélectionnez **Créer nouveau**. </br> Entrez **TutorialLBPF-rg**. </br> Sélectionnez **OK**. |
+    | **Détails de l’instance** |    |
+    | Nom de la machine virtuelle | Entrez **myVM1**. |
+    | Région | Entrez **(États-Unis) USA Ouest 2**. |
+    | Options de disponibilité | Sélectionnez **Zone de disponibilité**. |
+    | Zone de disponibilité | tapez **1**. |
+    | Image | Sélectionnez **Ubuntu Server 20.04 LTS - Gen2**. |
+    | Instance Azure Spot | Conservez la valeur par défaut (case non cochée). |
+    | Taille | Sélectionnez une taille de machine virtuelle. |
+    | **Compte administrateur** |    |
+    | Type d'authentification | sélectionnez **Clé publique SSH**. |
+    | Nom d’utilisateur | entrez **azureuser**. |
+    | Source de la clé publique SSH | Sélectionnez **Générer une nouvelle paire de clés**. |
+    | Nom de la paire de clés | Entrez **myKey**. |
+    | **Règles des ports d’entrée** |    |
+    | Aucun port d’entrée public | Sélectionnez **Aucun**. |
+
+    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/create-vm-portal.png" alt-text="Capture d’écran de la création d’une machine virtuelle.":::
+
+5. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
+
+6. Sous l’onglet **Mise en réseau**, entrez ou sélectionnez les informations suivantes.
+
+    | Paramètre | Value |
+    | ------- | ----- |
+    | **Interface réseau** |   |
+    | Réseau virtuel | Sélectionnez **Créer nouveau**. </br> Entrez **myVNet** dans **Nom**. </br> Dans **Espace d’adressage**, sous **Plage d’adresses**, entrez **10.1.0.0/16**. </br> Dans **Sous-réseaux**, sous **Nom de sous-réseau**, entrez **myBackendSubnet**. </br> Dans **plage d’adresses**, entrez **10.1.0.0/24**. </br> Sélectionnez **OK**. |
+    | Subnet | Sélectionnez **myBackendSubnet**. |
+    | Adresse IP publique | Sélectionnez **Aucun**. |
+    | Groupe de sécurité réseau de la carte réseau | Sélectionnez **Avancé**. |
+    | Configurer un groupe de sécurité réseau | Sélectionnez **Créer nouveau**. </br> Entrez **myNSG** dans **Nom**. </br> Sélectionnez **+ Ajouter une règle de trafic entrant** sous **Règles de trafic entrant**. </br> Dans **Service**, sélectionnez **HTTP**. </br> Entrez **100** dans **Priorité**. </br> Entrez **myNSGRule** pour **Nom**. </br> Sélectionnez **Ajouter**. </br> Sélectionnez **OK**. |
+
+7. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton **Vérifier + créer** situé au bas de la page.
+
+8. Sélectionnez **Create** (Créer).
+
+9. À l’invite **Générer une nouvelle paire de clés**, sélectionnez **Télécharger la clé privée et créer une ressource**. Votre fichier de clé sera téléchargé sous myKey.pem. Vérifiez que vous savez où le fichier .pem a été téléchargé ; vous aurez besoin du chemin du fichier de clé dans les étapes ultérieures.
+
+8. Effectuez les étapes 1 à 8 pour créer une autre machine virtuelle avec les valeurs suivantes et tous les autres paramètres identiques à ceux de **myVM1** :
+
+    | Paramètre | Machine virtuelle 2 |
+    | ------- | ----- |
+    | **Concepts de base** |    |
+    | **Détails de l’instance** |   |
+    | Nom de la machine virtuelle | **myVM2** |
+    | Zone de disponibilité | **2** |
+    | **Compte administrateur** |   |
+    | Type d'authentification | **Clé publique SSH** |
+    | Source de la clé publique SSH | Sélectionnez **Utiliser une clé existante stockée dans Azure**. |
+    | Clés stockées | Sélectionnez **myKey**. |
+    | **Mise en réseau** |   |
+    | **Interface réseau** |  |
+    | Adresse IP publique | Sélectionnez **Aucun**. |
+    | Groupe de sécurité réseau de la carte réseau | Sélectionnez **Avancé**. |
+    | Configurer un groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant |
+
+## <a name="create-nat-gateway"></a>Créer une passerelle NAT
+
+Dans cette section, vous allez créer une passerelle NAT pour l’accès Internet sortant des ressources dans le réseau virtuel. 
+
+1. Dans la zone de recherche située en haut du portail, entrez **Passerelle NAT**. Sélectionnez **Passerelle NAT** dans les résultats de la recherche.
+
+2. Dans **Passerelles NAT**, sélectionnez **+ Créer**.
+
+3. Dans **Créer une passerelle NAT (traduction d’adresses réseau)** , entrez ou sélectionnez les informations suivantes :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Détails du projet** |   |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Resource group | Sélectionnez **TutorialLBPF-rg**. |
+    | **Détails de l’instance** |    |
+    | Nom de la passerelle NAT | Entrez **myNATgateway**. |
+    | Zone de disponibilité | Sélectionnez **Aucun**. |
+    | Délai d’inactivité (minutes) | Entrez **15**. |
+
+4. Sélectionnez l’onglet **IP sortante** ou le bouton **Suivant : IP sortante** situé au bas de la page.
+
+5. Dans **IP sortante**, sélectionnez **Créer une adresse IP publique** à côté d’**Adresses IP publiques**.
+
+6. Entrez **myNATGatewayIP** pour le **Nom** dans **Ajouter une adresse IP publique**.
+
+7. Sélectionnez **OK**.
+
+8. Sélectionnez l’onglet **Sous-réseau** ou le bouton **Suivant : Sous-réseau** situé au bas de la page.
+
+9. Dans **Réseau virtuel**, dans l’onglet **Sous-réseau**, sélectionnez **myVNet**.
+
+10. Sélectionnez **myBackendSubnet** sous **Nom du sous-réseau**.
+
+11. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page, ou l’onglet **Vérifier + créer**.
+
+12. Sélectionnez **Create** (Créer).
+
+## <a name="create-load-balancer"></a>Créer un équilibreur de charge
+
+Vous allez créer un équilibreur de charge dans cette section. L’adresse IP du front-end, le pool de back-ends, l’équilibrage de charge et les règles NAT de trafic entrant sont configurés dans le cadre de la création.
+
+1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
+
+2. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
+
+3. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
+    | **Détails du projet** |   |
     | Abonnement               | Sélectionnez votre abonnement.    |    
-    | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
-    | Nom                   | *myLoadBalancer*                                   |
-    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Resource group         | Sélectionnez **TutorialLBPF-rg**. |
+    | **Détails de l’instance** |   |
+    | Nom                   | Entrez **myLoadBalancer**                                   |
+    | Région         | Sélectionnez **(USA) USA Ouest 2**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
-    | SKU           | Sélectionnez **Standard**.                          |
-    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
-    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
-    |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
-     
-    >[!NOTE]
-     >Veillez à créer votre équilibreur de charge et toutes ses ressources dans un emplacement prenant en charge les zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-region.md). 
+    | SKU           | Conservez la valeur par défaut **Standard**. |
+    | Niveau          | Conservez la valeur par défaut **Régional**. |
 
-3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.  
-  
-## <a name="create-and-configure-back-end-servers"></a>Créer et configurer des serveurs principaux
 
-Créez un réseau virtuel avec deux machines virtuelles, puis ajoutez les machines virtuelles au pool principal de votre équilibreur de charge. 
+4. Sélectionnez **Suivant : configuration de l’adresse IP front-end** au bas de la page.
 
-## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
+5. Dans **Configuration de l’adresse IP front-end**, sélectionnez **+ Ajouter une adresse IP front-end**.
 
-Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
+6. Entrez **LoadBalancerFrontend** dans **Nom**.
 
-| Paramètre                   | Valeur                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB (sélectionnez un groupe de ressources existant) |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europe Ouest      |
-| **\<IPv4-address-space>**   | 10.3.0.0\16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0\24          |
+7. Sélectionnez **IPv4** ou **IPv6** pour la **Version IP**.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+    > [!NOTE]
+    > IPv6 n’est actuellement pas pris en charge avec la Préférence de routage ou l’équilibrage de charge Inter-régions (niveau Global).
 
-### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Créer des machines virtuelles et les ajouter au pool principal de l’équilibreur de charge
+8. Sélectionnez **Adresse IP** pour **Type IP**.
 
-1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter**. 
-   
-1. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs suivantes sous l’onglet **De base** :
-   - **Abonnement** > **Groupe de ressources** : Faites défiler la liste et sélectionnez **MyResourceGroupLB**.
-   - **Nom de la machine virtuelle** : Tapez *MyVM1*.
-   - **Région** : Sélectionnez **Europe Ouest**. 
-   - **Nom d’utilisateur** : Tapez *azureuser*.
-   - **Mot de passe** : Tapez *Azure1234567*. 
-     Retapez le mot de passe dans le champ **Confirmer le mot de passe**.
-   
-1. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
-   
-   Vérifiez que les éléments suivants sont sélectionnés :
-   - **Réseau virtuel** : **MyVNet**
-   - **Sous-réseau** : **MyBackendSubnet**
-   
-1. Sous **Adresse IP publique**, sélectionnez **Créer**, sélectionnez **Standard** dans la page **Créer une adresse IP publique**, puis sélectionnez **OK**. 
-   
-1. Sous **Groupe de sécurité réseau**, sélectionnez **Avancé** pour créer un groupe de sécurité réseau (NSG), un type de pare-feu. 
-   1. Dans le champ **Configurer le groupe de sécurité réseau**, sélectionnez **Créer**. 
-   1. Tapez *MyNetworkSecurityGroup*, puis sélectionnez **OK**. 
-   
-   >[!NOTE]
-   >Observez que, par défaut, le NSG comprend déjà une règle de trafic entrant pour ouvrir le port 3389, le port (RDP) de Bureau à distance.
-   
-1. Ajoutez la machine virtuelle au pool principal d’un équilibreur de charge que vous créez :
-   
-   1. Sous **ÉQUILIBRAGE DE CHARGE** > **Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ?** , sélectionnez **Oui**. 
-   1. Pour **Options d’équilibrage de charge**, faites défiler la liste déroulante et sélectionnez **Azure Load Balancer**. 
-   1. Pour **Sélectionner un équilibreur de charge**, faites défiler la liste déroulante et sélectionnez **MyLoadBalancer**. 
-   1. Sous **Sélectionner un pool principal**, sélectionnez **Créer**, puis tapez *MyBackendPool* et sélectionnez **Créer**. 
-   
-   ![Créer un réseau virtuel](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
-   
-1. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**.
-   
-1. Sélectionnez **Revoir + créer**.
-   
-1. Passez en revue les paramètres puis, lorsque la validation a réussi, sélectionnez **Créer**. 
+    > [!NOTE]
+    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/public-ip-address-prefix.md).
 
-1. Suivez la procédure de création d’une deuxième machine virtuelle nommée *MyVM2*, avec tous les autres paramètres identiques à ceux de MyVM1. 
-   
-   Pour **Groupe de sécurité réseau**, après avoir sélectionné **Avancé**, faites défiler la liste déroulante et sélectionnez le **MyNetworkSecurityGroup** que vous avez créé. 
-   
-   Sous **Sélectionnez un pool principal**, vérifiez que **MyBackendPool** est sélectionné. 
+9. Sélectionnez **Créer nouvelle** dans **Adresse IP publique**.
 
-### <a name="create-an-nsg-rule-for-the-vms"></a>Créer une règle NSG pour les machines virtuelles
+10. Dans **Ajouter une adresse IP publique**, entrez **myPublicIP** pour **Nom**.
 
-Créez une règle de groupe de sécurité réseau (NSG) pour les machines virtuelles afin d’autoriser les connexions Internet (HTTP) de trafic entrant.
+11. Sélectionnez **Zone-redondante** dans la **Zone de disponibilité**.
 
->[!NOTE]
->Par défaut, le NSG comprend déjà une règle qui ouvre le port 3389, le port (RDP) de Bureau à distance.
+    > [!NOTE]
+    > Dans les régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant dans une zone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche. Dans la liste des ressources, sélectionnez **MyNetworkSecurityGroup** dans le groupe de ressources **MyResourceGroupLB**.
-   
-1. Sous **Paramètres**, sélectionnez **Règles de sécurité de trafic entrant**, puis sélectionnez **Ajouter**.
-   
-1. Dans la boîte de dialogue **Ajouter une règle de sécurité de trafic entrant**, tapez ou sélectionnez les informations suivantes :
-   
-   - **Source** : sélectionnez **Balise du service**.  
-   - **Étiquette du service source** : sélectionnez **Internet**. 
-   - **Plages de ports de destination** : tapez *80*.
-   - **Protocole** : Sélectionnez **TCP**. 
-   - **Action** : sélectionnez **Autoriser**.  
-   - **Priorité** : tapez *100*. 
-   - **Nom** : tapez *MyHTTPRule*. 
-   - **Description** : tapez *Autoriser HTTP*. 
-   
-1. Sélectionnez **Ajouter**. 
-   
-   ![Créer une règle NSG](./media/tutorial-load-balancer-port-forwarding-portal/8-load-balancer-nsg-rules.png)
-   
-## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
+12. Laissez la valeur par défaut **Réseau Microsoft** pour **Préférence de routage**.
 
-Dans cette section, vous inspectez le pool principal de l’équilibreur de charge et configurez des règles de sonde d’intégrité et de trafic d’équilibreur de charge.
+13. Sélectionnez **OK**.
 
-### <a name="view-the-back-end-address-pool"></a>Afficher le pool d’adresses principales
+14. Sélectionnez **Ajouter**.
 
-Pour distribuer le trafic vers les machines virtuelles, l’équilibreur de charge utilise un pool d’adresses principales qui contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. 
+15. Sélectionnez **Suivant : Pools de back-ends** au bas de la page.
 
-Vous avez créé votre pool principal d’équilibreur de charge et y avez ajouté des machines virtuelles lors de la création des machines virtuelles. Vous pouvez également créer des pools principaux et ajouter ou supprimer des machines virtuelles à partir de la page **Pools principaux** de l’équilibreur de charge. 
+16. Sous l’onglet **Pools de back-ends**, sélectionnez **+ Ajouter un pool de back-end**.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez **MyLoadBalancer** dans la liste de ressources.
-   
-1. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** .
-   
-1. Dans la page **Pools back-ends**, développez **MyBackendPool**, puis vérifiez que **VM1** et **VM2** sont listées.
+17. Entrez ou sélectionnez les informations suivantes dans **Ajouter un pool de back-ends**.
 
-1. Sélectionnez **MyBackendPool**. 
-   
-   Dans la page **MyBackendPool**, sous **MACHINE VIRTUELLE** et **ADRESSE IP**, vous pouvez supprimer ou ajouter des machines virtuelles disponibles au pool.
+    | Paramètre | Value |
+    | ------- | ----- |
+    | Nom | Entrez **myBackendPool**. |
+    | Réseau virtuel | Sélectionnez **myVNet (TutorialLBPF-rg)** . |
+    | Configuration d’un pool de back-ends | Sélectionner **Carte réseau**. |
+    | Version de l’adresse IP | Sélectionnez **IPv4**. |
 
-Vous pouvez créer de nouveaux pools principaux en sélectionnant **Ajouter** dans la page **Pools principaux**.
+18. Sélectionnez **+ Ajouter** dans **Machines virtuelles**.
 
-### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
+19. Cochez les cases en regard de **myVM1** et **myVM2** dans **Ajouter des machines virtuelles au pool de back-ends**.
 
-Pour permettre à l’équilibreur de charge de superviser l’état d’une machine virtuelle, vous utilisez une sonde d’intégrité. La sonde d’intégrité ajoute ou supprime dynamiquement des machines virtuelles de la rotation d’équilibrage de charge en fonction de leur réponse aux vérifications d’intégrité. 
+20. Sélectionnez **Ajouter**.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez **MyLoadBalancer** dans la liste de ressources.
-   
-1. Sous **Paramètres**, sélectionnez **Health probes** (Sondes d’intégrité), puis **Ajouter**.
-   
-1. Dans la page **Ajouter une sonde d’intégrité**, tapez ou sélectionnez les valeurs suivantes :
-   
-   - **Name** : Entrez *MyHealthProbe*.
-   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
-   - **Port** : Entrez *80*. 
-   - **Chemin d’accès** : Acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
-   - **Intervalle** : Entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
-   - **Seuil de défaillance sur le plan de l’intégrité** : Entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
-   
-1. Sélectionnez **OK**.
-   
-   ![Ajouter une sonde](./media/tutorial-load-balancer-port-forwarding-portal/4-load-balancer-probes.png)
+21. Sélectionnez **Ajouter**.
 
-### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
+22. Sélectionnez le bouton **Suivant : Règles de trafic entrant** au bas de la page.
 
-Une règle d’équilibreur de charge définit la distribution du trafic vers les machines virtuelles. La règle définit la configuration IP front-end pour le trafic entrant, le pool d’adresses IP front-end pour recevoir le trafic ainsi que les ports source et de destination nécessaires. 
+23. Dans **Règle d’équilibrage de la charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
 
-La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur le port 80 dans le front-end **LoadBalancerFrontEnd**. La règle envoie le trafic réseau au pool d’adresses front-end **MyBackEndPool**, ainsi que sur le port 80. 
+24. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez **MyLoadBalancer** dans la liste de ressources.
-   
-1. Sous **Paramètres**, sélectionnez **Règles d'équilibrage de charge**, puis **Ajouter**.
-   
-1. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez ou sélectionnez les valeurs suivantes :
-   
-   - **Name** : Entrez *MyLoadBalancerRule*.
-   - **Protocole** : Sélectionnez **TCP**.
-   - **Port** : Entrez *80*.
-   - **Port principal** : Entrez *80*.
-   - **Pool principal** : Sélectionnez **MyBackendPool**.
-   - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
-   
-1. Sélectionnez **OK**.
-   
-   ![Ajouter une règle d’équilibreur de charge](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+    | Paramètre | Value |
+    | ------- | ----- |
+    | Nom | Entrez **MyHTTPRule** |
+    | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
+    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
+    | Protocol | Sélectionnez **TCP**. |
+    | Port | Entrez **80**. |
+    | Port principal | Entrez **80**. |
+    | Pool principal | Sélectionnez **MyBackendPool**. |
+    | Sonde d’intégrité | Sélectionnez **Créer nouveau**. </br> Dans **Nom**, entrez **myHealthProbe**. </br> Sélectionnez **HTTP** dans **Protocole**. </br> Laissez les autres valeurs par défaut et sélectionnez **OK**. |
+    | Persistance de session | Sélectionnez **Aucun**. |
+    | Délai d’inactivité (minutes) | Entrez ou sélectionnez **15**. |
+    | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
+    | IP flottante | Sélectionnez **Désactivé**. |
+    | Traduction d’adresses réseau (SNAT) sources sortante | Conservez la valeur par défaut **(Recommandé) Utiliser des règles de trafic sortant pour fournir aux membres du pool de back-ends l’accès à Internet**. |
 
-## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Créer une règle de redirection de port NAT de trafic entrant
+25. Sélectionnez **Ajouter**.
 
-Créez une règle de traduction d’adresses réseau (NAT) de trafic entrant d’équilibreur de charge pour rediriger le trafic d’un port spécifique de l’adresse IP frontale vers un port spécifique d’une machine virtuelle principale.
+26. Dans **Règle NAT de trafic entrant** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle NAT de trafic entrant**.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez **MyLoadBalancer** dans la liste des ressources.
-   
-1. Sous **Paramètres**, sélectionnez **Règles NAT de trafic entrant**, puis sélectionnez **Ajouter**. 
-   
-1. Dans la page **Ajouter une règle NAT de trafic entrant**, tapez ou sélectionnez les valeurs suivantes :
-   
-   - **Name** : Tapez *MyNATRuleVM1*.
-   - **Port** : Tapez *4221*.
-   - **Machine virtuelle cible** : Sélectionnez **MyVM1** dans la liste déroulante.
-   - **Configuration IP réseau** : Sélectionnez **ipconfig1** dans la liste déroulante.
-   - **Mappage de port** : Sélectionnez **Personnalisé**.
-   - **Port cible** : Entrez *3389*.
-   
-1. Sélectionnez **OK**.
-   
-1. Répétez les étapes pour ajouter une règle NAT de trafic entrant nommée *MyNATRuleVM2* en utilisant **Port** : *4222* et **Machine virtuelle cible** : **MyVM2**.
+27. Dans **Ajouter une règle NAT de trafic entrant**, entrez ou sélectionnez les informations suivantes.
 
-## <a name="test-the-load-balancer"></a>Tester l’équilibreur de charge
+    | Paramètre | Value |
+    | ------- | ----- |
+    | Nom | Entrez **myNATRuleVM1-221**. |
+    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
+    | Service | Sélectionnez **Personnalisé**. |
+    | Protocol | Conservez la valeur par défaut **TCP**. |
+    | Délai d’inactivité (minutes) | Entrez ou sélectionnez **15**. |
+    | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
+    | Port | Entrez **221**. |
+    | Machine virtuelle cible | Sélectionnez **myVM1**. |
+    | Configuration IP réseau | Sélectionnez **ipconfig1 (10.1.0.4)** . |
+    | Mappage de ports | Sélectionnez **Personnalisé**. |
+    | IP flottante | Conservez la valeur par défaut **Désactivé**. |
+    | Port cible | Entrez **22**. |
 
-Dans cette section, vous allez installer Internet Information Services (IIS) sur les serveurs principaux et personnaliser la page web par défaut pour afficher le nom de la machine. Vous utiliserez ensuite l’adresse IP publique de l’équilibreur de charge pour tester l’équilibreur de charge. 
+28. Sélectionnez **Ajouter**.
 
-Chaque machine virtuelle back-end affiche une version différente de la page web IIS par défaut. Ainsi, vous pouvez voir l’équilibreur de charge répartir les requêtes entre les deux machines virtuelles.
+29. Sélectionnez **Ajouter une règle NAT de trafic entrant**.
 
-### <a name="connect-to-the-vms-with-rdp"></a>Se connecter aux machines virtuelles avec le Bureau à distance
+30. Dans **Ajouter une règle NAT de trafic entrant**, entrez ou sélectionnez les informations suivantes.
 
-Connectez-vous à chaque machine virtuelle avec le Bureau à distance (RDP). 
+    | Paramètre | Value |
+    | ------- | ----- |
+    | Nom | Entrez **myNATRuleVM2-222**. |
+    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
+    | Service | Sélectionnez **Personnalisé**. |
+    | Protocol | Conservez la valeur par défaut **TCP**. |
+    | Délai d’inactivité (minutes) | Entrez ou sélectionnez **15**. |
+    | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
+    | Port | Entrez **222**. |
+    | Machine virtuelle cible | Sélectionnez **myVM2**. |
+    | Configuration IP réseau | Sélectionnez **ipconfig1 (10.1.0.5)** . |
+    | Mappage de ports | Sélectionnez **Personnalisé**. |
+    | IP flottante | Conservez la valeur par défaut **Désactivé**. |
+    | Port cible | Entrez **22**. |
 
-1. Dans le portail, sélectionnez **Toutes les ressources** dans le menu de gauche. Dans la liste des ressources, sélectionnez chacune des machines virtuelles du groupe de ressources **MyResourceGroupLB**.
-   
-1. Dans la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Télécharger le fichier RDP**. 
-   
-1. Ouvrez le fichier RDP que vous avez téléchargé, puis sélectionnez **Se connecter**.
-   
-1. Dans l’écran Sécurité Windows, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. 
-   
-   Entrez le nom d’utilisateur *azureuser* et le mot de passe *Azure1234567*, puis sélectionnez **OK**.
-   
-1. Répondez **Oui** à toute invite de certificat. 
-   
-   Le bureau de la machine virtuelle s’ouvre dans une nouvelle fenêtre. 
+31. Sélectionnez **Ajouter**.
 
-### <a name="install-iis-and-replace-the-default-iis-web-page"></a>Installer IIS et remplacer la page web IIS par défaut 
+32. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page.
 
-Utilisez PowerShell pour installer IIS et remplacer la page web IIS par défaut par une page qui affiche le nom de la machine virtuelle.
+33. Sélectionnez **Create** (Créer).
 
-1. Sur MyVM1 et MyVM2, lancez **Windows PowerShell** à partir du menu **Démarrer**. 
+## <a name="install-web-server"></a>Installer le serveur web
 
-2. Exécutez les commandes suivantes pour installer IIS et remplacer la page web IIS par défaut :
-   
-   ```powershell-interactive
-    # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
-    #Add custom htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
-    
-   ```
-   
-1. Fermez les connexions RDP à MyVM1 et MyVM2 en sélectionnant **Déconnexion**. N’arrêtez pas les machines virtuelles.
+Dans cette section, vous allez vous connecter en mode SSH aux machines virtuelles via les règles NAT de trafic entrant et installer un serveur web.
 
-### <a name="test-load-balancing"></a>Tester l’équilibrage de charge
+1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
 
-1. Dans le portail, dans la page **Vue d’ensemble** de **MyLoadBalancer**, copiez l’adresse IP publique sous **Adresse IP publique**. Pointez sur l’adresse, puis sélectionnez l’icône **Copier** pour la copier. Dans cet exemple, il s’agit de **40.67.218.235**. 
-   
-1. Collez ou tapez l’adresse IP publique de l’équilibreur de charge (*40.67.218.235*) dans la barre d’adresses de votre navigateur Internet. 
-   
-   La page par défaut personnalisée du serveur web IIS s’affiche dans le navigateur. Le message est soit **Hello World from MyVM1**, soit **Hello World from MyVM2**.
-   
-   ![Nouvelle page IIS par défaut](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
-   
-1. Actualisez le navigateur pour voir l’équilibreur de charge répartir le trafic entre les machines virtuelles. Parfois, la page **MyVM1** s’affiche, et parfois la page **MyVM2** s’affiche, selon la répartition des requêtes entre les machines virtuelles back-end.
-   
-   >[!NOTE]
-   >Vous devrez peut-être effacer le cache de votre navigateur ou ouvrir une nouvelle fenêtre de navigateur entre les tentatives.
+2. Sélectionnez **myLoadBalancer**.
 
-## <a name="test-port-forwarding"></a>Tester la redirection de port
+3. Dans la page **Vue d’ensemble** de **myLoadBalancer**, notez l’**adresse IP Publique**.  Dans cet exemple, il s’agit de **20.190.2.163**.
 
-Avec la redirection de port, vous pouvez appliquer le Bureau à distance à une machine virtuelle principale à l’aide de l’adresse IP de l’équilibreur de charge et de la valeur de port frontal définie dans la règle NAT. 
+    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/get-public-ip.png" alt-text="Capture d’écran de l’adresse IP publique dans le portail Azure.":::
 
-1. Dans le portail, dans la page **Vue d’ensemble** de **MyLoadBalancer**, copiez son adresse IP publique. Pointez sur l’adresse, puis sélectionnez l’icône **Copier** pour la copier. Dans cet exemple, il s’agit de **40.67.218.235**. 
-   
-1. Ouvrez une invite de commandes et utilisez la commande suivante pour créer une session Bureau à distance avec MyVM2, en utilisant l’adresse IP publique de l’équilibreur de charge et le port frontal que vous avez défini dans la règle NAT de la machine virtuelle. 
-   
-   ```
-   mstsc /v:40.67.218.235:4222
-   ```
-  
-1. Ouvrez le fichier RDP téléchargé et sélectionnez **Se connecter**.
-   
-1. Dans l’écran Sécurité Windows, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. 
-   
-   Entrez le nom d’utilisateur *azureuser* et le mot de passe *Azure1234567*, puis sélectionnez **OK**.
-   
-1. Répondez **Oui** à toute invite de certificat. 
-   
-   Le bureau de MyVM2 s’ouvre dans une nouvelle fenêtre. 
+4. Si vous utilisez un ordinateur Mac ou Linux, ouvrez une invite Bash. Si vous utilisez un ordinateur Windows, ouvrez une invite de commandes PowerShell.
 
-La connexion RDP réussit, car la règle NAT de trafic entrant **MyNATRuleVM2** dirige le trafic du port frontal 4222 de l’équilibreur de charge vers le port 3389 de MyVM2 (port RDP).
+5. À l’invite, ouvrez une connexion SSH à **myVM1**. Remplacez l’adresse IP par l’adresse que vous avez récupérée à l’étape précédente et le port **221** que vous avez utilisé pour la règle NAT de trafic entrant myVM1. Remplacez le chemin du fichier .pem par l’emplacement où le fichier de clé a été téléchargé.
+
+    ```console
+    ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 221
+    ```
+
+    > [!TIP]
+    > Vous pourrez utiliser la clé SSH que vous avez créée la prochaine fois que vous créerez une machine virtuelle dans Azure. Il vous suffira de sélectionner **Utiliser une clé stockée dans Azure** pour **Source de la clé publique SSH** la prochaine fois que vous créerez une machine virtuelle. Vous disposerez déjà de la clé privée sur votre ordinateur, et n’aurez donc pas besoin de télécharger quoi que ce soit.
+
+6. Dans votre session SSH, mettez à jour vos sources de package, puis installez le dernier package NGINX.
+
+    ```bash
+    sudo apt-get -y update
+    sudo apt-get -y install nginx
+    ``` 
+
+7. Entrez `Exit` pour quitter la session SSH.
+
+8. À l’invite, ouvrez une connexion SSH à **myVM2**. Remplacez l’adresse IP par l’adresse que vous avez récupérée à l’étape précédente et le port **222** que vous avez utilisé pour la règle NAT de trafic entrant myVM2. Remplacez le chemin du fichier .pem par l’emplacement où le fichier de clé a été téléchargé.
+
+    ```console
+    ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 222
+    ```
+
+9. Dans votre session SSH, mettez à jour vos sources de package, puis installez le dernier package NGINX.
+
+    ```bash
+    sudo apt-get -y update
+    sudo apt-get -y install nginx
+    ``` 
+
+10. Entrez `Exit` pour quitter la session SSH.
+
+## <a name="test-the-web-server"></a>Tester le serveur web
+
+Dans cette section, vous allez ouvrir votre navigateur web et entrer l’adresse IP de l’équilibreur de charge que vous avez récupérée à l’étape précédente.
+
+1. Ouvrez votre navigateur web.
+
+2. Dans la barre d’adresses, entrez l’adresse IP de l’équilibreur de charge. Dans cet exemple, il s’agit de **20.190.2.163**.
+
+3. Le site web NGINX par défaut s’affiche.
+
+    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/web-server-test.png" alt-text="Capture d’écran du test du serveur web NGINX.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour supprimer l’équilibreur de charge et toutes les ressources associées quand vous n’en avez plus besoin, ouvrez le groupe de ressources **MyResourceGroupLB**, puis sélectionnez **Supprimer un groupe de ressources**.
+Si vous ne comptez pas continuer à utiliser cette application, supprimez les machines virtuelles et l’équilibreur de charge en effectuant les étapes suivantes :
+
+1. Dans la zone de recherche située en haut du portail, entrez **Groupe de ressources**.  Sélectionnez **Groupes de ressources** dans les résultats de la recherche.
+
+2. Sélectionnez **TutorialLBPF-rg** dans **Groupes de ressources**.
+
+3. Sélectionnez **Supprimer le groupe de ressources**.
+
+4. Entrez **TutorialLBPF-rg** dans **TAPEZ LE NOM DU GROUPE DE RESSOURCES :** . Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé un équilibreur de charge public standard. Vous avez créé et configuré des ressources réseau, des serveurs back-end, une sonde d’intégrité et des règles à utiliser avec l’équilibreur de charge. Vous avez installé IIS sur les machines virtuelles principales et utilisé l’adresse IP publique de l’équilibreur de charge pour tester l’équilibreur de charge. Vous avez configuré et testé la redirection de port d’un port spécifié sur l’équilibreur de charge vers un port sur une machine virtuelle principale. 
-
-Pour en savoir plus sur Azure Load Balancer, consultez d’autres didacticiels consacrés à l’équilibreur de charge.
+Passez à l’article suivant pour découvrir comment créer un équilibreur de charge interrégional :
 
 > [!div class="nextstepaction"]
-> [Didacticiels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Créer un équilibreur de charge entre les régions à l’aide du portail Azure](tutorial-cross-region-portal.md)

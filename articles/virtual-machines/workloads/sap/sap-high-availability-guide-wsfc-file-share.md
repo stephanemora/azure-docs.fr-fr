@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cde810bb9f612b0dc84fb4dd7593761b057e722
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: efcbaab63bf6372761e7cd164428a30f68243e2e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532866"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
 
@@ -153,11 +153,10 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 * Nous vous recommandons de réserver une capacité non allouée dans le pool de stockage. Vous laisserez ainsi aux volumes suffisamment d’espace pour effectuer une réparation « sur place » en cas d’échec d’un disque. Cette méthode améliore les performances et la sécurité des données.  Pour plus d’informations, consultez la rubrique [Choix de la taille des volumes][choosing-the-size-of-volumes-s2d].
 * Vous n’avez pas besoin de configurer l’équilibreur de charge interne Azure avec le nom réseau du partage de fichiers Scale-out, comme pour \<SAP global host\>. Cette opération s’effectue pour le \<ASCS/SCS virtual host name\> de l’instance SAP ASCS/SCS ou pour le système de gestion de base de données (SGBD). Un partage de fichiers avec montée en puissance parallèle fait monter en charge l’ensemble des nœuds de cluster. \<SAP global host\> utilise l’adresse IP locale pour tous les nœuds de cluster.
 
-
 > [!IMPORTANT]
 > Vous ne pouvez pas renommer le partage de fichiers SAPMNT, qui pointe vers \<SAP global host\>. SAP prend en charge uniquement le nom de partage « sapmnt ».
 >
-> Pour plus d’informations, reportez-vous au document [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (Note SAP n° 2492395 : Le nom de partage sapmnt peut-il être modifié ?).
+Pour plus d’informations, reportez-vous au document [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (Note SAP n° 2492395 : Le nom de partage sapmnt peut-il être modifié ?).
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurer des instances SAP ASCS/SCS et un partage de fichiers avec montée en puissance parallèle dans deux clusters
 
@@ -174,6 +173,35 @@ Vous devez déployer les instances SAP ASCS/SCS dans un cluster distinct, avec l
 ![Figure 5 : Instance SAP ASCS/SCS et partage de fichiers avec scale-out dans deux clusters][sap-ha-guide-figure-8007]
 
 _**Figure 5 :** Instance SAP ASCS/SCS et partage de fichiers avec scale-out dans deux clusters_
+
+## <a name="optional-configurations"></a>Configurations facultatives
+
+Les diagrammes suivants montrent plusieurs instances SAP sur des machines virtuelles Azure exécutant le cluster de basculement Microsoft Windows pour réduire le nombre total de machines virtuelles.
+
+Il peut s’agir de serveurs d’applications SAP locaux sur un cluster ASCS/SCS SAP ou d’un rôle de cluster ASCS/SCS SAP sur des nœuds Always On Microsoft SQL Server.
+
+> [!IMPORTANT]
+> L’installation d’un serveur d’applications SAP local sur un nœud Always On SQL Server n’est pas prise en charge.
+>
+
+ASCS/SCS SAP et la base de données Microsoft SQL Server sont tous deux des points de défaillance uniques (SPOF). Pour protéger ces SPOF dans un environnement Windows, WSFC est utilisé.
+
+Bien que la consommation de ressources ASCS/SCS SAP soit relativement faible, il est recommandé de réduire de 2 Go la configuration de la mémoire pour SQL Server ou le serveur d’applications SAP.
+
+### <a name="sap-application-servers-on-wsfc-nodes-using-windows-sofs"></a><a name="86cb3ee0-2091-4b74-be77-64c2e6424f50"></a>Serveurs d’applications SAP sur des nœuds WSFC utilisant SIOS DataKeeper
+
+![Figure 6 : configuration du clustering de basculement Windows Server dans Azure avec Windows SOFS et le serveur d’applications SAP installé localement][sap-ha-guide-figure-8007A]
+
+> [!NOTE]
+> L’image montre l’utilisation de disques locaux supplémentaires. Cela est facultatif pour les clients qui n’installent pas les logiciels d’application sur le lecteur du système d’exploitation (C:\)
+>
+### <a name="sap-ascsscs-on-sql-server-always-on-nodes-using-windows-sofs"></a><a name="db335e0d-09b4-416b-b240-afa18505f503"></a> ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant Windows SOFS
+
+![Image 7 : ASCS/SCS SAP sur des nœuds Always On SQL Server utilisant Windows SOFS][sap-ha-guide-figure-8007B]
+
+> [!NOTE]
+> L’image montre l’utilisation de disques locaux supplémentaires. Cela est facultatif pour les clients qui n’installent pas les logiciels d’application sur le lecteur du système d’exploitation (C:\)
+>
 
 > [!IMPORTANT]
 > Dans le cloud Azure, chaque cluster utilisé pour les partage de fichiers scale-out et SAP doit être déployé dans son propre groupe à haute disponibilité Azure ou dans les Zones de disponibilité Azure. Ceci garantit une sélection élective distribuée des machines virtuelles du cluster dans toute l’infrastructure Azure sous-jacente. Les déploiements de zones de disponibilité sont pris en charge avec cette technologie.
@@ -204,7 +232,7 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
 [dv2-series]:../../dv2-dsv2-series.md
-[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
+[ds-series]:/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -230,10 +258,10 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-[planning-volumes-s2d-choosing-filesystem]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
-[choosing-the-size-of-volumes-s2d]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
-[deploy-sofs-s2d-in-azure]:https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
-[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[planning-volumes-s2d-choosing-filesystem]:/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
+[choosing-the-size-of-volumes-s2d]:/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
+[deploy-sofs-s2d-in-azure]:/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
+[s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [deep-dive-volumes-in-s2d]:https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/
 
 [planning-guide]:planning-guide.md
@@ -340,7 +368,9 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 [sap-ha-guide-figure-8004]:./media/virtual-machines-shared-sap-high-availability-guide/8004.png
 [sap-ha-guide-figure-8005]:./media/virtual-machines-shared-sap-high-availability-guide/8005.png
 [sap-ha-guide-figure-8006]:./media/virtual-machines-shared-sap-high-availability-guide/8006.png
-[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/8007.png
+[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sofs.png
+[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sofs-as.png
+[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sofs.png
 [sap-ha-guide-figure-8008]:./media/virtual-machines-shared-sap-high-availability-guide/8008.png
 [sap-ha-guide-figure-8009]:./media/virtual-machines-shared-sap-high-availability-guide/8009.png
 [sap-ha-guide-figure-8010]:./media/virtual-machines-shared-sap-high-availability-guide/8010.png
@@ -362,11 +392,11 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 

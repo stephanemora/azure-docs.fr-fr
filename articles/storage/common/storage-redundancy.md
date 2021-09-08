@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3f185f24c824008a6488ab2e9401dd05439daafb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ff085c32c7aeb63fea04f04558c1bccd5814b29b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984965"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563974"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -25,6 +25,9 @@ Lorsque vous choisissez l’option de redondance la mieux adaptée à votre scé
 - Mode de réplication de vos données dans la région primaire
 - Réplication éventuelle de vos données vers une deuxième région géographiquement éloignée de la région primaire, afin d’offrir une protection contre des catastrophes régionales
 - Nécessité ou non pour l’application d’avoir accès en lecture aux données répliquées dans la région secondaire si la région primaire devient indisponible pour une raison quelconque
+
+> [!NOTE]
+> Les fonctionnalités et la disponibilité régionale décrites dans cet article sont également disponibles pour les comptes dotés d’un espace de noms hiérarchique.
 
 ## <a name="redundancy-in-the-primary-region"></a>Redondance dans la région primaire
 
@@ -127,24 +130,24 @@ Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et R
 
 Les réplications GZRS et RA-GZRS sont prises en charge dans les régions suivantes :
 
-- (Afrique) Afrique du Sud Nord
+- (Asie-Pacifique) Asie Est
 - (Asie-Pacifique) Asie Sud-Est
 - (Asie-Pacifique) Australie Est
-- (Asie-Pacifique) Inde Centre
 - (Asie-Pacifique) Japon Est
-- (Asie-Pacifique) Corée Centre
 - (Canada) Canada Centre
 - (Europe) Europe Nord
 - (Europe) Europe Ouest
 - (Europe) France Centre
-- (Europe) Allemagne Centre-Ouest
+- (Europe) Norvège Est
 - (Europe) Royaume-Uni Sud
 - (Amérique du Sud) Brésil Sud
 - (États-Unis) USA Centre
 - (États-Unis) USA Est
 - (États-Unis) USA Est 2
+- (États-Unis) Gouvernement des USA Est
 - (États-Unis) USA Centre Sud
 - (USA) USA Ouest 2
+- (USA) USA Ouest 3
 
 Pour plus d’informations sur la tarification, consultez les détails de la tarification d’[objets BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), de [Fichiers](https://azure.microsoft.com/pricing/details/storage/files/), de [Files d’attente](https://azure.microsoft.com/pricing/details/storage/queues/) et de [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -203,9 +206,12 @@ Le tableau suivant montre la durabilité et la disponibilité de vos données da
 
 Le tableau suivant indique quelles options de redondance sont prises en charge pour chaque service de Stockage Azure.
 
-| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
-|:-|:-|:-|:-|
-| Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files<br />Disques managés Azure | Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files | Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files<br /> | Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files<br /> |
+| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---|---|---|---|---|---|
+| Stockage d'objets blob <br />Stockage de files d'attente <br />Stockage de tables <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Disques managés Azure | Stockage d'objets blob <br />Stockage de files d'attente <br />Stockage de tables <br />Azure Files<sup>1,</sup><sup>2</sup> | Stockage d'objets blob <br />Stockage de files d'attente <br />Stockage de tables <br />Azure Files<sup>1</sup> | Stockage d'objets blob <br />Stockage de files d'attente <br />Stockage de tables <br /> | Stockage d'objets blob <br />Stockage de files d'attente <br />Stockage de tables <br />Azure Files<sup>1</sup> | Stockage d'objets blob <br />Stockage de files d'attente <br />Stockage de tables <br /> |
+
+<sup>1</sup>Les partages de fichiers Standard sont pris en charge sur LRS et ZRS. Les partages de fichiers Standard sont pris en charge sur GRS et GZRS tant qu’ils sont inférieurs ou égaux à cinq Tio.<br />
+<sup>2</sup>Les partages de fichiers Premium sont pris en charge sur LRS et ZRS.<br />
 
 ### <a name="supported-storage-account-types"></a>Types de compte de stockage pris en charge
 

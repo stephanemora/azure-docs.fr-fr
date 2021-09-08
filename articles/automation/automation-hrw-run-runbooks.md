@@ -3,15 +3,15 @@ title: Exécuter des runbooks Azure Automation sur un Runbook Worker hybride
 description: Cet article explique comment exécuter des runbooks sur des machines de votre centre de données local ou d’un autre fournisseur de cloud avec le Runbook Worker hybride.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/27/2021
+ms.date: 08/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef4c688fbe41db046b77d45090d77200d1c782cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f27f9366b388c090ca689a2011c777973b8a894
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531529"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968051"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Exécuter des runbooks sur un Runbook Worker hybride
 
@@ -27,7 +27,12 @@ L’activation du Pare-feu Azure sur [Stockage Microsoft Azure](../storage/commo
 
 Azure Automation gère les travaux exécutés sur des Runbooks Workers hybrides différemment des travaux exécutés dans des bacs à sable Azure. Si vous avez un runbook de longue durée, assurez-vous qu’il est résilient aux possibles redémarrages. Pour obtenir des informations détaillées sur le comportement des travaux, consultez [Travaux Runbook Worker hybride](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Les travaux des Runbooks Workers hybrides s’exécutent sous le compte **Système** local sur Windows ou le compte **nxautomation** sur Linux. Pour Linux, vérifiez que le compte **nxautomation** a accès à l’emplacement où les modules de runbook sont stockés. Quand vous utilisez l’applet de commande [Install-Module](/powershell/module/powershellget/install-module), veillez à spécifier AllUsers pour le paramètre `Scope` afin de garantir l’accès du compte **nxautomation**. Pour plus d’informations sur PowerShell sur Linux, consultez [Problèmes connus pour PowerShell sur les plateformes non-Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
+Les travaux des Runbooks Workers hybrides s’exécutent sous le compte **Système** local sur Windows ou le compte **nxautomation** sur Linux. Pour Linux, vérifiez que le compte **nxautomation** a accès à l’emplacement où les modules de runbook sont stockés. Pour garantir l’accès au compte **nxautomation** :
+
+- Lorsque vous utilisez la cmdlet [Install-Module](/powershell/module/powershellget/install-module), assurez-vous de spécifier `AllUsers` comme paramètre `Scope`.
+- Lorsque vous utilisez `pip install`, `apt install` ou une autre méthode pour installer des packages sur Linux, assurez-vous que le package est installé pour tous les utilisateurs. Par exemple, `sudo -H pip install <package_name>`.
+
+Pour plus d’informations sur PowerShell sur Linux, consultez [Problèmes connus pour PowerShell sur les plateformes non-Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
 
 ## <a name="configure-runbook-permissions"></a>Configurer des autorisations de runbook
 
@@ -315,7 +320,7 @@ Une fois que vous avez configuré la validation de signature, utilisez la comman
 gpg --clear-sign <runbook name>
 ```
 
-Le runbook signé est appelé **<runbook name>.asc**.
+Le runbook signé est appelé **\<runbook name>.asc**.
 
 Vous pouvez maintenant charger le runbook signé sur Azure Automation et l’exécuter comme un runbook normal.
 

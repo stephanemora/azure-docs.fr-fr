@@ -2,14 +2,14 @@
 title: Choisir des tailles et des images de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle et quelle version de système d’exploitation choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8a923c2982a632209e659ad663147bff5ff5c20a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bff6ef88345b280e2c977661814630af38fbe9d5
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562645"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224823"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 

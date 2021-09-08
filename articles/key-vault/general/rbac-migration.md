@@ -8,18 +8,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a369ed26ca91dbf951b28b99250c6307608c5eb3
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 88ac65c35b29c2113576594788f820973331d64b
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749075"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122528009"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrer d’une stratégie d’accès de coffre vers un modèle d’autorisation de type contrôle d’accès en fonction du rôle Azure
 
-Le modèle de stratégie d’accès du coffre est un système d’autorisation existant intégré à Key Vault pour fournir l’accès aux clés, aux secrets et aux certificats. Vous pouvez contrôler l’accès en affectant des autorisations individuelles au principal de sécurité (utilisateur, groupe, principal du service, identité gérée) à l’échelle de Key Vault. 
+Le modèle de stratégie d’accès du coffre est un système d’autorisation existant intégré au Coffre de clés pour fournir l’accès aux clés, aux secrets et aux certificats. Vous pouvez contrôler l’accès en affectant des autorisations individuelles au principal de sécurité (utilisateur, groupe, principal de service, identité managée) à l’échelle du Coffre de clés. 
 
-Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md), qui permet une gestion précise des accès des ressources Azure. Avec Azure RBAC, vous contrôlez l’accès aux ressources en créant des attributions de rôles, qui se composent de trois éléments : principal de sécurité, définition de rôle (jeu prédéfini d’autorisations) et étendue (groupe de ressources ou ressource individuelle). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
+Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md), qui permet une gestion précise des accès des ressources Azure. Avec Azure RBAC, vous contrôlez l’accès aux ressources en créant des attributions de rôles, qui se composent de trois éléments : un principal de sécurité, une définition de rôle (jeu d’autorisations prédéfini) et une étendue (groupe de ressources ou ressource individuelle). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 Avant de migrer vers Azure RBAC, il est important de comprendre ses avantages et ses limitations.
 
@@ -27,7 +27,7 @@ Avantages principaux d’Azure RBAC par rapport aux stratégies d’accès du co
 - Fournit un modèle de contrôle d’accès unifié pour les ressources Azure, avec une même API à travers les services Azure
 - Gestion centralisée des accès pour les administrateurs: gérez toutes les ressources Azure dans une seule vue
 - Intégration à [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) pour le contrôle d’accès en fonction du temps
-- Refus des affectations : possibilité d’exclure un principal de sécurité à une étendue particulière. Pour plus d’informations, consultez [Comprendre les affectations de refus Azure](../../role-based-access-control/deny-assignments.md)
+- Refus des affectations : possibilité d’exclure des principaux de sécurité à une étendue particulière. Pour plus d’informations, consultez [Comprendre les affectations de refus Azure](../../role-based-access-control/deny-assignments.md)
 
 Inconvénients d’Azure RBAC :
 - Latence pour les attributions de rôles : l’application de l’attribution des rôles peut prendre plusieurs minutes. Les stratégies d’accès au coffre sont immédiatement affectées.
@@ -65,7 +65,7 @@ Modèles d’autorisation prédéfinis pour les stratégies d’accès :
 - Clé client SharePoint Online
 - Azure Information BYOK
 
-### <a name="access-policies-templates-to-azure-roles-mapping"></a>Mappage des modèles de stratégie d’accès aux rôles Azure
+### <a name="access-policy-templates-to-azure-roles-mapping"></a>Mappage des modèles de stratégie d’accès aux rôles Azure
 | Modèle de stratégie d’accès | Operations | Rôle Azure |
 | --- | --- | --- |
 | Gestion des clés, des secrets et des certificats | Clés : toutes les opérations <br>Certificats : toutes les opérations<br>Secrets : toutes les opérations | Administrateur Key Vault |
@@ -76,7 +76,7 @@ Modèles d’autorisation prédéfinis pour les stratégies d’accès :
 | Gestion de certificats | Certificats : toutes les opérations | Agent des certificats Key Vault|
 | connecteur SQL Server | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Utilisateur du service de chiffrement de Key Vault|
 | Azure Data Lake Storage ou Stockage Azure | Clés : obtenir, lister, désenvelopper la clé | N/A<br> Rôle personnalisé requis|
-| Sauvegarde Azure | Clés : obtenir, lister, sauvegarder<br> Certificat : obtenir, lister, sauvegarder | N/A<br> Rôle personnalisé requis|
+| Sauvegarde Azure | Clés : obtenir, lister, sauvegarder<br> Secrets : obtenir, lister, sauvegarder | N/A<br> Rôle personnalisé requis|
 | Clé client Exchange Online | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Utilisateur du service de chiffrement de Key Vault|
 | Clé client Exchange Online | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Utilisateur du service de chiffrement de Key Vault|
 | Azure Information BYOK | Clés : obtenir, déchiffrer, signer | N/A<br>Rôle personnalisé requis|
@@ -91,7 +91,7 @@ Azure RBAC pour Key Vault permet l’attribution de rôles aux étendues suivant
 - Ressource Key Vault
 - Clé individuelle, secret et certificat
 
-Le modèle d’autorisation de stratégie d’accès de coffre est limité à l’attribution d’une stratégie uniquement au niveau de la ressource Key Vault. 
+Le modèle d’autorisation de stratégie d’accès de coffre est limité à l’attribution de stratégies uniquement au niveau de la ressource du Coffre de clés.
 
 En général, il est recommandé de disposer d’un coffre de clés par application et de gérer l’accès au niveau du coffre de clés. Dans certains scénarios, la gestion de l’accès sur d’autres étendues peut simplifier la gestion des accès.
 

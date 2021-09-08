@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 04/28/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 5854d8cecd1de8121b6129d86a70c1f5ad9518f2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 8c390593778917bef45b20d27e11e1b642b194c6
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175385"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303565"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Présentation d’Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) fournit des services de domaine managé, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Vous utilisez ces services de domaine sans avoir à déployer, gérer et apporter des correctifs aux contrôleurs de domaine dans le cloud.
+Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Vous utilisez ces services de domaine sans avoir à déployer, gérer et apporter des correctifs aux contrôleurs de domaine dans le cloud.
 
 Un domaine managé Azure AD DS vous permet d’exécuter des applications héritées dans le cloud qui ne peuvent pas utiliser les méthodes d'authentification modernes ou pour lesquelles vous ne voulez pas que les recherches de répertoire retournent systématiquement à un environnement AD DS local. Vous pouvez effectuer un lift-and-shift de ces applications héritées de votre environnement local à un domaine managé sans devoir gérer l’environnement AD DS dans le cloud.
 

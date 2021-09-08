@@ -1,5 +1,5 @@
 ---
-title: Configurer les détails d’une annonce d’offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure)
+title: Configurez les détails d’une annonce d’offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure)
 description: Configurez les détails d’une annonce d’offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource (Place de marché Azure).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: f6769d693eb19943ce8412d045a76382c4d98fb8
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: da0401a8733fc8ecb30b36f748ed87ba380df556
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612658"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867425"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-listing-details"></a>Configurer les détails d’une annonce d’offre Dynamics 365 pour Customer Engagement et Power Apps
 

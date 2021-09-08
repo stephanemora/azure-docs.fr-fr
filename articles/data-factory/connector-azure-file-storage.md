@@ -1,7 +1,7 @@
 ---
-title: Copier des données depuis/vers Stockage Fichier Azure
+title: Copier les données à partir de/vers Azure Files
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment copier des données depuis Stockage Fichier Azure vers des magasins de données récepteurs pris en charge (ou) depuis des magasins de données sources pris en charge vers Stockage Fichier Azure à l’aide d’Azure Data Factory.
+description: Découvrez comment copier des données depuis Azure Files vers des magasins de données récepteurs pris en charge (ou) depuis des magasins de données sources pris en charge vers Azure Files à l’aide d’Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
@@ -9,31 +9,31 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: 26033c1d19b9025bd5dceffeaf19a1504965df33
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 50136700ce4cc39a2a8166ce4c7d7d2960b53990
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641535"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313897"
 ---
-# <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
+# <a name="copy-data-from-or-to-azure-files-by-using-azure-data-factory"></a>Copier des données depuis ou vers Azure Files à l’aide d’Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment copier des données vers et depuis Stockage Fichier Azure. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article explique comment copier des données vers et depuis Azure Files. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Ce connecteur Stockage Fichier Azure est pris en charge pour les activités suivantes :
+Ce connecteur Azure Files est pris en charge pour les activités suivantes :
 
 - [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 - [Supprimer l’activité](delete-activity.md)
 
-Vous pouvez copier des données depuis Stockage Fichier Azure vers un magasin de données récepteur pris en charge, ou copier des données depuis un magasin de données sources pris en charge vers Stockage Fichier Azure. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs pour l’activité de copie, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Vous pouvez copier des données à partir d’Azure Files vers toute banque de données réceptrice ou copier des données depuis toute banque de données source prise en charge vers Azure Files. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs pour l’activité de copie, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur Stockage Fichier Azure prend en charge ce qui suit :
+Plus précisément, ce connecteur Azure Files prend en charge ce qui suit :
 
 - Copie de fichiers en utilisant des authentifications par clé de compte et par signature d’accès partagé (SAS) de service.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
@@ -42,26 +42,50 @@ Plus précisément, ce connecteur Stockage Fichier Azure prend en charge ce qui 
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Stockage Fichier Azure.
+## <a name="create-a-linked-service-to-azure-files-using-ui"></a>Créez un service lié à Azure Files à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Azure Files dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Recherchez le fichier, puis sélectionnez le connecteur pour Azure Files nommé *Stockage de fichiers Azure*.
+
+    :::image type="content" source="media/connector-azure-file-storage/azure-file-storage-connector.png" alt-text="Capture d’écran du connecteur de Stockage de fichiers Azure.":::    
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-azure-file-storage/configure-azure-file-storage-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour un stockage Fichier Azure.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs
+
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités spécifiques d’Azure Files.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Ce connecteur Stockage Fichier Azure prend en charge les types d’authentification suivants. Pour plus d’informations, consultez les sections correspondantes.
+Le connecteur Azure Files prend en charge les types d’authentification suivants. Pour plus d’informations, consultez les sections correspondantes.
 
 - [Authentification par clé de compte](#account-key-authentication)
 - [Authentification avec une signature d’accès partagé](#shared-access-signature-authentication)
 
 >[!NOTE]
-> Si vous utilisiez le service lié Stockage Fichier Azure avec le [modèle hérité](#legacy-model), avec l’interface utilisateur de création ADF présentée comme « Authentification de base », il est toujours pris en charge en l’état, mais il vous est suggéré d’utiliser le nouveau modèle à l’avenir. Le modèle hérité transfère des données depuis/vers le stockage via le protocole SMB (Server Message Block), tandis que le nouveau modèle utilise le kit SDK de stockage qui offre un meilleur débit. Pour effectuer la mise à niveau, vous pouvez modifier votre service lié pour basculer la méthode d’authentification sur « Clé de compte » ou « URI SAS ». Aucune modification n’est nécessaire sur le jeu de données ou l’activité de copie.
+> Si vous utilisiez le service lié Azure Files avec le [modèle hérité](#legacy-model), avec l’interface utilisateur de création ADF présentée comme « Authentification de base », il est toujours pris en charge en l’état, mais il vous est suggéré d’utiliser le nouveau modèle à l’avenir. Le modèle hérité transfère des données depuis/vers le stockage via le protocole SMB (Server Message Block), tandis que le nouveau modèle utilise le kit SDK de stockage qui offre un meilleur débit. Pour effectuer la mise à niveau, vous pouvez modifier votre service lié pour basculer la méthode d’authentification sur « Clé de compte » ou « URI SAS ». Aucune modification n’est nécessaire sur le jeu de données ou l’activité de copie.
 
 ### <a name="account-key-authentication"></a>Authentification par clé de compte
 
-Pour l’authentification par clé de compte Stockage Fichier Azure, Data Factory prend en charge les propriétés suivantes :
+Pour l’authentification par clé de compte Azure Files, Data Factory prend en charge les propriétés suivantes :
 
-| Propriété | Description | Obligatoire |
+| Property | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **AzureFileStorage**. | Oui |
-| connectionString | Spécifiez les informations requises pour se connecter au Stockage Fichier Azure. <br/> Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et l’article [Stocker les informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| connectionString | Spécifiez les informations requises pour se connecter à Azure Files. <br/> Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et l’article [Stocker les informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | fileShare | Spécifiez le partage de fichiers. | Oui |
 | instantané | Spécifiez la date de l’[instantané de partage de fichiers](../storage/files/storage-snapshots-files.md) si vous souhaitez effectuer une copie à partir d’un instantané. | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
@@ -183,8 +207,8 @@ Pour l’authentification par signature d’accès partagé, Data Factory prend 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **AzureFileStorage**. | Oui |
-| host | Spécifiez le point de terminaison Stockage Fichier Azure comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Utilisation de JSON : `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Oui |
-| userid | Spécifiez l’utilisateur pouvant accéder à Stockage Fichier Azure comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `AZURE\<storage name>`<br/>\- Utilisation de JSON : `"userid": "AZURE\\<storage name>"`. | Oui |
+| host | Spécifiez le point de terminaison Azure Files comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Utilisation de JSON : `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Oui |
+| userid | Spécifiez l’utilisateur pouvant accéder à Azure Files comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `AZURE\<storage name>`<br/>\- Utilisation de JSON : `"userid": "AZURE\\<storage name>"`. | Oui |
 | mot de passe | Spécifiez la clé d’accès au stockage. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non pour Source, Oui pour Récepteur |
 
@@ -217,9 +241,9 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `location` du jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour Azure Files sous les paramètres `location` dans le jeu de données basé sur le format :
 
-| Propriété   | Description                                                  | Obligatoire |
+| Property   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété type sous `location` dans le jeu de données doit être définie sur **AzureFileStorageLocation**. | Oui      |
 | folderPath | Chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
@@ -253,20 +277,20 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par Stockage Fichier Azure en tant que source et récepteur.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par Azure Files en tant que source et récepteur.
 
-### <a name="azure-file-storage-as-source"></a>Stockage Fichier Azure en tant que source
+### <a name="azure-files-as-source"></a>Azure Files en tant que source
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` de la source de la copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour Azure Files sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
-| Propriété                 | Description                                                  | Obligatoire                                      |
+| Property                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **AzureFileStorageReadSettings**. | Oui                                           |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
-| OPTION 2 : préfixe de fichier<br>- prefix | Préfixe du nom de fichier sous le partage de fichiers donné, configuré dans un jeu de données pour filtrer les fichiers sources. Les fichiers dont le nom commence par `fileshare_in_linked_service/this_prefix` sont sélectionnés. Il utilise le filtre côté service pour le Stockage Fichier Azure, qui offre de meilleures performances qu’un filtre de caractères génériques. Cette fonctionnalité n’est pas prise en charge lors de l’utilisation d’un [modèle de service lié hérité](#legacy-model). | Non                                                          |
+| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 2 : préfixe de fichier<br>- prefix | Préfixe du nom de fichier sous le partage de fichiers donné, configuré dans un jeu de données pour filtrer les fichiers sources. Les fichiers dont le nom commence par `fileshare_in_linked_service/this_prefix` sont sélectionnés. Il utilise le filtre côté service pour Azure Files, qui offre de meilleures performances qu’un filtre de caractères génériques. Cette fonctionnalité n’est pas prise en charge lors de l’utilisation d’un [modèle de service lié hérité](#legacy-model). | Non                                                          |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 4 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Si vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
@@ -320,13 +344,13 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 ]
 ```
 
-### <a name="azure-file-storage-as-sink"></a>Stockage Fichier Azure en tant que récepteur
+### <a name="azure-files-as-sink"></a>Azure Files en tant que récepteur
 
 [!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
-Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` du récepteur de la copie basé sur le format :
+Les propriétés suivantes sont prises en charge pour Azure Files sous les paramètres `storeSettings` dans le récepteur de copie basée sur le format :
 
-| Propriété                 | Description                                                  | Obligatoire |
+| Property                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **AzureFileStorageWriteSettings**. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |

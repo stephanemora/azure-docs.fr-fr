@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: machine-learning
 author: sdgilley
@@ -9,20 +9,20 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/20/2021
-ms.openlocfilehash: d7cb7bb22b1102f0e0ad5c8189bb285596a377e9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e1e1ec9687890b43a6ce0c8f8bc361cfb91b61e2
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462717"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597816"
 ---
 La cible de calcul que vous utilisez pour héberger votre modèle aura une incidence sur le coût et la disponibilité de votre point de terminaison déployé. Utilisez ce tableau pour choisir une cible de calcul appropriée.
 
 | Cible de calcul | Utilisé pour | Prise en charge GPU | Prise en charge FPGA | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [Service&nbsp;web&nbsp;local](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | Test/débogage | &nbsp; | &nbsp; | Pour les tests et la résolution des problèmes limités. L’accélération matérielle dépend de l’utilisation de bibliothèques dans le système local.
-| [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | Inférence en temps réel |  [Oui](../articles/machine-learning/how-to-deploy-with-triton.md) (déploiement de services web) | [Oui](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Pour les déploiements de production à grande échelle. Fournit un temps de réponse et une mise à l’échelle automatique rapides du service déployé. La mise à l’échelle automatique du cluster n’est pas prise en charge via le Kit de développement logiciel (SDK) Azure Machine Learning. Pour modifier les nœuds du cluster AKS, utilisez l’interface utilisateur de votre cluster AKS dans le portail Azure. <br/><br/> Pris en charge dans le concepteur. |
-| [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Inférence en temps réel | &nbsp;  | &nbsp; | Pour les charges de travail à faible échelle basées sur le processeur qui nécessitent moins de 48 Go de RAM. Ne vous oblige pas à gérer un cluster. <br/><br/> Pris en charge dans le concepteur. |
+| [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | Inférence en temps réel <br/><br/> Recommandé pour les charges de travail de production. |  [Oui](../articles/machine-learning/how-to-deploy-with-triton.md) (déploiement de services web) | [Oui](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Pour les déploiements de production à grande échelle. Fournit un temps de réponse et une mise à l’échelle automatique rapides du service déployé. La mise à l’échelle automatique du cluster n’est pas prise en charge via le Kit de développement logiciel (SDK) Azure Machine Learning. Pour modifier les nœuds du cluster AKS, utilisez l’interface utilisateur de votre cluster AKS dans le portail Azure. <br/><br/> Pris en charge dans le concepteur. |
+| [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Inférence en temps réel <br/><br/> Recommandé à des fins de développement et de test uniquement.| &nbsp;  | &nbsp; | Pour les charges de travail à faible échelle basées sur le processeur qui nécessitent moins de 48 Go de RAM. Ne vous oblige pas à gérer un cluster. <br/><br/> Pris en charge dans le concepteur. |
 | [Clusters de calcul Azure Machine Learning](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) | Inférence&nbsp;Batch | [Oui](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) (pipeline d’apprentissage automatique) | &nbsp;  | Exécutez le scoring par lots sur un calcul sans serveur. Prend en charge des machines virtuelles normales et basse priorité. Aucune prise en charge de l’inférence en temps réel.|
 
 > [!NOTE]

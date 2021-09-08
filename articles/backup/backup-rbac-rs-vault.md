@@ -4,12 +4,12 @@ description: Le contrôle d’accès en fonction du rôle Azure permet de gérer
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdde385ca49a61a8fb2c2bba81311035dca3e324
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102613440"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215187"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilisation du contrôle d’accès en fonction du rôle Azure pour gérer les points de récupération Sauvegarde Azure
 
@@ -86,10 +86,10 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | Opération de gestion | Rôle requis | Ressources |
 | --- | --- | --- |
 | Activer la sauvegarde d’un partage de fichiers Azure | Contributeur de sauvegarde |Coffre Recovery Services |
-| |Compte de stockage | Ressource de compte de stockage de contributeur |
+| | Contributeur de sauvegarde du compte de stockage | Ressource du compte de stockage |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Coffre Recovery Services |
 | Restaurer le partage de fichiers | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de compte de stockage | Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
+| | Contributeur de sauvegarde du compte de stockage | Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
 | Restaurer des fichiers individuels | Opérateur de sauvegarde | Coffre Recovery Services |
 | |Contributeur de compte de stockage|Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
 | Arrêter la protection |Contributeur de sauvegarde | Coffre Recovery Services |

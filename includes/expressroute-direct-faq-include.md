@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02def8321ce5df33fb89ca8d9f6c24167c15bbb6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "73182206"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531913"
 ---
 ### <a name="what-is-expressroute-direct"></a>Présentation d’ExpressRoute Direct
 
@@ -39,6 +39,8 @@ ExpressRoute Direct fournit aux clients des paires de ports directs 100 ou 10 G
 
 Un montant fixe est facturé pour la paire de ports. Les circuits standard sont compris sans frais supplémentaires, tandis que les circuits Premium engendrent un petit supplément. La sortie est facturée pour chaque circuit, en fonction de la zone où se trouve l’emplacement de peering.
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>À quel moment la facturation des paires de ports ExpressRoute Direct commence-t-elle ?
+### <a name="when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs"></a>À quel moment la facturation des paires de ports ExpressRoute Direct commence et s’arrête-t-elle ?
 
 Les paires de ports ExpressRoute Direct sont facturées 45 jours après la création de la ressource ExpressRoute Direct ou lorsqu'un lien, voire les deux sont activés, selon la première de ces éventualités. La période de grâce de 45 jours a été mise en place pour permettre aux clients de terminer le processus d'interconnexion avec le fournisseur de colocalisation.
+
+Vous ne serez plus facturé pour les paires de ports ExpressRoute Direct après avoir supprimé les ports directs et annulé les connexions croisées. 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c71a0ddece95eb7d6a651da9c307912a1a24c800
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 52a1931ec567d03d0beaaf9180532a91ff6bed07
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795495"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259460"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutoriel : Étendre les serveurs de fichiers Windows avec Azure File Sync
 
@@ -61,7 +61,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
 
     ![Sélectionner le bouton Ajouter un partage de fichiers](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Nommez le nouveau partage de fichiers _afsfileshare_. Entrez « 1 » dans **Quota**, puis sélectionnez **Créer**. La valeur du quota peut être de 5 TiB au maximum, mais vous avez besoin uniquement de 1 Go pour ce didacticiel.
+1. Nommez le nouveau partage de fichiers _afsfileshare_. Entrez « 5120 » dans **Quota**, puis sélectionnez **Créer**. La valeur du quota peut être de 100 Tio au maximum, mais vous avez besoin uniquement de 5 Tio pour ce tutoriel.
 
     ![Indiquer un nom et un quota pour le nouveau partage de fichiers](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -97,7 +97,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
    1. Sous l’onglet **Disques**, sous **Options du disque**, laissez les valeurs par défaut.
    1. Sous **DISQUES DE DONNÉES**, sélectionnez **Créer et attacher un disque**.
 
-   1. Utilisez les valeurs par défaut pour tous les paramètres, à l’exception du paramètre **Taille (Gio)** , que vous pouvez changer à **1 Go** dans ce tutoriel.
+   1. Utilisez les valeurs par défaut pour tous les paramètres, à l’exception du paramètre **Taille (Gio)** , que vous pouvez changer à **1 Gio** dans ce tutoriel.
 
       ![Détails du disque de données](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -156,7 +156,7 @@ Vous pouvez maintenant ajouter le disque de données à la machine virtuelle.
 
     ![Disque de données](media/storage-sync-files-extend-servers/your-disk.png)
 
-1. Faites un clic droit sur le disque de 1 Go nommé **Msft Virtual Disk** et sélectionnez **Nouveau volume**.
+1. Cliquez avec le bouton droit sur le disque de 1 Gio nommé **Msft Virtual Disk** et sélectionnez **Nouveau volume**.
 1. Terminez l'Assistant. Utilisez les paramètres par défaut et notez la lettre de lecteur assignée.
 1. Sélectionnez **Create** (Créer).
 1. Sélectionnez **Fermer**.

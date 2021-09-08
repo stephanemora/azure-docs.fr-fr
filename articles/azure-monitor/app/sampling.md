@@ -2,15 +2,15 @@
 title: Échantillonnage de données de télémétrie dans Azure Application Insights | Microsoft Docs
 description: Comment maintenir sous contrôle le volume de télémétrie.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 27aff24abddbca3317e252a76ac11c062f57213a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9db589de9bd62a00b7de89b2b558a3bac1e1785a
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071593"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039976"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -23,6 +23,7 @@ Lorsque les métriques sont présentées dans le portail, elles sont renormalis�
 * Il existe trois types d’échantillonnages différents : échantillonnage adaptatif, échantillonnage à fréquence fixe et échantillonnage d’ingestion.
 * L’échantillonnage adaptatif est activé par défaut dans toutes les dernières versions d’ASP.NET Application Insights et des kits SDK ASP.NET Core. Il est également utilisé par [Azure Functions](../../azure-functions/functions-overview.md).
 * L’échantillonnage à fréquence fixe est disponible dans les versions récentes des SDK Application Insights pour ASP.NET, ASP.NET Core, Java (à la fois l’agent et le SDK) et Python.
+* En Java, les remplacements d’échantillonnage sont disponibles et sont utiles lorsque vous devez appliquer des taux d’échantillonnage différents aux dépendances sélectionnées, aux demandes et aux vérifications d’état. Utilisez des [remplacements d’échantillonnage](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) pour analyser des dépendances bruyantes alors que, par exemple, toutes les erreurs importantes sont conservées à 100 %. Il s’agit d’une forme d’échantillonnage fixe qui vous donne un niveau de contrôle affiné sur vos données de télémétrie.
 * L’échantillonnage d’ingestion fonctionne sur le point de terminaison de service Application Insights. Il s’applique seulement quand aucun autre échantillonnage n’est appliqué. Si le SDK échantillonne votre télémétrie, l’échantillonnage d’ingestion est désactivé.
 * Pour les applications web, si vous consignez des événements personnalisés et que vous devez garantir qu’un ensemble d’événements sont conservés ou ignorés conjointement, les événements doivent avoir la même valeur pour `OperationId`.
 * Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
@@ -35,7 +36,7 @@ Le tableau suivant récapitule les types d’échantillonnage disponibles pour c
 | ASP.NET | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-aspnet-applications) | [Oui](#configuring-fixed-rate-sampling-for-aspnet-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
 | ASP.NET Core | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Oui](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
 | Azure Functions | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-azure-functions) | Non | Seulement si aucun autre échantillonnage n’est appliqué |
-| Java | Non | [Oui](#configuring-fixed-rate-sampling-for-java-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
+| Java | Non | [Oui](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
 | Node.JS | Non | [Oui](./nodejs.md#sampling) | Seulement si aucun autre échantillonnage n’est appliqué
 | Python | Non | [Oui](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
 | Tous les autres | Non | Non | [Oui](#ingestion-sampling) |
@@ -307,23 +308,14 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
     }
     ```
 
-### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Configuration de l’échantillonnage à fréquence fixe pour les applications Java
+### <a name="configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications"></a>Configuration des remplacements d’échantillonnage et de l’échantillonnage à fréquence fixe pour les applications Java
 
-Par défaut, aucun échantillonnage n’est activé dans l’agent et le SDK Java. Actuellement, il ne prend en charge que l’échantillonnage à fréquence fixe. L’échantillonnage adaptatif n’est pas pris en charge dans Java.
+Par défaut, aucun échantillonnage n’est activé dans l’instrumentation automatique et le SDK Java. Actuellement, l’instrumentation automatique Java, les [remplacements d’échantillonnage](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) et l’échantillonnage à taux fixe sont pris en charge. L’échantillonnage adaptatif n’est pas pris en charge dans Java.
 
-#### <a name="configuring-java-agent"></a>Configuration de l’agent Java
+#### <a name="configuring-java-auto-instrumentation"></a>Configuration de l’instrumentation automatique Java
 
-1. Télécharger [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
-
-1. Pour activer l’échantillonnage, ajoutez ceci à votre fichier `applicationinsights.json` :
-
-```json
-{
-  "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
-  }
-}
-```
+* Pour configurer les remplacements d’échantillonnage qui remplacent le taux d’échantillonnage par défaut et appliquent différents taux d’échantillonnage aux demandes et dépendances sélectionnées, utilisez le [Guide de remplacement d’échantillonnage](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides#getting-started).
+* Pour configurer la mesure du taux fixe qui s’applique à toutes vos données de télémétrie, utilisez le [Guide d’échantillonnage à taux fixe](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#sampling).
 
 #### <a name="configuring-java-2x-sdk"></a>Configuration du kit SDK Java 2.x
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d13b1f515d5585c6378e48eb64feed59615cdef
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 011b04e8e7931726b2585c5cbc606855001675fa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616912"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527972"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -56,7 +56,10 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 | --- | --- | --- |
 | Adresse IP anonyme | Temps réel | Ce type de détection des risque détecte des connexions à partir d’adresses IP anonymes (par exemple, navigateur Tor VPN anonyme). Ces adresses IP sont généralement utilisées par des acteurs souhaitant masquer leur télémétrie de connexion (adresse IP, emplacement, appareil, etc.) dans un but potentiellement malveillant. |
 | Voyage inhabituel | Hors connexion | Ce type de détection d’événement à risque identifie deux connexions depuis des emplacements géographiquement distants, dont au moins un est inhabituel pour l’utilisateur compte tenu de son comportement passé. Entre autres facteurs, cet algorithme Machine Learning prend en compte le délai écoulé entre les deux connexions et le temps nécessaire pour se déplacer du premier emplacement au second, ce qui indique qu’un autre utilisateur utilise les mêmes informations d’identification. <br><br> L’algorithme ignore les « faux positifs » évidents contribuant aux conditions de voyage impossible, tels que les VPN et les emplacements régulièrement utilisés par d’autres membres de l’organisation. Le système présente une période d’apprentissage initiale la plus proche de 14 jours ou de 10 connexions lui servant à assimiler le comportement de connexion des nouveaux utilisateurs. |
+| Jeton anormal | Hors connexion | Cette détection indique qu’il existe des caractéristiques anormales dans le jeton, telles qu’une durée de vie de jeton inhabituelle ou un jeton émis à partir d’un emplacement inconnu. Cette détection couvre les jetons de session et les jetons d’actualisation. |
+| Anomalie de l’émetteur du jeton | Hors connexion |Cette détection des risques indique que l’émetteur de jeton SAML pour le jeton SAML associé est potentiellement compromis. Les revendications incluses dans le jeton sont inhabituelles ou correspondent aux modèles d’attaquants connus. |
 | Adresse IP liée à un programme malveillant | Hors connexion | Ce type de détection d’événement à risque indique les connexions depuis des adresses IP infectées par des logiciels malveillants, qui sont connus pour communiquer activement avec un serveur bot, Cette détection est effectuée en mettant en corrélation des adresses IP d’appareils d’utilisateurs avec des adresses ayant été en contact avec un serveur robot actif. |
+| Navigateur suspect | Hors connexion | La détection de navigateur suspect indique un comportement anormal basé sur des activités de connexion suspectes sur plusieurs locataires de différents pays dans le même navigateur. |
 | Propriétés de connexion inhabituelles | Temps réel | Ce type de détection d’événement à risque prend en compte l’historique des connexions antérieures (IP, latitude / longitude et NSA) pour rechercher des connexions anormales. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». La détection d’événement à risque est déclenchée quand la connexion a lieu depuis un emplacement qui ne figure pas déjà dans la liste des emplacements connus. Les utilisateurs nouvellement créés seront en « mode d’apprentissage » pendant une période de temps durant laquelle les détections d’événements à risque des propriétés de connexion inconnues seront désactivées alors que nos algorithmes apprennent le comportement de l’utilisateur. La durée du mode d’apprentissage est dynamique et varie selon le temps qu’il faut à l’algorithme pour collecter suffisamment d’informations sur les modèles de connexion de l’utilisateur. La durée minimale est de 5 jours. Un utilisateur peut revenir en mode d’apprentissage après une longue période d’inactivité. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. <br><br> Nous exécutons également cette détection pour l’authentification de base (ou les protocoles existants). Étant donné que ces protocoles ne proposent pas les propriétés modernes, telles que l’ID client, les données de télémétrie pour réduire le nombre de faux positifs sont limitées. Nous recommandons à nos clients de passer à l’authentification moderne. |
 | L’administrateur a confirmé que cet utilisateur est compromis | Hors connexion | Cette détection indique qu’un administrateur a sélectionné « Confirmer que l’utilisateur est compromis » dans l’interface utilisateur Utilisateurs à risque ou à l’aide de l’API riskyUsers. Pour voir quel administrateur a confirmé que cet utilisateur est compromis, consultez l’historique des risques de l’utilisateur (par le biais de l’interface utilisateur ou de l’API). |
 | Adresse IP malveillante | Hors connexion | Cette détection indique une connexion à partir d’une adresse IP malveillante. Une adresse IP est considérée comme malveillante quand elle présente un taux d’échecs élevé en raison d’informations d’identification non valides qu’elle envoie ou d’autres sources relatives à la réputation des adresses IP. |
@@ -98,7 +101,7 @@ Microsoft découvre des fuites d'informations d'identification à divers endroit
 
 #### <a name="why-arent-i-seeing-any-leaked-credentials"></a>Pourquoi ne vois-je aucune information d'identification divulguée ?
 
-Les informations d'identification divulguées sont traitées chaque fois que Microsoft trouve une nouvelle occurrence de données accessibles au public. En raison de leur nature sensible, les informations d'identification divulguées sont supprimés peu après le traitement. Seules les nouvelles informations d’identification divulguées détectées après l’activation de la synchronisation de hachage de mot de passe (PHS) seront traitées pour votre locataire. La vérification par rapport aux paires d’informations d’identification précédemment détectées n’est pas effectuée. 
+Les informations d'identification divulguées sont traitées chaque fois que Microsoft trouve une nouvelle occurrence de données accessibles au public. En raison de leur nature sensible, les informations d'identification divulguées sont supprimées peu après le traitement. Seules les nouvelles informations d’identification divulguées détectées après l’activation de la synchronisation de hachage de mot de passe (PHS) seront traitées pour votre locataire. La vérification par rapport aux paires d’informations d’identification précédemment détectées n’est pas effectuée. 
 
 #### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>Je n’ai pas vu d’événements à risque concernant les informations d’identification divulguées depuis un moment.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db0f78f2f3aef3295837d921d7d70866ed8b8769
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102426467"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122566124"
 ---
 # <a name="what-is-custom-commands"></a>Présentation des commandes personnalisées
 
@@ -23,10 +23,7 @@ Les applications telles que les [assistants vocaux](voice-assistants.md) écoute
 
 Les **commandes personnalisées** facilitent la création d’applications de commandes vocales complètes, optimisées pour les expériences d’interaction de type « voice-first ». Elles offrent une expérience de création unifiée, un modèle d’hébergement automatique et une complexité relativement inférieure, vous permettant de vous concentrer sur la conception de la meilleure solution pour vos scénarios de commandes vocales.
 
-Les commandes personnalisées sont particulièrement adaptées à la réalisation de tâches ou aux scénarios de commande et de contrôle, en particulier pour les appareils Internet des objets (IoT) ambiants et sans écran. Les exemples incluent des solutions pour les secteurs de l’hôtellerie, de la vente au détail et de l’automobile, qui vous permettent de créer des expériences de commande vocale optimales pour recevoir vos clients, gérer l’inventaire de votre commerce, et contrôler les fonctionnalités d’un véhicule lors de vos déplacements.
-
-> [!TIP]
-> Consultez nos exemples de démonstration sur notre page d’accueil à l’adresse [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands).
+Les commandes personnalisées sont particulièrement adaptées à la réalisation de tâches ou aux scénarios de commande et de contrôle, en particulier pour les appareils Internet des objets (IoT) ambiants et sans écran. Les exemples incluent des solutions pour les secteurs de l’hôtellerie, de la vente au détail et de l’automobile, où vous souhaitez des expériences contrôlées par la voix pour vos invités, la gestion de l’inventaire en magasin ou la fonctionnalité en voiture.
 
 Si vous souhaitez créer des applications de conversation complexes, nous vous recommandons de tester Bot Framework en utilisant la [solution d’assistant virtuel](/azure/bot-service/bot-builder-enterprise-template-overview). Vous pouvez ajouter une voix à n’importe quel Bot Framework avec Direct Line Speech.
 

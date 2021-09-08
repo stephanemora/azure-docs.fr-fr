@@ -3,12 +3,12 @@ title: Azure Key Vault en tant que source Event Grid
 description: Décrit les propriétés et le schéma qui sont fournis pour les événements Azure Key Vault avec Azure Event Grid
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 48f4df660a17c36030b6b6d2396bd96cfec48edc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 31a5e77cc238dcfc774ebc851e864c916206fd9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794083"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532692"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault en tant que source Event Grid
 
@@ -23,13 +23,13 @@ Un compte Azure Key Vault génère les types d’événements suivants :
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | Nouvelle version du certificat créée | Déclenché lors de la création d’un nouveau certificat ou d’une nouvelle version de certificat. |
 | Microsoft.KeyVault.CertificateNearExpiry | Expiration proche du certificat | Déclenché lorsque la version actuelle du certificat arrive à expiration. (L’événement est déclenché 30 jours avant la date d’expiration.) |
-| Microsoft.KeyVault.CertificateExpired | Le certificat a expiré | Déclenché lorsque le certificat a expiré. |
+| Microsoft.KeyVault.CertificateExpired | Le certificat a expiré | Déclenché lorsque la version actuelle d’un certificat a expiré. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Nouvelle version de la clé créée | Déclenché lors de la création d’une nouvelle clé ou version de clé. |
 | Microsoft.KeyVault.KeyNearExpiry | Expiration proche de la clé | Déclenché lorsque la version actuelle d’une clé va expirer. (L’événement est déclenché 30 jours avant la date d’expiration.) |
-| Microsoft.KeyVault.KeyExpired | Clé expirée | Déclenché lorsqu’une clé est arrivée à expiration. |
+| Microsoft.KeyVault.KeyExpired | Clé expirée | Déclenché lorsque la version actuelle d’une clé a expiré. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Nouvelle version du secret créée | Déclenché lors de la création d’un nouveau secret ou d’une nouvelle version de secret. |
 | Microsoft.KeyVault.SecretNearExpiry | Expiration proche du secret | Déclenché lorsque la version actuelle d’un secret est sur le point d’expirer. (L’événement est déclenché 30 jours avant la date d’expiration.) |
-| Microsoft.KeyVault.SecretExpired | Secret expiré | Déclenché lorsqu’un secret est arrivé à expiration. |
+| Microsoft.KeyVault.SecretExpired | Secret expiré | Déclenché lorsque la version actuelle d’un secret a expiré. |
 | Microsoft.KeyVault.VaultAccessPolicyChanged | Modification de la stratégie d’accès au coffre | Déclenché lors de la modification d’une stratégie d’accès sur Key Vault. Il comprend un scénario dans lequel le modèle d’autorisation de Key Vault est modifié vers/depuis le contrôle d’accès en fonction du rôle Azure.   |
 
 ## <a name="event-examples"></a>Exemples d’événement

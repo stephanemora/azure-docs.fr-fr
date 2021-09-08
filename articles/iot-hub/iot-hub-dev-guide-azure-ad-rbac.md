@@ -7,21 +7,21 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 08/24/2021
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b6ea56942580b3b8785dcf2b694b30ad64e8a258
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.openlocfilehash: 30be3718215c31566f36d931266e0e5cdf039357
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112894956"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867239"
 ---
 # <a name="control-access-to-iot-hub-using-azure-active-directory"></a>Contrôler l’accès à IoT Hub à l’aide d’Azure Active Directory
 
 Azure IoT Hub prend en charge l’utilisation d’Azure Active Directory (AAD) pour authentifier les demandes à ses API de service, telles que la création de l’identité de l’appareil ou l’appel d’une méthode directe. En outre, IoT Hub prend en charge l’autorisation des mêmes API de service avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Ensemble, vous pouvez accorder des autorisations pour accéder aux API de service d’IoT Hub pour un principal de sécurité AAD, qui peut être un utilisateur, un groupe ou un principal de service d’application.
 
-L’authentification de l’accès avec Azure AD et le contrôle des autorisations avec Azure RBAC offrent une sécurité et une facilité d’utilisation supérieures à celles des [jetons de sécurité](iot-hub-dev-guide-sas.md). Pour limiter les failles de sécurité potentielles inhérentes aux jetons de sécurité, Microsoft recommande d’utiliser Azure AD avec IoT Hub chaque fois que cela est possible.
+L’authentification de l’accès avec Azure AD et le contrôle des autorisations avec Azure RBAC offrent une sécurité et une facilité d’utilisation supérieures à celles des [jetons de sécurité](iot-hub-dev-guide-sas.md). Pour limiter les failles de sécurité potentielles inhérentes aux jetons de sécurité, Microsoft recommande d’[utiliser Azure AD avec IoT Hub chaque fois que cela est possible](#azure-ad-access-and-shared-access-policies). 
 
 > [!NOTE]
 > L’authentification avec Azure AD n’est pas prise en charge pour les *API d’appareil* d’IoT Hub (comme les messages appareil-à-cloud et les propriétés de mise à jour signalées). Utilisez des [clés symétriques](iot-hub-dev-guide-sas.md#use-a-symmetric-key-in-the-identity-registry) ou [X.509](iot-hub-x509ca-overview.md) pour authentifier les appareils auprès d’IoT Hub.
@@ -98,7 +98,20 @@ Les tableaux suivants décrivent les autorisations disponibles pour les opérati
 > [!NOTE]
 > Pour obtenir des données d’IoT Hub à l’aide d’Azure AD, [configurez le routage vers un Event Hub distinct](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). Pour accéder au [point de terminaison compatible Event Hub intégré](iot-hub-devguide-messages-read-builtin.md), utilisez la méthode de la chaîne de connexion (clé d’accès partagé) comme avant. 
 
-## <a name="azure-ad-access-from-azure-portal"></a>Accès Azure AD à partir du portail Azure
+## <a name="azure-ad-access-and-shared-access-policies"></a>Stratégies d’accès et d’accès partagé Azure AD
+
+Par défaut, IoT Hub prend en charge l’accès à l’API de service par Azure AD, ainsi que des [stratégies d’accès partagé et des jetons de sécurité](iot-hub-dev-guide-sas.md). Pour limiter les failles de sécurité potentielles inhérentes aux jetons de sécurité, désactivez l’accès avec des stratégies d’accès partagé : 
+
+1. Assurez-vous que les clients et les utilisateurs de votre service disposent de droits d’[accès suffisants](#manage-access-to-iot-hub-using-azure-rbac-role-assignment) à votre IoT Hub suivant le [principe des privilèges minimum](../security/fundamentals/identity-management-best-practices.md).
+1. Accédez à votre IoT Hub dans le [Portail Azure](https://portal.azure.com).
+1. Sur la gauche, sélectionnez **Stratégies d’accès partagé**.
+1. Sous **Connecter à l’aide de stratégies d’accès partagé**, sélectionnez **Refuser**.
+    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Capture d’écran du portail Azure montrant comment désactiver les stratégies d’accès partagé IoT Hub":::
+1. Lisez l’avertissement, puis sélectionnez **Enregistrer**.
+
+Vos API de service IoT Hub peuvent à présent uniquement être accessibles à l’aide d’Azure AD et du contrôle d’accès en fonction du rôle.
+
+## <a name="azure-ad-access-from-the-azure-portal"></a>Accès à Azure AD à partir du portail Azure
 
 Lorsque vous essayez d’accéder à IoT Hub, le portail Azure vérifie d’abord si un rôle Azure vous a été attribué avec **Microsoft.Devices/iotHubs/listkeys/action**. Dans ce cas, le portail Azure utilise les clés des stratégies d’accès partagé pour accéder à IoT Hub. Sinon, le portail Azure tente d’accéder aux données à l’aide de votre compte Azure AD. 
 

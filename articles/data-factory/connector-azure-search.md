@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 9ff0cdf1e54bb1ae943408eacfd92ed9f49f2be2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: fbeeb112712afa5a47401d10b3f4b2d9f01d1713
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641532"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313729"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche cognitive Azure à l’aide d’Azure Data Factory
 
@@ -33,6 +33,31 @@ Vous pouvez copier des données à partir de toute banque de données source pri
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-search-using-ui"></a>Créer un service lié à Azure Search à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Azure Search dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur d’Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Recherchez Search et sélectionnez le connecteur recherche Azure Search.
+
+   :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Sélectionnez le connecteur Azure Search.":::    
+
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-azure-search/configure-azure-search-linked-service.png" alt-text="Configurez un service lié à Azure Search.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Recherche cognitive Azure.
 

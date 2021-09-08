@@ -6,14 +6,14 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 06/30/2021
-ms.custom: template-quickstart, references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 1464f7f2c9d38b859823ab99e52499642fa4af4b
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 16e271cf6183dce74fad3075a2e8336030960a08
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113595837"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966636"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc
 
@@ -25,7 +25,13 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+* [Procédez à l'installation ou à la mise à niveau d'Azure CLI](/cli/azure/install-azure-cli) vers la version >= 2.16.0
+
+* Installez l’extension **connectedk8s** d’Azure CLI, version >= 1.0.0 :
+
+  ```console
+  az extension add --name connectedk8s
+  ```
 
 * Un cluster Kubernetes fonctionnel. Si vous n'en avez pas, vous pouvez créer un cluster en utilisant l'une des options suivantes :
     * [Kubernetes dans Docker (KIND)](https://kind.sigs.k8s.io/)
@@ -45,25 +51,19 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 
 * Installez la [dernière version de Helm 3](https://helm.sh/docs/intro/install).
 
-* [Procédez à l'installation ou à la mise à niveau d'Azure CLI](/cli/azure/install-azure-cli) vers la version >= 2.16.0
-* Installez l'extension `connectedk8s` d'Azure CLI, version >= 1.0.0 :
-
-  ```console
-  az extension add --name connectedk8s
-  ```
->[!NOTE]
-> Pour les [**emplacements personnalisés**](./custom-locations.md) sur votre cluster, utilisez les régions USA Est ou Europe Ouest. Pour toutes les autres fonctionnalités Kubernetes avec Azure Arc, [sélectionnez n’importe quelle région dans cette liste](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
-
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
-> [!IMPORTANT]
-> Tant que le module PowerShell **Az.ConnectedKubernetes** est en préversion, vous devez l’installer séparément à l’aide de la cmdlet `Install-Module`.
+* [Azure PowerShell version 5.9.0 ou ultérieure](/powershell/azure/install-az-ps)
 
-```azurepowershell-interactive
-Install-Module -Name Az.ConnectedKubernetes
-```
+* Installez le module PowerShell **Az.ConnectedKubernetes** :
+
+    ```azurepowershell-interactive
+    Install-Module -Name Az.ConnectedKubernetes
+    ```
+
+    > [!IMPORTANT]
+    > Tant que le module PowerShell **Az.ConnectedKubernetes** est en préversion, vous devez l’installer séparément à l’aide de la cmdlet `Install-Module`.
 
 * Un cluster Kubernetes fonctionnel. Si vous n'en avez pas, vous pouvez créer un cluster en utilisant l'une des options suivantes :
     * [Kubernetes dans Docker (KIND)](https://kind.sigs.k8s.io/)
@@ -83,12 +83,7 @@ Install-Module -Name Az.ConnectedKubernetes
 
 * Installez la [dernière version de Helm 3](https://helm.sh/docs/intro/install).
 
-* [Azure PowerShell version 5.9.0 ou ultérieure](/powershell/azure/install-az-ps)
-
 ---
-
->[!NOTE]
-> Pour les [**emplacements personnalisés**](./custom-locations.md) sur votre cluster, utilisez les régions USA Est ou Europe Ouest. Pour toutes les autres fonctionnalités Kubernetes avec Azure Arc, [sélectionnez n’importe quelle région dans cette liste](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 ## <a name="meet-network-requirements"></a>Répondre à la configuration réseau nécessaire
 
@@ -100,43 +95,47 @@ Install-Module -Name Az.ConnectedKubernetes
 | ----------------- | ------------- |
 | `https://management.azure.com` (pour le Cloud Azure), `https://management.usgovcloudapi.net` (pour Azure US Government) | Requis pour que l’agent se connecte à Azure et inscrive le cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (pour le Cloud Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (pour Azure US Government) | Point de terminaison du plan de données permettant à l’agent d’envoyer (push) le statut et de récupérer (fetch) les informations de configuration. |
-| `https://login.microsoftonline.com` (pour le Cloud Azure), `https://login.microsoftonline.us` (pour Azure US Government) | Requis pour extraire et mettre à jour des jetons Azure Resource Manager. |
+| `https://login.microsoftonline.com`, `login.windows.net` (pour le Cloud Azure), `https://login.microsoftonline.us` (pour Azure US Government) | Requis pour extraire et mettre à jour des jetons Azure Resource Manager. |
 | `https://mcr.microsoft.com` | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |
 | `https://gbl.his.arc.azure.com` |  Requis pour obtenir le point de terminaison régional pour l’extraction des certificats Managed Service Identity (MSI) attribués par le système. |
-| `https://<region-code>.his.arc.azure.com` (pour le Cloud Azure), `https://usgv.his.arc.azure.us` (pour Azure US Government) |  Indispensable à l’extraction des certificats attribués par le système dans le cadre des identités managées pour les ressources Azure. Mappage de `<region-code>` pour les régions du cloud Azure : `eus` (USA Est), `weu` (Europe Ouest), `wcus` (USA Centre-Ouest), `scus` (USA Centre Sud), `sea` (Asie Sud-Est), `uks` (Royaume-Uni Sud), `wus2` (USA Ouest 2), `ae` (Australie Est), `eus2` (USA Est 2), `ne` (Europe Nord), `fc` (France Centre). |
+| `https://*.his.arc.azure.com` (pour le Cloud Azure), `https://usgv.his.arc.azure.us` (pour Azure US Government) |  Indispensable à l’extraction des certificats attribués par le système dans le cadre des identités managées pour les ressources Azure. |
+|`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | Pour les scénarios basés sur les [connexions de cluster](cluster-connect.md) et sur les [localisations personnalisées](custom-locations.md). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Inscrire les fournisseurs pour Kubernetes avec Azure Arc
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Entrez les commandes suivantes :
-    ```console
+    ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
     az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. Supervisez le processus d’inscription. L’inscription peut prendre jusqu’à 10 minutes.
-    ```console
+    ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
     az provider show -n Microsoft.KubernetesConfiguration -o table
     az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
+    Une fois l’inscription effectuée, vous devriez voir que l’état `RegistrationState` pour ces espaces de noms passe à `Registered`.
+
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 1. Entrez les commandes suivantes :
-    ```azurepowershell-interactive
+    ```azurepowershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
     Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
     Register-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
     ```
 1. Supervisez le processus d’inscription. L’inscription peut prendre jusqu’à 10 minutes.
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
     Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
     Get-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
     ```
 
+    Une fois l’inscription effectuée, vous devriez voir que l’état `RegistrationState` pour ces espaces de noms passe à `Registered`.
 ---
 
 ## <a name="2-create-a-resource-group"></a>2. Créer un groupe de ressources
@@ -145,7 +144,7 @@ Exécutez la commande suivante :
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az group create --name AzureArcTest --location EastUS --output table
 ```
 
@@ -158,7 +157,7 @@ eastus      AzureArcTest
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup -Name AzureArcTest -Location EastUS
 ```
 
@@ -179,7 +178,7 @@ Exécutez la commande suivante :
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -227,7 +226,7 @@ Helm release deployment succeeded
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName AzureArcTest -Location eastus
 ```
 
@@ -240,42 +239,7 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ---
 
-## <a name="4-verify-cluster-connection"></a>4. Vérifier la connexion du cluster
-
-Exécutez la commande suivante :
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```console
-az connectedk8s list --resource-group AzureArcTest --output table
-```
-
-Sortie :
-<pre>
-Name           Location    ResourceGroup
--------------  ----------  ---------------
-AzureArcTest1  eastus      AzureArcTest
-</pre>
-
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
-```
-
-Sortie :
-<pre>
-Location Name          Type
--------- ----          ----
-eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
-</pre>
-
----
-
-> [!NOTE]
-> Après l’intégration du cluster, il faut environ 5 à 10 minutes pour que les métadonnées du cluster (version du cluster, version de l’agent, nombre de nœuds, etc.) soient visibles sur la page Vue d’ensemble de la ressource Kubernetes avec Azure Arc sur le Portail Azure.
-
-## <a name="5-connect-using-an-outbound-proxy-server"></a>5. Établir la connexion via un serveur proxy sortant
+## <a name="4a-connect-using-an-outbound-proxy-server"></a>4a. Se connecter à l’aide d’un serveur proxy sortant
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -301,13 +265,13 @@ Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les 
 
 2. Exécutez la commande connect avec les paramètres de proxy spécifiés :
 
-    ```console
+    ```azurecli
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
-> [!NOTE]
-> * Spécifiez `excludedCIDR` sous `--proxy-skip-range` pour vérifier si la communication des agents au sein du cluster n’est pas interrompue.
-> * `--proxy-http`, `--proxy-https` et `--proxy-skip-range` sont attendus pour la plupart des environnements de serveurs proxy sortants. `--proxy-cert` est nécessaire *uniquement* si vous devez injecter les certificats approuvés attendus par le serveur proxy dans le magasin de certificats approuvés des pods d’agents.
+    > [!NOTE]
+    > * Certaines requêtes réseau, telles que celles impliquant une communication de service à service dans le cluster, doivent être séparées du trafic qui est routé via le serveur proxy pour les communications sortantes. Vous pouvez utiliser le paramètre `--proxy-skip-range` pour spécifier la plage CIDR et les points de terminaison en les séparant par des virgules afin qu’aucune communication depuis les agents vers ces points de terminaison ne passe par le proxy sortant. Au minimum, la plage CIDR des services dans le cluster doit être spécifiée en tant que valeur pour ce paramètre. Par exemple, supposons que `kubectl get svc -A` retourne une liste de services qui, tous, ont des valeurs ClusterIP dans la plage `10.0.0.0/16`. La valeur à spécifier pour `--proxy-skip-range` est donc « 10.0.0.0/16,kubernetes.default.svc ».
+    > * `--proxy-http`, `--proxy-https` et `--proxy-skip-range` sont attendus pour la plupart des environnements de serveurs proxy sortants. `--proxy-cert` est nécessaire *uniquement* si vous devez injecter les certificats approuvés attendus par le serveur proxy dans le magasin de certificats approuvés des pods d’agents.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -325,11 +289,46 @@ Si votre cluster se trouve derrière un serveur proxy sortant, Azure PowerShell
 
 2. Exécutez la commande connect avec les paramètres de proxy spécifiés :
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
     ```
 
 ---
+
+## <a name="5-verify-cluster-connection"></a>5. Vérifier la connexion du cluster
+
+Exécutez la commande suivante :
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az connectedk8s list --resource-group AzureArcTest --output table
+```
+
+Sortie :
+<pre>
+Name           Location    ResourceGroup
+-------------  ----------  ---------------
+AzureArcTest1  eastus      AzureArcTest
+</pre>
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
+```
+
+Sortie :
+<pre>
+Location Name          Type
+-------- ----          ----
+eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
+</pre>
+
+---
+
+> [!NOTE]
+> Après l’intégration du cluster, il faut environ 5 à 10 minutes pour que les métadonnées du cluster (version du cluster, version de l’agent, nombre de nœuds, etc.) soient visibles sur la page Vue d’ensemble de la ressource Kubernetes avec Azure Arc sur le Portail Azure.
 
 ## <a name="6-view-azure-arc-agents-for-kubernetes"></a>6. Voir les agents Azure Arc pour Kubernetes
 
@@ -371,7 +370,7 @@ Un Kubernetes à extension Azure Arc déploie quelques opérateurs dans l’espa
 
 Vous pouvez supprimer la ressource Kubernetes avec Azure Arc, toutes les ressources de configuration associées *et* tous les agents s’exécutant sur le cluster à l’aide d’Azure CLI et de la commande suivante :
 
-```console
+```azurecli
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -382,7 +381,7 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 
 Vous pouvez supprimer la ressource Kubernetes avec Azure Arc, toutes les ressources de configuration associées *et* tous les agents s’exécutant sur le cluster à l’aide d’Azure PowerShell et de la commande suivante :
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName AzureArcTest
 ```
 

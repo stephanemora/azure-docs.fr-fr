@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c62c1e854e55b8817724c78bc325badc703bc27
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91744092"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250660"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Exigences relatives au stockage Blob Azure Data Box
 
@@ -26,13 +26,13 @@ Nous vous recommandons de lire attentivement les informations suivantes avant de
 
 |     Fonctionnalité                                             |     Stockage Azure                                     |     Stockage Blob Data Box |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Présentation du stockage de fichiers                                   |    Partages de fichiers SMB sur le cloud pris en charge              |    Non pris en charge      |
+|    Azure Files                                   |    Partages de fichiers SMB et NFS sur le cloud pris en charge               |    Non pris en charge      |
 |    Service Encryption pour les données au repos                  |    Chiffrement AES 256 bits                             |    Chiffrement AES 256 bits |
 |    Type de compte de stockage                                 |    Comptes de stockage à usage général et comptes de stockage d’objets blob Azure    |    Comptes de stockage à usage général v1 uniquement|
 |    Nom de l’objet blob                                            |    1 024 caractères (2 048 octets)                     |    880 caractères (1 760 octets)|
-|    Taille maximale des objets blob de blocs                              |    4,75 To (100 Mo X 50 000 blocs)                   |    4,75 To (100 Mo x 50 000 blocs) pour Azure Data Box v 3.0 et versions ultérieures.|
-|    Taille maximale des objets blob de pages                               |    8 To                                               |    1 To                   |
-|    Taille de page d’un objet blob de pages                                  |    512 octets                                          |    4 Ko                   |
+|    Taille maximale des objets blob de blocs                              |    4,75 Tio (100 Mo X 50 000 blocs)                   |    4,75 Tio (100 Mo x 50 000 blocs) pour Azure Data Box v 3.0 et versions ultérieures.|
+|    Taille maximale des objets blob de pages                               |    8 Tio                                               |    1 Tio                   |
+|    Taille de page d’un objet blob de pages                                  |    512 octets                                          |    4 Kio                   |
 
 ## <a name="supported-api-versions"></a>Versions d'API prises en charge
 

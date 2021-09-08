@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 7242749958d12b8d93f667b91ed005096d75f1e4
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 0c93edf2d7d017ea857e4e8ac915818a3b7f1d02
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538722"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311373"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Tutoriel : Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
@@ -199,6 +199,30 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
+
+> [!NOTE]
+> Vous pouvez utiliser le [Moniteur de connexion](how-to-configure-connection-monitor.md) pour vérifier que votre trafic atteint la destination à l’aide de FastPath.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>S’inscrire aux fonctionnalités d’ExpressRoute FastPath (préversion)
+
+La prise en charge de FastPath pour l’appairage de réseaux virtuels est désormais en préversion publique.
+
+### <a name="fastpath-and-virtual-network-peering"></a>FastPath et appairage de réseaux virtuels
+
+Avec FastPath et l’appairage de réseaux virtuels, vous pouvez activer la connectivité ExpressRoute directement aux machines virtuelles dans un réseau virtuel local ou appairé, en contournant la passerelle de réseau virtuel ExpressRoute dans le chemin des données.
+
+Pour vous inscrire à cette préversion, exécutez la commande Azure PowerShell suivante dans l’abonnement Azure cible :
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
+```
+
+> [!NOTE] 
+> Toutes les connexions configurées pour FastPath dans l’abonnement cible sont inscrites à cette préversion. Nous ne recommandons pas l’activation de cette préversion dans les abonnements de production.
+> Si vous avez déjà configuré FastPath et que vous souhaitez vous inscrire à la fonctionnalité en préversion, vous devez effectuer les opérations suivantes :
+> 1. Inscrivez-vous à la fonctionnalité en préversion FastPath avec la commande Azure PowerShell ci-dessus.
+> 1. Désactivez, puis réactivez FastPath sur la connexion cible.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

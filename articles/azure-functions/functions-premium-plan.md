@@ -9,16 +9,19 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: e53089c2287d255fd3dbe6ca7961646e0e3de05a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2ac7aa7d5078359f747e141971eabeba21eab3e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457421"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968729"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
-Le plan Azure Functions Premium (parfois appelé plan Elastic Premium) est une option d'hébergement destinée aux applications de fonction. Pour d’autres options de plan d’hébergement, consultez l’[article sur le plan d’hébergement](functions-scale.md).
+Le plan Élastique Premium Azure Functions est une option d’hébergement à échelle dynamique pour les applications de fonction. Pour d’autres options de plan d’hébergement, consultez l’[article sur le plan d’hébergement](functions-scale.md).
+
+>[!IMPORTANT]
+>Azure Functions s’exécute sur la plateforme Azure App Service. Dans la plateforme App Service, les plans qui hébergent les applications de fonction du plan Premium sont appelés des plans *Élastique Premium*, avec des noms de référence SKU tels que `EP1`. Si vous choisissez d’exécuter votre application de fonction sur un plan Premium, veillez à créer un plan avec un nom de référence SKU qui commence par « E », par exemple `EP1`. Les noms des références SKU du plan App Service qui commencent par « P », par exemple `P1V2` (plan Premium V2 Small), sont en fait des [plans d’hébergement dédiés](dedicated-plan.md). Comme ils sont Dédiés et non Élastique Premium, les plans avec des noms de références SKU commençant par « P » ne sont pas mis à l’échelle de façon dynamique et peuvent augmenter vos coûts. 
 
 L’hébergement du plan Premium offre les avantages suivants à vos fonctions :
 
@@ -158,7 +161,7 @@ Et pour les plans avec plus de 4 Go de mémoire, vérifiez que le paramètre de
 
 ## <a name="region-max-scale-out"></a>Scale-out maximal par région
 
-Vous trouverez ci-dessous les valeurs maximales de scale-out actuellement prises en charge pour un même plan dans chaque région et configuration de système d’exploitation. Pour demander une augmentation, vous pouvez ouvrir un ticket de support.
+Vous trouverez ci-dessous les valeurs maximales de scale-out actuellement prises en charge pour un même plan dans chaque région et configuration de système d’exploitation.
 
 Consultez la disponibilité régionale complète de Functions sur le [site web Azure](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 

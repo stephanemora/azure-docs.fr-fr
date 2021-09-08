@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/27/2021
-ms.openlocfilehash: d0390bd70080ea0174a81cce9538396321dec658
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3a8c00dcb2bf016cf70f02dcfdebc5e55bf5d66c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539359"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563487"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Retourner une réponse sémantique dans Recherche cognitive Azure
 
 > [!IMPORTANT]
-> La fonctionnalité de recherche sémantique en préversion publique est sujette à des [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, une API REST en préversion et des kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
+> La Recherche sémantique est en préversion publique et sujette à des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, la préversion de l’API REST et les Kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
 
 En appelant [le classement sémantique et les légendes](semantic-how-to-query-request.md), vous pouvez extraire des documents correspondant le mieux à votre requête du contenu « répondant » directement à celle-ci. Une ou plusieurs réponses peuvent être incluses, et vous pouvez ensuite les afficher sur une page de recherche pour améliorer l’expérience utilisateur de votre application.
 
@@ -69,7 +69,7 @@ Le paramètre « searchFields » est crucial pour renvoyer une réponse de hau
 
 + Le paramètre « searchFields » (champs de recherche) détermine les champs qui fournissent des jetons, ou segments de texte, au modèle d’extraction. Les mêmes champs qui produisent des légendes produisent également des réponses. Pour obtenir des conseils précis sur la façon de définir ce champ de manière à ce qu’il fonctionne tant pour les légendes que pour les réponses, consultez [Définir searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ Pour « answers », la construction de paramètre est `"answers": "extractive"`, où le nombre de réponses par défaut retourné est un. Vous pouvez augmenter le nombre de réponses en ajoutant une valeur de `count`, comme dans l’exemple ci-dessus, jusqu’à cinq.  Le fait que vous ayez besoin de plusieurs réponses dépend de l’expérience utilisateur de votre application et de la façon dont vous souhaitez afficher les résultats.
++ Pour « answers », la construction de paramètre est `"answers": "extractive"`, où le nombre de réponses par défaut retourné est un. Vous pouvez augmenter le nombre de réponses en ajoutant une `count`, comme illustré dans l’exemple ci-dessus, sans dépasser un maximum de 10.  Le fait que vous ayez besoin de plusieurs réponses dépend de l’expérience utilisateur de votre application et de la façon dont vous souhaitez afficher les résultats.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Décomposer une réponse à partir du résultat reçu
 

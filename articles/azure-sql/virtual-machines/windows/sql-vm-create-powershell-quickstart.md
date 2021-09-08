@@ -14,12 +14,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3a9090ace9fce69b0b9a1a445b498fc662f7ba3
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8bfcd62558fd7e10bd4e4d80d3f0e8c04f5ba233
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079514"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220651"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : Créer un serveur SQL Server sur une machine virtuelle Windows avec Azure PowerShell
 
@@ -153,29 +153,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour connaître les fonctionnalités d’intégration au portail et de machine virtuelle SQL, vous devez vous inscrire auprès de l’[extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 
-Pour obtenir toutes les fonctionnalités, vous devez vous inscrire auprès de l’extension en mode complet. Toutefois, cette opération redémarre le service SQL Server. L’approche recommandée consiste donc à s’inscrire en mode léger, puis à effectuer une mise à niveau vers le mode complet au cours d’une fenêtre de maintenance. 
-
-Inscrivez d’abord la machine virtuelle SQL Server en mode léger : 
-
-```powershell-interactive
-# Get the existing compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-        
-# Register SQL VM with 'Lightweight' SQL IaaS agent
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-  -LicenseType PAYG -SqlManagementType LightWeight
-```
-
-Ensuite, pendant une fenêtre de maintenance, effectuez une mise à niveau vers le mode complet : 
-
-```powershell-interactive
-# Get the existing Compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-      
-# Register with SQL IaaS Agent extension in full mode
-Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-```
-
+Pour obtenir toutes les fonctionnalités, vous devez vous inscrire auprès de l’extension en [mode complet](sql-agent-extension-manually-register-single-vm.md#full-mode). Dans le cas contraire, inscrivez-vous en mode léger. 
 
 
 ## <a name="remote-desktop-into-the-vm"></a>Bureau à distance dans la machine virtuelle

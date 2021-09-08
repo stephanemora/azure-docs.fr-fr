@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/25/2021
 ms.author: alkohli
-ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa37d5dc9957e39d7fe4f47404bc9aaf249f192f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678924"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226392"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 
@@ -95,6 +95,27 @@ Pour redémarrer votre Data Box, suivez les étapes ci-dessous.
 3. Lorsque vous êtes invité à confirmer, sélectionnez **OK** pour continuer.
 
    L’appareil s’arrête puis redémarre.
+
+## <a name="get-share-credentials"></a>Obtenir les informations d’identification du partage 
+
+Si vous devez déterminer le nom d’utilisateur et le mot de passe à utiliser pour vous connecter à un partage sur votre appareil, vous pouvez trouver les informations d’identification du partage dans **Connecter et copier** dans l’interface utilisateur web locale.
+
+Lorsque vous commandez votre appareil, vous pouvez choisir d’utiliser les mots de passe par défaut générés par le système pour les partages sur votre appareil ou vos propres mots de passe. Dans les deux cas, les mots de passe de partage sont définis en usine et vous ne pouvez pas le modifier. 
+
+Pour obtenir les informations d’identification pour un partage :
+
+1. Dans l’interface utilisateur web locale, accédez à **Connecter et copier**. Sélectionnez **SMB** pour obtenir les informations d’identification nécessaires pour accéder aux partages associés à votre compte de stockage.
+
+   ![Capture d’écran montrant la page Connecter et copier dans l’interface utilisateur web locale pour un Data Box. L’élément de menu Connecter et copier et l’option SMB sont mis en surbrillance.](media/data-box-local-web-ui-admin/get-share-credentials-01.png)
+
+1. Dans la boîte de dialogue **Accéder au partage et copier les données**, utilisez l’icône de copie pour copier le **Nom d’utilisateur** et le **Mot de passe** correspondant au partage. Pour fermer la boîte de dialogue, sélectionnez **OK**.
+
+   ![Capture d’écran montrant la boîte de dialogue Accéder au partage et copier les données dans l’interface utilisateur web locale pour un partage SMB sur le Data Box. L’icône de copie pour les options Compte de stockage et Mot de passe, ainsi que le bouton OK, sont mis en surbrillance.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
+
+> [!NOTE]
+> Après plusieurs échecs de tentative de connexion au partage à l’aide d’un mot de passe incorrect, le compte d’utilisateur est verrouillé sur le partage. Le verrou de compte est effacé au bout de quelques minutes, et vous pouvez vous reconnecter aux partages.  
+> - Data Box 4.1 et versions ultérieures : le compte est verrouillé pendant 15 minutes après 5 échecs de tentative de connexion. 
+> - Data Box 4.0 et versions antérieures : le compte est verrouillé pendant 30 minutes après 3 échecs de tentative de connexion.
 
 ## <a name="download-bom-or-manifest-files"></a>Télécharger les fichiers manifeste ou de nomenclature
 

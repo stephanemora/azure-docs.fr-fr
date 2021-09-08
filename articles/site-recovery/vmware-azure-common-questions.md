@@ -3,18 +3,38 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 006f0a51da933336a354b275bb882e5538832741
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 0e39cd3b9f06620f2004a2afbc869fe22de04468
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535230"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272861"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
 Cet article répond aux questions courantes que vous pouvez vous poser lorsque vous déployez la récupération d’urgence de machines virtuelles VMware locales sur Azure.
 
 ## <a name="general"></a>Général
+
+### <a name="how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-preview-experience"></a>Comment utiliser l’expérience classique dans le coffre Recovery Services plutôt que l’expérience en préversion ? 
+
+Une nouvelle méthode plus fiable pour protéger les machines virtuelles VMware à l’aide de l’appliance de réplication Azure Site Recovery est à présent disponible en [préversion publique](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094). Quand un coffre Recovery Services est créé, l’expérience en préversion est sélectionnée par défaut. 
+
+Pour modifier l’expérience : 
+
+1. Ouvrez le coffre sur le portail Azure. 
+2. Cliquez sur **Site Recovery** sous la section **Démarrer**. 
+3. Cliquez sur la bannière en haut de cette page. 
+
+    [![Modifier la pile VMware étape 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
+
+4. Cela ouvre le volet de sélection d’expérience. Sélectionnez l’expérience classique si vous souhaitez utiliser le serveur de configuration, puis cliquez sur **OK**. Sinon, fermez le volet. 
+
+    [![Modifier la pile VMware étape 2](./media/vmware-azure-common-questions/change-stack-step-2.png)](./media/vmware-azure-common-questions/change-stack-step-2.png#lightbox)
+
+> [!NOTE]
+> Notez qu’une fois que le type d’expérience est passé à l’affichage classique depuis la préversion, il ne peut pas être réactivé dans le même coffre Recovery Services. Assurez-vous que l’expérience souhaitée est sélectionnée, avant d’enregistrer cette modification.
+
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>De quoi ai-je besoin pour la récupération d’urgence d’une machine virtuelle VMware ?
 

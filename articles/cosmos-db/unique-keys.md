@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 951f641c9bded27929a1308d7dfe826a797ae08f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685718"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037139"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,3 +59,6 @@ Les clés uniques ne peuvent être définies qu'au moment de la création d'un c
 
 * En savoir plus sur les [partitions logiques](partitioning-overview.md)
 * Explorer [comment définir des clés uniques](how-to-define-unique-keys.md) lors de la création d’un conteneur
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de la charge de travail actuelle des bases de données, consultez [Estimation des unités de requête avec Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md)

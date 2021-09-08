@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: d4b619476908ad6799b5060cfedf7f55a566afea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: ef7a8ffa73fe03776be38debc523f9d616bda7b1
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641502"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316816"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copier des données depuis et vers le Salesforce Service Cloud à l’aide de Azure Data Factory
 
@@ -54,6 +54,30 @@ Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED 
 ## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-salesforce-service-cloud-using-ui"></a>Créez un service lié à Salesforce Service Cloud à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Salesforce Service Cloud dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié à l’interface utilisateur d’Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Recherchez Salesforce et sélectionnez le connecteur Salesforce Service Cloud.
+
+    :::image type="content" source="media/connector-salesforce-service-cloud/salesforce-service-cloud-connector.png" alt-text="Sélectionnez le connecteur Salesforce Service Cloud.":::    
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-salesforce-service-cloud/configure-salesforce-service-cloud-linked-service.png" alt-text="Configurez un service lié à Salesforce Service Cloud.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Salesforce Service Cloud.
 

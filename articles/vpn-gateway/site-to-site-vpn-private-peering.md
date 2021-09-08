@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4c84b46fe3265b5ada792cbe47d92768e602fa20
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 68dee7e8d00f3f1b6853a7be5c9328647d96371d
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229033"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272076"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configurer une connexion VPN site à site via un peering privé ExpressRoute
 
@@ -22,6 +22,8 @@ Vous pouvez configurer un VPN site à site vers une passerelle de réseau virtue
 * Le trafic via le peering privé est chiffré.
 
 * Les utilisateurs point à site qui se connectent à une passerelle de réseau virtuel peuvent utiliser ExpressRoute (via le tunnel site à site) pour accéder aux ressources locales.
+
+* Il est possible de déployer des connexions VPN de site à site via le peering privé ExpressRoute en même temps que des connexions VPN de site à site via Internet sur la même passerelle VPN.
 
 >[!NOTE]
 >Cette fonctionnalité est uniquement prise en charge sur les passerelles redondantes interzones. Par exemple, VpnGw1AZ, VpnGw2AZ, etc.

@@ -4,12 +4,12 @@ ms.author: cherylmc
 ms.date: 08/17/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: a06b4be25c5c342631c26bb5f1d3270a8851e71b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 563de3b6c57f38d63f2759c62fccc5a17d17dae9
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122516285"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778472"
 ---
 1. Accédez à votre **WAN virtuel**.
 
@@ -19,7 +19,7 @@ ms.locfileid: "122516285"
 
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add.png" alt-text="Capture d’écran montrant un ajout.":::
 
-1. Dans la page **Ajouter une connexion**, configurez les paramètres nécessaires.
+1. Dans la page **Ajouter une connexion**, configurez les paramètres nécessaires. Pour plus d’informations sur le type de routage, consultez [À propos du routage](../articles/virtual-wan/about-virtual-hub-routing.md).
  
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="Capture d’écran montrant la page de connexion au VNet.":::
 

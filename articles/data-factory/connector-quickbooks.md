@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/15/2021
-ms.openlocfilehash: 6a2f55fbaeae6a4db34409ab37b28eb5f1fa3a6f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 36f4d4001d04436fda748b24318ab359e698d450
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641508"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316857"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copier des données de QuickBooks Online à l’aide d’Azure Data Factory (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,6 +38,31 @@ Ce connecteur prend en charge l’authentification OAuth 2.0 de QuickBooks.
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-quickbooks-using-ui"></a>Créer un service lié à QuickBooks à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à QuickBooks dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Recherchez QuickBooks et sélectionnez le connecteur QuickBooks.
+
+   :::image type="content" source="media/connector-quickbooks/quickbooks-connector.png" alt-text="Capture d’écran du connecteur QuickBooks.":::    
+
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-quickbooks/configure-quickbooks-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour QuickBooks.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur QuickBooks.
 

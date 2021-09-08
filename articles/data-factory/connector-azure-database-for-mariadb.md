@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/04/2019
-ms.openlocfilehash: 91285b6cf9982635536df6752ba1d9651b57f2ab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 511c98ed8a0bbc62d8272999d0e735eb6362c9f7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642002"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314397"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copier des données à partir d’Azure Database for MariaDB avec Azure Data Factory 
 
@@ -36,6 +36,31 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-database-for-mariadb-using-ui"></a>Créer un service lié à une base de données Azure Database for MariaDB à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Azure Database for MariaDB dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur d’Azure Synapse.":::
+
+2. Recherchez Maria et sélectionnez le connecteur Azure Database for MariaDB.
+
+   :::image type="content" source="media/connector-azure-database-for-mariadb/azure-database-for-mariadb-connector.png" alt-text="Capture d’écran du connecteur Azure Database for MariaDB.":::    
+
+
+1. Configurez les détails du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-azure-database-for-mariadb/configure-azure-database-for-mariadb-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Azure Database for MariaDB.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Azure Database for MariaDB.
 

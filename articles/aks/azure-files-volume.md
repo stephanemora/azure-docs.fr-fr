@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrir comment créer manuellement un volume avec Azure Files pour une utilisation simultanée avec plusieurs pods dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 7f3c8ae63e908f440740277084293a011b80b9d7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/08/2021
+ms.openlocfilehash: c68783cd614ca5dc1a569f17365992a378d225b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776085"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562454"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume avec un partage Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -68,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## <a name="mount-file-share-as-an-inline-volume"></a>Monter le partage de fichiers comme un volume inlined
-> Remarque : À partir des versions 1.18.15, 1.19.7, 1.20.2 et 1.21.0, l’espace de noms secret dans le volume `azureFile` inlined ne peut être défini que comme espace de nom `default`. Pour spécifier un espace de nom secret différent, utilisez plutôt l’exemple de volume persistant ci-dessous.
+> Remarque : `azureFile` le volume Inline peut uniquement accéder à la clé secrète dans le même espace de noms que pod. Pour spécifier un espace de noms de secret différent, utilisez plutôt un exemple de volume persistant.
 
 Pour monter le partage Azure Files dans votre pod, configurez le volume dans les spécifications du conteneur. Créez un fichier nommé `azure-files-pod.yaml` avec le contenu suivant. Si vous avez renommé le partage de fichier ou le secret, mettez à jour les valeurs *shareName* et *secretName*. Si vous le souhaitez, actualisez `mountPath`. Il s’agit du chemin du partage Azure Files qui a été monté dans le pod. Pour les conteneurs Windows Server, spécifiez un *chemin de montage* en utilisant la convention de chemin Windows, par exemple, *'D:'* .
 
@@ -226,6 +226,14 @@ Mettez à jour les spécifications de votre conteneur pour référencer votre *P
   - name: azure
     persistentVolumeClaim:
       claimName: azurefile
+```
+
+Comme la spécification pod ne peut pas être mise à jour sur place, utilisez `kubectl` les commandes pour supprimer, puis recréer le pod :
+
+```console
+kubectl delete pod mypod
+
+kubectl apply -f azure-files-pod.yaml
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

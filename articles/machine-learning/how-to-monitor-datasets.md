@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: sgilley
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: wibuchan
+author: buchananwp
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: e73b14e24fffacde11e355ae5a4caf0cb76f07ba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5d4c3974bdd1ef90556d19e3ca49cc613d36923d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884873"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562398"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 
@@ -41,7 +41,7 @@ Vous pouvez afficher les métriques de dérive des données avec le kit de déve
 ## <a name="prerequisites"></a>Prérequis
 
 Pour créer et utiliser des analyses de jeux de données, vous avez besoin des éléments suivants :
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 * Le [SDK Azure Machine Learning pour Python installé](/python/api/overview/azure/ml/install), qui inclut le paquet azureml-datasets.
 * Données structurées (tabulaires) avec un horodatage spécifié dans le chemin d’accès du fichier, le nom de fichier ou la colonne dans les données.
@@ -102,7 +102,7 @@ Le moniteur compare les jeux de données de base et cibles.
 
 ## <a name="create-target-dataset"></a>Créer un jeu de données cible
 
-Le jeu de données cible doit avoir la caractéristique `timeseries` définie sur cette valeur en spécifiant la colonne timestamp à partir d’une colonne de données ou d’une colonne virtuelle dérivée du modèle de chemin d’accès des fichiers. Créez un jeu de données avec timestamp en utilisant le [SDK Python](#sdk-dataset) ou [Azure Machine Learning Studio](#studio-dataset). Une colonne représentant un « timestamp » doit être spécifiée pour ajouter une caractéristique `timeseries` au jeu de données. Si vos données sont partitionnées dans une structure de dossiers avec des informations temporelles, telles que « {yyyyyy/MM/dd} », vous pouvez créer une colonne virtuelle via le paramètre de modèle de chemin d’accès et la définir comme « timestamp de partition » afin de mettre l’accent sur les séries temporelles.
+Le jeu de données cible doit avoir la caractéristique `timeseries` définie sur cette valeur en spécifiant la colonne timestamp à partir d’une colonne de données ou d’une colonne virtuelle dérivée du modèle de chemin d’accès des fichiers. Créez un jeu de données avec timestamp en utilisant le [SDK Python](#sdk-dataset) ou [Azure Machine Learning Studio](#studio-dataset). Une colonne représentant un « timestamp » doit être spécifiée pour ajouter une caractéristique `timeseries` au jeu de données. Si vos données sont partitionnées dans une structure de dossiers avec des informations temporelles, telles que « {yyyyyy/MM/dd} », créez une colonne virtuelle via le paramètre de modèle de chemin d’accès et définissez-la comme « timestamp de partition » afin d’activer la fonctionnalité API sur les séries temporelles.
 
 # <a name="python"></a>[Python](#tab/python)
 <a name="sdk-dataset"></a>
@@ -147,11 +147,11 @@ Dans l’exemple suivant, toutes les données sous le sous-dossier *NoaaIsdFlori
 
 [![Format de partition](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
-Dans les paramètres **Schéma**, spécifiez la colonne Timestamp d’une colonne virtuelle ou réelle dans le jeu de données spécifié :
+Dans les paramètres **Schéma**, spécifiez la colonne **timestamp** à partir d’une colonne virtuelle ou réelle dans le jeu de données spécifié. Ce type indique que vos données ont une composante temporelle. 
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Définir le timestamp":::
 
-Si vos données sont partitionnées par date, comme c’est le cas ici, vous pouvez également spécifier le timestamp de partition.  Cela permet un traitement plus efficace des dates.
+Si vos données sont déjà partitionnées par date ou durée, comme c’est le cas ici, vous pouvez également spécifier le **timestamp de partition**. Cela permet un traitement plus efficace des dates et active les API TimeSeries que vous pouvez exploiter pendant la formation.
 
 :::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Timestamp de partition":::
 
@@ -175,7 +175,7 @@ from datetime import datetime
 ws = Workspace.from_config()
 
 # get the target dataset
-dset = Dataset.get_by_name(ws, 'target')
+target = Dataset.get_by_name(ws, 'target')
 
 # set the baseline dataset
 baseline = target.time_before(datetime(2019, 2, 1))

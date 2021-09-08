@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 7bddb61bbbab008fad4e538400bbe4396ac744b4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 555bc5c14a769c6e2ec309347fd40e4e9aa9e1e3
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723457"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681406"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Déployer une surveillance continue des menaces SAP (préversion publique)
 
@@ -35,13 +35,16 @@ Pour ingérer des journaux SAP dans Azure Sentinel, le connecteur de données SA
 
 Une fois le connecteur de données SAP déployé, déployez le contenu de sécurité de la solution SAP pour avoir un aperçu de l’environnement SAP de votre organisation et améliorer les fonctionnalités d’opération de sécurité associées.
 
-Ce tutoriel décrit les opérations suivantes :
+Dans cet article, vous apprenez :
 
 > [!div class="checklist"]
 > * Comment préparer votre système SAP pour le déploiement du connecteur de données SAP
 > * Comment utiliser un conteneur Docker et une machine virtuelle Azure pour déployer le connecteur de données SAP
 > * Comment déployer le contenu de sécurité de la solution SAP dans Azure Sentinel
 
+> [!NOTE]
+> Des étapes supplémentaires sont nécessaires pour déployer votre connecteur de données SAP via une connexion SNC sécurisée. Pour plus d’informations, consultez [Déployer le connecteur de données SAP Azure Sentinel avec SNC](sap-solution-deploy-snc.md).
+>
 ## <a name="prerequisites"></a>Prérequis
 
 Pour déployer le connecteur de données SAP Azure Sentinel et le contenu de sécurité comme décrit dans ce tutoriel, vous devez disposer des éléments suivants :
@@ -299,7 +302,20 @@ Si vous avez un conteneur Docker s’exécutant avec une version antérieure du 
     ./ sapcon-instance-update.sh
     ```
 
-Le conteneur Docker du connecteur de données SAP sur votre ordinateur est mis à jour.
+1. Redémarrez le conteneur Docker :
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
+
+Le conteneur Docker du connecteur de données SAP sur votre ordinateur est mis à jour. 
+
+Veillez à rechercher toute autre mise à jour disponible :
+
+- Demandes de modification SAP pertinentes dans le [dépôt GitHub Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR)
+- Contenu de sécurité SAP dans la solution **Supervision continue des menaces pour SAP Azure Sentinel**
+- Listes de surveillance pertinentes dans le [dépôt GitHub Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)
+
 
 ## <a name="collect-sap-hana-audit-logs"></a>Collecter les journaux d’audit SAP HANA
 
@@ -336,6 +352,7 @@ Si les journaux d’audit de la base de données SAP HANA sont configurés avec
 
 En savoir plus sur les solutions SAP Azure Sentinel :
 
+- [Déployer le connecteur de données SAP Azure Sentinel avec SNC](sap-solution-deploy-snc.md)
 - [Options de configuration pour experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
 - [Exigences de SAP détaillées pour la solution SAP Azure Sentinel](sap-solution-detailed-requirements.md)
 - [Informations de référence sur les journaux de la solution SAP Azure Sentinel](sap-solution-log-reference.md)

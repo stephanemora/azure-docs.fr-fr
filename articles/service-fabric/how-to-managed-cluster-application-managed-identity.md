@@ -1,18 +1,18 @@
 ---
-title: Configurer et utiliser l’identité managée de l’application sur des nœuds de cluster managé Service Fabric
-description: Découvrez comment configurer et utiliser une identité managée d’application sur un cluster managé Azure Service Fabric déployé à partir d’un modèle ARM.
+title: Configurer et utiliser des applications avec identité managée sur un cluster managé Service Fabric
+description: Découvrez comment configurer et utiliser une application avec identité managée sur un cluster managé Azure Service Fabric déployé à partir d’un modèle Azure Resource Manager.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 4e488f9ebb78208617ca59fdb88dbec454de10e1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 8/23/2021
+ms.openlocfilehash: 5007f17754572c03ff820ecda1bb09f6e8a8020e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958280"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864748"
 ---
-# <a name="deploy-a-service-fabric-application-with-managed-identity"></a>Déployer une application Service Fabric avec une identité managée
+# <a name="deploy-an-application-with-managed-identity-to-a-service-fabric-managed-cluster"></a>Déployer une application avec identité managée sur un cluster managé Service Fabric
 
-Pour déployer une application Service Fabric avec une identité managée, l’application doit être déployée via Azure Resource Manager, généralement avec un modèle Azure Resource Manager. Pour plus d’informations sur le déploiement d’une application Service Fabric via Azure Resource Manager, consultez [Gérer des applications et services en tant que ressources Azure Resource Manager](service-fabric-application-arm-resource.md).
+Pour déployer une application Service Fabric avec une identité managée, l’application doit être déployée via Azure Resource Manager, généralement avec un modèle Azure Resource Manager. Pour plus d’informations sur le déploiement d’une application Service Fabric via Azure Resource Manager, consultez [Déployer une application sur un cluster managé à l’aide d’Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md).
 
 > [!NOTE] 
 > 
@@ -195,6 +195,5 @@ Cette propriété déclare, pour Azure Resource Manager, et l’identité manag�
     Il s’agit du mappage équivalent d’une identité à un service, comme décrit ci-dessus, mais du point de vue de la définition de service. L’identité est référencée ici par son nom convivial (`WebAdmin`), comme déclaré dans le manifeste de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](./how-to-managed-identity-service-fabric-app-code.md)
-* [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)
+* [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](how-to-managed-identity-service-fabric-app-code.md)
+* [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](how-to-grant-access-other-resources.md)

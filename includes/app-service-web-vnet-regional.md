@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 399ce5e8714eb6935e3c2eac06ed44b712a14e35
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609483"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532298"
 ---
 L’utilisation de l’intégration au réseau virtuel régional permet à votre application d’accéder aux :
 
@@ -37,7 +37,7 @@ Par défaut, votre application route seulement le trafic RFC1918 vers votre rés
 1. Sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> Lorsque vous routez tout le trafic sortant vers votre réseau virtuel, il est soumis aux groupes de sécurité réseau et aux routes définies par l’utilisateur appliqués à votre sous-réseau d’intégration. Lorsque `WEBSITE_VNET_ROUTE_ALL` est défini sur `1`, le trafic sortant est toujours envoyé à partir des adresses répertoriées dans les propriétés de votre application, sauf si vous fournissez des itinéraires qui dirigent le trafic ailleurs.
+> Lorsque vous routez tout le trafic sortant vers votre réseau virtuel, il est soumis aux groupes de sécurité réseau et aux routes définies par l’utilisateur appliqués à votre sous-réseau d’intégration. Lorsque `WEBSITE_VNET_ROUTE_ALL` est défini sur `1`, le trafic sortant vers des adresses IP publiques est toujours envoyé à partir des adresses listées dans les propriétés de votre application, sauf si vous fournissez des itinéraires qui dirigent le trafic ailleurs.
 > 
 > L’intégration au réseau virtuel régional n’est pas en mesure d’utiliser le port 25.
 

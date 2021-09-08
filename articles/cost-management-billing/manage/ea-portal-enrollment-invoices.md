@@ -3,18 +3,18 @@ title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/05/2021
+ms.date: 08/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8750ad846b832eb4fe037568d3b99f299cfe121b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 77f463d34ebd05e39876933d65631371acff1707
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790628"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535431"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -316,7 +316,7 @@ La facture combinée indique d'abord l'utilisation Azure, puis les frais éventu
 
 S’il n’y a pas d’utilisation de dépassement à la fin du cycle de facturation standard, les frais facturés séparément sont facturés séparément. Ce processus s'applique aux clients en Australie, au Japon et à Singapour.
 
-Les services suivants sont facturés séparément :
+Les services suivants sont des exemples de frais facturés séparément. Vous pouvez obtenir la liste complète des services dont les frais sont facturés séparément en soumettant une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 - Canonical
 - Citrix XenApp Essentials

@@ -8,12 +8,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 05/11/2021
-ms.openlocfilehash: 606197b7dbc327c80da9d8a1ed9f3b933dad176a
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 781cce588654ab5babcd74277a3fca97f9f906c1
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810572"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252567"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Principal de service Azure Active Directory avec Azure SQL
 
@@ -80,7 +80,7 @@ Pour permettre la création d’un objet Azure AD dans SQL Database pour le com
 > [!IMPORTANT]
 > Les étapes 1 et 2 doivent être exécutées dans l’ordre indiqué ci-dessus. Tout d’abord, créez ou attribuez l’identité du serveur, puis accordez-lui ’autorisation [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers). Si vous omettez l’une de ces étapes, ou les deux, une erreur d’exécution se produira lors de la création d’un objet Azure AD dans Azure SQL pour le compte d’une application Azure AD.
 >
-> Dans la **préversion publique**, vous pouvez affecter le rôle **Lecteurs de répertoire** à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité managée en tant que membre de ce groupe, évitant ainsi qu’un **Administrateur général** ou **Administrateur de rôles privilégiés** accorde le rôle **Lecteurs de répertoire**. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs d’annuaires dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
+> Vous pouvez affecter le rôle **Lecteurs de répertoire** à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité managée en tant que membre de ce groupe, évitant ainsi qu’un **Administrateur général** ou **Administrateur de rôles privilégiés** accorde le rôle **Lecteurs de répertoire**. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs d’annuaires dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations"></a>Résolution des problèmes et limitations
 

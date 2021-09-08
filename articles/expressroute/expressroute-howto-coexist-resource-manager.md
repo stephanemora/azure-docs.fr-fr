@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 3b6ed39c11e3f90b986ef904ff3f8e9ff3158d0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc202359e90024ee73c3041013eef9c2da814045
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574167"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835828"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -37,6 +37,7 @@ Les étapes de configuration de ces deux scénarios sont décrites dans cet arti
 
 ## <a name="limits-and-limitations"></a>Limites et limitations
 * **Seule la passerelle VPN basée sur un itinéraire est prise en charge.** Vous devez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) basée sur un itinéraire. Vous pouvez également utiliser une passerelle VPN basée sur un itinéraire avec une connexion VPN configurée pour les « sélecteurs de trafic basés sur des stratégies », comme décrit dans [se connecter à plusieurs périphériques VPN basés sur des stratégies](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+* **Les configurations de passerelle VPN et ExpressRoute coexistants ne sont pas prises en charge par la référence SKU De base**.
 * **L’ASN de la passerelle VPN Azure doit être défini sur 65515.** La passerelle VPN Azure prend en charge le protocole de routage BGP. Pour qu’ExpressRoute et Azure VPN fonctionnent ensemble, vous devez conserver la valeur par défaut (65515) du numéro ASN de votre passerelle Azure VPN. Si vous avez précédemment sélectionné un ASN autre que 65515 et que vous changez le paramètre en lui affectant la valeur 65515, vous devez réinitialiser la passerelle VPN pour que le paramètre prenne effet.
 * **Le sous-réseau de la passerelle doit correspondre à /27 ou à un préfixe plus court**, (tel que /26,/25), à défaut de quoi un message d’erreur s’affiche lorsque vous ajoutez la passerelle de réseau virtuel ExpressRoute.
 * **La coexistence dans un réseau virtuel à double pile n’est pas prise en charge.** Si vous utilisez la prise en charge IPv6 ExpressRoute et une passerelle ExpressRoute à double pile, la coexistence avec la passerelle VPN n’est pas possible.

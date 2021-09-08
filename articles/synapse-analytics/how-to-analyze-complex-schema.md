@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4004887a4806a5b8e50429031fb204f4eec5000
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0130379b5c9225329bde1d49c119eaec446d17de
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627963"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112621"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analyser des types de données complexes dans Azure Synapse Analytics
 
@@ -220,5 +220,6 @@ Il existe deux types d’opérations :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Découvrez comment interroger Synapse Link pour Azure Cosmos DB à l’aide de Spark](./synapse-link/how-to-query-analytical-store-spark-3.md)
 * [Découvrez comment interroger Synapse Link pour Azure Cosmos DB à l’aide de Spark](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Interroger des types imbriqués Parquet](./sql/query-parquet-nested-types.md)

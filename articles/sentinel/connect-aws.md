@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 6e970d39d927a9e0aa522ad6a498388e2217b5d4
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: b1e514d208f7d5d0a2e290c95aa5508166a3e2f7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525993"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251472"
 ---
-# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Connecter Azure Sentinel à AWS CloudTrail
+# <a name="connect-aws-cloudtrail-to-azure-sentinel"></a>Connecter AWS CloudTrail à Azure Sentinel
 
 Utilisez le connecteur AWS pour diffuser tous vos événements AWS CloudTrail vers Azure Sentinel. Ce processus de connexion délègue l’accès pour Azure Sentinel à vos journaux de ressources AWS, créant une relation d’approbation entre AWS CloudTrail et Azure Sentinel. Pour ce faire, un rôle est créé sur AWS, qui autorise Azure Sentinel à accéder à vos journaux d’activité AWS.
 
@@ -39,7 +39,7 @@ Vous devez disposer de l’autorisation d’écriture sur l’espace de travail 
 ## <a name="connect-aws"></a>Connecter AWS 
 
 
-1. Dans Azure Sentinel, sélectionnez **Connecteurs de données**, puis la ligne **Amazon Web Services** dans la table et dans le volet AWS de droite, cliquez sur **Open connector page** (Ouvrir la page du connecteur).
+1. Dans Azure Sentinel, sélectionnez **Connecteurs de données**, puis la ligne **Amazon Web Services** dans la table et dans le volet AWS de droite, cliquez sur **Ouvrir la page du connecteur**.
 
 1. Suivez les instructions sous **Configuration** en procédant comme suit.
  
@@ -75,7 +75,7 @@ Vous devez disposer de l’autorisation d’écriture sur l’espace de travail 
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-1.  Copiez **Role ARN** (ARN du rôle). Sur le portail Azure Sentinel, dans l'écran du connecteur Amazon Web Services, collez-le dans le champ **Role to add** (Rôle à ajouter), puis cliquez sur **Add** (Ajouter).
+1.  Copiez **Role ARN** (ARN du rôle). Sur le portail Azure Sentinel, dans l'écran du connecteur Amazon Web Services, collez-le dans le champ **Rôle à ajouter**, puis cliquez sur **Ajouter**.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 

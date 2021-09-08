@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11182b8331f218b970d867764f575ba5b7854d62
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 4042ce416b2af83447af283d21c059050b9a144c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550691"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866588"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -82,7 +82,7 @@ Pour activer ou désactiver des appareils, vous avez le choix entre deux options
 - La barre d’outils après l’exploration d’un appareil spécifique.
 
 > [!IMPORTANT]
-> - Vous devez être administrateur général ou administrateur d’appareil cloud dans Azure AD pour activer ou désactiver un appareil. 
+> - Vous devez être administrateur général, administrateur Intune ou administrateur d’appareil cloud dans Azure AD pour activer ou désactiver un appareil. 
 > - La désactivation d’un périphérique empêche celui-ci de s’authentifier à Azure AD et, par conséquent, d’accéder à vos ressources Azure AD qui sont protégées par un accès conditionnel basé sur les appareils ou l’utilisation des informations d’identification Windows Hello Entreprise.
 > - La désactivation d’un appareil entraîne la révocation du jeton d’actualisation principal (PRT) et des éventuels jetons d’actualisation (RT) sur l’appareil.
 > - Les imprimantes ne peuvent pas être activées ou désactivées dans Azure AD.
