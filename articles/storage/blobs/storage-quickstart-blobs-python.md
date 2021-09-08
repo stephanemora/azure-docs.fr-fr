@@ -10,12 +10,12 @@ ms.subservice: blobs
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 9a6ccbe5482ac8ffe484c3155334cba1b50ba0dc
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d560dfc8d8621e94315d8603a9d6e8b3b8cbf09a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535654"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468111"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Démarrage rapide : Gérer des objets blob avec le SDK Python v12
 
@@ -33,8 +33,6 @@ Autres ressources :
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
 - [Python](https://www.python.org/downloads/) 2.7 ou 3.6 et versions ultérieures.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configuration
 

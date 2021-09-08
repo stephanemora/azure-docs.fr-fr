@@ -3,19 +3,19 @@ title: Options de configuration de l’interface CLI Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment créer et gérer des fichiers de configuration à utiliser avec l’interface CLI Azure Speech.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: lajanuar
-ms.openlocfilehash: eeff86e7955f2e8e32059ba1acb220d0dd2a567f
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: bdae10e5e99216105035c45f9693acafb58b79a2
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071517"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537307"
 ---
 # <a name="speech-cli-configuration-options"></a>Options de configuration de l’interface CLI Speech
 

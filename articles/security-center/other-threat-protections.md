@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 09/05/2021
 ms.author: memildin
-ms.openlocfilehash: 8549734a643c97771681f2e90a1dad2e2c7ed7a3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: dee498ea30bc31fa0193f6bbff3c01261260d03b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749144"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537757"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protections supplémentaires contre les menaces dans Azure Security Center
 En plus des [protections Azure Defender](azure-defender.md) intégrées, Azure Security Center offre les fonctionnalités de protection contre les menaces suivantes.
@@ -28,16 +28,6 @@ Certaines configurations réseau empêchent Security Center de générer des ale
 - Le trafic de sortie réseau de votre machine virtuelle n’est pas bloqué par une solution IDS externe.
 
 Pour obtenir la liste des alertes de la couche réseau Azure, consultez le [Tableau de référence des alertes](alerts-reference.md#alerts-azurenetlayer).
-
-
->[!NOTE]
-> Certaines de ces analytiques sont alimentées par Microsoft Cloud App Security. Pour tirer parti de ces analyses, vous devez activer une licence Cloud App Security. Si vous avez une licence Cloud App Security, ces alertes sont activées par défaut. Pour désactiver les alertes :
->
-> 1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
-> 1. Sélectionnez l’abonnement que vous souhaitez modifier.
-> 1. Sélectionnez **Intégrations**.
-> 1. Décochez la case **Autoriser Microsoft Cloud App Security à accéder à mes données** et sélectionnez **Enregistrer**.
-
 
 >[!NOTE]
 > Security Center stocke les données de client liées à la sécurité dans la même zone géographique que la ressource. Si Microsoft n’a pas encore déployé Security Center dans la zone géographique de la ressource, il stocke les données aux États-Unis. Quand Cloud App Security est activé, ces informations sont stockées selon les règles d’emplacement géographique de Cloud App Security. Pour plus d’informations, consultez [Stockage des données pour les services non régionaux](https://azuredatacentermap.azurewebsites.net/).

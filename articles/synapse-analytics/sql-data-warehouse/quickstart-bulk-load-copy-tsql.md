@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2b41342ab7d267c37b8e68fdbcaa9d570034ac17
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e23d2f82da833c4613a243bdef268d3fd44aa92c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568435"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538288"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Démarrage rapide : Charger en masse des données à l’aide de l’instruction COPY
 
@@ -138,5 +138,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les bonnes pratiques en matière de chargement de données, consultez [Bonnes pratiques de chargement de données](./guidance-for-loading-data.md).
+- Pour connaître les bonnes pratiques en matière de chargement de données, consultez [Bonnes pratiques de chargement de données](../sql/data-loading-best-practices.md).
 - Pour plus d’informations sur la gestion des ressources de vos charges de données, consultez [Isolation des charges de travail](./quickstart-configure-workload-isolation-tsql.md).

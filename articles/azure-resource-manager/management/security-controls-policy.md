@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Resource Manager
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Resource Manager. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 40b586223d0cc5aa8a96c290f3d64122df0439f6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 50279a12d1c2c9e21b623c122c251c2bb419b020
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101146"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478430"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-resource-manager"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Resource Manager
 

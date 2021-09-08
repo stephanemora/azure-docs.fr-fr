@@ -1,15 +1,15 @@
 ---
 title: Liste d’exemples de requêtes Azure Resource Graph par table
 description: Liste d’exemples de requêtes pour Azure Resource Graph. Les tables comprennent notamment Resources, ResourceContainers, PolicyResources et bien plus encore.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c2feedbedc68293ae68a78360eb81c25124386d9
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ae85a1925eef24af4284ede99d1208eda1396357
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308784"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535879"
 ---
 # <a name="azure-resource-graph-sample-queries-by-table"></a>Exemples de requêtes Azure Resource Graph par table
 

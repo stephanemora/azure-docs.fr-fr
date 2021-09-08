@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9b2b97f11c1493deca9b79907e894efbb7b9c456
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: d5334314626d29dc9e3047bc382d41fcfa318a1d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920991"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469515"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutoriel : Commander Azure Data Box Heavy
 
@@ -60,65 +61,7 @@ Avant de commencer, assurez-vous que :
 
 ## <a name="order-data-box-heavy"></a>Commander un Data Box Heavy
 
-Procédez comme suit dans le portail Azure pour commander un appareil.
-
-1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à cette URL : [https://portal.azure.com](https://portal.azure.com).
-2. Sélectionnez **+ Créer une ressource**, puis recherchez *Azure Data Box*. Sélectionnez **Azure Data Box**.
-    
-   [![Rechercher Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
-
-3. Sélectionnez **Create** (Créer).
-
-4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
-
-    |Paramètre  |Valeur  |
-    |---------|---------|
-    |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
-    |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
-    |Pays/région source     | Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
-    |Région Azure de destination     | Sélectionnez la région Azure où vous souhaitez transférer des données.        |
-
-    [![Sélectionner la disponibilité de la famille d’appareils Data Box](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
-
-5. Sélectionnez **Data Box Heavy**. La capacité utilisable maximale pour une commande unique est de 770 To.
-
-    [![Sélectionner Data Box Heavy](media/data-box-heavy-deploy-ordered/select-data-box-heavy.png)
-
-6. Dans **Commande**, indiquez les **Détails de la commande**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant**.
-    
-    |Paramètre  |Valeur  |
-    |---------|---------|
-    |Nom     | Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
-    |Resource group     | Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
-    |Région Azure de destination     | Sélectionnez une région pour votre compte de stockage. <br> Pour plus d’informations, consultez la [disponibilité des régions](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
-    |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. <br>Le Data Box Heavy peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br>Consultez les [comptes de stockage pris en charge avec votre appareil](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, consultez le guide pratique pour [Ajouter le service Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).|
-
-    Si vous utilisez le compte de stockage comme destination de stockage, vous voyez s’afficher l’écran suivant :
-
-    ![Commande Data Box Heavy pour un compte de stockage](media/data-box-heavy-deploy-ordered/order-storage-account.png)
-
-    Si, en plus d’un compte de stockage comme destination de stockage, vous utilisez également Data Box Heavy pour créer des disques managés à partir des disques durs virtuels (VHD) locaux, vous devez fournir les informations suivantes :
-
-    |Paramètre  |Valeur  |
-    |---------|---------|
-    |Groupes de ressources     | Créez un groupe de ressources si vous envisagez de créer des disques managés à partir de disques durs virtuels locaux. Vous pouvez utiliser un groupe de ressources existant uniquement si celui-ci a été créé avant la création d’une commande Data Box Heavy pour un disque managé par le service Data Box. <br> Spécifiez plusieurs groupes de ressources séparés par des points-virgules. Un maximum de 10 groupes de ressources sont pris en charge.|
-
-    ![Commande Data Box Heavy pour un disque managé](media/data-box-heavy-deploy-ordered/order-managed-disks.png)
-
-    Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
-
-7. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Sélectionnez **Valider l’adresse**. 
-
-    Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet. Sélectionnez **Suivant**.
-
-8. Dans **Détails de la notification**, indiquez les adresses de messagerie. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
-
-    Nous vous recommandons d’utiliser un e-mail de groupe afin de continuer à recevoir des notifications si un administrateur du groupe quitte l’entreprise.
-
-9. Consultez le **Résumé** des informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
-
-10. Sélectionnez **Commander**. La création d’une commande peut prendre quelques minutes.
-
+[!INCLUDE [order-data-box-via-portal](../../includes/data-box-order-portal.md)]
 
 ## <a name="track-the-order"></a>Suivre la commande
 
