@@ -1,46 +1,46 @@
 ---
 title: Changer le port PostgreSQL
-description: Changez le port sur lequel le groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc écoute.
+description: Changez le port sur lequel le groupe de serveurs PostgreSQL Hyperscaleavec Azure Arc est en écoute.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 11/02/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 45424408c790e4921be48464818c55fe74313fd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47a64b9e1207536e951f61059d472a88e9f9d8c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93328626"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532900"
 ---
 # <a name="change-the-port-on-which-the-server-group-is-listening"></a>Changer le port sur lequel le groupe de serveurs écoute 
 
 Le changement de port est une opération de modification standard du groupe de serveurs. Pour changer de port, exécutez la commande suivante :
-```console
- azdata arc postgres server edit -n <server group name> --port <desired port number>
+```azurecli
+ az postgres arc-server edit -n <server group name> --port <desired port number> --k8s-namespace <namespace> --use-k8s
 ```
 
 Par exemple, supposons que le nom de votre groupe de serveurs est _postgres01_ et que vous souhaitez qu’il écoute sur le port _866_. Exécutez ensuite la commande suivante :
-```console
- azdata arc postgres server edit -n postgres01 --port 866
+```azurecli
+ az postgres arc-server edit -n postgres01 --port 866 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="verify-that-the-port-was-changed"></a>Vérifiez que le port a changé
 
 Pour vérifier que le port a changé, exécutez la commande suivante pour afficher la configuration de votre groupe de serveurs :
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 
 Dans la sortie de cette commande, examinez le numéro de port affiché pour l’élément « port » dans la section « service » des spécifications de votre groupe de serveurs.
 Vous pouvez également vérifier dans l’externalEndpoint de l’élément de la section État des spécifications de votre groupe de serveurs que l’adresse IP est suivie par le numéro de port que vous avez configuré.
 
 À titre d’illustration, si nous continuons l’exemple ci-dessus, vous devez exécuter la commande :
-```console
-azdata arc postgres server show -n postgres01
+```azurecli
+az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 et vous verrez le port 866 désigné ici :

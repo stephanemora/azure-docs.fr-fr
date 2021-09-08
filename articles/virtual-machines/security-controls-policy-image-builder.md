@@ -1,7 +1,7 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Image Builder
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Image Builder. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 07/16/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: kof-f
 ms.author: kofiforson
@@ -9,14 +9,16 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: aad83ce5a729c89d32de17cec2532e13d279e1a4
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: ea4f5d0df0a9d071933c9d0cd31e5c4e984449bd
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402141"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471879"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Image Builder
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La [Conformité réglementaire d’Azure Policy](../governance/policy/concepts/regulatory-compliance.md) fournit des définitions d’initiatives créées et gérées par Microsoft, qui sont dites _intégrées_, pour les **domaines de conformité** et les **contrôles de sécurité** associés à différents standards de conformité. Cette page liste les **domaines de conformité** et les **contrôles de sécurité** pour Azure Image Builder. Vous pouvez affecter les composants intégrés pour un **contrôle de sécurité** individuellement, afin de rendre vos ressources Azure conformes au standard spécifique.
 

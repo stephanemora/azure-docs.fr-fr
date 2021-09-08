@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 1084951d63d8d7766dcf275336340e7ec93a7e9d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bdc1822422f3e8ff7a9ca63b7bcf4627cd0e8470
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890615"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531726"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Prise en main des représentations d’appareils (Node.js)
 
@@ -233,8 +233,8 @@ Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azu
 
 Utilisez les ressources suivantes :
 
-* Envoyez les données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](quickstart-send-telemetry-node.md).
+* Envoyez les données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).
 
 * Pour savoir comment configurer des appareils à l’aide des propriétés de jumeau d’appareil souhaitées, suivez le tutoriel [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md).
 
-* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le didacticiel [Utiliser des méthodes directes](quickstart-control-device-node.md).
+* contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), avec le guide de démarrage rapide [Utiliser des méthodes directes](./quickstart-control-device.md?pivots=programming-language-nodejs).

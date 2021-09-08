@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 04/07/2021
 ms.topic: include
-ms.openlocfilehash: d14274c43c3241a4c091ee004747c1ad8e12968b
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 24f466e7c9a9e5630510f73652fcf515540bee10
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111896514"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646497"
 ---
 Azure Defender fournit une protection contre les menaces en temps réel pour vos environnements conteneurisés, et génère des alertes en cas d'activités suspectes. Vous pouvez utiliser ces informations pour remédier rapidement aux problèmes de sécurité et améliorer la sécurité de vos conteneurs.
 
@@ -22,7 +22,7 @@ Azure Defender offre une protection contre les menaces à différents niveaux :
     >[!IMPORTANT]
     > Actuellement, nous ne prenons pas en charge l’installation de l’agent Log Analytics sur les clusters Azure Kubernetes Service qui s’exécutent sur des groupes de machines virtuelles identiques.
 
-    Pour obtenir la liste des alertes au niveau du cluster, consultez la [Table de référence des alertes](../articles/security-center/alerts-reference.md#alerts-containerhost).
+    Pour obtenir la liste des alertes au niveau de l’hôte, consultez la [table de référence des alertes](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
 * **Niveau du cluster (fourni par Azure Defender pour Kubernetes)**  : au niveau du cluster, la protection contre les menaces s’appuie sur l’analyse des journaux d’audit de Kubernetes. Pour activer cette analyse **sans agent**, activez Azure Defender. Si votre cluster est local ou situé sur un autre fournisseur de cloud, activez [Kubernetes avec Arc et l’extension Azure Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).

@@ -2,13 +2,13 @@
 title: Sauvegarder plusieurs machines virtuelles SQL Server à partir du coffre
 description: Dans cet article, découvrez comment sauvegarder des bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure à partir du coffre Recovery Services.
 ms.topic: conceptual
-ms.date: 05/28/2021
-ms.openlocfilehash: 3a6792fe5146df9babc906edec1fc12aa4b3e1cb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/20/2021
+ms.openlocfilehash: 834737c9773b9efead12ef8033852d25ae706062
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672310"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099091"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Sauvegarder plusieurs machines virtuelles SQL Server à partir du coffre Recovery Services
 
@@ -30,6 +30,8 @@ Pour pouvoir sauvegarder une base de données SQL Server, vérifiez les critère
 
 1. Identifiez ou créez un [coffre Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) dans la même région et avec le même abonnement que la machine virtuelle qui héberge l’instance SQL Server.
 1. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Assurez-vous que l’[agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md) est installé sur la machine virtuelle.
+1. Assurez-vous que la version .NET 4.5.2 ou ultérieure est installée sur la machine virtuelle.
 1. Assurez-vous que les bases de données SQL Server respectent les [instructions de nommage pour Sauvegarde Azure](#database-naming-guidelines-for-azure-backup).
 1. Vérifiez que la longueur combinée du nom de la machine virtuelle SQL Server et du nom du groupe de ressources ne dépasse pas 84 caractères pour les machines virtuelles Azure Resource Manager (et 77 caractères pour les machines virtuelles classiques). Cette limitation est due au fait que certains caractères sont réservés par le service.
 1. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de sauvegarder la base de données.
@@ -96,18 +98,22 @@ Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuel
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Instructions de dénomination des bases de données pour Sauvegarde Azure
 
-Évitez d’utiliser les éléments suivants dans les noms de base de données :
+- Évitez d’utiliser les éléments suivants dans les noms de base de données :
 
-* Espaces au début et à la fin
-* Points d’exclamation (!) à la fin
-* Crochets de fermeture (])
-* Point-virgule « ; »
-* Barre oblique « / »
+  - Espaces au début et à la fin
+  - Points d’exclamation (!) à la fin
+  - Crochets de fermeture (])
+  - Point-virgule (;)
+  - barre oblique (/)
 
-L’utilisation d’alias est possible, bien que déconseillée, pour les caractères non pris en charge. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](/rest/api/storageservices/understanding-the-table-service-data-model).
+- L’utilisation d’alias est possible, bien que déconseillée, pour les caractères non pris en charge. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](/rest/api/storageservices/understanding-the-table-service-data-model).
+
+- Plusieurs bases de données sur la même instance SQL avec une différence de casse ne sont pas prises en charge.
+
+-   La modification de la casse d’une base de données SQL n’est pas prise en charge après la configuration de la protection.
 
 >[!NOTE]
->L’opération **Configurer la protection** n’est pas prise en charge pour les bases de données dont le nom comporte des caractères spéciaux tels que « + » ou « & ». Vous pouvez modifier le nom de la base de données ou bien activer la **protection automatique**, ce qui permet de protéger correctement ces bases de données.
+>L’opération **Configurer la protection** n’est pas prise en charge pour les bases avec dont le nom comporte des caractères spéciaux tels que « + » ou « & ». Vous pouvez modifier le nom de la base de données ou activer **Protection automatique**, ce qui permet de protéger correctement ces bases de données.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6ad12ac3d06d9e0a6b4f1bf45344ece2819c1486
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 834caf50ca65fdbb4701ed3681546513785686c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140044"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525231"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
 
@@ -85,9 +85,9 @@ Les technologies BCDR Always On, géoréplication active et groupes de basculeme
 
 [Créez un plan de récupération](site-recovery-create-recovery-plans.md) avec les machines virtuelles des couches application et web. Les étapes suivantes montrent comment ajouter le basculement de la couche base de données:
 
-1. Importez les scripts pour basculer le groupe de disponibilité SQL dans une [machine virtuelle Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) et une [machine virtuelle classique](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importez les scripts sur votre compte Azure Automation.
+1. Importez les scripts pour basculer le groupe de disponibilité SQL dans une [machine virtuelle Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) et une [machine virtuelle classique](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importez les scripts sur votre compte Azure Automation.
 
-    [![Image d’un logo « Déployer sur Azure »](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Déployer sur le logo Azur](../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Ajoutez le script ASR-SQL-FailoverAG comme une action préalable du premier groupe dans le plan de récupération.
 

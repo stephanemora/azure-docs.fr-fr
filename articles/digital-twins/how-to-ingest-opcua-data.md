@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Étapes à suivre pour transmettre vos données Azure OPC UA dans Azure Digital Twins
 author: danhellem
 ms.author: dahellem
-ms.date: 5/20/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b191bdb1303ae0210573d295ffb5b371cc81ddfb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b93e9a16e7ea083f5117ebff4883a50db28e134a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563180"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224597"
 ---
 # <a name="ingesting-opc-ua-data-with-azure-digital-twins"></a>Ingestion de données OPC UA avec Azure Digital Twins
 
@@ -45,7 +45,7 @@ Voici les composants qui seront inclus dans cette solution.
 | --- | --- |
 | Serveur OPC UA | Serveur OPC UA [ProSys](https://www.prosysopc.com/products/opc-ua-simulation-server/) ou [Kepware](https://www.kepware.com/en-us/products/#KEPServerEX) pour simuler les données OPC UA. |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) | IoT Edge est un service IoT Hub qui est installé sur un appareil de passerelle Linux local. Son installation est nécessaire pour que le module OPC Publisher s’exécute et envoie des données à IoT Hub. |
-| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | Il s’agit d’un module IoT Edge créé par l’équipe Azure Industrial IoT. Ce module se connecte à votre serveur OPC UA et envoie les données de nœud à Azure IoT Hub. |
+| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | Ce composant est un module IoT Edge créé par l’équipe Azure Industrial IoT. Ce module se connecte à votre serveur OPC UA et envoie les données de nœud à Azure IoT Hub. |
 | [Azure IoT Hub](../iot-hub/about-iot-hub.md) | OPC Publisher envoie la télémétrie OPC UA à Azure IoT Hub. À partir de là, vous pouvez traiter les données par le biais d’une fonction Azure et les transmettre à Azure Digital Twins. |
 | Azure Digital Twins | Plateforme vous permettant de créer une représentation numérique de choses, de lieux, de processus métier et de personnes qui existent dans la vraie vie. |
 | [Fonction Azure](../azure-functions/functions-overview.md) | Une fonction Azure personnalisée est utilisée pour associer la télémétrie transmise à Azure IoT Hub aux propriétés et jumeaux appropriés dans Azure Digital Twins. |
@@ -80,7 +80,7 @@ Le logiciel Prosys nécessite une ressource virtuelle simple. Dans le [portail A
 
 :::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png" alt-text="Capture d’écran du portail Azure montrant l’onglet Informations de base utilisé lors de la configuration d’une machine virtuelle Windows." lightbox="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png":::
 
-Votre machine virtuelle doit être accessible sur Internet. Pour simplifier cette procédure pas à pas, vous pouvez ouvrir tous les ports et attribuer une adresse IP publique à la machine virtuelle. Cette opération s’effectue sous l’onglet **Réseau** de la configuration de la machine virtuelle.
+Votre machine virtuelle doit être accessible sur Internet. Pour simplifier cette procédure pas à pas, vous pouvez ouvrir tous les ports et attribuer une adresse IP publique à la machine virtuelle. Pour ce faire, accédez à l’onglet **Réseau** de la configuration de la machine virtuelle.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-2.png" alt-text="Capture d’écran du portail Azure montrant l’onglet Réseau utilisé lors de la configuration d’une machine virtuelle Windows.":::
 
@@ -133,7 +133,7 @@ Après avoir créé l’instance Azure IoT Hub, sélectionnez **IOT Edge** dans 
 
 Suivez les invites pour créer un appareil. 
 
-Une fois votre appareil créé, copiez la valeur de **Chaîne de connexion principale** ou de **Chaîne de connexion secondaire**. Vous en aurez besoin plus tard quand vous configurerez l’appareil de périphérie.
+Une fois votre appareil créé, copiez la valeur de **Chaîne de connexion principale** ou de **Chaîne de connexion secondaire**. Vous en aurez besoin plus tard quand vous configurerez le périphérique.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/iot-edge-2.png" alt-text="Capture d’écran du portail Azure montrant les chaînes de connexion de l’appareil IoT Edge.":::
 
@@ -209,7 +209,7 @@ Suivez le reste des invites pour créer le module.
 
 Après environ 15 secondes, vous pouvez exécuter la commande `iotedge list` sur votre appareil de passerelle pour lister tous les modules en cours d’exécution sur votre appareil IOT Edge. Le module OPCPublisher doit apparaître comme étant opérationnel.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-list.png" alt-text="Capture d’écran des résultats de la liste iotedge.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-list.png" alt-text="Capture d’écran des résultats de la liste IoT Edge.":::
 
 Enfin, accédez au répertoire `/iiotedge` et créez un fichier *publishednodes.json*. Les ID dans le fichier doivent correspondre aux valeurs `NodeId` que vous avez [collectées précédemment à partir du serveur OPC](#install-opc-ua-simulation-software). Votre fichier doit ressembler à ceci :
 
@@ -252,7 +252,7 @@ sudo iotedge logs OPCPublisher -f
 
 La commande génère la sortie des journaux OPC Publisher. Si tout est configuré et fonctionne correctement, un résultat semblable au suivant doit s’afficher :
 
-:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-logs.png" alt-text="Capture d’écran des journaux iotedge dans le terminal, avec une colonne de champs d’informations de diagnostic à gauche et une colonne de valeurs à droite.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-logs.png" alt-text="Capture d’écran des journaux IoT Edge dans le terminal, avec une colonne de champs d’informations de diagnostic à gauche et une colonne de valeurs à droite.":::
 
 Les données doivent à présent être transmises d’un serveur OPC UA à votre hub IoT.
 
@@ -334,7 +334,7 @@ Pour commencer, créez votre fichier *opcua-mapping.json*. Commencez avec un fic
 
 Voici le schéma pour les entrées :
 
-| Propriété | Description | Obligatoire |
+| Property | Description | Obligatoire |
 | --- | --- | --- |
 | NodeId | Valeur du nœud OPC UA. Par exemple : ns=3;i={value} | ✔ |
 | TwinId | TwinId ($dtId) du jumeau pour lequel vous souhaitez enregistrer la valeur de télémétrie | ✔ |

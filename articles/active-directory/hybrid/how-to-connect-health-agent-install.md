@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08aad681160a4f0d369fd312ba58c3ea6c7e8780
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 31dd21a7c525bd1e5dc659b611f72c2c33c6f043
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531535"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l’agent Azure AD Connect Health
 
@@ -42,7 +42,7 @@ Le tableau suivant répertorie les conditions requises pour l’utilisation d’
 | L’inspection TLS pour le trafic sortant est filtrée ou désactivée. | L’étape d’inscription de l’agent ou les étapes de chargement de données peuvent échouer en cas d’inspection ou d’arrêt du protocole TLS pour le trafic sortant sur la couche réseau. Pour plus d’informations, consultez [Configurer l’inspection TLS](/previous-versions/tn-archive/ee796230(v=technet.10)). |
 | Les ports de pare-feu sur le serveur exécutent l’agent. |L’agent requiert que les ports de pare-feu suivants soient ouverts pour pouvoir communiquer avec les points de terminaison du service Azure AD Connect Health : <br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />La version la plus récente de l’agent ne requiert pas le port 5671. Procédez à une mise à niveau vers la dernière version pour que seul le port 443 soit requis. Pour plus d’informations, consultez [Ports et protocoles nécessaires à l’identité hybride](./reference-connect-ports.md). |
 | Si la sécurité renforcée d’Internet Explorer est activée, autorisez les sites web spécifiés.  |Si la sécurité renforcée d’Internet Explorer est activée, autorisez les sites web suivants sur le serveur sur lequel vous installez l’agent :<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Le serveur de fédération de votre organisation approuvé par Azure AD (par exemple, https:\//sts.contoso.com)</li> <br />Pour plus d’informations, consultez [Guide pratique pour configurer Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Si vous avez un proxy dans votre réseau, consultez la remarque qui figure à la fin de ce tableau.|
-| PowerShell version 4.0 ou ultérieure est installé. | Windows Server 2012 comprend la version 3.0 de PowerShell. Cette version n’est *pas* suffisante pour l’agent.</br></br> Windows Server 2012 R2 et les versions ultérieures incluent une version suffisamment récente de PowerShell.|
+| La version 5.0 ou ultérieure de PowerShell est installée. | Le serveur Windows 2016 comprend la version 5.0 de PowerShell. 
 |Les normes FIPS (Federal Information Processing Standard) sont désactivées.|Les agents Azure AD Connect Health ne prennent pas en charge les normes FIPS (Federal Information Processing Standard).|
 
 > [!IMPORTANT]
@@ -174,7 +174,7 @@ Le niveau d’audit « de base » est activé par défaut. Pour plus d’infor
 3. Sur la droite, sélectionnez **Filtrer les journaux d’activité actuels**.
 4. Dans **Sources d’événement**, sélectionnez **Audit AD FS**.
 
-    Pour plus d’informations sur les journaux d’audit, consultez [les questions relatives aux opérations](reference-connect-health-faq.md#operations-questions).
+    Pour plus d’informations sur les journaux d’audit, consultez [les questions relatives aux opérations](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
 
     ![Capture d’écran montrant la fenêtre Filtrer les journaux d’activité actuels. Dans le champ « Sources d’événement », « Audit AD FS » est sélectionné.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
@@ -407,5 +407,5 @@ Consultez les articles connexes suivants :
 * [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md)
 * [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md)
 * [Utilisation d’Azure AD Connect Health avec Azure AD DS](how-to-connect-health-adds.md)
-* [Forum Aux Questions (FAQ) Azure AD Connect Health](reference-connect-health-faq.md)
+* [Forum Aux Questions (FAQ) Azure AD Connect Health](reference-connect-health-faq.yml)
 * [Historique des versions d’Azure AD Connect Health](reference-connect-health-version-history.md)

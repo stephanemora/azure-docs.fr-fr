@@ -6,18 +6,18 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 08/06/2021
+ms.date: 09/01/2021
 ms.author: victorh
-ms.openlocfilehash: 2f17bb2d89f47f731fde8fb396aa0343716a99d4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7e7f05516dd380ec6d0c8f44f887981de77942a3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864463"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439323"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
-![Certification ICSA](media/overview/icsa-cert-firewall-small.png)
+<!--- ![ICSA certification](media/overview/icsa-cert-firewall-small.png) --->
 
 Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu avec état intégral, doté d’une haute disponibilité intégrée et d’une scalabilité illimitée dans le cloud.
 

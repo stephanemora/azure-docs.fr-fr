@@ -1,27 +1,22 @@
 ---
-title: Présentation d’Azure Route Server (préversion)
+title: Qu’est-ce qu’Azure Route Server ?
 description: Découvrez comment Azure Route Server peut simplifier le routage entre votre appliance virtuelle réseau (NVA) et votre réseau virtuel.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f2c4a31f4c1c0ec53e76ffaf6f4670d9179e9505
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437159"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436785"
 ---
-# <a name="what-is-azure-route-server-preview"></a>Présentation d’Azure Route Server (préversion) 
+# <a name="what-is-azure-route-server"></a>Qu’est-ce qu’Azure Route Server ? 
 
 Azure Route Server simplifie le routage dynamique entre votre appliance virtuelle réseau (NVA) et votre réseau virtuel. Il vous permet d’échanger des informations de routage directement par le biais du protocole de routage BGP (Border Gateway Protocol) entre n’importe quelle NVA qui prend en charge ce protocole et le SDN (Software Defined Network) Azure dans le réseau virtuel Azure sans devoir configurer ou gérer de tables de routage manuellement. Azure Route Server est un service complètement managé qui est configuré avec une haute disponibilité.
-
-> [!IMPORTANT]
-> Azure Route Server (préversion) est en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 

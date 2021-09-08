@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 5bc493197b6ae4e6bd969a837bb873cae38c0790
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: fb32ff13df7329e6e78095b8ee28639312cc62b5
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032012"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216240"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schéma et agrégation de données dans Traffic Analytics
 
@@ -143,7 +143,7 @@ Le tableau ci-dessous répertorie les champs contenus dans le schéma et expliqu
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Passerelle de réseau local associée à l’adresse IP source dans le flux |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Passerelle de réseau local associée à l’adresse IP de destination dans le flux |
 | ConnectionType_s | Valeurs possibles : VNetPeering, VpnGateway et ExpressRoute |    Type de la connexion |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nom de la connexion. Pour flowtype P2S, le format sera <gateway name>_<VPN Client IP> |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nom de la connexion. Pour le type de flux P2S, le format sera <gateway name>_<VPN Client IP> |
 | ConnectingVNets_s | Liste de noms de réseau virtuel séparés par un espace | Dans une topologie hub-and-spoke, les réseaux virtuels du hub sont indiqués ici |
 | Country_s | Code de pays à deux lettres (ISO 3166-1 alpha-2) | Champ rempli pour le type de flux ExternalPublic. Toutes les adresses IP indiquées dans le champ PublicIPs_s ont le même code de pays |
 | AzureRegion_s | Emplacements de la région Azure | Champ rempli pour le type de flux AzurePublic. Toutes les adresses IP indiquées dans le champ PublicIPs_s se trouvent dans la même région Azure |
@@ -152,18 +152,56 @@ Le tableau ci-dessous répertorie les champs contenus dans le schéma et expliqu
 | AllowedOutFlows_d | | Nombre de flux sortants ayant été autorisés. (Flux sortants sur l’interface réseau où les flux ont été capturés) |
 | DeniedOutFlows_d  | | Nombre de flux sortants ayant été refusés. (Flux sortants sur l’interface réseau où les flux ont été capturés) |
 | FlowCount_d | Action déconseillée. Total des flux ayant utilisé le même tuple de quatre éléments. Pour les types de flux ExternalPublic et AzurePublic, ce nombre inclut également les flux provenant de différentes adresses PublicIP.
-| InboundPackets_d | Paquets reçus après avoir été capturés sur l’interface réseau où la règle NSG a été appliquée | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
-| OutboundPackets_d  | Paquets envoyés après avoir été capturés sur l’interface réseau où la règle NSG a été appliquée | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
-| InboundBytes_d |  Octets reçus après avoir été capturés sur l’interface réseau où la règle NSG a été appliquée | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
-| OutboundBytes_d | Octets envoyés après avoir été capturés sur l’interface réseau où la règle NSG a été appliquée | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
+| InboundPackets_d | Représente les paquets envoyés de la destination à la source du flux | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
+| OutboundPackets_d  | Représente les paquets envoyés de la source à la destination du flux | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
+| InboundBytes_d |  Représente les octets envoyés de la destination à la source du flux | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
+| OutboundBytes_d |Représente les octets envoyés de la source à la destination du flux | Champ rempli uniquement pour la version 2 du schéma des journaux de flux de NSG |
 | CompletedFlows_d  |  | Champ rempli avec des valeurs différentes de zéro uniquement pour la version 2 du schéma des journaux de flux de NSG |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entrées séparées par des barres |
 | SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entrées séparées par des barres |
 | DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entrées séparées par des barres |
 
+### <a name="public-ip-details-schema"></a>Schéma des détails de l’adresse IP publique
+
+Traffic Analytics fournit des données WHOIS et l’emplacement géographique de toutes les adresses IP publiques dans l’environnement du client. Pour les adresses IP malveillantes, il fournit un domaine DNS, un type de menace et des descriptions de threads tels qu’identifiés par les solutions d’aide à la sécurité de Microsoft. Les détails IP sont publiés dans votre espace de travail Log Analytics afin que vous puissiez créer des requêtes personnalisées et y placer des alertes. Vous pouvez également accéder à des requêtes préremplies à partir du tableau de bord Traffic Analytics.
+
+Vous trouverez ci-dessous le schéma des détails relatifs aux adresse IP publiques :
+
+| Champ | Format | Commentaires |
+|:---   |:---    |:---  |
+| TableName | AzureNetworkAnalyticsIPDetails_CL | Table contenant les données d’adresse IP de Traffic Analytics |
+| SubType_s | FlowLog | Sous-type des journaux de flux. **Utilisez uniquement « FlowLog »** . Les autres valeurs de SubType_s sont destinées au fonctionnement interne du produit |
+| FASchemaVersion_s | 2 | Version du schéma. Ne reflète pas la version des journaux de flux de NSG |
+| FlowIntervalStartTime_t | Date et heure (UTC) | Date et heure de début de l’intervalle de traitement des journaux de flux Il s’agit du moment à partir duquel l’intervalle de flux est mesuré |
+| FlowIntervalEndTime_t | Date et heure (UTC) | Date et heure de fin de l’intervalle de traitement des journaux de flux |
+| FlowType_s | * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow | Voir la définition dans les remarques en dessous du tableau |
+| IP | Adresse IP publique | Adresse IP publique dont les informations sont fournies dans l’enregistrement |
+| Emplacement | Emplacement de l’adresse IP | - Pour l’adresse IP publique Azure : région Azure pour le réseau virtuel/l’interface réseau/la machine virtuelle dont fait partie l’adresse IP <br> -Pour l’adresse IP publique externe et l’adresse IP malveillante : code de pays à 2 lettres où l’adresse IP est située (ISO 3166-1 alpha-2) |
+| PublicIPDetails | Informations sur l’adresse IP | -Pour l’adresse IP publique Azure : service Azure derrière l’adresse IP <br> -Adresse IP publique externe/adresse IP malveillante : informations WhoIS de l’adresse IP |
+| ThreatType | Menace posée par une adresse IP malveillante | **Pour les adresses IP malveillantes uniquement** : une des menaces de la liste des valeurs actuellement autorisées (décrite ci-dessous) |
+| ThreatDescription | Description de la menace | **Pour les adresses IP malveillantes uniquement** : description de la menace posée par l’adresse IP malveillante |
+| DNSDomain | Domaine DNS | **Pour les adresses IP malveillantes uniquement** : nom de domaine associé à cette adresse IP |
+
+Liste des types de menaces :
+
+| Valeur | Description |
+|:---   |:---    |
+| Botnet | L’indicateur détaille un nœud/membre de botnet. |
+| C2 | L’indicateur détaille un nœud de commande et de contrôle d’un botnet. |
+| CryptoMining | Le trafic impliquant cette adresse réseau/URL est une indication de l’abus de CyrptoMining/de ressources. |
+| DarkNet | L’indicateur est celui d’un nœud/réseau darknet. |
+| DDos | Indicateurs relatifs à une campagne DDoS active ou à venir. |
+| MaliciousUrl | URL de service malveillant. |
+| Programme malveillant | Indicateur décrivant un fichier ou des fichiers malveillants. |
+| Hameçonnage | Indicateurs relatifs à une campagne de hameçonnage. |
+| Proxy | L’indicateur est celui d’un service de proxy. |
+| PUA | Potentially Unwanted Application. |
+| Liste de surveillance | Il s’agit du compartiment générique dans lequel les indicateurs sont placés lorsqu’il est impossible de déterminer exactement ce que la menace est ou que celle-ci nécessite une interprétation manuelle. Cela ne doit généralement pas être utilisé par les partenaires qui envoient des données dans le système. |
+
+
 ### <a name="notes"></a>Notes
 
-1. Pour les flux AzurePublic et ExternalPublic, l’IP de machine virtuelle Azure détenue par un client est indiquée dans le champ VMIP_s, alors que les adresses IP publiques le sont dans le champ PublicIPs_s. Pour ces deux types de flux, utilisez les champs VMIP_s et PublicIPs_s au lieu des champs SrcIP_s et DestIP_s. Pour les adresses AzurePublic et ExternalPublicIP, nous agrégeons encore davantage les données afin que le nombre d’enregistrements ingérés dans l’espace de travail Log Analytics du client soit réduit au minimum. (Ce champ sera bientôt déprécié. Vous devrez ensuite utiliser le champ SrcIP_ ou DestIP_s selon que la machine virtuelle Azure est définie comme source ou destination dans le flux)
+1. Pour les flux AzurePublic et ExternalPublic, l’IP de machine virtuelle Azure détenue par un client est indiquée dans le champ VMIP_s, alors que les adresses IP publiques le sont dans le champ PublicIPs_s. Pour ces deux types de flux, utilisez les champs VMIP_s et PublicIPs_s au lieu des champs SrcIP_s et DestIP_s. Pour les adresses AzurePublic et ExternalPublicIP, nous agrégeons encore davantage les données afin que le nombre d’enregistrements ingérés dans l’espace de travail Log Analytics du client soit réduit au minimum. (Ce champ sera bientôt déprécié. Vous devrez ensuite utiliser le champ SrcIP_ ou DestIP_s selon que la machine virtuelle Azure est définie comme source ou destination dans le flux.)
 1. Remarques sur les types de flux : Sur la base des adresses IP impliquées dans les flux, nous classons les flux dans les types de flux suivants :
 1. IntraVNet : les deux adresses IP dans le flux se trouvent dans le même réseau virtuel Azure.
 1. InterVNet : les adresses IP dans le flux se trouvent dans deux réseaux virtuels Azure différents.

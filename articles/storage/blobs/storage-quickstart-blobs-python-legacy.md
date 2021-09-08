@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 01ca2ee1bcd551baa471dda64d636e077f6e1a82
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c6934dcb7e24423db487f820276050cd55139bf7
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275445"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476517"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Démarrage rapide : Gérer des objets blob avec le SDK Python v2.1
 
@@ -28,8 +28,6 @@ Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets bl
 - Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
 - [Python](https://www.python.org/downloads/)
 - [SDK Stockage Azure pour Python](https://github.com/Azure/azure-sdk-for-python).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 

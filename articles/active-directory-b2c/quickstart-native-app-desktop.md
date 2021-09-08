@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/12/2019
+ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbdd0dc8914847c5502dc79635293fd685d071f9
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: e2e1ce1e2935f97176e238c899a929019b26ba6d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613437"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475347"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guide de démarrage rapide : Configurer la connexion pour une application de bureau à l’aide d’Azure Active Directory B2C
 
@@ -38,7 +38,8 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 ## <a name="run-the-application-in-visual-studio"></a>Exécuter l’application dans Visual Studio
 
 1. Dans l’exemple de dossier de projet de l’application, ouvrez la solution **active-directory-b2c-wpf.sln** dans Visual Studio.
-2. Appuyez sur **F5** pour déboguer l’application.
+2. [Restaurez les packages NuGet](/nuget/consume-packages/package-restore).
+3. Appuyez sur **F5** pour déboguer l’application.
 
 ## <a name="sign-in-using-your-account"></a>Connectez-vous à l’aide de votre compte
 

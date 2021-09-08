@@ -1,15 +1,15 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Event Grid
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Event Grid. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d6e8af5da0d5cb808bd34ed24e841592c3940b0d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 9e3bb292c4c570f357a0af284abbed015143537b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099323"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473355"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Event Grid
 

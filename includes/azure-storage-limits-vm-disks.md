@@ -2,14 +2,14 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 08/13/2021
 ms.author: rogarana
-ms.openlocfilehash: ffb07220267a2c192b4aad2405185c80bd9abbc0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f22094b86018f318e82b2e0a7e31ef6854562734
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94523800"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122262951"
 ---
 Une machine virtuelle Azure prend en charge l’attachement d’un certain nombre de disques de données. En fonction des cibles d’évolutivité et de performances des disques de données d’une machine virtuelle, vous pouvez déterminer le nombre et le type de disque dont vous avez besoin pour répondre à vos exigences de performances et de capacité.
 
@@ -25,8 +25,8 @@ Le tableau suivant illustre les limite par défaut et maximales du nombre de res
 > | Disques managés Standard | 50 000 |
 > | Disques managés SSD standard | 50 000 |
 > | Disques managés Premium | 50 000 |
-> | Standard_LRS snapshots | 50 000 |
-> | Standard_ZRS snapshots | 50 000 |
+> | Standard_LRS snapshots | 75 000 |
+> | Standard_ZRS snapshots | 75 000 |
 > | Image managée | 50 000 |
 
 **Pour les comptes de stockage standard :** un compte de stockage standard a un taux de requêtes total maximal de 20 000 opérations d’E/S par seconde. Le nombre d’opérations d’E/S par seconde sur l’ensemble de vos disques de machine virtuelle dans un compte de stockage standard ne doit pas dépasser cette limite.

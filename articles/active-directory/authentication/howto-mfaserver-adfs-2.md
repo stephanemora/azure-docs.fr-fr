@@ -5,27 +5,27 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 08/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d144716dbc5636451405f1124d4c3949f585d6b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 313f2057dd55682bb8e4cdc7cbb56e3ea4d2fa96
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742644"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214362"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configuration du serveur Azure Multi-Factor Authentication pour travailler avec AD FS 2.0
 
 Cet article s’adresse aux organisations qui sont fédérées avec Azure Active Directory et qui souhaitent sécuriser leurs ressources locales ou dans le cloud. Protégez vos ressources en utilisant le serveur Azure Multi-Factor Authentication et en le configurant de manière à ce qu’il fonctionne avec AD FS afin que la vérification en deux étapes se déclenche pour les points de terminaison de valeur élevée.
 
-Cette documentation traite de l'utilisation du serveur Azure Multi-Factor Authentication avec AD FS 2.0. Pour obtenir des informations sur AD FS, consultez [Sécurisez vos ressources cloud et locales à l’aide du serveur Azure Multi-Factor Authentication avec AD FS dans Windows Server 2012 R2](howto-mfaserver-adfs-2012.md).
+Cette documentation traite de l'utilisation du serveur Azure Multi-Factor Authentication avec AD FS 2.0. Pour obtenir des informations sur AD FS, consultez [Sécuriser les ressources cloud et locales à l’aide du serveur Azure Multi-Factor Authentication avec Windows Server](howto-mfaserver-adfs-windows-server.md).
 
 > [!IMPORTANT]
-> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui souhaitent imposer une authentification multifacteur lors des événements de connexion doivent utiliser la fonctionnalité d’authentification multifacteur Azure AD basée sur le cloud.
+> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui souhaitent imposer une authentification multifacteur lors des événements de connexion doivent utiliser la fonctionnalité Azure AD Multi-Factor Authentication basée sur le cloud.
 >
 > Pour commencer à utiliser l’authentification multifacteur basée sur le cloud, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >

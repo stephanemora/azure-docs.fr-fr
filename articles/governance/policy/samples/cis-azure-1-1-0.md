@@ -1,15 +1,15 @@
 ---
 title: Détails de la conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0
 description: Détails de l’initiative intégrée de conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4eca33f77a4415e13773a51057bb7495857df043
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 3b2d7a49eb67fb2905ddf5c5fa98c3973f1e2e82
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112184"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472665"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0
 
@@ -216,7 +216,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[L’accès public au compte de stockage doit être interdit](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |L’accès en lecture public anonyme aux conteneurs et aux blobs dans Stockage Azure est un moyen pratique de partager des données, mais peut présenter des risques pour la sécurité. Pour éviter les violations de données provoquées par un accès anonyme non souhaité, Microsoft recommande d’empêcher l’accès public à un compte de stockage, sauf si votre scénario l’exige. |audit, deny, disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|[L’accès public au compte de stockage doit être interdit](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |L’accès en lecture public anonyme aux conteneurs et aux blobs dans Stockage Azure est un moyen pratique de partager des données, mais peut présenter des risques pour la sécurité. Pour éviter les violations de données provoquées par un accès anonyme non souhaité, Microsoft recommande d’empêcher l’accès public à un compte de stockage, sauf si votre scénario l’exige. |audit, deny, disabled |[3.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Vérifier que la règle d’accès réseau par défaut pour les comptes de stockage est définie sur Refuser
 
@@ -382,7 +382,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[L’accès public au compte de stockage doit être interdit](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |L’accès en lecture public anonyme aux conteneurs et aux blobs dans Stockage Azure est un moyen pratique de partager des données, mais peut présenter des risques pour la sécurité. Pour éviter les violations de données provoquées par un accès anonyme non souhaité, Microsoft recommande d’empêcher l’accès public à un compte de stockage, sauf si votre scénario l’exige. |audit, deny, disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|[L’accès public au compte de stockage doit être interdit](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |L’accès en lecture public anonyme aux conteneurs et aux blobs dans Stockage Azure est un moyen pratique de partager des données, mais peut présenter des risques pour la sécurité. Pour éviter les violations de données provoquées par un accès anonyme non souhaité, Microsoft recommande d’empêcher l’accès public à un compte de stockage, sauf si votre scénario l’exige. |audit, deny, disabled |[3.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Vérifier que le compte de stockage comprenant le conteneur des journaux d’activité est chiffré avec BYOK (Bring Your Own Key)
 
@@ -557,7 +557,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les clés Key Vault doivent avoir une date d’expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Les clés de chiffrement doivent avoir une date d’expiration définie et ne pas être permanentes. Les clés valides indéfiniment offrent à un intrus potentiel plus de temps pour compromettre la clé. Il est recommandé de définir les dates d’expiration des clés de chiffrement. |Audit, Refuser, Désactivé |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
+|[Les clés Key Vault doivent avoir une date d’expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Les clés de chiffrement doivent avoir une date d’expiration définie et ne pas être permanentes. Les clés valides indéfiniment offrent à un intrus potentiel plus de temps pour compromettre la clé. Il est recommandé de définir les dates d’expiration des clés de chiffrement. |Audit, Refuser, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
 
 ### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Vérifier que la date d’expiration est définie sur tous les secrets
 
@@ -565,7 +565,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les secrets Key Vault doivent avoir une date d’expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |Les secrets doivent avoir une date d’expiration définie et ne pas être permanents. Les secrets valides indéfiniment offrent à un attaquant potentiel plus de temps pour les compromettre. Il est recommandé de définir les dates d’expiration des secrets. |Audit, Refuser, Désactivé |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
+|[Les secrets Key Vault doivent avoir une date d’expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |Les secrets doivent avoir une date d’expiration définie et ne pas être permanents. Les secrets valides indéfiniment offrent à un attaquant potentiel plus de temps pour les compromettre. Il est recommandé de définir les dates d’expiration des secrets. |Audit, Refuser, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Vérifier que le coffre de clés est récupérable
 

@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 41e78acf37f2f5b9cc0346384fc4964187945386
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: ad9e7979eddac3fc102d9fddae68c230a7418762
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026450"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259555"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -23,7 +23,7 @@ Azure Functions nécessite un compte Stockage Azure lorsque vous créez une inst
 | [Stockage de tables Azure](../storage/tables/table-storage-overview.md)  |  Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> Lorsque vous utilisez le plan d’hébergement de consommation/Premium, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
+> Lorsque vous utilisez le plan d’hébergement de consommation/Premium, les fichiers de code de fonction et de configuration de liaison sont stockés dans Azure Files dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
 
 ## <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
 

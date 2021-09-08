@@ -10,18 +10,16 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3fdeadcf90d94203a972946ccceefca74cd5c3d
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 46b36452926b02ea524b35727d54535a4ffa3f27
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012479"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123467733"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell
 
 Utilisez le module Azure PowerShell pour créer et gérer les ressources Azure. La création ou la gestion des ressources Azure peut se faire depuis une ligne de commande PowerShell ou dans des scripts. Ce guide décrit l’utilisation de PowerShell pour transférer des fichiers entre un disque local et le Stockage Blob Azure.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

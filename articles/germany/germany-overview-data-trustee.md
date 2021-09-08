@@ -1,27 +1,22 @@
 ---
 title: Administration des données Azure Germany | Microsoft Docs
-description: Cet article fournit des informations sur le modèle d’administration des données.
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: Cet article fournit des informations sur le modèle d’administration des données. Vous trouverez également des liens pertinents.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 6513e0fc9a1576cd3c856ca5e8ea76c34e6ae832
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 333b15293b81295a603f3df3af46a27560bb4a20
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033500"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "122562077"
 ---
 # <a name="data-trustee-principle"></a>Principe de l’administration des données
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Microsoft a développé Azure Germany pour répondre aux besoins des clients et partenaires de l’Union européenne (UE), de l’Association européenne de libre-échange (AELE) et du Royaume-Uni. Il s'agit notamment de répondre aux préoccupations concernant la sécurité et la confidentialité des données en ligne. Azure Germany offre les meilleurs services cloud de l'industrie, *hébergés et exploités entièrement dans un cadre défini par des mesures de sécurité spéciales en vigueur en Allemagne*.
 
@@ -34,8 +29,6 @@ L'administrateur de données allemand est une société indépendante dont le si
 Microsoft administre tous les aspects de l'exploitation et de l'approvisionnement des services d'Azure Germany qui ne nécessitent pas l'accès aux données client. Cela exclut toute connexion avec d'autres services cloud mondiaux de Microsoft. Microsoft reste responsable envers ses clients des contrats de niveau de service (SLA) et de la plupart des aspects opérationnels qui ne permettent pas l'accès aux données client.
 
 En revanche, l’administrateur des données allemand est responsable de toutes les tâches et de tous les processus qui nécessitent un accès physique ou logique à l'infrastructure qui stocke les données client en Allemagne. L’administrateur des données contrôle tous les accès aux données client autres que l’accès initié par le client ou les utilisateurs finaux. 
-
-
 
 Les caractéristiques suivantes sont spécifiques à Azure Germany :
 
