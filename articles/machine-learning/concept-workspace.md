@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
-ms.openlocfilehash: fcf222573ac16be54ae98777749306fee0847109
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 07/27/2021
+ms.openlocfilehash: 37e6573e1bc26bc79477cf532ef442964f760985
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749588"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226783"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
 L’espace de travail est la ressource de niveau supérieur pour Azure Machine Learning. Il fournit un emplacement centralisé dans lequel exploiter tous les artefacts que vous créez lorsque vous utilisez Azure Machine Learning.  L’espace de travail conserve un historique de toutes les exécutions d’entraînement, y compris les journaux d’activité, les métriques, les sorties et un instantané de vos scripts. Vous utilisez ces informations pour déterminer quelle exécution d’entraînement produit le meilleur modèle.  
 
-Une fois que vous disposez d’un modèle qui vous convient, inscrivez-le avec l’espace de travail. Ainsi, grâce au modèle inscrit et aux scripts de scoring, vous pouvez déployer sur Azure Container Instances, Azure Kubernetes Service ou sur un tableau FPGA (field programmable gate array) comme point de terminaison HTTP basé sur REST. Vous pouvez également déployer le modèle en tant que module sur un appareil Azure IoT Edge.
+Une fois que vous disposez d’un modèle qui vous convient, inscrivez-le avec l’espace de travail. Ainsi, grâce au modèle inscrit et aux scripts de scoring, vous pouvez déployer sur Azure Container Instances, Azure Kubernetes Service ou sur un tableau FPGA (field programmable gate array) comme point de terminaison HTTP basé sur REST.
 
 ## <a name="taxonomy"></a>Taxonomie 
 
@@ -53,7 +53,6 @@ Vous pouvez interagir avec votre espace de travail comme suit :
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Concepteur Azure Machine Learning](concept-designer.md) 
 + Dans un environnement Python avec le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro).
-+ Dans un environnement R avec le [kit de développement logiciel (SDK) Azure Machine Learning pour R (préversion)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Sur la ligne de commande avec l’[extension CLI](./reference-azure-machine-learning-cli.md) Azure Machine Learning :
 + [Extension VS Code Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
 
@@ -74,7 +73,7 @@ Les tâches de Machine Learning lisent et/ou écrivent des artefacts sur votre e
 
 Vous pouvez également effectuer les tâches de gestion de l’espace de travail suivantes :
 
-| Tâche de gestion de l’espace de travail   | Portail              | Studio | Kit SDK Python / Kit SDK R       | Interface de ligne de commande        | VS Code
+| Tâche de gestion de l’espace de travail   | Portail              | Studio | Kit de développement logiciel (SDK) Python      | Azure CLI        | VS Code
 |---------------------------|---------|---------|------------|------------|------------|
 | Créer un espace de travail        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Gérer les accès à l’espace de travail    | **&check;**   || |  **&check;**    ||
@@ -96,6 +95,15 @@ Il existe plusieurs moyens de créer un espace de travail :
 > [!NOTE]
 > Le nom de l’espace de travail n’est pas sensible à la casse.
 
+## <a name="sub-resources"></a><a name="sub-resources"></a> Sous-ressources
+
+Ces sous-ressources sont les principales ressources qui sont créées dans l’espace de travail AML.
+
+* Machines virtuelles : fournissent la puissance de calcul pour votre espace de travail AML et font partie intégrante du déploiement et des modèles de formation.
+* Load Balancer : un équilibreur de charge réseau est créé pour chaque instance de calcul et cluster de calcul afin de gérer le trafic même en cas d’arrêt de l’instance/du cluster de calcul.
+* Réseau virtuel : permet aux ressources Azure de communiquer entre elles, avec Internet et d’autres réseaux locaux.
+* Bande passante : encapsule tous les transferts de données sortants entre les régions.
+
 ## <a name="associated-resources"></a><a name="resources"></a> Ressources associées
 
 Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement plusieurs ressources Azure qui sont utilisées par l’espace de travail :
@@ -109,12 +117,15 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Enregistre les conteneurs docker que vous utilisez pendant la formation et lorsque vous déployez un modèle. Pour réduire les coûts, ACR est **chargé en différé** jusqu’à la création des images de déploiement.
 
+    > [!NOTE]
+    > Si votre paramètre d’abonnement exige l’ajout de balises aux ressources qu’il contient, Azure Container Registry (ACR) créé par Azure Machine Learning échouera, car il est impossible de définir des balises sur ACR.
+
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) : Stocke les informations de supervision concernant les modèles.
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) : Stocke les secrets qui sont utilisés par les cibles de calcul, ainsi que d’autres informations sensibles dont a besoin l’espace de travail.
 
 > [!NOTE]
-> Vous pouvez utiliser à la place des instances de ressources Azure existantes lorsque vous créez l’espace de travail avec le [SDK Python](how-to-manage-workspace.md?tabs=python#create-a-workspace), le [SDK R](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html) ou la Azure Machine Learning CLI [à l’aide d’un modèle ARM](how-to-create-workspace-template.md).
+> Vous pouvez utiliser à la place des instances de ressources Azure existantes lorsque vous créez l’espace de travail avec le [SDK Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) ou la CLI Azure Machine Learning [à l’aide d’un modèle ARM](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -128,9 +139,11 @@ Les clients des deux éditions sont responsables des coûts des ressources Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Pour en savoir plus sur la planification d’un espace de travail pour les besoins de votre organisation, consultez [Organiser et configurer Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
 Pour bien démarrer avec Azure Machine Learning, voir :
 
-+ [Vue d’ensemble d’Azure Machine Learning](overview-what-is-azure-ml.md)
++ [Qu'est-ce que Microsoft Azure Machine Learning ?](overview-what-is-azure-machine-learning.md)
 + [Créer et gérer un espace de travail](how-to-manage-workspace.md)
 + [Tutoriel : Prendre en main Azure Machine Learning](quickstart-create-resources.md)
 + [Tutoriel : Créer votre premier modèle de classification avec le machine learning automatisé](tutorial-first-experiment-automated-ml.md) 

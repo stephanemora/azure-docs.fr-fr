@@ -6,13 +6,13 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/05/2021
-ms.openlocfilehash: c8589911e4424afe1ff2f5dbed32c375cb29c706
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/26/2021
+ms.openlocfilehash: f954be4b5ce82bf84bc99fcdab253c48fccf9933
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095727"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226980"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planifier et gérer les coûts pour Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,9 +35,20 @@ Analyse des coûts dans Cost Management prend en charge la plupart des types de 
 
 Azure Cosmos DB est disponible en deux modes de capacité différents : débit approvisionné et serverless. Vous pouvez effectuer exactement les mêmes opérations de base de données dans les deux modes, mais la façon dont vous êtes facturé pour ces opérations est différente.
 
+### <a name="capacity-planning"></a>planification de la capacité
+
+Pour vous aider à estimer les coûts, il peut être utile d’effectuer la planification de capacité d’une migration vers Azure Cosmos DB. Si vous planifiez une migration à partir d’un cluster de bases de données existant vers Azure Cosmos DB, vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+
+![Migrer un jeu de réplicas avec 3 réplicas d’une référence SKU à quatre cœurs vers Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)
+
+* Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+
 ### <a name="estimate-provisioned-throughput-costs"></a>Estimer les coûts du débit provisionné
 
-Si vous envisagez d’utiliser Azure Cosmos DB en mode débit approvisionné, utilisez la [calculatrice de capacité d’Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Cosmos. La calculatrice de capacité permet d’estimer le débit nécessaire et le coût de votre charge de travail. Pour optimiser les coûts et les performances, il est essentiel de configurer vos bases de données et vos conteneurs Azure Cosmos avec la quantité appropriée de débit provisionné, ou [Unités de requête par seconde (RU/s)](request-units.md), pour votre charge de travail. Vous devez entrer des informations comme le type d’API, le nombre de régions, la taille des éléments, les demandes de lecture/écriture par seconde et la quantité totale des données stockées pour obtenir une estimation des coûts. Pour découvrir plus d’informations sur la calculatrice de capacité, consultez l’article [Estimer](estimate-ru-with-capacity-planner.md).
+Si vous envisagez d’utiliser Azure Cosmos DB en mode débit approvisionné, utilisez la [calculatrice de capacité d’Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Cosmos. La calculatrice de capacité permet d’estimer le débit nécessaire et le coût de votre charge de travail. La calculatrice de capacité est actuellement disponible pour l’API SQL, l’API Cassandra et l’API pour MongoDB uniquement.
+
+Pour optimiser les coûts et les performances, il est essentiel de configurer vos bases de données et vos conteneurs Azure Cosmos avec la quantité appropriée de débit provisionné, ou [Unités de requête par seconde (RU/s)](request-units.md), pour votre charge de travail. Vous devez entrer des informations comme le type d’API, le nombre de régions, la taille des éléments, les demandes de lecture/écriture par seconde et la quantité totale des données stockées pour obtenir une estimation des coûts. Pour découvrir plus d’informations sur la calculatrice de capacité, consultez l’article [Estimer](estimate-ru-with-capacity-planner.md).
 
 La capture d’écran suivante montre le débit et l’estimation des coûts à l’aide de la calculatrice de capacité :
 
@@ -149,6 +160,9 @@ Voici quelques-unes des meilleures pratiques que vous pouvez utiliser pour rédu
 
 Consultez les articles suivants pour en savoir plus sur le fonctionnement des prix dans Azure Cosmos DB :
 
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 * [Modèle de prix dans Azure Cosmos DB](how-pricing-works.md)
 * Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Apprenez-en davantage sur la gestion des coûts avec l’[analyse du coût](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

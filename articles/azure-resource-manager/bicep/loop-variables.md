@@ -4,40 +4,23 @@ description: Utilisez une boucle de variable Bicep pour effectuer une itération
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 429a15c222e47bab29b314b0d11f7e077281b635
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 08/30/2021
+ms.openlocfilehash: bf182379c9cc10db11e451f908df552a16520b45
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635001"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225210"
 ---
 # <a name="variable-iteration-in-bicep"></a>Itération de variable dans Bicep
 
-Cet article explique comment créer plusieurs valeurs pour une variable dans votre fichier Bicep. Vous pouvez ajouter une boucle à la section `variables` et définir de façon dynamique le nombre d’éléments pour une variable pendant le déploiement. Vous évitez également de répéter la syntaxe dans votre fichier Bicep.
+Cet article explique comment créer plusieurs valeurs pour une variable dans votre fichier Bicep. Vous pouvez ajouter une boucle à la déclaration `variables` et définir de manière dynamique le nombre d’éléments pour une variable. Vous évitez de répéter la syntaxe dans votre fichier Bicep.
 
-Vous pouvez également utiliser l’élément copy avec des [ressources](loop-resources.md), des [propriétés dans une ressource](loop-properties.md) et des [sorties](loop-outputs.md).
+Vous pouvez également utiliser l’élément copy avec des [modules](loop-modules.md), des [ressources](loop-resources.md), des [propriétés](loop-properties.md) dans une ressource et des [sorties](loop-outputs.md).
 
 ## <a name="syntax"></a>Syntaxe
 
 Vous pouvez utiliser des boucles pour déclarer plusieurs variables en procédant comme suit :
-
-- Itération sur un tableau.
-
-  ```bicep
-  var <variable-name> = [for <item> in <collection>: {
-    <properties>
-  }]
-
-  ```
-
-- Par une itération sur les éléments d’un tableau.
-
-  ```bicep
-  var <variable-name> = [for <item>, <index> in <collection>: {
-    <properties>
-  }]
-  ```
 
 - Par l’utilisation de l’index d’une boucle.
 
@@ -47,11 +30,32 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs variables en procédan
   }]
   ```
 
+  Pour plus d’informations, consultez [Index de boucle](#loop-index).
+
+- Par une itération sur un tableau.
+
+  ```bicep
+  var <variable-name> = [for <item> in <collection>: {
+    <properties>
+  }]
+
+  ```
+
+  Pour plus d’informations, consultez [Tableau de boucle](#loop-array).
+
+- Itération sur un tableau et un index.
+
+  ```bicep
+  var <variable-name> = [for <item>, <index> in <collection>: {
+    <properties>
+  }]
+  ```
+
 ## <a name="loop-limits"></a>Limites des boucles
 
-Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations. Pour déployer des fichiers Bicep, installez la dernière version des [outils Bicep](install.md).
+Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations. 
 
-## <a name="variable-iteration"></a>Itération de variable
+## <a name="loop-index"></a>Index de boucle
 
 L’exemple suivant montre comment créer un tableau de valeurs de chaîne :
 
@@ -121,23 +125,69 @@ La sortie retourne un tableau avec les valeurs suivantes :
 ]
 ```
 
-## <a name="example-templates"></a>Exemples de modèles
+## <a name="loop-array"></a>Tableau de boucle
 
-Les exemples suivants illustrent des scénarios courants de création de plusieurs valeurs pour une variable.
+L’exemple suivant effectue une boucle sur un tableau qui est passé en tant que paramètre. La variable construit des objets dans le format requis à partir du paramètre.
 
-|Modèle  |Description  |
-|---------|---------|
-|[Variables de boucle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopvariables.bicep) | Montre comment effectuer une itération sur des variables. |
-|[Règles de sécurité multiples](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.bicep) |Déploie plusieurs règles de sécurité sur un groupe de sécurité réseau. Crée les règles de sécurité à partir d’un paramètre. Pour le paramètre, consultez [plusieurs fichiers de paramètre NSG](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.parameters.json). |
+```bicep
+@description('An array that contains objects with properties for the security rules.')
+param securityRules array = [
+  {
+    name: 'RDPAllow'
+    description: 'allow RDP connections'
+    direction: 'Inbound'
+    priority: 100
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: '10.0.0.0/24'
+    sourcePortRange: '*'
+    destinationPortRange: '3389'
+    access: 'Allow'
+    protocol: 'Tcp'
+  }
+  {
+    name: 'HTTPAllow'
+    description: 'allow HTTP connections'
+    direction: 'Inbound'
+    priority: 200
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: '10.0.1.0/24'
+    sourcePortRange: '*'
+    destinationPortRange: '80'
+    access: 'Allow'
+    protocol: 'Tcp'
+  }
+]
+
+
+var securityRulesVar = [for rule in securityRules: {
+  name: rule.name
+  properties: {
+    description: rule.description
+    priority: rule.priority
+    protocol: rule.protocol
+    sourcePortRange: rule.sourcePortRange
+    destinationPortRange: rule.destinationPortRange
+    sourceAddressPrefix: rule.sourceAddressPrefix
+    destinationAddressPrefix: rule.destinationAddressPrefix
+    access: rule.access
+    direction: rule.direction
+  }
+}]
+
+resource netSG 'Microsoft.Network/networkSecurityGroups@2020-11-01' = {
+  name: 'NSG1'
+  location: resourceGroup().location
+  properties: {
+    securityRules: securityRulesVar
+  }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour connaître les autres utilisations possibles des boucles, consultez :
-  - [Itération de ressource dans les fichiers Bicep](loop-resources.md)
-  - [Itération de propriété dans les fichiers Bicep](loop-properties.md)
-  - [Itération de sortie dans les fichiers Bicep](loop-outputs.md)
-- Pour plus d’informations sur les différentes sections d’un fichier Bicep, consultez [Présentation de la structure et de la syntaxe des fichiers Bicep](file.md).
-- Pour plus d’informations sur le déploiement de plusieurs ressources, consultez [Utiliser des modules Bicep](modules.md).
+  - [Itération de ressource dans Bicep](loop-resources.md)
+  - [Itération de module dans Bicep](loop-modules.md)
+  - [Itération de propriété dans Bicep](loop-properties.md)
+  - [Itération de sortie dans Bicep](loop-outputs.md)
 - Pour définir des dépendances sur des ressources créées dans une boucle, consultez [Définir des dépendances de ressource](./resource-declaration.md#set-resource-dependencies).
-- Pour savoir comment effectuer un déploiement avec PowerShell, consultez [Déployer des ressources avec Bicep et Azure PowerShell](deploy-powershell.md).
-- Pour savoir comment effectuer un déploiement avec Azure CLI, consultez [Déployer des ressources avec Bicep et Azure CLI](deploy-cli.md).

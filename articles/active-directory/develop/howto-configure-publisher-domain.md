@@ -13,14 +13,14 @@ ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: 43fef26f3006120cb62676bfd5675c1e79b849d4
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 7cf9918216c70bcbabf9c64c9b0ebf91c02b45fd
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579969"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029239"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain"></a>Procédure : Configurer un domaine d’éditeur d’application
+# <a name="configure-an-applications-publisher-domain"></a>Configurer un domaine d’éditeur d’application
 
 Un domaine d’éditeur d’application est présenté aux utilisateurs à l’[invite de consentement de l’application](application-consent-experience.md) et leur permet de savoir où leurs informations sont envoyées. Les applications multilocataires inscrites après le 21 mai 2019 n’ont pas de domaine d’éditeur qui s’affiche comme **non vérifié**. Les applications multilocataires sont des applications qui prennent en charge des comptes en dehors d’un annuaire d’organisation unique, et qui prennent en charge, par exemple, tous les comptes Azure AD ou tous les comptes Azure AD et comptes Microsoft personnels.
 
@@ -61,7 +61,7 @@ Pour définir le domaine d’éditeur de votre application, procédez comme suit
 
 Si votre application est inscrite dans un locataire, vous verrez deux onglets dans lesquels sélectionner : **Sélectionner un domaine vérifié** et **Vérifier un nouveau domaine**.
 
-Si votre application n’est pas inscrite dans un locataire, vous ne verrez que l’option de vérification d’un nouveau domaine pour votre application.
+Si votre domaine n’est pas inscrit dans le locataire, vous ne verrez que l’option de vérification d’un nouveau domaine pour votre application.
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Pour vérifier un nouveau domaine pour votre application
 

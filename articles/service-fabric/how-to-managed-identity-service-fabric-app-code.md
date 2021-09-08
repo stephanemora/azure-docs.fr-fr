@@ -3,12 +3,12 @@ title: Utiliser une identité gérée avec une application
 description: Comment utiliser des identités managées dans du code d’application Azure Service Fabric pour accéder aux services Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: e26a29020f26583f7e4aa16434c7e8647ba9a5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc7eff8119e6b79ca991543cdc09cfe106989fd3
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98871059"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867056"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Tirer parti de l’identité managée d’une application Service Fabric pour accéder aux services Azure
 
@@ -427,7 +427,8 @@ Il est recommandé de retenter les demandes échouées pour cause de limitation 
 Consultez [Services Azure prenant en charge l’authentification de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) pour obtenir une liste des ressources qui prennent en charge Azure AD et leur ID de ressources respectif.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Déployer une application Azure Service Fabric avec une identité managée attribuée par le système](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)
+* [Déployer une application Service Fabric avec une identité managée sur un cluster managé](how-to-managed-cluster-application-managed-identity.md)
+* [Déployer une application Service Fabric avec une identité managée attribuée par le système sur un cluster classique](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Déployer une application Service Fabric avec une identité managée attribuée par l’utilisateur sur un cluster classique](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure](./how-to-grant-access-other-resources.md)
 * [Explorer un exemple d'application utilisant l'identité managée Service Fabric](https://github.com/Azure-Samples/service-fabric-managed-identity)

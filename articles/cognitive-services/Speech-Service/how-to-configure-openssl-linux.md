@@ -12,16 +12,16 @@ ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0aee0030937a6e11860907e27b775c2671137f71
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 507ade69fc257b52a3fe632fcf652dcd5660d819
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331103"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104239"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurer OpenSSL pour Linux
 
-Quand vous utilisez le kit SDK Speech dans une version antérieure à 1.9.0, [OpenSSL](https://www.openssl.org) est configuré de façon dynamique en fonction de la version du système hôte. Dans les versions ultérieures du kit SDK Speech, OpenSSL (version [1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)) est lié de manière statique à la bibliothèque principale du kit SDK Speech.
+Quand vous utilisez le kit SDK Speech dans une version antérieure à 1.9.0, [OpenSSL](https://www.openssl.org) est configuré de façon dynamique en fonction de la version du système hôte. Dans les versions ultérieures du kit de développement logiciel (SDK) Speech, OpenSSL est lié de manière statique à la bibliothèque principale du kit de développement logiciel (SDK) Speech. Dans le kit de développement logiciel (SDK) Speech versions 1.9.0 à 1.16.0, [OpenSSL version 1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html) est utilisé. Dans le kit de développement logiciel (SDK) Speech version 1.17.0 et ultérieures, [OpenSSL version 1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html) est utilisé.
 
 Pour garantir la connectivité, vérifiez que les certificats OpenSSL ont été installés sur votre système. Exécutez une commande :
 ```bash
@@ -87,7 +87,7 @@ config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
@@ -129,7 +129,7 @@ config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end

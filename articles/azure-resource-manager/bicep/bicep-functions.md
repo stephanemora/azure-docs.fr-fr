@@ -3,12 +3,12 @@ title: Fonctions Bicep
 description: Décrit les fonctions à utiliser dans un fichier Bicep pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, ainsi que récupérer des informations relatives au déploiement.
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 827770c449d144e266022ee1b53c3b10078f605f
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: dcc0e71917431ac2a181ae87374499a89a27482c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112292930"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303982"
 ---
 # <a name="bicep-functions"></a>Fonctions Bicep
 
@@ -89,6 +89,7 @@ Les fonctions suivantes sont disponibles pour l’obtention de valeurs de l’é
 * [listSecrets](./bicep-functions-resource.md#list)
 * [list*](./bicep-functions-resource.md#list)
 * [pickZones](./bicep-functions-resource.md#pickzones)
+* [providers (déconseillé)](./bicep-functions-resource.md#providers)
 * [reference](./bicep-functions-resource.md#reference)
 * [resourceId](./bicep-functions-resource.md#resourceid) - peut être utilisée dans n’importe quelle étendue, mais les paramètres valides changent en fonction de l’étendue.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)

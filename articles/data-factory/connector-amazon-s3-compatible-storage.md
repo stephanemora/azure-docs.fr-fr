@@ -7,13 +7,13 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/11/2021
-ms.openlocfilehash: 12d7080a9f000df1f2e7469defef820cd4231e1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 98191eb2e958510fe01fc5a02e0490bf7c2d41ae
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641210"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306994"
 ---
 # <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory"></a>Copie de données à partir d’Amazon S3 Compatible Storage avec Azure Data Factory
 
@@ -47,7 +47,32 @@ Pour obtenir la liste complète des autorisations Amazon S3, consultez l’arti
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-amazon-s3-compatible-storage-using-ui"></a>Créer un service lié à Amazon S3 Compatible Storage à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Amazon S3 Compatible Storage dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Amazon et sélectionnez le connecteur Amazon S3 Compatible Storage.
+
+   :::image type="content" source="media/connector-amazon-s3-compatible-storage/amazon-s3-compatible-storage-connector.png" alt-text="Sélectionnez le connecteur Amazon S3 Compatible Storage.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-amazon-s3-compatible-storage/configure-amazon-s3-compatible-storage-linked-service.png" alt-text="Configurez un service lié à Amazon S3 Compatible Storage.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration du connecteur 
 
 Les sections suivantes donnent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques d’Amazon S3 Compatible Storage.
 
@@ -147,7 +172,7 @@ Les propriétés prises en charge pour Amazon S3 Compatible Storage sous les par
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propriété **type** indiquée sous `storeSettings` doit être définie sur **AmazonS3CompatibleReadSettings**. | Oui                                                         |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : préfixe S3 Compatible Storage<br>- prefix | Préfixe du nom de la clé S3 Compatible Storage sous le compartiment donné configuré dans un jeu de données pour filtrer les fichiers S3 Compatible Storage sources. Les clés sélectionnées sont les clés S3 Compatible Storage dont le nom commence par `bucket_in_dataset/this_prefix`. Elles utilisent le filtre côté service de S3 Compatible Storage, qui offre un meilleur niveau de performance qu’un filtre par caractères génériques.<br/><br/>Quand vous utilisez le préfixe et que vous choisissez de copier le récepteur basé sur un fichier avec conservation de la hiérarchie, notez que le sous-chemin après le dernier signe « / » dans le préfixe est conservé. Par exemple, si vous avez la source `bucket/folder/subfolder/file.txt` et que vous configurez le préfixe sous la forme `folder/sub`, le chemin du fichier conservé est `subfolder/file.txt`. | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le compartiment et le chemin d’accès du dossier donnés (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 574a10f6ef79ff3d40f5d62e49db9ebf198d2a79
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: d479dbc34bd8c08ebc471de74be1558f6dccc6e1
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563778"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273246"
 ---
 # <a name="multimedia-redirection-for-azure-virtual-desktop-preview"></a>Redirection multimédia pour Azure Virtual Desktop (préversion)
 
@@ -26,17 +26,15 @@ ms.locfileid: "122563778"
 
 La redirection multimédia (MMR) permet une lecture fluide des vidéos lorsque vous les visionnez dans votre navigateur Azure Virtual Desktop. La redirection multimédia déplace l’élément multimédia du navigateur vers l’ordinateur local pour un traitement et un rendu plus rapides. Microsoft Edge et Google Chrome prennent tous deux en charge la fonctionnalité de redirection multimédia. Toutefois, la préversion publique de la redirection multimédia pour Azure Virtual Desktop a limité la lecture sur YouTube. Pour tester YouTube dans le cadre du déploiement de votre organisation, vous devez [activer une extension](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Avant d’utiliser la redirection multimédia sur Azure Virtual Desktop, vous devez effectuer les opérations suivantes :
 
 1. [Installez le client Windows Desktop](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) sur un appareil Windows 10 ou Windows 10 IoT Enterprise qui répond à la [configuration matérielle requise pour Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). L’installation de la version 1.2.2222 ou ultérieure du client installe également le plug-in de redirection multimédia (MsMmrDVCPlugin.dll) sur l’appareil client. Pour en savoir plus sur les mises à jour et les nouvelles versions, consultez [Nouveautés du client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
-2. [Configurez l’ordinateur client pour le groupe Insider](create-host-pools-azure-marketplace.md).
+2. [Créer un pool d’hôtes pour vos utilisateurs](create-host-pools-azure-marketplace.md).
 
-3. Installez [le service de redirection multimédia](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) et toutes les extensions de navigateur requises sur la machine virtuelle.
-
-4. Configurez l’ordinateur client pour permettre à vos utilisateurs d’accéder au programme Insiders. Pour configurer le client pour le groupe Insider, définissez les informations de Registre suivantes :
+3. Configurez l’ordinateur client pour permettre à vos utilisateurs d’accéder au programme Insiders. Pour configurer le client pour le groupe Insider, définissez les informations de Registre suivantes :
 
    - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
    - **Type**: REG_SZ
@@ -45,7 +43,7 @@ Avant d’utiliser la redirection multimédia sur Azure Virtual Desktop, vous de
 
    Pour en savoir plus sur le programme Insiders, consultez [Client Windows Desktop pour les administrateurs](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-5. Utilisez [le programme d'installation MSI (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) pour installer les extensions de redirection multimédia pour votre navigateur Internet sur votre machine virtuelle Azure. À l’heure actuelle, la redirection multimédia pour Azure Virtual Desktop ne prend en charge que Microsoft Edge et Google Chrome.
+4. Utilisez [le programme d'installation MSI (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) pour installer les extensions de redirection multimédia pour votre navigateur Internet sur votre machine virtuelle Azure. À l’heure actuelle, la redirection multimédia pour Azure Virtual Desktop ne prend en charge que Microsoft Edge et Google Chrome.
 
 ## <a name="managing-group-policies-for-the-multimedia-redirection-browser-extension"></a>Gestion des stratégies de groupe pour l’extension de navigateur de redirection multimédia
 
@@ -103,13 +101,14 @@ Pour déterminer rapidement si la redirection multimédia est active dans votre 
 
 | État de l’icône  | Définition  |
 |-----------------|-----------------|
-| [Icône du programme Azure Virtual Desktop par défaut sans état appliqué.](/media/icon-default.png) | Apparence de l’icône par défaut sans état appliqué. |
-| [Icône du programme Azure Virtual Desktop avec un carré rouge et un x indiquant que la redirection multimédia ne fonctionne pas.](/media/icon-disconnect.png) | Le carré rouge avec un « X » à l’intérieur signifie que le client n’a pas pu se connecter à la redirection multimédia. |
-| [Icône du programme Azure Virtual Desktop avec un carré vert et une coche à l’intérieur, indiquant que la redirection multimédia fonctionne.](/media/icon-connect.png) | Le carré vert avec une coche à l’intérieur signifie que le client a pu se connecter à la redirection multimédia. |
+| ![Icône du programme Azure Virtual Desktop par défaut sans état appliqué.](./media/icon-default.png) | Apparence de l’icône par défaut sans état appliqué. |
+| ![Icône du programme Azure Virtual Desktop avec un carré rouge et un x indiquant que la redirection multimédia ne fonctionne pas.](./media/icon-disconnect.png) | Le carré rouge avec un « X » à l’intérieur signifie que le client n’a pas pu se connecter à la redirection multimédia. |
+| ![Icône du programme Azure Virtual Desktop avec un carré vert et une coche à l’intérieur, indiquant que la redirection multimédia fonctionne.](./media/icon-connect.png) | Le carré vert avec une coche à l’intérieur signifie que le client a pu se connecter à la redirection multimédia. |
 
 La sélection de l’icône affiche un menu contextuel contenant une case à cocher que vous pouvez sélectionner pour activer ou désactiver la redirection multimédia sur tous les sites web. Elle répertorie également les numéros de version pour chaque composant du service.
 
-## <a name="send-feedback-during-public-preview"></a>Envoyer des commentaires pendant la préversion publique
+## <a name="support-during-public-preview"></a>Support pendant la phase de préversion publique
+Le Support Microsoft ne gère pas les problèmes de redirection multimédia pendant la phase de préversion publique.
 
 Si vous rencontrez des problèmes, vous pouvez nous en informer dans le concentrateur de commentaires sur le client et l’hôte de la machine virtuelle.
 

@@ -4,12 +4,12 @@ description: Batch prend en charge Azure AD pour l’authentification auprès du
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.custom: has-adal-ref, subject-rbac-steps
-ms.openlocfilehash: 52e34bb94ab151afcfcdc14d2de55e608d82a139
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c7f365c7db4a8bc273e67d66a56a826021306f3a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066751"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315085"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -81,10 +81,8 @@ Une fois que vous avez inscrit votre application, procédez comme suit dans le p
 1. Recherchez le nom de votre application dans la liste des inscriptions d’application.
 1. Sélectionnez l’application, puis sélectionnez **Autorisations de l’API**.
 1. Dans la section **API autorisées**, sélectionnez **Ajouter une autorisation**.
-1. Dans **Sélectionner une API**, recherchez l’API Batch. Recherchez chacune de ces chaînes, jusqu’à ce que vous trouviez l’API :
-    1. **Microsoft Azure Batch**
-    1. La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID de l’API Batch.
-1. Une fois que vous avez trouvé l’API Batch, sélectionnez-la, puis choisissez **Sélectionner**.
+1. Dans **Sélectionner une API**, recherchez « Microsoft Azure Batch » pour trouver l’API Batch. La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID d’application de l’API Batch.
+1. Sélectionnez l’API Batch, puis choisissez **Sélectionner**.
 1. Dans **Sélectionner les autorisations**, cochez la case en regard de **Accéder au service Azure Batch**, puis sélectionnez **Ajouter des autorisations**.
 
 La section **Autorisations des API** indique à présent que votre application Azure AD a accès à Microsoft Graph et à l’API de service Batch. Les autorisations sont accordées à Microsoft Graph automatiquement quand vous inscrivez votre application pour la première fois dans Azure AD.

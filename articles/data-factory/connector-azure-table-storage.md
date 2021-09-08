@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 366feb50ef79fc2061f589c3a227c780df258344
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: d61d2b7799ab715532b703b5c73ad045e8be6226
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641454"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313925"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 
@@ -43,7 +43,31 @@ Plus précisément, ce connecteur Table Azure prend en charge la copie de donné
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Azure Data Factory spécifiques au stockage Table.
+## <a name="create-an-azure-table-storage-linked-service-using-ui"></a>Créer un service lié Stockage Table Azure à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié Stockage Table Azure dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Table Azure et sélectionnez le connecteur Stockage Table Azure.
+
+    :::image type="content" source="media/connector-azure-table-storage/azure-table-storage-connector.png" alt-text="Capture d’écran du connecteur Stockage Table Azure.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-azure-table-storage/configure-azure-table-storage-linked-service.png" alt-text="Capture d’écran de la configuration pour un service lié Stockage Table Azure.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration du connecteur
+
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités spécifiques de Stockage Table Azure.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 

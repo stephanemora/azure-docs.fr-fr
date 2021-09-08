@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a3c563c25283c300942f1fb58072e8c61847ba1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935787"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831448"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Fonctions de recherche en texte intégral OData dans Recherche cognitive Azure- `search.ismatch` et `search.ismatchscoring`
 
@@ -126,6 +126,12 @@ Rechercher les documents où les termes « hotel » et « airport » sont distan
 
 ```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
+
+Recherchez des documents qui ont un mot commençant par les lettres « Lux » dans le champ Description. Cette requête utilise la [recherche de préfixe](query-simple-syntax.md#prefix-queries) en association avec `search.ismatch`.
+
+```odata-filter-expr
+    search.ismatch('lux*', 'Description')
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes  

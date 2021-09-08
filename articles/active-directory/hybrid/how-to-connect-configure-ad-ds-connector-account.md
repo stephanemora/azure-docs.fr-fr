@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/20/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: adea0e63c9e285a751a1a0508e84c5b83a10e994
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 76f765a8255f47215cb03426d139a88aa5d31544
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074688"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305137"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -36,7 +36,7 @@ Le tableau suivant récapitule les autorisations nécessaires sur les objets AD 
 | Fonctionnalité | Autorisations |
 | --- | --- |
 | Fonctionnalité de ms-DS-ConsistencyGuid |Autorisations de lecture et d’écriture sur l’attribut ms-DS-ConsistencyGuid documenté dans [Principes de conception Azure AD Connect - Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
+| Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaire - obligatoire pour la lecture seule de base</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations de lecture et d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
 | Réécriture du mot de passe |Autorisations de lecture et d’écriture sur les attributs documentés dans [Bien démarrer avec la gestion des mots de passe](../authentication/tutorial-enable-sspr-writeback.md) pour les utilisateurs. |
@@ -84,7 +84,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 Veillez à remplacer `<ADAccountName>`, `<ADDomainName>` et `<ADAccountDN>` par les valeurs de votre environnement.
 
-Si vous ne souhaitez pas changer les autorisations sur le conteneur AdminSDHolder, utilisez le commutateur `-SkipAdminSdHolders`. 
+Si vous souhaitez changer les autorisations sur le conteneur AdminSDHolder, utilisez le commutateur `-IncludeAdminSdHolders`. Cela est toutefois déconseillé.
 
 Par défaut, toutes les applets de commande de définition des autorisations tentent de définir les autorisations AD DS à la racine de chaque domaine dans la forêt. L’utilisateur ayant ouvert la session PowerShell doit donc avoir des droits d’administrateur de domaine sur chaque domaine dans la forêt.  En raison de cette exigence, il est recommandé d’utiliser un compte Administrateur d’entreprise à partir de la racine de la forêt. Si votre déploiement Azure AD Connect utilise plusieurs connecteurs AD DS, la même applet de commande doit être exécutée sur chaque forêt contenant un connecteur AD DS. 
 
@@ -146,6 +146,7 @@ Cette applet de commande définit les autorisations suivantes :
 |Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets groupe descendants| 
 |Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets utilisateur descendants| 
 |Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets contact descendants| 
+|Allow|Compte de connecteur AD DS|Réplication des modifications de l’annuaire|Cet objet uniquement (racine du domaine)|
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurer les autorisations MS-DS-Consistency-Guid 
@@ -253,7 +254,7 @@ Cette applet de commande définit les autorisations suivantes :
 |Allow |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets groupe descendants| 
 |Allow |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets contact descendants| 
 
-### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Autorisations pour les dossiers publics de la messagerie Exchange (préversion) 
+### <a name="permissions-for-exchange-mail-public-folders"></a>Autorisations pour les dossiers publics de la messagerie Exchange
 Pour définir les autorisations du compte de connecteur AD DS quand les dossiers publics de la messagerie Exchange sont activés, exécutez : 
 
 ``` powershell

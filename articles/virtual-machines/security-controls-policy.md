@@ -1,20 +1,22 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour les machines virtuelles Azure
 description: Liste les contrôles de conformité réglementaire d’Azure Policy disponibles pour les machines virtuelles Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 07/16/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 4c532a384fb780bb7ee083930f0ce1b2669fb68e
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: a9472b261d9feec0152ad7e97cec60bbea49b7cd
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114400480"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123474290"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-machines"></a>Contrôles de conformité réglementaire d’Azure Policy pour les machines virtuelles Azure 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La [Conformité réglementaire d’Azure Policy](../governance/policy/concepts/regulatory-compliance.md) fournit des définitions d’initiatives créées et gérées par Microsoft, qui sont dites _intégrées_, pour les **domaines de conformité** et les **contrôles de sécurité** associés à différents standards de conformité. Cette page liste les **domaines de conformité** et les **contrôles de sécurité** pour les machines virtuelles Azure. Vous pouvez affecter les composants intégrés pour un **contrôle de sécurité** individuellement, afin de rendre vos ressources Azure conformes au standard spécifique.
 

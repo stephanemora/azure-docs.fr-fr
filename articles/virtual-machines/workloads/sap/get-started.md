@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2021
+ms.date: 08/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdf1208ae6c6661b6d9ad905ecf35ce66efc392d
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 305f7b964bfd084bf1fa245d436c431cde1b9104
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535118"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110326"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -80,6 +80,7 @@ Dans cette section, vous trouvez des informations sur la configuration de l’au
 Cette section contient des documents concernant l’intégration de Microsoft Power BI dans des sources de données SAP, ainsi que l’intégration d’Azure Data Factory dans SAP BW.
 
 ## <a name="change-log"></a>Journal des modifications
+- 26 août 2021 : modification de la [configuration du stimulateur cardiaque sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) et [configuration du stimulateur cardiaque sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) pour corriger le JSON de définition de rôle pour l’agent de clôture Azure
 - 17 août 2021 : Modifications apportées au [déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP](./dbms_guide_ibm.md), aux [types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et à la [charge de travail SAP sur des scénarios pris en charge par la machine virtuelle Azure](./sap-planning-supported-configurations.md) pour introduire la prise en charge pour IBM Db2 au moyen de volumes NFS hébergés sur ANF
 - 02 août 2021 : Modifications apportées à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous SLES pour les applications SAP](./high-availability-guide-suse.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous SLES avec ANF](./high-availability-guide-suse-netapp-files.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL pour les applications SAP](./high-availability-guide-rhel.md) et à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) afin de clarifier le comportement (ENSA1/ENSA2) lors d’un scénario test simulant une défaillance de serveur de file d’attente     
 - 11 août 2021 : Modifications apportées à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL pour les applications SAP](./high-availability-guide-rhel.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) et [HA pour SAP NW sur les machines virtuelles Azure sur RHEL multi-SID](./high-availability-guide-rhel-multi-sid.md) pour ajuster l’adhérence des ressources de cluster, les seuils de migration et les contraintes d’ordre  
@@ -159,7 +160,7 @@ Cette section contient des documents concernant l’intégration de Microsoft Po
 - 4 août 2020 : Modification de [SAP NW HA sur WFCS avec le partage de fichiers](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW HA sur WFCS avec des](./sap-high-availability-installation-wsfc-shared-disk.md)de disques partagés, [HA pour SAP NW sur des machines virtuelles Azure](./high-availability-guide.md), [HA pour SAP NW sur des machines virtuelles Azure sur SLES](./high-availability-guide-suse.md), [HA pour SAP NW sur des machines virtuelles Azure sur SLES avec et](./high-availability-guide-suse-netapp-files.md), [HA pour SAP NW sur les machines virtuelles Azure sur le guide multisid SLES](./high-availability-guide-suse-multi-sid.md), [haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur RHEL](./high-availability-guide-rhel.md), [HA pour SAP NW sur des machines virtuelles Azure sur RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) et [HA pour SAP NW sur des machines virtuelles Azure sur des machines virtuelles Azure RHEL](./high-availability-guide-rhel-multi-sid.md) Guide pour clarifier l’utilisation du paramètre `enque/encni/set_so_keepalive`
 - 23 juillet 2020 : Ajout de l’article [Enregistrer sur SAP HANA Grandes instances avec une réservation Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) expliquant ce que vous devez savoir avant d’acheter une réservation SAP HANA Grandes instances et comment effectuer l’achat
 - 16 juillet 2020 : Description de l’utilisation d’Azure PowerShell afin d’installer une nouvelle extension de machine virtuelle pour SAP dans le [guide de déploiement](deployment-guide.md)
-- 04 juillet 2020 : Sortie de [Azure Monitor pour solutions SAP (préversion)](./azure-monitor-overview.md)
+- 4 juillet 2020 : Mise en production de [Azure Monitor pour SAP Solutions (préversion)](./monitor-sap-on-azure.md)
 - 01 juillet 2020 : Suggestion d’une configuration de stockage moins coûteuse basée sur la fonctionnalité de stockage en rafale du Stockage Premium Azure dans le document [Configurations de stockage des machines virtuelles Azure SAP HANA](./hana-vm-operations-storage.md) 
 - 24 juin 2020 : Modification de [Configuration de Pacemaker sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) de façon à publier un nouvel agent Azure Fence amélioré et une configuration STONITH plus résiliente pour les appareils, à partir de l’agent Azure Fence 
 - 24 juin 2020 : Modification de [Configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) de façon à publier une configuration STONITH plus résiliente

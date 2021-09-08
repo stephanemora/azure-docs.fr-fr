@@ -4,15 +4,15 @@ description: Cet article explique comment configurer des comptes Azure Cosmos DB
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 08/30/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7cb5c8fe924a2634627533203ed8f11969f0b432
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56e9bfe95a78c8bf0771acdc98c761df9994a708
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531868"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221056"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurer un compte Azure Cosmos DB avec une sauvegarde périodique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -49,7 +49,7 @@ Les données de sauvegarde dans Azure Cosmos DB sont répliquées trois fois dan
 * **Stockage de sauvegarde redondant localement :** Cette option copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire.
 
 > [!NOTE]
-> Pour le moment, le stockage redondant interzone est uniquement disponible dans [certaines régions](high-availability.md#availability-zone-support). En fonction de la région que vous sélectionnez, cette option ne sera pas disponible pour les comptes nouveaux ou existants.
+> Pour le moment, le stockage redondant interzone est uniquement disponible dans [certaines régions](high-availability.md#availability-zone-support). En fonction de la région que vous sélectionnez pour un nouveau compte ou de la région dont vous disposez pour un compte existant, l’option « redondant interzone » ne sera pas disponible.
 >
 > La mise à jour de la redondance du stockage de sauvegarde n’aura aucun impact sur la tarification du stockage de sauvegarde.
 

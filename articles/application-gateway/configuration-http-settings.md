@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 77f30c26b500f98429039710d84f77b87fb6a654
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: f2fb9d2f6221928f093895914b8fc0082573a8b2
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992204"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866264"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Configuration des paramètres HTTP d'Application Gateway
 
@@ -20,9 +20,12 @@ La passerelle d’application route le trafic vers les serveurs back-end en util
 
 ## <a name="cookie-based-affinity"></a>Affinité basée sur les cookies
 
-Azure Application Gateway utilise des cookies gérés par passerelle pour gérer les sessions utilisateur. Quand un utilisateur envoie la première demande à Application Gateway, il définit un cookie d’affinité dans la réponse avec une valeur de hachage qui contient les détails de la session, afin que les demandes suivantes incluant le cookie d’affinité soient routées vers le même serveur back-end pour conserver l’adhérence. 
+Azure Application Gateway utilise des cookies gérés par passerelle pour gérer les sessions utilisateur. Quand un utilisateur envoie la première demande à Application Gateway, il définit un cookie d’affinité dans la réponse avec une valeur de hachage qui contient les détails de la session, afin que les demandes suivantes incluant le cookie d’affinité soient routées vers le même serveur back-end pour conserver l’adhérence.
 
 Cette fonctionnalité est pratique quand vous voulez conserver une session utilisateur sur le même serveur et quand l’état de session est enregistré localement sur le serveur pour une session utilisateur. Si l’application ne peut pas gérer l’affinité basée sur les cookies, vous ne pouvez pas utiliser cette fonctionnalité. Pour l’utiliser, assurez-vous que les clients prennent en charge les cookies.
+> [!NOTE]
+> Certaines analyses de vulnérabilité peuvent signaler le cookie d’affinité de la passerelle application, car les indicateurs Secure ou HttpOnly ne sont pas définis. Ces analyses ne tiennent pas compte du fait que les données du cookie sont générées à l’aide d’un hachage unidirectionnel. Le cookie ne contient pas d’informations utilisateur et est utilisé exclusivement pour le routage. 
+
 
 La [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) soient traités comme SameSite=Lax. Dans le cas de requêtes CORS (Cross-Origin Resource Sharing), si le cookie doit être envoyé dans un contexte tiers, il doit utiliser les attributs *SameSite=None; Secure* et être envoyé seulement via HTTPS. Dans le cas contraire, dans un scénario HTTP uniquement, le navigateur n’envoie pas les cookies dans le contexte tiers. L’objectif de cette mise à jour à partir de Chrome est d’améliorer la sécurité et d’éviter les attaques par falsification de requête intersites (CSRF). 
 

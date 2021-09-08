@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b32d5aee270e3380899a81f49b12a55c468f2bc5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888536"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865009"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Améliorer la protection contre les menaces en intégrant des opérations de sécurité avec Microsoft Graph Security et Azure Logic Apps
 
@@ -30,7 +30,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur [
 
 Le workflow de votre application logique peut utiliser des actions visant à obtenir des réponses du connecteur Microsoft Graph Security et à rendre cette sortie disponible pour d’autres actions de votre workflow. Il est également possible que d’autres actions de votre workflow utilisent la sortie des actions du connecteur Microsoft Graph Security. Par exemple, si vous obtenez des alertes d’un niveau de gravité élevé par le biais du connecteur Microsoft Graph Security, vous pouvez envoyer ces alertes dans un e-mail à l’aide du connecteur Outlook. 
 
-Pour en savoir plus sur Microsoft Graph Security, consultez la [vue d’ensemble de l’API Microsoft Graph Security](/graph/security-concept-overview). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Si vous recherchez Power Automate ou PowerApps, consultez [Présentation de Power Automate](https://flow.microsoft.com/) ou [Présentation de Power Apps](https://powerapps.microsoft.com/).
+Pour en savoir plus sur Microsoft Graph Security, consultez la [vue d’ensemble de l’API Microsoft Graph Security](/graph/security-concept-overview). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Si vous recherchez Power Automate ou Power Apps, consultez [Présentation de Power Automate](https://flow.microsoft.com/) ou [Présentation de Power Apps](https://powerapps.microsoft.com/).
 
 ## <a name="prerequisites"></a>Prérequis
 

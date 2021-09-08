@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 2baf8c99161d000b92aa10f02a26018bdb7264f4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 9015e3ce69042a2e7d96588956becff889827ab3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093874"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225189"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -546,7 +546,7 @@ Partie 1 : Installer et configurer Fiddler
 14. Cliquez sur « Copy to File… » (Copier dans un fichier).
 15. Dans l’Assistant d’exportation, choisissez les options suivantes :
     - X.509 encodé en base64
-    - Pour le nom de fichier, parcourez (bouton « Browse… ») jusqu’à C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs, puis vous pouvez l’enregistrer comme n’importe quel nom de fichier.
+    - Pour le nom de fichier, parcourez (bouton « Browse… ») vers `C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs` puis sauvegardez-le comme tout nom de fichier
 16. Fermez la fenêtre du certificat.
 17. Démarrez Explorateur Stockage.
 18. Accédez à Edit (Modifier) > Configure Proxy (Configurer un proxy).

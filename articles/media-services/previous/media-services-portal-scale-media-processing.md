@@ -3,7 +3,7 @@ title: Mettre à l’échelle le traitement multimédia à l’aide du portail A
 description: Ce didacticiel vous guide à travers les étapes de mise à l’échelle du traitement multimédia à l’aide du portail Azure.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali
 manager: femila
 editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 08/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 49c3899b912a88605e9269cdb1c34c7e18ed5247
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1040ffa8bc3af3734a5c37961676b0914f72e991
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009723"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835870"
 ---
 # <a name="change-the-reserved-unit-type"></a>Modification du type d’unité réservée
 
@@ -36,19 +36,15 @@ ms.locfileid: "103009723"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1**, **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**.
-
-En plus de spécifier le type d’unité réservée, vous pouvez approvisionner votre compte avec des **unités réservées**. Le nombre d’unités réservées approvisionnées détermine le nombre de tâches multimédias qui peuvent être traitées simultanément dans un compte donné.
-
->[!NOTE]
->Les unités réservées fonctionnent pour la mise en parallèle de tout le traitement multimédia, notamment les travaux d’indexation qui utilisent Azure Media Indexer. Toutefois, contrairement à l’encodage, l’indexation des travaux n’est pas plus rapide avec des unités réservées plus rapides.
+Par défaut, les unités réservées de support ne doivent plus nécessairement être utilisées et ne sont pas prises en charge par Azure Media Services. Pour des raisons de compatibilité, le portail Azure actuel offre une option vous permettant de gérer et de mettre à l’échelle les MRU. Toutefois, par défaut, aucune des configurations de MRU que vous avez définies ne sera utilisée pour contrôler l’accès concurrentiel ou les performances de l’encodage.
 
 > [!IMPORTANT]
 > Pour obtenir plus d’informations sur la mise à l’échelle du traitement multimédia, consultez la rubrique de [présentation](media-services-scale-media-processing-overview.md) .
-> 
-> 
 
 ## <a name="scale-media-processing"></a>Mise à l’échelle du traitement multimédia
+>[!NOTE]
+>La sélection de MRU n’affecte pas la concurrence ou les performances dans Azure Media Services V3. 
+
 Pour modifier le type d’unité réservée et le nombre d’unités réservées, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.

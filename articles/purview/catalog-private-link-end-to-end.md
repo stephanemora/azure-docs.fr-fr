@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: ec6bca63dd9593b8a70e0ee22e03752b416e9f04
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: a4e1270751f0f675f579315bfc69a808ccf903ea
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122527993"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250685"
 ---
 # <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée
 
@@ -170,7 +170,7 @@ Les instructions permettent d’accéder à Azure Purview en toute sécurité à
 ## <a name="deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources"></a>Déployez le runtime d’intégration auto-hébergé (IR) et analysez vos sources de données.
 Une fois que vous avez déployé des points de terminaison privés d’ingestion pour votre Azure Purview, vous devez configurer et inscrire au moins un runtime d’intégration auto-hébergé (IR) :
 
-- Tous les types de sources locales, tels que Azure SQL Server, Oracle, SAP et autres, ne sont actuellement pris en charge que via des analyses basées sur un IR auto-hébergé. L’IR auto-hébergé doit s’exécuter au sein de votre réseau privé, et être appairé avec votre réseau virtuel dans Azure. 
+- Tous les types de sources locales, tels que Microsoft SQL Server, Oracle, SAP et autres, ne sont actuellement pris en charge que via des analyses basées sur un IR auto-hébergé. L’IR auto-hébergé doit s’exécuter au sein de votre réseau privé, et être appairé avec votre réseau virtuel dans Azure. 
    
 - Pour tous les types de sources Azure comme Stockage Blob Azure et Azure SQL Database, vous devez explicitement choisir d’exécuter l’analyse à l’aide d’un runtime d’intégration auto-hébergé qui est déployé dans le même réseau virtuel que le point de terminaison privé d’ingestion Azure Purview. 
 

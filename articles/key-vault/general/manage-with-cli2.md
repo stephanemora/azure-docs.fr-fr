@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d4037e66e653bc6e958020a5ef8722f2febb53d0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f7bf21933f7b9eae40794ef67be48dd3bad2a9b6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772177"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473691"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -128,7 +128,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Les deux propriétés les plus importantes sont :
 
 * **nom** : dans l’exemple, le nom est ContosoKeyVault. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
-* **vaultUri** : dans l’exemple, l’URI est https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **vaultUri** : dans l’exemple, l’URI est `https://contosokeyvault.vault.azure.net`. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce À l’heure actuelle, personne d’autre n’y est autorisé.
 
@@ -146,7 +146,7 @@ Si vous avez une clé dans un fichier .pem, vous pouvez le télécharger dans Az
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` pour toujours obtenir la version actuelle. Utilisez https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] pour obtenir cette version spécifique. Par exemple : `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`. 
+Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` pour toujours obtenir la version actuelle. Utilisez https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] pour obtenir cette version spécifique. Par exemple, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`. 
 
 Ajoutez un secret au coffre, c'est-à-dire un mot de passe nommé SQLPassword avec la valeur « hVFkk965BuUv » dans Azure Key Vault. 
 

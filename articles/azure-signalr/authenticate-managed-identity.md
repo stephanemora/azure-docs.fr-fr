@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: b2766495c89b9be1a89e0648bcec83c160c1e0a8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e25fa98e2ca43b6697de6290ad122b6585b6a072
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479440"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186026"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure SignalR
 Azure SignalR Service prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). Les identités managées pour ressources Azure peuvent autoriser l’accès à des ressources Azure SignalR Service en utilisant les informations d’identification Azure AD d’applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, le service Virtual Machine Scale Sets et d’autres services. En utilisant des identités managées pour ressources Azure et Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.
@@ -50,7 +50,7 @@ Suivez ces instructions pour gérer les attributions de rôles :
     ![Ajouter un bouton à la barre d’outils](./media/authenticate/role-assignments-add-button.png)
 
 1. Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
-    1. Sélectionnez le **Serveur d’application SignalR** comme rôle. Notez que cela s’applique également à **Azure Functions App**.
+    1. Sélectionnez le **Propriétaire de SignalR Service** comme rôle.
     1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle.
     1. Sélectionnez **Enregistrer** pour enregistrer l’attribution de rôle. 
 

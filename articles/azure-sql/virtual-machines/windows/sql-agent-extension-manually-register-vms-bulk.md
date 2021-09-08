@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c350d91e04ea284ed91c3afb6912d76ed1e39ab0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6b2066ef94cb87a9ab9c000615c018938cbeddb1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079694"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220624"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Inscrire plusieurs machines virtuelles SQL dans Azure avec l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,6 +29,9 @@ Cet article explique comment inscrire en bloc vos machines virtuelles SQL Server
 
 
 Cet article vous apprend à inscrire des machines virtuelles SQL Server manuellement en bloc. Vous pouvez également inscrire [toutes les machines virtuelles SQL Server automatiquement](sql-agent-extension-automatic-registration-all-vms.md) ou [des machines virtuelles SQL Server individuelles manuellement](sql-agent-extension-manually-register-single-vm.md). 
+
+> [!NOTE]
+> À compter de septembre 2021, l’inscription auprès de l’extension IaaS SQL en mode complet ne nécessite plus le redémarrage du service SQL Server. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -40,7 +43,7 @@ Le processus d’inscription ne présente aucun risque, n’a pas de temps d’a
 
 Pour inscrire votre machine virtuelle SQL Server auprès de l’extension, vous aurez besoin des éléments suivants : 
 
-- Un [abonnement Azure](https://azure.microsoft.com/free/) qui a été [inscrit auprès du fournisseur **Microsoft.SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-resource-provider) et qui contient des machines virtuelles SQL Server non inscrites. 
+- Un [abonnement Azure](https://azure.microsoft.com/free/) qui a été [inscrit auprès du fournisseur de ressources **Microsoft.SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) et qui contient des machines virtuelles SQL Server non inscrites. 
 - Les informations d’identification du client utilisées pour inscrire les machines virtuelles existent dans chacun des rôles Azure suivants : **Contributeur de machine virtuelle**, **Contributeur** ou **Propriétaire**. 
 - La version la plus récente d’[Az PowerShell (5.0 au minimum)](/powershell/azure/new-azureps-module-az). 
 

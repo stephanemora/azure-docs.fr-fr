@@ -1,18 +1,20 @@
 ---
 title: Résoudre les problèmes de performances de l’activité de copie
-description: Découvrez comment résoudre les problèmes de performances de l’activité de copie dans Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment résoudre les problèmes de performances de l’activité de copie dans Azure Data Factory et Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 01/07/2021
-ms.openlocfilehash: eee68b8cb533763aff0c1cc6a1ebe19db735461e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: cea4999752d416f36f435ba88403fd9dc735f689
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488570"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255813"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -26,7 +28,7 @@ Après avoir exécuté une activité de copie, vous pouvez collecter les résult
 
 ## <a name="performance-tuning-tips"></a>Conseils sur le réglage des performances
 
-Dans certains scénarios, lorsque vous exécutez une activité de copie dans Data Factory, vous voyez des **« Conseils sur le réglage des performances »** en haut, comme indiqué dans l’exemple ci-dessus. Les conseils vous indiquent le goulot d’étranglement identifié par ADF pour cette exécution de copie spécifique, ainsi que des suggestions sur la manière d’améliorer le débit de copie. Essayez d’effectuer la modification recommandée, puis réexécutez la copie.
+Dans certains scénarios, lorsque vous exécutez une activité de copie, vous voyez des **« Conseils sur le réglage des performances »** en haut, comme indiqué dans l’exemple ci-dessus. Les conseils vous indiquent le goulot d’étranglement identifié par le service pour cette exécution de copie spécifique, ainsi que des suggestions sur la manière d’améliorer le débit de copie. Essayez d’effectuer la modification recommandée, puis réexécutez la copie.
 
 À titre de référence, les conseils de réglage des performances fournissent actuellement des suggestions pour les cas suivants :
 
@@ -69,11 +71,11 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.
 
-    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Blob Azure/Stockage Fichier Azure et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
+    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Stockage Blob Azure/Azure Files et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
 
     - Envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md) ou [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) en guise d’exemple général.
 
-  - Vérifiez si ADF signale une erreur de limitation sur la source ou si votre magasin de données est dans un état d’utilisation élevée. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
+  - Vérifiez si le service signale une erreur de limitation sur la source ou si votre magasin de données est dans un état d’utilisation élevée. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
   - Utilisez Azure IR dans la région de votre magasin de données source ou près de celle-ci.
 
@@ -81,7 +83,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
   - adoptez les meilleures pratiques de chargement de données spécifiques au connecteur si elles s’appliquent. Par exemple, lorsque vous copiez des données à partir d’[Amazon Redshift](connector-amazon-redshift.md), configurez l’utilisation de Redshift UNLOAD.
 
-  - Vérifiez si ADF signale une erreur de limitation sur la source ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
+  - Vérifiez si le service signale une erreur de limitation sur la source ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
   - Vérifiez votre modèle de source et de récepteur de copie : 
 
@@ -95,7 +97,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
   - Adoptez les meilleures pratiques de chargement de données spécifiques au connecteur si elles s’appliquent. Par exemple, pour copier des données dans [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md), utilisez PolyBase ou l’instruction COPY. 
 
-  - Vérifiez si ADF signale une erreur de limitation sur le récepteur ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
+  - Vérifiez si le service signale une erreur de limitation sur le récepteur ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
   - Vérifiez votre modèle de source et de récepteur de copie : 
 
@@ -123,11 +125,11 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.
 
-    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Blob Azure/Stockage Fichier Azure et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
+    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Stockage Blob Azure/Azure Files et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
 
     - Envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md) ou [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) en guise d’exemple général.
 
-  - Vérifiez si ADF signale une erreur de limitation sur la source ou si votre magasin de données est dans un état d’utilisation élevée. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
+  - Vérifiez si le service signale une erreur de limitation sur la source ou si votre magasin de données est dans un état d’utilisation élevée. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
 - **Le « transfert – lecture à partir de la source » a connu une longue durée de travail :** 
 
@@ -135,7 +137,7 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
   - Vérifiez si l’ordinateur IR auto-hébergé a suffisamment de bande passante entrante pour lire et transférer les données efficacement. Si votre magasin de données source est dans Azure, vous pouvez utiliser [cet outil](https://www.azurespeed.com/Azure/Download) pour vérifier la vitesse de téléchargement.
 
-  - Vérifiez la tendance d’utilisation de l’UC et de la mémoire de l’IR auto-hébergé dans Portail Azure -> votre fabrique de données -> page de vue d’ensemble. Envisagez de [monter en puissance ou en charge l’IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si l’utilisation de l’UC est élevée ou si la mémoire disponible est faible.
+  - Vérifiez la tendance d’utilisation de l’UC et de la mémoire de l’IR auto-hébergé dans le portail Azure -> votre fabrique de données ou espace de travail Synapse -> page de vue d’ensemble. Envisagez de [monter en puissance ou en charge l’IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si l’utilisation de l’UC est élevée ou si la mémoire disponible est faible.
 
   - Adoptez les meilleures pratiques de chargement de données spécifiques au connecteur si elles s’appliquent. Par exemple :
 
@@ -145,7 +147,7 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
     - Lorsque vous copiez des données à partir d’[Amazon Redshift](connector-amazon-redshift.md), configurez l’utilisation de Redshift UNLOAD.
 
-  - Vérifiez si ADF signale une erreur de limitation sur la source ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
+  - Vérifiez si le service signale une erreur de limitation sur la source ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
   - Vérifiez votre modèle de source et de récepteur de copie : 
 
@@ -161,9 +163,9 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
   - Vérifiez si l’ordinateur IR auto-hébergé a suffisamment de bande passante sortante pour transférer et écrire les données efficacement. Si votre magasin de données récepteur est dans Azure, vous pouvez utiliser [cet outil](https://www.azurespeed.com/Azure/UploadLargeFile) pour vérifier la vitesse de chargement.
 
-  - Vérifiez la tendance d’utilisation de l’UC et de la mémoire de l’IR auto-hébergé dans Portail Azure -> votre fabrique de données -> page de vue d’ensemble. Envisagez de [monter en puissance ou en charge l’IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si l’utilisation de l’UC est élevée ou si la mémoire disponible est faible.
+  - Vérifiez la tendance d’utilisation de l’UC et de la mémoire de l’IR auto-hébergé dans le portail Azure -> votre fabrique de données -> page de vue d’ensemble. Envisagez de [monter en puissance ou en charge l’IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si l’utilisation de l’UC est élevée ou si la mémoire disponible est faible.
 
-  - Vérifiez si ADF signale une erreur de limitation sur le récepteur ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
+  - Vérifiez si le service signale une erreur de limitation sur le récepteur ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
   - Réglez progressivement les [copies parallèles](copy-activity-performance-features.md). Notez qu’un trop grand nombre de copies parallèles peut également nuire aux performances.
 
@@ -178,9 +180,7 @@ La durée d’exécution de l’activité varie quand le jeu de données est bas
 
 - **Symptômes** : L’activation/désactivation de la liste déroulante Service lié dans le jeu de données effectue les mêmes activités de pipeline, mais avec des délais d’exécution radicalement différents. Lorsque le jeu de données est basé sur le runtime d’intégration de réseau virtuel géré, il faut plus de temps en moyenne que n’en nécessite l’exécution quand elle est basée sur le runtime d’intégration par défaut.  
 
-- **Cause** : Dans les détails des exécutions du pipeline, vous pouvez constater que le pipeline lent s’exécute sur le runtime d’intégration du réseau virtuel géré, alors que le pipeline normal s’exécute sur le runtime d'intégration Azure. En raison de sa conception, le runtime d’intégration du réseau virtuel géré prend plus de temps que le runtime d’intégration Azure car nous ne réservons aucun nœud de calcul par fabrique de données. Par conséquent, il y a un temps de démarrage pour chaque activité de copie, qui se produit principalement à la jonction du réseau virtuel plutôt que dans le runtime d’intégration Azure. 
-
-
+- **Cause** : Dans les détails des exécutions du pipeline, vous pouvez constater que le pipeline lent s’exécute sur le runtime d’intégration du réseau virtuel géré, alors que le pipeline normal s’exécute sur le runtime d'intégration Azure. En raison de sa conception, le runtime d’intégration du réseau virtuel géré prend plus de temps que le runtime d’intégration Azure car nous ne réservons aucun nœud de calcul par instance de service. Par conséquent, il y a un temps de démarrage pour chaque activité de copie, qui se produit principalement à la jonction du réseau virtuel plutôt que dans le runtime d’intégration Azure. 
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Faible niveau de performance pendant le chargement de données dans Azure SQL Database
@@ -212,7 +212,7 @@ La durée d’exécution de l’activité varie quand le jeu de données est bas
 
     - Pour les opérations comme l’importation de feuilles de calcul de schéma, d’aperçu de données et de liste dans un jeu de données Excel, le délai d’expiration est statique et fixé à 100 secondes. Pour un fichier Excel volumineux, ces opérations peuvent ne pas se terminer dans ce délai.
 
-    - L’activité de copie ADF lit l’intégralité du fichier Excel en mémoire, puis localise la feuille de calcul et les cellules spécifiées pour lire les données. Ce comportement est dû à l’utilisation du Kit de développement logiciel (SDK) sous-jacent.
+    - L’activité de copie lit l’intégralité du fichier Excel en mémoire, puis localise la feuille de calcul et les cellules spécifiées pour lire les données. Ce comportement est dû à l’utilisation du Kit de développement logiciel (SDK) sous-jacent.
 
 - **Résolution** : 
 
@@ -240,5 +240,5 @@ Consultez les autres articles relatifs à l’activité de copie :
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
 - [Guide sur les performances et l’extensibilité de l’activité de copie](copy-activity-performance.md)
 - [Fonctionnalités d’optimisation des performances de l’activité de copie](copy-activity-performance-features.md)
-- [Utiliser Azure Data Factory pour migrer des données de Data Lake ou Data Warehouse vers Azure](data-migration-guidance-overview.md)
+- [Migrer vos données à partir d’un lac de données ou d’un entrepôt de données vers Azure](data-migration-guidance-overview.md)
 - [Migrer des données d’Amazon S3 vers le stockage Azure](data-migration-guidance-s3-azure-storage.md)

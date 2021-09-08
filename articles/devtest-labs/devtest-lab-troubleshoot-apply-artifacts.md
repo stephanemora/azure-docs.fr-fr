@@ -4,12 +4,12 @@ description: Découvrez comment résoudre les problèmes qui se produisent lors 
 ms.topic: article
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d3f37a942010240835238648c48ad5671ec028d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6258c2e85b708ea9dac1371a40e83a8a6f8e1911
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692431"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031764"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Résoudre les problèmes liés à l’application d’artefacts dans une machine virtuelle Azure DevTest Labs
 L’application d’artefacts sur une machine virtuelle peut échouer pour différentes raisons. Cet article décrit différentes méthodes pour vous aider à identifier les causes possibles.
@@ -53,7 +53,7 @@ Vous pouvez résoudre les problèmes affectant les machines virtuelles créées 
 
 Un artefact semble cesser de répondre jusqu'à l'expiration d'un délai prédéfini, et la mention **Échec** apparaît.
 
-Quand un artefact semble se bloquer, commencez par déterminer où il est bloqué. Un artefact peut être bloqué à l’une des étapes suivantes lors de l’exécution :
+Lorsqu’un artefact semble ne plus répondre, commencez par déterminer où il est bloqué. Un artefact peut être bloqué à l’une des étapes suivantes lors de l’exécution :
 
 - **Pendant la requête initiale**. DevTest Labs crée un modèle Azure Resource Manager pour demander l’utilisation de l’extension de script personnalisé (CSE). Par conséquent, en arrière-plan, un déploiement de groupe de ressources est déclenché. Quand une erreur à ce niveau se produit, vous pouvez obtenir des détails dans les **journaux d’activité** du groupe de ressources de la machine virtuelle en question.  
     - Vous pouvez accéder au journal d’activité à partir de la barre de navigation de la page de la machine virtuelle de labo. Quand vous sélectionnez cette option, vous voyez une entrée pour l’**application d’artefacts à la machine virtuelle** (si l’opération d’application des artefacts a été déclenchée directement) ou pour **Ajouter ou modifier des machines virtuelles** (si l’opération d’application des artefacts faisait partie du processus de création de la machine virtuelle).

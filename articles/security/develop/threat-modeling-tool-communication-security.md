@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 265ae82f3a8d5a10e333057ebb55473c18fd36c3
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 501294688446bdb944d93a0939cde0a5e4fea0df
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109464"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254162"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | mesures d’atténuation 
 | Produit/Service | Article |
@@ -195,7 +195,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | **Informations de référence**              | [Windows Azure Blob MD5 Overview](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) (Vue d’ensemble de la vérification MD5 du service Blob Windows Azure) |
 | **Étapes** | <p>Le service BLOB Windows Azure fournit des mécanismes permettant de garantir l’intégrité des données au niveau des couches de transport et d’application. Si, pour une raison quelconque, vous devez utiliser le protocole HTTP au lieu de HTTPS et que vous travaillez avec des objets blobs de blocs, vous pouvez utiliser la vérification MD5 pour vérifier l’intégrité des blobs transférés.</p><p>Ceci contribuera à la protection contre les erreurs au niveau du réseau/transport, mais pas nécessairement contre les attaques intermédiaires. Si vous pouvez utiliser le protocole HTTPS, qui fournit une sécurité au niveau du transport, alors l’utilisation de la vérification MD5 est redondant et inutile.</p>|
 
-## <a name="use-smb-30-compatible-client-to-ensure-in-transit-data-encryption-to-azure-file-shares"></a><a id="smb-shares"></a>Utiliser un client compatible SMB 3.0 pour garantir le chiffrement des données en transit vers les partages de fichiers Azure
+## <a name="use-smb-3x-compatible-client-to-ensure-in-transit-data-encryption-to-azure-file-shares"></a><a id="smb-shares"></a>Utiliser un client compatible SMB 3.x pour garantir le chiffrement des données en transit vers les partages de fichiers Azure
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -203,8 +203,8 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Fichier |
-| **Informations de référence**              | [Azure File Storage, now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931) (Le stockage de fichiers Azure est désormais disponible de manière générale), [Prise en main du stockage de fichiers Azure sur Windows](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
-| **Étapes** | Azure File Storage prend en charge le protocole HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et peut être utilisé avec Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles les connexions d’accès entre régions et même les accès sur le bureau. |
+| **Informations de référence**              | [Azure Files](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Prise en charge SMB d’Azure Files pour les clients Windows](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
+| **Étapes** | Azure Files prend en charge HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.x prend en charge le chiffrement et peut être utilisé avec Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles les connexions d’accès entre régions et même les accès sur le bureau. |
 
 ## <a name="implement-certificate-pinning"></a><a id="cert-pinning"></a>Implémenter l’épinglage de certificat
 

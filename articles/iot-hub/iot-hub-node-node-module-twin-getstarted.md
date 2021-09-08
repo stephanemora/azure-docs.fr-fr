@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 08/23/2021
 ms.custom: amqp, devx-track-js
-ms.openlocfilehash: f8cf2faac9914b7b9fafd8355c2070c5d3a6f0e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2028bed00624526c021668076c4d7feaba7aa07c
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525350"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830107"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (Node.js)
 
@@ -25,7 +25,7 @@ ms.locfileid: "122525350"
 
 À la fin de ce didacticiel, vous disposerez de deux applications Node.js :
 
-* **CreateIdentities**, qui crée une identité d’appareil, une identité de module et une clé de sécurité associée pour connecter votre appareil et vos clients de module.
+* **CreateIdentities**, qui crée une identité d’appareil, une identité de module et des clés de sécurité associées pour connecter votre appareil et vos clients de module.
 
 * **UpdateModuleTwinReportedProperties**, qui envoie à votre IoT Hub les propriétés à jour de votre jumeau de module.
 
@@ -123,7 +123,7 @@ Cette application crée une identité d’appareil avec l’ID **myFirstDevice**
 Exécutez-la à l’aide de la commande node add.js. Vous obtiendrez alors une chaîne de connexion pour votre identité d’appareil et une autre pour votre identité de module.
 
 > [!NOTE]
-> Le registre des identités IoT Hub stocke uniquement les identités des appareils et des modules pour permettre un accès sécurisé à IoT Hub. Le registre des identités stocke les ID et les clés d’appareil à utiliser en tant qu’informations d’identification de sécurité. Il stocke également un indicateur activé/désactivé pour chaque appareil pouvant être utilisé pour désactiver l’accès de cet appareil. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Il n’y a aucun indicateur d’activation/désactivation pour les identités de module. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub](iot-hub-devguide-identity-registry.md).
+> Le registre des identités IoT Hub stocke uniquement les identités des appareils et des modules pour permettre un accès sécurisé à IoT Hub. Le registre des identités stocke les ID et les clés d’appareil à utiliser en tant qu’informations d’identification de sécurité. Il stocke également un indicateur activé/désactivé pour chaque appareil pouvant être utilisé pour désactiver l’accès de cet appareil. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Il n’y a aucun indicateur d’activation/désactivation pour les identités de module. Pour plus d’informations, consultez [Comprendre le registre des identités dans votre IoT Hub dans le guide du développeur IoT Hub](iot-hub-devguide-identity-registry.md).
 
 ## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Mettre à jour le jumeau de module à l’aide du SDK d’appareil Node.js
 
@@ -133,10 +133,10 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
 
    ![Détails du module du Portail Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Comme à l’étape précédente, créez un répertoire pour votre code d’appareil et utilisez NPM pour l’initialiser et installer le Kit de développement logiciel (SDK) de l’appareil (**npm install -S azure-iot-device-amqp\@modules-preview**).
+2. Comme vous l’avez fait à l’étape précédente, créez un répertoire pour votre code d’appareil et utilisez NPM pour l’initialiser et installer le Kit de développement logiciel (SDK) de l’appareil (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
-   > La commande npm install peut vous sembler lente. Soyez patient ; elle récupère beaucoup de code du référentiel de packages.
+   > La commande npm install peut vous sembler lente. Soyez patient. Elle récupère beaucoup de code du référentiel de packages.
 
    > [!NOTE]
    > Si vous voyez l’erreur « npm ERR! registry error parsing json » (Erreur npm : erreur de registre liée à une analyse json), vous pouvez l’ignorer sans risque. Si vous voyez l’erreur « npm ERR! registry error parsing json » (Erreur npm : erreur de registre liée à une analyse json), vous pouvez l’ignorer sans risque.

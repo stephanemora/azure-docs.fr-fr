@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/28/2020
-ms.openlocfilehash: dec6a18d09841f8ffe1a1b84b33d42297d793dbd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bf20bc4b3e796f118b829cc979af1ff4ac75a0c6
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641278"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316817"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +69,31 @@ Pour utiliser ce connecteur SAP ECC, vous devez exposer les entités SAP ECC par
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir les entités Data Factory propres au connecteur SAP ECC.
+## <a name="create-a-linked-service-to-sap-ecc-using-ui"></a>Créer un service lié à SAP ECC à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à SAP ECC dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez SAP et sélectionnez le connecteur SAP ECC.
+
+    :::image type="content" source="media/connector-sap-ecc/sap-ecc-connector.png" alt-text="Capture d’écran du connecteur SAP ECC.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-sap-ecc/configure-sap-ecc-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour SAP ECC.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration du connecteur
+
+Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités spécifiques au connecteur SAP ECC.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 

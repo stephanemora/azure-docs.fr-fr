@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: f307c8c1dd0ae8f5833ca9f847fd1c61ac2e6a98
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 08/30/2021
+ms.openlocfilehash: c95643e3853c1034e550ca9fad053171a5db0f67
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825234"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307994"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers Salesforce à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -58,6 +58,30 @@ Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED 
 ## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-salesforce-using-ui"></a>Créer un service lié à Salesforce à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Salesforce dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Salesforce et sélectionnez le connecteur Salesforce.
+
+    :::image type="content" source="media/connector-salesforce/salesforce-connector.png" alt-text="Capture d’écran du connecteur Salesforce.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-salesforce/configure-salesforce-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Salesforce.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir des entités spécifiques au connecteur Salesforce.
 

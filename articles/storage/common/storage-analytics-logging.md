@@ -9,12 +9,12 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d48ab6223485807400b6749bcf72691261405495
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c536e8749ce41f51f161d9659beca3ab0ccd30ae
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134552"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032251"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -59,6 +59,9 @@ Vous pouvez également activer les journaux Storage Analytics par programmation 
 - Demandes GET ayant échoué avec le code d’erreur 304 (non modifié)
 
   Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
+  
+> [!NOTE]
+> Storage Analytics consigne les appels internes au plan de données. Les appels du fournisseur de ressources Stockage Azure sont également consignés. Pour identifier ces requêtes, recherchez la chaîne de requête `<sk=system-1>` dans l’URL de la requête.
 
 ## <a name="how-logs-are-stored"></a>Mode de stockage des journaux d’activité
 

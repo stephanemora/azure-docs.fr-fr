@@ -2,21 +2,22 @@
 title: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé Service Fabric
 description: Voici comment ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé Service Fabric
 ms.topic: article
-ms.date: 5/10/2021
-ms.openlocfilehash: 0c0aac8d7804caeb6c08657b1ed36c45958a0ea5
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.date: 8/02/2021
+ms.openlocfilehash: 8755eb7551dd7f7e572632ee50eb57467f675822
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033692"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866390"
 ---
-# <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type"></a>Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé Service Fabric
+# <a name="virtual-machine-scale-set-extension-support-on-service-fabric-managed-cluster-node-types"></a>Prise en charge de l’extension de groupe de machines virtuelles identiques sur un ou des types de nœuds de cluster managé Service Fabric
 
-Chaque type de nœud d’un cluster managé Service Fabric est adossé à un groupe de machines virtuelles identiques. Cela vous permet d’ajouter des [extensions de groupe de machines virtuelles identiques](../virtual-machines/extensions/overview.md) à vos types de nœuds de cluster managé Service Fabric.
+Chaque type de nœud d’un cluster managé Service Fabric est adossé à un groupe de machines virtuelles identiques. Cela vous permet d’ajouter des [extensions de groupe de machines virtuelles identiques](../virtual-machines/extensions/overview.md) à vos types de nœuds de cluster managé Service Fabric. Les extensions sont de petites applications qui proposent une configuration post-déploiement et une automatisation sur les machines virtuelles Azure. La plateforme Azure héberge de nombreuses extensions, notamment des applications de configuration, de surveillance, de sécurité et utilitaires de machine virtuelle. Les éditeurs prennent une application, l’enveloppent dans une extension et simplifient l’installation. Il vous suffit de définir les paramètres obligatoires. 
 
-Vous pouvez ajouter une extension de groupe de machines virtuelles identiques à un type de nœud à l’aide de la cmdlet PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension).
+## <a name="add-a-virtual-machine-scale-set-extension"></a>Ajouter une extension de groupe de machines virtuelles identiques
+Vous pouvez ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé Service Fabric à l’aide de la commande PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension).
 
-Vous pouvez également ajouter une extension de groupe de machines virtuelles identiques sur un type de nœud de cluster managé Service Fabric dans votre modèle Azure Resource Manager, par exemple :
+Vous pouvez également ajouter une extension de groupe de machines virtuelles identiques sur un type de nœud de cluster managé Service Fabric dans votre modèle Azure Resource Manager, par exemple :
 
 ```json
 {

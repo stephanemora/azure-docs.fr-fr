@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a68ec9868e5a441dbfd11f97bc8f169df246598
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: fe26f8f61acbbf454cd2eb2928fdcab0f0bc7e47
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633732"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866966"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Azure CLI pour gérer des listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -80,7 +80,7 @@ L’héritage des listes ACL est déjà disponible pour les nouveaux éléments 
 
 ## <a name="get-acls"></a>Obtenir les listes de contrôle d’accès
 
-Obtenez l’ACL d’un **répertoire** à l’aide de la commande `az storage fs access show`.
+Obtenez l’ACL d’un **répertoire** à l’aide de la commande [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show).
 
 Cet exemple obtient l’ACL d’un répertoire, puis imprime l’ACL sur la console.
 
@@ -88,7 +88,7 @@ Cet exemple obtient l’ACL d’un répertoire, puis imprime l’ACL sur la cons
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Obtenez les autorisations d’accès d’un **fichier** à l’aide de la commande `az storage fs access show`. 
+Obtenez les autorisations d’accès d’un **fichier** à l’aide de la commande [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show). 
 
 Cet exemple obtient l’ACL d’un fichier, puis imprime l’ACL sur la console.
 
@@ -115,7 +115,7 @@ Cette section vous montre comment :
 
 ### <a name="set-an-acl"></a>Définir une liste de contrôle d’accès
 
-Utilisez la commande `az storage fs access set` pour définir l’ACL d’un **répertoire**. 
+Utilisez la commande [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) pour définir l’ACL d’un **répertoire**. 
 
 Cet exemple définit l’ACL d’un répertoire pour l’utilisateur propriétaire, le groupe propriétaire ou d’autres utilisateurs, puis imprime l’ACL sur la console.
 
@@ -129,7 +129,7 @@ Cet exemple définit l’ACL *par défaut* d’un répertoire pour l’utilisate
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Utilisez la commande `az storage fs access set` pour définir l’ACL d’un **fichier**. 
+Utilisez la commande [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) pour définir l’ACL d’un **ficher**. 
 
 Cet exemple définit l’ACL d’un fichier pour l’utilisateur propriétaire, le groupe propriétaire ou d’autres utilisateurs, puis imprime l’ACL sur la console.
 
@@ -172,7 +172,7 @@ Cette section vous montre comment :
 
 ### <a name="update-an-acl"></a>Mettre à jour une ACL
 
-Une autre façon de définir cette autorisation consiste à utiliser la commande `az storage fs access set`. 
+Une autre façon de définir cette autorisation consiste à utiliser la commande [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set). 
 
 Mettez à jour l’ACL d’un répertoire ou d’un fichier en définissant le paramètre `-permissions` sur la forme abrégée d’une ACL.
 

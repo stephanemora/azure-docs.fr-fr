@@ -4,12 +4,12 @@ description: Azure Functions prend en charge plusieurs versions du runtime. Déc
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/19/2021
-ms.openlocfilehash: 18f37bba5996e7d376684e8cee646dd705ab966c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 901297e34f259f9246b79ace2cc914f46b7d3b45
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524194"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251493"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -112,7 +112,7 @@ Quelques fonctionnalités ont été supprimées, mises à jour ou remplacées ap
 
 Les modifications suivantes ont été apportées à la version 2.x :
 
-* Les clés permettant d’appeler les points de terminaison HTTP sont toujours stockées et chiffrées dans le Stockage Blob Azure. Dans la version 1.x, les clés étaient stockées par défaut dans le Stockage Fichier Azure. Au moment de mettre à niveau une application de la version 1.x à la version 2.x, les secrets existants qui se trouvent dans le Stockage Fichier sont réinitialisés.
+* Les clés permettant d’appeler les points de terminaison HTTP sont toujours stockées et chiffrées dans le Stockage Blob Azure. Dans la version 1.x, les clés étaient stockées par défaut dans Azure Files. Au moment de mettre à niveau une application de la version 1.x à la version 2.x, les secrets existants qui se trouvent dans Azure Files sont réinitialisés.
 
 * La version 2.x du runtime n’intègre aucune prise en charge des fournisseurs de webhooks. Cette modification a été apportée pour améliorer les performances. Vous pouvez continuer à utiliser des déclencheurs HTTP comme points de terminaison des webhooks.
 

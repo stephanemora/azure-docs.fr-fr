@@ -1,19 +1,19 @@
 ---
-title: Préparer et personnaliser une image de disque dur virtuel principale - Azure
-description: Explique comment préparer, personnaliser et charger une image principale Azure Virtual Desktop dans Azure.
+title: Préparer et personnaliser une image de VHD d’Azure Virtual Desktop - Azure
+description: Explique comment préparer, personnaliser et charger une image d’Azure Virtual Desktop dans Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8e893a95337801db4ee35cfdc00e2d97f8d12db6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3153fed07575c0eeaf3e062e18e80f08e8269344
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285848"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835222"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
+# <a name="prepare-and-customize-a-vhd-image-for-azure-virtual-desktop"></a>Préparer et personnaliser une image de VHD pour Azure Virtual Desktop
 
 Cet article vous indique comment préparer une image de disque dur virtuel (VHD) principal pour la télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels dessus. Ces instructions concernent une configuration spécifique à Azure Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 

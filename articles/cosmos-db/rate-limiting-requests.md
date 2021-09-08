@@ -4,16 +4,17 @@ description: Cet article fournit aux développeurs une méthodologie pour limite
 author: plasne
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/26/2021
 ms.author: pelasne
-ms.openlocfilehash: f9130808da0f833246e013e56f081b92fa461ac9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0677a3f4180ab429dc51a4e40c969e32e6e8f655
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562155"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098137"
 ---
 # <a name="optimize-your-azure-cosmos-db-application-using-rate-limiting"></a>Optimiser votre application Azure Cosmos DB en utilisant la limitation du débit
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cet article fournit aux développeurs une méthodologie pour limiter le taux des demandes envoyées à Azure Cosmos DB. Implémenter ce modèle peut réduire les erreurs et améliorer les performances globales pour les charges de travail qui dépassent le débit provisionné de la base de données ou du conteneur cible.
 
@@ -160,3 +161,6 @@ Pour plus d’informations, consultez [Modèle de vue matérialisée](/azure/arc
 * En savoir plus sur le [partitionnement et la mise à l’échelle horizontale](partitioning-overview.md) dans Azure Cosmos DB.
 * En savoir plus sur les [stratégies d’indexation](index-policy.md) dans Azure Cosmos DB.
 * En savoir plus sur la [mise à l’échelle automatique](provision-throughput-autoscale.md) dans Azure Cosmos DB.
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
