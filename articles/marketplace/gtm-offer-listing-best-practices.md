@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/20/2021
-ms.openlocfilehash: a788340b5ad3d35f86e61a1433815a0d7b28f28e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: ac51a6992a7bd80fd3006f117167540137cb7041
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965702"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634844"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -40,7 +40,7 @@ Documents **En savoir plus** | Incluez dans la section **En savoir plus** des re
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Lien vers la page de votre offre à partir de votre site web
 
-Pour diriger facilement les utilisateurs vers votre offre sur la Place de marché commerciale, tirez parti de nos badges **Obtenir maintenant** sur votre site Web ou votre documentation marketing numérique. Retrouvez ces badges dans notre [Boîte à outils commerciale de la Place de marché](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Pour diriger facilement les utilisateurs vers votre offre sur la Place de marché commerciale, tirez parti de nos badges **Obtenir maintenant** sur votre site Web ou votre documentation marketing numérique. Retrouvez ces badges dans notre [Boîte à outils commerciale de la Place de marché](/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Quand vous créez un lien à partir du badge AppSource ou Place de marché Azure sur votre site vers votre annonce sur la place de marché commerciale, vous pouvez inclure les paramètres de requête suivants à la fin de l’URL pour prendre en charge de puissantes fonctionnalités d’analyse et de création de rapports :
 * **src** : ajoute la source à partir de laquelle le trafic est routé jusqu’à AppSource (par exemple, un site web, LinkedIn ou Facebook).
@@ -52,9 +52,9 @@ L’ajout de ces paramètres dans votre URL AppSource vous permet d’observer l
 
 ## <a name="listing-creation-technical-best-practices"></a>Meilleures pratiques techniques pour la création de listes
 
-La navigation dans la démarque peut être délicate. Pour vous aider, nous avons compilé quelques pratiques recommandées pour la révision et l’évaluation des listes d’offres pour la place de marché commerciale dans l’Espace partenaires. Le [Guide de la place de marché commerciale répertoriant les meilleures pratiques techniques](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) illustre comment modifier votre listing et afficher un aperçu de votre code de démarque.
+La navigation dans la démarque peut être délicate. Pour vous aider, nous avons compilé quelques pratiques recommandées pour la révision et l’évaluation des listes d’offres pour la place de marché commerciale dans l’Espace partenaires. Le [Guide de la place de marché commerciale répertoriant les meilleures pratiques techniques](/collection/azure-marketplace-and-appsource-publisher-toolkit#/) illustre comment modifier votre listing et afficher un aperçu de votre code de démarque.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Apprenez-en plus sur les [avantages de la place de marché commerciale](./gtm-your-marketplace-benefits.md).
-- Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) pour créer et configurer votre offre. Si vous n’êtes pas encore inscrit à l’Espace partenaires, [créez un compte](create-account.md).
+- Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) pour créer et configurer votre offre. Si vous n’êtes pas encore inscrit dans l’Espace partenaires, [créez un compte](create-account.md).

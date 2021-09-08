@@ -2,13 +2,13 @@
 title: Services et catégories pris en charge des journaux de ressources Azure Monitor
 description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
 ms.topic: reference
-ms.date: 05/26/2021
-ms.openlocfilehash: b45e478b11290002cb2445b1a57662bacba407dd
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 08/04/2021
+ms.openlocfilehash: 2cbe701f3fbedacf29124c823743966be1f7ba32
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534424"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525819"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
@@ -23,9 +23,9 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 
 ## <a name="costs"></a>Coûts
 
-Des coûts sont associés à l’envoi et au stockage de données dans Log Analytics, le Stockage Azure et/ou un hub d’événements. Vous pouvez être amené à supporter le coût lié à l’envoi des données vers ces emplacements et à leur conservation.  Les journaux de ressources sont un type de données que vous pouvez envoyer vers ces emplacements. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Event hub](https://azure.microsoft.com/pricing/details/event-hubs/) ainsi que les partenaires directement intégrés à Azure Monitor ([par exemple Datadog](../../partner-solutions/datadog/overview.md)) ont des coûts associés à l’ingestion et au stockage des données. Consultez les liens précédents vers les pages de tarification de ces services pour comprendre ces coûts. Les journaux de ressources sont simplement un type de données que vous pouvez envoyer vers ces emplacements. 
 
-L’exportation de certaines catégories de journaux de ressources vers ces emplacements occasionne un coût supplémentaire. Ces journaux contenant les coûts d’exportation sont répertoriés dans le tableau ci-dessous. Pour plus d’informations sur cette tarification, consultez la section Journaux de la plateforme dans la [page de tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+En outre, il peut y avoir des coûts pour exporter des catégories de journaux de ressources vers ces emplacements. Ces journaux contenant d’éventuels coûts d’exportation sont répertoriés dans le tableau ci-dessous. Pour plus d’informations sur la tarification d’exportation, consultez la section *Journaux de la plateforme* sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 
@@ -34,6 +34,7 @@ Voici la liste des types de journaux disponibles pour chaque type de ressource.
 Il est possible que certaines catégories soient prises en charge uniquement pour des types de ressources spécifiques. Si vous avez le sentiment qu’il vous manque une ressource, consultez la documentation spécifique de celle-ci. Par exemple, les catégories Microsoft.Sql/servers/databases ne sont pas disponibles pour tous les types de bases de données. Pour plus d’informations, consultez les [informations sur la journalisation des diagnostics SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire GitHub au bas de cet article.
+
 
 ## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
 
@@ -113,6 +114,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |Audit|Audit|Oui|
 |En fonctionnement|En fonctionnement|Oui|
+|Requête|Requête|Oui|
 
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
@@ -120,15 +122,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |ServiceLog|Journaux d’activité de service|Non|
-
-
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
-
-|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
-|---|---|---|
-|BaiClusterEvent|BaiClusterEvent|Non|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|Non|
-|BaiJobEvent|BaiJobEvent|Non|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -200,6 +193,8 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |AuthOperational|Journaux d’authentification opérationnels|Oui|
+|CallDiagnosticsPRIVATEPREVIEW|Appeler les journaux de diagnostic - version préliminaire privée|Yes|
+|CallSummaryPRIVATEPREVIEW|Journaux de résumé des appels - version préliminaire privée|Oui|
 |ChatOperational|Journaux de conversation opérationnels|Non|
 |SMSOperational|Journaux SMS opérationnels|Non|
 |Usage|Enregistrements d’utilisation|Non|
@@ -255,10 +250,18 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |accounts|Comptes Databricks|Non|
 |clusters|Clusters Databricks|Non|
 |dbfs|Système de fichiers Databricks|Non|
+|featureStore|Magasin de caractéristiques Databricks|Yes|
+|génie|Génie Databricks|Yes|
+|globalInitScripts|Scripts Init Global Databricks|Yes|
+|iamRole|Rôle IAM Databricks|Yes|
 |instancePools|Pools d’instances|Non|
 |jobs|Travaux Databricks|Non|
+|mlflowAcledArtifact|Artefact gérée Databricks MLFlow|Yes|
+|mlflowExperiment|Expérience MLFlow Databricks|Yes|
 |notebook|Databricks Notebook|Non|
+|RemoteHistoryService|Service d’historique à distance Databricks|Oui|
 |secrets|Secrets Databricks|Non|
+|sqlanalytics|Databricks SQL Analytics|Yes|
 |sqlPermissions|SQLPermissions Databricks|Non|
 |ssh|SSH Databricks|Non|
 |espace de travail|Espace de travail Databricks|Non|
@@ -462,7 +465,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |ResourceProviderOperation|ResourceProviderOperation|Oui|
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/DatabaseAccounts
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -535,11 +538,18 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Requête|Requête|Non|
 
 
-## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
+## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
-|AuditLogs|Journaux d’audit|Non|
+|AuditLogs|Journaux d’audit|Yes|
+
+
+## <a name="microsofthealthcareapisworkspacesfhirservices"></a>Microsoft.HealthcareApis/workspaces/fhirservices
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|AuditLogs|Journaux d’audit FHIR|Yes|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>microsoft.insights/autoscalesettings
@@ -594,14 +604,14 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |TableUsageStatistics|Statistiques d’utilisation de la table|Non|
 
 
-## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
+## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/IntegrationAccounts
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|Non|
 
 
-## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/Workflows
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -617,6 +627,27 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|Non|
 |AmlComputeJobEvent|AmlComputeJobEvent|Non|
 |AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|Non|
+|ComputeInstanceEvent|ComputeInstanceEvent|Yes|
+|DataLabelChangeEvent|DataLabelChangeEvent|Yes|
+|DataLabelReadEvent|DataLabelReadEvent|Yes|
+|DataSetChangeEvent|DataSetChangeEvent|Yes|
+|DataSetReadEvent|DataSetReadEvent|Yes|
+|DataStoreChangeEvent|DataStoreChangeEvent|Yes|
+|DataStoreReadEvent|DataStoreReadEvent|Yes|
+|DeploymentEventACI|DeploymentEventACI|Yes|
+|DeploymentEventAKS|DeploymentEventAKS|Yes|
+|DeploymentReadEvent|DeploymentReadEvent|Yes|
+|EnvironmentChangeEvent|EnvironmentChangeEvent|Yes|
+|EnvironmentReadEvent|EnvironmentReadEvent|Yes|
+|InferencingOperationACI|InferencingOperationACI|Yes|
+|InferencingOperationAKS|InferencingOperationAKS|Yes|
+|ModelsActionEvent|ModelsActionEvent|Yes|
+|ModelsChangeEvent|ModelsChangeEvent|Yes|
+|ModelsReadEvent|ModelsReadEvent|Yes|
+|PipelineChangeEvent|PipelineChangeEvent|Yes|
+|PipelineReadEvent|PipelineReadEvent|Yes|
+|RunEvent|RunEvent|Yes|
+|RunReadEvent|RunReadEvent|Yes|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -624,6 +655,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |KeyDeliveryRequests|Service de remise de clé|Non|
+|MediaAccount|État d’intégrité du compte multimédia|Yes|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -644,7 +676,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |AzureFirewallNetworkRule|Règle de réseau de pare-feu Azure|Non|
 
 
-## <a name="microsoftnetworkbastionhosts"></a>Microsoft.Network/bastionHosts
+## <a name="microsoftnetworkbastionhosts"></a>microsoft.network/bastionHosts
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -683,7 +715,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|Non|
 
 
-## <a name="microsoftnetworkp2svpngateways"></a>Microsoft.Network/p2sVpnGateways
+## <a name="microsoftnetworkp2svpngateways"></a>microsoft.network/p2svpngateways
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -708,7 +740,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |ProbeHealthStatusEvents|Événement de résultats d’intégrité de sondage Traffic Manager|Non|
 
 
-## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
+## <a name="microsoftnetworkvirtualnetworkgateways"></a>microsoft.network/virtualnetworkgateways
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -726,7 +758,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |VMProtectionAlerts|Alertes de protection de machine virtuelle|Non|
 
 
-## <a name="microsoftnetworkvpngateways"></a>Microsoft.Network/vpnGateways
+## <a name="microsoftnetworkvpngateways"></a>microsoft.network/vpngateways
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -747,7 +779,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
-|Audit|Journaux d’audit|Non|
+|Audit|Audit|Oui|
 
 
 ## <a name="microsoftpowerbitenants"></a>Microsoft.PowerBI/tenants
@@ -755,7 +787,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |Moteur|Moteur|Non|
-
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft.PowerBI/tenants/workspaces
 
@@ -775,6 +806,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
+|DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|Non|
 
 
@@ -939,19 +971,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |BigDataPoolAppsEnded|Applications terminées pour le pool Big Data|Non|
 
 
-## <a name="microsoftsynapseworkspaceskustopools"></a>Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
-|---|---|---|
-|Commande|Commande|Oui|
-|FailedIngestion|Opérations d’ingestion ayant échoué|Oui|
-|IngestionBatching|Traitement par lot de l’ingestion|Oui|
-|Requête|Requête|Oui|
-|SucceededIngestion|Opérations d’ingestion réussies|Oui|
-|TableDetails|Détails de la table|Oui|
-|TableUsageStatistics|Statistiques d’utilisation de la table|Oui|
-
-
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -980,7 +999,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Gestion|Gestion|Non|
 
 
-## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
+## <a name="microsoftwebhostingenvironments"></a>Microsoft.Web/hostingEnvironments
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -1010,6 +1029,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |AppServiceAppLogs|Journaux d’application App Service|Non|
 |AppServiceAuditLogs|Journaux d’audit d’accès|Non|
 |AppServiceConsoleLogs|Journaux de la console App Service|Non|
+|AppServiceDiagnosticToolsLogs|Journaux des Outils de diagnostic de rapports|Yes|
 |AppServiceFileAuditLogs|Journaux d’audit de modification de contenu de site|Non|
 |AppServiceHTTPLogs|Journaux HTTP|Non|
 |AppServiceIPSecAuditLogs|Journaux d’audit IPSecurity|Non|
@@ -1023,4 +1043,3 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 * [Diffuser en continu les journaux de ressource vers **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Modifier les paramètres de diagnostic de journal de ressource à l’aide de l’API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
 * [Analyser les journaux d’activité du stockage Azure avec Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
-

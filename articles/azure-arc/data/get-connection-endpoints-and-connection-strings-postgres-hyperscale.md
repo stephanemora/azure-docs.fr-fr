@@ -1,6 +1,6 @@
 ---
 title: Obtenir des points de terminaison de connexion et former des chaînes de connexion pour votre groupe de serveurs Arc enabled PostgreSQL Hyperscale
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Obtenir des points de terminaison de connexion et former des chaînes de connexion pour votre groupe de serveurs Arc enabled PostgreSQL Hyperscale
 services: azure-arc
 ms.service: azure-arc
@@ -8,44 +8,31 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 3477c8f1dbffb9f2c42c72c1b0bfc03c662ed24c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 964b7fcca00afb91a457203d2ed53b885a254d5e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412292"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524497"
 ---
-# <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenir des points de terminaison de connexion et former des chaînes de connexion pour votre groupe de serveurs Arc enabled PostgreSQL Hyperscale
+# <a name="get-connection-endpoints-and-form-the-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenir des points de terminaison de connexion et former des chaînes de connexion pour votre groupe de serveurs Arc enabled PostgreSQL Hyperscale
 
-Cet article explique comment récupérer les points de terminaison de connexion pour votre groupe de serveurs et comment former les chaînes de connexion que vous utiliserez avec vos applications et/ou vos outils.
+Cet article explique comment récupérer les points de terminaison de connexion pour votre groupe de serveurs et comment former les chaînes de connexion que vous pourrez utiliser avec vos applications et/ou vos outils.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="get-connection-end-points"></a>Obtenez les points de terminaison de connexion :
 
-### <a name="from-cli-with-azdata"></a>Depuis l’interface CLI avec azdata
-#### <a name="1-connect-to-your-arc-data-controller"></a>1. Connectez-vous au contrôleur de données Azure Arc :
-- Si vous avez déjà une session ouverte sur l’hôte du contrôleur de données Arc : Exécutez la commande suivante :
-```console
-azdata login
-```
-
-- Si aucune session n’est ouverte sur l’hôte du contrôleur de données Arc, exécutez la commande suivante : 
-```console
-azdata login --endpoint https://<external IP address of host/data controller>:30080
-```
-
-#### <a name="2-show-the-connection-endpoints"></a>2. Montrer les points de terminaison de connexion
-Exécutez la commande suivante :
-```console
-azdata arc postgres endpoint list -n <server group name>
+Exécutez la commande suivante :
+```azurecli
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 Par exemple :
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 Elle affiche la liste des points de terminaison : le point de terminaison PostgreSQL que vous utilisez pour connecter votre application et utiliser la base de données, les points de terminaison Kibana et Grafana pour l’analytique et la surveillance des journaux. Par exemple : 
@@ -79,10 +66,10 @@ postgres=#
 > [!NOTE]
 >
 > - Le mot de passe de l’utilisateur _postgres_ indiqué dans le point de terminaison nommé « _Instance PostgreSQL_ » est le mot de passe que vous avez choisi lors du déploiement du groupe de serveurs.
-> - À propos de azdata : le bail associé à votre connexion dure environ 10 heures. Après cela, vous devez vous reconnecter. Si votre bail a expiré, le message d’erreur suivant s’affiche quand vous essayez d’exécuter une commande avec azdata (autre que azdata login) : _ERREUR : (401)_ 
-> _Raison : En-têtes de réponse HTTP_
-> _non autorisés : HTTPHeaderDict({'Date': 'Dim, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
-> _Domaine de base="Informations d’identification_ de connexion requises", Erreur de porteur="invalid_token", error_description="Le jeton est expiré"'})_ Quand ceci se produit, vous devez vous reconnecter avec azdata comme expliqué ci-dessus.
+> _ERREUR : (401)_ 
+> _Raison : Non autorisé_
+> _En-têtes de réponse HTTP : HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
+> _Domaine de base="Login_ credentials required", Erreur de porteur="invalid_token", error_description="The token is expired"'})_ Quand ceci se produit, vous devez vous reconnecter avec azdata comme expliqué ci-dessus.
 
 ## <a name="from-cli-with-kubectl"></a>Depuis l’interface CLI avec kubectl
 ```console
@@ -94,7 +81,6 @@ Ces commandes produisent une sortie similaire à celle-ci. Vous pouvez utiliser 
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 ``` 
-
 
 ## <a name="form-connection-strings"></a>Formez des chaînes de connexion :
 Utilisez le tableau de modèles de chaînes de connexion ci-dessous pour votre groupe de serveurs. Vous pouvez ensuite les copier/coller et les personnaliser en fonction des besoins :
