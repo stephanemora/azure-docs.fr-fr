@@ -108,7 +108,7 @@
               href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Authentification
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../../azure-sql/database/authentication-aad-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
@@ -137,7 +137,7 @@
         - name: Vue d’ensemble
           href: design-elt-data-loading.md
         - name: Meilleures pratiques
-          href: guidance-for-loading-data.md
+          href: ../sql/data-loading-best-practices.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: Compression columnstore
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement

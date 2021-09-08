@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: f4eb312aff200389f59a3e342305b8eda98f213e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fdee151d746e19323921dddbb409e0816cb014b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582784"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397932"
 ---
 ## <a name="model-id-announcement"></a>Annonce de l’ID de modèle
 
@@ -40,11 +40,11 @@ Les appareils qui utilisent [Device Provisioning Service (DPS)](../articles/iot-
 }
 ```
 
-## <a name="implement-telemetry-properties-and-commands"></a>Implémentation des données de télémétrie, des propriétés et des commandes
+## <a name="use-components"></a>Utiliser des composants
 
-Comme le décrit la section [Présentation des composants dans les modèles IoT Plug-and-Play](../articles/iot-pnp/concepts-modeling-guide.md), les générateurs d’appareils doivent décider s’ils souhaitent utiliser des composants pour décrire leurs appareils, auquel cas ces derniers devront suivre les règles décrites dans cette section.
+Comme le décrit la section [Présentation des composants dans les modèles IoT Plug-and-Play](../articles/iot-develop/concepts-modeling-guide.md), les générateurs d’appareils doivent décider s’ils souhaitent utiliser des composants pour décrire leurs appareils, Lors de l’utilisation des composants, les appareils devront suivre les règles décrites dans les sections suivantes.
 
-### <a name="telemetry"></a>Télémétrie
+## <a name="telemetry"></a>Télémétrie
 
 Aucun composant par défaut ne nécessite une propriété spéciale.
 
@@ -61,7 +61,7 @@ async def send_telemetry_from_temp_controller(device_client, telemetry_msg, comp
 }
 ```
 
-### <a name="read-only-properties"></a>Propriétés en lecture seule
+## <a name="read-only-properties"></a>Propriétés en lecture seule
 
 Le signalement d’une propriété à partir du composant par défaut ne nécessite pas de construction spéciale :
 
@@ -104,11 +104,11 @@ Le jumeau d’appareil est mis à jour avec la propriété rapportée suivante 
 }
 ```
 
-### <a name="writable-properties"></a>Propriétés accessibles en écriture
+## <a name="writable-properties"></a>Propriétés accessibles en écriture
 
 Ces propriétés peuvent être définies par l’appareil ou mises à jour par la solution. Si la solution met à jour une propriété, le client reçoit une notification sous la forme d’un rappel dans `IoTHubDeviceClient` ou `IoTHubModuleClient`. Pour respecter les conventions IoT Plug-and-Play, l’appareil doit informer le service que la propriété a bien été reçue.
 
-#### <a name="report-a-writable-property"></a>Signalement d’une propriété accessible en écriture
+### <a name="report-a-writable-property"></a>Signalement d’une propriété accessible en écriture
 
 Quand un appareil rapporte une propriété accessible en écriture, il doit inclure les valeurs `ack` définies dans les conventions.
 
@@ -176,7 +176,7 @@ Le jumeau d’appareil est mis à jour avec la propriété rapportée suivante 
 }
 ```
 
-#### <a name="subscribe-to-desired-property-updates"></a>Abonnement aux mises à jour de propriétés souhaitées
+### <a name="subscribe-to-desired-property-updates"></a>Abonnement aux mises à jour de propriétés souhaitées
 
 Les services peuvent mettre à jour les propriétés souhaitées qui déclenchent une notification sur les appareils connectés. Cette notification inclut les propriétés souhaitées mises à jour, y compris le numéro de version identifiant la mise à jour. Les appareils doivent répondre avec le même message `ack` que les propriétés rapportées.
 
@@ -286,7 +286,7 @@ Le jumeau d’appareil des composants montre les sections desired et reported de
 }
 ```
 
-### <a name="commands"></a>Commandes
+## <a name="commands"></a>Commandes
 
 Un composant par défaut reçoit le nom de la commande telle qu’elle a été appelée par le service.
 
@@ -296,7 +296,7 @@ Un composant imbriqué reçoit le nom de la commande avec, pour préfixe, le nom
 command_request = await device_client.receive_method_request("thermostat1*reboot")
 ```
 
-#### <a name="request-and-response-payloads"></a>Charge utile de demande et de réponse
+### <a name="request-and-response-payloads"></a>Charge utile de demande et de réponse
 
 Les commandes utilisent des types pour définir leur charge utile de demande et de réponse. Un appareil doit désérialiser le paramètre d’entrée entrant et sérialiser la réponse. L’exemple suivant montre comment implémenter une commande avec des types complexes définis dans les charges utiles :
 

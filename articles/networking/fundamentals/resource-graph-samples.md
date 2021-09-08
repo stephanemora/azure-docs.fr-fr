@@ -1,18 +1,18 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour les réseaux Azure
 description: Exemples de requêtes Azure Resource Graph pour les réseaux Azure montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés liées aux réseaux Azure.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: b4af0e24736aa91138174ab0ca2e5f848cbd1a1c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 3a0fce06e97cba1e4ca5b786ac1842212b306912
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123317250"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535151"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-networking"></a>Exemples de requêtes Azure Resource Graph pour les réseaux Azure
 

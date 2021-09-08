@@ -1,15 +1,15 @@
 ---
 title: Détails de la conformité réglementaire pour UK OFFICIAL et UK NHS
 description: Détails de l’initiative intégrée Conformité réglementaire UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e239c2f373ca850c09908b9c3a1df446c4321add
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: aa822b546937534c35cee97fcad0a7b7b38c2e31
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105272"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475671"
 ---
 # <a name="details-of-the-uk-official-and-uk-nhs-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée Conformité réglementaire UK OFFICIAL et UK NHS
 

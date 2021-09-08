@@ -1,15 +1,15 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour les serveurs avec Azure Arc
 description: Exemples de requêtes Azure Resource Graph pour les serveurs avec Azure Arc montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés liées aux serveurs avec Azure Arc.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 95d1d52199d1119219e77c46f6ae37fc63570cd2
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 5e73647300e29650d31b6cb4dae08d99488fc32e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303393"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541204"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-arc-enabled-servers"></a>Exemples de requêtes Azure Resource Graph pour les serveurs avec Azure Arc
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/19/2020
-ms.openlocfilehash: 2e9589063d5a094161a8eef09d0968c0679d58bd
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3d2750c607c8fe370122988d3836e00230ef0f21
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643183"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423985"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide d’un modèle ARM
 
@@ -187,7 +187,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 Vous pouvez [exporter un modèle ARM](../azure-resource-manager/templates/export-template-portal.md) à partir du portail Azure. Il existe deux façons d’exporter un modèle :
 
 - [Exporter à partir d’un groupe de ressources ou d’une ressource](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Cette option génère un nouveau modèle à partir de ressources existantes. Le modèle exporté est un « instantané » de l’état actuel du groupe de ressources. Vous pouvez exporter un groupe de ressources complet ou des ressources spécifiques au sein de ce groupe de ressources.
-- [Exporter avant le déploiement ou à partir de l’historique](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Cette option récupère une copie exacte d’un modèle utilisé pour le déploiement.
+- [Exporter avant le déploiement ou à partir de l’historique](../azure-resource-manager/templates/export-template-portal.md#download-template-before-deployment). Cette option récupère une copie exacte d’un modèle utilisé pour le déploiement.
 
 Quand vous exportez le modèle, notez que dans la section ```"properties":{ }``` des ressources du serveur MySQL, ```administratorLogin``` et ```administratorLoginPassword``` ne sont pas inclus pour des raisons de sécurité. Vous **DEVEZ** ajouter ces paramètres à votre modèle avant son déploiement. Sinon, le modèle échouera.
 
