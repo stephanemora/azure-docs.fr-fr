@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 08/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47898b1708ebecc43ace9888dfd237fa72079c6b
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 93f5af54992189d553c9e5c5c141a6ca08b7018e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590357"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563353"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions Azure AD Multi-Factor Authentication
 
@@ -35,7 +35,7 @@ Pour offrir à vos utilisateurs le meilleur compromis entre sécurité et simpli
 * Si vous avez Azure AD Premium :
     * Activez l’authentification unique (SSO) entre les applications en utilisant des [appareils managés](../devices/overview.md) ou l’[authentification unique transparente](../hybrid/how-to-connect-sso.md).
     * Si la réauthentification est requise, utilisez une [stratégie d’accès conditionnel pour la fréquence de connexion](../conditional-access/howto-conditional-access-session-lifetime.md).
-    * Pour les utilisateurs qui se connectent à partir d’appareils non managés ou d’appareils mobiles, utilisez l’accès conditionnel pour appliquer des stratégies de fréquence de connexion et de session de navigateur persistante.
+    * Pour les utilisateurs qui se connectent à partir d’appareils non managés ou de scénarios avec appareils mobiles, les sessions persistantes du navigateur peuvent ne pas être préférables. Vous pouvez aussi utiliser l’accès conditionnel pour utiliser des sessions de navigation persistantes avec des stratégies de fréquence de connexion. Limitez la durée à une valeur appropriée en fonction du risque de connexion, où un utilisateur présentant moins de risques a une durée de session plus longue.
 * Si vous avez des licences Applications Microsoft 365 ou Azure AD Free :
     * Activez l’authentification unique (SSO) entre les applications en utilisant des [appareils managés](../devices/overview.md) ou l’[authentification unique transparente](../hybrid/how-to-connect-sso.md).
     * Gardez l’option *Rester connecté* activée et recommandez à vos utilisateurs de l’accepter.

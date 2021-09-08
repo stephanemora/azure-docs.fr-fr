@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 10caff631d59085aa2bbfcd573c3e3114b0306f7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2c87ab51cb0862ed53fdf97d59ff2eb6dcf77fb1
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560867"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597517"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -23,8 +23,6 @@ Vous pouvez servir du contenu statique (fichiers HTML, CSS, JavaScript et images
 [App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) constitue une excellente alternative à l’hébergement de site web statique dans le stockage Azure et sont également appropriées quand vous n’avez pas besoin d’un serveur web pour restituer du contenu. App Service Static Web Apps vous offre un workflow d’intégration continue et de livraison continue (CI/CD) complètement managé, de la source GitHub au déploiement global.
 
 Si vous avez besoin d’un serveur web pour restituer du contenu, vous pouvez utiliser [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up-a-static-website"></a>Configuration d’un site web statique
 
@@ -54,18 +52,12 @@ Vous pouvez utiliser un de ces outils pour charger du contenu sur le conteneur *
 
 Les utilisateurs peuvent afficher le contenu du site dans un navigateur en utilisant l’URL publique du site web. Vous trouvez cette URL à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Voir [Trouver l’URL du site web](storage-blob-static-website-how-to.md#portal-find-url).
 
+Le document d’index, que vous spécifiez lorsque vous activez l’hébergement de site web statique, s’affiche lorsque les utilisateurs ouvrent le site et ne spécifient aucun fichier en particulier (par exemple : `https://contosoblobaccount.z22.web.core.windows.net`).
+
 Si le serveur retourne une erreur 404, et que vous n’avez spécifié aucun document d’erreur lorsque vous avez activé le site web, une page 404 par défaut est retournée à l’utilisateur.
 
 > [!NOTE]
 > Le [service Partage des ressources cross-origine (CORS) pour Stockage Azure](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) n’est pas pris en charge avec les sites web statiques.
-
-### <a name="regional-codes"></a>Codes régionaux
-
-L’URL de votre site contient un code régional. Par exemple, l’URL `https://contosoblobaccount.z22.web.core.windows.net/` contient le code de région `z22`.
-
-Même si ce code doit demeurer dans l’URL, il n’est destiné qu’à un usage interne, et vous n’aurez pas à l’utiliser de quelque autre manière que ce soit.
-
-Le document d’index, que vous spécifiez lorsque vous activez l’hébergement de site web statique, s’affiche lorsque les utilisateurs ouvrent le site et ne spécifient aucun fichier en particulier (par exemple : `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### <a name="secondary-endpoints"></a>Points de terminaison secondaires
 
@@ -121,6 +113,36 @@ L’activation de l’hébergement de site web statique est gratuite. Vous êtes
 Vous pouvez activer les métriques sur des pages de site web statique. Une fois les métriques activées, les statistiques de trafic relatives aux fichiers du conteneur **$web** sont signalées dans le tableau de bord des métriques.
 
 Pour activer les métriques sur les pages de votre site web statique, consultez [Activer les métriques sur des pages de site web statique](storage-blob-static-website-how-to.md#metrics).
+
+## <a name="faq"></a>Forum aux questions
+
+##### <a name="does-the-azure-storage-firewall-work-with-a-static-website"></a>Le pare-feu de stockage Azure fonctionne-t-il avec un site web statique ?
+
+Oui. Les [règles de sécurité réseau](../common/storage-network-security.md) du compte de stockage, y compris les pare-feu basés sur IP et sur réseaux virtuels, sont prises en charge pour le point de terminaison de site web statique et peuvent être utilisées pour protéger votre site web.
+
+##### <a name="do-static-websites-support-azure-active-directory-azure-ad"></a>Les sites web statiques prennent-ils en charge Azure Active Directory (Azure AD) ?
+
+Non. Les sites web statiques ne prennent en charge l’accès en lecture public et anonyme des fichiers que dans le conteneur **$web**.
+
+##### <a name="how-do-i-use-a-custom-domain-with-a-static-website"></a>Comment utiliser un domaine personnalisé avec un site web statique ?
+
+Vous pouvez configurer un [domaine personnalisé](./static-website-content-delivery-network.md) avec un site web statique en utilisant [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN fournit une latence faible et cohérente à votre site web partout dans le monde. 
+
+##### <a name="how-do-i-use-a-custom-ssl-certificate-with-a-static-website"></a>Comment utiliser un certificat SSL personnalisé avec un site web statique ?
+
+Vous pouvez configurer un certificat [SSL personnalisé](./static-website-content-delivery-network.md) avec un site web statique en utilisant [Azure CDN](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN fournit une latence faible et cohérente à votre site web partout dans le monde.
+
+##### <a name="how-do-i-add-custom-headers-and-rules-with-a-static-website"></a>Comment ajouter des règles et des en-têtes personnalisés avec un site web statique ?
+
+Vous pouvez configurer l’en-tête d’hôte pour un site web statique à l’aide d’[Azure CDN-Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). Nous aimerions avoir votre avis [ici](https://feedback.azure.com/forums/217298-storage/suggestions/34959124-allow-adding-headers-to-static-website-hosting-in).
+
+##### <a name="why-am-i-getting-an-http-404-error-from-a-static-website"></a>Pourquoi est-ce que je reçois l’erreur HTTP 404 d’un site web statique ?
+
+Cela peut se produire si vous faites référence à un nom de fichier à l’aide d’une casse incorrecte. Par exemple, `Index.html` au lieu de `index.html`. Les noms de fichiers et les extensions de l’URL d’un site web statique respectent la casse, même s’ils sont traités sur HTTP. Cela peut également se produire si votre point de terminaison Azure CDN n’est pas encore approvisionné. La propagation peut nécessiter jusqu’à 90 minutes après le provisionnement d’un nouveau CDN Azure.
+
+##### <a name="why-isnt-the-root-directory-of-the-website-not-redirecting-to-the-default-index-page"></a>Pourquoi le répertoire racine du site web n’est-il pas redirigé vers la page d’index par défaut ?
+
+Dans le portail Azure, ouvrez la page de configuration du site web statique de votre compte et recherchez le nom et l’extension définis dans le champ **Nom du document d’index**. Assurez-vous que ce nom est exactement le même que le nom du fichier situé dans le conteneur **$web** du compte de stockage. Les noms de fichiers et les extensions de l’URL d’un site web statique respectent la casse, même s’ils sont traités sur HTTP. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

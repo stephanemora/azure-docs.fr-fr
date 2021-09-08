@@ -9,12 +9,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 04/16/2021
-ms.openlocfilehash: 51711cbbd66e52ccf0b47c4e1db5ecc5883ff959
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e37a6dcd6cd536e3702294e45a1aa3ffd2c75a24
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641536"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099367"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -28,7 +28,7 @@ Le mode de débogage du flux de données de mappage d’Azure Data Factory perme
 
 ![Capture d’écran 2 montrant où se trouve le curseur Débogage](media/data-flow/debug-button-4.png)
 
-Quand vous activez le curseur, vous êtes invité à sélectionner la configuration de runtime d’intégration à utiliser. Si vous choisissez AutoResolveIntegrationRuntime, un cluster comprenant 8 cœurs de calcul général avec une durée de vie par défaut de 60 minutes est lancé. Si vous souhaitez autoriser un plus grand nombre d’équipes inactives avant l’expiration de votre session, vous pouvez choisir un paramètre TTL plus élevé. Pour plus d’informations sur les runtimes d’intégration de flux de données, consultez [Performances de flux de données](concepts-data-flow-performance.md#ir).
+Quand vous activez le curseur, vous êtes invité à sélectionner la configuration de runtime d’intégration à utiliser. Si vous choisissez AutoResolveIntegrationRuntime, un cluster comprenant 8 cœurs de calcul général avec une durée de vie par défaut de 60 minutes est lancé. Si vous souhaitez autoriser un plus grand nombre d’équipes inactives avant l’expiration de votre session, vous pouvez choisir un paramètre TTL plus élevé. Pour plus d’informations sur les runtimes d’intégration de flux de données, consultez [Performances de runtime d'intégration](concepts-integration-runtime-performance.md).
 
 ![Déboguer la sélection IR](media/data-flow/debug-new-1.png "Déboguer la sélection IR")
 

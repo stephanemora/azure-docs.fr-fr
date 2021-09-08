@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/01/2018
-ms.openlocfilehash: 18eed32960a0b1ab7ab18a4ba561a4daa2870260
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 7899827351529ef4a3d6235245403a25c3e80074
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641457"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307203"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copie de données du service web Amazon Marketplace à l’aide d’Azure Data Factory
 
@@ -36,6 +36,31 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-amazon-marketplace-web-service-using-ui"></a>Créer un service lié au service web Amazon Marketplace à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié au service web Amazon Marketplace dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Amazon et sélectionnez le connecteur de service web Amazon Marketplace.
+
+   :::image type="content" source="media/connector-amazon-marketplace-web-service/amazon-marketplace-web-service-connector.png" alt-text="Capture d’écran du connecteur de service web Amazon Marketplace.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-amazon-marketplace-web-service/configure-amazon-marketplace-web-service-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour le service web Amazon Marketplace.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration du connecteur
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques au connecteur du service web Amazon Marketplace.
 

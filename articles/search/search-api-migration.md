@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95e774b1f10f07a447ec168aa7716bab799acd73
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91929640"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562474"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Effectuer une mise à niveau vers la dernière API REST dans Recherche cognitive Azure
 
@@ -85,7 +85,7 @@ La structure d’erreur pour l’exécution de l’indexeur comportait précéde
 
 #### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>La compétence cognitive Reconnaissance d’entité nommée n’est plus proposée.
 
-Si vous avez appelé la compétence [Reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md) dans votre code, l’appel échoue. La fonctionnalité de remplacement est [Reconnaissance d’entité](cognitive-search-skill-entity-recognition.md). Vous devriez pouvoir remplacer la référence de compétence sans modification supplémentaire. La signature de l’API est la même pour les deux versions. 
+Si vous avez appelé la compétence [Reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md) dans votre code, l’appel échoue. La fonctionnalité de remplacement est [Compétence de reconnaissance d’entité (V3)](cognitive-search-skill-entity-recognition-v3.md). Suivez les recommandations de la page [Compétences de recherche cognitive déconseillées](cognitive-search-skill-deprecated.md) pour migrer vers une compétence prise en charge.
 
 ### <a name="upgrading-complex-types"></a>Mise à niveau des types complexes
 

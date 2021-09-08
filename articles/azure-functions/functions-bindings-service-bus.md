@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4b0daecadd3af5f1322afc97f91706098aade768
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 45c7f5a8d6e2c227e07765f6147e58242ffe3d6c
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080485"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563703"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -87,21 +87,29 @@ Cette section décrit les paramètres de configuration globaux disponibles pour 
                 "messageWaitTimeout": "00:00:30",
                 "maxAutoRenewDuration": "00:55:00",
                 "maxConcurrentSessions": 16
+            },
+            "batchOptions": {
+                "maxMessageCount": 1000,
+                "operationTimeout": "00:01:00",
+                "autoComplete": true
             }
         }
     }
 }
 ```
 
-Si vous avez défini `isSessionsEnabled` sur `true`, les options `sessionHandlerOptions` sont respectées.  Si vous avez défini `isSessionsEnabled` sur `false`, les options `messageHandlerOptions` sont respectées.
+Si vous avez défini `isSessionsEnabled` sur `true`, `sessionHandlerOptions` est respecté.  Si vous avez défini `isSessionsEnabled` sur `false`, `messageHandlerOptions` est respecté.
 
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|0|Obtient ou définit le nombre de messages que le destinataire des messages peut demander simultanément.|
-|maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.|
-|autoComplete|true|Indique si le déclencheur doit terminer l’appel automatiquement après le traitement, ou si le code de la fonction termine manuellement l’appel.<br><br>La définition de `false` est prise en charge uniquement dans C# .<br><br>Si la valeur est `true`, le déclencheur termine automatiquement le message si l’exécution de la fonction se termine correctement et abandonne le message dans le cas contraire.<br><br>Lorsque la valeur est `false`, il vous incombe d’appeler des méthodes [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) pour terminer, abandonner ou mettre au rebut le message. Si une exception est levée (et qu’aucune des méthodes `MessageReceiver` n’est appelée), le verrou reste. Une fois le verrou expiré, le message est de nouveau mis en file d’attente avec `DeliveryCount` incrémenté, et le verrou est automatiquement renouvelé.<br><br>Dans les fonctions non C#, les exceptions de la fonction entraînent l’appel par le runtime de `abandonAsync` en arrière-plan. Si aucune exception ne se produit, `completeAsync` est appelé en arrière-plan. |
-|maxConcurrentCalls|16|Nombre maximal d’appels simultanés pour le rappel que la pompe de messages doit initier par instance mise à l’échelle. Par défaut, le runtime Functions traite plusieurs messages simultanément.|
-|maxConcurrentSessions|2000|Nombre maximal de sessions qui peuvent être traitées simultanément par instance mise à l’échelle.|
+|messageHandlerOptions.maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.|
+|messageHandlerOptions.autoComplete|true|Indique si le déclencheur doit terminer l’appel automatiquement après le traitement, ou si le code de la fonction termine manuellement l’appel.<br><br>La définition de `false` est prise en charge uniquement dans C# .<br><br>Si la valeur est `true`, le déclencheur termine automatiquement le message si l’exécution de la fonction se termine correctement et abandonne le message dans le cas contraire.<br><br>Lorsque la valeur est `false`, il vous incombe d’appeler des méthodes [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) pour terminer, abandonner ou mettre au rebut le message. Si une exception est levée (et qu’aucune des méthodes `MessageReceiver` n’est appelée), le verrou reste. Une fois le verrou expiré, le message est de nouveau mis en file d’attente avec `DeliveryCount` incrémenté, et le verrou est automatiquement renouvelé.<br><br>Dans les fonctions non C#, les exceptions de la fonction entraînent l’appel par le runtime de `abandonAsync` en arrière-plan. Si aucune exception ne se produit, `completeAsync` est appelé en arrière-plan. |
+|messageHandlerOptions.maxConcurrentCalls|16|Nombre maximal d’appels simultanés pour le rappel que la pompe de messages doit initier par instance mise à l’échelle. Par défaut, le runtime Functions traite plusieurs messages simultanément.|
+|sessionHandlerOptions.maxConcurrentSessions|2000|Nombre maximal de sessions qui peuvent être traitées simultanément par instance mise à l’échelle.|
+|batchOptions.maxMessageCount|1 000| Nombre maximal de messages envoyés à la fonction lorsqu’elle est déclenchée. |
+|batchOptions.operationTimeout|00:01:00| Valeur de l’intervalle de temps exprimée en `hh:mm:ss`. |
+|batchOptions.autoComplete|true| Consultez la description ci-dessus pour `messageHandlerOptions.autoComplete`. |
 
 ### <a name="additional-settings-for-version-5x"></a>Paramètres supplémentaires pour la version 5.x et ultérieure
 
@@ -112,22 +120,20 @@ L’exemple de fichier host.json ci-dessous contient uniquement les paramètres 
     "version": "2.0",
     "extensions": {
         "serviceBus": {
-            "serviceBusOptions": {
-                "retryOptions":{
-                    "mode": "exponential",
-                    "tryTimeout": "00:00:10",
-                    "delay": "00:00:00.80",
-                    "maxDelay": "00:01:00",
-                    "maxRetries": 4
-                },
-                "prefetchCount": 100,
-                "autoCompleteMessages": true,
-                "maxAutoLockRenewalDuration": "00:05:00",
-                "maxConcurrentCalls": 32,
-                "maxConcurrentSessions": 10,
-                "maxMessages": 2000,
-                "sessionIdleTimeout": "00:01:00"
-            }
+            "retryOptions":{
+                "mode": "exponential",
+                "tryTimeout": "00:01:00",
+                "delay": "00:00:00.80",
+                "maxDelay": "00:01:00",
+                "maxRetries": 3
+            },
+            "prefetchCount": 0,
+            "autoCompleteMessages": true,
+            "maxAutoLockRenewalDuration": "00:05:00",
+            "maxConcurrentCalls": 16,
+            "maxConcurrentSessions": 8,
+            "maxMessages": 1000,
+            "sessionIdleTimeout": "00:01:00"
         }
     }
 }
@@ -152,7 +158,7 @@ Outre les propriétés de configuration ci-dessus, lorsque vous utilisez les ver
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |mode|Exponentielle|Approche à utiliser pour calculer les délais de nouvelle tentative. Le mode exponentiel par défaut effectue de nouvelles tentatives avec un délai basé sur une stratégie de backoff, où chaque tentative augmente la durée d’attente avant la nouvelle tentative. Le mode `Fixed` effectue de nouvelles tentatives à intervalles fixes, chaque délai ayant la même durée.|
-|tryTimeout|00:00:10|Durée maximale d’attente d’une opération par tentative.|
+|tryTimeout|00:01:00|Durée maximale d’attente d’une opération par tentative.|
 |delay|00:00:00.80|Délai ou facteur de backoff à appliquer entre les nouvelles tentatives.|
 |maxDelay|00:01:00|Délai maximal à accorder entre les nouvelles tentatives.|
 |maxRetries|3|Nombre maximal de nouvelles tentatives avant de considérer que l’opération associée a échoué.|

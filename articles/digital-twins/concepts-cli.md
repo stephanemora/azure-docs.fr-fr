@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Comprendre l’ensemble de commandes CLI Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 04/30/2021
+ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3e081d4a60b5e4f26e5163d55f2df682b042bca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 087a7bc7fda1c54e0a9e2c7f896b06dda78fa11e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066518"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221159"
 ---
 # <a name="azure-digital-twins-cli-command-set"></a>Ensemble de commandes CLI Azure Digital Twins
 
-En plus de gérer votre instance Azure Digital Twins dans le portail Azure, vous pouvez utiliser le jeu de commandes pour [Azure CLI](/cli/azure/what-is-azure-cli) d’Azure Digital Twins pour effectuer la plupart des actions principales dans le service, notamment :
+Outre la gestion de votre instance Azure Digital Twins dans le portail Azure, vous pouvez également utiliser le jeu de commandes pour [Azure CLI](/cli/azure/what-is-azure-cli) d’Azure Digital Twins pour effectuer la plupart des actions principales dans le service, notamment :
 * Gestion d’une instance Azure Digital Twins
 * Gestion des modèles
 * Gestion des jumeaux numériques
@@ -29,7 +29,7 @@ Le jeu de commandes est appelé **az dt** et fait partie de l’[extension Azure
 
 ## <a name="uses-deploy-and-validate"></a>Utilisations (déployer et valider)
 
-En plus de la gestion générale de votre instance, l’interface CLI vous permet également d’effectuer des déploiements et des validations.
+Outre la gestion générale de votre instance, l’interface CLI vous permet également d’effectuer des déploiements et des validations.
 * Les commandes de plan de contrôle peuvent être utilisées pour rendre le déploiement d’une nouvelle instance reproductible ou automatisé.
 * Les commandes de plan de données peuvent être utilisées pour vérifier rapidement les valeurs de votre instance et vérifier que les opérations se sont terminées comme prévu.
 
@@ -52,7 +52,7 @@ Pour obtenir des instructions sur l’installation ou la mise à jour d’Azure 
 
 Azure CLI vous invite automatiquement à installer l’extension lors de la première utilisation d’une commande qui l’exige.
 
-Vous pouvez également utiliser la commande suivante pour installer vous-même l’extension à tout moment (ou la mettre à jour s’il s’avère que vous avez déjà une version antérieure). Vous pouvez exécuter la commande dans [Azure Cloud Shell](../cloud-shell/overview.md) ou dans une [interface de ligne de commande Azure locale](/cli/azure/install-azure-cli).
+Sinon, vous pouvez utiliser la commande suivante pour installer vous-même l’extension à tout moment (ou la mettre à jour s’il s’avère que vous avez déjà une version antérieure). Vous pouvez exécuter la commande dans [Azure Cloud Shell](../cloud-shell/overview.md) ou dans une [interface de ligne de commande Azure locale](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az extension add --upgrade --name azure-iot

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/05/2021
+ms.date: 08/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074bffb8614be1f71ba1956fd5a238bc19354c58
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: b8ceea26ed7a5e58e890c4e313b00f1f4f37f4e7
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028736"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967796"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Collecter les journaux Azure Active Directory B2C avec Application Insights
 
@@ -164,7 +164,7 @@ Une fois que vous avez enregistré les paramètres, les journaux d’Application
 
 ## <a name="configure-application-insights-in-production"></a>Configurer Application Insights en production
 
-Pour améliorer les performances de votre environnement de production et l'expérience des utilisateurs, il est important de configurer votre stratégie de manière à ignorer les messages sans importance. Utilisez la configuration suivante pour envoyer uniquement les messages d'erreur critiques à votre Application Insights. 
+Pour améliorer les performances de votre environnement de production et l'expérience des utilisateurs, il est important de configurer votre stratégie de manière à ignorer les messages sans importance. Utilisez la configuration suivante dans les environnements de production. 
 
 1. Définissez l'attribut `DeploymentMode` de [TrustFrameworkPolicy](trustframeworkpolicy.md) sur `Production`. 
 

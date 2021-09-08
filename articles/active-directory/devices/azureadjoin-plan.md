@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb74dccb01bb599a40bbf9c606661d4661a37f3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bdaef1c746ca23f2badf657e6e72e6e3988bcfa4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953634"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562200"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -164,6 +164,9 @@ Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification uniq
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
+> [!NOTE]
+> Les appareils joints à Azure AD peuvent sans problème accéder à la fois aux applications locales et aux applications cloud. Pour plus d’informations, consultez [Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD](azuread-join-sso.md).
+
 **Recommandation :** Déployez le [proxy Azure AD App](../app-proxy/application-proxy.md) pour permettre un accès sécurisé à ces applications.
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
@@ -240,7 +243,7 @@ Choisissez **Sélectionné** et sélectionnez les utilisateurs que vous voulez a
 
 ### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Exiger l’authentification multifacteur (MFA) pour joindre des appareils
 
-Sélectionnez **« Oui »** si vous exigez que les utilisateurs effectuent MFA lors de la jonction d’appareils à Azure AD. Pour les utilisateurs joignant des appareils à Azure AD avec MFA, l’appareil lui-même devient un second facteur.
+Sélectionnez **« Oui »** si vous exigez que les utilisateurs effectuent MFA lors de la jonction d’appareils à Azure AD.
 
 ![Exiger Multi-factor Auth pour joindre des appareils](./media/azureadjoin-plan/03.png)
 

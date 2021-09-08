@@ -1,7 +1,7 @@
 ---
 title: Comment déployer des modèles Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment et où déployer des modèles Machine Learning. Déployez sur Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA.
+description: Découvrez comment et où déployer des modèles Machine Learning. Déployez sur Azure Container Instances, Azure Kubernetes Service et FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 0592577040d411d3ecad395d8697828a5c4bc516
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0802c515b99bd8e307c610ec4bc714083b86ca3f
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081368"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597817"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Déployer des modèles Machine Learning sur Azure 
 
@@ -37,6 +37,8 @@ Le workflow est le même, quel que soit l’endroit où vous déployez votre mod
 1. Tester le service web qui en résulte
 
 Pour plus d’informations sur les concepts impliqués dans le workflow du déploiement Machine Learning, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning](concept-model-management-and-deployment.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -88,7 +90,7 @@ Pour plus d’informations sur l’utilisation du kit SDK pour se connecter à u
 Une situation courante pour un service Machine Learning déployé est que vous avez besoin des composants suivants :
     
  + les ressources représentant le modèle spécifique que vous souhaitez déployer (par exemple un fichier de modèle pytorch)
- + le code que vous allez exécuter dans le service, qui exécute le modèle sur une entrée donnée
+ + Le code que vous allez exécuter dans le service, qui exécute le modèle sur une entrée donnée
 
 Azure Machine Learning vous permet de séparer le déploiement en deux composants distincts, afin que vous puissiez conserver le même code et simplement mettre à jour le modèle. Nous définissons le mécanisme par lequel vous chargez un modèle _séparément_ de votre code comme « inscription du modèle ».
 
@@ -178,7 +180,10 @@ Une configuration d’inférence décrit le conteneur et les fichiers Docker à 
 
 La configuration d’inférence ci-dessous spécifie que le déploiement de Machine Learning utilisera le fichier `echo_score.py` dans le répertoire `./source_dir` pour traiter les demandes entrantes, et utilisera l’image Docker avec les packages Python spécifiés dans l’environnement `project_environment`.
 
-Vous pouvez utiliser n’importe quel [environnement Azure Machine Learning organisé](./resource-curated-environments.md) comme image Docker de base lors de la création de votre environnement de projet. Nous allons aussi installer les dépendances requises et stocker l’image Docker qui en résulte dans le référentiel associé à votre espace de travail.
+Vous pouvez utiliser n’importe quel [environnement d’inférence Azure Machine Learning organisé](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference) comme image Docker de base lors de la création de votre environnement de projet. Nous allons aussi installer les dépendances requises et stocker l’image Docker qui en résulte dans le référentiel associé à votre espace de travail.
+
+> [!NOTE]
+> Le chargement du [répertoire source de l’inférence](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) de l’apprentissage automatique Azure ne respecte pas **.gitignore** ni **.amlignore**.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -410,7 +415,7 @@ Pour supprimer un service web déployé, utilisez `az ml service delete <name of
 
 Pour supprimer de votre espace de travail un modèle inscrit, utilisez `az ml model delete <model id>`
 
-Apprenez-en davantage sur [la suppression d’un service web](/cli/azure/ml/service#az_ml_service_delete) et [la suppression d’un modèle](/cli/azure/ml/model#az_ml_model_delete).
+Apprenez-en davantage sur [la suppression d’un service web](/cli/azure/ml(v1)/computetarget/create#az_ml_service_delete) et [la suppression d’un modèle](/cli/azure/ml/model#az_ml_model_delete).
 
 # <a name="python"></a>[Python](#tab/python)
 

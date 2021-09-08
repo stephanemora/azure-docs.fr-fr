@@ -7,12 +7,12 @@ ms.author: karler
 author: karlerickson
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 123cc401d03a802c0a390f88cfc727893f165364
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 0de08976f0391c995004265ac1b1a33cf4a5c491
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563427"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835786"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurer une instance de serveur de configuration Spring Cloud pour votre service
 
@@ -101,10 +101,11 @@ Toutes les propriétés configurables servant à configurer un dépôt Git priv�
 | `default-label` | Non     | Étiquette par défaut du dépôt Git, doit être le *nom de branche*, le *nom d’étiquette* ou le *commit-id* du dépôt. |
 | `search-paths`  | Non     | Tableau de chaînes utilisé pour effectuer une recherche dans les sous-répertoires du dépôt Git. |
 | `username`      | Non     | Nom d’utilisateur utilisé pour accéder au serveur du dépôt Git, _obligatoire_ quand le serveur du dépôt Git prend en charge `Http Basic Authentication`. |
-| `password`      | Non     | Mot de passe utilisé pour accéder au serveur du dépôt Git, _obligatoire_ quand le serveur du dépôt Git prend en charge `Http Basic Authentication`. |
+| `password`      | Non     | Mot de passe ou jeton d’accès personnel utilisé pour accéder au serveur du référentiel Git, _obligatoire_ quand le serveur du référentiel Git prend en charge `Http Basic Authentication`. |
 
 > [!NOTE]
-> De nombreux serveurs de dépôt `Git` prennent en charge l’utilisation des jetons à la place des mots de passe pour l’authentification de base HTTP. Certains dépôts, tels que GitHub, permettent aux jetons d’être conservés indéfiniment. Toutefois, certains serveurs de dépôt Git, notamment Azure DevOps, forcent les jetons à expirer en quelques heures. Les dépôts qui entraînent l’expiration des jetons ne doivent pas utiliser l’authentification par jeton avec Azure Spring Cloud.
+> De nombreux serveurs de dépôt `Git` prennent en charge l’utilisation des jetons à la place des mots de passe pour l’authentification de base HTTP. Certains référentiels permettent aux jetons d’être conservés indéfiniment. Toutefois, certains serveurs de référentiel Git, notamment Azure DevOps Server, forcent les jetons à expirer en quelques heures. Les dépôts qui entraînent l’expiration des jetons ne doivent pas utiliser l’authentification par jeton avec Azure Spring Cloud.
+> GitHub a supprimé la prise en charge de l’authentification par mot de passe. vous devez donc utiliser un jeton d’accès personnel au lieu de l’authentification par mot de passe pour GitHub. Pour en savoir plus, consultez [Authentification par jeton](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
 ### <a name="git-repositories-with-pattern"></a>Dépôts Git avec modèle
 
@@ -122,7 +123,7 @@ Toutes les propriétés configurables servant à configurer les dépôts Git ave
 | `repos."default-label"`            | Non             | Étiquette par défaut du dépôt Git, doit être le *nom de branche*, le *nom d’étiquette* ou le *commit-id* du dépôt. |
 | `repos."search-paths`"             | Non             | Tableau de chaînes utilisé pour effectuer une recherche dans les sous-répertoires du dépôt Git. |
 | `repos."username"`                 | Non             | Nom d’utilisateur utilisé pour accéder au serveur du dépôt Git, _obligatoire_ quand le serveur du dépôt Git prend en charge `Http Basic Authentication`. |
-| `repos."password"`                 | Non             | Mot de passe utilisé pour accéder au serveur du dépôt Git, _obligatoire_ quand le serveur du dépôt Git prend en charge `Http Basic Authentication`. |
+| `repos."password"`                 | Non             | Mot de passe ou jeton d’accès personnel utilisé pour accéder au serveur du référentiel Git, _obligatoire_ quand le serveur du référentiel Git prend en charge `Http Basic Authentication`. |
 | `repos."private-key"`              | Non             | Clé privée SSH pour accéder au dépôt Git, _obligatoire_ quand l’URI commence par *git@* ou *ssh://* . |
 | `repos."host-key"`                 | Non             | La clé hôte du serveur du dépôt Git ne doit pas inclure le préfixe d’algorithme tel qu’il est couvert par `host-key-algorithm`. |
 | `repos."host-key-algorithm"`       | Non             | Algorithme de clé d’hôte, doit être *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Obligatoire* uniquement si `host-key` existe. |
@@ -167,7 +168,8 @@ Maintenant que vous avez enregistré vos fichiers de configuration dans un dép�
     ![Volet Modifier l'authentification - Authentification de base](media/spring-cloud-tutorial-config-server/basic-auth.png)
 
     > [!CAUTION]
-    > Certains serveurs de dépôt Git, comme GitHub, utilisent un *jeton personnel* ou un *jeton d’accès* (par exemple, un mot de passe), pour l’**Authentification de base**. Vous pouvez utiliser ce type de jeton comme mot de passe dans Azure Spring Cloud, car il n’expire jamais. Toutefois, pour les autres serveurs de dépôt Git de type BitBucket et Azure DevOps, le *jeton d’accès* expire au bout d’une ou deux heures. Dès lors, cette option n’est pas viable si vous utilisez ces serveurs de dépôt avec Azure Spring Cloud.
+    > Certains serveurs de référentiel Git utilisent un *jeton personnel* ou un *jeton d’accès* (par exemple, un mot de passe), pour l’**Authentification de base**. Vous pouvez utiliser ce type de jeton comme mot de passe dans Azure Spring Cloud, car il n’expire jamais. Toutefois, pour les autres serveurs de référentiel Git de type BitBucket et Azure DevOps Server, le *jeton d’accès* expire au bout d’une ou deux heures. Dès lors, cette option n’est pas viable si vous utilisez ces serveurs de dépôt avec Azure Spring Cloud.
+    > GitHub a supprimé la prise en charge de l’authentification par mot de passe. vous devez donc utiliser un jeton d’accès personnel au lieu de l’authentification par mot de passe pour GitHub. Pour en savoir plus, consultez [Authentification par jeton](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
     * **SSH** : Dans la section **Dépôt par défaut**, dans la zone **URI**, collez l’URI du dépôt, puis sélectionnez le bouton **Authentification** (icône de stylo). Dans le volet **Modifier l’authentification**, dans la liste déroulante **Type d’authentification**, sélectionnez **SSH**, puis entrez votre **Clé privée**. Vous pouvez également spécifier votre **Clé d’hôte** et l’**Algorithme de la clé d’hôte**. Veillez à inclure votre clé publique dans le dépôt de votre serveur de configuration. Sélectionnez **OK**, puis **Appliquer** pour terminer la configuration de votre instance de serveur de configuration.
 

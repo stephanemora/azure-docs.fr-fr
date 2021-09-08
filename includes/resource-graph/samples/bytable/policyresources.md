@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/09/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b31b0a1699d4de01f3f09f7689dec380458ee649
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 41981095b367e8beb33509412b3ef60d6b1e6266
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861089"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535864"
 ---
 ### <a name="compliance-by-policy-assignment"></a>Conformité par attribution de stratégie
 
@@ -125,7 +125,7 @@ Search-AzGraph -Query "PolicyResources | where type =~ 'Microsoft.PolicyInsights
 
 ### <a name="list-all-non-compliant-resources"></a>Répertorier toutes les ressources non conformes
 
-Fournit l’état de conformité, le pourcentage de conformité et le nombre de ressources pour chaque type de ressource.
+Fournit une liste de tous les types de ressources qui sont dans l’état `NonCompliant`.
 
 ```kusto
 PolicyResources

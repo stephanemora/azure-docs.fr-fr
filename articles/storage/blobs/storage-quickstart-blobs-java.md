@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b6d42cf26bc128257aa5d0cd7ef01e8fe8749a51
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c951071b7746e426edfd6a9c9f4851236c12159d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280630"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469623"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Démarrage rapide : Gérer les objets blob avec le SDK Java v12
 
@@ -32,8 +32,6 @@ Ressources supplémentaires :
 - Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configuration
 
@@ -126,7 +124,7 @@ Ouvrez le fichier *pom.xml* dans votre éditeur de texte. Ajoutez l’élément 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.6.0</version>
+    <version>12.13.0</version>
 </dependency>
 ```
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55dffd12f63b5cea3f2728ca36a1038e990d45e8
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92145236"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865099"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel dans Azure Active Directory
 
@@ -57,7 +57,7 @@ Pour plus d’informations, consultez l’article [Dépendances du service d’a
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Pourquoi certains onglets ne fonctionnent-ils pas dans Microsoft Teams après l’activation des stratégies d’accès conditionnel ?
 
-Après l’activation de certaines stratégies d’accès conditionnel sur le locataire dans Microsoft Teams, certains onglets peuvent ne plus fonctionner comme prévu dans le client de bureau. Toutefois, les onglets affectés fonctionnent lors de l’utilisation du client web Microsoft Teams. Les onglets affectés peuvent inclure Power BI, Formulaires, VSTS, PowerApps et Liste SharePoint.
+Après l’activation de certaines stratégies d’accès conditionnel sur le locataire dans Microsoft Teams, certains onglets peuvent ne plus fonctionner comme prévu dans le client de bureau. Toutefois, les onglets affectés fonctionnent lors de l’utilisation du client web Microsoft Teams. Les onglets affectés peuvent inclure Power BI, Formulaires, VSTS, Power Apps et Liste SharePoint.
 
 Pour afficher les onglets affectés, vous devez utiliser le client web Teams dans Edge, Internet Explorer ou Chrome avec l’extension Comptes Windows 10 installée. Certains onglets dépendent de l’authentification web, qui ne fonctionne pas dans le client de bureau Microsoft Teams lorsque l’accès conditionnel est activé. Microsoft collabore avec des partenaires pour activer ces scénarios. À ce jour, nous avons activé des scénarios impliquant Planner, OneNote et Stream.
 

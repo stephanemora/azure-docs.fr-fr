@@ -3,19 +3,18 @@ title: Créer un modèle de générateur d’images Azure
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07dfd9eb2dab9ae8c7e7a024bbf09c641e0910e4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0c8869bbe2751ee945ab05c5daf8bcf07cc4c3f4
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967249"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564093"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Créer un modèle de générateur d’images Azure 
 
@@ -98,19 +97,9 @@ Par défaut, Image Builder utilise une machine virtuelle de build « Standard_D
 2. Exécution de builds Windows nécessitant l’utilisation de « Standard_D2_v2 » ou d’une taille de machine virtuelle équivalente.
 3. Exigence d'[isolement de la machine virtuelle](../isolation.md)
 4. Personnalisation d'une image nécessitant du matériel spécifique ; par exemple pour une machine virtuelle GPU, une taille de machine virtuelle GPU est nécessaire 
-5. Exigence de chiffrement de bout en bout au repos de la machine virtuelle de build ; vous devez spécifier la [taille de la machine virtuelle](../azure-vms-no-temp-disk.md) de build de prise en charge qui n'utilise pas de disques temporaires locaux
+5. Exigence de chiffrement de bout en bout au repos de la machine virtuelle de build ; vous devez spécifier la [taille de la machine virtuelle](../azure-vms-no-temp-disk.yml) de build de prise en charge qui n'utilise pas de disques temporaires locaux
  
 Cette étape est facultative.
-
-
-## <a name="proxy-vm-size"></a>Taille de la machine virtuelle proxy
-La machine virtuelle proxy est utilisée pour envoyer des commandes entre le service Azure Image Builder et la machine virtuelle de build ; elle n'est déployée que lors de la spécification d'un réseau virtuel existant. Pour plus d'informations, consultez la [documentation](image-builder-networking.md#why-deploy-a-proxy-vm) relative aux options de mise en réseau.
-```json
- {
-    "proxyVmSize": "Standard A1_v2"
- },
-```
-Ce paramètre est facultatif.
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
@@ -181,7 +170,7 @@ L’API nécessite un « SourceType » qui définit la source pour la générati
 > Lorsque vous utilisez des images personnalisées Windows existantes, vous pouvez exécuter la commande sysprep jusqu’à 3 fois sur une seule image Windows 7 ou Windows Server 2008 R2, ou 1001 fois sur une image Windows unique pour les versions ultérieures. Pour plus d’informations, consultez la documentation de [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="platformimage-source"></a>Source PlatformImage 
-Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](../image-builder-overview.md#os-support). 
+Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, consultez [en savoir plus sur Azure Image Builder](../image-builder-overview.md#os-support). 
 
 ```json
         "source": {
@@ -264,6 +253,8 @@ Si vous ne spécifiez pas de valeur buildTimeoutInMinutes ou si vous lui affecte
 
 Si vous avez besoin de plus de temps pour que les personnalisations se terminent, définissez ce dont vous avez besoin, avec une faible surcharge. Toutefois, ne définissez pas une valeur trop élevée, car vous devrez peut-être attendre qu’il expire avant d’afficher une erreur. 
 
+> [!NOTE]
+> Si vous ne définissez pas la valeur sur 0, la valeur minimale prise en charge est 6 minutes. L’utilisation des valeurs 1 à 5 échouera.
 
 ## <a name="properties-customize"></a>Propriétés : personnaliser
 
@@ -725,3 +716,4 @@ az resource invoke-action \
 ## <a name="next-steps"></a>Étapes suivantes
 
 Il existe des exemples de fichiers .json pour différents scénarios dans le [GitHub de générateur d’images Azure](https://github.com/azure/azvmimagebuilder).
+

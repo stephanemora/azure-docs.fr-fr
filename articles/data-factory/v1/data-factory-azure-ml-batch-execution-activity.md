@@ -1,20 +1,20 @@
 ---
 title: Créer des pipelines de données prédictifs avec Azure Data Factory
-description: Explique comment créer des pipelines prédictifs à l'aide d'Azure Data Factory et d'Azure Machine Learning Studio (classique)
+description: Explique comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et de Machine Learning Studio (classique)
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 2773ab2a7caa1eb4d198495a3ebe4ef0c14a5a32
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4a930677f4760ae5f2d77dd4f148097ae67f465
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785510"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598013"
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Créer des pipelines prédictifs à l'aide d'Azure Machine Learning Studio (classique) et d'Azure Data Factory
+# <a name="create-predictive-pipelines-using-machine-learning-studio-classic-and-azure-data-factory"></a>Créer des pipelines prédictifs à l’aide de Machine Learning Studio (classique) et d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Activités de transformation"]
 > * [Activité Hive](data-factory-hive-activity.md)
@@ -22,8 +22,8 @@ ms.locfileid: "104785510"
 > * [Activité MapReduce](data-factory-map-reduce.md)
 > * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Activité Spark](data-factory-spark.md)
-> * [Activité Exécution par lots Azure Machine Learning studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Activité Mettre à jour une ressource Azure Machine Learning studio (classique)](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité Batch Execution ML Studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité de mise à jour des ressources ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
 > * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
@@ -32,10 +32,10 @@ ms.locfileid: "104785510"
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide de l’apprentissage automatique dans Data Factory](../transform-data-using-machine-learning.md).
 
-### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (classique)
-[Azure Machine Learning Studio (classique)](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
+### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (classique)
+[ML Studio (classique)](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
 
-1. **Créez une expérience de formation**. Pour ce faire, vous devez utiliser Azure Machine Learning Studio (classique). Studio (classique) est un environnement de développement visuel collaboratif qui vous permet de former et de tester un modèle d’analyse prédictive à l’aide de données d’apprentissage.
+1. **Créez une expérience de formation**. Vous effectuez cette étape à l’aide de ML Studio (classique). Studio (classique) est un environnement de développement visuel collaboratif qui vous permet de former et de tester un modèle d’analyse prédictive à l’aide de données d’apprentissage.
 2. **Convertissez-la en une expérience prédictive**. Une fois que votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
 3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats pour le modèle.
 
@@ -47,19 +47,19 @@ Le service Data Factory vous permet de créer des pipelines de données qui dép
 Pour prendre en main le service Azure Data Factory rapidement, voir [Présentation d’Azure Data Factory](data-factory-introduction.md) et [Créer votre premier pipeline](data-factory-build-your-first-pipeline.md).
 
 ### <a name="data-factory-and-machine-learning-studio-classic-together"></a>Data Factory et Machine Learning Studio (classique) ensemble
-Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [Azure Machine Learning Studio (classique)][azure-machine-learning] publié pour l’analyse prédictive. À l’aide de l’**Activité d’exécution par lot** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Studio (classique) pour effectuer des prédictions sur les données par lot. Pour plus d'informations, consultez la section Appeler un service web Azure Machine Learning Studio (classique) à l'aide de l'Activité d'exécution du lot.
+Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [ML Studio (classique)][azure-machine-learning] publié pour l’analyse prédictive. À l’aide de l’**Activité d’exécution par lot** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Studio (classique) pour effectuer des prédictions sur les données par lot. Consultez la section Appeler un service web ML Studio (classique) à l’aide de l’activité d’exécution par lots pour plus d’informations.
 
 Au fil du temps, les modèles prédictifs dans les expériences de notation Studio (classique) doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Vous pouvez reformer un modèle Studio (classique) à partir d’un pipeline Data Factory en procédant comme suit :
 
 1. Publiez l’expérience de formation (et non l’expérience prédictive) comme un service web. Vous pouvez effectuer cette tâche dans Studio (classique) comme vous l’avez fait pour exposer l’expérience prédictive en tant que service web dans le scénario précédent.
 2. Utilisez l’activité d’exécution par lots Studio (classique) pour appeler le service web pour l’expérience de formation. En fait, vous pouvez utiliser l’activité d’exécution par lots Studio (classique) pour appeler à la fois le service web de formation et le service web de notation.
 
-Une fois que vous avez fini le réentraînement, mettez à jour le service web de scoring (expérience prédictive exposée comme service web) avec le modèle qui vient d’être entraîné à l’aide de l’**activité des ressources de mise à jour Azure Machine Learning Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](data-factory-azure-ml-update-resource-activity.md) pour plus d’informations.
+Une fois que vous avez fini la reformation, mettez à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé à l’aide de l’**Activité des ressources de mise à jour ML Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](data-factory-azure-ml-update-resource-activity.md) pour plus d’informations.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Appeler un service web à l’aide de l’activité d’exécution par lots
 Vous devez utiliser Azure Data Factory pour orchestrer le déplacement et le traitement des données, puis pour procéder à une exécution par lot à l’aide de Studio (classique). Voici les étapes principales :
 
-1. Créez un service lié Azure Machine Learning Studio (classique). Vous avez besoin des valeurs suivantes :
+1. Créez un service lié ML Studio (classique). Vous avez besoin des valeurs suivantes :
 
    1. **URI de demande** pour l’API d’exécution de lot. Pour trouver l’URI de demande, cliquez sur le lien **EXÉCUTION PAR LOT** dans la page des services web.
    2. **Clé d’API** pour le service web Studio (classique) publié. Vous trouverez la clé API en cliquant sur le service web que vous avez publié.
@@ -358,7 +358,7 @@ Lorsque vous utilisez le module lecteur dans une expérience Studio (classique),
 {
   "name": "MLWithSqlReaderSqlWriter",
   "properties": {
-    "description": "Azure Machine Learning Studio (classic) model with sql azure reader/writer",
+    "description": "ML Studio (classic) model with sql azure reader/writer",
     "activities": [
       {
         "name": "MLSqlReaderSqlWriterActivity",
@@ -411,7 +411,7 @@ Dans l'exemple JSON ci-dessus :
 #### <a name="web-service-requires-multiple-inputs"></a>Service web nécessitant plusieurs entrées
 Si le service web prend plusieurs entrées, utilisez la propriété **webServiceInputs** au lieu de la propriété **webServiceInput**. Les jeux de données référencés par **webServiceInputs** doivent également être inclus dans les **entrées** de l’activité.
 
-Dans votre expérience Azure Machine Learning Studio (classique), les ports et paramètres globaux de l'entrée et de la sortie du service web portent des noms par défaut (« input1 », « input2 ») que vous pouvez personnaliser. Les noms que vous utilisez pour les paramètres globalParameters, webServiceOutputs et webServiceInputs doivent correspondre exactement aux noms utilisés dans les expériences. Vous pouvez afficher la charge utile de l’exemple de requête sur la page d’aide relative à l’exécution par lots pour votre point de terminaison Studio (classique) afin de vérifier le mappage attendu.
+Dans votre expérience ML Studio (classique), les ports et paramètres globaux de l’entrée et la sortie du service web ont des noms par défaut (« input1 », « input2 ») que vous pouvez personnaliser. Les noms que vous utilisez pour les paramètres globalParameters, webServiceOutputs et webServiceInputs doivent correspondre exactement aux noms utilisés dans les expériences. Vous pouvez afficher la charge utile de l’exemple de requête sur la page d’aide relative à l’exécution par lots pour votre point de terminaison Studio (classique) afin de vérifier le mappage attendu.
 
 ```JSON
 {
@@ -454,7 +454,7 @@ Dans votre expérience Azure Machine Learning Studio (classique), les ports et p
 ```
 
 #### <a name="web-service-does-not-require-an-input"></a>Le service web ne nécessite pas d’entrée
-Les services web d'exécution par lot Azure Machine Learning Studio (classique) peuvent servir à exécuter n'importe quel workflow (par exemple des scripts R ou Python) qui ne nécessite pas d'entrées. Ou bien, l’expérience peut être configurée avec un module Lecteur qui n’expose pas de paramètres GlobalParameters. Dans ce cas, l’activité AzureMLBatchExecution doit être configurée comme suit :
+Les services web d’exécution par lot ML Studio (classique) peuvent servir à exécuter n’importe quel flux de travail (par exemple des scripts R ou Python) qui ne nécessite pas d’entrées. Ou bien, l’expérience peut être configurée avec un module Lecteur qui n’expose pas de paramètres GlobalParameters. Dans ce cas, l’activité AzureMLBatchExecution doit être configurée comme suit :
 
 ```JSON
 {
@@ -481,7 +481,7 @@ Les services web d'exécution par lot Azure Machine Learning Studio (classique) 
 ```
 
 #### <a name="web-service-does-not-require-an-inputoutput"></a>Le service web ne nécessite pas d’entrée/sortie
-Il se peut qu'aucune sortie de service web ne soit configurée pour le service web d'exécution par lot Azure Machine Learning Studio (classique). Dans cet exemple, aucune entrée ou sortie ni aucun paramètre GlobalParameters n’est configuré. Il existe toujours une sortie configurée sur l’activité elle-même, mais elle n’est pas donnée comme sortie webServiceOutput.
+Il se peut qu’aucune sortie de service web ne soit configurée pour le service web d’exécution par lot ML Studio (classique). Dans cet exemple, aucune entrée ou sortie ni aucun paramètre GlobalParameters n’est configuré. Il existe toujours une sortie configurée sur l’activité elle-même, mais elle n’est pas donnée comme sortie webServiceOutput.
 
 ```JSON
 {
@@ -505,7 +505,7 @@ Il se peut qu'aucune sortie de service web ne soit configurée pour le service w
 ```
 
 #### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>Le service web utilise des lecteurs et enregistreurs et l’activité s’exécute uniquement lorsque d’autres activités ont réussi
-Les modules lecteur et enregistreur du service web Azure Machine Learning Studio (classique) peuvent être configurés pour s'exécuter avec ou sans paramètres GlobalParameters. Toutefois, il peut être utile d’incorporer les appels de service dans un pipeline qui utilise des dépendances de jeux de données, afin d’appeler le service uniquement lorsqu’un traitement en amont est terminé. Cette approche vous permet également de déclencher d’autres actions une fois l’exécution par lot terminée. Dans ce cas, vous pouvez exprimer les dépendances à l’aide d’entrées et de sorties d’activité, sans les nommer en tant qu’entrées ou sorties de service web.
+Les modules de lecteur et d’enregistreur du service web ML Studio (classique) peuvent être configurés pour s’exécuter avec ou sans paramètres GlobalParameters. Toutefois, il peut être utile d’incorporer les appels de service dans un pipeline qui utilise des dépendances de jeux de données, afin d’appeler le service uniquement lorsqu’un traitement en amont est terminé. Cette approche vous permet également de déclencher d’autres actions une fois l’exécution par lot terminée. Dans ce cas, vous pouvez exprimer les dépendances à l’aide d’entrées et de sorties d’activité, sans les nommer en tant qu’entrées ou sorties de service web.
 
 ```JSON
 {
@@ -545,7 +545,7 @@ Les **points importants** sont les suivants :
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour
-Une fois que vous avez fini le réentraînement, mettez à jour le service web de scoring (expérience prédictive exposée comme service web) avec le modèle qui vient d’être entraîné à l’aide de l’**activité des ressources de mise à jour Azure Machine Learning Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](data-factory-azure-ml-update-resource-activity.md) pour plus d’informations.
+Une fois que vous avez fini la reformation, mettez à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé à l’aide de l’**Activité des ressources de mise à jour ML Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](data-factory-azure-ml-update-resource-activity.md) pour plus d’informations.
 
 ### <a name="reader-and-writer-modules"></a>Modules Lecteur et Enregistreur
 L'utilisation des paramètres de service web passe par un scénario commun : l'utilisation des lecteurs et enregistreurs SQL Azure. Le module lecteur est utilisé pour charger des données dans une expérience à partir des services de gestion des données en dehors de Studio (classique). Le module enregistreur est utilisé pour enregistrer les données de vos expériences dans les services de gestion des données en dehors de Studio (classique).
@@ -557,14 +557,14 @@ Pour plus d’informations sur les modules enregistreur/lecteur Azure Blob/SQL A
 
 **R :** Oui. Pour plus d’informations, consultez la section **Utilisation d’un module lecteur pour lire les données de plusieurs fichiers dans le stockage d’objets blob Azure** .
 
-## <a name="azure-machine-learning-studio-classic-batch-scoring-activity"></a>Activité de calcul du score du lot Azure Machine Learning Studio (classique)
-Si vous utilisez l'activité **AzureMLBatchScoring** en vue d'une intégration avec Azure Machine Learning Studio (classique), nous vous recommandons d'utiliser la dernière activité **AzureMLBatchExecution**.
+## <a name="ml-studio-classic-batch-scoring-activity"></a>Activité de notation par lot ML Studio (classique)
+Si vous utilisez l’activité **AzureMLBatchScoring** en vue d’une intégration avec ML Studio (classique), nous vous recommandons d’utiliser la dernière activité **AzureMLBatchExecution**.
 
 L’activité AzureMLBatchExecution est introduite dans la version d’août 2015 du Kit de développement logiciel (SDK) Azure et d’Azure PowerShell.
 
 Si vous souhaitez continuer à utiliser l’activité AzureMLBatchScoring, poursuivez la lecture de cette section.
 
-### <a name="azure-machine-learning-studio-classic-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>Activité de calcul du score du lot Azure Machine Learning Studio (classique) utilisant Stockage Azure pour l'entrée/la sortie
+### <a name="ml-studio-classic-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>Activité de notation par lots ML Studio (classique) utilisant Azure Storage pour l’entrée/la sortie
 
 ```JSON
 {
@@ -628,7 +628,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](data-factory-fun
 >
 
 ## <a name="see-also"></a>Voir aussi
-* [Billet de blog Azure : Getting started with Azure Data Factory and Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/) (Bien démarrer avec Azure Data Factory et Azure Machine Learning)
+* [Article de blog Azure : prise en main d’Azure Data Factory et de ML Studio (classique)](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

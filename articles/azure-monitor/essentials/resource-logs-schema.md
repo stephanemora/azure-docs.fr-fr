@@ -3,12 +3,12 @@ title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 5d9ae1cd9ca1d5f71d4ad2baff95159bf0e2e7f8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 621c606313fa68de24100e8c6214b56ee42b2f03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026432"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562933"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -56,7 +56,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Azure Batch |[Journalisation d’Azure Batch](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Journalisation pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Instances | [Journalisation pour Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
-| Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/monitor-service.md) |
 | Réseau de distribution de contenu | [Journaux Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Journalisation Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -66,16 +66,17 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database pour PostgreSQL | [Journaux d’Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Journalisation des diagnostics dans Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Machine Learning | [Journalisation de diagnostic dans Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
 | Protection DDOS | [Journalisation pour Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Configurer les diagnostics Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Journaux d’Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schéma non disponible. |
-| Pare-feu Azure | Schéma non disponible. |
+| Pare-feu Azure | [Journalisation pour le Pare-feu Azure](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Front Door | [Journalisation pour Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Opérations IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/view-control-plane-logs.md#log-event-schema) |
-| Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/load-balancer-monitor-log.md) |
+| Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/monitor-aks-reference.md#resource-logs) |
+| Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/monitor-load-balancer.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Media Services | [Schémas de surveillance Media Services](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 2d0d0f70f5a610e77169685a716282bcc0456cab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fc0cdbcb85470fb9f1e0eb4d4bf6cc43c3ae4e23
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531717"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034409"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Gérer les espaces de travail Azure Machine Learning dans le portail ou avec le SDK Python
 
@@ -372,6 +372,10 @@ Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Supprimer** 
 * **Portail Azure**: 
   * Si vous accédez directement à votre espace de travail à partir d’un lien de partage provenant du kit SDK ou du Portail Azure, vous ne pourrez pas afficher la page **Vue d’ensemble** standard comportant des informations sur l’abonnement dans l’extension. Dans ce scénario, vous ne pouvez pas non plus basculer vers un autre espace de travail. Pour afficher un autre espace de travail, accédez directement à [Azure Machine Learning Studio](https://ml.azure.com), puis recherchez le nom de l’espace de travail.
   * Toutes les ressources (jeux de données, expériences, calculs, etc.) sont uniquement disponibles dans [Azure Machine Learning Studio](https://ml.azure.com). Ils ne sont *pas* disponibles dans le portail Azure.
+
+### <a name="workspace-diagnostics"></a>Diagnostics de l’espace de travail
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ### <a name="resource-provider-errors"></a>Erreurs du fournisseur de ressources
 

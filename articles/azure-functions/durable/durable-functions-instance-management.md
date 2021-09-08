@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 4145ae79f1d25b80852c5c54fcc02044391f602f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 04c3e9f1a5c5a1a23a618f3274057a5e03a9f0e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376862"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563341"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 
@@ -148,7 +148,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi démarrer une instance directement via la commande [Azure Functions Core Tools](../functions-run-local.md)`durable start-new`. Les paramètres suivants sont pris en compte :
+Vous pouvez également démarrer une instance directement avec la commande [`func durable start-new` ](../functions-core-tools-reference.md#func-durable-start-new) dans les Core Tools, qui utilise les paramètres suivants :
 
 * **`function-name` (obligatoire)**  : Nom de la fonction à démarrer.
 * **`input` (facultatif)**  : Entrée de la fonction, en ligne ou par le biais d’un fichier JSON. Pour les fichiers, ajoutez un préfixe au chemin du fichier avec `@`, par exemple, `@path/to/file.json`.
@@ -253,7 +253,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Il est également possible d’obtenir l’état d’une instance d’orchestration à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status`.
+Il est également possible d’obtenir l’état d’une instance d’orchestration à l’aide de la commande [`func durable get-runtime-status` ](../functions-core-tools-reference.md#func-durable-get-runtime-status) dans Core Tools.
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
@@ -352,7 +352,7 @@ Consultez les [Instances de démarrage](#javascript-function-json) pour la confi
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi interroger des instances directement à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable get-instances`.
+Vous pouvez aussi interroger des instances directement à l’aide de la commande [`func durable get-instances` dans ](../functions-core-tools-reference.md#func-durable-get-instances) Core Tools.
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
@@ -543,7 +543,7 @@ Une fois terminées, les instances passent à l’état `Terminated`. Toutefois,
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi directement arrêter une instance d’orchestration, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable terminate`.
+Vous pouvez aussi directement arrêter une instance d’orchestration, à l’aide de la commande [`func durable terminate` ](../functions-core-tools-reference.md#func-durable-terminate) dans Core Tools.
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
@@ -624,7 +624,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez également déclencher directement un événement vers une instance d’orchestration, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable raise-event`.
+Vous pouvez aussi déclencher un événement dans une instance d’orchestration, à l’aide de la commande [`func durable raise-event` ](../functions-core-tools-reference.md#func-durable-raise-event) dans Core Tools.
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
@@ -885,7 +885,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez également rembobiner une instance d’orchestration directement à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable rewind`.
+Vous pouvez aussi rembobiner une instance d’orchestration, à l’aide de la commande [`func durable rewind` ](../functions-core-tools-reference.md#func-durable-rewind) dans Core Tools.
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
@@ -1034,7 +1034,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi vider l’historique d’une instance d’orchestration à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable purge-history`. Tout comme dans le deuxième exemple C# de la section précédente, elle vide l’historique de toutes les instances d’orchestration créées dans un intervalle de temps spécifié. Vous pouvez filtrer encore davantage les instances vidées, selon leur état d’exécution.
+Vous pouvez aussi supprimer définitivement l’historique d’une instance d’orchestration, à l’aide de la commande [`func durable purge-history` ](../functions-core-tools-reference.md#func-durable-purge-history) dans Core Tools. Tout comme dans le deuxième exemple C# de la section précédente, elle vide l’historique de toutes les instances d’orchestration créées dans un intervalle de temps spécifié. Vous pouvez filtrer encore davantage les instances vidées, selon leur état d’exécution.
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
@@ -1055,7 +1055,7 @@ func durable purge-history --created-before 2021-11-14T19:35:00.0000000Z --runti
 
 ## <a name="delete-a-task-hub"></a>Supprimer un hub de tâches
 
-À l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub`, vous pouvez supprimer tous les artefacts de stockage associés à un concentrateur de tâches particulier, notamment les tables de stockage, les files d’attente et les objets blob Azure. 
+À l’aide de la commande [`func durable delete-task-hub` ](../functions-core-tools-reference.md#func-durable-delete-task-hub) dans Core Tools, vous pouvez supprimer tous les artefacts de stockage associés à un concentrateur de tâches particulier, notamment les tables de stockage, les files d’attente et les objets blob Azure. 
 
 > [!NOTE]
 > Les commandes Core Tools ne sont actuellement prises en charge que lors de l’utilisation du [fournisseur Stockage Azure](durable-functions-storage-providers.md) par défaut pour rendre l’état d’exécution persistant.
