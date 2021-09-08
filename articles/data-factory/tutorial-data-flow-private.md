@@ -5,15 +5,16 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: ac868fdf3ca80d489d479b5be0c57bd14a90ccbb
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: e73b2a96d2b051dbb208bb9614569c423f99d8f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532751"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformation sécurisée des données à l’aide de flux de données de mappage
 
@@ -86,7 +87,7 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
 Au cours de cette étape, vous allez créer un pipeline qui contient une activité de flux de données.
 
-1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
+1. Sur la page d’accueil Azure Data Factory, sélectionnez **Orchestrer**.
 
    ![Capture d’écran montrant la création d’un pipeline](./media/doc-common-process/get-started-page.png)
 

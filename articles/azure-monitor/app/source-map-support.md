@@ -2,16 +2,14 @@
 title: Prise en charge du mappage de source pour les applications JavaScript – Azure Monitor Application Insights
 description: Découvrez comment charger des mappages de source dans le conteneur Blob de votre propre compte de stockage avec Application Insights.
 ms.topic: conceptual
-author: DavidCBerry13
-ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 79462dcb503e5835254b89f7ebaa7a9ee34946d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81ca8de41c4d68ddc5ff3fc0355def975e6df30d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933940"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531796"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Prise en charge du mappage de source pour les applications JavaScript
 
@@ -50,7 +48,7 @@ Si vous utilisez Azure Pipelines pour générer et déployer votre application e
 À partir de la page de détails de transaction de bout en bout, vous pouvez cliquer sur *Unminify* (Déminifier). Vous êtes alors invité à configurer votre ressource si ce n’est pas déjà fait.
 
 1. Sur le portail, affichez les détails d’une exception minifiée.
-2. Cliquer sur *Unminify* (Déminifier)
+2. Sélectionnez *Déminifier*.
 3. Si votre ressource n’a pas été configurée, un message s’affiche pour vous inviter à le faire.
 
 ### <a name="from-the-properties-page"></a>À partir de la page de propriétés
@@ -58,9 +56,9 @@ Si vous utilisez Azure Pipelines pour générer et déployer votre application e
 Si vous souhaitez configurer ou changer le compte de stockage ou le conteneur Blob qui est lié à votre ressource Application Insights, vous pouvez le faire sous l’onglet *Properties* (Propriétés) de la ressource Application Insights.
 
 1. Accédez à l’onglet *Properties* (Propriétés) de votre ressource Application Insights.
-2. Cliquez sur *Change source map blob container* (Changer de conteneur d’objets blob de mappage de source).
+2. Sélectionnez *Modifier le conteneur d’objet blob du mappage de source*.
 3. Sélectionnez un autre conteneur Blob en guise de conteneur de mappages de source.
-4. Cliquez sur `Apply`.
+4. Sélectionnez `Apply`.
 
 > [!div class="mx-imgBorder"]
 > ![Reconfigurez votre conteneur Blob Azure en accédant au panneau des propriétés](./media/source-map-support/reconfigure.png)

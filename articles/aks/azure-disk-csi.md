@@ -5,15 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 29bac1ea9de7fb81797733bbccce24688b4acc10
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 19606a1b529fcd7e6140d81361c5434324836198
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164342"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531478"
 ---
-# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser le disque Azure CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
-
+# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>Utiliser les pilotes de l’interface CSI pour les disques Azure dans le Service Kubernetes Azure (AKS)
 Le disque CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des disques Azure.
 
 CSI est une norme pour exposer des systèmes de stockage de blocs et de fichiers arbitraires à des charges de travail en conteneur sur Kubernetes. En adoptant et en utilisant CSI, AKS peut écrire, déployer et itérer les plug-ins afin d’exposer de nouveaux systèmes de stockage ou améliorer ceux existants dans Kubernetes sans avoir à toucher au code Kubernetes principal et attendre ses cycles de publication.
@@ -26,8 +25,6 @@ Pour créer un cluster AKS avec prise en charge du pilote CSI, consultez [Active
 ## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Utiliser des volumes persistants CSI avec les disques Azure
 
 Un [volume persistant](concepts-storage.md#persistent-volumes) représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods et être provisionné de façon statique ou dynamique. Cet article vous montre comment créer des volumes persistants de manière dynamique avec des disques Azure pour permettre à un pod unique de les utiliser dans un cluster AKS. Pour l’approvisionnement statique, consultez [Créer et utiliser manuellement un volume avec des disques Azure](azure-disk-volume.md).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Pour plus d’informations sur les volumes Kubernetes, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
 

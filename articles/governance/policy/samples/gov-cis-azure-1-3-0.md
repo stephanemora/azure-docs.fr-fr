@@ -1,15 +1,15 @@
 ---
 title: Détails de la Conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.3.0 (Azure Government)
 description: Détails de l’initiative intégrée Conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.3.0 (Azure Government). Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e7ac71ba0453673e0d03caa3c17308ed49a41b27
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 21588ed56d20b60502ed273c1174c523e554c298
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099761"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472359"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-azure-government-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée Conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.3.0 (Azure Government)
 
@@ -460,7 +460,7 @@ Recherchez et sélectionnez ensuite la définition de l’initiative intégrée 
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Superviser les agents Endpoint Protection manquants dans Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Les serveurs sans agent Endpoint Protection installé seront supervisés par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
+|[Superviser les agents Endpoint Protection manquants dans Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Les serveurs sans agent Endpoint Protection installé seront supervisés par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ## <a name="other-security-considerations"></a>Autres considérations liées à la sécurité
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 86ffc0b0b8369fb82177912cccfdf582cfe1e536
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2ce108b7f36b7f7d4caf5133aafe99eb837df1ce
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696076"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532368"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Déployer Cloud Shell dans un réseau virtuel Azure
 
@@ -63,7 +63,7 @@ Comme lors de l’utilisation standard de Cloud Shell, un compte de stockage est
 ## <a name="virtual-network-deployment-limitations"></a>Limitations concernant le déploiement de réseau virtuel
 * En raison des ressources réseau supplémentaires impliquées, le démarrage de Cloud Shell dans un réseau virtuel est généralement plus lent qu’une session Cloud Shell standard.
 
-* Toutes les régions Cloud Shell hors Inde Centre sont actuellement prises en charge. 
+* Toutes les régions principales Cloud Shell, à l’exception de l’Inde centrale, sont actuellement prises en charge. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) n’est pas un service gratuit, veuillez consulter la [grille tarifaire](https://azure.microsoft.com/pricing/details/service-bus/). Dans le scénario de Cloud Shell, une connexion hybride est utilisée par chaque administrateur lorsque celui-ci utilise Cloud Shell. La connexion est automatiquement arrêtée une fois la session Cloud Shell terminée.
 
@@ -90,7 +90,7 @@ Si vous disposez déjà d’un réseau virtuel auquel vous souhaitez vous connec
 Dans le portail Azure, ou en utilisant Azure CLI, Azure PowerShell, etc., créez un groupe de ressources et un réseau virtuel dans le nouveau groupe de ressources ; **le groupe de ressources et le réseau virtuel doivent se trouver dans la même région**.
 
 ### <a name="arm-templates"></a>Modèles ARM
-Utilisez le [modèle de démarrage rapide Azure](https://aka.ms/cloudshell/docs/vnet/template) permettant de créer des ressources Cloud Shell dans un réseau virtuel et le [modèle de démarrage rapide Azure](https://aka.ms/cloudshell/docs/vnet/template/storage) permettant de créer le stockage nécessaire. Prenez note des noms de vos ressources, principalement le nom de votre partage de fichiers.
+Utilisez le [modèle de démarrage rapide Azure](https://aka.ms/cloudshell/docs/vnet/template) permettant de créer des ressources Cloud Shell dans un réseau virtuel et le [modèle de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/) permettant de créer le stockage nécessaire. Prenez note des noms de vos ressources, principalement le nom de votre partage de fichiers.
 
 ### <a name="open-relay-firewall"></a>Ouvrir le pare-feu du relais
 Accédez au relais créé à l’aide du modèle ci-dessus, sélectionnez « Mise en réseau » dans les paramètres et autorisez l’accès au relais à partir du réseau de votre navigateur. Par défaut, le relais est uniquement accessible à partir du réseau virtuel dans lequel il a été créé. 

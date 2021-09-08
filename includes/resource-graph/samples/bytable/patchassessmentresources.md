@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1b1c91ac00a359b9fc33ebacca26c2e2ebfae5e3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fc6cbc6a257c4fd70f7cd3696b00a4b110bc42ec
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456782"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535887"
 ---
 ### <a name="count-of-os-update-installation-done"></a>Nombre d’installations de mise à jour du système d’exploitation effectuées
 
-Renvoie une liste de l’état des installations de mise à jour du système d’exploitation effectuées sur vos machines au cours des sept derniers jours
+Retourne la liste des états d’exécution d’installation de mise à jour de système d’exploitation effectuées sur vos machines au cours des 7 derniers jours.
 
 ```kusto
 PatchAssessmentResources
@@ -50,7 +50,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### <a name="list-available-os-updates-for-all-your-machines-grouped-by-update-category"></a>Lister les mises à jour du système d’exploitation disponibles pour toutes vos machines, regroupées par catégorie de mise à jour
 
-Retourne une liste de systèmes d’exploitation en attente pour vos machines
+Retourne la liste des systèmes d’exploitation en attente pour vos machines.
 
 ```kusto
 PatchAssessmentResources
@@ -85,7 +85,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### <a name="list-of-linux-os-update-installation-done"></a>Liste d’installations de mises à jour du système d’exploitation Linux terminées
 
-Renvoie une liste de l’état des installations de mise à jour du système d’exploitation de Windows Server effectuées sur vos machines au cours des sept derniers jours
+Retourne la liste des états d’exécution d’installation de mise à jour de système d’exploitation Linux Server effectuées sur vos machines au cours des 7 derniers jours.
 
 ```kusto
 PatchAssessmentResources
@@ -122,7 +122,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type has 'softwarepatche
 
 ### <a name="list-of-windows-server-os-update-installation-done"></a>Liste d’installations de mises à jour du système d’exploitation Windows Server terminées
 
-Renvoie une liste de l’état des installations de mise à jour du système d’exploitation de Windows Server effectuées sur vos machines au cours des sept derniers jours
+Retourne la liste des états d’exécution d’installation de mise à jour de système d’exploitation Windows Server effectuées sur vos machines au cours des 7 derniers jours.
 
 ```kusto
 PatchAssessmentResources

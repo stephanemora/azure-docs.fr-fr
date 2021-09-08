@@ -1,28 +1,28 @@
 ---
 title: Migrer des ressources réseau Azure depuis Azure Allemagne vers Azure global
 description: Cet article fournit des informations sur la migration de vos ressources réseau Azure depuis Azure Allemagne vers Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
-ms.custom: bfmigrate
-ms.openlocfilehash: 2d6814653967fa76ad22bcefcc94df42d60d67b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.custom: bfmigrate, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 1e8cb8dd4d167b1671edb8367beb5514104938ac
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033667"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "122562095"
 ---
 # <a name="migrate-network-resources-to-global-azure"></a>Migrer des ressources réseau Azure vers Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 La plupart des services de mise en réseau ne prennent pas en charge la migration d’Azure Allemagne vers Azure global. Toutefois, vous pouvez connecter vos réseaux dans les deux environnements cloud à l’aide d’un VPN de site à site. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Les étapes à suivre pour configurer un VPN de site à site entre des clouds sont similaires aux étapes à suivre pour déployer un VPN de site à site entre votre réseau local et Azure. Définissez une passerelle dans les deux clouds, puis indiquez aux VPN comment communiquer entre eux. [Créer une connexion de site à site dans le Portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) décrit les étapes à suivre pour déployer un VPN de site à site. Voici un résumé des étapes :
+Les étapes à suivre pour configurer un VPN de site à site entre des clouds sont similaires aux étapes à suivre pour déployer un VPN de site à site entre votre réseau local et Azure. Définissez une passerelle dans les deux clouds, puis indiquez aux VPN comment communiquer entre eux. [Créer une connexion de site à site dans le Portail Azure](../vpn-gateway/tutorial-site-to-site-portal.md) décrit les étapes à suivre pour déployer un VPN de site à site. Voici un résumé des étapes :
 
 1. Définissez un réseau virtuel.
 1. Définissez un espace d’adressage.
@@ -48,9 +48,9 @@ Pour connecter des réseaux virtuels entre Azure global et Azure Allemagne :
 
 Actuellement, il n’est pas possible de migrer des réseaux virtuels depuis Azure Allemagne vers Azure global. Nous vous recommandons de créer de nouveaux réseaux virtuels dans la région cible et de migrer des ressources dans ces réseaux virtuels.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur les réseaux virtuels Azure](../virtual-network/index.yml).
 - Consultez la [Vue d’ensemble des réseaux virtuels](../virtual-network/virtual-networks-overview.md).
 - Découvrez comment [planifier des réseaux virtuels](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -65,19 +65,19 @@ $nsg=Get-AzNetworkSecurityGroup -ResourceName <nsg-name> -ResourceGroupName <res
 Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 ```
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos [connaissances des groupes de sécurité réseau](../virtual-network/security-overview.md#network-security-groups).
-- Consultez la [Vue d’ensemble de la sécurité du réseau Azure](../virtual-network/security-overview.md).
+- Actualisez vos [connaissances des groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#network-security-groups).
+- Consultez la [Vue d’ensemble de la sécurité du réseau Azure](../virtual-network/network-security-groups-overview.md).
 - Découvrez comment [gérer les groupes de sécurité réseau](../virtual-network/manage-network-security-group.md).
 
 ## <a name="expressroute"></a>ExpressRoute
 
 Actuellement, il n’est pas possible de migrer une instance ExpressRoute Azure depuis Azure Allemagne vers Azure global. Nous vous recommandons de créer de nouveaux circuits ExpressRoute et une nouvelle passerelle ExpressRoute dans Azure global.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur ExpressRoute](https://docs.microsoft.com/azure/expressroute/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur ExpressRoute](../expressroute/index.yml).
 - Découvrez comment [créer une passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 - Apprenez-en davantage sur les [fournisseurs de service et emplacements ExpressRoute](../expressroute/expressroute-locations.md).
 - Apprenez-en davantage sur les [passerelles de réseau virtuel pour ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
@@ -90,12 +90,12 @@ Vous pouvez collecter des informations sur la configuration de votre passerelle 
 
 Assurez-vous de mettre à jour la configuration locale. En outre, supprimez toutes les règles existantes des anciennes plages d’adresses IP une fois que vous aurez mis à jour votre environnement réseau Azure.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
-- Découvrez comment [créer une connexion de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Actualisez vos connaissances en suivant les [tutoriels sur la passerelle VPN](../vpn-gateway/index.yml).
+- Découvrez comment [créer une connexion de site à site](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Examinez les cmdlets [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) PowerShell.
-- Lisez le billet de blog [Créer une connexion de site à site](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/).
+- Lisez le billet de blog [Créer une connexion de site à site](/archive/blogs/ralfwi/connecting-clouds).
  
 ## <a name="application-gateway"></a>Application Gateway
 
@@ -103,9 +103,9 @@ Actuellement, il n’est pas possible de migrer une instance Azure Application G
 
 Vous pouvez collecter des informations sur la configuration de votre passerelle actuelle à l’aide du portail ou de PowerShell. Dans PowerShell, utilisez un ensemble de cmdlets qui commencent par `Get-AzApplicationGateway*`.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur Application Gateway](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur Application Gateway](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 - Découvrez comment [créer une passerelle d’application](../application-gateway/quick-create-portal.md).
 - Examinez les cmdlets [Get-AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) PowerShell.
 
@@ -119,7 +119,7 @@ Après vous être connecté à votre abonnement source dans Azure Allemagne, con
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
 ```
 
-Exemple :
+Exemple :
 
 ```azurecli
 az network dns zone export -g "myresourcegroup" -n "contoso.com" -f "contoso.com.txt"
@@ -147,9 +147,9 @@ Lorsque la validation est terminée, contactez votre bureau d’enregistrement d
 az network dns record-set ns list -g <resource group> -z --output json
 ```
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur Azure DNS](https://docs.microsoft.com/azure/dns/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur Azure DNS](../dns/index.yml).
 - Consultez la [vue d’ensemble d’Azure DNS](../dns/dns-overview.md).
 - Apprenez-en davantage sur [l’importation et l’exportation Azure DNS](../dns/dns-import-export.md).
 
@@ -157,9 +157,9 @@ Pour plus d'informations :
 
 Actuellement, il n’est pas possible de migrer une instance Azure Network Watcher depuis Azure Allemagne vers Azure global. Nous vous recommandons de créer et de configurer une nouvelle instance Network Watcher dans Azure global. Ensuite, comparez les résultats entre l’ancien et le nouvel environnement.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur Network Watcher](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur Network Watcher](../network-watcher/index.yml).
 - Examinez la [vue d’ensemble de Network Watcher](../network-watcher/network-watcher-monitoring-overview.md).
 - Apprenez-en davantage sur les [journaux d’activité des flux de groupe de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Apprenez-en davantage sur le [moniteur de connexion](../network-watcher/connection-monitor.md).
@@ -178,19 +178,19 @@ Vous pouvez définir des points de terminaison supplémentaires dans l’environ
    1. Migrez le point de terminaison vers Azure global.
    1. Modifiez le profil Traffic Manager pour utiliser le nouveau point de terminaison.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur Traffic Manager](../traffic-manager/index.yml).
 - Examinez la [vue d’ensemble de Traffic Manager](../traffic-manager/traffic-manager-overview.md).
-- En savoir plus sur la [création d’un profil Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- En savoir plus sur la [création d’un profil Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ## <a name="load-balancer"></a>Load Balancer
 
 Actuellement, il n’est pas possible de migrer une instance Azure Load Balancer depuis Azure Allemagne vers Azure global. Nous vous recommandons de créer et de configurer un nouvel équilibreur de charge dans Azure global.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur Load Balancer](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur Load Balancer](../load-balancer/index.yml).
 - Consultez la [Vue d’ensemble de Load Balancer](../load-balancer/load-balancer-overview.md).
 - Découvrez comment [créer un équilibreur de charge](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
@@ -200,12 +200,12 @@ Informez-vous sur les outils, techniques et suggestions pour migrer des ressourc
 
 - [Calcul](./germany-migration-compute.md)
 - [Stockage](./germany-migration-storage.md)
-- [web](./germany-migration-web.md)
+- [Web](./germany-migration-web.md)
 - [Bases de données](./germany-migration-databases.md)
 - [Analyse](./germany-migration-analytics.md)
 - [IoT](./germany-migration-iot.md)
 - [Intégration](./germany-migration-integration.md)
 - [Identité](./germany-migration-identity.md)
 - [Sécurité](./germany-migration-security.md)
-- [Outils de gestion](./germany-migration-management-tools.md)
+- [Outils d'administration](./germany-migration-management-tools.md)
 - [Média](./germany-migration-media.md)
