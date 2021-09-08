@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 06/10/2021
+ms.date: 08/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0e8c63827ba6e2e022e0d7876952b0a159c1e569
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: eef2a1eb5f17864074ac346ac7a89a59d1d59778
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984623"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037288"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Disponibilité des fonctionnalités Azure Machine Learning dans les différentes régions cloud
 
@@ -57,15 +57,14 @@ Les informations contenues dans le reste de ce document fournissent des informat
 | Intégration de Jupyter et JupyterLab                                            | GA                   | YES                | YES         |
 | Prise en charge du réseau virtuel                                             | Version préliminaire publique       | YES                | YES         |
 | **Prise en charge des Kits de développement logiciel (SDK)** |  |  | | 
-| [Prise en charge du Kit de développement logiciel (SDK) R](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | Version préliminaire publique       | YES                | YES         |
 | [Prise en charge du Kit de développement logiciel (SDK) Python](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Sécurité](concept-enterprise-security.md)** |   | | | 
 | Prise en charge du réseau virtuel (Vnet) pour la formation                                | GA                   | YES                | YES         |
 | Prise en charge du réseau virtuel (Vnet) pour l’inférence                               | GA                   | YES                | YES         |
 | Authentification du point de terminaison scoring                                            | Version préliminaire publique       | YES                | YES         |
-| Point de terminaison privé d’espace de travail                                                 | Version préliminaire publique       | Non                 | Non          |
+| Point de terminaison privé d’espace de travail                                                 | GA  |  GA  |  GA |
 | ACI derrière réseau virtuel                                                            | Version préliminaire publique       | Non                 | Non          |
-| ACR derrière réseau virtuel                                                            | Version préliminaire publique       | Non                 | Non          |
+| ACR derrière réseau virtuel                                                            | GA       | YES                 | YES          |
 | Adresse IP privée du cluster AKS                                                  | Version préliminaire publique       | Non                 | Non          |
 | **Calcul** |   | | |
 | [Gestion de quota entre les espaces de travail](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
@@ -101,9 +100,8 @@ Les informations contenues dans le reste de ce document fournissent des informat
 | [Inférence par lot](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [Data Box Edge avec FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Version préliminaire publique       | Non                 | Non          |
 | **Autres** |   | | |
-| [Open Datasets](/azure/open-datasets/samples)                                                              | Version préliminaire publique       | YES                | YES         |
+| [Open Datasets](../open-datasets/samples.md)                                                              | Version préliminaire publique       | YES                | YES         |
 | [Recherche cognitive personnalisée](how-to-deploy-model-cognitive-search.md)                                                    | Version préliminaire publique       | YES                | YES         |
-| [Accélérateur de solution de nombreux modèles](https://github.com/microsoft/solution-accelerator-many-models)                                                                | Version préliminaire publique       | Non                 | Non          |
 
 
 ### <a name="azure-government-scenarios"></a>Scénarios Azure Government
@@ -111,15 +109,14 @@ Les informations contenues dans le reste de ce document fournissent des informat
 | Scénario                                                    | US-Virginia | US-Arizona| Limites  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configuration de la sécurité générale** |   | | |
-| Communication réseau privé entre les services                                     | Non | Non | Aucune liaison privée actuellement | 
-| Désactiver/Contrôler l’accès Internet (entrant et sortant) et un réseau virtuel spécifique | PARTIAL| PARTIAL   | ACR derrière réseau virtuel n’est pas disponible dans Azure Government - double vérification sur ACI | 
+| Désactiver/Contrôler l’accès Internet (entrant et sortant) et un réseau virtuel spécifique | PARTIAL| PARTIAL   |  | 
 | Emplacement pour tous les services/ressources associés  | YES | YES |  |
 | Chiffrement au repos et en transit.                                                 | YES | YES |  |
 | Accès à la racine et au protocole SSH pour les ressources de calcul.                                          | YES | YES |  |
-| Maintenir la sécurité des systèmes déployés (instances, points de terminaison, etc.), y compris la protection des points de terminaison, la mise à jour corrective et la journalisation |  PARTIAL|  PARTIAL |ACR derrière réseau virtuel et point de terminaison privé actuellement non disponibles |                                  
-| Contrôler (désactiver/limiter/restreindre) l’utilisation de l’intégration ACI/AKS                    | PARTIAL| PARTIAL |ACR derrière réseau virtuel et point de terminaison privé actuellement non disponibles|
+| Maintenir la sécurité des systèmes déployés (instances, points de terminaison, etc.), y compris la protection des points de terminaison, la mise à jour corrective et la journalisation |  PARTIAL|  PARTIAL |ACI derrière le réseau virtuel n’est actuellement pas disponible |                                  
+| Contrôler (désactiver/limiter/restreindre) l’utilisation de l’intégration ACI/AKS                    | PARTIAL| PARTIAL |ACI derrière le réseau virtuel n’est actuellement pas disponible|
 | Contrôle d’accès en fonction du rôle Azure (Azure RBAC) – Création de rôles personnalisés                           | YES | YES |  |
-| Contrôler l’accès aux images ACR utilisées par le service Machine Learning (fourni par Azure et gérée ou personnalisée)  |PARTIAL|  PARTIAL | ACR derrière point de terminaison privé et réseau virtuel non pris en charge dans Azure Government |
+| Contrôler l’accès aux images ACR utilisées par le service Machine Learning (fourni par Azure et gérée ou personnalisée)  |PARTIAL|  PARTIAL |  |
 | **Utilisation générale du service Machine Learning** |  | | |
 | Possibilité de disposer d’un environnement de développement pour générer un modèle, effectuer l’apprentissage de ce modèle, l’héberger en tant que point de terminaison et l’utiliser via une application web     | YES | YES |  |
 | Possibilité d’extraire des données depuis ADLS (Data Lake Storage)                                 |YES | YES |  |
@@ -132,7 +129,7 @@ Les informations contenues dans le reste de ce document fournissent des informat
 * Pour les instances de calcul Azure Machine Learning, la possibilité d’actualiser un jeton au-delà de 24 heures n’est pas disponible dans Azure Government.
 * Le profilage de modèle ne prend pas en charge 4 UC dans la région US-Arizona.   
 * Les exemples de notebooks peuvent ne pas fonctionner dans Azure Government s’il leur faut accéder à des données publiques.
-* Adresses IP : La commande CLI utilisée dans les instructions [VNet et tunneling forcé](how-to-secure-training-vnet.md#forced-tunneling) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063).
+* Adresses IP : la commande CLI utilisée dans les instructions requises pour l'[accès Internet public](how-to-secure-training-vnet.md#required-public-internet-access) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063).
 * Pour les pipelines planifiés, nous fournissons également un mécanisme de déclenchement basé sur un objet blob. Ce mécanisme n’est pas pris en charge pour les espaces de travail CMK. Pour activer un déclencheur basé sur un objet blob pour les espaces de travail CMK, vous devez effectuer une configuration supplémentaire. Pour plus d’informations, consultez [Déclencher l’exécution d’un pipeline Machine Learning à partir d’une application logique](how-to-trigger-published-pipeline.md).
 * Pare-feu : lorsque vous utilisez une région Azure Government, ajoutez les hôtes suivants à votre paramètre de pare-feu :
 
@@ -166,19 +163,18 @@ Les informations contenues dans le reste de ce document fournissent des informat
 | Prise en charge R et Python                                                       | GA               | YES       | N/A        |
 | Prise en charge des réseaux virtuels                                                    | Version préliminaire publique   | Non        | N/A        |
 | **Instance de calcul** |    | | |
-| Instances de calcul gérées pour les notebooks intégrés                         | GA               | Non        | N/A        |
+| Instances de calcul gérées pour les notebooks intégrés                         | GA               | YES        | N/A        |
 | Intégration de Jupyter et JupyterLab                                            | GA               | YES       | N/A        |
 | Prise en charge du réseau virtuel                                             | Version préliminaire publique   | YES       | N/A        |
 | **Prise en charge des Kits de développement logiciel (SDK)** |    | | |
-| Prise en charge du Kit de développement logiciel (SDK) R                                                              | Version préliminaire publique   | YES       | N/A        |
 | Prise en charge du Kit de développement logiciel (SDK) Python                                                         | GA               | YES       | N/A        |
 | **Sécurité** |   | | |
 | Prise en charge du réseau virtuel (Vnet) pour la formation                                | GA               | YES       | N/A        |
 | Prise en charge du réseau virtuel (Vnet) pour l’inférence                               | GA               | YES       | N/A        |
 | Authentification du point de terminaison scoring                                            | Version préliminaire publique   | YES       | N/A        |
-| Liaison privée de l’espace de travail                                                     | GA               | Non        | N/A        |
+| Point de terminaison privé d’espace de travail                                                 | GA               | Non        | N/A        |
 | ACI derrière réseau virtuel                                                            | Version préliminaire publique   | Non        | N/A        |
-| ACR derrière réseau virtuel                                                            | Version préliminaire publique   | Non        | N/A        |
+| ACR derrière réseau virtuel                                                            | GA   | YES       | N/A        |
 | Adresse IP privée du cluster AKS                                                  | Version préliminaire publique   | Non        | N/A        |
 | **Calcul** |   | | |
 | Gestion de quota entre les espaces de travail                                         | GA               | YES       | N/A        |
@@ -216,7 +212,6 @@ Les informations contenues dans le reste de ce document fournissent des informat
 | **Autres** |    | | |
 | Open Datasets                                                              | Version préliminaire publique   | YES       | N/A        |
 | Recherche cognitive personnalisée                                                    | Version préliminaire publique   | YES       | N/A        |
-| Nombreux modèles                                                                | Version préliminaire publique   | Non        | N/A        |
 
 
 
@@ -232,8 +227,8 @@ Les informations contenues dans le reste de ce document fournissent des informat
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Les exemples de notebooks peuvent ne pas fonctionner s’il leur faut accéder à des données publiques.
-* Plages d’adresse IP : La commande CLI utilisée dans les instructions [Tunneling forcé - VNet](how-to-secure-training-vnet.md#forced-tunneling) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062).
-* La préversion des instances de calcul Azure Machine Learning n’est pas prise en charge dans un espace de travail où Liaison privée est activé, mais CI sera pris en charge lors du prochain déploiement de l’extension de service dans toutes les régions AML.
+* Plages d’adresses IP : la commande CLI utilisée dans les instructions requises pour l'[accès Internet public](how-to-secure-training-vnet.md#required-public-internet-access) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062).
+* La préversion des instances de calcul Azure Machine Learning n’est pas prise en charge dans un espace de travail où le Point de terminaison privé est activé, mais CI sera pris en charge lors du prochain déploiement de l’extension de service dans toutes les régions AML.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

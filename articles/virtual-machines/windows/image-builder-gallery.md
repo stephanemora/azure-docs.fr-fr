@@ -1,22 +1,25 @@
 ---
 title: Utiliser Azure Image Builder avec une galerie d’images pour machines virtuelles Windows
 description: Créer des versions d'images Azure Shared Gallery à l'aide d'Azure Image Builder et d'Azure PowerShell.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dd821ac9f5722047ec5c233feaaf2a48d4de3b41
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 954750e0e20b56a09cd416f2ef2503877cc30588
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031148"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692441"
 ---
 # <a name="create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Créer une image Windows et la distribuer sur une bibliothèque d’images partagées 
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Cet article explique comment utiliser Azure Image Builder et Azure PowerShell pour créer une version d'image dans une instance de [Shared Image Gallery](../shared-image-galleries.md) avant de distribuer l'image dans le monde entier. Vous pouvez également effectuer cette opération à l'aide d'[Azure CLI](../linux/image-builder-gallery.md).
 
@@ -26,7 +29,7 @@ Pour distribuer l’image à une galerie d’images partagées, le modèle utili
 
 Azure Image Builder exécute automatiquement sysprep pour généraliser l'image. Il s'agit d'une commande générique sysprep, que vous pouvez [écraser](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) si nécessaire. 
 
-Tenez compte du nombre de personnalisations que vous effectuez. Vous pouvez exécuter la commande Sysprep jusqu'à 8 fois sur une même image Windows. Après avoir exécuté Sysprep 8 fois, vous devrez recréer votre image Windows. Pour plus d'informations, consultez [Nombre d'exécutions maximum de Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Tenez compte du nombre de personnalisations que vous effectuez. Vous pouvez exécuter la commande Sysprep un nombre limité de fois sur une seule image de Windows. Après avoir atteint la limite Sysprep, vous devez recréer votre image Windows. Pour plus d'informations, consultez [Nombre d'exécutions maximum de Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités

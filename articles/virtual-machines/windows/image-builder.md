@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 651a67414c34bcfae45663dd1bcfbd9d97e63598
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 32ed525aec3d7a6b9a223deb8aad0617751f61da
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527909"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309997"
 ---
 # <a name="create-a-windows-vm-with-azure-image-builder"></a>Créer une machine virtuelle Windows avec le Générateur d’images Azure
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Cet article vous montre comment créer une image Windows personnalisée à l’aide du Générateur d’images de machine virtuelle Azure. L’exemple de cet article utilise des [personnalisateurs](../linux/image-builder-json.md#properties-customize) pour la personnalisation de l’image :
 - PowerShell (ScriptUri) – télécharger et exécuter un [script PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -82,10 +84,10 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 Ce groupe de ressources sert à stocker l’artefact de modèle de configuration d’image et l’image.
@@ -101,11 +103,11 @@ Image Builder utilise l’[identité de l’utilisateur](../../active-directory/
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>Créer une identité managée affectée par l’utilisateur et octroyer des autorisations 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
@@ -186,7 +188,7 @@ Si le service signale un échec lors de la soumission du modèle de configuratio
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateWin01
 ```
 
 ## <a name="start-the-image-build"></a>Lancer la génération de l’image

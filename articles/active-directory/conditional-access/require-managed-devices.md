@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e39a6bbde587e543afcb10cb910a675bf4c69fc
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93077759"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867560"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
@@ -31,6 +31,7 @@ Le fait d’exiger des appareils gérés pour accéder aux applications cloud as
 - **[Accès conditionnel dans Azure Active Directory](./overview.md)** : cet article fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 - **[Présentation de la gestion des appareils dans Azure Active Directory](../devices/overview.md)** : cet article vous donne une vue d’ensemble des différentes options dont vous disposez pour faire passer les appareils sous le contrôle de l’organisation. 
 - Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
+- Pour la prise en charge de Firefox, à partir de **Firefox 91** dans **Windows 10 version 1809 ou au-delà**, configurez l’[authentification unique Windows](https://support.mozilla.org/en-US/kb/windows-sso).
 
 >[!NOTE] 
 > Nous vous recommandons d’utiliser une stratégie d’accès conditionnel en fonction de l’appareil d’Azure AD pour obtenir la meilleure mise en œuvre après l’authentification initiale de l’appareil. Cela comprend la fermeture de sessions si l’appareil devient non conforme et sort du flux de code d’appareil.

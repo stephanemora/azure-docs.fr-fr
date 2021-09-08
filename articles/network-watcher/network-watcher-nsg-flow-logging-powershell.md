@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ee289e069aed9f405463bba6392bbffc2dd2b24
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 79a48f479bedfbe7ecbe5199c7af08a3321badd7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114291907"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100408"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec PowerShell
 
@@ -80,7 +80,7 @@ Le compte de stockage que vous spécifiez ne peut pas avoir de règles réseau c
 L’exemple suivant permet de désactiver l’analytique du trafic et les journaux de flux :
 
 ```powershell
-#Disable Traffic Analaytics by removing -EnableTrafficAnalytics property
+#Disable Traffic Analytics by removing -EnableTrafficAnalytics property
 Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceGUID -WorkspaceLocation $workspaceLocation
 
 #Disable Flow Logging

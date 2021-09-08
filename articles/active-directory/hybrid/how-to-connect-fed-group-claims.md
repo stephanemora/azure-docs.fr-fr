@@ -9,15 +9,15 @@ ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/27/2019
+ms.date: 08/31/2021
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 868d1280179d63bd07b7e01d5e807339439c02f0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0621cc58b5cf76505de5e1f914114ad601e7a9bf
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163604"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316180"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory
 
@@ -31,6 +31,7 @@ Azure Active Directory peut fournir une information d’appartenance de groupe d
 >
 > - La prise en charge de l’utilisation d’attributs sAMAccountName et d’identificateur de sécurité synchronisés localement est conçue pour permettre le déplacement d’applications existantes à partir d’AD FS et d’autres fournisseurs d’identité. Les groupes gérés dans Azure AD ne contiennent pas les attributs nécessaires pour émettre ces revendications.
 > - Dans les grandes entreprises, le nombre de groupes dont un utilisateur est un membre peut dépasser la limite qu’Azure Active Directory ajoute à un jeton. 150 groupes pour un jeton SAML, et 200 pour un jeton JWT. Cela peut entraîner des résultats imprévisibles. Si vos utilisateurs ont un grand nombre d’appartenances à des groupes, nous vous recommandons d’utiliser l’option permettant de limiter les groupes émis dans les revendications aux groupes appropriés pour l’application.
+> - Les revendications de groupe ont une limite de 5 groupes si le jeton est émis par le biais du flux implicite. Les jetons demandés via le flux implicite auront uniquement une revendication "hasgroups":true si l’utilisateur se trouve dans plus de 5 groupes.
 > - Pour un nouveau développement d’application, dans les cas où l’application peut être configurée pour celui-ci, et où une prise en charge de groupe imbriqué n’est pas obligatoire, il est recommandé que l’autorisation dans l’application soit basée sur les rôles d’application plutôt que sur des groupes.  Cela a pour effet de limiter la quantité d’informations qui doivent figurer dans le jeton, de sécuriser davantage et de séparer l’affectation d’utilisateurs de la configuration de l’application.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Revendications de groupe pour les applications migrant à partir d’AD FS et d’autres fournisseurs d’identité

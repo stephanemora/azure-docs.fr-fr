@@ -9,14 +9,16 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0c8869bbe2751ee945ab05c5daf8bcf07cc4c3f4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: e1af8651ac8b1031190249205d0a0f7f436711c4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564093"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696179"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Créer un modèle de générateur d’images Azure 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Le générateur d’images Azure utilise un fichier .json pour transmettre des informations au service du générateur d’images. Dans cet article, nous allons vous présenter les sections du fichier json pour que vous puissiez créer le vôtre. Pour voir des exemples de fichiers .json complets, consultez [GitHub sur le générateur d’images Azure](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 

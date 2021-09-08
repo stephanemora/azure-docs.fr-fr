@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d534794737f93cd71ee9820f72e6c5ead08ca2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451588"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532949"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Se connecter à Synapse SQL avec Visual Studio et SSDT
 
@@ -36,9 +36,10 @@ Utilisez Visual Studio pour interroger le pool SQL dédié à l’aide d’Azure
 
 Pour utiliser ce tutoriel, vous devez disposer des composants suivants :
 
-* Un pool SQL dédié existant. Si vous n’en avez pas, consultez [Créer un pool SQL dédié](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour respecter ce prérequis.
-* SSDT pour Visual Studio. Si vous avez Visual Studio, vous disposez probablement déjà de ce composant. Pour obtenir des instructions et des options d’installation, consultez [Installation de Visual Studio et/ou SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* Le nom complet du serveur SQL. Pour rechercher le nom du serveur, consultez [Se connecter à un pool SQL dédié](connect-overview.md).
+- Un espace de travail Synapse existant, si vous devez en créer un, consultez [création d’un espace de travail Synapse](../get-started-create-workspace.md)
+- Un pool SQL dédié. Si vous n’en possédez aucun, consultez [Créer un pool SQL dédié](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
+- SSDT pour Visual Studio. Si vous avez Visual Studio, vous disposez probablement déjà de ce composant. Pour obtenir des instructions et des options d’installation, consultez [Installation de Visual Studio et/ou SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context).
+- Le nom complet du serveur SQL. Pour rechercher le nom du serveur, consultez [Se connecter à un pool SQL dédié](connect-overview.md).
 
 ## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. Se connecter à un pool SQL dédié
 1. Ouvrez Visual Studio 2019.
@@ -81,5 +82,5 @@ Maintenant qu’une connexion à votre base de données a été établie, vous a
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous pouvez vous connecter et exécuter des requêtes, essayez de [visualiser les données avec Power BI](get-started-power-bi-professional.md).
-Pour configurer votre environnement pour l’authentification Azure Active Directory, consultez [S’authentifier auprès d’un pool SQL dédié](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour configurer votre environnement pour l’authentification Azure Active Directory, consultez [S’authentifier auprès d’un pool SQL dédié](sql-authentication.md?tabs=provisioned).
  

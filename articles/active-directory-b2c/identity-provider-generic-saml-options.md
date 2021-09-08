@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/25/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c245fef005be5937887a3b8af1a5264e6520a6e8
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798236"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967781"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configurer les options de fournisseur d’identité SAML avec Azure Active Directory B2C
 
@@ -219,6 +219,32 @@ L’exemple suivant illustre une demande d’autorisation avec la propriété **
 </samlp:AuthnRequest>
 ```
 
+### <a name="force-authentication"></a>Forcer l’authentification
+
+Vous pouvez forcer l’IDP SAML externe à demander à l’utilisateur une authentification en passant la propriété `ForceAuthN` dans la requête d’authentification SAML. Votre fournisseur d’identité doit également prendre en charge cette propriété.
+
+La propriété `ForceAuthN` est une valeur booléenne `true` ou `false`. Par défaut, Azure AD B2C définit la valeur ForceAuthN sur `false`. Si la session est ensuite réinitialisée (par exemple, à l’aide de `prompt=login` dans OIDC), la valeur ForceAuthN est alors définie sur `true`. La définition de l’élément de métadonnées comme indiqué ci-dessous force la valeur de toutes les requêtes à l’IDP externe.
+
+L'exemple suivant illustre la propriété `ForceAuthN` définie sur `true` :
+
+```xml
+<Metadata>
+  ...
+  <Item Key="ForceAuthN">true</Item>
+  ...
+</Metadata>
+```
+
+L’exemple suivant illustre la propriété `ForceAuthN` dans une requête d’autorisation :
+
+
+```xml
+<samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
+                    ForceAuthN="true">
+  ...
+</samlp:AuthnRequest>
+```
+
 ### <a name="include-authentication-context-class-references"></a>Inclure les références de classe de contexte d’authentification
 
 Une demande d’autorisation SAML peut contenir un élément **AuthnContext** qui spécifie le contexte d’une demande d’autorisation. L’élément peut contenir une référence de classe de contexte d’authentification, indiquant au fournisseur d’identité SAML le mécanisme d’authentification à présenter à l’utilisateur.
@@ -248,7 +274,7 @@ La demande d’autorisation SAML suivante contient les références de classe de
 
 ## <a name="include-custom-data-in-the-authorization-request"></a>Inclure des données personnalisées dans la demande d’autorisation
 
-Vous pouvez éventuellement inclure des éléments d’extension de message de protocole qui sont approuvés tant par Azure AD BC que votre fournisseur d’identité. L’extension est présentée au format XML. Vous incluez des éléments d’extension en ajoutant des données XML à l’intérieur de l’élément CDATA `<![CDATA[Your IDP metadata]]>`. Pour voir si l’élément d’extensions est pris en charge, consultez la documentation de votre fournisseur d’identité.
+Vous pouvez éventuellement inclure des éléments d’extension de message de protocole qui sont approuvés tant par Azure AD BC que votre fournisseur d’identité. L’extension est présentée au format XML. Vous incluez des éléments d’extension en ajoutant des données XML à l’intérieur de l’élément CDATA `<![CDATA[Your Custom XML]]>`. Pour voir si l’élément d’extensions est pris en charge, consultez la documentation de votre fournisseur d’identité.
 
 L’exemple suivant illustre l’utilisation de données d’extension :
 
@@ -262,6 +288,9 @@ L’exemple suivant illustre l’utilisation de données d’extension :
             </ext:MyCustom>]]></Item>
 </Metadata>
 ```
+
+> [!NOTE]
+> Conformément à la spécification SAML, les données d’extension doivent être du XML qualifié par un espace de noms (par exemple, « urn:ext:custom » illustré dans l’exemple ci-dessus), et il ne doit pas s’agir de l’un des espaces de noms spécifiques de SAML.
 
 Lorsque vous utilisez l’extension de message de protocole SAML, la réponse SAML ressemble à l’exemple suivant :
 

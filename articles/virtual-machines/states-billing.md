@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 3d710038c00dff56d4840f7252dcb992dcb1b8c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b671ae2c4c1f67ea8593d7564cb91b6057e96f3c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532723"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695407"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>États et facturation des machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles Microsoft Azure passent par différents états qui peuvent être classés en états *d’approvisionnement* et *d’alimentation*. Cet article vise à décrire ces états et en particulier à mettre en exergue la date de facturation des clients pour l’utilisation des instances. 
 

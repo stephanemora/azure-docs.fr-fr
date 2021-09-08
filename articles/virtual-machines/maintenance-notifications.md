@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 29fccb3051fda96d47a54e8efb831980df262059
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bc282833b57b03faf782f40ebb42666899c56e81
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562245"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698780"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte des machines virtuelles. Les mises à jour sont des modifications telles que la mise à jour corrective de l’environnement d’hébergement ou la mise à niveau et la désactivation de matériel. Une majorité de ces mises à jour sont effectuées sans incidence sur les machines virtuelles hébergées. Cependant, il existe des cas où les mises à jour ont un impact :
 

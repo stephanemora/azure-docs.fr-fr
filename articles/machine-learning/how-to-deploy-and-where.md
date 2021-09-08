@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 0802c515b99bd8e307c610ec4bc714083b86ca3f
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 22161ee49c2527b92b11b4c1fe197fa06d48fcb9
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597817"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122661980"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Déployer des modèles Machine Learning sur Azure 
 
@@ -183,7 +183,7 @@ La configuration d’inférence ci-dessous spécifie que le déploiement de Mach
 Vous pouvez utiliser n’importe quel [environnement d’inférence Azure Machine Learning organisé](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference) comme image Docker de base lors de la création de votre environnement de projet. Nous allons aussi installer les dépendances requises et stocker l’image Docker qui en résulte dans le référentiel associé à votre espace de travail.
 
 > [!NOTE]
-> Le chargement du [répertoire source de l’inférence](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) de l’apprentissage automatique Azure ne respecte pas **.gitignore** ni **.amlignore**.
+> Le chargement du [répertoire source de l’inférence](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) de l’apprentissage automatique Azure ne respecte pas **.gitignore** ni **.amlignore**.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

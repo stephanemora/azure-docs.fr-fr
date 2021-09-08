@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1ae8d59934bdcd0dc2dcf2178f61f7bcaa3e5fc8
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 904700344900d73b700bdfac01af2022425c7c69
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205283"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689018"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiez une image à partir d'une autre galerie en utilisant Azure CLI.
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Si vous avez plusieurs galeries dans votre organisation, vous pouvez également créer des versions d’image à partir de versions d’images existantes stockées dans d’autres galeries. Par exemple, vous pouvez avoir une galerie de développement et de test pour créer et tester de nouvelles images. Lorsqu’elles sont prêtes à être utilisées en production, vous pouvez les copier dans une galerie de production à l’aide de cet exemple. Vous pouvez également créer une image à partir d’une image dans une autre galerie à l’aide d’[Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -131,7 +133,7 @@ az sig image-definition create \
 ```
 
 > [!NOTE]
-> Pour les définitions d’images qui contiennent des images provenant d’images tierces, les informations de plan doivent correspondre exactement aux informations de plan de l’image tierce. Incluez les informations de plan dans la définition de l’image en ajoutant `--plan-name`, `--plan-product`, et `--plan-publisher` lors de la création de la définition de l’image.
+> Pour les définitions d’images qui contiennent des images provenant d’images tierces, les informations de plan doivent correspondre exactement aux informations de plan de l’image tierce. Incluez les informations de plan dans la définition de l’image en ajoutant `--plan-name`, `--plan-product` et `--plan-publisher` lors de la création de la définition de l’image.
 >
 
 

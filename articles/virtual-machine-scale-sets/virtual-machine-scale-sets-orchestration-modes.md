@@ -3,21 +3,24 @@ title: Modes d’orchestration pour les groupes de machines virtuelles identique
 description: Découvrez comment utiliser les modes d’orchestration Flexible et Uniform pour les groupes de machines virtuelles identiques dans Azure.
 author: fitzgeraldsteele
 ms.author: fisteele
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 02/12/2021
+ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: 638ede086e0b76351642dec56605bbd857e8805a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7983ae912d29f2a27d35b261d1654205fe503651
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673871"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305067"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Préversion : modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure
 
-Les groupes de machines virtuelles identiques fournissent un regroupement logique des machines virtuelles gérées par la plateforme. Avec les groupes identiques, vous créez un modèle de configuration de machine virtuelle, ajoutez ou supprimez automatiquement des instances supplémentaires en fonction de la charge de l’UC ou de la mémoire, puis effectuez une mise à niveau automatique vers la dernière version du système d’exploitation. Traditionnellement, les groupes identiques vous permettent de créer des machines virtuelles à l’aide d’un modèle de configuration de machine virtuelle fourni au moment de la création d’un groupe identique, et le groupe identique peut uniquement gérer des machines virtuelles qui sont créées implicitement en fonction du modèle de configuration.
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
+Les groupes de machines virtuelles identiques fournissent un regroupement logique des machines virtuelles gérées par la plateforme. Avec les groupes identiques, vous créez un modèle de configuration de machine virtuelle, ajoutez ou supprimez automatiquement des instances supplémentaires en fonction de la charge de l’UC ou de la mémoire, puis effectuez une mise à niveau automatique vers la dernière version du système d’exploitation. Traditionnellement, les groupes identiques vous permettent de créer des machines virtuelles à l’aide d’un modèle de configuration de machine virtuelle fourni au moment de la création d’un groupe identique, et le groupe identique peut uniquement gérer des machines virtuelles qui sont créées implicitement en fonction du modèle de configuration. 
 
 Les modes d’orchestration de groupe identique vous permettent de mieux contrôler la façon dont les instances de machine virtuelle sont gérées par le groupe identique.
 
@@ -96,222 +99,71 @@ Utilisez les extensions ciblant les machines virtuelles standard plutôt que cel
 ## <a name="a-comparison-of-flexible-uniform-and-availability-sets"></a>Comparaison du mode d’orchestration Flexible, du mode d’orchestration Uniform et des groupes à haute disponibilité
 Le tableau suivant compare le mode d’orchestration Flexible, le mode d’orchestration Uniform et les groupes à haute disponibilité selon leurs fonctionnalités.
 
-| Fonctionnalité | Prise en charge par l’orchestration Flexible (préversion) | Prise en charge par l’orchestration Uniform (disponibilité générale) | Prise en charge par les groupes à haute disponibilité (disponibilité générale) |
+| Fonctionnalité  | Prise en charge par l’orchestration Flexible (préversion)  | Prise en charge par l’orchestration Uniform (disponibilité générale)  | Prise en charge par les groupes à haute disponibilité (disponibilité générale)  |
 |-|-|-|-|
-|         Type de machine virtuelle  | Machine virtuelle Azure IaaS standard (Microsoft.compute /virtualmachines)  | Machines virtuelles spécifiques à un groupe identique (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Machine virtuelle Azure IaaS standard (Microsoft.compute /virtualmachines)  |
-|         Références SKU prises en charge  |            Série D, Série E, Série F, Série A, Série B, Intel, AMD  |            Toutes les références SKU  |            Toutes les références SKU  |
-|         Zones de disponibilité  |            Spécification facultative de toutes les instances appartenant à une même zone de disponibilité |            Spécification des instances appartenant à 1, 2 ou 3 zones de disponibilité  |            Non pris en charge  |
-|         Contrôle total sur la machine virtuelle, les cartes réseau et les disques  |            Oui  |            Contrôle limité avec l’API de machine virtuelle VMSS  |            Oui  |
-|         Mise à l’échelle automatique  |            Non  |            Oui  |            Non  |
-|         Attribution d’une machine virtuelle à un domaine d’erreur spécifique  |            Oui  |             Non   |            Non  |
-|         Suppression des cartes réseau et des disques en cas de suppression des instances de machine virtuelle  |            Non  |            Oui  |            Non  |
-|         Stratégie de mise à niveau (groupes de machines virtuelles identiques) |            Non  |            Automatique, propagée, manuelle  |            N/A  |
-|         Mises à jour automatiques de système d’exploitation (groupes de machines virtuelles identiques) |            Non  |            Oui  |            N/A  |
-|         Mise à jour corrective de sécurité intégrée (« in-guest »)  |            Oui  |            Non  |            Oui  |
-|         Notifications d’arrêt (groupes de machines virtuelles identiques) |            Non  |            Oui  |            N/A  |
-|         Réparation d’instance (groupes de machines virtuelles identiques) |            Non  |            Oui   |            N/A  |
-|         Mise en réseau accélérée  |            Oui  |            Oui  |            Oui  |
-|         Instances spot et tarifs   |            Oui, vous pouvez avoir des instances spot et des instances à priorité normale  |            Oui, les instances doivent être toutes des instances spot ou toutes des instances normales  |            Non, des instances à priorité normale uniquement  |
-|         Différents systèmes d’exploitation  |            Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible |            Non, les instances ont le même système d’exploitation  |               Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible |
-|         Supervision de l’intégrité de l’application  |            Extension Intégrité de l’application  |            Extension Intégrité de l’application ou sonde Azure Load Balancer  |            Extension Intégrité de l’application  |
-|         Disques UltraSSD   |            Oui  |            Oui, pour les déploiements zonaux uniquement  |            Non  |
-|         Infiniband   |            Non  |            Oui, groupe de placement unique seulement  |            Oui  |
-|         Accélérateur d’écriture   |            Non  |            Oui  |            Oui  |
-|         Groupes de placement de proximité   |            Oui  |            Oui  |            Oui  |
-|         Hôtes dédiés Azure   |            Non  |            Oui  |            Oui  |
-|         Équilibreur de charge logiciel De base   |            Non  |            Oui  |            Oui  |
-|         Azure Load Balancer - SKU Standard |            Oui  |            Oui  |            Oui  |
-|         Application Gateway  |            Non  |            Oui  |            Oui  |
-|         Contrôle de la maintenance   |            Non  |            Oui  |            Oui  |
-|         Liste des machines virtuelles d’un groupe  |            Oui  |            Oui  |            Oui, liste des machines virtuelles d’un groupe à haute disponibilité  |
-|         Alertes Azure  |            Non  |            Oui  |            Oui  |
-|         Insights de machine virtuelle  |            Non  |            Oui  |            Oui  |
-|         Sauvegarde Azure  |            Oui  |            Oui  |            Oui  |
-|         Azure Site Recovery  |     Non  |            Non  |            Oui  |
-|         Ajout d’une machine virtuelle existante à un groupe/suppression du groupe  |            Non  |            Non  |            Non  |
-
-
-## <a name="register-for-flexible-orchestration-mode"></a>S’inscrire au mode d’orchestration Flexible
-Avant de pouvoir déployer des groupes de machines virtuelles identiques en mode d’orchestration Flexible, vous devez inscrire la fonctionnalité d’évaluation pour votre abonnement. L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser les commandes Azure PowerShell ou Azure CLI suivantes pour l’inscription.
-
-### <a name="azure-portal"></a>Portail Azure
-Accédez à la page de détails de l’abonnement pour lequel vous souhaitez créer un groupe identique en mode d’orchestration flexible, puis sélectionnez Fonctionnalités d’évaluation dans le menu. Sélectionnez les deux fonctionnalités d’orchestrateur à activer : _VMOrchestratorSingleFD_ et _VMOrchestratorMultiFD_, puis appuyez sur le bouton Registre. L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes.
-
-![Inscription de fonctionnalité.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. Accédez à l’onglet Fournisseurs de ressources pour votre abonnement, sélectionnez Microsoft.compute, puis cliquez sur Réinscrire.
-
-![Réinscrire](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
-
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez [az feature register](/cli/azure/feature#az_feature_register) pour activer la préversion pour votre abonnement.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+| Type de machine virtuelle  | Machine virtuelle Azure IaaS standard (Microsoft.compute /virtualmachines)  | Machines virtuelles spécifiques d’un groupe identique (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Machine virtuelle Azure IaaS standard (Microsoft.compute /virtualmachines)  |
+| Références SKU prises en charge  | Série D, Série E, Série F, Série A, Série B, Intel, AMD  | Toutes les références SKU  | Toutes les références SKU  |
+| Zones de disponibilité  | Vous pouvez spécifier toutes les instances appartenant à une même zone de disponibilité  | Spécifiez des instances appartenant à 1, 2 ou 3 zones de disponibilité  | Non prise en charge  |
+| Domaine d’erreur – Diffusion maximale (Azure va diffuser les instances au maximum)  | Oui  | Oui  | Non  |
+| Domaine d’erreur – Diffusion fixe  | 2 ou 3 domaines (en fonction du maximum régional) ; 1 pour les déploiements zonaux  | 2, 3 ou 5 domaines ; 1 ou 5 pour les déploiements zonaux  | 2 ou 3 domaines (en fonction du maximum régional)  |
+| Mettre à jour les domaines  | Déconseillé, maintenance de plateforme effectuée domaine par domaine | 5 domaines de mise à jour  | Jusqu’à 20 domaines de mise à jour  |
+| Contrat SLA de disponibilité  | Pas à l'heure actuelle  | 99,95 % pour les domaines comprenant plus d’un groupe de placement unique ; 99,99 % pour les instances réparties sur plusieurs zones  | 99,95 %  |
+| Contrôle total sur la machine virtuelle, les cartes réseau et les disques  | Oui  | Contrôle limité avec l’API de machine virtuelle de groupes de machines virtuelles identiques (VMSS)  | Oui  |
+| Mise à l’échelle automatique (manuelle, basée sur des métriques, basée sur une planification)  | Oui  | Oui  | Non  |
+| Attribuer une machine virtuelle à un domaine d’erreur spécifique  | Oui  | Non  | Non  |
+| Supprimer automatiquement les cartes réseau et les disques lors de la suppression d’instances de machine virtuelle  | Oui  | Oui  | Non  |
+| Stratégie de mise à niveau (groupes de machines virtuelles identiques)  | Non, la stratégie de mise à niveau doit être null ou [] lors de la création  | Automatique, propagée, manuelle  | N/A  |
+| Mises à jour automatiques du système d’exploitation basées sur une image  | Non  | Oui  | N/A  |
+| Mise à jour corrective de sécurité intégrée (« in-guest »)  | Oui  | Non  | Oui  |
+| Notifications d’arrêt (groupes de machines virtuelles identiques)  | Oui  | Oui  | N/A  |
+| Réparation d’instance (groupes de machines virtuelles identiques)  | Oui  | Oui  | N/A  |
+| Mise en réseau accélérée  | Non  | Oui  | Oui  |
+| Instances spot et tarifs   | Oui, vous pouvez avoir des instances spot et des instances à priorité normale  | Oui, les instances doivent être toutes des instances spot ou toutes des instances normales  | Non, des instances à priorité normale uniquement  |
+| Différents systèmes d’exploitation  | Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible  | Non, les instances ont le même système d’exploitation  | Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible  |
+| Supervision de l’intégrité de l’application  | Extension Intégrité de l’application  | Extension Intégrité de l’application ou sonde Azure Load Balancer  | Extension Intégrité de l’application  |
+| Disques UltraSSD   | Oui  | Oui, pour les déploiements zonaux uniquement  | Non  |
+| Infiniband   | Non  | Oui, groupe de placement unique seulement  | Oui  |
+| Accélérateur d’écriture   | Non  | Oui  | Oui  |
+| Groupes de placement de proximité   | Oui  | Oui  | Oui  |
+| Hôtes dédiés Azure   | Non  | Oui  | Oui  |
+| Équilibreur de charge logiciel De base   | Non  | Oui  | Oui  |
+| Azure Load Balancer - SKU Standard  | Oui  | Oui  | Oui  |
+| Application Gateway  | Oui  | Oui  | Oui  |
+| Contrôle de la maintenance   | Non  | Oui  | Oui  |
+| Liste des machines virtuelles d’un groupe  | Oui  | Oui  | Oui, liste des machines virtuelles d’un groupe à haute disponibilité  |
+| Alertes Azure  | Non  | Oui  | Oui  |
+| Insights de machine virtuelle  | Non  | Oui  | Oui  |
+| Sauvegarde Azure  | Oui  | Non  | Oui  |
+| Azure Site Recovery  | Oui (via PowerShell)  | Non  | Oui  |
+| Service Fabric  | Non  | Oui  | Non  |
+| Azure Kubernetes Service (AKS) / AKE  | Non  | Oui  | Non  |
 
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Démarrer avec le mode d’orchestration Flexible
 
-Démarrez avec le mode d’orchestration Flexible pour vos groupes identiques avec le portail Azure, Azure CLI, Terraform ou l’API REST.
-
-### <a name="azure-portal"></a>Portail Azure
-
-Créez un groupe de machines virtuelles identiques en mode d’orchestration Flexible avec le portail Azure.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans la barre de recherche, recherchez et sélectionnez **Groupes de machines virtuelles identiques**.
-1. Sélectionnez **Créer** dans la page **Groupes de machines virtuelles identiques**.
-1. Dans la page **Créer un groupe de machines virtuelles identiques**, consultez la section **Orchestration**.
-1. Sous **Mode d’orchestration**, sélectionnez l’option **Flexible**.
-1. Spécifiez la valeur **Nombre de domaines d’erreur**.
-1. Terminez la création de votre groupe identique. Pour plus d’informations sur la création d’un groupe identique, consultez [Créer un groupe identique dans le portail Azure](quick-create-portal.md#create-virtual-machine-scale-set).
-
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/portal-create-orchestration-mode-flexible.png" alt-text="Mode d’orchestration dans le portail au moment de la création d’un groupe identique":::
-
-Ensuite, ajoutez une machine virtuelle au groupe identique en mode d’orchestration Flexible.
-
-1. Dans la barre de recherche, recherchez et sélectionnez **Machines virtuelles**.
-1. Sélectionnez **Ajouter** dans la page **Machines virtuelles**.
-1. Dans l’onglet **Informations de base**, consultez la section **Détails de l’instance**.
-1. Ajoutez votre machine virtuelle au groupe identique en mode d’orchestration Flexible en sélectionnant le groupe identique sous **Options de disponibilité**. Vous pouvez ajouter la machine virtuelle à un groupe identique dans la même région, la même zone et le même groupe de ressources.
-1. Terminez la création de votre machine virtuelle.
-
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/vm-portal-orchestration-mode-flexible.png" alt-text="Ajouter une machine virtuelle au groupe identique en mode d’orchestration Flexible":::
-
-
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Créez un groupe de machines virtuelles identiques Flexible à l’aide d’Azure CLI. L’exemple suivant illustre la création d’un groupe identique Flexible avec un nombre de domaines d’erreur défini sur 3. Une machine virtuelle est créée, puis ajoutée au groupe identique Flexible.
-
-```azurecli-interactive
-vmssflexname="my-vmss-vmssflex"
-vmname="myVM"
-rg="my-resource-group"
-
-az group create -n "$rg" -l $location
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS
-```
-
-### <a name="terraform"></a>Terraform
-Créez un groupe de machines virtuelles identiques Flexible à l’aide de Terraform. Ce processus nécessite le **fournisseur Terraform Azurerm v2.15.0** ou une version ultérieure. Prenez note des paramètres suivants :
-- Si aucune zone n’est spécifiée, le paramètre `platform_fault_domain_count` peut avoir la valeur 1, 2 ou 3 selon la région.
-- Quand une zone est spécifiée, le paramètre `the fault domain count` peut avoir la valeur 1.
-- Le paramètre `single_placement_group` doit avoir la valeur `false` pour les groupes de machines virtuelles identiques en mode Flexible.
-- Si vous effectuez un déploiement régional, il est inutile de spécifier le paramètre `zones`.
-
-```terraform
-resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
-name = "tf_vmssflex"
-location = azurerm_resource_group.myterraformgroup.location
-resource_group_name = azurerm_resource_group.myterraformgroup.name
-platform_fault_domain_count = 1
-single_placement_group = false
-zones = ["1"]
-}
-```
-
-
-### <a name="rest-api"></a>API REST
-
-1. Créez un groupe identique vide. Les paramètres suivants sont requis :
-    - Version d’API 2019-12-01 (ou supérieure)
-    - Le groupe de placement unique doit avoir la valeur `false` pour la création d’un groupe identique Flexible
-
-    ```json
-    {
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('virtualMachineScaleSetName')]",
-    "apiVersion": "2019-12-01",
-    "location": "[parameters('location')]",
-    "properties": {
-        "singlePlacementGroup": false,
-        "platformFaultDomainCount": "[parameters('virtualMachineScaleSetPlatformFaultDomainCount')]"
-        },
-    "zones": "[variables('selectedZone')]"
-    }
-    ```
-
-2. Ajoutez des machines virtuelles au groupe identique.
-    1. Attribuez la propriété `virtualMachineScaleSet` au groupe identique que vous avez créé. Vous devez spécifier la propriété `virtualMachineScaleSet` au moment de la création de la machine virtuelle.
-    1. Vous pouvez utiliser la fonction de modèle Azure Resource Manager **copy()** pour créer plusieurs machines virtuelles simultanément. Consultez [Itération sur la ressource](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) dans les modèles Azure Resource Manager.
-
-    ```json
-    {
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
-    "apiVersion": "2019-12-01",
-    "location": "[parameters('location')]",
-    "copy": {
-        "name": "VMcopy",
-        "count": "[parameters('virtualMachineCount')]"
-        },
-    "dependsOn": [
-        "
-        [resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]",
-        "
-        [resourceID('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName'))]",
-        "
-        [resourceID('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
-        ],
-    "properties": {
-        "virtualMachineScaleSet": {
-            "id": "[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]"
-        }
-    }
-    ```
-
-Pour obtenir un exemple complet, consultez le [modèle de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode).
+Inscrivez-vous et commencez à utiliser le [Mode d’orchestration flexible](..\virtual-machines\flexible-virtual-machine-scale-sets.md) pour vos groupes de machines virtuelles identiques. 
 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
-**Quelle capacité de mise à l’échelle l’orchestration Flexible prend-elle en charge ?**
+- **Quelle capacité de mise à l’échelle l’orchestration Flexible prend-elle en charge ?**
 
-Vous pouvez ajouter jusqu’à 1 000 machines virtuelles à un groupe identique en mode d’orchestration Flexible.
+    Vous pouvez ajouter jusqu’à 1 000 machines virtuelles à un groupe identique en mode d’orchestration Flexible.
 
-**En quoi l’orchestration Flexible est-elle différente des groupes à haute disponibilité ou de l’orchestration Uniform ?**
+- **En quoi l’orchestration Flexible est-elle différente des groupes à haute disponibilité ou de l’orchestration Uniform ?**
 
-| Attribut de disponibilité  | Orchestration Flexible  | Orchestration Uniform  | Groupes à haute disponibilité  |
-|-|-|-|-|
-| Déploiement entre plusieurs zones de disponibilité  | Non  | Oui  | Non  |
-| Garanties de disponibilité de domaine d’erreur au sein d’une région  | Oui, jusqu’à 1 000 instances peuvent être réparties sur un maximum de 3 domaines d’erreur dans la région. Le nombre maximal de domaines d’erreur varie selon la région  | Oui, jusqu’à 100 instances  | Oui, jusqu’à 200 instances  |
-| Groupes de placement  | Le mode Flexible utilise toujours plusieurs groupes de placement (singlePlacementGroup = false)  | Vous pouvez choisir un groupe de placement unique ou plusieurs groupes de placement | N/A  |
-| Domaines de mise à jour  | Aucun. La maintenance et les mises à jour de l’ordinateur hôte sont effectuées domaine d’erreur par domaine d’erreur  | Jusqu’à 5 domaines de mise à jour  | Jusqu’à 20 domaines de mise à jour  |
+    | Attribut de disponibilité  | Orchestration Flexible  | Orchestration Uniform  | Groupes à haute disponibilité  |
+    |-|-|-|-|
+    | Déploiement entre plusieurs zones de disponibilité  | Non  | Oui  | Non  |
+    | Garanties de disponibilité de domaine d’erreur au sein d’une région  | Oui, jusqu’à 1 000 instances peuvent être réparties sur un maximum de 3 domaines d’erreur dans la région. Le nombre maximal de domaines d’erreur varie selon la région  | Oui, jusqu’à 100 instances  | Oui, jusqu’à 200 instances  |
+    | Groupes de placement  | Le mode Flexible utilise toujours plusieurs groupes de placement (singlePlacementGroup = false)  | Vous pouvez choisir un groupe de placement unique ou plusieurs groupes de placement | N/A  |
+    | Domaines de mise à jour  | Aucun. La maintenance et les mises à jour de l’ordinateur hôte sont effectuées domaine d’erreur par domaine d’erreur  | Jusqu’à 5 domaines de mise à jour  | Jusqu’à 20 domaines de mise à jour  |
+
+- **Quel est le nombre maximal absolu d’instances avec une disponibilité garantie de domaine d’erreur ?**
+
+    | Fonctionnalité  | Prise en charge par l’orchestration Flexible (préversion)  | Prise en charge par l’orchestration Uniform (disponibilité générale)  | Prise en charge par les groupes à haute disponibilité (disponibilité générale)  |
+    |-|-|-|-|
+    | Nombre maximal d’instances (avec garantie de disponibilité de domaine d’erreur)  | 1 000  | 3000  | 200  |
 
 
 ## <a name="troubleshoot-scale-sets-with-flexible-orchestration"></a>Résoudre les problèmes de groupes identiques avec orchestration Flexible

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 968fc1df879a58e631aad879cc102d6107dae694
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4e5abd957f65fd62bd3933c9f67288b063a6274f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562174"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039727"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -326,5 +326,8 @@ Comme vous pouvez le constater, il est très simple d’utiliser des discriminat
 - Découvrez comment [utiliser Studio 3T](connect-using-mongochef.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Découvrez comment [utiliser Robo 3T](connect-using-robomongo.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Explorez les [exemples](nodejs-console-app.md) MongoDB avec l’API Azure Cosmos DB pour MongoDB.
+- Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    - Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur [estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant [estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

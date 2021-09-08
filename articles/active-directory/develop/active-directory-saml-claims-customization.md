@@ -13,14 +13,14 @@ ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f0f943475fc397acf61c51fc3dc34cc9efdb1cfb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f7d3b52f5f2cac470c8833a22a67f2324f7be705
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450564"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033859"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
+# <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
 Actuellement, la plateforme d’identités Microsoft prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les applications pré-intégrées dans la galerie d’applications Azure AD et les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire de la plateforme d’identités Microsoft en utilisant le protocole SAML 2.0, la plateforme d’identités Microsoft envoie un jeton à l’application (via une requête HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées *revendications*.
 

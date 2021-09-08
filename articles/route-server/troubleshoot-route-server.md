@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 08/30/2021
 ms.author: duau
-ms.openlocfilehash: 83f1e83653c5674988cadcb5b54d3c675ae0b8b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96e71dbd8a03e66644f0dc754d448a345978d940
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489438"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255661"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Résolution des problèmes liés à Azure Route Server
 
@@ -50,6 +50,10 @@ Lorsque vous déployez Azure Route Server sur un réseau virtuel, nous devons 
 
 Le bagottement peut être dû au paramétrage du minuteur BGP. Par défaut, le minuteur Keep Alive sur Azure Route Server est défini sur 60 secondes et le minuteur de sauvegarde est de 180 secondes.
 
+### <a name="why-does-my-on-premises-network-connected-to-azure-vpn-gateway-not-receive-the-default-route-advertised-by-azure-route-server"></a>Pourquoi mon réseau local connecté à une passerelle VPN Azure ne reçoit-il pas l’itinéraire par défaut publié par le Serveur de routes Azure ?
+
+Bien que la passerelle VPN Azure puisse recevoir l’itinéraire par défaut à partir de ses homologues BGP, dont le Serveur de routes Azure, elle [ne publie pas l’itinéraire par défaut](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-will-azure-vpn-gateways-advertise-to-me) vers d’autres homologues. 
+
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>Pourquoi ma NVA ne reçoit-elle pas de routes d’Azure Route Server même si le peering BGP est opérationnel ?
 
 Le numéro ASN utilisé par Azure Route Server est 65515. Veillez à configurer un autre numéro ASN pour votre NVA afin qu’une session « eBGP » puisse être établie entre votre NVA et Azure Route Server et que la propagation des routes puisse se produire automatiquement. Veillez à activer « multi-hop » dans votre configuration BGP, car votre NVA et Azure Route Server se trouvent dans des sous-réseaux différents du réseau virtuel.
@@ -65,6 +69,10 @@ Le numéro ASN utilisé par Azure Route Server est 65515. Veillez à configurer 
     Si vous avez deux instances de la NVA ou plus, vous *pouvez* publier différents chemins AS pour la même route à partir de différentes instances d’appliance virtuelle réseau si vous souhaitez désigner une instance de NVA comme étant active et une autre comme étant passive.
 
 * Si votre machine virtuelle se trouve sur un autre réseau virtuel que celui qui héberge votre NVA et Azure Route Server. Vérifiez si le peering de réseaux virtuels est activé entre les deux réseaux virtuels *et* si l’option Utiliser le serveur de routage distant est activée sur le réseau virtuel de votre machine virtuelle.
+
+### <a name="why-is-the-equal-cost-multi-path-ecmp-function-of-my-expressroute-turned-off-after-i-deploy-azure-route-server-to-the-virtual-network"></a>Pourquoi la fonction ECMP (Equal-Cost Multi-Path) de mon ExpressRoute est-elle désactivée après le déploiement du Serveur de routes Azure vers le réseau virtuel ?
+
+Lorsque vous publiez les mêmes itinéraires de votre réseau local vers Azure sur plusieurs connexions ExpressRoute, normalement, ECMP est activé par défaut pour le trafic destiné à ces itinéraires d’Azure vers votre réseau local. Toutefois, une fois le serveur de routes déployé, les informations de chemins d’accès multiples sont perdues dans l’échange via BGP entre ExpressRoute et le Serveur de routes Azure, de sorte que le trafic à partir d’Azure traverse uniquement l’une des connexions ExpressRoute. Cette limitation sera levée dans la future version du Serveur de routes Azure.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

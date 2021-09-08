@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 2c371fff767f2dda27cff9a8558ffbdc7a8e3c83
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c4f68389bdfc009f0bfca3b1c9618cc2d17590e6
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641382"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316138"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copier des données de MariaDB avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,6 +41,31 @@ Ce connecteur prend actuellement en charge les versions de MariaDB allant de 10.
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-mariadb-using-ui"></a>Créer un service lié à MariaDB à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à MariaDB dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Maria et sélectionnez le connecteur MariaDB.
+
+   :::image type="content" source="media/connector-mariadb/mariadb-connector.png" alt-text="Capture d’écran du connecteur MariaDB.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-mariadb/configure-mariadb-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour MariaDB.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur MariaDB.
 

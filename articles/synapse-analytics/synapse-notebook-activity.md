@@ -10,12 +10,12 @@ ms.date: 05/19/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d103e52ec4a2ba105c6eb5c756ac450a15d7538e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c021b8b0aec025458179ffb4859c351572762ee
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532476"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186980"
 ---
 # <a name="transform-data-by-running-a-synapse-notebook"></a>Transformer des données en exécutant un notebook Synapse
 
@@ -57,7 +57,7 @@ Pour paramétrer votre notebook, sélectionnez le bouton de sélection (…) pou
 
 ---
 
-Azure Data Factory recherche la cellule de paramètre et la traite comme cellule par défaut pour les paramètres transmis au moment de l’exécution. Le moteur d’exécution ajoutera une nouvelle cellule sous la cellule des paramètres avec des paramètres d’entrée en vue de remplacer les valeurs par défaut. Lorsqu’il n’y a pas de cellule de paramètres désignée, la cellule injectée est insérée tout en haut du notebook.
+Azure Data Factory recherche la cellule de paramètre et la traite comme cellule par défaut pour les paramètres transmis au moment de l’exécution. Le moteur d’exécution ajoutera une nouvelle cellule sous la cellule des paramètres avec des paramètres d’entrée en vue de remplacer les valeurs par défaut. 
 
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Attribuer des valeurs de paramètres à partir d’un pipeline

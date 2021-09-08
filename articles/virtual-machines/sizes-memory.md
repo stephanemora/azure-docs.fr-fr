@@ -16,14 +16,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 450a35eddf0316f75bfcd97d23cfccdb59acfb7d
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: bde62a7b25f5c367b5fadb5881ab889a95dc2354
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525918"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688936"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à mémoire optimisée
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 > [!TIP]
 > Essayez l’ **[outil de sélection des machines virtuelles](https://aka.ms/vm-selector)** pour trouver d’autres tailles mieux adaptées à votre charge de travail.

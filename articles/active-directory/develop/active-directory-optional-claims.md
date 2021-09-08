@@ -12,14 +12,14 @@ ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6dce2e30f5177a26229f6c20d9500bbf5c824c3e
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 91dfb7c7a4a25ba741d7b2dc21b42705a9b79c34
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535332"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034269"
 ---
-# <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
+# <a name="provide-optional-claims-to-your-app"></a>Fournir des revendications facultatives à votre application
 
 Les développeurs d’applications peuvent utiliser des revendications facultatives dans leurs applications Azure AD pour spécifier les revendications souhaitées dans les jetons envoyés à leur application.
 

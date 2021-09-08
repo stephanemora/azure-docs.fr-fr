@@ -1,19 +1,21 @@
 ---
-title: Créer des déclencheurs de planification dans Azure Data Factory
-description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline selon une planification.
+title: Créer des déclencheurs de planification
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment créer un déclencheur dans Azure Data Factory ou Azure Synapse Analytics qui exécute un pipeline selon une planification.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 96a6b82afb7d3d71b0dd8ce392fa308a3611aa94
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/24/2021
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
+ms.openlocfilehash: 833800da17302d2f28619cd1f66acfc476175a7f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675019"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824613"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 
@@ -25,18 +27,24 @@ Lorsque vous créez un déclencheur de planification, vous spécifiez une planif
 
 Les sections suivantes indiquent les étapes pour créer un déclencheur de planification de différentes façons. 
 
-## <a name="data-factory-ui"></a>IU de la fabrique de données
+## <a name="ui-experience"></a>Expérience de l’interface utilisateur
 
 Vous pouvez créer un **déclencheur de planification** afin de planifier l’exécution périodique d’un pipeline (toutes les heures, tous les jours, etc.). 
 
 > [!NOTE]
 > Pour la procédure complète de création d’un pipeline et d’un déclencheur de planification, qui associe le déclencheur au pipeline et exécute et surveille le pipeline, consultez [Démarrage rapide : créer une fabrique de données à l’aide de l’interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md).
 
-1. Basculez sur l’onglet **Modifier**, indiqué par un symbole de crayon. 
+1. Passez dans l’onglet **Modification** de Data Factory ou dans l’onglet Intégrer d’Azure Synapse. 
 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
     ![Basculer vers l’onglet Modifier](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Sélectionnez **Déclencheur** dans le menu, puis sélectionnez **Nouveau/Modifier**. 
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![Basculer vers l’onglet Modifier](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+
+---
+    
+2. Sélectionnez **Déclencheur** dans le menu, puis sélectionnez **Nouveau/Modifier**. 
 
     ![Menu de nouveau déclencheur](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
@@ -54,7 +62,9 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
         > Pour les fuseaux horaires qui respectent l’heure d’été, l’heure de déclenchement est ajustée automatiquement au changement survenant deux fois par an. Pour désactiver le passage à l’heure d’été, sélectionnez un fuseau horaire qui ne tient pas compte de l’heure d’été, par exemple UTC
 
     1. Spécifiez la **Périodicité** du déclencheur. Sélectionnez une des valeurs dans la liste déroulante (toutes les minutes, horaire, quotidienne, hebdomadaire et mensuelle). Entrez le multiplicateur dans la zone de texte. Par exemple, si vous souhaitez exécuter le déclencheur toutes les 15 minutes, vous sélectionnez **Toutes les minutes**, puis entrez **15** dans la zone de texte. 
-    1. Pour préciser une date et une heure de fin, sélectionnez **Spécifier une date de fin**, puis définissez _Se termine le_ et sélectionnez **OK**. Un coût est associé à chaque exécution du pipeline. Si vous effectuez un test, vous souhaiterez peut-être vous assurer que le pipeline n’est déclenché que deux fois. Toutefois, vérifiez que la durée est suffisante entre l’heure de publication et l’heure de fin pour permettre l’exécution du pipeline. Le déclencheur ne s’applique que lorsque vous avez publié la solution dans Data Factory, et non lorsque vous enregistrez le déclencheur dans l’interface utilisateur.
+    1. Dans **Récurrence**, si vous choisissez « Jour(s), semaine(s) ou mois » dans la liste déroulante, vous retrouverez les options de récurrence avancées.
+    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Options de périodicité avancées de jours, de semaines ou de mois":::
+    1. Pour préciser une date et une heure de fin, sélectionnez **Spécifier une date de fin**, puis définissez _Se termine le_ et sélectionnez **OK**. Un coût est associé à chaque exécution du pipeline. Si vous effectuez un test, vous souhaiterez peut-être vous assurer que le pipeline n’est déclenché que deux fois. Toutefois, vérifiez que la durée est suffisante entre l’heure de publication et l’heure de fin pour permettre l’exécution du pipeline. Le déclencheur ne s’applique que lorsque vous avez publié la solution, et non lorsque vous enregistrez le déclencheur dans l’interface utilisateur.
 
         ![Paramètres du déclencheur](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
@@ -68,17 +78,31 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
 
     ![Paramètres du déclencheur - Bouton Terminer](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. Sélectionnez **Publier tout** pour publier les changements sur Data Factory. Tant que vous n’avez pas publié les modifications sur Data Factory, le déclencheur ne démarre pas le déclenchement des exécutions du pipeline. 
+1. Sélectionnez **Publier tout** pour publier les modifications. Tant que vous n’avez pas publié les modifications, le déclencheur ne démarre pas le déclenchement des exécutions du pipeline. 
 
     ![Bouton Publier](./media/how-to-create-schedule-trigger/publish-2.png)
 
 1. Basculez sur l’onglet **Exécutions de pipeline** sur la gauche, puis sélectionnez **Actualiser** pour actualiser la liste. Vous observerez les exécutions du pipeline déclenchées par le déclencheur planifié. Notez les valeurs dans la colonne **Déclenché par**. Si vous utilisez l’option **Déclencher maintenant**, l’exécution du déclencheur manuelle apparaît dans la liste. 
 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
     ![Surveiller les exécutions déclenchées](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Passez à l’affichage **Exécutions du déclencheur** \ **Planifier**. 
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![Surveiller les exécutions déclenchées](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    
+---
+
+9. Passez à l’affichage **Exécutions du déclencheur** \ **Planifier**. 
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
     ![Surveiller les exécutions du déclencheur](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![Surveiller les exécutions du déclencheur](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -286,7 +310,7 @@ Vous pouvez utiliser un modèle Azure Resource Manager pour créer un déclenche
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmettre l’heure de début du déclencheur à un pipeline
 
-Azure Data Factory version 1 prend en charge la lecture ou l’écriture des données partitionnées à l’aide des variables système : **SliceStart**, **SliceEnd**, **WindowStart** et **WindowEnd**. Dans la version actuelle d’Azure Data Factory, vous pouvez obtenir ce comportement à l’aide d’un paramètre de pipeline. L’heure de début et l’heure planifiée du déclencheur sont définies comme étant la valeur du paramètre de pipeline. Dans l’exemple suivant, l’heure planifiée du déclencheur est transmise comme valeur au paramètre **scheduledRunTime** de pipeline :
+Azure Data Factory version 1 prend en charge la lecture ou l’écriture des données partitionnées à l’aide des variables système : **SliceStart**, **SliceEnd**, **WindowStart** et **WindowEnd**. Dans la version actuelle des pipelines Azure Data Factory et Synapse, vous pouvez obtenir ce comportement à l’aide d’un paramètre de pipeline. L’heure de début et l’heure planifiée du déclencheur sont définies comme étant la valeur du paramètre de pipeline. Dans l’exemple suivant, l’heure planifiée du déclencheur est transmise comme valeur au paramètre **scheduledRunTime** de pipeline :
 
 ```json
 "parameters": {
@@ -391,7 +415,7 @@ Voici quelques fuseaux horaires pris en charge pour les déclencheurs de planifi
 | Inde (IST) | +5:30 | `India Standard Time` | Non | `'yyyy-MM-ddTHH:mm:ss'` |
 | Heure standard de Chine | +8 | `China Standard Time` | Non | `'yyyy-MM-ddTHH:mm:ss'` |
 
-Cette liste est incomplète. Pour obtenir la liste complète des options de fuseau horaire, explorez la [page de création du déclencheur](#data-factory-ui) dans le portail Data Factory
+Cette liste est incomplète. Pour obtenir la liste complète des options de fuseau horaire, explorez la [page de création du déclencheur](#ui-experience) dans le portail.
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :

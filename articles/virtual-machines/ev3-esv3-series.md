@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: 5920a7c0aecd02e4d5b7bbcac9c5254a14d7f192
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3166ba5015c4d3a8e8d449c497eade6bc8bc56f6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525332"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688287"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 et Esv3
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les séries Ev3 et Esv3 disposent du processeur Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) ou Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) dans une configuration hyperthread, ce qui leur permet d’offrir ce qui se fait de mieux pour la plupart des charges de travail à usage général et d’aligner la série Ev3 sur les machines virtuelles à usage général de la plupart des autres clouds.  La mémoire a été étendue (de 7 Gio/vCPU à 8 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading. La série Ev3 constitue la suite des tailles de machines virtuelles à mémoire haute des familles D/Dv2.
 

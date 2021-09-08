@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment implémenter des étiquettes sur des jumeaux numériques
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 8/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 30e199b87f2cd6436f9d088bc8b2acd4ba8fdcaf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8059178543bde38cbb1429f98f2f0205fb07c347
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524098"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771174"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
