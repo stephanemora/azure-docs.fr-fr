@@ -228,7 +228,7 @@ La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d
 
 L’Android SDK Azure Maps est fourni avec un ensemble de variations de couleurs prédéfinies de l’icône de marqueur par défaut. Par exemple, `marker-red` peut être transmis dans l’option `iconImage` d’un calque de symbole pour afficher une version rouge de l’icône de marqueur dans cette couche.
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,
