@@ -3,12 +3,12 @@ title: Stratégie de support du runtime de langage Azure Functions
 description: En savoir plus sur la stratégie de support du runtime de langage Azure Functions
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 427b3b0fc3985ebb4067bcc78e77aea135948847
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: b3b5f7cf108fd18ed450a6837a5dd35ceb83dc60
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535218"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303964"
 ---
 # <a name="language-runtime-support-policy"></a>Stratégie de support du runtime de langage
 
@@ -37,14 +37,14 @@ Après la date de fin de vie du langage, les applications de fonction qui utilis
 
 Il existe quelques exceptions à la stratégie de mise hors service décrite ci-dessus. Voici une liste des langages qui approchent ou qui ont atteint leur fin de vie, mais qui continuent d’être pris en charge sur la plateforme jusqu’à nouvel ordre. Lorsque ces versions de langage atteignent leur date de fin de vie, elles ne sont plus mises à jour ni corrigées. C’est la raison pour laquelle nous vous déconseillons de développer et d’exécuter vos applications de fonction sur la base de ces versions de langage.
 
-|Versions linguistiques                        |Date de fin de vie         |Date de mise hors service prévue|
+|Versions linguistiques                        |Date de fin de vie         |Date de retrait|
 |-----------------------------------------|-----------------|----------------|
 |.NET 5|Février 2022|À confirmer|
-|Nœud 6|30 avril 2019|À confirmer| 
-|Node 8|31 décembre 2019|À confirmer| 
-|Node 10|30 avril 2021|À confirmer| 
-|PowerShell Core 6| 4 septembre 2020|À confirmer|
-|Python 3.6 |23 décembre 2021|À confirmer| 
+|Nœud 6|30 avril 2019|28 février 2022| 
+|Node 8|31 décembre 2019|28 février 2022| 
+|Node 10|30 avril 2021|30 septembre 2022| 
+|PowerShell Core 6| 4 septembre 2020|30 septembre 2022|
+|Python 3.6 |23 décembre 2021|30 septembre 2022| 
  
 
 ## <a name="language-version-support-timeline"></a>Chronologie de support des versions de langage

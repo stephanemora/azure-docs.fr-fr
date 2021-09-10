@@ -5,14 +5,14 @@ services: api-management
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 08/31/2021
 ms.author: apimpm
-ms.openlocfilehash: 7c341dee3106530715248355da4412b97ed30980
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c08fd4635232bdb84ce27fdc7a3e6f0d1791e921
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739617"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318573"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutoriel : Accéder et personnaliser le portail des développeurs
 
@@ -122,15 +122,49 @@ Avant de mettre le portail à la disposition des visiteurs, il est préférable 
 
 ### <a name="home-page"></a>page d'accueil
 
-La page d’**Accueil** par défaut comporte du contenu d’espace réservé. Vous pouvez soit supprimer des sections entières comportant ce contenu, soit conserver la structure et ajuster les éléments un par un. Remplacez le texte et les images générés par les vôtres en veillant à ce que les liens pointent vers les emplacements souhaités.
+La page d’**Accueil** par défaut comporte du contenu d’espace réservé. Vous pouvez soit supprimer des sections entières comportant ce contenu, soit conserver la structure et ajuster les éléments un par un. Remplacez le texte et les images générés par les vôtres en veillant à ce que les liens pointent vers les emplacements souhaités. Vous pouvez modifier la structure et le contenu de la page d’accueil de la façon suivante :
+* Glisser-déplacer des éléments de page vers l’emplacement souhaité sur le site.
+* Sélection des éléments de texte et d’en-tête pour modifier et mettre en forme le contenu. 
+* La vérification de vos boutons pointe vers les emplacements appropriés.
 
 ### <a name="layouts"></a>Mises en forme
 
 Remplacez le logo généré automatiquement dans la barre de navigation par votre propre image.
 
+1. Dans le portail des développeurs, sélectionnez le logo par défaut **Contoso** en haut à gauche de la barre de navigation. 
+1. Sélectionnez l’icône **Éditer**. 
+1. Sous la section **Principal**, sélectionnez **Source**.
+1. Dans la fenêtre contextuelle **Média**, sélectionnez soit :
+    * une image déjà téléchargée dans votre bibliothèque, soit
+    * **Charger un fichier** pour charger un nouveau fichier d’image à utiliser, soit
+    * Sélectionnez **Aucun** pour renoncer à utiliser un logo.
+1. Le logo est mis à jour en temps réel.
+1. Cliquez en dehors des fenêtres contextuelles pour quitter la bibliothèque multimédia.
+1. Cliquez sur **Save**.
+
 ### <a name="styling"></a>Style
 
-Même si vous n’avez pas besoin de modifier les styles, vous pouvez éventuellement ajuster des éléments spécifiques. Par exemple, choisissez la couleur principale en fonction de la couleur de votre marque.
+Même si vous n’avez pas besoin de modifier les styles, vous pouvez éventuellement ajuster des éléments spécifiques. Par exemple, choisissez la couleur principale en fonction de la couleur de votre marque. Il existe deux méthodes pour le faire :
+
+#### <a name="overall-site-style"></a>Style de site général
+
+1. Dans le portail des développeurs, sélectionnez l’icône **Styles** dans la barre d’outils de gauche.
+1. Sous la section **Couleurs**, sélectionnez l’élément du style de couleur que vous voulez modifier.
+1. Cliquez sur l’icône **Modifier** pour cet élément de style.
+1. Sélectionnez la couleur dans le sélecteur de couleurs ou entrez le code de couleur hexadécimal.
+1. Ajoutez et nommez un autre élément de couleur en cliquant sur **Ajouter une couleur**.  
+1. Cliquez sur **Save**.
+
+#### <a name="container-style"></a>Style de conteneur
+
+1. Sur la page principale du portail des développeurs, sélectionnez l’arrière-plan du conteneur.
+1. Sélectionnez l’icône **Modifier**.
+1. Dans la fenêtre contextuelle, définissez :
+    * l’arrière-plan à effacer, une image, une couleur spécifique ou à un dégradé
+    * la taille du conteneur, la marge et marge intérieure.
+    * la position et la hauteur du conteneur.
+1. Cliquez en dehors des fenêtres contextuelles pour quitter les paramètres du conteneur.
+1. Cliquez sur **Save**.
 
 ### <a name="customization-example"></a>Exemple de personnalisation
 

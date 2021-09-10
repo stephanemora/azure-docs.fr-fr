@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: banders
-ms.openlocfilehash: 7f0ac2f8813a38a017a901ad4fe793ed628a06d3
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 0c278256c952fce12833a8f4c5fe55e18c3b40b0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608275"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099896"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Autorisations pour afficher et gérer les réservations Azure
 
@@ -28,8 +28,8 @@ Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations�
 - La personne qui achète une réservation et l’administrateur de compte de l’abonnement de facturation utilisé pour acheter la réservation sont ajoutés à l’ordre de réservation.
 - Les administrateurs de facturation de l’Accord Entreprise et du Contrat client Microsoft.
 - Les utilisateurs disposant d’un accès avec élévation de privilèges pour gérer tous les abonnements et groupes d’administration Azure.
-- Une administration de réservation pour les réservations dans le locataire (répertoire) Azure Active Directory (Azure AD)
-- Un lecteur de réservation dispose d’un accès en lecture seule aux réservations dans son Azure Active Directory locataire (répertoire)
+- Un administrateur de réservation pour les réservations dans le locataire (répertoire) Azure Active Directory (Azure AD)
+- Un lecteur de réservation dispose d’un accès en lecture seule aux réservations dans son locataire Azure Active Directory (répertoire)
 
 Le cycle de vie des réservations étant indépendant d’un abonnement Azure, la réservation n’est pas une ressource dans le cadre de l’abonnement Azure. Il s’agit plutôt d’une ressource au niveau du locataire avec sa propre autorisation Azure RBAC distincte des abonnements. Les réservations n’héritent pas des autorisations des abonnements après achat.
 

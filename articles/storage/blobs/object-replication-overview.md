@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 08/30/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7bdad6175de60eaee602d8f91842a1b742196688
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: dce411e6359a760f50dd4bbbbeba369e2a67f386
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609072"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254216"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -68,7 +68,11 @@ La réplication d’objets est prise en charge lorsque les comptes source et de 
 
 ### <a name="immutable-blobs"></a>Objets blob immuables
 
-La réplication d’objets ne prend pas en charge les objets blob immuables. Si un conteneur source ou de destination dispose d’une stratégie de rétention limitée dans le temps ou d’une conservation légale, la réplication d’objets échoue. Pour plus d’informations sur les objets blob immuables, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
+Les stratégies d’immuabilité comprennent des stratégies de rétention limitées dans le temps et la conservation légale. Lorsqu’une stratégie d’immuabilité est en vigueur sur le compte de destination, la réplication d’objets peut être affectée. Pour plus d’informations sur les stratégies d’immuabilité relatives au stockage d’objets blob, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
+
+Si une stratégie d’immuabilité au niveau du conteneur est en vigueur pour un conteneur du compte de destination et qu’un objet du conteneur source est mis à jour ou supprimé, l’opération sur le conteneur source peut réussir, mais la réplication de cette opération vers le conteneur de destination échouera. Pour plus d’informations sur les opérations interdites avec une stratégie d’immuabilité limitée à un conteneur, consultez [Scénarios avec une portée au niveau du conteneur](immutable-storage-overview.md#scenarios-with-container-level-scope).
+
+Si une stratégie d'immutabilité au niveau de la version est en vigueur pour une version de blob dans le compte de destination, et qu'une opération de suppression ou de mise à jour est effectuée sur la version de blob dans le conteneur source, l'opération sur l'objet source peut réussir, mais la réplication de cette opération sur l'objet de destination échouera. Pour plus d'informations sur les opérations interdites par une politique d'immuabilité appliquée à un conteneur, voir [Scénarios avec une portée de niveau version](immutable-storage-overview.md#scenarios-with-version-level-scope).
 
 ## <a name="object-replication-policies-and-rules"></a>Stratégies et règles de réplication d’objets
 

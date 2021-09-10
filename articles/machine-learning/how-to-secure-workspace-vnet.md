@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/04/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 071306d550422f60f8bf8d6e8b442badce221287
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6d7faa793b296259968eb54980fe8ff8e32514f2
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562823"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105498"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -56,7 +56,7 @@ Dans cet article, vous découvrirez comment activer les ressources d’espaces d
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking)
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -67,6 +67,10 @@ Dans cet article, vous découvrirez comment activer les ressources d’espaces d
 * Votre espace de travail Azure Machine Learning doit contenir un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
 ## <a name="limitations"></a>Limites
+
+### <a name="azure-storage-account"></a>Compte Stockage Azure
+
+Si l'espace de travail Azure Machine Learning et le compte de stockage Azure utilisent tous deux un point de terminaison privé pour se connecter au VNet, ils doivent se trouver dans le même sous-réseau.
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -216,11 +220,11 @@ Le tableau suivant liste les services pour lesquels vous devez ignorer la valida
 | Service | Omission nécessaire de la validation ? |
 | ----- |:-----:|
 | Stockage Blob Azure | Oui |
-| Partage de fichiers Azure | Yes |
-| Azure Data Lake Store Gen1 | No |
+| Partage de fichiers Azure | Oui |
+| Azure Data Lake Store Gen1 | Non |
 | Azure Data Lake Store Gen2 | Non |
 | Azure SQL Database | Oui |
-| PostgreSQL | Yes |
+| PostgreSQL | Oui |
 
 > [!NOTE]
 > Azure Data Lake Store Gen1 et Azure Data Lake Store Gen2 ignorent la validation par défaut ; vous n’avez donc rien à faire.
@@ -262,16 +266,20 @@ validate=False)
 
 Les méthodes suivantes peuvent être utilisées pour se connecter à l’espace de travail sécurisé :
 
-* [Passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) : permet de connecter des réseaux locaux au réseau virtuel via une connexion privée. La connexion est établie via l’Internet public. Vous pouvez utiliser deux types de passerelles VPN :
+* [Passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) – Connecte des réseaux locaux au réseau virtuel via une connexion privée. La connexion est établie via l’Internet public. Il existe deux types de passerelles VPN que vous pouvez utiliser :
 
     * [Point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) : chaque ordinateur client utilise un client VPN pour se connecter au réseau virtuel.
     * [Site à site](../vpn-gateway/tutorial-site-to-site-portal.md) : un périphérique VPN connecte le réseau virtuel à votre réseau local.
 
-* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) : permet de connecter des réseaux locaux au cloud via une connexion privée. La connexion est établie à l’aide d’un fournisseur de connectivité.
-* [Azure Bastion](../bastion/bastion-overview.md) : dans ce scénario, vous créez une machine virtuelle Azure (parfois appelée « jumpbox ») à l’intérieur du réseau virtuel. Vous vous connectez ensuite à la machine virtuelle en utilisant Azure Bastion. Bastion vous permet de vous connecter à la machine virtuelle en utilisant une session RDP ou SSH à partir de votre navigateur web local. Vous utilisez ensuite la machine virtuelle jumpbox comme environnement de développement. Dans la mesure où elle se trouve à l’intérieur du réseau virtuel, elle peut accéder directement à l’espace de travail. Pour obtenir un exemple d’utilisation d’une machine virtuelle jumpbox, consultez [Tutoriel : Créer un espace de travail sécurisé](tutorial-create-secure-workspace.md).
+* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) – Connecte les réseaux locaux au cloud via une connexion privée. La connexion est établie à l’aide d’un fournisseur de connectivité.
+* [Bastion Azure](../bastion/bastion-overview.md) – Dans ce scénario, vous créez une machine virtuelle Azure (parfois appelée « jump box ») à l’intérieur du réseau virtuel. Vous vous connectez ensuite à la machine virtuelle à l’aide d’Azure Bastion. Bastion vous permet de vous connecter à la machine virtuelle à l’aide d’une session RDP ou SSH à partir de votre navigateur web local. Vous utilisez ensuite la jump box comme environnement de développement. Comme elle figure dans le réseau virtuel, elle peut accéder directement à l’espace de travail. Pour obtenir un exemple d’utilisation d’une machine virtuelle jumpbox, consultez [Tutoriel : Créer un espace de travail sécurisé](tutorial-create-secure-workspace.md).
 
 > [!IMPORTANT]
 > Quand vous utilisez une __passerelle VPN__ ou __ExpressRoute__, vous devez planifier le fonctionnement de la résolution de noms entre vos ressources locales et celles se trouvant dans le réseau virtuel. Pour plus d’informations, consultez [Utiliser un serveur DNS personnalisé](how-to-custom-dns.md).
+
+## <a name="workspace-diagnostics"></a>Diagnostics de l’espace de travail
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

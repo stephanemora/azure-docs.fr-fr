@@ -1,14 +1,14 @@
 ---
 title: Guide pratique pour planifier et déployer des serveurs avec Azure Arc
 description: Découvrez comment activer un grand nombre de machines sur des serveurs avec Azure Arc, afin de simplifier la configuration des fonctionnalités essentielles de sécurité, de gestion et de surveillance dans Azure.
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c37b6dbe4233afd691c0da7743973b5956f2f720
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 0a31a886d4eb687c92d73c39617a6993e4b3f835
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114391741"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104917"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planifier et déployer des serveurs avec Arc
 
@@ -26,6 +26,10 @@ Pour que le déploiement se déroule sans problème, votre plan doit clairement 
 * Chemin de réaffectation d’un éventuel problème majeur.
 
 L’objectif de cet article est de vous aider à vérifier que vous êtes prêt à déployer correctement des serveurs avec Azure Arc sur plusieurs serveurs physiques ou machines virtuelles de production au sein de votre environnement.
+
+Pour en savoir plus sur les recommandations de déploiement à l’échelle, vous pouvez également vous référer à cette vidéo.
+
+> [!VIDEO https://www.youtube.com/embed/Cf1jUPOB_vs]
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -2,14 +2,14 @@
 title: Configurer des environnements de développement et de déploiement Bicep
 description: Comment configurer les environnements de développement et de déploiement de Bicep
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 297cafd074beb6c1535747be98dd664041d7b497
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c95c05923d9685232c50d694f2b858e2de9e4776
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453365"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099562"
 ---
 # <a name="install-bicep-tools"></a>Installer les outils Bicep
 
@@ -35,6 +35,10 @@ Pour vérifier que vous avez installé l’extension, ouvrez n’importe quel fi
 ## <a name="deployment-environment"></a>Environnement de déploiement
 
 Le moyen le plus simple de disposer des commandes nécessaires pour déployer un fichier Bicep consiste à installer la dernière version d’Azure CLI. Vous pouvez également utiliser PowerShell, mais cela nécessite une installation supplémentaire.
+
+- [Azure CLI](#azure-cli)
+- [Azure PowerShell](#azure-powershell)
+- [Installer manuellement](#install-manually)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -75,7 +79,28 @@ Pour connaître plus de commandes, consultez [CLI Bicep](bicep-cli.md).
 > [!IMPORTANT]
 > L’interface Azure CLI installe une instance autonome de l’interface CLI Bicep. Cette instance n’entre en conflit avec aucune des versions que vous auriez installées manuellement. Azure CLI n’ajoute pas l’interface CLI Bicep à votre PATH.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="install-on-an-air-gapped-cloud"></a>Installer sur un Cloud Air
+
+Pour installer Bicep CLI dans un environnement à couverture aérienne, vous devez télécharger manuellement l'exécutable de Bicep CLI et l'enregistrer à un certain endroit.
+
+- **Linux**
+
+    1. Téléchargez **bicep-Linux-x64** à partir de la [page de publication bicep](https://github.com/Azure/bicep/releases/latest/) dans un environnement sans air.
+    1. Copiez l’exécutable dans le répertoire **$Home/.Azure/bin** sur une machine à airer.
+
+- **macOS**
+
+    1. Téléchargez **bicep-Linux-x64** à partir de la [page de publication bicep](https://github.com/Azure/bicep/releases/latest/) dans un environnement sans air.
+    1. Copiez l’exécutable dans le répertoire **$Home/.Azure/bin** sur une machine à airer.
+
+- **Windows**
+
+    1. Téléchargez **bicep-Linux-x64** à partir de la [page de publication bicep](https://github.com/Azure/bicep/releases/latest/) dans un environnement sans air.
+    1. Copiez l'exécutable dans le répertoire **%UserProfile%/.azure/bin** sur une machine à couverture aérienne.
+
+Notez que les commandes `bicep install` et `bicep upgrade` ne fonctionnent pas dans un environnement air.
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Azure PowerShell 5.6.0 (ou une version ultérieure) doit être installé. Pour effectuer une mise à jour ou une installation, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -95,6 +120,10 @@ bicep --version
 ### <a name="install-manually"></a>Installer manuellement
 
 Les méthodes suivantes installent Bicep CLI et l’ajoutent à votre PATH. Vous devez effectuer une installation manuelle si vous envisagez d’utiliser un autre outil qu’Azure CLI.
+
+- [Linux](#linux)
+- [macOS](#macos)
+- [Windows](#windows)
 
 #### <a name="linux"></a>Linux
 

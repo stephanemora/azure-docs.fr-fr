@@ -2,14 +2,14 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fb365b1b0a1a77f93f627986902d4ede2752850
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a728d51025a2bb23e7da681fc6ed5daf162b1315
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525911"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309277"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -18,6 +18,7 @@ Resource Manager fournit les fonctions suivantes pour obtenir des valeurs de res
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (déconseillé)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -29,7 +30,7 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
-`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
+`extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Retourne l’ID d’une [ressource d’extension](../management/extension-resource-types.md), un type de ressource qui s’applique à une autre ressource pour y ajouter des fonctionnalités.
 
@@ -37,9 +38,9 @@ Retourne l’ID d’une [ressource d’extension](../management/extension-resour
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Oui |string |ID de la ressource à laquelle s’applique la ressource d’extension. |
-| resourceType |Oui |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
-| nom_ressource1 |Oui |string |Nom de la ressource. |
+| baseResourceId |Oui |string |ID de la ressource à laquelle s’applique la ressource d’extension. |
+| resourceType |Oui |string |Type de ressource d’extension, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |Oui |string |Nom de la ressource d’extension. |
 | nom_ressource2 |Non |string |Segment de nom de ressource suivant si nécessaire. |
 
 Continuez à ajouter des noms de ressource en paramètres lorsque le type de ressource contient plus de segments.
@@ -52,7 +53,7 @@ Le format de base de l’ID de ressource retourné par cette fonction est le sui
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Le segment d’étendue varie en fonction de la ressource étendue.
+Le segment d’étendue varie en fonction de la ressource étendue. Par exemple, l’ID d’un abonnement a des segments différents de l’ID d’un groupe de ressources.
 
 Lorsque la ressource d’extension est appliquée à une **ressource**, l’ID de la ressource est retourné au format suivant :
 
@@ -60,23 +61,27 @@ Lorsque la ressource d’extension est appliquée à une **ressource**, l’ID d
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Lorsque la ressource d’extension est appliquée à un **groupe de ressources**, le format est le suivant :
+Lorsque la ressource d’extension est appliquée à un **groupe de ressources**, le format retourné est le suivant :
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Lorsque la ressource d’extension est appliquée à un **abonnement**, le format est le suivant :
+Un exemple d’utilisation de cette fonction avec un groupe de ressources est présenté dans la section suivante.
+
+Lorsque la ressource d’extension est appliquée à un **abonnement**, le format retourné est le suivant :
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Lorsque la ressource d’extension est appliquée à un **groupe d’administration**, le format est le suivant :
+Lorsque la ressource d’extension est appliquée à un **groupe d’administration**, le format retourné est le suivant :
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
+
+Un exemple d’utilisation de cette fonction avec un groupe d'administration est présenté dans la section suivante.
 
 ### <a name="extensionresourceid-example"></a>Exemple extensionResourceId
 
@@ -381,7 +386,7 @@ Quand le type de ressource ou la région ne prend pas en charge les zones, un ta
 ]
 ```
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 Il existe différentes catégories pour les Zones de disponibilité Azure : zonal et redondant interzone.  La fonction pickZones peut être utilisée pour retourner un numéro de zone de disponibilité ou des nombres pour une ressource zonale.  Pour les services redondants interzone (ZRS), la fonction retourne un tableau vide.  Les ressources zonales peuvent généralement être identifiées par l’utilisation d’une propriété `zones` sur l’en-tête de ressource.  Les services redondants dans une zone présentent différentes façons d’identifier et d’utiliser les zones de disponibilité par ressource. Utilisez la documentation d’un service spécifique pour déterminer la catégorie de prise en charge des zones de disponibilité.  Pour plus d’informations, consultez [Services Azure prenant en charge les Zones de disponibilité](../../availability-zones/az-region.md).
 
@@ -462,6 +467,10 @@ L’exemple suivant montre comment utiliser la fonction pickZones pour activer l
   }
 ]
 ```
+
+## <a name="providers"></a>fournisseurs
+
+**La fonction de fournisseurs est déconseillée.** Nous ne recommandons plus son utilisation. Si vous avez utilisé cette fonction pour obtenir une version d’API pour le fournisseur de ressources, nous vous recommandons de fournir une version d’API spécifique dans votre modèle. L’utilisation d’une version d’API retournée dynamiquement peut rompre votre modèle si les propriétés changent d’une version à l’autre.
 
 ## <a name="reference"></a>reference
 

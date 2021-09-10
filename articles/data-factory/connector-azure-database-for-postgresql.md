@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/16/2021
-ms.openlocfilehash: f3d0dca67391bd8bb5ee66e3fd186fcabb1ffd89
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: b74588bf1a8f5aacabc273fb9a473a8cb4f1154d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642001"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314144"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory
 
@@ -37,6 +37,30 @@ Actuellement, le flux de données dans Azure Data Factory prend en charge Azure 
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-database-for-postgresql-using-ui"></a>Créer un service lié à la base de données Azure pour PostgreSQL en utilisant l'interface utilisateur.
+
+Utilisez les étapes suivantes pour créer un service lié à Azure Database pour MySQL dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez PostgreSQL et sélectionnez le connecteur Azure Database pour PostgreSQL.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/azure-database-for-postgresql-connector.png" alt-text="Sélectionnez le connecteur Azure database for PostgreSQL.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/configure-azure-database-for-postgresql-linked-service.png" alt-text="Configurez un service lié à la base de données Azure pour PostgreSQL.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes détaillent les propriétés utilisées pour définir des entités Data Factory propres au connecteur Azure Database pour PostgreSQL.
 

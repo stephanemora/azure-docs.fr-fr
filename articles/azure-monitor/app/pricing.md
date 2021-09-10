@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 6/24/2021
+ms.date: 8/23/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: 39109106a100d2af8a9dad4e6009f4c73fea8f59
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 8183e52e5b475f08df3631021d8ea6d3120525c8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525858"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772590"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -37,22 +37,20 @@ Pour les ressources Application Insights qui envoient leurs données à un espac
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimation des coûts de gestion de votre application
 
-Si vous n’utilisez pas encore Application Insights, vous pouvez utiliser la [calculatrice de prix Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) pour estimer le coût d’utilisation d’Application Insights. Commencez par entrer « Azure Monitor » dans la zone de recherche, puis cliquez sur la vignette Azure Monitor obtenue. Faites défiler la page jusqu’à Azure Monitor et sélectionnez Application Insights dans la liste déroulante Type.  Ici, vous pouvez entrer le nombre de Go de données que vous souhaitez collecter par mois, à savoir la quantité de données qu’Application Insights collectera pour surveiller votre application.
+Si vous n’utilisez pas encore Application Insights, vous pouvez utiliser la [calculatrice de prix Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) pour estimer le coût d’utilisation d’Application Insights. Commencez par entrer « Azure Monitor » dans la zone de recherche, puis cliquez sur la vignette Azure Monitor obtenue. Faites défiler la page vers Azure Monitor, puis développez la section Application Insights. Vos coûts estimés dépendent de la quantité de données de journal ingérées.  Il existe deux approches pour estimer les volumes de données :
 
-Il existe ici deux approches possibles : utiliser la surveillance par défaut et l’échantillonnage adaptatif, disponible dans le kit SDK ASP.NET, puis estimer votre ingestion de données probable en fonction de ce que d’autres clients similaires ont connu.
+1. estimez l’ingestion probable de vos données en fonction de ce que les autres applications similaires génèrent, ou 
+2. utilisez la surveillance par défaut et l’échantillonnage adaptatif, disponibles dans le SDK ASP.NET.
+
+### <a name="learn-from-what-similar-applications-collect"></a>En savoir plus sur ce que collectent les applications similaires
+
+Dans la calculatrice de prix Azure Monitoring pour Application Insights, cliquez pour activer l'**Estimation du volume de données en fonction de l’activité de l’Application**. Ici vous pouvez fournir des entrées relatives à votre application (demandes par mois et affichages de pages par mois, dans l’éventualité où vous collecterez les données de télémétrie côté client), puis la calculatrice vous indiquera le volume médian et la quantité 90e centile de données collectées par des applications similaires. Ces applications couvrent la plage de configuration d’Application Insights (p. ex., certains ont l’[échantillonnage](./sampling.md) par défaut, d’autres n’ont aucun échantillonnage, etc.) et vous disposez encore du contrôle permettant de réduire le volume de données que vous ingérez par échantillonnage bien au-dessous du niveau médian. 
 
 ### <a name="data-collection-when-using-sampling"></a>Collecte des données dans le cadre de l’échantillonnage
 
 Avec l’[échantillonnage adaptatif](sampling.md#adaptive-sampling) du kit SDK ASP.NET, le volume de données est automatiquement ajusté pour demeurer à un taux de trafic maximal spécifié pour la surveillance Application Insights par défaut. Si l’application génère une faible quantité de données de télémétrie, comme lors du débogage ou en raison d’une faible utilisation, les éléments ne sont pas supprimés par le processeur d’échantillonnage tant que le volume reste inférieur au niveau configuré d’événements par seconde. Pour une application à volume élevé, avec le seuil par défaut de 5 événements par seconde, l’échantillonnage adaptatif limite le nombre d’événements quotidiens à 432 000. Avec une taille moyenne d’événement standard de 1 Ko, cela correspond à 13,4 Go de télémétrie pour un mois de 31 jours par nœud hébergeant votre application (dans la mesure où l’échantillonnage s’effectue localement sur chaque nœud).
 
-> [!NOTE]
-> La taille des données du journal Azure Monitor est calculée en Go (1 Go = 10^9 octets).
-
 Pour les kits de développement logiciel (SDK) qui ne prennent pas en charge l’échantillonnage adaptatif, vous pouvez utiliser l’[échantillonnage d’ingestion](./sampling.md#ingestion-sampling) où l’échantillonnage a lieu quand les données sont reçues par Application Insights en fonction d’un pourcentage de données à conserver, ou l’[échantillonnage à débit fixe pour les sites web ASP.NET, ASP.NET Core et Java](sampling.md#fixed-rate-sampling) afin de réduire le trafic envoyé à partir de votre serveur web et de vos navigateurs web.
-
-### <a name="learn-from-what-similar-customers-collect"></a>Apprendre de ce que les clients similaires collectent
-
-Dans la calculatrice de prix Azure Monitor pour Application Insights, si vous activez la fonctionnalité « Estimer le volume de données en fonction de l’activité de l’application », vous pouvez fournir des entrées relatives à votre application (demandes par mois et affichages de pages par mois, dans l’éventualité où vous collecterez les données de télémétrie côté client), puis la calculatrice vous indiquera le volume médian et la quantité 90e centile de données collectées par des applications similaires. Ces applications couvrent la plage de configuration d’Application Insights (p. ex., certains ont l’[échantillonnage](./sampling.md) par défaut, d’autres n’ont aucun échantillonnage, etc.) et vous disposez encore du contrôle permettant de réduire le volume de données que vous ingérez par échantillonnage bien au-dessous du niveau médian. Toutefois, il s’agit d’un point de départ pour comprendre ce que les autres clients similaires voient.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Comprendre votre utilisation et estimer les coûts
 

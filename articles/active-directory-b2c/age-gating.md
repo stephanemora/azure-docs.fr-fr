@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71a3b38da6a63824a42f64052bf16a5fe0e25483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0502f11c9a6e900ae8f25209b6897f8384c2773
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102525414"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777755"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l’âge dans Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Azure AD B2C utilise les informations indiquées par l’utilisateur pour déte
 
 Pour utiliser la vérification de l’âge dans un flux utilisateur, vous devez configurer des propriétés supplémentaires sur votre locataire.
 
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur. Sélectionnez l’annuaire qui contient votre locataire.
+1. Utilisez [ce lien](https://portal.azure.com/?Microsoft_AAD_B2CAdmin_agegatingenabled=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview) pour tester la préversion de la vérification de l'âge.
+1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD B2C en sélectionnant l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sélectionnez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Propriétés** pour votre locataire dans le menu de gauche.
 1. Sous **Vérification de l’âge**, sélectionnez **Configurer**.
@@ -82,7 +84,7 @@ Lorsque vous vous connectez en tant que mineur, vous devez voir le message d’e
 
 ## <a name="enable-age-gating-in-your-custom-policy"></a>Activer la vérification de l’âge dans votre stratégie personnalisée
 
-1. Obtenez un exemple de stratégie de vérification de l’âge sur [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/age-gating).
+1. Obtenez un exemple de stratégie de vérification de l’âge sur [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies).
 1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
 1. Téléchargez les fichiers de stratégie.
 
@@ -91,4 +93,3 @@ Lorsque vous vous connectez en tant que mineur, vous devez voir le message d’e
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Apprendre à [Gérer les accès utilisateurs dans Azure AD BC2](manage-user-access.md).
-

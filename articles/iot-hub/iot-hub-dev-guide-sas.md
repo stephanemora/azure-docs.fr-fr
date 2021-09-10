@@ -6,7 +6,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 08/24/2021
 ms.custom:
 - amqp
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: aec64f22cf0af9de9b99c914d972f45f3dfefe1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 032f67427f070818aa6874d33414c857fa6ca39c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524289"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867179"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>Contrôler l’accès à IoT Hub à l’aide de signatures d’accès partagé et de jetons de sécurité
 
@@ -282,6 +282,14 @@ Le résultat, qui revient à accorder l’accès en lecture à toutes les identi
 ### <a name="supported-x509-certificates"></a>Certificats X.509 pris en charge
 
 Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil avec IoT Hub en chargeant une empreinte de certificat ou une autorité de certification (CA) sur Azure IoT Hub. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](iot-hub-x509ca-overview.md). Pour plus d’informations sur le chargement et la vérification d’une autorité de certification avec votre IoT Hub, consultez [Configurer la sécurité X.509 dans votre Azure IoT Hub](./tutorial-x509-scripts.md).
+
+### <a name="enforcing-x509-authentication"></a>Mise en œuvre de l'authentification X.509
+
+Pour renforcer la sécurité, un hub IoT peut être configuré pour ne pas autoriser l’authentification SAS pour les appareils et les modules, en laissant X. 509 comme seule option d’authentification acceptée. Actuellement, cette fonctionnalité n’est pas disponible dans le portail Azure. Pour configurer, définissez `disableDeviceSAS` et `disableModuleSAS` sur `true` dans les propriétés de la ressource IOT Hub :
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --set properties.disableDeviceSAS=true properties.disableModuleSAS=true
+```
 
 ### <a name="use-sas-tokens-as-a-device"></a>Utilisation de jetons SAP comme appareil
 

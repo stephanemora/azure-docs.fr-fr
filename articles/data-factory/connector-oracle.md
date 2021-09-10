@@ -1,19 +1,22 @@
 ---
-title: Copier des données depuis et vers Oracle à l’aide d’Azure Data Factory
-description: Découvrez comment utiliser Data Factory pour copier des données de banque de données sources prises en charge vers une base de données Oracle, ou à partir d’Oracle vers des banques de données réceptrices prises en charge.
+title: Copier des données vers et à partir d’Oracle
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment copier des données à partir de magasins sources prises en charge vers une base de données Oracle ou à partir d’Oracle vers des magasins récepteurs pris en charge à l’aide de pipelines Data Factory ou Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: b1b223ddf4be6652282be2875e83900b8a7be372
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: bf21a264e64fd43ba98f73f96afc6fe2f1bfd069
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487166"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123317447"
 ---
-# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers Oracle à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
@@ -58,7 +61,31 @@ Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n�
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Oracle.
+## <a name="create-a-linked-service-to-oracle-using-ui"></a>Créer un service lié à Oracle à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Oracle dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Oracle et sélectionnez le connecteur Oracle.
+
+    :::image type="content" source="media/connector-oracle/oracle-connector.png" alt-text="Capture d’écran du connecteur Oracle.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-oracle/configure-oracle-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Oracle.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
+
+Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités spécifiques du connecteur Oracle.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -120,7 +147,7 @@ Pour activer le chiffrement sur la connexion Oracle, deux options s’offrent à
         ```
 
     3.  Placez le fichier `truststore` sur l’ordinateur IR auto-hébergé. Par exemple, placez le fichier sur C:\MyTrustStoreFile.
-    4.  Dans Azure Data Factory, configurez la chaîne de connexion Oracle avec `EncryptionMethod=1` et la valeur `TrustStore`/`TrustStorePassword`correspondante, par exemple. Par exemple : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    4.  Dans le service, configurez la chaîne de connexion Oracle avec `EncryptionMethod=1` et la valeur `TrustStore`/`TrustStorePassword`correspondante. Par exemple : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exemple :**
 
@@ -298,20 +325,20 @@ Pour copier des données vers Oracle, définissez `OracleSink` comme type de ré
 
 ## <a name="parallel-copy-from-oracle"></a>Copie en parallèle à partir d’Oracle
 
-Le connecteur Oracle de Data Factory propose un partitionnement de données intégré pour copier des données à partir de Oracle en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
+Le connecteur Oracle propose un partitionnement de données intégré pour copier des données à partir d’Oracle en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
 
 ![Capture d’écran représentant les options de partition](./media/connector-oracle/connector-oracle-partition-options.png)
 
-Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Oracle pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Oracle.
+Lorsque vous activez la copie partitionnée, le service exécute des requêtes en parallèle sur votre source Oracle pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, le service génère et exécute simultanément quatre requêtes basées sur l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Oracle.
 
 Il vous est recommandé d’activer la copie en parallèle avec partitionnement des données notamment lorsque vous chargez une grande quantité de données à partir de votre base de données Oracle. Voici quelques suggestions de configurations pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu’avec l’écriture dans un seul fichier.
 
 | Scénario                                                     | Paramètres suggérés                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Chargement complet à partir d’une table volumineuse, avec des partitions physiques.          | **Option de partition** : Partitions physiques de la table. <br><br/>Lors de l’exécution, Data Factory détecte automatiquement les partitions physiques et copie les données par partitions. |
+| Chargement complet à partir d’une table volumineuse, avec des partitions physiques.          | **Option de partition** : Partitions physiques de la table. <br><br/>Pendant l’exécution, le service détecte automatiquement les partitions physiques et copie les données par partition. |
 | Chargement complet d’une table volumineuse, sans partitions physiques, avec une colonne entière pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données. Si la valeur n’est pas spécifiée, la colonne de la clé primaire est utilisée. |
-| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, avec des partitions physiques. | **Option de partition** : Partitions physiques de la table.<br>**Requête**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nom de la partition** : Spécifiez le(s) nom(s) de partition à copier. S’il n’est pas spécifié, Data Factory détecte automatiquement les partitions physiques de la table que vous avez spécifiée dans le jeu de données Oracle.<br><br>Pendant l’exécution, Data Factory remplace `?AdfTabularPartitionName` par le nom de la partition actuelle, et l’envoie à Oracle. |
-| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, sans partitions physiques, et avec une colonne entière pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données. Vous pouvez procéder au partitionnement par rapport à la colonne avec le type de données entier.<br>**Limite supérieure de partition** et **limite inférieure de partition** : Indiquez si vous souhaitez filtrer le contenu par rapport à la colonne de partition pour récupérer uniquement les données entre les plages inférieure et supérieure.<br><br>Lors de l’exécution, Data Factory remplace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` et `?AdfRangePartitionLowbound` par le nom réel de la colonne et les plages de valeurs de chaque partition, et les envoie à Oracle. <br>Par exemple, si l’ID de la colonne de partition « ID » est défini sur une limite inférieure de 1 et une limite supérieure de 80, avec une copie en parallèle définie sur 4, Data Factory récupère les données via 4 partitions. Les ID sont inclus entre [1,20], [21, 40], [41, 60] et [61, 80], respectivement. |
+| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, avec des partitions physiques. | **Option de partition** : Partitions physiques de la table.<br>**Requête**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nom de la partition** : Spécifiez le(s) nom(s) de partition à copier. Si ce n’est pas spécifié, le service détecte automatiquement les partitions physiques de la table que vous avez spécifiée dans le jeu de données Oracle.<br><br>Pendant l’exécution, le service remplace `?AdfTabularPartitionName` par le nom de la partition réel et l’envoie à Oracle. |
+| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, sans partitions physiques, et avec une colonne entière pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données. Vous pouvez procéder au partitionnement par rapport à la colonne avec le type de données entier.<br>**Limite supérieure de partition** et **limite inférieure de partition** : Indiquez si vous souhaitez filtrer le contenu par rapport à la colonne de partition pour récupérer uniquement les données entre les plages inférieure et supérieure.<br><br>Lors de l’exécution, le service remplace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` et `?AdfRangePartitionLowbound` par le nom réel de la colonne et les plages de valeurs de chaque partition et les envoie à Oracle. <br>Par exemple, si votre colonne de partition « ID » est définie sur une limite inférieure de 1 et une limite supérieure de 80, avec une copie en parallèle définie sur 4, le service récupère les données via 4 partitions. Les ID sont inclus entre [1,20], [21, 40], [41, 60] et [61, 80], respectivement. |
 
 > [!TIP]
 > Lorsque vous copiez des données à partir d’une table non partitionnée, vous pouvez utiliser l’option de partition « Plage dynamique » afin de partitionner par rapport à une colonne d’entiers. Si vos données sources n’incluent pas un tel type de colonne, vous pouvez tirer parti de la fonction [ORA_HASH]( https://docs.oracle.com/database/121/SQLRF/functions136.htm) dans une requête source pour générer une colonne et l’utiliser comme colonne de partition.
@@ -349,9 +376,9 @@ Il vous est recommandé d’activer la copie en parallèle avec partitionnement 
 
 ## <a name="data-type-mapping-for-oracle"></a>Mappage de type de données pour Oracle
 
-Lorsque vous copiez des données à partir d’Oracle, les mappages suivants s’appliquent. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
+Lorsque vous copiez des données depuis et vers Oracle, les mappages de types de données intermédiaires suivants sont utilisés dans le service. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
-| Type de données Oracle | Type de données intermédiaires d’Azure Data Factory |
+| Type de données Oracle | Type de données intermédiaire |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(seulement pris en charge sur Oracle 10g et les versions ultérieures) |
@@ -384,4 +411,4 @@ Lorsque vous copiez des données à partir d’Oracle, les mappages suivants s�
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité de copie.

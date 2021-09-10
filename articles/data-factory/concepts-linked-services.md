@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: 6d53385d3985c5ef1baf659d519f0741d27d1923
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 96d7792ee9c867263b7ab7f21cea652414f28478
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642007"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822390"
 ---
 # <a name="linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Services liés dans Azure Data Factory et Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Cet article décrit ce que sont les services liés, comment ils sont définis au
 
 Pour en savoir plus, lisez l’article d’introduction d’[Azure Data Factory](introduction.md) ou d’[Azure Synapse](../synapse-analytics/overview-what-is.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Data Factory et Azure Synapse Analytics peuvent avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure Synapse Analytics sur lequel des solutions de génération de rapports d’aide à la décision sont développées. Pour plus d’informations sur les pipelines et les activités, consultez [Pipelines et activités](concepts-pipelines-activities.md).
 

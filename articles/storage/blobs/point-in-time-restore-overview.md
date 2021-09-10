@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d98c239da9c415da0a87f0eecad20af147802aca
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802265"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563694"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -78,9 +78,10 @@ Pour lancer une opération de restauration, un client doit disposer d’autorisa
 
 La restauration jusqu’à une date et heure pour les objets blob de blocs présente les limitations et les problèmes connus suivants :
 
-- Seuls les objets blob de blocs d’un compte de stockage v2 standard à usage général peuvent être restaurés dans le cadre d’une opération de restauration jusqu’à une date et heure. Les objets blob d’ajout, les objets blob de pages et les objets blob de blocs Premium ne sont pas restaurés. 
-- Si vous avez supprimé un conteneur au cours de la période de rétention, ce conteneur ne sera pas restauré lors de l’opération de restauration jusqu’à une date et heure. Si vous tentez de restaurer une plage d’objets blob incluant des objets blob dont le conteneur a été supprimé, l’opération de récupération jusqu’à une date et heure échouera. Pour en savoir plus sur la protection des conteneurs contre la suppression, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
-- Si un objet blob a été déplacé entre les niveaux chaud et froid pendant la période comprise entre le moment présent et le point de restauration, l’objet blob est restauré à son niveau précédent. La restauration d’objets blob de blocs du niveau archive n’est pas prise en charge. Par exemple, si un objet blob a été déplacé du niveau d’accès chaud au niveau de stockage archive il y a deux jours et qu’une opération de restauration restaure un point d’il y a trois jours, l’objet blob n’est pas restauré vers le niveau d’accès chaud. Pour restaurer un objet blob archivé, commencez par le déplacer en dehors du niveau archive. Pour plus d’informations, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
+- Seuls les objets blob de blocs d’un compte de stockage v2 standard à usage général peuvent être restaurés dans le cadre d’une opération de restauration jusqu’à une date et heure. Les objets blob d’ajout, les objets blob de pages et les objets blob de blocs Premium ne sont pas restaurés.
+- Si vous avez supprimé un conteneur au cours de la période de rétention, ce conteneur ne sera pas restauré lors de l’opération de restauration jusqu’à une date et heure. Si vous tentez de restaurer une plage d’objets blob incluant des objets blob dont le conteneur a été supprimé, l’opération de récupération jusqu’à une date et heure échouera. Pour en savoir plus sur la protection des conteneurs contre la suppression, consultez [Suppression réversible pour les conteneurs](soft-delete-container-overview.md).
+- Si un objet blob a été déplacé entre les niveaux chaud et froid pendant la période comprise entre le moment présent et le point de restauration, l’objet blob est restauré à son niveau précédent. La restauration d’objets blob de blocs du niveau archive n’est pas prise en charge. Par exemple, si un objet blob a été déplacé du niveau d’accès chaud au niveau de stockage archive il y a deux jours et qu’une opération de restauration restaure un point d’il y a trois jours, l’objet blob n’est pas restauré vers le niveau d’accès chaud. Pour restaurer un objet blob archivé, commencez par le déplacer en dehors du niveau archive. Pour plus d’informations, consultez [Vue d’ensemble de la réactivation d’objets blob à partir du niveau Archive](archive-rehydrate-overview.md).
+- Si une stratégie d’immuabilité est configurée, une opération de restauration peut être lancée, mais les objets blob protégés par la stratégie d’immuabilité ne seront pas modifiés. Dans ce cas, une opération de restauration n’entraîne pas la restauration d’un état cohérent à la date et à l’heure indiquées.
 - Un bloc qui a été chargé via [Put Block](/rest/api/storageservices/put-block) ou [Put Block à partir d’une URL](/rest/api/storageservices/put-block-from-url), mais n’est pas validé via [Put Block List](/rest/api/storageservices/put-block-list), ne fait pas partie d’un objet blob et n’est donc pas restauré dans le cadre d’une opération de restauration.
 - Un objet blob avec un bail actif ne peut pas être restauré. Si un objet blob avec un bail actif est inclus dans la plage d’objets blob à restaurer, l’opération de restauration échoue de façon atomique. Arrêtez tout bail actif avant de lancer l’opération de restauration.
 - Les instantanés ne sont pas créés ou supprimés dans le cadre d’une opération de restauration. Seul l’objet blob de base est restauré à son état précédent.
@@ -91,7 +92,7 @@ La restauration jusqu’à une date et heure pour les objets blob de blocs prés
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-Aucun frais n’est facturé pour activer la restauration à un instant dans le passé. Toutefois, l’activation de la restauration à un instant dans le passé active également le contrôle de version de blob, la suppression réversible et le flux de modification, qui peuvent occasionner des frais supplémentaires.
+Aucun frais n’est facturé pour activer la restauration à un instant dans le passé. Toutefois, l’activation de la récupération jusqu’à une date et heure active également le contrôle de version de blob, la suppression réversible et le flux de modification, qui peuvent occasionner des frais supplémentaires.
 
 La facturation de la restauration dans le temps dépend de la quantité de données traitées pour effectuer l’opération de restauration. La quantité de données traitées est basée sur le nombre de modifications qui se sont produites entre le point de restauration et le moment présent. Par exemple, en supposant un taux de changement relativement constant pour bloquer les données de blob dans un compte de stockage, une opération de restauration qui remonte à 1 jour dans le passé coûterait 1/10ème d’une restauration qui remonte à 10 jours dans le passé.
 

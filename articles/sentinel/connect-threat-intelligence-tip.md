@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 51650ad1a9d72611d694e5514dca1036937a2a13
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1f6a508e72277fcc596a5217b0c5a061758e131
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531762"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253565"
 ---
 # <a name="connect-your-threat-intelligence-platform-to-azure-sentinel"></a>Connecter votre plateforme de renseignement sur les menaces (TIP) à Azure Sentinel
 
@@ -77,7 +77,7 @@ Vous pouvez extraire ces informations de Azure Active Directory par le biais d�
 
 1. Sélectionnez **Inscriptions d’applications** dans le menu, puis sélectionnez votre application nouvellement inscrite.
 
-1. Sélectionnez **Autorisations de l’API** dans le menu, puis cliquez sur le bouton **Ajouter une autorisation**.
+1. Sélectionnez **Autorisations de l’API** dans le menu, puis sélectionnez le bouton **Ajouter une autorisation**.
 
 1. Dans la page **Sélectionner une API**, sélectionnez l’API **Microsoft Graph** et faites votre choix dans la liste d’autorisations Microsoft Graph.
 

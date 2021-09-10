@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 1709171793d6e4941a62aebe47a9b4125bf68e67
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 1b2748664046c97258ee3414b741075627064bbc
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122566131"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867479"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Création et gestion d’un runtime d’intégration auto-hébergé
 
@@ -80,10 +80,18 @@ Voici les domaines et les ports qui doivent être autorisés via des pare-feu d�
 | `*.frontend.clouddatahub.net` | 443            | L’infrastructure globale que Purview utilise pour exécuter ses analyses. Caractère générique requis, car il n’existe aucune ressource dédiée. |
 | `<managed Purview storage account>.core.windows.net`          | 443            | Utilisé par le runtime d’intégration auto-hébergé pour se connecter au compte de stockage Azure managé.|
 | `<managed Purview storage account>.queue.core.windows.net` | 443            | Files d’attente utilisées par Purview pour exécuter le processus d’analyse. |
-| `<your Key Vault Name>.vault.azure.net` | 443           | Obligatoire si des informations d’identification sont stockées dans Azure Key Vault. |
 | `download.microsoft.com` | 443           | Facultatif pour les mises à jour SHIR. |
+
+En fonction de vos sources, vous devrez peut-être également autoriser les domaines d’autres sources Azure ou externes. Quelques exemples sont fournis ci-dessous, ainsi que le domaine Azure Key Vault, si vous vous connectez à des informations d’identification stockées dans le Key Vault.
+
+| Noms de domaine                  | Ports sortants | Description                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `<storage account>.core.windows.net`          | 443            | Facultatif, pour se connecter à un compte de stockage Azure. |
+| `*.database.windows.net`      | 1433           | Facultatif, pour se connecter à Azure SQL Database ou Azure Synapse Analytics. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | Facultatif, pour se connecter à Azure Data Lake Store Gen 1. |
+| `<datastoragename>.dfs.core.windows.net`    | 443            | Facultatif, pour se connecter à Azure Data Lake Store Gen 2. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | Obligatoire si des informations d’identification sont stockées dans Azure Key Vault. |
 | Différents domaines | Dépendant          | Domaines pour toutes les autres sources auxquelles le SHIR se connectera. |
-  
   
 > [!IMPORTANT]
 > Dans la plupart des environnements, vous devrez également vérifier que votre DNS est correctement configuré. Confirmer que vous pouvez utiliser **nslookup** depuis votre machine SHIR pour vérifier la connectivité à chacun des domaines susmentionnés. Chaque nslookup doit renvoyer l’adresse IP de la ressource. Si vous utilisez des [points de terminaison](catalog-private-link.md), c’est l’adresse IP privée qui doit être retournée et non l’adresse IP publique. Si aucune adresse IP n’est retournée, ou si, lors de l’utilisation de points de terminaison privés, l’adresse IP publique est retournée, vous devez gérer votre association DNS/VNET ou votre association point de terminaison privé/réseau virtuel.
@@ -100,4 +108,6 @@ Pour supprimer un runtime d’intégration auto-hébergé, accédez à **Runtime
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Comment les analyses détectent les éléments supprimés](concept-detect-deleted-assets.md)
+- [Comment les analyses détectent les éléments supprimés](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
+
+- [Utiliser des points de terminaison privés avec Purview](catalog-private-link.md)

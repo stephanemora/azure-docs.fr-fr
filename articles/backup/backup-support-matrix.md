@@ -2,14 +2,14 @@
 title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 08/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8f953cf2bdacaa983061a04168345d1add1842f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 89aa01556d69b6f3543f7e90d5937f7e20bf3679
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562354"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681358"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -163,7 +163,7 @@ La vérification de l’intégrité des ressources fonctionne dans les condition
 |     |     |
 | --- | --- |
 | **Ressources prises en charge** | Coffre Recovery Services |
-| **Régions prises en charge** | USA Est 2, Asie Est et France Centre. |
+| **Régions prises en charge** | USA Est 2, USA Centre, Europe Nord, France Centre, Asie Est, Japon Est, Japon Ouest, Australie Est, Afrique du Sud Nord. |
 | **Pour les régions non prises en charge** | L’état d’intégrité des ressources indique « Inconnu ». |
 
 

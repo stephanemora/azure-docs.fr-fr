@@ -1,6 +1,6 @@
 ---
-title: Activer les options d’application Web à l’aide d’Azure Active Directory B2C
-description: Activez l’utilisation des options d’application Web à l’aide de plusieurs méthodes.
+title: Activer les options d’authentification de l’application web à l’aide d’Azure Active Directory B2C
+description: Cet article décrit plusieurs façons d’activer les options d’authentification de l’application web.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,27 +11,33 @@ ms.date: 08/12/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 126bdd850d29d716433b7854c71d02269b95ec2e
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 50cdb5f171614c138427b358f2418b8b81751457
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563454"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220322"
 ---
-# <a name="configure-authentication-options-in-a-web-application-using-azure-active-directory-b2c"></a>Configurer les options d’authentification dans une application web avec Azure Active Directory B2C 
+# <a name="enable-authentication-options-in-a-web-app-by-using-azure-ad-b2c"></a>Activer les options d’authentification dans une application web avec Azure AD B2C 
 
-Cet article décrit les méthodes permettant de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application Web. Avant de commencer, il est important de vous familiariser avec les articles suivants : [Configurer l’authentification dans un exemple d’application web](configure-authentication-sample-web-app.md) ou [Activer l’authentification dans votre application web](enable-authentication-web-application.md).
+Cet article décrit les méthodes permettant d’activer, de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application web. 
+
+Avant de commencer, lisez les articles suivants pour vous familiariser avec les concepts : 
+* [Configurer l’authentification dans un exemple d’application web](configure-authentication-sample-web-app.md)
+* [Activez l’authentification dans votre propre application web](enable-authentication-web-application.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-Pour utiliser un domaine personnalisé et l’ID de votre locataire dans l’URL d’authentification, suivez les instructions fournies dans [Activer les domaines personnalisés](custom-domain.md). Dans le dossier racine du projet, ouvrez le fichier `appsettings.json`. Ce fichier contient des informations sur votre fournisseur d’identité Azure AD B2C. 
+Pour utiliser un domaine personnalisé et l’ID de votre locataire dans l’URL d’authentification, suivez les instructions fournies dans [Activer les domaines personnalisés](custom-domain.md). Dans le dossier racine du projet, ouvrez le fichier *appsettings.json*. Ce fichier contient des informations sur votre fournisseur d’identité Azure AD B2C.
+
+Dans le fichier *appsettings.json*, faites ce qui suit :
 
 - Mettez à jour l'entrée `Instance` avec votre domaine personnalisé.
 - Mettez à jour l'entrée `Domain` avec votre [ID de locataire](tenant-management.md#get-your-tenant-id). Pour plus d’informations, consultez [Utiliser l’ID de locataire](custom-domain.md#optional-use-tenant-id).
 
 Le code JSON suivant montre les paramètres de l’application avant la modification : 
 
-```JSon
+```JSON
 "AzureAdB2C": {
   "Instance": "https://contoso.b2clogin.com",
   "Domain": "tenant-name.onmicrosoft.com",
@@ -41,7 +47,7 @@ Le code JSON suivant montre les paramètres de l’application avant la modifica
 
 Le code JSON suivant montre les paramètres de l’application après la modification : 
 
-```JSon
+```JSON
 "AzureAdB2C": {
   "Instance": "https://login.contoso.com",
   "Domain": "00000000-0000-0000-0000-000000000000",
@@ -53,7 +59,7 @@ Le code JSON suivant montre les paramètres de l’application après la modific
 
 La méthode `AddMicrosoftIdentityWebAppAuthentication` de l’API Microsoft Identity Platform permet aux développeurs d’ajouter du code pour des scénarios d’authentification avancés ou de s’abonner à des événements OpenIdConnect. Par exemple, vous pouvez vous abonner à OnRedirectToIdentityProvider, ce qui vous permet de personnaliser la requête d’authentification que votre application envoie à Azure AD B2C.
 
-Pour prendre en charge les scénarios avancés, ouvrez le `Startup.cs` et, dans la fonction `ConfigureServices`, remplacez le `AddMicrosoftIdentityWebAppAuthentication` par l’extrait de code suivant : 
+Pour prendre en charge les scénarios avancés, ouvrez le fichier *Startup.cs* et, dans la fonction `ConfigureServices`, remplacez le `AddMicrosoftIdentityWebAppAuthentication` par l’extrait de code suivant : 
 
 ```csharp
 // Configuration to sign-in users with Azure AD B2C
@@ -69,7 +75,7 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 });
 ```
 
-Le code ci-dessus ajoute l’événement OnRedirectToIdentityProvider avec une référence à la méthode *OnRedirectToIdentityProviderFunc*. Ajoutez l’extrait de code suivant dans la classe `Startup.cs`.
+Le code précédent ajoute l’événement OnRedirectToIdentityProvider avec une référence à la méthode `OnRedirectToIdentityProviderFunc`. Ajoutez l’extrait de code suivant dans la classe `Startup.cs`.
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -81,14 +87,13 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 }
 ```
 
-Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *OnRedirectToIdentityProvider* à l’aide de paramètres de contexte. 
-
+Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction `OnRedirectToIdentityProvider` à l’aide de paramètres de contexte. 
 
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
 1. Si vous utilisez une stratégie personnalisée, ajoutez la revendication d’entrée requise comme décrit dans [Configurer la connexion directe](direct-signin.md#prepopulate-the-sign-in-name). 
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
-1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
+1. Ajoutez la ligne de code suivante à la fonction `OnRedirectToIdentityProvider` :
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -104,7 +109,7 @@ Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *
 
 1. Vérifiez le nom de domaine de votre fournisseur d’identité externe. Pour plus d’informations, consultez [Rediriger la connexion vers un fournisseur social](direct-signin.md#redirect-sign-in-to-a-social-provider). 
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
-1. Dans la fonction *OnRedirectToIdentityProviderFunc*, ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
+1. Dans la fonction `OnRedirectToIdentityProviderFunc`, ajoutez la ligne de code suivante à la fonction `OnRedirectToIdentityProvider` :
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -121,7 +126,7 @@ Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *
 
 1. [Configurez la personnalisation de la langue](language-customization.md).
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
-1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
+1. Ajoutez la ligne de code suivante à la fonction `OnRedirectToIdentityProvider` :
 
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -137,7 +142,7 @@ Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *
 
 1. Configurez l’élément [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
-1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
+1. Ajoutez la ligne de code suivante à la fonction `OnRedirectToIdentityProvider` :
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -154,7 +159,7 @@ Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *
 
 1. Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios).
 1. Dans votre stratégie personnalisée, définissez un [indicateur de jeton d’ID de profil technique](id-token-hint.md).
-1. Ajoutez la ligne de code suivante à la fonction *OnRedirectToIdentityProvider* :
+1. Ajoutez la ligne de code suivante à la fonction `OnRedirectToIdentityProvider` :
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -169,13 +174,13 @@ Vous pouvez transmettre des paramètres entre votre contrôleur et la fonction *
     
 ## <a name="account-controller"></a>Contrôleur de compte
 
-Si vous souhaitez personnaliser les actions de **connexion**, **d’inscription** ou de **déconnexion**, vous êtes encouragé à créer votre propre contrôleur. Le fait de disposer de votre propre contrôleur vous permet de transmettre des paramètres entre votre contrôleur et la bibliothèque d’authentification. Le `AccountController` fait partie du package NuGet `Microsoft.Identity.Web.UI`, qui gère les actions de connexion et de déconnexion. Vous pouvez trouver son implémentation dans la [bibliothèque Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
+Si vous souhaitez personnaliser les actions de *connexion*, *d’inscription* ou de *déconnexion*, nous vous encourageons à créer votre propre contrôleur. Le fait de disposer de votre propre contrôleur vous permet de transmettre des paramètres entre votre contrôleur et la bibliothèque d’authentification. Le `AccountController` fait partie du package NuGet `Microsoft.Identity.Web.UI`, qui gère les actions de connexion et de déconnexion. Vous pouvez trouver son implémentation dans la [bibliothèque Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
 
 ### <a name="add-the-account-controller"></a>Ajouter le contrôleur de compte
 
-Dans le projet Visual Studio, cliquez avec le bouton droit sur le dossier **Contrôleurs** et ajoutez un nouveau **Contrôleur**. Sélectionnez **MVC - Contrôleur vide** et fournissez le nom **MyAccountController.cs**.
+Dans le projet Visual Studio, cliquez avec le bouton droit sur le dossier *Contrôleurs* et ajoutez un nouveau **Contrôleur**. Sélectionnez **MVC - Contrôleur vide**, puis fournissez le nom **MyAccountController.cs**.
 
-L’extrait de code suivant montre un `MyAccountController` personnalisé avec l’action de **SignIn**.
+L’extrait de code suivant montre un `MyAccountController` personnalisé avec l’action de *SignIn*.
 
 ```csharp
 using System;
@@ -210,7 +215,7 @@ namespace mywebapp.Controllers
 }
 ```
 
-Dans l’affichage `_LoginPartial.cshtml`, modifiez le lien de connexion à votre contrôleur
+Dans l’affichage *_LoginPartial.cshtml*, modifiez le lien de connexion à votre contrôleur.
 
 ```html
 <form method="get" asp-area="MicrosoftIdentity" asp-controller="MyAccount" asp-action="SignIn">
@@ -240,7 +245,7 @@ public IActionResult SignUp([FromRoute] string scheme)
 }
 ```
 
-Dans la vue `_LoginPartial.cshtml`, remplacez la valeur `asp-controller` par `MyAccountController` pour tous les autres liens d’authentification, tels que l’inscription ou la modification du profil.
+Dans l’affichage *_LoginPartial.cshtml*, remplacez la valeur `asp-controller` par `MyAccountController` pour tous les autres liens d’authentification, tels que l’inscription ou la modification du profil.
 
 ### <a name="pass-custom-parameters"></a>Transmettre les paramètres personnalisés
 
@@ -258,7 +263,7 @@ public IActionResult SignIn([FromRoute] string scheme)
 }
 ```
 
-Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios). Ensuite, dans la méthode `OnRedirectToIdentityProvider`, lisez le paramètre personnalisé :
+Complétez la procédure de [prise en charge des scénarios avancés](#support-advanced-scenarios), puis, dans la méthode `OnRedirectToIdentityProvider`, lisez le paramètre personnalisé :
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -345,9 +350,12 @@ Dans l’exemple ci-dessus, le **post_logout_redirect_uri** qui est passé dans 
 
 ## <a name="role-based-access-control"></a>Contrôle d'accès en fonction d'un rôle
 
-Avec [l’autorisation dans ASP.NET Core](/aspnet/core/security/authorization/introduction) vous pouvez utiliser [l'autorisation basée sur les rôles](/aspnet/core/security/authorization/roles), [l'autorisation basée sur les revendications](/aspnet/core/security/authorization/claims), ou [l'autorisation basée sur la stratégie](/aspnet/core/security/authorization/policies) pour vérifier si l’utilisateur est autorisé à accéder à une ressource protégée.
+Avec l'[autorisation dans ASP.NET Core](/aspnet/core/security/authorization/introduction), vous pouvez vérifier si les utilisateurs sont autorisés à accéder à une ressource protégée à l’aide de l’une des méthodes suivantes : 
+* [Autorisation basée sur des rôles](/aspnet/core/security/authorization/roles) 
+* [Autorisation basée sur des revendications](/aspnet/core/security/authorization/claims) 
+* [Autorisation basée sur une stratégie](/aspnet/core/security/authorization/policies)
 
-Dans la méthode *ConfigureServices*, ajoutez la méthode *AddAuthorization*, qui ajoute le modèle d’autorisation. L’exemple qui suit permet de créer une clé nommée `EmployeeOnly`. La stratégie vérifie qu'il existe une revendication `EmployeeNumber`. La valeur de la revendication doit être l’un des ID suivants : 1, 2, 3, 4 ou 5.
+Dans la méthode `ConfigureServices`, ajoutez la méthode `AddAuthorization`, qui ajoute le modèle d’autorisation. L’exemple qui suit permet de créer une clé nommée `EmployeeOnly`. La stratégie vérifie qu'il existe une revendication `EmployeeNumber`. La valeur de la revendication doit être l’un des ID suivants : 1, 2, 3, 4 ou 5.
 
 ```csharp
 services.AddAuthorization(options =>
@@ -357,9 +365,9 @@ services.AddAuthorization(options =>
     });
 ```
 
-L’autorisation dans ASP.NET Core est contrôlée à l’aide de [AuthorizeAttribute](/aspnet/core/security/authorization/simple) et de ses différents paramètres. Dans sa forme la plus basique, l’application de l’attribut `[Authorize]` à une page de contrôleur, d’action ou Razor, limite l’accès aux utilisateurs authentifiés de ce composant.
+Vous contrôlez l’autorisation dans ASP.NET Core à l’aide de [AuthorizeAttribute](/aspnet/core/security/authorization/simple) et de ses différents paramètres. Dans sa forme la plus basique, l’application de l’attribut `Authorize` à une page de contrôleur, d’action ou Razor, limite l’accès aux utilisateurs authentifiés de ce composant.
 
-Les stratégies sont appliquées aux contrôleurs à l’aide de l'attribut `[Authorize]` avec le nom de la stratégie. Le code suivant limite l’accès à l'action `Claims` aux utilisateurs autorisés par la stratégie `EmployeeOnly` :
+Les stratégies sont appliquées aux contrôleurs à l’aide de l'attribut `Authorize` avec le nom de la stratégie. Le code suivant limite l’accès à l'action `Claims` aux utilisateurs autorisés par la stratégie `EmployeeOnly` :
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -371,4 +379,4 @@ public IActionResult Claims()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus : [Présentation de l’autorisation dans ASP.NET Core](/aspnet/core/security/authorization/introduction)
+- Pour en savoir plus sur l’autorisation, consultez [Présentation de l’autorisation dans ASP.NET Core](/aspnet/core/security/authorization/introduction).

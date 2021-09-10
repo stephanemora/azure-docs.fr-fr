@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 08/11/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec237af8cd0c79d5a7b62aad0bc6521e5cf3d7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7a3cf21ef2493ef6a93397e6d6601e326d0ef0d3
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059239"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534790"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 La mise à jour automatique Azure AD Connect est une fonctionnalité qui recherche régulièrement des versions plus récentes d’Azure AD Connect. Si votre serveur est activé pour la mise à niveau automatique et qu’une version plus récente est trouvée, pour laquelle votre serveur est éligible, il effectue une mise à niveau automatique vers cette version plus récente.
@@ -50,6 +50,22 @@ La mise à niveau automatique utilise Azure AD Connect Health pour l’infrastru
 
 
 Si l’interface utilisateur du **Synchronization Service Manager** est en cours d’exécution sur le serveur, la mise à niveau est suspendue jusqu’à la fermeture de l’interface utilisateur.
+
+>[!NOTE]
+> La mise à niveau automatique ne concerne pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect pour la mise à niveau automatique si **votre configuration est [éligible](#auto-upgrade-eligibility)** pour une mise à niveau automatique. Pour plus d’informations, consultez l’article [Azure AD Connect : historique de la version](reference-connect-version-history.md).
+
+## <a name="auto-upgrade-eligibility"></a>Éligibilité à la mise à niveau automatique
+Pour pouvoir bénéficier d’une mise à niveau automatique, vous ne devez répondre à aucune des conditions suivantes :
+
+| Message de résultat | Description |
+| --- | --- |
+|UpgradeNotSupportedCustomizedSyncRules|Vous avez ajouté vos propres règles de personnalisation à la configuration.|
+|UpgradeNotSupportedInvalidPersistedState|L’installation n’est pas une configuration rapide ou une mise à niveau DirSync.|
+|UpgradeNotSupportedNonLocalDbInstall|Vous n’utilisez pas une base de données LocalDB SQL Server Express.|
+|UpgradeNotSupportedLocalDbSizeExceeded|La taille de la base de données locale est supérieure ou égale à 8 Go|
+|UpgradeNotSupportedAADHealthUploadDisabled|Les chargements de données d’intégrité ont été désactivés à partir du portail|
+
+
 
 ## <a name="troubleshooting"></a>Dépannage
 Si votre installation Connect ne se met pas elle-même à niveau comme prévu, procédez comme suit pour savoir d’où vient le problème.

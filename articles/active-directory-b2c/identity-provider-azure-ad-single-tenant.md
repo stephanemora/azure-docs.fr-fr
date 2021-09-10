@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 08/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a6952679ad2497a059b6ad043ef5e1e23fea0236
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 7a213198421597e444a55c53d85cdb6e427425a3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744068"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533109"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -35,6 +35,14 @@ Cet article explique comment autoriser la connexion d’utilisateurs à partir d
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+### <a name="verify-the-applications-publisher-domain"></a>Vérifier le domaine de l’éditeur de l’application
+Depuis novembre 2020, les inscriptions de nouvelles applications s’affichent comme étant non vérifiées dans l’invite de consentement de l’utilisateur, sauf si [le domaine de l’éditeur de l’application a été vérifié](../active-directory/develop/howto-configure-publisher-domain.md) ***et*** si l’identité de l’entreprise a été vérifiée auprès de Microsoft Partner Network puis associée à l’application. ([En savoir plus](../active-directory/develop/publisher-verification-overview.md) sur ce changement.) Notez que pour les flux d’utilisateur Azure AD B2C, le domaine de l’éditeur s’affiche uniquement lorsque vous utilisez un [compte Microsoft](../active-directory-b2c/identity-provider-microsoft-account.md) ou un autre locataire Azure AD comme fournisseur d’identité. Pour répondre à ces nouvelles conditions, effectuez les étapes suivantes :
+
+1. [Vérifiez l’identité de votre entreprise avec votre compte Microsoft Partner Network (MPN)](/partner-center/verification-responses). Ce processus vérifie les informations relatives à votre entreprise et au contact principal de votre entreprise.
+1. Effectuez le processus de vérification de l’éditeur pour associer votre compte MPN à votre inscription d’application à l’aide de l’une des options suivantes :
+   - Si l’inscription d’application pour le fournisseur d’identité du compte Microsoft se trouve dans un locataire Azure AD, [vérifiez votre application dans le portail d’inscription des applications](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - Si votre inscription d’application pour le fournisseur d’identité du compte Microsoft se trouve dans un locataire Azure AD B2C, [marquez votre application comme étant validée par l’éditeur à l’aide des API Microsoft Graph](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (par exemple, à l’aide d’Afficheur Graph). L’interface utilisateur pour la définition de l’éditeur de publication vérifié d’une application est actuellement désactivée pour les locataires Azure AD B2C.
 
 ## <a name="register-an-azure-ad-app"></a>Inscrire une application Azure AD
 
@@ -72,6 +80,10 @@ Si vous souhaitez obtenir les revendications `family_name` et `given_name` à pa
 1. Dans **Type de jeton**, sélectionnez **ID**.
 1. Sélectionnez les revendications facultatives à ajouter, `family_name` et `given_name`.
 1. Cliquez sur **Add**.
+
+## <a name="optional-verify-your-app-authenticity"></a>[Facultatif] Vérifier l’authenticité de votre application
+
+La [vérification de l’éditeur](../active-directory/develop/publisher-verification-overview.md) permet aux utilisateurs de s’assurer de l’authenticité de l’application que vous avez [inscrite](#register-an-azure-ad-app). Une application vérifiée signifie que l’éditeur de l’application a [vérifié](/partner-center/verification-responses) son identité à l’aide de son Microsoft Partner Network (MPN). Apprenez à [marquer votre application avec la mention « éditeur vérifié »](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ::: zone pivot="b2c-user-flow"
 
@@ -236,10 +248,8 @@ Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez dé
 
 Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
+::: zone-end
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous utilisez des stratégies personnalisées, vous pouvez parfois avoir besoin d’informations supplémentaires lors du dépannage d’une stratégie pendant son développement.
-
-Pour faciliter le diagnostic des problèmes, vous pouvez placer temporairement la stratégie en « mode développeur » et collecter des journaux avec Azure Application Insights. Pour savoir comment procéder, consultez [Azure Active Directory B2C : collecte des journaux](troubleshoot-with-application-insights.md).
-
-::: zone-end
+Découvrez comment [transmettre le jeton Azure AD à votre application](idp-pass-through-user-flow.md).

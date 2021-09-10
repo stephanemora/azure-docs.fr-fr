@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 86f27f08bd7495e558cd81b122f1daa243dbe313
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 116997c8abbad382dc10014fd76e7933f333c113
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562304"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109348"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -268,7 +268,9 @@ Suivez les instructions de [Se connecter à Azure Synapse Link](../synapse-analy
 
 ## <a name="query-analytical-store-using-apache-spark-for-azure-synapse-analytics"></a><a id="query-analytical-store-spark"></a> Interroger un magasin analytique avec Apache Spark pour Azure Synapse Analytics
 
-Suivez les instructions de l’article [Interroger le magasin analytique Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sur la procédure d’interrogation avec Synapse Spark. Cet article donne des exemples sur la façon dont vous pouvez interagir avec le magasin analytique à partir de mouvements Synapse. Ces mouvements sont visibles lorsque vous cliquez avec le bouton droit sur un conteneur. Avec les mouvements, vous pouvez rapidement générer du code et l’adapter à vos besoins. Ils sont également bien adaptés pour découvrir des données en un seul clic.
+Suivez les instructions de l’article [Interroger le magasin analytique Azure Cosmos DB à l’aide de Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md) sur la procédure d’interrogation avec Synapse Spark 3. Cet article donne des exemples sur la façon dont vous pouvez interagir avec le magasin analytique à partir de mouvements Synapse. Ces mouvements sont visibles lorsque vous cliquez avec le bouton droit sur un conteneur. Avec les mouvements, vous pouvez rapidement générer du code et l’adapter à vos besoins. Ils sont également bien adaptés pour découvrir des données en un seul clic.
+
+Pour l’intégration Spark 2, utilisez l’instruction de l’article [Interroger le magasin analytique Azure Cosmos DB à l’aide de Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md).
 
 ## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Interroger le magasin analytique à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 14d2372defc67b5cd619c888a43d09b5b10af846
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 57d211a7a080cc07d30a5810c4e1660c575acff3
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635818"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078240"
 ---
 Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. 
 
@@ -12,6 +12,14 @@ Microsoft offre une prise en charge directe de la version la plus récente de l�
 
 ## <a name="download-link"></a>Télécharger le lien
 Vous pouvez télécharger la dernière version de l’agent en utilisant [ce lien](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+
+## <a name="115840"></a>1.1.584.0 
+
+20 août 2021 - publiée pour téléchargement
+
+### <a name="fixed-issues"></a>Problèmes résolus
+
+- Nous avons résolu un bogue où, lorsqu’un domaine est renommé, la synchronisation du hachage de mot de passe échoue avec une erreur indiquant « un cast spécifié n’est pas valide » dans le journal des événements. Il s’agit d’une régression par rapport aux versions antérieures.
 
 ## <a name="115820"></a>1.1.582.0
 
@@ -51,7 +59,7 @@ Vous pouvez télécharger la dernière version de l’agent en utilisant [ce lie
 ### <a name="fixed-issues"></a>Problèmes résolus
 -    Empêcher la mise en quarantaine lorsque le groupe d’étendue est hors de portée
 -   Lorsque les filtres d’étendue sont configurés, la tâche PHS ne fonctionne désormais que pour les utilisateurs concernés
--   L’agent est parfois bloqué pendant la mise à niveau
+-   L’agent arrête parfois de répondre pendant la mise à niveau
 -   Synchronisation initiale des objets dans les unités d’organisation imbriquées lors de l’utilisation de l’étendue d’UO
 -   Renforcement de Repair-AADCloudSyncToolsAccount
 -   Réduire l’utilisation importante de la mémoire des filtres d’étendue d’UO

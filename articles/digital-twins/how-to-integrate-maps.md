@@ -4,22 +4,22 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment utiliser Azure Functions pour créer une fonction capable d’utiliser le graphique de jumeaux et les notifications Azure Digital Twins afin de mettre à jour une carte d’intérieur Azure Maps.
 author: baanders
 ms.author: baanders
-ms.date: 1/19/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: dd161468cda08a0046f2f46a79a973e4bbf8b49a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 494e4b048fc33a0cd7fcfc6c354a7f757298ebef
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562623"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223480"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 
 Cet article décrit les étapes nécessaires à l’utilisation des données Azure Digital Twins pour mettre à jour les informations affichées sur un *plan intérieur* à l’aide d’[Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stocke un graphique de vos relations d’appareils IoT et achemine les données de télémétrie vers différents points de terminaison, ce qui en fait le service parfait pour mettre à jour les superpositions d’informations sur les cartes.
 
-Cette procédure couvre les sujets suivants :
+Ce guide abordera :
 
 1. Configuration de votre instance Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à une fonction dans [Azure Functions](../azure-functions/functions-overview.md).
 2. Création d’une fonction pour mettre à jour un ensemble d’états des fonctionnalités de plans intérieurs Azure Maps.
@@ -91,7 +91,7 @@ az functionapp config appsettings set --name <your-function-app-name>  --resourc
 
 Pour afficher la température mise à jour en direct, procédez comme suit :
 
-1. Commencez à envoyer des données IoT simulées en exécutant le projet **DeviceSimulator** à partir du Didacticiel Azure Digital Twins : [Connecter une solution de bout en bout](tutorial-end-to-end.md). Les instructions correspondantes se trouvent dans la section [Configurer et exécuter la simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation).
+1. Commencez à envoyer des données IoT simulées en exécutant le projet **DeviceSimulator** à partir du Didacticiel Azure Digital Twins : [Connecter une solution de bout en bout](tutorial-end-to-end.md). Les instructions pour ce processus se trouvent dans la section [Configurer et exécuter la simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation).
 2. Utilisez le [module Plans intérieurs Azure](../azure-maps/how-to-use-indoor-module.md) pour afficher des plans intérieurs créés dans Azure Maps Creator.
     1. Copiez le code HTML de la section [Exemple : Utiliser le module Indoor Maps](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) du [Didacticiel : Utiliser le module Indoor Maps d’Azure Maps](../azure-maps/how-to-use-indoor-module.md) des cartes d’intérieur dans un fichier local.
     1. Remplacez la *clé d’abonnement*, *tilesetId* et *statesetID* dans le fichier HTML local par vos valeurs.
@@ -103,11 +103,11 @@ Les deux exemples envoient la température dans une plage compatible. Vous devez
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Stocker les informations de vos cartes dans Azure Digital Twins
 
-Maintenant que vous disposez d’une solution codée en dur pour mettre à jour les informations de vos cartes, vous pouvez utiliser le graphique Azure Digital Twins pour stocker toutes les informations nécessaires à la mise à jour de votre plan intérieur. Cela inclut l’ID d’ensemble d’états, l’ID d’abonnement des cartes et l’ID de fonctionnalité de chaque mappage et emplacement respectivement. 
+Maintenant que vous disposez d’une solution codée en dur pour mettre à jour les informations de vos cartes, vous pouvez utiliser le graphique Azure Digital Twins pour stocker toutes les informations nécessaires à la mise à jour de votre plan intérieur. Cette information inclut l’ID d’ensemble d’états, l’ID d’abonnement des cartes et l’ID de fonctionnalité de chaque carte et emplacement respectivement. 
 
 Une solution pour cet exemple spécifique impliquerait la mise à jour de chaque espace de niveau supérieur pour avoir un attribut d’ID d’ensemble d’états et d’ID d’abonnement de cartes, ainsi que la mise à jour de chaque salle pour avoir un ID de fonctionnalité. Vous devez définir ces valeurs une fois lors de l’initialisation du graphique de jumeaux, puis interroger ces valeurs pour chaque événement de mise à jour de jumeau.
 
-Selon la configuration de votre topologie, vous pourrez stocker ces trois attributs à différents niveaux en corrélation avec le niveau de précision de votre carte.
+Selon la configuration de votre topologie, vous pourrez stocker ces trois attributs à différents niveaux en corrélation avec la granularité de votre carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

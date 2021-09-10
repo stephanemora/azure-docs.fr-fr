@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e45240d9d1a957765dfd362bf612ae2ea93919c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eeba1c933d049e67e45204ad62d71a0eb52a930d
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562974"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662430"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection est un outil de surveillance et de signalement bas�
 
 #### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Obtenir votre Niveau de sécurité Microsoft 365 (si vous utilisez Microsoft 365)
 
-Niveau de sécurité examine vos paramètres et activités pour les services Microsoft 365 que vous utilisez, et les compare à une base de référence établie par Microsoft. Vous obtenez un score reflétant votre degré d’alignement sur les meilleures pratiques de sécurité. Toute personne disposant des autorisations d’administrateur pour un abonnement Microsoft 365 Business Standard ou Entreprise peut accéder au Niveau de sécurité en visitant la page [https://securescore.office.com](https://securescore.office.com/).
+Niveau de sécurité examine vos paramètres et activités pour les services Microsoft 365 que vous utilisez, et les compare à une base de référence établie par Microsoft. Vous obtenez un score reflétant votre degré d’alignement sur les meilleures pratiques de sécurité. Toute personne disposant des autorisations d’administrateur pour un abonnement Microsoft 365 Business Standard ou Entreprise peut accéder au Niveau de sécurité en visitant la page `https://securescore.office.com`.
 
 #### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Passer en revue l’aide Microsoft 365 en matière de sécurité et de conformité (si vous utilisez Microsoft 365)
 

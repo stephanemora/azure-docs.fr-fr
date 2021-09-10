@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/16/2021
-ms.openlocfilehash: 749caf37ee09f9dc794dee60c6d4a5b93da43c6e
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 81c82152bf87944c7aed191c12e067567ec2b086
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114386314"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662244"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent"></a>Configurer la collecte de données pour l’agent Azure Monitor
 
@@ -89,6 +89,7 @@ Consultez les [Limitations de XPath 1.0](/windows/win32/wes/consuming-events#xpa
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
+> - **Dans l’applet de commande ci-dessus, la valeur du paramètre « -LogName » est la partie initiale de la requête XPath jusqu’à «  ! », alors que seul le reste de la requête XPath est placé dans le paramètre $XPath.**
 > - Si des événements sont retournés, la requête est valide.
 > - Si vous recevez le message *Aucun événement correspondant aux critères de sélection spécifiés n’a été trouvé*, il se peut que la requête soit valide, mais qu’il n’existe aucun événement correspondant sur l’ordinateur local.
 > - Si vous recevez le message *La requête spécifiée n’est pas valide*, la syntaxe de la requête n’est pas valide. 

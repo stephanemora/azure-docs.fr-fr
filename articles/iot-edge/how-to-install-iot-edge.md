@@ -2,19 +2,18 @@
 title: Installer Azure IoT Edge | Microsoft Docs
 description: Instructions d’installation d’Azure IoT Edge sur des appareils Windows ou Linux
 author: kgremban
-manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 06/28/2021
 ms.author: kgremban
-ms.openlocfilehash: 39e165d862d6e174f763cd58529727fd26b8bd46
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5ed9768f8cb1a6279eeb97a73d508a41984ef160
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311071"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214335"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Installation et désinstallation d’Azure IoT Edge pour Linux
 
@@ -113,25 +112,14 @@ Mettez à jour les listes de packages sur votre appareil.
    sudo apt-get update
    ```
 
-Vérifiez les versions d’IoT Edge disponibles.
-
-   ```bash
-   apt list -a iotedge
-   ```
-
-Si vous souhaitez installer la version la plus récente du démon de sécurité, utilisez la commande suivante, qui installe également la dernière version du package **libiothsm-std** :
+Installez IoT Edge version 1.1.* avec le package **libiothsm-std** :
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Si vous souhaitez installer une version spécifique du démon de sécurité, spécifiez la version dans la sortie de la commande apt list. Spécifiez également la même version pour le package **libiothsm-std**, qui, dans le cas contraire, installe sa dernière version. Par exemple, la commande suivante permet d’installer la dernière version de la mise en production 1.1 :
-
-   ```bash
-   sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
-   ```
-
-Si la version que vous souhaitez installer ne figure pas dans la liste, suivez la procédure [Installation d’une version spécifique ou hors connexion](#offline-or-specific-version-installation-optional) dans la suite de cet article. Cette section vous montre comment cibler une version antérieure du démon de sécurité IoT Edge ou des versions Release Candidate.
+>[!NOTE]
+>IoT Edge version 1.1 est la branche de support à long terme d’IoT Edge. Si vous exécutez une version antérieure, nous vous recommandons d’installer ou de mettre à jour vers le correctif le plus récent, car les versions antérieures ne sont plus prises en charge.
 
 <!-- end 1.1 -->
 ::: moniker-end
@@ -156,23 +144,19 @@ Mettez à jour les listes de packages sur votre appareil.
    sudo apt-get update
    ```
 
-Vérifiez les versions d’IoT Edge disponibles.
+Vérifiez les versions d’IoT Edge et le service d’identité IoT disponibles.
 
    ```bash
-   apt list -a aziot-edge
+   apt list -a aziot-edge aziot-identity-service
    ```
 
-Si vous souhaitez installer la version la plus récente d’IoT Edge, utilisez la commande suivante qui installe également la dernière version du package de services d’identité :
+Pour installer la dernière version d’IoT Edge et le package du service d’identité IoT, utilisez la commande suivante :
 
    ```bash
    sudo apt-get install aziot-edge
    ```
 
-Si vous souhaitez installer une version spécifique d’IoT Edge et du service d’identité, vous pouvez également spécifier les versions dans la sortie de la liste apt. Spécifiez les mêmes versions pour les deux services. Par exemple, la commande suivante permet d’installer la dernière version de la mise en production 1.2 :
-
-   ```bash
-   sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
-   ```
+Ou bien, si vous choisissez d’installer une autre version d’IoT Edge que la version la plus récente, veillez à installer la même version pour les services `aziot-edge` et `aziot-identity-service`.
 
 <!-- end 1.2 -->
 ::: moniker-end
@@ -432,6 +416,8 @@ Affichez tous les modules s’exécutant sur votre appareil IoT Edge. Lors du pr
    ```bash
    sudo iotedge list
    ```
+
+Lorsque vous créez un appareil IoT Edge, le code d’état `417 -- The device's deployment configuration is not set` s’affiche dans le portail Azure. Cet état est normal et signifie que l’appareil est prêt à recevoir un déploiement de module.
 
 ## <a name="offline-or-specific-version-installation-optional"></a>Installation d’une version spécifique hors connexion (facultatif)
 

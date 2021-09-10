@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 88674255c98559a06c33bd5030aefba9184ada58
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: bed2f746d0216a120b1f144a410a15d533ae3113
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538739"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866636"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutoriel : Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 
@@ -154,6 +154,40 @@ L’utilisateur du circuit a besoin de l’ID de ressource et d’une clé d’a
 1. Passez en revue les informations contenues dans la page **Résumé**, puis sélectionnez **OK**.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Page de résumé":::
+
+## <a name="configure-expressroute-fastpath"></a>Configurer ExpressRoute FastPath
+
+Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre passerelle de réseau virtuel est Très hautes performances ou ErGw3AZ. FastPath améliore le niveau de performance de chemin d’accès de données comme le nombre de paquets et de connexions par seconde entre votre réseau local et votre réseau virtuel.
+
+**Configurer FastPath sur une nouvelle connexion**
+
+Lorsque vous ajoutez une nouvelle connexion pour votre passerelle ExpressRoute, cochez la case **FastPath**.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="Capture d’écran de la case à cocher FastPath dans la page Ajouter une connexion.":::
+
+> [!NOTE]
+> L’activation de FastPath pour une nouvelle connexion est disponible uniquement via la création d’une connexion à partir de la ressource de passerelle. Les nouvelles connexions créées à partir du circuit ExpressRoute ou de la page des ressources de connexion ne sont pas prises en charge.
+>
+**Configurer FastPath sur une connexion existante**
+
+1. Accédez à la ressource de connexion existante à partir de la passerelle ExpressRoute, du circuit ExpressRoute ou de la page Ressource de connexion.
+
+1.  Sélectionnez **Configuration** sous *Paramètres* puis sélectionnez **FastPath**. Sélectionnez **Enregistrer** pour activer la fonctionnalité.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-connection.png" alt-text="Capture d’écran de la case à cocher FastPath dans la page Configuration de la connexion.":::
+
+> [!NOTE]
+> Vous pouvez utiliser [Moniteur de connexion](how-to-configure-connection-monitor.md) pour vérifier que votre trafic atteint la destination à l’aide de FastPath.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>S’inscrire dans les fonctionnalités de ExpressRoute FastPath (préversion)
+
+La prise en charge de FastPath pour le peering de réseaux virtuels est désormais en préversion publique. L’inscription est disponible uniquement par le biais d’Azure PowerShell. Pour obtenir des instructions sur l’inscription, consultez [Fonctionnalités d’évaluation de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
+
+> [!NOTE] 
+> Si vous avez déjà configuré FastPath et que vous souhaitez vous inscrire à la fonctionnalité d’évaluation, vous devez effectuer les opérations suivantes :
+> 1. Inscrivez-vous à la fonctionnalité en préversion FastPath avec la commande Azure PowerShell ci-dessus.
+> 1. Désactivez, puis réactivez FastPath sur la connexion cible.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

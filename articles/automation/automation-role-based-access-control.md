@@ -4,15 +4,15 @@ description: Cet article décrit comment utiliser le contrôle d’accès en fon
 keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2020
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 943fa65f114e46c80c8c1ef576f784f9117c9f79
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4af5a6d105867df7d5c7a00f6fc47bd0032f4336
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083797"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597410"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -62,7 +62,7 @@ Un contributeur peut tout gérer, sauf les accès. Le tableau suivant indique le
 
 ### <a name="reader"></a>Lecteur
 
-Un lecteur peut afficher toutes les ressources d’un compte Automation, mais il ne peut pas apporter de changements.
+Un lecteur peut afficher toutes les ressources d’un compte Automation, mais il ne peut pas y apporter de modifications.
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -258,13 +258,92 @@ Les sections suivantes décrivent les autorisations minimales nécessaires pour 
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write           | Espace de travail        |
 |Créer/modifier la configuration d’étendue  | Microsoft.OperationalInsights/workspaces/write   | Espace de travail|
 
-## <a name="update-management-permissions"></a>Mettre à jour les autorisations de gestion
+## <a name="custom-azure-automation-contributor-role"></a>Rôle Contributeur Azure Automation personnalisé
 
-La gestion des mises à jour s’étend à plusieurs services pour fournir son service. Le tableau suivant présente les autorisations nécessaires pour gérer les déploiements de gestion des mises à jour :
+Microsoft envisage de supprimer les droits de compte Automation du rôle Contributeur Log Analytics. Actuellement, le rôle [Contributeur Log Analytics](#log-analytics-contributor) intégré décrit ci-dessus peut élever les privilèges du rôle [Contributeur](./../role-based-access-control/built-in-roles.md#contributor) d’abonnement. Les comptes d’identification de compte Automation étant initialement configurés avec des droits Contributeur sur l’abonnement, ils peuvent être utilisés par un attaquant pour créer de nouveaux runbooks et exécuter du code en tant que Contributeur sur l’abonnement.
+
+Compte tenu de ce risque de sécurité, nous vous recommandons de ne pas utiliser le rôle Contributeur Log Analytics pour exécuter des tâches Automation. Créez plutôt le rôle personnalisé Contributeur Azure Automation et utilisez-le pour les actions associées au compte Automation. Procédez comme suit pour créer ce rôle personnalisé.
+
+### <a name="create-using-the-azure-portal"></a>Création à l’aide du portail Azure
+
+Suivez la procédure qui vous permet de créer un compte personnalisé Azure Automation dans le portail Azure. Pour en savoir plus, consultez [Rôles personnalisés Azure](./../role-based-access-control/custom-roles.md).
+
+1. Copiez et collez la syntaxe JSON suivante dans un fichier. Enregistrez le fichier sur votre ordinateur local ou dans un compte de stockage Azure. Dans le fichier JSON, remplacez la valeur de la propriété **assignableScopes** par le GUID d’abonnement.
+
+   ```json
+   {
+    "properties": {
+        "roleName": "Automation Account Contributor (Custom)",
+        "description": "Allows access to manage Azure Automation and its resources",
+        "assignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Insights/metrics/read",
+                    "Microsoft.Insights/diagnosticSettings/*",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Automation/automationAccounts/*",
+                    "Microsoft.Support/*"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+      }
+   }
+   ```
+
+1. Effectuez les étapes restantes comme indiqué dans [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](../role-based-access-control/custom-roles-portal.md#start-from-json). Pour l’[Étape 3 : concepts de base](../role-based-access-control/custom-roles-portal.md#step-3-basics), notez ce qui suit :
+
+    -  Dans le champ **Nom de rôle personnalisé**, entrez **Contributeur de compte Automation (personnalisé)** ou un nom conforme à vos conventions de nommage.
+    - Pour **Autorisations de base**, sélectionnez **Démarrer à partir d’un JSON**. Sélectionnez ensuite le fichier JSON personnalisé que vous avez enregistré précédemment.
+
+1. Effectuez les étapes restantes, puis examinez et créez le rôle personnalisé. Plusieurs minutes peuvent s’écouler avant que votre rôle personnalisé s’affiche partout.
+
+### <a name="create-using-powershell"></a>Créer à l’aide de PowerShell
+
+Suivez la procédure qui vous permet de créer un compte personnalisé Azure Automation avec PowerShell. Pour en savoir plus, consultez [Rôles personnalisés Azure](./../role-based-access-control/custom-roles.md).
+
+1. Copiez et collez la syntaxe JSON suivante dans un fichier. Enregistrez le fichier sur votre ordinateur local ou dans un compte de stockage Azure. Dans le fichier JSON, remplacez la valeur de la propriété **AssignableScopes** par le GUID d’abonnement.
+
+    ```json
+    { 
+        "Name": "Automation account Contributor (custom)",
+        "Id": "",
+        "IsCustom": true,
+        "Description": "Allows access to manage Azure Automation and its resources",
+        "Actions": [
+            "Microsoft.Authorization/*/read",
+            "Microsoft.Insights/alertRules/*",
+            "Microsoft.Insights/metrics/read",
+            "Microsoft.Insights/diagnosticSettings/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/subscriptions/resourceGroups/read",
+            "Microsoft.Automation/automationAccounts/*",
+            "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "AssignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ] 
+    } 
+    ```
+
+1. Effectuez les étapes restantes comme indiqué dans [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). Plusieurs minutes peuvent s’écouler avant que votre rôle personnalisé s’affiche partout.
+
+## <a name="update-management-permissions"></a>Autorisations Update Management
+
+Update Management peut être utilisé pour évaluer et planifier des déploiements de mises à jour sur des machines présentes dans plusieurs abonnements, dans le même locataire Azure Active Directory (Azure AD) ou dans plusieurs locataires, à l’aide d’Azure Lighthouse. Le tableau suivant indique les autorisations nécessaires pour gérer les déploiements de mises à jour.
 
 |**Ressource** |**Rôle** |**Portée** |
 |---------|---------|---------|
-|Compte Automation |Contributeur Log Analytics |Compte Automation |
+|Compte Automation |[Rôle Contributeur Azure Automation personnalisé](#custom-azure-automation-contributor-role) |Compte Automation |
 |Compte Automation |Contributeur de machine virtuelle  |Groupe de ressources pour le compte  |
 |Espace de travail Log Analytics  Contributeur Log Analytics|Espace de travail Log Analytics |
 |Espace de travail Log Analytics |Lecteur Log Analytics|Abonnement|
@@ -400,7 +479,7 @@ Dans l’exemple précédent, remplacez `sign-in ID of a user you wish to remove
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Expérience utilisateur pour le rôle Opérateur d’Automation – Compte Automation
 
-Quand un utilisateur affecté au rôle Opérateur Automation sur l’étendue du compte Automation consulte le compte Automation auquel il est affecté, il peut afficher uniquement la liste des runbooks, des tâches de runbook et des planifications créés dans le compte Automation. Cet utilisateur ne peut pas afficher les définitions de ces éléments. Il peut démarrer, arrêter, interrompre, reprendre ou planifier la tâche de runbook. Toutefois, l’utilisateur n’a pas accès aux autres ressources Automation telles que les configurations, les groupes de Workers hybrides ou les nœuds DSC.
+Quand un utilisateur affecté au rôle Opérateur Automation sur l’étendue du compte Automation consulte le compte Automation auquel il est affecté, il peut afficher uniquement la liste des runbooks, des tâches de runbook et des planifications créés dans le compte Automation. Cet utilisateur ne peut pas afficher les définitions de ces éléments. Il peut démarrer, arrêter, interrompre, reprendre ou planifier la tâche de runbook. Toutefois, l’utilisateur n’a pas accès aux autres ressources Automation telles que les configurations, les groupes de Runbooks Worker hybrides ou les nœuds DSC.
 
 ![Aucun accès aux ressources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 

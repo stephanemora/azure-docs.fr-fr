@@ -3,18 +3,18 @@ title: Gérer et rechercher des données blob Azure dans l’index d’objet blo
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
 author: normesta
 ms.author: normesta
-ms.date: 06/14/2021
+ms.date: 08/25/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: c4ff918be67d74d536159ebbd3e707c1d7e68e8b
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 95262d66be9300cc1c88ec80e3da4a5367705c76
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730745"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969413"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Gérer et rechercher des données blob Azure dans l’index d’objet blob
 
@@ -23,8 +23,11 @@ Plus les jeux de données croissent, plus la recherche d’un objet spécifique 
 Les balises d’index de blob vous permettent d’effectuer les actions suivantes :
 
 - Classer dynamiquement vos blobs à l’aide de balises d’index clé-valeur
+
 - Rechercher rapidement des blobs spécifiques balisés dans un compte de stockage entier
+
 - Spécifier des comportements conditionnels pour les API d’objets blob en fonction de l’évaluation des étiquettes d’index
+
 - Utiliser des balises d’index pour les contrôles avancés sur les fonctionnalités telles que la [gestion du cycle de vie des blobs](storage-lifecycle-management-concepts.md)
 
 Imaginez un scénario dans lequel vous avez des millions de blobs dans votre compte de stockage, accessibles par de nombreuses applications différentes. Vous souhaitez rechercher toutes les données associées à un projet. Vous n’êtes pas certain de l’étendue concernée, car les données peuvent être réparties sur plusieurs conteneurs avec des conventions d’affectation de noms différentes. Toutefois, vos applications chargent toutes les données avec des balises en fonction de leur projet. Au lieu de rechercher parmi des millions de blobs et de comparer les noms et les propriétés, vous pouvez utiliser `Project = Contoso` comme critère de découverte. Un index de blob filtrera tous les conteneurs sur l’ensemble de votre compte de stockage pour rechercher et renvoyer rapidement un simple ensemble de 50 blobs à partir de `Project = Contoso`.
@@ -38,9 +41,13 @@ Les préfixes de nom de blob et de conteneur constituent des catégorisations un
 Considérez les cinq objets blob suivants dans votre compte de stockage :
 
 - *container1/transaction.csv*
+
 - *container2/campaign.docx*
+
 - *photos/bannerphoto.png*
+
 - *archives/completed/2019review.pdf*
+
 - *logs/2020/01/01/logfile.txt*
 
 Ces blobs sont séparés à l’aide d’un préfixe de *nom de conteneur/dossier virtuel/blob*. Vous pouvez définir un attribut de balise d’index `Project = Contoso` sur ces cinq blobs pour les classer ensemble tout en maintenant leur organisation de préfixe actuelle. L’ajout de balises d’index évite d’avoir à déplacer les données en exposant la capacité de filtrer et de rechercher des données à l’aide de l’index.
@@ -65,20 +72,30 @@ Vous pouvez appliquer plusieurs étiquettes à votre objet blob pour mieux décr
 > "Status" = 'Unprocessed'  
 > "Priority" = '01'
 
-Pour modifier les attributs de balise d’index existants, récupérez les attributs de balise existants, modifiez-les et remplacez-les à l’aide d’une opération [Set Blob Tags](/rest/api/storageservices/set-blob-tags). Pour supprimer toutes les balises d’index du blob, appelez l’opération `Set Blob Tags` sans spécifier d’attributs de balise. Comme les balises d’index de blob sont une sous-ressource du contenu des données blob, `Set Blob Tags` ne modifie pas le contenu sous-jacent ni la propriété Last-Modified-Time ou l’ETag du blob. Vous pouvez créer ou modifier des balises d’index pour tous les blobs de base actuels et les versions précédentes. Toutefois, les balises sur les instantanés ou les blobs supprimés de manière réversible ne peuvent pas être modifiées.
+Pour modifier les attributs de balise d’index existants, récupérez les attributs de balise existants, modifiez-les et remplacez-les à l’aide d’une opération [Set Blob Tags](/rest/api/storageservices/set-blob-tags). Pour supprimer toutes les balises d’index du blob, appelez l’opération `Set Blob Tags` sans spécifier d’attributs de balise. Comme les balises d’index de blob sont une sous-ressource du contenu des données blob, `Set Blob Tags` ne modifie pas le contenu sous-jacent ni la propriété Last-Modified-Time ou l’ETag du blob. Vous pouvez créer ou modifier des balises d’index pour tous les blobs de base actuels. Les balises d'index sont également conservées pour les versions précédentes, mais elles ne sont pas transmises au moteur d'indexation des blobs. Vous ne pouvez donc pas interroger les balises d'index pour retrouver les versions précédentes. Les balises sur les instantanés ou les blobs supprimés de manière réversible ne peuvent pas être modifiées.
 
 Les limites suivantes s’appliquent aux étiquettes d’un index d’objet blob :
 
 - Chaque objet blob peut avoir jusqu’à 10 étiquettes d’index d’objet blob.
+
 - Les clés de balise doivent comporter entre 1 et 128 caractères.
+
 - Les valeurs de balise doivent comporter entre 0 et 256 caractères.
+
 - Les clés et les valeurs d’étiquette sont sensibles à la casse.
+
 - Les clés et les valeurs de balise prennent uniquement en charge les données de type chaîne. Les nombres, les dates, les heures ou les caractères spéciaux sont enregistrés sous forme de chaîne.
+
 - Les clés et les valeurs d’étiquette doivent respecter les règles de nommage suivantes :
+
   - Caractères alphanumériques :
+
     - **a** à **z** (lettres minuscules)
+
     - **A** à **Z** (lettres majuscules)
+
     - **0** à **9** (chiffres)
+
   - Caractères spéciaux valides : espace, plus, moins, point, deux-points, égal, trait de soulignement, barre oblique (` +-.:=_/`)
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Obtention et affichage de la liste des étiquettes d’index d’objet blob
@@ -106,11 +123,17 @@ L’opération [Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags
 Les critères suivants s’appliquent au filtrage de l’index d’objet blob :
 
 - Les clés des étiquettes doivent être placées entre guillemets doubles (").
+
 - Les valeurs des étiquettes et les noms des conteneurs doivent être placés entre guillemets simples (').
+
 - Le caractère @ est autorisé uniquement pour le filtrage sur un nom de conteneur spécifique (p. ex., `@container = 'ContainerName'`).
+
 - Les filtres sont appliqués avec un tri lexicographique sur les chaînes.
+
 - Des opérations de comparaison dans un même sens sur la même clé ne sont pas valides (p. ex., `"Rank" > '10' AND "Rank" >= '15'`).
+
 - Lorsque vous utilisez REST pour créer une expression de filtre, les caractères doivent être encodés sous forme d’URI.
+
 - Les requêtes d’étiquette sont optimisées pour la correspondance d’égalité avec une seule étiquette (par exemple, StoreID = "100").  Les requêtes de plage utilisant une seule étiquette impliquant >, >=, <, <= sont également efficaces. Toute requête utilisant AND avec plusieurs étiquettes ne sera pas aussi efficace.  Par exemple, Coût > "01" AND Coût <= "100" est efficace. Coût > "01 AND StoreID = "2" n’est pas aussi efficace.
 
 Le tableau ci-dessous montre tous les opérateurs valides pour `Find Blobs by Tags` :
@@ -220,7 +243,9 @@ L’exemple de règle de gestion du cycle de vie suivant s’applique aux objets
 Vous pouvez autoriser l’accès aux balises d’index de blob à l’aide de l’une des approches suivantes :
 
 - En utilisant le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité Azure Active Directory (Azure AD). Utilisez Azure AD pour une meilleure sécurité et une plus grande facilité d’utilisation. Pour plus d’informations sur l’utilisation d’Azure AD avec les opérations blob, consultez [Autoriser l’accès aux données dans le stockage Azure](../common/authorize-data-access.md).
+
 - En utilisant une signature d’accès partagé (SAP) pour déléguer l’accès à l’index de blob. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../common/storage-sas-overview.md).
+
 - En utilisant les clés d’accès au compte pour autoriser les opérations avec une clé partagée. Pour plus d’informations, consultez [Autoriser avec une clé partagée](/rest/api/storageservices/authorize-with-shared-key).
 
 Les balises d’index de blob sont une sous-ressource des données blob. Un utilisateur disposant d’autorisations ou d’un jeton SAS pour lire ou écrire des objets blob peut ne pas avoir accès aux étiquettes d’index d’objet blob.
@@ -292,19 +317,22 @@ Les balises d’index d’objets blob sont actuellement disponibles dans toutes 
 Pour commencer, consultez [Utiliser des balises d’index de blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
-> Vous devez inscrire votre abonnement avant de pouvoir utiliser l’index d’objet blob dans vos comptes de stockage. Consultez la section [Conditions et problèmes connus](#conditions-and-known-issues) de cet article.
+> Consultez la section [Conditions et problèmes connus](#conditions-and-known-issues) de cet article.
 
 ## <a name="conditions-and-known-issues"></a>Conditions et problèmes connus
 
 Cette section décrit les problèmes connus et les conditions dans lesquelles ils se produisent.
 
 - Seuls les comptes v2 universels sont pris en charge. Les objets blob de blocs Premium, les objets blob hérités et les comptes avec un espace de noms hiérarchique activé ne sont pas pris en charge. Les comptes v1 universels ne sont pas pris en charge.
+
 - Le chargement d’objets blob de pages avec des balises d’index ne conserve pas les balises. Définissez les balises après le chargement d’un objet blob de pages.
-- Lorsque le filtrage est limité à un conteneur individuel, il est possible de passer `@container` seulement si toutes les étiquettes d’index dans l’expression de filtre sont des contrôles d’égalité (clé=valeur).
-- Lorsque vous utilisez l’opérateur de comparaison avec la condition `AND`, vous pouvez uniquement spécifier le même nom de clé de balise d’index (`"Age" > '013' AND "Age" < '100'`).
-- Si le contrôle de version est activé, vous pouvez continuer à utiliser des balises d’index dans la version actuelle. Dans les versions précédentes, les balises d’index sont conservées pour les versions, mais elles ne sont pas passées au moteur d’index d’objets blob. Vous ne pouvez pas interroger des balises d’index pour récupérer les versions précédentes.
+
+- Si le contrôle de version est activé, vous pouvez continuer à utiliser des balises d’index dans la version actuelle. Les balises d'index sont conservées pour les versions précédentes, mais ces balises ne sont pas transmises au moteur d'indexation des blobs, de sorte que vous ne pouvez pas les utiliser pour retrouver les versions précédentes. Si vous promouvez une version antérieure à la version actuelle, les balises de cette version antérieure deviennent les balises de la version actuelle. Comme ces balises sont associées à la version actuelle, elles sont transmises au moteur d'indexation des blobs et vous pouvez les interroger. 
+
 - Il n’existe aucune API permettant de déterminer si les balises d’index sont indexées.
+
 - La gestion du cycle de vie prend en charge uniquement les contrôles d’égalité avec correspondance d’index de blob.
+
 - `Copy Blob` ne copie pas les balises d’index de blob du blob source dans le nouveau blob de destination. Vous pouvez spécifier les étiquettes que vous souhaitez appliquer à l’objet blob de destination pendant l’opération de copie.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)

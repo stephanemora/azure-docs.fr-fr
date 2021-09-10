@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/16/2021
+ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: e61660a5c559012cbf4940356bd1a204f3203db6
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: bcda86cd166e410bfc546c802466180557a92dc8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534745"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825054"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,7 +114,27 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
 Un aspect important de la classification est la possibilité de superviser l’accès aux données sensibles. [L’audit Azure SQL](../../azure-sql/database/auditing-overview.md) a été amélioré pour inclure un nouveau champ nommé `data_sensitivity_information` dans le journal d’audit. Ce champ enregistre les classifications (étiquettes) de sensibilité des données retournées par une requête. Voici un exemple :
 
-![Journal d’audit](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
+[![Journal d’audit](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+
+Ce sont les activités qui peuvent être auditées à l’aide des informations de sensibilité :
+- ALTER TABLE ... DROP COLUMN
+- BULK INSERT
+- Suppression
+- INSERT
+- MERGE
+- UPDATE
+- UPDATETEXT
+- WRITETEXT
+- DROP TABLE
+- BACKUP
+- DBCC CloneDatabase
+- SELECT INTO
+- INSERT INTO EXEC
+- TRUNCATE TABLE
+- DBCC SHOW_STATISTICS
+- sys.dm_db_stats_histogram
+
+Utilisez [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) pour renvoyer des informations à partir d’un fichier d’audit stocké dans un compte stockage Azure.
 
 ## <a name="permissions"></a><a id="permissions"></a>Autorisations
 
@@ -126,15 +146,25 @@ Ces rôles intégrés peuvent lire la classification des données d’une base d
 - Gestionnaire de sécurité SQL
 - Administrateur de l'accès utilisateur
 
+Voici les actions requises pour lire la classification des données d’une base de données :
+
+- Microsoft.Sql/servers/databases/currentSensitivityLabels/*
+- Microsoft.Sql/servers/databases/recommendedSensitivityLabels/*
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 Ces rôles intégrés peuvent modifier la classification des données d’une base de données :
 
 - Propriétaire
 - Contributeur
 - Gestionnaire de sécurité SQL
 
+Voici l’action requise pour modifier la classification des données d’une base de données :
+
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 En savoir plus sur les autorisations en fonction du rôle dans [Azure RBAC](../../role-based-access-control/overview.md).
 
-## <a name="manage-classifications"></a><a id="manage-classification"></a>Gérer les classifications
+## <a name="manage-classifications"></a>Gérer les classifications
 
 Vous pouvez utiliser T-SQL, une API REST ou PowerShell pour gérer les classifications.
 
@@ -184,14 +214,21 @@ Vous pouvez utiliser l’API REST pour gérer par programme les classifications 
 - [Afficher la liste actuelle par base de données](/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : Obtient les étiquettes de sensibilité actuelles de la base de données spécifiée.
 - [Liste recommandée par base de données](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : Obtient les étiquettes de sensibilité recommandées pour la base de données spécifiée.
 
+## <a name="retrieve-classifications-metadata-using-sql-drivers"></a>Récupérer les métadonnées de classification à l’aide de pilotes SQL
+
+Vous pouvez utiliser les pilotes SQL suivants pour récupérer les métadonnées de classification :
+
+- [Pilote ODBC](https://docs.microsoft.com/sql/connect/odbc/data-classification)
+- [Pilote OLE DB](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
+- [Pilote JDBC](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
+- [Pilotes Microsoft SQL Server pour PHP](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
 
 ## <a name="faq---advanced-classification-capabilities"></a>Questions fréquentes (FAQ) - Fonctionnalités de classification avancées
 
 **Question** : [Azure Purview](../../purview/overview.md) remplacera-t-il la fonctionnalité Découverte et classification des données SQL ou celle-ci sera-t-elle bientôt mise hors service ?
 **Réponse** : Nous continuons à prendre en charge la fonctionnalité Découverte et classification des données SQL et vous encourageons à adopter [Azure Purview](../../purview/overview.md), qui offre des fonctionnalités plus riches en termes de classification avancée et de gouvernance des données. Si nous décidons de retirer un service, une fonctionnalité, une API ou une référence SKU, vous recevez des notifications préalables indiquant comment opérer une migration ou une transition. Découvrez-en plus sur les stratégies de cycle de vie Microsoft ici.
 
-
-## <a name="next-steps"></a><a id="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Vous pouvez configurer [l’audit Azure SQL](../../azure-sql/database/auditing-overview.md) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
 - Pour une présentation incluant la découverte et la classification des données, consultez [Découverte, classification, étiquetage et protection des données SQL | Données exposées](https://www.youtube.com/watch?v=itVi9bkJUNc).

@@ -1,15 +1,15 @@
 ---
 title: Informations de référence - Base de référence de configuration Invité d’Azure Policy pour Windows
 description: Détails de la base de référence Windows sur Azure implémentée par le biais de la configuration Invité d’Azure Policy.
-ms.date: 08/03/2021
+ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 359849bf8339fb8f5c4e668d39be7657c5dc4e2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c69a15fc97a605e1166a1721cb9e2fef9ce21ab7
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525025"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779168"
 ---
 # <a name="windows-security-baseline"></a>Base de référence de sécurité Windows
 

@@ -1,17 +1,17 @@
 ---
-title: Configurer une appliance scale-out Azure Migrate pour une migration VMware sans agent
+title: Configurer une appliance de montée en puissance parallèle Azure Migrate pour une migration VMware sans agent
 description: Découvrez comment configurer une appliance de montée en puissance parallèle Azure Migrate pour migrer des machines virtuelles Hyper-V.
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 5c8858e50707209b47eb61d554a8e4f7313c92c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56f79028b2424d8383a0a4a3cb27639f3924ff90
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562432"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779618"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -70,7 +70,7 @@ Dans **Télécharger l’appliance Azure Migrate**, cliquez sur **Télécharger*
 > 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Téléchargez la dernière version du programme d’installation de l’appliance de scale-out à partir du portail si la valeur de hachage calculée ne correspond pas à cette chaîne : b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+> 3. Téléchargez la dernière version du programme d’installation de l’appliance de scale-out à partir du portail si la valeur de hachage calculée ne correspond pas à cette chaîne : CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
 

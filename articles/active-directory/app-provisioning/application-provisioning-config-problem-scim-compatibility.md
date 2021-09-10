@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f74e9a4f99523e26feb703f5ed2bedf33366f8d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9cf7fd49562f83976a10150d953a0afc8b994ed4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562808"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102790"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
@@ -43,12 +43,12 @@ Dans le tableau ci-dessous, tout élément marqué comme corrigé signifie que l
 | Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  Oui  | 18 décembre 2018  | Passage à la version antérieure customappSSO |
 | Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | Oui  |  18 décembre 2018  | passage à la version antérieure customappSSO |
 | Les demandes de création de groupe contiennent une URI de schéma non valide | Oui  |  18 décembre 2018  |  passage à la version antérieure customappSSO |
-| Mise à jour du comportement des PATCH pour garantir la conformité (par exemple, actif en tant que valeur booléenne et suppressions appropriées d’appartenance à un groupe) | Non | TBD| utiliser un indicateur d’aperçu |
+| Mise à jour du comportement des PATCH pour garantir la conformité (par exemple, actif en tant que valeur booléenne et suppressions appropriées d’appartenance à un groupe) | Non | TBD| utiliser des indicateurs de fonctionnalité |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Indicateurs permettant de modifier le comportement de SCIM
 Utilisez les indicateurs ci-dessous dans l’URL du locataire de votre application afin de modifier le comportement de client SCIM par défaut.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Indicateurs SCIM pour comportement ultérieur.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.png" alt-text="Indicateurs SCIM pour comportement ultérieur.":::
 
 Utilisez l’URL suivante pour mettre à jour le comportement des PATCH et garantir la conformité SCIM. L’indicateur modifie les comportements suivants :                
 - Demandes effectuées pour désactiver des utilisateurs
@@ -56,7 +56,7 @@ Utilisez l’URL suivante pour mettre à jour le comportement des PATCH et garan
 - Demandes effectuées pour remplacer plusieurs attributs
 - Demandes effectuées pour supprimer un membre du groupe        
                                                                                      
-Ce comportement est actuellement disponible uniquement lorsque vous utilisez l’indicateur, mais il deviendra le comportement par défaut au cours des prochains mois. Notez que cet indicateur de préversion ne fonctionne actuellement pas avec l’approvisionnement à la demande. 
+Ce comportement est actuellement disponible uniquement lorsque vous utilisez l’indicateur, mais il deviendra le comportement par défaut au cours des prochains mois. Notez que cet indicateur de fonctionnalité ne fonctionne actuellement pas avec l’approvisionnement à la demande. 
   * **URL (conforme à SCIM) :** aadOptscim062020
   * **Références RFC SCIM :** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2    
@@ -275,7 +275,7 @@ Les étapes ci-dessous ont pour effet de supprimer votre travail customappsso ex
 10. Exécutez la commande ci-dessous pour créer un nouveau travail d’approvisionnement avec les derniers correctifs de service.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "scim"   }`
+ `{   "templateId": "scim"   }`
    
 11. Dans les résultats de la dernière étape, copiez la chaîne « ID » complète qui commence par « scim ». Si vous le souhaitez, réappliquez vos anciens mappages d’attributs en exécutant la commande ci-dessous, en remplaçant [new-job-id] par le nouvel ID de travail que vous avez copié, et en entrant la sortie JSON de l’étape n° 7 en tant que corps de la demande.
 

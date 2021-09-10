@@ -8,32 +8,36 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fecf2ea565343ad2f91471ba1be98df513b55478
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: e8b469eb7eb94ad5454f79c4c4893597670867ac
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115716"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969506"
 ---
 # <a name="mount-smb-azure-file-share-on-windows"></a>Monter un partage de fichiers SMB Azure sur Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
 
 Pour utiliser un partage de fichiers Azure via le point de terminaison public en dehors de la région Azure dans laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.x. Les versions antérieures de Windows qui prennent uniquement en charge SMB 2.1 ne peuvent pas monter de partages de fichiers Azure via le point de terminaison public.
 
-| Version de Windows | Version SMB | Chiffrement maximal du canal SMB |
+| Version de Windows | Version SMB | Azure Files SMB Multichannel | Chiffrement maximal du canal SMB |
 |-|-|-|-|
-| Windows 10, version 21H1 | SMB 3.1.1 | AES-256-GCM |
-| Canal semi-annuel Windows Server version 21H1 | SMB 3.1.1 | AES-256-GCM |
-| Windows Server 2019 | SMB 3.1.1 | AES-128-GCM |
-| Windows 10<br />Versions : 1607, 1809, 1909, 2004 et 20H2 | SMB 3.1.1 | AES-128-GCM |
-| Canal semi-annuel Windows Server<br />Versions : 2004 et 20H2 | SMB 3.1.1 | AES-128-GCM |
-| Windows Server 2016 | SMB 3.1.1 | AES-128-GCM |
-| Windows 10, version 1507 | SMB 3.0 | AES-128-GCM |
-| Windows 8.1 | SMB 3.0 | AES-128-CCM |
-| Windows Server 2012 R2 | SMB 3.0 | AES-128-CCM |
-| Windows Server 2012 | SMB 3.0 | AES-128-CCM |
-| Windows 7<sup>1</sup> | SMB 2.1 | Non prise en charge |
-| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | Non prise en charge |
+| Windows Server 2022 | SMB 3.1.1 | Oui | AES-256-GCM |
+| Windows 10, version 21H1 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-256-GCM |
+| Windows Server, version 20H2 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
+| Windows 10, version 20H2 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
+| Windows Server, version 2004 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
+| Windows 10, version 2004 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
+| Windows Server 2019 | SMB 3.1.1 | Oui, avec KB5003703 ou plus récent | AES-128-GCM |
+| Windows 10, version 1809 | SMB 3.1.1 | Oui, avec KB5003703 ou plus récent | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | Oui, avec KB5004238 ou plus récent | AES-128-GCM |
+| Windows 10, version 1607 | SMB 3.1.1 | Oui, avec KB5004238 ou plus récent | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.1.1 | Oui, avec KB5004249 ou plus récent | AES-128-GCM |
+| Windows Server 2012 R2 | SMB 3.0 | Non | AES-128-CCM |
+| Windows 8.1 | SMB 3.0 | Non | AES-128-CCM |
+| Windows Server 2012 | SMB 3.0 | Non | AES-128-CCM |
+| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | Non | Non pris en charge |
+| Windows 7<sup>1</sup> | SMB 2.1 | Non | Non pris en charge |
 
 <sup>1</sup>Le support Microsoft standard pour Windows 7 et Windows Server 2008 R2 est terminé. Il est possible d’acheter du support supplémentaire pour les mises à jour de sécurité par l’intermédiaire du [Programme des correctifs de sécurité étendus (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates) uniquement. Nous vous recommandons vivement de procéder à la migration de ces systèmes d’exploitation.
 

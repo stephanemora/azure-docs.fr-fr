@@ -1,21 +1,21 @@
 ---
-title: Vue d’ensemble du stockage d’immuabilité pour le Stockage Blob
+title: Vue d’ensemble du stockage immuable pour les données blob
 titleSuffix: Azure Storage
 description: Le Stockage Azure assure la prise en charge des disques optiques non réinscriptibles (WORM) pour le Stockage Blob, qui permettent aux utilisateurs de stocker des données dans un état immuable et non effaçable. Les stratégies de rétention basées sur le temps stockent les données blob dans un état WORM pendant un intervalle spécifié, alors que les archivages juridiques restent en place jusqu’à ce qu’ils soient explicitement effacés.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 44d968ed8e01473055fab94723e1b41256f41082
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: ed7a8fb4420108ea76e21e30f14897e5857c0445
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528041"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273192"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -113,9 +113,9 @@ Les stratégies d’immuabilité sont prises en charge pour les comptes de stock
 
 | Type de stratégie d’immuabilité | Étendue de la stratégie | Types de comptes de stockage pris en charge | Prend en charge l’espace de noms hiérarchique (préversion) |
 |--|--|--|--|
-| Stratégie de rétention limitée dans le temps | Étendue au niveau de la version (préversion) | Usage général v2<br />Objet blob de blocs Premium | No |
+| Stratégie de rétention limitée dans le temps | Étendue au niveau de la version (préversion) | Usage général v2<br />Objet blob de blocs Premium | Non |
 | Stratégie de rétention limitée dans le temps | Étendue au niveau du conteneur | Usage général v2<br />Objet blob de blocs Premium<br />v1 universel (héritée)<sup>1</sup><br> Stockage d’objets blob (hérité) | Oui |
-| Conservation légale | Étendue au niveau de la version (préversion) | Usage général v2<br />Objet blob de blocs Premium | No |
+| Conservation légale | Étendue au niveau de la version (préversion) | Usage général v2<br />Objet blob de blocs Premium | Non |
 | Conservation légale | Étendue au niveau du conteneur | Usage général v2<br />Objet blob de blocs Premium<br />v1 universel (héritée)<sup>1</sup><br> Stockage d’objets blob (hérité) | Oui |
 
 <sup>1</sup> Microsoft recommande de mettre à niveau les comptes v1 universels vers v2 universel pour vous permettre de tirer parti d’un plus grand nombre de fonctionnalités. Pour plus d’informations sur la mise à niveau d’un compte de stockage v1 universel, consultez [Mettre à niveau un compte de stockage](../common/storage-account-upgrade.md).
@@ -165,6 +165,8 @@ Si vous ne vous acquittez pas de votre facture et que votre compte présente une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Stratégies de rétention basées sur le temps pour les données d’objets blob immuables](immutable-time-based-retention-policy-overview.md)
-- [Conservation légale des données d’objets blob immuables](immutable-legal-hold-overview.md)
 - [Vue d’ensemble de la protection des données](data-protection-overview.md)
+- [Stratégies de rétention limitées dans le temps pour les données d’objets blob immuables](immutable-time-based-retention-policy-overview.md)
+- [Conservation légale des données d’objets blob immuables](immutable-legal-hold-overview.md)
+- [Configurer des stratégies d’immuabilité pour les versions d’objets blob (préversion)](immutable-policy-configure-version-scope.md)
+- [Configurer des stratégies d’immuabilité pour les conteneurs](immutable-policy-configure-container-scope.md)

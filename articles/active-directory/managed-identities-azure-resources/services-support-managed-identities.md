@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: fad9f2566384e824c72a4914c1fdab598b99a5cf
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: a7022c9de1449d0c4001b1d814eeb9464b98c24a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634430"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769980"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -82,10 +82,10 @@ Kubernetes avec Azure Arc [prend actuellement en charge l’identité attribuée
 | Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | Non disponible |
 | Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
-Tous les serveurs avec Azure Arc ont une identité affectée par le système. Vous ne pouvez pas désactiver ni modifier l’identité affectée par le système sur un serveur avec Azure Arc. Reportez-vous aux ressources suivantes pour en savoir plus sur l’utilisation des identités managées sur des serveurs avec Azure Arc :
+Tous les serveurs compatibles avec Azure Arc ont une identité attribuée par le système. Vous ne pouvez pas désactiver ou modifier l'identité attribuée par le système sur un serveur compatible avec Azure Arc. Reportez-vous aux ressources suivantes pour en savoir plus sur l’utilisation des identités managées sur des serveurs avec Azure Arc :
 
 - [S’authentifier auprès de ressources Azure au moyen de serveurs avec Arc](../../azure-arc/servers/managed-identity-authentication.md)
-- [Utilisation d’une identité managée avec les serveurs Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+- [Utilisation d’une identité managée sur les serveurs avec Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 

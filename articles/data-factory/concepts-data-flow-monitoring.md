@@ -1,24 +1,28 @@
 ---
 title: Supervision des flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Guide pratique pour superviser visuellement les flux de données de mappage dans Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/11/2021
-ms.openlocfilehash: 18481a24bb9e8d5624cb52c9b02833204d4f403d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: synapse
+ms.date: 06/18/2021
+ms.openlocfilehash: b64ed4b59c2aba13640dec2f19dfa4e42696ce59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076589"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642075"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Après avoir généré et débogué votre flux de données, vous pouvez le planifier de façon à l’exécuter selon une planification dans le contexte d’un pipeline. Vous pouvez planifier le pipeline à partir d’Azure Data Factory à l’aide de déclencheurs. Vous pouvez également utiliser l’option Déclencher maintenant à partir du Générateur de pipeline d’Azure Data Factory pour déclencher une exécution unique afin de tester votre flux de données dans le contexte du pipeline.
+Après avoir généré et débogué votre flux de données, vous pouvez le planifier de façon à l’exécuter selon une planification dans le contexte d’un pipeline. Vous pouvez planifier le pipeline à partir d’Azure Data Factory à l’aide de déclencheurs. Pour tester et déboguer votre flux de données à partir d’un pipeline, vous pouvez utiliser le bouton Déboguer dans le ruban de la barre d’outils ou l’option Déclencher maintenant à partir du Générateur de pipeline d’Azure Data Factory afin de lancer une exécution unique pour tester votre flux de données dans le contexte du pipeline.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
 Lors de l’exécution de votre pipeline, vous pouvez superviser celui-ci ainsi que toutes les activités qu’il contient, dont celle du flux de données. Cliquez sur l’icône Superviser dans le panneau de gauche de l’interface utilisateur d’Azure Data Factory. Un écran similaire à celui ci-dessous s’affiche. Les icônes en surbrillance vous permettent d’explorer les activités du pipeline, dont celle du flux de données.
 
@@ -28,7 +32,7 @@ Lors de l’exécution de votre pipeline, vous pouvez superviser celui-ci ainsi 
 
 ![Capture d’écran montrant l’icône en forme de lunettes pour afficher les détails relatifs à l’exécution du flux de données.](media/data-flow/monitoring-details.png "Supervision du flux de données")
 
-Dans l’affichage de surveillance des nœuds sous forme graphique, vous pouvez voir une version simplifiée en lecture seule de votre graphique de flux de données.
+Dans l’affichage de surveillance des nœuds sous forme graphique, vous pouvez voir une version simplifiée en lecture seule de votre graphique de flux de données. Pour voir l’affichage des détails avec des nœuds de graphique plus volumineux qui incluent des étiquettes d’étape de transformation, utilisez le curseur de zoom sur le côté droit de votre canevas. Vous pouvez également utiliser le bouton Rechercher sur le côté droit pour trouver des parties de votre logique de flux de données dans le graphique.
 
 ![Capture d’écran montrant la version en mode affichage uniquement du graphique.](media/data-flow/mon003.png "Supervision du flux de données")
 
@@ -41,6 +45,12 @@ Quand votre flux de données est exécuté dans Spark, Azure Data Factory déter
 * Lorsque vous sélectionnez l’espace disponible dans la fenêtre de supervision, les statistiques dans le volet inférieur affichent le minutage et le nombre de lignes pour chaque récepteur, ainsi que les transformations ayant conduit aux données du récepteur pour la traçabilité des transformations.
 
 * Quand vous sélectionnez des transformations individuelles, des commentaires supplémentaires apparaissent dans le panneau de droite, présentant les statistiques de partition, les nombres de colonnes, l’asymétrie (degré d’uniformité de la distribution des données entre les partitions) et le kurtosis (intensité des pics de données).
+
+* Un tri par *heure de traitement* vous permet d’identifier les étapes de votre flux de données qui ont pris le plus de temps.
+
+* Pour trouver les transformations à chaque étape qui ont pris le plus de temps, triez sur le *temps de traitement le plus long*.
+
+* Vous pouvez également trier les *lignes écrites* afin d’identifier les flux au sein de votre flux de données qui écrivent le plus de données.
 
 * Lorsque vous sélectionnez le récepteur dans la vue du nœud, vous voyez la traçabilité des données de la colonne. Avant d’arriver dans le récepteur, les données sont cumulées tout au long de votre flux de données selon trois méthodes différentes. Il s'agit de :
 

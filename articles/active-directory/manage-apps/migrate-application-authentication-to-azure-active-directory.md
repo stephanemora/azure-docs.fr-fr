@@ -2,22 +2,22 @@
 title: Migrer l’authentification des applications vers Azure Active Directory
 description: Ce livre blanc décrit en détail la planification et les avantages de la migration de l’authentification de votre application vers Azure AD.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: mtillman
-ms.reviewer: baselden
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a70392c6236591d803b4c3823677ba6788072ff
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6f8ee443f12ce4c28e5bb883be686a4610eeec38
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076993"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768903"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrer l’authentification des applications vers Azure Active Directory
 
@@ -98,7 +98,7 @@ Les économies et les avantages en termes de sécurité motivent les organisatio
 - Réduire la charge administrative en gérant une seule identité pour chaque utilisateur dans les environnements cloud et locaux :
 
   - [Automatiser le provisionnement](../app-provisioning/user-provisioning.md) des comptes utilisateur (dans la [galerie Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)) basé sur les identités Azure AD
-  - Accéder à toutes vos applications à partir du panneau MyApps dans le [portail Azure ](https://portal.azure.com/)
+  - Accéder à toutes vos applications à partir du panneau MyApps dans le [portail Azure](https://portal.azure.com/)
 
 - Permettre aux développeurs de sécuriser l’accès à leurs applications et d’améliorer l’expérience de l’utilisateur final à l’aide de la [Plateforme d’identités Microsoft](../develop/v2-overview.md) avec la bibliothèque d’authentification Microsoft (MSAL).
 
@@ -555,11 +555,9 @@ Une fois que vous avez migré les applications, vous pouvez enrichir l’expéri
 
 **Dirigez votre utilisateur** vers l’expérience du portail [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). À cet endroit, ils peuvent accéder à toutes les applications basées sur le cloud. Ces applications sont rendues disponibles à l’aide d’[Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), et aux applications qui utilisent le [proxy d’application](../app-proxy/application-proxy.md), à condition qu’ils disposent d’autorisations pour accéder à ces applications.
 
-
 Vous pouvez guider vos utilisateurs sur la façon de découvrir leurs applications :
 
 - Utiliser la fonctionnalité d’[authentification unique existante](./view-applications-portal.md) pour **lier vos utilisateurs à n’importe quelle application**
-
 
 - Activer l’[accès aux applications en libre-service](./manage-self-service-access.md) à une application et **permettre aux utilisateurs d’ajouter des applications que vous organisez**
 
@@ -573,11 +571,11 @@ Les utilisateurs peuvent télécharger un **navigateur géré par Intune** :
 
 - **Pour les appareils Android**, à partir de [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
-- **Pour les appareils Apple**, à partir de l’[App Store d’Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou ils peuvent télécharger l’[application mobile MyApps pour iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
+- **Pour les appareils Apple**, à partir de l’[App Store d’Apple](https://apps.apple.com/us/app/intune-company-portal/id719171358) ou ils peuvent télécharger l’[application mobile MyApps pour iOS](https://appadvice.com/app/my-apps-azure-active-directory/824048653)
 
 **Permettez aux utilisateurs d’ouvrir leurs applications à partir d’une extension de navigateur.**
 
-Les utilisateurs peuvent [télécharger l’extension de connexion sécurisée MyApps](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) dans [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [FireFox](https://addons.mozilla.org/firefox/addon/access-panel-extension/) ou [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) et peuvent lancer des applications directement à partir de la barre de navigateur pour :
+Les utilisateurs peuvent [télécharger l’extension de connexion sécurisée MyApps](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) dans [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [FireFox](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) ou Microsoft Edge et peuvent lancer des applications directement à partir de la barre de navigateur pour :
 
 - **Rechercher leurs applications et afficher leurs applications les plus récemment utilisées**
 
@@ -603,7 +601,7 @@ Azure AD fournit un emplacement d’accès centralisé pour gérer vos applicat
 
 Vous pouvez également utiliser le [portail Azure](https://portal.azure.com/) pour auditer toutes vos applications à partir d’un emplacement centralisé.
 
-- **Auditez votre application** à l’aide des options **Applications d’entreprise, Audit ou accédez aux mêmes informations à partir de l’[API de création de rapports Azure AD](../reports-monitoring/concept-reporting-api.md) pour les intégrer à vos outils favoris.
+- **Auditez votre application** à l’aide des options **Applications d’entreprise, Audit** ou accédez aux mêmes informations à partir de l’[API de création de rapports Azure AD](../reports-monitoring/concept-reporting-api.md) pour les intégrer à vos outils favoris.
 
 - **Affichez les autorisations pour une application** à l’aide des options **Applications d’entreprise, Autorisations** pour les applications utilisant OAuth/OpenID Connect.
 

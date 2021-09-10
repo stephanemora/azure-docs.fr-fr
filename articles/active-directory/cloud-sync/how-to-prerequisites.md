@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc0eed20ee392b668078425946b39ac6c6440c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2ad99f677cde82f461eee6396d945fb3cd030245
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532388"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306105"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Prérequis pour la synchronisation cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser la synchronisation cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -33,9 +33,9 @@ Vous avez besoin des éléments suivants pour utiliser la synchronisation cloud 
 Un compte de service managé de groupe est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN), la possibilité de déléguer la gestion à d’autres administrateurs et cette fonctionnalité s’étend sur plusieurs serveurs.  Azure AD Connect Cloud Sync prend en charge et utilise un gMSA pour l’exécution de l’agent.  Vous serez invité à fournir des informations d’identification d’administration lors de l’installation, afin de créer ce compte.  Le compte s’affiche sous la forme (domain\provAgentgMSA$).  Pour plus d’informations sur un gMSA, consultez [Comptes de service managés de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Prérequis pour gMSA :
-1.  Le schéma Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2016.
+1.  Le schéma Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2012 ou version ultérieure.
 2.  Les [modules RSAT PowerShell](/windows-server/remote/remote-server-administration-tools) sur un contrôleur de domaine
-3.  Au moins un contrôleur de domaine dans le domaine doit exécuter Windows Server 2016.
+3.  Au moins un contrôleur de domaine dans le domaine doit exécuter Windows Server 2012 ou version ultérieure.
 4.  Un serveur joint à un domaine sur lequel l’agent est en cours d’installation doit être configuré avec Windows Server 2016 ou version ultérieure.
 
 ### <a name="custom-gmsa-account"></a>Compte gMSA personnalisé
@@ -133,6 +133,9 @@ Les limitations connues sont les suivantes :
 Quand vous utilisez le filtre d’étendue des unités d’organisation
 - Vous pouvez uniquement synchroniser jusqu’à 59 unités d’organisation distinctes pour une configuration donnée. 
 - Les unités d’organisation imbriquées sont prises en charge : cela signifie que vous **pouvez** synchroniser une unité d’organisation contenant 130 unités d’organisation imbriquées, mais que vous **ne pouvez pas** synchroniser 60 unités d’organisation distinctes dans la même configuration. 
+
+### <a name="password-hash-sync"></a>Synchronisation de hachage de mot de passe
+- L’utilisation de la synchronisation de hachage de mot de passe avec InetOrgPerson n’est pas prise en charge.
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

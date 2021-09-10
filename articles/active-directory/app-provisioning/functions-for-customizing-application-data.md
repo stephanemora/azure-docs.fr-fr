@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/29/2021
+ms.date: 08/30/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9736bee99483a7e4fbb5a5f02a3f415a74c9f76f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c91d4f98928f2d446a15b123a4155b971377159a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524233"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223832"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 
@@ -38,7 +38,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 ## <a name="list-of-functions"></a>Liste des fonctions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Ajouter
@@ -265,11 +265,8 @@ Renvoie une chaîne date/heure qui représente une date à laquelle un intervall
 
 La chaîne **interval** doit comporter l'une des valeurs suivantes : 
  * yyyy Année 
- * q Trimestre
  * m Mois
- * y Jour de l’année
  * s Jour
- * w Jour de la semaine
  * ww Semaine
  * h Heure
  * n Minute
@@ -299,6 +296,57 @@ La chaîne **interval** doit comporter l'une des valeurs suivantes :
 `DateAdd("yyyy", 2, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/16/2014 7:00:00 AM
+---
+### <a name="datediff"></a>DiffDate
+**Fonction :**  
+`DateDiff(interval, date1, date2)`
+
+**Description :**  
+Cette fonction utilise le paramètre *intervalle* pour renvoyer un nombre indiquant la différence entre les deux dates d’entrée. Il retourne  
+  * un nombre positif si date2 > date1, 
+  * un nombre négatif si date2 < date1, 
+  * 0 si date2 = = date1
+
+**Paramètres :** 
+
+| Nom | Obligatoire ou facultatif | Type | Notes |
+| --- | --- | --- | --- |
+| **interval** |Obligatoire | String | Intervalle de temps à utiliser pour calculer la différence. |
+| **date1** |Obligatoire | DateTime | DateTime représentant une date valide. |
+| **date2** |Obligatoire | DateTime | DateTime représentant une date valide. |
+
+La chaîne **interval** doit comporter l'une des valeurs suivantes : 
+ * yyyy Année 
+ * m Mois
+ * s Jour
+ * ww Semaine
+ * h Heure
+ * n Minute
+ * s Seconde
+
+**Exemple 1 : comparer la date actuelle avec la date d’embauche de Workday avec des intervalles différents** <br>
+`DateDiff("d", Now(), CDate([StatusHireDate]))`
+
+| Exemple | interval | date1 | date2 | sortie |
+| --- | --- | --- | --- | --- |
+| Différence positive en jours entre deux dates | d | 2021-08-18+08:00 | 2021-08-31+08:00 | 13 |
+| Différence négative en jours entre deux dates | d | 25/08/2021 17:41:18 | 2012-03-16-07:00 | -3449 |
+| Différence en semaines entre deux dates | ww | 25/08/2021 17:41:18 | 2012-03-16-07:00 | -493 | 
+| Différence en mois entre deux dates | m | 25/08/2021 17:41:18 | 2012-03-16-07:00 | -113 | 
+| Différence en années entre deux dates | aaaa | 25/08/2021 17:41:18 | 2012-03-16-07:00 | -9 | 
+| Différence lorsque les deux dates sont identiques | d | 2021-08-31+08:00 | 2021-08-31+08:00 | 0 | 
+| Différence en heures entre deux dates | h | 2021-08-24 | 2021-08-25 | 24 | 
+| Différence en minutes entre deux dates | n | 2021-08-24 | 2021-08-25 | 1440 | 
+| Différence en secondes entre deux dates | s | 2021-08-24 | 2021-08-25 | 86400 | 
+
+**Exemple 2 : combiner DateDiff avec la fonction IIF pour définir la valeur de l’attribut** <br>
+Si un compte est actif dans Workday, affectez à l’attribut *accountEnabled* de l’utilisateur la valeur true uniquement si la date d’embauche est comprise dans les 5 prochains jours. 
+
+```
+Switch([Active], , 
+  "1", IIF(DateDiff("d", Now(), CDate([StatusHireDate])) > 5, "False", "True"), 
+  "0", "False")
+```
 
 ---
 
@@ -563,6 +611,28 @@ Renvoie « Joh ».
 | **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
 
+| Caractère avec signe diacritique  | Caractère normalisé | Caractère avec signe diacritique  | Caractère normalisé | 
+| --- | --- | --- | --- | 
+| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | Un | 
+| æ | ae | Æ | AE | 
+| ç, č, ć | c | Ç, Č, Ć | C | 
+| ď | d | Ď | D | 
+| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
+| ğ | g | Ğ | G | 
+| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
+| ľ, ł | l |  Ł, Ľ | L | 
+| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
+| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
+| ø | oe |  Ø | OE | 
+| ř | r |  Ř | R | 
+| ß | ss | | | 
+| š, ś, ș, ş | s |  Š, Ś, Ș, Ş | S | 
+| ť, ț | t | Ť, Ț | T | 
+| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
+| ÿ, ý | y | Ÿ, Ý | O | 
+| ź, ž, ż | z | Ź, Ž, Ż | Z | 
+
+
 #### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
 Exemple : vous devez remplacer les caractères accentués par leurs équivalents non accentués.
 
@@ -611,10 +681,10 @@ Exemple de valeur renvoyée : *7/2/2021 3:33:38 PM*
 
 **Exemple :**
 * Exemple Workday En supposant que vous souhaitiez mapper l’attribut *ContractEndDate* de Workday, qui est au format *2020-12-31-08:00*, au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux. 
-  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
+  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), " 23:59:59-08:00"))`
 
 * Exemple SuccessFactors En supposant que vous souhaitiez mapper l’attribut *endDate* de SuccessFactors, qui est au format *M/j/aaaa hh:mm:ss tt*, au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux.
-  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
+  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd")," 23:59:59-08:00"))`
 
 
 ---

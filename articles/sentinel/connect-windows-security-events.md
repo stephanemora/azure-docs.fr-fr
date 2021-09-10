@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-ms.openlocfilehash: d83672894f511696cfc2520aaee3e7932508b6c2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 133d5e01de4f5fe511677fc5226eb0aede258eab
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563846"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252281"
 ---
 # <a name="connect-to-windows-servers-to-collect-security-events"></a>Se connecter aux serveurs Windows pour collecter des événements de sécurité
 
@@ -103,7 +103,7 @@ Pour collecter vos événements de sécurité Windows dans Azure Sentinel :
 
 # <a name="log-analytics-agent-legacy"></a>[Agent Log Analytics (hérité)](#tab/LAA)
 
-1. Dans le menu de navigation d’Azure Sentinel, sélectionnez **Connecteurs de données**. Dans la liste des connecteurs, cliquez sur **Événements de sécurité**, puis sur le bouton **Ouvrir la page du connecteur** dans le coin inférieur droit. Suivez ensuite les instructions à l’écran sous l’onglet **Instructions**, comme décrit dans le reste de cette section.
+1. Dans le menu de navigation d’Azure Sentinel, sélectionnez **Connecteurs de données**. Dans la liste des connecteurs, sélectionnez **Security Events**, puis **Open connector page** dans le volet de détails. Suivez ensuite les instructions à l’écran sous l’onglet **Instructions**, comme décrit dans le reste de cette section.
 
 1. Vérifiez que vous disposez des autorisations appropriées, comme décrit dans la section **Prérequis** sur la page du connecteur.
 
@@ -111,13 +111,13 @@ Pour collecter vos événements de sécurité Windows dans Azure Sentinel :
 
     Pour les machines virtuelles Azure :
     
-    1. Cliquez sur **Installer l’agent sur la machine virtuelle Windows Azure**, puis sur le lien qui apparaît dessous.
-    1. Pour chaque machine virtuelle que vous souhaitez connecter, cliquez sur son nom dans la liste qui s’affiche à droite, puis cliquez sur **Connecter**.
+    1. Sélectionnez **Installer l’agent sur la machine virtuelle Windows Azure**, puis sur le lien qui apparaît dessous.
+    1. Pour chaque machine virtuelle que vous souhaitez connecter, sélectionnez son nom dans la liste qui s’affiche à droite, puis sélectionnez **Connecter**.
 
     Pour les machines Windows non-Azure (physiques, virtuelles locales ou virtuelles dans un autre cloud) :
 
-    1. Cliquez sur **Installer l’agent sur une machine virtuelle Windows non-Azure**, puis sur le lien qui apparaît dessous.
-    1. Cliquez sur les liens de téléchargement appropriés qui s’affichent à droite, sous **Ordinateurs Windows**.
+    1. Sélectionnez **Installer l’agent sur une machine virtuelle Windows non-Azure**, puis sur le lien qui apparaît dessous.
+    1. Sélectionnez les liens de téléchargement appropriés qui s’affichent à droite, sous **Ordinateurs Windows**.
     1. À l’aide du fichier exécutable téléchargé, installez l’agent sur les systèmes Windows de votre choix et configurez-le à l’aide de l’**ID et des clés de l’espace de travail** qui s’affichent sous les liens de téléchargement mentionnés ci-dessus.
 
     > [!NOTE]
@@ -130,7 +130,7 @@ Pour collecter vos événements de sécurité Windows dans Azure Sentinel :
 
 1. Sélectionnez l’ensemble d’événements (All, Common ou Minimal) que vous souhaitez diffuser. Consultez les [listes d’ID d’événement inclus](#event-id-reference) dans les jeux d’événements Minimal et Courant.
 
-1. Cliquez sur **Update**.
+1. Sélectionnez **Mettre à jour**.
 
 1. Pour utiliser le schéma approprié dans Log Analytics pour les événements de sécurité Windows, saisissez `SecurityEvent` dans la fenêtre de requête.
 

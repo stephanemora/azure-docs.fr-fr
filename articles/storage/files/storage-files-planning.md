@@ -8,12 +8,12 @@ ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1736d94c50d5c145a66fc845936c5c26a8725cb
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 1d3688e4051f2883c5316a13e59f5629481799e2
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113224055"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864559"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -37,15 +37,15 @@ Avec les partages de fichiers SMB et NFS, Azure Files propose des partages de
 | Modèle de facturation | <ul><li>[Capacité provisionnée pour les partages de fichiers Premium](./understanding-billing.md#provisioned-model)</li><li>[Paiement à l’utilisation pour les partages de fichiers standard](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Capacité allouée](./understanding-billing.md#provisioned-model) |
 | [Redondance](storage-files-planning.md#redundancy) | LRS, ZRS, GRS, GZRS | LRS, ZRS |
 | Sémantique du système de fichiers | Win32 | POSIX |
-| Authentication | Authentification basée sur l’identité (Kerberos), authentification par clé partagée (NTLMv2) | Authentification basée sur l’hôte |
+| Authentification | Authentification basée sur l’identité (Kerberos), authentification par clé partagée (NTLMv2) | Authentification basée sur l’hôte |
 | Autorisation | Listes de contrôle d’accès de type Win32 | Autorisations de style UNIX |
 | Respect de la casse | Non sensible à la casse, casse conservée | Respect de la casse |
-| Suppression ou modification de fichiers ouverts | Avec verrou uniquement | Yes |
+| Suppression ou modification de fichiers ouverts | Avec verrou uniquement | Oui |
 | Partage de fichiers | [Mode de partage Windows](/windows/win32/fileio/creating-and-opening-files) | Gestionnaire conseil de verrouillage réseau de plage d’octets |
 | Prise en charge des liens physiques | Non prise en charge | Pris en charge |
 | Prise en charge des liens symboliques | Non prise en charge | Pris en charge |
-| Accessible par Internet (facultatif) | Oui (SMB 3.0+ uniquement) | No |
-| Prend en charge FileREST | Yes | Sous-ensemble : <br /><ul><li>[Opérations sur `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Opérations sur `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Opérations sur `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Opérations sur `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
+| Accessible par Internet (facultatif) | Oui (SMB 3.0+ uniquement) | Non |
+| Prend en charge FileREST | Oui | Sous-ensemble : <br /><ul><li>[Opérations sur `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Opérations sur `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Opérations sur `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Opérations sur `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
 
 ## <a name="management-concepts"></a>Concepts de gestion
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]

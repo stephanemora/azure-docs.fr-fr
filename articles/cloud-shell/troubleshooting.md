@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 60743cdbc48d695c0c98c6e34273a0c407fef546
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7cdd812347450a8798ed4fb8e6e69f71c725449f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524994"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225398"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -130,6 +130,10 @@ Cloud Shell est destiné aux cas d’usage interactif. De fait, les sessions non
 
 Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors du répertoire `$Home` ne sont pas conservées.
 
+### <a name="supported-entry-point-limitations"></a>Limitations des points d’entrée pris en charge
+
+Les points d'entrée Cloud Shell à côté du portail Azure, tels que Visual Studio Code et Windows Terminal, ne prennent pas en charge l’utilisation des commandes qui modifient les composants UX dans Cloud Shell, tels que `Code`.
+
 ## <a name="bash-limitations"></a>Limites de Bash
 
 ### <a name="editing-bashrc"></a>Modifier .bashrc
@@ -151,7 +155,7 @@ Azure Cloud Shell prend très au sérieux vos données personnelles ; les donné
 ### <a name="export"></a>Exporter
 Pour **exporter** les paramètres utilisateur que Cloud Shell enregistre pour vous, tels que l’interpréteur de commandes, la taille de police et le type de police par défaut, exécutez les commandes suivantes.
 
-1. [![Image représentant un bouton libellé Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Lancez Cloud Shell.
 
 2. Exécutez les commandes suivantes dans Bash ou PowerShell :
 
@@ -190,7 +194,7 @@ PowerShell :
 
   ```powershell
   $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## <a name="azure-government-limitations"></a>Limitations d’Azure Government
 Azure Cloud Shell dans Azure Government est accessible uniquement par le biais du Portail Azure.

@@ -16,12 +16,12 @@ ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fcd11f88cb25ef3afb199b147856d0a0140e44c
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 4ea285c078061ed6009aff8dfd1c17b1f0528b9a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113491980"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967247"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -158,6 +158,9 @@ Effectuez ces étapes si vous souhaitez contourner les demandes d’accès et au
     Après avoir créé le package d’accès, vous pouvez directement attribuer des utilisateurs internes et externes spécifiques à ce package d’accès. Si vous spécifiez un utilisateur externe, un compte d’utilisateur invité est créé dans votre répertoire. Pour plus d’informations sur l’attribution directe d’un utilisateur, voir [Afficher, ajouter et supprimer les attributions pour un package d’accès](entitlement-management-access-package-assignments.md).
 
 1. Passez à la section [Activer les demandes](#enable-requests).
+
+> [!NOTE]
+> Lorsque vous affectez des utilisateurs à un package d’accès, les administrateurs doivent vérifier que les utilisateurs sont éligibles à ce package d’accès en fonction des exigences de stratégie existantes. Dans le cas contraire, les utilisateurs ne seront pas affectés au package d’accès. Si le package d’accès contient une stratégie qui exige que les demandes de l’utilisateur soient approuvées, les utilisateurs ne peuvent pas être directement attribués au package sans l’approbation nécessaire des approbateurs désignés.
 
 
 ## <a name="open-and-edit-an-existing-policy-of-request-settings"></a>Ouvrir et modifier une stratégie existante de paramètres de demande

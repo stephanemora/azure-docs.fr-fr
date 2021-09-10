@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87fd2189222828eef2ff03a82125e0b6dcf7111e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 29b000ee3231361ccdca4c2909e093cdaef6bc04
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525703"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866516"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -76,7 +76,7 @@ Une fois émis, un PRT est valide pendant 14 jours et il est renouvelé en conti
 Un PRT est utilisé par deux composants clés dans Windows :
 
 * **Plug-in Azure AD CloudAP** : Pendant la connexion à Windows, le plug-in Azure AD CloudAP fait une demande de PRT depuis Azure AD en utilisant les informations d’identification fournies par l’utilisateur. Il met également en cache le PRT pour permettre la connexion avec des informations mises en cache lorsque l’utilisateur n’a pas accès à une connexion internet.
-* **Plug-in Azure AD WAM** : Lorsque les utilisateurs tentent d’accéder aux applications, le plug-in Azure AD WAM utilise le PRT pour activer l’authentification unique sur Windows 10. Le plug-in Azure AD WAM utilise le PRT pour demander des jetons d’actualisation et d’accès pour les applications qui s’appuient sur WAM pour les demandes de jeton. Il active également l’authentification unique sur les navigateurs en injectant le PRT dans les demandes de navigateur. L’authentification unique de navigateur dans Windows 10 est prise en charge sur Microsoft Edge (en natif) et Chrome (via les extensions [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) ou [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)).
+* **Plug-in Azure AD WAM** : Lorsque les utilisateurs tentent d’accéder aux applications, le plug-in Azure AD WAM utilise le PRT pour activer l’authentification unique sur Windows 10. Le plug-in Azure AD WAM utilise le PRT pour demander des jetons d’actualisation et d’accès pour les applications qui s’appuient sur WAM pour les demandes de jeton. Il active également l’authentification unique sur les navigateurs en injectant le PRT dans les demandes de navigateur. Le SSO du navigateur sous Windows 10 est pris en charge par Microsoft Edge (en mode natif), Chrome (via les extensions [Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) ou [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)) ou Mozilla Firefox v91+ (via le [paramètre SSO de Windows](https://support.mozilla.org/en-US/kb/windows-sso)).
 
 ## <a name="how-is-a-prt-renewed"></a>Comment un PRT est-il renouvelé ?
 
@@ -109,7 +109,7 @@ En sécurisant ces clés avec le module TPM, nous améliorons la sécurité du P
 
 **Jetons d’application** : Lorsqu’une application demande un jeton via WAM, Azure AD émet un jeton d’actualisation et un jeton d’accès. Toutefois, WAM ne retourne que le jeton d’accès à l’application et il sécurise le jeton d’actualisation dans sa mémoire cache en le chiffrant avec la clé DPAPI de l’utilisateur. WAM utilise en toute sécurité le jeton d’actualisation en signant les demandes avec la clé de session pour émettre des jetons d’accès supplémentaires. La clé DPAPI est sécurisée par une clé symétrique Azure AD dans Azure AD lui-même. Quand l’appareil doit déchiffrer le profil utilisateur avec la clé DPAPI, Azure AD fournit la clé DPAPI chiffrée par la clé de session, que le plug-in CloudAP demande au TPM de déchiffrer. Cette fonctionnalité garantit la cohérence de la sécurisation des jetons d’actualisation et évite aux applications d’implémenter leurs propres mécanismes de protection.  
 
-**Cookies de navigateur** : Dans Windows 10, Azure AD prend en charge l’authentification unique de navigateur dans Internet Explorer et Microsoft Edge en natif, et dans Google Chrome via l’extension Windows 10 Accounts. Ce dispositif de sécurité est conçu non seulement pour protéger les cookies, mais également les points de terminaison sur lesquels les cookies sont envoyés. Les cookies de navigateur sont protégés de la même façon que les PRT, c’est-à-dire en utilisant la clé de session pour signer et protéger les cookies.
+**Cookies de navigateur** : Dans Windows 10, Azure AD prend en charge le SSO par navigateur dans Internet Explorer et Microsoft Edge en mode natif, dans Google Chrome via l'extension Windows 10 Accounts et dans Mozilla Firefox v91+ via un paramètre du navigateur. Ce dispositif de sécurité est conçu non seulement pour protéger les cookies, mais également les points de terminaison sur lesquels les cookies sont envoyés. Les cookies de navigateur sont protégés de la même façon que les PRT, c’est-à-dire en utilisant la clé de session pour signer et protéger les cookies.
 
 Lorsqu’un utilisateur lance une interaction de navigateur, le navigateur (ou l’extension) appelle un hôte de client natif COM. L’hôte de client natif garantit que la page provient de l’un des domaines autorisés. Le navigateur pourrait envoyer d’autres paramètres à l’hôte de client natif, y compris une valeur à usage unique, toutefois, l’hôte de client natif garantit la validation du nom d’hôte. L’hôte de client natif demande un cookie de PRT au plug-in CloudAP, qui le crée et le signe avec la clé de session protégée par le TPM. Comme le cookie de PRT est signé par la clé de session, il est très difficile à falsifier. Ce cookie de PRT est inclus dans l’en-tête de demande afin qu’Azure AD valide l’appareil qui en est à l’origine. Dans le navigateur Chrome, seule l’extension explicitement définie dans le manifeste de l’hôte de client natif peut l’appeler, ce qui empêche les extensions arbitraires de faire ces demandes. Une fois qu’Azure AD valide le cookie de PRT, il émet un cookie de session sur le navigateur. Ce cookie de session contient également la même clé de session que celle émise avec un PRT. Lors des demandes suivantes, la clé de session est validée, ce qui lie le cookie à l’appareil et empêche les relectures à partir d’un autre emplacement.
 
@@ -199,7 +199,7 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 | F | Azure AD valide la signature de clé de session sur le cookie de PRT, vérifie la valeur à usage unique, s’assure que l’appareil est valide dans le locataire et émet un jeton d’ID pour la page web et un cookie de session chiffré pour le navigateur. |
 
 > [!NOTE]
-> Le flux d’authentification unique du navigateur décrit aux étapes ci-dessus ne s’applique pas aux sessions dans les modes privés tels que InPrivate dans Microsoft Edge ou Incognito dans Google Chrome (lors de l’utilisation de l’extension Comptes Microsoft).
+> Le flux SSO du navigateur décrit dans les étapes ci-dessus ne s'applique pas aux sessions en mode privé telles que InPrivate dans Microsoft Edge, Incognito dans Google Chrome (lors de l'utilisation de l'extension Microsoft Accounts) ou en mode privé dans Mozilla Firefox v91+.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 140e87f4e03081825fe75ba73b7c5ebd33b20ada
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 85509f1500936dfaa0d308b01912ce927f3f380f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527763"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825225"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Analyses et ingestion dans Azure Purview
 
@@ -35,6 +35,18 @@ Par exemple, lors de la [création et de l’exécution d’une analyse pour une
 Un ensemble de règles d’analyse détermine les types d’informations qu’une analyse recherchera lorsqu’elle sera exécutée sur l’une de vos sources. Les règles disponibles dépendent du type de source que vous analysez, mais incluent des éléments tels que les [types de fichiers](sources-and-scans.md#file-types-supported-for-scanning) que vous devez analyser et les types de [classification](supported-classifications.md) dont vous avez besoin.
 
 Il existe déjà des [ensembles de règles d'analyse système](create-a-scan-rule-set.md#system-scan-rule-sets) pour de nombreux types de sources de données, mais vous pouvez également [créer vos propres ensembles de règles d'analyse](create-a-scan-rule-set.md) pour adapter vos analyses à votre organisation.
+
+### <a name="how-scans-detect-deleted-assets"></a>Comment les analyses détectent les éléments supprimés
+
+Un catalogue Azure Purview est conscient de l’état d’un magasin de données uniquement lorsqu’il exécute une analyse. Pour que le catalogue sache si un fichier, une table ou un conteneur a été supprimé(e), il compare la sortie de la dernière analyse à la sortie de l’analyse actuelle. Par exemple, supposons que la dernière fois que vous avez analysé un compte Azure Data Lake Storage Gen2, il incluait un dossier nommé *dossier1*. Lorsque le même compte est analysé à nouveau, *dossier1* est manquant. Par conséquent, le catalogue part du principe que le dossier a été supprimé.
+
+#### <a name="detecting-deleted-files"></a>Détection des fichiers supprimés
+
+La logique de détection des fichiers manquants fonctionne pour plusieurs analyses effectuées par le même utilisateur et par différents utilisateurs. Supposons, par exemple, qu’un utilisateur exécute une analyse ponctuelle sur un magasin de données Data Lake Storage Gen2 sur les dossiers A, B et C. Plus tard, un autre utilisateur du même compte exécute une autre analyse ponctuelle sur les dossiers C, D et E du même magasin de données. Étant donné que le dossier C a été analysé deux fois, le catalogue le vérifie à la recherche de suppressions possibles. Toutefois, les dossiers A, B, D et E n’ont été analysés qu’une seule fois. Le catalogue ne vérifie donc pas les éventuelles ressources supprimées.
+
+Pour conserver les fichiers supprimés hors de votre catalogue, il est important d’exécuter des analyses régulières. L’intervalle d’analyse est important, car le catalogue ne peut pas détecter les ressources supprimées tant qu’une autre analyse n’est pas exécutée. Par conséquent, si vous exécutez des analyses une fois par mois sur un magasin spécifique, le catalogue ne peut pas détecter les ressources de données supprimées dans ce magasin tant que vous n’avez pas exécuté la prochaine analyse un mois plus tard.
+
+Lorsque vous énumérez des magasins de données volumineux comme Data Lake Storage Gen2, il existe plusieurs façons (notamment les erreurs d’énumération et les événements supprimés) de passer à côté des informations. Une analyse spécifique peut ne pas détecter lorsqu’un fichier a été créé ou supprimé. Par conséquent, sauf si le catalogue est certain qu’un fichier a été supprimé, il ne le supprime pas du catalogue. Cette stratégie signifie qu’il peut y avoir des erreurs lorsqu’un fichier qui n’existe pas dans le magasin de données analysé existe toujours dans le catalogue. Dans certains cas, il peut être nécessaire d’analyser un magasin de données deux ou trois fois avant de pouvoir détecter certaines ressources supprimées.
 
 ## <a name="ingestion"></a>Ingestion
 

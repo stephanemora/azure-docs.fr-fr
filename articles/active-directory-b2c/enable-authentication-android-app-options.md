@@ -1,6 +1,6 @@
 ---
 title: Activer les options d’application mobile Android avec Azure Active Directory B2C
-description: Activez l’utilisation des options d’application mobile Android à l’aide de plusieurs méthodes.
+description: Cet article présente plusieurs façons d'activer les options des applications mobiles Android en utilisant Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,20 +11,24 @@ ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fc9e7a8dde4396933c244ad1d4b4a01d5003057c
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: c66d2faead9b14eb665622e1a710afd94b2ddd0f
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113297917"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220690"
 ---
-# <a name="configure-authentication-options-in-an-android-application-using-azure-active-directory-b2c"></a>Configurer les options d’authentification dans une application Android avec Azure Active Directory B2C 
+# <a name="configure-authentication-options-in-an-android-app-by-using-azure-ad-b2c"></a>Configurer les options d'authentification dans une application Android en utilisant Azure AD B2C 
 
-Cet article décrit les méthodes permettant de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application Android. Avant de commencer, familiarisez-vous avec les articles suivants : [Configurer l’authentification dans un exemple d’application Android](configure-authentication-sample-android-app.md) ou [Activer l’authentification dans votre application Android à l’aide d’Azure Active Directory B2C](enable-authentication-android-app.md).
+Cet article décrit les méthodes permettant de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application Android. 
+
+Avant de commencer, familiarisez-vous avec les articles suivants : 
+* [Configurer l'authentification dans une application Android exemple en utilisant Azure AD B2C](configure-authentication-sample-android-app.md)
+* [Activer l’authentification dans votre propre application Android avec Azure AD B2C](enable-authentication-android-app.md)
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-Pour utiliser un domaine personnalisé et l’ID de votre locataire dans l’URL d’authentification, suivez les instructions fournies dans [Activer les domaines personnalisés](custom-domain.md). Accédez à votre objet de configuration MSAL afin de remplacer la valeur de **authorities** par le nom de domaine personnalisé et l’ID de locataire.
+Pour utiliser un domaine personnalisé et l’ID de votre locataire dans l’URL d’authentification, suivez les instructions fournies dans [Activer les domaines personnalisés](custom-domain.md). Recherchez votre objet de configuration Microsoft Authentication Library (MSAL), puis mettez à jour les *autorités* avec votre nom de domaine personnalisé et votre ID de locataire.
 
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)
@@ -83,8 +87,8 @@ b2cApp.acquireToken(parameters);
 
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
-1. Si vous utilisez une stratégie personnalisée, ajoutez la revendication d’entrée requise comme décrit dans [Configurer la connexion directe](direct-signin.md#prepopulate-the-sign-in-name). 
-1. Accédez à votre objet de configuration MSAL pour ajouter la méthode **withLoginHint()** avec l’indicateur de connexion.
+1. Si vous utilisez une stratégie personnalisée, ajoutez la revendication d’entrée nécessaire, comme décrit dans [Configurer la connexion directe](direct-signin.md#prepopulate-the-sign-in-name). 
+1. Recherchez votre objet de configuration MSAL, puis ajoutez la méthode `withLoginHint()` avec l'indice de connexion.
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)
 
@@ -118,7 +122,7 @@ b2cApp.acquireToken(parameters);
 
 1. Vérifiez le nom de domaine de votre fournisseur d’identité externe. Pour plus d’informations, consultez [Rediriger la connexion vers un fournisseur social](direct-signin.md#redirect-sign-in-to-a-social-provider). 
 1. Créez un objet de liste ou utilisez un objet existant afin d’y stocker des paramètres de requête supplémentaires.
-1. Ajoutez à la liste le paramètre `domain_hint` avec le nom de domaine correspondant. Par exemple : `facebook.com`.
+1. Ajoutez à la liste le paramètre `domain_hint` avec le nom de domaine correspondant (par exemple `facebook.com`).
 1. Passez la liste des paramètres de requête supplémentaires dans la méthode `withAuthorizationQueryStringParameters` de l’objet de configuration MSAL.
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)
@@ -157,7 +161,7 @@ b2cApp.acquireToken(parameters);
 
 1. [Configurez la personnalisation de la langue](language-customization.md).
 1. Créez un objet de liste ou utilisez un objet existant afin d’y stocker des paramètres de requête supplémentaires.
-1. Ajoutez à la liste le paramètre `ui_locales` avec le code langue correspondant. Par exemple : `en-us`.
+1. Ajoutez à la liste le paramètre `ui_locales` avec le code langue correspondant (par exemple `en-us`).
 1. Passez la liste des paramètres de requête supplémentaires dans la méthode `withAuthorizationQueryStringParameters` de l’objet de configuration MSAL.
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)
@@ -196,7 +200,7 @@ b2cApp.acquireToken(parameters);
 
 1. Configurez l’élément [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
 1. Créez un objet de liste ou utilisez un objet existant afin d’y stocker des paramètres de requête supplémentaires.
-1. Ajoutez le paramètre de chaîne de requête personnalisé, par exemple `campaignId`. Définissez la valeur du paramètre. Par exemple : `germany-promotion`.
+1. Ajoutez le paramètre de chaîne de requête personnalisé, par exemple `campaignId`. Définir la valeur du paramètre (par exemple, `germany-promotion`).
 1. Passez la liste des paramètres de requête supplémentaires dans la méthode `withAuthorizationQueryStringParameters` de l’objet de configuration MSAL.
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)
@@ -234,7 +238,7 @@ b2cApp.acquireToken(parameters);
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. Dans votre stratégie personnalisée, définissez un [indicateur de jeton d’ID de profil technique](id-token-hint.md).
-1. Dans votre code, générez ou obtenez un jeton d’ID, puis définissez le jeton sur une variable. Par exemple : `idToken`. 
+1. Dans votre code, générez ou obtenez un jeton d'identification, puis définissez le jeton dans une variable (par exemple, `idToken`). 
 1. Créez un objet de liste ou utilisez un objet existant afin d’y stocker des paramètres de requête supplémentaires.
 1. Ajoutez le paramètre `id_token_hint` avec la variable correspondante qui stocke le jeton d’ID.
 1. Passez la liste des paramètres de requête supplémentaires dans la méthode `withAuthorizationQueryStringParameters` de l’objet de configuration MSAL.
@@ -275,4 +279,4 @@ b2cApp.acquireToken(parameters);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus : [Options de configuration MSAL pour Android](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
+- Pour en savoir plus sur la configuration d’Android, consultez [MSAL pour les options de configuration Android](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki).

@@ -7,14 +7,14 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: banders
-ms.openlocfilehash: d9c60d6c47d36ab5244d994a1223f0a70deb752b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 7388ee42195d93a9b7d9a64567f25be91b0eb38d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535367"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111952"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Changer votre abonnement Azure pour une autre offre
 
@@ -117,7 +117,7 @@ Le jour où vous changez d’offre, une facture est générée pour l’ensemble
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Puis-je effectuer la migration d’un abonnement avec paiement à l’utilisation vers un fournisseur de solutions cloud (CSP) ou un Contrat Entreprise (EA) ?
 
 * Pour migrer vers un CSP, consultez [Transfert d’abonnements Azure entre des abonnés et des CSP](transfer-subscriptions-subscribers-csp.md).
-* Pour migrer vers contrat Entreprise, demandez à votre administrateur d’inscription d’ajouter votre compte au contrat Entreprise. Suivez les instructions figurant dans l’e-mail d’invitation pour que vos abonnements soient déplacés vers l’inscription au Contrat Entreprise.
+* Si vous avez un abonnement avec paiement à l’utilisation (ID d’offre Azure MS-AZR-0003P) ou un plan Azure avec des tarifs de paiement à l’utilisation (ID d’offre Azure MS-AZR-0017G) et que vous souhaitez migrer vers une inscription EA, votre administrateur d’inscription doit ajouter votre compte à l’EA. Suivez les instructions figurant dans l’e-mail d’invitation pour que vos abonnements soient déplacés vers l’inscription au Contrat Entreprise. Pour plus d’informations, consultez [Modifier l’abonnement Azure ou la propriété du compte](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Puis-je migrer des données et des services vers un nouvel abonnement ?
 

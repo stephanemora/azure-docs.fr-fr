@@ -3,12 +3,12 @@ title: Migrer un serveur avec Azure Arc vers Azure
 description: Découvrez comment migrer vos serveurs avec Azure Arc s’exécutant localement ou dans un autre environnement cloud vers Azure.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9dd7baa2466f4acd3e4106c3cec5a0d7e7afe05c
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5433c859389722884df525ab7ac885ae013f9e59
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390233"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768273"
 ---
 # <a name="migrate-your-on-premises-or-other-cloud-arc-enabled-server-to-azure"></a>Migrer votre serveur avec Azure Arc local ou dans un autre cloud vers Azure
 
@@ -42,7 +42,7 @@ Listez les affectations de rôles pour la ressource de serveurs avec Arc. En uti
 
 Si vous utilisez une identité managée pour une application ou un processus s’exécutant sur un serveur avec Arc, vous devez vous assurer qu’une identité managée est attribuée à la machine virtuelle Azure. Pour afficher l’attribution de rôle d’une identité managée, vous pouvez utiliser la cmdlet Azure PowerShell `Get-AzADServicePrincipal`. Pour plus d’informations, consultez [Lister les attributions de rôles pour une identité managée](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity). 
 
-Une identité managée par le système est également utilisée lorsqu’Azure Policy est utilisé pour auditer les paramètres à l’intérieur d’un ordinateur ou d’un serveur. Sur les serveurs avec Arc, l’agent de configuration d’invité est inclus et effectue la validation des paramètres d’audit. Après la migration, consultez [Configuration requise pour le déploiement de machines virtuelles Azure](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines) pour plus d’informations sur la façon de configurer votre machine virtuelle Azure manuellement ou avec une stratégie à l’aide de l’extension de configuration d’invité.
+Une identité gérée par le système est également utilisée lorsque Azure Policy est utilisé pour auditer ou configurer les paramètres d'une machine ou d'un serveur. Avec les serveurs compatibles avec Arc, le service d'agent de configuration invité est inclus et effectue la validation des paramètres d'audit. Après la migration, consultez la section [Déployer les exigences pour les machines virtuelles Azure](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines) pour obtenir des informations sur la manière de configurer votre VM Azure manuellement ou à l'aide d'une stratégie avec l'extension de configuration d'invité.
 
 Mettez à jour l’attribution de rôle avec toutes les ressources accessibles par l’identité managée pour permettre à la nouvelle identité de machine virtuelle Azure de s’authentifier auprès de ces services. Consultez ce qui suit pour savoir [comment les identités managées pour les ressources Azure fonctionnent pour une machine virtuelle Azure](../../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md).
 
@@ -52,7 +52,7 @@ Supprimez l’ID de ressource du serveur avec Arc dans Azure à l’aide de l’
 
    * Exécutez la commande `azcmagent disconnect` sur la machine ou le serveur.
 
-   * Sur le serveur avec Arc inscrit que vous avez sélectionné dans le portail Azure, sélectionnez **Supprimer** dans la barre supérieure.
+   * Sur le serveur avec Arc inscrit que vous avez sélectionné dans le Portail Azure, sélectionnez **Supprimer** dans la barre supérieure.
 
    * Utilisez [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) ou [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). Pour le paramètre`ResourceType`, utilisez `Microsoft.HybridCompute/machines`.
 
@@ -70,7 +70,7 @@ Avant de procéder à la migration avec Azure Migration, consultez l’article [
 
 Après la migration et la réalisation de toutes les étapes de configuration post-migration, vous pouvez déployer les extensions de machine virtuelle Azure en fonction des extensions de machine virtuelle installées à l’origine sur votre serveur avec Arc. Consultez les [fonctionnalités et extensions de machine virtuelle Azure](../../virtual-machines/extensions/overview.md) pour vous aider à planifier le déploiement de vos extensions. 
 
-Pour recommencer à utiliser les paramètres d’audit à l’intérieur d’un ordinateur avec des définitions de stratégie de configuration d’invité Azure Policy, consultez [Activer la configuration d’invité](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
+Pour reprendre l'utilisation des paramètres d'audit à l'intérieur d'une machine avec des définitions de politique de configuration d'invité, voir [Activer la configuration d'invité](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
 
 Si l’extension de machine virtuelle Log Analytics ou l’extension de machine virtuelle Dependency Agent a été déployée à l’aide d’Azure Policy et de l’[initiative VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md), supprimez l’[exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) créée précédemment. Pour utiliser Azure Policy afin d’activer des machines virtuelles Azure, consultez [Déployer Azure Monitor à grande échelle à l’aide d’Azure Policy](../../azure-monitor/deploy-scale.md#vm-insights). 
 

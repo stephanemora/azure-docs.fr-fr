@@ -4,7 +4,7 @@ metadata:
   description: Cet article donne des réponses aux questions les plus fréquemment posées sur Azure Media Services.
   services: media-services
   documentationcenter: ''
-  author: IngridAtMicrosoft
+  author: jiayali-ms
   manager: femila
   editor: ''
   ms.service: media-services
@@ -12,14 +12,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 03/10/2021
+  ms.date: 08/24/2021
   ms.author: inhenkel
-  ms.openlocfilehash: e8dd8205cc42c4f8ec3946eccdd0f6244e11e7ec
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.openlocfilehash: 79fba437747c2c9039c0bc8189266fc7b044aa38
+  ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112305868"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122835213"
 title: Forum Aux Questions (FAQ) Media Services v2
 summary: >
   [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
@@ -36,8 +36,7 @@ sections:
     answer: >
       Ajoutez le chemin « (format=m3u8-aapl) » à la partie « /Manifest » de l’URL pour indiquer au serveur de diffusion en continu d’origine qu’il doit retourner le contenu HLS pour la consommation sur les appareils natifs Apple iOS (pour plus d’informations, consultez l’article relatif à la [distribution de contenu](media-services-deliver-content-overview.md)),
   - question: Comment mettre à l’échelle l’indexation ?
-    answer: >
-      Les unités réservées sont les mêmes pour les tâches d’encodage et d’indexation. Suivez les instructions de la page [Comment mettre à l’échelle des unités réservées mise à l’échelle des unités réservées d’encodage](media-services-scale-media-processing-overview.md). **Remarque** : le fonctionnement de l’indexeur n’est pas affecté par le type d’unité réservée.
+    answer: "AMS utilisé pour utiliser des unités réservées multimédia à des fins de mise à l’échelle. Cette fonctionnalité n'est plus prise en charge. \n"
   - question: J’ai chargé, encodé et publié une vidéo. Pourquoi la vidéo n’est-elle pas lue lorsque j’essaie de la diffuser en continu ?
     answer: Une des raisons les plus courantes est que le point de terminaison de streaming à partir duquel vous essayez de lire n’est pas dans l’état **En cours d’exécution**.
   - question: La composition d’un flux dynamique est-elle possible ?

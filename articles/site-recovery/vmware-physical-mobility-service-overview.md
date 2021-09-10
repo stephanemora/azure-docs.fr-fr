@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
 ms.date: 08/19/2021
-ms.openlocfilehash: a7bc8a1d2baedbe9c17ed2fac66f7c95015fb37c
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 356d81e93997922b0ae9b2e82bf7670449f168af
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527949"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258814"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -137,7 +137,7 @@ Paramètre | Détails
 --- | ---
 Syntaxe | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Fichiers journaux d’activité d’installation | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | Paramètre d’installation obligatoire. Spécifie si le service Mobilité (MS) ou Master Target(MT) doit être installé.
+`/Role` | Paramètre d’installation obligatoire. Spécifie si le service Mobilité (MS) ou Master Target (MT) doit être installé.  Remarque : dans les versions antérieures, les commutateurs corrects étaient le service mobilité (MS) ou Master Target (MT)
 `/InstallLocation`| Paramètre facultatif. Spécifie l’emplacement d’installation du service Mobilité (n’importe quel dossier).
 `/Platform` | Mandatory. Spécifie la plateforme sur laquelle le service Mobility est installé : <br/> **VMware** pour les machines virtuelles VMware/serveurs physiques. <br/> **Azure** pour les machines virtuelles Azure.<br/><br/> Si vous traitez des machines virtuelles Azure comme des machines physiques, spécifiez **VMware**.
 `/Silent`| facultatif. Indique si le programme d’installation doit être exécuté en mode silencieux.
@@ -159,10 +159,10 @@ Journaux d’activité de configuration de l’agent | `%ProgramData%\ASRSetupLo
    tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
    ```
 
-2. Procédez à l’installation comme suit :
+2. Installez comme suit (le compte root n'est pas nécessaire, mais les autorisations root sont requises) :
 
    ```shell
-   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   sudo ./install -d <Install Location> -r Agent -v VmWare -q
    ```
 
 3. Une fois l’installation terminée, le service Mobility doit être inscrit auprès du serveur de configuration. Exécutez la commande suivante pour inscrire le service Mobility auprès du serveur de configuration.
@@ -268,7 +268,7 @@ Fichier d’installation | Système d’exploitation (64 bits uniquement)
 >[!NOTE]
 > Cette section s’applique à Azure Site Recovery - Préversion. [Voici les instructions d’installation de la version Classique](#install-the-mobility-service-using-ui-classic).
 
-### <a name="prerequisites"></a>Configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Pour accéder aux fichiers d’installation du système d’exploitation du serveur, effectuez les étapes suivantes :  
 - Sur l’appliance, accédez au dossier *E:\Software\Agents*.

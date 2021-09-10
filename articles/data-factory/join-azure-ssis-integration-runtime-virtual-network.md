@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 55ad870da1b89e24777647613f607038089863e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc6175ca771a8be262c9a2d1ba92871a43140367
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562844"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257364"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 
@@ -264,7 +264,7 @@ Pour que l’appliance de pare-feu autorise le trafic sortant, vous devez autori
 
 -   Port 445 avec pour destination Stockage Azure (obligatoire uniquement lorsque vous exécutez un package SSIS stocké dans Azure Files).
 
-    Si vous utilisez le Pare-feu Azure, vous pouvez spécifier une règle de réseau avec une balise de service de stockage, ou autoriser comme destination une URL de stockage de fichier Azure spécifique dans l’appliance de pare-feu.
+    Si vous utilisez le Pare-feu Azure, vous pouvez spécifier une règle de réseau avec une balise de service de stockage, ou autoriser comme destination une URL de partage de fichier Azure spécifique dans l’appliance de pare-feu.
 
 > [!NOTE]
 > Pour Azure SQL et Stockage Azure, si vous configurez des points de terminaison de service de réseau virtuel sur votre sous-réseau, le trafic entre Azure-SSIS IR et Azure SQL dans la même région, ou Stockage Azure dans la même région ou une région appairée, est acheminé directement vers le réseau principal Microsoft Azure au lieu de votre appliance de pare-feu.

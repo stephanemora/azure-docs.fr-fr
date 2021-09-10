@@ -6,19 +6,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f8a1e460b471539daacc34f29c02b62678044abc
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 04e05f67787b285dd1286e0c6b7a6b251262ed0f
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122527998"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272238"
 ---
 # <a name="configure-immutability-policies-for-blob-versions-preview"></a>Configurer des stratégies d’immuabilité pour les versions d’objets blob (préversion)
 
-Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des données critiques pour l’entreprise dans un état WORM (Write Once, Read Many). Dans un état WORM, les données ne peuvent pas être modifiées ou supprimées pour un intervalle spécifié par l’utilisateur. En configurant des stratégies d’immuabilité pour les données blob, vous pouvez protéger vos données contre les remplacements et les suppressions. Les stratégies d’immuabilité comprennent des stratégies de rétention limitées dans le temps et la conservation légale. Pour plus d’informations sur les stratégies de stockage immuable, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
+Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des données critiques pour l’entreprise dans un état WORM (Write Once, Read Many). Dans l’état WORM, les données ne peuvent pas être modifiées ou supprimées pendant un intervalle spécifié par l’utilisateur. En configurant des stratégies d’immuabilité pour les données blob, vous pouvez protéger vos données contre les remplacements et les suppressions. Les stratégies d’immuabilité comprennent des stratégies de rétention limitées dans le temps et la conservation légale. Pour plus d’informations sur les stratégies de stockage immuable, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
 
 Une stratégie d’immuabilité peut être étendue à une version d’objet blob individuelle (préversion) ou à un conteneur. Cet article explique comment configurer une stratégie d’immuabilité au niveau de la version. Pour savoir comment configurer des stratégies d’immuabilité au niveau du conteneur, consultez [Configurer des stratégies d’immuabilité pour les conteneurs](immutable-policy-configure-container-scope.md).
 
@@ -30,7 +30,7 @@ La configuration d’une stratégie d’immuabilité au niveau de la version est
 > [!IMPORTANT]
 > Les stratégies d’immuabilité au niveau de la version sont actuellement en **PRÉVERSION**. Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer des stratégies de rétention limitées dans le temps au niveau de la version, le contrôle de version des objets blob doit être activé pour le compte de stockage. Pour savoir comment activer le contrôle de version des blobs, consultez [Activer et gérer le contrôle de version des blobs](versioning-enable.md).
 
@@ -46,6 +46,8 @@ N’oubliez pas que l’activation de la prise en charge de l’immuabilité au 
 
 Pour utiliser une stratégie d’immuabilité au niveau de la version, vous devez d’abord activer explicitement la prise en charge WORM au niveau de la version sur le conteneur. Vous pouvez activer la prise en charge de WORM au niveau de la version soit lorsque vous créez le conteneur, soit lorsque vous ajoutez une stratégie d’immuabilité de niveau version à un conteneur existant.
 
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
+
 Pour créer un conteneur prenant en charge l’immuabilité au niveau de la version dans le Portail Azure, procédez comme suit :
 
 1. Accédez à la page **Conteneurs** pour votre compte de stockage dans le Portail Azure, puis sélectionnez **Ajouter**.
@@ -54,11 +56,56 @@ Pour créer un conteneur prenant en charge l’immuabilité au niveau de la vers
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/create-container-version-level-immutability.png" alt-text="Capture d’écran montrant comment créer un conteneur avec l’immuabilité activée au niveau de la version":::
 
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour créer un conteneur qui prend en charge l’immuabilité au niveau de la version avec PowerShell, installez d’abord le [module Az. Stockage](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview), version 3.10.1-preview.
+
+Ensuite, appelez la commande **New-AzRmStorageContainer** avec le paramètre `-EnableImmutableStorageWithVersioning`, comme illustré dans l’exemple suivant. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs :
+
+```azurepowershell
+# Create a container with version-level immutability support.
+$container = New-AzRmStorageContainer -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -EnableImmutableStorageWithVersioning
+
+# Verify that version-level immutability support is enabled for the container
+$container.ImmutableStorageWithVersioning
+```
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour créer un conteneur qui prend en charge l’immuabilité au niveau de la version avec Azure CLI, commencez par installer Azure CLI version 2.27 ou ultérieure. Pour plus d’informations sur l'installation d’Azure CLI, consultez [Comment installer Azure CLI](/cli/azure/install-azure-cli).
+
+Ensuite, appelez la commande [Créer un AZ Storage Container-RM](/cli/azure/storage/container-rm#az_storage_container_rm_create), en spécifiant le paramètre `--enable-vlw`. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs :
+
+```azurecli
+# Create a container with version-level immutability support.
+az storage container-rm create \
+    --name <container> \
+    --storage-account <storage-account> \
+    --resource-group <resource-group> \
+    --enable-vlw
+
+# Verify that version-level immutability support is enabled for the container
+az storage container-rm show \
+    --storage-account <storage-account> \
+    --name <container> \
+    --query '[immutableStorageWithVersioning.enabled]' \
+    --output tsv
+```
+
+---
+
 ### <a name="migrate-an-existing-container-to-support-version-level-immutability"></a>Migrer un conteneur existant pour prendre en charge l’immuabilité au niveau de la version
 
 Pour configurer des stratégies d’immuabilité au niveau de la version pour un conteneur existant, vous devez migrer le conteneur pour prendre en charge le stockage immuable au niveau de la version. La migration du conteneur peut prendre un certain temps et ne peut pas être inversée.
 
-Un conteneur existant doit être migré qu’une stratégie de rétention limitée dans le temps au niveau du conteneur soit configurée ou non. Si le conteneur a une conservation légale au niveau du conteneur, il ne peut pas être migré tant que la conservation légale n’est pas supprimée.
+Pour migrer un conteneur existant afin de prendre en charge les stratégies d’immuabilité au niveau de la version, le conteneur doit avoir une stratégie de rétention basée sur le temps au niveau du conteneur configurée. La migration échoue sauf si le conteneur a une stratégie existante. L’intervalle de rétention de la stratégie au niveau du conteneur est conservé comme intervalle de rétention pour la stratégie par défaut au niveau de la version sur le conteneur.
+
+Si le conteneur a une conservation légale au niveau du conteneur, il ne peut pas être migré tant que la conservation légale n’est pas supprimée.
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour migrer un conteneur afin de prendre en charge le stockage immuable au niveau de la version dans le Portail Azure, procédez comme suit :
 
@@ -67,9 +114,96 @@ Pour migrer un conteneur afin de prendre en charge le stockage immuable au nivea
 1. Sélectionnez **Ajouter une stratégie** sous **Stockage blob non modifiable**.
 1. Dans le champ **Type de stratégie**, sélectionnez *Rétention limitée dans le temps*, puis spécifiez l’intervalle de rétention.
 1. Sélectionnez **Activer l’immuabilité au niveau de la version**.
-1. Sélectionnez **OK** pour commencer la migration.
+1. Sélectionnez **OK** pour créer une stratégie au niveau du conteneur avec l’intervalle de rétention spécifié, puis commencez la migration vers la prise en charge de l’immuabilité au niveau de la version.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Capture d’écran montrant comment migrer un conteneur existant pour prendre en charge l’immuabilité au niveau de la version":::
+
+Pendant que l’opération de migration est en cours, l’étendue de la stratégie sur le conteneur s’affiche comme *Conteneur*.
+
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-in-process.png" alt-text="Capture d’écran montrant la migration des conteneurs en cours":::
+
+Une fois la migration terminée, l’étendue de la stratégie sur le conteneur s’affiche comme *Version*. La stratégie indiquée est une stratégie par défaut sur le conteneur qui s’applique automatiquement à toutes les versions d’objets blob créées par la suite dans le conteneur. La stratégie par défaut peut être substituée sur n’importe quelle version en spécifiant une stratégie personnalisée pour cette version.
+
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Capture d’écran montrant la migration des conteneurs terminée":::
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour migrer un conteneur afin de prendre en charge le stockage immuable au niveau de la version avec PowerShell, commencez par vérifier qu’il existe une stratégie de rétention basée sur le temps au niveau du conteneur pour le conteneur. Pour en créer une, appelez [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy).
+
+```azurepowershell
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+   -StorageAccountName <storage-account> `
+   -ContainerName <container> `
+   -ImmutabilityPeriod <retention-interval-in-days>
+```
+
+Ensuite, appelez la commande **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** pour migrer le conteneur. Incluez le paramètre `-AsJob` pour exécuter la commande de façon asynchrone. L’exécution de l’opération de façon asynchrone est recommandée, car la migration peut prendre un certain temps.
+
+```azurepowershell
+$migrationOperation = Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration `
+    -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -AsJob
+```
+
+Pour vérifier l’état de l’opération de longue durée, lisez la propriété **JobStateInfo.State** de l’opération.
+
+```azurepowershell
+$migrationOperation.JobStateInfo.State
+```
+
+Si le conteneur n’a pas de stratégie de rétention basée sur le temps lorsque vous tentez d’effectuer une migration vers l’immuabilité au niveau de la version, l’opération échoue. L’exemple suivant vérifie la valeur de la propriété **JobStateInfo.State** et affiche le message d’erreur si l’opération a échoué parce que la stratégie au niveau du conteneur n’existe pas.
+
+```azurepowershell
+if ($migrationOperation.JobStateInfo.State -eq "Failed") {
+Write-Host $migrationOperation.Error
+}
+The container <container-name> must have an immutability policy set as a default policy 
+before initiating container migration to support object level immutability with versioning.
+```
+
+Une fois la migration terminée, vérifiez la propriété **Output** de l’opération pour voir que la prise en charge de l’immuabilité au niveau de la version est activée.
+
+```azurepowershell
+$migrationOperation.Output
+```
+
+Pour plus d’informations sur les tâches PowerShell, consultez [Exécuter des cmdlets Azure PowerShell dans des tâches PowerShell](/powershell/azure/using-psjobs).
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour migrer un conteneur afin de prendre en charge le stockage immuable au niveau de la version avec Azure CLI, commencez par vérifier qu’il existe une stratégie de rétention basée sur le temps au niveau du conteneur pour le conteneur. Pour en créer une, appelez [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create).
+
+```azurecli
+az storage container immutability-policy create \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --period <retention-interval-in-days>
+```
+
+Ensuite, appelez la commande [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) pour migrer le conteneur. Incluez le paramètre `--no-wait` pour exécuter la commande de façon asynchrone. L’exécution de l’opération de façon asynchrone est recommandée, car la migration peut prendre un certain temps.
+
+```azurecli
+az storage container-rm migrate-vlw \
+    --resource-group <resource-group> \
+    --storage-account <storage-account> \
+    --name <container> \
+    --no-wait
+```
+
+Pour vérifier l’état de l’opération de longue durée, lisez la valeur de la propriété **migrationState**.
+
+```azurecli
+az storage container-rm show \
+    --storage-account <storage-account> \
+    --name <container> \
+    --query '[immutableStorageWithVersioning.migrationState]' \
+    --output tsv
+```
+
+---
 
 ## <a name="configure-a-time-based-retention-policy-on-a-container"></a>Configurer une stratégie de rétention limitée dans le temps sur un conteneur
 
@@ -77,9 +211,15 @@ Une fois qu’un conteneur est activé pour l’immuabilité au niveau de la ver
 
 La stratégie par défaut n’est pas automatiquement appliquée aux versions d’objets blob qui existaient avant la configuration de la stratégie par défaut.
 
+Si vous avez migré un conteneur existant pour prendre en charge l’immuabilité au niveau de la version, la stratégie au niveau du conteneur qui était en vigueur avant la migration est migrée vers une stratégie de niveau de version par défaut pour le conteneur.
+
 ### <a name="configure-a-default-time-based-retention-policy-on-a-container"></a>Configurer une stratégie de rétention limitée dans le temps par défaut sur un conteneur
 
-Pour appliquer une stratégie d’immuabilité par défaut au niveau de la version à un conteneur dans le Portail Azure, procédez comme suit :
+Pour configurer une stratégie d’immuabilité par défaut au niveau de la version pour un conteneur, utilisez le portail Azure, PowerShell, Azure CLI ou l’un des kits de développement logiciel (SDK) Stockage Azure. Assurez-vous que vous avez activé la prise en charge de l’immuabilité au niveau de la version pour le conteneur, comme décrit dans [Activer la prise en charge de l’immuabilité au niveau de la version sur un conteneur](#enable-support-for-version-level-immutability-on-a-container).
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Pour configurer une stratégie d’immuabilité par défaut au niveau de la version à un conteneur dans le portail Azure, procédez comme suit :
 
 1. Dans le Portail Azure, accédez à la page **Conteneurs**, puis localisez le conteneur auquel vous souhaitez appliquer la stratégie.
 1. Sélectionnez le bouton **Plus** à droite du nom de conteneur et choisissez **Stratégie d’accès**.
@@ -89,6 +229,32 @@ Pour appliquer une stratégie d’immuabilité par défaut au niveau de la versi
 1. Sélectionnez **OK** pour appliquer la stratégie par défaut au conteneur.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Capture d’écran montrant comment configurer une stratégie de rétention par défaut au niveau de la version pour un conteneur":::
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour configurer une stratégie d’immuabilité par défaut au niveau de la version pour un conteneur avec PowerShell, appelez la commande [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy).
+
+```azurepowershell
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+   -StorageAccountName <storage-account> `
+   -ContainerName <container> `
+   -ImmutabilityPeriod <retention-interval-in-days> `
+   -AllowProtectedAppendWrite $true
+```
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour configurer une stratégie d’immuabilité par défaut au niveau de la version pour un conteneur avec Azure CLI, appelez la commande [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create).
+
+```azurecli
+az storage container immutability-policy create \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --period <retention-interval-in-days> \
+    --allow-protected-append-writes true
+```
+
+---
 
 ### <a name="determine-the-scope-of-a-retention-policy-on-a-container"></a>Déterminer l’étendue d’une stratégie de rétention sur un conteneur
 
@@ -114,9 +280,13 @@ Vous avez trois options pour configurer une stratégie de rétention limitée da
 - Option 2 : vous pouvez configurer une stratégie sur la version actuelle de l’objet blob. Cette stratégie peut remplacer une stratégie par défaut configurée sur le conteneur si celle-ci existe et qu’elle est déverrouillée. Par défaut, toutes les versions précédentes créées après la configuration de la stratégie héritent de la stratégie sur la version actuelle de l’objet blob. Pour plus d’informations, consultez [Configurer une stratégie de rétention sur la version actuelle d’un objet blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
 - Option 3 : vous pouvez configurer une stratégie sur une version antérieure d’un objet blob. Cette stratégie peut remplacer une stratégie par défaut configurée sur la version actuelle si celle-ci existe et qu’elle est déverrouillée. Pour plus d’informations, consultez [Configurer une stratégie de rétention sur une version antérieure d’un objet blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
 
-### <a name="configure-a-retention-policy-on-the-current-version-of-a-blob"></a>Configurer une stratégie de rétention sur la version actuelle d’un objet blob
+Pour plus d’informations sur la gestion de versions des objets blob, consultez [Gestion de versions des objets blob](versioning-overview.md).
 
-Le portail Azure affiche la liste des objets blob lorsque vous accédez à un conteneur. Chaque objet blob affiché représente sa version actuelle. Pour plus d’informations sur la gestion de versions des objets blob, consultez [Gestion de versions des objets blob](versioning-overview.md).
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Le portail Azure affiche la liste des objets blob lorsque vous accédez à un conteneur. Chaque objet blob affiché représente sa version actuelle. Vous pouvez accéder à une liste de versions précédentes en sélectionnant le bouton **Plus** pour un objet blob et en choisissant **Afficher les versions précédentes**.  
+
+### <a name="configure-a-retention-policy-on-the-current-version-of-a-blob"></a>Configurer une stratégie de rétention sur la version actuelle d’un objet blob
 
 Pour configurer une stratégie de rétention limitée dans le temps sur la version actuelle d’un objet blob, procédez comme suit :
 
@@ -147,6 +317,29 @@ Pour configurer une stratégie de rétention limitée dans le temps sur une vers
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-previous-version.png" alt-text="Capture d’écran montrant comment configurer une stratégie de rétention pour une version précédente de l’objet blob dans le Portail Azure":::
 
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour configurer une stratégie de rétention basée sur la durée sur une version d’objet blob avec PowerShell, appelez la commande **Set-AzStorageBlobImmutabilityPolicy**.
+
+```azurepowershell
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName <resource-group> `
+        -Name <storage-account>).Context
+
+Set-AzStorageBlobImmutabilityPolicy -Container <container> `
+    -Blob <blob-version> `
+    -Context $ctx `
+    -ExpiresOn "2021-09-01T12:00:00Z" `
+    -PolicyMode Unlocked
+```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
 ## <a name="configure-a-time-based-retention-policy-when-uploading-a-blob"></a>Configurer une stratégie de rétention limitée dans le temps lors du chargement d’un objet blob
 
 Lorsque vous utilisez le portail Azure pour charger un objet blob dans un conteneur prenant en charge l’immuabilité au niveau de la version, vous disposez de plusieurs options pour configurer une stratégie de rétention limitée dans le temps pour le nouvel objet blob :
@@ -163,40 +356,105 @@ Pour configurer une stratégie de rétention limitée dans le temps lorsque vous
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-blob-upload.png" alt-text="Capture d’écran montrant les options de configuration de la stratégie de rétention pour le chargement d’objets blob dans le Portail Azure":::
 
-## <a name="modify-an-unlocked-retention-policy"></a>Modifier une stratégie de rétention déverrouillée
+## <a name="modify-or-delete-an-unlocked-retention-policy"></a>Modifier ou supprimer une stratégie de rétention déverrouillée
 
 Vous pouvez modifier une stratégie de rétention limitée dans le temps déverrouillée pour raccourcir ou allonger l’intervalle de rétention. Vous pouvez également supprimer une stratégie déverrouillée. La modification ou la suppression d’une stratégie de rétention limitée dans le temps et qui est déverrouillée pour une version d’objet blob n’affecte pas les stratégies en vigueur pour les autres versions. Si une stratégie de rétention limitée dans le temps par défaut est en vigueur pour le conteneur, la version de l’objet blob avec la stratégie modifiée ou supprimée n’héritera plus du conteneur.
 
-Pour modifier une stratégie de rétention déverrouillée limitée dans le temps, procédez comme suit :
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Recherchez la version cible, qui peut être la version actuelle ou une version antérieure d’un objet blob. Sélectionnez le bouton **Plus** et choisissez **Stratégie d’accès**.
-1. Sous la section **Version d’objets blob immuables**, recherchez la stratégie actuellement déverrouillée. Sélectionnez le bouton **Plus**, puis sélectionnez **Modifier** dans le menu.
+Pour modifier une stratégie de rétention temporelle déverrouillée dans le Portail Azure, procédez comme suit :
+
+1. Localisez le conteneur ou la version cible. Sélectionnez le bouton **Plus** et choisissez **Stratégie d’accès**.
+1. Localisez la stratégie d’immuabilité déverrouillée existante. Sélectionnez le bouton **Plus**, puis sélectionnez **Modifier** dans le menu.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/edit-existing-version-policy.png" alt-text="Capture d’écran montrant comment modifier une stratégie de rétention limitée dans le temps au niveau de la version existante dans le Portail Azure":::
 
 1. Indiquez la nouvelle date et l’heure de l’expiration de la stratégie.
 
-Pour supprimer une stratégie déverrouillée, suivez les étapes 1 à 4, puis sélectionnez **Supprimer** dans le menu.
+Pour supprimer la stratégie déverrouillée, sélectionnez **Supprimer** dans le menu **Plus**.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour modifier une stratégie de rétention en mode déverrouillé avec PowerShell, appelez la commande \**Set-AzStorageBlobImmutabilityPolicy** sur la version de l’objet blob avec la nouvelle date et l’heure de l’expiration de la stratégie.
+
+```azurepowershell
+$containerName = "<container>"
+$blobName = "<blob>"
+
+# Get the previous blob version.
+$blobVersion = Get-AzStorageBlob -Container $containerName `
+    -Blob $blobName `
+    -VersionId "2021-08-31T00:26:41.2273852Z" `
+    -Context $ctx
+
+# Extend the retention interval by five days.
+$blobVersion = $blobVersion | 
+    Set-AzStorageBlobImmutabilityPolicy -ExpiresOn (Get-Date).AddDays(5) `
+
+# View the new policy parameters.
+$blobVersion.BlobProperties.ImmutabilityPolicy
+```
+
+Pour supprimer une stratégie de rétention déverrouillée, appelez la commande **Remove-AzStorageBlobImmutabilityPolicy**.
+
+```azurepowershell
+$blobVersion = $blobVersion | Remove-AzStorageBlobImmutabilityPolicy
+```
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
 
 ## <a name="lock-a-time-based-retention-policy"></a>Verrouiller une stratégie de rétention limitée dans le temps
 
-Une fois que vous avez fini de tester une stratégie de rétention limitée dans le temps, vous pouvez verrouiller la stratégie. Une stratégie verrouillée est conforme à la norme SEC 17A-4 (f) et à toute autre conformité réglementaire. Vous pouvez augmenter l’intervalle de rétention pour une stratégie verrouillée jusqu’à cinq fois, mais vous ne pouvez pas raccourcir cet intervalle.
+Une fois que vous avez fini de tester une stratégie de rétention limitée dans le temps, vous pouvez verrouiller la stratégie. Les stratégies verrouillées sont conformes à la norme SEC 17A-4 (f) et à toute les autres conformités réglementaires. Vous pouvez augmenter l’intervalle de rétention pour une stratégie verrouillée jusqu’à cinq fois, mais vous ne pouvez pas raccourcir cet intervalle.
 
 Une fois qu’une stratégie est verrouillée, vous ne pouvez pas la supprimer. Toutefois, vous pouvez supprimer l’objet blob après l’expiration de l’intervalle de rétention.
 
-Pour verrouiller une stratégie, effectuez les étapes suivantes :
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Recherchez la version cible, qui peut être la version actuelle ou une version antérieure d’un objet blob. Sélectionnez le bouton **Plus** et choisissez **Stratégie d’accès**.
+Pour verrouiller une stratégie avec le portail Azure, procédez comme suit :
+
+1. Localisez le conteneur ou la version cible. Sélectionnez le bouton **Plus** et choisissez **Stratégie d’accès**.
 1. Sous la section **Version d’objets blob immuables**, recherchez la stratégie actuellement déverrouillée. Sélectionnez le bouton **Plus**, puis sélectionnez **Verrouiller la stratégie** dans le menu.
 1. Confirmez que vous souhaitez verrouiller la stratégie.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/lock-policy-portal.png" alt-text="Capture d’écran montrant comment verrouiller une stratégie de rétention limitée dans le temps dans le portail Azure":::
 
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour verrouiller une stratégie à l’aide de PowerShell, appelez la commande **Set-AzStorageBlobImmutabilityPolicy** et définissez le paramètre **PolicyMode** sur *Locked*.
+
+L’exemple suivant montre comment verrouiller une stratégie en spécifiant le même intervalle de rétention qui était en vigueur pour la stratégie déverrouillée. Vous pouvez également modifier l’expiration au moment où vous verrouillez la stratégie.
+
+```azurepowershell
+# Get the previous blob version.
+$blobVersion = Get-AzStorageBlob -Container $containerName `
+    -Blob $blobName `
+    -VersionId "2021-08-31T00:26:41.2273852Z" `
+    -Context $ctx
+
+$blobVersion = $blobVersion | 
+    Set-AzStorageBlobImmutabilityPolicy `
+        -ExpiresOn $blobVersion.BlobProperties.ImmutabilityPolicy.ExpiresOn `
+        -PolicyMode Locked
+```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
 ## <a name="configure-or-clear-a-legal-hold"></a>Configurer ou effacer une conservation légale
 
 La conservation légale stocke des données immuables jusqu’à ce qu’elle soit explicitement désactivée. Pour en savoir plus sur les stratégies de conservation légale, consultez [Conservation légale pour les données d’objets blob immuables](immutable-legal-hold-overview.md).
 
-Pour configurer une conservation légale sur une version d’objet blob, effectuez ces étapes :
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Pour configurer une conservation légale sur une version d’objet blob avec le portail Azure, effectuez les étapes suivantes :
 
 1. Recherchez la version cible, qui peut être la version actuelle ou une version antérieure d’un objet blob. Sélectionnez le bouton **Plus** et choisissez **Stratégie d’accès**.
 1. Sous la section **Version d’objets blob immuables**, sélectionnez **Ajouter une stratégie**.
@@ -207,6 +465,30 @@ L’illustration suivante montre une version actuelle d’un objet blob avec une
 :::image type="content" source="media/immutable-policy-configure-version-scope/configure-legal-hold-blob-version.png" alt-text="Capture d’écran montrant la conservation légale configurée pour la version de l’objet blob":::
 
 Pour annuler la conservation légale, accédez à la boîte de dialogue **Stratégie d’accès**, sélectionnez le bouton **Plus** et choisissez **Supprimer**.
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour configurer ou supprimer une conservation légale sur une version d’objet blob avec PowerShell, appelez la commande **Set-AzStorageBlobLegalHold**.
+
+```azurepowershell
+# Set a legal hold
+Set-AzStorageBlobLegalHold -Container <container> `
+    -Blob <blob-version> `
+    -Context $ctx `
+    -EnableLegalHold
+
+# Clear a legal hold
+Set-AzStorageBlobLegalHold -Container <container> `
+    -Blob <blob-version> `
+    -Context $ctx `
+    -DisableLegalHold
+```
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

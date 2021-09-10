@@ -4,20 +4,20 @@ description: Guide pratique pour créer un pool d’hôtes Azure Virtual Desktop
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 07/20/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 34faa055eb14841d1b35d81e62c74fef92c80bac
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 49c453f4ffcb2fac04b42f4956768e06ab8fce8f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707061"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100809"
 ---
-# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
+# <a name="tutorial-create-a-host-pool"></a>Tutoriel : créer un pool d’hôtes
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Les objets que vous créez avec Azure Virtual Desktop (classique) ne peuvent pas être gérés avec le portail Azure.
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Les objets que vous créez avec Azure Virtual Desktop (classique) ne peuvent pas être gérés avec le portail Azure.
 
 Les pools d’hôtes sont des ensembles d’une ou plusieurs machines virtuelles identiques, aussi appelés « hôtes de session », dans des environnements Azure Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique. Si vous souhaitez en savoir plus sur l’architecture de déploiement, consultez la présentation de l'[environnement d’Azure Virtual Desktop](environment-setup.md). Si vous êtes développeur d’applications et que vous utilisez la diffusion d’applications à distance pour Azure Virtual Desktop, vos clients ou utilisateurs peuvent utiliser vos applications comme des applications locales sur un appareil physique. Pour plus d’informations sur l’utilisation d’Azure Virtual Desktop en tant que développeur d’applications, consultez notre documentation sur la [diffusion en continu d’applications d’Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
@@ -50,7 +50,7 @@ Si vous êtes un développeur d’applications qui utilise la diffusion d’appl
 
 - Si vous envisagez de servir l’application de votre organisation aux utilisateurs finaux, assurez-vous que cette application est bien prête. Pour en savoir plus, consultez [Comment héberger des applications personnalisées avec Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 - Si les options existantes de l’image de la Galerie Azure ne répondent pas à vos besoins, vous devrez également créer votre propre image personnalisée pour les hôtes de session de vos machines virtuelles. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md).
-- Informations d’identification de jonction de domaine. Si vous ne disposez pas déjà d’un système de gestion des identités compatible avec Azure Virtual Desktop, vous devez configurer la gestion des identités pour votre pool hôte.
+- Informations d’identification de jonction de domaine. Si vous ne disposez pas déjà d’un système de gestion des identités compatible avec Azure Virtual Desktop, vous devez configurer la gestion des identités pour votre pool hôte. Pour en savoir plus, consultez [Configurer des identités managées](./remote-app-streaming/identities.md).
 
 ### <a name="final-requirements"></a>Exigences finales
 
@@ -61,6 +61,8 @@ Si vous êtes un professionnel de l’informatique et que vous créer un réseau
 Enfin, si vous n’avez pas encore d’abonnement Azure, veillez à [créer un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer à suivre ces instructions.
 
 ## <a name="begin-the-host-pool-setup-process"></a>Démarrer le processus de création du pool d’hôtes
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour commencer à créer votre nouveau pool d’hôtes
 
@@ -110,13 +112,42 @@ Pour commencer à créer votre nouveau pool d’hôtes
 
 11. Si vous avez déjà créé des machines virtuelles et que vous souhaitez les utiliser avec le nouveau pool d’hôtes, sélectionnez **Non**, **Suivant : Espace de travail >** , puis accédez à la section [Informations sur l’espace de travail](#workspace-information). Si vous souhaitez créer des machines virtuelles et les inscrire auprès du nouveau pool d’hôtes, sélectionnez **Oui**.
 
-Maintenant que vous avez terminé la première partie, passons à la partie suivante du processus, où nous allons créer la machine virtuelle.
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Commencez par préparer votre environnement pour Azure CLI :
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Après vous être connecté, utilisez la commande [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) pour créer le nouveau pool d’hôtes, en créant éventuellement un jeton d’inscription pour les hôtes de session pour rejoindre le pool d’hôtes :
+
+```azurecli
+az desktopvirtualization hostpool create --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \ 
+    --location "MyLocation" \
+    --host-pool-type "Pooled" \
+    --load-balancer-type "BreadthFirst" \
+    --max-session-limit 999 \
+    --personal-desktop-assignment-type "Automatic"  \
+    --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
+    --sso-context "KeyVaultPath" \
+    --description "Description of this host pool" \
+    --friendly-name "Friendly name of this host pool" \
+    --tags tag1="value1" tag2="value2" 
+```
+
+Si vous souhaitez créer des machines virtuelles et les inscrire auprès du nouveau pool d’hôtes, continuez avec la section suivante. Si vous avez déjà créé des machines virtuelles et que vous souhaitez les utiliser avec le nouveau pool d’hôtes, sautez à la section [Informations sur l’espace de travail](#workspace-information). 
+
+---
+
+Maintenant que vous avez créé un pool d’hôtes, passons à la partie suivante du processus de configuration, où nous allons créer la machine virtuelle.
 
 ## <a name="virtual-machine-details"></a>Détails de machine virtuelle
 
 La première partie étant terminée, vous allez devoir configurer votre machine virtuelle.
 
-Pour configurer votre machine virtuelle durant le processus de création du pool d’hôtes
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Pour configurer votre machine virtuelle durant le processus de configuration du pool d’hôtes du Portail Azure :
 
 1. Sous **Groupe de ressources**, choisissez le groupe de ressources dans lequel vous souhaitez créer les machines virtuelles. Il peut s’agir d’un groupe de ressources différent de celui que vous avez utilisé pour le pool d’hôtes.
 
@@ -190,6 +221,26 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
 13. Sélectionnez **Suivant : Espace de travail >** .
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour créer une nouvelle machine virtuelle Azure, utilisez la commande [az vm create](/cli/azure/vm#az_vm_create) :
+
+```azurecli
+az vm create --name "MyVMName" \
+    --resource-group "MyResourceGroup" \
+    --image "MyImage" \
+    --generate-ssh-keys
+```
+
+Pour plus d’informations sur l’utilisation d’Azure CLI pour créer des machines virtuelles Azure, consultez :
+- Windows
+    - [Créer une machine virtuelle Windows à l’aide de l’interface de ligne de commande Azure]( /azure/virtual-machines/windows/quick-create-cli)
+    - [Tutoriel : créer et gérer des machines virtuelles Windows avec Azure CLI](/cli/azure/azure-cli-vm-tutorial)
+- Linux
+    - [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)]( /virtual-machines/linux/quick-create-cli)
+    - [Tutoriel : Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI]( /azure/virtual-machines/linux/tutorial-manage-vm) 
+---
+
 Nous sommes maintenant prêts à commencer la phase suivante de la configuration de votre pool d’hôtes : l’inscription de votre groupe d’applications auprès d’un espace de travail.
 
 ## <a name="workspace-information"></a>Informations sur l’espace de travail
@@ -198,6 +249,8 @@ Le processus de création du pool d’hôtes crée un groupe d’applications de
 
 >[!NOTE]
 >Si vous êtes un développeur d’applications qui tente de publier les applications de votre organisation, vous pouvez attacher dynamiquement des applications MSIX à des sessions utilisateur ou ajouter vos packages d’application à une image de machine virtuelle personnalisée. Pour plus d’informations, consultez Comment faire pour servir votre application personnalisée avec Azure Virtual Desktop.
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour inscrire le groupe d’applications de bureau auprès d’un espace de travail
 
@@ -216,14 +269,30 @@ Pour inscrire le groupe d’applications de bureau auprès d’un espace de trav
      >[!NOTE]
      >Le processus de validation Vérifier + créer ne vérifie pas si votre mot de passe répond aux normes de sécurité ou si votre architecture est correcte. Vous devez donc vérifier ces éléments vous-même.
 
-5. Passez en revue les informations relatives à votre déploiement pour vérifier que tout semble correct. Sélectionnez **Créer** lorsque vous avez terminé. Cela démarre le processus de déploiement, qui crée les objets suivants :
+5. Passez en revue les informations relatives à votre déploiement pour vérifier que tout semble correct. Sélectionnez **Créer** lorsque vous avez terminé. 
 
-     - Votre nouveau pool d’hôtes
-     - Un groupe d’applications de bureau
-     - Un espace de travail, si vous avez choisi d’en créer un
-     - Si vous avez choisi d’inscrire le groupe d’applications de bureau, l’inscription aboutit.
-     - Des machines virtuelles, si vous avez choisi d’en créer, qui sont jointes au domaine et inscrites auprès du nouveau pool d’hôtes
-     - Un lien de téléchargement pour un modèle Azure Resource Managr basé sur votre configuration
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Utilisez la commande [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az_desktopvirtualization_workspace_create) pour créer le nouvel espace de travail :
+
+```azurecli
+az desktopvirtualization workspace create --name "MyWorkspace" \
+    --resource-group "MyResourceGroup" \
+    --location "MyLocation" \
+    --tags tag1="value1" tag2="value2" \
+    --friendly-name "Friendly name of this workspace" \
+    --description "Description of this workspace" 
+```
+---
+
+Cela démarre le processus de déploiement, qui crée les objets suivants :
+
+- Votre nouveau pool d’hôtes
+- Un groupe d’applications de bureau
+- Un espace de travail, si vous avez choisi d’en créer un
+- Si vous avez choisi d’inscrire le groupe d’applications de bureau, l’inscription aboutit.
+- Des machines virtuelles, si vous avez choisi d’en créer, qui sont jointes au domaine et inscrites auprès du nouveau pool d’hôtes
+- Un lien de téléchargement pour un modèle Azure Resource Management basé sur votre configuration
 
 Après cela, vous avez terminé !
 

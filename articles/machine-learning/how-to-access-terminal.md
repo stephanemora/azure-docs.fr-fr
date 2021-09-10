@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: bff14ddd6a361c93c416aa746640b774afc43961
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 7b0d43cec561040e98688a216165d7a4ed88c3d2
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897232"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635174"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>Accès à un terminal d’instance de calcul dans votre espace de travail
 
@@ -27,7 +27,7 @@ Accédez au terminal d’une instance de calcul dans votre espace de travail pou
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="access-a-terminal"></a>Accéder à un terminal
@@ -68,7 +68,7 @@ Apprenez-en davantage sur le [clonage des dépôts Git dans le système de fichi
 
 ## <a name="install-packages"></a>Installer des packages
 
- Installez des packages à partir d’une fenêtre de terminal. Installez les packages Python dans l’environnement **Python 3.6 – AzureML**.  Installez les packages R dans l’environnement **R**.
+ Installez des packages à partir d’une fenêtre de terminal. Installez les packages Python dans l’environnement **Python 3.8 – AzureML**.  Installez les packages R dans l’environnement **R**.
 
 Ou vous pouvez installer des packages directement dans Jupyter Notebook ou RStudio :
 
@@ -81,7 +81,7 @@ Ou vous pouvez installer des packages directement dans Jupyter Notebook ou RStud
 ## <a name="add-new-kernels"></a>Ajouter de nouveaux noyaux
 
 > [!WARNING]
->  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer l’environnement conda **azureml_py36** ou le noyau **Python 3.6 - AzureML**. Cela est nécessaire pour le bon fonctionnement de Jupyter/JupyterLab.
+>  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer les environnements conda **azureml_py36** ou **azureml_py38**.  Ne supprimez pas les noyaux **Python 3.6 - AzureML** ou **Python 3.8 - AzureML**. Ils sont tous les deux nécessaires pour le bon fonctionnement de Jupyter/JupyterLab.
 
 Pour ajouter un nouveau noyau Jupyter à l’instance de calcul :
 

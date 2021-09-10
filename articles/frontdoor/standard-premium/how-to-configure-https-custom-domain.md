@@ -6,14 +6,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/10/2021
+ms.date: 08/26/2021
 ms.author: amsriva
-ms.openlocfilehash: ea6361f22ad90c0bc5f7a7f93be4a155206d930c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 79674febe7f43f8ae57d8c0420d6c8500506506e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606585"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965672"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configurer le protocole HTTPS sur un domaine personnalisé de SKU Standard/Premium (préversion) à l’aide du portail Azure
 
@@ -78,7 +78,7 @@ Inscrivez le principal du service pour Azure Front Door en tant qu’application
 
 1. Dans PowerShell, exécutez la commande suivante :
 
-     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
 
 #### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Accorder à Azure Front Door l’accès à votre coffre de clés
  
@@ -86,7 +86,7 @@ Accordez à Azure Front Door l’autorisation d’accéder aux certificats de vo
 
 1. Dans votre compte Key Vault, sous PARAMÈTRES, sélectionnez **Stratégies d’accès**. Sélectionnez ensuite **Ajouter** pour créer une nouvelle stratégie.
 
-1. Dans **Sélectionner le principal**, recherchez **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, puis choisissez ** Microsoft.Azure.Frontdoor-Cdn**. Cliquez sur **Sélectionner**.
+1. Dans **Sélectionner principal**, recherchez **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** et choisissez **Microsoft.AzureFrontDoor-Cdn**. Cliquez sur **Sélectionner**.
 
 1. Sous **Autorisations du secret**, sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
 

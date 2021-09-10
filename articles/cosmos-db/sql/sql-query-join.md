@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/27/2021
 ms.author: tisande
-ms.openlocfilehash: 95e6c74ad03cae30a2b7b6544a490ef86e92e900
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 490510e3b1a46b21123a7cd519a7bf8cb81021d6
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533208"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109201"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Jointures dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -255,7 +255,40 @@ Les résultats sont :
     ]
 ```
 
-Si votre requête comporte une jointure et des filtres, vous pouvez réécrire une partie de la requête en tant que [sous-requête](sql-query-subquery.md#optimize-join-expressions) pour améliorer les performances.
+## <a name="subqueries-instead-of-joins"></a>Sous-requêtes au lieu de JOIN
+
+Si votre requête comporte une jointure et des filtres, vous pouvez réécrire une partie de la requête en tant que [sous-requête](sql-query-subquery.md#optimize-join-expressions) pour améliorer les performances. Dans certains cas, il se peut que vous puissiez utiliser une sous-requête ou une [ARRAY_CONTAINS](sql-query-array-contains.md) pour éviter tout besoin JOIN et améliorer les performances des requêtes.
+
+Par exemple, considérez la requête précédente qui a projeté le familyName, le givenName de l’enfant, le firstName de l’enfant et le givenName de l’animal de compagnie. Si cette requête a juste besoin de filtrer sur le nom de l’animal de compagnie et n’a pas besoin de le retourner, vous pouvez utiliser `ARRAY_CONTAINS` ou une [sous-requête](sql-query-subquery.md) pour vérifier les animaux où `givenName = "Shadow"` .
+
+### <a name="query-rewritten-with-array_contains"></a>Requête réécrite avec ARRAY_CONTAINS
+
+```sql
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName
+    FROM Families f
+    JOIN c IN f.children
+    WHERE ARRAY_CONTAINS(c.pets, {givenName: 'Shadow'})
+```
+
+### <a name="query-rewritten-with-subquery"></a>Requête réécrite avec une sous-requête
+
+```sql
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName
+    FROM Families f
+    JOIN c IN f.children
+    WHERE EXISTS (
+    SELECT VALUE n
+    FROM n IN c.pets
+    WHERE n.givenName = "Shadow"
+    )
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: fbbb9837a54d323b568e42c90132c799c3927c30
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8d349a0faa2cfc97f029e496b9bd92b1e5057018
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414294"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867500"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutoriel : Configurer les paramètres réseau du cluster
 
@@ -108,8 +108,8 @@ Pour obtenir des performances optimales, configurez votre serveur DNS afin qu’
 
 Le diagramme présente un vserver de cluster à gauche, et des adresses IP au centre et à droite. Configurez chaque point d’accès client avec des enregistrements A et des pointeurs comme illustré ci-dessous.
 
-![Diagramme du tourniquet DNS de cluster - texte détaillé de remplacement du lien après l’image](media/fxt-cluster-config/fxt-rrdns-diagram.png)
-[description textuelle détaillée](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+:::image type="complex" source="media/fxt-cluster-config/fxt-rrdns-diagram.png" alt-text="Diagramme montrant la configuration DNS de cluster round-robin.":::
+   <Le diagramme montre les connexions entre trois catégories d’éléments : un seul vserver (à gauche), trois adresses IP (colonne du milieu) et trois interfaces clientes (colonne de droite). Un seul cercle à gauche nommé « vserver1 » est connecté par des flèches pointant vers trois cercles étiquetés avec des adresses IP : 10.0.0.10, 10.0.0.11 et 10.0.0.12. Les flèches du cercle vserver vers les trois cercles IP ont la légende « A ». Chacun des cercles d’adresses IP est connecté par deux flèches à un cercle étiqueté comme une interface client : le cercle avec l’adresse IP 10.0.0.10 est connecté à « vs1-client-IP-10 », le cercle avec l’adresse IP 10.0.0.11 est connecté à « vs1-client-IP-11 » et le cercle avec l’adresse IP 10.0.0.12 est connecté à « vs1-client-IP-11 ». Les connexions entre les cercles d’adresse IP et les cercles d’interface client sont deux flèches : une flèche intitulée « PTR » qui pointe du cercle d’adresse IP vers le cercle d’interface client et une flèche intitulée « A » qui pointe du cercle d’interface client vers le cercle d’adresse IP.> :::image-end:::
 
 Chaque adresse IP accessible par un client doit avoir un nom unique, qui est utilisé en interne par le cluster. (Dans ce diagramme, les adresses IP clientes sont nommées vs1-client-IP-* pour plus de clarté, mais dans un environnement de production, vous devrez sans doute utiliser des noms plus courts, comme client*.)
 

@@ -1,6 +1,6 @@
 ---
 title: Stratégies dans Gestion des API Azure | Microsoft Docs
-description: Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API. Consultez des exemples de code et affichez des ressources disponibles supplémentaires.
+description: Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API. Consultez des exemples de code et d’autres ressources disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,35 +10,40 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 08/25/2021
 ms.author: apimpm
-ms.openlocfilehash: c87e436fe7fada8b1e16c18a5fad36c4ef3c872a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c4b069d76d795bd8ae830b811c97dfe58c2f842c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096397"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106009"
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 
-Dans le service Gestion des API Azure (APIM), les stratégies sont une fonctionnalité puissante du système qui permet à l’éditeur de changer le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre la quantité d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
+Dans Gestion des API Azure, les éditeurs d’API peuvent modifier le comportement des API par le biais d’une configuration à l’aide de stratégies. Les stratégies sont un ensemble d'instructions exécutées de manière séquentielle sur demande ou sur réponse d'une API. Exemples d’instructions courantes :
 
-Les stratégies sont appliquées au niveau de la passerelle qui se trouve entre le consommateur de l’API et l’API managée. La passerelle reçoit toutes les demandes et les transfère normalement sans les modifier à l’API sous-jacente. Cependant, une stratégie peut appliquer des modifications à la demande entrante et à la réponse sortante.
+* Conversion de format XML en JSON.
+* Limitation de la fréquence des appels pour restreindre le nombre d’appels entrants provenant d’un développeur. 
 
-Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow][Control flow] et [Set variable][Set variable], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][Advanced policies] et [Expressions de stratégie][Policy expressions].
+De nombreuses autres stratégies sont disponibles.
+
+Les stratégies sont appliquées à l’intérieur de la passerelle entre le consommateur de l’API et l’API managée. Tandis que la passerelle reçoit les requêtes et les transmet, intactes, à l’API sous-jacente, une stratégie peut appliquer des modifications à la requête entrante et à la réponse sortante.
+
+Sauf indication contraire de la stratégie, les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans n’importe quelle stratégie de Gestion des API. Certaines stratégies sont basées sur des expressions de stratégie, telles que [Control flow][Control flow] et [Set variable][Set variable]. Pour plus d’informations, consultez les articles [Stratégies avancées][Advanced policies] et [Expressions de stratégie][Policy expressions].
 
 ## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Configuration de la stratégie
 
-La définition de la stratégie est un simple document XML qui décrit une séquence d'instructions entrantes et sortantes. Le code XML peut être modifié directement dans la fenêtre de définition. Une liste d’instructions est fournie à droite. Les instructions applicables à la portée actuelle sont activées et mises en surbrillance.
+Les définitions de stratégie sont des documents XML simples qui décrivent une séquence d’instructions entrantes et sortantes. Vous pouvez modifier le code XML directement dans la fenêtre de définition, qui fournit également les éléments suivants :
+* Une liste d’instructions à droite.
+* Les instructions applicables à l’étendue actuelle activées et mises en surbrillance.
 
 Lorsque vous cliquez sur une instruction active, le code XML correspondant est inséré à l'emplacement du curseur dans la fenêtre de définition. 
 
 > [!NOTE]
-> Si la stratégie que vous souhaitez ajouter n’est pas activée, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour une utilisation dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section **Utilisation** de cette stratégie dans la [Référence de la stratégie][Policy Reference].
-> 
-> 
+> Si la stratégie que vous souhaitez ajouter n’est pas activée, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour une utilisation dans certaines étendues et sections de la stratégie. Pour consulter les sections et les étendues d’une stratégie, consultez la section **Utilisation** dans la [Référence de la stratégie][Policy Reference].
 
-La configuration est composée des sections `inbound`, `backend`, `outbound` et `on-error`. La série d’instructions de stratégie spécifiées s’exécute dans l’ordre pour une demande et une réponse.
+La configuration est composée des sections `inbound`, `backend`, `outbound` et `on-error`. Cette série d’instructions de stratégie spécifiées s’exécute dans l’ordre pour une requête et une réponse.
 
 ```xml
 <policies>
@@ -58,7 +63,18 @@ La configuration est composée des sections `inbound`, `backend`, `outbound` et 
 </policies> 
 ```
 
-S'il existe une erreur lors du traitement d'une demande, les autres étapes des sections `inbound`, `backend` ou `outbound` sont ignorées et l'exécution passe aux instructions de la section `on-error`. En plaçant des instructions de stratégie dans la section `on-error`, vous pouvez consulter l'erreur à l'aide de la propriété `context.LastError`, inspecter et personnaliser la réponse à l'erreur à l'aide de la stratégie `set-body`, puis configurer ce qui se passe si une erreur se produit. Il existe des codes d'erreur pour les étapes intégrées et pour les erreurs qui peuvent se produire pendant le traitement d'instructions de stratégie. Pour plus d'informations, consultez [Gestion des erreurs dans les stratégies de gestion des API](./api-management-error-handling-policies.md).
+Si une erreur se produit pendant le traitement d’une requête :
+* Les étapes restantes dans les sections `inbound`, `backend` ou `outbound` sont ignorées.
+* L’exécution passe aux instructions de la section `on-error`.
+
+En plaçant des instructions de stratégie dans la section `on-error`, vous pouvez :
+* Examiner l’erreur à l’aide de la propriété `context.LastError`.
+* Inspecter et personnaliser la réponse d’erreur à l’aide de la stratégie `set-body`.
+* Configurer ce qui se passe si une erreur se produit. 
+
+Pour plus d'informations, consultez [Gestion des erreurs dans les stratégies de gestion des API](./api-management-error-handling-policies.md) pour les codes d’erreur suivants :
+* Étapes intégrées
+* Erreurs susceptibles de se produire pendant le traitement des instructions de stratégie. 
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Configuration des stratégies
 
@@ -76,7 +92,7 @@ Consultez [Exemples de stratégie](./policy-reference.md) pour obtenir plus d’
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>Appliquer des stratégies spécifiées à différentes portées
 
-Si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, dès que cette API est utilisée, les deux stratégies sont appliquées. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l’élément `base`. 
+Si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, les deux stratégies sont appliquées dès que cette API spécifique est utilisée. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l’élément `base`. 
 
 ```xml
 <policies>
@@ -88,7 +104,12 @@ Si vous avez une stratégie configurée au niveau global et une stratégie confi
 </policies>
 ```
 
-Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-domain` s'exécute avant toutes les autres stratégies de niveau supérieur, qui sont à leur tour suivies de la stratégie `find-and-replace`. 
+Dans l’exemple de définition de stratégie ci-dessus :
+* L’instruction `cross-domain` s’exécute avant toute stratégie supérieure.
+* La stratégie `find-and-replace` s’exécute après toute stratégie supérieure. 
+
+>[!NOTE]
+> Si vous supprimez la balise `<base />` au niveau de l’étendue de l’API, seules les stratégies configurées dans l’étendue de l’API seront appliquées. Aucune stratégie de produit ou d’étendue globale ne sera appliquée.
 
 ### <a name="restrict-incoming-requests"></a>Limiter les demandes entrantes
 

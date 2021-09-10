@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: e8cfba3c7dc13f6e32d0dd4141832bab475cc5b8
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 974dba9d3770d7d5570896f24d31fc2378472ae2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138816"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697902"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Vous activez le mode débogage à l’aide du commutateur `--debug` dans l’interface CLI et du commutateur `-Debug` dans PowerShell. Après avoir localisé l’erreur, suivez cet article pour la corriger.
 

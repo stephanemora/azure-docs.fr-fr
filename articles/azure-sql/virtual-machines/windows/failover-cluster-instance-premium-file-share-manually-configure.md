@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 7ca6fdf685da74b8b0e10875a2bd16d66a7b4c60
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: e757dac8cb7b81c5a1a24a7008f3eb453a7f977d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020298"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221565"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Créer un ICF avec un partage de fichiers premium (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,7 +118,7 @@ Pour plus d’informations, consultez [Cluster de basculement : Objet réseau en
 
 Bien que le témoin de disque constitue l’option de quorum la plus résiliente, il exige un disque partagé Azure qui impose certaines limitations à l’instance de cluster de basculement lorsqu’il est configuré avec des partages de fichiers Premium. Par conséquent, le témoin cloud reste la solution de quorum recommandée dans ce type de configuration de cluster pour SQL Server sur des machines virtuelles Azure. Sinon, configurez un témoin de partage de fichiers. 
 
-Si vous disposez d’un nombre pair de votes dans le cluster, configurez la [solution de quorum](hadr-cluster-quorum-configure-how-to.md) la plus adaptée aux besoins de votre entreprise. Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
+Si vous avez un nombre pair de votes dans le cluster, configurez la [Solution de quorum](hadr-cluster-quorum-configure-how-to.md) qui correspond le mieux aux besoins de votre entreprise. Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## <a name="validate-cluster"></a>Valider le cluster
 
@@ -191,7 +191,7 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
 ## <a name="register-with-the-sql-vm-rp"></a>S’inscrire auprès de SQL VM RP
 
-Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès de l’extension SQL IaaS Agent dans le [mode d’administration léger](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
+Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès de l’extension SQL IaaS Agent dans le [mode d’administration léger](sql-agent-extension-manually-register-single-vm.md#lightweight-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
 
 Inscrire la machine virtuelle SQL Server en mode léger avec PowerShell (le type de licence peut être `PAYG` ou `AHUB`) :
 
@@ -213,7 +213,10 @@ Vous pouvez configurer un nom de réseau virtuel ou un nom de réseau distribué
 - Le MSDTC (Microsoft Distributed Transaction Coordinator) n’est pas pris en charge sur Windows Server 2016 et antérieur. 
 - Filestream n’est pas pris en charge pour un cluster de basculement avec un partage de fichiers Premium. Pour utiliser le flux de fichier, déployez votre cluster en utilisant des [Espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou les [Disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) à la place.
 - Seule l’inscription auprès de l’extension SQL IaaS Agent en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge. 
-- Les captures instantanées de base de données ne sont actuellement pas prises en charge avec [Azure Files en raison des limitations liées aux fichiers partiellement alloués](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).  
+- Les captures instantanées de base de données ne sont actuellement pas prises en charge avec [Azure Files en raison des limitations liées aux fichiers partiellement alloués](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+- Étant donné que les instantanés de base de données ne sont pas pris en charge, CHECKDB pour les bases de données utilisateur revient à CHECKDB WITH TABLOCK. TABLOCK limite les vérifications effectuées ; DBCC CHECKCATALOG n'est pas exécuté sur la base de données et les données Service Broker ne sont pas validées.
+- CHECKDB sur la base de données MASTER et MSDB n’est pas pris en charge. 
+- Les bases de données utilisant la fonctionnalité OLTP en mémoire ne sont pas prises en charge sur une instance de cluster de basculement déployée avec un partage de fichiers Premium. Si votre entreprise a besoin d’OLTP en mémoire, envisagez de déployer votre FCI avec des [disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) ou des [espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -226,6 +229,6 @@ Pour en savoir plus, consultez :
 
 - [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
-- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Vue d’ensemble d’une instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
 

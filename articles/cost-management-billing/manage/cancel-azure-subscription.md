@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: b0c7f1ee4daea871cfdc9e92908cd287a49997da
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 71070f56eaa8b9e1d0a4bef42d609b10ac28b7e5
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481081"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321627"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annulation de votre abonnement Azure
 
@@ -70,18 +70,22 @@ Après l'annulation, vos services sont désactivés. Cela signifie que vos machi
 
 Une fois votre abonnement annulé, Microsoft attend 30 à 90 jours avant de supprimer définitivement vos données au cas où vous deviez y accéder ou changiez d’avis. Nous ne vous facturons pas la conservation des données. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
 
-## <a name="delete-free-trial-subscription"></a>Supprimer un abonnement d’essai gratuit
+## <a name="delete-free-account-or-pay-as-you-go-subscription"></a>Supprimer un compte gratuit ou un abonnement assorti d’un paiement à l’utilisation
 
-Si vous disposez d’un abonnement d’essai gratuit, vous n’êtes pas tenu d’attendre 30 jours pour que l’abonnement soit automatiquement supprimé. Vous pouvez supprimer votre abonnement *trois jours* après l’avoir annulé. L’option **Supprimer l’abonnement** n’est disponible qu’au bout de trois jours après son annulation.
+Si vous disposez d’un compte gratuit ou d’un abonnement assorti d’un paiement à l’utilisation, vous n’êtes pas tenu d’attendre 30 à 90 jours pour que l’abonnement soit automatiquement supprimé. L’option **Supprimer** devient disponible 3 jours après l’annulation d’un abonnement. Après 3 jours, si vous n’avez pas de ressources sous l’abonnement annulé, vous pouvez supprimer celui-ci.
 
-1. Attendez trois jours après la date d’annulation de l’abonnement.
-1. Sélectionnez votre abonnement dans la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
-1. Sélectionnez l'abonnement que vous souhaitez supprimer.
-1. Sélectionnez **Vue d'ensemble**, puis **Supprimer l’abonnement**.
+Pour supprimer un abonnement, procédez comme suit :
+
+1. Attendez 3 jours après la date d’annulation de l’abonnement.
+2. Avant d’essayer de supprimer l’abonnement, vérifiez que vous n’avez pas de ressources sous celui-ci.
+3. Dans le portail Azure, accédez à [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+4. Sélectionnez l’abonnement à supprimer.
+5. Sélectionnez **Vue d’ensemble**, puis **Supprimer**.
+6. Tapez le nom de l’abonnement dans l’invite de confirmation, puis sélectionnez **Supprimer l’abonnement**.
 
 ## <a name="delete-other-subscriptions"></a>Supprimer d’autres abonnements
 
-Le seul type d’abonnement que vous pouvez supprimer manuellement est un abonnement d’essai gratuit. Tous les autres types d’abonnements, y compris les abonnements avec paiement à l’utilisation, peuvent être supprimés uniquement par le biais du processus d’[annulation d’abonnement](#cancel-subscription-in-the-azure-portal). En d’autres termes, vous ne pouvez pas supprimer un abonnement directement, sauf s’il s’agit d’un abonnement d’essai gratuit. Toutefois, après avoir annulé un abonnement, vous pouvez créer une [demande de support Azure](https://go.microsoft.com/fwlink/?linkid=2083458) pour demander la suppression immédiate de l’abonnement.
+Les seuls types d’abonnements que vous pouvez supprimer manuellement sont un compte gratuit ou un abonnement assorti d’un paiement à l’utilisation. Tous les autres types d’abonnements ne peuvent être supprimés que via le processus d’[annulation d’abonnement](#cancel-subscription-in-the-azure-portal). En d’autres termes, vous ne pouvez pas supprimer un abonnement directement, sauf s’il s’agit d’un compte gratuit ou d’un abonnement assorti d’un paiement à l’utilisation. Toutefois, après avoir annulé un abonnement, vous pouvez créer une [demande de support Azure](https://go.microsoft.com/fwlink/?linkid=2083458) pour demander la suppression immédiate de l’abonnement.
 
 ## <a name="reactivate-a-subscription"></a>Réactiver un abonnement
 

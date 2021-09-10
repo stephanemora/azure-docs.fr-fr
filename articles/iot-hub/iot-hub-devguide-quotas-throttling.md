@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 - contperf-fy21q4
-ms.openlocfilehash: f0c07da859ae34a030058ee2c99d2c7b72378f5d
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 2e39a2dcdf0f6e3b56665ca7be415c567ca770e8
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135624"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866291"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -111,6 +111,7 @@ IoT Hub impose d’autres limites opérationnelles :
 | Déploiement automatique IoT Edge<sup>1</sup> | 50 modules par déploiement. 100 déploiements (déploiements en couches inclus) par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
 | Jumeaux<sup>1</sup> | La taille maximale des sections de propriétés souhaitées et de propriétés signalées est de 32 Ko chacune. La taille maximale de la section des étiquettes est de 8 Ko. |
 | Stratégies d’accès partagé | Le nombre maximum de stratégies d’accès partagé est de 16. |
+| Limiter l’accès du trafic réseau sortant | Le nombre maximal de règles autorisées est ''. |
 | Certificats d’autorité de certification x509 | Le nombre maximal de certificats d’autorité de certification x509 pouvant être inscrits sur IoT Hub est de 25. |
 
 <sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md).

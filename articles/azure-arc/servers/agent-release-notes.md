@@ -3,12 +3,12 @@ title: Nouveautés de l’agent des serveurs avec Azure Arc
 description: Cet article contient des notes de publication pour l’agent des serveurs avec Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
 ms.topic: conceptual
 ms.date: 07/16/2021
-ms.openlocfilehash: d53ebd32c870ce8ec26bca7bcb811fbdd45c58b2
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 54e7bc72884cc7bc9116c88e7cdb72e5af5f71cd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392371"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770958"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs avec Azure Arc
 
@@ -125,7 +125,7 @@ Version : 1.0 (Disponibilité générale)
 - La prise en charge des agents en préversion (toutes les versions antérieures à 1.0) sera supprimée dans une prochaine mise à jour de service.
 - Suppression de la prise en charge du point de terminaison de secours `.azure-automation.net`. Si vous avez un proxy, vous devez autoriser le point de terminaison `*.his.arc.azure.com`.
 - Si l’agent Connected Machine est installé sur une machine virtuelle hébergée dans Azure, il n’est pas possible d’installer ou de modifier les extensions de machine virtuelle à partir de la ressource des serveurs avec Arc. Cela permet d’éviter les opérations d’extension conflictuelles effectuées à partir des ressources **Microsoft.Compute** et **Microsoft.HybridCompute** de l’ordinateur virtuel. Utilisez la ressource **Microsoft.Compute** pour l’ordinateur pour toutes les opérations d’extension.
-- Le nom du processus Configuration des invité a changé, passant de *gcd* à *gcad* sur Linux, et de *gcservice* à *gcarcservice* sur Windows.
+- Le nom du processus Configuration des invités a changé, passant de *gcd* à *gcad* sur Linux, et de *gcservice* à *gcarcservice* sur Windows.
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 

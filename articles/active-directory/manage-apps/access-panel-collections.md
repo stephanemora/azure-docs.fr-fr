@@ -12,12 +12,12 @@ ms.date: 02/10/2020
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e47e7900fd6d678e07b4fb4ccfe02b17f734c67f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 454f1d5513e7cee0535251ac6f6b02fd3b699643
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562290"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771399"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Créer des collections sur le portail Mes applications
 
@@ -68,6 +68,9 @@ Pour créer une collection, vous devez disposer d’une licence Azure AD Premium
    ![Ajoutez des utilisateurs et des groupes](media/acces-panel-collections/add-users-and-groups.png)
 
 11. Sélectionnez **Vérifier + créer**. Les propriétés de la nouvelle collection s’affichent.
+
+> [!NOTE]
+> Les regroupements d’administration sont gérés par le [portail Azure](https://portal.azure.com), pas depuis le [portail Mes applications](https://myapps.microsoft.com). Par exemple, si vous affectez des utilisateurs ou des groupes en tant que propriétaire, ils peuvent uniquement gérer la collection via le portail Azure.
 
 ## <a name="view-audit-logs"></a>Afficher les journaux d’audit
 

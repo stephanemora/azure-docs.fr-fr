@@ -1,17 +1,17 @@
 ---
-title: Déployer une application de cluster managé Service Fabric à l’aide d’un modèle ARM
-description: Déployez une application sur un cluster managé Azure Service Fabric à l’aide d’un modèle Azure Resource Manager.
+title: Déployer une application sur un cluster managé avec Azure Resource Manager
+description: Découvrez comment déployer, mettre à niveau ou supprimer une application Service Fabric sur un cluster géré par Azure Service Fabric à l'aide d'Azure Resource Manager.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a40dc23b0eeda4c680d0151b08cb1c8f1a84053
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f2f2f47e9cdcef54be9c78513fbb57cd20ddde5f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290153"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864775"
 ---
-# <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>Déployer une application de cluster managé Service Fabric à l’aide d’un modèle ARM
+# <a name="manage-application-lifecycle-on-a-managed-cluster-using-azure-resource-manager"></a>Gérer le cycle de vie des applications sur un cluster géré à l’aide de Azure Resource Manager
 
 Vous avez plusieurs options pour déployer des applications Azure Service Fabric sur votre cluster managé Service Fabric. Nous vous recommandons d’utiliser Azure Resource Manager. Si vous utilisez Resource Manager, vous pouvez décrire les applications et les services au format JSON, puis les déployer dans le même modèle Resource Manager que votre cluster. Contrairement à l’utilisation de PowerShell ou d’Azure CLI pour déployer et gérer des applications, si vous utilisez Resource Manager, vous n’avez pas besoin d’attendre que le cluster soit prêt. L’inscription, le provisionnement et le déploiement d’applications peuvent tous être réalisés en une seule étape. L’utilisation de Resource Manager est la meilleure façon de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez [Meilleures pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
@@ -26,10 +26,10 @@ Dans ce document, découvrez comment :
 > [!div class="checklist"]
 >
 > * Déployer des ressources d’application à l’aide de Resource Manager.
-> * Mettre à niveau des ressources d’application à l’aide de Resource Manager.
-> * Supprimer des ressources d’application.
+> * Mettez à niveau les ressources des applications de la structure de service en utilisant le Resource Manager.
+> * Supprimez les ressources d'application du tissu de services.
 
-## <a name="deploy-application-resources"></a>Déployer des ressources d’application
+## <a name="deploy-service-fabric-application-resources"></a>Déployer les ressources applicatives de Service Fabric
 
 La procédure générale à suivre pour déployer une application et ses services à l’aide du modèle de ressource d’application Resource Manager est la suivante :
 1. Empaquetez le code de l’application.
@@ -127,7 +127,7 @@ L’exemple d’application contient des [modèles Azure Resource Manager](https
 }
 ```
 
-### <a name="deploy-the-application"></a>Déployer l’application
+### <a name="deploy-the-service-fabric-application"></a>Déployer l’application Service Fabric
 
 Exécutez l’applet de commande **New-AzResourceGroupDeployment** pour déployer l’application dans le groupe de ressources qui contient votre cluster :
 
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Mettre à niveau l’application Service Fabric à l’aide de Resource Manager
 
 > [!IMPORTANT]
-> Tout service déployé via la définition JSON ARM doit être supprimé de la section DefaultServices du fichier ApplicationManifest.xml correspondant.
+> Tout service déployé via le modèle Azure Resource Manager (ARM) doit être supprimé de la section DefaultServices du fichier ApplicationManifest.xml correspondant.
 
 
 Vous pouvez mettre à niveau une application qui est déjà déployée sur un cluster Service Fabric pour l’une des raisons suivantes :
@@ -164,7 +164,9 @@ Vous pouvez mettre à niveau une application qui est déjà déployée sur un cl
         "value": "1.0.1"
     },
     ```
-## <a name="delete-application-resources"></a>Supprimer des ressources d’application
+## <a name="delete-service-fabric-application-resources"></a>Supprimer les ressources de l'application Service Fabric
+> [!NOTE]
+> Les applications ne doivent pas être supprimées via le modèle Azure Resource Manager (ARM), car il n’existe pas de méthode déclarative pour nettoyer les ressources individuelles
 
 Pour supprimer une application qui a été déployée à l’aide du modèle de ressources de l’application dans Resource Manager :
 

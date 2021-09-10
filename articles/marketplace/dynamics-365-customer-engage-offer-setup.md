@@ -7,14 +7,14 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: ea640bc4f5b191c3b01ed2a00ecb1d247f1a602d
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 1a4bd560603b16a1a2b9fe0a66bc4f1adce25a73
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112240277"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867470"
 ---
-# <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps
+# <a name="how-to-create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Comment créer une offre Dynamics 365 for Customer Engagement & Power Apps
 
 Cet article décrit comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps. Toutes les offres pour Dynamics 365 passent par notre processus de certification. Cette expérience d’essai permet aux utilisateurs de déployer votre solution dans un environnement Dynamics 365 en ligne.
 

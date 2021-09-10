@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/12/2021
+ms.date: 08/20/2021
 ms.author: apimpm
-ms.openlocfilehash: 26f1f9449a4e02f25e44e55d578f0194615b0be5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6946dcaf713bda83e5bce7e823b5f7e26ccd6e92
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437070"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694605"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Stratégies Gestion des API pour valider les demandes et les réponses
 
@@ -95,7 +95,7 @@ Dans l’exemple suivant, la charge utile JSON dans les demandes et les réponse
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-content-type-action | [Action](#actions) à effectuer pour les demandes ou les réponses avec un type de contenu qui n’est pas spécifié dans le schéma API. |  Oui     | N/A   |
-| max-size | Longueur maximale, en octets, du corps de la demande ou de la réponse, vérifiée par rapport à l'en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko).  | Oui       | N/A   |
+| max-size | Longueur maximale, en octets, du corps de la demande ou de la réponse, vérifiée par rapport à l'en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko). (Contactez le [support](https://azure.microsoft.com/support/options/) si vous devez augmenter cette limite). | Oui       | N/A   |
 | size-exceeded-action | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps dépasse la taille spécifiée dans `max-size`. |  Oui     | N/A   |
 | errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
 | type | Type de contenu pour lequel exécuter la validation du corps, vérifié par rapport à l’en-tête `Content-Type`. La valeur ne respecte pas la casse. S’il est vide, il s’applique à chaque type de contenu spécifié dans le schéma API. |   Non    |  N/A  |

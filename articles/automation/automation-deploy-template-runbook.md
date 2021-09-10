@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: 7ea0e8209d244ad2b95e201ec7eb1e84f2038887
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: cb075d0ad59af211d80443a5e208509ea60c08ed
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587766"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251820"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell
 
@@ -87,9 +87,9 @@ Dans un éditeur de texte, copiez le texte suivant :
 
 Enregistrez le fichier localement sous le nom **TemplateTest.json**.
 
-## <a name="save-the-resource-manager-template-in-azure-storage"></a>Enregistrer le modèle Resource Manager dans Stockage Azure
+## <a name="save-the-resource-manager-template-in-azure-files"></a>Enregistrer le modèle Resource Manager dans Stockage Azure
 
-Nous allons maintenant utiliser PowerShell pour créer un partage de fichiers Stockage Azure et charger le fichier **TemplateTest.json**. Pour obtenir des instructions sur la création d’un partage de fichier et sur le chargement d’un fichier sur le portail Azure, consultez [Bien démarrer avec le stockage de fichiers Azure sur Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Nous allons maintenant utiliser PowerShell pour créer un partage de fichiers Stockage Azure et charger le fichier **TemplateTest.json**. Pour obtenir des instructions sur la création d’un partage de fichier et sur le chargement d’un fichier sur le portail Azure, consultez [Bien démarrer avec le stockage de fichiers Azure sur Windows](../storage/files/storage-files-quick-create-use-windows.md).
 
 Lancez PowerShell sur votre ordinateur local et exécutez les commandes suivantes pour créer un partage de fichiers et y charger le modèle Resource Manager.
 

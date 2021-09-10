@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6af80da8c05df4f56fe04ae45169c5e1a63fcd9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 120171f77f9b9895cf58bbadd2f475110d068ffd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525336"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698223"
 ---
 # <a name="automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Mise à niveau automatique des extensions pour les machines virtuelles et les groupes identiques dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La mise à niveau automatique des extensions est disponible pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Lorsque la mise à niveau automatique des extensions est activée sur une machine virtuelle ou un groupe identique, l’extension est automatiquement mise à niveau chaque fois que l’éditeur de l’extension publie une nouvelle version pour cette extension.
 

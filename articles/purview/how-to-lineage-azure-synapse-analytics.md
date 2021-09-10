@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: e26cdccc098fd048f444dd32dce6445e21836db8
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 08/25/2021
+ms.openlocfilehash: 74a438088e3e6c751785387580488efa17e82385
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634721"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035395"
 ---
 # <a name="how-to-get-lineage-from-azure-synapse-analytics-into-azure-purview"></a>Comment obtenir la traçabilité des données depuis Azure Synapse Analytics dans Azure Purview
 
@@ -22,7 +22,8 @@ Ce document explique les étapes nécessaires pour connecter un espace de travai
 
 Actuellement, Azure Purview capture la traçabilité d’exécution des activités de pipeline Azure Synapse suivantes :
 
-- [Copier les données](../data-factory/copy-activity-overview.md)
+- [Copier les données](../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context)
+- [Flux de données](../data-factory/concepts-data-flow-overview.md?context=/azure/synapse-analytics/context/context)
 
 > [!IMPORTANT]
 > Azure Purview supprime la traçabilité si la source ou la destination utilise un système de stockage de données non pris en charge.
@@ -33,7 +34,7 @@ Actuellement, Azure Purview capture la traçabilité d’exécution des activit�
 
 ### <a name="step-1-connect-azure-synapse-workspace-to-your-purview-account"></a>Étape 1 : Connecter l’espace de travail Azure Synapse à votre compte Purview
 
-Vous pouvez connecter un espace de travail Azure Synapse à Purview, et la connexion permet à Azure Synapse d’envoyer des informations de traçabilité à Purview. Suivez les étapes de [Connecter un compte Azure Purview à Synapse](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Plusieurs espaces de travail Azure Synapse peuvent se connecter à un même compte Azure Purview pour un suivi de traçabilité complet.
+Vous pouvez connecter un espace de travail Azure Synapse à Purview, et la connexion permet à Azure Synapse d’envoyer des informations de traçabilité à Purview. Suivez les étapes de la section [Connecter l'espace de travail Synapse à Azure Purview](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Plusieurs espaces de travail Azure Synapse peuvent se connecter à un même compte Azure Purview pour un suivi de traçabilité complet.
 
 ### <a name="step-2-run-pipeline-in-azure-synapse-workspace"></a>Étape 2 : Exécuter le pipeline dans l’espace de travail Azure Synapse
 

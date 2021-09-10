@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 06/24/2021
 ms.author: alsin
-ms.openlocfilehash: 87008ec2ba23e642ecbbe1e91c7f87d0cc07012f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 990cca45c41eef57f1971c866cdbe1e9efd62f6c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015175"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772608"
 ---
 # <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>Bonnes pratiques pour Azure Automanage pour les machines – Serveurs avec Arc
 

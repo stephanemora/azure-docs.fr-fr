@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: 85668f07512e8aaa925b924ef0e631fe89b5c3fa
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: c3b2672f8cda046cbd6276ebaa6cf8cf2ceb5e0f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005696"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867029"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuration détaillée pour les versions d'évaluation hébergées
 
@@ -27,7 +27,7 @@ Cet article explique comment configurer une version d’évaluation hébergée p
 
     [![Sélection de la case à cocher « Activer une version d’évaluation ».](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
 
-    - **Type of Test Drive** (Type de version d’évaluation) : choisissez **Microsoft Hosted (Dynamics 365 for Customer Engagement)** (Hébergé par Microsoft (Dynamics 365 for Customer Engagement)). Cela indique que Microsoft héberge et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.
+    - **Type d'essai** - Choisissez **Microsoft Hosted (Dynamics 365 for Customer Engagement & Power Apps)** . Cela indique que Microsoft héberge et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.
 
 5. Accordez l’autorisation Microsoft AppSource pour approvisionner et déprovisionner les utilisateurs de la version d’évaluation dans votre locataire à l’aide [des instructions se trouvant ici](./test-drive-azure-subscription-setup.md). Au cours de cette étape, vous allez générer les valeurs **Azure AD App ID** (ID Azure AD App) et **Azure AD App Key** (Clé Azure AD App) mentionnées ci-dessous.
 6. Renseignez les champs de la page **Configuration technique de la version d’évaluation**.
@@ -36,15 +36,29 @@ Cet article explique comment configurer une version d’évaluation hébergée p
 
     - **Max Concurrent Test Drives** (Versions d’évaluation simultanées max.) : le nombre d’utilisateurs simultanés qui peuvent avoir une version d’évaluation active en même temps. Chaque utilisateur se sert d’une licence Dynamics quand sa version d’évaluation est active. Assurez-vous donc que vous avez au moins autant de licences Dynamics disponibles que d’utilisateurs. Nous recommandons une valeur de 3 à 5.
     - **Durée de la version d'évaluation** : nombre d’heures pendant lesquelles la version d'évaluation de l’utilisateur est active. Une fois le délai expiré, l’utilisateur sera déprovisionné de votre locataire. Nous recommandons de 2 à 24 heures en fonction de la complexité de votre application. L’utilisateur peut toujours demander une autre version d’évaluation s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
-    - **URL de l’instance** : URL à laquelle l’utilisateur de la version d'évaluation sera envoyé lorsqu’il démarrera la version d'évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés. Valeur d'exemple : `https://testdrive.crm.dynamics.com`.
-    - **Instance web API URL** (URL d’API web de l’instance) : l’URL d’API web de votre instance Dynamics 365. Récupérez cette valeur en vous connectant à votre instance Microsoft Dynamics 365 et en accédant à **Paramètres** > **Personnalisation** > **Ressources du développeur** > **API web de l’instance** et en copiant l’adresse (URL). Exemple de valeur :
+    - **URL d’instance**
+        - *Engagement client* : URL à laquelle l’utilisateur de la version d’évaluation sera envoyé quand il démarrera la version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés. Valeur d'exemple : `https://testdrive.crm.dynamics.com`.
+        - *Application canevas (Power Apps)*
+            1. Ouvrez la page **PowerApps portal** (portail PowerApps) et connectez-vous.
+            2. Sélectionnez **Apps**, puis les points de suspension au niveau de l’application.
+            4. Sélectionnez **Details** (Détails).
+            5. Copiez le **lien web** sous l’onglet **Details** :
 
-        :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="Exemple d’API web de l’instance.":::
+                :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="Fenêtre de l’application canevas TestDrive":::
 
-    - **Nom du rôle** : le nom du rôle de sécurité Dynamics 365 personnalisé que vous avez créé pour la version d'évaluation, ou vous pouvez utiliser un rôle existant. Un nouveau rôle doit avoir les privilèges minimum requis ajoutés au rôle pour se connecter à une instance Customer Engagement. Reportez-vous aux [Privilèges minimaux requis pour se connecter à Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). C’est le rôle qui sera assigné aux utilisateurs lors de leur utilisation de la version d’évaluation. Valeur d'exemple : `testdriverole`.
+    - **URL d’API web de l’instance**
+        - *Engagement client* : URL de l’API web pour votre instance Dynamics 365. Récupérez cette valeur en vous connectant à votre instance Microsoft Dynamics 365, en sélectionnant **Paramètres** > **Personnalisation** > **Ressources du développeur** > **API web de l’instance** et en copiant l’adresse (URL). Exemple de valeur :
+
+            :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="Exemple d’API web de l’instance.":::
+
+        - *Application canevas (Power Apps)*  : si vous n’utilisez pas CE/Dataverse comme back-end pour votre application canevas, utilisez `https://localhost` comme espace réservé.
+
+    - **Nom de rôle**
+        - *Engagement client* : le nom du rôle de sécurité Dynamics 365 personnalisé que vous avez créé pour la version d’évaluation, ou vous pouvez utiliser un rôle existant. Un nouveau rôle doit avoir les privilèges minimum requis ajoutés au rôle pour se connecter à une instance Customer Engagement. Reportez-vous aux [Privilèges minimaux requis pour se connecter à Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). C’est le rôle qui sera assigné aux utilisateurs lors de leur utilisation de la version d’évaluation. Valeur d'exemple : `testdriverole`.
+        - *Application canevas (Power Apps)*  : utilisez « NA » si vous n’utilisez pas CE/Dataverse comme source de données back-end.
     
-        > [!IMPORTANT]
-        > Assurez-vous que la vérification du groupe de sécurité n’est pas ajoutée. Cela permet à l’utilisateur d’être synchronisé avec l’instance Customer Engagement.
+    > [!IMPORTANT]
+    > Assurez-vous que la vérification du groupe de sécurité n’est pas ajoutée. Cela permet à l’utilisateur d’être synchronisé avec l’instance Customer Engagement.
 
     - **ID de locataire Azure Active Directory** : l’ID du locataire Azure pour votre instance Dynamics 365. Pour récupérer cette valeur, connectez-vous au portail Azure et accédez à **Azure Active Directory** > **Propriétés** et copiez l’ID d’annuaire. Exemple de valeur : 172f988bf-86f1-41af-91ab-2d7cd01112341.
     - **Nom de locataire Azure Active Directory** : le nom du locataire Azure pour votre instance Dynamics 365. Utilisez le format `<tenantname>.onmicrosoft.com`. Valeur d'exemple : `testdrive.onmicrosoft.com`.

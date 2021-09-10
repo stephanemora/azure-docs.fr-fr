@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ae74589dbbde2402d3acd916f2c5c1f58a7a5c7c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 15f62d7d0fa05a925878683af1b41ca3421d1765
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464128"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222685"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -66,7 +66,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | --- | --- | --- |
 | `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatoire | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
-| `client_secret` | Obligatoire | La clé secrète client que vous avez générée pour votre application sur la page Inscriptions d’applications du portail Azure. |
+| `client_secret` | Obligatoire | La clé secrète client que vous avez générée pour votre application sur la page Inscriptions d’applications du portail Azure.  Le modèle d'authentification de base, qui consiste à fournir les informations d'identification dans l'en-tête d'autorisation, conformément à la [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1), est également pris en charge. |
 | `assertion` | Obligatoire | Jeton d’accès qui a été envoyé à l’API de niveau intermédiaire.  Ce jeton doit comporter une revendication d’audience (`aud`) de l’application qui effectue cette requête OBO (l’application indiquée par le champ `client-id`). Les applications ne peuvent pas accepter un jeton pour une autre application. (Par exemple, si un client envoie à une API un jeton pour MS Graph, l’API ne peut pas accepter ce jeton avec OBO.  Au lieu de cela, il doit refuser le jeton.)  |
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
@@ -203,7 +203,7 @@ Une demande de service à service pour obtenir une assertion SAML contient les p
 | grant_type |Obligatoire | Type de la demande de jeton. Pour une demande qui utilise un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête.|
 | client_id |Obligatoire | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
-| client_secret |Obligatoire | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
+| client_secret |Obligatoire | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription.  Le modèle d'authentification de base, qui consiste à fournir les informations d'identification dans l'en-tête d'autorisation, conformément à la [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1), est également pris en charge. |
 | scope |Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). Par exemple, « https://testapp.contoso.com/user_impersonation openid » |
 | requested_token_use |obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | requested_token_type | Obligatoire | Spécifie le type de jeton demandé. La valeur peut être **urn:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1**, en fonction des exigences de la ressource. |

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 90ddcc4e5793027dd81a8882b8fdf0e5c7f8896d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8366afa9c992e891589a8db2e9990992c2b98754
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641448"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313072"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -50,6 +50,30 @@ Plus précisément, ce connecteur de système de fichiers prend en charge ce qui
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-file-system-linked-service-using-ui"></a>Créer un service lié de système de fichiers à l’aide de l’interface utilisateur
+
+Suivez les étapes suivantes pour créer un service lié à un système de fichiers dans l'interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez fichier et sélectionnez le connecteur du système de fichiers.
+
+    :::image type="content" source="media/connector-file-system/file-system-connector.png" alt-text="Capture d’écran du connecteur du Système de Fichiers.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-file-system/configure-file-system-linked-service.png" alt-text="Capture d'écran de la configuration du service lié au système de fichiers.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
+
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités de pipeline Data Factory et Synapse spécifiques du système de fichiers.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
@@ -61,7 +85,7 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 | type | La propriété type doit être définie sur : **FileServer**. | Oui |
 | host | Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \" » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. | Oui |
 | userId | Spécifiez l’ID de l’utilisateur qui a accès au serveur. | Oui |
-| mot de passe | Spécifiez le mot de passe de l’utilisateur (userid). Marquez ce champ en tant que SecureString afin de le stocker de façon sécurisée, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| mot de passe | Spécifiez le mot de passe de l’utilisateur (userid). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exemples de définitions de jeux de données et de service liés
@@ -151,7 +175,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerReadSettings**. | Oui                                           |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : filtre côté serveur<br>- fileFilter  | Filtre natif côté serveur de fichiers, qui offre de meilleures performances que le filtre de caractères génériques OPTION 3. Utilisez `*` pour faire correspondre zéro ou plusieurs caractères et `?` pour faire correspondre zéro ou un caractère. Apprenez-en davantage sur la syntaxe et les remarques dans **Remarques** sous [cette section](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | Non                                                          |
 | OPTION 3 : filtre côté client<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. Ce filtre au niveau du service énumère les dossiers/fichiers situés sous le chemin donné, puis applique le filtre de caractères génériques.<br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : filtre côté client<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. Ce filtre au niveau du service énumère les fichiers situés sous le chemin donné, puis applique le filtre de caractères génériques.<br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique.<br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |

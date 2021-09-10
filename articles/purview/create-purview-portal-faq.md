@@ -1,86 +1,81 @@
 ---
-title: Forum aux questions sur la création d’un compte Azure Purview dans le portail
-description: Cet article répond aux questions fréquemment posées sur la création de comptes Purview via le portail
+title: Créer une exception Azure Policy pour Azure Purview
+description: Cet article explique comment créer une exception Azure Policy pour Purview tout en laissant les stratégies existantes en place pour maintenir la sécurité.
 author: nayenama
-ms.author: zeinam
+ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/11/2021
-ms.openlocfilehash: bf148408d733dffad862eecf51cc06455846b19a
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 08/26/2021
+ms.openlocfilehash: 10ac52f62da8f8c20ca79ad4d5bb3073eb2bfe69
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527788"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111908"
 ---
-# <a name="faq-about-creating-purview-accounts-via-portal"></a>FAQ sur la création de comptes Purview via le portail
+# <a name="create-an-azure-policy-exception-for-purview"></a>Créer une exception Azure Policy pour Purview
 
-Cet article répond aux questions courantes que les clients et les équipes de terrain posent souvent sur la [création d’un compte Purview](create-catalog-portal.md) à l’aide du portail Azure.
+De nombreux abonnements ont des stratégies [Azure Policy](../governance/policy/overview.md) en place qui limitent la création de certaines ressources. Cela permet de maintenir la sécurité et la propreté des abonnements. Toutefois, les comptes Purview déploient deux autres ressources Azure lors de leur création : un compte Stockage Azure et un espace de noms Event Hub. Lorsque vous [créez un compte Purview](create-catalog-portal.md), ces ressources sont déployées. Elles sont gérées par Azure. Vous n’avez donc pas besoin de les maintenir, mais vous devrez les déployer.
 
-## <a name="common-questions"></a>Questions courantes
+Pour conserver vos stratégies dans votre abonnement, tout en autorisant la création de ces ressources managées, vous pouvez créer une exception de stratégie.
 
-Découvrez les réponses aux questions courantes suivantes.
+## <a name="create-a-policy-exception-for-purview"></a>Créer une exception de stratégie pour Purview
 
-### <a name="azure-policy-blocking-from-creating-storage-and-event-hub-namespace"></a>Une stratégie Azure empêche la création d’un espace de noms de stockage et Event Hub 
+1. Accédez au [portail Azure](https://portal.azure.com) et recherchez **Policy**
 
-* Si **Azure Policy** empêche toutes les applications de créer un **compte de stockage** et un **espace de noms EventHub**, vous devez introduire une exception de stratégie au moyen d’une étiquette pouvant être renseignée lors du processus de création d’un compte Purview. La raison principale vient de ce que, pour chaque compte Purview créé, un groupe de ressources managé doit être créé, et dans ce groupe de ressources, un compte de stockage et un espace de noms EventHub.
+    :::image type="content" source="media/create-purview-portal-faq/search-for-policy.png" alt-text="Capture d’écran montrant la barre de recherche Portail Azure, recherche du mot clé Policy.":::
 
-   >[!IMPORTANT]
-   >Vous n’êtes pas obligé de suivre cette étape si vous ne disposez pas d’Azure Policy, ou si aucune stratégie Azure existante ne bloque la création du **compte de stockage** et de l’**espace de noms EventHub**.
+1. Suivez [Créer une définition de stratégie personnalisée](../governance/policy/tutorials/create-custom-policy-definition.md) ou modifiez une stratégie existante pour ajouter deux exceptions avec l’opérateur `not` et l’étiquette `resourceBypass` :
 
-    1. Accédez au portail Azure et recherchez **Stratégie**.
-    1. Suivez [Créer une définition de stratégie personnalisée](../governance/policy/tutorials/create-custom-policy-definition.md) ou modifiez une stratégie existante pour ajouter deux exceptions avec l’opérateur `not` et l’étiquette `resourceBypass` :
-
-        ```json
-        {
-          "mode": "All",
-          "policyRule": {
-            "if": {
-              "anyOf": [
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              },
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.EventHub/namespaces"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              }]
+    ```json
+    {
+    "mode": "All",
+      "policyRule": {
+        "if": {
+          "anyOf": [
+          {
+            "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Storage/storageAccounts"
             },
-            "then": {
-              "effect": "deny"
-            }
+            {
+              "not": {
+                "field": "tags['<resourceBypass>']",
+                "exists": true
+              }
+            }]
           },
-          "parameters": {}
+          {
+            "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.EventHub/namespaces"
+            },
+            {
+              "not": {
+                "field": "tags['<resourceBypass>']",
+                "exists": true
+              }
+            }]
+          }]
+        },
+        "then": {
+          "effect": "deny"
         }
-        ```
-        
-        > [!Note]
-        > Tant que la stratégie détecte l’étiquette, celle-ci peut être constituée de n’importe quel texte à côté de `resourceBypass` ; c’est à vous de définir sa valeur lors de la création de Purview aux étapes suivantes.
+      },
+      "parameters": {}
+    }
+    ```
+  
+    > [!Note]
+    > Tant que la stratégie détecte l’étiquette, celle-ci peut être constituée de n’importe quel texte à côté de `resourceBypass` ; c’est à vous de définir sa valeur lors de la création de Purview aux étapes suivantes.
 
-        :::image type="content" source="media/create-catalog-portal/policy-definition.png" alt-text="Capture d’écran illustrant la création d’une définition de stratégie.":::
+    :::image type="content" source="media/create-catalog-portal/policy-definition.png" alt-text="Capture d’écran illustrant la création d’une définition de stratégie.":::
 
-    1. [Créez une affectation de stratégie](../governance/policy/assign-policy-portal.md) à l’aide de la stratégie personnalisée créée.
+1. [Créez une affectation de stratégie](../governance/policy/assign-policy-portal.md) à l’aide de la stratégie personnalisée créée.
 
-       :::image type="content" source="media/create-catalog-portal/policy-assignment.png" alt-text="Capture d’écran illustrant la création d’une affectation de stratégie" lightbox="./media/create-catalog-portal/policy-assignment.png":::
+    :::image type="content" source="media/create-catalog-portal/policy-assignment.png" alt-text="Capture d’écran illustrant la création d’une affectation de stratégie" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 > [!Note] 
 > Si vous utilisez **Azure Policy** et qu’il vous faut ajouter une exception, comme dans les **Prérequis**, vous devez choisir l’étiquette appropriée. Par exemple, vous pouvez ajouter l’étiquette `resourceBypass` : :::image type="content" source="media/create-catalog-portal/add-purview-tag.png" alt-text="Ajout d’une étiquette au compte Purview.":::

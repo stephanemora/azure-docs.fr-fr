@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1d58d0b0ecb614779b2fd046a44ad16afd8ebeb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 996d08eef2f3ab140c07ec77b031993c9c45aed9
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956007"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564090"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importation de mises à jour dans Device Update pour IoT Hub – Schéma et autres informations
 Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, veillez à consulter d’abord les [concepts](import-concepts.md) et le [guide pratique](import-update.md). Pour des détails sur le schéma utilisé lors de la construction d’un manifeste d’importation, ainsi que des informations sur les objets associés, voir ci-dessous.
@@ -40,7 +40,7 @@ Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, vei
 
 | Nom | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
-| Nom de fichier | string | Nom du fichier | Doit être unique au sein d’une mise à jour |
+| Nom de fichier | string | Nom du fichier | Ne doit pas dépasser 255 caractères. Doit être unique au sein d’une mise à jour |
 | SizeInBytes | Int64 | Taille du fichier en octets. | Maximum 800 Mo par fichier individuel, ou 800 Mo collectivement par mise à jour |
 | Codes de hachage | l'objet `Hashes` | Objet JSON contenant le ou les hachages du fichier |
 
@@ -81,6 +81,77 @@ Si vous utilisez l’exemple de sortie du manifeste d’importation à partir de
     },
   ]
 }
+```
+
+## <a name="oauth-authorization-when-calling-import-apis"></a>Autorisation OAuth lors de l’appel des API d’importation
+
+**azure_auth**
+
+Type de flux OAuth2 Azure Active Directory : flux OAuth2 : any 
+
+URL d’autorisation : https://login.microsoftonline.com/common/oauth2/authorize
+
+**Étendues**
+
+| Name | Description |
+| --- | --- |
+| https://api.adu.microsoft.com/user_impersonation | Emprunter l’identité de votre compte d’utilisateur |
+| https://api.adu.microsoft.com/.default  | Flux d’informations d’identification du client |
+
+
+**autorisations**
+
+Si une application Azure AD est utilisée pour connecter l’utilisateur, l’étendue doit inclure /user_impersonation. 
+
+Vous devrez ajouter des autorisations à votre application Azure AD (dans l’onglet Autorisations d’API de la vue Application Azure AD) pour utiliser l’API Azure Device Update. Demandez une autorisation d’API à Azure Device Update (dans « API utilisées par mon organisation ») et accordez l’autorisation déléguée user_impersonation.
+
+ADU accepte les jetons acquérant des jetons à l’aide de l’un des flux pris en charge par Azure AD pour les utilisateurs, les applications ou les identités managées. Toutefois, certains flux nécessitent une configuration d’application Azure AD supplémentaire : 
+
+* Pour les flux de clients publics, veillez à activer les flux mobiles et de bureau.
+* Pour les flux implicites, veillez à ajouter une plateforme web et à sélectionner « Jetons d’accès » pour le point de terminaison d’autorisation.
+
+**Exemple utilisant Azure CLI :**
+
+```azurecli
+az login
+
+az account get-access-token --resource 'https://api.adu.microsoft.com/'
+```
+
+**Exemples d’acquisition d’un jeton à l’aide de la bibliothèque MSAL PowerShell :**
+
+_Utilisation des informations d’identification de l’utilisateur_ 
+
+```powershell
+$clientId = '1e5942b3-36f1-43eb-88d9-98c12d95000b’
+$tenantId = '72f988bf-86f1-41af-91ab-2d7cd011db47’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
+```
+
+_Utilisation des informations d’identification de l’utilisateur avec le code de l’appareil_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
+```
+
+_Utilisation des informations d’identification de l’application_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$cert = '<client_certificate>'
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/.default'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

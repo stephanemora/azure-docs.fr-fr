@@ -3,17 +3,17 @@ title: Importer une API WebSocket à l’aide du portail Azure | Microsoft Docs
 titleSuffix: ''
 description: Découvrez comment API Management prend en charge WebSocket, ajouter une API WebSocket et les limitations de WebSocket.
 ms.service: api-management
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 887e1257ef5585e99da1922aa840761ebcb7aa05
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b3eb368184eceeabc6af46bac8ca08254560e252
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439766"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097860"
 ---
 # <a name="import-a-websocket-api-preview"></a>Importer une API WebSocket (préversion)
 
@@ -33,10 +33,10 @@ En lisant cet article, vous pourrez :
 > * Consulter les métriques et les journaux de votre API WebSocket.
 > * Découvrez les limitations de l’API WebSocket.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Disposer d’une instance d’API Management. Si vous ne l’avez pas déjà fait, [créez-en un](get-started-create-service-instance.md).
-- Une [API WebSocket](https://www.websocket.org/echo.html).
+- Une API WebSocket. 
 
 ## <a name="websocket-passthrough"></a>Relais WebSocket
 
@@ -76,8 +76,10 @@ Selon le [protocole WebSocket](https://tools.ietf.org/html/rfc6455), lorsqu’un
     | Champ | Description |
     |----------------|-------|
     | Nom complet | Le nom par lequel votre API WebSocket sera affichée. |
-    | Name | Nom brut de l’API WebSocket. Se remplit automatiquement à mesure que vous tapez le nom complet. |
-    | URL WebSocket | URL de base avec le nom de votre WebSocket. Par exemple : ws://example.com/your-socket-name |
+    | Nom | Nom brut de l’API WebSocket. Se remplit automatiquement à mesure que vous tapez le nom complet. |
+    | URL WebSocket | URL de base avec le nom de votre WebSocket. Par exemple : *ws://example.com/your-socket-name* |
+    | Modèle d’URL | Accepter la valeur par défaut |
+    | Suffixe de l’URL de l’API| Ajoutez un suffixe d’URL pour identifier cette API spécifique dans cette instance de gestion des API. Il doit être unique dans cette instance APIM. |
     | Produits | Associez votre API WebSocket à un produit pour la publier. |
     | Passerelles | Associez votre API WebSocket à des passerelles existantes. |
  
@@ -92,13 +94,24 @@ Selon le [protocole WebSocket](https://tools.ietf.org/html/rfc6455), lorsqu’un
 
     :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="Exemple d'API de test":::
 
-1. Cliquez sur **Connecter**.
+1. Cliquez sur **Connexion**.
 1. Consultez l'état de la connexion dans **Sortie**.
 1. Entrez la valeur dans **Charge utile**. 
 1. Cliquez sur **Envoyer**.
 1. Consultez les messages reçus dans **Sortie**.
 1. Répétez les étapes précédentes pour tester différentes charges utiles.
 1. Une fois le test terminé, sélectionnez **Déconnecter**.
+
+## <a name="view-metrics-and-logs"></a>Afficher les métriques et les journaux
+
+Utilisez les fonctionnalités API Management et Azure Monitor standard pour [surveiller](api-management-howto-use-azure-monitor.md) les API WebSocket :
+
+* Afficher des métriques d’API dans Azure Monitor
+* Vous pouvez éventuellement activer les paramètres de diagnostic pour collecter et afficher les journaux de la passerelle API Management, y compris les opérations de l’API WebSocket
+
+Par exemple, la capture d’écran suivante montre les réponses récentes de l’API WebSocket avec le `101` code de la table **ApiManagementGatewayLogs**. Ces résultats indiquent la réussite du basculement des demandes de TCP vers le protocole WebSocket.
+
+:::image type="content" source="./media/websocket-api/query-gateway-logs.png" alt-text="Journaux de requêtes pour les requêtes de l’API WebSocket":::
 
 ## <a name="limitations"></a>Limites
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
-ms.openlocfilehash: ab17ad8c47f7cc49588e5caf556282c40a9c0a76
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: e2263db67214fb6fea91c8a8cefa65a981475ec3
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534907"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681596"
 ---
 # <a name="build-large-scale-data-copy-pipelines-with-metadata-driven-approach-in-copy-data-tool-preview"></a>Créer des pipelines de copie de données à grande échelle avec une approche pilotée par les métadonnées dans l’outil Copier les données (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -132,7 +132,7 @@ Chaque ligne de la table de contrôle contient un paramètre de connexion pour l
 
 | Nom de la colonne | Description | 
 |:--- |:--- |
-| Name | Nom de la connexion paramétrable dans la table de contrôle principale. |
+| Nom | Nom de la connexion paramétrable dans la table de contrôle principale. |
 | ConnectionSettings | Paramètres de connexion. Il peut s’agir du nom de la base de données, du nom du serveur, etc. |
 
 ## <a name="pipelines"></a>Pipelines
@@ -204,7 +204,7 @@ Ce pipeline copie les objets d’un groupe. Les objets appartenant à ce lot ser
 ### <a name="known-limitations"></a>Limitations connues
 - L’outil Copier les données ne prend pas en charge l’ingestion pilotée par les métadonnées pour la copie incrémentielle des nouveaux fichiers uniquement. Cependant, vous pouvez apporter vos propres pipelines paramétrables pour y parvenir.
 - Le nom du runtime d’intégration, du type de base de données, du type de fichier ne peut pas être paramétré dans ADF. Par exemple, si vous souhaitez ingérer des données à la fois à partir d’Oracle Server et de SQL Server, vous avez besoin de deux pipelines paramétrables différents. Toutefois, la table de contrôle unique peut être partagée par deux ensembles de pipelines. 
-
+- OPENJSON est utilisé dans les scripts SQL générés par l’outil copier les données. Si vous utilisez SQL Server pour héberger la table de contrôle, celle-ci doit être SQL Server 2016 (13.x) et versions ultérieures afin de prendre en charge la fonction OPENJSON.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

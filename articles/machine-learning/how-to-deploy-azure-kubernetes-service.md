@@ -10,13 +10,13 @@ ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: 7b25aaf6d151b840571a562819fb804f4af5c8dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/28/2021
+ms.openlocfilehash: 67d28d7f218debde1bd29abf0e4bbdaa0c7c49dd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371082"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867596"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 
@@ -36,6 +36,8 @@ Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un clu
 > Nous vous recommandons de procéder à un débogage local avant le déploiement sur le service web. Pour plus d’informations, consultez [Déboguer localement](./how-to-troubleshoot-deployment-local.md).
 >
 > Vous pouvez également vous reporter à Azure Machine Learning – [Déploiement sur un notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,6 +61,9 @@ Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un clu
 
     - Si vous souhaitez déployer des modèles sur des nœuds GPU ou FPGA (ou sur une référence SKU spécifique), vous devez créer un cluster de la référence SKU en question. Il n’est pas possible de créer un pool de nœuds secondaire dans un cluster existant et de déployer des modèles dans le pool de nœuds secondaire.
 
+> [!IMPORTANT]
+> Actuellement, Azure Machine Learning ne prend pas en charge le déploiement de modèles vers AKS version **1.21.x**
+
 ## <a name="understand-the-deployment-processes"></a>Comprendre le processus de déploiement
 
 Le mot « déploiement » est utilisé à la fois dans Kubernetes et Azure Machine Learning. « Déploiement » a des significations différentes dans ces deux contextes. Dans Kubernetes, une `Deployment` est une entité concrète, spécifiée avec un fichier YAML déclaratif. Une `Deployment` Kubernetes a un cycle de vie défini et des relations concrètes avec d’autres entités Kubernetes, telles que `Pods` et `ReplicaSets`. Vous pouvez en savoir plus sur Kubernetes à partir des documents et des vidéos sur [Qu’est-ce que Kubernetes ?](https://aka.ms/k8slearning).
@@ -70,7 +75,7 @@ Dans Azure Machine Learning, le « déploiement » est utilisé dans le sens l
 1. Création ou téléchargement du dockerfile sur le nœud de calcul (en relation avec Kubernetes)
     1. Le système calcule un code de hachage pour : 
         - l’image de base ; 
-        - les étapes Docker personnalisées (voir [Déployer un modèle à l’aide d’une image de base Docker personnalisée](./how-to-deploy-custom-docker-image.md)) ;
+        - les étapes Docker personnalisées (voir [Déployer un modèle à l’aide d’une image de base Docker personnalisée](./how-to-deploy-custom-container.md)) ;
         - la définition Conda YAML (voir [Créer et utiliser des environnements logiciels dans Azure Machine Learning](./how-to-use-environments.md)).
     1. Le système utilise ce code de hachage comme clé pour rechercher le Dockerfile dans l’espace de travail Azure Container Registry (ACR).
     1. Si le Dockerfile est introuvable, il recherche une correspondance dans l’ensemble d’ACR.
@@ -92,26 +97,35 @@ Azureml-fe met à l’échelle aussi bien verticalement, de façon à utiliser p
 
 En cas de scale-down et de scale-in, on tient compte de l’utilisation du processeur. Si le seuil d’utilisation du processeur est atteint, c’est le serveur frontal qui est mis à l’échelle en premier lieu. Si l’utilisation du processeur tombe au seuil du scale-in, une opération de scale-in est effectuée. Les opérations de scale-up et de scale-out se produisent uniquement si le cluster dispose de ressources suffisantes.
 
+<a id="connectivity"></a>
+
 ## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Comprendre les exigences de connectivité pour le cluster d’inférence AKS
 
 Lorsqu’Azure Machine Learning crée ou rattache un cluster AKS, le cluster AKS est déployé avec l’un des deux modèles de réseau suivants :
 * Mise en réseau Kubenet : les ressources réseau sont généralement créées et configurées quand le cluster AKS est déployé.
-* Mise en réseau Azure CNI (Container Networking Interface) : le cluster AKS est connecté à des configurations et ressources de réseau virtuel existantes.
+* Mise en réseau Azure CNI (Container Networking Interface) : le cluster AKS est connecté à des configurations et à une ressource de réseau virtuel existantes.
 
-Pour le premier mode de réseau, la mise en réseau est créée et configurée correctement pour Azure Machine Learning service. Pour le deuxième mode de mise en réseau, étant donné que le cluster est connecté à un réseau virtuel existant, en particulier lorsque le DNS personnalisé est utilisé pour le réseau virtuel existant, le client doit porter une attention particulière aux exigences de connectivité pour le cluster d’inférence AKS et garantir la résolution DNS et la connectivité sortante pour l’inférence AKS.
+Pour la mise en réseau Kubenet, le réseau est créé et configuré correctement pour Azure Machine Learning service. Pour la mise en réseau CNI, vous devez comprendre les besoins de connectivité et garantir la résolution DNS et la connectivité sortante pour l’inférence AKS. Par exemple, vous utilisez peut-être un pare-feu pour bloquer le trafic réseau.
 
-Le diagramme suivant capture toutes les exigences de connectivité pour l’inférence AKS. Les flèches noires représentent la communication réelle et les flèches bleues représentent les noms de domaine que le DNS contrôlé par le client doit résoudre.
+Le diagramme suivant montre les besoins de connectivité pour l’inférence AKS. Les flèches noires représentent la communication réelle et les flèches bleues représentent les noms de domaine. Vous devrez peut-être ajouter des entrées pour ces hôtes à votre pare-feu ou à votre serveur DNS personnalisé.
 
  ![Exigences de connectivité pour l’inférence AKS](./media/how-to-deploy-aks/aks-network.png)
 
+Pour connaître les besoins de connectivité AKS, consultez [Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+
 ### <a name="overall-dns-resolution-requirements"></a>Exigences globales de la résolution DNS
-La résolution DNS au sein d’un réseau virtuel existant est sous le contrôle du client. Les entrées DNS suivantes doivent pouvoir être résolues :
-* Serveur d’API AKS sous la forme \<cluster\>.hcp.\<region\>.azmk8s.io
-* Microsoft Container Registry (MCR) : mcr.microsoft.com
-* Compte Azure Container Registry (ARC) du client sous la forme \<ACR name\>.azurecr.io
-* Compte de stockage Azure sous la forme \<account\>.table.core.windows.net et \<account\>.blob.core.windows.net
-* (Facultatif) Pour l’authentification AAD : api.azureml.ms
-* Nom de domaine du point de terminaison de scoring, généré automatiquement par Azure Machine Learning ou un nom de domaine personnalisé. Le nom de domaine généré automatiquement ressemble à ce qui suit : \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
+
+La résolution DNS au sein d’un réseau virtuel existant est sous votre contrôle. Par exemple, un pare-feu ou un serveur DNS personnalisé. Les hôtes suivants doivent être accessibles :
+
+| Nom de l’hôte | Utilisée par |
+| ----- | ----- |
+| `<cluster>.hcp.<region>.azmk8s.io` | Serveur d’API AKS |
+| `mcr.microsoft.com` | Microsoft Container Registry (MCR) |
+| `<ACR name>.azurecr.io` | Votre ACR (Azure Container Registry) |
+| `<account>.table.core.windows.net` | Compte Stockage Azure (stockage Table) |
+| `<account>.blob.core.windows.net` | Compte Stockage Azure (stockage Blob) |
+| `api.azureml.ms` | Authentification Azure Active Directory (AAD) |
+| `<leaf-domain-label + auto-generated suffix>.<region>.cloudapp.azure.com` | Nom de domaine du point de terminaison, si vous l’avez généré automatiquement par le biais d’Azure Machine Learning. Si vous avez utilisé un nom de domaine personnalisé, vous n’avez pas besoin de cette entrée. |
 
 ### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Exigences de connectivité dans l’ordre chronologique : de la création du cluster au déploiement du modèle
 
@@ -125,7 +139,7 @@ Juste après le déploiement d’azureml-fe, il tentera de démarrer et cela né
 * Interroger le serveur d’API AKS pour découvrir d’autres instances de lui-même (il s’agit d’un service à plusieurs pods)
 * Se connecter à d’autres instances de soi-même
 
-Une fois azureml-fe démarré, il requiert une connectivité supplémentaire pour fonctionner correctement :
+Une fois azureml-fe démarré, il nécessite la connectivité suivante pour fonctionner correctement :
 * Se connecter à Stockage Azure pour télécharger la configuration dynamique
 * Résoudre le DNS pour le serveur d’authentification AAD api.azureml.ms et communiquer avec celui-ci lorsque le service déployé utilise l’authentification AAD
 * Interroger le serveur d’API AKS pour découvrir les modèles déployés
@@ -155,6 +169,7 @@ Pour déployer un modèle sur Azure Kubernetes Service, créez une __configurati
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
+from azureml.core.compute import AksCompute
 
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
@@ -372,7 +387,7 @@ print(token)
 >
 > Microsoft recommande vivement de créer votre espace de travail Azure Machine Learning dans la même région que celle de votre Azure Kubernetes Service. Pour s’authentifier avec un jeton, le service web appelle la région dans laquelle votre espace de travail Azure Machine Learning est créé. Si la région de votre espace de travail est indisponible, vous ne pouvez pas extraire de jeton pour votre service web, même si votre cluster se trouve dans une région différente de celle de votre espace de travail. Cela a pour effet d'empêcher l'authentification par jeton tant que la région de votre espace de travail n'est pas disponible. Par ailleurs, plus la distance entre la région de votre cluster et celle de votre espace de travail est élevée, plus l’extraction de jeton prend de temps.
 >
-> Pour récupérer un jeton, vous devez utiliser le Kit de développement logiciel (SDK) Azure Machine Learning ou la commande [az ml service obten-access-token](/cli/azure/ml/service#az_ml_service_get_access_token).
+> Pour récupérer un jeton, vous devez utiliser le Kit de développement logiciel (SDK) Azure Machine Learning ou la commande [az ml service obten-access-token](/cli/azure/ml(v1)/computetarget/create#az_ml_service_get_access_token).
 
 
 ### <a name="vulnerability-scanning"></a>Analyse des vulnérabilités
@@ -383,7 +398,7 @@ Azure Security Center fournit des fonctionnalités unifiées de gestion de la s�
 
 * [Utiliser Azure RBAC pour l’autorisation Kubernetes](../aks/manage-azure-rbac.md)
 * [Sécuriser l’environnement d’inférence avec un réseau virtuel Microsoft Azure](how-to-secure-inferencing-vnet.md)
-* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
+* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](./how-to-deploy-custom-container.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
 * [Mettre à jour un service web](how-to-deploy-update-web-service.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)

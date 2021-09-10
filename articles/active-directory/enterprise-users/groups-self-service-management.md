@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e3ea0a8ea5dc8dbb01d532a52436ed581311e7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bff97bd767bb9045c5fa018bbcbffc2cb7445ca1
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089891"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778052"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurer la gestion de groupes en libre-service dans Azure Active Directory 
 
@@ -47,18 +47,19 @@ Groupes créés dans | Comportement par défaut des groupes de sécurité | Comp
 
 1. Sélectionnez **Groupes**, puis les paramètres **Généraux**.
 
-    ![Paramètres généraux des groupes Azure Active Directory](./media/groups-self-service-management/groups-settings-general.png)
+    ![Paramètres généraux des groupes Azure Active Directory.](./media/groups-self-service-management/groups-settings-general.png)
 
 1. Définissez **Les propriétaires peuvent gérer les demandes d'appartenance au groupe dans le panneau d'accès** sur **Oui**.
 
 1. Définissez l’option **Restreindre la capacité des utilisateurs à accéder aux groupes de fonctionnalités dans le volet d’accès** sur **Non**.
 
-1. Si vous définissez **Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure, l’API ou PowerShell** ou **Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure, l’API ou PowerShell** sur
+1. Définissez **Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure, l’API ou PowerShell** sur **Oui** ou **Non**.
 
-    - **Oui** : Tous les utilisateurs de votre organisation Azure AD sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes dans les portails Azure, API ou PowerShell. Ces nouveaux groupes apparaissent également dans le volet d’accès de tous les autres utilisateurs. Si le paramètre de stratégie du groupe l’autorise, d’autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes.
-    - **Non** : Les utilisateurs ne peuvent pas créer de groupes, ni modifier les groupes existants dont ils sont propriétaires. Cependant, ils peuvent toujours gérer les appartenances de ces groupes et approuver les demandes d’adhésion d’autres utilisateurs à leurs groupes.
+    Pour plus d’informations sur ce paramètre, consultez la section suivante [Paramètres de groupe](#group-settings).
 
-    Ces paramètres ont été récemment modifiés pour ajouter la prise en charge de l’API et de PowerShell. Pour plus d’informations sur cette modification, consultez la section suivante [Modification des paramètres des groupes](#groups-setting-change).
+1. Définissez **Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure, l’API ou PowerShell** sur **Oui** ou **Non**.
+
+    Pour plus d’informations sur ce paramètre, consultez la section suivante [Paramètres de groupe](#group-settings).
 
 Vous pouvez également utiliser **Propriétaires qui peuvent attribuer des membres en tant que propriétaires de groupes dans le portail Azure** pour un contrôle d’accès plus granulaire en termes de gestion de groupes en libre-service pour vos utilisateurs.
 
@@ -67,36 +68,35 @@ Lorsque tous les utilisateurs peuvent créer des groupes, tous les utilisateurs 
 > [!NOTE]
 > Une licence Azure Active Directory Premium (P1 ou P2) est requise pour que les utilisateurs puissent demander à rejoindre un groupe de sécurité ou un groupe Microsoft 365 et pour permettre aux propriétaires d’approuver ou de refuser les demandes d’adhésion. Sans licence Azure Active Directory Premium, les utilisateurs peuvent toujours gérer leurs groupes dans le volet d’accès, mais ils ne peuvent pas créer de groupe qui nécessite l’approbation du propriétaire dans le volet d’accès ni demander à rejoindre un groupe.
 
-## <a name="groups-setting-change"></a>Modification des paramètres des groupes
+## <a name="group-settings"></a>Paramètres de groupe
 
-Les paramètres actuels des groupes de sécurité et des groupes Microsoft 365 sont obsolètes et ont été remplacés. Les paramètres actuels sont remplacés, car ils contrôlent uniquement la création de groupes dans les portails Azure et ne s’appliquent pas à l’API ou à PowerShell. Les nouveaux paramètres contrôlent la création de groupes dans les portails Azure, ainsi que dans l’API et PowerShell.
+Les paramètres de groupe permettent de contrôler qui peut créer des groupes de sécurité et des groupes Microsoft 365.
 
-| Paramètre déconseillé | Nouveau paramètre |
-| --- | --- |
-| Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure | Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure, l’API ou PowerShell |
-| Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure | Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure, l’API ou PowerShell |
+![Modification du paramètre des Groupes de sécurité Azure Active Directory.](./media/groups-self-service-management/security-groups-setting.png)
 
-Jusqu'à ce que le paramètre actuel soit complètement obsolète, les deux paramètres apparaîtront dans les portails Azure. Vous devez configurer ce nouveau paramètre avant la fin **mai 2021**. Pour configurer les paramètres des groupes de sécurité, le rôle d'administrateur global ou d'administrateur de rôle privilégié doit vous être attribué. 
+> [!NOTE]
+> Le comportement de ces paramètres a été modifié récemment. Vérifiez que ces paramètres ont été configurés pour votre organisation. Pour plus d’informations, consultez [Pourquoi les paramètres de groupe ont-ils changé ?](#why-were-the-group-settings-changed).
 
-![Modification du paramètre des Groupes de sécurité Azure Active Directory](./media/groups-self-service-management/security-groups-setting.png)
+ Le tableau suivant vous aide à déterminer les valeurs à choisir.
 
-Le tableau suivant vous aide à déterminer les valeurs à choisir.
+| Paramètre | Valeur | Effet sur votre locataire |
+| --- | :---: | --- |
+| Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure, l’API ou PowerShell | Oui | Tous les utilisateurs de votre organisation Azure AD sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes dans les portails Azure, l’API ou PowerShell. Ces nouveaux groupes apparaissent également dans le volet d’accès de tous les autres utilisateurs. Si le paramètre de stratégie du groupe l’autorise, d’autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes. |
+|  | Non | Les utilisateurs ne peuvent pas créer de groupes de sécurité, ni modifier les groupes existants dont ils sont propriétaires. Cependant, ils peuvent toujours gérer les appartenances de ces groupes et approuver les demandes d’adhésion d’autres utilisateurs à leurs groupes. |
+| Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure, l’API ou PowerShell | Oui | Tous les utilisateurs de votre organisation Azure AD sont autorisés à créer des groupes Microsoft 365 et à ajouter des membres à ces groupes dans les portails Azure, l’API ou PowerShell. Ces nouveaux groupes apparaissent également dans le volet d’accès de tous les autres utilisateurs. Si le paramètre de stratégie du groupe l’autorise, d’autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes. |
+|  | Non | Les utilisateurs ne peuvent pas créer de groupes Microsoft 365, ni modifier les groupes existants dont ils sont propriétaires. Cependant, ils peuvent toujours gérer les appartenances de ces groupes et approuver les demandes d’adhésion d’autres utilisateurs à leurs groupes. |
 
-| Si vous souhaitez... | Choisissez ces valeurs |
-| --- | --- |
-| Les utilisateurs peuvent créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell | Définissez les deux paramètres sur **Oui**. La prise en compte des modifications peut prendre jusqu’à 15 minutes. |
-| Les utilisateurs **ne peuvent pas** créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell | Définissez les deux paramètres sur **Non**. La prise en compte des modifications peut prendre jusqu’à 15 minutes. |
-| Les utilisateurs peuvent créer des groupes à l’aide des portails Azure, mais pas en utilisant l’API ou PowerShell | Non prise en charge |
-| Les utilisateurs peuvent créer des groupes à l’aide de l’API ou de PowerShell, mais pas en utilisant des portails Azure | Non prise en charge |
+Voici quelques détails supplémentaires sur ces paramètres de groupe.
 
-Le tableau suivant répertorie ce qui se passe pour les différentes valeurs de ces paramètres. Il n’est pas recommandé de définir le paramètre obsolète et le nouveau paramètre sur des valeurs différentes.
+- Ces paramètres peuvent mettre jusqu’à 15 minutes pour être appliqués.
+- Si vous souhaitez permettre à certains de vos utilisateurs de créer des groupes, vous pouvez attribuer à ces utilisateurs un rôle comme [Administrateur de groupes](../roles/permissions-reference.md#groups-administrator).
+- Ces paramètres sont destinés aux utilisateurs et ne concernent pas les principaux de service. Par exemple, si vous avez un principal de service disposant des autorisations pour créer des groupes, même si vous définissez ces paramètres sur **Non**, le principal de service sera toujours en mesure de créer des groupes. 
 
-| Les utilisateurs peuvent créer des groupes à l’aide des portails Azure | Les utilisateurs peuvent créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell | Effet sur votre locataire |
-| :---: | :---: | --- |
-| Oui | Oui | Les utilisateurs peuvent créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell. La prise en compte des modifications peut prendre jusqu’à 15 minutes.|
-| Non | Non | Les utilisateurs **ne peuvent pas** créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell. La prise en compte des modifications peut prendre jusqu’à 15 minutes. |
-| Oui | Non | Les utilisateurs **ne peuvent pas** créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell. Il n’est pas recommandé de définir des valeurs différentes pour ces paramètres. La prise en compte des modifications peut prendre jusqu’à 15 minutes. |
-| Non | Oui | Jusqu’à ce que le paramètre **Les utilisateurs peuvent créer des groupes à l’aide des portails Azure** soit entièrement obsolète en **juin 2021**, les utilisateurs peuvent créer des groupes à l’aide de l’API ou de PowerShell, mais pas en utilisant les portails Azure. À partir de **juin 2021**, le paramètre **Les utilisateurs peuvent créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell** prendra effet et les utilisateurs pourront créer des groupes à l’aide des portails Azure, de l’API ou de PowerShell. |
+### <a name="why-were-the-group-settings-changed"></a>Pourquoi les paramètres de groupe ont-ils changé ?
+
+Dans l’implémentation précédente, les paramètres de groupe s’appelaient **Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure** et **Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure**. Les paramètres précédents ne contrôlaient que la création des groupes dans le portail Azure et ne s’appliquaient pas aux API ni à PowerShell. Les nouveaux paramètres contrôlent la création de groupes dans les portails Azure, ainsi que dans l’API et dans PowerShell. Les nouveaux paramètres sont plus sécurisés.
+
+Les valeurs par défaut des nouveaux paramètres ont été affectées aux valeurs précédentes de l’API ou de PowerShell. Il est possible que les valeurs par défaut des nouveaux paramètres soient différentes de celles des valeurs précédentes qui contrôlaient uniquement le comportement du portail Azure. À partir de mai 2021, il y a eu une période de transition de quelques semaines durant laquelle vous pouviez sélectionner la valeur par défaut de votre choix pour que les nouveaux paramètres soient pris en compte. Maintenant que les nouveaux paramètres ont été officiellement ajoutés, vous devez vérifier qu’ils ont bien été configurés pour votre organisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

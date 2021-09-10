@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 07/28/2021
+ms.date: 08/26/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64c33619eae16cb08b9ccdc1b4fd5265813d9ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0aa1f44d8cc6184932d2aaf1b69fb31e303d605f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532214"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969125"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -109,6 +109,37 @@ Vous pouvez également exporter ces données de journal vers Azure Monitor, Azur
 **R :** Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 5 000 enregistrements les plus récents.
 
 ---
+
+## <a name="sign-in-logs"></a>Journaux d’activité de connexion
+
+**Q : Quelles sont les données incluses dans le fichier CSV que je peux télécharger à partir du panneau journaux de connexion Azure AD dans le portail Azure ?** 
+**R :** Le CSV comprend des journaux de connexion pour vos utilisateurs et principaux de service. Toutefois, les données qui sont représentées sous la forme d’un tableau imbriqué dans l’API MS Graph pour les journaux de connexion ne sont pas incluses dans les téléchargements CSV. Par exemple, les stratégies d’autorité de certification et les informations relatives au rapport uniquement ne sont pas incluses dans le téléchargement CSV. Si vous devez exporter toutes les informations contenues dans vos journaux de connexion, le bouton exporter des paramètres de données dans le panneau journaux de connexion Azure AD vous permet d’exporter toutes les données.
+
+---
+ 
+**Q : Pourquoi l’application cliente n’est-elle pas remplie lorsqu’un invité se connecte à mon locataire ?** 
+**R :** Lorsqu’un utilisateur invité se connecte à votre locataire, les informations de l’application cliente pour cet utilisateur ne sont pas affichées dans les journaux de connexion de votre locataire pour maintenir la confidentialité des clients. Les applications clientes de vos utilisateurs ne seront pas affichées aux autres locataires auxquels vos utilisateurs essaient d’accéder. 
+
+---
+
+**Q : Pourquoi l’ID d’appareil n’est-il pas rempli lorsqu’un invité se connecte à mon locataire ?** 
+**R :** Lorsqu’un utilisateur se connecte à votre locataire à l’aide d’un appareil inscrit auprès d’un autre locataire, l’ID d’appareil de cet appareil n’est pas affiché dans les journaux de connexion de votre locataire pour assurer la confidentialité des clients. Vos ID d’appareil ne seront pas affichés aux autres locataires auxquels vos utilisateurs essaient d’accéder. 
+
+---
+
+**Q : Dans certaines connexions interrompues, pourquoi est-ce que je vois un ID d’objet plutôt qu’un UPN pour mon utilisateur ?**  
+**R :** Lorsque notre service ne parvient pas à résoudre l’UPN d’un utilisateur en raison d’une connexion interrompue ou qui a échoué, il peut afficher un ID d’objet à la place. 
+
+---
+
+**Q : Pourquoi est-ce que la connexion d’un utilisateur est indiquée comme connexions interactives même si la propriété du rendu IsInteractive a la valeur false ?** 
+**R :** Cette propriété est déconseillée. Elle n’indique pas de manière fiable les événements de connexion interactifs et ceux qui ne sont pas interactifs. 
+
+Dans le panneau journaux de connexion Azure AD dans le portail Azure, vous pouvez trouver des connexions interactives dans l’onglet Connexions utilisateur (interactives) et des connexions non interactives dans l’onglet Connexions utilisateur (non interactives). Dans l’API MS Graph, vous devez vous appuyer sur la propriété signInEventTypes pour déterminer les connexions qui sont interactives. Par exemple : 
+
+`"signInEventTypes":["interactiveUser"],`
+
+vous pouvez également filtrer à l’aide du paramètre $filter lorsque vous demandez des journaux de connexion à partir de l’API MS Graph. 
 
 ## <a name="risky-sign-ins"></a>Connexions risquées
 

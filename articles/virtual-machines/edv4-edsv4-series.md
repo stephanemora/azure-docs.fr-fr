@@ -9,14 +9,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 3aca50f175a9925861b8eb59cad0efd78051f6cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f00188c93bc664395ddb9b72fc5150ede31bf670
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532873"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105406"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les séries Edv4 et Edsv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Idéales pour les applications d’entreprise gourmandes en mémoire, elles proposent jusqu’à 504 Gio de RAM, la [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), la [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et la [technologie Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Elles prennent également en charge la technologie [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Ces nouvelles tailles de machines virtuelles disposeront d’un stockage local 50 % plus volumineux ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Ev3/Esv3](./ev3-esv3-series.md) avec des [machines virtuelles Gen2](./generation-2.md). Elles sont dotées d’une vitesse d’horloge de Turbo cœur de 3,4 GHz. 
 
@@ -34,7 +36,7 @@ Les tailles de la série Edv4 s’exécutent sur les processeurs Intel &reg;​
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | <sup>**</sup> Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | <sup>**</sup> Débit de stockage temporaire maximal IOPS/MBits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v4<sup>1</sup>  | 2 | 16 | 75 | 4 | 19000/120 | 2|1 000 |
 | Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2|2000 |
@@ -45,7 +47,7 @@ Les tailles de la série Edv4 s’exécutent sur les processeurs Intel &reg;​
 | Standard_E48d_v4 | 48 | 384 | 1800 | 32 | 462000/2904 | 8|24 000 |
 | Standard_E64d_v4 | 64 | 504 | 2 400 | 32 | 615000/3872 | 8|30000 |
 
-<sup>1</sup> La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. <br>
+<sup>1</sup>La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. <br>
 <sup>**</sup> Ces valeurs IOPS peuvent être atteintes avec des [machines virtuelles de deuxième génération](generation-2.md)
 
 ## <a name="edsv4-series"></a>Série Edsv4
@@ -62,7 +64,7 @@ Les tailles de la série Edsv4 s’exécutent sur les processeurs Intel &reg;�
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | <sup>**</sup> Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | <sup>**</sup> Débit de stockage temporaire maximal : IOPS/ Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4<sup>4</sup>  | 2 | 16 | 75 | 4 | 19000/120(50) | 3 200/48 | 4 000/200 | 2|1 000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6 400/96 | 8 000/200 | 2|2000 |

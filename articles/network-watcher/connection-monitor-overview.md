@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 41c39a87375b66e9aaf916f927d09a3b6abb3b0e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 64c77a12f65ebaf9acbc8b16c62f86a7e1e10983
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525161"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777629"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
 
@@ -74,7 +74,7 @@ Les règles d'un groupe de sécurité réseau (NSG) ou d'un pare-feu peuvent emp
 
 ### <a name="agents-for-on-premises-machines"></a>Agents pour machines locales
 
-Pour que le Moniteur de connexion reconnaisse vos machines locales en tant que sources de surveillance, installez l'agent Log Analytics sur les machines.  Puis activez la solution Network Performance Monitor. Ces agents sont liés aux espaces de travail Log Analytics. Par conséquent, vous devez configurer l'ID de l'espace de travail et la clé primaire pour permettre aux agents d'entamer la surveillance.
+Pour que le Moniteur de connexion reconnaisse vos machines locales en tant que sources de surveillance, installez l'agent Log Analytics sur les machines.  Puis activez la solution [Network Performance Monitor](/azure-monitor/insights/network-performance-monitor.md#configure-the-solution). Ces agents sont liés aux espaces de travail Log Analytics. Par conséquent, vous devez configurer l'ID de l'espace de travail et la clé primaire pour permettre aux agents d'entamer la surveillance.
 
 Pour installer l’agent Log Analytics pour des machines Windows, consultez [Installer l’agent Log Analytics sur Windows](../azure-monitor/agents/agent-windows.md).
 

@@ -3,22 +3,22 @@ title: Intégration continue et déploiement continu sur des appareils Azure IoT
 description: Configurer l’intégration continue et le déploiement continu à l’aide de l’éditeur classique - Azure IoT Edge avec Azure DevOps, Azure Pipelines
 author: kgremban
 ms.author: kgremban
-ms.date: 08/26/2020
+ms.date: 08/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 757ae7f71e5b03a5dc38b6e5438cdf22a0083965
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5af2216423e625d2ba9545a37e58bb08529ebd55
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524788"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031992"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Intégration continue et déploiement continu sur des appareils Azure IoT Edge (éditeur classique)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Vous pouvez facilement adopter DevOps avec vos applications Azure IoT Edge via les tâches Azure IoT Edge intégrées dans Azure Pipelines. Cet article montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu d’Azure Pipelines pour générer, tester et déployer des applications rapidement et efficacement sur Azure IoT Edge à l’aide de l’ éditeur classique. Vous pouvez également [utiliser YAML](how-to-continuous-integration-continuous-deployment.md).
+Azure Pipelines comprend une tâche intégrée Azure IoT Edge qui vous aide à adopter DevOps avec vos applications Azure IoT Edge. Cet article montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu d’Azure Pipelines pour générer, tester et déployer des applications rapidement et efficacement sur Azure IoT Edge à l’aide de l’ éditeur classique. Vous pouvez également [utiliser YAML](how-to-continuous-integration-continuous-deployment.md).
 
 ![Diagramme - Branches CI et CD pour le développement et la production](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
@@ -86,21 +86,21 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
 
    Dans la description de votre pipeline, sélectionnez la spécification d’agent qui convient en fonction de votre plateforme cible :
 
-   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Linux, choisissez **ubuntu-16.04**.
+   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Linux, choisissez **ubuntu-18.04**.
 
    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows 1809, vous devez [configurer l'agent auto-hébergé sur Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme arm32v7 ou arm64 pour Linux, vous devez [configurer l'agent auto-hébergé sur Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
-    ![Configurer la spécification de l’agent de build](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png" alt-text="Configurer la spécification de l’agent de build.":::
 
 6. Votre pipeline est préconfiguré avec un travail appelé **Travail d'agent 1**. Sélectionnez le signe plus ( **+** ) pour ajouter quatre tâches au travail : **Azure IoT Edge** deux fois, **Copier des fichiers** une fois et **Publier des artefacts de build** une fois. Recherchez chaque tâche et pointez sur le nom de la tâche pour afficher le bouton **Ajouter**.
 
-   ![Ajouter une tâche Azure IoT Edge](./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png" alt-text="Ajouter une tâche Azure IoT Edge.":::
 
    Une fois les quatre tâches ajoutées, le travail de votre agent est semblable à l'exemple suivant :
 
-   ![Quatre tâches dans le pipeline de build](./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png" alt-text="Quatre tâches dans le pipeline de build.":::
 
 7. Sélectionnez la première tâche **Azure IoT Edge** pour la modifier. Cette tâche génère tous les modules de la solution avec la plateforme cible que vous spécifiez. Modifiez la tâche avec les valeurs suivantes :
 
@@ -116,7 +116,7 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
 
    Ces configurations utilisent le référentiel et la balise de l’image qui sont définis dans le fichier `module.json` pour nommer et baliser l’image de module. **Générer des images de module** permet également de remplacer les variables par la valeur exacte que vous définissez dans le fichier `module.json`. Dans Visual Studio ou Visual Studio Code, vous spécifiez la valeur réelle dans un fichier `.env`. Dans Azure Pipelines, vous définissez la valeur dans l’onglet **Variables du pipeline**. Sélectionnez l’onglet **Variables** dans le menu de l’éditeur de pipeline et configurez le nom et la valeur comme suit :
 
-   * **ACR_ADDRESS** : valeur de votre **Serveur de connexion** Azure Container Registry. Vous pouvez récupérer la valeur du serveur de connexion à partir de la page de vue d’ensemble de votre registre de conteneurs dans le portail Azure.
+   * **ACR_ADDRESS** : valeur de votre **Serveur de connexion** Azure Container Registry. Vous pouvez trouver la valeur du serveur de connexion sur la page vue d’ensemble du registre de conteneurs dans la Portail Azure.
 
    Si votre projet contient d’autres variables, vous pouvez spécifier le nom et la valeur dans cet onglet. **Générer des images de module** reconnaît uniquement les variables qui sont au format `${VARIABLE}`. Veillez à utiliser ce format dans vos fichiers `**/module.json`.
 

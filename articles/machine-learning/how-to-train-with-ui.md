@@ -1,5 +1,5 @@
 ---
-title: Créer un travail d’apprentissage à partir de l’interface utilisateur
+title: Créer un travail d’apprentissage avec l’interface utilisateur de création de travail
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser l’interface utilisateur de création de travail dans Azure Machine Learning Studio pour créer un travail d’apprentissage.
 services: machine-learning
@@ -11,12 +11,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: f059bd6dfdec212c6e5c5b343b9930bbee64e6e7
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 4da4cb933f24a0ca172c6b0fd6b8b9827d615859
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535153"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823461"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>Créer un travail d’apprentissage avec l’interface utilisateur de création de travail (préversion)
 

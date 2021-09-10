@@ -4,12 +4,12 @@ description: Cet article décrit l’hôte de processeur d’événements d’Az
 ms.topic: conceptual
 ms.date: 08/04/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e10a472c261c14fcdd3debf1caaf9f00fdeb5e0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ea8beeafd7be3f1e586fc0eaf542d4ee946262fe
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524519"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101263"
 ---
 # <a name="event-processor-host"></a>Hôte du processeur d’événements
 > [!NOTE]
@@ -86,7 +86,8 @@ Ensuite, créez une instance [EventProcessorHost](/dotnet/api/microsoft.azure.ev
 - **storageConnectionString :** compte de stockage utilisé pour la gestion des ressources internes.
 
 > [!IMPORTANT]
-> N’activez pas la fonctionnalité de suppression réversible sur le compte de stockage utilisé comme magasin de points de contrôle. 
+> - N’activez pas la fonctionnalité de suppression réversible sur le compte de stockage utilisé comme magasin de points de contrôle. 
+> - N’utilisez pas de stockage hiérarchique (Azure Data Lake Storage génération 2) comme magasin de points de contrôle.
 
 Enfin, les consommateurs inscrivent l’instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) auprès du service Event Hubs. L’inscription d’une classe de processeur d’événements avec une instance EventProcessorHost entraîne le démarrage du traitement des événements. L’inscription ordonne au service Event Hubs d’attendre que l’application consommateur consomme les événements provenant de certaines de ses partitions, puis d’appeler le code d’implémentation [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) chaque fois qu’il envoie (push) des événements à consommer. 
 

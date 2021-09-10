@@ -3,12 +3,12 @@ title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: 952b5521a16ebc955e71319efe1f0b2bc48e47a9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2d3af7c035518ace6abca01b9e9e3867c49d4330
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531662"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099382"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -335,10 +335,6 @@ Sauf mention contraire, le tableau suivant s’applique aux références SKU v1,
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
-## <a name="purview-limits"></a>Limites de Purview
-
-Les valeurs les plus récentes des quotas Azure Purview se trouvent dans la page des [quotas Azure Purview](../../purview/how-to-manage-quotas.md)
-
 ### <a name="traffic-manager-limits"></a>Limites de Traffic Manager
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
@@ -362,6 +358,10 @@ Les valeurs les plus récentes des quotas Azure Purview se trouvent dans la page
 ## <a name="notification-hubs-limits"></a>Limites de Notification Hubs
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
+
+## <a name="purview-limits"></a>Limites de Purview
+
+Les valeurs les plus récentes des quotas Azure Purview se trouvent dans la page des [quotas Azure Purview](../../purview/how-to-manage-quotas.md)
 
 ## <a name="service-bus-limits"></a>Limites de Service Bus
 

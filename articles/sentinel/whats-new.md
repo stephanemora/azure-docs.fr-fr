@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 08/09/2021
-ms.openlocfilehash: 7c4a2958f8629b224cecf1e92fd0efcff6b1fdd6
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 7f8f9b3a50b5023a217509f62ba2cc3d94da2ee5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533283"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253967"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -32,6 +32,46 @@ Si vous recherchez des éléments datant de plus de six mois, vous les trouverez
 >
 > Vous pouvez également contribuer ! Rejoignez-nous dans la [communauté GitHub des chasseurs de menaces Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## <a name="september-2021"></a>Septembre 2021
+
+- [Nouveautés dans docs : mise à l’échelle de la documentation du connecteur de données](#new-in-docs-scaling-data-connector-documentation)
+- [Modifications du connecteur du compte de stockage Azure](#azure-storage-account-connector-changes)
+
+### <a name="new-in-docs-scaling-data-connector-documentation"></a>Nouveautés dans docs : mise à l’échelle de la documentation du connecteur de données
+
+Comme nous continuons à ajouter de plus en plus de connecteurs de données intégrés pour Azure Sentinel, nous avons réorganisé notre documentation sur le connecteur de données pour refléter cette mise à l’échelle.
+
+Pour la plupart des connecteurs de données, nous avons remplacé des articles complets qui décrivent un connecteur individuel avec une série de procédures génériques et une référence complète de tous les connecteurs actuellement pris en charge.
+
+Consultez les informations de [Référence sur les connecteurs de données Azure Sentinel](data-connectors-reference.md) pour plus d’informations sur votre connecteur, y compris les références à la procédure générique appropriée, ainsi que les informations et configurations supplémentaires requises.
+
+Pour plus d'informations, consultez les pages suivantes :
+
+- **Informations conceptuelles** : [Connecter des sources de données](connect-data-sources.md)
+
+- **Articles de savoir-faire génériques** :
+
+   - [Connecter aux services Azure, Windows, Microsoft et Amazon](connect-azure-windows-microsoft-services.md)
+   - [Connecter votre source de données à l’API du Collecteur de données Azure Sentinel pour l’ingestion des données](connect-rest-api-template.md)
+   - [Recevoir des journaux au format CEF à partir de votre appareil ou de votre appliance dans Azure Sentinel](connect-common-event-format.md)
+   - [Collecter des données de sources Linux à l’aide de Syslog](connect-syslog.md)
+   - [Collecter des données dans des formats de journal personnalisés vers Azure Sentinel avec l’agent Log Analytics](connect-custom-logs.md)
+   - [Utiliser Azure Functions pour connecter votre source de données à Azure Sentinel](connect-azure-functions-template.md)
+   - [Ressources pour la création de connecteurs Azure Sentinel personnalisés](create-custom-connector.md)
+
+### <a name="azure-storage-account-connector-changes"></a>Modifications du connecteur du compte de stockage Azure
+
+En raison de certaines modifications apportées dans la configuration de ressource de compte stockage Azure elle-même, le connecteur doit également être reconfiguré.
+La ressource de compte de stockage (parent) comprend d’autres ressources (enfants) pour chaque type de stockage : fichiers, tables, files d’attente et objets BLOB.
+
+Lors de la configuration des diagnostics pour un compte de stockage, vous devez sélectionner et configurer à son tour les éléments suivants :
+- La ressource de compte parent, en exportant la métrique de **Transaction**.
+- Chacune des ressources de type de stockage enfant, en exportant tous les journaux et métriques (voir le tableau ci-dessus).
+
+Vous ne verrez que les types de stockage pour lesquels vous avez réellement défini des ressources.
+
+:::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Capture d’écran de la configuration des diagnostics de stockage Azure.":::
 
 ## <a name="august-2021"></a>Août 2021
 
@@ -436,7 +476,7 @@ Les nouvelles détections sont les suivantes :
 - [Known IRIDIUM IP (Adresse IP IRIDIUM connue)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
 - [Domaines/adresses IP de groupe Phosphorus connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
 - [Domaines THALLIUM inclus dans DCU](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
-- [Hachages maldoc liés à ZINC connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Hachages de programme malveillant liés à ZINC connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 - [Domaines de groupe STRONTIUM connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
 - [NOBELIUM - Domaine et IOC IP - Mars 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: e616b21b1b94d141bf54a589ac134878d829ba8e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 63ca9c2a76b5daaf576992f715a7ec112ac98b25
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900554"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681523"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Exigences de SAP détaillées pour la solution SAP Azure Sentinel (préversion publique)
 
@@ -28,6 +28,9 @@ Utilisez cet article comme référence si vous êtes un administrateur ou si vou
 > La solution SAP Azure Sentinel est actuellement en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
 >
 
+> [!NOTE]
+> Des exigences supplémentaires sont indiquées si vous déployez votre connecteur de données SAP à l'aide d'une connexion SNC sécurisée. Pour plus d’informations, consultez [Déployer le connecteur de données SAP Azure Sentinel avec SNC](sap-solution-deploy-snc.md).
+>
 ## <a name="recommended-virtual-machine-sizing"></a>Dimensionnement recommandé des machines virtuelles
 
 Le tableau suivant décrit le dimensionnement recommandé pour votre machine virtuelle, en fonction de votre utilisation prévue :
@@ -43,9 +46,9 @@ Le tableau suivant décrit le dimensionnement recommandé pour votre machine vir
 
 Les demandes de modification de journaux SAP suivantes sont requises pour la solution SAP, en fonction de votre version de SAP Basis :
 
-- **Pour les versions 7.5 et ultérieures de SAP Basis**, installez NPLK900131.
-- **Pour la version 7.4 de SAP Basis**, installez NPLK900132.
-- **Pour créer un rôle SAP avec les autorisations requises**, pour toute version de SAP Basis prise en charge, installez NPLK900114. Pour plus d’informations, consultez [Configurer votre système SAP](sap-deploy-solution.md#configure-your-sap-system) et [Autorisations ABAP requises](#required-abap-authorizations).
+- **Pour les versions 7.5 et ultérieures de SAP Basis**, installez NPLK900144
+- **Pour les versions inférieures**, installez NPLK900146
+- **Pour créer un rôle SAP avec les autorisations requises**, pour toute version de SAP Basis prise en charge, installez NPLK900140. Pour plus d’informations, consultez [Configurer votre système SAP](sap-deploy-solution.md#configure-your-sap-system) et [Autorisations ABAP requises](#required-abap-authorizations).
 
 > [!NOTE]
 > Les demandes de modification de journaux SAP requises exposent les modules de fonction RFC personnalisés qui sont nécessaires pour le connecteur et ne modifient aucun objet standard ou personnalisé.
@@ -138,7 +141,9 @@ Les autorisations requises sont répertoriées par type de journal. Vous n’ave
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Tutoriel : Déployer la solution Azure Sentinel pour SAP](sap-deploy-solution.md)
-- [Déployer le connecteur de données SAP Azure Sentinel localement](sap-solution-deploy-alternate.md)
+- [Déployer la solution Azure Sentinel pour SAP](sap-deploy-solution.md)
+- [Déployer le connecteur de données SAP Azure Sentinel avec SNC](sap-solution-deploy-snc.md)
+- [Options de configuration pour experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
 - [Informations de référence sur les journaux de la solution SAP Azure Sentinel](sap-solution-log-reference.md)
 - [Solution SAP Azure Sentinel : contenu de sécurité disponible](sap-solution-security-content.md)
+- [Résolution des problèmes de déploiement de la solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)

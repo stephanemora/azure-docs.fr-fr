@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b0f67862352f2354dbdb5439542229dbee67ae00
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 84d290558d781b592a114b3f3f5658d1ceebe115
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107466"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221224"
 ---
 # <a name="connect-to-an-internal-virtual-network-using-azure-api-management"></a>Se connecter à un réseau virtuel interne à l’aide de la Gestion des API Azure 
 Avec les réseaux virtuels (VNET) Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet au moyen de plusieurs technologies VPN permettant d’établir la connexion. Vous pouvez déployer la Gestion des API via le mode [externe](./api-management-using-with-vnet.md) ou interne. Dans cet article, vous allez apprendre à déployer la Gestion des API en mode VNET interne.
@@ -73,7 +73,7 @@ Une fois le déploiement réussi, vous devez voir l’adresse IP virtuelle **pri
 | Adresse IP virtuelle | Description |
 | ----- | ----- |
 | **Adresse IP virtuelle privée** | Adresse IP à charge équilibrée à partir du sous-réseau délégué par la Gestion des API, sur lequel vous pouvez accéder aux points de terminaison `gateway`, `portal`, `management` et `scm`. |  
-| **Adresse IP virtuelle publique** | Utilisée *uniquement* pour le trafic du plan de contrôle vers le point de terminaison `management` sur `port 3443`. Peut être verrouillée sur l’étiquette de service [GestionApi][ServiceTags]. |  
+| **Adresse IP virtuelle publique** | Utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` sur `port 3443`. Peut être verrouillée sur l’étiquette de service [GestionApi][ServiceTags]. Dans les configurations VNet externes et none, elles sont utilisées pour le trafic API runtime entrant. Elles sont également utilisées pour le trafic de Runtime sortant sur Internet dans toutes les configurations VNet. |  
 
 ![Tableau de bord Gestion des API avec un réseau virtuel interne configuré][api-management-internal-vnet-dashboard]
 

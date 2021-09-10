@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 5c0c3d9c6582f2b124999a04d4da7902830c52f0
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: c3010cb1d972bb898fd8346266166bb632191ead
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535427"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259082"
 ---
 # <a name="managed-connectors-in-azure-logic-apps"></a>Connecteurs managés dans Azure Logic Apps
 
@@ -349,10 +349,10 @@ Dans un environnement de service d’intégration (ISE), ces connecteurs managé
         [**Azure Event Grid** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Icône Stockage Fichier Azure ISE][azure-file-storage-icon]][azure-file-storage-doc]
+        [![Icône Azure Files ISE][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
-        [**Stockage Fichier Azure** ISE][azure-file-storage-doc]
+        [**Azure Files** ISE][azure-file-storage-doc]
     :::column-end:::
     :::column:::
         [![Icône Azure Key Vault ISE][azure-key-vault-icon]][azure-key-vault-doc]

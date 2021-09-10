@@ -7,18 +7,35 @@ ms.service: data-science-vm
 ms.author: mimarusa
 ms.date: 07/16/2021
 ms.topic: reference
-ms.openlocfilehash: b74b535a6d6e00f83dd659728bb1ed930e1fb7dd
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: e256382b4d1e397be6d11a3660a4c4fe73eafb23
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371382"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778322"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notes de publication Azure Data Science Virtual Machine
 
 Dans cet article, découvrez les versions d’Azure Data Science Virtual Machine. Pour obtenir la liste complète des outils inclus, ainsi que les numéros de version, consultez [cette page](./tools-included.md).
 
 Consultez la [liste des problèmes connus](reference-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+
+## <a name="2021-08-11"></a>2021-08-11
+
+Nouvelle image pour [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
+
+Version 21.08.11
+
+Principaux changements :
+
+- Mise à jour de la sécurité de Windows
+- Mise à jour de NVIDIA CuDNN vers 8.1.0
+- Mise à jour de Jupyter Lab-to 3.0.16
+- Ajout de MLFLow pour le suivi des expériences
+- Amélioration de la stabilité et correction de bogues mineurs 
+
+
 
 ## <a name="2021-07-12"></a>12-07-2021
 
@@ -28,7 +45,7 @@ Principaux changements :
 
 - Mise à jour vers PyTorch 1.9.0
 - Mise à jour d’Azure CLI vers la version 2.26.1
-- Mise à jour de l’extension Azure Machine Learning d’Azure CLI vers la version 1.29.0
+- Mise à jour de l'extension Azure CLI Azure Machine Learning à la version 1.29.0
 - Mise à jour de VS Code version 1.58.1
 - Amélioration de la stabilité et correction de bogues mineurs 
 

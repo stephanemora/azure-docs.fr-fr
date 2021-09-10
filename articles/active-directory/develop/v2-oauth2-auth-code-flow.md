@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0042d12941107c4704364dc261f95d3521b8208f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f73951e34ada242dd70b9e9f99839d3072a52f76
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464145"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223745"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -220,7 +220,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri`  | Obligatoire  | Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
 | `grant_type` | Obligatoire   | Doit être `authorization_code` pour le flux de code d'autorisation.   |
 | `code_verifier` | recommandé  | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
-| `client_secret` | obligatoire pour les applications web confidentielles | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas l’utiliser dans une application native ou monopage, car les clés secrètes client ne peuvent pas être stockées de manière fiable sur des appareils ou des pages web. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Comme tous les paramètres décrits ici, la clé secrète client doit être encodée par URL avant d’être envoyée, une étape généralement effectuée par le Kit de développement logiciel (SDK). Pour plus d’informations sur l’encodage d’URI, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | obligatoire pour les applications web confidentielles | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas l’utiliser dans une application native ou monopage, car les clés secrètes client ne peuvent pas être stockées de manière fiable sur des appareils ou des pages web. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Comme tous les paramètres décrits ici, la clé secrète client doit être encodée par URL avant d’être envoyée, une étape généralement effectuée par le Kit de développement logiciel (SDK). Pour plus d’informations sur l’encodage d’URI, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12).  Le modèle d'authentification de base, qui consiste à fournir les informations d'identification dans l'en-tête d'autorisation, conformément à la [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1), est également pris en charge. |
 
 ### <a name="request-an-access-token-with-a-certificate-credential"></a>Demander un jeton d’accès avec des informations d’identification de certificat
 

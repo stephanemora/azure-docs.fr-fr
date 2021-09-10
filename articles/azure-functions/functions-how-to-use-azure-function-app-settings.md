@@ -3,14 +3,14 @@ title: Configuration des paramètres d’application de fonction dans Azure Func
 description: Découvrez comment configurer les paramètres d’application de fonction dans Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6775fdf8d5174600344f3c7177a3130ef63e8f76
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 760408d05c5ad8ff621d13697e94522829781308
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832677"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535124"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
@@ -32,9 +32,11 @@ Vous pouvez accéder à tout ce dont vous avez besoin pour gérer votre applicat
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Utilisation de paramètres d’application
 
-Vous pouvez gérer les paramètres d’application à partir du [portail Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), ainsi qu’à l’aide d’[Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) et d’[Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Vous pouvez également gérer les paramètres d’application à partir de [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) et de [Visual Studio](functions-develop-vs.md#function-app-settings). 
+Vous pouvez créer un nombre quelconque de paramètres d’application requis par votre code de fonction. Des paramètres d’application prédéfinis sont également utilisés par Azure Functions. Pour plus d’informations, consultez [Informations de référence sur les paramètres d’application d’Azure Functions](functions-app-settings.md).
 
 Ces paramètres sont stockés sous forme chiffrée. Pour en savoir plus, consultez [Sécurité des paramètres d’application](security-concepts.md#application-settings).
+
+Vous pouvez gérer les paramètres d’application à partir du [portail Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), ainsi qu’à l’aide d’[Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) et d’[Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Vous pouvez également gérer les paramètres d’application à partir de [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) et de [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
@@ -82,7 +84,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Quand vous développez une application de fonction localement, vous devez conserver des copies locales de ces valeurs dans le fichier de projet local.settings.json. Pour plus d’informations, consultez [Fichier de paramètres locaux](functions-run-local.md#local-settings-file).
+Quand vous développez une application de fonction localement, vous devez conserver des copies locales de ces valeurs dans le fichier de projet local.settings.json. Pour plus d’informations, consultez [Fichier de paramètres locaux](functions-develop-local.md#local-settings-file).
 
 ## <a name="hosting-plan-type"></a>Type de plan d’hébergement
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f133600f800881f462583ca5bee2972a5c914fa
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 420cce0d30d9619fa39bb2eec5605c8941f015f3
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527709"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864496"
 ---
 # <a name="understand-azure-files-billing"></a>Comprendre la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
@@ -83,30 +83,31 @@ Lorsque vous provisionnez un partage de fichiers Premium, vous spécifiez le nom
 | Unité de provisionnement | 1 Gio |
 | Formule IOPS de référence | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
 | Limite de rafale | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Lister les crédits | `BurstLimit * 3600` |
 | Débit d’entrée | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Débit de sortie | `60 MiB/sec + 0.06 * ProvisionedGiB` |
 
 Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage provisionné :
 
-| Capacité (Gio) | IOPS de base | IOPS en rafale | Sortie (Mio/s) | Entrée (Mio/s) |
-|-|-|-|-|-|
-| 100 | 500 | Jusqu’à 4 000 | 66 | 44 |
-| 500 | 900 | Jusqu’à 4 000 | 90 | 60 |
-| 1 024 | 1 424 | Jusqu’à 4 000 | 122 | 81 |
-| 5 120 | 5 520 | Jusqu’à 15 360 | 368 | 245 |
-| 10 240 | 10 640 | Jusqu’à 30 720 | 675 | 450 |
-| 33 792 | 34 192 | Jusqu’à 100 000 | 2 088 | 1 392 |
-| 51 200 | 51 600 | Jusqu’à 100 000 | 3 132 | 2 088 |
-| 102 400 | 100 000 | Jusqu’à 100 000 | 6 204 | 4 136 |
+| Capacité (Gio) | IOPS de base | IOPS en rafale | Lister les crédits | Entrée (Mio/s) | Sortie (Mio/s) |
+|-|-|-|-|-|-|
+| 100 | 500 | Jusqu’à 4 000 | 14,400,000 | 44 | 66 |
+| 500 | 900 | Jusqu’à 4 000 | 14,400,000 | 60 | 90 |
+| 1 024 | 1 424 | Jusqu’à 4 000 | 14,400,000 | 81 | 122 |
+| 5 120 | 5 520 | Jusqu’à 15 360 | 55,296,000 | 245 | 368 |
+| 10 240 | 10 640 | Jusqu’à 30 720 | 110,592,000 | 450 | 675 |
+| 33 792 | 34 192 | Jusqu’à 100 000 | 360 000 000 | 1 392 | 2 088 |
+| 51 200 | 51 600 | Jusqu’à 100 000 | 360 000 000 | 2 088 | 3 132 |
+| 102 400 | 100 000 | Jusqu’à 100 000 | 360 000 000 | 4 136 | 6 204 |
 
-Les performances réelles des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows sans SMB Multichannel activé, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Le même client peut atteindre des \~performances trois fois supérieures si SMB Multichannel est activé sur les partages Premium. Pour obtenir une mise à l’échelle des performances maximales, [activez SMB Multichannel](storage-files-enable-smb-multichannel.md) et répartissez la charge entre plusieurs machines virtuelles. Reportez-vous à [Performances de SMB Multichannel](storage-files-smb-multichannel-performance.md) et au [Guide de dépannage](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
+Les performances réelles des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows sans SMB Multichannel activé, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Le même client peut atteindre des \~performances trois fois supérieures si SMB Multichannel est activé sur les partages Premium. Pour obtenir une mise à l’échelle des performances maximales, [activez SMB Multichannel](files-smb-protocol.md#smb-multichannel) et répartissez la charge entre plusieurs machines virtuelles. Reportez-vous à [Performances de SMB Multichannel](storage-files-smb-multichannel-performance.md) et au [Guide de dépannage](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
 ### <a name="bursting"></a>Mode en rafales
-Si votre charge de travail a besoin de performances supplémentaires pour répondre aux pics de demande, votre partage peut utiliser des crédits de rafale pour atteindre la limite d’IOPS de la ligne de base du partage pour offrir les performances de partage dont il a besoin pour répondre à la demande. Les partages de fichiers Premium peuvent prévoir des rafales de leurs IOPS jusqu’à 4 000 ou jusqu’à multiplier leur nombre par trois, selon la valeur la plus élevée. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Il fonctionne dans la mesure des possibilités et la limite de rafale n’est pas une garantie : les partages de fichiers peuvent croître par rafales *jusqu’à* cette limite, pour une durée maximale de 60 minutes.
+Si votre charge de travail a besoin de performances supplémentaires pour répondre aux pics de demande, votre partage peut utiliser des crédits de rafale pour atteindre la limite d’IOPS de la ligne de base du partage pour offrir les performances de partage dont il a besoin pour répondre à la demande. Les partages de fichiers Premium peuvent prévoir des rafales de leurs IOPS jusqu’à 4 000 ou jusqu’à multiplier leur nombre par trois, selon la valeur la plus élevée. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. L'éclatement fonctionne sur la base du meilleur effort et la limite d'éclatement n'est pas une garantie.
 
 Des crédits s’accumulent dans un compartiment à rafales chaque fois que le trafic de votre partage de fichiers se trouve en dessous des IOPS de base. Par exemple, un partage de 100 Gio dispose de 500 IOPS de base. Si le trafic réel sur le partage est de 100 IOPS pour un intervalle spécifique de 1 seconde, les 400 IOPS inutilisées sont créditées dans un compartiment à rafales. De même, un partage inactif de 1 Tio accumule du crédit de rafale à 1 424 IOPS. Ces crédits sont ensuite utilisés lorsque des opérations dépassent les IOPS de base.
 
-Chaque fois qu’un partage dépasse les IOPS de base et qu’il dispose de crédits dans un compartiment à rafales, il est augmenté par rafales pour atteindre le taux de rafales maximal autorisé. Les partages peuvent continuer de fonctionner en rafale tant qu’il reste des crédits, jusqu’à une durée maximale de 60 minutes, mais cela se base sur le nombre de crédits en rafale accumulés. Chaque e/s située au-delà des IOPS de base consomme un crédit ; une fois que tous les crédits sont consommés, le partage retourne aux IOPS de base.
+Chaque fois qu’un partage dépasse les IOPS de base et qu’il dispose de crédits dans un compartiment à rafales, il est augmenté par rafales pour atteindre le taux de rafales maximal autorisé. Les actions peuvent continuer à éclater tant qu'il reste des crédits, mais cela dépend du nombre de crédits d'éclatement accumulés. Chaque e/s située au-delà des IOPS de base consomme un crédit ; une fois que tous les crédits sont consommés, le partage retourne aux IOPS de base.
 
 Les crédits de partage présentent trois états :
 

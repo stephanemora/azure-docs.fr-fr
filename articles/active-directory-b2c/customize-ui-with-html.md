@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 76832f02f1c1337a705f33d26de97b0b5823c2c1
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 0a3312559ee46b70b97a99a5dae16e4a26cad273
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981106"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031839"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur avec des modèles HTML dans Azure Active Directory B2C
 
@@ -75,7 +75,8 @@ Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’in
 
 - Utilisez une URL absolue lorsque vous incluez des ressources externes telles que des fichiers multimédias, CSS et JavaScript dans votre fichier HTML.
 - Avec la [version 1.2.0 de la mise en page](page-layout.md) et les suivantes, vous pouvez ajouter l’attribut `data-preload="true"` dans vos balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript. Grâce à `data-preload="true"`, la page est construite avant d’être affichée à l’utilisateur. Cet attribut permet d’éviter le « scintillement » de la page en préchargeant le fichier CSS, sans que le code HTML non stylisé soit affiché à l’utilisateur. L’extrait de code HTML suivant montre l’utilisation de la balise `data-preload`.
-  ```HTML
+
+  ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - Nous vous recommandons de commencer par le contenu de la page par défaut et de créer par-dessus.
@@ -90,11 +91,41 @@ Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’in
 
 ## <a name="localize-content"></a>Localiser le contenu
 
-Vous localisez votre contenu HTML en activant la [personnalisation de la langue](language-customization.md) dans votre locataire Azure AD B2C. L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre OpenID Connect `ui_locales` à votre point de terminaison. Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML propres à la langue.
+Vous localisez votre contenu HTML en activant la [personnalisation de la langue](language-customization.md) dans votre locataire Azure AD B2C. L’activation de cette fonctionnalité permet à Azure AD B2C de définir l’attribut de langage de page HTML et de passer le paramètre OpenID Connecter `ui_locales` à votre point de terminaison.
+
+#### <a name="single-template-approach"></a>Approche à un seul modèle
+
+Pendant le chargement de la page, Azure AD B2C définit l’attribut de langage de page HTML avec la langue actuelle. Par exemple : `<html lang="en">`. Pour afficher différents styles selon la langue actuelle, utilisez le sélecteur `:lang` CSS avec votre définition CSS.
+
+L'exemple suivant définit les classes suivantes :
+
+* `imprint-en` -Utilisé lorsque la langue actuelle est l’anglais.
+* `imprint-de` -Utilisé lorsque la langue actuelle est l’allemand.
+* `imprint` -Classe par défaut utilisée lorsque la langue actuelle n’est ni l’anglais ni l’allemand.
+
+```css
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+.imprint {
+    display: none;
+}
+```
+
+Les éléments HTML suivants seront affichés ou masqués en fonction de la langue de la page :
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+#### <a name="multi-template-approach"></a>Approche à plusieurs modèles
+
+La fonctionnalité de personnalisation de la langue permet à Azure AD B2C de transmettre le paramètre Open ID Connect `ui_locales` à votre point de terminaison. Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML propres à la langue.
 
 > [!NOTE]
 > Azure AD B2C ne transmet pas les paramètres OpenID Connect, tel que `ui_locales` aux [pages Exception](page-layout.md#exception-page-globalexception).
-
 
 Le contenu peut être extrait de différents emplacements en fonction des paramètres régionaux utilisés. Dans votre point de terminaison avec CORS activé, vous configurez une structure de dossiers pour héberger du contenu pour des langues spécifiques. Vous devez appeler celui qui convient si vous utilisez la valeur générique `{Culture:RFC5646}`.
 

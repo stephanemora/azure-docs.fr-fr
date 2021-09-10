@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b670c244c502049cc9eb419aa6570ad40e5aafa7
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 0873d6f0bfff73fc0bdc44ce90b322af23d4df28
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689927"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835732"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -167,7 +167,10 @@ Voici un exemple de code de correctif JSON. Ce document remplace les valeurs des
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Les appels de mise à jour pour les jumeaux et les relations utilisent une structure de [correctif JSON](http://jsonpatch.com/). Vous pouvez créer des correctifs à l’aide du document [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) du SDK Azure .NET. Voici un exemple.
+>[!NOTE]
+> Cet exemple montre l'opération `replace` JSON Patch, qui remplace la valeur d'une propriété existante. Pour obtenir la liste complète des opérations de correctif JSON qui peuvent être utilisées, y compris `add` et `remove` , consultez [Opérations de JSON Patch](http://jsonpatch.com/#operations). 
+
+Lors de la mise à jour d'un jumeau à partir d'un projet de code utilisant le SDK .NET, vous pouvez créer des correctifs JSON à l'aide du [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) du SDK Azure .NET. Voici un exemple.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

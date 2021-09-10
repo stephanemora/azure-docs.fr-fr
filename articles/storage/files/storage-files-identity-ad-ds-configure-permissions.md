@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: e88a8df21d1161351a97434b3bf70656a09ea2ae
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: efa2ec8873374604e252677e436e6883867f982a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731041"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255496"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB 
 
@@ -68,7 +68,7 @@ Les autorisations suivantes sont incluses dans le répertoire racine d’un part
 |Utilisateurs|Définition|
 |---|---|
 |BUILTIN\Administrators|Tous les utilisateurs qui sont des administrateurs de domaine de l’environnement local AD DS.
-|BUILTIN\Users|Groupe de sécurité intégré dans AD. Il comprend NT AUTHORITY\Authenticated Users par défaut. Pour un serveur de fichiers traditionnel, vous pouvez configurer la définition d’appartenance par serveur. Pour Azure Files, il n’existe pas de serveur d’hébergement. BUILTIN\Users qui inclut le même ensemble d’utilisateurs que NT AUTHORITY\Authenticated Users.|
+|BUILTIN\Users|Groupe de sécurité intégré dans AD. Il comprend NT AUTHORITY\Authenticated Users par défaut. Pour un serveur de fichiers traditionnel, vous pouvez configurer la définition d’appartenance par serveur. Pour Azure Files, il n’existe pas de serveur d’hébergement. BUILTIN\Users inclut donc le même ensemble d’utilisateurs que NT AUTHORITY\Authenticated Users.|
 |NT AUTHORITY\SYSTEM|Compte de service du système d’exploitation du serveur de fichiers. Ce compte de service n’est pas applicable dans un contexte Azure Files. Il est inclus dans le répertoire racine pour être cohérent avec l’expérience Windows Files Server pour les scénarios hybrides.|
 |NT AUTHORITY\Authenticated Users|Tous les utilisateurs dans Active Directory qui peuvent obtenir un jeton Kerberos valide.|
 |CREATOR OWNER|Chaque objet, répertoire ou fichier, a un propriétaire pour cet objet. Si des ACL sont affectées à l’objet « CREATOR OWNER » sur cet objet, l’utilisateur qui est le propriétaire de cet objet dispose des autorisations définies par la liste de contrôle d’accès.|

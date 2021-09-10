@@ -1,7 +1,7 @@
 ---
 title: Étiquetage d’images et de texte
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer et exécuter des projets pour étiqueter des images ou du texte. Pour faciliter cette tâche, utilisez l’étiquetage assisté par ML ou l’étiquetage par opérateur humain dans la boucle.
+description: Utilisez notre outil d’étiquetage des données pour étiqueter les images ou le texte de l’étiquette. Pour faciliter cette tâche, utilisez l’étiquetage assisté par ML ou l’étiquetage par opérateur humain dans la boucle.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 54ed2504063cc3a0479d37127888ccb727fbd671
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c29e3dbbcb892127fc89963866dab684fe45095f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562707"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108532"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes
 
-Découvrez comment créer et exécuter des projets pour étiqueter des images ou des données de texte dans Azure Machine Learning.  Utilisez l’étiquetage des données assisté par Machine Learning ou l’étiquetage humain dans la boucle, pour faciliter la tâche.
+Découvrez comment créer et exécuter des projets d'étiquetage de données pour étiqueter des images ou des données textuelles dans Azure Machine Learning.  Utilisez l’étiquetage des données assisté par Machine Learning ou l’étiquetage humain dans la boucle, pour faciliter la tâche.
 
 
 ## <a name="data-labeling-capabilities"></a>Fonctionnalités d’étiquetage des données

@@ -1,7 +1,7 @@
 ---
 title: Créer une fonction C# à partir de la ligne de commande – Azure Functions
 description: Apprenez à créer une fonction à partir de la ligne de commande, puis à publier le projet local sur un hébergement serverless dans Azure Functions.
-ms.date: 10/03/2020
+ms.date: 08/15/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
@@ -11,18 +11,23 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: b134ecd21f9a1d3d7d03f041f188e0f0bcc3fca4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c2344a13c1a3dc005d00933fdc182348be9bb0f2
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739861"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830605"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction C# dans Azure à partir de la ligne de commande
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
-Dans cet article, vous allez utiliser des outils en ligne de commande pour créer une fonction basée sur une bibliothèque de classes C# qui répond aux requêtes HTTP. Après avoir testé le code localement, vous le déployez dans l’environnement serverless d’Azure Functions.
+Dans cet article, vous utilisez les outils ligne de commande pour créer une fonction C# qui répond aux requêtes HTTP. Après avoir testé le code localement, vous le déployez dans l’environnement serverless d’Azure Functions.
+
+Cet article prend en charge la création de deux types de fonctions C# compilées : 
+
++ [In-process](create-first-function-cli-csharp.md?tabs=in-process) : s’exécute dans le même processus que le processus hôte Functions. Pour en découvrir plus, consultez [Développer des fonctions de bibliothèque de classes C# à l’aide d’Azure Functions](functions-dotnet-class-library.md).
++ [Processus isolé](create-first-function-cli-csharp.md?tabs=isolated-process) : s’exécute dans un processus Worker .NET séparé. Pour plus d’informations, consultez [Guide d’exécution de fonctions sur .NET 5.0 dans Azure](dotnet-isolated-process-guide.md).
 
 Le fait de suivre ce guide de démarrage rapide entraîne une faible dépense de quelques cents USD tout au plus dans votre compte Azure.
 
@@ -32,17 +37,9 @@ Si vous souhaitez consulter une version de cet article adaptée à Visual Studio
 
 Avant de commencer la lecture cet article, vous devez disposer des éléments suivants :
 
-+ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
 
-+ [Kit SDK .NET Core 3.1](https://dotnet.microsoft.com/download)
-
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
-
-+ Un des outils suivants pour créer des ressources Azure :
-
-    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
-
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 ou ultérieure.
++ Vous avez aussi besoin d’un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
 
@@ -52,21 +49,21 @@ Vérifiez vos prérequis, selon que vous utilisez Azure CLI ou Azure PowerShell 
 
 + Dans une fenêtre de terminal ou de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
 
++ Exécutez `dotnet --list-sdks` pour vérifier que les versions requises sont installées.
+
 + Exécutez `az --version` pour vérifier que vous disposez d’Azure CLI version 2.4 ou ultérieure.
 
 + Exécutez `az login` pour vous connecter à Azure et vérifier que l’abonnement est actif.
-
-+ Exécutez `dotnet --list-sdks` pour vérifier que le SDK .NET Core version 3.1.x est installé.
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + Dans une fenêtre de terminal ou de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
 
++ Exécutez `dotnet --list-sdks` pour vérifier que les versions requises sont installées.
+
 + Exécutez `(Get-Module -ListAvailable Az).Version` et vérifiez la version 5.0 ou ultérieure. 
 
 + Exécutez `Connect-AzAccount` pour vous connecter à Azure et vérifier que l’abonnement est actif.
-
-+ Exécutez `dotnet --list-sdks` pour vérifier que le SDK .NET Core version 3.1.x est installé.
 
 ---
 
@@ -76,9 +73,18 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
 
 1. Exécutez la commande `func init`, de la façon suivante, pour créer un projet Functions dans un dossier nommé *LocalFunctionProj* avec le runtime spécifié :  
 
+    # <a name="in-process"></a>[In-process](#tab/in-process) 
+
     ```csharp
     func init LocalFunctionProj --dotnet
     ```
+
+    # <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+
+    ```csharp
+    func init LocalFunctionProj --dotnet-isolated
+    ```
+    ---
 
 1. Accédez au dossier du projet :
 
@@ -102,34 +108,103 @@ Si vous le souhaitez, vous pouvez passer à [Exécuter la fonction localement](#
 
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
+Le code de fonction généré à partir du modèle dépend du type de projet C# compilé.  
+
+# <a name="in-process"></a>[In-process](#tab/in-process) 
+
 *HttpExample.cs* contient une méthode `Run` qui reçoit des données de requête dans la variable `req` de type [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest), décorée avec **HttpTriggerAttribute** qui définit le comportement du déclencheur.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-L’objet retourné est un [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) qui retourne un message de réponse sous la forme d’un [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) ou d’un [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md?tabs=csharp).
+L’objet retourné est un [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) qui retourne un message de réponse sous la forme d’un [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) ou d’un [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). 
 
-[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+
+*HttpExample.cs* contient une méthode `Run` qui reçoit des données de requête dans la variable `req` de type [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata), décorée avec **HttpTriggerAttribute** qui définit le comportement du déclencheur. En raison du modèle de processus isolé,    `HttpRequestData` est une représentation du réel `HttpRequest` et non de l’objet de requête lui-même. 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
+
+L’objet de retour est un objet [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) qui contient les données retournées à la réponse HTTP. 
+
+---
+
+Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md?tabs=csharp).
+
+## <a name="run-the-function-locally"></a>Exécuter la fonction localement
+
+1. Exécutez votre fonction en démarrant l’hôte du runtime d’Azure Functions local à partir du dossier *LocalFunctionProj* :
+
+    ```
+    func start
+    ```
+
+    Vers la fin de la sortie, les lignes suivantes doivent s’afficher : 
+    
+    <pre>
+    ...
+    
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+    
+    Http Functions:
+    
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    ...
+    
+    </pre>
+    
+    >[!NOTE]  
+    > Si HttpExample n’apparaît pas comme indiqué ci-dessus, cela signifie probablement que vous avez démarré l’hôte à partir d’un emplacement autre que le dossier racine du projet. Dans ce cas, utilisez **Ctrl**+**C** pour arrêter l’hôte, accédez au dossier racine du projet, puis réexécutez la commande précédente.
+
+1. Copiez l’URL de votre fonction `HttpExample` à partir de cette sortie vers un navigateur :
+
+    # <a name="in-process"></a>[In-process](#tab/in-process)
+    
+     Pour l’URL de la fonction, ajoutez la chaîne de requête `?name=<YOUR_NAME>`, en effectuant l’URL complète, par exemple `http://localhost:7071/api/HttpExample?name=Functions`. Le navigateur doit afficher un message de réponse qui renvoie la valeur de votre chaîne de requête. Le terminal dans lequel vous avez démarré votre projet affiche également une sortie de journal quand vous effectuez des requêtes.
+
+    # <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+
+    Accédez à l’URL de la fonction et vous devriez recevoir un message _d’accueil à Azure Functions_.
+
+    ---
+
+1. Quand vous avez terminé, utilisez **Ctrl**+**C**, puis choisissez `y` pour arrêter l’hôte Functions.
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
 
 4. Créer l’application de fonction dans Azure :
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-        
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli/in-process)
+
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
+    La commande [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crée l’application de fonction dans Azure. 
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli/isolated-process)
+
+    ```azurecli
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    ``` 
     
     La commande [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crée l’application de fonction dans Azure. 
-    
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell/in-process)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location '<REGION>'
     ```
-    
+
     L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. 
-    
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell/isolated-process)
+
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location '<REGION>'
+    ```
+
+    L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. 
+
     ---
     
     Dans l’exemple précédent, remplacez `<STORAGE_NAME>` par le nom du compte que vous avez utilisé à l’étape précédente, puis remplacez `<APP_NAME>` par le nom global unique qui vous convient. `<APP_NAME>` représente également le domaine DNS par défaut pour l’application de fonction. 
@@ -138,7 +213,19 @@ L’objet retourné est un [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.a
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
+## <a name="invoke-the-function-on-azure"></a>Appeler la fonction sur Azure
+
+Dans la mesure où votre fonction utilise un déclencheur HTTP et prend en charge des requêtes GET, vous l’appelez en adressant une requête HTTP à son URL. Il est plus facile d’effectuer cette opération dans un navigateur.  
+
+# <a name="in-process"></a>[In-process](#tab/in-process) 
+
+Copiez l’**URL d’appel** complète affichée au sein de la sortie de la commande de publication dans la barre d’adresse d’un navigateur, en ajoutant le paramètre de requête `?name=Functions`. Quand vous accédez à cette URL, le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
+
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+
+Copiez l’**URL d’appel** complète affichée dans la sortie de la commande de publication dans la barre d’adresse d’un navigateur. Quand vous accédez à cette URL, le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
+
+---
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
 
@@ -146,7 +233,14 @@ L’objet retourné est un [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Se connecter à une file d’attente Stockage Azure]
+# <a name="in-process"></a>[In-process](#tab/in-process) 
 
-[Se connecter à une file d’attente Stockage Azure]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
+> [!div class="nextstepaction"]
+> [Se connecter au Stockage File d’attente Azure](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=in-process)
+
+# <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+
+> [!div class="nextstepaction"]
+> [Se connecter au Stockage File d’attente Azure](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)
+
+---

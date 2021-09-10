@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 389bf4438fa31b0c1174441cd62f814f18b271d2
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 5c7439263f15a99a7b717bac1dc48e06a77bb66b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729513"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257133"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -49,7 +49,7 @@ Si vous devez ajouter des ressources à un package d’accès, vérifiez si les 
 
 ## <a name="add-resource-roles"></a>Ajouter des rôles de ressources
 
-Un rôle de ressources est un ensemble d’autorisations associées à une ressource. Pour mettre des ressources à la disposition des utilisateurs, ajoutez des rôles de ressources à votre package d'accès. Vous pouvez ajouter des rôles de ressources pour des groupes, des équipes, des applications et des sites SharePoint.
+Un rôle de ressources est un ensemble d’autorisations associées à une ressource. Pour mettre des ressources à la disposition des utilisateurs, ajoutez des rôles de ressources à partir de chaque ressource de catalogue à votre package d'accès. Vous pouvez ajouter des rôles de ressources qui sont fournis pour des groupes, des équipes, des applications et des sites SharePoint.
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
@@ -121,6 +121,8 @@ Une fois qu'un rôle d'application fait partie d'un package d'accès :
 Voici quelques considérations à prendre en compte lors de la sélection d'une application :
 
 - Des groupes peuvent également être affectés aux rôles d’applications.  Vous pouvez choisir d'ajouter un groupe au lieu d'un rôle d'application dans un package d'accès, mais l'application ne sera pas visible pour l'utilisateur dans le package d'accès du portail Mon Accès.
+- Le portail Azure peut également afficher les principaux de service des services qui ne peuvent pas être sélectionnés en tant qu’applications.  Plus particulièrement, **Exchange Online** et **SharePoint Online** sont des services, pas des applications disposant de rôles de ressources dans l’annuaire, ils ne peuvent donc pas être dans un package d’accès.  Utilisez plutôt la gestion des licences par groupe pour établir une licence appropriée, destinée à un utilisateur qui a besoin d’accéder à ces services.
+- Les applications qui prennent uniquement en charge les utilisateurs de comptes Microsoft personnels pour l’authentification, et non les comptes professionnels dans votre annuaire, ne disposent pas de rôles d’application et ne peuvent pas être ajoutées pour accéder aux catalogues de packages.
 
 1. Sur la page **Ajouter des rôles de ressources à un package d'accès**, cliquez sur **Applications** pour ouvrir le volet Sélectionner les applications.
 

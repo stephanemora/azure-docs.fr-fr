@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 292c23398950a367f77c4200925007f660702a34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 85a8b539d40aac11d0ce39ba4329b7466f48c009
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562761"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835463"
 ---
 # <a name="get-started-with-device-twins-python"></a>Bien démarrer avec les jumeaux d’appareils (Python)
 
@@ -154,7 +154,6 @@ Dans cette section, vous allez créer une application console Python qui se conn
 
     ```python
     import time
-    import threading
     from azure.iot.device import IoTHubModuleClient
     ```
 
@@ -164,49 +163,55 @@ Dans cette section, vous allez créer une application console Python qui se conn
     CONNECTION_STRING = "[IoTHub Device Connection String]"
     ```
 
-5. Ajoutez le code suivant au fichier **ReportConnectivity.py** pour implémenter la fonctionnalité de jumeaux d’appareils :
+5. Ajoutez le code suivant au fichier **ReportConnectivity.py** pour instancier un client et mettre en œuvre la fonctionnalité de jumelage de périphériques :
 
     ```python
-    def twin_update_listener(client):
-        while True:
-            patch = client.receive_twin_desired_properties_patch()  # blocking call
-            print("Twin patch received:")
-            print(patch)
-
-    def iothub_client_init():
+    def create_client():
+        # Instantiate client
         client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
-        return client
 
-    def iothub_client_sample_run():
+        # Define behavior for receiving twin desired property patches
+        def twin_patch_handler(twin_patch):
+            print("Twin patch received:")
+            print(twin_patch)
+
         try:
-            client = iothub_client_init()
+            # Set handlers on the client
+            client.on_twin_desired_properties_patch_received = twin_patch_handler
+        except:
+            # Clean up in the event of failure
+            client.shutdown()
 
-            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
-            twin_update_listener_thread.daemon = True
-            twin_update_listener_thread.start()
+        return client
+    ```
 
-            # Send reported 
+6. Ajoutez le code suivant à la fin de **ReportConnectivity.py** pour exécuter l'application :
+
+    ```python
+    def main():
+        print ( "Starting the Python IoT Hub Device Twin device sample..." )
+        client = create_client()
+        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+
+        try:
+            # Update reported properties with cellular information
             print ( "Sending data as reported property..." )
             reported_patch = {"connectivity": "cellular"}
             client.patch_twin_reported_properties(reported_patch)
             print ( "Reported properties updated" )
 
+            # Wait for program exit
             while True:
                 time.sleep(1000000)
         except KeyboardInterrupt:
-            print ( "IoT Hub Device Twin device sample stopped" )
-    ```
+            print ("IoT Hub Device Twin device sample stopped")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
 
-    L’objet **IoTHubModuleClient** expose toutes les méthodes nécessaires pour interagir avec des jumeaux d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **IoTHubModuleClient**, récupère le jumeau de votre appareil, puis met à jour sa propriété signalée avec les informations de connectivité.
-
-6. Ajoutez le code suivant à la fin de **ReportConnectivity.py** pour implémenter la fonction **iothub_client_sample_run** :
-
-    ```python
     if __name__ == '__main__':
-        print ( "Starting the Python IoT Hub Device Twin device sample..." )
-        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
-
-        iothub_client_sample_run()
+        main()
     ```
 
 7. Exécutez l’application d’appareil :

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 4a88e8353d8f6ac0890f449060041ad54bda852d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a7f367c1301a3eb325e9dc024c518ecabe791170
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "122641204"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835644"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub (Python)
 
@@ -32,15 +32,11 @@ Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appa
 
 * **FileUpload.py**, qui charge un fichier sur le stockage à l’aide du kit Python Device SDK.
 
-Une version plus avancée de l’application de chargement de fichier se trouve à l’adresse [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py) sur GitHub. Pour pouvoir exécuter cette version, vous devez connaître les certificats X.509, les clés et les phrases secrètes. Étant donné que ce n’est pas strictement nécessaire pour charger un fichier, le code présenté ci-dessous n’utilise pas X.509.
-
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
-[!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
 * Vérifiez que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil décrit dans cet article utilise le protocole MQTT, qui communique via le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -78,8 +74,7 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 
     ```python
     import os
-    import asyncio
-    from azure.iot.device.aio import IoTHubDeviceClient
+    from azure.iot.device import IoTHubDeviceClient
     from azure.core.exceptions import AzureError
     from azure.storage.blob import BlobClient
 
@@ -92,7 +87,7 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 1. Créez une fonction pour charger le fichier dans le stockage Blob :
 
     ```python
-    async def store_blob(blob_info, file_name):
+    def store_blob(blob_info, file_name):
         try:
             sas_url = "https://{}/{}/{}{}".format(
                 blob_info["hostName"],
@@ -124,61 +119,51 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 1. Pour connecter le client et charger le fichier, ajoutez le code suivant :
 
     ```python
-    async def main():
+    def run_sample(device_client):
+        # Connect the client
+        device_client.connect()
+
+        # Get the storage info for the blob
+        blob_name = os.path.basename(PATH_TO_FILE)
+        storage_info = device_client.get_storage_info_for_blob(blob_name)
+
+        # Upload to blob
+        success, result = store_blob(storage_info, PATH_TO_FILE)
+
+        if success == True:
+            print("Upload succeeded. Result is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], True, 200, "OK: {}".format(PATH_TO_FILE)
+            )
+
+        else :
+            # If the upload was not successful, the result is the exception object
+            print("Upload failed. Exception is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], False, result.status_code, str(result)
+            )
+
+    def main():
+        device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
         try:
-            print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
-
-            conn_str = CONNECTION_STRING
-            file_name = PATH_TO_FILE
-            blob_name = os.path.basename(file_name)
-
-            device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-            # Connect the client
-            await device_client.connect()
-
-            # Get the storage info for the blob
-            storage_info = await device_client.get_storage_info_for_blob(blob_name)
-
-            # Upload to blob
-            success, result = await store_blob(storage_info, file_name)
-
-            if success == True:
-                print("Upload succeeded. Result is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], True, 200, "OK: {}".format(file_name)
-                )
-
-            else :
-                # If the upload was not successful, the result is the exception object
-                print("Upload failed. Exception is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], False, result.status_code, str(result)
-                )
-
-        except Exception as ex:
-            print("\nException:")
-            print(ex)
-
+            print ("IoT Hub file upload sample, press Ctrl-C to exit")
+            run_sample(device_client)
         except KeyboardInterrupt:
-            print ( "\nIoTHubDeviceClient sample stopped" )
-
+            print ("IoTHubDeviceClient sample stopped")
         finally:
-            # Finally, disconnect the client
-            await device_client.disconnect()
+            # Graceful exit
+            device_client.shutdown()
 
 
     if __name__ == "__main__":
-        asyncio.run(main())
-        #loop = asyncio.get_event_loop()
-        #loop.run_until_complete(main())
-        #loop.close()
+        main()
     ```
 
     Celui-ci crée un **IoTHubDeviceClient** asynchrone et utilise les API suivantes pour gérer le chargement de fichier avec votre hub IoT :

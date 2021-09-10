@@ -5,14 +5,14 @@ author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 08/26/2021
 ms.author: gahllevy
-ms.openlocfilehash: 1b25211f3b25d2878ca5edee05c1c723a30d97db
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2e04953e766c76275079731751cb006fe46712e7
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524987"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039550"
 ---
 # <a name="optimize-write-performance-in-azure-cosmos-db-api-for-mongodb"></a>Optimiser les performances d’écriture dans l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -60,3 +60,6 @@ Si vous écrivez plus de 1 000 documents à la fois par processus/thread, les f
 * En savoir plus sur [l’indexation dans l’API pour MongoDB](../mongodb-indexing.md).
 * En savoir plus sur le [partitionnement dans Azure Cosmos DB](../partitioning-overview.md).
 * En savoir plus sur la [résolution des problèmes fréquents](error-codes-solutions.md).
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

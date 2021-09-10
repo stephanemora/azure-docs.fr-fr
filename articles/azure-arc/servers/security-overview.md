@@ -2,13 +2,13 @@
 title: Présentation de la sécurité
 description: Informations relatives à la sécurité des serveurs avec Azure Arc.
 ms.topic: conceptual
-ms.date: 07/16/2021
-ms.openlocfilehash: 113eaaf779409cd77e66b253074146dfaa0ff0ab
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.date: 08/30/2021
+ms.openlocfilehash: 84f3b7cae576f1bedc6de57f94623936cbb0a51c
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390216"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214243"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>Vue d’ensemble de la sécurité Azure Arc pour serveurs
 
@@ -16,7 +16,7 @@ Cet article décrit la configuration et les considérations relatives à la séc
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-Chaque serveur avec Azure Arc dispose d’une identité managée, en tant qu’élément d’un groupe de ressources dans un abonnement Azure ; cette identité représente le serveur s’exécutant localement ou dans un autre environnement cloud. L’accès à cette ressource est contrôlé par le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) standard. À partir de la page [**Contrôle d’accès (IAM)** ](../../role-based-access-control/role-assignments-portal.md) du portail Azure, vous pouvez vérifier qui a accès à votre serveur avec Azure Arc.
+Chaque serveur compatible avec Azure Arc possède une identité gérée dans le cadre d'un groupe de ressources au sein d'une souscription Azure. Cette identité représente le serveur s’exécutant sur site ou dans un autre environnement Cloud. L’accès à cette ressource est contrôlé par le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) standard. À partir de la page [**Contrôle d’accès (IAM)** ](../../role-based-access-control/role-assignments-portal.md) du portail Azure, vous pouvez vérifier qui a accès à votre serveur avec Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Contrôle d’accès au serveur avec Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
@@ -42,13 +42,17 @@ Les services de configuration et d’extension d’invités s’exécutent en ta
 
 ## <a name="using-a-managed-identity-with-arc-enabled-servers"></a>Utilisation d’une identité managée sur les serveurs avec Arc
 
-Par défaut, l’identité affectée par le système Azure Active Directory qui est utilisée par Arc peut uniquement servir pour mettre à jour l’état du serveur avec Arc dans Azure. Par exemple, l’état des pulsations *la dernière fois*. Vous pouvez éventuellement affecter des rôles supplémentaires à l’identité si une application sur votre serveur utilise l’identité attribuée par le système pour accéder aux autres services Azure.
+Par défaut, l’identité affectée par le système Azure Active Directory qui est utilisée par Arc peut uniquement servir pour mettre à jour l’état du serveur avec Arc dans Azure. Par exemple, l’état des pulsations *la dernière fois*. Vous pouvez éventuellement affecter des rôles supplémentaires à l’identité si une application sur votre serveur utilise l’identité attribuée par le système pour accéder aux autres services Azure. Pour en savoir plus sur la configuration d'une identité gérée attribuée par le système pour accéder aux ressources Azure, voir [Authentification contre les ressources Azure avec des serveurs compatibles avec Arc](managed-identity-authentication.md). 
 
 Alors que n’importe quelle application s’exécutant sur la machine peut accéder à Hybrid Instance Metadata Service, seules les applications autorisées peuvent demander un jeton Azure AD pour l’identité attribuée par le système. Lors de la première tentative d’accès à l’URI de jeton, le service génère un objet blob de chiffrement, créé de manière aléatoire dans un emplacement sur le système de fichiers, que seuls les appelants approuvés peuvent lire. L’appelant doit ensuite lire le fichier (en prouvant qu’il dispose de l’autorisation appropriée) et faire une nouvelle tentative de demande, avec le contenu du fichier dans l’en-tête d’autorisation, pour parvenir à récupérer un jeton Azure AD.
 
 * Sur Windows, l’appelant doit être membre du groupe local **Administrateurs**, ou du groupe **Applications d’extension de l’agent hybride** pour lire l’objet blob.
 
 * Sur Linux, l’appelant doit être membre du groupe **himds** pour lire l’objet blob.
+
+Pour en savoir plus sur l'utilisation d'une identité gérée avec des serveurs compatibles avec Arc pour s'authentifier et accéder aux ressources Azure, consultez la vidéo suivante.
+
+> [!VIDEO https://www.youtube.com/embed/4hfwxwhWcP4]
 
 ## <a name="using-disk-encryption"></a>Utilisation du chiffrement de disque
 

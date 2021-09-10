@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 04f922d747ef535402baf664f5232e376f43cff2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 10489579d95628399e94bad5dcab256a3df4bf74
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527904"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309882"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Intégrer votre infrastructure NPS (Network Policy Server) existante à Azure AD Multi-Factor Authentication
 
@@ -32,7 +32,9 @@ Lorsque vous utilisez l'extension NPS pour Azure AD Multi-Factor Authentication,
 1. **Le serveur NAS/VPN** reçoit les demandes des clients VPN et les convertit en demandes RADIUS à des serveurs NPS.
 2. Le **serveur NPS** se connecte à Active Directory Domain Services (AD DS) afin de procéder à l’authentification principale pour les requêtes RADIUS et, en cas de réussite, transmet la requête à toutes les extensions installées.  
 3. L'**extension NPS** déclenche une requête destinée à Azure AD Multi-Factor Authentication pour l'authentification secondaire. Une fois que l’extension reçoit la réponse, et si la demande MFA réussit, elle termine la demande d’authentification en fournissant au serveur NPS des jetons de sécurité qui incluent une revendication MFA, émise par Azure STS.
-4. **Azure AD MFA** communique avec Azure Active Directory (Azure AD) pour récupérer les informations de l'utilisateur, et procède à l'authentification secondaire à l'aide d'une méthode de vérification configurée par l'utilisateur.
+   >[!NOTE]
+   >Les utilisateurs doivent avoir accès à leur méthode d’authentification par défaut pour terminer l’exigence MFA. Ils ne peuvent pas choisir une autre méthode. Leur méthode d’authentification par défaut sera utilisée même si elle a été désactivée dans les méthodes d’authentification du locataire et les stratégies MFA.
+1. **Azure AD MFA** communique avec Azure Active Directory (Azure AD) pour récupérer les informations de l'utilisateur, et procède à l'authentification secondaire à l'aide d'une méthode de vérification configurée par l'utilisateur.
 
 Le diagramme suivant illustre ce flux de demande d’authentification de niveau supérieur :
 

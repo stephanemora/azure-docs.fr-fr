@@ -1,17 +1,17 @@
 ---
 title: Prise en charge de la découverte et de l’évaluation de serveurs physiques dans Azure Migrate
 description: 'En savoir plus sur la prise en charge de la découverte et de l’évaluation de serveurs physiques avec Azure Migrate : découverte et évaluation'
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: aad800a710a1bc3942efc128f8350044a513d44f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 808f7a23a0be389703f2a805407b6ce725ce920a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472021"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315549"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matrice de prise en charge pour la découverte et l’évaluation de serveurs physiques 
 
@@ -34,14 +34,52 @@ Pour évaluer des serveurs physiques, vous créez un projet et ajoutez l’outil
 
 **Déploiement de serveur physique :** Le serveur physique peut être autonome ou déployé dans un cluster.
 
+**Type de serveurs :** Serveurs nus, serveurs virtualisés exécutant des clouds locaux ou d’autres Clouds comme AWS, GCP, Xen, etc.
+>[!Note]
+> Actuellement, Azure Migrate ne prend pas en charge la découverte des serveurs para-virtualisés. 
+
 **Système d’exploitation :** Tous les systèmes d’exploitation Windows et Linux peuvent être évalués pour la migration.
 
 **Autorisations :**
 
-- Pour les serveurs Windows, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+Configurez un compte que l’appliance peut utiliser pour accéder aux serveurs physiques.
+
+**Serveurs Windows**
+
+- Pour les serveurs Windows, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. 
+- Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances. 
+- Si le groupe d’utilisateurs Gestion à distance n’est pas présent, ajoutez un compte d’utilisateur au groupe **WinRMRemoteWMIUsers_** .
+- Le compte a besoin de ces autorisations pour que l’appliance puisse créer une connexion CIM avec le serveur et extraire les métadonnées de configuration et de performance nécessaires des classes WMI listées [ici](migrate-appliance.md#collected-data---physical).
+- Dans certains cas, l’ajout du compte à ces groupes peut ne pas renvoyer les données requises à partir des classes WMI, car le compte peut être filtré par le [Contrôle de compte d’utilisateur](/windows/win32/wmisdk/user-account-control-and-wmi). Pour surmonter le filtrage du Contrôle de compte d’utilisateur, le compte d’utilisateur doit disposer des autorisations nécessaires sur l’espace de noms CIMV2 et ses sous-espaces de noms sur le serveur cible. Vous pouvez suivre les étapes [ici](troubleshoot-appliance.md#access-is-denied-error-occurs-when-you-connect-to-physical-servers-during-validation) pour activer les autorisations requises.
+
     > [!Note]
-    > Pour Windows Server 2008 et 2008 R2, vérifiez que WMF 3.0 est installé sur les serveurs et que le compte de domaine/local utilisé pour accéder aux serveurs a été ajouté aux groupes suivants : Utilisateurs de l'Analyseur de performances, Utilisateurs du journal des performances et WinRMRemoteWMIUsers.
-- Pour les serveurs Linux, vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
+    > Pour Windows Server 2008 et 2008 R2, assurez-vous que WMF 3.0 est installé sur les serveurs.
+
+**Serveurs Linux**
+
+- Vous devez disposer d’un compte racine sur les serveurs que vous souhaitez découvrir. Vous pouvez également fournir un compte d’utilisateur avec des autorisations sudo.
+- La prise en charge de l’ajout d’un compte d’utilisateur avec accès sudo est fournie par défaut avec le nouveau script d’installation d’appliances téléchargé à partir du portail après le 20 juillet 2021.
+- Pour les appliances plus anciennes, vous pouvez activer la capacité en procédant comme suit :
+    1. Sur le serveur exécutant l’appliance, ouvrez l’Éditeur du Registre.
+    1. Accédez à HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+    1. Créez une clé de Registre « isSudo » avec une valeur DWORD de 1.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Capture d’écran montrant comment activer la prise en charge de sudo.":::
+
+- Pour découvrir les métadonnées de configuration et de performances du serveur cible, vous devez activer l’accès sudo pour les commandes répertoriées [ici](migrate-appliance.md#linux-server-metadata). Assurez-vous d’avoir activé « NOPASSWD » pour que le compte exécute les commandes requises sans demander un mot de passe à chaque fois que la commande sudo est appelée.
+- Les distributions de système d’exploitation Linux suivantes sont prises en charge pour la découverte par Azure Migrate à l’aide d’un compte avec accès sudo :
+
+    Système d’exploitation | Versions 
+    --- | ---
+    Red Hat Enterprise Linux | 6, 7, 8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04, 16.04, 18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- Si vous ne pouvez pas fournir de compte racine ni de compte d’utilisateur avec un accès sudo, vous pouvez définir la clé de Registre « isSudo » sur la valeur « 0 » dans le registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance et fournir un compte non racine avec les capacités requises à l’aide des commandes suivantes :
 
 **Commande** | **Objectif**
 --- | --- |

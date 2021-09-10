@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 32ec83fb1c8de16f589d6a172a7612e5e5866647
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 871cb72c163472dbe3409738199e710300c5057d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768225"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867326"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -79,7 +79,7 @@ Azure prend en charge plusieurs types de comptes de stockage pour différents sc
 | Taille maximale du fichier | 4 Tio | 4 Tio |
 | Taux maximal de requêtes simultanées | 1 000 E/S par seconde | Jusqu’à 8 000<sup>1</sup> |
 | Entrée maximale pour un fichier | 60 Mio/s | 200 Mio/s (jusqu’à 1 Gio/s avec la version préliminaire de SMB Multichannel)<sup>2</sup>|
-| Sortie maximale pour un fichier | 60 Mio/s | 300 Mio/s (jusqu’à 1 Gio/s avec la version préliminaire de SMB Multichannel)<sup>2</sup> |
+| Sortie maximale pour un fichier | 60 Mio/s | 300 MiB/sec (jusqu'à 1 GiB/s avec SMB Multichannel) <sup>2</sup> |
 | Nombre maximal de handles simultanés | 2 000 handles | 2 000 handles  |
 
 <sup>1 S’applique aux opérations d’E/S en lecture et écriture (généralement des tailles d’E/S plus petites ou égales à 64 Kio). Le nombre d’opérations sur les métadonnées autres que les lectures et les écritures peut être inférieur.</sup>

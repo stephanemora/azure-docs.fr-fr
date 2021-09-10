@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 author: ggailey777
 ms.service: azure-functions
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 2c49bfee8f3b694ea635c836e06bfbe99ba9d758
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: bbe2473c570a9b31d0c56e1069d7798dc3475fd6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112425932"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078379"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -114,7 +114,7 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |trackingStoreConnectionStringName||Nom d’une chaîne de connexion à utiliser pour les tables d’historique et d’instances. S’il n’est pas spécifié, la connexion `connectionStringName` (Durable 2.x) ou `azureStorageConnectionStringName` (Durable 1.x) est utilisée.|
 |trackingStoreNamePrefix||Préfixe à utiliser pour les tables d’historique et d’instances lorsque le paramètre `trackingStoreConnectionStringName` est spécifié. S’il n’est pas défini, la valeur du préfixe par défaut correspond à `DurableTask`. Si le paramètre `trackingStoreConnectionStringName` n’est pas spécifié, les tables d’historique et d’instances utilisent la valeur `hubName` en tant que préfixe, et tous les paramètres relatifs à `trackingStoreNamePrefix` sont ignorés.|
 |traceInputsAndOutputs |false|Valeur indiquant s’il faut tracer les entrées et sorties des appels de fonction. Lors du traçage d’événements d’exécution de fonctions, le nombre d’octets est inclus par défaut dans les entrées et les sorties sérialisées pour les appels de fonction. Ce comportement fournit un minimum d’informations sur l’apparence des entrées et sorties, sans encombrer les journaux d’activité ni exposer accidentellement des informations sensibles. La définition de cette propriété sur True amène la journalisation de la fonction par défaut à consigner la totalité du contenu des entrées et sorties de fonction.|
-|logReplayEvents|false|Valeur indiquant s’il faut écrire les événements de relecture d’orchestration à Application Insights.|
+|traceReplayEvents|false|Valeur indiquant s’il faut écrire les événements de relecture d’orchestration à Application Insights.|
 |eventGridTopicEndpoint ||URL du point de terminaison de la rubrique personnalisée Azure Event Grid. Lorsque cette propriété est définie, les événements de notification du cycle de vie de l’orchestration sont publiés sur ce point de terminaison. Cette propriété prend en charge la résolution de paramètres de l’application.|
 |eventGridKeySettingName ||Nom du paramètre d’application contenant la clé utilisée pour l’authentification à l’aide de la rubrique personnalisée Azure Event Grid sur `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|Nombre de nouvelles tentatives à effectuer en cas d’échec de la publication de la rubrique Event Grid.|

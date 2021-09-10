@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 08/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a7b43f52fee66579beb0c91f0b76d313cd4bcdaa
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: b0fcfba6f72ef5e87be5c3301338a2c09598accf
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112522206"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253425"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,44 +24,69 @@ Azure Cosmos DB offre trois moyens de contrôler l’accès à vos données.
 
 | Type de contrôle d’accès | Caractéristiques |
 |---|---|
-| [Clés primaires](#primary-keys) | Secret partagé autorisant toutes les opérations de gestion ou de données. Il offre des variantes en lecture-écriture et en lecture seule. |
+| [Clés principales/secondaires](#primary-keys) | Secret partagé autorisant toutes les opérations de gestion ou de données. Il offre des variantes en lecture-écriture et en lecture seule. |
 | [Contrôle d’accès basé sur les rôles](#rbac) | Modèle d’autorisation précis basé sur les rôles, utilisant les identités Azure Active Directory (AAD) pour l’authentification. |
 | [Jetons de ressource](#resource-tokens)| Modèle d’autorisation précis basé sur les autorisations et les utilisateurs natifs d’Azure Cosmos DB. |
 
-## <a name="primary-keys"></a><a id="primary-keys"></a> Clés principales
+## <a name="primarysecondary-keys"></a><a id="primary-keys"></a>Clés principales/secondaires
 
-Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de vous permettre de regénérer ou de permuter les clés, ce qui offre un accès permanent à votre compte et à vos données. Pour en savoir plus sur les clés primaires, consultez l’article [Sécurité des bases de données](database-security.md#primary-keys).
+Les clés principales/secondaires donnent accès à toutes les ressources administratives du compte de base de données. Chaque compte comporte deux clés : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de vous permettre de regénérer ou de permuter les clés, ce qui offre un accès permanent à votre compte et à vos données. Pour en savoir plus sur les clés primaires/secondaires, consultez l’article [Sécurité des bases de données](database-security.md#primary-keys).
 
-### <a name="key-rotation"></a><a id="key-rotation"></a> Rotation des clés
+### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> Rotation et régénération des clés
 
-Le processus de renouvellement de la clé primaire est simple. 
+> [!NOTE]
+> Suivez les instructions décrites [ici](database-security.md#key-rotation) pour faire pivoter et régénérer les clés de l’API Azure Cosmos DB pour Mongo DB, l’API Cassandra, l’API Gremlin ou l’API Table.
 
-1. Accédez au Portail Azure pour récupérer votre clé secondaire.
-2. Remplacez votre clé primaire par votre clé secondaire dans votre application. Assurez-vous que tous les clients Cosmos DB de tous les déploiements sont redémarrés rapidement et qu’ils démarrent à l’aide de la clé mise à jour.
-3. Faites pivoter la clé primaire dans le Portail Azure.
-4. Vérifiez que la nouvelle clé primaire fonctionne sur toutes les ressources. Le processus de rotation des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
-5. Remplacez la clé secondaire par la nouvelle clé primaire.
+Le processus de rotation et de régénération des clés est simple. Tout d’abord, assurez-vous que **votre application utilise régulièrement la clé primaire ou la clé secondaire** pour accéder à votre compte Azure Cosmos DB. Puis, suivez les étapes présentées ci-dessous.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Renouvellement de clé primaire sur le Portail Azure – Démonstration de la sécurité de la base de données NoSQL" border="false":::
+# <a name="if-your-application-is-currently-using-the-primary-key"></a>[Si votre application utilise actuellement la clé primaire](#tab/using-primary-key)
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Clés** dans le menu gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+1. Vérifiez que la nouvelle clé secondaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé primaire par votre clé secondaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+# <a name="if-your-application-is-currently-using-the-secondary-key"></a>[Si votre application utilise actuellement la clé secondaire](#tab/using-secondary-key)
+
+1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
+
+1. Sélectionnez **Clés** dans le menu gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
+
+1. Vérifiez que la nouvelle clé primaire fonctionne de façon cohérente par rapport à votre compte Azure Cosmos DB. Le régénération des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+
+1. Remplacez votre clé secondaire par votre clé primaire dans votre application.
+
+1. Revenez au portail Azure et déclenchez la régénération de la clé secondaire.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
+
+---
 
 ### <a name="code-sample-to-use-a-primary-key"></a>Exemple de code utilisant une clé primaire
 
-L’exemple de code suivant montre comment utiliser une clé primaire et un point de terminaison de compte Cosmos DB pour instancier un DocumentClient et créer une base de données :
+L’exemple de code suivant montre comment utiliser une clé primaire et un point de terminaison de compte Azure Cosmos DB pour instancier un CosmosClient :
 
 ```csharp
-//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
-//Keep these values in a safe and secure location. Together they provide Administrative access to your Azure Cosmos DB account.
+// Read the Azure Cosmos DB endpointUrl and authorization keys from config.
+// These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
+// Keep these values in a safe and secure location. Together they provide Administrative access to your Azure Cosmos DB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
 private static readonly string authorizationKey = ConfigurationManager.AppSettings["AuthorizationKey"];
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
-
-L’exemple de code suivant montre comment utiliser une clé primaire et un point de terminaison de compte Azure Cosmos DB pour instancier un objet `CosmosClient` :
-
-:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="role-based-access-control"></a><a id="rbac"></a> Contrôle d’accès en fonction du rôle
 

@@ -6,14 +6,15 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.openlocfilehash: 451e03c8557f224dce118866932307b32bfbfd56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8e512c06901a533ef381bc389def45f07e8a028d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531984"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101995"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Choisir une API dans Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est une base de données NoSQL complètement managée pour le développement d’applications modernes. Azure Cosmos DB prend en charge l’administration de bases de données avec une gestion, des mises à jour et des mises à jour correctives automatiques. Il traite également la gestion de la capacité avec des options économiques de mise à l’échelle automatique et serverless qui répondent aux besoins de l’application pour faire correspondre la capacité à la demande.
 
@@ -47,6 +48,12 @@ Cette API stocke les données au format de document. Elle offre la meilleure exp
 
 Si vous effectuez une migration à partir d’autres bases de données telles qu’Oracle, DynamoDB, HBase, etc. et si vous souhaitez utiliser les technologies modernes pour générer vos applications, l’API SQL est l’option recommandée. L’API SQL prend en charge les analytiques et offre une isolation des performances entre les charges de travail opérationnelles et analytiques.
 
+### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planification de la capacité pour la migration vers l’API pour MongoDB
+
+Vous essayez de faire de la planification de capacité pour une migration vers Azure Cosmos DB SQL API à partir d'un cluster de base de données existant ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md). 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+
 ## <a name="api-for-mongodb"></a>API pour MongoDB
 
 Cette API stocke les données dans une structure de document, via le format BSON. Elle est compatible avec le protocole filaire MongoDB. Toutefois, elle n’utilise pas de code lié à MongoDB en mode natif. Cette API est un bon choix si vous souhaitez utiliser l’écosystème et les compétences MongoDB plus larges, sans compromis concernant l’utilisation des fonctionnalités Azure Cosmos DB telles que la mise à l’échelle, la haute disponibilité, la géoréplication, les emplacements d’écritures multiples, la gestion automatique et transparente des partitions, la réplication transparente entre les magasins opérationnels et analytiques et bien plus encore.
@@ -54,6 +61,12 @@ Cette API stocke les données dans une structure de document, via le format BSON
 Vous pouvez utiliser vos applications MongoDB existantes avec l’API pour MongoDB en modifiant simplement la chaîne de connexion. Vous pouvez déplacer des données existantes à l’aide d’outils MongoDB natifs tels que mongodump et mongorestore ou à l’aide de notre outil de migration de base de données Azure. Les outils tels que l’interpréteur de commandes MongoDB, [MongoDB Compass](mongodb/connect-using-compass.md) et [Robo3T](mongodb/connect-using-robomongo.md) peuvent exécuter des requêtes et utiliser des données comme c’est le cas avec MongoDB en mode natif.
 
 L’API pour MongoDB est compatible avec les versions serveur 4.0, 3.6 et 3.2 de MongoDB. La version de serveur 4.0 est recommandée, car elle offre les meilleures performances et une prise en charge complète des fonctionnalités. Pour plus d’informations, consultez l’article sur l’[API pour MongoDB](mongodb/mongodb-introduction.md).
+
+### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planification de la capacité pour la migration vers l’API pour MongoDB
+
+Vous essayez de faire de la planification de capacité pour une migration vers Azure Cosmos DB SQL API à partir d'un cluster de base de données existant ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](./mongodb/estimate-ru-capacity-planner.md)
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -80,3 +93,6 @@ Les applications écrites pour le Stockage Table Azure peuvent migrer vers l’A
 * [Prise en main de l’API Cassandra Azure Cosmos DB](cassandra/manage-data-dotnet.md)
 * [Prise en main de l’API Gremlin Azure Cosmos DB](create-graph-dotnet.md)
 * [Prise en main de l’API Table Azure Cosmos DB](create-table-dotnet.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

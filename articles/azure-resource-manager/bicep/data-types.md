@@ -2,13 +2,13 @@
 title: Types de données dans Bicep
 description: Décrit les types de données disponibles dans Bicep
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 31f2c6e979acb3b0b622bc63ffb8a2845179491d
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/30/2021
+ms.openlocfilehash: f520e314aff783a78e1656c16721f0fb8504215b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111025886"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221698"
 ---
 # <a name="data-types-in-bicep"></a>Types de données dans Bicep
 
@@ -32,6 +32,23 @@ Les tableaux commencent par un crochet ouvrant (`[`) et se terminent par un croc
 
 Dans un tableau, chaque élément est représenté par le [type any](bicep-functions-any.md). Vous pouvez avoir un tableau où tous les éléments sont du même type de données ou un tableau qui contient des types de données différents.
 
+L'exemple suivant montre un tableau d'entiers et un tableau de types différents.
+
+```bicep
+var integerArray = [
+  1
+  2
+  3
+]
+
+var mixedArray = [
+  resourceGroup().name
+  1
+  true
+  'example string'
+]
+```
+
 Dans Bicep, les tableaux sont de base 0. Dans l’exemple suivant, l’expression `exampleArray[0]` prend la valeur 1 et l’expression `exampleArray[2]` prend la valeur 3. L’index de l’indexeur peut lui-même être une autre expression. L’expression `exampleArray[index]` prend la valeur 2. Les indexeurs d’entier sont autorisés uniquement sur une expression de type tableau.
 
 ```bicep
@@ -41,40 +58,6 @@ var exampleArray = [
   1
   2
   3
-]
-```
-
-Les indexeurs basés sur des chaînes sont autorisés dans Bicep.
-
-```bicep
-param environment string = 'prod'
-
-var environmentSettings = {
-  dev: {
-    name: 'dev'
-  }
-  prod: {
-    name: 'prod'
-  }
-}
-```
-
-L’expression environmentSettings['dev'] prend la valeur de l’objet suivant :
-
-```bicep
-{
-  name: 'dev'
-}
-```
-
-L’exemple suivant montre un tableau avec différents types.
-
-```bicep
-var mixedArray = [
-  resourceGroup().name
-  1
-  true
-  'example string'
 ]
 ```
 
@@ -113,21 +96,38 @@ param exampleObject object = {
 }
 ```
 
-Les accesseurs de propriété sont utilisés pour accéder aux propriétés d’un objet. Ils sont construits à l’aide de l’opérateur `.`. Par exemple :
+Les accesseurs de propriété sont utilisés pour accéder aux propriétés d’un objet. Ils sont construits à l’aide de l’opérateur `.`.
 
 ```bicep
-var x = {
-  y: {
-    z: 'Hello`
-    a: true
+var a = {
+  b: 'Dev'
+  c: 42
+  d: {
+    e: true
   }
-  q: 42
 }
+
+output result1 string = a.b // returns 'Dev' 
+output result2 int = a.c // returns 42
+output result3 bool = a.d.e // returns true
 ```
 
-À partir de la déclaration précédente, l’expression x.y.z correspond à la chaîne littérale « Hello ». De même, l’expression x.q correspond au littéral entier 42.
-
 Les accesseurs de propriété peuvent être utilisés avec n’importe quel objet, y compris les paramètres et les variables des types d’objets et des littéraux d’objet. L’utilisation d’un accesseur de propriété sur une expression de type hors objet est une erreur.
+
+Vous pouvez également utiliser la syntaxe `[]` pour accéder à une propriété. L’exemple suivant renvoie `Development`.
+
+```bicep
+var environmentSettings = {
+  dev: {
+    name: 'Development'
+  }
+  prod: {
+    name: 'Production'
+  }
+}
+
+output accessorResult string = environmentSettings['dev'].name
+```
 
 ## <a name="strings"></a>Chaînes
 
@@ -139,7 +139,7 @@ param exampleString string = 'test value'
 
 Le tableau suivant liste l’ensemble de caractères réservés qui doivent être placés dans une séquence d’échappement avec une barre oblique inverse (`\`) :
 
-| Séquence d'échappement | Valeur représentée | Notes |
+| Séquence d'échappement | Valeur représentée | Remarques |
 |:-|:-|:-|
 | \\ | \ ||
 | \' | ' ||

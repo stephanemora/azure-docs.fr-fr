@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 4720056254c3983f8b63c7ed2c46d55e4eabc7d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6169d3b0f99b2044fbe6076283e176d4dc1a76a7
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122523998"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272436"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device"></a>Installer et provisionner Azure IoT Edge pour Linux sur un appareil Windows
 
@@ -130,7 +130,18 @@ Si vous ne l’avez pas déjà fait, installez IoT Edge pour Linux sur Windows s
    Deploy-Eflow
    ```
 
-   La commande `Deploy-Eflow` accepte des paramètres facultatifs vous permettant de personnaliser votre déploiement.
+   >[!TIP]
+   >Par défaut, la commande `Deploy-Eflow` crée votre machine virtuelle Linux avec 1 Go de RAM, 1 noyau de processeur virtuel et 16 Go d’espace disque. Toutefois, les ressources dont votre machine virtuelle a besoin dépendent fortement des charges de travail que vous déployez. Si votre machine virtuelle ne dispose pas de suffisamment de mémoire pour prendre en charge vos charges de travail, elle ne démarrera pas.
+   >
+   >Vous pouvez personnaliser les ressources disponibles de la machine virtuelle à l’aide des paramètres facultatifs de la commande `Deploy-Eflow`.
+   >
+   >Par exemple, la commande ci-dessous crée une machine virtuelle avec 4 cœurs de processeur virtuel, 4 Go de RAM et 20 Go d’espace disque :
+   >
+   >   ```powershell
+   >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 20
+   >   ```
+   >
+   >Pour plus d’informations sur tous les paramètres facultatifs disponibles, consultez [Fonctions PowerShell pour IoT Edge pour Linux sur Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    Vous pouvez affecter un GPU à votre déploiement pour permettre l’utilisation de modules Linux avec accélération GPU. Pour accéder à ces fonctionnalités, vous devez installer les composants requis détaillés dans [Accélération GPU pour Azure IoT Edge pour Linux sur Windows](gpu-acceleration.md).
 
@@ -138,8 +149,6 @@ Si vous ne l’avez pas déjà fait, installez IoT Edge pour Linux sur Windows s
 
    >[!WARNING]
    >L’activation du relais d’appareils matériels peut augmenter les risques liés à la sécurité. Microsoft vous recommande de recourir à un pilote d’atténuation des appareils du fournisseur de votre GPU, le cas échéant. Pour plus d’informations, consultez [Déploiement d’appareils graphiques avec la technologie DDA (Discrete Device Assignment)](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
-
-
 
 1. Entrez « Y » pour accepter les termes du contrat de licence.
 
@@ -355,6 +364,8 @@ Vérifiez que IoT Edge pour Linux sur Windows a été correctement installé et 
    * La section **État IoT Edge** indique l’état du service, qui doit être **actif (en cours d’exécution)** .
 
 ---
+
+Lorsque vous créez un appareil IoT Edge, il affichera le code d’état `417 -- The device's deployment configuration is not set` dans le portail Azure. Cet état est normal et signifie que l’appareil est prêt à recevoir un déploiement de module.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

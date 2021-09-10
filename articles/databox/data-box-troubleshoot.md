@@ -1,25 +1,29 @@
 ---
-title: Résoudre les problèmes liés à votre Azure Data Box et Azure Data Box Heavy
-description: Explique comment résoudre les problèmes rencontrés dans Azure Data Box et Azure Data Box Heavy lors de la copie de données sur ces appareils.
+title: Résolution des problèmes lors des copies de données vers votre Azure Data Box, Azure Data Box Heavy
+description: Décrit comment résoudre les problèmes lors de la copie de données vers des appareils Azure Data Box et Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/14/2021
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 06f0408587cc7c5533bdb852f7ad4f59094a33da
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: e3921e8b326be2163981eacc089e16e6fcf6f1bc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220256"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772410"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
+# <a name="troubleshoot-data-copy-issues-on-azure-data-box-and-azure-data-box-heavy"></a>Résolution des problèmes de copie de données sur Azure Data Box et Azure Data Box Heavy.
 
-Cet article fournit des informations détaillées sur la résolution des problèmes que vous pouvez rencontrer lors de l’utilisation d’Azure Data Box ou d’Azure Data Box Heavy pour les commandes d’importation. Il inclut la liste des erreurs possibles quand des données sont copiées vers Data Box ou quand des données sont chargées à partir de Data Box pour une commande d’importation.
+Cet article décrit comment résoudre les problèmes lors de l'exécution de copies de données ou de téléchargements de données pour une commande d'importation d'Azure Data Box ou d'Azure Data Box Heavy. L'article comprend la liste des erreurs possibles observées lorsque les données sont copiées vers la boîte de données ou téléchargées depuis la boîte de données.
 
-Les informations contenues dans cet article ne s’appliquent pas aux ordres d’exportation créés pour Data Box.
+Pour vous aider à résoudre les problèmes d'accès aux partages sur votre appareil, consultez la section [Dépannage de l'échec de la connexion au partage pendant la copie des données](data-box-troubleshoot-share-access.md).
+
+
+> [!NOTE]
+> Les informations contenues dans cet article s’appliquent uniquement aux commandes d’importation.
 
 ## <a name="error-classes"></a>Classes d’erreur
 

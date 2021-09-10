@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a8d8d83441e77e1d3bb7153fb5af9071310e82ec
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 50d918cb6cb096674dc5b79d478d37d65422106e
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086101"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186008"
 ---
 # <a name="what-is-azure-private-link-service"></a>Qu’est-ce que le service Azure Private Link ?
 
@@ -28,12 +28,6 @@ Le service Azure Private Link est la référence à votre propre service Azure P
 
 
 *Figure : Workflow du service Azure Private Link.*
-
-### <a name="rbac-permissions"></a>Autorisations RBAC
-
-Voici des autorisations RBAC spécifiques dont l’utilisateur a besoin pour pouvoir créer un service Private Link. Pour plus d’informations sur les rôles personnalisés, consultez [Étapes de création d’un rôle personnalisé](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
-
-Microsoft.Resources/subscriptions/resourcegroups/resources/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/write Microsoft.Network/virtualNetworks/subnets/join/action Microsoft.Network/privateEndpoints/read Microsoft.Network/privateEndpoints/write Microsoft.Network/locations/availablePrivateEndpointTypes/read Microsoft.Network/privateLinkServices/read Microsoft.Network/privateLinkServices/write Microsoft.Network/privateLinkServices/privateEndpointConnections/read Microsoft.Network/privateLinkServices/privateEndpointConnections/write Microsoft.Network/networkSecurityGroups/join/action Microsoft.Network/loadBalancers/read Microsoft.Network/loadBalancers/write
 
 ### <a name="create-your-private-link-service"></a>Créer un service Private Link
 
@@ -101,7 +95,11 @@ Alias complet :  *Préfixe*. {GUID}.*région*.azure.privatelinkservice
 
 ## <a name="control-service-exposure"></a>Contrôler l’exposition du service
 
-Le service Private Link fournit des options pour contrôler l’exposition de votre service par le biais du paramètre « Visibility ». Vous pouvez rendre le service privé pour qu’il ne soit utilisé qu’à partir de différents réseaux virtuels dont vous êtes propriétaire (autorisations Azure RBAC uniquement), restreindre l’exposition à un groupe limité d’abonnements que vous approuvez ou le rendre public afin que tous les abonnements Azure puissent demander à se connecter au service Private Link. Les paramètres de visibilité déterminent si un utilisateur peut se connecter à votre service. 
+Le service Private Link fournit trois options dans le paramètre **Visibilité** pour contrôler l’exposition de votre service. Le paramètre de visibilité détermine si un contrôle serveur consommateur peut se connecter à votre service. Voici les options du paramètre de visibilité, du plus restrictif au moins restrictif :
+ 
+- **Contrôle d’accès en fonction du rôle uniquement** : si votre service est destiné à une utilisation privée à partir de différents réseaux virtuels dont vous êtes propriétaire, vous pouvez utiliser RBAC comme mécanisme de contrôle d’accès dans les abonnements associés au même abonné Active Directory. Remarque : la visibilité entre locataires est autorisée via RBAC.
+- **Limité par abonnement** : si votre service est consommé par différents abonnés, vous pouvez limiter l’exposition à un ensemble limité d’abonnements auxquels vous faites confiance. Les autorisations peuvent être pré-approuvées.
+- **Toute personne avec votre alias** : si vous souhaitez rendre votre service public et autoriser quiconque avec votre alias du service Private Link à demander une connexion, sélectionnez cette option. 
 
 ## <a name="control-service-access"></a>Contrôler l’accès au service
 

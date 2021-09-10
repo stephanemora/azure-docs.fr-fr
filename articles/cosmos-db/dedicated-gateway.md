@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/30/2021
 ms.author: tisande
-ms.openlocfilehash: 7cc6acc29cf8019bf65d3495cfd8a00a87da11bc
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 8c253abdfc8ded8ab5507d482640d78e6d4469c8
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112914244"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226609"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Passerelle dédiée Azure Cosmos DB - vue d’ensemble (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,7 +67,7 @@ Diagramme de connexion en mode passerelle avec une passerelle dédiée :
 
 Un cluster de passerelle dédié peut être approvisionné dans des comptes d’API (SQL) principaux. Un cluster de passerelle dédié peut avoir jusqu’à cinq nœuds, et vous pouvez ajouter ou supprimer des nœuds à tout moment. Tous les nœuds de passerelle dédiés de votre compte [partagent la même chaîne de connexion](how-to-configure-integrated-cache.md#configuring-the-integrated-cache).
 
-Les nœuds de passerelle dédiés sont indépendants les uns des autres. Lorsque vous approvisionnez plusieurs nœuds de passerelle dédiés, n’importe quel nœud unique peut acheminer une requête donnée. En outre, chaque nœud possède un cache distinct des autres. Les données mises en cache dans chaque nœud dépendent des données qui ont été [écrites ou lues](integrated-cache.md#item-cache) récemment par ce nœud spécifique. En d’autres termes, si un élément ou une requête est mis en cache sur un nœud, il ne l’est pas nécessairement sur les autres.
+Les nœuds de passerelle dédiés sont indépendants les uns des autres. Lorsque vous approvisionnez plusieurs nœuds de passerelle dédiés, n’importe quel nœud unique peut acheminer une requête donnée. De plus, chaque nœud possède un cache intégré distinct des autres. Les données mises en cache dans chaque nœud dépendent des données qui ont été [écrites ou lues](integrated-cache.md#item-cache) récemment par ce nœud spécifique. En d’autres termes, si un élément ou une requête est mis en cache sur un nœud, il ne l’est pas nécessairement sur les autres.
 
 Pour le développement, nous vous recommandons de commencer avec un nœud, mais pour la production, vous devez configurer trois nœuds ou plus afin de bénéficier de la haute disponibilité. [Découvrez comment approvisionner un cluster de passerelle dédié avec un cache intégré](how-to-configure-integrated-cache.md). L’approvisionnement de plusieurs nœuds de passerelle dédiés permet au cluster de passerelle dédié de continuer à acheminer les requêtes et à traiter les données mises en cache, même si l’un des nœuds de passerelle dédiés n’est pas disponible.
 
@@ -100,6 +100,28 @@ La passerelle dédiée présente les limitations suivantes pendant la préversio
 - Les passerelles dédiées sont uniquement prises en charge sur les comptes d’API SQL.
 - Vous ne pouvez pas approvisionner une passerelle dédiée dans des comptes Azure Cosmos DB avec des [pare-feu IP](how-to-configure-firewall.md) ou [Azure Private Link](how-to-configure-private-endpoints.md) configuré.
 - Vous ne pouvez pas approvisionner une passerelle dédiée dans les comptes Azure Cosmos DB avec les [zones de disponibilité](high-availability.md#availability-zone-support) activées.
+- Vous ne pouvez pas utiliser le [contrôle d’accès en fonction du rôle (RBAC)](how-to-setup-rbac.md) pour authentifier les demandes de plan de données routées via la passerelle dédiée
+
+## <a name="supported-regions"></a>Régions prises en charge
+
+La passerelle dédiée est en version préliminaire publique et n’est pas encore prise en charge dans toutes les régions Azure. Tout au long de la version préliminaire publique, nous ajouterons de nouvelles capacités. Nous n’aurons pas de restrictions de région quand la passerelle dédiée est généralement disponible.
+
+Liste actuelle des régions Azure prises en charge :
+
+| **Amérique** | **Europe et Afrique**  | **Asie-Pacifique**  |
+| ------------ | -------- | ----------- | 
+| Brésil Sud      | France Centre    | Centre de l’Australie |
+| Centre du Canada  | France Sud    | Centre de l’Australie 2 |
+| Est du Canada     | Allemagne Nord   | Australie Sud-Est |
+| USA Centre     | Allemagne Centre-Ouest   | Inde centrale |
+| USA Est     | Europe Nord   | Asie Est |
+| USA Est 2     | Suisse Nord   | OuJapon Est |
+| Centre-Nord des États-Unis     | Sud du Royaume-Uni   | Centre de la Corée |
+| États-Unis - partie centrale méridionale     | Ouest du Royaume-Uni   | Corée du Sud |
+| Centre-USA Ouest     | Europe Ouest   | Asie Sud-Est |
+| USA Ouest     |   | Émirats arabes unis Centre |
+| USA Ouest 2     |    | Inde Ouest |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -108,3 +130,6 @@ Pour plus d’informations sur l’utilisation des passerelles dédiées, consul
 - [Cache intégré](integrated-cache.md)
 - [Configurer le cache intégré](how-to-configure-integrated-cache.md)
 - [FAQ sur le cache intégré](integrated-cache-faq.md)
+- Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
+    - Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

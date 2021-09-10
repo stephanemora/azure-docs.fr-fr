@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 08/31/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2a935e88f1127f27e3f779fb88447466c470fd32
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174663"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271914"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -38,6 +38,7 @@ L’élément **UserJourney** contient l’attribut suivant :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Id | Oui | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
+| DefaultCpimIssuerTechnicalProfileReferenceId| Non | ID de référence du profil technique de l’émetteur de jeton par défaut. Par exemple, [émetteur de jeton JWT](userjourneys.md), [émetteur de jeton SAML](saml-issuer-technical-profile.md) ou [erreur personnalisée OAuth2](oauth2-error-technical-profile.md). Si le parcours ou sous-parcours utilisateur a déjà une autre étape d’orchestration `SendClaims`, définissez l’attribut `DefaultCpimIssuerTechnicalProfileReferenceId` sur le profil technique de l’émetteur de jeton du parcours utilisateur. |
 
 L’élément **UserJourney** contient les éléments suivants :
 
@@ -110,33 +111,56 @@ L’élément **OrchestrationStep** peut contenir les éléments suivants :
 
 ### <a name="preconditions"></a>Preconditions
 
+Des étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’étape d’orchestration. L’élément `Preconditions` contient une liste de conditions préalables à évaluer. Si l’évaluation est satisfaisante, l’étape d’orchestration associée passe à l’étape d’orchestration suivante. 
+
+Azure AD B2C évalue les conditions préalables dans l’ordre de la liste. Les conditions préalables basées sur l’ordre vous permettent de définir l’ordre dans lequel les conditions préalables doivent être appliquées. La première condition préalable qui est remplie remplace toutes les conditions préalables suivantes. L’étape d’orchestration est exécutée uniquement si toutes les conditions préalables ne sont pas remplies. 
+
 L’élément **Preconditions** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Precondition | 1:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. |
-
+| Precondition | 1:n | Condition préalable à évaluer. |
 
 #### <a name="precondition"></a>Precondition
-
-Des étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’étape d’orchestration. Il existe deux types de conditions préalables :
- 
-- **Les revendications existent** : les actions doivent être exécutées si les revendications indiquées existent dans le jeu de revendications actuel de l’utilisateur.
-- **Les revendications sont égales** : les actions doivent être exécutées si la revendication indiquée existe et que sa valeur est égale à la valeur spécifiée. La vérification effectue une comparaison ordinale respectant la casse. Lors de la vérification du type de revendication booléenne, utilisez `True` ou `False`.
 
 L’élément **Precondition** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Type` | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| `ExecuteActionsIf` | Oui | Utilisez un test `true` ou `false` pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. |
+| `ExecuteActionsIf` | Oui | Décide dans quel cas la condition préalable doit être considérée comme remplie. Valeurs possibles : `true` (par défaut) ou `false`. Si la valeur est définie sur `true`, elle est considérée comme remplie lorsque la revendication correspond à la condition préalable.  Si la valeur est définie sur `false`, elle est considérée comme remplie lorsque la revendication ne correspond pas à la condition préalable.  |
 
 L’élément **Precondition** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Valeur | 1:2 | Identificateur d’un type de revendication. La revendication est déjà définie dans la section Schéma des revendications du fichier de stratégie ou dans le fichier de stratégie parent. Lorsque la condition préalable est de type `ClaimEquals`, un deuxième élément `Value` contient la valeur à vérifier. |
-| Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. |
+| Action | 1:1 | Action qui doit être effectuée si la condition préalable est considérée comme remplie après évaluation. Valeur possible : `SkipThisOrchestrationStep`. L’étape d’orchestration associée passe à la suivante. |
+  
+Chaque condition préalable évalue une seule revendication. Il existe deux types de conditions préalables :
+ 
+- **Les revendications existent** : les actions doivent être exécutées si les revendications indiquées existent dans le jeu de revendications actuel de l’utilisateur.
+- **Les revendications sont égales** : les actions doivent être exécutées si la revendication indiquée existe et que sa valeur est égale à la valeur spécifiée. La vérification effectue une comparaison ordinale respectant la casse. Lors de la vérification du type de revendication booléenne, utilisez `True` ou `False`. 
+
+    Si la revendication est null ou non initialisée, la condition préalable est ignorée, que `ExecuteActionsIf` est `true` , ou `false` . Il est recommandé de vérifier que la revendication existe et qu’elle est égale à une valeur.
+
+Un exemple de scénario serait de défier l’utilisateur pour l’authentification MFA si l’utilisateur a `MfaPreference` défini sur `Phone`. Pour exécuter cette logique conditionnelle, vérifiez si la `MfaPreference` revendication existe, et vérifiez également que la valeur de la revendication est égale à `Phone`. Le code XML suivant montre comment implémenter cette logique avec des conditions préalables. 
+  
+```xml
+<Preconditions>
+  <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+  <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
+  <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Value>Phone</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+</Preconditions>
+```
 
 #### <a name="preconditions-examples"></a>Exemples de conditions préalables
 
