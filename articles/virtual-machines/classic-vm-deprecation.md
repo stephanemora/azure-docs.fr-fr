@@ -9,16 +9,14 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 69a0a856c501675c64b486f2104c4603b3472324
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: eee11a2f50dbc0d3121d3ba603e85d3700e333bb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687673"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294020"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrez vos ressources IaaS vers Azure Resource Manager avant le 1er mars 2023 
-
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows
 
 En 2014, nous avons lancé IaaS (Infrastructure as a Service) sur [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Nous en avons depuis lors amélioré les fonctionnalités. Comme Azure Resource Manager intègre désormais des fonctionnalités IaaS complètes et d’autres avancées, nous avons déprécié la gestion des machines virtuelles IaaS via [Azure Service Manager](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) le 28 février 2020. Cette fonctionnalité sera entièrement mise hors service le 1er mars 2023. 
 

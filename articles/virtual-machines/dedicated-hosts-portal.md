@@ -8,17 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: f0edc024a8266704f3a45a48f50adb32b2616d95
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d601f215beae8c4fcb1977a08210429408f94e52
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563804"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696473"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles et des groupes identiques sur des hôtes dédiés à l'aide du portail
 
-Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles.
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
+Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
 ## <a name="limitations"></a>Limites
 

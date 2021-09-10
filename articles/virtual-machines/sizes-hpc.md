@@ -9,16 +9,14 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 11c3fadd7f95f07bbcbf095e8d6a126022bbea0b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1a82c13d0ad64f100f2fb8b826b1786afa81abac
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697920"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525964"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tailles des machines virtuelles de calcul haute performance (HPC)
-
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 > [!TIP]
 > Essayez l’ **[outil de sélection des machines virtuelles](https://aka.ms/vm-selector)** pour trouver d’autres tailles mieux adaptées à votre charge de travail.

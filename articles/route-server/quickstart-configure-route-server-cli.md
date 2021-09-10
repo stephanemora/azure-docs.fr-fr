@@ -5,25 +5,20 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 91ad4ce80a8e61b06b3597fe8088a0eb7f002d5e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 1682a1b80f3b2d85e0d263b9ea2648da2b57a561
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968229"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430897"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Démarrage rapide : Créer et configurer Route Server à l’aide d’Azure CLI 
 
-Cet article vous aide à configurer Azure Route Server pour effectuer un peering avec une appliance virtuelle réseau (NVA) dans votre réseau virtuel à l’aide d’Azure PowerShell. Route Server va apprendre les routes provenant de votre appliance virtuelle réseau et il les programmera sur les machines virtuelles du réseau virtuel. Azure Route Server publiera également les routes du réseau virtuel menant à l’appliance virtuelle réseau. Pour plus d’informations, consultez [Serveur de routes Azure](overview.md).
+Cet article vous aide à configurer Azure Route Server pour effectuer un peering avec une appliance virtuelle réseau (NVA) dans votre réseau virtuel à l’aide d’Azure PowerShell. Serveur de routes apprend les routes provenant de votre appliance virtuelle réseau et il les programme sur les machines virtuelles du réseau virtuel. Azure Route Server publiera également les routes du réseau virtuel menant à l’appliance virtuelle réseau. Pour plus d’informations, consultez [Serveur de routes Azure](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement du serveur de routes avec l’interface Azure CLI" border="false":::
-
-> [!IMPORTANT]
-> Azure Route Server (préversion) est en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ##  <a name="prerequisites"></a>Prérequis 
 
@@ -77,7 +72,7 @@ az network vnet create \
 
 ### <a name="add-a-dedicated-subnet"></a>Ajouter un sous-réseau dédié 
 
-Le serveur de routes Azure nécessite un sous-réseau dédié nommé *RouteServerSubnet*. La taille du sous-réseau doit être au moins égale à 27 ou un préfixe abrégé (par exemple /26 ou /25), ou vous recevrez un message d’erreur lors du déploiement du serveur de routes. Créez une configuration de sous-réseau nommée **RouteServerSubnet** avec [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) :
+Serveur de routes Azure nécessite un sous-réseau dédié nommé *RouteServerSubnet*. La taille du sous-réseau doit être au moins égale à 27 ou un préfixe abrégé (par exemple /26 ou /25), ou vous recevrez un message d’erreur lors du déploiement du serveur de routes. Créez une configuration de sous-réseau nommée **RouteServerSubnet** avec [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) :
 
 1. Exécutez la commande suivante pour ajouter *RouteServerSubnet* à votre réseau virtuel.
 
@@ -193,7 +188,7 @@ Si vous disposez d’ExpressRoute et d’une passerelle VPN Azure dans le même 
         --allow-b2b-traffic false 
     ``` 
 
-## <a name="troubleshooting"></a>Résolution des problèmes 
+## <a name="troubleshooting"></a>Dépannage 
 
 Utilisez [az network routeserver peering list-advertised-routes](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_list_advertised_routes) pour afficher les itinéraires annoncés par le serveur de routes Azure :
 
@@ -236,7 +231,7 @@ Si vous n’avez plus besoin du serveur de routage Azure, utilisez la première 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé le serveur de routage Azure, découvrez à présent de quelle façon Azure Route Server interagit avec les passerelles VPN et ExpressRoute : 
+Après avoir créé le serveur de routes Azure, découvrez à présent de quelle façon Serveur de routes Azure interagit avec les passerelles VPN et ExpressRoute : 
 
 > [!div class="nextstepaction"]
 > [Prise en charge d’Azure ExpressRoute et de VPN Azure](expressroute-vpn-support.md)
