@@ -1,25 +1,30 @@
 ---
 title: Développer le lecteur de système d’exploitation d’une machine virtuelle Windows dans Azure
 description: Développer la taille du lecteur de système d’exploitation d’une machine virtuelle à l’aide d’Azure PowerShell dans le modèle de déploiement Resource Manager.
+services: virtual-machines
+documentationcenter: ''
 author: kirpasingh
 manager: roshar
+editor: ''
+tags: azure-resource-manager
+ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbc7a6df9dfdd50315176db343c6c94aaefbba12
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 74ce4cf27f8a8be8fd86bad3e3f03589cf3640ea
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692478"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600529"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
-
-**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir de la [Place de marché Azure](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut a une capacité de 127 Go (par défaut, certaines images peuvent avoir des disques de système d’exploitation de plus petite taille). Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie), et si nous recommandons d’installer des applications et des charges de travail nécessitant une utilisation importante du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge des scénarios spécifiques :
 
