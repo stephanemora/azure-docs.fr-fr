@@ -7,16 +7,15 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 0d37e8308afd75b310893272f338fb5a3245a8ce
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 474478c03586866f28d02c4e1cb219bd6df65dea
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696520"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525804"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de la série DCsv2 permettent de protéger la confidentialité et l’intégrité de vos données et de votre code lors de leur traitement dans le cloud public. La série DCsv2 s’appuie sur Intel® Software Guard Extensions, qui permet aux clients d’utiliser des enclaves sécurisées pour la protection.
 

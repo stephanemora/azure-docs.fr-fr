@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e2a8e8f2abeb58cdfce53cc4578d15ace1fbff5f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 8b53f906eed0df4c6dddbaa64f460cb7a8898a5e
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634596"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492646"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure
 
@@ -29,22 +29,8 @@ Le modèle de RBAC Azure offre la possibilité de définir des autorisations pou
 
 Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
-## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Meilleures pratiques pour les clés, secrets et certificats individuels
-
-Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production).
-
-Vous ne devez utiliser des autorisations sur des clés, secrets et certificats individuels que pour des scénarios spécifiques :
-
--   Applications multicouches qui doivent séparer le contrôle d’accès entre les couches
-
--   Partage d’un secret individuel entre plusieurs applications
-
-Pour des instructions sur la gestion d’Azure Key Vault, consultez :
-
-- [Meilleurs pratiques relatives à Azure Key Vault](best-practices.md)
-- [Limites du service Azure Key Vault](service-limits.md)
-
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Rôles intégrés Azure pour les opérations de plan de données d’Azure Key Vault
+
 > [!NOTE]
 > Le rôle `Key Vault Contributor` permet aux opérations de plan de gestion de gérer les coffres de clés. Il n’autorise pas l’accès aux clés, aux secrets et aux certificats.
 
@@ -67,10 +53,9 @@ Le nouveau modèle d’autorisation de RBAC Azure pour le coffre de clés fourni
 
 ### <a name="prerequisites"></a>Prérequis
 
-Pour ajouter des attributions de rôles, vous devez disposer :
+Vous devez avoir un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#owner)
+Pour ajouter des attributions de rôle, vous devez disposer d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) ou [Propriétaire](../../role-based-access-control/built-in-roles.md#owner).
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Activer les autorisations de RBAC Azure sur Key Vault
 
@@ -99,6 +84,9 @@ Exécutez la commande suivante pour créer une attribution de rôle :
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope <scope>
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
@@ -108,27 +96,41 @@ New-AzRoleAssignment -RoleDefinitionName <role_name> -SignInName <assignee_upn> 
 #Assign by Service Principal ApplicationId
 New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId <applicationId> -Scope <scope>
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+
 ---
 
-Dans le portail Azure, l’écran Attribution de rôle Azure est disponible pour toutes les ressources sous l’onglet Contrôle d’accès (IAM).
-
-![Attribution de rôle – Onglet (IAM)](../media/rbac/image-3.png)
+Pour attribuer des rôles à l’aide du portail Azure, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).  Dans le portail Azure, l’écran Attribution de rôle Azure est disponible pour toutes les ressources sous l’onglet Contrôle d’accès (IAM).
 
 ### <a name="resource-group-scope-role-assignment"></a>Attribution de rôle d’étendue de groupe de ressources
 
-1.  Accédez au Groupe de ressources du coffre de clés.
+1. Accédez au groupe de ressources contenant votre coffre de clés.
+
     ![Attribution de rôle – Groupe de ressources](../media/rbac/image-4.png)
 
-2.  Cliquez sur Contrôle d’accès (IAM) \> Ajouter une attribution de rôle \> Ajouter.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
 
-3.  Créez le rôle « Lecteur de Key Vault » pour l’utilisateur actuel.
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-    ![Ajouter un rôle – Groupe de ressources](../media/rbac/image-5.png)
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | « Lecteur Key Vault » |
+    | Attribuer l’accès à | Utilisateur actuel |
+    | Membres | Rechercher par adresse e-mail |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
@@ -138,6 +140,8 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {i.e use
 #Assign by Service Principal ApplicationId
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+
 ---
 
 L’attribution de rôle ci-dessus permet de répertorier les objets figurant dans le coffre de clés.
@@ -145,17 +149,26 @@ L’attribution de rôle ci-dessus permet de répertorier les objets figurant da
 ### <a name="key-vault-scope-role-assignment"></a>Attribution de rôle d’étendue de coffre de clés
 
 1. Accéder à Key Vault \> onglet Contrôle d’accès (IAM).
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-2. Cliquez sur Ajouter une attribution de rôle \> Ajouter.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | « Agent des secrets Key Vault » |
+    | Attribuer l’accès à | Utilisateur actuel |
+    | Membres | Rechercher par adresse e-mail |
 
-3. Créez le rôle « Responsable des secrets de Key Vault » pour l’utilisateur actuel.
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-    ![Attribution de rôle – Coffre de clés](../media/rbac/image-6.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
@@ -165,28 +178,39 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName
 #Assign by Service Principal ApplicationId
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+
 ---
-
-Après avoir créé l’attribution de rôle ci-dessus, vous pouvez créer/mettre à jour/supprimer des secrets.
-
-4. Créez un secret (Secrets \> +Générer/Importer) pour tester l’attribution de rôle de niveau secret.
-
-    ![Ajouter un rôle – Coffre de clés](../media/rbac/image-7.png)
 
 ### <a name="secret-scope-role-assignment"></a>Attribution de rôle d’étendue de secret
 
-1. Ouvrez l’un des secrets créés précédemment. Repérez Vue d’ensemble et Contrôle d’accès (IAM). 
+1. Ouvrez une clé secrète précédemment créée.
 
-2. Cliquez sur l’onglet Contrôle d’accès (IAM).
+1. Cliquez sur l’onglet Contrôle d’accès (IAM)
 
     ![Attribution de rôle – Secret](../media/rbac/image-8.png)
 
-3. Créez le rôle « Responsable des secrets de Key Vault » pour l’utilisateur actuel, comme ci-dessus pour le coffre de clés.
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | « Agent des secrets Key Vault » |
+    | Attribuer l’accès à | Utilisateur actuel |
+    | Membres | Rechercher par adresse e-mail |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
@@ -196,6 +220,9 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName
 #Assign by Service Principal ApplicationId
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+
 ---
 
 ### <a name="test-and-verify"></a>Tester et vérifier
@@ -287,11 +314,15 @@ Pour plus d’informations sur la manière de créer des rôles personnalisés, 
 
 ## <a name="known-limits-and-performance"></a>Limites et performances connues
 
+-   Le RBAC de plan de données de Key Vault n’est pas pris en charge dans des scénarios mutualisés comme avec Azure Lighthouse
 -   2000 attributions de rôles Azure par abonnement.
-
 -   Latence des attributions de rôles : au niveau des performances attendues actuelles, jusqu’à 10 minutes (600 secondes) peuvent s’écouler après une modification des attributions de rôles, avant que le rôle soit appliqué.
 
 ## <a name="learn-more"></a>En savoir plus
+1. Attribuer le rôle [NOMRÔLE] à [UTILISATEUR | GROUPE | PRINCIPALSERVICE | IDENTITÉMANAGÉE] dans l’étendue [GROUPEGESTION | ABONNEMENT | GROUPERESSOURCES | RESSOURCE].
+
 
 - [Vue d’ensemble d’Azure RBAC](../../role-based-access-control/overview.md)
+- [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Tutoriel Rôles personnalisés](../../role-based-access-control/tutorial-custom-role-cli.md)
+- [Bonnes pratiques relatives à Azure Key Vault](best-practices.md)

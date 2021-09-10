@@ -2,13 +2,13 @@
 title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 7be5b96a8575c0bed9208ef5d700aca747411aa2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/05/2021
+ms.openlocfilehash: f2c4e3fa492a4dfe3c42ffb615442d3c6c449404
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959325"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533363"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -18,6 +18,8 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
+- Juillet 2021
+  - [La prise en charge du niveau Archive pour SQL Server dans une machine virtuelle Azure pour le service Sauvegarde Azure est désormais généralement disponible](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
 - Mai 2021
   - [La sauvegarde pour les objets BLOB Azure est désormais en disponibilité générale](#backup-for-azure-blobs-is-now-generally-available)
 - Avril 2021
@@ -44,6 +46,18 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
   - [Sauvegarde SAP HANA sur des machines virtuelles RHEL Azure (en préversion)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Stockage redondant interzone (ZRS) pour les données de sauvegarde (en préversion)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Suppression réversible pour les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available"></a>La prise en charge du niveau Archive pour SQL Server dans une machine virtuelle Azure pour le service Sauvegarde Azure est désormais généralement disponible
+
+Le service Sauvegarde Azure vous permet de déplacer vos points de rétention à long terme pour machines virtuelles Azure et SQL Server dans des machines virtuelles Azure vers le niveau Archive à faible coût. Vous pouvez également opérer une restauration à partir des points de récupération dans le niveau Archive du coffre.
+
+En plus de la possibilité de déplacer les points de récupération :
+
+- Sauvegarde Azure fournit des recommandations pour déplacer un ensemble spécifique de points de récupération pour les sauvegardes de machines virtuelles Azure, qui garantissent des économies.
+- Vous avez la possibilité de déplacer tous les points de récupération d’un élément de sauvegarde particulier en même temps à l’aide d’exemples de scripts.
+- Vous pouvez afficher l’utilisation du stockage Archive dans le tableau de bord du coffre.
+
+Pour plus d’informations, consultez [Prise en charge du niveau de stockage archive](./archive-tier-support.md).
 
 ## <a name="backup-for-azure-blobs-is-now-generally-available"></a>La sauvegarde pour les objets BLOB Azure est désormais en disponibilité générale
 
@@ -103,7 +117,7 @@ Pour plus d’informations, consultez [Modèles Azure Resource Manager pour la S
 
 Sauvegarde Azure prend maintenant en charge les sauvegardes incrémentielles pour les bases de données SAP HANA hébergées sur des machines virtuelles Azure. Cela permet d’obtenir des sauvegardes plus rapides et plus rentables de vos données SAP HANA.
 
-Pour plus d’informations, consultez [diverses options disponibles lors de la création d’une stratégie de sauvegarde](/azure/backup/sap-hana-faq-backup-azure-vm.yml#policy) et la procédure de [création d’une stratégie de sauvegarde pour les bases de données SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Pour plus d’informations, consultez [diverses options disponibles lors de la création d’une stratégie de sauvegarde](/azure/backup/sap-hana-faq-backup-azure-vm#policy) et la procédure de [création d’une stratégie de sauvegarde pour les bases de données SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## <a name="backup-center-in-preview"></a>Centre de sauvegarde (en préversion)
 

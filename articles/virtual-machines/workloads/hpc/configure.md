@@ -8,18 +8,16 @@ ms.topic: article
 ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: cd040ef394163113b46f9af46aef0aead9cb37ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0ef3b00fe3ae68ddecc7ab93ee612e0698329c43
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689276"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460487"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurer et optimiser les machines virtuelles
 
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
-
-Cet article présente des conseils sur la configuration et l’optimisation des machines virtuelles compatibles InfiniBand [série H](../../sizes-hpc.md) et [série N](../../sizes-gpu.md) pour le calcul haute performance.
+Cet article donne des conseils sur la configuration et l’optimisation des machines virtuelles de la [série H](../../sizes-hpc.md) et de la [série N](../../sizes-gpu.md) avec InfiniBand pour le calcul haute performance.
 
 ## <a name="vm-images"></a>Images de machine virtuelle
 Sur les machines virtuelles avec InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA.

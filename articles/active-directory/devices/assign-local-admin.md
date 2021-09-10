@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806ff92fcf75ff8d1c8e092d7ff4435751a9e7db
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a21505fc37ad3b7fb47af8c6b79262ebb654d800
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529896"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228031"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -29,10 +29,10 @@ Cet article explique comment la mise à jour de l’appartenance aux administrat
 Quand vous connectez un appareil Windows avec Azure AD à l’aide d’une jonction à Azure AD, Azure AD ajoute les principaux de sécurité suivants au groupe Administrateurs local sur l’appareil :
 
 - Rôle Administrateur général Azure AD
-- Rôle Administrateur d’appareil Azure AD 
+- Rôle Administrateur local d’appareil joint Azure AD 
 - Utilisateur effectuant la jonction à Azure AD   
 
-En ajoutant des rôles Azure AD au groupe Administrateurs local, vous pouvez mettre à jour les utilisateurs qui peuvent gérer un appareil à tout moment dans Azure AD, sans modifier quoi que ce soit sur l’appareil. Azure AD ajoute également le rôle d’administrateur d’appareil Azure AD au groupe Administrateurs local pour prendre en charge le principe des privilèges minimum. En plus des administrateurs généraux, vous pouvez également autoriser les utilisateurs ayant *uniquement* reçu le rôle d’administrateur d’appareil à gérer un appareil. 
+En ajoutant des rôles Azure AD au groupe Administrateurs local, vous pouvez mettre à jour les utilisateurs qui peuvent gérer un appareil à tout moment dans Azure AD, sans modifier quoi que ce soit sur l’appareil. Azure AD ajoute également le rôle Administrateur local d’appareil joint Azure AD au groupe d’administrateurs locaux pour prendre en charge le principe du privilège minimum. En plus des administrateurs généraux, vous pouvez également autoriser les utilisateurs ayant *uniquement* reçu le rôle d’administrateur d’appareil à gérer un appareil. 
 
 ## <a name="manage-the-global-administrators-role"></a>Gérer le rôle Administrateur général
 
@@ -55,7 +55,7 @@ Pour modifier le rôle d’administrateur d’appareils, configurez **Administra
 
 ![Administrateurs locaux supplémentaires](./media/assign-local-admin/10.png)
 
->[!NOTE]
+> [!NOTE]
 > Cette option nécessite un locataire Azure AD Premium. 
 
 Les administrateurs d’appareil sont affectés à toutes les appareils joints à Azure AD. Vous ne pouvez pas limiter l’étendue des administrateurs d’appareil à un jeu spécifique d’appareils. La mise à jour du rôle d’administrateur d’appareil n’a pas nécessairement un impact immédiat sur les utilisateurs affectés. Sur les appareils où un utilisateur est déjà connecté, l’élévation des privilèges a lieu lorsque les *deux* actions ci-dessous se produisent :
@@ -63,24 +63,32 @@ Les administrateurs d’appareil sont affectés à toutes les appareils joints �
 - Jusqu’à 4 heures ont passé pour qu’Azure AD émette un nouveau jeton d’actualisation principal avec les privilèges appropriés. 
 - L’utilisateur se déconnecte, puis se reconnecte, sans verrouillage/déverrouillage, pour actualiser son profil.
 
->[!NOTE]
+> [!NOTE]
 > Les actions ci-dessus ne s’appliquent pas aux utilisateurs qui ne se sont pas connectés précédemment à l’appareil approprié. Dans ce cas, les privilèges d’administrateur sont appliqués immédiatement après leur première connexion à l’appareil. 
 
 ## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Gérer les privilèges d’administrateur à l’aide de groupes Azure AD (préversion)
 
 À compter de Windows 10 version 2004, vous pouvez utiliser des groupes Azure AD pour gérer les privilèges d’administrateur sur les appareils joints à Azure AD à l’aide de la stratégie MDM [Groupes restreints](/windows/client-management/mdm/policy-csp-restrictedgroups). Cette stratégie vous permet d’affecter des utilisateurs individuels ou des groupes Azure AD au groupe Administrateurs local sur un appareil joint à Azure AD. Vous disposez ainsi de la précision nécessaire pour configurer des administrateurs distincts en fonction des différents groupes d’appareils. 
 
->[!NOTE]
-> À partir de la mise à jour 20H2 de Windows 10, nous vous recommandons d’utiliser la stratégie [Utilisateurs et groupes locaux](/windows/client-management/mdm/policy-csp-localusersandgroups) plutôt que la stratégie Groupes restreints
-
+> [!NOTE]
+> À partir de la mise à jour 20H2 de Windows 10, nous vous recommandons d’utiliser la stratégie [Utilisateurs et groupes locaux](/windows/client-management/mdm/policy-csp-localusersandgroups) plutôt que la stratégie Groupes restreints.
 
 Il n’existe pas d’IU dans Intune permettant de gérer ces stratégies, qui doivent être configurées à l’aide de [paramètres OMA-URI personnalisés](/mem/intune/configuration/custom-settings-windows-10). Voici quelques considérations à prendre en compte pour utiliser l’une de ces stratégies : 
 
 - L’ajout de groupes Azure AD via la stratégie nécessite le SID du groupe, lequel peut être obtenu par l’exécution de l’[API Microsoft Graph API pour les groupes](/graph/api/resources/group). Le SID est défini par la propriété `securityIdentifier` dans la réponse de l’API.
+
 - Quand la stratégie Groupes restreints est appliquée, tout membre actuel du groupe qui ne figure pas dans la liste Membres est supprimé. Ainsi, l’application de cette stratégie à de nouveaux membres ou groupes entraîne la suppression des administrateurs existants, à savoir l’utilisateur qui a joint l’appareil, le rôle Administrateur et le rôle Administrateur général de l’appareil. Pour éviter de supprimer des membres existants, vous devez les configurer dans le cadre de la liste Membres de la stratégie Groupes restreints. Cette limitation est traitée si vous utilisez la stratégie Utilisateurs et groupes locaux qui autorise les mises à jour incrémentielles de l’appartenance à un groupe.
+
 - Les privilèges d’administrateur utilisant ces deux stratégies sont uniquement évalués pour les groupes bien connus suivants sur un appareil Windows 10 : Administrateurs, Utilisateurs, Invités, Utilisateurs avec pouvoir, Utilisateurs du Bureau à distance et Utilisateurs de gestion à distance. 
+
 - La gestion des administrateurs locaux à l’aide des groupes Azure AD ne s’applique pas aux appareils faisant l’objet d’une jointure Azure AD Hybride ou aux appareils inscrits auprès d’Azure AD.
+
 - Même si la stratégie Groupes restreints existait avant Windows 10 version 2004, elle ne prenait pas en charge les groupes Azure AD en tant que membres du groupe Administrateurs local d’un appareil. 
+- Les groupes Azure AD déployés sur un appareil avec l’une des deux stratégies ne s’appliquent pas aux connexions Bureau à distance. Afin de contrôler les autorisations du Bureau à distance pour appareils joints Azure AD, vous devez ajouter le SID de l’utilisateur individuel au groupe approprié. 
+
+> [!IMPORTANT]
+> La connexion à Windows avec Azure AD prend en charge l’évaluation de jusqu’à 20 groupes pour les droits d’administrateur. Pour vous assurer que les droits d’administrateur sont correctement attribués, nous vous recommandons de ne pas avoir plus de 20 groupes Azure AD groupes sur chaque appareil. Cette limitation s’applique également aux groupes imbriqués. 
+
 
 ## <a name="manage-regular-users"></a>Gérer les utilisateurs réguliers
 

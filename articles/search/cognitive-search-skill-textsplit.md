@@ -2,25 +2,24 @@
 title: Compétence cognitive Fractionnement de texte
 titleSuffix: Azure Cognitive Search
 description: Découpe le texte en blocs ou des pages de texte en fonction de leur longueur dans un pipeline d’enrichissement par IA dans la Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: e5b907b89491721d2529f2caa303fc9e77d47169
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84981946"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563396"
 ---
 # <a name="text-split-cognitive-skill"></a>Compétence cognitive Fractionnement de texte
 
 La compétence **Fractionnement de texte** découpe le texte en segments. Vous pouvez choisir de décomposer le texte en phrases ou en pages d’une longueur donnée. Cette opération est particulièrement utile si d’autres compétences en aval imposent des critères de longueur maximale du texte. 
 
 > [!NOTE]
-> Cette compétence n’est pas liée à une API Cognitive Services et son utilisation ne vous est pas facturée. Toutefois, vous devez toujours [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource **Gratuit** qui vous limite à un petit nombre d’enrichissements quotidiens par jour.
+> Cette compétence n’est pas liée à Cognitive Services. Elle n’est pas facturable et aucune clé Cognitive Services n’est requise.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -31,9 +30,9 @@ Les paramètres respectent la casse.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| `textSplitMode`    | « pages » ou « sentences » (phrases) | 
-| `maximumPageLength` | Si textSplitMode est défini sur « pages », il s’agit de la longueur maximale de la page selon `String.Length`. La valeur minimale est 300.  Si textSplitMode est réglé sur « pages », l’algorithme essaie de fractionner le texte en blocs d’une taille maximale de « maximumPageLength ». Dans ce cas, l’algorithme fera de son mieux pour arrêter la phrase sur une limite de phrase, de sorte que la taille du bloc peut être légèrement inférieure à « maximumPageLength ». | 
-| `defaultLanguageCode` | (Facultatif) L’un des codes de langue suivants : `da, de, en, es, fi, fr, it, ko, pt`. La langue par défaut est l’anglais (en). Quelques points à prendre en compte :<ul><li>Si vous utilisez un format codelangue-codepays, seule la partie codelangue du format est utilisée.</li><li>Si la langue ne figure pas dans la liste précédente, la compétence Fractionnement découpe le texte suivant les limites de caractères.</li><li>Il est utile d’indiquer un code de langue pour éviter de couper un mot en deux dans les langues sans espaces blancs, par exemple, le chinois, le japonais et le coréen.</li><li>Si vous ne connaissez pas la langue (par exemple, vous devez fractionner le texte pour l’entrée dans [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), la valeur par défaut de l’anglais (en) doit être suffisante. </li></ul>  |
+| `textSplitMode`    | `pages` ou `sentences` | 
+| `maximumPageLength` | S’applique uniquement si `textSplitMode` est défini sur `pages`. Cela fait référence à la longueur de page maximale, en caractères, telle que mesurée par `String.Length`. La valeur minimale est 300, la valeur maximale 100000, et la valeur par défaut 10000.  L’algorithme s’efforce de scinder le texte en respectant les délimitations de phrases, de sorte que la taille de chaque bloc soit légèrement inférieure à `maximumPageLength`. | 
+| `defaultLanguageCode` | (Facultatif) L’un des codes de langue suivants : `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. La langue par défaut est l’anglais (en). Quelques points à prendre en compte :<ul><li>Il est utile d’indiquer un code de langue pour éviter de couper un mot en deux dans les langues sans espaces blancs, par exemple, le chinois, le japonais et le coréen.</li><li>Si vous ne connaissez pas la langue (par exemple, vous devez fractionner le texte pour l’entrée dans [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), la valeur par défaut de l’anglais (en) doit être suffisante. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -41,7 +40,7 @@ Les paramètres respectent la casse.
 | Nom du paramètre       | Description      |
 |----------------------|------------------|
 | `text`    | Texte à fractionner en sous-chaînes. |
-| `languageCode`    | (Facultatif) Code de langue du document. Si vous ne connaissez pas la langue (par exemple, vous devez fractionner le texte pour l’entrée dans [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), vous pouvez retirer cette entrée.  |
+| `languageCode`    | (Facultatif) Code de langue du document. Si vous ne connaissez pas la langue (par exemple, vous devez fractionner le texte pour l’entrée dans [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), vous pouvez retirer cette entrée. Si la langue ne figure pas dans la liste prise en charge pour le paramètre `defaultLanguageCode` ci-dessus, un avertissement est émis et le texte n’est pas fractionné.  |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence 
 
@@ -128,7 +127,7 @@ Les paramètres respectent la casse.
 ```
 
 ## <a name="error-cases"></a>Cas d’erreur
-Si la langue n’est pas prise en charge, un avertissement est généré et le texte est fractionné suivant les limites de caractères.
+Si la langue n’est pas prise en charge, un avertissement est généré.
 
 ## <a name="see-also"></a>Voir aussi
 

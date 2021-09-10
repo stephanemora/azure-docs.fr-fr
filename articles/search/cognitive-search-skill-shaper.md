@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 9395f0446680135bde99193609bde82385f64b0b
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 8713cd25f30ed4a09a92dffacc5ec3e8d1cb424a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038779"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525418"
 ---
 # <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
@@ -35,6 +35,7 @@ Considérez un scénario dans lequel vous souhaitez créer une structure appelé
 Toutefois, une autre approche de la création de types complexes consiste à utiliser la compétence **Modélisation**. Lorsque vous incluez cette compétence dans un ensemble de compétences, les opérations en mémoire pendant le traitement de l’ensemble de compétences peuvent sortir des formes de données avec des structures imbriquées, qui peuvent alors être mappées à un type complexe dans votre index. 
 
 L’exemple de définition de compétence suivant fournit les noms de membre comme entrée. 
+
 
 ```json
 {
@@ -64,26 +65,26 @@ L’exemple de définition de compétence suivant fournit les noms de membre com
 Un ensemble de compétences est appelé par un indexeur, et un indexeur nécessite un index. Une représentation de champ complexe dans votre index peut se présenter comme dans l’exemple suivant. 
 
 ```json
-"name":"my-index",
-"fields":[
-   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
-   { "name":"analyzedText", "type":"Edm.ComplexType",
-      "fields":[
-         {
-            "name":"text",
-            "type":"Edm.String",
-            "facetable":false,
-            "filterable":false,
-            "searchable":true,
-            "sortable":false  },
-         {
-            "name":"sentiment",
-            "type":"Edm.Double",
-            "facetable":true,
-            "filterable":true,
-            "searchable":true,
-            "sortable":true }
-      }
+
+    "name": "my-index",
+    "fields": [
+        {   "name": "myId", "type": "Edm.String", "key": true, "filterable": true   },
+        {   "name": "analyzedText", "type": "Edm.ComplexType",
+            "fields": [{
+                    "name": "text",
+                    "type": "Edm.String",
+                    "filterable": false,
+                    "sortable": false,
+                    "facetable": false,
+                    "searchable": true  },
+          {
+                    "name": "sentiment",
+                    "type": "Edm.Double",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
 ```
 
 ### <a name="skill-input"></a>Entrée de la compétence

@@ -6,15 +6,15 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/24/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 043fc6800c33ca5d756e7b2d27ccb0d0181a1c30
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 563ca47dc79b9ff9a31accb0d5c8a35477d32055
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642080"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825162"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Paramétriser des services liés dans Azure Data Factory et Azure Synapse Analytics
 

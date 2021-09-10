@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 08/18/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 27e9f92f7ea2be3ebdafbf973c4d1def179d5636
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 20421d46c664354ef0ec97fe459ca83209020307
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864141"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598049"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Résoudre les problèmes des connecteurs Azure Data Factory et Azure Synapse Analytics
 
@@ -1375,7 +1375,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
+*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

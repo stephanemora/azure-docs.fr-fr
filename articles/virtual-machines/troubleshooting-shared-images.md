@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 10/27/2020
+ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e8cfba3c7dc13f6e32d0dd4141832bab475cc5b8
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309983"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113138816"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
 
@@ -296,6 +296,14 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Message** : *La réplication a échoué dans cette région car la taille de la ressource source « GalleryImageVersion » de 2048 dépasse la taille maximale de 1024 prise en charge.*  
 **Cause**: un disque de données de la source est supérieur à 1 To.  
 **Solution de contournement** : redimensionnez le disque de données à moins de 1 To.
+
+**Message** : *L’opération « Mettre à jour la version d’image de la galerie » n’est pas autorisée sur <versionNumber> car cette version est marquée pour suppression. Vous pouvez uniquement réessayer l’opération de suppression (ou attendre la fin d’une opération en cours).*  
+**Cause** : vous avez tenté de mettre à jour une version d’image de la galerie qui est en cours de suppression.  
+**Solution de contournement** : attendez que l’événement de suppression se termine, puis recréez la version de l’image.
+
+**Message** : *Le chiffrement n’est pas pris en charge pour la ressource source « <sourceID> ». Utilisez un autre type de ressource source prenant en charge le chiffrement, ou supprimez les propriétés de chiffrement.*  
+**Cause** : la Shared Image Gallery ne prend actuellement en charge que le chiffrement des machines virtuelles, des disques, des instantanés et des images managées. L’une des sources fournies pour la version de l’image ne figure pas dans la liste précédente des sources prenant en charge le chiffrement.  
+**Solution de contournement** : supprimez le chiffrement de disque défini dans la version de l’image, et contactez l’équipe de support.
 
 ## <a name="creating-or-updating-a-vm-or-scale-sets-from-an-image-version"></a>Création ou la mise à jour d’une machine virtuelle ou de groupes identiques à partir d’une version d’image ##
 

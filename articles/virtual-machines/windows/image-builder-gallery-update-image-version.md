@@ -9,16 +9,14 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.collection: windows
-ms.openlocfilehash: 166e9b2b2ea98027c4ca9a8e13c5c26d68214d9a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 08cc123df4d0b4af0d5a0e94d5ef0e4826b0681c
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769074"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594802"
 ---
 # <a name="create-a-new-windows-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Créer une nouvelle version d’image de machine virtuelle Windows à partir d’une version existante à l’aide d’Azure Image Builder
-
-**S’applique à :** :heavy_check_mark : Machines virtuelles Windows
 
 Cet article explique comment récupérer une version existante d’une image dans une [Bibliothèque d’images partagées](../shared-image-galleries.md), la mettre à jour et la publier sous la forme d’une nouvelle version dans la bibliothèque.
 
@@ -73,10 +71,10 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Créez une variable pour votre ID d’abonnement.
+Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
 
 ```azurecli-interactive
-subscriptionID=$(az account show --query id --output tsv)
+subscriptionID=<Subscription ID>
 ```
 
 Récupérez la version de l’image à mettre à jour.
@@ -86,7 +84,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o tsv)
+   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Créer une identité affectée par l’utilisateur et définir des autorisations sur le groupe de ressources

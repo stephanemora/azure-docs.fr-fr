@@ -1,5 +1,5 @@
 ---
-title: Exécution du pipeline et déclencheurs
+title: Exécution de pipeline et déclencheurs
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory ou Azure Synapse Analytics, soit à la demande, soit en créant un déclencheur.
 author: dcstwh
@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 07/05/2018
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: b0fda7e6376cd7adb302db2c0f3aac39da38b407
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 8055f9a81f9788a7f9f53d0fd2672d527ebc203a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821508"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641302"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory-or-azure-synapse-analytics"></a>Exécution de pipeline et déclencheurs dans Azure Data Factory ou Azure Synapse Analytics
 

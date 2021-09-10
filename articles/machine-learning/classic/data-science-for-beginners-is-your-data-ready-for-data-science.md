@@ -9,14 +9,17 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 7e3cbbd725dc6c3343cc9fd2edc6739bbb79156a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8cc7334d225f706610aacfed0cce8e15b4da21c1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532346"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694811"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Vos données sont-elles prêtes pour la science des données ?
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-2-data-science-for-beginners-series"></a>Vidéo 2 : série Science des données pour les débutants
 Découvrez comment évaluer vos données pour vous assurer qu’elles répondent aux critères de base pour la science des données.
 

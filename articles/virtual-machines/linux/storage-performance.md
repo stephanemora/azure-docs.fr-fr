@@ -1,7 +1,6 @@
 ---
 title: Optimiser les performances sur les machines virtuelles Azure de la série Lsv2 – Stockage
 description: Découvrez comment optimiser les performances de votre solution sur les machines virtuelles de la série Lsv2 à l’aide d’un exemple Linux.
-services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines
 ms-subservice: vm-sizes-storage
@@ -11,14 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ffe772677e8de28c3ea0de31092f1aca693feccf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5dd1e506b2eafff1d197a108dfa521dc89499925
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524543"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691019"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Optimiser les performances sur les machines virtuelles Linux de la série Lsv2
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Les machines virtuelles de la série Lsv2 prennent en charge diverses charges de travail qui nécessitant des E/S et des débits élevés au niveau du stockage local pour un large éventail d’applications et de secteurs d’activité.  La série Lsv2 est idéale pour le Big Data, SQL, les bases de données NoSQL, l’entreposage de données et les bases de données transactionnelles volumineuses, notamment Cassandra, MongoDB, Cloudera et Redis.
 

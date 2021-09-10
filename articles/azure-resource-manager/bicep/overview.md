@@ -2,19 +2,19 @@
 title: Langage Bicep pour le déploiement de ressources Azure
 description: Décrit le langage Bicep pour le déploiement d’infrastructure sur Azure. Il offre une expérience de création améliorée par rapport à l’utilisation de JSON pour développer des modèles.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 673578a8415009428b49e320c954079ebf7a0116
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/18/2021
+ms.openlocfilehash: 93aea8ee92d1f15ac45bd5978e7cbf68261e5a69
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556763"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564039"
 ---
 # <a name="what-is-bicep"></a>Qu’est-ce que Bicep ?
 
-Bicep est un langage spécifique à un domaine (DSL) qui utilise la syntaxe déclarative pour déployer des ressources Azure. Il fournit une syntaxe concise, une cohérence des types fiable et une prise en charge de la réutilisation du code. Nous pensons que Bicep offre la meilleure expérience de création pour vos solutions d’infrastructure Azure en tant que code.
+Bicep est un langage spécifique à un domaine (DSL) qui utilise la syntaxe déclarative pour déployer des ressources Azure. Il fournit une syntaxe concise, une cohérence des types fiable et une prise en charge de la réutilisation du code. Nous pensons que Bicep offre la meilleure expérience de création pour vos solutions d’infrastructure en tant que code dans Azure.
 
-Vous pouvez utiliser Bicep au lieu de JSON pour développer vos modèles Azure Resource Manager (modèles ARM). La syntaxe JSON pour la création d’un modèle ARM peut être détaillée et nécessiter une expression complexe. La syntaxe Bicep réduit cette complexité et améliore l’expérience de développement. Bicep est une abstraction transparente sur un modèle ARM JSON et ne perd aucune des fonctionnalités de modèle JSON. Pendant le déploiement, Bicep CLI transforme un fichier Bicep en JSON de modèle ARM.
+Vous pouvez utiliser Bicep au lieu de JSON pour développer vos modèles Azure Resource Manager (modèles ARM). La syntaxe JSON pour la création d’un modèle ARM peut être détaillée et nécessiter une expression complexe. La syntaxe Bicep réduit cette complexité et améliore l’expérience de développement. Bicep est une abstraction transparente sur un modèle ARM JSON et ne perd aucune des fonctionnalités de modèle JSON. Pendant le déploiement, l’interface de ligne de commande Bicep convertit un fichier Bicep en JSON de modèle ARM.
 
 Bicep n’est pas conçu comme un langage de programmation général pour l’écriture d’applications. Un fichier Bicep déclare des ressources Azure et des propriétés de ressources, sans écrire de séquence de commandes de programmation pour créer des ressources.
 
@@ -30,12 +30,14 @@ Pour en savoir plus sur Bicep, consultez la vidéo suivante.
 
 Pour commencer à utiliser Bicep :
 
-1. **Installez les outils**. Consultez [Configurer des environnements de développement et de déploiement Bicep](./install.md). Vous pouvez également utiliser [Bicep Playground](./decompile.md#side-by-side-view) pour afficher du code Bicep et l’équivalent JSON côte à côte, ou utiliser le [référentiel VS Code Devcontainer/Codespaces](https://github.com/Azure/vscode-remote-try-bicep) pour obtenir un environnement de création préconfiguré.
+1. **Installez les outils**. Consultez [Configurer des environnements de développement et de déploiement Bicep](./install.md). Vous pouvez également utiliser le [référentiel VS Code Devcontainer/Codespaces](https://github.com/Azure/vscode-remote-try-bicep) pour obtenir un environnement de création préconfiguré.
 2. **Effectuez le [démarrage rapide](./quickstart-create-bicep-use-visual-studio-code.md) et les [modules Microsoft Learn sur Bicep](./learn-bicep.md)** .
 
-Pour décompiler un modèle ARM existant au format Bicep, consultez [Décompiler des modèles ARM au format Bicep](./decompile.md).
+Pour décompiler un modèle ARM existant au format Bicep, consultez [Décompiler des modèles ARM au format Bicep](./decompile.md). Le [Terrain de jeu Bicep](https://bicepdemo.z22.web.core.windows.net/) vous permet d’afficher côte à côte un fichier Bicep et son équivalent JSON.
 
-Vous trouverez d’autres exemples de langage Bicep dans le [référentiel Bicep sur GitHub](https://github.com/Azure/bicep/tree/main/docs/examples).
+Pour découvrir les ressources disponibles dans votre fichier Bicep, consultez [Informations de référence sur les ressources Bicep](/azure/templates/).
+
+Vous trouverez d’autres exemples Bicep dans le [dépôt GitHub Bicep](https://github.com/Azure/bicep/tree/main/docs/examples).
 
 ## <a name="benefits-of-bicep-versus-other-tools"></a>Avantages de Bicep par rapport à d’autres outils
 
@@ -51,7 +53,7 @@ Bicep offre les avantages suivants par rapport aux autres options :
 
 ## <a name="bicep-improvements"></a>Améliorations apportées à Bicep
 
-Bicep offre une syntaxe plus simple et plus concise que JSON. Vous n’utilisez pas d’expressions `[...]`. Au lieu de cela, vous appelez directement des fonctions, et récupérez des valeurs à partir de paramètres et de variables. Vous attribuez à chaque ressource déployée un nom symbolique qui facilite le référencement de cette ressource dans votre modèle.
+Bicep offre une syntaxe plus simple et plus concise que JSON. Vous n’utilisez pas d’expressions entre crochets `[...]`. Au lieu de cela, vous appelez directement des fonctions, et récupérez des valeurs à partir de paramètres et de variables. Vous attribuez à chaque ressource déployée un nom symbolique qui facilite le référencement de cette ressource dans votre modèle.
 
 Par exemple, le code JSON suivant retourne une valeur de sortie à partir d’une propriété de ressource.
 
@@ -94,7 +96,7 @@ Pour les clients qui ont choisi des modèles ARM, nous pensons que Bicep amélio
 
 **Est-il adapté à une utilisation en production ?**
 
-Oui. À partir de la version v0.3, Bicep est pris en charge par les plans de support Microsoft. Bicep permet d’effectuer les mêmes tâches que les modèles ARM. Aucune modification avec rupture n’est actuellement planifiée, mais nous devrons peut-être créer des modifications avec rupture à l’avenir.
+Oui. Depuis la version 0.3, Bicep est inclus dans des plans de support Microsoft. Bicep permet d’effectuer les mêmes tâches que les modèles ARM. Aucune modification avec rupture n’est actuellement planifiée, mais nous devrons peut-être créer des modifications avec rupture à l’avenir.
 
 **Bicep est-il uniquement destiné à Azure ?**
 
@@ -107,6 +109,29 @@ La poursuite de cet objectif nécessite d’utiliser des API qui se trouvent en 
 Ils continueront de fonctionner comme ils l’ont toujours fait. Vous n’avez pas besoin d’apporter de modifications. Nous continuerons à prendre en charge le langage JSON du modèle ARM sous-jacent. Les fichiers Bicep se compilent en un JSON qui est envoyé à Azure pour le déploiement.
 
 Lorsque vous êtes prêt, vous pouvez [décompiler les fichiers JSON en langage Bicep](./decompile.md).
+
+## <a name="known-limitations"></a>Limitations connues
+
+- Aucun support pour les objets et tableaux d’une seule ligne. Par exemple, `['a', 'b', 'c']` n’est pas pris en charge. Pour plus d’informations, consultez [Tableaux](data-types.md#arrays) et [Objets](data-types.md#objects).
+- Aucun support pour la scission des lignes longues en plusieurs lignes. Par exemple :
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+      ...
+    }
+    ```
+
+    Ne peut pas être écrit sous la forme :
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+        if (newOrExisting == 'new') {
+          ...
+        }
+    ```
+
+- Aucun support pour le concept d’apiProfile utilisé pour mapper un apiProfile à une apiVersion définie pour chaque type de ressource.
+- Aucun support pour les fonctions définies par l’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

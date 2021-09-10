@@ -7,13 +7,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/12/2021
-ms.openlocfilehash: 72543d6b3c2f342bf7546810777cac7aa3a5ba5d
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.date: 08/26/2021
+ms.openlocfilehash: a93fcf2605f2b94b9e921b63318cb09d36349a9c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113666337"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029229"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modélisation des données dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -447,3 +447,7 @@ De même qu'il existe plusieurs façons de représenter un élément de données
 * Pour savoir comment modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret, reportez-vous à [Modélisation et partitionnement des données – Exemple concret](how-to-model-partition-example.md).
 
 * Consultez le module Learn pour savoir comment [Modeler et partitionner vos données dans Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
+
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

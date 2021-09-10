@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 534efc4723c0a526bd8d607299bbf3ec4effaa86
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c1d6d7fbac720a6a0f8793e75d08733ce01e0707
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895007"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322347"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurer la géoréplication pour les instances Azure Cache pour Redis Premium
 
@@ -38,6 +38,7 @@ Pour configurer la géoréplication entre deux caches, les conditions préalable
 
 Certaines fonctionnalités ne sont pas prises en charge par la géoréplication :
 
+- La redondance de zone n’est pas prise en charge avec la géoréplication.
 - La persistance n'est pas prise en charge par la géoréplication.
 - Le clustering est pris en charge s'il est activé pour les deux caches et si ceux-ci possèdent le même nombre de partitions.
 - Les caches situés dans le même réseau virtuel sont pris en charge.
@@ -45,7 +46,7 @@ Certaines fonctionnalités ne sont pas prises en charge par la géoréplication�
 
 Une fois la géoréplication configurée, les restrictions suivantes s’appliquent à votre paire de caches liés :
 
-- Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. Si vous choisissez de lire à partir de l’instance géographique secondaire, il est important de noter que, à chaque fois qu’une synchronisation complète des données se produit entre les instances principale et secondaire (lors de la mise à jour de l’instance géographique principale ou secondaire et lors de certains scénarios de redémarrage), l’instance géographique secondaire lève des erreurs (indiquant qu’une synchronisation complète des données est en cours) sur toute opération Redis, jusqu’à la fin de la synchronisation complète des données. Les applications qui lisent depuis une instance géographique secondaire doivent être générées pour revenir à l’instance géographique principale chaque fois que l’instance géographique secondaire génère de telles erreurs. 
+- Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. Si vous choisissez de lire à partir de l’instance géographique secondaire, il est important de noter que, à chaque fois qu’une synchronisation complète des données se produit entre les instances principale et secondaire (lors de la mise à jour de l’instance géographique principale ou secondaire et lors de certains scénarios de redémarrage), l’instance géographique secondaire lève des erreurs (indiquant qu’une synchronisation complète des données est en cours) sur toute opération Redis, jusqu’à la fin de la synchronisation complète des données. Les applications qui lisent depuis une instance géographique secondaire doivent être générées pour revenir à l’instance géographique principale chaque fois que l’instance géographique secondaire génère de telles erreurs.
 - Toutes les données présentes dans le cache lié secondaire avant l’ajout du lien sont supprimées. Toutefois, en cas de suppression ultérieure de la géoréplication, les données répliquées restent dans le cache lié secondaire.
 - Vous ne pouvez pas procéder à la [mise à l'échelle](cache-how-to-scale.md) d'un seul des deux caches lorsque ceux-ci sont liés.
 - Vous ne pouvez pas [modifier le nombre de partitions](cache-how-to-premium-clustering.md) si le clustering est activé pour le cache.
@@ -58,27 +59,27 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="add-a-geo-replication-link"></a>Ajouter un lien de géoréplication
 
-1. Pour lier deux caches à des fins de géoréplication, cliquez d'abord sur **Géoréplication** dans le menu Ressources du cache que vous souhaitez utiliser comme cache lié principal. Cliquez ensuite sur **Ajouter une liaison de réplication de cache** dans le panneau **Géoréplication**.
+1. Pour lier deux caches à des fins de géoréplication, cliquez d'abord sur **Géoréplication** dans le menu Ressources du cache que vous souhaitez utiliser comme cache lié principal. Ensuite, dans le panneau **Géoréplication** sur la gauche, cliquez sur **Ajouter une liaison de réplication de cache**.
 
     ![Ajouter un lien](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Dans la liste **Caches compatibles**, cliquez sur le nom du cache secondaire souhaité. Si le cache secondaire ne figure pas dans la liste, vérifiez que les [conditions préalables à la géoréplication](#geo-replication-prerequisites) du cache secondaire sont remplies. Pour filtrer les caches par région, cliquez sur la région à partir de la carte afin de n'afficher que les caches figurant dans la liste **Caches compatibles**.
+1. Dans la liste **Caches compatibles**, cliquez sur le nom du cache secondaire souhaité. Si le cache secondaire ne figure pas dans la liste, vérifiez que les [conditions préalables à la géoréplication](#geo-replication-prerequisites) du cache secondaire sont remplies. Pour filtrer les caches par région, sélectionnez la région dans la carte afin de n’afficher que les caches figurant dans la liste **Caches compatibles**.
 
     ![Caches compatibles avec la géoréplication](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
-    
+
     Vous pouvez également lancer le processus de liaison ou afficher des détails sur le cache secondaire à l'aide du menu contextuel.
 
     ![Menu contextuel de la géoréplication](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Cliquez sur **Lier** pour lier les deux caches et commencer le processus de réplication.
+1. Sélectionnez **Lier** pour lier les deux caches et commencer le processus de réplication.
 
     ![Lier des caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Vous pouvez voir la progression du processus de réplication sur le panneau **Géoréplication**.
+1. Vous pouvez voir la progression du processus de réplication dans le panneau **Géoréplication** sur la gauche.
 
     ![État du lien](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    Vous pouvez également voir l’état du lien dans le panneau **Vue d’ensemble** des caches principal et secondaire.
+    Vous pouvez également voir l’état de la liaison sur la gauche, en utilisant la **Vue d’ensemble** pour les caches principal et secondaire.
 
     ![Capture d’écran montrant comment afficher l’état de liaison pour les caches principal et secondaire.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
@@ -90,8 +91,8 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="remove-a-geo-replication-link"></a>Supprimer un lien de géoréplication
 
-1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, cliquez sur **Dissocier les caches** dans le panneau **Géoréplication**.
-    
+1. Pour supprimer la liaison entre deux caches et arrêter la géoréplication, dans le panneau **Géoréplication** sur la gauche, cliquez sur **Dissocier les caches**.
+
     ![Dissocier les caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
     Une fois le processus de dissociation terminé, le cache secondaire est disponible tant en lecture qu’en écriture.
@@ -201,5 +202,5 @@ Oui, vous pouvez configurer un [pare-feu](./cache-configure.md#firewall) avec la
 
 En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.
 
-* [Niveaux de service Azure Cache pour Redis](cache-overview.md#service-tiers)
-* [Haute disponibilité pour Azure Cache pour Redis](cache-high-availability.md)
+- [Niveaux de service Azure Cache pour Redis](cache-overview.md#service-tiers)
+- [Haute disponibilité pour Azure Cache pour Redis](cache-high-availability.md)

@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7e468b246534fef1fab4e710d0449e785280e16a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c189c850d0db5965823c531d86c243d209c8db34
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460518"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694125"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurer l’interface de transmission de messages pour HPC
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 [L’interface MPI (Message Passing Interface)](https://en.wikipedia.org/wiki/Message_Passing_Interface) est une bibliothèque ouverte et une norme de facto pour la parallélisation de la mémoire distribuée. Elle est couramment utilisée dans de nombreuses charges de travail HPC. Les charges de travail HPC sur les machines virtuelles [RDMA](../../sizes-hpc.md#rdma-capable-instances) [Série H](../../sizes-hpc.md) et [Série N](../../sizes-gpu.md) peuvent utiliser MPI pour communiquer sur le réseau InfiniBand à faible latence et à bande passante élevée.
 - Les tailles des machines virtuelles SR-IOV activées sur Azure permettent d’utiliser presque tous les qualificateurs de MPI avec Mellanox OFED.

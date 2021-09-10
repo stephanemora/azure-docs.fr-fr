@@ -4,23 +4,23 @@ description: Article qui montre comment effectuer certaines tâches de mise en r
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 1e04a43a7a9b2eb8b3d29be6ced0d92d8bcc8308
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718428"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202919"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuration d’Azure Functions avec un réseau virtuel
 
-Cet article explique comment effectuer les tâches liées à la configuration de votre application de fonction pour la connecter à un réseau virtuel et l’exécuter sur celui-ci. Pour en savoir plus sur Azure Functions et la mise en réseau, consultez [Options de mise en réseau d’Azure Functions](functions-networking-options.md).
+Cet article explique comment effectuer les tâches liées à la configuration de votre application de fonction pour la connecter à un réseau virtuel et l’exécuter sur celui-ci. Pour des informations détaillées sur la sécurisation de votre compte de stockage, consultez le didacticiel [Se connecter à un réseau virtuel](functions-create-vnet.md). Pour en savoir plus sur Azure Functions et la mise en réseau, consultez [Options de mise en réseau d’Azure Functions](functions-networking-options.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restreindre votre compte de stockage à un réseau virtuel 
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé. 
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou privés. Quand vous configurez votre compte de stockage avec des points de terminaison privés, l’accès public à votre application de fonction est automatiquement désactivé et l’application n’est accessible que via le réseau virtuel. 
 
 > [!NOTE]  
-> Cette fonctionnalité fonctionne actuellement pour tous les SKU pris en charge par le réseau virtuel Windows dans le plan dédié (App Service) et pour les plans Premium. Le plan Consommation n’est pas pris en charge. 
+> Cette fonctionnalité opère actuellement pour toutes les références (SKU) prises en charge par les réseaux virtuels Windows dans le plan (App Service) dédié, et pour les plans Premium élastiques Windows. Elle est également prise en charge avec un DNS privé pour les références (SKU) prises en charge par les réseaux virtuels Linux. La consommation et le DNS personnalisé pour les plans Linux ne sont pas pris en charge. 
 
 Pour configurer une fonction avec un compte de stockage limité à un réseau privé :
 
