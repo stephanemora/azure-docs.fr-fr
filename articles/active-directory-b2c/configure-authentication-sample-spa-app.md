@@ -1,51 +1,52 @@
 ---
 title: Configurer l’authentification dans un exemple d’application monopage à l’aide d’Azure Active Directory B2C
-description: Utilisation d’Azure Active Directory B2C pour connecter et inscrire des utilisateurs dans une application monopage.
+description: Cet article explique comment utiliser Azure Active Directory B2C pour inscrire et connecter des utilisateurs dans une application monopage.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: addf3870c22105a2ff42202e768d1e8cda4ffbde
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: ffda1151054b887114523704498a97d2ab7f7c44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112073004"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524433"
 ---
-# <a name="configure-authentication-in-a-sample-single-page-application-using-azure-active-directory-b2c"></a>Configurer l’authentification dans un exemple d’application monopage à l’aide d’Azure Active Directory B2C
+# <a name="configure-authentication-in-a-sample-single-page-application-by-using-azure-ad-b2c"></a>Configurer l’authentification dans un exemple d’application monopage à l’aide d’Azure AD B2C
 
-Cet article utilise un exemple d’application monopage JavaScript pour illustrer comment ajouter une authentification Azure Active Directory B2C (Azure AD B2C) à vos applications monopages.
+Cet article utilise un exemple d’application monopage JavaScript pour illustrer l’ajout d’une authentification Azure Active Directory B2C (Azure AD B2C) à vos applications monopages.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0 que vous pouvez utiliser pour connecter de façon sécurisée un utilisateur à une application. Cet exemple d’application monopage utilise [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) et le flux PKCE d’OIDC. MSAL.js est une bibliothèque fournie par Microsoft qui simplifie l’ajout d’une prise en charge de l’authentification et de l’autorisation aux applications monopages.
+OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0. Vous pouvez l’utiliser pour connecter de façon sécurisée un utilisateur à une application. Cet exemple d’application monopage utilise [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) et le flux PKCE d’OIDC. MSAL.js est une bibliothèque fournie par Microsoft qui simplifie l’ajout d’une prise en charge de l’authentification et de l’autorisation aux applications monopages.
 
 ### <a name="sign-in-flow"></a>Flux de connexion
+
 Le flux de connexion implique les étapes suivantes :
 
-1. L’utilisateur accède à l’application web et sélectionne **Connexion**. 
-1. L’application initie une demande d’authentification et redirige l’utilisateur vers Azure AD B2C.
-1. L’utilisateur [s’inscrit ou se connecte](add-sign-up-and-sign-in-policy.md), [réinitialise le mot de passe](add-password-reset-policy.md) ou se connecte avec un [compte social](add-identity-provider.md).
-1. Une fois la connexion établie, Azure AD B2C renvoie un jeton d’ID à l’application.
-1. L’application monopage valide le jeton d’ID, lit les revendications et permet à l’utilisateur d’appeler des ressources ou des API protégées.
+1. L’utilisateur accède à l’application web et sélectionne **Connexion**.
+1. L’application lance une requête d’authentification et redirige les utilisateurs vers Azure AD B2C.
+1. Les utilisateurs [s’inscrivent ou se connectent](add-sign-up-and-sign-in-policy.md) et [réinitialisent le mot de passe](add-password-reset-policy.md). Ils peuvent également se connecter avec un [compte social](add-identity-provider.md).
+1. Une fois les utilisateurs connectés, Azure AD B2C renvoie un code d’autorisation à l’application.
+1. L’application monopage valide le jeton d’ID, lit les revendications et permet aux utilisateurs d’appeler des ressources ou des API protégées.
 
 ### <a name="app-registration-overview"></a>Vue d’ensemble de l’inscription de l’application
 
 Pour permettre à votre application de se connecter avec Azure AD B2C et d’appeler une API web, vous devez inscrire deux applications dans le répertoire d’Azure AD B2C.  
 
-- L’inscription de l’**application web** permet à votre application de se connecter grâce à Azure AD B2C. Pendant l’inscription de l’application, vous spécifiez l’*URI de redirection*. L’URI de redirection est le point de terminaison vers lequel l’utilisateur est redirigé après s’être authentifié avec Azure AD B2C. Le processus d’inscription de l’application génère un *ID d’application*, également appelé *ID client*, qui identifie votre application de façon unique.
+- L’inscription de l’**application web** permet à votre application de se connecter grâce à Azure AD B2C. Pendant l’inscription, vous spécifiez l’*URI de redirection*. L’URI de redirection est le point de terminaison vers lequel les utilisateurs sont redirigés par Azure AD B2C une fois leur authentification avec Azure AD B2C terminée. Le processus d’inscription de l’application génère un *ID d’application*, également appelé *ID client*, qui identifie votre application de façon unique.
 
-- L’inscription de l’**API web** permet à votre application d’appeler une API web sécurisée. L’inscription comprend les *étendues* de l’API web. Les étendues permettent de gérer les autorisations d’accès aux ressources protégées, telles que votre API web. Vous accordez des permissions d’application web aux étendues de l’API web. Lorsqu’un jeton d’accès est demandé, votre application spécifie les permissions souhaitées dans le paramètre d’étendue de la requête.  
+- L’inscription de l’**API web** permet à votre application d’appeler une API web sécurisée. L’inscription comprend les *étendues* de l’API web. Les étendues permettent de gérer les autorisations d’accès aux ressources protégées, telles que votre API web. Vous accordez les autorisations de l’application web aux étendues de l’API web. Lorsqu’un jeton d’accès est demandé, votre application spécifie les autorisations souhaitées dans le paramètre d’étendue de la requête.  
 
-Les diagrammes suivants décrivent les inscriptions et l’architecture des applications.
+Les inscriptions et l’architecture de l’application sont illustrées dans le diagramme suivant :
 
-![Application web avec inscriptions et jetons d’appel d’API web](./media/configure-authentication-sample-spa-app/spa-app-with-api-architecture.png) 
+![Diagramme d’une application web avec inscriptions et jetons d’appel d’API web.](./media/configure-authentication-sample-spa-app/spa-app-with-api-architecture.png) 
 
 ### <a name="call-to-a-web-api"></a>Appel à une API web
 
@@ -68,70 +69,78 @@ Un ordinateur qui exécute :
 
 ## <a name="step-2-register-your-spa-and-api"></a>Étape 2 : Inscrire votre application monopage et votre API
 
-Au cours de cette étape, vous allez créer les inscriptions d’application de l’application monopage et de l’API web, puis spécifier les étendues de votre API web.
+Dans cette étape, vous allez créer les inscriptions d’application de l’application monopage et de l’API web, puis spécifier les étendues de votre API web.
 
-### <a name="21-register-the-web-api-application"></a>2.1 Inscrire l’application API web
+### <a name="step-21-register-the-web-api-application"></a>Étape 2.1 : Inscrire l’application API web
 
 [!INCLUDE [active-directory-b2c-app-integration-register-api](../../includes/active-directory-b2c-app-integration-register-api.md)]
 
-### <a name="22-configure-scopes"></a>2.2 Configurer des étendues
+### <a name="step-22-configure-scopes"></a>Étape 2.2 : Configurer des étendues
 
 [!INCLUDE [active-directory-b2c-app-integration-api-scopes](../../includes/active-directory-b2c-app-integration-api-scopes.md)]
 
-### <a name="23-register-the-client-app"></a>2.3 Inscrire l’application cliente
+### <a name="step-23-register-the-spa"></a>Étape 2.3 : Inscrire l’application monopage
 
-Effectuez les étapes suivantes pour créer l’inscription d’application :
+Pour créer l’inscription de l’application monopage, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
+
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
-1. Entrez un **Nom** pour l’application. Par exemple, *MyApp*.
+1. Entrez un **nom** pour l’application (par exemple, *MyApp*).
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un fournisseur d’identité ou annuaire organisationnel (pour authentifier les utilisateurs avec des flux d’utilisateurs)** . 
 1. Sous **URI de redirection**, sélectionnez **Application monopage (SPA)** , puis entrez `http://localhost:6420` dans la zone de texte de l’URL.
 1. Sous **Autorisations**, cochez la case **Accorder le consentement administrateur aux autorisations openid et offline access**.
 1. Sélectionnez **Inscription**.
 
+### <a name="step-24-enable-the-implicit-grant-flow"></a>Étape 2.4 : Activer le flux d’octroi implicite
+
 Ensuite, activez le flux d’octroi implicite :
 
-1. Sous Gérer, sélectionnez Authentification.
-1. Sélectionnez Essayer la nouvelle expérience (si elle est indiquée).
-1. Sous Octroi implicite, cochez la case Jetons d’ID.
-1. Sélectionnez Enregistrer.
+1. Sous **Gérer**, sélectionnez **Authentification**.
 
-Enregistrez **l’ID d’application (client)** que vous utiliserez ultérieurement pour configurer l'application web.
-    ![Obtenir votre ID d’application](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
+1. Sélectionnez **Essayer la nouvelle expérience** (si elle est indiquée).
 
-### <a name="25-grant-permissions"></a>2.5 Accorder des autorisations
+1. Sous **Octroi implicite**, cochez la case **Jetons d’ID**.
+
+1. Sélectionnez **Enregistrer**.
+
+   Enregistrez l’**ID d’application (client)** que vous utiliserez ultérieurement pour configurer l’application web.
+
+    ![Capture d’écran de la page Vue d’ensemble de l’application web pour l’enregistrement de votre ID d’application web.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
+
+### <a name="step-25-grant-permissions"></a>Étape 2.5 : Accorder des autorisations
 
 [!INCLUDE [active-directory-b2c-app-integration-grant-permissions](../../includes/active-directory-b2c-app-integration-grant-permissions.md)]
 
 ## <a name="step-3-get-the-spa-sample-code"></a>Étape 3 : Obtenir le code de l’exemple d’application monopage
 
-Cet exemple montre la façon dont une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs et appeler une API web protégée. Téléchargez l’exemple ci-dessous :
+Cet exemple montre la façon dont une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs. L’application acquiert ensuite un jeton d’accès et appelle une API web protégée. 
 
-  [Téléchargez un fichier zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) ou clonez l’exemple à partir de GitHub :
+Pour obtenir l’exemple de code de l’application monopage, vous pouvez effectuer l’une des opérations suivantes : 
 
-  ```
-  git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
-  ```
+* [Téléchargez un fichier zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip). 
+* Clonez l’exemple à partir de GitHub en exécutant la commande suivante :
 
-### <a name="31-update-the-spa-sample"></a>3.1 Mettre à jour l’exemple d’application monopage
+    ```bash
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
+    ```
 
-Maintenant que vous avez obtenu l’exemple, mettez à jour le code à l’aide du nom de votre locataire Azure AD B2C et de l’ID d’application *myApp* que vous avez enregistré à l’étape 2.3.
+### <a name="step-31-update-the-spa-sample"></a>Étape 3.1 : Mettre à jour l’exemple d’application monopage
 
-Ouvrez le fichier *authConfig.js* dans le dossier *App*.
-1. Dans l’objet `msalConfig`, recherchez l’affectation pour `clientId` et remplacez-la par l’**ID d’application (client)** que vous avez enregistré à l’étape 2.3.
+Maintenant que vous avez obtenu l’exemple d’application monopage, mettez à jour le code avec les valeurs d’Azure AD B2C et de l’API web. Dans le dossier de l’exemple, sous le dossier `App`, ouvrez les fichiers JavaScript qui sont répertoriés dans le tableau ci-dessous, puis mettez-les à jour avec les valeurs correspondantes.  
 
-Ouvrez le fichier `policies.js`.
-1. Recherchez les entrées sous `names` et remplacez leur affectation par le nom des flux utilisateur que vous avez créés à une étape antérieure, par exemple `b2c_1_susi`.
-1. Recherchez les entrées sous `authorities` et remplacez-les par les noms des flux utilisateur que vous avez créés à une étape antérieure, par exemple `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
-1. Recherchez l’affectation pour `authorityDomain` et remplacez-la par `<your-tenant-name>.b2clogin.com`.
 
-Ouvrez le fichier `apiConfig.js`.
-1. Recherchez l’affectation pour `b2cScopes` et remplacez l’URL par l’URL d’étendue que vous avez créée pour l’API web, par exemple `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`.
-1. Recherchez l’affectation pour `webApi` et remplacez l’URL actuelle par `http://localhost:5000/tasks`.
-
+|Fichier  |Clé  |Valeur  |
+|---------|---------|---------|
+|authConfig.js|clientId| L’ID d’application monopage de l’[étape 2.3](#step-23-register-the-spa).|
+|policies.js| noms| Le flux d’utilisateurs ou la stratégie personnalisée que vous avez créés à l’[étape 1](#step-1-configure-your-user-flow).|
+|policies.js|authorities|Le [nom de locataire](tenant-management.md#get-your-tenant-name) de votre locataire Azure AD B2C (par exemple, `contoso.onmicrosoft.com`). Ensuite, remplacez par les flux d’utilisateur ou la stratégie personnalisée que vous avez créés à l’[étape 1](#step-1-configure-your-user-flow) (par exemple, `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`).|
+|policies.js|authorityDomain|Le [nom de locataire](tenant-management.md#get-your-tenant-name) de votre locataire Azure AD B2C (par exemple, `contoso.onmicrosoft.com`).|
+|authConfig.js|b2cScopes|Les étendues de l’API web que vous avez créées à l’[étape 2.2](#step-22-configure-scopes) (par exemple, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`).|
+|authConfig.js|webApi|L’URL de l’API web, `http://localhost:5000/tasks`.|
+| | | |
 
 Le code obtenu doit ressembler à l’exemple suivant :
 
@@ -194,18 +203,24 @@ const apiConfig = {
 
 ## <a name="step-4-get-the-web-api-sample-code"></a>Étape 4 : Obtenir le code de l’exemple d’API web
 
-Maintenant que l’API web est inscrite et que vous avez défini ses étendues, configurez le code de l’API web pour qu’il fonctionne avec votre locataire Azure AD B2C. Téléchargez l’exemple ci-dessous :
+Maintenant que l’API web est inscrite et que vous avez défini ses étendues, configurez le code de l’API web pour qu’il fonctionne avec votre locataire Azure AD B2C. 
 
-[Téléchargez une \*archive .zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) ou clonez l’exemple de projet d’API web à partir de GitHub. Vous pouvez également accéder directement au projet [Azure-Samples/active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) sur GitHub.
+Pour obtenir l’exemple de code de l’API web, effectuez l’une des opérations suivantes :
 
-```console
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
-```
+* [Téléchargez une archive \*.zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip).
 
-### <a name="41-update-the-web-api"></a>4.1 Mettre à jour l’API web
+* Clonez l’exemple de projet d’API web à partir de GitHub en exécutant la commande suivante :
+
+    ```bash
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
+    ```
+
+* Vous pouvez également accéder directement au projet [Azure-Samples/active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) sur GitHub.
+
+### <a name="step-41-update-the-web-api"></a>Étape 4.1 : Mettre à jour l’API web
 
 1. Ouvrez le fichier *config.json* dans votre éditeur de code.
-1. Modifiez les valeurs des variables par celles de l’inscription d’application que vous avez créée précédemment. Mettez également à jour le `policyName` avec le workflow utilisateur que vous avez créé dans le cadre des prérequis. Par exemple, *b2c_1_susi*.
+1. Modifiez les valeurs des variables par celles de l’inscription d’application que vous avez créée précédemment. Mettez également à jour le `policyName` avec le flux d’utilisateur que vous avez créé dans le cadre des prérequis (par exemple, *b2c_1_susi*).
     
     ```json
     "credentials": {
@@ -220,11 +235,11 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
     },
     ```
 
-### <a name="42-enable-cors"></a>4.2 Activer CORS
+### <a name="step-42-enable-cors"></a>Étape 4.2 : Activer CORS
 
-Pour autoriser votre application monopage à appeler l’API web Node.js, vous devez activer [CORS](https://expressjs.com/en/resources/middleware/cors.html) dans l’API web. Dans une application de production, vous devez être attentif au domaine qui effectue la demande. Dans cet exemple, autorisez les demandes provenant de n’importe quel domaine.
+Pour autoriser votre application monopage à appeler l’API web Node.js, vous devez activer [CORS (Cross-Origin Resource Sharing)](https://expressjs.com/en/resources/middleware/cors.html) dans l’API web. Dans une application de production, soyez attentif au domaine qui effectue la demande. Dans cet exemple, autorisez les demandes provenant de n’importe quel domaine.
 
-Pour activer CORS, utilisez l’intergiciel (middleware) suivant. Dans le code de l’exemple d’API web Node.js que vous avez téléchargé, il a déjà été ajouté au fichier *index.js*.
+Pour activer CORS, utilisez l’intergiciel (middleware) suivant. Dans l’exemple de code d’API web Node.js que vous avez téléchargé, il a déjà été ajouté au fichier *index.js*.
 
 ```javascript
 app.use((req, res, next) => {
@@ -240,7 +255,7 @@ Vous êtes maintenant prêt à tester l’accès délimité de l’application m
 
 ### <a name="run-the-nodejs-web-api"></a>Exécuter l’API web Node.js
 
-1. Ouvrez une fenêtre de console et accédez au répertoire contenant l’exemple d’API web Node.js. Par exemple :
+1. Ouvrez une fenêtre de console et accédez au répertoire qui contient l’exemple d’API web Node.js. Par exemple :
 
     ```console
     cd active-directory-b2c-javascript-nodejs-webapi
@@ -261,7 +276,7 @@ Vous êtes maintenant prêt à tester l’accès délimité de l’application m
 
 ### <a name="run-the-single-page-app"></a>Exécuter l’application monopage
 
-1. Ouvrez une autre fenêtre de console et accédez au répertoire contenant l’exemple d’application monopage JavaScript. Par exemple :
+1. Ouvrez une autre fenêtre de console et accédez au répertoire qui contient l’exemple d’application monopage JavaScript. Par exemple :
 
     ```console
     cd ms-identity-b2c-javascript-spa
@@ -280,18 +295,18 @@ Vous êtes maintenant prêt à tester l’accès délimité de l’application m
     Listening on port 6420...
     ```
 
-1. Accédez à `http://localhost:6420` dans votre navigateur pour voir l’application.
+1. Pour voir l’application, accédez à l’adresse `http://localhost:6420` dans votre navigateur.
 
-    ![Exemple d’application monopage affichée dans un navigateur](./media/configure-authentication-sample-spa-app/sample-app-sign-in.png)
+    ![Capture d’écran de l’exemple d’application monopage affichée dans la fenêtre du navigateur.](./media/configure-authentication-sample-spa-app/sample-app-sign-in.png)
 
-1. Connectez-vous en utilisant l’adresse e-mail et le mot de passe que vous avez utilisés dans le [tutoriel précédent](tutorial-single-page-app.md). Une fois la connexion établie, vous voyez normalement le message `User 'Your Username' logged-in`.
-1. Sélectionnez le bouton **Appeler l’API**. L’application monopage envoie le jeton d’accès dans une demande à l’API web protégée, qui renvoie le nom d’affichage de l’utilisateur connecté :
+1. Terminez le processus d’inscription ou de connexion. Une fois que vous êtes connecté, vous devez voir le message « Utilisateur \<your username> connecté ».
+1. Sélectionnez le bouton **Appeler l’API**. L’application monopage envoie le jeton d’accès dans une requête à l’API web protégée, qui renvoie le nom d’affichage de l’utilisateur connecté :
 
-    ![Application monopage dans le navigateur montrant le résultat JSON avec le nom d’utilisateur retourné par l’API](./media/configure-authentication-sample-spa-app/sample-app-result.png)
+    ![Capture d’écran de l’application monopage dans une fenêtre de navigateur, montrant le résultat JSON du nom d’utilisateur renvoyé par l’API.](./media/configure-authentication-sample-spa-app/sample-app-result.png)
 
 ## <a name="deploy-your-application"></a>Déployer votre application 
 
-Dans une application de production, l’URI de redirection de l’inscription de l’application est généralement un point de terminaison accessible publiquement dans lequel votre application s’exécute, comme `https://contoso.com/signin-oidc`. 
+Dans une application de production, l’URI de redirection de l’inscription d’application est généralement un point de terminaison accessible publiquement dans lequel votre application s’exécute, comme `https://contoso.com/signin-oidc`. 
 
 Vous pouvez ajouter des URI de redirection à vos applications inscrites à tout moment et les modifier. Les restrictions suivantes s’appliquent aux URI de redirection :
 
@@ -300,5 +315,8 @@ Vous pouvez ajouter des URI de redirection à vos applications inscrites à tout
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur l’[exemple de code](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
-* Découvrir comment utiliser les [options d’authentification dans votre propre application monopage à l’aide d’Azure AD B2C](enable-authentication-spa-app-options.md)
+Pour en savoir plus sur les concepts abordés dans cet article :
+* [En savoir plus sur l’exemple de code](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa).
+* [Activer l’authentification dans votre propre application monopage](enable-authentication-spa-app.md).
+* [Configurer les options d’authentification dans votre application monopage](enable-authentication-spa-app-options.md).
+* [Activer l’authentification dans votre propre API web](enable-authentication-web-api.md).

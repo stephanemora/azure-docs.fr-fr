@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 9fdcd8a82b901e00e28f0ddd89ba53d9a2e3fbae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9a51d7266be8c8565ddd84afa0989951896af1b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952675"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032894"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à uniFLOW Online
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* uniFLOW Online prend en charge l’authentification unique initiée par le **fournisseur de services**
+* uniFLOW Online prend en charge l’authentification unique initiée par le **fournisseur de services**.
 
 ## <a name="add-uniflow-online-from-the-gallery"></a>Ajouter uniFLOW Online à partir de la galerie
 
@@ -73,30 +73,34 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
 
-    - `https://<tenant_domain_name>.eu.uniflowonline.com`
-    - `https://<tenant_domain_name>.us.uniflowonline.com`
-    - `https://<tenant_domain_name>.sg.uniflowonline.com`
-    - `https://<tenant_domain_name>.jp.uniflowonline.com`
-    - `https://<tenant_domain_name>.au.uniflowonline.com`
+    | **Identificateur** |
+    |---------|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com` |
+    | `https://<tenant_domain_name>.us.uniflowonline.com` |
+    | `https://<tenant_domain_name>.sg.uniflowonline.com` |
+    | `https://<tenant_domain_name>.jp.uniflowonline.com` |
+    | `https://<tenant_domain_name>.au.uniflowonline.com` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
+    b. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
 
-    - `https://<tenant_domain_name>.eu.uniflowonline.com`
-    - `https://<tenant_domain_name>.us.uniflowonline.com`
-    - `https://<tenant_domain_name>.sg.uniflowonline.com`
-    - `https://<tenant_domain_name>.jp.uniflowonline.com`
-    - `https://<tenant_domain_name>.au.uniflowonline.com`
+    | **URL d’authentification** |
+    |---------|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com` |
+    | `https://<tenant_domain_name>.us.uniflowonline.com` |
+    | `https://<tenant_domain_name>.sg.uniflowonline.com` |
+    | `https://<tenant_domain_name>.jp.uniflowonline.com` |
+    | `https://<tenant_domain_name>.au.uniflowonline.com` |
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support uniFLOW Online](mailto:support@nt-ware.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure ou examiner l’URL de réponse affichée dans votre locataire uniFLOW Online.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support uniFLOW Online](mailto:support@nt-ware.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure ou examiner l’URL de réponse affichée dans votre locataire uniFLOW Online.
 
-1. L’application uniFLOW Online attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+1. L’application uniFLOW Online attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application uniFLOW Online s’attend à ce que **nameidentifier** soit mappé sur **user.objectid**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 
-    ![image](common/default-attributes.png)
+    ![Capture d’écran montrant le volet Attributs utilisateur avec l’icône de modification mise en évidence.](common/edit-attribute.png)
 
 1. En plus de ce qui précède, l’application uniFLOW Online s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
@@ -145,21 +149,21 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Dans le volet de navigation de gauche, sélectionnez l’onglet **User** (Utilisateur).
 
-    ![Capture d’écran montrant Users sélectionné sur le site uniflow Online.](./media/uniflow-online-tutorial/configure-1.png)
+    ![Capture d’écran montrant Users sélectionné sur le site uniflow Online.](./media/uniflow-online-tutorial/user.png)
 
 1. Cliquez sur **Fournisseurs d’identité**.
 
-    ![Capture d’écran montrant l’élément Identity Providers sélectionné.](./media/uniflow-online-tutorial/configure-2.png)
+    ![Capture d’écran montrant l’élément Identity Providers sélectionné.](./media/uniflow-online-tutorial/profile.png)
 
 1. Cliquez sur **Add identity provider** (Ajouter un fournisseur d’identité).
 
-    ![Capture d’écran montrant l’option Add identity provider sélectionnée.](./media/uniflow-online-tutorial/configure-3.png)
+    ![Capture d’écran montrant l’option Add identity provider sélectionnée.](./media/uniflow-online-tutorial/add-profile.png)
 
 1. Dans la section **ADD IDENTITY PROVIDER**, effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant la section ADD IDENTITY PROVIDER où vous pouvez entrer les valeurs décrites.](./media/uniflow-online-tutorial/configure-4.png)
+    ![Capture d’écran montrant la section ADD IDENTITY PROVIDER où vous pouvez entrer les valeurs décrites.](./media/uniflow-online-tutorial/configuration.png)
 
-    a. Entrez le nom d’affichage dans le champ « Display name », par exemple : *AzureAD SSO*.
+    a. Entrez le nom d’affichage dans le champ « Display name », par exemple : **AzureAD SSO**.
 
     b. Pour **Provider type** (Type de fournisseur), sélectionnez l’option **WS-Fed** dans la liste déroulante.
 
@@ -169,13 +173,13 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Sous l’onglet **General**, effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant l’onglet General où vous pouvez entrer les valeurs décrites.](./media/uniflow-online-tutorial/configure-5.png)
+    ![Capture d’écran montrant l’onglet General où vous pouvez entrer les valeurs décrites.](./media/uniflow-online-tutorial/general-tab.png)
 
-    a. Entrez le nom d’affichage dans le champ « Display name », par exemple : *AzureAD SSO*.
+    a. Entrez le nom d’affichage dans le champ « Display name », par exemple : **AzureAD SSO**.
 
     b. Sélectionnez l’option **From URL** (À partir d’une URL) pour **ADFS Federation Metadata** (Métadonnées de fédération ADFS).
 
-    c. Dans la zone de texte **Federation Metadata URL** (URL des métadonnées de fédération), collez la valeur du champ **URL des métadonnées de fédération d’application** que vous avez copiée à partir du portail Azure.
+    c. Dans la zone de texte **URL des métadonnées de fédération**, collez la valeur pour **l’URL des métadonnées de fédération d’application** que vous avez copiée dans le portail Azure.
 
     d. Pour **Identity provider** (Fournisseur d’identité), cochez la case **Enabled** (Activé).
 

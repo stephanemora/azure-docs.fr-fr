@@ -2,41 +2,50 @@
 title: Utilisation de Azure PowerShell pour configurer le chargement du fichier | Microsoft Docs
 description: Comment utiliser les applets de commande Azure PowerShell pour configurer votre IoT Hub afin d’activer les téléchargements de fichiers à partir d’appareils connectés. Comprend des informations sur la configuration du compte de stockage Azure de destination.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 07/20/2021
 ms.author: robinsh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dc0efdd9eb4951ef65c3eb771e17731213dfbcc2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dd108bfd61a84e4c25b1ab59e9f24e23048ada2d
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702228"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525500"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurer les chargements de fichiers IoT Hub à l’aide de Powershell
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub](iot-hub-devguide-file-upload.md), vous devez d’abord associer un compte de stockage Azure à votre IoT Hub. Vous pouvez utiliser un compte de stockage existant ou en créer un nouveau.
+Cet article explique comment configurer des chargements de fichiers sur votre hub IoT à l’aide de PowerShell. 
+
+Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub](iot-hub-devguide-file-upload.md), vous devez d’abord associer un compte de stockage Azure et un conteneur de blobs à votre hub IoT. IoT Hub génère automatiquement des URI SAS avec des autorisations d’écriture pour ce conteneur d’objets blob pour les appareils à utiliser lorsqu’ils chargent des fichiers. En plus du compte de stockage et du conteneur de blobs, vous pouvez définir la durée de vie de l’URI SAP et configurer les paramètres des notifications facultatives de chargement de fichiers qu’IoT Hub peut livrer aux services principaux.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
-
-* [Cmdlets Azure PowerShell](/powershell/azure/install-Az-ps).
 
 * Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser [la cmdlet New-AzIoTHub](/powershell/module/az.iothub/new-aziothub) afin d’en créer un ou utiliser le portail pour [créer un IoT Hub](iot-hub-create-through-portal.md).
 
 * Un compte de stockage Azure. Si vous n’avez pas de compte de stockage Azure, vous pouvez utiliser [les cmdlets PowerShell de stockage Azure](/powershell/module/az.storage/) afin d’en créer un ou utiliser le portail pour [créer un compte de stockage](../storage/common/storage-account-create.md).
 
+* Utilisez l’environnement PowerShell dans [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
+
+   [![Lancer Cloud Shell dans une nouvelle fenêtre](./media/iot-hub-configure-file-upload-powershell/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+* Si vous préférez, [installez](/powershell/scripting/install/installing-powershell) PowerShell localement.
+
+  * [Installez le module PowerShell Azure Az](/powershell/azure/install-az-ps). (Le module est installé par défaut dans l’environnement PowerShell d’Azure Cloud Shell.) 
+  * Connectez-vous à PowerShell à l’aide de la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).  Pour finir le processus d’authentification, suivez les étapes affichées dans votre terminal.  Pour connaître les autres options de connexion, consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps).
+
+
 ## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
 
-Vous connecter à votre compte Azure et sélectionner votre abonnement.
+Vous connecter à votre compte Azure et sélectionner votre abonnement. Si vous utilisez Azure Cloud Shell, vous devez être déjà connecté. Toutefois, vous devrez peut-être sélectionner votre abonnement Azure si vous avez plusieurs abonnements.
 
 1. À l’invite PowerShell, exécutez la cmdlet **Connect-AzAccount** :
 
@@ -44,7 +53,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
     Connect-AzAccount
     ```
 
-2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la commande suivante pour répertorier les abonnements Azure que vous pouvez utiliser :
+2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la commande [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) pour répertorier les abonnements Azure que vous pouvez utiliser :
 
     ```powershell
     Get-AzSubscription
@@ -54,14 +63,17 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
     ```powershell
     Select-AzSubscription `
-        -SubscriptionName "{your subscription name}"
+        -Name "{your subscription name}"
     ```
+
+    > [!NOTE]
+    > La commande **Select-AzSubscription** est un alias de la commande [Select-AzContext](/powershell/module/az.accounts/select-azcontext) qui vous permet d’utiliser le nom de l’abonnement (**Name**) ou l’ID d’abonnement (**Id**) renvoyé par la commande **Get-AzSubscription** plutôt que le nom de contexte plus complexe requis pour la commande **Select-AzContext**.
 
 ## <a name="retrieve-your-storage-account-details"></a>Récupérez vos détails du compte de stockage
 
 Les étapes suivantes supposent que vous avez créé votre compte de stockage à l’aide du modèle de déploiement de **Resource Manager** et non à partir du modèle de déploiement **classique**.
 
-Pour configurer les chargements de fichiers en provenance de vos appareils, vous avez besoin de la chaîne de connexion d’un compte de stockage Azure. Le compte de stockage doit être situé dans le même abonnement que votre IoT Hub. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande suivante pour récupérer vos clés de compte de stockage :
+Pour configurer les chargements de fichiers en provenance de vos appareils, vous avez besoin de la chaîne de connexion d’un compte de stockage Azure. Le compte de stockage doit être situé dans le même abonnement que votre IoT Hub. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) pour récupérer les clés du compte de stockage :
 
 ```powershell
 Get-AzStorageAccountKey `
@@ -73,7 +85,7 @@ Prenez note de la valeur de clé de compte de stockage **key1** . Vous en aurez 
 
 Vous pouvez utiliser un conteneur d’objets blob existant pour les chargements de fichiers ou en créer un nouveau :
 
-* Pour répertorier les conteneurs d’objets blob existants dans votre compte de stockage, utilisez les commandes suivantes :
+* Pour répertorier les conteneurs de blobs existants dans votre compte de stockage, utilisez les commandes [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) et [Get-AzStorageContainer](/powershell/module/az.storage/get-azstoragecontainer) :
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -82,7 +94,7 @@ Vous pouvez utiliser un conteneur d’objets blob existant pour les chargements 
     Get-AzStorageContainer -Context $ctx
     ```
 
-* Pour créer un conteneur d’objet blob dans votre compte de stockage, utilisez les commandes suivantes :
+* Pour créer un conteneur de blobs dans votre compte de stockage, utilisez les commandes [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) et [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) :
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -106,11 +118,11 @@ La configuration requiert les valeurs suivantes :
 
 * **Durée de vie de SAS** : ce paramètre est la durée de vie des URI de signature d’accès partagé retournés à l’appareil par IoT Hub. Défini sur 1 heure par défaut.
 
-* **Durée de vie par défaut des paramètres de notification de fichiers** : durée de vie d’une notification de chargement de fichier avant son expiration. Défini sur 1 jour par défaut.
+* **Durée de vie par défaut des paramètres de notification de fichiers** : durée de vie d’une notification de chargement avant son expiration. Défini sur 1 jour par défaut.
 
 * **Nombre maximal de remises de notifications de fichier** : nombre de tentatives de remise d’une notification de chargement de fichier par le hub IoT. Défini sur 10 par défaut.
 
-Utilisez l’applet de commande PowerShell suivant pour configurer les paramètres de chargement sur votre IoT Hub :
+Utilisez la commande [Set-AzIotHub](/powershell/module/az.iothub/set-aziothub) pour configurer les paramètres de chargement de fichiers sur votre hub IoT :
 
 ```powershell
 Set-AzIotHub `
@@ -124,17 +136,11 @@ Set-AzIotHub `
     -FileUploadNotificationMaxDeliveryCount 10
 ```
 
+> [!NOTE]
+> Par défaut, IoT Hub s’authentifie auprès de Stockage Azure en utilisant la clé de compte dans la chaîne de connexion. L’authentification à l’aide d’identités managées affectées par le système ou par l’utilisateur est également disponible. Les identités managées fournissent aux services Azure une identité managée automatiquement dans Azure AD, de manière sécurisée. Pour en savoir plus, consultez [Prise en charge des identités managées par IoT Hub](./iot-hub-managed-identity.md). Actuellement, la commande **Set-AzIotHub** ne comporte pas de paramètres permettant de définir le type d’authentification. En revanche, vous pouvez utiliser le [portail Azure](./iot-hub-configure-file-upload.md) ou [Azure CLI](./iot-hub-configure-file-upload-cli.md). 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les fonctionnalités de chargement des fichiers dans IoT Hub, consultez [Charger des fichiers à partir d’un appareil](iot-hub-devguide-file-upload.md).
-
-Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
-
-* [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
-* [Surveiller IoT Hub](monitor-iot-hub.md)
-
-Pour explorer davantage les capacités de IoT Hub, consultez :
-
-* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
-* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/quickstart-linux.md)
-* [Sécuriser votre solution IoT de bout en bout](../iot-fundamentals/iot-security-ground-up.md)
+* [Charger des fichiers à partir de l’aperçu d’un appareil](iot-hub-devguide-file-upload.md)
+* [Prise en charge des identités managées par IoT Hub](./iot-hub-managed-identity.md)
+* [Guides pratiques sur le chargement de fichiers](./iot-hub-csharp-csharp-file-upload.md)

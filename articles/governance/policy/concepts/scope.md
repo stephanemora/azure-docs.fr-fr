@@ -1,14 +1,14 @@
 ---
 title: Comprendre l’étendue dans Azure Policy
 description: Décrit le concept d’étendue dans Azure Resource Manager et comment il s’applique à Azure Policy pour contrôler les ressources qu’Azure Policy évalue.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: b83acebe3f24b7dac1c506a598c641035132fb30
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167734"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563812"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Comprendre l’étendue dans Azure Policy
 
@@ -36,7 +36,7 @@ Plusieurs propriétés d’une affectation définissent une étendue. L’utilis
 
 En plus des propriétés d'affectation de stratégie figure un objet d'[exemption de stratégie](./exemption-structure.md). Les exemptions améliorent le scénario d'étendue en fournissant une méthode qui permet d'identifier une partie à ne pas évaluer au sein d'une affectation.
 
-- Exemption (**fonctionnalité d’évaluation gratuite**) : la conformité d’une hiérarchie de ressources ou d’une ressource individuelle doit être évaluée par la définition, mais elle ne sera pas évaluée en raison d’une dérogation ou d’une atténuation par une autre méthode. Les ressources dans cet état apparaissent comme **Exemptées** dans les rapports de conformité afin de pouvoir être suivies. L’objet d’exemption est créé sur la hiérarchie de ressources ou la ressource individuelle en tant qu’objet enfant, afin de déterminer l’étendue de l’exemption. Une hiérarchie de ressources ou une ressource individuelle peut être exempte de plusieurs affectations. Il est possible de configurer l’exemption pour qu’elle expire selon un calendrier précis grâce à la propriété `expiresOn`. Pour plus d’informations, consultez la section [Définition d’exemption](./exemption-structure.md).
+- Exemption (**fonctionnalité d’évaluation gratuite**) : la conformité d’une hiérarchie de ressources ou d’une ressource individuelle doit être évaluée par la définition, mais elle ne sera pas évaluée en raison d’une dérogation ou d’une atténuation par une autre méthode. Les ressources dans cet état apparaissent comme **Exemptées** dans les rapports de conformité afin de pouvoir être suivies. L’objet d’exemption est créé sur la hiérarchie de ressources ou la ressource individuelle en tant qu’objet enfant, afin de déterminer l’étendue de l’exemption. Une hiérarchie de ressources ou une ressource individuelle peuvent être exemptes de plusieurs affectations. Il est possible de configurer l’exemption pour qu’elle expire selon un calendrier précis grâce à la propriété `expiresOn`. Pour plus d’informations, consultez la section [Définition d’exemption](./exemption-structure.md).
 
   > [!NOTE]
   > En raison de l’impact de l’octroi d’une exemption pour une hiérarchie de ressources ou une ressource individuelle, les exemptions comportent des mesures de sécurité supplémentaires. Au-delà de la nécessité de l’opération `Microsoft.Authorization/policyExemptions/write` sur la hiérarchie de ressources ou la ressource individuelle, le créateur d’une exemption doit avoir le verbe `exempt/Action` sur l’affectation cible.

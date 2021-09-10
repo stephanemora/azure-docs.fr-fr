@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: jocorte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fc065c0e20e1560bebad1743fb889886cb07213
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6afce8903c5fe821e080983ab50a444f9f508554
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694924"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532029"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Mettre à l’échelle les ports SNAT avec Azure NAT Gateway
 
@@ -21,11 +21,14 @@ Pare-feu Azure fournit 2 048 ports SNAT par IP publique configurée, et vous
 
 L’utilisation d’un grand nombre d’IP publiques pose un autre problème lorsqu’il existe des exigences de filtrage des adresses IP en aval. Pare-feu Azure sélectionne de manière aléatoire l’IP publique source à utiliser pour une connexion. Vous devez donc autoriser toutes les IP publiques qui lui sont associées. Même si vous utilisez des [préfixes d’IP publiques](../virtual-network/public-ip-address-prefix.md) et que vous devez associer 250 IP publiques pour répondre à vos exigences en matière de ports SNAT sortants, vous devez toujours créer et autoriser 16 préfixes d’IP publiques.
 
-Une meilleure option pour mettre à l’échelle les ports SNAT sortants consiste à utiliser la [ressource de passerelle NAT](../virtual-network/nat-overview.md). Celle-ci fournit 64 000 ports SNAT par IP publique et prend en charge jusqu’à 16 IP publiques, fournissant ainsi jusqu’à 1 024 000 ports SNAT sortants.
+Une meilleure option pour mettre à l’échelle les ports SNAT sortants consiste à utiliser la [ressource de passerelle NAT](../virtual-network/nat-gateway/nat-overview.md). Celle-ci fournit 64 000 ports SNAT par IP publique et prend en charge jusqu’à 16 IP publiques, fournissant ainsi jusqu’à 1 024 000 ports SNAT sortants.
 
 Lorsqu’une ressource de passerelle NAT est associée à un sous-réseau de Pare-feu Azure, tout le trafic Internet sortant utilise automatiquement l’IP publique de la passerelle NAT. Il n’est pas nécessaire de configurer des [itinéraires définis par l’utilisateur](../virtual-network/tutorial-create-route-table-portal.md). Le trafic de réponse utilise l’IP publique de Pare-feu Azure pour maintenir la symétrie des flux. Si plusieurs adresses IP sont associées à la passerelle NAT, l’adresse IP est sélectionnée de manière aléatoire. Il n’est pas possible de spécifier l’adresse à utiliser.
 
 Il n’existe pas de double NAT avec cette architecture. Les instances de Pare-feu Azure envoient le trafic à la passerelle NAT à l’aide de leur adresse IP privée plutôt que de l’IP publique de Pare-feu Azure.
+
+> [!NOTE]
+> L’utilisation d’Azure NAT Gateway est actuellement incompatible avec Pare-feu Azure si vous avez déployé votre [pare-feu Azure sur plusieurs zones de disponibilité](deploy-availability-zone-powershell.md). En savoir plus sur [Azure NAT Gateway et les zones de disponibilité](../virtual-network/nat-gateway/nat-gateway-resource.md#cross-zone-outbound-scenarios-not-supported).
 
 ## <a name="associate-nat-gateway-with-azure-firewall-subnet---azure-powershell"></a>Associer une passerelle NAT à un sous-réseau de Pare-feu Azure (Azure PowerShell)
 
@@ -67,4 +70,4 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Conception de réseaux virtuels avec des ressources de passerelle NAT](../virtual-network/nat-gateway-resource.md)
+- [Conception de réseaux virtuels avec des ressources de passerelle NAT](../virtual-network/nat-gateway/nat-gateway-resource.md)

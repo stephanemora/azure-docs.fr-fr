@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fc565a886698466fce8eaa6ac5ff47ae44be4c9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581816"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458827"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
 Logic Apps vous aide à créer et à exécuter des tâches et des processus récurrents automatisés selon un calendrier. En créant un workflow d'application logique qui démarre avec un déclencheur intégré de type Périodicité ou Fenêtre glissante, c’est-à-dire des déclencheurs de type Planifier, vous pouvez exécuter des tâches immédiatement, ultérieurement ou à intervalles réguliers. Vous pouvez appeler des services à l'intérieur et à l'extérieur d'Azure, notamment des points de terminaison HTTP ou HTTPS, poster des messages sur des services Azure comme Azure Storage et Azure Service Bus, ou charger des fichiers vers un partage de fichiers. Le déclencheur Périodicité vous permet également de configurer des programmes complexes et des récurrences avancées pour exécuter des tâches. Pour plus d’informations sur les déclencheurs et actions de planification intégrés, consultez [Planifier des déclencheurs](#schedule-triggers) et [Planifier des actions](#schedule-actions). 
 
 > [!TIP]
-> Vous pouvez planifier et exécuter des charges de travail récurrentes sans créer d’application logique distincte pour chaque travail planifié et en cours d'exécution dans la [limite des workflows par région et par abonnement](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Vous pouvez privilégier l'utilisation du modèle d’application logique créé par le [modèle de démarrage rapide Azure : Planificateur de travaux Logic Apps](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
+> Vous pouvez planifier et exécuter des charges de travail récurrentes sans créer d’application logique distincte pour chaque travail planifié et en cours d'exécution dans la [limite des workflows par région et par abonnement](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Vous pouvez privilégier l'utilisation du modèle d’application logique créé par le [modèle de démarrage rapide Azure : Planificateur de travaux Logic Apps](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
 >
 > Le modèle du planificateur de travaux Logic Apps crée une application logique CreateTimerJob qui appelle une application logique TimerJob. Vous pouvez ensuite appeler l’application logique CreateTimerJob en tant qu’API en effectuant une requête HTTP et en utilisant une planification en tant qu'entrée pour la requête. Chaque appel fait à l’application logique CreateTimerJob appelle également l’application logique TimerJob, ce qui crée une nouvelle instance TimerJob qui s’exécute en continu en fonction de la planification spécifiée ou jusqu’à ce que la limite spécifiée soit atteinte. Ainsi, vous pouvez exécuter autant d’instances TimerJob que vous le souhaitez, sans vous soucier des limites de workflow car les instances ne correspondent pas à des définitions ou ressources de workflow d’application logique individuelle.
 
@@ -199,6 +199,27 @@ Si vous voulez exécuter votre application logique une seule fois dans le futur,
 ![Sélectionner le modèle « Planificateur : Exécuter des tâches une fois »](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
 Ou, si vous pouvez démarrer votre application logique avec le déclencheur **Lors de la réception d’une demande HTTP - Demande**, passez l'heure de début comme paramètre du déclencheur. Pour la première action, utiliser l’action **Retarder jusqu’à - Planifier** et indiquez l’heure de début d’exécution de l’action suivante.
+
+<a name="run-once-last-day-of-the-month"></a>
+
+## <a name="run-once-at-last-day-of-the-month"></a>Exécution unique le dernier jour du mois
+
+Pour exécuter le déclencheur Récurrence une seule fois le dernier jour du mois, vous devez modifier le déclencheur dans la définition JSON sous-jacente du flux de travail en utilisant le mode Code, et non le concepteur. Cependant, vous pouvez utiliser l’exemple suivant :
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
+}
+```
 
 <a name="example-recurrences"></a>
 

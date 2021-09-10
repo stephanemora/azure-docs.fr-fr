@@ -8,14 +8,16 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 37069bb17e0ce6a104ae3c1b79714da160737fe8
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: dd7d024b542feb2e15aefb79f2467e7033c180f9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356272"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106609"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Modification du niveau de performance avec le Portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
@@ -38,27 +40,11 @@ La procédure suivante montre comment modifier le niveau de performance d’un d
 :::image type="content" source="media/disks-performance-tiers-portal/new-disk-change-performance-tier.png" alt-text="Capture d’écran du panneau de création de disque, avec un disque et la liste déroulante du niveau de performance surlignés" lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
 
 
-## <a name="existing-disks"></a>Disques existants
-
-La procédure suivante montre comment modifier le niveau de performance d’un disque existant :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Accédez à la machine virtuelle contenant le disque que vous souhaitez modifier.
-1. Libérez la machine virtuelle ou détachez le disque.
-1. Sélectionnez votre disque.
-1. Sélectionnez **Taille + performances**.
-1. Dans la liste déroulante **Niveau de performance**, sélectionnez un niveau différent du niveau de performance actuel du disque.
-1. Sélectionnez **Redimensionner**.
-
-:::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Capture d’écran du panneau Taille + performances, avec le niveau de performance surligné" lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
-
-### <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Modifier le niveau de performance d’un disque sans temps d’arrêt (préversion)
+### <a name="change-the-performance-tier-of-an-existing-disk-without-downtime"></a>Modifier le niveau de performance d’un disque existant sans temps d’arrêt
 
 Vous pouvez également modifier votre niveau de performance sans temps d’arrêt. Ainsi, vous n’avez pas besoin de libérer votre machine virtuelle ou de détacher votre disque pour modifier le niveau.
 
 ### <a name="prerequisites"></a>Prérequis
-
-Votre disque doit répondre aux exigences énoncées dans la section [Modifier le niveau de performance sans temps d'arrêt (préversion)](#change-performance-tier-without-downtime-preview). Si ce n'est pas le cas, la modification du niveau de performance entraînera un temps d'arrêt.
 
 Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. Suivez les étapes ci-dessous pour activer la fonctionnalité pour votre abonnement :
 

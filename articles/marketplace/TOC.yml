@@ -41,7 +41,7 @@
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Gestion des licences
       href: isv-app-license.md
-    - name: Offres privées
+    - name: Plans privés
       href: private-plans.md
     - name: Plans et tarifs
       href: plans-pricing.md
@@ -341,6 +341,10 @@
               href: power-bi-app-technical-configuration.md
             - name: Contenu supplémentaire
               href: power-bi-app-supplemental-content.md
+    - name: "Offres visuels Power\_BI"
+      items:
+        - name: Questions fréquentes (FAQ) sur la migration vers l’Espace partenaires
+          href: power-bi-visual-faq.yml
     - name: Offres SaaS
       items:
         - name: Planifier l’offre

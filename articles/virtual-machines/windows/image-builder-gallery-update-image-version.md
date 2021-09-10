@@ -1,21 +1,24 @@
 ---
-title: Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure
-description: Créez une nouvelle version de l'image d'une machine virtuelle à partir d'une version existante à l'aide d'Azure VM Image Builder dans Windows.
-author: cynthn
-ms.author: cynthn
+title: Créer une nouvelle version d’image Windows à partir d’une version existante à l’aide d’Azure Image Builder
+description: Créer une nouvelle version d’image de machine virtuelle Windows à partir d’une version existante à l’aide d’Azure Image Builder.
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.collection: windows
-ms.openlocfilehash: 619821c87c4897c93e6a0344a98335cf4f95a53b
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 166e9b2b2ea98027c4ca9a8e13c5c26d68214d9a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070828"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769074"
 ---
-# <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Créer une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide d’Azure VM Image Builder dans Windows
+# <a name="create-a-new-windows-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Créer une nouvelle version d’image de machine virtuelle Windows à partir d’une version existante à l’aide d’Azure Image Builder
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows
 
 Cet article explique comment récupérer une version existante d’une image dans une [Bibliothèque d’images partagées](../shared-image-galleries.md), la mettre à jour et la publier sous la forme d’une nouvelle version dans la bibliothèque.
 
@@ -23,7 +26,7 @@ Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le 
 
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
-Pour utiliser le Générateur d’images Azure, vous devez inscrire la fonctionnalité.
+Pour utiliser Azure Image Builder, vous devez inscrire cette fonctionnalité.
 
 Vérifiez votre inscription.
 
@@ -70,10 +73,10 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Récupérez la version de l’image à mettre à jour.
@@ -83,7 +86,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Créer une identité affectée par l’utilisateur et définir des autorisations sur le groupe de ressources
@@ -123,6 +126,7 @@ Envoyez la configuration de l’image au service Générateur d’images de la m
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
+    --location $location \
     --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \

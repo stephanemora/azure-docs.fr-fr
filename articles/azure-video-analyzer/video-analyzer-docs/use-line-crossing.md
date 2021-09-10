@@ -3,12 +3,12 @@ title: Détecter quand des objets franchissent une ligne virtuelle dans une vid�
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Video Analyzer pour détecter quand des objets franchissent une ligne dans un flux vidéo en direct d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.openlocfilehash: 0b87d80c5dcc7a72bf940cac3573ee5e68964022
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7257562626b17c8f61479eb1ba4d51fea52d3c91
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604661"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185954"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutoriel : Détecter quand des objets franchissent une ligne virtuelle dans une vidéo en direct
 
@@ -113,7 +113,7 @@ Ouvrez l’URL de la topologie de pipeline dans un navigateur et examinez les pa
    }
 ```
 
-Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Si la vidéo en direct a une fréquence d’images de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence. Votre modèle AI a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
+Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Votre modèle AI a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
 
 Examinez également les espaces réservés `linecrossingName` et `lineCoordinates` des paramètres du nœud de franchissement de ligne. Nous avons fourni des valeurs par défaut pour ces paramètres, mais vous les remplacez avec le fichier operations.json. Regardez comment nous passons les autres paramètres du fichier operations.json à une topologie (par ex., URL RTSP).  
 
@@ -251,6 +251,9 @@ Dans ce message, notez les informations suivantes :
 * Le nombre de franchissements `clockwiseTotal`.
 * Le nombre de franchissements `counterclockwiseTotal`.
 * `direction` contient la direction de cet événement.
+
+> [!NOTE] 
+> Si vous avez déployé des ressources Azure à l’aide du déploiement en un clic pour ce tutoriel, une machine virtuelle Standard DS1 est créée. Toutefois, pour obtenir des résultats précis à partir de modèles AI consommant beaucoup de ressources comme YOLO, il peut être nécessaire d’augmenter la taille de la machine virtuelle. [Redimensionnez la machine virtuelle](../../virtual-machines/windows/resize-vm.md) pour augmenter le nombre de processeurs virtuels et la mémoire en fonction de vos besoins. Réactivez ensuite le pipeline en direct pour afficher les inférences.
 
 ## <a name="customize-for-your-own-environment"></a>Personnaliser pour votre propre environnement
 

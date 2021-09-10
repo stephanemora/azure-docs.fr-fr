@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Docs
 description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
-ms.topic: article
-ms.date: 03/15/2021
-ms.openlocfilehash: e75e8fe3b405652e245119cafa828e752436095b
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.topic: overview
+ms.date: 08/27/2021
+ms.openlocfilehash: b06ce04a7b2fd4fbb55cbe1b3ac8c2510305e781
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422122"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226325"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -25,7 +25,9 @@ Cet article s’appuie sur les informations de l’[article de présentation](./
 
 
 ## <a name="namespace"></a>Espace de noms
-Un espace de noms Event Hubs fournit des points de terminaison de réseau intégrés au DNS et une gamme de fonctionnalités de contrôle d’accès et de gestion de l’intégration réseau, telles que le [filtrage IP](event-hubs-ip-filtering.md), les [points de terminaison de service de réseau virtuel](event-hubs-service-endpoints.md) et [Private Link](private-link-service.md), et constitue le conteneur de gestion pour l’une des instances Event Hubs (ou rubriques, dans le jargon Kafka).
+Un espace de noms Event Hubs est un conteneur de gestion pour les Event Hubs (ou rubriques, en jargon Kafka). Il fournit des points de terminaison de réseau intégrés au DNS et une gamme de fonctionnalités de contrôle d’accès et de gestion de l’intégration réseau, telles que le [filtrage IP](event-hubs-ip-filtering.md), les [points de terminaison de service de réseau virtuel](event-hubs-service-endpoints.md) et la [liaison privée](private-link-service.md).
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Image montrant un espace de noms Event Hubs":::
 
 ## <a name="event-publishers"></a>Éditeurs d'événements
 
@@ -56,7 +58,7 @@ Les événements publiés sont supprimés d’un Event Hub selon une stratégie 
 
 Event Hubs conserve les événements pendant une durée de conservation configurée qui s’applique à toutes les partitions. Les événements sont automatiquement supprimés lorsque la période de conservation est atteinte. Si vous spécifiez une période de conservation d’une journée, l’événement devient indisponible exactement 24 heures après qu’il a été accepté. Vous ne pouvez pas supprimer explicitement des événements. 
 
-Si vous avez besoin d’archiver des événements au-delà de la période de conservation autorisée, vous pouvez faire en sorte qu’ils soient [stockés automatiquement dans Stockage Azure ou Azure Data Lake en activant la fonctionnalité de capture d’Event Hubs](event-hubs-capture-overview.md), et si vous avez besoin d’effectuer des recherches ou des analyses dans des archives profondes, vous pouvez [les importer facilement dans Azure Synapse](store-captured-data-data-warehouse.md) ou d’autres magasins et plateformes d’analytique similaires. 
+Si vous devez archiver des événements au-delà de la période de conservation autorisée, vous pouvez les stocker automatiquement dans le Stockage Azure ou Azure Data Lake en activant la [fonctionnalité de capture d’Event Hubs](event-hubs-capture-overview.md). Si vous avez besoin de rechercher ou d’analyser de telles archives profondes, vous pouvez facilement les importer dans [Azure Synapse](store-captured-data-data-warehouse.md) ou d’autres magasins et plateformes d’analyse similaires. 
 
 La limite de conservation des données en fonction du temps appliquée par Event Hubs a pour but d’éviter que des volumes importants de données historiques client soient interceptés dans un magasin profond qui n’est indexé que par un horodatage et qui n’autorise que l’accès séquentiel. La philosophie architecturale est que les données historiques nécessitent une indexation plus riche et un accès plus direct que l’interface d’événements en temps réel fournie par Event Hubs ou Kafka. Les moteurs de flux d’événements ne sont pas parfaits pour assumer le rôle de lacs de données ou d’archives à long terme pour le provisionnement d’événements. 
  
@@ -83,10 +85,16 @@ Vous n'êtes pas obligé de créer des noms d'éditeurs à l'avance, mais ils do
 
 ## <a name="capture"></a>Capture
 
-[Event Hubs Capture](event-hubs-capture-overview.md) vous permet de capturer automatiquement les données de streaming dans Event Hubs et de les enregistrer dans le compte Stockage Blob ou le compte Azure Data Lake Service de votre choix. Vous pouvez activer la fonctionnalité Capture à partir du portail Azure et spécifier une taille minimale, ainsi que la période pour l’exécution de la capture. Avec Event Hubs Capture, vous pouvez spécifier vos propres compte Stockage Blob Azure et conteneur, ou votre propre compte Azure Data Lake Store, celui qui est utilisé pour stocker les données capturées. Les données capturées sont écrites dans le format Apache Avro.
+[Event Hubs Capture](event-hubs-capture-overview.md) vous permet de capturer automatiquement les données de streaming dans Event Hubs et de les enregistrer dans le compte Stockage Blob ou le compte Azure Data Lake Storage de votre choix. Vous pouvez activer la fonctionnalité Capture à partir du portail Azure et spécifier une taille minimale, ainsi que la période pour l’exécution de la capture. Avec Event Hubs Capture, vous pouvez spécifier vos propres compte Stockage Blob Azure et conteneur, ou votre propre compte Azure Data Lake Storage, celui qui est utilisé pour stocker les données capturées. Les données capturées sont écrites dans le format Apache Avro.
+
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Image montrant la capture de données Event Hubs dans le Stockage Azure ou dans Azure Data Lake Storage":::
+
+Les fichiers générés par Event Hubs Capture présentent le schéma Avro suivant :
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image montrant la structure des données capturées":::
 
 ## <a name="partitions"></a>Partitions
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 ## <a name="sas-tokens"></a>Jetons SAS
@@ -137,7 +145,7 @@ Si un lecteur se déconnecte d'une partition, lorsqu'il se reconnecte il commenc
 > Si vous utilisez Stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du SDK de stockage Blob que celle généralement disponible sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### <a name="common-consumer-tasks"></a>Tâches courantes du consommateur

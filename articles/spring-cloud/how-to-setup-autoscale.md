@@ -1,18 +1,18 @@
 ---
 title: Configurer la mise à l’échelle automatique pour les applications de microservice
 description: Cet article décrit comment configurer les paramètres de mise à l’échelle automatique pour vos applications à l’aide du portail Microsoft Azure ou de l’interface Azure CLI.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 596c0deb833c5af7b85c1680062a24f075cf28cf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d1e0b9cb6beb48e6f9ae8c8d5d985f4dfd930d2d
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134624"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525485"
 ---
 # <a name="set-up-autoscale-for-microservice-applications"></a>Configurer la mise à l’échelle automatique pour les applications de microservice
 
@@ -38,7 +38,6 @@ Pour suivre ces procédures, vous avez besoin des éléments suivants :
 6. Accédez à l’onglet **Monter en charge** sous **Paramètres** dans le menu du volet de navigation de gauche.
 7. Sélectionnez le déploiement pour lequel vous souhaitez configurer la mise à l’échelle automatique. Vous devez voir les options de mise à l’échelle automatique présentées dans la section suivante.
 
-
 ![Menu de mise à l’échelle automatique](./media/spring-cloud-autoscale/autoscale-menu.png)
 
 ## <a name="set-up-autoscale-settings-for-your-application-in-the-azure-portal"></a>Configurer les paramètres de mise à l’échelle automatique pour votre application dans le portail Azure
@@ -53,20 +52,24 @@ Dans le portail Azure, choisissez la façon dont vous souhaitez effectuer la mis
 ![Mise à l’échelle automatique personnalisée](./media/spring-cloud-autoscale/custom-autoscale.png)
 
 ## <a name="set-up-autoscale-settings-for-your-application-in-azure-cli"></a>Configurer les paramètres de mise à l’échelle automatique pour votre application dans l’interface Azure CLI
+
 Vous pouvez également définir les modes de mise à l’échelle automatique à l’aide de l’interface Azure CLI.  Les commandes suivantes créent un paramètre et une règle de mise à l’échelle automatique.
 
-* Créer un paramètre de mise à l’échelle automatique
-  ```
-  az monitor autoscale create -g demo-rg --resource /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/demo-rg/providers/Microsoft.AppPlatform/Spring/autoscale/apps/demo/deployments/default --name demo-setting --min-count 1 --max-count 5 --count 1
-  ```
-* Créer une règle de mise à l’échelle automatique
-  ```
-  az monitor autoscale rule create -g demo-rg --autoscale-name demo-setting --scale out 1 --cooldown 1 --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
-  ```
+* Créer un paramètre de mise à l’échelle automatique :
+
+   ```azurecli
+   az monitor autoscale create -g demo-rg --resource /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/demo-rg/providers/Microsoft.AppPlatform/Spring/autoscale/apps/demo/deployments/default --name demo-setting --min-count 1 --max-count 5 --count 1
+   ```
+
+* Créer une règle de mise à l’échelle automatique :
+
+   ```azurecli
+   az monitor autoscale rule create -g demo-rg --autoscale-name demo-setting --scale out 1 --cooldown 1 --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
+   ```
 
 ## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
 
-Si vous êtes au niveau De base et limité par une ou plusieurs de ces restrictions, vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu **Niveau tarifaire** en sélectionnant d’abord la colonne du niveau *Standard* et en cliquant sur le bouton **Mettre à niveau**.
+Si vous êtes au niveau De base et limité par une ou plusieurs de ces restrictions, vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu **Niveau tarifaire** en sélectionnant d’abord la colonne **Niveau standard**, puis le bouton **Mettre à niveau**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

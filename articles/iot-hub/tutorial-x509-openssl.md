@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 7985879b54fe840ec47d72595d95547aa062938b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: adbb2979fc9e097fa0abf2675759ba1f7aad8a0c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724309"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310565"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutoriel : Utiliser OpenSSL pour créer des certificats de test
 
@@ -238,20 +238,27 @@ Vous disposez maintenant d'un certificat d'AC et d'un certificat d'AC subordonn�
 
 1. Sur le portail Azure, accédez à votre instance d'IoT Hub et sélectionnez **Paramètres > Certificats**.
 
-1. Sélectionnez **Ajouter** pour ajouter votre nouveau certificat d'AC subordonnée.
+2. Sélectionnez **Ajouter** pour ajouter votre nouveau certificat d'AC subordonnée.
 
-1. Entrez un nom d'affichage dans le champ **Nom du certificat**, puis sélectionnez le fichier de certificat PEM que vous avez précédemment créé.
+3. Entrez un nom d'affichage dans le champ **Nom du certificat**, puis sélectionnez le fichier de certificat PEM que vous avez précédemment créé.
 
-1. Sélectionnez **Enregistrer**. Votre certificat apparaît dans la liste des certificats avec l'état **Non vérifié**. Le processus de vérification prouvera que vous êtes propriétaire du certificat.
+> [!NOTE]
+> Les certificats .crt créés ci-dessus sont similaires aux certificats .pem. Vous pouvez simplement modifier l’extension lors du chargement d’un certificat pour prouver sa possession ou vous pouvez utiliser la commande OpenSSL suivante :
+
+```bash
+openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+```
+
+4. Sélectionnez **Enregistrer**. Votre certificat apparaît dans la liste des certificats avec l'état **Non vérifié**. Le processus de vérification prouvera que vous êtes propriétaire du certificat.
 
    
-1. Sélectionnez le certificat pour afficher la boîte de dialogue **Détails du certificat**.
+5. Sélectionnez le certificat pour afficher la boîte de dialogue **Détails du certificat**.
 
-1. Sélectionnez **Générer un code de vérification**. Pour plus d'informations, consultez [Preuve de possession d'un certificat d'AC](tutorial-x509-prove-possession.md).
+6. Sélectionnez **Générer un code de vérification**. Pour plus d'informations, consultez [Preuve de possession d'un certificat d'AC](tutorial-x509-prove-possession.md).
 
-1. Copiez le code de vérification dans le Presse-papiers. Vous devez définir le code de vérification en tant qu'objet du certificat. Par exemple, si le code de vérification est BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, ajoutez-le en tant qu'objet de votre certificat, comme indiqué à l'étape 9.
+7. Copiez le code de vérification dans le Presse-papiers. Vous devez définir le code de vérification en tant qu'objet du certificat. Par exemple, si le code de vérification est BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, ajoutez-le en tant qu'objet de votre certificat, comme indiqué à l'étape 9.
 
-1. Générez une clé privée.
+8. Générez une clé privée.
 
   ```bash
     $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048

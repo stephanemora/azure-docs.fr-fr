@@ -7,14 +7,13 @@ ms.date: 06/14/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philMea
 zone_pivot_groups: facility-ontology-schema
-ms.openlocfilehash: 63e9702f8bebb449518002e18a824c65d81fab80
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c08faefc795fd65c71163bd9f8c24a1f8cd939f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076453"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524191"
 ---
 # <a name="facility-ontology"></a>Ontologie des installations
 
@@ -175,7 +174,6 @@ La classe de fonctionnalités `facility` définit la zone du site, l’encombrem
 |`categoryId`        | [category.Id](#category)      |true      | ID d’une fonctionnalité [`category`](#category).|
 |`occupants`         | tableau de [directoryInfo.Id](#directoryinfo) |    false |    ID des fonctionnalités [directoryInfo](#directoryinfo). Permettent de représenter au moins un occupant dans la fonctionnalité. |
 |`addressId`         | [directoryInfo.Id](#directoryinfo)  | true     | ID d’une fonctionnalité [directoryInfo](#directoryinfo). Permet de représenter l’adresse de la fonctionnalité.|
-|`addressRoomNumber`         |  [directoryInfo.Id](#directoryinfo)| true     | Numéro de salle/unité/appartement/suite de l’unité.|
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité.  La longueur maximale autorisée est de 1 000 caractères.|
@@ -278,7 +276,7 @@ La fonctionnalité de classe d’objet `directoryInfo` définit le nom, l’adre
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité. La longueur maximale autorisée est de 1 000 caractères. |
-|`phoneNumber` |    string |    false |    Numéro de téléphone. |
+|`phoneNumber` |    string |    false |    Numéro de téléphone. La longueur maximale autorisée est de 1 000 caractères. |
 |`website` |    string |    false |  URL du site web. La longueur maximale autorisée est de 1 000 caractères. |
 |`hoursOfOperation` |    string |    false |   Heures de fonctionnement sous forme de texte après la [spécification d’Open Street Map](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). La longueur maximale autorisée est de 1 000 caractères. |
 

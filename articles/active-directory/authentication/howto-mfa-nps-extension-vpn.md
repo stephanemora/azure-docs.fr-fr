@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 08/04/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c4c5c4e632943ebbe68003f663aebbeaab9ebaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fd16df2d8f1dfff4f5a7bd1075a63cf9b0ec78b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743443"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531809"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN à Azure AD MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -218,6 +218,7 @@ Cette section détaille la configuration que vous avez créée en utilisant l’
 
 Dans cette section, vous configurez votre serveur VPN pour utiliser l’authentification RADIUS. Cette section présuppose que vous disposez d’une configuration de serveur VPN qui fonctionne, mais que vous ne l’avez pas configuré pour utiliser l’authentification RADIUS. Après avoir configuré le serveur VPN, assurez-vous que votre configuration fonctionne comme prévu.
 
+
 > [!NOTE]
 > Si vous disposez déjà d’une configuration de serveur VPN de travail qui utilise l’authentification RADIUS, vous pouvez ignorer cette section.
 >
@@ -244,10 +245,8 @@ Dans cette section, vous configurez votre serveur VPN pour utiliser l’authenti
 
     b. Dans **Secret partagé**, sélectionnez **Modifier** et entrez le mot de passe secret partagé que vous avez créé et noté précédemment.
 
-    c. Dans le champ **Délai (en secondes)** , entrez la valeur **30**.  
-    Il est nécessaire de prévoir un délai suffisant pour exécuter le second facteur d’authentification. Il existe des VPN ou régions qui requièrent des paramètres de délai d’expiration supérieurs à 30 secondes pour empêcher les utilisateurs de recevoir plusieurs appels téléphoniques. Si des utilisateurs rencontrent ce problème, augmentez la valeur **Délai d’expiration (secondes)** par incréments de 30 secondes jusqu’à ce que le problème disparaisse.
-
-    ![Fenêtre Ajouter un serveur RADIUS configurant le délai](./media/howto-mfa-nps-extension-vpn/image16.png) 
+    c. Dans le champ **Délai (en secondes)** , entrez la valeur **60**.  
+    Pour réduire le nombre de requêtes ignorées, nous recommandons de configurer les serveurs VPN avec un délai d’expiration d’au moins 60 secondes. Si nécessaire, ou afin de réduire le nombre de requêtes ignorées dans les journaux des événements, vous pouvez augmenter la valeur du délai d’attente du serveur VPN à 90 ou 120 secondes.
 
 8. Sélectionnez **OK**.
 
@@ -302,7 +301,7 @@ Pour résoudre ces problèmes, l’idéal est d’examiner les journaux des év�
 
 ## <a name="configure-multi-factor-authentication"></a>Configurer l’authentification multifacteur
 
-Pour obtenir de l’aide sur la configuration des utilisateurs pour Multi-Factor Authentication, consultez les articles [Planifier un déploiement informatique d’Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md#create-conditional-access-policy) et [Configurer mon compte pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-first-time.md)
+Pour obtenir de l’aide sur la configuration des utilisateurs pour Multi-Factor Authentication, consultez les articles [Planifier un déploiement informatique d’Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md#plan-conditional-access-policies) et [Configurer mon compte pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installer et configurer l’extension de serveur NPS
 

@@ -6,14 +6,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 7251e97209e9cca1b4c86a6ab8c829c8f0346525
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 8b2468b13f7093129c137019d8ec7f60e4fd5e4f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674896"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258002"
 ---
 # <a name="list-of-session-border-controllers-certified-for-azure-communication-services-direct-routing"></a>Liste des contrôleurs SBC certifiés pour le routage direct Azure Communication Services
 Ce document contient une liste de contrôleurs SBC certifiés pour le routage direct Azure Communication Services. Il comprend également les limitations connues.
@@ -37,8 +37,8 @@ En cas de questions sur le programme de certification SBC pour le routage direct
 
 |Fournisseur|Produit|Version du logiciel|
 |:--- |:--- |:--- 
+|AudioCodes|SBC Mediant|7,40 A
 |Metaswitch|Contrôleur Perimeta SBC|4,9|
-
 
 Notez la certification accordée à une version principale. Cela signifie que les microprogrammes avec un nombre quelconque dans le microprogramme SBC suivant la version principale sont pris en charge.
 
@@ -47,7 +47,7 @@ Notez la certification accordée à une version principale. Cela signifie que le
 ### <a name="conceptual-documentation"></a>Documentation conceptuelle
 
 - [Types de numéros de téléphone dans Azure Communication Services](./plan-solution.md)
-- [Planifier le routage direct Azure](./sip-interface-infrastructure.md)
+- [Planifier le routage direct Azure](./direct-routing-infrastructure.md)
 - [Associer le contrôleur de frontière de session et configurer le routage vocal](./direct-routing-provisioning.md)
 - [Tarification](../pricing.md)
 

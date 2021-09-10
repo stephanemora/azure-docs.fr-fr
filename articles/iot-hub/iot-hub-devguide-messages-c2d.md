@@ -2,19 +2,18 @@
 title: Présentation de la messagerie de cloud-à-appareil Azure IoT Hub | Microsoft Docs
 description: Ce guide du développeur explique comment utiliser la messagerie cloud-à-appareil avec IoT Hub. Il inclut des informations sur le cycle de vie des messages et les options de configuration.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 7bb3ca2b31eaef5c0639f30e0f2a329a37dfe7e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cc681d843d1fc68b3da6918724c7ad3e3ca5e37e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524236"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -141,7 +140,7 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 | maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100 ; valeur par défaut : 10 |
 | feedback.ttlAsIso8601     | Rétention des messages de commentaire liés au service | Intervalle ISO_8601 de 2 jours maximum (minimum 1 minute) ; valeur par défaut : 1 heure |
 | feedback.maxDeliveryCount | Nombre de remises maximal pour la file d’attente de commentaires | 1 à 100 ; valeur par défaut : 10 |
-| feedback.lockDurationAsIso8601 | Nombre de remises maximal pour la file d’attente de commentaires | Intervalle ISO_8601 de 5 à 300 secondes (minimum 5 secondes) ; valeurs par défaut : 60 secondes. |
+| feedback.lockDurationAsIso8601 | Durée de verrouillage de la file d’attente de commentaires | Intervalle ISO_8601 de 5 à 300 secondes (minimum 5 secondes) ; valeurs par défaut : 60 secondes. |
 
 Vous pouvez définir les options de configuration de l’une des manières suivantes :
 

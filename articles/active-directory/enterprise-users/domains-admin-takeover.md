@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f036f96b4747fb6b712bf032d6f2ec3cb38e6a
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: e84c19bfe003d094df1c78204e312149d7b51328
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288029"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864595"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -95,13 +95,16 @@ La prise de contrôle par administrateur externe est prise en charge par les ser
 
 Les plans de service pris en charge sont les suivants :
 
-- PowerApps Gratuit
-- PowerFlow Gratuit
+- Power Apps gratuit
+- Power Automate gratuit
 - RMS pour les particuliers
 - Microsoft Stream
 - Version d’évaluation gratuite de Dynamics 365
 
 La prise de contrôle par administration externe n’est pas prise en charge pour les services dont les plans de service incluent SharePoint, OneDrive ou Skype entreprise, par exemple, via un abonnement gratuit à Office. 
+
+> [!NOTE]
+> La prise de contrôle d’administration externe n’est pas prise en charge dans les limites du cloud (par exemple, Azure commercial vers Azure Government).  Dans ces scénarios, il est recommandé d’effectuer une prise de contrôle d’administration externe dans un autre locataire Azure commercial, puis de supprimer le domaine de ce locataire afin de pouvoir vérifier correctement le locataire Azure Government de destination.
 
 Sinon, vous pouvez recourir à l’[**option ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine de l’organisation non gérée et le vérifier au sein de l’organisation souhaitée. 
 

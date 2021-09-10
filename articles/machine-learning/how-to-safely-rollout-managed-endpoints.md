@@ -8,19 +8,19 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.custom: how-to
-ms.openlocfilehash: 93365304e958bfabaf3067ab58312a9b78745edb
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.custom: how-to, devplatv2
+ms.openlocfilehash: 5fe647fba68150f45c450d71f208cf6a53dd0b98
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854663"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122564007"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>Déploiement sécurisé pour les points de terminaison en ligne (préversion)
 
-Vous avez un modèle existant déployé en production et vous voulez déployer une nouvelle version du modèle. Comment déployer votre nouveau modèle ML sans provoquer de perturbation ? Une bonne réponse est le déploiement blue-green (bleu-vert), une approche dans laquelle une nouvelle version d’un service web est introduite en production en déployant la modification sur une petite partie d’utilisateurs/de demandes avant de la déployer complètement. 
+Vous avez un modèle existant déployé en production et vous voulez déployer une nouvelle version du modèle. Comment déployer votre nouveau modèle ML sans provoquer de perturbation ? Une bonne réponse est le déploiement blue-green (bleu-vert), une approche dans laquelle une nouvelle version d’un service web est introduite en production en déployant la modification sur une petite partie d’utilisateurs/de demandes avant de la déployer complètement. Cet article part du principe que vous utilisez des points de terminaison en ligne. Pour plus d’informations, consultez [Que sont les points de terminaison Azure Machine Learning (préversion) ?](concept-endpoints.md).
 
 Dans cet article, vous allez apprendre à effectuer les opérations suivantes :
 
@@ -37,9 +37,9 @@ Dans cet article, vous allez apprendre à effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Pour utiliser Azure Machine Learning, vous devez avoir un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+* Pour utiliser Azure Machine Learning, vous devez avoir un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
-* Vous devez installer et configurer Azure CLI et l’extension ML. Pour plus d’informations, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md). 
+* Vous devez installer et configurer Azure CLI et l’extension ML. Pour plus d’informations, consultez [Installer, configurer et utiliser l’interface CLI (v2) (préversion)](how-to-configure-cli.md). 
 
 * Vous devez avoir un groupe de ressources Azure dans lequel vous (ou le principal de service que vous utilisez) devez disposer d’un accès `Contributor`. Vous disposez d’un tel groupe de ressources si vous avez configuré votre extension ML conformément à l’article ci-dessus. 
 
@@ -145,3 +145,15 @@ Mettez à jour le déploiement avec :
 Si vous ne prévoyez pas d’utiliser le déploiement, vous devez le supprimer avec :
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+
+
+## <a name="next-steps"></a>Étapes suivantes
+- [Déployer des modèles avec REST (préversion)](how-to-deploy-with-rest.md)
+- [Créer et utiliser des points de terminaison en ligne managés (préversion) dans le studio](how-to-use-managed-online-endpoint-studio.md)
+- [Tutoriel : Accéder aux ressources Azure avec un point de terminaison en ligne managé et une identité managée par le système (préversion)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
+- [Superviser des points de terminaison en ligne managés (préversion)](how-to-monitor-online-endpoints.md)
+- [Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+- [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md)
+- [Liste des références SKU pour les points de terminaison en ligne managés (préversion)](reference-managed-online-endpoints-vm-sku-list.md)
+- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Informations de référence YAML sur les points de terminaison en ligne managés (préversion)](reference-yaml-endpoint-managed-online.md)

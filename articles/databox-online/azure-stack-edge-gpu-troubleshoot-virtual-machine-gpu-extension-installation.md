@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 256902ef26328050b4ed52053f465571974ffefe
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: a2e6996bd2b86da470b364da1349248e26b2fa58
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422153"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532625"
 ---
 # <a name="troubleshoot-gpu-extension-issues-for-gpu-vms-on-azure-stack-edge-pro-gpu"></a>Résoudre les problèmes d’extension GPU des machines virtuelles GPU sur Azure Stack Edge Pro avec GPU
 
@@ -36,7 +36,7 @@ Pour connaître les étapes d’installation, consultez [Installer l’extension
 
 **Solution suggérée :** préparez une nouvelle image de machine virtuelle dotée d’un système d’exploitation pris en charge par l’extension GPU. 
 
-* Pour obtenir la liste des systèmes d’exploitation pris en charge, consultez [Système d’exploitation et pilotes GPU pris en charge pour les machines virtuelles GPU](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
+* Pour obtenir la liste des systèmes d’exploitation pris en charge, consultez [Système d’exploitation et pilotes GPU pris en charge pour les machines virtuelles GPU](./azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-and-gpu-drivers).
 
 * Pour connaître les conditions requises de la préparation de l’image d’une machine virtuelle GPU, consultez [Créer des machines virtuelles GPU](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
@@ -52,7 +52,7 @@ Pour connaître les étapes d’installation, consultez [Installer l’extension
 
 **Description de l’erreur :** échec du provisionnement de l’extension lors de l’installation de l’extension ou pendant l’état d’activation.
 
-1. Recherchez l’erreur associée dans le journal de l’invité. <!--To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+1. Recherchez l’erreur associée dans le journal de l’invité. Pour collecter les journaux de l’invité, consultez [Collecter les journaux de l’invité pour les machines virtuelles sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
    Sur une machine virtuelle Linux :
    * Regardez dans `/var/log/waagent.log` ou `/var/log/azure/nvidia-vmext-status`.
@@ -78,7 +78,7 @@ Pour connaître les étapes d’installation, consultez [Installer l’extension
 
 **Solution suggérée :** pour résoudre le problème, suivez ces étapes :
 
-1.  Pour savoir quel processus applique le verrou, recherchez dans le journal \var\log\azure\nvidia-vmext-status une erreur, telle que « dpkg est utilisé par un autre processus » ou « une autre application détient yum Lock ».
+1.  Pour savoir quel processus applique le verrou, recherchez dans le journal \var\log\azure\nvidia-vmext-status une erreur telle que « dpkg est utilisé par un autre processus » ou « Une autre application détient `yum lock` ».
 
 1. Attendez que le processus se termine ou mettez fin au processus.
 
@@ -89,5 +89,4 @@ Pour connaître les étapes d’installation, consultez [Installer l’extension
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Installer l’extension GPU](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux)<!--Temporary link until next one can be restored.-->
-<!-- Remove link while cmdlet is fixed. - [Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
+[Collecter les journaux de l’invité et créer un package de support](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f5e4ff93b90c7644c1d1498a14c8b9954041cb34
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c150fdae1820dee3ae440f4d4acdacff04e14e66
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028364"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527633"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurer l’inscription et la connexion avec un ID Apple à l’aide d’Azure Active Directory B2C (préversion)
 
@@ -46,19 +46,19 @@ Pour permettre la connexion des utilisateurs avec un ID Apple dans Azure Active 
     1. Entrez une **Description**. 
     1. Entrer **l’ID d’offre groupée**, par exemple `com.contoso.azure-ad-b2c`. 
     1. Pour les **Fonctionnalités**, sélectionnez **Se connecter avec Apple** dans la liste des fonctionnalités. 
-    1. Notez votre préfixe d’ID d’application (ID d’équipe) à cette étape. Vous en aurez besoin ultérieurement.
+    1. Notez votre **ID d’équipe** (préfixe d’ID d’application) à cette étape. Vous en aurez besoin ultérieurement.
     1. Sélectionnez **Continue**, puis **Register**.
 1. Dans le menu, sélectionnez **Certificats, ID et profils**, puis sélectionnez **(+)** .
 1. Pour **Inscrire un nouvel identificateur**, sélectionnez **ID de services**, puis sélectionnez **Continuer**.
 1. Pour **Inscrire un ID de services** :
     1. Entrez une **Description**. La description s’affiche pour l’utilisateur sur l’écran de consentement.
-    1. Entrez **l’Identificateur**, par exemple `com.consoto.azure-ad-b2c-service`. L’identificateur est votre ID client pour le flux OpenID Connect.
+    1. Entrez **l’Identificateur**, par exemple `com.consoto.azure-ad-b2c-service`. Prenez note de votre identificateur **ID de service**. L’identificateur est votre **ID client** pour le flux OpenID Connect.
     1. Sélectionnez **Continuer**, puis sélectionnez **S’inscrire**.
 1. Dans **Identificateurs**, sélectionnez l’identificateur que vous avez créé.
 1. Sélectionnez **Se connecter avec Apple**, puis sélectionnez **Configurer**.
     1. Sélectionnez **l’ID de l’application principale** pour laquelle vous souhaitez configurer la connexion avec Apple.
     1. Dans **Domaines et sous-domaines**, entrez `your-tenant-name.b2clogin.com`. Remplacez your-tenant-name par le nom de votre locataire. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name`.
-    1. Dans **URL de retour**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé.
+    1. Dans **URL de retour**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé. L’URL Retour doit être en lettres minuscules.
     1. Sélectionnez **Suivant**, puis sélectionnez **Terminé**.
     1. Quand la fenêtre contextuelle est fermée, sélectionnez **Continuer**, puis sélectionnez **Enregistrer**.
 
@@ -69,7 +69,7 @@ Pour permettre la connexion des utilisateurs avec un ID Apple dans Azure Active 
     1. Tapez un **Nom de clé**.
     1. Sélectionnez **Se connecter avec Apple**, puis sélectionnez **Configurer**.
     1. Pour **l’ID d’application principale**, sélectionnez l’application que vous avez créée précédemment, puis sélectionnez **Enregistrer**.
-    1. Sélectionnez **Configurer**, puis sélectionnez **S’inscrire** pour terminer le processus d’inscription de la clé.
+    1. Sélectionnez **Configurer**, puis sélectionnez **S’inscrire** pour terminer le processus d’inscription de la clé. Notez l’**ID de clé**. Cette clé est requise lorsque vous configurez des flux d’utilisateur.
 1. Pour **Télécharger votre clé**, sélectionnez **Télécharger** pour télécharger un fichier .p8 qui contient votre clé.
 
 
@@ -81,10 +81,10 @@ Pour permettre la connexion des utilisateurs avec un ID Apple dans Azure Active 
 1. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Apple (préversion)** .
-1. Saisissez un **Nom**. Par exemple *Apple*.
+1. Pour le **nom**, entrez **Se connecter avec Apple**. 
 1. Entrez **l’ID de développeur Apple (ID d’équipe)** .
 1. Entrez **l’ID de service Apple (ID client)** .
-1. Entrez **l’ID de clé Apple**.
+1. Entrez l’**ID de clé Apple** de l’étape [Création d’une clé secrète client Apple](#creating-an-apple-client-secret).
 1. Sélectionnez et chargez les **Données de certificat Apple**.
 1. Sélectionnez **Enregistrer**.
 
@@ -93,6 +93,7 @@ Pour permettre la connexion des utilisateurs avec un ID Apple dans Azure Active 
 > - En cas de connexion avec Apple, l’administrateur doit renouveler sa clé secrète client tous les 6 mois. 
 > - Pendant la préversion publique de cette fonctionnalité, vous devez renouveler manuellement la clé secrète client Apple si elle expire. Un avertissement s’affiche à l’avance sur la page Configurer l’IDP social des fournisseurs d’identité Apple, mais nous vous recommandons de définir votre propre rappel. 
 > - Si vous devez renouveler le secret, ouvrez Azure AD B2C dans le portail Azure, accédez à **Fournisseurs d’identité** > **Apple** et sélectionnez **Renouveler le secret**.
+> - Suivez les instructions pour [proposer le bouton Se connecter avec Apple](#customize-your-user-interface).
 
 ## <a name="add-the-apple-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Apple à un flux d’utilisateur
 
@@ -124,7 +125,7 @@ Utilisez le fichier .p8 téléchargé précédemment pour signer la clé secrè
 1. Effectuez une requête HTTP `POST` et fournissez les informations suivantes :
 
     - **appleTeamId** : votre ID d’équipe de développeurs Apple
-    - **appleServiceId** : ID de service Apple (également ID client)
+    - **appleServiceId** : ID de service Apple (ID client)
     - **p8key** : clé au format PEM. Vous pouvez obtenir la clé en ouvrant le fichier .p8 dans un éditeur de texte et en copiant tout ce qui se trouve entre `-----BEGIN PRIVATE KEY-----` et `-----END PRIVATE KEY-----`, sans sauts de ligne.
  
 Le code JSON suivant est un exemple d’appel de la fonction Azure :
@@ -132,7 +133,6 @@ Le code JSON suivant est un exemple d’appel de la fonction Azure :
 ```json
 {
     "appleTeamId": "ABC123DEFG",
-    "appleKeyId": "URKEYID001",
     "appleServiceId": "com.yourcompany.app1",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }
@@ -165,6 +165,7 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 > - En cas de connexion avec Apple, l’administrateur doit renouveler sa clé secrète client tous les 6 mois.
 > - Vous devrez renouveler manuellement la clé secrète client Apple si elle expire et stocker la nouvelle valeur dans la clé de stratégie.
 > - Nous vous recommandons de définir votre propre rappel dans les 6 mois pour générer une nouvelle clé secrète client. 
+> - Suivez les instructions pour [proposer le bouton Se connecter avec Apple](#customize-your-user-interface).
 
 ## <a name="configure-apple-as-an-identity-provider"></a>Configurer Apple en tant que fournisseur d’identité
 
@@ -182,7 +183,7 @@ Vous pouvez définir un ID Apple en tant que fournisseur de revendications en l�
       <DisplayName>Apple</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Apple-OIDC">
-          <DisplayName>Apple</DisplayName>
+          <DisplayName>Sign in with Apple</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
             <Item Key="ProviderName">apple</Item>
@@ -208,7 +209,7 @@ Vous pouvez définir un ID Apple en tant que fournisseur de revendications en l�
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
+            <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
@@ -257,3 +258,13 @@ Vous pouvez définir un ID Apple en tant que fournisseur de revendications en l�
 Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end
+
+## <a name="customize-your-user-interface"></a>Personnaliser votre interface utilisateur
+
+Suivez les instructions pour [proposer l’option Se connecter avec Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/introduction/). Apple fournit plusieurs boutons **Se connecter avec Apple** que vous pouvez utiliser pour permettre aux utilisateurs de configurer un compte et de se connecter. Si nécessaire, créez un bouton personnalisé pour proposer l’option Se connecter avec Apple. Découvrez comment [afficher un bouton Se connecter avec Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/).
+
+Pour vous conformer aux instructions de l’interface utilisateur d’Apple :
+
+- [Personnaliser l’interface utilisateur avec des modèles HTML](customize-ui-with-html.md)
+- [Localisez](language-customization.md) le nom du fournisseur d’identité.
+

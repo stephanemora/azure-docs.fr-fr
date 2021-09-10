@@ -2,25 +2,25 @@
 title: Gestion du consentement pour les applications et évaluation des demandes de consentement dans Azure Active Directory
 description: Apprenez à gérer les demandes de consentement lorsque le consentement de l’utilisateur est désactivé ou limité, puis à évaluer une demande de consentement de l’administrateur au niveau du locataire pour une application dans Azure Active Directory.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 4b533c7e12cf62ac633b4988774d7cff71b3e677
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7893a73650e90411aa45f35d014b394eab0ad67d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079262"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568511"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
 
-Microsoft [recommande](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) de désactiver le consentement de l’utilisateur final pour les applications. Cela permet de centraliser le processus de prise de décision au niveau de l’équipe d’administrateurs de la sécurité et des identités de votre organisation.
+Microsoft recommande de [limiter le consentement de l’utilisateur](../../active-directory/manage-apps/configure-user-consent.md) afin que les utilisateurs ne puissent consentir qu’aux applications provenant d’éditeurs vérifiés et uniquement pour les autorisations que vous sélectionnez. Pour les applications qui ne respectent pas cette stratégie, le processus décisionnel sera centralisé auprès de l’équipe d’administrateurs de la sécurité et des identités de votre organisation.
 
 Une fois que le consentement de l’utilisateur final est désactivé ou limité, plusieurs points importants sont à prendre en considération pour garantir que votre organisation reste sécurisée tout en permettant l’utilisation d’applications critiques pour l’entreprise. Ces étapes sont essentielles pour réduire l’impact sur l’équipe de support de votre organisation et les administrateurs informatiques tout en empêchant l’utilisation de comptes non gérés dans les applications tierces.
 
@@ -94,28 +94,34 @@ La liste suivante fournit quelques recommandations à prendre en compte lors de 
 ## <a name="granting-consent-as-an-administrator"></a>Octroi de consentement en tant qu’administrateur
 
 ### <a name="granting-tenant-wide-admin-consent"></a>Octroi de consentement de l’administrateur au niveau du locataire
+
 Pour des instructions pas à pas sur l’octroi d’un consentement de l’administrateur au niveau du locataire en utilisant le portail Azure, Azure AD PowerShell ou l’invite de consentement elle-même, consultez [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md).
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Octroi de consentement pour le compte d’un utilisateur spécifique
+
 Au lieu d’accorder un consentement pour toute l’organisation, un administrateur peut également utiliser l’[API Microsoft Graph](/graph/use-the-api) pour accorder un consentement aux autorisations déléguées pour le compte d’un seul utilisateur. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitation de l’accès utilisateur aux applications
+
 L’accès des utilisateurs aux applications peut quand même être limité même si le consentement de l’administrateur au niveau du locataire a été accordé. Pour plus d’informations sur la façon de demander l’attribution d’utilisateurs à une application, consultez [Méthodes pour attribuer des utilisateurs et des groupes](./assign-user-or-group-access-portal.md).
 
 Pour une vue d’ensemble plus générale comprenant comment gérer d’autres scénarios complexes, consultez [Utilisation d’Azure AD pour la gestion des accès aux applications](what-is-access-management.md).
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Désactiver toutes les futures opérations de consentement de l’utilisateur pour n’importe quelle application
+
 La désactivation du consentement de l’utilisateur pour votre annuaire entier empêche les utilisateurs finaux de donner leur consentement pour n’importe quelle application. Les administrateurs peuvent toujours donner leur consentement au nom de l’utilisateur. Pour plus d’informations sur le consentement de l’application et sur les conditions pour donner ou refuser ce consentement, consultez la section [Comprendre le consentement de l’utilisateur et de l’administrateur](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 Pour désactiver toutes les futures opérations de consentement de l’utilisateur dans l’ensemble de votre annuaire, procédez comme suit :
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
-4.  Sélectionnez **Utilisateurs et groupes** dans le menu de navigation.
-5.  Sélectionnez **Paramètres utilisateur**.
-6.  Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
+
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+4. Sélectionnez **Utilisateurs et groupes** dans le menu de navigation.
+5. Sélectionnez **Paramètres utilisateur**.
+6. Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 * [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md)

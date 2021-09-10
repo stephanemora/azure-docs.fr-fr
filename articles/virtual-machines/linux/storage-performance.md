@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 99349654bb01f368a2a3a84c4ecc01f248b25175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffe772677e8de28c3ea0de31092f1aca693feccf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552760"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524543"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Optimiser les performances sur les machines virtuelles Linux de la série Lsv2
 
@@ -32,7 +32,7 @@ La conception des machines virtuelles de la série Lsv2 exploite au maximum le p
 
 Cet article fournit des conseils et des suggestions pour faire en sorte que vos charges de travail et vos applications atteignent les performances maximales dans les machines virtuelles. Les informations contenues dans cette page seront constamment mises à jour à mesure que de nouvelles images optimisées Lsv2 seront ajoutées à la Place de marché Azure.
 
-## <a name="amd-eypc-chipset-architecture"></a>Architecture du circuit microprogrammé AMD EYPC™
+## <a name="amd-epyc-chipset-architecture"></a>Architecture du circuit microprogrammé AMD EPYC™
 
 Les machines virtuelles de la série Lsv2 utilisent des processeurs serveur AMD EYPC™ basés sur la microarchitecture Zen. AMD a développé Infinity Fabric (IF) pour EYPC™ en tant qu’interconnexion scalable pour son modèle NUMA qui peut être utilisé pour les communications au niveau du die, du package et entre plusieurs packages. Par rapport à QPI (Quick-Path Interconnect) et à UPI (Ultra-Path Interconnect), tous deux utilisés sur les processeurs modernes Intel à dies monolithiques, l’architecture AMD constituée de nombreux dies de petite taille NUMA peut offrir des avantages sur le plan des performances, mais créer aussi des difficultés. L’impact réel des contraintes de bande passante et de latence de la mémoire peut varier selon le type des charges de travail exécutées.
 

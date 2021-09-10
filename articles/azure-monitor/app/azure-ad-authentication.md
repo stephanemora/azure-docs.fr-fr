@@ -3,15 +3,15 @@ title: Authentification Azure AD pour Application Insights (préversion)
 description: Découvrez comment activer l'authentification Azure Active Directory (Azure AD) pour garantir que seule la télémétrie authentifiée est ingérée dans vos ressources Application Insights.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: ab666ba0f7a57023d63e434de78a9b3859c238c8
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 9d93da1a8567a7c50dac43c29e3a962652ceee33
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607569"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111466"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Authentification Azure AD pour Application Insights (préversion)
-Application Insights prend désormais en charge l'authentification Azure Active Directory (Azure AD). À l’aide d’Azure AD, vous pouvez désormais vous assurer que seules les données de télémétrie authentifiées sont ingérées dans vos ressources d’Application Insights. 
+Application Insights prend désormais en charge l'authentification Azure Active Directory (Azure AD). À l’aide d’Azure AD, vous pouvez désormais vous assurer que seules les données de télémétrie authentifiées sont ingérées dans les ressources de vos Insights d’Application. 
 
 En règle générale, l’utilisation de différents systèmes d’authentification peut être lourde et poser un risque, car il est difficile de gérer les informations d’identification à grande échelle. Vous pouvez maintenant choisir de ne pas utiliser l'authentification locale et vous assurer que seule la télémétrie qui est exclusivement authentifiée en utilisant [Managed Identities ](../../active-directory/managed-identities-azure-resources/overview.md) et [Azure Active Directory est ](../../active-directory/fundamentals/active-directory-whatis.md) ingérée dans votre ressource Application Insights. Cette fonctionnalité est une étape permettant d’améliorer la sécurité et la fiabilité des données de télémétrie utilisées pour rendre les opérations critiques (alertes/mise à l’échelle automatique, etc.) et les décisions commerciales.
 
@@ -399,7 +399,7 @@ Voici un exemple du modèle Azure Resource Manager que vous pouvez utiliser pour
 
 ```
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Cette section fournit des scénarios de résolution des problèmes distincts et des étapes que les utilisateurs peuvent entreprendre pour résoudre les problèmes avant qu’ils ne génèrent un ticket de support. 
 

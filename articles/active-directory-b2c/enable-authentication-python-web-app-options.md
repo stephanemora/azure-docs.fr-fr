@@ -1,6 +1,6 @@
 ---
 title: Activer les options d’application web Python à l’aide d’Azure Active Directory B2C
-description: Activez l’utilisation des options d’application web Python à l’aide de plusieurs méthodes.
+description: Cet article explique comment activer l’utilisation des options de l’application web Python.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,18 +11,18 @@ ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 4d27b22cc0ac682ec6f3fdb5a189462026fc7755
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 97f1cb1f13ab990a6590576ae93ba86a4c935300
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641217"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220359"
 ---
-# <a name="configure-authentication-options-in-a-python-web-application-using-azure-active-directory-b2c"></a>Configurer les options d’authentification dans une application web Python avec Azure Active Directory B2C 
+# <a name="enable-authentication-options-in-a-python-web-app-by-using-azure-ad-b2c"></a>Activer les options d’authentification dans une application web Python à l’aide d’Azure AD B2C 
 
-Cet article décrit les méthodes permettant de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application web Python. 
+Cet article décrit les méthodes permettant d’activer, de personnaliser et d’améliorer l’expérience d’authentification Azure Active Directory B2C (Azure AD B2C) pour votre application web Python. 
 
-Avant de commencer, nous vous recommandons de lire l’article [Configurer l’authentification dans un exemple d’application web Python](configure-authentication-sample-python-web-app.md).
+Avant de commencer, nous vous recommandons de consulter [Configurer l’authentification dans un exemple d’application web Python à l’aide d’Azure AD B2C](configure-authentication-sample-python-web-app.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
@@ -46,7 +46,7 @@ authority_template = "https://custom.domain.com/00000000-0000-0000-0000-00000000
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
 1. Si vous utilisez une stratégie personnalisée, ajoutez la revendication d’entrée requise comme décrit dans [Configurer la connexion directe](direct-signin.md#prepopulate-the-sign-in-name). 
-1. Recherchez la méthode `initiate_auth_code_flow` et ajoutez le paramètre `login_hint` avec le nom de domaine du fournisseur d’identité. Par exemple, facebook.com.
+1. Recherchez la méthode `initiate_auth_code_flow`, puis ajoutez le paramètre `login_hint` avec le nom de domaine du fournisseur d’identité (par exemple, *facebook.com*).
 
 ```python
 def _build_auth_code_flow(authority=None, scopes=None):
@@ -59,7 +59,7 @@ def _build_auth_code_flow(authority=None, scopes=None):
 [!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
 1. Vérifiez le nom de domaine de votre fournisseur d’identité externe. Pour plus d’informations, consultez [Rediriger la connexion vers un fournisseur social](direct-signin.md#redirect-sign-in-to-a-social-provider). 
-1. Recherchez la méthode `initiate_auth_code_flow` et ajoutez le paramètre `domain_hint` avec l’indicateur de connexion.
+1. Recherchez la méthode `initiate_auth_code_flow`, puis ajoutez le paramètre `domain_hint` avec l’indicateur de connexion.
 
     ```python
     def _build_auth_code_flow(authority=None, scopes=None):
@@ -72,4 +72,4 @@ def _build_auth_code_flow(authority=None, scopes=None):
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus, consultez l’article présentant les [options de configuration de MSAL pour Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki)
+- Pour en savoir plus, consultez [Options de configuration de MSAL pour Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki).

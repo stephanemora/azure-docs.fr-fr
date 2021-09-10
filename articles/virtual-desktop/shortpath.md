@@ -1,38 +1,38 @@
 ---
-title: RDP Shortpath de Windows Virtual Desktop (préversion)
+title: RDP Shortpath d’Azure Virtual Desktop (préversion)
 titleSuffix: Azure
-description: Comment configurer RDP Shortpath (préversion) pour Windows Virtual Desktop.
+description: Comment configurer RDP Shortpath (préversion) pour Azure Virtual Desktop.
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: f52796cd5477ecd692296213e337ded4f52503cd
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: bf4612afa0e75d4a63a13358095027c68c93e6da
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189592"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755869"
 ---
-# <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP Shortpath de Windows Virtual Desktop (préversion)
+# <a name="azure-virtual-desktop-rdp-shortpath-preview"></a>RDP Shortpath d’Azure Virtual Desktop (préversion)
 
 > [!IMPORTANT]
 > RDP Shortpath est actuellement disponible en préversion publique.
 > Cette préversion étant fournie sans contrat de niveau de service, nous déconseillons son utilisation pour des charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-RDP Shortpath est une fonctionnalité de Windows Virtual Desktop qui établit un transport UDP direct entre un client et un hôte de session Bureau à distance. RDP utilise ce transport pour fournir Bureau à distance et RemoteApp tout en offrant une meilleure fiabilité et une latence cohérente.
+RDP Shortpath est une fonctionnalité d’Azure Virtual Desktop qui établit un transport UDP direct entre un client et un hôte de session Bureau à distance. RDP utilise ce transport pour fournir Bureau à distance et RemoteApp tout en offrant une meilleure fiabilité et une latence cohérente.
 
 ## <a name="key-benefits"></a>Principaux avantages
 
 * Le transport RDP Shortpath est basé sur un [protocole de contrôle de débit universel (Universal Rate Control Protocol, URCP)](https://www.microsoft.com/en-us/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/) très efficace. Le protocole URCP améliore le protocole UDP avec la surveillance active des conditions du réseau, et assure une utilisation de liens équitable et complète. Le protocole URCP opère à des niveaux faibles de retard et de perte en fonction des besoins du Bureau à distance. Le protocole URCP permet d’obtenir des performances optimales en apprenant de manière dynamique des paramètres réseau et en fournissant un mécanisme de contrôle de débit.
-* RDP Shortpath établit la connectivité directe entre le client et l’hôte de session Bureau à distance. La connectivité directe réduit la dépendance des passerelles de Windows Virtual Desktop, améliore la fiabilité de la connexion et augmente la bande passante disponible pour chaque session utilisateur.
+* RDP Shortpath établit la connectivité directe entre le client et l’hôte de session Bureau à distance. La connectivité directe réduit la dépendance des passerelles d’Azure Virtual Desktop, améliore la fiabilité de la connexion et augmente la bande passante disponible pour chaque session utilisateur.
 * La suppression d’un relais supplémentaire réduit le temps d’aller-retour, ce qui améliore l’expérience utilisateur avec des applications et des méthodes d’entrée sensibles à la latence.
 * RDP Shortpath apporte une prise en charge d’une priorité en matière de [configuration de la qualité de service (QoS)](./rdp-quality-of-service-qos.md) priorité pour les connexions RDP via des marques DSCP (Differentiated Services Code point)
 * Le transport RDP Shortpath permet de [limiter le trafic réseau sortant](./rdp-bandwidth.md#limit-network-bandwidth-use-with-throttle-rate) en spécifiant un taux de limitation pour chaque session.
 
 ## <a name="connection-security"></a>Sécurité de la connexion
 
-RDP Shortpath étend les fonctionnalités multitransport du protocole RDP. Il ne remplace pas le transport de connexion inverse mais le complète. L’ensemble de la répartition de session initiale est géré via l’infrastructure de Windows Virtual Desktop.
+RDP Shortpath étend les fonctionnalités multitransport du protocole RDP. Il ne remplace pas le transport de connexion inverse mais le complète. L’ensemble de la répartition de session initiale est géré via l’infrastructure d’Azure Virtual Desktop.
 
 Le port UDP 3390 est utilisé uniquement pour le trafic Shortpath entrant qui est authentifié via un transport de connexion inverse. L’écouteur RDP Shortpath ignore toutes les tentatives de connexion à l’écouteur, sauf si elles correspondent à la session de connexion inverse.
 
@@ -55,7 +55,7 @@ Le diagramme ci-dessous donne une vue d’ensemble des connexions réseau de RDP
 
 ## <a name="requirements"></a>Spécifications
 
-Pour prendre en charge RDP Shortpath, le client Windows Virtual Desktop a besoin d’une ligne de vue directe sur l’hôte de la session. Vous pouvez obtenir une ligne de vue directe à l’aide de l’une des technologies suivantes :
+Pour prendre en charge RDP Shortpath, le client Azure Virtual Desktop a besoin d’une ligne de vue directe sur l’hôte de la session. Vous pouvez obtenir une ligne de vue directe à l’aide de l’une des technologies suivantes :
 
 * Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé. Actuellement, le client Web n’est pas pris en charge.
 * [Peering privé ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
@@ -178,13 +178,13 @@ Pour vérifier que les connexions utilisent RDP Shortpath, ouvrez la boîte de d
 
 Pour vérifier que la session utilise le transport RDP Shortpath :
 
-1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
+1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Azure Virtual Desktop.
 2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et des services > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**
 3. Pour déterminer si le transport RDP Shortpath est utilisé, recherchez l’ID d’événement 131.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Utilisation de Log Analytics pour vérifier la connectivité de Shortpath
 
-Si vous utilisez [Azure Log Analytics](./diagnostics-log-analytics.md), vous pouvez surveiller les connexions en interrogeant la [table WVDConnections](/azure/azure-monitor/reference/tables/wvdconnections). Une colonne nommée UdpUse indique si la pile RDP de Windows Virtual Desktop utilise le protocole UDP sur la connexion utilisateur actuelle.
+Si vous utilisez [Azure Log Analytics](./diagnostics-log-analytics.md), vous pouvez surveiller les connexions en interrogeant la [table WVDConnections](/azure/azure-monitor/reference/tables/wvdconnections). Une colonne nommée UdpUse indique si la pile RDP d’Azure Virtual Desktop utilise le protocole UDP sur la connexion utilisateur actuelle.
 Les valeurs possibles sont les suivantes :
 
 * **0** - la connexion utilisateur n’utilise pas RDP Shortpath
@@ -257,5 +257,5 @@ Nous aimerions que vous nous fassiez part de votre expérience de la préversion
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la connectivité réseau de Windows Virtual Desktop, consultez [Comprendre la connectivité réseau de Windows Virtual Desktop](network-connectivity.md).
-* Pour vous familiariser avec QoS (Qualité de service) pour Windows Virtual Desktop, consultez [Implémenter QoS (Qualité de service) pour Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+* Pour en savoir plus sur la connectivité réseau d’Azure Virtual Desktop, consultez [Comprendre la connectivité réseau d’Azure Virtual Desktop](network-connectivity.md).
+* Pour vous familiariser avec QoS (Qualité de service) pour Azure Virtual Desktop, consultez [Implémenter QoS (Qualité de service) pour Azure Virtual Desktop](rdp-quality-of-service-qos.md).

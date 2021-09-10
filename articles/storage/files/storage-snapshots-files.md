@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ada4235539c96fee6969f9731c1b5a63934e825
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: ba229ed81cd5ece4a6013654a11c21740c00c844
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115612"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254063"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -67,7 +67,7 @@ Afin d’économiser l’espace, vous pouvez supprimer l’instantané de partag
 
 Bien que les instantanés de partage soient enregistrés de façon incrémentielle, vous ne devez conserver que le dernier instantané de partage pour restaurer le partage. Quand vous supprimez un instantané de partage, seules sont supprimées les données propres à ce dernier. Les instantanés actifs contiennent toutes les informations dont vous avez besoin pour parcourir vos données et les restaurer (à partir du moment où l’instantané de partage a été pris) à l’emplacement d’origine ou à un autre emplacement. Vous pouvez effectuer la restauration au niveau élément.
 
-Les instantanés ne sont pas décomptés de votre limite de partage 5 To. L’espace total occupé par les instantanés de partage n’est pas limité. Les limites de compte de stockage continuent de s’appliquer.
+Les captures instantanées ne sont pas prises en compte en lien avec la limite de taille de partage. L’espace total occupé par les instantanés de partage n’est pas limité. Les limites de compte de stockage continuent de s’appliquer.
 
 ## <a name="limits"></a>limites
 

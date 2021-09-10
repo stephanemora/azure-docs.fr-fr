@@ -2,19 +2,19 @@
 title: Vue d’ensemble du kit SDK Appel Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Fournit une vue d’ensemble du kit SDK Appel.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 320ef1b523615894910d277fcc155104b4b297bc
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7069d5089142f4fc5a6fff6492726b6f949c8f18
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766544"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259011"
 ---
 # <a name="calling-sdk-overview"></a>Vue d’ensemble du kit SDK Appel
 
@@ -90,6 +90,8 @@ Le kit SDK Appel Communication Services prend en charge les configurations de st
 | **Nombre de flux sortants qui peuvent être envoyés simultanément**     | 1 vidéo ou 1 partage d’écran | 1 vidéo + 1 partage d’écran |
 | **Nombre de flux entrants qui peuvent être restitués simultanément** | 1 vidéo ou 1 partage d’écran | 6 vidéos + 1 partage d’écran |
 
+Bien que le kit SDK Calling n’applique pas ces limites, vos utilisateurs peuvent subir une détérioration des performances si elles sont dépassées.
+
 ## <a name="calling-sdk-timeouts"></a>Délais d’attente du kit SDK Appel
 
 Les délais d’attente suivants s’appliquent aux kits SDK Appel Communication Services :
@@ -106,18 +108,19 @@ Les délais d’attente suivants s’appliquent aux kits SDK Appel Communication
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Prise en charge du kit SDK Appel JavaScript par le système d’exploitation et le navigateur
 
-Le tableau suivant représente l’ensemble des navigateurs pris en charge disponibles. Nous prenons en charge les trois versions les plus récentes du navigateur, sauf indication contraire.
+Le tableau suivant représente l’ensemble des navigateurs pris en charge disponibles. **Nous prenons en charge les trois versions les plus récentes du navigateur**, sauf indication contraire.
 
-| Plateforme     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
-| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android      | ✔️      | ❌      | ❌               | Le partage d’écran sortant n’est pas pris en charge.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique ; le système d’exploitation contrôle la sélection du périphérique par défaut. Le partage d’écran sortant n’est pas pris en charge. |
-| macOS        | ✔️      | ✔️      | ❌               | Les versions 14+ de Safari et 11+ de macOS sont nécessaires pour la prise en charge des vidéos sortantes.                                                                                                                                                     |
-| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
-| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
+| Plateforme     | Chrome | Safari | Edge (Chromium)  |
+| ------------ | ------ | ------ | --------------   |
+| Android      | ✔️      | ❌      | ❌           | 
+| iOS          | ❌      | ✔️      | ❌           |
+| macOS        | ✔️      | ✔️      | ❌           | 
+| Windows      | ✔️      | ❌      | ✔️           |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* Safari (version 13.1 et versions ultérieures) est pris en charge. Les appels 1:1 ne sont pas pris en charge sur Safari.
-* Sauf indication contraire, les 3 dernières versions de chaque navigateur sont prises en charge.
+* Les appels 1 à 1 ne sont pas pris en charge sur Safari.
+* Le partage d’écran sortant n’est pas pris en charge sur iOS ni Android.
+* [Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique ; le système d’exploitation contrôle la sélection du périphérique par défaut.
 
 ## <a name="android-calling-sdk-support"></a>Prise en charge du SDK d’appel Android
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 637da84073d014effc05a25104c3233ff385b432
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 332866c49470ed47f3c3de65b03ffd07003f6d13
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752586"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525958"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -56,8 +56,10 @@ Dans l’exemple Azure PowerShell suivant, un principal de service n’est pas s
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
----
+> [!NOTE]
+> Pour l’erreur « Impossible de trouver le principal de service clientID : 00000000-0000-0000-0000-000000000000 dans le locataire Active Directory 00000000-0000-0000-0000-000000000000 », consultez [Considérations supplémentaires](#additional-considerations) pour supprimer le fichier `acsServicePrincipal.json`.
 
+---
 ## <a name="manually-create-a-service-principal"></a>Créer manuellement un principal de service
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -189,6 +191,7 @@ L’élément `Scope` d’une ressource doit être un ID de ressource complet, t
 
 > [!NOTE]
 > Si vous avez supprimé l’attribution de rôle contributeur du groupe de ressources de nœud, les opérations ci-dessous peuvent échouer.
+> L’octroi d’autorisations aux clusters utilisant System Managed Identity peut prendre jusqu’à 60 minutes.
 
 Les sections suivantes détaillent les délégations courantes que vous serez peut-être amené à effectuer.
 
@@ -251,9 +254,9 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 - Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example* ). L’URL de l’application ne doit pas être un point de terminaison réel.
 - Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `ApplicationId`.
 - Sur les machines virtuelles du nœud de l’agent du cluster Kubernetes, les informations d’identification du principal du service sont stockées dans le fichier `/etc/kubernetes/azure.json`.
-- Si vous utilisez la commande [New-AzAksCluster][new-azakscluster] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
-- Si vous ne transmettez pas spécifiquement un principal de service dans des commandes PowerShell AKS supplémentaires, le principal de service par défaut situé dans `~/.azure/aksServicePrincipal.json` est utilisé.
-- Vous pouvez également supprimer le fichier aksServicePrincipal.json, auquel cas AKS créera un principal de service.
+- Si vous utilisez la commande [New-AzAksCluster][new-azakscluster] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/acsServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
+- Si vous ne transmettez pas spécifiquement un principal de service dans des commandes PowerShell AKS supplémentaires, le principal de service par défaut situé dans `~/.azure/acsServicePrincipal.json` est utilisé.
+- Vous pouvez également supprimer le fichier acsServicePrincipal.json, auquel cas AKS créera un principal de service.
 - Si vous supprimez un cluster AKS créé par [New-AzAksCluster][new-azakscluster], le principal de service créé automatiquement ne sera pas supprimé.
     - Pour supprimer le principal du service, recherchez le *ServicePrincipalProfile.clientId* de votre cluster, puis supprimez-le en utilisant [Remove-AzADServicePrincipal][remove-azadserviceprincipal]. Remplacez les noms de cluster et de groupe de ressources suivants par vos propres valeurs :
 

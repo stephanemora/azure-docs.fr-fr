@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/21/2021
-ms.openlocfilehash: ab71dc6f02c87997a680722e3553f2739c378dc4
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 08/02/2021
+ms.openlocfilehash: 2a838d2c1206cbc1a73e00d3ff41337400a08676
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371285"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524876"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Chiffrement des données avec Azure Machine Learning
 
@@ -36,6 +36,9 @@ L'indicateur `hbi_workspace` contrôle la quantité de [données que Microsoft c
 * Lance le chiffrement du disque de travail local dans votre cluster de calcul Azure Machine Learning, à condition que vous n’ayez créé aucun cluster dans cet abonnement. Autrement, vous devez ouvrir un ticket de support pour activer le chiffrement du disque de travail de vos clusters de calcul. 
 * Nettoie votre disque de travail local entre les exécutions.
 * Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
+
+> [!TIP]
+> L’indicateur `hbi_workspace` n’a pas d’impact sur le chiffrement en transit, uniquement sur le chiffrement au repos.
 
 ### <a name="azure-blob-storage"></a>Stockage Blob Azure
 
@@ -59,7 +62,7 @@ Pour activer l’approvisionnement d’une instance de Cosmos DB dans votre abon
 
 * Inscrivez les fournisseurs de ressources Microsoft.MachineLearning et Microsoft.DocumentDB dans votre abonnement, si ce n’est pas déjà fait.
 
-* Utilisez les paramètres suivants lors de la création de l’espace de travail Azure Machine Learning. Les deux paramètres sont obligatoires et pris en charge dans les kits de développement logiciel (SDK), l’interface CLI, les API REST et les modèle Resource Manager.
+* Utilisez les paramètres suivants lors de la création de l’espace de travail Azure Machine Learning. Les deux paramètres sont obligatoires et pris en charge dans le Kit de développement logiciel (SDK), Azure CLI, les API REST et les modèle Resource Manager.
 
     * `resource_cmk_uri`: Ce paramètre est l’URI de ressource complète de la clé gérée par le client dans votre coffre de clés, y compris les [informations de version pour la clé](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
@@ -120,11 +123,11 @@ Ce processus vous permet de chiffrer à la fois les données et le disque de sys
 
 ### <a name="machine-learning-compute"></a>Capacité de calcul Machine Learning
 
-Le disque de système d’exploitation de chaque nœud de calcul stocké dans Stockage Azure est chiffré à l’aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Cette cible de calcul est éphémère et les clusters font généralement l’objet d’un scale-down quand aucune exécution n’est placée en file d’attente. La machine virtuelle sous-jacente est déprovisionnée et le disque de système d’exploitation supprimé. Azure Disk Encryption n’est pas pris en charge pour le disque de système d’exploitation. 
+**Cluster de calcul** : Le disque de système d’exploitation de chaque nœud de calcul stocké dans Stockage Azure est chiffré à l’aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Cette cible de calcul est éphémère et les clusters font généralement l’objet d’un scale-down quand aucune exécution n’est placée en file d’attente. La machine virtuelle sous-jacente est déprovisionnée et le disque de système d’exploitation supprimé. Azure Disk Encryption n’est pas pris en charge pour le disque de système d’exploitation. 
 
-Chaque machine virtuelle dispose également d’un disque temporaire local pour les opérations de système d’exploitation. Si vous le souhaitez, vous pouvez utiliser le disque pour indexer les données d’entraînement. Le disque est chiffré par défaut pour les espaces de travail avec le paramètre `hbi_workspace` défini sur `TRUE`. Cet environnement ne perdure que pour la durée de votre exécution et la prise en charge du chiffrement est limitée aux clés gérées par le système uniquement.
+Chaque machine virtuelle dispose également d’un disque temporaire local pour les opérations de système d’exploitation. Si vous le souhaitez, vous pouvez utiliser le disque pour indexer les données d’entraînement. Si l’espace de travail a été créé avec le paramètre `hbi_workspace` défini sur `TRUE`, le disque temporaire est chiffré. Cet environnement ne perdure que pour la durée de votre exécution et la prise en charge du chiffrement est limitée aux clés gérées par le système uniquement.
 
-Le disque de système d'exploitation de l'instance de calcul est chiffré à l'aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Le disque temporaire local situé sur l'instance de calcul est chiffré à l'aide de clés gérées par Microsoft pour les espaces de travail dont le paramètre `hbi_workspace` est défini sur `TRUE`.
+**Instance de calcul** : Le disque de système d’exploitation de l’instance de calcul est chiffré à l’aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Si l’espace de travail a été créé avec le paramètre `hbi_workspace` défini sur `TRUE`, le disque temporaire local situé sur l’instance de calcul est chiffré à l’aide de clés gérées par Microsoft. Le chiffrement à l’aide de clés gérés par le client n’est pas pris en charge pour le système d’exploitation et le disque temporaire.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
@@ -146,11 +149,11 @@ Pour sécuriser les appels externes au point de terminaison de scoring, Azure Ma
 
 ### <a name="microsoft-collected-data"></a>Données collectées par Microsoft
 
-Microsoft peut collecter des informations ne permettant pas d’identifier les utilisateurs telles que des noms de ressource (par exemple le nom du jeu de données ou le nom de l’essai d’apprentissage automatique), ou des variable d'environnement de tâche à des fins de diagnostic. De telles données sont stockées à l’aide des clés gérées par Microsoft dans un stockage hébergé dans des abonnements appartenant à Microsoft, conformément aux [normes de gestion des données et à la politique de confidentialité standard de Microsoft](https://privacy.microsoft.com/privacystatement).
+Microsoft peut collecter des informations ne permettant pas d’identifier les utilisateurs telles que des noms de ressource (par exemple le nom du jeu de données ou le nom de l’essai d’apprentissage automatique), ou des variable d'environnement de tâche à des fins de diagnostic. De telles données sont stockées à l’aide des clés gérées par Microsoft dans un stockage hébergé dans des abonnements appartenant à Microsoft, conformément aux [normes de gestion des données et à la politique de confidentialité standard de Microsoft](https://privacy.microsoft.com/privacystatement). Ces données sont conservées dans la même région que votre espace de travail.
 
 Microsoft recommande également de ne pas stocker d’informations sensibles (comme les secrets de clé de compte) dans les variables d'environnement. Les variable d'environnement sont enregistrées, chiffrées et stockées par nous. De même, lorsque vous nommez [run_id](/python/api/azureml-core/azureml.core.run%28class%29), évitez d’inclure des informations sensibles telles que des noms d’utilisateurs ou des noms de projets secrets. Ces informations peuvent apparaître dans les journaux de télémétrie accessibles aux ingénieurs du Support Microsoft.
 
-Vous pouvez refuser la collecte des données de diagnostic en définissant le paramètre `hbi_workspace` sur `TRUE` pendant la configuration de l’espace de travail. Cette fonctionnalité est prise en charge lorsque le kit de développement logiciel (SDK) AzureML Python, l’interface CLI, les API REST ou les modèles Azure Resource Manager sont utilisés.
+Vous pouvez refuser la collecte des données de diagnostic en définissant le paramètre `hbi_workspace` sur `TRUE` pendant la configuration de l’espace de travail. Cette fonctionnalité est prise en charge lorsque le Kit de développement logiciel (SDK) AzureML Python, Azure CLI, les API REST ou les modèles Azure Resource Manager sont utilisés.
 
 ## <a name="using-azure-key-vault"></a>Utilisation d’Azure Key Vault
 

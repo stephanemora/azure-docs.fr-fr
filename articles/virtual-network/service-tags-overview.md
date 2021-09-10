@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: a06a488473264a992d947ef78ad69c61776d34ae
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 11f8c7ddd7e06e9cc4c27173d5bb8f9dd14cbd42
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527638"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768471"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -87,6 +87,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureSignalR** | Azure SignalR. | Règle de trafic sortant | Non | Non |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** et **Storage**. | Règle de trafic sortant | Non | Non |
 | **AzureTrafficManager** | Adresses IP de sonde Azure Traffic Manager.<br/><br/>Pour plus d’informations sur les adresses IP de sondage Traffic Manager, consultez les [Questions fréquentes (FAQ) sur Azure Traffic Manager](../traffic-manager/traffic-manager-faqs.md). | Trafic entrant | Non | Oui |  
+| **AzureUpdateDelivery** | Pour accéder aux mises à jour de Windows. <br/><br/>*Remarque :* cette balise permet d’accéder aux services de métadonnées des Mises à jour Windows. Pour télécharger les mises à jour avec succès, vous devez également activer la balise de service **AzureFrontDoor.FirstParty** et configurer les règles de sécurité de trafic sortant avec le protocole et le port définis, comme suit : <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul>*Cette étiquette n’est actuellement pas configurable sur le Portail Azure.*| Règle de trafic sortant | Non | Non |  
 | **BatchNodeManagement** | Trafic de gestion pour les déploiements dédiés d’Azure Batch. | Les deux | Non | Oui |
 | **CognitiveServicesManagement** | Plages d’adresses du trafic pour Azure Cognitive Services. | Les deux | Non | Non |
 | **DataFactory**  | Azure Data Factory | Les deux | Non | Non |
@@ -110,6 +111,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **SqlManagement** | Trafic de gestion pour les déploiements dédiés de SQL. | Les deux | Non | Oui |
 | **Stockage** | Stockage Azure. <br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. | Règle de trafic sortant | Oui | Oui |
 | **StorageSyncService** | Service de synchronisation du stockage. | Les deux | Non | Non |
+| **WindowsAdminCenter** | Autoriser le service principal du Centre d’administration Windows à communiquer avec l’installation des clients du Centre d’administration Windows. *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*. | Règle de trafic sortant | Non | Oui |
 | **WindowsVirtualDesktop** | Windows Virtual Desktop. | Les deux | Non | Oui |
 | **VirtualNetwork** | L’espace d’adressage du réseau virtuel (toutes les plages d’adresses IP définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), l’[adresse IP virtuelle de l’hôte](./network-security-groups-overview.md#azure-platform-considerations) et les préfixes d’adresse utilisés sur les [routes définies par l’utilisateur](virtual-networks-udr-overview.md). Cette balise peut également contenir des itinéraires par défaut. | Les deux | Non | Non |
 

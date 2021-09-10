@@ -1,19 +1,19 @@
 ---
 title: Migrer des solutions de co-vente de GTM OCP vers Espace partenaires pour Microsoft AppSource
-description: Découvrez comment migrer des solutions de co-vente de GTM OCP vers Espace partenaires pour Microsoft AppSource.
+description: Migrez des solutions de co-vente de GTM OCP vers Espace partenaires (Place de marché Azure).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 05/18/2021
-ms.openlocfilehash: d4eb677b0f55a8ccd2cda33e6026e01238deb9b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/13/2021
+ms.openlocfilehash: 6ca8c75e5cf6f5290736cf01a20db63a8fb2d077
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971532"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389080"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migration de solutions de co-vente de GTM OCP vers le marketplace commercial
 
@@ -36,7 +36,7 @@ Vérifiez que vous êtes un membre actif du programme Microsoft Partner Network 
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publication de mises à jour pour obtenir l’état co-sell-ready
 
-Pour que votre solution soit détectable par les vendeurs et les partenaires de Microsoft, elle doit respecter les [exigences de la co-vente](./co-sell-overview.md). Pour qu’un vendeur Microsoft soit encouragés, votre solution doit répondre aux [exigences d’incitation](./co-sell-overview.md). Remplissez ces conditions dans l’onglet Co-vente d’Espace partenaires (voir [cette image](#action-2-merge) plus loin dans cet article).
+Pour que votre solution soit détectable par les vendeurs et les partenaires de Microsoft, elle doit respecter les [exigences de la co-vente](./co-sell-overview.md). Pour qu’un vendeur Microsoft puisse bénéficier d’une incitation à la co-vente, votre solution doit répondre aux [exigences d’incitation](./co-sell-overview.md). Remplissez ces conditions dans l’onglet Co-vente d’Espace partenaires (voir [cette image](#action-2-merge) plus loin dans cet article).
 
 > [!NOTE]
 > Sur le marketplace commercial, vos solutions sont appelées « offres » tout au long de l’expérience de publication.
@@ -45,8 +45,8 @@ Une fois inscrit sur le marketplace commercial, préparez-vous à migrer vos sol
 
 Procédez comme suit avant d’importer vos solutions à partir de GTM OCP :
 
-1. Accédez à la [liste des éditeurs](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de votre entreprise. Elle comprend le propriétaire du compte, les managers et les développeurs qui ont accès à la publication. En savoir plus sur les [rôles d’utilisateur d’Espace partenaires](user-roles.md).
-2. Demandez à l’un des contacts de la liste d’[ajouter des utilisateurs](https://partner.microsoft.com/dashboard/account/usermanagement) au marketplace commercial en tant que *managers* ou *développeurs*, car seuls ces rôles peuvent modifier et publier des solutions.
+1. Accédez à la [liste des éditeurs](https://go.microsoft.com/fwlink/?linkid=2165704) de votre entreprise. Elle comprend le propriétaire du compte, les managers et les développeurs qui ont accès à la publication. En savoir plus sur les [rôles d’utilisateur d’Espace partenaires](user-roles.md).
+2. Demandez à l’un des contacts de la liste d’[ajouter des utilisateurs](https://go.microsoft.com/fwlink/?linkid=2166003) au marketplace commercial en tant que *managers* ou *développeurs*, car seuls ces rôles peuvent modifier et publier des solutions.
 3. Collaborez avec vos développeurs pour déplacer vos solutions de votre compte GTM OCP au marketplace commercial.
 4. Choisissez l’une des opérations suivantes :
     1. Si vous avez une solution dans GTM OCP que vous souhaitez migrer vers Espace partenaires (*pour conserver le pipeline de référence, les garanties, l’état de co-vente et les primes d’encouragement*), vous avez le choix entre deux scénarios :
@@ -66,7 +66,7 @@ Procédez comme suit avant d’importer vos solutions à partir de GTM OCP :
 
 ## <a name="begin-the-migration-of-your-solutions-from-ocp-gtm"></a>Commencer la migration de vos solutions à partir de GTM OCP
 
-1. Commencez la migration [ici](https://partner.microsoft.com/solutions/migration#).
+1. Commencez la migration [ici](https://go.microsoft.com/fwlink/?linkid=2165807).
 2. Sélectionnez la page **Vue d’ensemble**, puis **Cliquez ici pour commencer**.
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Affiche la page de présentation":::
@@ -98,7 +98,7 @@ Si vous ne disposez pas déjà d’une offre dans le marketplace commercial avec
 
 1. Créez votre ébauche d’offre dans le marketplace commercial.
 
-   1. Sélectionnez **+Nouvelle offre**.
+   1. Sélectionnez **+ Nouvelle offre**.
 
         :::image type="content" source="media/co-sell-migrate/new-offer.png" alt-text="Affichage de l’option Nouvelle offre":::
 

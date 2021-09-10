@@ -3,12 +3,12 @@ title: Azure Lighthouse dans les scénarios d’entreprise
 description: Les fonctionnalités d’Azure Lighthouse peuvent être utilisées pour simplifier la gestion inter-locataire au sein d’une entreprise qui utilise plusieurs locataires Azure AD.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 139c7be2c1736841e81e70aa562ab9841fd76337
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 12a6c2f03c06fbd69e77e32b236258bc6a6c8fbe
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788712"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768297"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse dans les scénarios d’entreprise
 
@@ -38,7 +38,7 @@ Dans la plupart des scénarios d’entreprise, vous souhaiterez déléguer un ab
 
 Dans les deux cas, veillez à [suivre le principe des privilèges minimum lors de la définition des utilisateurs qui auront accès aux ressources déléguées](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Cela permet de garantir que les utilisateurs disposent uniquement des autorisations requises pour effectuer les tâches nécessaires et réduit le risque d’erreurs accidentelles.
 
-Azure Lighthouse fournit uniquement des liens logiques entre un locataire gestionnaire et des locataires gérés, au lieu de déplacer physiquement les données ou les ressources. De plus, l’accès s’effectue toujours dans un seul sens, du locataire gestionnaire vers les locataires gérés.  Les utilisateurs et les groupes du locataire gestionnaire doivent continuer à utiliser l’authentification multifacteur lors de l’exécution d’opérations de gestion sur des ressources de locataire managées.
+Azure Lighthouse fournit uniquement des liens logiques entre un locataire gestionnaire et des locataires gérés, au lieu de déplacer physiquement les données ou les ressources. De plus, l’accès s’effectue toujours dans un seul sens, du locataire gestionnaire vers les locataires gérés. Les utilisateurs et les groupes du locataire gestionnaire doivent continuer à utiliser l’authentification multifacteur lors de l’exécution d’opérations de gestion sur des ressources de locataire géré.
 
 Les entreprises bénéficiant d’une gouvernance interne ou externe et de garde-fous de conformité peuvent utiliser des [journaux d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) pour répondre à leurs besoins de transparence. Quand des locataires d’entreprise ont établi des relations entre le locataire gestionnaire et les locataires gérés, les utilisateurs de chaque locataire peuvent visualiser l’activité journalisée afin de connaître les actions effectuées par les utilisateurs dans le locataire gestionnaire.
 

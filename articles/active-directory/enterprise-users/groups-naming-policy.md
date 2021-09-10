@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc67b0b038abda37c591162caad9b3b94e6c440
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 58884d2905feda1f3827ae72866c1c69384178ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027476"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563257"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms à des groupes Microsoft 365 dans Azure Active Directory
 
@@ -28,9 +28,9 @@ Pour appliquer des conventions d’affectation de noms cohérentes pour des grou
 > [!IMPORTANT]
 > Pour pouvoir utiliser la stratégie d’attribution de noms Azure AD pour des groupes Microsoft 365, vous devez posséder, mais pas nécessairement attribuer, une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU pour chaque utilisateur membre d’un ou plusieurs groupes Microsoft 365.
 
-La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie d’attribution de noms dans Azure AD et qu’il existe une stratégie d’attribution de noms de groupes Exchange, la stratégie d’attribution de noms Azure AD est appliquée dans votre organisation.
+La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner), même si aucun changement n’est apporté. Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie d’attribution de noms dans Azure AD et qu’il existe une stratégie d’attribution de noms de groupes Exchange, la stratégie d’attribution de noms Azure AD est appliquée dans votre organisation.
 
-Quand une stratégie d’attribution de noms est configurée, elle est appliquée aux nouveaux groupes Microsoft 365 créés par des utilisateurs finaux. La stratégie d’attribution de nom ne s’applique pas à certains rôles d’annuaire, tels que l’administrateur général ou l’administrateur d’utilisateurs (voir ci-dessous pour obtenir la liste complète des rôles exemptés de la stratégie d’attribution de nom à un groupe). Pour les groupes Microsoft 365 existants, la stratégie ne s’applique pas immédiatement au moment de la configuration. Une fois que le propriétaire du groupe modifie le nom de ces groupes, la stratégie d’attribution de nom est appliquée.
+Quand une stratégie d’attribution de noms est configurée, elle est appliquée aux nouveaux groupes Microsoft 365 créés par des utilisateurs finaux. La stratégie d’attribution de nom ne s’applique pas à certains rôles d’annuaire, tels que l’administrateur général ou l’administrateur d’utilisateurs (voir ci-dessous pour obtenir la liste complète des rôles exemptés de la stratégie d’attribution de nom à un groupe). Pour les groupes Microsoft 365 existants, la stratégie ne s’applique pas immédiatement au moment de la configuration. Une fois que le propriétaire du groupe modifie le nom de ces groupes, la stratégie d’attribution de nom est appliquée, même si aucun changement n’est apporté.
 
 ## <a name="naming-policy-features"></a>Caractéristiques de la stratégie de nommage
 
@@ -42,9 +42,9 @@ Vous pouvez appliquer une stratégie d’attribution de noms pour des groupes de
 
 ### <a name="prefix-suffix-naming-policy"></a>Stratégie de nommage avec préfixe-suffixe
 
-La structure générale de la convention de nommage est « Préfixe[NomGroupe]Suffixe ». Même s’il ne vous est pas interdit de définir plusieurs préfixes et suffixes, seule une instance de [NomGroupe] doit figurer dans le paramètre. Les préfixes ou les suffixes peuvent être des chaînes fixes ou des attributs utilisateur tels que \[Service\] qui sont substitués en fonction de l’utilisateur qui crée le groupe. Le nombre total de caractères autorisés pour les chaînes de préfixe et de suffixe, nom du groupe compris, est de 53 caractères. 
+La structure générale de la convention de nommage est « Préfixe[NomGroupe]Suffixe ». Même s’il ne vous est pas interdit de définir plusieurs préfixes et suffixes, seule une instance de [NomGroupe] doit figurer dans le paramètre. Les préfixes ou les suffixes peuvent être des chaînes fixes ou des attributs utilisateur tels que \[Service\] qui sont substitués en fonction de l’utilisateur qui crée le groupe. Le nombre total de caractères autorisés pour les chaînes de préfixe et de suffixe, nom du groupe compris, est de 53 caractères.
 
-Les préfixes et les suffixes peuvent contenir les caractères spéciaux pris en charge dans un nom de groupe et un alias de groupe. Les caractères présents dans le préfixe ou le suffixe qui ne sont pas pris en charge dans l’alias de groupe sont quand même appliqués dans le nom de groupe, mais ils sont supprimés de l’alias de groupe. Compte tenu de cette restriction, les préfixes et les suffixes appliqués au nom de groupe peuvent être différents de ceux appliqués à l’alias de groupe. 
+Les préfixes et les suffixes peuvent contenir les caractères spéciaux pris en charge dans un nom de groupe et un alias de groupe. Les caractères présents dans le préfixe ou le suffixe qui ne sont pas pris en charge dans l’alias de groupe sont quand même appliqués dans le nom de groupe, mais ils sont supprimés de l’alias de groupe. Compte tenu de cette restriction, les préfixes et les suffixes appliqués au nom de groupe peuvent être différents de ceux appliqués à l’alias de groupe.
 
 #### <a name="fixed-strings"></a>Chaînes fixes
 
@@ -100,7 +100,7 @@ Certains rôles d’administrateur sont exemptés de ces stratégies dans toutes
 
     ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
 
-1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
+1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**. De nouvelles entrées doivent être ajoutées aux entrées existantes.
 1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
 1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer**.
 
@@ -248,7 +248,7 @@ Planner | Planner est conforme à la stratégie de nommage. Planner affiche un a
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement est conforme à la stratégie de nommage. Dynamics 365 affiche le nom appliqué de la stratégie d’appellation quand l’utilisateur tape un nom de groupe ou un alias d’e-mail de groupe. Quand l’utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche avec le mot bloqué pour qu’il puisse le supprimer.
 School Data Sync (SDS) | Les groupes créés via SDS sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement. Les administrateurs SDS doivent ajouter les préfixes et les suffixes aux noms de classes pour lesquels des groupes doivent être créés puis chargés dans SDS. À défaut, la création ou la modification de groupe échoue.
 Application Classroom | Les groupes créés dans l’application Classroom sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement et l’aperçu de la stratégie de nommage n’est pas présenté aux utilisateurs quand ils entrent un nom de groupe de classe. Les utilisateurs doivent entrer le nom de groupe de classe appliqué avec les préfixes et les suffixes. Dans le cas contraire, l’opération de création ou de modification du groupe de classe échoue avec des erreurs.
-Power BI | Les espaces de travail Power BI sont conformes à la stratégie de nommage.    
+Power BI | Les espaces de travail Power BI sont conformes à la stratégie de nommage.
 Yammer | Lorsqu’un utilisateur connecté à Yammer avec son compte Azure Active Directory crée un groupe ou modifie un nom de groupe, le nom de groupe doit respecter la stratégie d’affectation de noms. Cela s’applique à la fois aux groupes connectés à Microsoft 365 et à tous les autres groupes Yammer.<br>Si un groupe connecté à Microsoft 365 a été créé avant que la stratégie de nommage ne soit en place, le nom de groupe ne suit pas automatiquement les stratégies de nommage. Lorsqu’un utilisateur modifie le nom de groupe, il est invité à ajouter le préfixe et le suffixe.
 StaffHub  | Les équipes StaffHub ne respectent pas la stratégie d’affectation de noms, contrairement au groupe Microsoft 365 sous-jacent. Le nom de l’équipe StaffHub n’applique pas les préfixes et les suffixes et ne recherche pas les mots bloqués personnalisés. En revanche, StaffHub applique les préfixes et suffixes, et supprime les mots bloqués du groupe Microsoft 365 sous-jacent.
 Exchange PowerShell | Les applets de commande Exchange PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la stratégie de nommage dans le nom de groupe et l’alias de groupe (mailNickname).

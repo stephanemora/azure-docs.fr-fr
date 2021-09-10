@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 295dfa5a02ce3f46049805339a4f7918ce20361e
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 36e0b286cc073f5c6843f1bab59af5a811cbf281
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565191"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452923"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notes à destination des développeurs pour Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Les [flux d’utilisateurs et stratégies personnalisées](user-flow-overview.md
 ## <a name="terms-for-features-in-public-preview"></a>Conditions d’utilisation des fonctionnalités de la préversion publique
 
 - Nous vous encourageons à utiliser les fonctionnalités de la préversion publique à des fins d’évaluation uniquement.
-- Les contrats de niveau de service (SLA) ne s’appliquent pas aux fonctionnalités de la préversion publique.
+- Les [contrats de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) ne s’appliquent pas aux fonctionnalités de la préversion publique.
 - Les demandes de support pour les fonctionnalités de la préversion publique peuvent être soumises par le biais des canaux de support habituels.
 
 ## <a name="user-flows"></a>Flux d’utilisateurs

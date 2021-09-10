@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 06/09/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4350f60029673af04ad263c9e9f25d7a74bc532b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5eb1ecce79e8b98478eb1957086f23d49c7c5b14
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131021"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968213"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -174,13 +174,13 @@ Configuration pour le volume SAP **/hana/data** :
 | M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mbits/s | 4 x P15 | 500 Mo/s | 680 Mbits/s | 4 400 | 14 000 |
 | M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200 | 14 000 |  
 | M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
-| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
+| M192ids_v2, M192is_v2 | 2 048 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
 | M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
-| M192ms, M192dms_v2, M128ms_v2 | 4 096 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
+| M192ims, M192idms_v2 | 4 096 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
 | M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000| pas de rafale | 
 | M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 4 x P40 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
 | M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 4 x P40 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
-| M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 4 x P50 | 2 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
+| M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 4 x P50 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
 
 
 Pour le volume **/hana/log**. la configuration ressemblerait à ceci :
@@ -194,9 +194,9 @@ Pour le volume **/hana/log**. la configuration ressemblerait à ceci :
 | M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
 | M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
 | M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500| 
-| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500| 
+| M192ids_v2, M192is_v2 | 2 048 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500| 
 | M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |
-| M192dms_v2, M192ms_v2 | 4 096 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| M192idms_v2, M192ims_v2 | 4 096 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
 | M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
 | M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
 | M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
@@ -214,9 +214,9 @@ Pour les autres volumes, la configuration ressemblerait à ceci :
 | M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P6 | 1 x P6 | 
 | M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M192ds_v2, M192s_v2  | 2 048 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M192ids_v2, M192is_v2  | 2 048 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 |
-| M192dms_v2, M192ms_v2  | 4 096 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 |
+| M192idms_v2, M192ims_v2  | 4 096 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2 850 Gio | 1 000 Mbits/s |  1 x P30 | 1 x P10 | 1 x P6 |
 | M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_v2 | 5 700 Gio | 2 000 Mbits/s |  1 x P30 | 1 x P10 | 1 x P6 | 
@@ -263,7 +263,7 @@ Les autres avantages du disque Ultra peuvent être la meilleure latence de lectu
 > Le disque Ultra n’est pas encore disponible dans toutes les régions Azure, ni pris en charge par tous les types de machines virtuelles listés ci-dessous. Pour plus d’informations sur la disponibilité du disque Ultra et sa prise en charge par les différentes familles de machines virtuelles, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](../../disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solution de stockage recommandée pour la production avec une pure configuration de disque Ultra
-Dans cette configuration, vous conservez les volumes **hana/data** et **/hana/log** séparément. Les valeurs suggérées sont dérivées des indicateurs de performance clés que SAP doit certifier pour les configurations SAP HANA et de stockage, comme recommandé dans le [livre blanc sur le stockage SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+Dans cette configuration, vous conservez les volumes **hana/data** et **/hana/log** séparément. Les valeurs suggérées sont dérivées des indicateurs de performance clés que SAP doit certifier pour les configurations SAP HANA et de stockage, comme recommandé dans le [livre blanc sur le stockage SAP TDI](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).
 
 Les recommandations vont souvent au-delà des conditions minimales requise par SAP, comme indiqué plus haut dans cet article. Les recommandations listées sont un compromis entre les recommandations de taille de SAP et le débit de stockage maximal fourni par les différents types de machines virtuelles.
 
@@ -285,9 +285,9 @@ Les recommandations vont souvent au-delà des conditions minimales requise par S
 | M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mo/s |  1 200 GO | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
 | M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mo/s | 2 100 Gio | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
 | M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 |
-| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M192ids_v2, M192is_v2 | 2 048 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
-| M192dms_v2, M192ms_v2 | 4 096 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M192idms_v2, M192ims_v2 | 4 096 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M208s_v2 | 2 850 Gio | 1 000 Mo/s | 3 500 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 7 200 Go | 750 Mo/s | 14 400 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M416s_v2 | 5 700 Gio | 2 000 Mo/s | 7 200 Go | 1 000 Mbits/s | 14 400 | 512 Go | 400 Mbits/s  | 4 000 | 
@@ -328,9 +328,9 @@ Une alternative moins coûteuse pour ces configurations peut ressembler à ceci�
 | M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mo/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
 | M64ms, M64dms_v2, M64ms_v2| 1 792 Gio | 1 000 Mo/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
 | M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
-| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M192ids_v2, M192is_v2 | 2 048 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
 | M128ms, M128dms_v2, M128ms_v2  | 3,800 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
-| M192dms_v2, M192ms_v2  | 4 096 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M192idms_v2, M192ims_v2  | 4 096 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
 | M208s_v2 | 2 850 Gio | 1 000 Mo/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
 | M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
 | M416s_v2 | 5 700 Gio | 2 000 Mo/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |

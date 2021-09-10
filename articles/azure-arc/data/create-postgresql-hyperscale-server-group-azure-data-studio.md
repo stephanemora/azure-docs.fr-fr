@@ -1,47 +1,28 @@
 ---
-title: Créer un PostgreSQL Hyperscale activé par Azure Arc à l’aide d’Azure Data Studio
-description: Créer un PostgreSQL Hyperscale activé par Azure Arc à l’aide d’Azure Data Studio
+title: Créer une instance PostgreSQL Hyperscale avec Azure Arc à l’aide d’Azure Data Studio
+description: Créer une instance PostgreSQL Hyperscale avec Azure Arc à l’aide d’Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: afcd4eb8327ff806e76b635d8be3715d93b15ed6
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3e71dc89ccf94462f83ce07e69bc57df86ae0a72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525367"
 ---
-# <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Créer un PostgreSQL Hyperscale activé par Azure Arc à l’aide d’Azure Data Studio
+# <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Créer une instance PostgreSQL Hyperscale avec Azure Arc à l’aide d’Azure Data Studio
 
-Ce document vous guide tout au long des étapes d’utilisation d’Azure Data Studio pour configurer des groupes de serveurs PostgreSQL Hyperscale activés pour Azure Arc.
+Ce document vous guide tout au long des étapes d’utilisation d’Azure Data Studio pour configurer des groupes de serveurs PostgreSQL Hyperscale avec Azure Arc.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## <a name="connect-to-the-azure-arc-data-controller"></a>Se connecter au contrôleur de données Azure Arc
-
-Avant de pouvoir créer une instance, connectez-vous au contrôleur de données Azure Arc si vous ne l’avez pas encore fait.
-
-```console
-azdata login
-```
-
-Vous êtes ensuite invité à entrer l’espace de noms dans lequel le contrôleur de données est déployé, le nom d’utilisateur et le mot de passe pour se connecter au contrôleur.
-
-> Si vous devez valider l’espace de noms, vous pouvez exécuter ```kubectl get pods -A``` pour obtenir une liste de tous les espaces de noms sur le cluster.
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
 
 ## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>Étape préliminaire et temporaire pour les utilisateurs OpenShift uniquement
 
@@ -56,7 +37,7 @@ _**Server-Group-Name** est le nom du groupe de serveurs que vous allez déployer
 Pour plus d’informations sur SCC dans OpenShift, consultez la documentation [OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 Vous pouvez maintenant implémenter l’étape suivante.
 
-## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
+## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
 
 1. Lancer Azure Data Studio
 1. Sous l’onglet Connexions, cliquez sur les trois points situés en haut à gauche, puis choisissez Nouveau déploiement
@@ -74,7 +55,7 @@ Vous pouvez maintenant implémenter l’étape suivante.
    - Sélectionnez le nombre de nœuds Worker à approvisionner
 1. Cliquez sur le bouton **Déployer**
 
-Cela démarre la création du groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc sur le contrôleur de données.
+Cela démarre la création du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc sur le contrôleur de données.
 
 Votre création ne devrait prendre que quelques minutes.
 
@@ -96,9 +77,9 @@ Si vous indiquez 1 Worker, le déploiement fonctionne mais nous vous déconseil
 - **Les classes de stockage** que vous souhaitez que votre groupe de serveurs utilise. Il est important de définir la classe de stockage juste au moment où vous déployez un groupe de serveurs, car cette opération ne peut pas être modifiée après le déploiement. Si vous deviez modifier la classe de stockage après le déploiement, vous auriez besoin d’extraire les données, de supprimer votre groupe de serveurs, de créer un nouveau groupe de serveurs et d’importer les données. Vous pouvez spécifier les classes de stockage à utiliser pour les données, les journaux et les sauvegardes. Par défaut, si vous n’indiquez pas de classes de stockage, les classes de stockage du contrôleur de données sont utilisées.
     - Pour définir la classe de stockage pour les données, indiquez le paramètre `--storage-class-data` ou `-scd` suivi du nom de la classe de stockage.
     - Pour définir la classe de stockage pour les données, indiquez le paramètre `--storage-class-logs` ou `-scl` suivi du nom de la classe de stockage.
-    - Pour définir la classe de stockage pour les sauvegardes : dans cette préversion de PostgreSQL Hyperscale avec Azure Arc, il existe deux façons de définir des classes de stockage en fonction des types d’opérations de sauvegarde/restauration que vous souhaitez effectuer. Nous nous efforçons actuellement de simplifier cette expérience. Vous indiquez soit une classe de stockage, soit un montage de revendication de volume. Un montage de revendication de volume est une paire constituée d’une revendication de volume persistant existante (dans le même espace de noms) et du type de volume (et des métadonnées facultatives selon le type de volume), séparés par le signe deux-points. Le volume persistant est monté dans chaque pod pour le groupe de serveurs PostgreSQL.
+    - Pour définir la classe de stockage pour les sauvegardes : dans cette préversion de PostgreSQL Hyperscale avec Azure Arc, il existe deux façons de définir des classes de stockage en fonction des types d’opérations de sauvegarde/restauration que vous souhaitez effectuer. Nous nous efforçons actuellement de simplifier cette expérience. Vous indiquez soit une classe de stockage, soit un montage de revendication de volume. Un montage de revendication de volume est une paire constituée d’une revendication de volume persistant existante (dans le même espace de noms) et du type de volume (et des métadonnées facultatives selon le type de volume), séparés par le signe deux-points. Le volume persistant est monté dans chaque pod pour le groupe de serveurs PostgreSQL.
         - Si vous souhaitez planifier uniquement des restaurations complètes de bases de données, définissez le paramètre `--storage-class-backups` ou `-scb` suivi du nom de la classe de stockage.
-        - Si vous envisagez d’effectuer à la fois des restaurations complètes de bases de données et des restaurations dans le temps, définissez le paramètre `--volume-claim-mounts` ou `-vcm` suivi du nom d’une revendication de volume et d’un type de volume.
+        - Si vous envisagez d’effectuer à la fois des restaurations complètes de bases de données et des restaurations dans le temps, définissez le paramètre `--volume-claim-mounts` ou `--volume-claim-mounts` suivi du nom d’une revendication de volume et d’un type de volume.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -113,7 +94,7 @@ Si vous indiquez 1 Worker, le déploiement fonctionne mais nous vous déconseil
     * [Concevoir une base de données multilocataire](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Concevoir un tableau de bord d’analytique en temps réel](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-    > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
+    > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre instance PostgreSQL Hyperscale avec Azure Arc.
 
 - [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Configuration de stockage et concepts de stockage Kubernetes](storage-configuration.md)

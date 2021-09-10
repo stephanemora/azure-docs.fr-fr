@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: 6177de5dfc89dcbc33b9ff4291bf65ea909a3b9b
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 9553e53cda41a4fe4d926923bdd71d7d7c5ebb15
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112235713"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308389"
 ---
 # <a name="azure-custom-roles"></a>Rôles personnalisés Azure
 
@@ -65,13 +65,13 @@ Azure dispose de plusieurs milliers d’autorisations que vous pouvez inclure da
 
     Lorsque vous créez un rôle personnalisé à l’aide du portail Azure, vous pouvez également déterminer les fournisseurs de ressources en recherchant des mots clés. Cette fonctionnalité de recherche est décrite dans la section [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](custom-roles-portal.md#step-4-permissions).
 
-    ![Volet Ajouter des autorisations avec fournisseur de ressources](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Volet Ajouter des autorisations avec fournisseur de ressources](./media/shared/add-permissions-provider.png)
 
 - Recherchez dans [Autorisations disponibles](resource-provider-operations.md) les autorisations que vous souhaitez inclure.
 
     Lorsque vous créez un rôle personnalisé à l’aide du portail Azure, vous pouvez rechercher des autorisations par mot clé. Par exemple, vous pouvez rechercher des autorisations d’*ordinateur virtuel* ou de *facturation*. Vous pouvez également télécharger toutes les autorisations sous la forme d’un fichier CSV, puis lancer une recherche dans ce fichier. Cette fonctionnalité de recherche est décrite dans la section [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](custom-roles-portal.md#step-4-permissions).
 
-    ![Liste Ajouter des autorisations](./media/custom-roles-portal/add-permissions-list.png)
+    ![Liste Ajouter des autorisations](./media/shared/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>Exemple de rôle personnalisé
 
@@ -147,10 +147,6 @@ L’exemple suivant montre le même rôle personnalisé que celui qui est affich
 ]
 ```
 
-Quand vous créez un rôle personnalisé, celui-ci s’affiche dans le portail Azure avec une icône de ressource orange.
-
-![Icône de rôle personnalisé](./media/custom-roles/roles-custom-role-icon.png)
-
 ## <a name="custom-role-properties"></a>Propriétés du rôle personnalisé
 
 Le tableau suivant décrit ce que signifient les propriétés de rôle personnalisées.
@@ -210,7 +206,7 @@ La liste suivante décrit les limites des rôles personnalisés.
 - Les rôles personnalisés avec `DataActions` ne peuvent pas être attribués dans l’étendue du groupe d’administration.
 - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle.
 
-Pour plus d’informations sur les rôles personnalisés et les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+Pour plus d’informations sur les rôles personnalisés et les groupes d’administration, consultez [Présentation des groupes d’administration Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## <a name="input-and-output-formats"></a>Formats d’entrée et de sortie
 

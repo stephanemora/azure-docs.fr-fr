@@ -1,22 +1,22 @@
 ---
-title: Gérer des groupes d’applications pour Azure Virtual Desktop PowerShell - Azure
-description: Comment gérer des groupes d’applications Azure Virtual Desktop avec PowerShell.
+title: Gérer des groupes d’applications pour Azure Virtual Desktop - Azure
+description: Comment gérer des groupes d’applications Azure Virtual Desktop avec PowerShell ou Azure CLI.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a900d1d92509fab7b777ca5864a51c7699cb294e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f323819492fe89f7742c6b218afa4d2e1bf1b6c0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749072"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103927"
 ---
-# <a name="manage-app-groups-using-powershell"></a>Gérer des groupes d’applications à l’aide de PowerShell
+# <a name="manage-app-groups-using-powershell-or-the-azure-cli"></a>Gérer les groupes d’applications avec PowerShell ou Azure CLI
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objet Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Azure Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu **Démarrer**.
 
@@ -28,9 +28,21 @@ Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 Cet article suppose que vous avez suivi les instructions de l’article [Configurer le module PowerShell](powershell-module.md) pour configurer votre module PowerShell et vous connecter à votre compte Azure.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Cet article suppose que vous avez déjà configuré votre environnement pour Azure CLI et que vous vous êtes connecté à votre compte Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+---
+
 ## <a name="create-a-remoteapp-group"></a>Créer un groupe RemoteApp
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Pour créer un groupe RemoteApp avec PowerShell :
 
@@ -100,6 +112,34 @@ Pour créer un groupe RemoteApp avec PowerShell :
    ```powershell
    New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
    ```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+> [!NOTE]
+> Azure CLI ne fournit actuellement aucune commande permettant d’obtenir des applications du menu Démarrer, ni de créer un programme RemoteApp ni de le publier dans le groupe d’applications. Utilisation d’Azure PowerShell
+
+Pour créer un groupe RemoteApp avec Azure CLI :
+
+1. Utilisez la commande [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az_desktopvirtualization_applicationgroup_create) pour créer un groupe d’applications distantes :
+
+   ```azurecli
+   az desktopvirtualization applicationgroup create --name "MyApplicationGroup" \
+      --resource-group "MyResourceGroup" \
+      --location "MyLocation" \
+      --application-group-type "RemoteApp" \
+      --host-pool-arm-path "/subscriptions/MySubscriptionGUID/resourceGroups/MyResourceGroup/providers/Microsoft.DesktopVirtualization/hostpools/MyHostPool"
+      --tags tag1="value1" tag2="value2" \
+      --friendly-name "Friendly name of this application group" \
+      --description "Description of this application group" 
+   ```
+    
+2. (Facultatif) Pour vérifier que le groupe d’applications a bien été créé, vous pouvez exécuter la commande suivante pour afficher la liste de tous les groupes d’applications associés au pool d’hôtes.
+
+   ```azurecli
+   az desktopvirtualization applicationgroup list \
+      --resource-group "MyResourceGroup"
+   ```
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

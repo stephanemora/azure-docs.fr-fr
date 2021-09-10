@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 07/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c3d80a97b7be3127caaa4ce86dac8435dec1666
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 04f7b5a7757d402035e36aaf085de9033d046ba2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438447"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531414"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Vue d’ensemble de l’inscription combinée d’informations de sécurité pour Azure Active Directory
 
@@ -34,7 +34,7 @@ Cet article explique ce qu’est l’inscription de sécurité combinée. Pour p
 
 Avant d’activer la nouvelle expérience, passez en revue cette documentation axée sur l’administrateur et la documentation orientée utilisateur pour vous assurer de bien comprendre les fonctions et l’effet de cette fonctionnalité. Basez votre formation sur la [documentation pour les utilisateurs](../user-help/security-info-setup-signin.md) afin de préparer vos utilisateurs à cette nouvelle expérience et de favoriser un déploiement réussi.
 
-L’inscription combinée d’informations de sécurité Azure AD n’est pas disponible actuellement sur les clouds nationaux tels qu’Azure Allemagne et Azure China 21Vianet. Elle est disponible pour Azure - Gouvernement des États-Unis.
+L’inscription combinée d’informations de sécurité Azure AD est disponible pour Azure US Government, mais pas pour Azure Allemagne et Azure China 21Vianet.
 
 > [!IMPORTANT]
 > Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences ne voient que l’expérience de la page Mon compte. La page *Mon compte* s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon compte en accédant à [https://myaccount.microsoft.com](https://myaccount.microsoft.com).
@@ -69,12 +69,12 @@ L’inscription combinée prend en charge les méthodes et les actions d’authe
 
 Les utilisateurs peuvent définir l’une des options suivantes comme méthode d’authentification multifacteur par défaut :
 
-- Microsoft Authenticator – notification.
-- Application d’authentification ou jeton matériel – code.
-- Appel téléphonique.
-- SMS.
+- Microsoft Authenticator (notification Push)
+- Application Microsoft Authenticator ou jeton matériel (code)
+- appel téléphonique
+- SMS
 
-Au fur et à mesure que nous ajouterons de nouvelles méthodes d’authentification à Azure AD, ces méthodes seront disponibles dans le cadre d’une inscription combinée.
+Les applications d’authentificateur tierces ne proposent pas de notification Push. Au fur et à mesure que nous ajouterons de nouvelles méthodes d’authentification à Azure AD, ces méthodes seront disponibles dans le cadre d’une inscription combinée.
 
 ## <a name="combined-registration-modes"></a>Modes d’inscription combinée
 
@@ -85,9 +85,11 @@ Il existe deux modes d’inscription combinée : le mode d’interruption et le
 
 Pour ces deux modes, les utilisateurs qui se sont inscrits précédemment à une méthode pouvant être utilisée pour l’authentification multifacteur doivent effectuer une authentification multifacteur avant de pouvoir accéder à leurs informations de sécurité. Les utilisateurs doivent confirmer leurs informations avant de continuer à utiliser leurs méthodes précédemment inscrites. 
 
+
+
 ### <a name="interrupt-mode"></a>Mode d’interruption
 
-L’inscription combinée respecte les stratégies d’authentification multifacteur et de réinitialisation SSPR, si les deux sont activées pour votre locataire. Ces stratégies contrôlent le fait que l’inscription d’un utilisateur est interrompue ou non pendant la connexion, ainsi que les méthodes d’inscription disponibles.
+L’inscription combinée respecte les stratégies d’authentification multifacteur et de SSPR, si les deux sont activées pour votre locataire. Ces stratégies contrôlent le fait que l’inscription d’un utilisateur est interrompue ou non pendant la connexion, ainsi que les méthodes d’inscription disponibles. Si seule une stratégie de SSPR est activée, les utilisateurs peuvent ignorer l’interruption de l’inscription et la terminer ultérieurement.
 
 Voici quelques exemples de scénarios dans lesquels les utilisateurs peuvent être invités à s’inscrire ou à actualiser leurs informations de sécurité :
 
@@ -101,10 +103,10 @@ Lorsque l’inscription est appliquée, les utilisateurs peuvent voir le nombre 
 
 Examinez l’exemple de scénario suivant :
 
-- Un utilisateur est activé pour la réinitialisation SSPR. La stratégie SSPR nécessitait deux méthodes pour réinitialiser et activait le code de l’application mobile, le courrier et le téléphone.
-- Cet utilisateur est tenu de s’inscrire à deux méthodes.
-   - L’utilisateur voit l’application d’authentification et le téléphone par défaut.
-   - L’utilisateur peut choisir de s’inscrire par e-mail à la place de l’application d’authentification ou du téléphone.
+- Un utilisateur est activé pour la réinitialisation SSPR. La stratégie de SSPR exige deux méthodes de réinitialisation et a activé l’application Microsoft Authenticator, l’adresse e-mail et le numéro de téléphone.
+- Lorsque l’utilisateur choisit de s’inscrire, deux méthodes sont requises :
+   - L’utilisateur voit l’application Microsoft Authenticator et le numéro de téléphone par défaut.
+   - L’utilisateur peut choisir d’inscrire l’adresse e-mail à la place de l’application Microsoft Authenticator ou du numéro de téléphone.
 
 L’organigramme suivant décrit les méthodes qui sont montrées à un utilisateur quand son inscription est interrompue pendant la connexion :
 
@@ -139,6 +141,16 @@ Un utilisateur qui a configuré précédemment au moins une méthode accède à 
 ### <a name="change-the-default-method-from-my-account"></a>Modifier la méthode par défaut à partir de Mon compte
 
 Un utilisateur qui a configuré précédemment au moins une méthode pouvant être utilisée pour l’authentification multifacteur accède à [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). L’utilisateur remplace la méthode par défaut actuelle par une autre méthode par défaut. Une fois terminé, l’utilisateur voit la nouvelle méthode par défaut sur la page Informations de sécurité.
+
+### <a name="switch-directory"></a>Changer d’annuaire
+
+Une identité externe telle qu’un utilisateur B2B peut avoir besoin de changer de répertoire pour modifier les informations de l’inscription de sécurité pour un locataire tiers. De plus, les utilisateurs qui accèdent à un locataire de ressources peuvent être déroutés lorsqu’ils modifient les paramètres dans leur locataire de base, mais ne voient pas les modifications reflétées dans le locataire de ressources. 
+
+Par exemple, un utilisateur définit la notification Push de l’application Microsoft Authenticator comme principale méthode d’authentification pour se connecter à son locataire de base et dispose également de l’option SMS. Cet utilisateur est également configuré avec l’option SMS sur un locataire de ressources. Si cet utilisateur supprime l’option SMS des options d’authentification sur son locataire de base, il sera confus lorsque l’accès au locataire de ressources lui demandera de répondre à un SMS. 
+
+Pour changer de répertoire dans le portail Azure, cliquez sur le nom du compte d’utilisateur dans le coin supérieur droit puis sur **Changer de répertoire**.
+
+![Des utilisateurs externes peuvent changer de répertoire.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

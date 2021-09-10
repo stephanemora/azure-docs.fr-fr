@@ -1,39 +1,35 @@
 ---
-title: Guide pratique pour analyser des compartiments Amazon S3
+title: Connecteur d’analyse multicloud Amazon S3 pour Azure Purview
 description: Ce guide pratique explique en détail comment analyser des compartiments Amazon S3.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: e339c9847024aa35665b9a8b4114102c8fde22a1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ad62ff0c7d3e6249ecb8497953501466b5152265
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470285"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527957"
 ---
-# <a name="azure-purview-connector-for-amazon-s3"></a>Connecteur Azure Purview pour Amazon S3
+# <a name="amazon-s3-multi-cloud-scanning-connector-for-azure-purview"></a>Connecteur d’analyse multicloud Amazon S3 pour Azure Purview
 
-Ce guide pratique explique comment utiliser Azure Purview pour analyser vos données non structurées actuellement stockées dans des compartiments Amazon S3 standard et découvrir les types d’informations sensibles qui existent dans vos données. Ce guide explique également comment identifier les compartiments Amazon S3 où les données sont actuellement stockées pour faciliter la protection des informations et la conformité des données.
+Le connecteur d’analyse multicloud pour Azure Purview vous permet d’explorer les données de votre organisation sur plusieurs fournisseurs de cloud, y compris Amazon Web Services, en plus des services de stockage Azure.
 
-Pour ce service, Purview vous permet de fournir un compte Microsoft avec un accès sécurisé à AWS, où doit s’exécuter le scanneur Purview. Le scanneur Purview utilise cet accès à vos compartiments Amazon S3 pour lire vos données, puis rapporte à Azure les résultats de l’analyse, qui comprennent seulement les métadonnées et la classification. Utilisez les rapports de classification et d’étiquetage Purview pour analyser et examiner vos résultats d’analyse de données.
+Cet article décrit comment utiliser Azure Purview pour analyser vos données non structurées actuellement stockées dans des compartiments Amazon S3 standard et découvrir les types d’informations sensibles qui existent dans vos données. Ce guide explique également comment identifier les compartiments Amazon S3 où les données sont actuellement stockées pour faciliter la protection des informations et la conformité des données.
 
-Dans ce guide pratique, vous apprenez à ajouter des compartiments Amazon S3 sous forme de ressources Purview et à créer une analyse pour vos données Amazon S3.
+Pour ce service, Purview vous permet de fournir un compte Microsoft avec un accès sécurisé à AWS, où doit s’exécuter le connecteur d’analyse multicloud pour Azure Purview. Le connecteur d’analyse multicloud pour Azure Purview utilise cet accès à vos compartiments Amazon S3 pour lire vos données, puis rapporte à Azure les résultats de l’analyse, qui comprennent seulement les métadonnées et la classification. Utilisez les rapports de classification et d’étiquetage Purview pour analyser et examiner vos résultats d’analyse de données.
+
+> [!IMPORTANT]
+> Le connecteur d’analyse multicloud pour Azure Purview est un module complémentaire distinct d’Azure Purview. Les conditions générales du connecteur d’analyse multicloud pour Azure Purview sont contenues dans l’accord en vertu duquel vous avez obtenu les services Microsoft Azure. Pour plus d’informations, consultez la page Informations Juridiques Microsoft Azure à l’adresse https://azure.microsoft.com/support/legal/.
+>
 
 ## <a name="purview-scope-for-amazon-s3"></a>Étendue Purview pour Amazon S3
 
-L’étendue suivante est spécifique pour inscrire et analyser des compartiments Amazon S3 comme sources de données Purview.
-
-|Étendue  |Description  |
-|---------|---------|
-|**Types de fichier**     | Le service de scanneur Purview prend actuellement en charge les types de fichiers suivants : <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Régions**     | Le connecteur Purview pour le service Amazon S3 est actuellement déployé dans des régions spécifiques seulement. <br><br>Pour plus d’informations, consultez [Régions de stockage et d’analyse](#storage-and-scanning-regions).   |
-|     |         |
-
-Pour plus d’informations, consultez les limites Purview documentées sur :
+Pour plus d’informations sur les limites de Purview, consultez :
 
 - [Gestion et augmentation des quotas de ressources avec Azure Purview](how-to-manage-quotas.md)
 - [Sources de données et types de fichiers pris en charge dans Azure Purview](sources-and-scans.md)
@@ -41,7 +37,7 @@ Pour plus d’informations, consultez les limites Purview documentées sur :
 
 ### <a name="storage-and-scanning-regions"></a>Régions de stockage et d’analyse
 
-Le tableau suivant mappe les régions où sont stockées vos données à la région où elles doivent être analysées par Azure Purview.
+Le connecteur Purview pour le service Amazon S3 est actuellement déployé dans des régions spécifiques seulement. Le tableau suivant mappe les régions où sont stockées vos données à la région où elles doivent être analysées par Azure Purview.
 
 > [!IMPORTANT]
 > Les clients sont facturés de tous les frais de transfert de données associés en fonction de la région de leur compartiment.
@@ -51,24 +47,24 @@ Le tableau suivant mappe les régions où sont stockées vos données à la rég
 | ------------------------------- | ------------------------------------- |
 | USA Est (Ohio)                  | USA Est (Ohio)                        |
 | USA Est (Virginie Nord)           | USA Est (Virginie Nord)                       |
-| USA Ouest (Californie Nord)         | USA Est (Ohio) ou USA Ouest (N. Nord)                        |
-| USA Ouest (Oregon)                | USA Est (Ohio) ou USA Ouest (Oregon)                      |
+| USA Ouest (Californie Nord)         | USA Ouest (Californie Nord)                        |
+| USA Ouest (Oregon)                | USA Ouest (Oregon)                      |
 | Afrique (Le Cap)              | Europe (Francfort)                    |
-| Asie-Pacifique (Hong Kong, R.A.S.)        | Asie-Pacifique (Sydney) ou Asie-Pacifique (Singapour)                |
-| Asie-Pacifique (Mumbai)           | Asie-Pacifique (Sydney) ou Asie-Pacifique (Singapour)                |
-| Asie-Pacifique (Osaka-local)      | Asie-Pacifique (Sydney) ou Asie-Pacifique (Tokyo)                 |
-| Asie-Pacifique (Séoul)            | Asie-Pacifique (Sydney) ou Asie-Pacifique (Tokyo)                 |
-| Asie-Pacifique (Singapour)        | Asie-Pacifique (Sydney) ou Asie-Pacifique (Singapour)                 |
+| Asie-Pacifique (Hong Kong, R.A.S.)        | Asie-Pacifique (Tokyo)                |
+| Asie-Pacifique (Mumbai)           | Asie-Pacifique (Singapour)                |
+| Asie-Pacifique (Osaka-local)      | Asie-Pacifique (Tokyo)                 |
+| Asie-Pacifique (Séoul)            | Asie-Pacifique (Tokyo)                 |
+| Asie-Pacifique (Singapour)        | Asie-Pacifique (Singapour)                 |
 | Asie-Pacifique (Sydney)           | Asie-Pacifique (Sydney)                  |
-| Asie-Pacifique (Tokyo)            | Asie-Pacifique (Sydney) ou Asie-Pacifique (Tokyo)                |
+| Asie-Pacifique (Tokyo)            | Asie-Pacifique (Tokyo)                |
 | Canada (Centre)                | USA Est (Ohio)                        |
 | Chine (Beijing)                 | Non pris en charge                    |
 | Chine (Ningxia)                 | Non pris en charge                   |
 | Europe (Francfort)              | Europe (Francfort)                    |
 | Europe (Irlande)                | Europe (Irlande)                   |
-| Europe (Londres)                 | Europe (Irlande) ou Europe (Londres)                 |
-| Europe (Milan)                  | Europe (Francfort)                    |
-| Europe (Paris)                  | Europe (Francfort) ou Europe (Paris)                   |
+| Europe (Londres)                 | Europe (Londres)                 |
+| Europe (Milan)                  | Europe (Paris)                    |
+| Europe (Paris)                  | Europe (Paris)                   |
 | Europe (Stockholm)              | Europe (Francfort)                    |
 | Moyen-Orient (Bahreïn)           | Europe (Francfort)                    |
 | Amérique du Sud (São Paulo)       | USA Est (Ohio)                        |
@@ -305,7 +301,7 @@ Utilisez cette procédure si vous avez seulement un compartiment S3 à inscrire 
 
     ![Lancez le portail Purview.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Accédez à la page **Sources** d’Azure Purview et sélectionnez **Inscrire** ![icône Inscrire.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continuer**.
+1. Accédez à la page **Data Map** d’Azure Purview et sélectionnez **Inscrire** ![icône Inscrire.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continuer**.
 
     ![Ajoutez un compartiment Amazon AWS comme source de données Purview.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
@@ -337,7 +333,7 @@ Lorsque vous [configurez votre analyse](#create-a-scan-for-one-or-more-amazon-s3
 
     ![Lancer le portail Purview dédié au connecteur pour Amazon S3](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Accédez à la page **Sources** d’Azure Purview et sélectionnez **Inscrire** ![icône Inscrire.](./media/register-scan-amazon-s3/register-button.png) > **Comptes Amazon** > **Continuer**.
+1. Accédez à la page **Data Map** d’Azure Purview et sélectionnez **Inscrire** ![icône Inscrire.](./media/register-scan-amazon-s3/register-button.png) > **Comptes Amazon** > **Continuer**.
 
     ![Ajoutez un compte Amazon comme source de données Purview.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
@@ -362,7 +358,7 @@ Passez à l’étape [Créer une analyse pour un ou plusieurs compartiments Amaz
 
 Une fois que vous avez ajouté vos compartiments comme sources de données Purview, vous pouvez configurer une analyse à exécuter à intervalles planifiés ou immédiatement.
 
-1. Accédez à la zone **Sources** d’Azure Purview, puis effectuez l’une des opérations suivantes :
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio, puis effectuez l’une des opérations suivantes :
 
     - Dans la **Vue cartographique**, sélectionnez **Nouvelle analyse** ![icône Nouvelle analyse.](./media/register-scan-amazon-s3/new-scan-button.png) dans votre zone de source de données.
     - En **mode liste**, pointez sur la ligne de votre source de données et sélectionnez **Nouvelle analyse** ![icône Nouvelle analyse.](./media/register-scan-amazon-s3/new-scan-button.png)
@@ -411,7 +407,7 @@ Pour plus d’informations, consultez [Explorer les résultats d’analyse Purvi
 
 ## <a name="explore-purview-scanning-results"></a>Explorer les résultats d’analyse Purview
 
-Une fois l’analyse Purview terminée sur vos compartiments Amazon S3, explorez en détail la zone **Sources** de Purview pour voir l’historique d’analyse.
+Une fois l’analyse Purview terminée sur vos compartiments Amazon S3, explorez au niveau du détail la zone **Data Map** de Purview pour voir l’historique d’analyse.
 
 Sélectionnez une source de données pour voir ses détails, puis sélectionnez l’onglet **Analyses** pour voir les analyses en cours d’exécution ou terminées.
 Si vous avez ajouté un compte AWS avec plusieurs compartiments, l’historique d’analyse de chaque compartiment s’affiche sous le compte.

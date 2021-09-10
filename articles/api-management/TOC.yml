@@ -84,6 +84,8 @@
       href: automation-manage-api-management.md
     - name: Restrictions à l’importation des API
       href: api-management-api-import-restrictions.md
+    - name: Vue d’ensemble des réseaux virtuels
+      href: virtual-network-concepts.md
     - name: Vue d’ensemble de la passerelle auto-hébergée
       href: self-hosted-gateway-overview.md
     - name: Observabilité
@@ -92,6 +94,8 @@
       href: devops-api-development-templates.md
     - name: Suppression réversible
       href: soft-delete.md
+    - name: Plateforme de calcul
+      href: compute-infrastructure.md
 - name: Guides pratiques
   items:
     - name: Définir des API

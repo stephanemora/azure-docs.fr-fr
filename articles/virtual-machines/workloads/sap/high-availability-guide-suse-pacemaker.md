@@ -12,14 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/13/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
-ms.openlocfilehash: c762f0e04a7079fff72962cafe44b06acfcf0eaf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: be174bf6d71ed243e0e7997250df55edffc27739
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100033"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722504"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -619,18 +620,8 @@ Utilisez le contenu suivant pour le fichier d’entrée. Vous devez adapter le c
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Affecter le rôle personnalisé au principal de service
 
-Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (Rôle d’agent d’isolation Linux) créé dans la section précédente. N’utilisez plus le rôle Propriétaire !
-
-1. Accédez à [https://portal.azure.com](https://portal.azure.com)
-1. Ouvrez le panneau Toutes les ressources
-1. Sélectionnez la machine virtuelle du premier nœud de cluster.
-1. Cliquez sur Contrôle d’accès (IAM)
-1. Cliquez sur Ajouter une attribution de rôle.
-1. Sélectionnez le rôle Linux Fence Agent Role (Rôle d’agent d’isolation Linux).
-1. Entrez le nom de l’application que vous avez créée ci-dessus
-1. Cliquez sur Enregistrer.
-
-Répétez les étapes ci-dessus pour le deuxième nœud de cluster.
+Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (Rôle d’agent d’isolation Linux) créé dans la section précédente. N’utilisez plus le rôle Propriétaire ! Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../../role-based-access-control/role-assignments-portal.md).   
+Veillez à attribuer le rôle pour les deux nœuds de cluster.    
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** Créer les appareils STONITH
 

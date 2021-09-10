@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 64a112fd29ee9e3fbb82d9b54322415569b3ff85
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: a0f3e5f707600933ce68e51634145cd3515c5d6a
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209534"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525792"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Interroger des données d’Azure Cosmos DB avec un pool SQL serverless dans Azure Synapse Link
 
@@ -23,7 +23,19 @@ Un pool SQL serverless vous permet d’analyser les données figurant dans vos c
 
 Pour l’interrogation d’Azure Cosmos DB, toute la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) est prise en charge via la fonction [OPENROWSET](develop-openrowset.md), y compris la majorité des [fonctions et opérateurs SQL](overview-features.md). Vous pouvez également stocker les résultats de la requête qui lit des données d’Azure Cosmos DB ainsi que des données du Stockage Blob Azure ou d’Azure Data Lake Storage à l’aide de la commande [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Actuellement, vous ne pouvez pas stocker les résultats d’une requête de pool SQL serverless dans Azure Cosmos DB à l’aide de CETAS.
 
-Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. Vous pouvez ensuite découvrir comment créer des vues de pool SQL serverless sur des conteneurs Azure Cosmos DB et comment les connecter à des modèles Power BI dans [ce tutoriel](./tutorial-data-analyst.md), qui utilise un conteneur avec un [schéma Azure Cosmos DB bien défini](../../cosmos-db/analytical-store-introduction.md#schema-representation).
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. [Ce tutoriel](./tutorial-data-analyst.md) fournit également des informations supplémentaires sur la création de vues de pool SQL serverless sur des conteneurs Azure Cosmos DB, et leur connexion à des modèles Power BI. Ce tutoriel utilise un conteneur avec un [schéma bien défini Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). Vous pouvez également consulter le module d’apprentissage sur la façon d’[interroger Azure Cosmos DB avec SQL Serverless pour Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
+
+## <a name="prerequisites"></a>Configuration requise
+
+- Assurez-vous que vous avez préparé le magasin analytique :
+  - Activez le magasin analytique sur [vos conteneurs Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store).
+  - Obtenez la chaîne de connexion avec une clé en lecture seule que vous utiliserez pour interroger le magasin analytique. 
+  - Obtenez la [clé en lecture seule qui sera utilisée pour accéder au conteneur Cosmos DB](../../cosmos-db/database-security.md#primary-keys).
+- Assurez-vous que vous avez appliqué toutes les [meilleures pratiques](best-practices-serverless-sql-pool.md), notamment :
+  - Assurez-vous que votre stockage analytique Cosmos DB se trouve dans la même région que le pool SQL serverless.
+  - Assurez-vous que l’application cliente (Power BI, Analysis Services) se trouve dans la même région que le pool SQL serverless.
+  - Si vous renvoyez une grande quantité de données (plus de 80 Go), envisagez d’utiliser une couche de mise en cache telle qu’Analysis Services et chargez les partitions de moins de 80 Go dans le modèle Analysis Services.
+  - Si vous filtrez les données à l’aide de colonnes de type chaîne, assurez-vous d’utiliser la fonction `OPENROWSET` avec la clause `WITH` explicite qui a les types les plus petits possibles [par exemple, n’utilisez pas VARCHAR(1000) si vous savez que la propriété contient jusqu’à 5 caractères].
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -94,7 +106,7 @@ La clé principale du compte de base de données est placée dans les informatio
 
 ## <a name="sample-dataset"></a>Exemple de jeu de données
 
-Les exemples de cet article sont basés sur des données relatives aux [Cas de COVID-19 du Centre européen pour la prévention et le contrôle des maladies (CEPCM)](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) et du [COVID-19 Open Research DataSet (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
+Les exemples de cet article sont basés sur des données relatives aux [Cas de COVID-19 du Centre européen pour la prévention et le contrôle des maladies (CEPCM)](../../open-datasets/dataset-ecdc-covid-cases.md) et du [COVID-19 Open Research DataSet (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
 Vous trouverez la licence et la structure des données dans ces pages. Vous pouvez également télécharger des exemples de données pour les jeux de données [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) et [CORD-19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) .
 
@@ -164,7 +176,7 @@ Bien que la fonctionnalité d’inférence de schéma automatique dans `OPENROWS
 
 La fonction `OPENROWSET` vous permet de spécifier de manière explicite les propriétés que vous souhaitez lire à partir des données du conteneur, ainsi que de spécifier leurs types de données.
 
-Supposons que nous avons importé des données du [jeu de données COVID du CEPCM](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) avec la structure suivante dans Azure Cosmos DB :
+Supposons que nous avons importé des données du [jeu de données COVID du CEPCM](../../open-datasets/dataset-ecdc-covid-cases.md) avec la structure suivante dans Azure Cosmos DB :
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -215,7 +227,7 @@ Pour plus d’informations sur les types SQL à utiliser pour les valeurs Azure 
 
 ## <a name="create-view"></a>Créer une vue
 
-La création d’affichages dans la base de données MASTER et la base de données par défaut n’est ni recommandée ni prise en charge. Vous devez donc créer une base de données utilisateur pour vos affichages.
+La création d’affichages dans la base de données MASTER et la base de données par défaut n’est ni recommandée ni prise en charge. Vous devez donc créer une base de données utilisateur pour vos vues.
 
 Une fois que vous avez identifié le schéma, vous pouvez préparer une vue en plus de vos données Azure Cosmos DB. Vous devez placer votre clé de compte Azure Cosmos DB dans des informations d’identification distinctes et référencer ces informations d’identification à partir de la fonction `OPENROWSET`. Ne conservez pas votre clé de compte dans la définition de la vue.
 
@@ -426,22 +438,9 @@ GROUP BY geo_id
 
 Dans cet exemple, le nombre de cas est stocké en tant que valeurs `int32`, `int64` ou `float64`. Toutes les valeurs doivent être extraites pour calculer le nombre de cas par pays.
 
-## <a name="known-issues"></a>Problèmes connus
+## <a name="troubleshooting"></a>Résolution des problèmes
 
-- Un pool SQL serverless retourne un avertissement au moment de la compilation si le classement de la colonne `OPENROWSET` n’a pas d’encodage UTF-8. Vous pouvez facilement modifier le classement par défaut pour toutes les fonctions `OPENROWSET` en cours d’exécution dans la base de données actuelle à l’aide de l’instruction T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
-
-Les erreurs possibles et les actions de résolution des problèmes sont répertoriées dans le tableau suivant.
-
-| Erreur | Cause racine |
-| --- | --- |
-| Erreurs de syntaxe :<br/> - Syntaxe incorrecte près de `Openrowset`<br/> -  `...` n’est pas une option reconnue de fournisseur de `BULK OPENROWSET`.<br/> - Syntaxe incorrecte près de `...` | Causes principales possibles :<br/> - N’utilise pas CosmosDB comme premier paramètre,<br/> - Utilise un littéral de chaîne au lieu d’un identificateur dans le troisième paramètre,<br/> - Ne spécifie pas le troisième paramètre (nom de conteneur). |
-| Une erreur s’est produite dans la chaîne de connexion CosmosDB. | -Le compte, la base de données ou la clé n’est pas spécifié(e), <br/> - Une option dans une chaîne de connexion n’est pas reconnue,<br/> - Un point-virgule `;` est placé à la fin d’une chaîne de connexion. |
-| La résolution du chemin d’accès CosmosDB a échoué avec l’erreur « Nom de compte incorrect » ou « Nom de base de données incorrect ». | Le nom de compte, le nom de la base de données ou le conteneur spécifié est introuvable, ou le stockage analytique n’a pas été activé pour la collection spécifiée.|
-| La résolution du chemin d’accès CosmosDB a échoué avec l’erreur « Valeur de secret incorrecte » ou « Secret null ou vide ». | La clé du compte n’est pas valide ou est manquante. |
-| La colonne `column name` de type `type name` n’est pas compatible avec le type de données externe `type name`. | Le type de colonne spécifié dans la clause `WITH` ne correspond pas au type dans le conteneur Azure Cosmos DB. Essayez de modifier le type de colonne tel que décrit dans la section [Mappages de type Azure Cosmos DB à SQL](#azure-cosmos-db-to-sql-type-mappings), ou utilisez le type `VARCHAR`. |
-| La colonne contient `NULL` valeurs dans toutes les cellules. | Possibilité d’une erreur de nom de colonne ou d’expression de chemin d’accès dans la clause `WITH`. Le nom de colonne (ou l’expression de chemin d’accès après le type de colonne) dans la clause `WITH` doit correspondre à un nom de propriété dans la collection Azure Cosmos DB. La comparaison *respecte la casse*. Par exemple, `productCode` et `ProductCode` sont des propriétés différentes. |
-
-Vous pouvez nous faire part de vos suggestions et signaler des problèmes dans la [page de commentaires Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+Consultez la [page d’auto-assistance](resources-self-help-sql-on-demand.md#cosmos-db) pour trouver les problèmes connus ou les étapes de dépannage qui peuvent vous aider à résoudre les problèmes que vous pouvez rencontrer avec les requêtes Cosmos DB.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -450,3 +449,5 @@ Pour plus d’informations, consultez les articles suivants :
 - [Utiliser Power BI et un pool SQL serverless avec Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Créer et utiliser des vues dans un pool SQL serverless](create-use-views.md)
 - [Tutoriel sur la création de vues de pools SQL serverless sur Azure Cosmos DB et leur connexion à des modèles Power BI via DirectQuery](./tutorial-data-analyst.md)
+- Suivez le [lien Synapse vers la page d’auto-assistance relative à Cosmos DB](resources-self-help-sql-on-demand.md#cosmos-db) si vous obtenez des erreurs ou rencontrez des problèmes de performance.
+- Consultez le module d’apprentissage sur la façon d’[interroger Azure Cosmos DB avec SQL Serverless pour Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).

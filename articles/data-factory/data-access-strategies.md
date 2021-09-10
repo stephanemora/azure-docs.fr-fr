@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: dd52d74ab4b5be261e6c170d897e15f14a332d9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b5d2921a59cc62ec4a58230a76eee33e4347ed0
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641420"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250710"
 ---
 # <a name="data-access-strategies"></a>Stratégies d’accès aux données
 
@@ -52,8 +52,8 @@ Pour plus d’informations sur les mécanismes de sécurité réseau pris en cha
     |                              | Explorateur de données Azure                                 | -                | -                   | Oui*            | Oui*         | -                    |
     |                              | Azure Data Lake Gen1                                | -                | -                   | Oui             | -            | Oui                  |
     |                              | Azure Database for MariaDB, MySQL et PostgreSQL       | -                | -                   | Oui             | -            | Oui                  |
-    |                              | Stockage Fichier Azure                                  | Oui              | -                   | Oui             | -            | .                    |
-    |                              | Stockage Azure (Blob, ADLS Gen2)                     | Oui              | Oui (authentification MSI uniquement) | Oui             | -            | .                    |
+    |                              | Azure Files                                  | Oui              | -                   | Oui             | -            | .                    |
+    |                              | Stockage Blob Azure et ADLS Gen2                     | Oui              | Oui (authentification MSI uniquement) | Oui             | -            | .                    |
     |                              | Azure SQL DB, Azure Synapse Analytics, SQL Ml  | Oui (uniquement Azure SQL DB/DW)        | -                   | Oui             | -            | Oui                  |
     |                              | Azure Key Vault (pour l’extraction de secrets/chaîne de connexion) | Oui      | Oui                 | Oui             | -            | -                    |
     | Autres magasins de données PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Oui             | -            | -                    |
@@ -70,8 +70,8 @@ Pour plus d’informations sur les mécanismes de sécurité réseau pris en cha
     |                                | Explorateur de données Azure                                           | -         | -                   |
     |                                | Azure Data Lake Gen1                                          | Oui       | -                   |
     |                                | Azure Database for MariaDB, MySQL et PostgreSQL               | Oui       | -                   |
-    |                                | Stockage Fichier Azure                                            | Oui       | -                   |
-    |                                | Stockage Azure (Blog, ADLS Gen2)                             | Oui       | Oui (authentification MSI uniquement) |
+    |                                | Azure Files                                            | Oui       | -                   |
+    |                                | Stockage Blob Azure et ADLS Gen2                             | Oui       | Oui (authentification MSI uniquement) |
     |                                | Azure SQL DB, Azure Synapse Analytics, SQL Ml          | Oui       | -                   |
     |                                | Azure Key Vault (pour l’extraction de secrets/chaîne de connexion) | Oui       | Oui                 |
     | Autres magasins de données PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Oui       | -                   |

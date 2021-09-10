@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 9fb40048a57955fc6a8e4a4e73361f545380f84e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cba8ba5c8c5ff300fe585d75aab98fd4003a475d
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971551"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608230"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configurer un plan d’application managée
 
@@ -178,7 +178,7 @@ Vous pouvez configurer un maximum de cinq stratégies, et une seule instance de 
 
 1. Sous **Paramètres de stratégie**, sélectionnez le lien **+ Ajouter une stratégie (max 5)** .
 1. Dans la zone **Nom**, entrez le nom de l’attribution de stratégie (limité à 50 caractères).
-1. Dans la zone de liste **Stratégies**, sélectionnez la stratégie Azure qui sera appliquée aux ressources créées par l’application managée dans l’abonnement client.
+1. Dans la zone de liste **Stratégies**, sélectionnez la définition Azure Policy qui sera appliquée aux ressources créées par l’application managée dans l’abonnement client.
 1. Dans la zone **Paramètres de stratégie**, entrez le paramètre auquel les stratégies de paramètres d’audit et de diagnostic doivent être appliquées.
 1. Dans la zone de liste **Référence (SKU) de stratégie**, sélectionnez le type de référence (SKU) de la stratégie.
 
@@ -194,7 +194,7 @@ Une fois que vous avez créé un ou plusieurs plans, sous l’onglet **Vue d’e
 Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensemble du plan** varient en fonction de l’état de votre plan et peuvent inclure les éléments suivants :
 
 - Si l’état du plan est **Brouillon**, le lien figurant dans la colonne **Action** indique **Supprimer le brouillon**.
-- Si l’état du plan est **Disponible**, le lien dans la colonne **Action** est **Arrêter la vente du plan** ou **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
+- Si l’état du plan est **Disponible**, le lien dans la colonne **Action** est **Arrêter la distribution** ou **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
 - Pour créer un autre plan pour cette offre, en haut de l’onglet **Vue d’ensemble du plan**, sélectionnez **+ Créer un plan**. Répétez les étapes décrites dans [Comment créer des plans pour votre offre d’application Azure](azure-app-plans.md). Sinon, si vous avez terminé la création de plans, passez à la section suivante : Étapes suivantes.
 
 ## <a name="next-steps"></a>Étapes suivantes

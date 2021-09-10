@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ea85c1ae1533ffe231e57ecc95f345b37c77499
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38b595e4f9b2582f3baefecabf6285ee36436ad6
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525150"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260065"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Connecter des machines virtuelles Azure Stack Hub à Azure Sentinel
 
@@ -35,9 +35,9 @@ Ajoutez l’extension de machine virtuelle **Azure Monitor, Update and Configura
 
 1. Sélectionnez **Extensions**. La liste des extensions de machine virtuelle installées sur cette machine virtuelle s’affiche.
 
-1. Cliquez sur l’onglet **Ajouter**. Le panneau de menus **Nouvelle ressource** s’ouvre et affiche la liste des extensions de machine virtuelle disponibles. 
+1. Sélectionnez l’onglet **Ajouter**. Le panneau de menu **Nouvelle ressource** s’ouvre, affichant la liste des extensions de machine virtuelle disponibles. 
 
-1. Sélectionnez l’extension **Azure Monitor, Update, and Configuration Management** et cliquez sur **Créer**. La fenêtre de configuration **Installer l’extension** s’ouvre.
+1. Sélectionnez l’extension **Azure Monitor, Update and Configuration Management**, puis choisissez **Créer**. La fenêtre de configuration **Installer l’extension** s’ouvre.
 
    ![Paramètres d’Azure Monitor, Update, and Configuration Management](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
 
@@ -46,7 +46,7 @@ Ajoutez l’extension de machine virtuelle **Azure Monitor, Update and Configura
 
 1. Dans le menu Azure Sentinel, sélectionnez **Paramètres d’espace de travail** suivi d’**Avancé**, puis copiez l’**ID d'espace de travail** et la **Clé de l’espace de travail (clé primaire)** . 
 
-1. Dans la fenêtre **Installer l’extension** d’Azure Stack Hub, collez-les dans les champs indiqués, puis cliquez sur **OK**.
+1. Dans la fenêtre **Installer l’extension** d’Azure Stack Hub, collez-les dans les champs indiqués, puis sélectionnez **OK**.
 
 1. Une fois l’installation de l’extension terminée, son état s’affiche en tant qu’**Approvisionnement réussi**. Il peut s’écouler une heure avant que la machine virtuelle n’apparaisse dans le portail Azure Sentinel.
 
@@ -68,7 +68,7 @@ Pour supprimer l’extension :
 
 1. Sélectionnez **Extensions**, puis sélectionnez l’extension **Microsoft.EnterpriseCloud.Monitoring**.
 
-1. Cliquez sur **Désinstaller**, puis confirmez votre choix.
+1. Sélectionnez **Désinstaller**, puis confirmez votre sélection.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

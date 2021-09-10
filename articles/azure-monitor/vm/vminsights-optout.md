@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 2de0dcd52745ebadb02ab8dbb563e28abf2822dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbb169924498b30284ea26d172f605596e6a0379
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046480"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122566114"
 ---
 # <a name="disable-monitoring-of-your-vms-in-vm-insights"></a>Désactiver l’analyse de vos machines virtuelles dans VM Insights
 
@@ -23,7 +23,7 @@ VM Insights s’appuie sur les composants suivants pour fournir son expérience 
 * Un espace de travail Log Analytics, qui stocke les données de surveillance collectées à partir des machines virtuelles et d’autres sources.
 * Une collection de compteurs de performances configurés dans l’espace de travail. Cette collection met à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
 * `VMInsights`, qui est une solution de supervision configurée dans l’espace de travail. Cette solution met à jour la configuration de la supervision sur toutes les machines virtuelles connectées à l’espace de travail.
-* `MicrosoftMonitoringAgent` et `DependencyAgent`, qui sont des extensions de machine virtuelle Azure. Ces extensions collectent et envoient des données à l’espace de travail.
+* `MicrosoftMonitoringAgent` (pour Windows) ou `OmsAgentForLinux` (pour Linux), et `DependencyAgent`, qui sont des extensions de la machine virtuelle Azure. Ces extensions collectent et envoient des données à l’espace de travail.
 
 Lorsque vous vous préparez à désactiver la surveillance de vos machines virtuelles, n’oubliez pas les considérations suivantes :
 

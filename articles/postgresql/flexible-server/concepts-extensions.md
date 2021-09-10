@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 59cb8290809df877e6faf374026db5aa3011e81b
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/30/2021
+ms.openlocfilehash: 3ccbe4cfa7b6e4f485d16ffecbda5c3b7042b8e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984191"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525015"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -49,6 +49,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | agrégateur et énumérateur d’entier. (Obsolète)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | Types de données pour les standards internationaux de numérotation de produits|
+> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | Maintenance des objets volumineux |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspectez le contenu de pages de base de données de bas niveau|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
@@ -61,6 +62,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examinez le mappage de visibilité (machine virtuelle) et les informations de visibilité au niveau des pages|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement| 
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Réplication logique en continu |
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
@@ -100,6 +102,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | agrégateur et énumérateur d’entier. (Obsolète)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | Types de données pour les standards internationaux de numérotation de produits|
+> |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | Maintenance des objets volumineux |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspectez le contenu de pages de base de données de bas niveau|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
@@ -112,6 +115,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examinez le mappage de visibilité (machine virtuelle) et les informations de visibilité au niveau des pages|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Réplication logique en continu |
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
@@ -151,6 +155,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | agrégateur et énumérateur d’entier. (Obsolète)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Types de données pour les standards internationaux de numérotation de produits|
+> |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | Maintenance des objets volumineux |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspectez le contenu de pages de base de données de bas niveau|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
@@ -163,6 +168,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examinez le mappage de visibilité (machine virtuelle) et les informations de visibilité au niveau des pages|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Réplication logique en continu |
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|

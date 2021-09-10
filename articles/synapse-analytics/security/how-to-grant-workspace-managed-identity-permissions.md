@@ -1,19 +1,20 @@
 ---
 title: Accorder des autorisations à l’identité managée dans l’espace de travail Synapse
 description: Cet article explique comment octroyer des autorisations pour l'identité managée dans l’espace de travail Azure Synapse.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 10244038ca2dee9551def5e0abcd102d42daa235
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459007"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531708"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity"></a>Octroyer des autorisations à une identité managée de l’espace de travail
 
@@ -72,41 +73,26 @@ L’identité managée doit pouvoir accéder aux données du conteneur (système
 Sélectionnez le même conteneur ou système de fichiers pour octroyer le rôle *Contributeur aux données Blob du stockage* à l'identité managée.
 ![Capture d’écran montrant le conteneur ou système de fichiers que vous devez sélectionner.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
-#### <a name="step-3-navigate-to-access-control"></a>Étape 3 : Accéder au contrôle d’accès
+#### <a name="step-3-open-access-control-and-add-role-assignment"></a>Étape 3 : Ouvrir le contrôle d’accès et ajouter une attribution de rôle
 
-Sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Contrôle d’accès (IAM)** .
 
-![Contrôle d’accès (IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-#### <a name="step-4-add-a-new-role-assignment"></a>Étape 4 : Ajouter une attribution de rôle
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Contributeur à Stockage Blob |
+    | Attribuer l’accès à | MANAGEDIDENTITY |
+    | Membres | nom de l’identité managée  |
 
-Sélectionnez **Ajouter**.
+    > [!NOTE]
+    > Le nom de l’identité managée correspond également au nom de l’espace de travail.
 
-![Ajouter une attribution de rôle](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-#### <a name="step-5-select-the-azure-role"></a>Étape 5 : Sélectionner le rôle Azure
-
-Sélectionnez le rôle **Contributeur aux données Blob du stockage**.
-
-![Sélectionner le rôle Azure](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
-
-#### <a name="step-6-select-the-azure-ad-security-principal"></a>Étape 6 : Sélectionner le principal de sécurité Azure AD
-
-Sélectionnez **Utilisateur, groupe ou principal de service Azure AD** dans la liste déroulante **Attribuer l'accès à**.
-
-![Sélectionner le principal de sécurité AAD](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
-
-#### <a name="step-7-search-for-the-managed-identity"></a>Étape 7 : Rechercher l’identité managée
-
-Le nom de l’identité managée correspond également au nom de l’espace de travail. Recherchez votre identité managée en entrant le nom de l’espace de travail Azure Synapse dans **Sélectionner**. L'identité managée doit y être répertoriée.
-
-![Rechercher l’identité managée](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
-
-#### <a name="step-8-select-the-managed-identity"></a>Étape 8 : Sélectionner l’identité managée
-
-Sélectionnez l’identité managée pour **Membres sélectionnés**. Sélectionnez **Enregistrer** pour ajouter l’attribution de rôle.
-
-![Sélectionner l’identité managée](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
+1. Sélectionnez **Enregistrer** pour ajouter l’attribution de rôle.
 
 #### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Étape 9 : Vérifiez que le rôle Contributeur aux données Blob du stockage est attribué à l’identité managée.
 

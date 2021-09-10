@@ -1,25 +1,28 @@
 ---
-title: Paramétrer les services liés dans Azure Data Factory
-description: Découvrez comment paramétrer des services liés dans Azure Data Factory et transmettre des valeurs dynamiques au moment de l’exécution.
+title: Services relatifs paramétrables
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment paramétrer des services liés dans les pipelines Azure Data Factory et Azure Synapse Analytics et comment transmettre des valeurs dynamiques au moment de l’exécution.
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/01/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 277f3d9e9d82edf9e93d41808a351528a94f85d7
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 043fc6800c33ca5d756e7b2d27ccb0d0181a1c30
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793692"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642080"
 ---
-# <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
+# <a name="parameterize-linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Paramétriser des services liés dans Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Vous pouvez désormais paramétrer un service lié et transmettre des valeurs dynamiques au moment de l’exécution. Par exemple, si vous souhaitez vous connecter à différentes bases de données sur le même serveur SQL logique, vous pouvez désormais paramétrer le nom de la base de données dans la définition du service lié. Ceci vous évite d’avoir à créer un service lié pour chaque base de données sur le serveur SQL logique. Vous pouvez également paramétrer les autres propriétés de la définition du service lié : par exemple, *Nom d’utilisateur.*
 
-Vous pouvez utiliser l’interface utilisateur de Data Factory dans le portail Azure ou une interface de programmation pour paramétrer les services liés.
+Vous pouvez utiliser l’interface utilisateur du portail Azure ou une interface de programmation pour paramétriser des services liés.
 
 > [!TIP]
 > Nous vous recommandons de ne pas paramétrer les mots de passe ou les secrets. Au lieu de cela, conservez toutes les chaînes de connexion dans Azure Key Vault et paramétrez le *Nom du secret*.
@@ -35,7 +38,7 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 Tous les types de service liés sont pris en charge pour le paramétrage.
 
-**Pris en charge nativement par l’IU ADF :** Lors de la création d'un service lié sur l'interface utilisateur, Data Factory fournit une expérience de paramétrage intégrée pour les types de services liés suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique. Consultez [Expérience IU Data Factory](#data-factory-ui).
+**Pris en charge en mode natif par l’interface utilisateur :** Lors de la création d’un service lié sur l’interface utilisateur, le service fournit une expérience de paramétrage intégrée pour les types de services liés suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique. Référez-vous à [Expérience de l’interface utilisateur](#ui-experience).
 
 - Amazon Redshift
 - Amazon S3
@@ -62,13 +65,23 @@ Tous les types de service liés sont pris en charge pour le paramétrage.
 - Dans le panneau de création/modification du service lié -> développez « Avancé » en bas -> activez la case à cocher « Spécifier un contenu dynamique au format JSON » -> spécifiez la charge utile du JSON du service lié. 
 - Ou bien, après avoir créé un service lié sans paramétrage, dans [Hub de gestion](author-visually.md#management-hub) -> Services liés-> recherchez le service lié spécifique -> cliquez sur « Code » (bouton « {} ») pour modifier le JSON. 
 
-Pour ajouter une section ` parameters` afin de définir des paramètres et de référencer le paramètre à l’aide de ` @{linkedService().paraName} `, reportez-vous à l’[exemple de JSON](#json).
+Pour ajouter une section ` parameters` afin de définir des paramètres et de référencer le paramètre à l’aide de ` @{linkedService().paramName} `, reportez-vous à l’[exemple de JSON](#json).
 
-## <a name="data-factory-ui"></a>IU de la fabrique de données
+## <a name="ui-experience"></a>Expérience de l’interface utilisateur
 
-![Ajouter du contenu dynamique à la définition du service lié](media/parameterize-linked-services/parameterize-linked-services-image1.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-![Créer un paramètre](media/parameterize-linked-services/parameterize-linked-services-image2.png)
+![Ajouter du contenu dynamique à la définition du service lié](media/parameterize-linked-services/parameterize-linked-services-image-1.png)
+
+![Créer un paramètre](media/parameterize-linked-services/parameterize-linked-services-image-2.png)
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+![Ajouter du contenu dynamique à la définition du service lié](media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png)
+
+![Créer un paramètre](media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png)
+
+---
 
 ## <a name="json"></a>JSON
 

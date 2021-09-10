@@ -1,18 +1,20 @@
 ---
 title: Transformer des données à l’aide de l’activité de procédure stockée
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Explique comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans Azure SQL Database/Data Warehouse à partir d’un pipeline Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 11/27/2018
-ms.openlocfilehash: b9ba2f9de82522d4348fa341ad0b41d43c3eebcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3815bfca83d6dcf789a780a2d82ff1d4bb62285
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375644"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534905"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -74,17 +76,12 @@ Le tableau suivant décrit ces paramètres JSON :
 | storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. Utilisez `"param1": { "value": "param1Value","type":"param1Type" }` pour transmettre les valeurs des paramètres et leur type pris en charge par la source de données. Pour passer la valeur Null en paramètre, utilisez `"param1": { "value": null }` (tout en minuscules). | Non       |
 
 ## <a name="parameter-data-type-mapping"></a>Mappage du type de données du paramètre
-Le type de données que vous spécifiez pour le paramètre est le type Azure Data Factory correspondant à celui de la source de données que vous utilisez. Vous trouverez les mappages de type de données de votre source de données dans la zone des connecteurs. Exemples :
+Le type de données que vous spécifiez pour le paramètre est le type Azure Data Factory correspondant à celui de la source de données que vous utilisez. Vous trouverez les mappages de types de données pour votre source de données décrits dans la documentation relative aux connecteurs. Par exemple :
 
-| source de données          | Mappage de type de données |
-| ---------------------|-------------------|
-| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
-| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
-| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
-
-
-
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
+- [Mappage de types de données Azure SQL Database](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
+- [Mappage de types de données Oracle](connector-oracle.md#data-type-mapping-for-oracle)
+- [Mappages de types de données SQL Server](connector-sql-server.md#data-type-mapping-for-sql-server)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
@@ -96,5 +93,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
+* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

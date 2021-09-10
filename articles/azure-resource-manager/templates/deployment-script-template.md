@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ece3693fa183ba31de569e7db632c3d294c10437
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318384"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187178"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -38,43 +38,45 @@ La ressource de script de déploiement n'est disponible que dans les régions o�
 > [!IMPORTANT]
 > Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, le compte de stockage et l’instance de conteneur sont automatiquement créés par le service de script. Les deux ressources créées automatiquement sont généralement supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 
-> [!IMPORTANT]
-> L’API de ressource deploymentScripts version 2020-10-01 prend en charge [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). À l’aide d’OBO, le service de script de déploiement utilise le jeton du principal de déploiement pour créer les ressources sous-jacentes pour l’exécution de scripts de déploiement, notamment Azure Container Instance, le compte de stockage Azure et les attributions de rôles pour l’identité managée. Dans une ancienne version de l’API, l’identité managée permet de créer ces ressources.
-> La logique de nouvelle tentative pour la connexion à Azure est désormais intégrée au script wrapper. Si vous accordez des autorisations dans le même modèle que celui où vous exécutez les scripts de déploiement. Le service de script de déploiement tente de se connecter pendant 10 minutes avec intervalle de 10 secondes jusqu’à la réplication de l’attribution de rôle d’identité managée.
+> [!NOTE]
+> La logique de nouvelle tentative pour la connexion à Azure est désormais intégrée au script wrapper. Si vous accordez des autorisations dans le même modèle que vos scripts de déploiement, le service de script de déploiement tente de se connecter pendant 10 minutes avec un intervalle de 10 secondes jusqu’à la réplication de l’attribution de rôle d’identité managée.
 
 ## <a name="configure-the-minimum-permissions"></a>Configurer les autorisations minimales
 
-Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, le principal de déploiement est utilisé pour créer des ressources sous-jacentes nécessaires à l’exécution de la ressource de script de déploiement : un compte de stockage et une instance de conteneur Azure. Si le script doit s’authentifier auprès d’Azure et effectuer des actions spécifiques à Azure, nous vous recommandons de fournir le script avec une identité managée attribuée à l’utilisateur. L’identité managée doit avoir l’accès requis pour terminer l’opération dans le script.
+Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, deux principaux sont impliqués dans l’exécution du script de déploiement :
 
-Pour configurer les autorisations de privilège minimum, vous avez besoin des éléments suivants :
+- **Déploiement principal** (principal utilisé pour le déploiement du modèle) : ce principal est utilisé pour créer des ressources sous-jacentes nécessaires à l’exécution de la ressource de script de déploiement : un compte de stockage et une instance de conteneur Azure. Pour configurer les autorisations de privilège minimum, affectez un rôle personnalisé avec les propriétés suivantes au principal de déploiement :
 
-- Affectez un rôle personnalisé avec les propriétés suivantes au principal de déploiement :
+    ```json
+    {
+      "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
+      "description": "Configure least privilege for the deployment principal in deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/deploymentScripts/*"
+          ],
+        }
+      ],
+      "assignableScopes": [
+        "[subscription().id]"
+      ]
+    }
+    ```
 
-  ```json
-  {
-    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
-    "description": "Configure least privilege for the deployment principal in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
-  }
-  ```
+    Si le stockage Azure et les fournisseurs de ressources Azure Container Instance n’ont pas été inscrits, vous devez également ajouter `Microsoft.Storage/register/action` et `Microsoft.ContainerInstance/register/action`.
 
-  Si le stockage Azure et les fournisseurs de ressources Azure Container Instance n’ont pas été inscrits, vous devez également ajouter `Microsoft.Storage/register/action` et `Microsoft.ContainerInstance/register/action`.
+- **Principal du script de déploiement** : ce principal est requis uniquement si le script de déploiement doit s’authentifier auprès d’Azure et appeler l’instance CLI Azure/PowerShell. Deux méthodes permettent de spécifier le principal du script de déploiement :
 
-- Si une identité gérée est utilisée, le principal de déploiement a besoin du rôle **Opérateur d’identités gérées** (un rôle intégré) affecté à la ressource d’identité gérée.
+  - Spécifiez une identité managée affectée par l’utilisateur dans la `identity` propriété (voir [exemples de modèles](#sample-templates)). Lorsqu’il est spécifié, le service de script appelle `Connect-AzAccount -Identity` avant d’appeler le script de déploiement. L’identité managée doit avoir l’accès requis pour terminer l’opération dans le script. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge pour la propriété `identity`. Pour vous connecter avec une identité différente, utilisez la deuxième méthode de cette liste.
+  - Transmettez les informations d’identification du principal de service en tant que variables d’environnement sécurisées, puis appelez [Connecter-AzAccount](/powershell/module/az.accounts/connect-azaccount) ou [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) dans le script de déploiement.
+
+  Si une identité gérée est utilisée, le principal de déploiement a besoin du rôle **Opérateur d’identités gérées** (un rôle intégré) affecté à la ressource d’identité gérée.
 
 ## <a name="sample-templates"></a>Exemples de modèles
 

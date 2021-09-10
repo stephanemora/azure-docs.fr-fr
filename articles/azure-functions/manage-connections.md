@@ -3,21 +3,24 @@ title: Gérer les connexions dans Azure Functions
 description: Découvrez comment éviter les problèmes de performances dans Azure Functions à l’aide de clients de connexion statiques.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 02/25/2018
-ms.openlocfilehash: b9a1659fa5d0929c6dfbe0a3c4fd5497666ba2b5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/23/2021
+ms.openlocfilehash: 3a7f0f707957b4b3cfd7dc66efe9d2d011d58982
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531683"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105631"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gérer les connexions dans Azure Functions
 
-Functions dans une application de fonction partage des ressources. Parmi ces ressources partagées se trouvent les connexions : connexions HTTP, connexions de base de données et connexions aux services tels que Stockage Azure. L’exécution de nombreuses fonctions simultanément peut engendrer une pénurie de connexions disponibles. Cet article explique comment coder vos fonctions pour n’utiliser que le nombre de connexions nécessaire.
+Functions dans une application de fonction partage des ressources. Parmi ces ressources partagées se trouvent les connexions : connexions HTTP, connexions de base de données et connexions aux services tels que Stockage Azure. L’exécution simultanée de nombreuses fonctions dans un plan de consommation peut engendrer une pénurie de connexions disponibles. Cet article explique comment coder vos fonctions pour n’utiliser que le nombre de connexions nécessaire.
+
+> [!NOTE]
+> Les limites de connexion décrites dans cet article s’appliquent uniquement lors de l’exécution dans un [Plan de consommation](consumption-plan.md). Toutefois, les techniques décrites ici peuvent présenter un intérêt lors de l’exécution sur n’importe quel plan.
 
 ## <a name="connection-limit"></a>Limite de connexions
 
-Le nombre de connexions disponibles est limité en partie, car une application de fonction s’exécute dans l’[environnement de bac à sable](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). L’une des restrictions imposées par le bac à sable sur votre code est une limite du nombre de connexions sortantes, qui s’élève actuellement à 600 connexions actives (1 200 au total) par instance. Quand vous atteignez cette limite, le runtime des fonctions écrit le message suivant dans les journaux : `Host thresholds exceeded: Connections`. Pour plus d’informations, voir [Functions service limits (Limites de service Functions)](functions-scale.md#service-limits).
+Le nombre de connexions disponibles dans un plan de consommation est limité en partie, car une application de fonction dans ce plan s’exécute dans un [environnement de bac à sable](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). L’une des restrictions imposées par le bac à sable sur votre code est une limite du nombre de connexions sortantes, qui s’élève actuellement à 600 connexions actives (1 200 au total) par instance. Quand vous atteignez cette limite, le runtime des fonctions écrit le message suivant dans les journaux : `Host thresholds exceeded: Connections`. Pour plus d’informations, voir [Functions service limits (Limites de service Functions)](functions-scale.md#service-limits).
 
 Cette limite s’effectue par instance. Quand le [contrôleur de mise à l’échelle ajoute des instances d’application de fonction](event-driven-scaling.md) pour gérer plus de requêtes, chaque instance dispose d’une limite de connexion indépendante. Cela signifie qu’il n’existe aucune limite globale de connexion et que vous pouvez avoir beaucoup plus de 600 connexions actives sur toutes les instances actives.
 
@@ -37,8 +40,9 @@ Voici quelques recommandations à suivre quand vous utilisez un client spécifiq
 
 Cette section présente les meilleures pratiques en matière de création et d’utilisation de clients à partir de votre code Function.
 
-### <a name="httpclient-example-c"></a>Exemple HttpClient (C#)
+### <a name="http-requests"></a>Des requêtes HTTP
 
+# <a name="c"></a>[C#](#tab/csharp)
 Voici un exemple de code Function C# créant une instance [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) statique :
 
 ```cs
@@ -54,7 +58,7 @@ public static async Task Run(string input)
 
 Voici une question fréquente sur [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) dans .NET : « Dois-je supprimer mon client ? » En règle générale, vous supprimez les objets qui implémentent `IDisposable` quand vous avez terminé de les utiliser. En revanche, vous ne supprimez pas un client statique, car vous n’avez pas terminé de l’utiliser quand la fonction prend fin. Vous souhaitez que le client statique existe pendant la durée de votre application.
 
-### <a name="http-agent-examples-javascript"></a>Exemples d’agent HTTP (JavaScript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Parce qu’elle fournit des meilleures options de gestion des connexions, vous devez utiliser la classe [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) native au lieu de méthodes non natives, telles que le module `node-fetch`. Les paramètres de connexion sont configurés à l’aide d’options sur la classe `http.agent`. Pour les options détaillées disponibles avec l’agent HTTP, voir [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
@@ -74,7 +78,11 @@ const options = { agent: httpAgent };
 http.request(options, onResponseCallback);
 ```
 
-### <a name="documentclient-code-example-c"></a>Exemple de code DocumentClient (C#)
+---
+
+### <a name="azure-cosmos-db-clients"></a>Clients Azure Cosmos DB 
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) se connecte à une instance d’Azure Cosmos DB. La documentation d’Azure Cosmos DB recommande [d’utiliser un client Azure Cosmos DB singleton pendant la durée de vie de votre application](../cosmos-db/performance-tips.md#sdk-usage). L’exemple suivant montre un modèle pour effectuer cette opération dans une fonction :
 
@@ -122,7 +130,9 @@ Créez également un fichier nommé « function. proj » pour votre déclenche
 </Project>
 
 ```
-### <a name="cosmosclient-code-example-javascript"></a>Exemple de code CosmosClient (JavaScript)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) se connecte à une instance Azure Cosmos DB. La documentation d’Azure Cosmos DB recommande [d’utiliser un client Azure Cosmos DB singleton pendant la durée de vie de votre application](../cosmos-db/performance-tips.md#sdk-usage). L’exemple suivant montre un modèle pour effectuer cette opération dans une fonction :
 
 ```javascript
@@ -140,6 +150,8 @@ module.exports = async function (context) {
     context.log(itemArray);
 }
 ```
+
+---
 
 ## <a name="sqlclient-connections"></a>Connexions SqlClient
 

@@ -1,15 +1,15 @@
 ---
 title: Créer un compte dans le portail Azure
-description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud
+description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud.
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/31/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 037ada644f60eabf498c59047513f4ad8292f239
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703662"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308692"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -83,13 +83,11 @@ Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vou
 
     :::image type="content" source="media/batch-account-create-portal/register_provider.png" alt-text="Capture d’écran montrant le fournisseur de ressources Microsoft. Batch.":::
 
-1. Revenez à la page **Abonnement**, puis sélectionnez **Contrôle d’accès (IAM)**  > **Attributions de rôles** > **Ajouter** > **Ajouter une attribution de rôle**.
+1. Retournez à la page **Abonnement**, puis sélectionnez **Contrôle d’accès (IAM)** .
 
-    :::image type="content" source="media/batch-account-create-portal/subscription_iam.png" alt-text="Capture d’écran de la page Attributions de rôles pour un abonnement.":::
+1. Attribuez le rôle **Contributeur** ou **Propriétaire** à l’API Batch. Vous pouvez trouver ce compte en recherchant **Microsoft Azure Batch**. (L’ID d’application pour ce compte est **ddbf3205-c6bd-46ae-8127-60eb93363864**.)
 
-1. Dans la page **Ajouter une attribution de rôle**, sélectionnez le rôle **Contributeur** ou **Propriétaire**, puis recherchez l’API Batch. Recherchez **Microsoft Azure Batch** ou **MicrosoftAzureBatch** pour trouver l’API. (La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID d’application de l’API Batch.)
-
-1. Une fois que vous avez trouvé l’API Batch, sélectionnez-la, puis cliquez sur **Enregistrer**.
+   Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="create-a-key-vault"></a>Créer un coffre de clés
 

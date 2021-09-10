@@ -6,16 +6,19 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/27/2020
+ms.date: 08/27/2021
 ms.author: cynthn
-ms.openlocfilehash: 28b3ee98d44e1567d9e25cf9237015396975ab01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78fce318d07e8603830fe04b41df387e6a25f8d9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550448"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227240"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
@@ -30,7 +33,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     La fenêtre **Créer un groupe de sécurité réseau** s’ouvre.
 
-    ![Créer un groupe de sécurité réseau](./media/nsg-quickstart-portal/create-nsg.png)
+    :::image type="content" source="media/nsg-quickstart-portal/create-nsg.png" alt-text="Créer un groupe de sécurité réseau.":::
 
 1. Entrez un nom pour votre groupe de sécurité réseau. 
 
@@ -40,14 +43,14 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-an-inbound-security-rule"></a>Créer une règle de sécurité de trafic entrant
 
-1. Sélectionnez votre nouveau groupe de sécurité réseau. 
+1. Sélectionnez votre nouveau groupe de sécurité réseau.
 
 1. Sélectionnez **Règles de sécurité de trafic entrant** dans le menu gauche, puis sélectionnez **Ajouter**.
 
-    ![Basculer vers la page Avancé](./media/nsg-quickstart-portal/advanced.png)
+    :::image type="content" source="media/nsg-quickstart-portal/advanced.png" alt-text="Ajoutez une règle de sécurité de trafic entrant.":::
 
-1. Dans la page **Ajouter une règle de sécurité de trafic entrant**, basculez vers **Avancé** depuis **De base** en haut de la page. 
-
+1. Vous pouvez limiter la **Source** et les **Plages de ports source** en fonction des besoins, ou conserver la valeur par défaut *Any*.
+1. Vous pouvez limiter la **Destination** en fonction des besoins, ou conserver la valeur par défaut *Any*.
 1. Choisissez un **Service** courant dans le menu déroulant, tel que **HTTP**. Vous pouvez aussi sélectionner **Personnalisé** si vous souhaitez indiquer un port spécifique à utiliser. 
 
 1. Si vous le souhaitez, modifiez la **priorité** ou le **nom**. La priorité affecte l’ordre dans lequel les règles sont appliquées : plus la valeur numérique est faible, plus la règle est appliquée précocement.

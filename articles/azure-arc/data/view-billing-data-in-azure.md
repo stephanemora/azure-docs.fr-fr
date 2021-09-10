@@ -7,28 +7,27 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7ef1cd43d2efbc5ab92cc2b4cba4d237805d8921
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2c4e25aebf46ea13b69b8ca24d1336c4ba5521ad
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202652"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525323"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Télécharger des données de facturation dans Azure et les afficher dans le portail Azure
 
 > [!IMPORTANT] 
->  L’utilisation de services de données compatibles avec Azure Arc pendant la période de la préversion n’occasionne aucun coût. Bien que le système de facturation fonctionne de bout en bout, le compteur de facturation est défini sur $0.  Si vous suivez ce scénario, vous verrez des entrées dans votre facturation pour un service nommé **services de données hybrides** et pour des ressources d’un type appelé **Microsoft.AzureArcData/`<resource type>`** . Vous pourrez voir un enregistrement pour chaque service de données Azure Arc que vous créez, mais chaque enregistrement sera facturé à $0.
+>  L’utilisation de services de données avec Azure Arc pendant la période de la préversion est gratuite. Bien que le système de facturation fonctionne de bout en bout, le compteur de facturation est défini sur $0.  Si vous suivez ce scénario, vous verrez des entrées dans votre facturation pour un service nommé **services de données hybrides** et pour des ressources d’un type appelé **Microsoft.AzureArcData/`<resource type>`** . Vous pourrez voir un enregistrement pour chaque service de données Azure Arc que vous créez, mais chaque enregistrement sera facturé à $0.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="connectivity-modes---implications-for-billing-data"></a>Modes de connectivité – Implications pour les données de facturation
 
-À l’avenir, il y aura deux modes dans lesquels vous pourrez exécuter vos services de données compatibles Azure Arc :
+À l’avenir, il y aura deux modes dans lesquels vous pourrez exécuter vos services de données avec Azure Arc :
 
-- **Connecté indirectement** – Il n’existe pas de connexion directe à Azure. Les données sont envoyées à Azure uniquement via un processus d’exportation/chargement. Tous les déploiements de services de données Azure Arc fonctionnent dans ce mode actuellement en préversion.
-- **Connecté directement** – Dans ce mode, il y aura une dépendance du service Kubernetes activé par Azure Arc pour fournir une connexion directe entre Azure et le cluster Kubernetes sur lequel s’exécutent les services de données activés par Azure Arc. Cela permet d’obtenir davantage de fonctionnalités ainsi que d’utiliser le portail Azure et Azure CLI pour gérer vos services de données compatibles Azure Arc, tout comme vous gérez vos services de données dans Azure PaaS.  Ce mode de connectivité n’est pas encore disponible en préversion, mais le sera bientôt.
+- **Connecté indirectement** – Il n’existe pas de connexion directe à Azure. Les données sont envoyées à Azure uniquement via un processus d’exportation/chargement.
+- **Connecté directement** – Dans ce mode, il y aura une dépendance du service Kubernetes avec Azure Arc pour fournir une connexion directe entre Azure et le cluster Kubernetes sur lequel s’exécutent les services de données avec Azure Arc. Cela vous permet d’obtenir davantage de capacités ainsi que d’utiliser le portail Azure et Azure CLI pour gérer vos services de données avec Azure Arc de la même manière que vous gérez vos services de données dans Azure PaaS.  Ce mode de connectivité n’est pas encore disponible en préversion, mais le sera bientôt.
 
 Si vous le souhaitez, vous pouvez en savoir plus sur la différence entre les [modes de connectivité](./connectivity.md).
 
@@ -38,16 +37,16 @@ Dans le mode connecté indirectement, les données de facturation sont réguliè
 
 Pour charger des données de facturation dans Azure, les actions suivantes doivent avoir lieu au préalable :
 
-1. Créez un service de données activé par Azure Arc si vous n’en avez pas encore. Par exemple, créez l’un des éléments suivants :
+1. Créez un service de données avec Azure Arc si vous n’en avez pas encore. Par exemple, créez l’un des éléments suivants :
    - [Créer une instance gérée Azure SQL sur Azure Arc](create-sql-managed-instance.md)
-   - [Créer un groupe de serveurs PostgreSQL Hyperscale compatibles avec Azure Arc](create-postgresql-hyperscale-server-group.md)
+   - [Créer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc](create-postgresql-hyperscale-server-group.md)
 1. [Charger l’inventaire des ressources, les données d’utilisation, les métriques et les journaux sur Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) si vous ne l’avez pas encore fait.
 1. Attendez au moins 2 heures à partir de la création du service de données afin que le processus de collecte de la télémétrie de facturation puisse collecter des données de facturation.
 
 Exécutez la commande suivante pour exporter les données de facturation :
 
-```console
-azdata arc dc export -t usage -p usage.json
+```azurecli
+az arcdata dc export -t usage -p usage.json --k8s-namespace <namespace> --use-k8s
 ```
 
 Actuellement, le fichier n’étant pas chiffré, vous pouvez en voir le contenu. N’hésitez pas à l’ouvrir dans un éditeur de texte pour voir à quoi ressemble le contenu.
@@ -103,8 +102,8 @@ Exemple d’entrée `data` :
 
 Exécutez la commande suivante pour charger le fichier usage.json dans Azure :
 
-```console
-azdata arc dc upload -p usage.json
+```azurecli
+az arcdata dc upload -p usage.json
 ```
 
 ## <a name="view-billing-data-in-azure-portal"></a>Afficher les données de facturation dans le portail Azure
@@ -119,7 +118,7 @@ Pour afficher les données de facturation dans le portail Azure, procédez comme
 1. Assurez-vous que l’Étendue est définie sur l’abonnement dans lequel vos ressources de service de données ont été créées.
 1. Sélectionnez **Coût par ressource** dans la liste déroulante Afficher en regard du sélecteur Étendue en haut de la vue.
 1. Assurez-vous que le filtre de date est défini sur **Mois en cours** ou sur un autre intervalle de temps semblant logique compte tenu de la date de création des ressources de votre service de données.
-1. Si vous souhaitez filtrer un seul type de service de données activé par Azure Arc, cliquez sur **Ajouter un filtre** afin d’ajouter un filtre par **Type de ressource** = `Microsoft.AzureArcData/<data service type>`.
+1. Si vous souhaitez filtrer sur un seul type de service de données avec Azure Arc, cliquez sur **Ajouter un filtre** afin d’ajouter un filtre par **Type de ressource** = `Microsoft.AzureArcData/<data service type>`.
 1. Vous voyez maintenant une liste de toutes les ressources qui ont été créées et chargées dans Azure. Étant donné que le compteur de facturation indique $0, le coût affiché sera toujours $0.
 
 ## <a name="download-billing-data"></a>Télécharger les données de facturation

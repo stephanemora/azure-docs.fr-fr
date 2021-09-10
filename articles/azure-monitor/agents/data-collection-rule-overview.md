@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: 83ad2245ec010bd91907ae27e077f86b4d6b1d5e
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 7dca96e05860bb399435ac95ed81107c268ebc5c
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122401"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662226"
 ---
 # <a name="data-collection-rules-in-azure-monitor"></a>Règles de collecte de données dans Azure Monitor
 Les règles de collecte de données (DCR) définissent les données entrantes dans Azure Monitor et spécifient l’emplacement où ces données doivent être envoyées ou stockées. Cet article fournit une vue d’ensemble des règles de collecte de données, notamment leur contenu et leur structure, et comment vous pouvez les créer et les utiliser.
@@ -53,8 +53,10 @@ Chaque source de données a un type de source de données. Chaque type définit 
 ## <a name="limits"></a>Limites
 Pour connaître les limites qui s’appliquent à chaque règle de collecte des données, consultez [Limites du service Azure Monitor](../service-limits.md#data-collection-rules).
 
-## <a name="data-residency"></a>Résidence des données 
+## <a name="data-resiliency-and-high-availability"></a>Résilience et haute disponibilité des données
 « Règles de collecte de données » en tant que service est déployé de manière régionale. Une règle est créée et stockée dans la région que vous spécifiez, et est sauvegardée dans la [région jumelée](../../best-practices-availability-paired-regions.md#azure-regional-pairs) au sein de la même zone géographique.  
+En outre, le service est déployé dans les 3 [zones de disponibilité](../../availability-zones/az-overview.md#availability-zones) de la région, ce qui en fait un **service redondant dans une zone** qui augmente davantage la haute disponibilité.
+
 
 **Résidence des données sur une région unique** : La fonctionnalité de préversion permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique, et la région Brésil Sud (État de Sao Paulo) de la zone géographique Brésil. La résidence sur une région unique est activée par défaut dans ces régions.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 137b77c09cc1ae4f18555568287324a373ca8786
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: fb277b2468d0cf4df5d28e412a5fb91f777b46bf
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655411"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525640"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Inscrire et analyser Azure Data Lake Storage Gen2
 
@@ -25,6 +25,12 @@ La source de données Azure Data Lake Storage Gen2 prend en charge les fonctionn
 - **Analyses complètes et incrémentielles** pour capturer les métadonnées et la classification dans Azure Data Lake Storage Gen2
 
 - **Traçabilité** entre les ressources de données pour les activités de copie/flux de données ADF
+
+Pour les types de fichiers comme CSV, TSV, PSV et SSV, le schéma est extrait quand les logiques suivantes sont en place :
+
+1. Les valeurs de la première ligne ne sont pas vides
+2. Les valeurs de la première ligne sont uniques
+3. Les valeurs de la première ligne ne sont ni une date ni un nombre
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,14 +54,14 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
 
 > [!Note]
-> Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/common/storage-auth-aad.md)
+> Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
 #### <a name="account-key"></a>Clé du compte
 
 Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, vous devez récupérer votre clé d’accès et la stocker dans le coffre de clés :
 
 1. Accédez à votre compte de stockage ADLS Gen2
-1. Sélectionnez **Paramètres > Clés d’accès**
+1. Sélectionnez **Sécurité + mise en réseau > Clés d’accès**.
 1. Copiez votre *clé* et enregistrez-la quelque part pour les étapes suivantes
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
@@ -113,7 +119,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 Pour inscrire un nouveau compte ADLS Gen2 dans votre catalogue de données, procédez comme suit :
 
 1. Accédez à votre compte Purview
-2. Sélectionnez **Sources** dans le volet de navigation de gauche.
+2. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 3. Sélectionnez **Inscrire**.
 4. Sous **Inscrire des sources**, sélectionnez **Azure Data Lake Storage Gen2**
 5. Sélectionnez **Continue** (Continuer)
@@ -128,7 +134,35 @@ Dans l’écran **Inscrire des sources (Azure Data Lake Storage Gen2)** , procé
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source Azure Data Lake Storage Gen2 que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données.
+
+   :::image type="content" source="media/register-scan-adls-gen2/set-up-scan-adls-gen2.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des dossiers ou des sous-dossiers spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-adls-gen2/gen2-scope-your-scan.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-adls-gen2/gen2-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-adls-gen2/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,15 +3,15 @@ title: Se connecter à des réseaux virtuels Azure avec un environnement de serv
 description: Créez un environnement de service d’intégration (ISE) pouvant accéder aux réseaux virtuels Azure à partir d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/21/2021
-ms.openlocfilehash: 37cbcae47db9c44a39484edfde5e56d916bcaf36
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 08/11/2021
+ms.openlocfilehash: 3b715c15eb889d04c87a654fd68b802a53e7af01
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985721"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531370"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>Se connecter aux réseaux virtuels Azure à partir d’Azure Logic Apps en utilisant un environnement de service d’intégration (ISE)
 
@@ -24,7 +24,16 @@ Quand vous créez un environnement ISE, Azure *l’injecte* dans votre réseau v
 > [!IMPORTANT]
 > Pour que les applications logiques et les comptes d’intégration fonctionnent ensemble dans un environnement ISE, il faut que tous deux utilisent le *même ISE* que leur emplacement.
 
-Un ISE dispose de limites accrues quant à la durée d’exécution, la conservation du stockage, le débit, le délai d’attente des requêtes et réponses HTTP, la taille des messages et les requêtes de connecteur personnalisé. Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md). Pour en savoir plus sur les ISE, consultez [Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+Un ISE a des limites accrues sur :
+
+* Durée d’exécution
+* Rétention de stockage
+* Débit
+* Délais de requête et de réponse HTTP
+* Tailles des messages
+* Demandes de connecteurs personnalisés
+
+Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md). Pour en savoir plus sur les ISE, consultez [Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 Cet article explique comment effectuer ces tâches à l'aide du portail Azure :
 
@@ -32,7 +41,7 @@ Cet article explique comment effectuer ces tâches à l'aide du portail Azure :
 * Créez votre ISE.
 * Ajoutez de la capacité supplémentaire à votre ISE.
 
-Vous pouvez également créer un environnement ISE en utilisant l’[exemple de modèle de démarrage rapide Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) ou à l’aide de l’API REST Logic Apps, notamment en configurant des clés gérées par le client :
+Vous pouvez également créer un environnement ISE en utilisant l’[exemple de modèle de démarrage rapide Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment) ou à l’aide de l’API REST Logic Apps, notamment en configurant des clés gérées par le client :
 
 * [Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Configurer des clés gérées par le client pour chiffrer les données au repos des environnements ISE](../logic-apps/customer-managed-keys-integration-service-environment.md)
@@ -42,7 +51,7 @@ Vous pouvez également créer un environnement ISE en utilisant l’[exemple de 
 * Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
   > [!IMPORTANT]
-  > Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](../logic-apps/logic-apps-pricing.md).
+  > Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#ise-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](../logic-apps/logic-apps-pricing.md).
 
 * Un *réseau virtuel doit Azure* ayant quatre sous-réseaux [vides](../virtual-network/virtual-networks-overview.md), nécessaires à la création et au déploiement de ressources dans votre environnement ISE, et utilisés par ces composants internes et masqués :
 
@@ -55,19 +64,9 @@ Vous pouvez également créer un environnement ISE en utilisant l’[exemple de 
 
   * Assurez-vous que votre réseau virtuel [permet d’accéder à votre ISE](#enable-access) afin que votre environnement ISE puisse fonctionner correctement et rester accessible.
 
-  * Si vous utilisez ou souhaitez utiliser [ExpressRoute](../expressroute/expressroute-introduction.md) avec [tunneling forcé](../firewall/forced-tunneling.md), vous devez [créer une table de routage](../virtual-network/manage-route-table.md) avec l’itinéraire spécifique suivant et lier la table de routage à chaque sous-réseau utilisé par votre ISE :
-
-    **Nom** : <*nom d’itinéraire*><br>
-    **Préfixe de l’adresse** : 0.0.0.0/0<br>
-    **Tronçon suivant** : Internet
-    
-    Cette table de routage spécifique est requise pour que les composants Logic Apps puissent communiquer avec d’autres services Azure dépendants, tels que Stockage Azure et Azure SQL DB. Pour plus d’informations sur cet itinéraire, consultez [le préfixe d’adresse 0.0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Si vous n’utilisez pas le tunneling forcé avec ExpressRoute, vous n’avez pas besoin de cette table de routage spécifique.
-    
-    ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft et à vous connecter aux services de cloud computing Microsoft via une connexion privée assurée par le fournisseur de connectivité. Plus précisément, ExpressRoute est un réseau privé virtuel qui achemine le trafic sur un réseau privé plutôt que sur l’Internet public. Les applications logiques peuvent se connecter à des ressources locales qui se trouvent dans le même réseau virtuel lorsqu’elles se connectent via ExpressRoute ou un réseau privé virtuel.
-   
   * Si vous utilisez une [appliance réseau virtuelle (Network Virtual Appliance)](../virtual-network/virtual-networks-udr-overview.md#user-defined), assurez-vous de ne pas activer l’arrêt TLS/SSL ni modifier le trafic TLS/SSL sortant. En outre, assurez-vous de ne pas activer l’inspection pour le trafic provenant du sous-réseau ISE. Pour plus d’informations, consultez [Routage du trafic de réseau virtuel](../virtual-network/virtual-networks-udr-overview.md).
 
-  * Si vous souhaitez utiliser des serveurs DNS personnalisés pour votre réseau virtuel Azure, [configurez ces serveurs en suivant ces étapes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) avant de déployer votre ISE sur votre réseau virtuel. Pour plus d'informations sur la gestion des paramètres d'un serveur DNS, consultez [Créer, modifier ou supprimer un réseau virtuel](../virtual-network/manage-virtual-network.md#change-dns-servers).
+  * Si vous souhaitez utiliser des serveurs DNS (Domain Name System) personnalisés pour votre réseau virtuel Azure, [configurez ces serveurs en suivant ces étapes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) avant de déployer votre ISE sur votre réseau virtuel. Pour plus d'informations sur la gestion des paramètres d'un serveur DNS, consultez [Créer, modifier ou supprimer un réseau virtuel](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
     > [!NOTE]
     > Si vous changez votre serveur DNS ou modifiez ses paramètres, vous devez redémarrer votre ISE afin qu’il prenne en compte ces modifications. Pour plus d’informations, consultez [Réinitialiser votre ISE](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE).
@@ -122,7 +121,8 @@ Ce tableau décrit les ports dont votre ISE a besoin pour être accessible et le
 | Objectif | Balise de service ou adresses IP sources | Ports source | Balise de service ou adresses IP de destination | Ports de destination | Notes |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Communication interne aux sous-réseaux au sein du réseau virtuel | Espace d’adressage pour le réseau virtuel et les sous-réseaux ISE | * | Espace d’adressage pour le réseau virtuel et les sous-réseaux ISE | * | Nécessaire pour que le trafic circule *entre* les sous-réseaux de votre réseau virtuel. <p><p>**Important !** Pour que le trafic circule entre les *composants* de chaque sous-réseau, veillez à ouvrir tous les ports de chaque sous-réseau. |
-| Communication depuis votre application logique | **VirtualNetwork** | * | Varie selon la destination | Varie selon la destination | Les ports de destination varient en fonction des points de terminaison du service externe avec lesquels votre application logique doit communiquer. <p><p>Par exemple, le port de destination est 443 pour un service web, 25 pour un service SMTP, 22 pour un service SFTP, et ainsi de suite. |
+| Communication depuis votre application logique | **VirtualNetwork** | * | Internet | 443, 80 | Cette règle est obligatoire pour la vérification du certificat SSL (Secure Socket Layer). Cette vérification concerne différents sites internes et externes, ce qui explique que l’Internet soit requis comme destination. |
+| Communication depuis votre application logique | **VirtualNetwork** | * | Varie selon la destination | Varie selon la destination | Les ports de destination varient en fonction des points de terminaison du service externe avec lesquels votre application logique doit communiquer. <p><p>Par exemple, le port de destination est 25 pour un service SMTP, 22 pour un service SFTP, et ainsi de suite. |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
 | Dépendance du Stockage Azure | **VirtualNetwork** | * | **Stockage** | 80, 443, 445 ||
 | Gestion des connexions | **VirtualNetwork** | * | **AppService** | 443 ||
@@ -151,12 +151,12 @@ Si vous n’autorisez pas l’accès pour ces dépendances, votre déploiement I
 * Itinéraires définis par l’utilisateur
 
   Pour empêcher un routage asymétrique, vous devez définir un itinéraire pour chaque adresse IP répertoriée ci-dessous avec **Internet** en guide de tronçon suivant.
-  
-  * [Adresses de gestion App Service Environment](../app-service/environment/management-addresses.md)
+
+  * [Adresses entrantes et sortantes Logic Apps pour la région ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)  
   * [Adresses IP Azure pour les connecteurs de la région ISE, disponibles dans ce fichier de téléchargement](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Adresses de gestion App Service Environment](../app-service/environment/management-addresses.md)  
   * [Adresses de gestion d’Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-  * [Adresses entrantes et sortantes Logic Apps pour la région ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
-  * [Adresses IP Azure pour les connecteurs de la région ISE, disponibles dans ce fichier de téléchargement](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Adresses IP du plan de contrôle de Gestion des API Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
 
 * Points de terminaison de service
 
@@ -276,7 +276,7 @@ Si vous n’autorisez pas l’accès pour ces dépendances, votre déploiement I
 
 1. Pour voir votre environnement, si Azure n’y accède automatiquement une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
 
-1. Pour un environnement ISE avec accès au point de terminaison *externe*, vous devez créer un groupe de sécurité réseau, si vous n’en avez pas déjà un, puis ajouter une règle de sécurité de trafic entrant pour autoriser le trafic à partir d’adresses IP sortantes du connecteur géré. Pour définir cette règle, effectuez les étapes suivantes :
+1. Dans le cas d’un ISE disposant d’un accès de point de terminaison *externe*, vous devez créer un groupe de sécurité réseau (NSG), si vous n’en avez pas déjà un. Vous devez ajouter une règle de sécurité de trafic entrant au groupe de sécurité réseau pour autoriser le trafic provenant des adresses IP sortantes du connecteur managé. Pour définir cette règle, effectuez les étapes suivantes :
 
    1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Propriétés**.
 

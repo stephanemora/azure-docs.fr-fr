@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d044ddbde293721e26ed491e237aa5b89075f72a
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699077"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527981"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -65,6 +65,8 @@ Pour afficher les métriques de vos ressources de Load Balancer Standard :
 
   >[!NOTE] 
   >L’agrégation de temps est importante lors de l’interprétation de certaines métriques, car les données sont échantillonnées toutes les minutes. Si l’agrégation de temps est définie sur cinq minutes et que le type d’agrégation de métriques Sum est utilisé pour les métriques telles que l’allocation SNAT, votre graphique affichera cinq fois le nombre total de ports SNAT alloués. 
+  >
+  >Recommandation : Lors de l’analyse du type d’agrégation de métriques Sum et Count, nous vous recommandons d’utiliser une valeur d’agrégation de temps supérieure à une minute.
 
 ![Métriques pour Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
@@ -169,7 +171,7 @@ Pour afficher l’utilisation et l’allocation des ports SNAT :
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Comment faire pour vérifier les tentatives de connexions entrantes/sortantes pour mon service ?
 <details>
   <summary>Développez</summary>
-Une métrique de paquets SYN indique le volume de paquets TCP SYN qui ont été reçus ou qui ont été envoyés (pour les [flux sortants](./load-balancer-outbound-connections.md)) associés à un serveur frontal spécifique. Vous pouvez utiliser cette métrique pour comprendre les tentatives de connexions TCP vers votre service.
+Une métrique de paquets SYN indique le volume de paquets TCP SYN qui ont été reçus ou qui ont été envoyés (pour les [flux sortants](../load-balancer-outbound-connections.md)) associés à un serveur frontal spécifique. Vous pouvez utiliser cette métrique pour comprendre les tentatives de connexions TCP vers votre service.
 
 Utilisez une agrégation **Somme** pour la plupart des scénarios.
 

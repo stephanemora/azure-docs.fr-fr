@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/15/2021
-ms.openlocfilehash: 6029e571cc1f2d9fe50b2d163a711a89827f2bfd
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.date: 08/30/2021
+ms.openlocfilehash: 2131e74935ee831925dbe307a79c26909078e575
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563684"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313977"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory-or-synapse-pipelines"></a>Copier et transformer des données dans Azure Synapse Analytics à l’aide de pipelines Azure Data Factory ou Synapse
 
@@ -45,13 +45,36 @@ Pour l’activité de copie, ce connecteur Azure Synapse Analytics prend en char
 > [!IMPORTANT]
 > Si vous copiez des données à l’aide d’Azure Integration Runtime, configurez une [règle de pare-feu au niveau du serveur](../azure-sql/database/firewall-configure.md) de façon à ce que les services Azure puissent accéder au [serveur SQL logique](../azure-sql/database/logical-servers.md).
 > Si vous copiez des données à l’aide d’un runtime d’intégration auto-hébergé, configurez le pare-feu pour qu’il autorise la plage IP appropriée. Cette plage inclut l’adresse IP de l’ordinateur qui est utilisé pour se connecter à Azure Synapse Analytics.
-
 ## <a name="get-started"></a>Bien démarrer
 
 > [!TIP]
 > Pour obtenir le meilleur niveau de performance possible, utilisez PolyBase ou l’instruction COPY quand vous chargez des données dans Azure Synapse Analytics. Pour plus d’informations, consultez les sections [Chargement de données dans Azure Synapse Analytics avec PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) et [Chargement de données dans Azure Synapse Analytics avec l’instruction COPY](#use-copy-statement). Consultez [Charger 1 To dans Azure Synapse Analytics en moins de 15 minutes avec Azure Data Factory](load-azure-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-an-azure-synapse-analytics-linked-service-using-ui"></a>Créer un service lié Azure Synapse Analytics à l’aide de l’IU
+
+Pour créer un service lié Azure Synapse Analytics dans l’interface utilisateur du portail Azure, procédez comme suit.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Synapse et sélectionnez le connecteur Azure Synapse Analytics.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/azure-sql-data-warehouse-connector.png" alt-text="Capture d’écran montrant le connecteur Azure Synapse Analytics.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/configure-azure-sql-data-warehouse-linked-service.png" alt-text="Capture d’écran de la configuration d’un service lié Azure Synapse Analytics.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés qui définissent les entités de pipeline Data Factory et Synapse propres à un connecteur Azure Synapse Analytics.
 
@@ -66,7 +89,7 @@ Les propriétés prises en charge pour le service lié Azure Synapse Analytics s
 | servicePrincipalId  | Spécifiez l’ID client de l’application.                         | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont `AzurePublic`, `AzureChina`, `AzureUsGovernment` et `AzureGermany`. Par défaut, l’environnement cloud du pipeline Data Factory ou Synapse est utilisé. | Non |
+| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont `AzurePublic`, `AzureChina`, `AzureUsGovernment` et `AzureGermany`. Par défaut, l’environnement cloud du pipeline de fabrique de données ou Synapse est utilisé. | Non |
 | connectVia          | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé (si votre magasin de données se trouve sur un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non                                                           |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :

@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6baf0342f5fea5ee4ec062c5eed07d9761e72c1d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 87a2a658b37f199c8e5b6c92543cc9c70a8ae42c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289459"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562374"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
 Cet article vous explique comment connecter des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory.
 
-Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
+Les étapes mentionnées dans cet article s’appliquent au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md) et utilisent PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -80,7 +80,7 @@ Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* La création d’une passerelle peut prendre jusqu’à 45 minutes. C’est pourquoi Azure Cloud Shell expire périodiquement au cours de cet exercice. Pour redémarrer Cloud Shell, cliquez dans le coin supérieur gauche du terminal. Veillez à redéclarer les éventuelles variables au redémarrage du terminal.
+* La création d’une passerelle peut prendre 45 minutes ou plus. C’est pourquoi Azure Cloud Shell expire périodiquement au cours de cet exercice. Pour redémarrer Cloud Shell, cliquez dans le coin supérieur gauche du terminal. Veillez à redéclarer les éventuelles variables au redémarrage du terminal.
 
 * Si vous préférez installer localement la dernière version du module Azure PowerShell, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).
 
@@ -204,7 +204,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-Une fois les commandes achevées, la création de cette passerelle peut prendre jusqu’à 45 minutes. Si vous utilisez Azure Cloud Shell, vous pouvez redémarrer votre session Cloud Shell en cliquant dans le coin supérieur gauche du terminal Cloud Shell, puis configurer TestVNet4. Il n’est pas nécessaire d’attendre la fin de la passerelle TestVNet1.
+Une fois les commandes terminées, la création de cette passerelle prendra 45 minutes ou plus. Si vous utilisez Azure Cloud Shell, vous pouvez redémarrer votre session Cloud Shell en cliquant dans le coin supérieur gauche du terminal Cloud Shell, puis configurer TestVNet4. Il n’est pas nécessaire d’attendre la fin de la passerelle TestVNet1.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Étape 3 : créez et configurez TestVNet4
 

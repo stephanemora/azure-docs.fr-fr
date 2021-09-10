@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 257f3473da4284080d7977021cb97c6dbce0fbde
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6b115971104699775e9a58a7b25addefe4d12d1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535164"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531751"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -62,7 +62,7 @@ Il peut y avoir diverses raisons pour que le pod soit bloqué dans ce mode. Vous
 * Le pod lui-même, en utilisant `kubectl describe pod <pod-name>`.
 * Les journaux d’activité en utilisant `kubectl logs <pod-name>`.
 
-Pour plus d’informations sur la façon de résoudre les problèmes de pod, voir [Déboguer des applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+Pour plus d’informations sur la résolution des problèmes de pods, consultez la section [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) (Débogage des pods) dans la documentation de Kubernetes.
 
 ## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>Je reçois `TCP timeouts` lors de l’utilisation de `kubectl` ou d’autres outils tiers qui se connectent au serveur d’API.
 AKS a des plans de contrôle de haute disponibilité qui sont mis à l’échelle verticalement en fonction du nombre de cœurs pour garantir ses objectifs de niveau de service (SLO) et ses contrats de niveau de service (SLA). Si le délai de connexion est dépassé, vérifiez les éléments suivants :
@@ -217,7 +217,7 @@ Si vous utilisez Pare-feu Azure comme dans cet [exemple](limit-egress-traffic.md
 
 ## <a name="when-resuming-my-cluster-after-a-stop-operation-why-is-my-node-count-not-in-the-autoscaler-min-and-max-range"></a>Lors de la reprise de mon cluster après une opération d'arrêt, pourquoi le nombre de nœuds n'est-il pas dans la plage min/max du programme de mise à l'échelle automatique ?
 
-Si vous utilisez le programme de mise à l'échelle automatique de cluster, lorsque vous redémarrez votre cluster, le nombre de nœuds peut ne pas être compris entre les valeurs min et max que vous avez définies. Il s’agit du comportement attendu. Le cluster démarre avec le nombre de nœuds dont il a besoin pour exécuter ses charges de travail, qui n'est pas affecté par les paramètres de votre programme de mise à l'échelle automatique. Lorsque votre cluster effectue des opérations de mise à l'échelle, les valeurs min et max ont un impact sur le nombre de nœuds et votre cluster finit par atteindre et rester dans la plage souhaitée jusqu'à ce que vous arrêtiez votre cluster.
+Si vous utilisez le programme de mise à l'échelle automatique de cluster, lorsque vous redémarrez votre cluster, le nombre de nœuds peut ne pas être compris entre les valeurs min et max que vous avez définies. Il s’agit du comportement attendu. Le cluster démarre avec le nombre de nœuds dont il a besoin pour exécuter ses charges de travail, et ce nombre n’est pas impacté par les paramètres de votre programme de mise à l’échelle automatique. Lorsque votre cluster effectue des opérations de mise à l'échelle, les valeurs min et max ont un impact sur le nombre de nœuds et votre cluster finit par atteindre et rester dans la plage souhaitée jusqu'à ce que vous arrêtiez votre cluster.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Résolution des problèmes de stockage Azure et AKS
 
@@ -456,5 +456,5 @@ AKS étudie actuellement la capacité de faire muter des étiquettes actives sur
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

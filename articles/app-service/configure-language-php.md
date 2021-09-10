@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 94cbe0fa6669546cee8e989a6db2fcbb428cb9d0
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5857ba3543cabd2dc80831b51b256a139f43e8b6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829437"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221127"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configurer une application PHP pour Azure App Service
 
@@ -119,11 +119,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Validez toutes vos modifications et déployez votre code à l’aide de Git ou de Zip Deploy avec l’automatisation de build activée. Composer doit maintenant s’exécuter dans le cadre de l’automatisation du déploiement.
+Validez toutes vos modifications et déployez votre code à l’aide de Git ou de Zip deploy [avec l’automatisation de build activée](deploy-zip.md#enable-build-automation-for-zip-deploy). Composer doit maintenant s’exécuter dans le cadre de l’automatisation du déploiement.
 
 ## <a name="run-gruntbowergulp"></a>Exécuter Grunt/Bower/Gulp
 
-Si vous souhaitez qu’App Service exécute certains outils d’automatisation populaires au moment du déploiement, par exemple Grunt, Bower ou Gulp, vous devez fournir un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service exécute ce script lorsque vous déployez avec Git, ou avec le [déploiement Zip](deploy-zip.md) avec l’automatisation de build activée. 
+Si vous souhaitez qu’App Service exécute certains outils d’automatisation populaires au moment du déploiement, par exemple Grunt, Bower ou Gulp, vous devez fournir un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service exécute ce script lorsque vous déployez avec Git, ou avec le [déploiement Zip](deploy-zip.md) [avec l’automatisation de build activée](deploy-zip.md#enable-build-automation-for-zip-deploy). 
 
 Pour permettre à votre référentiel d’exécuter ces outils, vous devez les ajouter aux dépendances dans *package.json*. Par exemple :
 
@@ -206,7 +206,7 @@ fi
 
 ## <a name="customize-build-automation"></a>Personnaliser l’automatisation de la génération
 
-Si vous déployez votre application à l’aide de packages Git ou zip quand l’automatisation de la génération est activée, ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
+Si vous déployez votre application à l’aide de Git ou de packages zip [avec l’automatisation de build activée](deploy-zip.md#enable-build-automation-for-zip-deploy), l’automatisation de build d’App Service suit la séquence suivante :
 
 1. Exécution du script personnalisé s’il est spécifié par `PRE_BUILD_SCRIPT_PATH`.
 1. Exécutez `php composer.phar install`.
@@ -279,7 +279,7 @@ Si vous préférez ne pas utiliser la réécriture *.htaccess*, vous pouvez à l
 
 ## <a name="detect-https-session"></a>Détecter une session HTTPS
 
-Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
+Dans App Service, une [terminaison TLS/SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
 ```php
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -495,6 +495,10 @@ Si une application PHP se comporte différemment dans App Service ou présente d
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.md)
+> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Ou bien, consultez les ressources supplémentaires :
+
+[Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

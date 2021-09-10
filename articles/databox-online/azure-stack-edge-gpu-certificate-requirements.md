@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9184a3f429804ac383f137de49c5391e2e1db80f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6071420216a4c3e365ca5c35e1bf59713974e679
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439236"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360539"
 ---
 # <a name="certificate-requirements"></a>Configuration requise des certificats
 
@@ -34,7 +34,11 @@ Les exigences d’émission de certificat sont les suivantes :
 
 ## <a name="certificate-algorithms"></a>Algorithmes de certificat
 
-Les algorithmes de certificat doivent répondre aux exigences suivantes :
+Seuls les certificats RSA (Rivest-Shamir-Adleman) sont pris en charge avec votre appareil. Les certificats ECDSA (Elliptic Curve Digital Signature Algorithm) ne sont pas pris en charge.
+
+Les certificats qui contiennent une clé publique RSA sont appelés certificats RSA. Les certificats qui contiennent une clé publique ECC (Elliptic Curve Cryptographic) sont appelés certificats ECDSA (Elliptic Curve Digital Signature Algorithm).
+
+Les exigences en matière d’algorithmes de certificat sont les suivantes :
 
 * Les certificats doivent utiliser l’algorithme de clé RSA.
 
@@ -87,14 +91,12 @@ Les certificats PFX installés sur votre appareil Azure Stack Edge Pro doivent r
 
 * Utilisez uniquement les certificats RSA associés au Fournisseur de services de chiffrement Microsoft RSA/Schannel.
 
-Pour plus d’informations, consultez [Exporter des certificats PFX avec une clé privée](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+Pour plus d’informations, consultez [Exporter des certificats PFX avec une clé privée](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utiliser des certificats avec Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md)
+- Créer des certificats pour votre appareil
 
-[Créer des certificats pour votre instance Azure Stack Edge Pro avec l’outil Azure Stack Hub Readiness Checker](azure-stack-edge-gpu-create-certificates-tool.md)
+    - Via [les cmdlets Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md)
+    - Via [l’outil Azure Stack Hub Readiness Checker](azure-stack-edge-gpu-create-certificates-tool.md)
 
-[Exporter des certificats PFX avec une clé privée](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
-
-[Résolution des erreurs de certificat](azure-stack-edge-gpu-certificate-troubleshooting.md)

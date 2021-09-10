@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
-ms.date: 03/17/2020
+ms.date: 07/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 88a2dc2e38861cff540cfa1fcdc0b3f6e9651b04
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 0ef4715bb854905f8076ee116f672eee2d33a059
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439905"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532938"
 ---
 # <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps : gestion des modèles, déploiement et surveillance avec Azure Machine Learning
 
@@ -39,6 +39,7 @@ Azure Machine Learning propose les fonctionnalités MLOps suivantes :
 - **Superviser les applications ML pour détecter des problèmes de fonctionnement et liés à ML**. Comparez les entrées de modèle entre l’entraînement et l’inférence, explorez les métriques spécifiques du modèle et fournissez des alertes et une supervision pour votre infrastructure ML.
 - **Automatiser le cycle de vie ML de bout en bout avec Azure Machine Learning et Azure Pipelines**. L’utilisation de pipelines vous permet de mettre fréquemment à jour les modèles, tester de nouveaux modèles et déployer en permanence de nouveaux modèles ML en même temps que vos autres applications et services.
 
+Pour plus d’informations sur MLOps, consultez [Machine Learning DevOps (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops).
 ## <a name="create-reproducible-ml-pipelines"></a>Créer des pipelines ML reproductibles
 
 Utilisez des pipelines ML d’Azure Machine Learning pour réunir toutes les étapes impliquées dans votre processus d’entraînement de modèle.
@@ -94,9 +95,9 @@ Pour plus d’informations sur ONNX avec Azure Machine Learning, consultez l’a
 
 ### <a name="use-models"></a>Utiliser des modèles
 
-Les modèles Machine Learning entraînés sont déployés en tant que services web dans le cloud ou localement. Vous pouvez également déployer les modèles sur des appareils Azure IoT Edge. Les déploiements utilisent un processeur, un processeur graphique ou des tableaux FPGA (Field-Programmable Gate Array) pour l’inférence. Vous pouvez également utiliser des modèles de Power BI.
+Les modèles Machine Learning entraînés sont déployés en tant que services web dans le cloud ou localement. Les déploiements utilisent un processeur, un processeur graphique ou des tableaux FPGA (Field-Programmable Gate Array) pour l’inférence. Vous pouvez également utiliser des modèles de Power BI.
 
-Lorsque vous utilisez un modèle comme un service web ou un appareil IoT Edge, vous fournissez les éléments suivants :
+Lorsque vous utilisez un modèle comme service web, vous fournissez les éléments suivants :
 
 * Modèles utilisés pour noter les données envoyées vers le service/l’appareil.
 * Script d’entrée. Ce script accepte les demandes, utilise les modèles pour noter les données et renvoie une réponse.
@@ -105,7 +106,7 @@ Lorsque vous utilisez un modèle comme un service web ou un appareil IoT Edge, v
 
 Vous fournissez également la configuration de la plateforme de déploiement cible, par exemple le type de famille de machines virtuelles, la mémoire disponible et nombre de cœurs lors du déploiement sur Azure Kubernetes Service.
 
-Lorsque l’image est créée, les composants requis par Azure Machine Learning sont également ajoutés, par exemple les ressources nécessaires pour exécuter le service web et interagir avec IoT Edge.
+Lorsque l’image est créée, les composants requis par Azure Machine Learning sont également ajoutés, par exemple, les ressources nécessaires pour exécuter le service web.
 
 #### <a name="batch-scoring"></a>Scoring par lot
 La notation par lots est prise en charge via des pipelines ML. Pour plus d’informations, consultez [Prédictions par lots sur le Big Data](./tutorial-pipeline-batch-scoring-classification.md).
@@ -135,12 +136,6 @@ Lors d'un déploiement sur Azure Kubernetes Service, vous pouvez utiliser le lan
 * Basculer entre différentes versions d’un point de terminaison en mettant à jour le pourcentage de trafic dans la configuration du point de terminaison.
 
 Pour plus d’informations, consultez [Lancement contrôlé des modèles ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
-
-#### <a name="iot-edge-devices"></a>Appareils IoT Edge
-
-Vous pouvez utiliser des modèles avec les appareils IoT via des **modules Azure IoT Edge**. Les modules IoT Edge sont déployés sur un périphérique matériel, ce qui permet l’inférence, ou le scoring de modèles, sur l’appareil.
-
-Pour plus d’informations, consultez [Déployer des modèles](how-to-deploy-and-where.md).
 
 ### <a name="analytics"></a>Analytics
 

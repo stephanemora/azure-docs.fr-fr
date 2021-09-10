@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/02/2020
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c24bcf45b2440aada43af62035f0b988128c8f8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215431"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284542"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codes d’erreur : Azure Active Directory B2C
 
@@ -144,6 +144,7 @@ Les erreurs suivantes peuvent être retournées par le service Azure Active Dire
 | `AADB2C90284` | L’application avec l’identificateur « {0} » n’a pas obtenu le consentement et ne peut pas être utilisée pour les comptes locaux. |
 | `AADB2C90285` | L’application avec l’identificateur « {0} » est introuvable. |
 | `AADB2C90288` | UserJourney avec l’ID « {0} » référencé dans TechnicalProfile « {1} » pour l’échange de jeton d’actualisation pour le locataire « {2} » n’existe pas dans la stratégie « {3} » ou l’une de ses stratégies de base. |
+| `AADB2C90287` | La requête contient l’URI de redirection non valide « {0} ».|
 | `AADB2C90289` | Nous avons rencontré une erreur lors de la connexion au fournisseur d’identité. Veuillez réessayer plus tard. |
 | `AADB2C90296` | L’application n’a pas été configurée correctement. Contactez l’administrateur du site auquel vous essayez d’accéder. |
 | `AADB2C99005` | La demande contient un paramètre d’étendue non valide qui comprend le caractère non conforme « {0} ». |

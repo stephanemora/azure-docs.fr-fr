@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: a33b7fb26b06b9a89b7e4f16699441fd9a5bbd0b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 17ec535c03cd007a44fdd0b9633667f0e4343181
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562775"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034532"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -284,6 +284,9 @@ Bien démarrer avec Azure Cosmos DB grâce à l’un de nos guides de démarrag
 * [Prise en main de l’API Cassandra Azure Cosmos DB](cassandra/manage-data-dotnet.md)
 * [Prise en main de l’API Gremlin Azure Cosmos DB](create-graph-dotnet.md)
 * [Prise en main de l’API Table Azure Cosmos DB](table/create-table-dotnet.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)

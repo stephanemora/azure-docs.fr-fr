@@ -1,16 +1,16 @@
 ---
-title: Alertes de sécurité basées sur des agents
-description: Découvrez les alertes de sécurité et les actions de correction recommandées en utilisant les fonctionnalités et le service d’appareil Defender pour IoT.
+title: Alertes de sécurité basées sur des agents classiques
+description: Découvrez les alertes de sécurité de la version classique de Defender pour IoT, et les actions de correction recommandées en utilisant les fonctionnalités et le service d’appareil Defender pour IoT.
 ms.topic: conceptual
-ms.date: 2/16/2021
-ms.openlocfilehash: b586eb4bebfc584e6cec4c27df859dbebb817e2d
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 08/25/2021
+ms.openlocfilehash: 184001243803b64717ac124c116529bab4c4170d
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015081"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968261"
 ---
-# <a name="defender-for-iot-devices-security-alerts"></a>Alertes de sécurité d’appareil Defender pour IoT
+# <a name="classic-defender-for-iot-devices-security-alerts"></a>Alertes de sécurité d’appareil de la version classique de Defender pour IoT
 
 Defender pour IoT analyse continuellement votre solution IoT à l’aide d’analyses avancées et d’informations sur les menaces pour vous alerter en cas d’activités malveillantes.
 En outre, vous pouvez créer des alertes personnalisées en fonction de votre connaissance du comportement attendu de l’appareil.

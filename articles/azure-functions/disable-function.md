@@ -4,21 +4,18 @@ description: Découvrez comment désactiver et activer des fonctions dans Azure 
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: c4743603504639cba5c48af57046179a0680b371
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 9563c0843c56d9eff43c826298295ff0aedb9da1
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829875"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487576"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Guide pratique pour désactiver des fonctions dans Azure Functions
 
 Cet article explique comment désactiver une fonction dans Azure Functions. Quand vous *désactivez* une fonction, le runtime ignore le déclencheur automatique défini pour la fonction. Ceci vous permet d’empêcher une fonction spécifique de s’exécuter sans arrêter toute l’application de fonction.
 
 La façon recommandée de désactiver une fonction est d’utiliser un paramètre d’application au format `AzureWebJobs.<FUNCTION_NAME>.Disabled` défini sur `true`. Vous pouvez créer et modifier ce paramètre d’application de plusieurs façons, notamment à l’aide de l’interface [Azure CLI](/cli/azure/) et à partir de l’onglet **Vue d’ensemble** de votre fonction sur le [portail Azure](https://portal.azure.com). 
-
-> [!NOTE]  
-> Lorsque vous désactivez une fonction déclenchée par HTTP à l’aide des méthodes décrites dans cet article, le point de terminaison peut toujours être accessible en cas d’exécution sur votre ordinateur local.  
 
 ## <a name="disable-a-function"></a>Désactiver une fonction
 
@@ -174,6 +171,13 @@ Dans le deuxième exemple, la fonction est désactivée quand un paramètre d’
 >[!IMPORTANT]  
 >Le portail utilise les paramètres d’application pour désactiver les fonctions v1.x. Lorsqu’un paramètre d’application est en conflit avec le fichier function.json, une erreur peut se produire. Vous devez supprimer la propriété `disabled` du fichier function.json pour éviter les erreurs. 
 
+## <a name="considerations"></a>Considérations
+
+Gardez à l’esprit les considérations suivantes lorsque vous désactivez des fonctions :
+
++ Lorsque vous désactivez une fonction déclenchée par HTTP à l’aide des méthodes décrites dans cet article, le point de terminaison peut toujours être accessible en cas d’exécution sur votre ordinateur local.  
+
++ À ce stade, les noms de fonctions qui contiennent un trait d’Union (`-`) ne peuvent pas être désactivés lors de l’exécution sur Linux dans un plan (App service) dédié. Si vous avez besoin de désactiver vos fonctions lors de l’exécution sur Linux dans un plan dédié, n’utilisez pas de traits d’union dans les noms de vos fonctions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

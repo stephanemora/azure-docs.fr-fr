@@ -5,16 +5,18 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/24/2020
+ms.date: 06/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe33730fc11bfc18b7d67471e1077fb9490385d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4980692be64c2a8b3918d2dbaab5ef9c983f453
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541927"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531368"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide de PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Dans cet article, apprenez à créer et à gérer des réplicas en lecture dans le service Azure Database pour MySQL à l’aide de PowerShell. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
@@ -39,6 +41,8 @@ Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre com
 
 > [!IMPORTANT]
 > La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
+>
+>Si le GTID est activé sur un serveur primaire (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication basée sur GTID. Pour en savoir plus, reportez-vous à [Identificateur de transaction global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
@@ -66,7 +70,8 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
-Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md).
+> [!NOTE]
+> Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
 Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source, sauf si le paramètre **Sku** est spécifié.
 
@@ -106,6 +111,16 @@ Pour supprimer un serveur source, vous pouvez exécuter la cmdlet `Remove-AzMySq
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+### <a name="known-issue"></a>Problème connu
+
+Il existe deux générations de stockage que les serveurs des niveaux Usage général et À mémoire optimisée utilisent : le stockage Usage général v1 (prend en charge jusqu’à 4 To) et le stockage Usage général v2 (prend en charge jusqu’à 16 To).
+Le serveur source et le serveur réplica doivent avoir le même type de stockage. Le [stockage v2 universel](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) n’étant pas disponible dans toutes les régions, veillez à choisir la région de réplica appropriée lorsque vous utilisez l’emplacement avec PowerShell pour la création de réplica en lecture. Pour savoir comment identifier le type de stockage de votre serveur source, consultez le lien [Comment puis-je déterminer le type de stockage sur lequel mon serveur s’exécute ?](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on) 
+
+Si vous choisissez une région dans laquelle vous ne pouvez pas créer de réplica en lecture pour votre serveur source, vous rencontrerez le problème suivant : le déploiement continuera à s’exécuter comme indiqué dans la figure ci-dessous, puis expirera avec l’erreur *« L’opération d’approvisionnement en ressources ne s’est pas terminée dans le délai imparti »* .
+
+[ :::image type="content" source="media/howto-read-replicas-powershell/replcia-ps-known-issue.png" alt-text="Erreur CLI d’un réplica en lecture":::](media/howto-read-replicas-powershell/replcia-ps-known-issue.png#lightbox)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

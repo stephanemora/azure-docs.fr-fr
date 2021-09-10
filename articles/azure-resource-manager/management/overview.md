@@ -2,14 +2,14 @@
 title: Présentation d’Azure Resource Manager
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 ms.topic: overview
-ms.date: 03/25/2021
+ms.date: 08/27/2021
 ms.custom: contperf-fy21q1,contperf-fy21q3-portal
-ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ecb9c163728536b56d119ffa5d67aa6650dbc7e7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608542"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106496"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
@@ -62,6 +62,8 @@ Azure fournit quatre niveaux d’étendue : [Groupes d’administration](../../g
 ![Niveaux de gestion](./media/overview/scope-levels.png)
 
 Vous appliquez les paramètres de gestion à tous ces niveaux de l’étendue. Le niveau que vous sélectionnez détermine à quel point le paramètre est appliqué. Les niveaux inférieurs héritent des paramètres des niveaux supérieurs. Par exemple, Lorsque vous appliquez une [stratégie](../../governance/policy/overview.md) à l’abonnement, cette stratégie est appliquée à tous les groupes de ressources et les ressources de votre abonnement. Lorsque vous appliquez une stratégie au groupe de ressources, elle est appliquée au groupe de ressources et à toutes ses ressources. Toutefois, un autre groupe de ressources ne dispose pas de cette affectation de stratégie.
+
+Pour plus d’informations sur la gestion des identités et de l’accès, consultez [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 Vous pouvez déployer des modèles sur des locataires, des groupes d’administration, des abonnements ou des groupes de ressources.
 

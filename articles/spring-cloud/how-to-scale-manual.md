@@ -3,16 +3,16 @@ title: Mettre à l’échelle une application dans Azure Spring Cloud | Microsof
 description: Apprenez à mettre à l’échelle une application avec Azure Spring Cloud dans le portail Azure.
 ms.service: spring-cloud
 ms.topic: how-to
-ms.author: brendm
-author: bmitchell287
+ms.author: karler
+author: karlerickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 97261755f55f9193d0169e91597318928bb45b97
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 22bae9cd5a626f6a90427bd7522f2b99fa08ca0c
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134696"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525480"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Mettre à l’échelle une application dans Azure Spring Cloud
 
@@ -28,7 +28,7 @@ Effectuez un scale-up ou un scale-down de votre application en modifiant le nomb
 
 Pour suivre ces procédures, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * Une instance du service Azure Spring Cloud déployée.  Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](./quickstart.md).
 * Au moins une application déjà créée dans votre instance de ce service.
 
@@ -63,7 +63,8 @@ Veillez à sélectionner **Enregistrer** pour appliquer vos paramètres de mise 
 Au bout de quelques secondes, les modifications que vous avez apportées sont visibles dans la page **Vue d’ensemble**. Des détails supplémentaires sont disponibles sous l’onglet **Instances de l’application**. La mise à l’échelle ne nécessite aucune modification de code ni de redéploiement.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
-Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrictions](./quotas.md), vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu Niveau tarifaire en sélectionnant d’abord la colonne Niveau Standard et en cliquant sur le bouton **Mettre à niveau**.
+
+Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrictions](./quotas.md), vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu Niveau tarifaire en sélectionnant d’abord la colonne **Niveau standard**, puis le bouton **Mettre à niveau**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

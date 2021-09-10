@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 11/03/2020
+ms.date: 07/06/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: f0fb8ee681bfb3056547eed712d0197100b8ec08
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: a164fb60dde8ba8e652bab3c99b87ffa84ec8596
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785238"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563384"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Se connecter à des services de stockage sur Azure
 
@@ -33,7 +33,7 @@ Pour une expérience utilisant peu de code, consultez le guide pratique de l’u
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Un compte de stockage Azure avec un [type de stockage pris en charge](#matrix).
 
@@ -98,7 +98,7 @@ Pour s’assurer que vous vous connectez en toute sécurité à votre service de
 
 Azure Machine Learning nécessite des étapes de configuration supplémentaires pour communiquer avec un compte de stockage situé derrière un pare-feu, ou dans un réseau virtuel. Si votre compte de stockage se trouve derrière un pare-feu, vous pouvez [mettre l’adresse IP en liste autorisée via le portail Azure](../storage/common/storage-network-security.md#managing-ip-network-rules).
 
-Azure Machine Learning peut recevoir des requêtes issues de clients situés en dehors du réseau virtuel. Pour être sûr que l’entité demandant des données à partir du service est sécurisée, [configurez Azure Private Link pour votre espace de travail](how-to-configure-private-link.md).
+Azure Machine Learning peut recevoir des requêtes issues de clients situés en dehors du réseau virtuel. Pour vous assurer que l’entité demandant des données du service est sûre, [utilisez un point de terminaison privé pour votre espace de travail](how-to-configure-private-link.md).
 
 **Pour les utilisateurs du kit SDK Python**, si vous souhaitez qu’ils accèdent à vos données par le biais de votre script d’entraînement sur une cible de calcul, cette cible doit se trouver dans le même réseau et sous-réseau virtuels du stockage. 
 
@@ -230,7 +230,7 @@ En plus de la création de magasins de données avec le kit SDK Python et le stu
 <a name="arm"></a>
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Les modèles disponibles à l'adresse [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) peuvent être utilisés pour créer des magasins de données.
+Les modèles disponibles à l'adresse [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) peuvent être utilisés pour créer des magasins de données.
 
 Pour plus d'informations sur l'utilisation de ces modèles, consultez [Utiliser un modèle Azure Resource Manager afin de créer un espace de travail pour Azure Machine Learning](how-to-create-workspace-template.md).
 
@@ -282,7 +282,6 @@ Azure Machine Learning offre plusieurs moyens d’utiliser vos modèles pour le 
 | ----- | :-----: | ----- |
 | [Prédiction par lots](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Effectuez des prédictions sur de grandes quantités de données de façon asynchrone. |
 | [Service web](how-to-deploy-and-where.md) | &nbsp; | Déployez des modèles comme un service web. |
-| [Module Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Déployez des modèles sur des appareils IoT Edge. |
 
 Dans les situations où le SDK ne fournit pas d’accès aux magasins de données, vous pouvez créer du code personnalisé à l’aide du SDK Azure approprié pour accéder aux données. Par exemple, le [kit de développement logiciel (SDK) de stockage Azure pour Python](https://github.com/Azure/azure-storage-python) est une bibliothèque cliente que vous pouvez utiliser pour accéder aux données stockées dans des objets blob ou des fichiers.
 

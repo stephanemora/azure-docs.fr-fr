@@ -1,21 +1,21 @@
 ---
-title: Mettre à jour une commande à partir d’une application cliente
+title: Mettre à jour un paramètre de commande à partir d’une application cliente
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment mettre à jour une commande à partir d’une application cliente.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
-ms.openlocfilehash: 08c674a7a7ec060a4273836064cb1c21e979e725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 9ae8d43be88558469165e926994f994aa0fe5736
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97560285"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527983"
 ---
 # <a name="update-a-command-from-a-client-app"></a>Mettre à jour une commande à partir d’une application cliente
 
@@ -53,7 +53,8 @@ Passons en revue les attributs clés de cette activité :
 
 | Attribut | Explication |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **type** | L’activité est de type `"event"` et le nom de l’événement doit être `"RemoteUpdate"`. |
+| **type** | L’activité est de type `"event"`. |
+| **name** | Le nom de l’événement doit être `"RemoteUpdate"`. |
 | **value** | L’attribut `"value"` contient les attributs nécessaires pour mettre à jour la commande en cours. |
 | **updatedCommand** | L’attribut `"updatedCommand"` contient le nom de la commande. Au sein de cet attribut, `"updatedParameters"` est un mappage qui inclut les noms des paramètres et leurs valeurs mises à jour. |
 | **cancel** | Si la commande en cours doit être annulée, affectez la valeur `true` à l’attribut `"cancel"`. |
@@ -68,7 +69,7 @@ Vous pouvez tester ce scénario dans le portail de l’application Commandes per
 1. Ouvrez le panneau latéral, puis sélectionnez **Éditeur d’activités**.
 1. Tapez et envoyez l’événement `RemoteCommand` spécifié dans la section précédente.
     > [!div class="mx-imgBorder"]
-    > ![Capture d’écran qui illustre l’événement pour une commande à distance.](media/custom-commands/send-remote-command-activity.png)
+    > ![Capture d’écran qui illustre l’événement pour une commande à distance.](media/custom-commands/send-remote-command-activity-no-mic.png)
 
 Notez que la valeur du paramètre `"OnOff"` a été définie sur `"on"` à l’aide d’une activité du client, et non à partir d’une entrée vocale ou de texte.
 
@@ -140,7 +141,7 @@ Pour tester ce scénario, créons une commande dans l’application actuelle :
     }
     ```
 1. Envoyez le texte `get device info`.
-   ![Capture d’écran montrant une activité pour l’envoi du contexte du client.](media/custom-commands/send-client-context-activity.png)
+   ![Capture d’écran montrant une activité pour l’envoi du contexte du client.](media/custom-commands/send-client-context-activity-no-mic.png)
 
 Notez quelques points :
 - Vous ne devez envoyer cette activité qu’une seule fois (dans l’idéal, juste après le démarrage d’une connexion).

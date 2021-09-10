@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54a29bb1cc92347d9a2578a4f0ec9febb22553ac
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85570158"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225477"
 ---
-## <a name="create-a-project-zip-file"></a>Créer un fichier ZIP de projet
+## <a name="create-a-project-zip-package"></a>Créer un package ZIP de projet
 
 >[!NOTE]
-> Si vous avez téléchargé les fichiers dans un fichier ZIP, extrayez tout d’abord les fichiers. Par exemple, si vous avez téléchargé un fichier ZIP à partir de GitHub, vous ne pouvez pas déployer ce fichier tel quel. GitHub ajoute des répertoires imbriqués supplémentaires qui ne fonctionnent pas avec App Service. 
+> Si vous avez téléchargé les fichiers dans un package ZIP, commencez par extraire les fichiers. Par exemple, si vous avez téléchargé un package ZIP à partir de GitHub, vous ne pouvez pas déployer ce fichier tel quel. GitHub ajoute des répertoires imbriqués supplémentaires qui ne fonctionnent pas avec App Service. 
 >
 
 Dans une fenêtre de terminal locale, accédez au répertoire racine de votre projet d’application. 

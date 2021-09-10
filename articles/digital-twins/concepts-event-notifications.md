@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8b8205681da7ea24fdafcef337ad903fff06c589
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 902c4ef39e85b08cb1d82b7e292f81a99e277d09
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474626"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608420"
 ---
 # <a name="event-notifications"></a>Notifications d’événement
 
@@ -157,7 +157,7 @@ Dans le message, le `data` champ contient les données du jumeau numérique affe
 
 Pour les événements de création, la charge utile `data` reflète l’état du jumeau après la création de la ressource. Par conséquent, elle doit inclure tous les éléments générés par le système, tout comme un appel `GET`.
 
-Voici un exemple de données pour un appareil [IoT Plug-and-Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md), avec des composants et aucune propriété de niveau supérieur. Les propriétés qui n’ont pas d’utilité pour les appareils (telles que les propriétés signalées) doivent être omises. Il s’agit des informations qui seront placées dans le champ `data` du message de notification du cycle de vie.
+Voici un exemple de données pour un appareil [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), avec des composants et aucune propriété de niveau supérieur. Les propriétés qui n’ont pas d’utilité pour les appareils (telles que les propriétés signalées) doivent être omises. Il s’agit des informations qui seront placées dans le champ `data` du message de notification du cycle de vie.
 
 ```json
 {
@@ -312,4 +312,4 @@ Voici un exemple de corps de message de télémétrie :
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la transmission d’événements à différentes destinations, à l’aide des points de terminaison et des itinéraires :
-* [Concepts : itinéraires d’événements](concepts-route-events.md)
+* [Routes d’événements](concepts-route-events.md)

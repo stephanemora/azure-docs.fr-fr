@@ -13,14 +13,14 @@ ms.date: 04/21/2021
 ms.author: jmprieur
 ms.reviewer: marsma, shermanouko
 ms.custom: aaddev
-ms.openlocfilehash: 8eb9db4d89f6d3c517afb57d6343387343ac5325
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 2c7d4fdbcd27b4b8d7097d7a6978f80f5eb7fca4
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166935"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033244"
 ---
-# <a name="how-to-build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>Guide pratique : Générer des services résilients à l’actualisation des métadonnées OpenID Connect d’Azure AD
+# <a name="build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>Générer des services résilients à l’actualisation des métadonnées OpenID Connect d’Azure AD
 
 Les API web protégées doivent valider les jetons d’accès. Les applications web valident également les jetons d’ID. La validation du jeton se compose de plusieurs parties, en vérifiant si le jeton appartient à l’application, a été émis par un fournisseur d’identité approuvé (IDP), a une durée de vie toujours valide et n’a pas été falsifié. Il peut également y avoir des validations spéciales. Par exemple, l’application doit valider la signature et le fait que les clés de signature, quand elles sont incorporées dans un jeton, sont approuvées et que le jeton n’est pas en cours de réexécution. Lorsque les clés de signature ne sont pas incorporées dans le jeton, elles doivent être extraites du fournisseur d’identité (détection ou métadonnées). Parfois, il est également nécessaire d’obtenir des clés de manière dynamique au moment de l’exécution.
 

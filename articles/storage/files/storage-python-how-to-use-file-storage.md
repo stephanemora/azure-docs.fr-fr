@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 39e3cfb58e5965ac44d1cfe07b605d46037ab5d8
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 51355be32464facc51193596b90eca23522d617b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112117716"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251869"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 
@@ -44,7 +44,7 @@ Découvrez les notions de base pour développer en Python des applications ou de
 
 # <a name="azure-python-sdk-v12"></a>[Azure Python SDK v12](#tab/python)
 
-La version 2.7 ou 3.6+ de Python est nécessaire pour la [bibliothèque de client de Stockage Fichier Azure v12.x pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share).
+La version 2.7 ou 3.6+ de Python est nécessaire pour la [bibliothèque cliente Azure Files v12.x pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share).
 
 # <a name="azure-python-sdk-v2"></a>[Azure Python SDK v2](#tab/python2)
 
@@ -150,7 +150,7 @@ file_service.create_directory('myshare', 'sampledir')
 
 ## <a name="upload-a-file"></a>Charger un fichier
 
-Cette section explique comment charger un fichier du stockage local vers le Stockage Fichier Azure.
+Dans cette section, vous apprendrez comment charger un fichier à partir du stockage local vers des Fichiers Azure.
 
 # <a name="azure-python-sdk-v12"></a>[Azure Python SDK v12](#tab/python)
 

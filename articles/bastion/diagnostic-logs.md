@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 58ad863c1133ee7be984fe723b567ce43a8ef6ad
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ba31710e13ef786f2e4ede68541f1a5884306669
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534820"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531746"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Activer et utiliser les journaux de ressources Bastion
 
@@ -40,7 +40,7 @@ Pour accéder à vos journaux de diagnostic, vous pouvez utiliser directement le
 1. Accédez à votre ressource de compte de stockage, puis à **Conteneurs**. Vous voyez l’objet Blob **insights-logs-bastionauditlogs** créé dans le conteneur d’objets Blob de votre compte de stockage.
 
    ![paramètres de diagnostic](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. Lorsque vous parcourez le conteneur, vous voyez différents dossiers. Ces dossiers indiquent la hiérarchie des ressources pour votre ressource Azure Bastion.
+2. Lorsque vous parcourez le conteneur, vous voyez différents dossiers dans votre blob. Ces dossiers indiquent la hiérarchie des ressources pour votre ressource Azure Bastion.
 
    ![ajouter le paramètre de diagnostic](./media/diagnostic-logs/2-resource-h.png)
 3. Accédez à la hiérarchie complète de la ressource Azure Bastion pour laquelle souhaitez récupérer/afficher les journaux de diagnostic. 'y=', 'm=', 'd=', 'h=' et 'm=' indiquent respectivement l’année, le mois, le jour, l’heure et la minute des journaux de ressources.

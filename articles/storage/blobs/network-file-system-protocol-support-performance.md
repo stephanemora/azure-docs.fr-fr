@@ -1,27 +1,23 @@
 ---
-title: Considérations relatives au niveau de performance du système NFS 3.0 dans le Stockage Blob Azure (préversion) | Microsoft Docs
+title: Considérations relatives au niveau de performance du système NFS 3.0 dans Stockage Blob Azure | Microsoft Docs
 description: Optimisez le niveau de performance de vos demandes de stockage du 	système de gestion de fichiers en réseau (NFS, Network File System) 3.0 en suivant les recommandations de cet article.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
-ms.openlocfilehash: 6a5ebed9f6b8bf5ed40829e13bbbcc43b7ebbc8a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e8d024832bf74873fb56a9d41d6d27544aa701f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069541"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524137"
 ---
-# <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considérations relatives au niveau de performance du système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)
+# <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage"></a>Considérations relatives au niveau de performance de NFS (Network File System) 3.0 dans Stockage Blob Azure
 
-Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cet article contient des recommandations à appliquer pour optimiser le niveau de performance des demandes de stockage. Pour plus d’informations sur la prise en charge du système NFS 3.0 dans le Stockage Blob Azure, consultez [Prise en charge du protocole de système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Il prend en charge les comptes de stockage GPV2 avec des performances de niveau standard et les comptes de stockage d’objets blob de blocs avec un niveau de performances Premium dans toutes les régions publiques.
+Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cet article contient des recommandations à appliquer pour optimiser le niveau de performance des demandes de stockage. Pour plus d’informations sur la prise en charge du protocole NFS 3.0 dans Stockage Blob Azure, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans Stockage Blob Azure](network-file-system-protocol-support.md).
 
 ## <a name="add-clients-to-increase-throughput"></a>Ajout de clients pour augmenter le débit 
 
@@ -46,11 +42,20 @@ Chaque barre du graphe ci-dessous montre la différence entre la bande passante 
 > [!div class="mx-imgBorder"]
 > ![Niveau de performance relatif](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
+## <a name="improve-read-ahead-size-to-increase-large-file-read-throughput"></a>Améliorer la taille de lecture anticipée pour augmenter le débit de lecture de fichiers volumineux 
+Le paramètre noyau read_ahead_kb représente la quantité de données supplémentaires qui doivent être lues après avoir satisfait à une demande de lecture donnée. Vous pouvez augmenter ce paramètre à 16 Mo pour améliorer le débit de lecture des fichiers volumineux. 
+
+```
+export AZMNT=/your/container/mountpoint
+
+echo 15728640 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
+```
+
 ## <a name="avoid-frequent-overwrites-on-data"></a>Éviter les remplacements fréquents sur les données
 
 Il faut plus de temps pour effectuer une opération de remplacement qu’une nouvelle opération d’écriture. En effet, une opération de remplacement NFS, en particulier une modification de fichier partielle sur place, est une combinaison de plusieurs opérations Blob sous-jacentes : une opération de lecture, une opération de modification et une opération d’écriture. Par conséquent, une application qui exige des modifications fréquentes sur place n’est pas adaptée aux comptes de Stockage Blob avec NFS. 
 
-## <a name="deploy-azure-hpc-cache-for-latency-senstive-applications"></a>Déployer Azure HPC Cache pour les applications sensibles à la latence
+## <a name="deploy-azure-hpc-cache-for-latency-sensitive-applications"></a>Déployer Azure HPC Cache pour les applications sensibles à la latence
 
 Certaines applications peuvent nécessiter une faible latence en plus d’un débit élevé. Vous pouvez déployer [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) pour améliorer considérablement la latence. En savoir plus sur la [latence dans le stockage Blob](storage-blobs-latency.md). 
 
@@ -68,6 +73,6 @@ Certaines applications peuvent nécessiter une faible latence en plus d’un dé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la prise en charge du système NFS 3.0 dans le Stockage Blob Azure, consultez [Prise en charge du protocole de système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
+- Pour plus d’informations sur la prise en charge du protocole NFS 3.0 dans Stockage Blob Azure, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans Stockage Blob Azure](network-file-system-protocol-support.md).
 
-- Pour démarrer, consultez [Monter le stockage Blob sur Linux à l’aide du protocole NFS (Network File System) 3.0 (préversion)](network-file-system-protocol-support-how-to.md).
+- Pour démarrer, consultez [Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0](network-file-system-protocol-support-how-to.md).

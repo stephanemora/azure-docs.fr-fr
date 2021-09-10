@@ -2,20 +2,20 @@
 title: Fichier Include
 description: inclure fichier
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 63824148e25465034ed7bed49f1931514c10a35a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.author: rifox
+ms.openlocfilehash: b5ea5a90a6ad39404208bb9c353bb33e86201299
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113348"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967957"
 ---
 ## <a name="sample-code"></a>Exemple de code
 Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/chat-quickstart-java).
@@ -58,7 +58,7 @@ Dans votre fichier POM, référencez le package `azure-communication-chat` avec 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -68,7 +68,7 @@ Pour l’authentification, votre client doit référencer le package `azure-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-common for the latest version --></version>
 </dependency>
 ```
 
@@ -184,14 +184,20 @@ Utilisez la méthode `sendMessage` pour envoyer un message au fil que vous venez
 - Utilisez `content` pour fournir le contenu du message de conversation.
 - Utilisez `type` pour spécifier le type de contenu du message de conversation, TEXTE ou HTML.
 - Utilisez `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur.
+- Utilisez éventuellement `metadata` pour inclure toute donnée supplémentaire que vous souhaitez envoyer avec le message. Ce champ fournit un mécanisme permettant aux développeurs d’étendre le fonctionnement des messages de conversation et d’ajouter des informations personnalisées à votre cas d’usage. Par exemple, lors du partage d’un lien de fichier dans le message, vous souhaiterez peut-être ajouter « hasAttachment:true » dans les métadonnées pour que l’application du destinataire puisse l’analyser et l’afficher en conséquence.
 
 La réponse `sendChatMessageResult` contient un `id`, qui est l’ID unique du message.
 
 ```Java
+Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-    .setContent("Message content")
+    .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
-    .setSenderDisplayName("Sender Display Name");
+    .setSenderDisplayName("Sender Display Name")
+    .setMetadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();

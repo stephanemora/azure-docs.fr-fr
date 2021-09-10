@@ -13,14 +13,14 @@ metadata:
   ms.topic: troubleshooting
   ms.tgt_pltfrm: vm-windows-sql-server
   ms.workload: iaas-sql-server
-  ms.date: 08/05/2019
+  ms.date: 9/01/2021
   ms.author: mathoma
-  ms.openlocfilehash: afc126a44fec520f4451787c0e8b350a292c2fca
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 6b6b6ae343e5ac641e1fb855c7ca7d466fd91ba8
+  ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114440690"
+  ms.lasthandoff: 08/30/2021
+  ms.locfileid: "123221422"
 title: Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 summary: >
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -92,7 +92,7 @@ sections:
       Oui. Vous pouvez facilement basculer entre une image de la galerie de paiement à l’utilisation (PAYG) et BYOL (apportez votre propre licence) en activant [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Pour plus d'informations, consultez [Guide pratique pour changer le modèle de licence d'une machine virtuelle SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). Actuellement, cette fonctionnalité n’est disponible que pour des clients de cloud public et de cloud Azure Government.
   - question: >
       Est-ce que SQL Server rencontre des temps d’arrêt si je change de modèle de licence ?
-    answer: "Non. Un [changement de modèle de licence](licensing-model-azure-hybrid-benefit-ahb-change.md) n’entraîne aucun temps d’arrêt dans SQL Server, car il prend effet immédiatement et ne nécessite pas un redémarrage de la machine virtuelle. Toutefois, pour inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent, vous devez disposer de [l’extension SQL IaaS](sql-server-iaas-agent-extension-automate-management.md). L’installation de l’extension SQL IaaS en mode _complet_ redémarre le service SQL Server. Par conséquent, si l’extension SQL IaaS doit être installée, installez-la en mode _léger_ pour des fonctionnalités limitées ou installez-la en mode _complet_ pendant une fenêtre de maintenance. L’extension SQL IaaS installée en mode _léger_ peut être mise à niveau en mode _complet_ à tout moment, mais nécessite un redémarrage du service SQL Server. \n"
+    answer: "Non. Un [changement de modèle de licence](licensing-model-azure-hybrid-benefit-ahb-change.md) n’entraîne aucun temps d’arrêt dans SQL Server, car il prend effet immédiatement et ne nécessite pas un redémarrage de la machine virtuelle.  \n"
   - question: >
       Est-il possible de changer les modèles de licence sur une machine virtuelle SQL Server déployée à l’aide du modèle classique ?
     answer: Non. Le changement des modèles de licence n’est pas pris en charge sur une machine virtuelle classique. Vous pouvez migrer votre machine virtuelle vers le modèle Azure Resource Manager et l’inscrire auprès de l’extension SQL IaaS Agent. Une fois que la machine virtuelle est inscrite auprès de l’extension SQL IaaS Agent, les changements du modèle de licence sont disponibles sur la machine virtuelle.
@@ -191,17 +191,16 @@ sections:
     answer: Oui. Les clients doivent inscrire leurs machines virtuelles SQL Server à l’extension s’ils n’ont pas utilisé d’image SQL Server de la Place de marché Azure et qu’à la place, ils ont installé SQL Server automatiquement ou apporté leur disque dur virtuel personnalisé. Les machines virtuelles relevant de tous les types d’abonnement (Direct, Contrat Entreprise et Fournisseur de solutions Cloud) peuvent s’inscrire à l’extension SQL IaaS Agent.
   - question: >
       Quel est le mode de gestion par défaut au moment de l’inscription de l’extension SQL IaaS Agent ?
-    answer: >
-      Le mode d’administration par défaut au moment de l’inscription à l’extension SQL IaaS Agent est *léger*. Si la propriété de gestion SQL Server n’est pas définie au moment de l’inscription à de l’extension, le mode d’administration léger est défini et votre service SQL Server ne redémarre pas. Nous vous recommandons d’abord d’effectuer l’inscription à l’extension SQL IaaS Agent en mode léger, puis de procéder à une mise à niveau vers le mode complet pendant une fenêtre de maintenance. De même, l’administration par défaut est également en mode léger quand vous utilisez la [fonctionnalité d’inscription automatique](sql-agent-extension-automatic-registration-all-vms.md).
+    answer: "Le mode d’administration par défaut au moment de l’inscription à l’extension SQL IaaS Agent est *léger*. Si la propriété de gestion SQL Server n’est pas définie au moment de l’inscription auprès de l’extension, le mode d’administration léger est défini.  L’administration par défaut est en mode léger quand vous utilisez la [fonctionnalité d’inscription automatique](sql-agent-extension-automatic-registration-all-vms.md). \n"
   - question: >
       Quels sont les prérequis pour s’inscrire à l’extension SQL IaaS Agent ?
-    answer: Il n’existe aucun prérequis à l’inscription à l’extension SQL IaaS Agent, à part l’installation de SQL Server sur la machine virtuelle. Notez que si l’extension SQL IaaS Agent est installée en mode complet, le service SQL Server redémarre ; l’exécution de cette opération est donc recommandée pendant une fenêtre de maintenance.
+    answer: Il n’existe aucun prérequis à l’inscription à l’extension SQL IaaS Agent, à part l’installation de SQL Server sur la machine virtuelle.
   - question: >
       L’inscription à l’extension SQL IaaS Agent a-t-elle pour effet d’installer un agent sur ma machine virtuelle ?
     answer: "Oui, l’inscription à l’extension SQL IaaS Agent en mode d’administration complet installe un agent sur la machine virtuelle. L’inscription en mode léger ou sans agent ne le fait pas. \n\nL’inscription à l’extension SQL IaaS Agent en mode léger copie uniquement les *fichiers binaires* de l’extension SQL IaaS Agent sur la machine virtuelle, elle n’installe pas l’agent. Ces fichiers binaires sont ensuite utilisés pour installer l’agent lorsque le mode d’administration est mis à niveau vers complet.\n"
   - question: >
       L’inscription à l’extension SQL IaaS Agent a-t-elle pour effet le redémarrage de SQL Server sur ma machine virtuelle ?
-    answer: Cela dépend du mode spécifié lors de l’inscription. Si le mode léger ou sans agent est spécifié, le service SQL Server ne redémarre pas. En revanche, si vous spécifiez le mode d’administration complet, le service SQL Server redémarre. La fonctionnalité d’inscription automatique inscrit vos machines virtuelles SQL Server en mode léger, sauf si la version de Windows Server est 2008, auquel cas la machine virtuelle SQL Server sera inscrite en mode sans agent.
+    answer: À compter de septembre 2021, le redémarrage du service SQL Server n’est plus requis lors de l’inscription auprès de [l’extension IaaS SQL](sql-server-iaas-agent-extension-automate-management.md) en [mode de gestion complet](sql-agent-extension-manually-register-single-vm.md).
   - question: "Quelle est la différence entre les modes d’administration léger et sans agent au moment de l’inscription à l’extension SQL IaaS Agent ? \n"
     answer: "Le mode d’administration sans agent est le seul mode d’administration disponible pour les instances SQL Server 2008 et SQL Server 2008 R2 sur Windows Server 2008. Pour toutes les versions ultérieures de Windows Server, les deux modes d’administration disponibles sont léger et complet. \n\nPour le mode sans agent, les propriétés de version et d’édition de SQL Server doivent être définies par le client. Le mode léger interroge la machine virtuelle pour déterminer la version et l’édition de l’instance SQL Server.\n"
   - question: >
@@ -215,7 +214,7 @@ sections:
     answer: Non. La mise à niveau vers le mode d’administration complet ou léger n’est pas disponible pour le mode sans agent. Il s’agit d’une limitation technique de Windows Server 2008. Vous devez d’abord mettre à niveau le système d’exploitation vers Windows Server 2008 R2 ou une version ultérieure, puis effectuer une mise à niveau vers le mode de gestion complet.
   - question: >
       Puis-je mettre à niveau l’extension IaaS SQL Server du mode léger vers le mode complet ?
-    answer: Oui. La mise à niveau du mode d’administration léger à complet est prise en charge via Azure PowerShell ou le portail Azure. Un redémarrage du service SQL Server sera déclenché.
+    answer: Oui. La mise à niveau du mode d’administration léger à complet est prise en charge via Azure PowerShell ou le portail Azure.
   - question: >
       Puis-je rétrograder l’extension SQL Server IaaS du mode complet au mode d’administration sans agent ou léger ?
     answer: "Non. La rétrogradation du mode de gestion de l’extension IaaS SQL Server n’est pas prise en charge. Le mode d’administration ne peut pas être rétrogradé du mode complet vers le mode léger ou sans agent, ni du mode léger vers le mode sans agent. \n\nPour passer d’un mode d’administration complet à un autre mode d’administration, [désinscrivez](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) la machine virtuelle SQL Server de l’extension SQL IaaS Agent en supprimant la _ressource_ de machine virtuelle SQL, puis en réinscrivant la machine virtuelle SQL Server à l’extension SQL IaaS Agent avec un mode d’administration différent.\n"

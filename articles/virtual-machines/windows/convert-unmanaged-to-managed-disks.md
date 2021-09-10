@@ -7,18 +7,19 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 64d5f46d167b0707c2257f29c5d5cb1950aaa046
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 57f0d5ed33bf662867ce7a4323f5f69d889e6653
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029205"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688908"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Windows en disques managés
 
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
+
 Si vos machines virtuelles Windows existantes utilisent des disques non managés, vous pouvez les convertir pour qu’elles utilisent des disques managés par le biais d’[Azure Disques managés](../managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
- 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -88,8 +89,11 @@ Si les machines virtuelles que vous souhaitez convertir pour utiliser des disque
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Si une erreur survient lors de la conversion, ou si une machine virtuelle est dans un état d’échec en raison de problèmes dans une conversion précédente, exécutez l’applet de commande `ConvertTo-AzVMManagedDisk` à nouveau. Généralement, une simple nouvelle tentative suffit à débloquer la situation.
-Avant de lancer la conversion, assurez-vous que toutes les extensions de machine virtuelle sont dans l’état « Provisionnement réussi ». Sinon, la conversion échoue avec le code d’erreur 409.
+- Avant de lancer la conversion, assurez-vous que toutes les extensions de machine virtuelle sont dans l’état « Provisionnement réussi ». Sinon, la conversion échoue avec le code d’erreur 409.
+- Si une erreur survient lors de la conversion, ou si une machine virtuelle est dans un état d’échec en raison de problèmes dans une conversion précédente, exécutez l’applet de commande `ConvertTo-AzVMManagedDisk` à nouveau. Généralement, une simple nouvelle tentative suffit à débloquer la situation.
+- Si vous convertissez une machine virtuelle Linux en disques managés, utilisez la version la plus récente de l’agent Linux Azure. Les opérations qui utilisent les versions « 2.2.0 » et antérieures de l’agent Linux Azure échoueront probablement. L’exécution de la conversion sur une machine virtuelle généralisée ou sur une machine virtuelle qui appartient à un groupe à haute disponibilité classique n’est pas non plus prise en charge.
+- Si la conversion échoue avec l’erreur « SnapshotCountExceeded », supprimez quelques instantanés et recommencez l’opération.
+
 
 ## <a name="convert-using-the-azure-portal"></a>Convertir à l’aide du portail Azure
 

@@ -6,29 +6,31 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 224f46f16f03f53009c3f7beb55d252c5ce5e1e7
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: 330f102dffb392540879d8d583e02a68fbe436c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316152"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532496"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Journal d’audit dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
-Le journal d’audit des activités de base de données dans Azure Database pour PostgreSQL – Hyperscale (Citus) est disponible via l’extension d’audit PostgreSQL nommée [pgAudit](https://www.pgaudit.org/). pgAudit permet une journalisation d’audit détaillée des sessions et/ou des objets.
-
 > [!IMPORTANT]
-> pgAudit est disponible en préversion sur Azure Database pour PostgreSQL – Hyperscale (Citus)
+> L’extension pgAudit dans Hyperscale (Citus) est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+>
+> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans [Fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
+
+Le journal d’audit des activités de base de données dans Azure Database pour PostgreSQL – Hyperscale (Citus) est disponible via l’extension d’audit PostgreSQL nommée [pgAudit](https://www.pgaudit.org/). pgAudit permet une journalisation d’audit détaillée des sessions ou des objets.
 
 Si vous souhaitez des journaux de niveau ressource Azure pour des opérations telles que la mise à l’échelle du stockage et du calcul, consultez le [journal d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Considérations sur l’utilisation
-Par défaut, les instructions de journal pgAudit sont émises en même temps que vos instructions de journal habituelles à l’aide de la fonctionnalité de journalisation standard de Postgres. Dans Azure Database pour PostgreSQL – Hyperscale (Citus), vous pouvez également configurer tous les journaux à envoyer au magasin de journaux Azure Monitor pour analyse ultérieure dans Log Analytics. Si vous activez la journalisation des ressources Azure Monitor, vos journaux sont automatiquement envoyés (au format JSON) au services Stockage Azure et Event Hubs, et/ou aux journaux Azure Monitor, conformément à votre choix.
+Par défaut, les instructions de journal pgAudit sont émises en même temps que vos instructions de journal habituelles à l’aide de la fonctionnalité de journalisation standard de Postgres. Dans Azure Database pour PostgreSQL – Hyperscale (Citus), vous pouvez également configurer tous les journaux à envoyer au magasin de journaux Azure Monitor pour analyse ultérieure dans Log Analytics. Si vous activez la journalisation des ressources Azure Monitor, vos journaux sont automatiquement envoyés (au format JSON) aux journaux de Stockage Azure, d’Event Hubs ou d’Azure Monitor, selon votre choix.
 
 ## <a name="enabling-pgaudit"></a>Activation de pgAudit
 
-L’extension pgAudit est préinstallée et activée sur tous les nœuds de groupe de serveurs Hyperscale (Citus). Aucune action n’est nécessaire pour l’activer.
+L’extension pgAudit est préinstallée et activée sur la plupart des nœuds de groupe de serveurs Hyperscale (Citus). Si elle n’est pas activée sur vos nœuds, ouvrez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="pgaudit-settings"></a>Paramètres pgAudit
 

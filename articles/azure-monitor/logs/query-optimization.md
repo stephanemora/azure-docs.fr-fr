@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7b5412b2ca738f5d2099521062e37afcff90e938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6612d365250a48d9532c0ef331d011c719b95666
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047330"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321645"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, dans certains cas, vous pouvez améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -23,6 +23,10 @@ Les requêtes optimisées :
 - Ont moins de risques d’être limitées ou rejetées.
 
 Vous devez accorder une attention particulière aux requêtes utilisées de façon récurrente ou en rafale, comme dans le cadre des tableaux de bord, des alertes, de Logic Apps et de Power BI. Dans ces cas, l’impact d’une requête inefficace est substantiel.
+
+Voici une vidéo de procédure pas à pas détaillée sur l’optimisation des requêtes.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0]
 
 ## <a name="query-performance-pane"></a>Volet des performances des requêtes
 Après avoir exécuté une requête dans Log Analytics, cliquez sur la flèche vers le bas située au-dessus des résultats de la requête afin de voir le volet des performances de la requête qui affiche les résultats de plusieurs indicateurs de performance pour la requête. Chacun de ces indicateurs de performance est décrit dans la section suivante.

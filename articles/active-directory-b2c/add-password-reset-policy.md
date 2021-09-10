@@ -13,18 +13,18 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1c7d4eeaf7df1764b021cd5914d6f4f4a88a9a1c
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: ddf46df1af8dc41e4f50c92eee527ac25e77b08a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213468"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777584"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Dans un [parcours d’inscription et de connexion](add-sign-up-and-sign-in-policy.md), les utilisateurs peuvent réinitialiser leurs mots de passe à l’aide du lien **Vous avez oublié votre mot de passe ?** . Le flux de réinitialisation de mot de passe en libre-service s’applique aux comptes locaux dans Azure AD B2C qui utilisent une [adresse e-mail](sign-in-options.md#email-sign-in) ou un [nom d’utilisateur](sign-in-options.md#username-sign-in) avec un mot de passe pour la connexion.
 
@@ -73,7 +73,8 @@ L’expérience de réinitialisation du mot de passe en libre-service peut être
 Pour activer la réinitialisation du mot de passe en libre-service pour le flux d’utilisateur d’inscription ou de connexion :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Sélectionnez l’icône **Répertoires + Abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Flux d’utilisateurs**.
 1. Sélectionnez un flux d’utilisateur d’inscription ou de connexion (de type **Recommandé**) que vous souhaitez personnaliser.
@@ -271,7 +272,8 @@ Votre application peut être amenée à détecter si l’utilisateur s’est con
 ### <a name="upload-the-custom-policy"></a>Téléchargez la stratégie personnalisée
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Sélectionnez l’icône **Répertoires + Abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés dans l’ordre suivant :

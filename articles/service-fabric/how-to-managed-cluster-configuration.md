@@ -2,13 +2,13 @@
 title: Configurer votre cluster managé Service Fabric
 description: Découvrez comment configurer votre cluster managé Service Fabric pour les mises à niveau automatiques du système d’exploitation, les règles de groupe de sécurité réseau et bien plus encore.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 5fd2736917517f20d3d093492c6011d6fcf716cf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 8/23/2021
+ms.openlocfilehash: 5be6422af6a1611bb8978ff4f0b76122cb146eb7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067435"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864352"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Options de configuration du cluster Service Fabric géré
 
@@ -16,7 +16,8 @@ En plus de sélectionner la [référence SKU du cluster managé Service Fabric](
 
 * Ajout d’une [extension de groupe de machines virtuelles identiques](how-to-managed-cluster-vmss-extension.md) à un type de nœud
 * Configuration de la [répartition des zones de disponibilité](how-to-managed-cluster-availability-zones.md) d’un cluster
-* Configuration de [règles NSG et autres options de mise en réseau](how-to-managed-cluster-networking.md) pour un cluster
+* Configuration de [paramètres réseau](how-to-managed-cluster-networking.md) de cluster
+* Configurer un type de nœud pour les [groupes de machines virtuelles identiques de grande taille](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuration de l’[identité managée](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) sur des types de nœuds de cluster
 * Activation des [mises à jour automatiques du système d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) pour les nœuds de cluster
 * Activation du [chiffrement du disque de données et du système d’exploitation](how-to-enable-managed-cluster-disk-encryption.md) sur des nœuds de cluster

@@ -4,14 +4,15 @@ description: Vue d’ensemble du data wrangling dans Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: f922e7a2755a6e26a0d9f93f2668753e2f4dad5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 133496614db862d4c1af31afb015a535ddbfd188
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98738167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531452"
 ---
 # <a name="what-is-data-wrangling"></a>Qu’est-ce que le data wrangling ?
 
@@ -60,9 +61,9 @@ Quand vous créez une activité Power Query, tous les jeux de données sources d
 
 Actuellement, toutes les fonctions Power Query M ne sont pas prises en charge pour le rassemblement de données brutes à l’analyse, bien qu’elles soient disponibles pendant la création. Lors de la génération de vos activités Power Query, le message d’erreur suivant s’affiche si une fonction n’est pas prise en charge :
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Power Query Spark Runtime does not support the function`
 
-Pour plus d’informations sur les transformations prises en charge, consultez [Fonctions de data wrangling](wrangling-functions.md).
+Pour plus d’informations sur les transformations prises en charge, consultez [Fonctions de data wrangling Power Query](wrangling-functions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

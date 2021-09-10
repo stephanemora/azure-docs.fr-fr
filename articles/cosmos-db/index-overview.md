@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 00b119d993b549340467bf3892f3ffc5cf7b76dd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8228c3cedf58b389b93a516c4a372a38b33c0e4d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755420"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028537"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -202,7 +202,7 @@ Voici un tableau qui résume les différentes façons dont les index sont utilis
 | Analyse précise de l'index | Recherche binaire des valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | Comparaisons de plages (>, <, <= ou >=), StartsWith | Comparables à la recherche dans l’index ; augmentent légèrement en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
 | Analyse développée de l’index | Recherche optimisée (mais moins efficace qu’une recherche binaire) de valeurs indexées et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | StartsWith (non-respect de la casse), StringEquals (non-respect de la casse) | Augmentent légèrement en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
 | Analyse complète de l'index    | Lecture d’un ensemble distinct de valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Augmentent de façon linéaire en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
-| Analyse complète          | Charger tous les éléments à partir du magasin de données transactionnelles                                          | Upper, Lower                                    | NON APPLICABLE                                                          | Augmentent en fonction du nombre d’éléments présents dans le conteneur |
+| Analyse complète          | Charger tous les éléments à partir du magasin de données transactionnelles                                          | Upper, Lower                                    | N/A                                                          | Augmentent en fonction du nombre d’éléments présents dans le conteneur |
 
 Lorsque vous écrivez des requêtes, utilisez le prédicat de filtre qui exploite l’index aussi efficacement que possible. Par exemple, si `StartsWith` et `Contains` fonctionnent pour votre cas d’utilisation, optez pour `StartsWith`. Il effectue en effet une analyse précise plutôt qu’une analyse complète de l’index.
 
@@ -392,3 +392,6 @@ Découvrez plus en détail l’indexation dans les articles suivants :
 
 - [Stratégie d’indexation](index-policy.md)
 - [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)
+- Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

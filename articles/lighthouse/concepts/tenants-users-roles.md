@@ -1,14 +1,14 @@
 ---
 title: Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 description: Découvrez comment les locataires, les utilisateurs et les rôles Azure Active Directory peuvent être utilisés dans les scénarios Azure Lighthouse.
-ms.date: 05/11/2021
+ms.date: 06/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcb3c250d0973174e7356bd489b84938238af6e7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: cdf8c10d52e0add4513d42a99d2054e1af0ed796
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074824"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542253"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 
@@ -47,6 +47,12 @@ Tous les [rôles intégrés](../../role-based-access-control/built-in-roles.md) 
 
 > [!NOTE]
 > Une fois qu'un nouveau rôle intégré applicable a été ajouté à Azure, il peut être attribué lors de l'[intégration d'un client à l'aide des modèles Azure Resource Manager](../how-to/onboard-customer.md). Un certain temps peut s’écouler avant que le nouveau rôle ne soit disponible dans l’Espace partenaires lors de la [publication d’une offre de services gérés](../how-to/publish-managed-services-offers.md).
+
+## <a name="transferring-delegated-subscriptions-between-azure-ad-tenants"></a>Transfert d’abonnements délégués entre locataires Azure AD
+
+Si un abonnement est [transféré à un autre compte de locataire Azure AD](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account), la [définition de l’inscription et les ressources d’attribution de l’inscription](architecture.md#delegation-resources-created-in-the-customer-tenant) créées par le [processus d’intégration d’Azure Lighthouse](../how-to/onboard-customer.md) seront conservées. Cela signifie que l’accès accordé par Azure Lighthouse aux locataires gestionnaires restera en vigueur pour cet abonnement (ou pour les groupes de ressources délégués au sein de cet abonnement).
+
+La seule exception est le transfert de l’abonnement à un locataire Azure AD auquel il a été délégué auparavant. Dans ce cas, les ressources de délégation pour ce locataire sont supprimées et l’accès accordé par l’intermédiaire d’Azure Lighthouse ne s’applique plus, puisque l’abonnement appartient désormais directement à ce locataire (au lieu d’être délégué par le biais d’Azure Lighthouse). Toutefois, si cet abonnement a également été délégué à d’autres locataires gestionnaires, ces derniers conserveront le même accès à l’abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

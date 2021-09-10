@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 9b2de3d5926298097a503a3c6ff77562b3fb5587
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7fee5b4133cc048576ff0b794d441fac3ee162e6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384863"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035941"
 ---
 # <a name="azure-cosmos-db-integrated-cache-frequently-asked-questions"></a>Forum aux questions sur le cache intégré d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -61,3 +61,6 @@ Le développement du cache intégré au-delà de l’API SQL est planifié à lo
 - [Cache intégré](integrated-cache.md)
 - [Configurer le cache intégré](how-to-configure-integrated-cache.md)
 - [Passerelle dédiée](dedicated-gateway.md)
+- Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

@@ -1,35 +1,42 @@
 ---
-title: Série DC – Machines virtuelles Microsoft Azure
-description: Spécifications pour les machines virtuelles de la série DC.
-author: susaxen
+title: Série DCsv2 – Machines virtuelles Microsoft Azure
+description: Spécifications pour les machines virtuelles de la série DCsv2.
+author: mmcrey
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 677f4df0873f8b72d40dd373035111e2e0002491
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d37e8308afd75b310893272f338fb5a3245a8ce
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549228"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696520"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
-La série DCsv2 permet de protéger la confidentialité et l’intégrité de vos données et de votre code lors de leur traitement dans le cloud public. Ces machines bénéficient du processeur Intel XEON E-2288G de dernière génération avec la technologie SGX. Avec Intel Turbo Boost Technology, ces machines peuvent atteindre 5,0 GHz. Les instances de la série DCsv2 permettent aux clients de créer des applications sécurisées basées sur enclave pour protéger leur code et leurs données en cours d’utilisation.
+Les machines virtuelles de la série DCsv2 permettent de protéger la confidentialité et l’intégrité de vos données et de votre code lors de leur traitement dans le cloud public. La série DCsv2 s’appuie sur Intel® Software Guard Extensions, qui permet aux clients d’utiliser des enclaves sécurisées pour la protection.
 
-Les exemples de cas d’usage incluent le partage de données pluripartites confidentielles, la détection des fraudes, le blanchiment d’argent, la blockchain, l’analyse de l’utilisation confidentielle, l’analyse décisionnelle et le machine learning confidentiel.
+Ces machines sont associées à des processeurs Intel® Xeon E-2288G (Coffee Lake) à 3,7 GHz avec la technologie SGX. Grâce à la technologie Intel® Turbo Boost Max 3.0, ces machines peuvent atteindre jusqu’à 5 GHz. 
 
-[Stockage Premium](premium-storage-performance.md) : Pris en charge *<br>
-[Mise en cache du Stockage Premium](premium-storage-performance.md) : Prise en charge<br>
-[Migration dynamique](maintenance-and-updates.md) : Prise en charge<br>
-[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non prises en charge<br>
-[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 2<br>
-[Mise en réseau accélérée](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (* requiert un minimum de 4 processeurs virtuels*) <br>
+Les exemples de cas d’usage incluent le partage de données pluripartites confidentielles, la détection des fraudes, les bases de données confidentielles, la lutte contre le blanchiment d’argent, la blockchain, l’analyse de l’utilisation confidentielle, l’analyse décisionnelle et le Machine Learning confidentiel.
+
+## <a name="configuration"></a>Configuration
+
+[Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html) : pris en charge (la machine virtuelle du locataire indiquera 3,7 GHz, mais atteindra des vitesses Turbo).<br>
+[Hyper-threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html) : non pris en charge<br>
+[Stockage Premium](premium-storage-performance.md) : pris en charge (non pris en charge pour Standard_DC8_v2)<br>
+[Mise en cache de Stockage Premium](premium-storage-performance.md) : pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 2<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Non pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 
-*Sauf pour Standard_DC8_v2 <br>
+## <a name="technical-specifications"></a>Spécifications techniques
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC (Mio) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
@@ -38,14 +45,15 @@ Les exemples de cas d’usage incluent le partage de données pluripartites conf
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- Les machines virtuelles de la série DCsv2 sont des [machines virtuelles de 2e génération](./generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
-- Disponibles dans les régions listées [ici](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-- Génération précédente de machines virtuelles de calcul confidentiel : [Série DC](sizes-previous-gen.md#preview-dc-series)
+
+## <a name="get-started"></a>Bien démarrer
+
 - Créer des machines virtuelles DCsv2 à l’aide du [Portail Azure](./linux/quick-create-portal.md) ou de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
+- Les machines virtuelles de la série DCsv2 sont des [machines virtuelles de 2e génération](./generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
+- Actuellement disponibles dans les régions listées sur la page [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
+- Nouvelle génération de machines virtuelles de la série DC : [rejoignez le programme de préversion](https://aka.ms/intelgen3)
 
-
-
-## <a name="other-sizes-and-information"></a>Autres tailles et informations
+## <a name="more-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -53,11 +61,7 @@ Les exemples de cas d’usage incluent le partage de données pluripartites conf
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
-
-Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
-
-## <a name="next-steps"></a>Étapes suivantes
+- [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+- [En savoir plus sur les types de disques](./disks-types.md#ultra-disk)
 
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e1bbd56d3fcfd087e294cb55c66edd2f22bd939
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 06b82bf78c7a4d66e2c4da6d053f8ab77c400e00
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765619"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258714"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation Cloud, fonctionnalité facultative d’Azure File Sync, diminue la quantité de stockage local requise tout en conservant les performances d’un serveur de fichiers local.
@@ -29,7 +29,7 @@ Lorsque vous activez la hiérarchisation Cloud, vous pouvez définir deux strat�
 #### <a name="volume-free-space-policy"></a>Stratégie d’espace libre du volume
 La **stratégie d’espace libre du volume** indique à Azure File Sync de hiérarchiser les fichiers froids dans le Cloud lorsqu’une certaine quantité d’espace est libre sur votre disque local. 
 
-Par exemple, si la capacité de votre disque local est de 200 Go et que vous souhaitez disposer d’au moins 40 Go toujours libre, vous devez définir la stratégie d’espace libre du volume sur 20 %. L’espace libre du volume s’applique au niveau du volume plutôt qu’au niveau des répertoires individuels ou des points de terminaison de serveur. 
+Par exemple, si la capacité de votre disque local est de 200 Gio et que vous souhaitez disposer d’au moins 40 Go toujours libres, vous devez définir la stratégie d’espace libre du volume sur 20 %. L’espace libre du volume s’applique au niveau du volume plutôt qu’au niveau des répertoires individuels ou des points de terminaison de serveur. 
 
 #### <a name="date-policy"></a>Stratégie de date
 Avec la **stratégie de date**, les fichiers froids sont hiérarchisés dans le Cloud s’ils n’ont pas été consultés (c’est-à-dire lus ou modifiés) pendant x jours. Par exemple, si vous remarquez que les fichiers qui ont passé plus de 15 jours sans être consultés sont archivés, vous devez définir la stratégie de date sur 15 jours. 

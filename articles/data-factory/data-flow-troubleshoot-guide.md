@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 08/18/2021
-ms.openlocfilehash: 56a59d4acd9c1f8ed51f16e7c39cfb5cba949b6b
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 9925875f45f5715343ef50fff018b436966bb4c0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535256"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099613"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory
 
@@ -495,7 +495,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
         
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Capture d’écran montrant la configuration de Type de calcul.":::   
 
-  - Option 2 : utilisez une plus grande taille de cluster (par exemple, 48 cœurs) pour exécuter vos pipelines de flux de données. Vous pouvez en savoir plus sur la taille du cluster dans ce document : [Taille du cluster](./concepts-data-flow-performance.md#cluster-size).
+  - Option 2 : utilisez une plus grande taille de cluster (par exemple, 48 cœurs) pour exécuter vos pipelines de flux de données. Vous pouvez en savoir plus sur la taille du cluster dans ce document : [Taille du cluster](./concepts-integration-runtime-performance.md#cluster-size).
   
   - Option 3 : répartissez vos données d’entrée. Pour la tâche en cours d’exécution sur le cluster Spark de flux de données, une partition est une tâche et s’exécute sur un nœud. Si les données d’une partition sont trop volumineuses, la tâche associée en cours d’exécution sur le nœud doit consommer plus de mémoire que le nœud lui-même, ce qui entraîne une défaillance. Par conséquent, vous pouvez utiliser la répartition pour éviter une asymétrie des données, vous assurer que la taille des données dans chaque partition est moyenne et que la consommation de mémoire n’est pas trop importante.
     
@@ -706,7 +706,7 @@ Des scénarios spécifiques qui peuvent provoquer des erreurs internes de serveu
 
   La réussite de l’exécution des flux de données dépend de nombreux facteurs, parmi lesquels la taille/le type de calcul, le nombre de sources/récepteurs à traiter, la spécification de partition, les transformations impliquées, la taille des jeux de données, l’asymétrie des données, etc.<br/>
   
-  Pour plus d’aide, consultez [Optimisation d’Azure Integration Runtime](concepts-data-flow-performance.md#ir).
+  Pour plus d’aide, consultez [Performance du Runtime d’intégration](concepts-integration-runtime-performance.md).
 
 #### <a name="scenario-2-using-debug-sessions-with-parallel-activities"></a>Scénario 2 : Utilisation de sessions de débogage avec des activités parallèles
 
@@ -725,7 +725,7 @@ Des scénarios spécifiques qui peuvent provoquer des erreurs internes de serveu
 Pour obtenir une aide supplémentaire sur la résolution des problèmes, consultez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)

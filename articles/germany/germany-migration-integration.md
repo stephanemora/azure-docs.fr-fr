@@ -1,28 +1,28 @@
 ---
-title: Migrer des ressources d’intégration Azure d’Azure Germany vers Azure global
+title: Migrer des ressources d’intégration Azure, Azure Allemagne vers Azure global
 description: Cet article fournit des informations sur la migration de vos ressources d’intégration Azure d’Azure Germany vers Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
-ms.custom: bfmigrate
-ms.openlocfilehash: d85c2e7c1aa3738ce6a9d3130d2ddc400c333a9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: bfmigrate, devx-track-azurepowershell
+ms.openlocfilehash: 0a4ea6393741e15d8dce94869213c62c08537c7e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033735"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "122523975"
 ---
 # <a name="migrate-integration-resources-to-global-azure"></a>Migrer des ressources d’intégration vers Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Cet article contient des informations qui peuvent vous aider à migrer des ressources d’intégration Azure d’Azure Germany vers Azure global.
 
 ## <a name="service-bus"></a>Service Bus
 
-Les services Azure Service Bus ne disposent d’aucune fonctionnalité d’exportation ou d’importation des données. Pour migrer des ressources Service Bus d'Azure Germany vers Azure global, vous pouvez exporter les ressources [en tant que modèle Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates). Ensuite, adaptez le modèle exporté à Azure global et recréez les ressources.
+Les services Azure Service Bus ne disposent d’aucune fonctionnalité d’exportation ou d’importation des données. Pour migrer des ressources Service Bus d'Azure Germany vers Azure global, vous pouvez exporter les ressources [en tant que modèle Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md). Ensuite, adaptez le modèle exporté à Azure global et recréez les ressources.
 
 > [!NOTE]
 > L’exportation d’un modèle Resource Manager ne copie pas les données (par exemple, les messages) ; elle recrée uniquement les métadonnées.
@@ -43,7 +43,7 @@ Les éléments de métadonnées Service Bus suivants sont recréés lorsque vous
 - Règles
 - Règles d’autorisation
 
-### <a name="keys"></a>Clés
+### <a name="keys"></a>Keys
 
 Les étapes d’exportation et de recréation précédentes ne copient pas les clés de signature d'accès partagé associées aux règles d'autorisation. Si vous devez conserver les clés de signature d'accès partagé, utilisez l’applet de commande `New-AzServiceBuskey` avec le paramètre optionnel `-Keyvalue` pour accepter la clé comme une chaîne. L’applet de commande mise à jour est disponible dans le [module Az Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -54,7 +54,7 @@ New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace
 ```
 
 ```powershell
-New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Queue <queuename> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Queue <queuename> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 ```powershell
@@ -72,39 +72,39 @@ New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace
 Endpoint=sb://myBFProdnamespaceName.**servicebus.cloudapi.de**/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXx=
 ```
 
-**Global Azure**
+**Azure global**
 
 ```cmd
 Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXx=
 ```
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [tutoriels Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
-- Découvrez comment [exporter des modèles Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) ou lisez la présentation [d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualisez vos connaissances en effectuant les [tutoriels Service Bus](../service-bus-messaging/index.yml).
+- Découvrez comment [exporter des modèles Resource Manager](../azure-resource-manager/templates/export-template-portal.md) ou lisez la présentation [d’Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Examinez la [vue d’ensemble de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
-## <a name="logic-apps"></a>Logic Apps
+## <a name="logic-apps"></a>Logic Apps
 
-Le service Azure Logic Apps n’est pas disponible dans Azure Germany. Cependant, Azure Scheduler, qui est disponible, est déconseillé. Utilisez Logic Apps pour créer des tâches de planification dans Azure global.
+Azure Logic Apps n’est pas disponible dans Azure Allemagne, mais vous pouvez créer des tâches de planification en utilisant Logic Apps dans Azure global. Bien que précédemment disponible dans Azure Allemagne, Azure Scheduler est mis hors service.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Familiarisez-vous avec les fonctionnalités d’Azure Logic Apps en complétant les [tutoriels sur Logic Apps](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Apprenez-en davantage en suivant les [tutoriels Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
 - Examinez la [vue d’ensemble d’Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les outils, techniques et recommandations pour migrer des ressources dans les catégories de service suivantes :
+Informez-vous sur les outils, techniques et suggestions pour migrer des ressources dans les catégories de service suivantes :
 
 - [Calcul](./germany-migration-compute.md)
-- [Mise en réseau](./germany-migration-networking.md)
+- [Réseau](./germany-migration-networking.md)
 - [Stockage](./germany-migration-storage.md)
-- [web](./germany-migration-web.md)
+- [Web](./germany-migration-web.md)
 - [Bases de données](./germany-migration-databases.md)
 - [Analyse](./germany-migration-analytics.md)
 - [IoT](./germany-migration-iot.md)
 - [Identité](./germany-migration-identity.md)
 - [Sécurité](./germany-migration-security.md)
-- [Outils de gestion](./germany-migration-management-tools.md)
-- [Médias](./germany-migration-media.md)
+- [Outils d'administration](./germany-migration-management-tools.md)
+- [Média](./germany-migration-media.md)

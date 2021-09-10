@@ -9,65 +9,26 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: f1c67f9d4fda2e0ca26d8125f30e2f71213b0749
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.collection: windows
+ms.openlocfilehash: 3fb298dc8e01c50b562e3891f02227b416596a04
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853079"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695252"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
+
 
 Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée en tant que disque managé ou non managé dans un compte de stockage. L’image peut ensuite être utilisée pour créer plusieurs machines virtuelles. Pour plus d'informations sur la facturation des images managées, reportez-vous à [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 Une image managée prend en charge jusqu’à 20 déploiements simultanés. Une tentative de création simultanée de plus de 20 machines virtuelles à partir de la même image managée peut entraîner l’expiration des délais d’approvisionnement en raison des limites de performances de stockage d’un disque dur virtuel unique. Pour créer plus de 20 machines virtuelles simultanément, utilisez une [galerie d’images partagées](../shared-image-galleries.md) configurée avec 1 réplica tous les 20 déploiements de machines virtuelles simultanées.
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
+## <a name="prerequisites"></a>Prérequis
 
-Sysprep supprime toutes vos informations de compte personnel et de sécurité, puis prépare la machine en vue de son utilisation en tant qu’image. Pour plus d’informations sur Sysprep, voir [Vue d’ensemble de Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
-
-Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, voir [Prise en charge de Sysprep pour les rôles serveur](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) et [Scénarios non pris en charge](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
-
-> [!IMPORTANT]
-> Après que vous avez exécuté Sysprep sur une machine virtuelle, celle-ci est considérée comme *généralisée* et ne peut plus être redémarrée. Le processus de généralisation d’une machine virtuelle n’est pas réversible. Si vous devez conserver le fonctionnement de machine virtuelle d’origine, vous devez créer une [copie de la machine virtuelle](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) et généraliser la copie. 
->
->Sysprep requiert le déchiffrement complet des lecteurs. Si vous avez activé le chiffrement sur votre machine virtuelle, désactivez-le dans Azure avant d’exécuter Sysprep. 
->
->Pour désactiver Azure Disk Encryption avec PowerShell, utilisez Disable-AzVMDiskEncryption, puis Remove-AzVMDiskEncryptionExtension. L’exécution de Remove-AzVMDiskEncryptionExtension avant la désactivation du chiffrement échoue. Les commandes de niveau supérieur déchiffrent le disque depuis la machine virtuelle. Toutefois, en dehors de la machine virtuelle, elles mettent aussi à jour les paramètres importants de chiffrement et d’extension au niveau de la plateforme, qui sont associés à la machine virtuelle. Si ces paramètres ne sont pas maintenus alignés, la plateforme ne peut pas signaler l’état de chiffrement ni provisionner correctement la machine virtuelle.
->
-> Si vous prévoyez d’exécuter Sysprep avant de charger votre disque dur virtuel sur Azure pour la première fois, vérifiez que vous avez [préparé votre machine virtuelle](prepare-for-upload-vhd-image.md).  
-> 
-> 
-
-Pour généraliser votre machine virtuelle Windows, procédez comme suit :
-
-1. Connectez-vous à votre machine virtuelle Windows.
-   
-2. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur. 
-
-3. Supprimez le répertoire Panther (C:\Windows\Panther). Remplacez ensuite le répertoire par %windir%\system32\sysprep, puis exécutez `sysprep.exe`.
-   
-4. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** , puis activez la case à cocher **Généraliser**.
-   
-5. Dans **Options d’arrêt**, sélectionnez **Arrêter**.
-   
-6. Sélectionnez **OK**.
-   
-    ![Démarrer Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-
-6. Une fois l’exécution de Sysprep terminée, la machine virtuelle est arrêtée. Ne redémarrez pas la machine virtuelle.
-
-> [!TIP]
-> **Facultatif** Utilisez [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) pour optimiser votre image et réduire la durée du premier démarrage de votre machine virtuelle.
->
-> Pour optimiser votre image, montez votre VHD en double-cliquant dessus dans l’Explorateur Windows, puis exécutez DISM avec le paramètre `/optimize-image`.
->
-> ```cmd
-> DISM /image:D:\ /optimize-image /boot
-> ```
-> Où D: est le chemin d’accès au VHD monté.
->
-> L’exécution de `DISM /optimize-image` doit être la dernière modification apportée à votre VHD. Si vous apportez des modifications à votre VHD avant le déploiement, vous devrez réexécuter `DISM /optimize-image`.
+Pour créer une image, vous avez besoin d’une machine virtuelle [généralisée](../generalize.md).
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Créer une image managée dans le portail 
 

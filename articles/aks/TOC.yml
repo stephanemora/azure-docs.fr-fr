@@ -132,6 +132,8 @@
           maintainContext: false
     - name: Version de Kubernetes prise en charge
       href: supported-kubernetes-versions.md
+    - name: Gestionnaire de contrôleurs cloud (préversion)
+      href: out-of-tree.md
     - name: Durcissement de la sécurité dans le système d’exploitation hôte
       href: security-hardened-vm-host-image.md
     - name: Vue d’ensemble des diagnostics d’Azure Kubernetes Service

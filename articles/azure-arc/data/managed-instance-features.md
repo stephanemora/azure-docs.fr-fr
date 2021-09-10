@@ -7,18 +7,18 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 63f5b8be29d3b1e9468016afba618261684e1bca
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: ef855102f4877d26c1b6d16d73e99719e3e97ed1
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495859"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563376"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Fonctionnalités et capacités de SQL Managed Instance activé pour Azure Arc
 
-Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de code commune avec la dernière version stable de SQL Server. La plupart des fonctionnalités standard du langage SQL, du traitement des requêtes et de la gestion des bases de données sont identiques. Les fonctionnalités communes à SQL Server et SQL Database ou SQL Managed Instance sont les suivantes :
+Les instances Azure SQL Managed Instance activées pour Azure Arc partagent une base de code commune avec la dernière version stable de SQL Server. La plupart des fonctionnalités standard du langage SQL, du traitement des requêtes et de la gestion des bases de données sont identiques. Les fonctionnalités communes à SQL Server et SQL Database ou SQL Managed Instance sont les suivantes :
 
 - Fonctionnalités de langage : [Mots clés du langage de contrôle de flux ](/sql/t-sql/language-elements/control-of-flow), [Curseurs](/sql/t-sql/language-elements/cursors-transact-sql), [Types de données](/sql/t-sql/data-types/data-types-transact-sql), [Instructions DML](/sql/t-sql/queries/queries), [Prédicats](/sql/t-sql/queries/predicates), [Numéros séquentiels](/sql/relational-databases/sequence-numbers/sequence-numbers), [Procédures stockées](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) et [Variables](/sql/t-sql/language-elements/variables-transact-sql).
 - Fonctionnalités de base de données : [Réglage automatique (plan forcé)](/sql/relational-databases/automatic-tuning/automatic-tuning), [Suivi des modifications](/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Classement de base de données](/sql/relational-databases/collations/set-or-change-the-database-collation), [Bases de données autonomes](/sql/relational-databases/databases/contained-databases), [Utilisateurs de base de données autonome](/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Compression de données](/sql/relational-databases/data-compression/data-compression), [Paramètres de configuration de base de données](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Opérations en ligne sur les index](/sql/relational-databases/indexes/perform-index-operations-online), [Partitionnement](/sql/relational-databases/partitions/partitioned-tables-and-indexes) et [Tables temporelles](/sql/relational-databases/tables/temporal-tables) ([voir le guide de démarrage](/sql/relational-databases/tables/getting-started-with-system-versioned-temporal-tables)).
@@ -26,19 +26,14 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 - Fonctionnalités multi-modèles : [Traitement des graphiques](/sql/relational-databases/graphs/sql-graph-overview), [Données JSON](/sql/relational-databases/json/json-data-sql-server), [OPENXML](/sql/t-sql/functions/openxml-transact-sql)), [Données spatiales](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) et [Index XML](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## <a name="features-of-azure-arc-enabled-sql-managed-instance"></a>Fonctionnalités de SQL Managed Instance avec Azure Arc
-
-###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
+## <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
   
 |Fonctionnalité|SQL Managed Instance avec Azure Arc|
 |-------------|----------------|
-|Instance de cluster de basculement Always On<sup>1</sup>| Non applicable. Fonctionnalités similaires disponibles |
-|Groupes de disponibilité Always On<sup>2</sup>|Les fonctionnalités de haute disponibilité sont planifiées.|
-|Groupes de disponibilité de base <sup>2</sup>|Les fonctionnalités de haute disponibilité sont planifiées.|
-|Groupe de disponibilité à validation de réplica minimale <sup>2</sup>|Les fonctionnalités de haute disponibilité sont planifiées.|
+|Instance de cluster de basculement Always On<sup>1</sup>| Non applicable. Fonctionnalités similaires disponibles.|
+|Groupes de disponibilité Always On<sup>2</sup>|Niveau de service vital pour l’entreprise. En préversion.|
+|Groupes de disponibilité de base <sup>2</sup>|Non applicable. Fonctionnalités similaires disponibles.|
+|Groupe de disponibilité à validation de réplica minimale <sup>2</sup>|Niveau de service vital pour l’entreprise. En préversion.|
 |Groupe de disponibilité sans cluster|Oui|
 |Sauvegarder la base de données | Oui - `COPY_ONLY` Voir [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
 |Compression de sauvegarde|Oui|
@@ -48,7 +43,7 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 |Instantané de base de données|Oui|
 |Récupération rapide|Oui|
 |Ajout de mémoire et de processeur à chaud|Oui|
-|Copie des journaux de transaction|Oui| 
+|Copie des journaux de transaction|Pas actuellement disponible.|
 |Restauration en ligne de pages et de fichiers|Oui|
 |Indexation en ligne|Oui|
 |Modification de schéma en ligne|Oui|
@@ -56,10 +51,7 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 
 <sup>1</sup> dans le scénario avec un échec de pod, une nouvelle instance Azure SQL Managed Instance démarre et s’attache à nouveau au volume persistant contenant vos données. [En savoir plus sur les volumes persistants Kubernetes ici](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> Les versions à venir fourniront des fonctionnalités AG. 
-
-
-###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
+## <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
 | Fonctionnalité | SQL Managed Instance avec Azure Arc |
 |--|--|
@@ -81,7 +73,7 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 | Exécution entrelacée pour les fonctions table à instructions multiples | Oui |
 | Améliorations de l’insertion en bloc | Oui |
 
-###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
+## <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
 
 | Fonctionnalité | SQL Managed Instance avec Azure Arc |
 |--|--|
@@ -95,8 +87,11 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 | Rôles définis par l’utilisateur | Oui |
 | Bases de données autonomes | Oui |
 | Chiffrement des sauvegardes | Oui |
+| l’authentification SQL Server | Oui |
+| Authentification Azure Active Directory | No |
+| Authentification Windows | No |
 
-###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
+## <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
 
 | Fonctionnalité | SQL Managed Instance avec Azure Arc |
 |--|--|
@@ -137,14 +132,14 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 
 ### <a name="tools"></a>Outils
 
-Les instances Azure SQL Managed Instance pour Azure Arc prennent en charge différents outils de données qui peuvent vous aider à gérer vos données.
+L’instance Azure SQL Managed Instance pour Azure Arc prend en charge différents outils de données qui peuvent vous aider à gérer vos données.
 
 | **Outil** | SQL Managed Instance avec Azure Arc|
 | --- | --- | --- |
 | Portail Azure <sup>1</sup> | Non |
-| Azure CLI | Non |
+| Azure CLI | Oui |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Oui |
-| Azure PowerShell | Oui |
+| Azure PowerShell | No |
 | [Fichier BACPAC (exporter)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Oui |
 | [Fichier BACPAC (importer)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Oui |
 | [Outils SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) | Oui |
@@ -152,12 +147,13 @@ Les instances Azure SQL Managed Instance pour Azure Arc prennent en charge diff�
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Oui |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Oui |
 
-<sup>1</sup> Le Portail Azure est utilisé uniquement pour afficher les instances Azure SQL Managed Instance pour Azure Arc en lecture seule pendant la version préliminaire.
+<sup>1</sup> Le Portail Azure permet de créer, d’afficher et de supprimer des Azure SQL Managed Instances pour Azure Arc.  Les mises à jour ne peuvent pas être effectuées via le Portail Azure actuellement.
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ### <a name="unsupported-features--services"></a><a name="Unsupported"></a> Fonctionnalités et services non pris en charge
 
-Les fonctionnalités et services suivants ne sont pas disponibles pour SQL Managed Instance compatible avec Azure Arc. Le support de ces fonctionnalités sera de plus en plus activé dans le temps.
+Les fonctionnalités et services suivants ne sont pas disponibles pour SQL Managed Instance activé pour Azure Arc. Le support de ces fonctionnalités sera de plus en plus activé dans le temps.
 
 | Domaine | Fonctionnalité ou service non pris en charge |
 |-----|-----|

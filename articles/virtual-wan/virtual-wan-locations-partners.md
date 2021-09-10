@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: bdcb675e379b5ab94f8404966477f4d2df56400c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: ff6e928c5f50c2f0a15936b190f0191da67b81c3
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163928"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527838"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Localisation des partenaires et hub virtuel Virtual WAN
 
@@ -21,7 +21,7 @@ Cet article fournit des informations sur les partenaires et les régions Virtual
 
 Un WAN virtuel Azure est un service de mise en réseau qui offre une connectivité de branche à branche optimisée et automatisée via Azure. Le WAN virtuel vous permet de vous connecter et de configurer des appareils de branche pour communiquer avec Azure. La connexion et la configuration peuvent être effectuées manuellement ou à l'aide d'appareils de fournisseurs via un partenaire Virtual WAN. L’utilisation des appareils de partenaires permet une utilisation facile, une simplification de la connectivité et une gestion de la configuration.
 
-La connectivité est établie de manière automatisée de l’appareil en local vers le Hub virtuel. Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité à partir de votre réseau local (vpnsite). Vous ne pouvez disposer que d’un seul hub par région.
+La connectivité est établie de manière automatisée de l’appareil en local vers le Hub virtuel. Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité à partir de votre réseau local (vpnsite). 
 
 ## <a name="branch-ipsec-connectivity-automation-from-partners"></a><a name="automation"></a>Automatisation de la connectivité IPsec de filiale à partir de partenaires
 
@@ -60,7 +60,7 @@ Ces partenaires disposent d’offres **Application managée** pouvant à présen
 |Partenaires|Configuration/Procédure/Guide de déploiement|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guide de déploiement de réseau WAN Barracuda CloudGen](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Au cours de la préversion publique du réseau étendu Cisco Cloud Services (CSR) dans VWAN Hub, Cisco exige que le client final s’inscrive en tant que client Cisco EFT (Early Field Trial) en envoyant un e-mail à vwan_public_preview@external.cisco.com et en demandant le Guide de déploiement vManage. 
+|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| L’intégration de la solution SD-WAN de Cisco à Azure Virtual WAN améliore les déploiements de Cloud OnRamp for Multi-Cloud et permet de configurer le logiciel Cisco Catalyst 8000V Edge (Cisco Catalyst 8000V) en tant qu’appliance virtuelle de réseau (NVA) dans les hubs Azure Virtual WAN. [Voir le guide de configuration de Cisco SD-WAN Cloud OnRamp, Cisco IOS XE version 17.x](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
 |[VMware SD-WAN dans le hub Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Dans le cadre de la préversion publique de VMware SD-WAN dans le hub Virtual WAN, VMware exige que le client s’inscrive en envoyant un e-mail à vhubsupport@vmware.com. [Guide de déploiement de VMware SD-WAN dans le hub Virtual WAN](https://kb.vmware.com/s/article/82746)|
 
 Les partenaires suivants sont prêts à intégrer prochainement la NVA dans les offres de Hub virtuel : Aviatrix, Citrix et Versa Networks.

@@ -6,21 +6,19 @@ author: prakulka
 manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
-ms.date: 03/19/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: bb9765c2620f45d67bf888f8bfe8a4dee450cfd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2281dac86281d01ec6f033062b87236a780d3bc7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645662"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259750"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Stratégie de messagerie d’Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services transforme la façon dont nos clients interagissent avec leurs clients en créant des expériences de communication riches et personnalisées qui tirent parti des mêmes services professionnels sur lesquels reposent Microsoft Teams et Skype. Intégrez la fonctionnalité de messagerie SMS à vos solutions de communication pour pouvoir joindre vos clients où et quand vous voulez lorsqu’ils ont besoin d’assistance. Mais avant de commencer, vous devez garder à l’esprit quelques conditions en matière de messagerie.
+Azure Communication Services transforme la façon dont nos clients interagissent avec leurs clients en créant des expériences de communication riches et personnalisées qui tirent parti des mêmes services professionnels sur lesquels reposent Microsoft Teams et Skype. Intégrez la fonctionnalité de messagerie SMS à vos solutions de communication pour pouvoir joindre vos clients où et quand vous voulez lorsqu’ils ont besoin d’assistance. Mais avant de commencer, vous devez garder à l’esprit quelques conditions et normes du secteur en matière de messagerie.
 
 Ces conditions peuvent vous sembler difficiles à retenir, mais essayez de vous souvenir de ces quatre termes :
 
@@ -131,9 +129,11 @@ Les messages comprenant des éléments en rapport avec le sexe, la haine, l’al
 
 Même si ce type de contenu n’est pas illégal, vous devez inclure un mécanisme de vérification de l’âge au moment de l’acceptation pour autoriser le destinataire à recevoir du contenu réservé aux adultes. Aux États-Unis, des conditions légales supplémentaires s’appliquent aux communications marketing destinées aux enfants de moins de 13 ans. 
 
-### <a name="prohibited-content"></a>Contenu interdit :
+### <a name="prohibited-practices"></a>Pratiques interdites :
 
-Azure Communication Services interdit certains contenus de message indépendamment du consentement obtenu. Exemples de contenu interdit :
+Vous et vos clients n’êtes pas autorisés à utiliser les services de communication Azure pour échapper à des demandes de désabonnement raisonnables. En outre, vous et vos clients ne pouvez pas vous soustraire aux mesures mises en œuvre par Azure Communication Services ou par un fournisseur de services de communication pour garantir votre conformité aux exigences en matière de messagerie et aux normes sectorielles.
+
+Azure Communication Services interdit également certains contenus de message indépendamment du consentement obtenu. Exemples de contenu interdit :
 - Contenu faisant la promotion d’activités illégales (par exemple, évasion fiscale ou cruauté envers les animaux aux États-Unis)
 - Discours haineux, discours diffamatoire, harcèlement ou tout autre discours jugé offensant
 - Contenu pornographique
@@ -156,7 +156,7 @@ L’usurpation est le fait d’afficher un numéro d’origine trompeur ou inexa
 
 Cette politique de messagerie ne constitue pas un avis juridique et nous nous réservons le droit de la modifier à tout moment. Azure Communication Services ne garantit pas que le contenu, le calendrier ou les destinataires des messages de nos clients respectent toutes les conditions légales applicables. 
 
-Nos clients sont tenus de remplir toutes les conditions requises en matière de messagerie. Si vous êtes un fournisseur de plateforme ou de logiciels qui utilise Azure Communication Services à des fins de messagerie, vous devez exiger que vos clients respectent également toutes les conditions requises décrites dans cette stratégie de messagerie. Pour obtenir de l’aide, CTIA fournit des [principes de messagerie utiles et des bonnes pratiques](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf).
+Nos clients sont tenus de remplir toutes les conditions requises en matière de messagerie. Si vous êtes un fournisseur de plateforme ou de logiciels qui utilise Azure Communication Services à des fins de messagerie, vous devez exiger que vos clients respectent également toutes les conditions requises décrites dans cette stratégie de messagerie. Pour plus d’informations, le document [Principes de messagerie et meilleures pratiques](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf) de CTIA fournit un aperçu utile des normes sectorielles pertinentes.
 
 ### <a name="penalties"></a>Pénalités :
 

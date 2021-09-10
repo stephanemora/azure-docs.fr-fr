@@ -9,12 +9,12 @@ ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e85974968e523903282cdd8a577dee13ab32bf4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 485968e6fa9a68781de85648f0ad008586c2c15b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668126"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562593"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -84,6 +84,12 @@ Une fois la clé publique déployée sur votre machine virtuelle Azure et la cl�
 ```bash
 ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
+
+Si vous ne vous êtes jamais connecté à cette machine virtuelle auparavant, il vous sera demandé de vérifier l’empreinte digitale des hôtes. Il est tentant d’accepter simplement l’empreinte digitale présentée, mais cela vous expose à une possible attaque de l’homme du milieu. Vous devez toujours valider l’empreinte digitale des hôtes. Vous ne devez effectuer cette opération que lors de la première connexion d’un client. Pour obtenir l’empreinte digitale de l’hôte via le portail, utilisez Run Command avec ce qui suit : `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Capture d’écran montrant l’utilisation de Run Command pour valider l’empreinte digitale de l’hôte.":::
+
+Pour exécuter la commande à l’aide de l’interface CLI, utilisez la [commande `az vm run-command invoke`](/cli/azure/vm/run-command).
 
 Si vous avez configuré une phrase secrète quand vous avez créé votre paire de clés, entrez-la quand vous y êtes invité.
 

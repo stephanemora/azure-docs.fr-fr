@@ -2,13 +2,13 @@
 title: Types de ressource pris en charge par Azure Resource Health | Microsoft Docs
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/05/2021
+ms.openlocfilehash: 2b3c2944cff20db2feb3236ca7381107f3db6061
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97883365"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524861"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -264,7 +264,13 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Le serveur hôte est-il en cours d’exécution ?</li><li>Le serveur Internet Information est-il en cours d’exécution ?</li><li>L’équilibreur de charge est-il en cours d’exécution ?</li><li>L’application web peut-elle être jointe à partir du centre de données ?</li><li>Le compte de stockage hébergeant le contenu du site est-il disponible ?</li></ul>|
 
+## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/vaults
+
+| Vérifications exécutées |
+| --- |
+|<ul><li>Les opérations de sauvegarde sur les éléments de sauvegarde configurés dans ce coffre échouent-elles en raison de causes dépassant le contrôle de l’utilisateur ?</li><li>Les opérations de restauration sur les éléments de sauvegarde configurés dans ce coffre échouent-elles en raison de causes dépassant le contrôle de l’utilisateur ?</li></ul> |
+
 ## <a name="next-steps"></a>Étapes suivantes
 -  Pour en savoir plus à leur sujet, voir [Présentation du tableau de bord d’Azure Service Health](service-health-overview.md) et [Présentation d’Azure Resource Health](resource-health-overview.md). 
--  [Forum aux questions sur Azure Resource Health](resource-health-faq.md)
+-  [Forum aux questions sur Azure Resource Health](resource-health-faq.yml)
 - Configurez des alertes afin d’être averti des problèmes d’intégrité. Pour plus d’informations, voir [Configurer des alertes pour les événements d’intégrité du service](./alerts-activity-log-service-notifications-portal.md).

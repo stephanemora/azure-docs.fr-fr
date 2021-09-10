@@ -4,18 +4,21 @@ description: Apprenez à exporter des ressources Azure Policy vers GitHub, comme
 ms.date: 08/17/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7eb7cbfcd568eeebcb03979c51d26e8f6231298f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 170c619d41a416ac337edabcf3d4c0e0b5f24d4e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563922"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965144"
 ---
 # <a name="export-azure-policy-resources"></a>Exporter les ressources Azure Policy
 
 Cet article fournit des informations sur l’exportation de vos ressources Azure Policy existantes. L’exportation de vos ressources est utile et recommandée pour la sauvegarde, mais il s’agit également d’une étape importante de la gouvernance cloud et du traitement de votre [stratégie en tant que code](../concepts/policy-as-code.md). Les ressources Azure Policy peuvent être exportées via [le Portail Azure](#export-with-azure-portal), [Azure CLI](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell) et chacun des kits de développement logiciel (SDK) pris en charge.
 
 ## <a name="export-with-azure-portal"></a>Exporter avec le Portail Azure
+
+> [!NOTE]
+> L’exportation de ressources Azure Policy à partir du portail Azure n’est pas disponible pour les clouds souverains Azure.
 
 Pour exporter une définition de stratégie à partir du Portail Azure, procédez comme suit :
 

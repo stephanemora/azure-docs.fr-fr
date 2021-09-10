@@ -3,15 +3,15 @@ title: Utilisation de la bibliothèque Azure Communication Services Teams Embed 
 description: Dans cette présentation, vous allez apprendre à utiliser la bibliothèque Azure Communication Services Teams Embed pour iOS.
 author: palatter
 ms.author: palatter
-ms.date: 24/02/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1a6c8d05da04dc0f32fb278baf946ea363010903
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 246c62ec25a788c7767da0c8fdf23b42db321f0b
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111546507"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215136"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -19,6 +19,69 @@ ms.locfileid: "111546507"
 - Une ressource Communication Services déployée. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - Un `User Access Token` pour activer le client d’appel. Pour en savoir plus, consultez [Comment obtenir un `User Access Token`](../../access-tokens.md)
 - Suivez le démarrage rapide pour [prendre en main l’ajout de Teams Embed à votre application](../getting-started-with-teams-embed.md).
+
+## <a name="joining-a-group-call"></a>Rejoindre un appel de groupe
+
+L’appel de groupe peut être rejoint en fournissant `MeetingUIClientGroupCallLocator` et `MeetingUIClientGroupCallJoinOptions` à l'API `meetingUIClient?.join`. L’appel de groupe ne sonnera pas pour les autres participants. L’utilisateur va rejoindre l’appel en mode silencieux.
+
+Créez un bouton dans le rappel `viewDidLoad` du fichier **ViewController.swift**.
+
+```swift
+class ViewController: UIViewController, MeetingUIClientCallDelegate {
+
+    private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let joinGroupCallButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
+        joinGroupCallButton.backgroundColor = .black
+        joinGroupCallButton.setTitle("Join Group Call", for: .normal)
+        joinGroupCallButton.addTarget(self, action: #selector(joinGroupCallTapped), for: .touchUpInside)
+        
+        joinGroupCallButton.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(joinGroupCallButton)
+        joinGroupCallButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        joinGroupCallButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+```
+
+Créez une prise pour le bouton dans **ViewController.swift** sur la classe `ViewController`.
+
+```swift
+@IBAction func joinGroupCallTapped(_ sender: UIButton) {
+    joinGroupCall()
+}
+
+private func joinGroupCall() {
+    // Add join meeting logic
+}
+```
+
+La configuration du client et la fourniture du jeton s’effectuent de la même façon que pour l’API d’accès à la réunion, qui est décrite dans le [guide de démarrage rapide](../getting-started-with-teams-embed.md). 
+
+La méthode `joinGroupCall` est définie en tant qu’action qui sera exécutée lors d’un appui sur le bouton *Rejoindre l’appel de groupe*.
+Créez un `MeetingUIClientGroupCallLocator` et configurez les options d’accès à l’aide du `MeetingUIClientGroupCallJoinOptions`.
+Remarque pour remplacer `<GROUP_ID>` par une chaîne UUID. La chaîne d’ID de groupe doit être au format GUID ou UUID.
+```swift
+private func joinGroupCall() {
+    let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: false)
+    let groupLocator = MeetingUIClientGroupCallLocator(groupId: <GROUP_ID>)
+    meetingUIClient?.join(meetingLocator: groupLocator, joinCallOptions: groupJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
+        if (error != nil) {
+            print("Join meeting failed: \(error!)")
+        }
+        else {
+            if (meetingUIClientCall != nil) {
+                self.meetingUIClientCall = meetingUIClientCall
+            } else {
+                print("Join meeting failed: \(error!)")
+            }
+        }
+    })
+}
+```
 
 ## <a name="teams-embed-call-or-meeting-status-events-capturing"></a>Capture d’événements relatifs à l’état des appels ou des réunions de Teams Embed
 
@@ -40,7 +103,7 @@ Définissez `self.meetingUIClientCall?.meetingUIClientCallDelegate` sur `self` a
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: false)
     let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
     meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
         if (error != nil) {
@@ -86,9 +149,9 @@ Implémentez les méthodes de protocole `MeetingUIClientCallDelegate` dont votre
     }
 ```
 
-## <a name="bring-your-own-identity-from-the-app-to-the-participants-in-the-sdk-call"></a>Apportez votre propre identité de l’application aux participants dans l’appel du Kit de développement logiciel (SDK).
+## <a name="bring-your-own-identity-from-the-app-to-the-participants-in-the-call"></a>Apportez votre propre identité de l’application aux participants dans l’appel.
 
-L’application peut attribuer les valeurs d’identité de ses utilisateurs aux participants à l’appel ou à la réunion et remplacer les valeurs par défaut. Ces valeurs comprennent l’avatar, le nom, le sous-titre et le rôle.  
+L’application peut attribuer les valeurs d’identité de ses utilisateurs aux participants à l’appel ou à la réunion et remplacer les valeurs par défaut. Ces valeurs comprennent l’avatar, le nom et le sous-titre.  
 
 ### <a name="assigning-avatars-for-call-participants"></a>Attribution d’avatars aux participants à l’appel
 
@@ -105,7 +168,7 @@ Définissez `self.meetingUIClientCall?.MeetingUIClientIdentityProviderDelegate` 
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: false)
     let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
     meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
         if (error != nil) {
@@ -158,9 +221,243 @@ Ajoutez d’autres méthodes de protocole MeetingUIClientCallIdentityProviderDel
     
     func subTitleFor(identifier: CommunicationIdentifier, completionHandler: @escaping (String?) -> Void) {
     }
-    
-    func roleFor(identifier: CommunicationIdentifier, completionHandler: @escaping (MeetingUIClientUserRole) -> Void) {
+```
+
+## <a name="receive-information-about-user-actions-in-the-ui-and-add-your-own-custom-functionalities"></a>Recevez des informations sur les actions des utilisateurs dans l’interface utilisateur et ajoutez vos propres fonctionnalités personnalisées.
+
+### <a name="call-screen"></a>Écran d’appel 
+Les méthodes de délégué `MeetingUIClientCallUserEventDelegate` sont appelées à la suite d’actions de l’utilisateur dans le profil du participant distant.
+Lorsque vous vous joignez à l’appel ou à la réunion, définissez la propriété des options de participation `enableNamePlateOptionsClickDelegate` sur `true`.
+En définissant cette propriété, vous activez les options de plaque nominative dans le profil du participant distant et vous activez le délégué `MeetingUIClientCallUserEventDelegate`.
+
+Ajoutez `MeetingUIClientCallUserEventDelegate` à votre classe.
+
+```swift
+class ViewController: UIViewController, MeetingUIClientCallUserEventDelegate {
+
+    private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
+```
+
+Définissez `self.meetingUIClientCall?.meetingUIClientCallUserEventDelegate` sur `self` après avoir rejoint l’appel ou après que la réunion a démarré avec succès.
+
+```swift
+private func joinMeeting() {
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: false, enableCallRosterDelegate: false)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
+        if (error != nil) {
+            print("Join meeting failed: \(error!)")
+        }
+        else {
+            if (meetingUIClientCall != nil) {
+                self.meetingUIClientCall? = meetingUIClientCall
+                self.meetingUIClientCall?.meetingUIClientCallUserEventDelegate = self
+            }
+        }
+    })
+}
+```
+
+Ajoutez et implémentez la méthode de protocole `onNamePlateOptionsClicked` et mappez chaque `identifier` à l’utilisateur participant à l’appel qui correspond.
+Cette méthode est appelée en appuyant sur la vignette de l’utilisateur ou sur le texte du titre de l’utilisateur dans l’écran d’appel principal.
+
+```swift
+func onNamePlateOptionsClicked(identifier: CommunicationIdentifier) {
+    if let userIdentifier = identifier as? CommunicationUserIdentifier
+        {
+            if (userIdentifier.identifier.starts(with: "8:acs:")) {
+                // Custom behavior based on the user here.
+                print("Acs user tile clicked")
+            }
+        }
+}
+```
+
+Ajoutez et implémentez la méthode de protocole `onParticipantViewLongPressed` et mappez chaque `identifier` à l’utilisateur participant à l’appel qui correspond.
+Cette méthode est appelée en appuyant longuement sur la vignette de l’utilisateur dans l’écran d’appel principal.
+
+```swift
+func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
+    if let userIdentifier = identifier as? CommunicationUserIdentifier
+        {
+            if (userIdentifier.identifier.starts(with: "8:acs:")) {
+                // Custom behavior based on the user here.
+                print("Acs user tile clicked")
+            }
+        }
+}
+```
+### <a name="call-roster"></a>Liste d’appels 
+Les méthodes de délégué `MeetingUIClientCallRosterDelegate` sont appelées à la suite d’actions de l’utilisateur sur un participant dans la liste.
+Lorsque vous vous joignez à l’appel ou à la réunion, définissez la propriété des options de participation `enableCallRosterDelegate` sur `true`.
+En définissant cette propriété, vous activez les options de plaque nominative dans le profil du participant distant et vous activez le délégué `MeetingUIClientCallRosterDelegate`.
+
+Ajoutez `MeetingUIClientCallRosterDelegate` à votre classe.
+
+```swift
+class ViewController: UIViewController, MeetingUIClientCallRosterDelegate {
+
+    private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
+```
+
+Définissez `self.meetingUIClientCall?.meetingUIClientCallRosterDelegate` sur `self` après avoir rejoint l’appel ou après que la réunion a démarré avec succès.
+
+```swift
+private func joinMeeting() {
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: true)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
+        if (error != nil) {
+            print("Join meeting failed: \(error!)")
+        }
+        else {
+            if (meetingUIClientCall != nil) {
+                self.meetingUIClientCall? = meetingUIClientCall
+                self.meetingUIClientCall?.meetingUIClientCallRosterDelegate = self
+            }
+        }
+    })
+}
+```
+
+Ajoutez et implémentez la méthode de protocole `onCallParticipantCellTapped` et mappez chaque `identifier` à l’utilisateur participant à l’appel qui correspond.
+Cette méthode est appelée par un simple clic sur un participant dans la liste d’appels.
+
+```swift
+func onCallParticipantCellTapped(identifier: CommunicationIdentifier) {
+    if let userIdentifier = identifier as? CommunicationUserIdentifier
+        {
+            if (userIdentifier.identifier.starts(with: "8:acs:")) {
+                // Custom behavior based on the user here.
+                print("Acs user tile clicked")
+            }
+        }
+}
+```
+## <a name="user-experience-customization"></a>Personnalisation de l’expérience utilisateur
+
+L’expérience utilisateur dans le Kit de développement logiciel (SDK) peut être personnalisée en fournissant des icônes spécifiques à l’application. 
+
+### <a name="customize-ui-icons-in-a-call-or-meeting"></a>Personnaliser les icônes de l’interface utilisateur dans un appel ou une réunion
+
+Les icônes affichées dans l’appel ou la réunion peuvent être personnalisées par le biais de la méthode `public func set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposée dans `MeetingUIClient`.
+La liste des icônes qui peuvent être personnalisées est disponible dans `MeetingUIClientIconType`.
+
+```swift
+class ViewController: UIViewController {
+
+    private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
+```
+
+Après l’initialisation de meetingUIClient, définissez la configuration des icônes `meetingUIClient?.set(iconConfig: self.getIconConfig())` pour les icônes d’appel prises en charge dans `MeetingUIClientIconType`.
+
+```swift
+private func initMeetingUIClient() {
+    meetingUIClient = MeetingUIClient(with: credential)
+    meetingUIClient?.set(iconConfig: self.getIconConfig())
+}
+
+func getIconConfig() -> Dictionary<MeetingUIClientIconType, String> {
+    var iconConfig = Dictionary<MeetingUIClientIconType, String>()
+    iconConfig.updateValue("camera_fill", forKey: MeetingUIClientIconType.VideoOn)
+    iconConfig.updateValue("camera_off", forKey: MeetingUIClientIconType.VideoOff)
+    iconConfig.updateValue("microphone_fill", forKey: MeetingUIClientIconType.MicOn)
+    iconConfig.updateValue("microphone_off", forKey: MeetingUIClientIconType.MicOff)
+    iconConfig.updateValue("speaker_fill", forKey: MeetingUIClientIconType.Speaker)
+    return iconConfig
+}
+```
+
+## <a name="perform-operations-with-the-call"></a>Effectuer des opérations pendant l’appel
+
+Les actions de contrôle de l’appel sont exposées par le biais des méthodes présentes dans `MeetingUIClientCall`.
+Ces méthodes sont utiles pour contrôler les actions d’appel si l’interface utilisateur a été personnalisée à l’aide des délégués de personnalisation `MeetingUIClient`.
+
+Ajouter les variables nécessaires aux appels
+```swift
+class ViewController: UIViewController {
+
+    private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
+```
+
+Attribuez à la variable `self.meetingUIClientCall` la valeur `meetingUIClientCall` de la méthode `join` `completionHandler`.
+```swift
+private func joinGroupCall() {
+    let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: true, enableCallRosterDelegate: false)
+    let groupLocator = MeetingUIClientGroupCallLocator(groupId: "<GROUP_ID>")
+    meetingUIClient?.join(meetingLocator: groupLocator, joinCallOptions: groupJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
+        if (error != nil) {
+            print("Join call failed: \(error!)")
+        }
+        else {
+            if (meetingUIClientCall != nil) {
+                self.meetingUIClientCall? = meetingUIClientCall
+                self.meetingUIClientCall?.meetingUIClientCallDelegate = self
+            }
+        }
+    })
+}
+```
+### <a name="mute-and-unmute"></a>Activer et désactiver le son
+
+Appelez la méthode `mute` pour désactiver le micro pendant un appel actif, s’il en existe un.
+Les changements d’état du micro sont notifiés dans la méthode `onIsMutedChanged` de `MeetingUIClientCallDelegate`.
+
+```swift
+// Mute the microphone for an active call.
+public func mute(completionHandler: @escaping (Error?) -> Void)
+
+    meetingUIClientCall?.mute { [weak self] (error) in
+        if error != nil {
+            print("Mute call failed: \(error!)")
+        }
+}
+```
+
+Appelez la méthode `unmute` pour réactiver le micro pendant un appel actif, s’il en existe un.
+
+```swift
+// Unmute the microphone for an active call.
+public func unmute(completionHandler: @escaping (Error?) -> Void)
+
+meetingUIClientCall?.unmute { [weak self] (error) in
+    if error != nil {
+        print("Unmute call failed: \(error!)")
     }
+}
+```
+
+### <a name="other-operations-available-in-from-the--meetinguiclientcall-class"></a>D’autres opérations sont disponibles dans la classe `MeetingUIClientCall`.
+
+```swift
+// Start the video for an active call.
+public func startVideo(completionHandler: @escaping (Error?) -> Void)
+
+// Stop the video for an active call.
+public func startVideo(completionHandler: @escaping (Error?) -> Void)
+
+// Set the preferred audio route in the call for self user.
+public func setAudio(route: MeetingUIClientAudioRoute, completionHandler: @escaping (Error?) -> Void)
+
+// Raise the hand of current user for an active call.
+public func raiseHand(completionHandler: @escaping (Error?) -> Void)
+
+// Lower the hand of current user for an active call.
+// public func lowerHand(completionHandler: @escaping (Error?) -> Void)
+
+// Show the call roster for an active call.
+public func showCallRoster(completionHandler: @escaping (Error?) -> Void)
+
+// Change the layout in the call for self user.
+public func getSupportedLayoutModes() -> [MeetingUIClientLayoutMode]
+public func changeLayout(mode: MeetingUIClientLayoutMode, completionHandler: @escaping (Error?) -> Void)
+
+// Hang up the call or leave the meeting.
+public func hangUp(completionHandler: @escaping (Error?) -> Void)
 ```
 
 ## <a name="use-teams-embed-sdk-and-azure-communication-calling-sdk-in-the-same-app"></a>Utiliser le Kit de développement logiciel (SDK) Teams Embed et le Kit de développement logiciel (SDK) Appel d’Azure Communication Services dans la même application
@@ -304,349 +601,4 @@ Ajoutez d’autres méthodes de protocole `MeetingUIClientCallDelegate` obligato
     func onIsHandRaisedChanged(_ participantIds: [Any]) {
         print("Self participant raise hand status changed to: \(meetingUIClientCall?.isHandRaised ?? false)")
     }
-```
-
-## <a name="receive-information-about-user-actions-in-the-ui-and-add-your-own-custom-functionalities"></a>Recevez des informations sur les actions des utilisateurs dans l’interface utilisateur et ajoutez vos propres fonctionnalités personnalisées.
-
-Les méthodes de délégué `MeetingUIClientCallUserEventDelegate` sont appelées à la suite d’actions de l’utilisateur dans le profil du participant distant.
-Lorsque vous vous joignez à l’appel ou à la réunion, définissez la propriété des options de participation `enableNamePlateOptionsClickDelegate` sur `true`.
-En définissant cette propriété, vous activez les options de plaque nominative dans le profil du participant distant et vous activez le délégué `MeetingUIClientCallUserEventDelegate`.
-
-Ajoutez `MeetingUIClientCallUserEventDelegate` à votre classe.
-
-```swift
-class ViewController: UIViewController, MeetingUIClientCallUserEventDelegate {
-
-    private var meetingUIClient: MeetingUIClient?
-    private var meetingUIClientCall: MeetingUIClientCall?
-```
-
-Définissez `self.meetingUIClientCall?.meetingUIClientCallUserEventDelegate` sur `self` après avoir rejoint l’appel ou après que la réunion a démarré avec succès.
-
-```swift
-private func joinMeeting() {
-    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
-    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
-    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
-        if (error != nil) {
-            print("Join meeting failed: \(error!)")
-        }
-        else {
-            if (meetingUIClientCall != nil) {
-                self.meetingUIClientCall? = meetingUIClientCall
-                self.meetingUIClientCall?.meetingUIClientCallUserEventDelegate = self
-            }
-        }
-    })
-}
-```
-
-Ajoutez et implémentez la méthode de protocole `onNamePlateOptionsClicked` et mappez chaque `identifier` à l’utilisateur participant à l’appel qui correspond.
-Cette méthode est appelée en appuyant sur la vignette de l’utilisateur ou sur le texte du titre de l’utilisateur dans l’écran d’appel principal.
-
-```swift
-func onNamePlateOptionsClicked(identifier: CommunicationIdentifier) {
-    if let userIdentifier = identifier as? CommunicationUserIdentifier
-        {
-            if (userIdentifier.identifier.starts(with: "8:acs:")) {
-                // Custom behavior based on the user here.
-                print("Acs user tile clicked")
-            }
-        }
-}
-```
-
-Ajoutez et implémentez la méthode de protocole `onParticipantViewLongPressed` et mappez chaque `identifier` à l’utilisateur participant à l’appel qui correspond.
-Cette méthode est appelée en appuyant longuement sur la vignette de l’utilisateur dans l’écran d’appel principal.
-
-```swift
-func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
-    if let userIdentifier = identifier as? CommunicationUserIdentifier
-        {
-            if (userIdentifier.identifier.starts(with: "8:acs:")) {
-                // Custom behavior based on the user here.
-                print("Acs user tile clicked")
-            }
-        }
-}
-```
-## <a name="user-experience-customization"></a>Personnalisation de l’expérience utilisateur
-
-L’expérience utilisateur dans le Kit de développement logiciel (SDK) peut être personnalisée en fournissant des icônes spécifiques à l’application ou en remplaçant des barres de contrôles d’appel. 
-
-### <a name="customize-ui-icons-in-a-call-or-meeting"></a>Personnaliser les icônes de l’interface utilisateur dans un appel ou une réunion
-
-Les icônes affichées dans l’appel ou la réunion peuvent être personnalisées par le biais de la méthode `public func set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposée dans `MeetingUIClient`.
-La liste des icônes qui peuvent être personnalisées est disponible dans `MeetingUIClientIconType`.
-
-```swift
-class ViewController: UIViewController {
-
-    private var meetingUIClient: MeetingUIClient?
-    private var meetingUIClientCall: MeetingUIClientCall?
-```
-
-Après l’initialisation de meetingUIClient, définissez la configuration des icônes `meetingUIClient?.set(iconConfig: self.getIconConfig())` pour les icônes d’appel prises en charge dans `MeetingUIClientIconType`.
-
-```swift
-private func initMeetingUIClient() {
-    meetingUIClient = MeetingUIClient(with: credential)
-    meetingUIClient?.set(iconConfig: self.getIconConfig())
-}
-
-func getIconConfig() -> Dictionary<MeetingUIClientIconType, String> {
-    var iconConfig = Dictionary<MeetingUIClientIconType, String>()
-    iconConfig.updateValue("camera_fill", forKey: MeetingUIClientIconType.VideoOn)
-    iconConfig.updateValue("camera_off", forKey: MeetingUIClientIconType.VideoOff)
-    iconConfig.updateValue("microphone_fill", forKey: MeetingUIClientIconType.MicOn)
-    iconConfig.updateValue("microphone_off", forKey: MeetingUIClientIconType.MicOff)
-    iconConfig.updateValue("speaker_fill", forKey: MeetingUIClientIconType.Speaker)
-    return iconConfig
-}
-```
-
-### <a name="customize-main-call-screen"></a>Personnaliser l’écran d’appel principal
-
-Le `MeetingUIClient` fournit la prise en charge permettant de personnaliser l’interface utilisateur de l’écran d’appel principal. Actuellement, il prend en charge la personnalisation de l’interface utilisateur à l’aide de méthodes de protocole `MeetingUIClientInCallScreenDelegate`.
-Les actions de contrôle de l’écran d’appel sont exposées par le biais des méthodes présentes dans `MeetingUIClientCall`.
-
-Ajoutez `MeetingUIClientInCallScreenDelegate` à votre classe.
-
-```swift
-class ViewController: UIViewController, MeetingUIClientInCallScreenDelegate {
-
-    private var meetingUIClient: MeetingUIClient?
-    private var meetingUIClientCall: MeetingUIClientCall?
-```
-
-Définissez `meetingUIClient?.meetingUIClientInCallScreenDelegate` sur `self` avant de rejoindre l’appel ou la réunion.
-
-```swift
-private func joinGroupCall() {
-    meetingUIClient?.meetingUIClientInCallScreenDelegate = self
-    let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: true)
-    let groupLocator = MeetingUIClientGroupCallLocator(groupId: "<GROUP_ID>")
-    meetingUIClient?.join(meetingLocator: groupLocator, joinCallOptions: groupJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
-        if (error != nil) {
-            print("Join call failed: \(error!)")
-        }
-        else {
-            if (meetingUIClientCall != nil) {
-                self.meetingUIClientCall? = meetingUIClientCall
-                self.meetingUIClientCall?.meetingUIClientCallDelegate = self
-            }
-        }
-    })
-}
-```
-
-Ajoutez et implémentez la méthode de protocole `provideControlTopBar` pour fournir la barre d’informations supérieure de l’écran d’appel principal.
-
-```swift
-func provideControlTopBar() -> UIView? {
-    let topView = UIStackView.init()
-    // add your customization here
-    return topView
-}
-```
-
-Ajoutez d’autres méthodes de protocole `MeetingUIClientInCallScreenDelegate` obligatoires à la classe. Elles peuvent être laissées avec des implémentations vides pour renvoyer une valeur nulle.
-```swift
-func provideControlBottomBar() -> UIView? {
-    return nil
-}
-
-func provideScreenBackgroudColor() -> UIColor? {
-    return nil
-}
-```
-
-## <a name="customize-on-staging-call-screen"></a>Personnaliser l’écran d’appel intermédiaire
-
-Le `MeetingUIClient` fournit la prise en charge permettant de personnaliser l’interface utilisateur de l’écran d’appel intermédiaire. Actuellement, il prend en charge la personnalisation de l’interface utilisateur à l’aide de méthodes de protocole `MeetingUIClientStagingScreenDelegate`.
-Lorsque vous vous joignez à l’appel ou à la réunion, définissez la propriété des options de participation `enableCallStagingScreen` sur `true` pour afficher l’écran intermédiaire.
-
-Ajoutez `MeetingUIClientStagingScreenDelegate` à votre classe.
-
-```swift
-class ViewController: UIViewController, MeetingUIClientStagingScreenDelegate {
-
-    private var meetingUIClient: MeetingUIClient?
-    private var meetingUIClientCall: MeetingUIClientCall?
-```
-
-Définissez `meetingUIClient?.meetingUIClientStagingScreenDelegate` sur `self` avant de rejoindre l’appel ou la réunion.
-
-```swift
-private func joinGroupCall() {
-    meetingUIClient?.meetingUIClientStagingScreenDelegate = self
-    let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: true)
-    let groupLocator = MeetingUIClientGroupCallLocator(groupId: "<GROUP_ID>")
-    meetingUIClient?.join(meetingLocator: groupLocator, joinCallOptions: groupJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
-        if (error != nil) {
-            print("Join call failed: \(error!)")
-        }
-        else {
-            if (meetingUIClientCall != nil) {
-                self.meetingUIClientCall? = meetingUIClientCall
-                self.meetingUIClientCall?.meetingUIClientCallDelegate = self
-            }
-        }
-    })
-}
-```
-
-Ajoutez et implémentez la méthode de protocole `provideJoinButtonCornerRadius` pour modifier l’apparence du bouton Rejoindre en lui donnant un aspect arrondi.
-
-```swift
-func provideJoinButtonCornerRadius() -> CGFloat {
-    return 24
-}
-```
-
-Ajoutez d’autres méthodes de protocole `MeetingUIClientStagingScreenDelegate` obligatoires à la classe. Elles peuvent être laissées avec des implémentations vides pour renvoyer une valeur nulle.
-```swift
-func provideJoinButtonBackgroundColor() -> UIColor? {
-    return nil
-}
-
-func provideStagingScreenBackgroundColor() -> UIColor? {
-    return nil
-}
-```
-
-## <a name="customize-on-connecting-call-screen"></a>Personnaliser l’écran d’appel de connexion
-
-Le `MeetingUIClient` fournit la prise en charge permettant de personnaliser l’interface utilisateur de l’écran d’appel de connexion. Actuellement, il prend en charge la personnalisation de l’interface utilisateur à l’aide de méthodes de protocole `MeetingUIClientConnectingScreenDelegate`.
-Utilisez la méthode de configuration des icônes `set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposée dans `MeetingUIClient` pour modifier uniquement les icônes affichées et utiliser les fonctionnalités fournies par le `MeetingUIClient`.
-
-
-Ajoutez `MeetingUIClientConnectingScreenDelegate` à votre classe.
-
-```swift
-class ViewController: UIViewController, MeetingUIClientConnectingScreenDelegate {
-
-    private var meetingUIClient: MeetingUIClient?
-    private var meetingUIClientCall: MeetingUIClientCall?
-```
-
-Définissez `meetingUIClient?.meetingUIClientConnectingScreenDelegate` sur `self` avant de rejoindre l’appel ou la réunion.
-
-```swift
-private func joinGroupCall() {
-    meetingUIClient?.meetingUIClientConnectingScreenDelegate = self
-    let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: true)
-    let groupLocator = MeetingUIClientGroupCallLocator(groupId: "<GROUP_ID>")
-    meetingUIClient?.join(meetingLocator: groupLocator, joinCallOptions: groupJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
-        if (error != nil) {
-            print("Join call failed: \(error!)")
-        }
-        else {
-            if (meetingUIClientCall != nil) {
-                self.meetingUIClientCall? = meetingUIClientCall
-                self.meetingUIClientCall?.meetingUIClientCallDelegate = self
-            }
-        }
-    })
-}
-```
-
-Ajoutez et implémentez la méthode de protocole `provideConnectingScreenBackgroundColor` pour modifier la couleur d’arrière-plan de l’écran de connexion.
-
-```swift
-func provideConnectingScreenBackgroundColor() -> UIColor?
-    return 24
-}
-```
-
-## <a name="perform-operations-with-the-call"></a>Effectuer des opérations pendant l’appel
-
-Les actions de contrôle de l’appel sont exposées par le biais des méthodes présentes dans `MeetingUIClientCall`.
-Ces méthodes sont utiles pour contrôler les actions d’appel si l’interface utilisateur a été personnalisée à l’aide des délégués de personnalisation `MeetingUIClient`.
-
-Ajouter les variables nécessaires aux appels
-```swift
-class ViewController: UIViewController {
-
-    private var meetingUIClient: MeetingUIClient?
-    private var meetingUIClientCall: MeetingUIClientCall?
-```
-
-Attribuez à la variable `self.meetingUIClientCall` la valeur `meetingUIClientCall` de la méthode `join` `completionHandler`.
-```swift
-private func joinGroupCall() {
-    let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: true)
-    let groupLocator = MeetingUIClientGroupCallLocator(groupId: "<GROUP_ID>")
-    meetingUIClient?.join(meetingLocator: groupLocator, joinCallOptions: groupJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
-        if (error != nil) {
-            print("Join call failed: \(error!)")
-        }
-        else {
-            if (meetingUIClientCall != nil) {
-                self.meetingUIClientCall? = meetingUIClientCall
-                self.meetingUIClientCall?.meetingUIClientCallDelegate = self
-            }
-        }
-    })
-}
-```
-### <a name="mute-and-unmute"></a>Activer et désactiver le son
-
-Appelez la méthode `mute` pour désactiver le micro pendant un appel actif, s’il en existe un.
-Les changements d’état du micro sont notifiés dans la méthode `onIsMutedChanged` de `MeetingUIClientCallDelegate`.
-
-```swift
-// Mute the microphone for an active call.
-public func mute(completionHandler: @escaping (Error?) -> Void)
-
-    meetingUIClientCall?.mute { [weak self] (error) in
-        if error != nil {
-            print("Mute call failed: \(error!)")
-        }
-}
-```
-
-Appelez la méthode `unmute` pour réactiver le micro pendant un appel actif, s’il en existe un.
-
-```swift
-// Unmute the microphone for an active call.
-public func unmute(completionHandler: @escaping (Error?) -> Void)
-
-meetingUIClientCall?.unmute { [weak self] (error) in
-    if error != nil {
-        print("Mute call failed: \(error!)")
-    }
-}
-```
-
-### <a name="other-operations-available-in-from-the--meetinguiclientcall-class"></a>D’autres opérations sont disponibles dans la classe `MeetingUIClientCall`.
-
-```swift
-// Start the video for an active call.
-public func startVideo(completionHandler: @escaping (Error?) -> Void)
-
-// Stop the video for an active call.
-public func startVideo(completionHandler: @escaping (Error?) -> Void)
-
-// Set the preferred audio route in the call for self user.
-public func setAudio(route: MeetingUIClientAudioRoute, completionHandler: @escaping (Error?) -> Void)
-
-// Raise the hand of current user for an active call.
-public func raiseHand(completionHandler: @escaping (Error?) -> Void)
-
-// Lower the hand of user provided in the identifier for an active call.
-// public func lowerHand(identifier: CommunicationIdentifier, completionHandler: @escaping (Error?) -> Void)
-
-// Show the call roster for an active call.
-public func showCallRoster(completionHandler: @escaping (Error?) -> Void)
-
-// Change the layout in the call for self user.
-public func getSupportedLayoutModes() -> [MeetingUIClientLayoutMode]
-public func changeLayout(mode: MeetingUIClientLayoutMode, completionHandler: @escaping (Error?) -> Void)
-
-// Hangs up the call or leaves the meeting.
-public func hangUp(completionHandler: @escaping (Error?) -> Void)
-
-// Set the user role for an active call.
-public func setRoleFor(identifier: CommunicationIdentifier, userRole: MeetingUIClientUserRole, completionHandler: @escaping (Error?) -> Void)
 ```

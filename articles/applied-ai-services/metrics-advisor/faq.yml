@@ -11,30 +11,15 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/05/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 9c09297f587fcac65346abddc1b06a69a8e58e6e
-  ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+  ms.openlocfilehash: fb5659f5432225c6b6e33dd8480377763697190f
+  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/15/2021
-  ms.locfileid: "114341346"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123029842"
 title: Forum Aux Questions sur Metrics Advisor
 summary: ''
 sections:
-- name: Général
-  questions:
-  - question: >
-      Pourquoi ne puis-je pas créer la ressource ? Le « Niveau tarifaire » n’est pas disponible et il indique « Vous avez déjà créé 1 S0 pour cet abonnement » ?
-    answer: >
-      :::image type="content" source="media/pricing.png" alt-text="Message lorsqu’une ressource F0 existe déjà":::
-
-
-      Pendant la préversion publique, une seule instance de Metrics Advisor peut être créée par région dans le cadre d’un abonnement.
-
-
-      Si vous avez déjà créé une instance dans la même région à l’aide du même abonnement, vous pouvez essayer une autre région ou un autre abonnement pour créer une nouvelle instance. Vous pouvez également supprimer une instance existante pour en créer une nouvelle.
-
-
-      Si vous avez déjà supprimé l’instance existante mais que l’erreur persiste, patientez environ 20 minutes après la suppression de la ressource avant de créer une nouvelle instance.
 - name: Concepts de base
   questions:
   - question: >
@@ -64,6 +49,9 @@ sections:
 
       | plus de 31 jours | 48 jours de données |
   - question: >
+      Quelles sont les données traitées par le Metrics Advisor et comment les données sont-elles conservées ?
+    answer: "- Metrics Advisor traite les données de série chronologique collectées à partir de la source de données d’un client. Les données historiques sont utilisées pour la sélection du modèle et déterminent la limite de données attendue. \n- Les données de série chronologique du client et les résultats de l’inférence seront stockés dans le service. Metrics Advisor ne stocke pas ou ne traite pas les données client situées en dehors de la région dans laquelle le client déploie l’instance de service.\n"
+  - question: >
       Pourquoi Metrics Advisor ne détecte-t-il pas les anomalies à partir des données historiques ?
     answer: >
       Metrics Advisor est conçu pour détecter les données de streaming en direct. Il existe une limitation de la longueur maximale des données d’historique que le service examinera pour exécuter la détection des anomalies. Cela signifie que seuls les points de données après un timestamp précédent donné auront des résultats de détection d’anomalie. Ce timestamp précédent dépend de la granularité de vos données.
@@ -88,8 +76,8 @@ sections:
 
       | plus de 31 jours | heure d’intégration : 24 heures   |
   - question: >
-      Conservation des données et limites de Metrics Advisor
-    answer: "1. Conservation des données :\nMetrics Advisor conservera au maximum **10 000** intervalles de temps (qu’est-ce qu’un intervalle ?) en comptant à partir du timestamp actuel, qu’il y ait des données disponibles ou non. Les données qui tombent en dehors de la fenêtre seront supprimées.  Mappage de la conservation des données en nombre de jours pour différentes granularités de métriques.\n\n| Granularité(min) |    Rétention(jour) |\n|------------------| ------------------|\n|  1 | 6,94 |\n|  5 | 34,72|\n| 15 | 104,1|\n| 60(=horaire) | 416,67 |\n| 1440(=quotidienne)|10 000|\n\n2. Limite du nombre maximal de séries chronologiques dans une même métrique :\n\nIl peut y avoir plusieurs dimensions dans une métrique, et chaque dimension peut avoir plusieurs valeurs. La combinaison maximale de dimensions pour une métrique ne doit pas dépasser **100 000**.   \n- Les administrateurs de ressources Metrics Advisor et les propriétaires des flux de données seront avertis lorsque la limite de **80 %** sera atteinte sur la page de détail du flux de données. \n- Si la métrique a dépassé la limite, le flux de données **sera suspendu** et attendra que les clients décident d’une action. Il est suggéré de diviser le flux de données en plusieurs flux de données en utilisant le filtrage. \n\n3. Limite du nombre maximum de points de données stockés dans une instance Metrics Advisor :\n\nMetrics Advisor compte le total des points de données de tous les flux de données qui ont été intégrés à l’instance à partir du premier timestamp d’ingestion. Le nombre maximum de points de données pouvant être stockés dans une instance Metrics Advisor est de **2 milliards**. \n- Les administrateurs de ressources Metrics Advisor et tous les utilisateurs seront avertis lorsque la limite de **80 %** sera atteinte sur la page de liste des flux de données et sur la page d’ajout de nouveaux flux de données. \n- Si le total des points de données a dépassé la limite, tous les flux de données **sont suspendus** et l’intégration de nouveaux flux est également **bloquée**. Il est suggéré de supprimer les flux de données inutilisés ou de créer une nouvelle ressource Metrics Advisor dans votre abonnement.\n"
+      Quelles sont les limites de conservation des données et de Metrics Advisor ?
+    answer: "1. Conservation des données :\nMetrics Advisor conservera au maximum **10 000** intervalles de temps (qu’est-ce qu’un intervalle ?) en comptant à partir du timestamp actuel, qu’il y ait des données disponibles ou non. Les données qui tombent en dehors de la fenêtre seront supprimées.  Mappage de la conservation des données en nombre de jours pour différentes granularités de métriques.\n\n| Granularité(min) |    Rétention(jour) |\n|------------------| ------------------|\n|  1 | 6,94 |\n|  5 | 34,72|\n| 15 | 104,1|\n| 60(=horaire) | 416,67 |\n| 1 440(=quotidienne)|10 000|\n\n2. Limite du nombre maximal de séries chronologiques dans une même métrique :\n\nIl peut y avoir plusieurs dimensions dans une métrique, et chaque dimension peut avoir plusieurs valeurs. La combinaison maximale de dimensions pour une métrique ne doit pas dépasser **100 000**.   \n- Les administrateurs de ressources Metrics Advisor et les propriétaires des flux de données seront avertis lorsque la limite de **80 %** sera atteinte sur la page de détail du flux de données. \n- Si la métrique a dépassé la limite, le flux de données **sera suspendu** et attendra que les clients décident d’une action. Il est suggéré de diviser le flux de données en plusieurs flux de données en utilisant le filtrage. \n\n3. Limite du nombre maximum de points de données stockés dans une instance Metrics Advisor :\n\nMetrics Advisor compte le total des points de données de tous les flux de données qui ont été intégrés à l’instance à partir du premier timestamp d’ingestion. Le nombre maximum de points de données pouvant être stockés dans une instance Metrics Advisor est de **2 milliards**. \n- Les administrateurs de ressources Metrics Advisor et tous les utilisateurs seront avertis lorsque la limite de **80 %** sera atteinte sur la page de liste des flux de données et sur la page d’ajout de nouveaux flux de données. \n- Si le total des points de données a dépassé la limite, tous les flux de données **sont suspendus** et l’intégration de nouveaux flux est également **bloquée**. Il est suggéré de supprimer les flux de données inutilisés ou de créer une nouvelle ressource Metrics Advisor dans votre abonnement.\n"
   - question: >
       Comment détecter des mines et pixels indépendants du périphérique comme des anomalies ?
     answer: >

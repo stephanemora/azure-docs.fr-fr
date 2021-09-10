@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 32757fef131c5e443350f032c0ac987d7f491396
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86fa4eb83592d5c9927139c096a60c2ebc4efbc0
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864310"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552079"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -124,12 +124,11 @@ Si vous modifiez la clé d’un compte de stockage, HDInsight ne peut plus accé
 
 Si vous exécutez de nouveau l’action de script, la clé n’est **pas** mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. S’il existe déjà une entrée, aucune modification n’est apportée.
 
-Pour contourner ce problème :  
-1. Supprimez le compte de stockage.
-1. Ajoutez le compte de stockage.
+Pour contourner ce problème :
 
-> [!IMPORTANT]  
-> La rotation de la clé de stockage pour le compte de stockage principal attaché à un cluster n’est pas prise en charge.
+* Voir [Mettre à jour les clés d’accès du compte de stockage](hdinsight-rotate-storage-keys.md) pour découvrir comment faire pivoter les clés d’accès.
+
+* Vous pouvez également supprimer le compte de stockage, puis l’ajouter une nouvelle fois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

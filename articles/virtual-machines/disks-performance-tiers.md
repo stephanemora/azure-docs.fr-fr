@@ -8,14 +8,16 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6d13f5927e31fc7f8cf412f6bba6088360af610d
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 783299359b1b7b9cbe75fd36f534ac18563c0fee
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356218"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102921"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Changer votre niveau de performance à l’aide du module Azure PowerShell ou de l’interface Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
@@ -23,8 +25,16 @@ ms.locfileid: "113356218"
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
-## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Créez un disque de données vide avec un niveau supérieur au niveau de base de référence
+## <a name="prerequisites"></a>Prérequis
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Installez la dernière version d’[Azure CLI](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec [az login](/cli/azure/reference-index).
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-az-ps) et connectez-vous à un compte Azure à l’aide de `Connect-AzAccount`.
+
+---
+
+## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Créez un disque de données vide avec un niveau supérieur au niveau de base de référence
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -34,8 +44,6 @@ diskName=<yourDiskNameHere>
 diskSize=<yourDiskSizeHere>
 performanceTier=<yourDesiredPerformanceTier>
 region=westcentralus
-
-az login
 
 az account set --subscription $subscriptionId
 
@@ -73,9 +81,25 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 ```
 ---
 
-## <a name="update-the-tier-of-a-disk"></a>Mettre à jour le niveau d’un disque
+## <a name="update-the-tier-of-a-disk-without-downtime"></a>Mettre à jour le niveau d’un disque sans temps d’arrêt
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="prerequisites"></a>Prérequis
+
+Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. La procédure suivante permet d’activer la fonctionnalité sur votre abonnement :
+
+1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name LiveTierChange
+    ```
+ 
+1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name LiveTierChange
+    ```
 
 ```azurecli
 resourceGroupName=<yourResourceGroupNameHere>
@@ -86,6 +110,20 @@ az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. La procédure suivante permet d’activer la fonctionnalité sur votre abonnement :
+
+1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+
+    ```azurepowershell
+     Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+    ```
+ 
+1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
+
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+    ```
 
 ```azurepowershell
 $resourceGroupName='yourResourceGroupName'
@@ -114,77 +152,6 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
 $disk.Tier
 ```
 ---
-
-## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Modifier le niveau de performance d’un disque sans temps d’arrêt (préversion)
-
-Vous pouvez également modifier votre niveau de performance sans temps d’arrêt. Ainsi, vous n’avez pas besoin de libérer votre machine virtuelle ou de détacher votre disque pour modifier le niveau.
-
-### <a name="prerequisites"></a>Prérequis
-
-Votre disque doit répondre aux exigences énoncées dans la section [Modifier le niveau de performance sans temps d'arrêt (préversion)](#change-performance-tier-without-downtime-preview). Si ce n'est pas le cas, la modification du niveau de performance entraînera un temps d'arrêt.
-
-Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. Suivez les étapes ci-dessous pour activer la fonctionnalité pour votre abonnement :
-
-1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name LiveTierChange
-    ```
- 
-1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name LiveTierChange
-    ```
-
-### <a name="update-the-performance-tier-of-a-disk-without-downtime-via-azure-cli"></a>Mettre à jour le niveau de performance d'un disque sans temps d'arrêt via Azure CLI
-
-Le script suivant remplace le niveau d'un disque par un niveau supérieur au niveau de base. Remplacez `<yourResourceGroupNameHere>`, `<yourDiskNameHere>` et `<yourDesiredPerformanceTier>`, puis exécutez le script :
-
-```azurecli
-resourceGroupName=<yourResourceGroupNameHere>
-diskName=<yourDiskNameHere>
-performanceTier=<yourDesiredPerformanceTier>
- 
-az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
-```
-
-### <a name="update-the-performance-tier-of-a-disk-without-downtime-via-arm-template"></a>Mettre à jour le niveau de performance d'un disque sans temps d'arrêt via un modèle ARM
-
-Le script suivant met à jour le niveau d’un disque à un niveau supérieur au niveau de base à l’aide de l’exemple de modèle [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Remplacez `<yourSubScriptionID>`, `<yourResourceGroupName>`, `<yourDiskName>`, `<yourDiskSize>` et `<yourDesiredPerformanceTier>`, puis exécutez le script :
-
- ```cli
-subscriptionId=<yourSubscriptionID>
-resourceGroupName=<yourResourceGroupName>
-diskName=<yourDiskName>
-diskSize=<yourDiskSize>
-performanceTier=<yourDesiredPerformanceTier>
-region=EastUS2EUAP
-
- az login
-
- az account set --subscription $subscriptionId
-
- az group deployment create -g $resourceGroupName \
---template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
---parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-```
-
-## <a name="confirm-your-disk-has-changed-tiers"></a>Vérifier que le niveau de votre disque a changé
-
-La modification d’un niveau de performance peut prendre jusqu’à 15 minutes. Pour vérifier que le niveau de votre disque a changé, utilisez l'une des méthodes suivantes :
-
-### <a name="azure-resource-manager"></a>Azure Resource Manager
-
-```cli
-az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-12-01 --query [properties.tier] -o tsv
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli
-az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

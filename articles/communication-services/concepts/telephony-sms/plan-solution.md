@@ -7,15 +7,15 @@ manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 150daaa834cefbb3f74e6711fea500138774f2de
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 23be7352c1a9b8ca5e0ec60240cf29c863926a20
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111084"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255081"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Types de numéros de téléphone dans Azure Communication Services
 
@@ -71,12 +71,12 @@ Les capacités disponibles dépendent du pays dans lequel vous travaillez, de vo
 
 Le tableau suivant vous montre où vous pouvez acquérir les différents types de numéros de téléphone ainsi que les fonctionnalités d’appels entrants et sortants et de SMS correspondantes.
 
-|Type de numéro| Zones d’acquisition des numéros | Zones destinatrices des appels                                        | Zones émettrices des appels                                    |Zones destinatrices des SMS       | Zones émettrices des SMS |
+|Type de numéro| Zones d’acquisition des numéros | Zones destinatrices des appels                                        | Zones émettrices des appels*                                    |Zones destinatrices des SMS       | Zones émettrices des SMS |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
-| Local (géographique)  | US                 | États-Unis, Canada, Royaume-Uni, Allemagne, France ainsi que d’autres*| États-Unis, Canada, Royaume-Uni, Allemagne, France ainsi que d’autres* |Non disponible| Non disponible |
+| Local (géographique)  | US                 | États-Unis, Canada, Royaume-Uni, Allemagne, France +plus**| États-Unis, Canada, Royaume-Uni, Allemagne, France +plus** |Non disponible| Non disponible |
 | Gratuit | US                 | US                                                   | US                                                    |US                | US |
 
-\* Pour plus d’informations sur les destinations des appels et les tarifs, reportez-vous à la [page des prix](../pricing.md).
+\* Actuellement, vous pouvez recevoir des appels uniquement à un numéro Microsoft attribué à un bot de canal de téléphonie. En savoir plus sur le canal de téléphonie [ici](/azure/bot-service/bot-service-channel-connect-telephony) ** Pour plus d’informations sur les destinations des appels et les tarifs, reportez-vous à la [page de tarification](../pricing.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

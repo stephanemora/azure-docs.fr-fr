@@ -5,21 +5,60 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 05/24/2021
-ms.openlocfilehash: 1dbbbc76cb67adb678cc557c4193c0a25f280540
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/17/2021
+ms.openlocfilehash: 79a64a7eb1e06fef3c9e534a69324faaf9f23107
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952953"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867533"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux connecteurs et à la mise en forme dans le flux de données de mappage dans Azure Data Factory
 
 
 Cet article explore les méthodes de résolution des problèmes liés aux connecteurs et à la mise en forme pour les flux de données de mappage dans Azure Data Factory (ADF).
 
+## <a name="azure-blob-storage"></a>Stockage Blob Azure
 
-## <a name="cosmos-db--json"></a>Cosmos DB & JSON
+### <a name="account-kind-of-storage-general-purpose-v1-doesnt-support-service-principal-and-mi-authentication"></a>Le type de compte de stockage (v1 universel) ne prend pas en charge l’authentification par principal de service et par identité managée
+
+#### <a name="symptoms"></a>Symptômes
+
+Dans les flux de données, si vous utilisez Stockage Blob Azure (v1 universel) avec l’authentification par principal de service ou par identité managée, vous pouvez rencontrer le message d’erreur suivant :
+
+`com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
+
+#### <a name="cause"></a>Cause
+
+Lorsque vous utilisez le service lié Blob Azure dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Cette situation est illustrée dans les images 1 et 2 ci-dessous.
+
+Image 1 : Type de compte dans le service lié Stockage Blob Azure
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Capture d’écran montrant le type de compte de stockage dans le service lié Stockage Blob Azure."::: 
+
+Image 2 : Page du compte de stockage
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-page.png" alt-text="Capture d’écran montrant la page du compte de stockage." lightbox="./media/data-flow-troubleshoot-connector-format/storage-account-page.png"::: 
+
+
+#### <a name="recommendation"></a>Recommandation
+
+Pour résoudre ce problème, suivez les recommandations suivantes :
+
+- Si le type de compte de stockage est **Aucun** dans le service lié Blob Azure, spécifiez le type de compte approprié et reportez-vous à l’image 3 ci-dessous pour le faire. En outre, reportez-vous à l’image 2 pour obtenir le type de compte de stockage, puis vérifiez et confirmez que le type de compte n’est pas « Stockage (v1 universel) ».
+
+    Image 3 : Spécifier le type de compte de stockage dans le service lié Stockage Blob Azure
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Capture d’écran montrant comment spécifier le type de compte de stockage dans le service lié Stockage Blob Azure."::: 
+    
+
+- Si le type de compte est « Stockage (v1 universel) », mettez à niveau votre compte de stockage vers **v2 universel** ou choisissez une authentification différente.
+
+    Image 4 : Mettre à niveau le compte de stockage vers v2 universel
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Capture d’écran montrant comment mettre à niveau le compte de stockage vers v2 universel." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
+
+## <a name="azure-cosmos-db-and-json-format"></a>Format Azure Cosmos DB et JSON
 
 ### <a name="support-customized-schemas-in-the-source"></a>Prendre en charge les schémas personnalisés dans la source
 
@@ -54,6 +93,40 @@ Pour remplacer le comportement par défaut et importer des champs supplémentair
 - **Option 2** : si vous connaissez le schéma et le langage DSL des données sources, vous pouvez mettre à jour manuellement le script source du flux de données afin d’ajouter des colonnes supplémentaires/ignorées pour lire les données. Un exemple est présenté dans l’image suivante : 
 
     ![Capture d’écran qui montre la deuxième option pour personnaliser le schéma source.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+
+### <a name="support-map-type-in-the-source"></a>Prise en charge du type carte dans la source
+
+#### <a name="symptoms"></a>Symptômes
+Dans les flux de données ADF, le type de données « carte » ne peut pas être pris en charge directement dans la source Cosmos DB ou JSON. Vous ne pouvez donc pas obtenir ce type de données sous « Importer la projection ».
+
+#### <a name="cause"></a>Cause
+Pour Cosmos DB et JSON, il s’agit d’une connectivité sans schéma et le connecteur Spark associé utilise des exemples de données pour déduire le schéma, puis ce schéma est utilisé comme schéma de la source Cosmos DB/JSON. Lors de la déduction du schéma, le connecteur Spark de Cosmos DB/JSON peut seulement déduire les données d’objet comme un struct plutôt qu’un type de données « carte », et c’est pourquoi le type carte ne peut pas être directement pris en charge.
+
+#### <a name="recommendation"></a>Recommandation 
+Pour résoudre ce problème, reportez-vous aux exemples et aux étapes ci-dessous pour mettre à jour manuellement le script (DSL) de la source Cosmos DB/JSON afin d’obtenir le support du type de données « carte ».
+
+**Exemples** :
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Capture d’écran montrant des exemples de mise à jour du script (DSL) de la source Cosmos DB/JSON." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
+    
+**Étape 1** : Ouvrez le script de l’activité de flux de données.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Capture d’écran montrant comment ouvrir le script de l’activité de flux de données." ::: 
+    
+**Étape 2** : Mettez à jour le script DSL pour obtenir la prise en charge du type carte en vous référant aux exemples ci-dessus.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Capture d’écran montrant comment mettre à jour le script DSL." ::: 
+
+Le type carte prend en charge :
+
+|Type |Le type carte est-il pris en charge ?   |Commentaires|
+|-------------------------|-----------|------------|
+|Excel, CSV  |Non      |Les deux sont des sources de données tabulaires avec le type primitif. Il n’est donc pas nécessaire de prendre en charge le type carte. |
+|Orc, Avro |Oui |Aucun.|
+|JSON|Oui |Le type de carte ne peut pas être directement pris en charge. Suivez la partie de cette section relative aux recommandations pour mettre à jour le script (DSL) sous la projection source.|
+|Cosmos DB |Oui |Le type de carte ne peut pas être directement pris en charge. Suivez la partie de cette section relative aux recommandations pour mettre à jour le script (DSL) sous la projection source.|
+|Parquet |Oui |À l’heure actuelle, le type de données complexe n’est pas pris en charge sur le jeu de données Parquet. Vous devez donc utiliser l’option « Importer la projection » sous la source Parquet du flux de données pour obtenir le type carte.|
+|XML |Non |Aucun.|
 
 ### <a name="consume-json-files-generated-by-copy-activities"></a>Consommer les fichiers JSON générés par les activités de copie
 
@@ -110,130 +183,54 @@ Par exemple :
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/set-parameter-in-query.png" alt-text="Capture d’écran montrant le paramètre défini dans la requête."::: 
 
-## <a name="cdm"></a>CDM
+## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
-### <a name="modeljson-files-with-special-characters"></a>Fichiers Model.Json contenant des caractères spéciaux
-
-#### <a name="symptoms"></a>Symptômes 
-Vous pouvez rencontrer un problème selon lequel le nom final du fichier model.json contient des caractères spéciaux.  
-
-#### <a name="error-message"></a>Message d’erreur  
-`at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
-
-#### <a name="recommendation"></a>Recommandation  
-Remplacez les caractères spéciaux dans le nom du fichier, ce qui fonctionnera dans Synapse, mais pas dans ADF.  
-
-### <a name="no-data-output-in-the-data-preview-or-after-running-pipelines"></a>Aucune sortie de données dans l’aperçu des données ou après l’exécution des pipelines
+### <a name="fail-to-create-files-with-service-principle-authentication"></a>Échec de la création de fichiers avec l’authentification par principal de service
 
 #### <a name="symptoms"></a>Symptômes
-Lorsque vous utilisez le manifest.json pour CDM, aucune donnée n’est affichée dans l’aperçu des données ou après l’exécution d’un pipeline. Seuls les en-têtes sont affichés. Vous pouvez voir ce problème dans l’image ci-dessous.<br/>
+Lorsque vous essayez de déplacer ou de transférer des données de différentes sources vers le récepteur ADLS Gen1, si la méthode d’authentification du service lié est l’authentification par principal de service, votre travail peut échouer avec le message d’erreur suivant :
 
-![Capture d’écran montrant le symptôme « Aucune sortie de données ».](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
-
-#### <a name="cause"></a>Cause
-Le document manifeste décrit le dossier CDM, par exemple, les entités que vous avez dans le dossier, les références de ces entités et les données qui correspondent à cette instance. Il manque à votre document manifeste l’information `dataPartitions` qui indique à ADF où lire les données et, dans la mesure où elle est vide, aucune donnée n’est renvoyée. 
-
-#### <a name="recommendation"></a>Recommandation
-Mettez à jour votre document manifeste afin d’y inclure l’information `dataPartitions`. Vous pouvez vous référer à cet exemple de document manifeste pour mettre à jour votre document : [Métadonnées Common Data Model : introduction au manifeste ; section Exemple de document manifeste](/common-data-model/cdm-manifest#example-manifest-document).
-
-### <a name="json-array-attributes-are-inferred-as-separate-columns"></a>Les attributs des tableaux JSON sont considérés comme des colonnes distinctes
-
-#### <a name="symptoms"></a>Symptômes 
-Vous pouvez rencontrer un problème où un attribut (type chaîne) de l’entité CDM a un tableau JSON comme données. Lorsque ces données sont rencontrées, ADF les identifie de manière incorrecte comme des colonnes distinctes. Comme vous pouvez le voir dans les images suivantes, un seul attribut présenté dans la source (msfp_otherproperties) est considéré comme une colonne distincte dans l’aperçu du connecteur CDM.<br/> 
-
-- Dans les données sources du CSV (reportez-vous à la deuxième colonne) : <br/>
-
-    ![Capture d’écran montrant l’attribut dans les données sources du CSV.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
-
-- Dans l’aperçu des données sources CDM : <br/>
-
-    ![Capture d’écran montrant la colonne distincte dans les données sources CDM.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
-
- 
-Vous pouvez également essayer de mapper les colonnes dérivées et utiliser l’expression de flux de données pour transformer cet attribut en tableau. Toutefois, étant donné que cet attribut est lu comme une colonne distincte lors de la lecture, la transformation en tableau ne fonctionne pas.  
+`org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
 
 #### <a name="cause"></a>Cause
-Ce problème est probablement dû à des virgules dans la valeur de votre objet JSON pour cette colonne. Comme votre fichier de données est censé être un fichier CSV, la virgule indique qu’il s’agit de la fin de la valeur d’une colonne. 
+
+L’autorisation RWX ou la propriété du jeu de données n’est pas définie correctement.
 
 #### <a name="recommendation"></a>Recommandation
-Pour résoudre ce problème, vous devez placer votre colonne JSON entre guillemets doubles et éviter les guillemets internes avec une barre oblique inverse (`\`). De cette façon, le contenu de la valeur de cette colonne peut être lu comme une seule colonne.  
-  
->[!Note]
->CDM n’indique pas que le type de données de la valeur de colonne est JSON, mais il informe qu’il s’agit d’une chaîne et qu’elle est analysée comme telle.
 
-### <a name="unable-to-fetch-data-in-the-data-flow-preview"></a>Impossible d’extraire des données dans l’aperçu du flux de données
+- Si le dossier cible ne dispose pas des autorisations appropriées, reportez-vous à ce document pour attribuer l’autorisation appropriée dans Gen1 : [Utiliser une authentification par principal de service](./connector-azure-data-lake-store.md#use-service-principal-authentication).
+
+- Si le dossier cible possède l’autorisation appropriée et que vous utilisez la propriété du nom de fichier dans le flux de données pour cibler le dossier et le nom de fichier appropriés, mais que la propriété du chemin d’accès au fichier du jeu de données n’est pas définie sur le chemin d’accès au fichier cible (généralement, à ne pas définir), comme illustré dans les images suivantes, vous rencontrerez cet échec parce que le système principal tente de créer des fichiers en fonction du chemin d’accès au fichier du jeu de données et que celui-ci ne dispose pas de l’autorisation appropriée.
+    
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Capture d’écran montrant la propriété du chemin d’accès au fichier."::: 
+    
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Capture d’écran montrant la propriété du nom de fichier."::: 
+
+    
+    Il existe deux méthodes pour résoudre ce problème :
+    1. Attribuez l’autorisation WX au chemin d’accès au fichier du jeu de données.
+    1. Définissez le chemin d’accès au fichier du jeu de données en tant que dossier avec l’autorisation WX, puis définissez le chemin d’accès au dossier REST et le nom de fichier dans les flux de données.
+
+## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
+
+### <a name="failed-with-an-error-error-while-reading-file-xxx-it-is-possible-the-underlying-files-have-been-updated"></a>Échec avec une erreur : « Erreur lors de la lecture du fichier XXX. Il est possible que les fichiers sous-jacents aient été mis à jour »
 
 #### <a name="symptoms"></a>Symptômes
-Vous utilisez CDM avec un model.json généré par Power BI. Lorsque vous prévisualisez les données CDM à l’aide de l’aperçu du flux de données, vous rencontrez l’erreur suivante : `No output data.`.
+
+Lorsque vous utilisez ADLS Gen2 comme récepteur dans le flux de données (pour afficher un aperçu des données, déboguer ou déclencher l’exécution, etc.) et que le paramètre de partition de l’onglet **Optimiser** à l’étape **Récepteur** n’est pas défini par défaut, le travail peut échouer avec le message d’erreur suivant :
+
+`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
 
 #### <a name="cause"></a>Cause
- Le code suivant existe dans les partitions du fichier model.json généré par le flux de données Power BI.
-```json
-"partitions": [  
-{  
-"name": "Part001",  
-"refreshTime": "2020-10-02T13:26:10.7624605+00:00",  
-"location": "https://datalakegen2.dfs.core.windows.net/powerbi/salesEntities/salesPerfByYear.csv @snapshot=2020-10-02T13:26:10.6681248Z"  
-}  
-```
-Pour ce fichier model.json, le problème est que le schéma d’affectation de noms du fichier de partition de données comporte des caractères spéciaux et que les chemins d’accès des fichiers sous-jacents avec « @ » n’existent pas actuellement.  
+
+1. Vous n’avez pas attribué une autorisation appropriée à votre authentification par identité managée ou par principal de service.
+1. Vous avez peut-être un travail personnalisé pour traiter les fichiers dont vous ne voulez pas, ce qui aura une incidence sur la sortie intermédiaire du flux de données.
 
 #### <a name="recommendation"></a>Recommandation
-Supprimez la partie `@snapshot=2020-10-02T13:26:10.6681248Z` du nom de fichier de la partition de données et du fichier model.json, puis réessayez. 
+1. Vérifiez si votre service lié dispose de l’autorisation R/W/E pour Gen2. Si vous utilisez l’authentification par identité managée ou par principal de service, accordez au moins le rôle Contributeur aux données Blob du stockage dans le contrôle d’accès (IAM).
+1. Vérifiez si vous avez des travaux spécifiques qui suppriment des fichiers ou les déplacent vers un autre emplacement dont le nom ne correspond pas à votre règle. Étant donné que les flux de données consignent d’abord les fichiers de partition dans le dossier cible, puis effectuent les opérations de fusion et de renommage, le nom du fichier intermédiaire peut ne pas correspondre à votre règle.
 
-### <a name="the-corpus-path-is-null-or-empty"></a>Le chemin d’accès du corpus est null ou vide
-
-#### <a name="symptoms"></a>Symptômes
-Quand vous utilisez CDM dans le flux de données avec le format de modèle, vous ne pouvez pas prévisualiser les données, et vous rencontrez l’erreur suivante : `DF-CDM_005 The corpus path is null or empty`. L’erreur est illustrée dans l’image suivante :  
-
-![Capture d’écran montrant l’erreur de chemin d’accès du corpus.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
-
-#### <a name="cause"></a>Cause
-Le chemin d’accès de votre partition de données dans le model.json pointe vers un emplacement de stockage blob et non vers votre lac de données. L’emplacement doit avoir l’URL de base **.dfs.core.windows.net** pour ADLS Gen2. 
-
-#### <a name="recommendation"></a>Recommandation
-Pour résoudre ce problème, vous pouvez vous référer à cet article : [ADF ajoute la prise en charge des jeux de données inlined et de Common Data Model aux flux de données](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798). L’illustration suivante montre la façon de corriger l’erreur de chemin d’accès du corpus dans cet article.
-
-![Capture d’écran montrant comment corriger l’erreur de chemin d’accès du corpus.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
-
-### <a name="unable-to-read-csv-data-files"></a>Impossible de lire les fichiers de données CSV
-
-#### <a name="symptoms"></a>Symptômes 
-Vous utilisez le jeu de données inlined comme modèle de données commun avec le manifeste comme source, et vous avez fourni le fichier manifeste d’entrée, le chemin d’accès racine et le nom et le chemin d’accès de l’entité. Dans le manifeste, vous disposez des partitions de données avec l’emplacement du fichier CSV. Pendant ce temps, le schéma d’entité et le schéma CSV sont identiques et toutes les validations ont réussi. Toutefois, dans l’aperçu des données, seul le schéma est chargé, et non les données, et ces dernières sont invisibles, comme le montre l’image suivante :
-
-![Capture d’écran montrant l’impossibilité de lire les fichiers de données.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
-
-#### <a name="cause"></a>Cause
-Votre dossier CDM n’est pas séparé en modèles logiques et physiques, et seuls les modèles physiques existent dans le dossier CDM. Les deux articles suivants décrivent la différence : [Définitions logiques](/common-data-model/sdk/logical-definitions) et [Résolution d’une définition d’entité logique](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
-
-#### <a name="recommendation"></a>Recommandation
-Pour le flux de données utilisant CDM comme source, essayez d’utiliser un modèle logique comme référence d’entité, et utilisez le manifeste qui décrit l’emplacement des entités physiques résolues et les emplacements des partitions de données. Vous pouvez voir quelques exemples de définitions d’entités logiques dans le référentiel public CDM de GitHub : [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments).<br/>
-
-Un bon point de départ pour la création de votre corpus consiste à copier les fichiers dans le dossier de documents de schéma (juste ce niveau dans le référentiel GitHub) et à placer ces fichiers dans un dossier. Ensuite, vous pouvez utiliser l’une des entités logiques prédéfinies dans le référentiel (comme point de départ ou de référence) pour créer votre modèle logique.<br/>
-
-Une fois le corpus configuré, il est recommandé d’utiliser CDM comme récepteur dans les flux de données, afin qu’un dossier CDM bien formé puisse être correctement créé. Vous pouvez utiliser votre jeu de données CSV comme source, puis l’intégrer au modèle CDM que vous avez créé.
-
-## <a name="delta"></a>Delta
-
-### <a name="the-sink-does-not-support-the-schema-drift-with-upsert-or-update"></a>Le récepteur ne prend pas en charge la dérive de schéma avec un upsert ou une mise à jour
-
-#### <a name="symptoms"></a>Symptômes
-Vous pouvez être confronté au problème où le récepteur delta dans les flux de données de mappage ne prend pas en charge la dérive de schéma avec un upsert ou une mise à jour. Le problème est que la dérive de schéma ne fonctionne pas lorsque le delta est la cible dans un flux de données de mappage et que l’utilisateur configure un upsert ou une mise à jour. 
-
-Si une colonne est ajoutée à la source après une charge « initiale » dans le delta, les travaux suivants échouent avec une erreur indiquant qu’il est impossible de trouver la nouvelle colonne, ce qui se produit lorsque vous faites un upsert ou une mise à jour à l’aide de la modification de ligne. Cela semble fonctionner uniquement pour les insertions.
-
-#### <a name="error-message"></a>Message d’erreur
-`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
-
-#### <a name="cause"></a>Cause
-Il s’agit d’un problème de format delta en raison de la limitation de la bibliothèque delta d’E/S utilisée dans le runtime du flux de données. Ce problème est toujours en cours de résolution.
-
-#### <a name="recommendation"></a>Recommandation
-Pour résoudre ce problème, vous devez d’abord mettre à jour le schéma, puis écrire les données. Procédez comme suit : <br/>
-1. Créez un seul flux de données qui comprend un récepteur delta en insertion seule avec l’option de fusion de schéma pour mettre à jour le schéma. 
-1. Après l’étape 1, utilisez Supprimer/Faire un upsert/Mettre à jour pour modifier le récepteur cible sans modifier le schéma. <br/>
-
-## <a name="azure-postgresql"></a>Azure PostgreSQL
+## <a name="azure-database-for-postgresql"></a>Azure Database pour PostgreSQL
 
 ### <a name="encounter-an-error-failed-with-exception-handshake_failure"></a>Erreur : Échec avec l’exception : handshake_failure 
 
@@ -255,74 +252,81 @@ Si vous utilisez le serveur flexible ou Hyperscale (Citus) pour votre serveur Az
 #### <a name="recommendation"></a>Recommandation
 Vous pouvez essayer d’utiliser des activités de copie pour débloquer ce problème. 
 
-## <a name="csv-and-excel"></a>CSV et Excel
-
-### <a name="set-the-quote-character-to-no-quote-char-is-not-supported-in-the-csv"></a>Le CSV ne prend pas en charge le caractère de guillemet défini sur « pas de guillemets »
+## <a name="azure-sql-database"></a>Azure SQL Database
  
-#### <a name="symptoms"></a>Symptômes
-
-Plusieurs problèmes ne sont pas pris en charge dans le CSV lorsque le caractère de guillemet est défini sur « pas de guillemets » :
-
-1. Lorsque le caractère de guillemet est défini sur « pas de guillemets », le délimiteur de colonne à plusieurs caractères ne peut pas commencer et se terminer par les mêmes lettres.
-2. Lorsque le caractère de guillemet est défini sur « pas de guillemets », le délimiteur de colonne à plusieurs caractères ne peut pas contenir le caractère d’échappement : `\`.
-3. Lorsque le caractère de guillemet est défini sur « pas de guillemets », la valeur de la colonne ne peut pas contenir de délimiteur de ligne.
-4. Le caractère de guillemet et le caractère d’échappement ne peuvent pas tous les deux être vides (pas de guillemets ni séquence d’échappement) si la valeur de la colonne contient un délimiteur de colonne.
-
-#### <a name="cause"></a>Cause
-
-Les causes des symptômes sont indiquées ci-dessous avec leurs exemples respectifs :
-1. Commence et se termine par les mêmes lettres.<br/>
-`column delimiter: $*^$*`<br/>
-`column value: abc$*^    def`<br/>
-`csv sink: abc$*^$*^$*def ` <br/>
-`will be read as "abc" and "^&*def"`<br/>
-
-2. Le délimiteur à plusieurs caractères contient des caractères d’échappement.<br/>
-`column delimiter: \x`<br/>
-`escape char:\`<br/>
-`column value: "abc\\xdef"`<br/>
-Le caractère d’échappement échappe le délimiteur de colonne ou le caractère d’échappement.
-
-3. La valeur de la colonne contient un délimiteur de ligne. <br/>
-`We need quote character to tell if row delimiter is inside column value or not.`
-
-4. Le caractère de guillemet et le caractère d’échappement sont tous les deux vides et la valeur de la colonne contient des délimiteurs de colonne.<br/>
-`Column delimiter: \t`<br/>
-`column value: 111\t222\t33\t3`<br/>
-`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
-
-#### <a name="recommendation"></a>Recommandation
-Le premier symptôme et le second symptôme ne peuvent pas être résolus actuellement. Pour les troisième et quatrième symptômes, vous pouvez appliquer les méthodes suivantes :
-- Pour le symptôme 3, n’utilisez pas l’option« pas de guillemets » pour un fichier CSV multiligne.
-- Pour le symptôme 4, définissez le caractère de guillemet ou le caractère d’échappement comme non vide, ou vous pouvez supprimer tous les délimiteurs de colonne dans vos données.
-
-### <a name="read-files-with-different-schemas-error"></a>Erreur de lecture des fichiers avec des schémas différents
+### <a name="unable-to-connect-to-the-sql-database"></a>Impossible de se connecter à la base de données SQL
 
 #### <a name="symptoms"></a>Symptômes
 
-Lorsque vous utilisez des flux de données pour lire des fichiers tels que des fichiers CSV et Excel avec des schémas différents, le débogage de flux de données, le bac à sable ou l’exécution d’activité échouent.
-- Pour CSV, le mauvais alignement des données existe lorsque le schéma des fichiers est différent. 
-
-    ![Capture d’écran montrant la première erreur de schéma.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
-
-- Pour Excel, une erreur se produit lorsque le schéma du fichier est différent.
-
-    ![Capture d’écran montrant la seconde erreur de schéma.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+Votre base de données Azure SQL peut fonctionner correctement dans la copie de données, l’affichage d’un aperçu des données et le test de connexion du jeu de données dans le service lié, mais elle échoue lorsque la même base de données Azure SQL est utilisée comme source ou récepteur dans le flux de données avec une erreur telle que `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`.
 
 #### <a name="cause"></a>Cause
 
-La lecture de fichiers avec des schémas différents dans le flux de données n’est pas prise en charge.
+Les paramètres du pare-feu de votre serveur Azure SQL Database sont incorrects, de sorte qu’il ne peut pas se connecter par l’intermédiaire du runtime de flux de données. Actuellement, lorsque vous essayez d’utiliser le flux de données pour lire/écrire dans Azure SQL Database, Azure Databricks est utilisé pour créer le cluster Spark afin d’exécuter le travail, mais il ne prend pas en charge les plages d’adresses IP fixes. Pour plus d’informations, consultez [Adresses IP Azure Integration Runtime](./azure-integration-runtime-ip-addresses.md).
 
 #### <a name="recommendation"></a>Recommandation
 
-Si vous souhaitez toujours transférer des fichiers tels que des fichiers CSV et Excel avec des schémas différents dans le flux de données, vous pouvez utiliser les méthodes suivantes pour contourner le problème :
+Vérifiez les paramètres du pare-feu de votre instance Azure SQL Database et définissez-les sur « Autoriser l’accès aux services Azure » au lieu de définir une plage d’adresses IP fixes.
 
-- Pour CSV, vous devez fusionner manuellement le schéma des différents fichiers pour obtenir le schéma complet. Par exemple, file_1 contient des colonnes `c_1, c_2, c_3` tandis que file_2 contient des colonnes `c_3, c_4,... c_10`, donc le schéma fusionné et complet est `c_1, c_2... c_10`. Ensuite, faites en sorte que les autres fichiers aient également le même schéma complet, même s’ils ne contiennent pas de données. Par exemple, file_x contient uniquement des colonnes `c_1, c_2, c_3, c_4` : ajoutez les colonnes supplémentaires `c_5, c_6, ... c_10` au fichier, et cela pourra alors fonctionner.
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Capture d’écran montrant comment autoriser l’accès au service Azure dans les paramètres du pare-feu."::: 
 
-- Pour Excel, vous pouvez résoudre ce problème en appliquant l’une des options suivantes :
+### <a name="syntax-error-when-using-queries-as-input"></a>Erreur de syntaxe lors de l’utilisation de requêtes en entrée
 
-    - **Option 1** : Vous devez fusionner manuellement le schéma des différents fichiers pour obtenir le schéma complet. Par exemple, file_1 contient des colonnes `c_1, c_2, c_3` tandis que file_2 contient des colonnes `c_3, c_4,... c_10`, donc le schéma fusionné et complet est `c_1, c_2... c_10`. Ensuite, faites en sorte que les autres fichiers aient également le même schéma, même s’ils ne contiennent pas de données. Par exemple, file_x avec la feuille « SHEET_1 » contient uniquement des colonnes `c_1, c_2, c_3, c_4` : ajoutez les colonnes supplémentaires `c_5, c_6, ... c_10` également dans la feuille, et cela pourra alors fonctionner.
-    - **Option 2** : Utilisez la **plage (par exemple, A1:G100) + firstRowAsHeader=false**, et il peut alors charger les données de tous les fichiers Excel, même si le nom et le nombre de colonnes sont différents.
+#### <a name="symptoms"></a>Symptômes
+
+Lorsque vous utilisez des requêtes en entrée dans la source du flux de données avec Azure SQL, vous échouez avec le message d’erreur suivant :
+
+`at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/error-detail.png" alt-text="Capture d’écran montrant les détails de l’erreur."::: 
+
+#### <a name="cause"></a>Cause
+
+La requête utilisée dans la source du flux de données doit pouvoir s’exécuter en tant que sous-requête. La raison de cet échec est que la syntaxe de la requête est incorrecte ou qu’elle ne peut pas s’exécuter en tant que sous-requête. Vous pouvez exécuter la requête suivante dans SQL Server Management Studio pour la vérifier :
+
+`SELECT top(0) * from ($yourQuery) as T_TEMP`
+
+#### <a name="recommendation"></a>Recommandation
+
+Fournissez une requête correcte et testez-la d’abord dans SQL Server Management Studio.
+
+### <a name="failed-with-an-error-sqlserverexception-111212-operation-cannot-be-performed-within-a-transaction"></a>Échec avec une erreur : « SQLServerException : 111212 ; L’opération ne peut pas être effectuée dans une transaction. »
+
+#### <a name="symptoms"></a>Symptômes
+
+Lorsque vous utilisez Azure SQL Database comme récepteur dans le flux de données pour afficher un aperçu des données, déboguer ou déclencher l’exécution, etc., vous pouvez constater que votre travail échoue avec le message d’erreur suivant :
+
+`{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
+
+#### <a name="cause"></a>Cause
+L’erreur « `111212;Operation cannot be performed within a transaction.` » se produit uniquement dans le pool SQL dédié de Synapse. Mais vous commettez l’erreur d’utiliser Azure SQL Database comme connecteur à la place.
+
+#### <a name="recommendation"></a>Recommandation
+Vérifiez si votre instance SQL Database est un pool SQL dédié de Synapse. Si c’est le cas, utilisez Azure Synapse Analytics comme connecteur, tel qu’illustré dans l’image ci-dessous.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Capture d’écran montrant le connecteur Azure Synapse Analytics."::: 
+
+### <a name="data-with-the-decimal-type-become-null"></a>Les données de type décimal deviennent Null
+
+#### <a name="symptoms"></a>Symptômes
+
+Vous souhaitez insérer des données dans une table de la base de données SQL. Si les données contiennent le type décimal et doivent être insérées dans une colonne avec le type décimal dans la base de données SQL, la valeur des données peut être remplacée par Null.
+
+Si vous effectuez un aperçu, dans les étapes précédentes, cela affichera la valeur comme ci-dessous :
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Capture d’écran montrant la valeur des étapes précédentes."::: 
+
+À l’étape du récepteur, la valeur devient Null, ce qui est indiqué dans l’image ci-dessous.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Capture d’écran montrant la valeur à l’étape du récepteur."::: 
+
+#### <a name="cause"></a>Cause
+Le type décimal a des propriétés d’échelle et de précision. Si votre type de données ne correspond pas à celui de la table de récepteur, le système vérifie que le décimal cible est plus grand que celui d’origine et que la valeur d’origine ne dépasse pas le décimal cible. Par conséquent, la valeur sera castée en Null.
+
+#### <a name="recommendation"></a>Recommandation
+Vérifiez et comparez le type décimal entre les données et la table dans la base de données SQL et modifiez l’échelle et la précision pour qu’elles soient identiques.
+
+Vous pouvez utiliser toDecimal (IDecimal, échelle, précision) pour déterminer si les données d’origine peuvent être castées à l’échelle et à la précision cibles. Si la fonction renvoie la valeur Null, cela signifie que les données ne peuvent pas être castées et approfondies lors de l’insertion.
 
 ## <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
@@ -458,47 +462,199 @@ Vous utilisez Stockage Blob Azure comme service lié de mise en lots pour établ
 #### <a name="recommendation"></a>Recommandation
 Créez un service lié Azure Data Lake Gen2 pour le stockage, puis sélectionnez le stockage Gen2 comme service lié de mise en lots dans les activités de flux de données.
 
+## <a name="common-data-model-format"></a>Format Common Data Model
 
-## <a name="azure-blob-storage"></a>Stockage Blob Azure
+### <a name="modeljson-files-with-special-characters"></a>Fichiers model.json contenant des caractères spéciaux
 
-### <a name="account-kind-of-storage-general-purpose-v1-doesnt-support-service-principal-and-mi-authentication"></a>Le type de compte de stockage (v1 universel) ne prend pas en charge l’authentification par principal de service et par identité managée
+#### <a name="symptoms"></a>Symptômes 
+Vous pouvez rencontrer un problème selon lequel le nom final du fichier model.json contient des caractères spéciaux.  
+
+#### <a name="error-message"></a>Message d’erreur  
+`at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
+
+#### <a name="recommendation"></a>Recommandation  
+Remplacez les caractères spéciaux dans le nom du fichier, ce qui fonctionnera dans Synapse, mais pas dans ADF.  
+
+### <a name="no-data-output-in-the-data-preview-or-after-running-pipelines"></a>Aucune sortie de données dans l’aperçu des données ou après l’exécution des pipelines
 
 #### <a name="symptoms"></a>Symptômes
+Lorsque vous utilisez le manifest.json pour CDM, aucune donnée n’est affichée dans l’aperçu des données ou après l’exécution d’un pipeline. Seuls les en-têtes sont affichés. Vous pouvez voir ce problème dans l’image ci-dessous.<br/>
 
-Dans les flux de données, si vous utilisez Stockage Blob Azure (v1 universel) avec l’authentification par principal de service ou par identité managée, vous pouvez rencontrer le message d’erreur suivant :
+![Capture d’écran montrant le symptôme « Aucune sortie de données ».](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
 
-`com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
+#### <a name="cause"></a>Cause
+Le document manifeste décrit le dossier CDM, par exemple, les entités que vous avez dans le dossier, les références de ces entités et les données qui correspondent à cette instance. Il manque à votre document manifeste l’information `dataPartitions` qui indique à ADF où lire les données et, dans la mesure où elle est vide, aucune donnée n’est renvoyée. 
+
+#### <a name="recommendation"></a>Recommandation
+Mettez à jour votre document manifeste afin d’y inclure l’information `dataPartitions`. Vous pouvez vous référer à cet exemple de document manifeste pour mettre à jour votre document : [Métadonnées Common Data Model : introduction au manifeste ; section Exemple de document manifeste](/common-data-model/cdm-manifest#example-manifest-document).
+
+### <a name="json-array-attributes-are-inferred-as-separate-columns"></a>Les attributs des tableaux JSON sont considérés comme des colonnes distinctes
+
+#### <a name="symptoms"></a>Symptômes 
+Vous pouvez rencontrer un problème où un attribut (type chaîne) de l’entité CDM a un tableau JSON comme données. Lorsque ces données sont rencontrées, ADF les identifie de manière incorrecte comme des colonnes distinctes. Comme vous pouvez le voir dans les images suivantes, un seul attribut présenté dans la source (msfp_otherproperties) est considéré comme une colonne distincte dans l’aperçu du connecteur CDM.<br/> 
+
+- Dans les données sources du CSV (reportez-vous à la deuxième colonne) : <br/>
+
+    ![Capture d’écran montrant l’attribut dans les données sources du CSV.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
+
+- Dans l’aperçu des données sources CDM : <br/>
+
+    ![Capture d’écran montrant la colonne distincte dans les données sources CDM.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
+
+ 
+Vous pouvez également essayer de mapper les colonnes dérivées et utiliser l’expression de flux de données pour transformer cet attribut en tableau. Toutefois, étant donné que cet attribut est lu comme une colonne distincte lors de la lecture, la transformation en tableau ne fonctionne pas.  
+
+#### <a name="cause"></a>Cause
+Ce problème est probablement dû à des virgules dans la valeur de votre objet JSON pour cette colonne. Comme votre fichier de données est censé être un fichier CSV, la virgule indique qu’il s’agit de la fin de la valeur d’une colonne. 
+
+#### <a name="recommendation"></a>Recommandation
+Pour résoudre ce problème, vous devez placer votre colonne JSON entre guillemets doubles et éviter les guillemets internes avec une barre oblique inverse (`\`). De cette façon, le contenu de la valeur de cette colonne peut être lu comme une seule colonne.  
+  
+>[!Note]
+>CDM n’indique pas que le type de données de la valeur de colonne est JSON, mais il informe qu’il s’agit d’une chaîne et qu’elle est analysée comme telle.
+
+### <a name="unable-to-fetch-data-in-the-data-flow-preview"></a>Impossible d’extraire des données dans l’aperçu du flux de données
+
+#### <a name="symptoms"></a>Symptômes
+Vous utilisez CDM avec un model.json généré par Power BI. Lorsque vous prévisualisez les données CDM à l’aide de l’aperçu du flux de données, vous rencontrez l’erreur suivante : `No output data.`.
+
+#### <a name="cause"></a>Cause
+ Le code suivant existe dans les partitions du fichier model.json généré par le flux de données Power BI.
+```json
+"partitions": [  
+{  
+"name": "Part001",  
+"refreshTime": "2020-10-02T13:26:10.7624605+00:00",  
+"location": "https://datalakegen2.dfs.core.windows.net/powerbi/salesEntities/salesPerfByYear.csv @snapshot=2020-10-02T13:26:10.6681248Z"  
+}  
+```
+Pour ce fichier model.json, le problème est que le schéma d’affectation de noms du fichier de partition de données comporte des caractères spéciaux et que les chemins d’accès des fichiers sous-jacents avec « @ » n’existent pas actuellement.  
+
+#### <a name="recommendation"></a>Recommandation
+Supprimez la partie `@snapshot=2020-10-02T13:26:10.6681248Z` du nom de fichier de la partition de données et du fichier model.json, puis réessayez. 
+
+### <a name="the-corpus-path-is-null-or-empty"></a>Le chemin d’accès du corpus est null ou vide
+
+#### <a name="symptoms"></a>Symptômes
+Quand vous utilisez CDM dans le flux de données avec le format de modèle, vous ne pouvez pas prévisualiser les données, et vous rencontrez l’erreur suivante : `DF-CDM_005 The corpus path is null or empty`. L’erreur est illustrée dans l’image suivante :  
+
+![Capture d’écran montrant l’erreur de chemin d’accès du corpus.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
+
+#### <a name="cause"></a>Cause
+Le chemin d’accès de votre partition de données dans le model.json pointe vers un emplacement de stockage blob et non vers votre lac de données. L’emplacement doit avoir l’URL de base **.dfs.core.windows.net** pour ADLS Gen2. 
+
+#### <a name="recommendation"></a>Recommandation
+Pour résoudre ce problème, vous pouvez vous référer à cet article : [ADF ajoute la prise en charge des jeux de données inlined et de Common Data Model aux flux de données](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798). L’illustration suivante montre la façon de corriger l’erreur de chemin d’accès du corpus dans cet article.
+
+![Capture d’écran montrant comment corriger l’erreur de chemin d’accès du corpus.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
+
+### <a name="unable-to-read-csv-data-files"></a>Impossible de lire les fichiers de données CSV
+
+#### <a name="symptoms"></a>Symptômes 
+Vous utilisez le jeu de données inlined comme modèle de données commun avec le manifeste comme source, et vous avez fourni le fichier manifeste d’entrée, le chemin d’accès racine et le nom et le chemin d’accès de l’entité. Dans le manifeste, vous disposez des partitions de données avec l’emplacement du fichier CSV. Pendant ce temps, le schéma d’entité et le schéma CSV sont identiques et toutes les validations ont réussi. Toutefois, dans l’aperçu des données, seul le schéma est chargé, et non les données, et ces dernières sont invisibles, comme le montre l’image suivante :
+
+![Capture d’écran montrant l’impossibilité de lire les fichiers de données.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
+
+#### <a name="cause"></a>Cause
+Votre dossier CDM n’est pas séparé en modèles logiques et physiques, et seuls les modèles physiques existent dans le dossier CDM. Les deux articles suivants décrivent la différence : [Définitions logiques](/common-data-model/sdk/logical-definitions) et [Résolution d’une définition d’entité logique](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
+
+#### <a name="recommendation"></a>Recommandation
+Pour le flux de données utilisant CDM comme source, essayez d’utiliser un modèle logique comme référence d’entité, et utilisez le manifeste qui décrit l’emplacement des entités physiques résolues et les emplacements des partitions de données. Vous pouvez voir quelques exemples de définitions d’entités logiques dans le référentiel public CDM de GitHub : [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments).<br/>
+
+Un bon point de départ pour la création de votre corpus consiste à copier les fichiers dans le dossier de documents de schéma (juste ce niveau dans le référentiel GitHub) et à placer ces fichiers dans un dossier. Ensuite, vous pouvez utiliser l’une des entités logiques prédéfinies dans le référentiel (comme point de départ ou de référence) pour créer votre modèle logique.<br/>
+
+Une fois le corpus configuré, il est recommandé d’utiliser CDM comme récepteur dans les flux de données, afin qu’un dossier CDM bien formé puisse être correctement créé. Vous pouvez utiliser votre jeu de données CSV comme source, puis l’intégrer au modèle CDM que vous avez créé.
+
+## <a name="csv-and-excel-format"></a>Format CSV et Excel
+
+### <a name="set-the-quote-character-to-no-quote-char-is-not-supported-in-the-csv"></a>Le CSV ne prend pas en charge le caractère de guillemet défini sur « pas de guillemets »
+ 
+#### <a name="symptoms"></a>Symptômes
+
+Plusieurs problèmes ne sont pas pris en charge dans le CSV lorsque le caractère de guillemet est défini sur « pas de guillemets » :
+
+1. Lorsque le caractère de guillemet est défini sur « pas de guillemets », le délimiteur de colonne à plusieurs caractères ne peut pas commencer et se terminer par les mêmes lettres.
+2. Lorsque le caractère de guillemet est défini sur « pas de guillemets », le délimiteur de colonne à plusieurs caractères ne peut pas contenir le caractère d’échappement : `\`.
+3. Lorsque le caractère de guillemet est défini sur « pas de guillemets », la valeur de la colonne ne peut pas contenir de délimiteur de ligne.
+4. Le caractère de guillemet et le caractère d’échappement ne peuvent pas tous les deux être vides (pas de guillemets ni séquence d’échappement) si la valeur de la colonne contient un délimiteur de colonne.
 
 #### <a name="cause"></a>Cause
 
-Lorsque vous utilisez le service lié Blob Azure dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Cette situation est illustrée dans les images 1 et 2 ci-dessous.
+Les causes des symptômes sont indiquées ci-dessous avec leurs exemples respectifs :
+1. Commence et se termine par les mêmes lettres.<br/>
+`column delimiter: $*^$*`<br/>
+`column value: abc$*^    def`<br/>
+`csv sink: abc$*^$*^$*def ` <br/>
+`will be read as "abc" and "^&*def"`<br/>
 
-Image 1 : Type de compte dans le service lié Stockage Blob Azure
+2. Le délimiteur à plusieurs caractères contient des caractères d’échappement.<br/>
+`column delimiter: \x`<br/>
+`escape char:\`<br/>
+`column value: "abc\\xdef"`<br/>
+Le caractère d’échappement échappe le délimiteur de colonne ou le caractère d’échappement.
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Capture d’écran montrant le type de compte de stockage dans le service lié Stockage Blob Azure."::: 
+3. La valeur de la colonne contient un délimiteur de ligne. <br/>
+`We need quote character to tell if row delimiter is inside column value or not.`
 
-Image 2 : Page du compte de stockage
+4. Le caractère de guillemet et le caractère d’échappement sont tous les deux vides et la valeur de la colonne contient des délimiteurs de colonne.<br/>
+`Column delimiter: \t`<br/>
+`column value: 111\t222\t33\t3`<br/>
+`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-page.png" alt-text="Capture d’écran montrant la page du compte de stockage." lightbox="./media/data-flow-troubleshoot-connector-format/storage-account-page.png"::: 
+#### <a name="recommendation"></a>Recommandation
+Le premier symptôme et le second symptôme ne peuvent pas être résolus actuellement. Pour les troisième et quatrième symptômes, vous pouvez appliquer les méthodes suivantes :
+- Pour le symptôme 3, n’utilisez pas l’option« pas de guillemets » pour un fichier CSV multiligne.
+- Pour le symptôme 4, définissez le caractère de guillemet ou le caractère d’échappement comme non vide, ou vous pouvez supprimer tous les délimiteurs de colonne dans vos données.
 
+### <a name="read-files-with-different-schemas-error"></a>Erreur de lecture des fichiers avec des schémas différents
+
+#### <a name="symptoms"></a>Symptômes
+
+Lorsque vous utilisez des flux de données pour lire des fichiers tels que des fichiers CSV et Excel avec des schémas différents, le débogage de flux de données, le bac à sable ou l’exécution d’activité échouent.
+- Pour CSV, le mauvais alignement des données existe lorsque le schéma des fichiers est différent. 
+
+    ![Capture d’écran montrant la première erreur de schéma.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
+
+- Pour Excel, une erreur se produit lorsque le schéma du fichier est différent.
+
+    ![Capture d’écran montrant la seconde erreur de schéma.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+
+#### <a name="cause"></a>Cause
+
+La lecture de fichiers avec des schémas différents dans le flux de données n’est pas prise en charge.
 
 #### <a name="recommendation"></a>Recommandation
 
-Pour résoudre ce problème, suivez les recommandations suivantes :
+Si vous souhaitez toujours transférer des fichiers tels que des fichiers CSV et Excel avec des schémas différents dans le flux de données, vous pouvez utiliser les méthodes suivantes pour contourner le problème :
 
-- Si le type de compte de stockage est **Aucun** dans le service lié Blob Azure, spécifiez le type de compte approprié et reportez-vous à l’image 3 ci-dessous pour le faire. En outre, reportez-vous à l’image 2 pour obtenir le type de compte de stockage, puis vérifiez et confirmez que le type de compte n’est pas « Stockage (v1 universel) ».
+- Pour CSV, vous devez fusionner manuellement le schéma des différents fichiers pour obtenir le schéma complet. Par exemple, file_1 contient des colonnes `c_1, c_2, c_3` tandis que file_2 contient des colonnes `c_3, c_4,... c_10`, donc le schéma fusionné et complet est `c_1, c_2... c_10`. Ensuite, faites en sorte que les autres fichiers aient également le même schéma complet, même s’ils ne contiennent pas de données. Par exemple, file_x contient uniquement des colonnes `c_1, c_2, c_3, c_4` : ajoutez les colonnes supplémentaires `c_5, c_6, ... c_10` au fichier, et cela pourra alors fonctionner.
 
-    Image 3 : Spécifier le type de compte de stockage dans le service lié Stockage Blob Azure
+- Pour Excel, vous pouvez résoudre ce problème en appliquant l’une des options suivantes :
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Capture d’écran montrant comment spécifier le type de compte de stockage dans le service lié Stockage Blob Azure."::: 
-    
+    - **Option 1** : Vous devez fusionner manuellement le schéma des différents fichiers pour obtenir le schéma complet. Par exemple, file_1 contient des colonnes `c_1, c_2, c_3` tandis que file_2 contient des colonnes `c_3, c_4,... c_10`, donc le schéma fusionné et complet est `c_1, c_2... c_10`. Ensuite, faites en sorte que les autres fichiers aient également le même schéma, même s’ils ne contiennent pas de données. Par exemple, file_x avec la feuille « SHEET_1 » contient uniquement des colonnes `c_1, c_2, c_3, c_4` : ajoutez les colonnes supplémentaires `c_5, c_6, ... c_10` également dans la feuille, et cela pourra alors fonctionner.
+    - **Option 2** : Utilisez la **plage (par exemple, A1:G100) + firstRowAsHeader=false**, et il peut alors charger les données de tous les fichiers Excel, même si le nom et le nombre de colonnes sont différents.
 
-- Si le type de compte est « Stockage (v1 universel) », mettez à niveau votre compte de stockage vers **v2 universel** ou choisissez une authentification différente.
+## <a name="delta-format"></a>Format Delta
 
-    Image 4 : Mettre à niveau le compte de stockage vers v2 universel
+### <a name="the-sink-does-not-support-the-schema-drift-with-upsert-or-update"></a>Le récepteur ne prend pas en charge la dérive de schéma avec un upsert ou une mise à jour
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Capture d’écran montrant comment mettre à niveau le compte de stockage vers v2 universel." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
-    
+#### <a name="symptoms"></a>Symptômes
+Vous pouvez être confronté au problème où le récepteur delta dans les flux de données de mappage ne prend pas en charge la dérive de schéma avec un upsert ou une mise à jour. Le problème est que la dérive de schéma ne fonctionne pas lorsque le delta est la cible dans un flux de données de mappage et que l’utilisateur configure un upsert ou une mise à jour. 
+
+Si une colonne est ajoutée à la source après une charge « initiale » dans le delta, les travaux suivants échouent avec une erreur indiquant qu’il est impossible de trouver la nouvelle colonne, ce qui se produit lorsque vous faites un upsert ou une mise à jour à l’aide de la modification de ligne. Cela semble fonctionner uniquement pour les insertions.
+
+#### <a name="error-message"></a>Message d’erreur
+`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
+
+#### <a name="cause"></a>Cause
+Il s’agit d’un problème de format delta en raison de la limitation de la bibliothèque delta d’E/S utilisée dans le runtime du flux de données. Ce problème est toujours en cours de résolution.
+
+#### <a name="recommendation"></a>Recommandation
+Pour résoudre ce problème, vous devez d’abord mettre à jour le schéma, puis écrire les données. Procédez comme suit : <br/>
+1. Créez un seul flux de données qui comprend un récepteur delta en insertion seule avec l’option de fusion de schéma pour mettre à jour le schéma. 
+1. Après l’étape 1, utilisez Supprimer/Faire un upsert/Mettre à jour pour modifier le récepteur cible sans modifier le schéma. <br/>
+
+
 
 ## <a name="snowflake"></a>Snowflake
 
@@ -605,135 +761,62 @@ Si vous rencontrez une erreur avec la requête Snowflake, vérifiez si certains 
     
 1. Une fois que la requête SQL de Snowflake est testée et validée, vous pouvez l’utiliser directement dans la source Snowflake de flux de données.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
- 
-### <a name="unable-to-connect-to-the-sql-database"></a>Impossible de se connecter à la base de données SQL
+### <a name="the-expression-type-does-not-match-the-column-data-type-expecting-variant-but-got-varchar"></a>Le type expression ne correspond pas au type de données « colonne » : VARIANT attendu, mais a obtenu VARCHAR 
 
 #### <a name="symptoms"></a>Symptômes
 
-Votre base de données Azure SQL peut fonctionner correctement dans la copie de données, l’affichage d’un aperçu des données et le test de connexion du jeu de données dans le service lié, mais elle échoue lorsque la même base de données Azure SQL est utilisée comme source ou récepteur dans le flux de données avec une erreur telle que `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`.
+Lorsque vous essayez d’écrire des données dans la table Snowflake, vous pouvez rencontrer l’erreur suivante :
+
+`java.sql.BatchUpdateException: SQL compilation error: Expression type does not match column data type, expecting VARIANT but got VARCHAR`
 
 #### <a name="cause"></a>Cause
 
-Les paramètres du pare-feu de votre serveur Azure SQL Database sont incorrects, de sorte qu’il ne peut pas se connecter par l’intermédiaire du runtime de flux de données. Actuellement, lorsque vous essayez d’utiliser le flux de données pour lire/écrire dans Azure SQL Database, Azure Databricks est utilisé pour créer le cluster Spark afin d’exécuter le travail, mais il ne prend pas en charge les plages d’adresses IP fixes. Pour plus d’informations, consultez [Adresses IP Azure Integration Runtime](./azure-integration-runtime-ip-addresses.md).
+Le type colonne des données d’entrée est « chaîne », ce qui est différent du type VARIANT de la colonne correspondante dans le récepteur Snowflake.
+
+Lorsque vous stockez des données avec des schémas complexes (tableau/carte/struct) dans une nouvelle table Snowflake, le type de flux de données est automatiquement converti en son type physique VARIANT.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/physical-type-variant.png" alt-text="Capture d’écran montrant le type VARIANT dans une table."::: 
+
+Les valeurs associées sont stockées sous forme de chaînes JSON, comme le montre l’image ci-dessous.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-string.png" alt-text="Capture d’écran montrant la chaîne JSON stockée."::: 
 
 #### <a name="recommendation"></a>Recommandation
 
-Vérifiez les paramètres du pare-feu de votre instance Azure SQL Database et définissez-les sur « Autoriser l’accès aux services Azure » au lieu de définir une plage d’adresses IP fixes.
+Pour le type VARIANT de Snowflake, elle ne peut accepter que la valeur du flux de données qui est de type struct, carte ou tableau. Si la valeur de votre colonne de données d’entrée est JSON, XML ou d’autres chaînes, utilisez l’une des options suivantes pour résoudre ce problème :
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Capture d’écran montrant comment autoriser l’accès au service Azure dans les paramètres du pare-feu."::: 
+- **Option 1** : Utilisez la [transformation d’analyse](./data-flow-parse.md) avant d’utiliser Snowflake comme récepteur pour convertir la valeur de la colonne de données d’entrée en type struct, carte ou tableau, par exemple :
 
-### <a name="syntax-error-when-using-queries-as-input"></a>Erreur de syntaxe lors de l’utilisation de requêtes en entrée
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/parse-transformation.png" alt-text="Capture d’écran montrant la transformation d’analyse."::: 
 
-#### <a name="symptoms"></a>Symptômes
+    > [!Note]
+    > La valeur de la colonne Snowflake de type VARIANT est lue par défaut comme une chaîne dans Spark.
 
-Lorsque vous utilisez des requêtes en entrée dans la source du flux de données avec Azure SQL, vous échouez avec le message d’erreur suivant :
-
-`at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/error-detail.png" alt-text="Capture d’écran montrant les détails de l’erreur."::: 
-
-#### <a name="cause"></a>Cause
-
-La requête utilisée dans la source du flux de données doit pouvoir s’exécuter en tant que sous-requête. La raison de cet échec est que la syntaxe de la requête est incorrecte ou qu’elle ne peut pas s’exécuter en tant que sous-requête. Vous pouvez exécuter la requête suivante dans SQL Server Management Studio pour la vérifier :
-
-`SELECT top(0) * from ($yourQuery) as T_TEMP`
-
-#### <a name="recommendation"></a>Recommandation
-
-Fournissez une requête correcte et testez-la d’abord dans SQL Server Management Studio.
-
-### <a name="failed-with-an-error-sqlserverexception-111212-operation-cannot-be-performed-within-a-transaction"></a>Échec avec une erreur : « SQLServerException : 111212 ; L’opération ne peut pas être effectuée dans une transaction. »
-
-#### <a name="symptoms"></a>Symptômes
-
-Lorsque vous utilisez Azure SQL Database comme récepteur dans le flux de données pour afficher un aperçu des données, déboguer ou déclencher l’exécution, etc., vous pouvez constater que votre travail échoue avec le message d’erreur suivant :
-
-`{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
-
-#### <a name="cause"></a>Cause
-L’erreur « `111212;Operation cannot be performed within a transaction.` » se produit uniquement dans le pool SQL dédié de Synapse. Mais vous commettez l’erreur d’utiliser Azure SQL Database comme connecteur à la place.
-
-#### <a name="recommendation"></a>Recommandation
-Vérifiez si votre instance SQL Database est un pool SQL dédié de Synapse. Si c’est le cas, utilisez Azure Synapse Analytics comme connecteur, tel qu’illustré dans l’image ci-dessous.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Capture d’écran montrant le connecteur Azure Synapse Analytics."::: 
-
-### <a name="data-with-the-decimal-type-become-null"></a>Les données de type décimal deviennent Null
-
-#### <a name="symptoms"></a>Symptômes
-
-Vous souhaitez insérer des données dans une table de la base de données SQL. Si les données contiennent le type décimal et doivent être insérées dans une colonne avec le type décimal dans la base de données SQL, la valeur des données peut être remplacée par Null.
-
-Si vous effectuez un aperçu, dans les étapes précédentes, cela affichera la valeur comme ci-dessous :
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Capture d’écran montrant la valeur des étapes précédentes."::: 
-
-À l’étape du récepteur, la valeur devient Null, ce qui est indiqué dans l’image ci-dessous.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Capture d’écran montrant la valeur à l’étape du récepteur."::: 
-
-#### <a name="cause"></a>Cause
-Le type décimal a des propriétés d’échelle et de précision. Si votre type de données ne correspond pas à celui de la table de récepteur, le système vérifie que le décimal cible est plus grand que celui d’origine et que la valeur d’origine ne dépasse pas le décimal cible. Par conséquent, la valeur sera castée en Null.
-
-#### <a name="recommendation"></a>Recommandation
-Vérifiez et comparez le type décimal entre les données et la table dans la base de données SQL et modifiez l’échelle et la précision pour qu’elles soient identiques.
-
-Vous pouvez utiliser toDecimal (IDecimal, échelle, précision) pour déterminer si les données d’origine peuvent être castées à l’échelle et à la précision cibles. Si la fonction renvoie la valeur Null, cela signifie que les données ne peuvent pas être castées et approfondies lors de l’insertion.
-
-## <a name="adls-gen2"></a>ADLS Gen2
-
-### <a name="failed-with-an-error-error-while-reading-file-xxx-it-is-possible-the-underlying-files-have-been-updated"></a>Échec avec une erreur : « Erreur lors de la lecture du fichier XXX. Il est possible que les fichiers sous-jacents aient été mis à jour »
-
-#### <a name="symptoms"></a>Symptômes
-
-Lorsque vous utilisez ADLS Gen2 comme récepteur dans le flux de données (pour afficher un aperçu des données, déboguer ou déclencher l’exécution, etc.) et que le paramètre de partition de l’onglet **Optimiser** à l’étape **Récepteur** n’est pas défini par défaut, le travail peut échouer avec le message d’erreur suivant :
-
-`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
-
-#### <a name="cause"></a>Cause
-
-1. Vous n’avez pas attribué une autorisation appropriée à votre authentification par identité managée ou par principal de service.
-1. Vous avez peut-être un travail personnalisé pour traiter les fichiers dont vous ne voulez pas, ce qui aura une incidence sur la sortie intermédiaire du flux de données.
-
-#### <a name="recommendation"></a>Recommandation
-1. Vérifiez si votre service lié dispose de l’autorisation R/W/E pour Gen2. Si vous utilisez l’authentification par identité managée ou par principal de service, accordez au moins le rôle Contributeur aux données Blob du stockage dans le contrôle d’accès (IAM).
-1. Vérifiez si vous avez des travaux spécifiques qui suppriment des fichiers ou les déplacent vers un autre emplacement dont le nom ne correspond pas à votre règle. Étant donné que les flux de données consignent d’abord les fichiers de partition dans le dossier cible, puis effectuent les opérations de fusion et de renommage, le nom du fichier intermédiaire peut ne pas correspondre à votre règle.
-
-## <a name="adls-gen1"></a>ADLS Gen1
-
-### <a name="fail-to-create-files-with-service-principle-authentication"></a>Échec de la création de fichiers avec l’authentification par principal de service
-
-#### <a name="symptoms"></a>Symptômes
-Lorsque vous essayez de déplacer ou de transférer des données de différentes sources vers le récepteur ADLS Gen1, si la méthode d’authentification du service lié est l’authentification par principal de service, votre travail peut échouer avec le message d’erreur suivant :
-
-`org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
-
-#### <a name="cause"></a>Cause
-
-L’autorisation RWX ou la propriété du jeu de données n’est pas définie correctement.
-
-#### <a name="recommendation"></a>Recommandation
-
-- Si le dossier cible ne dispose pas des autorisations appropriées, reportez-vous à ce document pour attribuer l’autorisation appropriée dans Gen1 : [Utiliser une authentification par principal de service](./connector-azure-data-lake-store.md#use-service-principal-authentication).
-
-- Si le dossier cible possède l’autorisation appropriée et que vous utilisez la propriété du nom de fichier dans le flux de données pour cibler le dossier et le nom de fichier appropriés, mais que la propriété du chemin d’accès au fichier du jeu de données n’est pas définie sur le chemin d’accès au fichier cible (généralement, à ne pas définir), comme illustré dans les images suivantes, vous rencontrerez cet échec parce que le système principal tente de créer des fichiers en fonction du chemin d’accès au fichier du jeu de données et que celui-ci ne dispose pas de l’autorisation appropriée.
+- **Option 2** : Connectez-vous à votre serveur Snowflake (`https://{accountName}.azure.snowflakecomputing.com/`, remplacez {accountName} par le nom de votre compte) pour modifier le schéma de votre table cible Snowflake. Appliquez les étapes suivantes en exécutant la requête sous chaque étape.
+    1. Créez une nouvelle colonne avec VARCHAR pour stocker les valeurs. <br/>
+        ```SQL
+        alter table tablename add newcolumnname varchar;
+        ```    
+    1. Copiez la valeur de VARIANT dans la nouvelle colonne. <br/>
     
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Capture d’écran montrant la propriété du chemin d’accès au fichier"::: 
-    
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Capture d’écran montrant la propriété du nom de fichier"::: 
-
-    
-    Il existe deux méthodes pour résoudre ce problème :
-    1. Attribuez l’autorisation WX au chemin d’accès au fichier du jeu de données.
-    1. Définissez le chemin d’accès au fichier du jeu de données en tant que dossier avec l’autorisation WX, puis définissez le chemin d’accès au dossier REST et le nom de fichier dans les flux de données.
+        ```SQL
+        update tablename t1 set newcolumnname = t1."details"
+        ```
+    1. Supprimez la colonne VARIANT inutilisée. <br/>
+        ```SQL
+        alter table tablename drop column "details";
+        ```
+    1. Renommez la nouvelle colonne avec l’ancien nom. <br/>
+        ```SQL
+        alter table tablename rename column newcolumnname to "details";
+        ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir une aide supplémentaire sur la résolution des problèmes, consultez les ressources suivantes :
 
 *  [Résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory](data-flow-troubleshoot-guide.md)
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)

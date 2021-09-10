@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 06/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 55e87d6f0e2708e94beb1e2f9391bfa7aff44ceb
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: be920fa3cd35d2b1e92891d5595dfbe27a258447
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814077"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532321"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -567,7 +567,7 @@ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-
 | failed-validation-httpcode      | Code d’état HTTP à renvoyer si le JWT n’est pas validé.                                                                                                                                                                                                                                                                                                                                                                                         | Non                                                                               | 401                                                                               |
 | header-name                     | Nom de l’en-tête HTTP contenant le jeton.                                                                                                                                                                                                                                                                                                                                                                                                         | `header-name`, `query-parameter-name` ou `token-value` doit être spécifié. | N/A                                                                               |
 | query-parameter-name            | Nom du paramètre de la requête contenant le jeton.                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` ou `token-value` doit être spécifié. | N/A                                                                               |
-| token-value                     | Expression renvoyant une chaîne contenant le jeton JWT                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` ou `token-value` doit être spécifié. | N/A                                                                               |
+| token-value                     | Expression renvoyant une chaîne contenant le jeton JWT. Vous ne devez pas renvoyer `Bearer ` comme partie de la valeur du jeton.                                                                                                                                                                                                                                                                                                                                           | `header-name`, `query-parameter-name` ou `token-value` doit être spécifié. | N/A                                                                               |
 | id                              | L’attribut `id` sur l’élément `key` vous permet de spécifier la chaîne qui sera comparée à la revendication `kid` dans le jeton (le cas échéant) pour déterminer la clé appropriée à utiliser pour la validation de la signature.                                                                                                                                                                                                                                           | Non                                                                               | N/A                                                                               |
 | match                           | L’attribut `match` sur l’élément `claim` spécifie si toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Les valeurs possibles sont les suivantes :<br /><br /> - `all` : toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse.<br /><br /> - `any` : au moins une valeur de revendication doit être présente dans le jeton pour que la validation réussisse.                                                       | Non                                                                               | all                                                                               |
 | require-expiration-time         | Propriété booléenne. Spécifie si une revendication d’expiration est requise dans le jeton.                                                                                                                                                                                                                                                                                                                                                                               | Non                                                                               | true                                                                              |
@@ -601,42 +601,42 @@ Pour plus d’informations sur les certificats d’autorité de certification pe
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true|false" 
-    validate-trust="true|false" 
-    validate-not-before="true|false" 
-    validate-not-after="true|false" 
-    ignore-error="true|false"> 
-    <identities> 
-        <identity  
-            thumbprint="certificate thumbprint"  
-            serial-number="certificate serial number" 
-            common-name="certificate common name"  
-            subject="certificate subject string"  
-            dns-name="certificate DNS name" 
-            issuer="certificate issuer" 
-            issuer-thumbprint="certificate issuer thumbprint"  
-            issuer-certificate-id="certificate identifier" /> 
-    </identities> 
+<validate-client-certificate 
+    validate-revocation="true|false"
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false">
+    <identities>
+        <identity 
+            thumbprint="certificate thumbprint"
+            serial-number="certificate serial number"
+            common-name="certificate common name"
+            subject="certificate subject string"
+            dns-name="certificate DNS name"
+            issuer-subject="certificate issuer"
+            issuer-thumbprint="certificate issuer thumbprint"
+            issuer-certificate-id="certificate identifier" />
+    </identities>
 </validate-client-certificate> 
 ```
 
 ### <a name="example"></a>Exemple
 
-L’exemple suivant valide un certificat client pour qu’il corresponde aux règles de validation par défaut de la stratégie et vérifie si l’objet et l’émetteur correspondent aux valeurs spécifiées.
+L’exemple suivant valide un certificat client pour qu’il corresponde aux règles de validation par défaut de la stratégie et vérifie si le nom de l’objet et de l’émetteur correspondent aux valeurs spécifiées.
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true" 
-    validate-trust="true" 
-    validate-not-before="true" 
-    validate-not-after="true" 
-    ignore-error="false"
-    <identities> 
-        <identity 
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
             subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
-            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
-    </identities> 
+            issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities>
 </validate-client-certificate> 
 ```
 
@@ -662,9 +662,9 @@ L’exemple suivant valide un certificat client pour qu’il corresponde aux rè
 | common-name | Nom commun du certificat (partie de la chaîne d’objet). | non | N/A |
 | subject | Chaîne d’objet. Doit suivre le format du nom unique. | non | N/A |
 | dns-name | Valeur de l’entrée dnsName à l’intérieur de l’autre nom de la revendication. | non | N/A | 
-| émetteur | Objet de l’émetteur. Doit suivre le format du nom unique. | non | N/A | 
+| issuer-subject | Objet de l’émetteur. Doit suivre le format du nom unique. | non | N/A | 
 | issuer-thumbprint | Empreinte de l’émetteur. | non | N/A | 
-| issuer-certificate-id | Identificateur de l’entité de certificat existante représentant la clé publique de l’émetteur. | non | N/A | 
+| issuer-certificate-id | Identificateur de l’entité de certificat existante représentant la clé publique de l’émetteur. S’exclut mutuellement avec les autres attributs de l’émetteur.  | non | N/A | 
 
 ### <a name="usage"></a>Usage
 

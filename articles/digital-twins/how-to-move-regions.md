@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 9b4d896edea86d85b650325ac5efb7f3cf439b17
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9617fc3cc7668d8449a9ec3b46e6c82228783e9d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953935"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447146"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
@@ -79,7 +79,7 @@ Ensuite, vous allez finaliser le déplacement de votre instance en créant une i
 
 ### <a name="create-a-new-instance"></a>Créer une instance
 
-Tout d’abord, créez une instance d’Azure Digital Twins dans votre région cible. Effectuez les étapes indiquées dans le [guide pratique Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Gardez à l’esprit les conseils suivants :
+Tout d’abord, créez une instance d’Azure Digital Twins dans votre région cible. Suivez les étapes décrites dans [Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Gardez à l’esprit les conseils suivants :
 
 * Vous pouvez conserver le même nom pour la nouvelle instance *si* elle se trouve dans un groupe de ressources différent. Si vous devez utiliser le groupe de ressources contenant votre instance d’origine, la nouvelle instance doit porter son propre nom distinct.
 * Lorsque vous êtes invité à indiquer une localisation, entrez la nouvelle région cible.
@@ -110,7 +110,7 @@ Ces vues confirment que vos modèles, jumeaux et graphe ont été rechargés dan
 
 Si vous avez des points de terminaison ou des routes dans votre instance d’origine, vous devez les recréer dans votre nouvelle instance. Si votre instance d’origine ne présente aucun point de terminaison et aucune route, ou si vous ne souhaitez pas les déplacer vers la nouvelle instance, vous pouvez passer à la [section suivante](#relink-connected-resources).
 
-Sinon, suivez les étapes décrites dans le [guide pratique Gérer les points de terminaison et les routes](how-to-manage-routes-portal.md) en utilisant la nouvelle instance. Gardez à l’esprit les conseils suivants :
+Sinon, suivez les étapes décrites dans [Gérer les points de terminaison et les routes](how-to-manage-routes.md) en utilisant la nouvelle instance. Gardez à l’esprit les conseils suivants :
 
 * Vous n’avez *pas* besoin de recréer la ressource Event Grid, Event Hubs ou Service Bus que vous utilisez pour le point de terminaison. Pour plus d’informations, consultez la section « Prérequis » dans les instructions relatives au point de terminaison. Il vous suffit de recréer le point de terminaison sur l’instance Azure Digital Twins.
 * Vous pouvez réutiliser les noms des points de terminaison et des routes, car ils sont étendus à une autre instance.
@@ -132,7 +132,7 @@ Les ressources exactes que vous devez modifier varient en fonction de votre scé
 * Time Series Insights.
 * Azure Maps.
 * Service IoT Hub Device Provisioning.
-* Applications personnelles ou d’entreprise en dehors d’Azure, comme l’application cliente créée dans le [Tutoriel : Coder une application cliente](tutorial-code.md), qui se connecte à l’instance et appelle les API Azure Digital Twins.
+* Applications personnelles ou d’entreprise en dehors d’Azure, telles que l’application cliente créée dans le [Coder une application cliente](tutorial-code.md), qui se connecte à l’instance et appelle les API Azure Digital Twins.
 * Les inscriptions d’applications Azure AD n’ont *pas* besoin d’être recréées. Si vous utilisez une [inscription d’application](./how-to-create-app-registration-portal.md) pour vous connecter aux API Azure Digital Twins, vous pouvez réutiliser la même inscription d’application avec votre nouvelle instance.
 
 À l’issue de cette étape, votre nouvelle instance située dans la région cible doit être une copie de l’instance d’origine.

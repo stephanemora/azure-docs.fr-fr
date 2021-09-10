@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 324e30df7f63f5ca0abf7abd50ab890495e4e7cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 973d6f9450d0cb58df5b1e8dcd208990806abc54
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721982"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967326"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec Azure Migrate
 
@@ -137,7 +137,8 @@ Pour configurer un nouveau projet :
 L’outil Azure Migrate : découverte et évaluation utilise une appliance Azure Migrate légère. L’appliance exécute la découverte du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate. Configurez l’appliance en déployant un modèle OVA pouvant être téléchargé à partir du projet.
 
 > [!NOTE]
-> Si vous ne pouvez pas configurer l’appliance en utilisant le modèle OVA, vous pouvez la configurer en exécutant un script PowerShell sur un serveur existant exécutant Windows Server 2016. Découvrez comment [utiliser PowerShell pour configurer une appliance Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
+> Si vous ne pouvez pas configurer l’appliance en utilisant le modèle OVA, vous pouvez la configurer en exécutant un script PowerShell sur un serveur existant exécutant Windows Server 2016. Découvrez comment [utiliser PowerShell pour configurer une appliance Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
+> L’option de déploiement d’une appliance à l’aide d’un modèle OVA n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](/azure/migrate/deploy-appliance-script-government) sur le déploiement d’une appliance pour Azure Government Cloud.
 
 ### <a name="deploy-by-using-an-ova-template"></a>Déployer en utilisant un modèle OVA
 

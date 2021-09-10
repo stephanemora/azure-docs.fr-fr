@@ -4,12 +4,12 @@ description: Configurez un pool de calcul dédié (pool d’agents) dans votre r
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a303155b82cc35461cd6080b3cce694ffe7a1fc4
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: c8c790e551cd6e31df515a3af9fc0ea835be1ce4
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122837"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769668"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Exécuter une tâche ACR sur un pool d’agents dédié
 
@@ -31,7 +31,7 @@ Cette fonctionnalité est disponible uniquement au niveau de service **Premium**
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
 - Les pools d’agents de tâche prennent actuellement en charge les nœuds Linux. Les nœuds Windows ne sont actuellement pas pris en charge.
-- Les pools d’agents de tâche sont disponibles en préversion dans les régions suivantes : USA Ouest 2, USA Centre Sud, USA Est 2, USA Est, USA Centre, Europe Ouest, Europe Nord, Canada Centre, USGov Arizona, USGov Texas et USGov Virginie.
+- Les pools d’agents de tâche sont disponibles en préversion dans les régions suivantes : USA Ouest 2, USA Centre Sud, USA Est 2, USA Est, USA Centre, Europe Ouest, Europe Nord, Canada Centre, Asie Est, USGov Arizona, USGov Texas et USGov Virginie.
 - Pour chaque registre, le quota total par défaut de processeurs virtuels (Core) est de 16 pour tous les pools d’agents standard et de 0 pour les pools d’agents isolés. Ouvrez une [demande de support ][open-support-ticket] pour une allocation supplémentaire.
 - À l’heure actuelle, vous ne pouvez pas annuler une tâche exécutée sur un pool d’agents.
 

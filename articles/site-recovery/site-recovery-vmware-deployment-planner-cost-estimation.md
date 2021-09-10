@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: 92d1c5babc2daacdd0b0687a5ff779fcd4272e71
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 7dc82a163a9365532b21af447b823659bf40c71f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577067"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225330"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examiner les estimations de coût dans le planificateur de déploiement VMware 
 
@@ -65,7 +65,10 @@ Le coût total de la récupération d’urgence est catégorisé selon deux éta
 **Coût de la réplication** : coût engagé au moment de la réplication. Il couvre le coût du stockage, du réseau et de la licence d’Azure Site Recovery. 
 
 **Coût de simulation de reprise d’activité** : coût engagé au moment des simulations de reprise d’activité. Azure Site Recovery prépare des machines virtuelles pendant les extractions de la récupération d’urgence. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution.
-Extraction de la récupération d’urgence totale par an = Nombre d’extractions de la récupération d’urgence x Durée de chaque extraction de la récupération d’urgence (jours) Coût moyen d’extraction de la récupération d’urgence - Coût total de l’extraction de la récupération d’urgence / 12
+
+1.  Durée totale des tests de récupération d’urgence sur un an = Nombre de tests de récupération d’urgence x Durée de chaque test de récupération d’urgence (en jours)
+
+2.  Coût moyen des tests de récupération d’urgence (par mois) = Coût total des tests de récupération d’urgence / 12
 
 ### <a name="storage-cost-table"></a>Table des coûts de stockage :
 Ce tableau montre les coûts de stockage standard et premium liés à la réplication et aux extractions de la récupération d’urgence avec et sans remise.

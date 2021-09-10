@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/4/2021
 ms.author: damaerte
-ms.openlocfilehash: 250e4bc171950bb643a75bdc9d80bdb2941cb97a
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: f380db2502a34115b071c3aa3e70f18a67d2ca6b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539301"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532706"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 
@@ -113,9 +113,9 @@ Apprenez à monter un [compte de stockage nouveau ou existant](persisting-shell-
 
 En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell](./features.md).
 
-## <a name="complaince"></a>Conformité
+## <a name="compliance"></a>Conformité
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
-Toutes les infrastructures Cloud Shell sont équipées du double chiffrement au repos par défaut. Aucune action des utilisateurs n’est requise.
+Toute l’infrastructure de Cloud Shell est conforme au chiffrement double au repos par défaut. Aucune action des utilisateurs n’est requise.
 
 ## <a name="pricing"></a>Tarifs
 

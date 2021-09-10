@@ -7,20 +7,20 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 0a18ee6961cb601b0fa9db7213eb6115afa20096
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 60e2044bc837c986701ec7be048fde04cf6a529a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765194"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563110"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Options de stockage et de déplacement des données pour les fichiers d’éléments multimédias et de sortie destinés au rendu
 
 Plusieurs options permettent de rendre les fichiers de scènes et d’éléments multimédias disponibles pour les applications de rendu sur les machines virtuelles du pool :
 
-* [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) :
+* [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) :
   * Les fichiers de scènes et d’éléments multimédias sont chargés vers le stockage d’objets blob à partir d’un système de fichiers local. Lorsque l’application est exécutée par une tâche, les fichiers requis sont copiés à partir du stockage d’objets blob sur la machine virtuelle. Ils sont ainsi accessibles à l’application de rendu. Les fichiers de sortie sont écrits par l’application de rendu sur le disque de la machine virtuelle, puis copiés dans le stockage d’objets blob.  Si nécessaire, les fichiers de sortie peuvent être téléchargés à partir du stockage d’objets blob sur un système de fichiers local.
-  * Le Stockage Blob Azure offre une option simple et économique pour les projets de moindre envergure.  Tous les fichiers d’éléments multimédias sont requis sur chaque machine virtuelle du pool. Par conséquent, lorsque le nombre et la taille des fichiers d’éléments multimédias augmentent, il convient de s’assurer que les transferts de fichiers peuvent s’effectuer aussi efficacement que possible.  
+  * Le Stockage Blob Azure offre une option simple et économique pour des projets de moindre envergure.  Tous les fichiers d’éléments multimédias sont requis sur chaque machine virtuelle du pool. Par conséquent, lorsque le nombre et la taille des fichiers d’éléments multimédias augmentent, il convient de s’assurer que les transferts de fichiers peuvent s’effectuer aussi efficacement que possible.  
 * Stockage Azure en tant que système de fichiers en utilisant [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) :
   * Pour les machines virtuelles Linux, un compte de stockage peut être exposé et utilisé en tant que système de fichiers lorsque le pilote de système de fichiers virtuel blobfuse est utilisé.
   * Cette option a pour avantage d’être particulièrement économique. En effet, aucune machine virtuelle n’est requise pour le système de fichiers. De plus, la mise en cache de blobfuse sur les machines virtuelles évite les téléchargements répétés des mêmes fichiers pour plusieurs travaux et tâches.  Le déplacement des données s’effectue également de façon simple. En effet, les fichiers sont simplement des blobs, et des API et outils standard comme azcopy peuvent être utilisés pour copier un fichier entre un système de fichiers local et le Stockage Azure.

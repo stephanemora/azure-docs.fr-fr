@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 023320d29eac767e62e07c58de4f8fa6ac61b61f
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: a7841fcafff49dab43d944cfa6fd84e9b7119080
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112117855"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259998"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Empêcher la suppression accidentelle de partages de fichiers Azure
 Azure Files offre une suppression réversible pour les partages de fichiers. La suppression réversible vous permet de récupérer votre partage de fichiers lorsqu’il est supprimé par erreur par une application ou un autre utilisateur du compte de stockage.
@@ -50,7 +50,7 @@ La période de rétention désigne la durée pendant laquelle les partages de fi
 
 Les partages de fichiers Standard et Premium sont facturés en fonction de la capacité utilisée lorsqu’ils sont supprimés de manière réversible, plutôt qu’en fonction d’une capacité provisionnée. En outre, les partages de fichiers Premium sont facturés au taux d’instantané alors qu’ils sont dans l’état de suppression réversible. Les partages de fichiers Standard sont facturés au taux régulier alors qu’ils sont dans l’état de suppression réversible. Vous ne serez pas facturé pour des données supprimées définitivement à l’issue de la période de rétention configurée.
 
-Pour plus d’informations sur les prix du Stockage Fichier Azure en général, consultez la [page de tarification Stockage Fichier Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+Pour plus d’informations sur les prix d’Azure Files en général, consultez la [page de tarification Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
 Lorsque vous activez initialement la suppression réversible, nous vous recommandons d’utiliser une courte période de rétention pour mieux comprendre l’impact de cette fonctionnalité sur votre facture.
 

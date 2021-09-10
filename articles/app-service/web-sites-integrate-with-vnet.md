@@ -4,21 +4,21 @@ description: Intégrez une application à Azure App Service avec des réseaux vi
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 08/04/2021
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 42391a073d7cb1d7e6850e298c2be32d550bb813
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 444831d1d8e9982ac0837e90fe04941b5ae928a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832065"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524266"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
 Cet article décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](./overview.md). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. La fonctionnalité d’intégration au réseau virtuel permet à vos applications d’accéder à des ressources dans ou via un réseau virtuel. Elle n’autorise pas l’accès privé à vos applications.
 
-Azure App Service propose deux variantes de la fonctionnalité d’intégration au réseau virtuel :
+Azure App Service propose deux variantes :
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -28,39 +28,158 @@ Azure App Service propose deux variantes de la fonctionnalité d’intégration 
 
 1. Sélectionnez **Ajouter un réseau virtuel**.
 
-   ![Sélectionner l’intégration au réseau virtuel][1]
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-app.png" alt-text="Sélectionner l’intégration au réseau virtuel":::
 
 1. La liste déroulante contient tous les réseaux virtuels Azure Resource Manager de votre abonnement dans la même région. Sous cette liste se trouve une liste des réseaux virtuels Azure Resource Manager dans toutes les autres régions. Sélectionnez le réseau virtuel avec lequel vous souhaitez effectuer l’intégration.
 
-   ![Sélectionner le réseau virtuel][2]
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-add-vnet.png" alt-text="Sélectionner le réseau virtuel":::
 
-   * Si le réseau virtuel se trouve dans la même région, créez un sous-réseau ou sélectionnez un sous-réseau préexistant vide.
-   * Pour sélectionner un réseau virtuel dans une autre région, vous devez disposer d’une passerelle de réseau virtuel provisionnée dont l’option Point à site est activée.
-   * Pour une intégration à un réseau virtuel classique, au lieu de sélectionner la liste déroulante **Réseau virtuel**, sélectionnez **Cliquez ici pour vous connecter à un réseau virtuel classique**. Sélectionnez le réseau virtuel classique que vous souhaitez utiliser. Le réseau virtuel cible doit déjà être doté d’une passerelle de réseau virtuel provisionnée dont l’option Point à site est activée.
+    * Si le réseau virtuel se trouve dans la même région, créez un sous-réseau ou sélectionnez un sous-réseau préexistant vide.
+    * Pour sélectionner un réseau virtuel dans une autre région, vous devez disposer d’une passerelle de réseau virtuel provisionnée dont l’option Point à site est activée.
+    * Pour une intégration à un réseau virtuel classique, au lieu de sélectionner la liste déroulante **Réseau virtuel**, sélectionnez **Cliquez ici pour vous connecter à un réseau virtuel classique**. Sélectionnez le réseau virtuel classique que vous souhaitez utiliser. Le réseau virtuel cible doit déjà être doté d’une passerelle de réseau virtuel provisionnée dont l’option Point à site est activée.
 
-    ![Sélectionner un réseau virtuel classique][3]
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-classic.png" alt-text="Sélectionner un réseau virtuel classique":::
 
 Lors de l’intégration, votre application est redémarrée. Une fois l’intégration terminée, vous verrez des informations sur le réseau virtuel auquel vous êtes intégré.
 
 ## <a name="regional-vnet-integration"></a>Intégration au réseau virtuel régional
 
-[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
+L’intégration au réseau virtuel régional prend en charge la connexion à un réseau virtuel dans la même région et ne nécessite pas de passerelle. L’utilisation de l’intégration au réseau virtuel régional permet à votre application d’accéder aux :
+
+* Ressources d’un réseau virtuel dans la même région que votre application.
+* Ressources de réseaux virtuels appairés au réseau virtuel auquel votre application est intégrée.
+* Services sécurisés des points de terminaison de service.
+* Ressources sur des connexions Azure ExpressRoute.
+* Ressources dans le réseau virtuel auquel vous êtes intégré.
+* Ressources sur des connexions appairées, notamment des connexions Azure ExpressRoute.
+* Services avec points de terminaison privés.
+
+Lorsque vous utilisez l’intégration au réseau virtuel avec des réseaux virtuels d’une même région, vous pouvez utiliser les fonctionnalités de même en réseau Azure suivantes :
+
+* **Groupes de sécurité réseau (NSG)**  : Vous pouvez bloquer le trafic sortant avec un groupe de sécurité réseau placé sur votre sous-réseau d’intégration. Les règles de trafic entrant ne s’appliquent pas, car vous ne pouvez pas utiliser l’intégration au réseau virtuel pour fournir un accès entrant à votre application.
+* **Tables de routage (Routes définies par l’utilisateur)**  : Vous pouvez placer une table de routage sur le sous-réseau d’intégration pour envoyer le trafic sortant où vous voulez.
+
+La fonctionnalité est entièrement prise en charge pour les applications Windows et Linux, notamment les [conteneurs personnalisés](./quickstart-custom-container.md). Tous les comportements sont identiques entre les applications Windows et les applications Linux.
 
 ### <a name="how-regional-vnet-integration-works"></a>Fonctionnement de l’intégration au réseau virtuel régional
 
 Les applications contenues dans App Service sont hébergées dans des rôles de travail. Les plans tarifaires de base et supérieurs sont des plans d’hébergement dédiés dans lesquels aucune autre charge de travail de client ne s’exécute sur les mêmes Workers. L’intégration au réseau virtuel régional opère en montant des interfaces virtuelles avec des adresses du sous-réseau délégué. Comme l’adresse de départ se trouve dans votre réseau virtuel, elle peut accéder à la plupart des éléments contenus dans votre réseau virtuel ou accessibles par celui-ci, comme le ferait une machine virtuelle dans votre réseau virtuel. L’implémentation de la mise en réseau est différente de l’exécution d’une machine virtuelle dans votre réseau virtuel. C’est pourquoi certaines fonctionnalités de mise en réseau ne sont pas encore disponibles.
 
-![Fonctionnement de l’intégration au réseau virtuel régional][5]
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-regional-works.png" alt-text="Fonctionnement de l’intégration au réseau virtuel régional":::
 
-Quand l’intégration au réseau virtuel régional est activée, votre application continue de passer des appels sortants vers Internet en empruntant les mêmes canaux que d’habitude. Les adresses sortantes figurant sur le portail des propriétés de l’application sont toujours les adresses qu’utilise votre application. Ce qui change pour votre application, c’est que les appels aux services sécurisés de point de terminaison de service ou aux adresses RFC 1918 accèdent à votre réseau virtuel. Si WEBSITE_VNET_ROUTE_ALL a la valeur 1, tout le trafic sortant peut être envoyé dans votre réseau virtuel.
-
-> [!NOTE]
-> `WEBSITE_VNET_ROUTE_ALL` n’est actuellement pas pris en charge dans les conteneurs Windows.
-> 
+Lorsque l’intégration au réseau virtuel régional est activée, votre application envoie la sortie par l’intermédiaire de votre réseau virtuel. Les adresses sortantes figurant sur le portail des propriétés de l’application sont toujours les adresses qu’utilise votre application. Si le routage de tout le trafic est activé, tout le trafic sortant est envoyé dans votre réseau virtuel. Si le routage de tout le trafic n’est pas activé, seul le trafic privé (RFC1918) et les points de terminaison de service configurés sur le sous-réseau d’intégration seront envoyés dans le réseau virtuel, et le trafic sortant vers l’Internet passera par les mêmes canaux que d’habitude.
 
 La fonctionnalité ne prend en charge qu’une seule interface virtuelle par Worker. Une interface virtuelle par Worker signifie une intégration au réseau virtuel régional par plan App Service. Toutes les applications d’un même plan App Service peuvent utiliser la même intégration de réseau virtuel. Si vous avez besoin d’une application pour vous connecter à un autre réseau virtuel, vous devez créer un autre plan App Service. L’interface virtuelle utilisée n’est pas une ressource à laquelle les clients peuvent accéder directement.
 
 Compte tenu du mode de fonctionnement de cette technologie, le trafic utilisé avec l’intégration au réseau virtuel n’apparaît pas dans les journaux de flux du groupe de sécurité réseau (NSG) ou d’Azure Network Watcher.
+
+### <a name="subnet-requirements"></a>Configuration requise du sous-réseau
+
+L’intégration au réseau virtuel dépend d’un sous-réseau dédié. Lorsque vous approvisionnez un sous-réseau, le sous-réseau Azure perd cinq adresses IP dès le début. Une seule adresse du sous-réseau d’intégration est utilisée pour chaque instance de plan. Lorsque vous définissez l’échelle de votre application sur quatre instances, quatre adresses sont utilisées. 
+
+Lorsque vous en augmentez ou diminuez la taille, l’espace d’adressage requis est doublé pendant une brève période de temps. Cela affecte les instances prises en charge réelles et disponibles pour une taille de sous-réseau donnée. Le tableau suivant indique à la fois le nombre maximal d’adresses disponibles par bloc CIDR et l’impact de cette mise à l’échelle horizontale :
+
+| Taille de bloc CIDR | Nombre maximal d’adresses disponibles | Mise à l’échelle horizontale maximale (instances)<sup>*</sup> |
+|-----------------|-------------------------|---------------------------------|
+| /28             | 11                      | 5                               |
+| /27             | 27                      | 13                              |
+| /26             | 59                      | 29                              |
+
+<sup>*</sup>Part du principe que vous devrez effectuer un scale-up ou un scale-down en taille ou en SKU à un moment donné. 
+
+Comme la taille du sous-réseau ne peut pas être modifiée après l’affectation, utilisez un sous-réseau suffisamment grand pour s’adapter à l’échelle que votre application est susceptible d’atteindre. Pour éviter tout problème de capacité du sous-réseau, vous devez utiliser un /26 avec 64 adresses.
+
+Lorsque vous souhaitez que les applications de votre plan atteignent un réseau virtuel auquel sont déjà connectées des applications d’un autre plan, sélectionnez un sous-réseau différent de celui utilisé par l’intégration au réseau virtuel préexistante.
+
+### <a name="routes"></a>Itinéraires
+
+Il existe deux types de routage à prendre en compte lors de la configuration d’une intégration au réseau virtuel régional. Le routage des applications définit quel trafic est acheminé de votre application vers le réseau virtuel. Le routage du réseau permet de contrôler la manière dont le trafic est acheminé depuis votre réseau virtuel vers l’extérieur.
+
+#### <a name="application-routing"></a>Routage d’applications
+
+Lorsque vous configurez le routage des applications, vous pouvez acheminer tout le trafic ou seulement le trafic privé (également appelé trafic [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3)) dans votre réseau virtuel. Cette configuration s’effectue par le biais du paramètre Tout acheminer. Si Tout acheminer est désactivé, votre application achemine uniquement le trafic privé vers votre réseau virtuel. Si vous souhaitez acheminer l’ensemble de votre trafic sortant vers votre réseau virtuel, assurez-vous que le paramètre Tout acheminer est activé.
+
+> [!NOTE]
+> * Lorsque Tout acheminer est activé, tout le trafic est soumis aux NSG et UDR appliqués à votre sous-réseau d’intégration. Lorsque l’acheminement de tout le trafic est activé, le trafic sortant est toujours envoyé à partir des adresses répertoriées dans les propriétés de votre application, sauf si vous fournissez des itinéraires qui dirigent le trafic ailleurs.
+> 
+> * Tout acheminer n’est actuellement pas pris en charge dans les conteneurs Windows.
+>
+> * L’intégration au réseau virtuel régional n’est pas en mesure d’utiliser le port 25.
+
+Vous pouvez suivre les étapes suivantes pour désactiver Tout acheminer dans votre application via le portail : 
+
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-enabled.png" alt-text="Tout acheminer activé":::
+
+1. Accédez à l’interface utilisateur **Intégration au réseau virtuel** dans votre portail d’application.
+1. Définissez **Tout acheminer** sur Désactivé.
+    
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-disabling.png" alt-text="Désactiver Tout acheminer":::
+
+1. Sélectionnez **Oui**.
+
+Vous pouvez également configurer Tout acheminer à l’aide de CLI (*Remarque* : `az version` minimale requise est 2.27.0) :
+
+```azurecli-interactive
+az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
+```
+
+Le paramètre de configuration Tout acheminer remplace et prévaut sur le paramètre d’application `WEBSITE_VNET_ROUTE_ALL` hérité.
+
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="Paramètre d’application Tout acheminer":::
+
+#### <a name="network-routing"></a>Routage réseau
+
+Vous pouvez utiliser des tables de routage pour router le trafic sortant depuis votre application vers où vous voulez. Les tables de routage ont un impact sur le trafic de destination. Lorsque Tout acheminer est désactivé dans le [routage des applications](#application-routing), seul le trafic privé (RFC1918) est concerné par vos tables de routage. Les destinations courantes peuvent inclure des pare-feu ou des passerelles. Les routes définies sur votre sous-réseau d’intégration n’affectent pas les réponses aux requêtes d’application entrantes. 
+
+Si vous souhaitez router tout le trafic sortant localement, vous pouvez utiliser une table de route pour envoyer l’intégralité du trafic sortant vers votre passerelle ExpressRoute. Si vous choisissez de router le trafic vers une passerelle, veillez à définir des routes dans le réseau externe pour renvoyer des réponses.
+
+Les routes BGP (Border Gateway Protocol) affectent également le trafic de votre application. Si vous avez des routes BGP provenant par exemple d’une passerelle ExpressRoute, le trafic sortant de votre application est affecté. Semblable aux itinéraires définis par l’utilisateur, les itinéraires BGP ont un impact sur le trafic en fonction des paramètres d’étendue du routage.
+
+### <a name="network-security-groups"></a>Groupes de sécurité réseau
+
+Une application utilisant l’intégration au réseau virtuel régional peut utiliser un [groupe de sécurité réseau][VNETnsg] pour bloquer le trafic sortant vers des ressources dans votre réseau virtuel ou sur Internet. Pour bloquer le trafic vers des adresses publiques, vous devez vous assurer d’activer [Tout acheminer](#application-routing) vers le réseau virtuel. Lorsque Tout acheminer n’est pas activé, les NSG sont uniquement appliqués au trafic RFC1918.
+
+Un NSG appliqué à votre sous-réseau d’intégration est en vigueur indépendamment des tables de routage appliquées à votre sous-réseau d’intégration. 
+
+Les règles de trafic entrant dans un NSG ne s’appliquent pas à votre application, car l’intégration au réseau virtuel n’a d’incidence que sur le trafic sortant de votre application. Pour contrôler le trafic entrant vers votre application, utilisez la fonctionnalité Restrictions d’accès.
+
+### <a name="service-endpoints"></a>Points de terminaison de service
+
+L’intégration au réseau virtuel régional vous permet d’atteindre les services Azure sécurisés avec les points de terminaison de service. Pour accéder à un service sécurisé par point de terminaison de service, vous devez effectuer les opérations suivantes :
+
+* Configurez l’intégration au réseau virtuel régional avec votre application web pour vous connecter à un sous-réseau spécifique pour l’intégration.
+* Accédez au service de destination et configurez des points de terminaison de service sur le sous-réseau d’intégration.
+
+### <a name="private-endpoints"></a>Instances Private Endpoint
+
+Si vous souhaitez effectuer des appels vers des [points de terminaison privés][privateendpoints], vous devez vous assurer que vos recherches DNS seront résolues sur le point de terminaison privé. Vous pouvez appliquer ce comportement de l’une des façons suivantes : 
+
+* Intégrer à des zones privées Azure DNS Si votre réseau virtuel n’a pas de serveur DNS personnalisé, cette opération est effectuée automatiquement lorsque les zones sont liées au réseau virtuel.
+* Gérer le point de terminaison privé dans le serveur DNS utilisé par votre application. Pour ce faire, vous devez connaître l’adresse du point de terminaison privé, puis pointer le point de terminaison que vous essayez d’atteindre vers cette adresse à l’aide d’un enregistrement A.
+* Configurez votre propre serveur DNS pour le transfert vers des zones privées Azure DNS.
+
+### <a name="azure-dns-private-zones"></a>Zones privées Azure DNS 
+
+Une fois votre application intégrée à votre réseau virtuel, elle utilise le même serveur DNS que celui avec lequel votre réseau virtuel est configuré. Si aucun DNS personnalisé n’est spécifié, elle utilise le DNS par défaut d’Azure et toute zone privée liée au réseau virtuel.
+
+> [!NOTE]
+> Pour les applications Linux, les zones privées Azure DNS fonctionnent uniquement si Tout acheminer est activé.
+
+### <a name="limitations"></a>Limites
+
+Il existe certaines limitations concernant l’utilisation de l’intégration au réseau virtuel avec les réseaux virtuels d’une même région :
+
+* Vous ne pouvez pas accéder à des ressources via des connexions d’appairage mondiales.
+* Vous ne pouvez pas atteindre des ressources sur des connexions de Peering avec des réseaux virtuels classiques.
+* Cette fonctionnalité est disponible à partir de toutes les unités d’échelle App Service dans Premium v2 et Premium v3. Elle est également disponible dans Standard, mais uniquement à partir d’unités d’échelle App Service plus récentes. Si vous utilisez une unité d’échelle plus ancienne, vous ne pouvez utiliser la fonctionnalité qu’à partir d’un plan App Service Premium v2. Si vous souhaitez vous assurer de pouvoir utiliser la fonctionnalité dans un plan App Service Standard, créez votre application dans un plan App Service Premium v3. Ces plans ne sont pris en charge que sur les unités d’échelle les plus récentes. Vous pouvez effectuer un scale-down par la suite si vous le souhaitez.  
+* Le sous-réseau d’intégration peut être utilisé par un seul plan App Service.
+* La fonctionnalité ne peut pas être utilisée par des applications de plan Isolé qui se trouvent dans un environnement App Service.
+* La fonctionnalité nécessite un sous-réseau inutilisé /28 ou d’une taille supérieure dans un réseau virtuel Azure Resource Manager.
+* L’application et le réseau virtuel doivent être dans la même région.
+* Vous ne pouvez pas supprimer un réseau virtuel avec une application intégrée. Supprimez l’intégration avant de supprimer le réseau virtuel.
+* Vous ne pouvez disposer que d’une seule intégration au réseau virtuel régional par plan App Service. Plusieurs applications d’un même plan App Service peuvent utiliser le même réseau virtuel.
+* Vous ne pouvez pas changer l’abonnement d’une application ou d’un plan quand une application utilise l’intégration au réseau virtuel régional.
+* Votre application ne peut pas résoudre les adresses dans Azure DNS Private Zones sur les plans Linux sans modification de la configuration.
 
 ## <a name="gateway-required-vnet-integration"></a>Intégration au réseau virtuel avec passerelle obligatoire
 
@@ -81,7 +200,7 @@ Vous ne pouvez pas utiliser l’intégration au réseau virtuel avec passerelle 
 * Pour accéder à des ressources sécurisées de points de terminaison de service.
 * Avec une passerelle de coexistence qui prend en charge à la fois les connexions ExpressRoute et les VPN de point à site ou site à site.
 
-### <a name="set-up-a-gateway-in-your-azure-virtual-network"></a>Configurer une passerelle dans votre réseau virtuel Azure ###
+### <a name="set-up-a-gateway-in-your-azure-virtual-network"></a>Configurer une passerelle dans votre réseau virtuel Azure
 
 Pour créer une passerelle :
 
@@ -97,7 +216,7 @@ Si vous créez la passerelle pour l’utiliser avec l’intégration au réseau 
 
 L’intégration au réseau virtuel avec passerelle obligatoire s’appuie sur la technologie VPN de point à site. Les VPN de point à site limitent l’accès réseau à la seule machine virtuelle qui héberge l’application. Les applications sont limitées au seul envoi du trafic vers Internet, via des connexions hybrides ou via l’intégration au réseau virtuel. Lorsque votre application est configurée avec le portail pour utiliser l’intégration au réseau virtuel avec passerelle obligatoire, une négociation complexe est managée en votre nom pour créer et attribuer des certificats sur la passerelle et du côté de l’application. Au final, les Workers utilisés pour héberger vos applications sont en mesure de se connecter directement à la passerelle de réseau virtuel, dans le réseau virtuel sélectionné.
 
-![Fonctionnement de l’intégration au réseau virtuel avec passerelle obligatoire][6]
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-gateway-works.png" alt-text="Fonctionnement de l’intégration au réseau virtuel avec passerelle obligatoire":::
 
 ### <a name="access-on-premises-resources"></a>Accès aux ressources locales
 
@@ -126,12 +245,12 @@ Les connexions et déconnexions avec un réseau virtuel se font au niveau de l�
 
 La seule opération que vous pouvez effectuer dans la vue d’application de votre instance d’intégration au réseau virtuel consiste à déconnecter votre application du réseau virtuel auquel elle est actuellement connectée. Pour déconnecter votre application d’un réseau virtuel, sélectionnez **Déconnecter**. Votre application est redémarrée quand vous vous déconnectez d’un réseau virtuel. La déconnexion ne change pas votre réseau virtuel. Le sous-réseau ou la passerelle ne sont pas supprimés. Donc, si vous souhaitez supprimer votre réseau virtuel, déconnectez d’abord votre application du réseau virtuel puis supprimez les ressources qu’il contient comme les passerelles.
 
-L’interface utilisateur de l’intégration du réseau virtuel du plan App Service vous montre toutes les intégrations de réseau virtuel utilisées par les applications de votre plan App Service. Pour voir des détails supplémentaires sur chaque réseau virtuel, sélectionnez le réseau virtuel qui vous intéresse. Vous pouvez effectuer deux actions ici pour l’intégration au réseau virtuel avec passerelle obligatoire :
+L’interface utilisateur de l’intégration au réseau virtuel du plan App Service vous montre toutes les intégrations au réseau virtuel utilisées par les applications de votre plan App Service. Pour voir des détails supplémentaires sur chaque réseau virtuel, sélectionnez le réseau virtuel qui vous intéresse. Vous pouvez effectuer deux actions ici pour l’intégration au réseau virtuel avec passerelle obligatoire :
 
 * **Synchroniser le réseau** : L’opération de synchronisation du réseau s’adresse uniquement à la fonctionnalité d’intégration au réseau virtuel dépendante de la passerelle. L’exécution d’une opération de synchronisation du réseau est l’assurance que vos certificats et informations réseau sont synchronisés. Si vous ajoutez ou changez le DNS de votre réseau virtuel, effectuez une opération de synchronisation du réseau. Cette opération redémarre toutes les applications qui utilisent ce réseau virtuel. Cette opération ne fonctionnera pas si l’application et le réseau virtuel utilisés appartiennent à différents abonnements.
 * **Ajouter des routes** : L’ajout de routes achemine le trafic sortant vers votre réseau virtuel.
 
-L’adresse IP privée assignée à l’instance est exposée via la variable d’environnement **WEBSITE_PRIVATE_IP**. L’interface utilisateur de la console Kudu affiche également la liste des variables d’environnement disponibles pour l’application web. Cette adresse IP est attribuée à partir de la plage d’adresses du sous-réseau intégré. Pour l’intégration au réseau virtuel régional, la valeur de WEBSITE_PRIVATE_IP est une adresse IP de la plage d’adresses du sous-réseau délégué et, pour l’intégration au réseau virtuel avec passerelle obligatoire, la valeur est une adresse IP de la plage d’adresses du pool d’adresses de point à site configuré sur la passerelle de réseau virtuel. Il s’agit de l’adresse IP qui sera utilisée par l’application web pour se connecter aux ressources via le réseau virtuel. 
+L’adresse IP privée assignée à l’instance est exposée via la variable d’environnement **WEBSITE_PRIVATE_IP**. L’interface utilisateur de la console Kudu affiche également la liste des variables d’environnement disponibles pour l’application web. Cette adresse IP est attribuée à partir de la plage d’adresses du sous-réseau intégré. Pour l’intégration au réseau virtuel régional, la valeur de WEBSITE_PRIVATE_IP est une adresse IP de la plage d’adresses du sous-réseau délégué et, pour l’intégration au réseau virtuel avec passerelle obligatoire, la valeur est une adresse IP de la plage d’adresses du pool d’adresses point à site configuré sur la passerelle de réseau virtuel. Il s’agit de l’adresse IP qui sera utilisée par l’application web pour se connecter aux ressources via le réseau virtuel. 
 
 > [!NOTE]
 > La valeur de WEBSITE_PRIVATE_IP est appelée à changer. Toutefois, il s’agit d’une adresse IP de la plage d’adresses du sous-réseau d’intégration ou de la plage d’adresses de point à site. De ce fait, vous devrez autoriser l’accès depuis toutes les adresses de la plage.
@@ -157,7 +276,7 @@ Trois types de frais sont appliqués en cas d’utilisation de la fonctionnalit�
 ## <a name="troubleshooting"></a>Dépannage
 
 > [!NOTE]
-> L’intégration au réseau virtuel n’est pas prise en charge pour les scénarios Docker Compose dans App Service.
+> L’intégration au réseau virtuel n’est pas prise en charge pour les scénarios Docker Compose dans App Service.
 > Les restrictions d’accès Azure Functions sont ignorées en présence d’un point de terminaison privé.
 >
 
@@ -178,18 +297,9 @@ Commands:
     add    : Add a regional virtual network integration to a webapp.
     list   : List the virtual network integrations on a webapp.
     remove : Remove a regional virtual network integration from webapp.
-
-az appservice vnet-integration --help
-
-Group
-    az appservice vnet-integration : A method that lists the virtual network
-    integrations used in an appservice plan.
-        This command group is in preview. It may be changed/removed in a future release.
-Commands:
-    list : List the virtual network integrations used in an appservice plan.
 ```
 
-La prise en charge PowerShell de l’intégration au réseau virtuel régional est également disponible, mais vous devez créer une ressource générique avec un tableau de propriétés de resourceID du sous-réseau
+La prise en charge de l’intégration au réseau virtuel régional par PowerShell est également disponible, mais vous devez créer une ressource générique avec un tableau de propriétés du sous-réseau resourceID.
 
 ```azurepowershell
 # Parameters
@@ -200,12 +310,12 @@ $location = 'myRegion'
 $integrationsubnetname = 'myIntegrationSubnet'
 $subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
-#Property array with the SubnetID
+# Property array with the SubnetID
 $properties = @{
   subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
 }
 
-#Creation of the VNet integration
+# Creation of the VNet Integration
 $vNetParams = @{
   ResourceName = "$sitename/VirtualNetwork"
   Location = $location
@@ -215,18 +325,6 @@ $vNetParams = @{
 }
 New-AzResource @vNetParams
 ```
-
-
-Pour l’intégration au réseau virtuel avec passerelle obligatoire, vous pouvez intégrer App Service à un réseau virtuel Azure à l’aide de PowerShell. Pour obtenir un script prêt à l’exécution, consultez [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
-
-
-<!--Image references-->
-[1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
-[2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
-[3]: ./media/web-sites-integrate-with-vnet/vnetint-classic.png
-[5]: ./media/web-sites-integrate-with-vnet/vnetint-regionalworks.png
-[6]: ./media/web-sites-integrate-with-vnet/vnetint-gwworks.png
-
 
 <!--Links-->
 [VNETOverview]: ../virtual-network/virtual-networks-overview.md
@@ -245,3 +343,4 @@ Pour l’intégration au réseau virtuel avec passerelle obligatoire, vous pouve
 [VNETRouteTables]: ../virtual-network/manage-route-table.md
 [installCLI]: /cli/azure/install-azure-cli
 [privateendpoints]: networking/private-endpoint.md
+[VNETnsg]: /azure/virtual-network/security-overview/

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc123580b5402b5a6daf9fc601b5f6c68ff1b1f6
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92899861"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563811"
 ---
 # <a name="expressroute-encryption"></a>Chiffrement ExpressRoute
  
@@ -31,7 +31,13 @@ Non. Si MACsec est activé et que les clés ne correspondent pas, vous perdez la
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>L’activation de MACsec sur ExpressRoute Direct dégrade-t-elle les performances du réseau ?
 Le chiffrement/déchiffrement MACsec s’effectue au niveau du matériel sur les routeurs que nous utilisons. Il n’y a pas d’impact sur les performances de notre côté. Toutefois, vérifiez auprès du fournisseur du service réseau si MACsec a un impact sur les performances pour les appareils que vous utilisez.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Quelles sont les suites de chiffrement prises en charge pour le chiffrement ?
-Nous prenons uniquement en charge la version d’[Extended Packet Numbering](https://1.ieee802.org/security/802-1aebw/) d’AES-128 et d’AES-256. Vous devez en outre désactiver [Secure Channel Identifier (SCI)](https://wikipedia.org/wiki/IEEE_802.1AE) dans la configuration MACsec sur votre appareil. 
+Nous prenons en charge les [chiffrements standard](https://1.ieee802.org/security/802-1ae/) suivants :
+* GCM-AES-128
+* GCM-AES-256
+* GCM-AES-XPN-128
+* GCM-AES-XPN-256
+
+Vous devez en outre désactiver [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) dans la configuration MACsec sur votre appareil.
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Questions fréquentes sur le chiffrement de bout en bout d’IPsec
 IPsec est une [norme IETF](https://tools.ietf.org/html/rfc6071). Cette technologie chiffre les données au niveau des adresses IP (Internet Protocol) ou de la couche réseau 3. Vous pouvez utiliser IPsec pour chiffrer une connexion de bout en bout entre votre réseau local et votre réseau virtuel (VNET) sur Azure. Consultez d’autres questions fréquentes ci-après.

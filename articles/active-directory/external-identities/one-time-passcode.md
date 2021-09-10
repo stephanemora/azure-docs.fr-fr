@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 07/26/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4089559b341dd268928b1f150b6fc173869ead
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d7b12d0611f6488a9ab5475ec6488328a764434f
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529921"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721056"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
 
-Cet article explique comment activer l’authentification par envoi d’un code secret à usage unique par e-mail pour les utilisateurs invités B2B. La fonctionnalité d’envoi d’un code secret à usage unique par e-mail permet d’authentifier les utilisateurs invités B2B lorsqu’il n’est pas possible de les authentifier par d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Avec l’authentification par code secret à usage unique, il est inutile de créer un compte Microsoft. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter.
+La fonctionnalité de code secret à usage unique envoyé par e-mail est un moyen d’authentifier les utilisateurs B2B Collaboration lorsqu’ils ne peuvent pas être authentifiés par d’autres moyens, par exemple Azure AD, un compte Microsoft (MSA) ou des fournisseurs d’identité sociale. Lorsqu’un utilisateur invité B2B tente d’accepter votre invitation ou de se connecter à vos ressources partagées, il peut demander un code secret temporaire, qui est envoyé à son adresse e-mail. Il doit ensuite saisir ce code secret pour se connecter.
+
+Vous pouvez activer cette fonctionnalité à tout moment dans le portail Azure en configurant le fournisseur d’identité Code secret à usage unique envoyé par e-mail sous les paramètres External Identities de votre locataire. Vous pouvez choisir d’activer la fonctionnalité, de la désactiver ou d’attendre une activation automatique en octobre 2021.
 
 ![Diagramme de présentation de l’envoi d’un code secret à usage unique par e-mail](media/one-time-passcode/email-otp.png)
 
@@ -55,13 +57,10 @@ Quand un utilisateur invité accepte une invitation ou utilise un lien vers une 
 
 - Il n’a pas de compte Azure AD
 - Il n’a pas de compte Microsoft
-- Le locataire à l’origine de l’invitation n’a pas configuré la fédération Google pour les utilisateurs @gmail.com et @googlemail.com
+- Le locataire qui invite n’a pas configuré de fédération avec des fournisseurs d’identité sociale (comme [Google](google-federation.md)) ou d’autres fournisseurs d’identité.
 
 Au moment de l’invitation, rien n’indique que l’utilisateur que vous invitez devra utiliser l’authentification par code secret à usage unique. Mais lorsque l’utilisateur invité se connecte, l’authentification par code secret à usage unique est la méthode de secours si aucune autre méthode d’authentification ne peut être utilisée.
 
-Pour voir si un utilisateur invité s’authentifie à l’aide de codes secrets à usage unique, regardez la propriété **Source** dans les détails de l’utilisateur. Sur le Portail Azure, accédez à **Azure Active Directory** > **Utilisateurs**, puis sélectionnez l’utilisateur pour ouvrir la page des détails.
-
-![Capture d’écran montrant un utilisateur de code secret à usage unique avec la valeur Source définie sur Code secret à usage unique](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
 > Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour la méthode d’authentification de l’utilisateur, vous pouvez [réinitialiser son état d’acceptation](reset-redemption-status.md).
@@ -69,6 +68,26 @@ Pour voir si un utilisateur invité s’authentifie à l’aide de codes secrets
 ### <a name="example"></a>Exemple
 
 L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas de fédération Google configurée. Teri ne possède pas de compte Microsoft. Il va recevoir un code secret à usage unique pour s’authentifier.
+
+## <a name="enable-email-one-time-passcode"></a>Désactiver le code secret à usage unique envoyé par e-mail
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général Azure AD.
+
+2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+
+3. Sélectionnez **Identités externes** > **Tous les fournisseurs d’identité**.
+
+4. Sélectionnez **Code secret à usage unique envoyé par e-mail** pour ouvrir le volet de configuration.
+
+5. Sous **Code secret à usage unique envoyé par e-mail**, sélectionnez l’une des options suivantes :
+
+   - **Activer automatiquement le code secret à usage unique envoyé par e-mail pour les invités à partir d’octobre 2021** si vous ne souhaitez pas activer la fonctionnalité immédiatement et souhaitez attendre la date d’activation automatique en octobre 2021.
+   - **Activer dès maintenant le code secret à usage unique envoyé par e-mail pour les invités** pour activer la fonctionnalité maintenant.
+   - **Oui** pour activer la fonctionnalité maintenant si vous voyez un bouton bascule Oui/Non (ce bouton apparaît si la fonctionnalité a été précédemment désactivée).
+
+   ![Bouton bascule du code secret à usage unique envoyé par e-mail désactivé](media/one-time-passcode/enable-email-otp-options.png)
+
+5. Sélectionnez **Enregistrer**.
 
 ## <a name="disable-email-one-time-passcode"></a>Désactivation de l’envoi d’un code à usage unique par e-mail
 
@@ -86,13 +105,13 @@ L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas d
 
 3. Sélectionnez **Identités externes** > **Tous les fournisseurs d’identité**.
 
-4. Sélectionnez **Code à usage unique par e-mail**, puis **Désactiver le code à usage unique par e-mail pour les invités**.
+4. Sélectionnez **Code secret à usage unique envoyé par e-mail**, puis, sous **Code secret à usage unique envoyé par e-mail pour les invités**, sélectionnez **Désactiver le code secret à usage unique envoyé par e-mail pour les invités** (ou **Non** si la fonctionnalité a été précédemment activée, désactivée ou choisie pendant la préversion).
+
+   ![Bouton bascule du code à usage unique par e-mail désactivé](media/one-time-passcode/disable-email-otp-options.png)
 
    > [!NOTE]
    > Dans le portail Azure, les paramètres de code à usage unique par e-mail ont été déplacés de **Paramètres de collaboration externe** vers **Tous les fournisseurs d’identité**.
    > Si vous voyez un bouton bascule au lieu des options d’envoi d’un code à usage unique par e-mail, cela signifie que vous avez précédemment activé, désactivé ou choisi la préversion de la fonctionnalité. Sélectionnez **Non** pour désactiver la fonctionnalité.
-   >
-   >![Bouton bascule du code à usage unique par e-mail désactivé](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Sélectionnez **Enregistrer**.
 

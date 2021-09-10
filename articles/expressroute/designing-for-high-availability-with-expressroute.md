@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
-ms.openlocfilehash: 3602c3944e8731263fbb55f024c276783950329f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dcf58dce7b87862c2f01ad76db8aff66366ee4b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202359"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524518"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Conception pour une haute disponibilité avec ExpressRoute
 
@@ -50,23 +50,31 @@ L’exécution des connexions primaires et secondaires d’un circuit ExpressRou
 
 Aussi, l’exécution des connexions primaires et secondaires d’un circuit ExpressRoute en mode actif/actif entraîne l’échec et le reroutage d’environ la moitié des flux, après l’échec de la connexion ExpressRoute. Ainsi, le mode actif/actif améliorera grandement le MTTR (temps moyen de récupération).
 
+> [!NOTE]
+> Au cours d’une activité de maintenance ou en cas d’événements non planifiés ayant un impact sur l’une de ces connexions, Microsoft préfère utiliser l’ajout d’un préfixe au chemin AS pour purger le trafic vers la connexion saine. Vous devez vérifier que le trafic peut être acheminé sur le chemin sain quand l’ajout d’un préfixe au chemin est configuré par Microsoft et que les publications d’itinéraires nécessaires sont configurées de manière appropriée pour éviter toute interruption de service. 
+> 
+
 ### <a name="nat-for-microsoft-peering"></a>NAT pour le peering Microsoft 
 
 Le peering Microsoft est conçue pour la communication entre les points de terminaison publics. Souvent, les points de terminaison privés locaux deviennent des NAT avec une IP publique sur le réseau du client ou du partenaire avant qu’ils ne communiquent via le peering Microsoft. En supposant que vous utilisez tous deux les connexions primaires et secondaires en mode actif/actif, où et comment vous utilisez le NAT affecte votre temps de récupération après la défaillance d’une des connexions ExpressRoute. Deux options NAT sont illustrées dans la figure suivante :
 
 [![3]][3]
 
-Dans l’option 1, le NAT est appliqué après avoir fractionné le trafic entre les connexions primaires et secondaires du circuit ExpressRoute. Pour répondre aux exigences avec état du NAT, des pools NAT indépendants sont utilisés entre les appareils principaux et secondaires, de sorte que le trafic renvoyé arrive dans le même appareil edge par lequel sort le flux.
+#### <a name="option-1"></a>Option 1 :
 
-Dans l’option 2, un pool NAT commun est utilisé avant de fractionner le trafic entre les connexions primaires et secondaires du circuit ExpressRoute. Il est important de bien comprendre que le pool NAT commun avant fractionnement du trafic n’induit pas l’introduction d’un point de défaillance unique et donc le risque de compromettre la haute disponibilité.
+La traduction d’adresses réseau (NAT) est appliquée après avoir fractionné le trafic entre les connexions primaires et secondaires du circuit ExpressRoute. Pour répondre aux exigences avec état de la NAT, des pools NAT indépendants sont utilisés pour les appareils primaires et secondaires. Le trafic de retour arrivera sur le même périphérique par lequel le flux est sorti.
 
-Avec l’option 1, après un échec de connexion ExpressRoute, la capacité à atteindre le pool NAT correspondant est rompue. Par conséquent, tous les flux rompus doivent être rétablis par TCP ou par couche d’application après l’expiration du délai de la fenêtre correspondante. Si l’un des pools NAT est utilisé pour le serveur frontal d’un serveur local et si la connectivité correspondante cesse de fonctionner, les serveurs sur site ne sont pas accessibles à partir d’Azure tant que la connectivité n’est pas résolue.
+Si la connexion ExpressRoute échoue, la capacité à atteindre le pool NAT correspondant est alors interrompue. C’est pourquoi tous les flux réseau interrompus doivent être rétablis soit par TCP, soit par la couche Application après le délai d’attente de la fenêtre correspondante. Pendant la défaillance, Azure ne peut pas atteindre les serveurs locaux à l’aide de la NAT correspondante jusqu’à ce que la connectivité soit restaurée pour les connexions primaires ou secondaires du circuit ExpressRoute.
 
-Tandis qu’avec l’option 2, le NAT est accessible même après l’échec de la connexion primaire ou secondaire. Ainsi, la couche réseau elle-même peut rediriger les paquets et permettre un temps de récupération plus court après l’échec. 
+#### <a name="option-2"></a>Option n°2 :
+
+Un pool NAT commun est utilisé avant de fractionner le trafic entre les connexions primaires et secondaires du circuit ExpressRoute. Il est important de préciser que l’utilisation d’un pool NAT commun avant fractionnement du trafic ne signifie pas qu’il y aura un point de défaillance unique, ce qui compromettrait la haute disponibilité.
+
+Le pool NAT est accessible même si la connexion primaire ou secondaire échoue. C’est la raison pour laquelle la couche réseau elle-même peut réacheminer les paquets et accélérer la récupération après une défaillance. 
 
 > [!NOTE]
-> Si vous utilisez l’option NAT 1 (des pools NAT indépendants pour les connexions ExpressRoute primaires et secondaires), et que vous mappez un port d’une adresse IP d’un des pools NAT à un serveur local, le serveur n’est plus accessible via le circuit ExpressRoute en cas d’échec de la connexion correspondante.
-> 
+> * Si vous utilisez l’option NAT 1 (des pools NAT indépendants pour les connexions ExpressRoute primaires et secondaires), et que vous mappez un port d’une adresse IP d’un des pools NAT à un serveur local, le serveur n’est plus accessible via le circuit ExpressRoute en cas d’échec de la connexion correspondante.
+> * Mettre fin à des connexions BGP ExpressRoute sur les appareils avec état peut entraîner des problèmes de basculement pendant les maintenances planifiées ou non planifiées par Microsoft ou votre fournisseur ExpressRoute. Vous devez tester votre configuration pour vérifier que votre trafic basculera correctement et, quand cela est possible, arrêter les sessions BGP sur les appareils sans état.
 
 ## <a name="fine-tuning-features-for-private-peering"></a>Réglage des fonctionnalités du peering privé
 

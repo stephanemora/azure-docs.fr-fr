@@ -1,22 +1,22 @@
 ---
-title: Migrer des ressources de calcul Azure depuis Azure Germany vers Azure global
+title: Migrer des ressources de calcul Azure d’Azure Allemagne vers Azure global
 description: Cet article fournit des informations sur la migration de vos ressources de calcul Azure depuis Azure Germany vers Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: c48c757a0c1a4ff0bf0bffbd49c50efbc2c9b93b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3662039dad5d85c87c2598fb59b7719ab9251090
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033749"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "122531346"
 ---
 # <a name="migrate-compute-resources-to-global-azure"></a>Migrer des ressources de calcul vers Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Cet article contient des informations qui peuvent vous aider à migrer des ressources de calcul Azure depuis Azure Germany vers Azure global.
 
@@ -71,15 +71,15 @@ Exportez le modèle Resource Manager vers le portail en sélectionnant le groupe
 
 Un fichier .zip incluant plusieurs fichiers se télécharge. Les scripts PowerShell, Azure CLI, Ruby ou .NET vous aident à déployer votre modèle. Le fichier *parameters.json* inclut toutes les entrées effectuées depuis le dernier déploiement. Il est probable que vous deviez modifier certains paramètres dans ce fichier. Modifiez le fichier *template.json* si vous souhaitez redéployer uniquement un sous-ensemble des ressources.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [didacticiels sur Site Recovery](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Apprenez comment [exporter des modèles Microsoft Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) ou lisez la présentation de [Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualisez vos connaissances en effectuant les [didacticiels sur Site Recovery](../site-recovery/index.yml).
+- Apprenez comment [exporter des modèles Microsoft Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md) ou lisez la présentation de [Resource Manager](../azure-resource-manager/management/overview.md).
 - Découvrez plus d’informations sur la [récupération d’urgence depuis un site physique vers Azure à l’aide de Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Lisez la [présentation des emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Apprenez comment [redéployer un modèle](../azure-resource-manager/resource-group-template-deploy.md).
+- Apprenez comment [redéployer un modèle](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="cloud-services"></a>Cloud Services
+## <a name="cloud-services"></a>Services cloud
 
 Vous pouvez redéployer des ressources Azure Cloud Services en fournissant les définitions `.cspkg` et `.cscfg` une nouvelle fois.
 
@@ -87,7 +87,7 @@ Vous pouvez redéployer des ressources Azure Cloud Services en fournissant les d
 
 Pour redéployer des services Cloud sur le Portail Microsoft Azure, procédez comme suit :
 
-1. [Créez un service cloud](../cloud-services/cloud-services-how-to-create-deploy-portal.md) en utilisant vos définitions `.cspkg` et `.cscfg`.
+1. [Créez un service cloud](../cloud-services/cloud-services-how-to-create-deploy-portal.md) à l’aide de vos définitions `.cspkg` et `.cscfg`.
 1. Mettez à jour [l’enregistrement CNAME ou A](../cloud-services/cloud-services-custom-domain-name-portal.md) pour faire pointer le trafic vers le nouveau service cloud.
 1. Lorsque le trafic pointe vers le nouveau service cloud, supprimez l’ancien service cloud dans Azure Germany.
 
@@ -95,20 +95,20 @@ Pour redéployer des services Cloud sur le Portail Microsoft Azure, procédez co
 
 Pour redéployer des services cloud à l’aide de PowerShell, procédez comme suit :
 
-1. [Créez un service cloud](/powershell/module/servicemanagement/azure/new-azureservice) à l’aide de vos définitions `.cspkg` et `.cscfg`.
+1. [Créez un service cloud](/powershell/module/servicemanagement/azure.service/new-azureservice) à l’aide de vos définitions `.cspkg` et `.cscfg`.
 
     ```powershell
     New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
     ```
 
-1. [Créez un déploiement](/powershell/module/servicemanagement/azure/new-azuredeployment) à l’aide de vos définitions `.cspkg` et `.cscfg`.
+1. [Créez un déploiement](/powershell/module/servicemanagement/azure.service/new-azuredeployment) à l’aide de vos définitions `.cspkg` et `.cscfg`.
 
     ```powershell
     New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
     ```
 
 1. Mettez à jour [l’enregistrement CNAME ou A](../cloud-services/cloud-services-custom-domain-name-portal.md) pour faire pointer le trafic vers le nouveau service cloud.
-1. Lorsque le trafic pointe vers le nouveau service cloud, [supprimez l’ancien service cloud](/powershell/module/servicemanagement/azure/remove-azureservice) dans Azure Germany.
+1. Lorsque le trafic pointe vers le nouveau service cloud, [supprimez l’ancien service cloud](/powershell/module/servicemanagement/azure.service/remove-azureservice) dans Azure Germany.
 
     ```powershell
     Remove-AzureService -ServiceName <yourOldServiceName>
@@ -130,13 +130,13 @@ Pour redéployer des services cloud à l’aide de l’API REST, procédez comme
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
     ```
 
-1. Lorsque le trafic pointe vers le nouveau service cloud, [supprimez l’ancien service cloud](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-delete-cloud-service) dans Azure Germany.
+1. Lorsque le trafic pointe vers le nouveau service cloud, [supprimez l’ancien service cloud](/rest/api/compute/cloudservices/rest-delete-cloud-service) dans Azure Germany.
 
     ```http
     https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
     ```
 
-Pour plus d'informations :
+Pour plus d’informations :
 
 - Consultez la [vue d’ensemble des services Microsoft Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
@@ -146,9 +146,9 @@ Vous ne pouvez pas migrer des ressources Microsoft Azure Service Fabric depuis A
 
 Vous pouvez obtenir des informations relatives à votre environnement Service Fabric actuel à l’aide des cmdlets PowerShell. Accédez à toutes les cmdlets associées à Service Fabric en saisissant `Get-Help *ServiceFabric*` dans PowerShell.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [didacticiels sur Service Fabric](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- Actualisez vos connaissances en effectuant les [didacticiels sur Service Fabric](../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 - Découvrez comment [créer un cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Consultez la [vue d’ensemble de Service Fabric](../service-fabric/service-fabric-overview.md).
 
@@ -164,9 +164,9 @@ Redéployez vos scripts de déploiement, vos modèles ou votre code dans la nouv
 1. Création de comptes de stockage, de bases de données et d’autres services utilisés pour conserver les données d’entrée et de sortie.
 1. Mise à jour de votre configuration et de votre code afin qu’ils pointent vers le nouveau compte Batch et pour utiliser de nouvelles informations d’identification.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [tutoriels sur Azure Batch](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Actualisez vos connaissances en effectuant les [tutoriels sur Azure Batch](../batch/tutorial-parallel-dotnet.md).
 - Consultez la [vue d’ensemble d’Azure Batch](../batch/batch-technical-overview.md).
 
 ## <a name="functions"></a>Fonctions
@@ -176,13 +176,13 @@ Actuellement, il n’est pas possible de migrer des ressources Azure Functions d
 > [!IMPORTANT]
 > Modifiez l’emplacement, les secrets Azure Key Vault, les certificats, les paramètres d’application et autres GUID de façon à assurer la cohérence avec la nouvelle région.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [didacticiels sur Azure Functions](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Apprenez comment [exporter des modèles Microsoft Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) ou lisez une présentation de [Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualisez vos connaissances en effectuant les [didacticiels sur Azure Functions](../azure-functions/index.yml).
+- Apprenez comment [exporter des modèles Microsoft Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md) ou lisez une présentation de [Resource Manager](../azure-resource-manager/management/overview.md).
 - Consultez la [vue d’ensemble d’Azure Functions](../azure-functions/functions-overview.md)
 - Lisez la [présentation des emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Apprenez comment [redéployer un modèle](../azure-resource-manager/resource-group-template-deploy.md).
+- Apprenez comment [redéployer un modèle](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
 
@@ -191,42 +191,42 @@ Pour migrer des groupes de machines virtuelles identiques vers Azure global, exp
 > [!IMPORTANT]
 > Modifiez l’emplacement, les secrets Key Vault, les certificats et autres GUID de façon à assurer la cohérence avec la nouvelle région.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [didacticiels sur les groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Découvrez comment [exporter des modèles Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Consultez la [présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualisez vos connaissances en effectuant les [didacticiels sur les groupes de machines virtuelles identiques](../virtual-machine-scale-sets/tutorial-create-and-manage-cli.md).
+- Découvrez comment [exporter des modèles Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md).
+- Consultez la [présentation d’Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Accédez à une présentation des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md).
 - Lisez une [présentation des emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Apprenez comment [redéployer un modèle](../azure-resource-manager/resource-group-template-deploy.md).
+- Apprenez comment [redéployer un modèle](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="web-apps"></a>Web Apps
+## <a name="web-apps"></a>Web Apps
 
 Actuellement, les applications que vous avez créées à l’aide de la fonctionnalité Web Apps d’Azure App Service ne peuvent pas être migrées à partir d’Azure Germany vers Azure global. Nous vous recommandons d’exporter une application Web en tant que modèle Resource Manager, puis de la redéployer lorsque vous avez modifié la propriété d’emplacement pour qu’elle porte sur la nouvelle région.
 
 > [!IMPORTANT]
 > Modifiez l’emplacement, les secrets Key Vault, les certificats et autres GUID de façon à assurer la cohérence avec la nouvelle région.
 
-Pour plus d'informations :
+Pour plus d’informations :
 
-- Actualisez vos connaissances en effectuant les [didacticiels sur App Service](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Apprenez comment [exporter des modèles Microsoft Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) ou lisez une présentation de [Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Actualisez vos connaissances en suivant les [tutoriels sur App Service](../app-service/tutorial-dotnetcore-sqldb-app.md).
+- Apprenez comment [exporter des modèles Microsoft Azure Resource Manager](../azure-resource-manager/templates/export-template-portal.md) ou lisez une présentation de [Resource Manager](../azure-resource-manager/management/overview.md).
 - Consultez la [présentation d’App Service](../app-service/overview.md).
 - Lisez la [présentation des emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-- Apprenez comment [redéployer un modèle](../azure-resource-manager/resource-group-template-deploy.md).
+- Apprenez comment [redéployer un modèle](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Informez-vous sur les outils, techniques et suggestions pour migrer des ressources dans les catégories de service suivantes :
 
-- [Mise en réseau](./germany-migration-networking.md)
+- [Réseau](./germany-migration-networking.md)
 - [Stockage](./germany-migration-storage.md)
-- [web](./germany-migration-web.md)
+- [Web](./germany-migration-web.md)
 - [Bases de données](./germany-migration-databases.md)
 - [Analyse](./germany-migration-analytics.md)
 - [IoT](./germany-migration-iot.md)
 - [Intégration](./germany-migration-integration.md)
 - [Identité](./germany-migration-identity.md)
 - [Sécurité](./germany-migration-security.md)
-- [Outils de gestion](./germany-migration-management-tools.md)
+- [Outils d'administration](./germany-migration-management-tools.md)
 - [Média](./germany-migration-media.md)

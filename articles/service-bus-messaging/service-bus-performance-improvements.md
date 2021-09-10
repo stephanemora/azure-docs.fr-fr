@@ -2,14 +2,13 @@
 title: Meilleures pratiques pour améliorer les performances à l’aide de Azure Service Bus
 description: Explique comment utiliser Service Bus pour optimiser les performances lors de l’échange de messages répartis.
 ms.topic: article
-ms.date: 03/09/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2171ccd6657bcda2df25e76f48cee23d0f8a48a7
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 08/30/2021
+ms.openlocfilehash: d7bd692809504bb16607a431e879f0abfff953cb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111886679"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225252"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -114,7 +113,7 @@ Des objets clients Service Bus, tels que `QueueClient` ou `MessageSender`, sont 
 La remarque suivante s’applique à tous les kits SDK :
 
 > [!NOTE]
-> L’établissement d’une connexion est une opération coûteuse, que vous pouvez éviter en réutilisant les objets de structure et client dans plusieurs opérations. Vous pouvez utiliser en toute sécurité ces objets clients pour envoyer des messages à partir de plusieurs threads et d’opérations asynchrones simultanées.
+> L’établissement d’une connexion est une opération coûteuse que vous pouvez éviter en réutilisant les mêmes objets fabrique et client pour plusieurs opérations. Vous pouvez utiliser en toute sécurité ces objets clients pour envoyer des messages à partir de plusieurs threads et d’opérations asynchrones simultanées.
 
 ## <a name="concurrent-operations"></a>Opérations simultanées
 Les opérations telles qu’envoyer, recevoir, supprimer, etc., prennent un certain temps. Ce temps comprend le traitement de l’opération par le service Service Bus et la latence de la requête et de la réponse. Pour augmenter le nombre d’opérations par période, les opérations doivent s’exécuter simultanément.

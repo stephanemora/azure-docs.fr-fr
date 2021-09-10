@@ -3,15 +3,15 @@ title: Configurer des clés gérées par le client pour chiffrer les données au
 description: Créez et gérez vos propres clés de chiffrement afin de sécuriser les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: mijos, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, azla
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3ea6476173e7be1a6239e97ef2e5fbb5257aead
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98629672"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563820"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -23,7 +23,11 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
 ## <a name="considerations"></a>Considérations
 
-* À l’heure actuelle, la prise en charge des clés gérées par le client pour un ISE est disponible uniquement dans les régions Azure suivantes : USA Ouest 2, USA Est et USA Centre Sud
+* À l’heure actuelle, la prise en charge des clés gérées par le client pour un ISE est disponible uniquement dans les régions suivantes :
+
+  * Azure : USA Ouest 2, USA Est et USA Centre Sud.
+
+  * Azure Government : Arizona, Virginie et Texas.
 
 * Vous pouvez spécifier une clé gérée par le client *uniquement quand vous créez votre ISE*, pas après. Vous ne pouvez pas désactiver cette clé après la création de votre environnement ISE. Actuellement, il n’existe pas de prise en charge pour faire pivoter une clé gérée par le client pour un ISE.
 

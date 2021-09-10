@@ -2,27 +2,27 @@
 title: Vue d’ensemble de l’enregistrement d’appel Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Fournit une vue d’ensemble de la fonctionnalité d’enregistrement d’appel et des API associées.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 898346d69b656656c93889002109bae0f15b2dbc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fef4972271046f7435140fd2d9ba3d18c7c3b11c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464334"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254758"
 ---
 # <a name="calling-recording-overview"></a>Vue d’ensemble de l’enregistrement d’appel
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
-> L’enregistrement d’appel est actuellement disponible uniquement pour les ressources Communication Services créées dans la région USA.
+> L’enregistrement d’appel est disponible pour les ressources Communication Services créées aux États-Unis, au Royaume-Uni, en Europe, en Asie et en Australie.
 
 L’enregistrement d’appel fournit un ensemble d’API permettant de démarrer, d’arrêter, de suspendre et de reprendre l’enregistrement. Ces API sont accessibles à partir de la logique métier côté serveur, ou via des événements déclenchés par des actions utilisateur. La sortie multimédia enregistrée est au format MP4 Audio+Video, qui est le même format que celui utilisé par Teams pour enregistrer des données multimédias. Les notifications liées au contenu multimédia et aux métadonnées sont émises via Event Grid. Les enregistrements sont stockés pendant 48 heures sur un stockage temporaire intégré, en prévision de leur récupération et de leur déplacement vers une solution de stockage à long terme de votre choix. 
 

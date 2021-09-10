@@ -6,87 +6,74 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: aashishb
-author: aashishb
+ms.author: jhirono
+author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/03/2021
+ms.date: 08/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: ff6e4f0a3c2b79f63376a480986f15014d20f9ae
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 790b5a3e34d36d674511507bc5e9ed452c5ba74e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565353"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563019"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
 Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md).
 
+> [!NOTE]
+> Cet article s’applique à l’espace de travail Azure Machine Learning, que celui-ci utilise un point de terminaison privé ou un point de terminaison de service.
+
+> [!TIP]
+> Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
+>
+> * [Présentation du réseau virtuel](how-to-network-security-overview.md)
+> * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+> * [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+> * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+> * [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+> * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+
+## <a name="required-public-internet-access"></a>Accès Internet public obligatoire
+
+[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+
 ## <a name="azure-firewall"></a>Pare-feu Azure
 
 > [!IMPORTANT]
-> Le service Pare-feu Azure permet de sécuriser les _ressources du réseau virtuel Azure_. D’autres services Azure, tels que les comptes Stockage Azure, présentent des paramètres de pare-feu qui leur sont propres et _s’appliquent au point de terminaison public de cette instance de service spécifique_. Les informations contenues dans ce document sont spécifiques au Pare-feu Azure.
+> Le Pare-feu Azure permet de sécuriser les _ressources du réseau virtuel Azure_. Certains services Azure, tels que les comptes Stockage Azure, présentent des paramètres de pare-feu qui leur sont propres et _s’appliquent au point de terminaison public de cette instance de service spécifique_. Les informations contenues dans ce document sont spécifiques au Pare-feu Azure.
 > 
 > Pour plus d’informations sur les paramètres de pare-feu d’instance de service, consultez [Utiliser Studio dans un réseau virtuel](how-to-enable-studio-virtual-network.md#firewall-settings).
 
-Lorsque vous utilisez le pare-feu Azure, utilisez __DNAT (Destination Network Address Translation )__ afin de créer des règles NAT pour le trafic entrant. Pour le trafic sortant, créez des règles de type __réseau__ et/ou __application__. Ces regroupements de règles sont décrits plus en détail dans [Quels sont les concepts de Pare-feu Azure ?](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
+* Pour le trafic __entrant__ vers le cluster de calcul Azure Machine Learning et l’instance de calcul, utilisez des [itinéraires définis par l’utilisateur (UDR)](../virtual-network/virtual-networks-udr-overview.md) afin d’éviter le pare-feu.
+
+* Pour le trafic __sortant__, créez des règles de type __réseau__ et __application__. 
+
+Ces regroupements de règles sont décrits plus en détail dans [Quels sont les concepts de Pare-feu Azure ?](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
 ### <a name="inbound-configuration"></a>Configuration entrante
 
-Si vous utilisez une __instance de calcul__ Azure Machine Learning ou un __cluster de calcul__, ajoutez des [itinéraires définis par l’utilisateur (UDR)](../virtual-network/virtual-networks-udr-overview.md) pour le sous-réseau contenant les ressources Azure Machine Learning. Cet itinéraire force le trafic __depuis__ les adresses IP des ressources `BatchNodeManagement` et `AzureMachineLearning` vers l’adresse IP publique de votre instance de calcul et de votre cluster de calcul.
-
-Ces UDR autorisent le service Batch à communiquer avec les nœuds de calcul pour la planification des tâches. Ajoutez également l’adresse IP du service Azure Machine Learning, car elle est nécessaire pour l’accès aux instances de calcul. Lors de l’ajout de l’adresse IP pour le service Azure Machine Learning, vous devez ajouter l’adresse IP pour les régions Azure __primaire et secondaire__. La région primaire est celle où se trouve votre espace de travail.
-
-Pour trouver la région secondaire, consultez [Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si votre service Azure Machine Learning se trouve dans la région USA Est 2, la région secondaire correspond à USA Centre. 
-
-Pour obtenir la liste des adresses IP du service Batch et du service Azure Machine Learning, utilisez l’une des méthodes suivantes :
-
-* Téléchargez les [plages d’adresses IP Azure et les balises de service](https://www.microsoft.com/download/details.aspx?id=56519), et recherchez `BatchNodeManagement.<region>` et `AzureMachineLearning.<region>` dans le fichier, où `<region>` est votre région Azure.
-
-* Utilisez [Azure CLI](/cli/azure/install-azure-cli) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 (primaire) et la région USA Centre (secondaire) :
-
-    ```azurecli-interactive
-    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
-    # Get primary region IPs
-    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
-    # Get secondary region IPs
-    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
-    ```
-
-    > [!TIP]
-    > Si vous utilisez les régions USA Virginie, USA Arizona ou les régions Chine Est 2, ces commandes ne retournent aucune adresse IP. Utilisez plutôt un des liens suivants pour télécharger une liste d’adresses IP :
-    >
-    > * [Plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
-    > * [Plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062)
-
-Lorsque vous ajoutez les UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch connexe et définissez __Type de tronçon suivant__ sur __Internet__. L’illustration suivante propose un exemple de cet UDR dans le portail Azure :
-
-![Exemple de UDR pour un préfixe d’adresse](./media/how-to-enable-virtual-network/user-defined-route.png)
-
-> [!IMPORTANT]
-> Les adresses IP peuvent changer au fil du temps.
-
-Pour plus d’informations, consultez l’article [Créer un pool Azure Batch dans un réseau virtuel](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
+[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 
 ### <a name="outbound-configuration"></a>Configuration sortante
 
 1. Ajoutez des __règles de réseau__, permettant le trafic __vers__ et __depuis__ les étiquettes de service suivantes :
 
-    * AzureActiveDirectory
-    * AzureMachineLearning
-    * AzureResourceManager
-    * Storage.region
-    * KeyVault.region
-    * ContainerRegistry.region
+    | Étiquette de service | Protocol | Port |
+    | ----- |:-----:|:-----:|
+    | AzureActiveDirectory | TCP | * |
+    | AzureMachineLearning | TCP | 443 |
+    | AzureResourceManager | TCP | 443 |
+    | Storage.region       | TCP | 443 |
+    | AzureFrontDoor.FrontEnd</br>* Non requis dans Azure Chine. | TCP | 443 | 
+    | ContainerRegistry.region  | TCP | 443 |
+    | MicrosoftContainerRegistry.region | TCP | 443 |
 
-    Si vous prévoyez d’utiliser les images Docker par défaut fournies par Microsoft et que vous activez les dépendances gérées par l’utilisateur, vous devez également ajouter les étiquettes de service suivantes :
-
-    * MicrosoftContainerRegistry.region
-    * AzureFrontDoor.FirstParty
-
-    Pour les entrées contenant `region`, remplacez cette valeur par la région Azure que vous utilisez. Par exemple : `keyvault.westus`.
-
-    Pour le __protocole__, sélectionnez `TCP`. Pour les __ports__ source et de destination, sélectionnez `*`.
+    > [!TIP]
+    > * ContainerRegistry.Region est nécessaire uniquement pour les images Docker personnalisées. Cela comprend des modifications mineures (par exemple, des packages supplémentaires) pour les images de base fournies par Microsoft.
+    > * MicrosoftContainerRegistry.region est requis uniquement si vous prévoyez d’utiliser les _images Docker par défaut fournies par Microsoft_ et que vous _activez les dépendances gérées par l’utilisateur_.
+    > * Pour les entrées contenant `region`, remplacez cette valeur par la région Azure que vous utilisez. Par exemple : `ContainerRegistry.westus`.
 
 1. Ajoutez des __règles d’application__ pour les hôtes suivants :
 
@@ -102,12 +89,15 @@ Pour plus d’informations, consultez l’article [Créer un pool Azure Batch da
     | **cloud.r-project.org** | Utilisé lors de l’installation des packages CRAN pour le développement R. |
     | **\*pytorch.org** | Utilisé par certains exemples basés sur PyTorch. |
     | **\*.tensorflow.org** | Utilisé par certains exemples basés sur Tensorflow. |
+    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Utilisé pour récupérer les bits du serveur VS Code qui sont installés sur l’instance de calcul par le biais d’un script d’installation.|
+    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Utilisé pour récupérer les bits du serveur websocket qui sont installés sur l’instance de calcul. Le serveur websocket est utilisé pour transmettre les requêtes du client Visual Studio Code (application de bureau) au serveur Visual Studio Code s’exécutant sur l’instance de calcul.|
+    
 
     Pour __Protocol:Port__, sélectionnez __http, https__.
 
     Pour plus d’informations sur la configuration des règles d’application, consultez [Déployer et configurer le pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
-1. Pour restreindre l’accès aux modèles déployés sur Azure Kubernetes Service (AKS), consultez [Limiter le trafic de sortie dans Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+1. Pour limiter le trafic sortant pour les modèles déployés sur Azure Kubernetes Service (AKS), consultez les articles [Restreindre le trafic sortant dans Azure Kubernetes Service](../aks/limit-egress-traffic.md) et [Déployer des modèles Machine Learning dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
 
 ### <a name="diagnostics-for-support"></a>Diagnostics pour la prise en charge
 
@@ -123,13 +113,13 @@ S’il vous faut collecter des informations de diagnostic dans le cadre du suppo
     Pour obtenir la liste des adresses IP des hôtes Azure Monitor, consultez [Adresses IP utilisées par Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## <a name="other-firewalls"></a>Autres pare-feu
 
-Les instructions de cette section sont génériques, car chaque pare-feu dispose de sa propre terminologie et de configurations spécifiques. Si vous avez des questions sur la façon d’autoriser la communication via votre pare-feu, consultez la documentation du pare-feu que vous utilisez.
+Les instructions de cette section sont génériques, car chaque pare-feu dispose de sa propre terminologie et de configurations spécifiques. Si vous avez des questions, consultez la documentation du pare-feu que vous utilisez.
 
-S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail. Un grand nombre de noms d’hôtes sont utilisés à la fois par l’espace de travail Azure Machine Learning. Les sections suivantes répertorient les hôtes requis pour Azure Machine Learning.
+S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail. Des noms d’hôtes différents sont utilisés à la fois par l’espace de travail Azure Machine Learning. Les sections suivantes répertorient les hôtes requis pour Azure Machine Learning.
 
 ### <a name="microsoft-hosts"></a>Hôtes Microsoft
 
-Les hôtes de cette section sont détenus par Microsoft et fournissent les services nécessaires au bon fonctionnement de votre espace de travail. Les tableaux suivants répertorient les noms d’hôtes des régions Azure (public), Azure Government et Azure China 21Vianet.
+Les hôtes des tableaux suivants sont détenus par Microsoft et fournissent les services nécessaires au bon fonctionnement de votre espace de travail. Les tableaux suivants répertorient les hôtes des régions Azure (public), Azure Government et Azure China 21Vianet.
 
 **Hôtes Azure généraux**
 
@@ -141,14 +131,17 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 
 **Hôtes Azure Machine Learning**
 
+> [!IMPORTANT]
+> Dans le tableau suivant, remplacez `<storage>` par le nom du compte de stockage par défaut de votre espace de travail Azure Machine Learning.
+
 | **Obligatoire pour** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning Studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
 | Notebook intégré | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
-| Notebook intégré | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
-| Notebook intégré | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
-| Notebook intégré | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | \*.blob.core.chinacloudapi.cn |
+| Notebook intégré | \<storage\>.file.core.windows.net | \<storage\>.file.core.usgovcloudapi.net | \<storage\>.file.core.chinacloudapi.cn |
+| Notebook intégré | \<storage\>.dfs.core.windows.net | \<storage\>.dfs.core.usgovcloudapi.net | \<storage\>.dfs.core.chinacloudapi.cn |
+| Notebook intégré | \<storage\>.blob.core.windows.net | \<storage\>.blob.core.usgovcloudapi.net | \<storage\>.blob.core.chinacloudapi.cn |
 | Notebook intégré | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
 | Notebook intégré | \*.aznbcontent.net |  | |
 
@@ -169,23 +162,25 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | **Obligatoire pour** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Compte Stockage Azure | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Registre de conteneurs Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
-
+| Images prédéfinies Azure Machine Learning | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
 > [!TIP]
-> Si vous envisagez d’utiliser une identité fédérée, suivez les instructions de l’article [Bonnes pratiques pour sécuriser les services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+> * __Azure Container Registry__ est requis pour toute image Docker personnalisée. Cela comprend des modifications mineures (par exemple, des packages supplémentaires) pour les images de base fournies par Microsoft.
+> * __Microsoft Container Registry__ est requis uniquement si vous prévoyez d’utiliser les _images Docker par défaut fournies par Microsoft_ et que vous _activez les dépendances gérées par l’utilisateur_.
+> * Si vous envisagez d’utiliser une identité fédérée, suivez les instructions de l’article [Bonnes pratiques pour sécuriser les services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
 
-En outre, utilisez les informations du [tunneling forcé](how-to-secure-training-vnet.md#forced-tunneling) afin d’ajouter des adresses IP pour `BatchNodeManagement` et `AzureMachineLearning`.
+En outre, utilisez les informations de la section [configuration entrante](#inbound-configuration) afin d’ajouter des adresses IP pour `BatchNodeManagement` et `AzureMachineLearning`.
 
-Pour plus d’informations sur la restriction de l’accès aux modèles déployés sur Azure Kubernetes Service (AKS), consultez [Limiter le trafic de sortie dans Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+Pour plus d’informations sur la restriction de l’accès aux modèles déployés sur AKS, consultez [Limiter le trafic de sortie dans Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
 
 > [!TIP]
 > Si vous collaborez avec le Support Microsoft pour collecter des informations de diagnostic, vous devez autoriser le trafic sortant vers les adresses IP utilisées par les hôtes Azure Monitor. Pour obtenir la liste des adresses IP des hôtes Azure Monitor, consultez [Adresses IP utilisées par Azure Monitor](../azure-monitor/app/ip-addresses.md).
+
 ### <a name="python-hosts"></a>Hôtes Python
 
-Les hôtes de cette section sont utilisés pour installer les packages Python. Ils sont requis lors du développement, de l’entraînement et du déploiement. 
+Les hôtes de cette section permettent d’installer des packages Python et sont requis lors du développement, de la formation et du déploiement. 
 
 > [!NOTE]
 > Il ne s’agit pas d’une liste complète des ordinateurs hôtes requis pour toutes les ressources Python sur Internet, uniquement celles les plus couramment utilisées. Par exemple, si vous avez besoin d’accéder à un référentiel GitHub ou à un autre hôte, vous devez identifier et ajouter les ordinateurs hôtes requis pour ce scénario.
@@ -200,7 +195,7 @@ Les hôtes de cette section sont utilisés pour installer les packages Python. I
 
 ### <a name="r-hosts"></a>Hôtes R
 
-Les hôtes de cette section sont utilisés pour installer les packages R. Ils sont requis lors du développement, de l’entraînement et du déploiement.
+Les hôtes de cette section permettent d’installer des packages R et sont requis lors du développement, de la formation et du déploiement.
 
 > [!NOTE]
 > Il ne s’agit pas d’une liste complète des ordinateurs hôtes requis pour toutes les ressources R sur Internet, uniquement celles les plus couramment utilisées. Par exemple, si vous avez besoin d’accéder à un référentiel GitHub ou à un autre hôte, vous devez identifier et ajouter les ordinateurs hôtes requis pour ce scénario.
@@ -209,9 +204,31 @@ Les hôtes de cette section sont utilisés pour installer les packages R. Ils s
 | ---- | ---- |
 | **cloud.r-project.org** | Utilisé lors de l’installation des packages CRAN. |
 
-> [!IMPORTANT]
-> En interne, le kit SDK R pour Azure Machine Learning utilise des packages Python. Par conséquent, vous devez également autoriser les hôtes Python à traverser le pare-feu.
+### <a name="azure-kubernetes-services-hosts"></a>Hôtes Azure Kubernetes Services
+
+Pour plus d’informations sur les hôtes avec lesquels AKS doit communiquer, consultez les articles [Restreindre le trafic sortant dans Azure Kubernetes Service](../aks/limit-egress-traffic.md) et [Déployer des modèles Machine Learning dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
+
+### <a name="visual-studio-code-hosts"></a>Hôtes Visual Studio Code
+
+Les hôtes de cette section permettent d’installer les packages Visual Studio Code afin d’établir une connexion à distance entre Visual Studio Code et les instances de calcul dans votre espace de travail Azure Machine Learning.
+
+> [!NOTE]
+> Il ne s’agit pas d’une liste complète des ordinateurs hôtes requis pour toutes les ressources Visual Studio Code sur Internet, uniquement pour celles les plus couramment utilisées. Par exemple, si vous avez besoin d’accéder à un référentiel GitHub ou à un autre hôte, vous devez identifier et ajouter les ordinateurs hôtes requis pour ce scénario.
+
+| **Nom d’hôte** | **Objectif** |
+| ---- | ---- |
+|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Utilisé pour récupérer les bits du serveur VS Code qui sont installés sur l’instance de calcul par le biais d’un script d’installation.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Utilisé pour récupérer les bits du serveur websocket qui sont installés sur l’instance de calcul. Le serveur websocket est utilisé pour transmettre les requêtes du client Visual Studio Code (application de bureau) au serveur Visual Studio Code s’exécutant sur l’instance de calcul. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md)
-* [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-network-security-overview.md)
+Cet article fait partie d’une série sur la sécurisation d’un workflow Azure Machine Learning. Consultez les autres articles de cette série :
+
+* [Présentation du réseau virtuel](how-to-network-security-overview.md)
+* [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+* [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+* [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+* [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+* [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+
+Pour plus d’informations sur la configuration du Pare-feu Azure, consultez [Didacticiel : Déployer et configurer le Pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md).

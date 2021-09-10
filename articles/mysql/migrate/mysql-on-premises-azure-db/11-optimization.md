@@ -1,5 +1,5 @@
 ---
-title: Guide de migration de MySQL local vers Azure Database pour MySQL - Optimisation
+title: 'Migrer MySQL local vers Azure Database pour MySQL : Optimisation'
 description: En plus des journaux d’audit et d’activité, les performances du serveur peuvent également être supervisées avec des métriques Azure.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: c207e4981adc64d92804c97a69225eacb89e2fac
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 4a1f279ad8eb81891a184700b1076bcec89b92e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082665"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296205"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-optimization"></a>Guide de migration de MySQL local vers Azure Database pour MySQL - Optimisation
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-optimization"></a>Migrer MySQL local vers Azure Database pour MySQL : Optimisation
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -24,9 +26,9 @@ ms.locfileid: "112082665"
 
 ## <a name="monitoring-hardware-and-query-performance"></a>Supervision des performances du matériel et des requêtes
 
-En plus des journaux d’audit et d’activité, les performances du serveur peuvent également être supervisées avec des [métriques Azure](/azure/azure-monitor/platform/data-platform-metrics). Les métriques Azure sont fournies à une fréquence d’une minute et des alertes peuvent être configurées à partir de celles-ci. Pour plus d’informations, consultez [Supervision dans Azure Database pour MySQL](/azure/mysql/concepts-monitoring) pour des détails sur les types de métriques qui peuvent être supervisées.
+En plus des journaux d’audit et d’activité, les performances du serveur peuvent également être supervisées avec des [métriques Azure](../../../azure-monitor/essentials/data-platform-metrics.md). Les métriques Azure sont fournies à une fréquence d’une minute et des alertes peuvent être configurées à partir de celles-ci. Pour plus d’informations, consultez [Supervision dans Azure Database pour MySQL](../../concepts-monitoring.md) pour des détails sur les types de métriques qui peuvent être supervisées.
 
-Comme mentionné précédemment, les métriques de supervision, comme le pourcentage d’utilisation du processeur ou de la mémoire, peuvent être importantes pour décider de changer le niveau de la base de données. Des valeurs constamment élevées peuvent indiquer qu’un changement de niveau est nécessaire.
+Comme mentionné précédemment, les métriques de supervision, comme le \_pourcentage d’utilisation du processeur ou de la mémoire\_, peuvent être importantes pour décider de changer le niveau de la base de données. Des valeurs constamment élevées peuvent indiquer qu’un changement de niveau est nécessaire.
 
 En outre, si le processeur et la mémoire ne semblent pas être le problème, les administrateurs peuvent explorer les options en lien avec les bases de données, comme l’indexation et les modifications des requêtes pour les requêtes avec des performances médiocres.
 
@@ -38,12 +40,12 @@ AzureDiagnostics
 | where Category == 'MySqlSlowLogs'
 | project TimeGenerated, LogicalServerName\_s, 
 event\_class\_s, start\_time\_t , q uery\_time\_d, 
-sql\_text\_s | top 5 by query\_time\_d desc
+sql\_text\_s| top 5 by query\_time\_d desc
 ```
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 
-En plus des aspects fondamentaux de la supervision du serveur, Azure fournit des outils permettant de superviser les performances des requêtes des applications. La correction ou l’amélioration des requêtes peut entraîner une augmentation significative du débit des requêtes. Utilisez l’[outil Query Performance Insight](/azure/mysql/concepts-query-performance-insight) pour analyser les requêtes les plus longues et déterminer s’il est possible de mettre en cache ces éléments s’ils sont déterministes dans une période définie, ou de modifier les requêtes pour augmenter leurs performances.
+En plus des aspects fondamentaux de la supervision du serveur, Azure fournit des outils permettant de superviser les performances des requêtes des applications. La correction ou l’amélioration des requêtes peut entraîner une augmentation significative du débit des requêtes. Utilisez l’[outil Query Performance Insight](../../concepts-query-performance-insight.md) pour analyser les requêtes les plus longues et déterminer s’il est possible de mettre en cache ces éléments s’ils sont déterministes dans une période définie, ou de modifier les requêtes pour augmenter leurs performances.
 
 `slow\_query\_log` peut être défini de façon à montrer les requêtes lentes dans les fichiers journaux de MySQL (la valeur par défaut est OFF). Le paramètre de serveur `long\_query\_time` peut alerter les utilisateurs sur les durées longues des requêtes (la valeur par défaut est de 10 secondes).
 
@@ -77,12 +79,14 @@ Ils ont choisi de commencer par superviser les problèmes potentiels et d’impl
 
   - Supervisez les requêtes lentes.
 
-  - Passez régulièrement en revue le tableau de bord Insights sur les performances.
+  - Consultez régulièrement le tableau de bord Performance Insight.
 
   - Utilisez la supervision pour décider des mise à niveau et des mises à l’échelle.
 
   - Envisagez de changer de région si les besoins des utilisateurs ou des applications changent.  
 
 
+## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"]
-> [Continuité d’activité et reprise d’activité (BCDR)](./12-business-continuity-and-disaster-recovery.md)
+> [Continuité d’activité et reprise d’activité](./12-business-continuity-and-disaster-recovery.md)

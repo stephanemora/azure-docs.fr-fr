@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/19/2021
 ms.author: erhopf
-ms.openlocfilehash: 4a78e233a41bf3b6682f52bac912528d6bcab76c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: deb5db6f205c02812330539c403fbe7b80d4784c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816330"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532633"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Activer la journalisation des diagnostics pour Azure Cognitive Services
 
-Ce guide fournit des instructions pas à pas pour activer la journalisation des diagnostics pour un service Azure Cognitive Services. Ces journaux fournissent des informations riches et fréquentes sur l’exploitation d’une ressource et permettent l’identification et le débogage des problèmes. Avant de continuer, vous devez disposer d’un compte Azure avec un abonnement à au moins un service cognitif, comme [Recherche Web Bing](./bing-web-search/overview.md), [Speech Services](./speech-service/overview.md) ou [LUIS](./luis/what-is-luis.md).
+Ce guide fournit des instructions pas à pas pour activer la journalisation des diagnostics pour un service Azure Cognitive Services. Ces journaux fournissent des informations riches et fréquentes sur l’exploitation d’une ressource et permettent l’identification et le débogage des problèmes. Avant de continuer, vous devez disposer d’un compte Azure avec un abonnement à au moins un service cognitif, comme [Speech Services](./speech-service/overview.md) ou [LUIS](./luis/what-is-luis.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,7 +28,8 @@ Pour activer la journalisation des diagnostics, vous aurez besoin d’un emplace
 * [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) – Outil analytique et de recherche dans les journaux flexible qui permet d’analyser les journaux bruts générés par une ressource Azure.
 
 > [!NOTE]
-> Des options de configuration supplémentaires sont disponibles. Pour en savoir plus, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/essentials/platform-logs-overview.md).
+> * Des options de configuration supplémentaires sont disponibles. Pour en savoir plus, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/essentials/platform-logs-overview.md).
+> * Une « trace » dans la journalisation des diagnostics n’est disponible que pour les [Réponses aux questions personnalisées](./qnamaker/how-to/get-analytics-knowledge-base.md?tabs=v2).
 
 ## <a name="enable-diagnostic-log-collection"></a>Activer la collecte des journaux de diagnostic  
 
@@ -37,7 +38,7 @@ Commençons par activer la journalisation des diagnostics à partir du portail A
 > [!NOTE]
 > Pour activer cette fonctionnalité à l’aide de PowerShell ou d’Azure CLI, suivez les instructions fournies dans [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
-1. Accédez au portail Azure. Recherchez ensuite une ressource Cognitive Services et sélectionnez-la. Par exemple, votre abonnement à Recherche Web Bing.   
+1. Accédez au portail Azure. Recherchez ensuite une ressource Cognitive Services et sélectionnez-la. Par exemple, votre abonnement à Speech Services.   
 2. Ensuite, dans le menu de navigation de gauche, recherchez **Supervision**, puis sélectionnez **Paramètres de diagnostic**. Cet écran contient tous les paramètres de diagnostic créés précédemment pour cette ressource.
 3. Si vous souhaitez utiliser une ressource créée précédemment, vous pouvez la sélectionner maintenant. Sinon, sélectionnez **+ Ajouter un paramètre de diagnostic**.
 4. Attribuez un nom au paramètre. Sélectionnez ensuite **Archiver dans un compte de stockage**, puis **Envoyer à Log Analytics**.

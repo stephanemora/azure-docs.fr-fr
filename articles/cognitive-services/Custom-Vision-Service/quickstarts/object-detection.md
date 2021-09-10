@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Détection d’objets avec la bibliothèque de client Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: 'Démarrage rapide : Créer un projet de détection d’objets, ajouter des étiquettes, charger des images, entraîner votre projet et détecter des objets à l’aide de la bibliothèque de client Custom Vision.'
+description: 'Démarrage rapide : Créer un projet de détection d’objets, ajouter des étiquettes personnalisées, charger des images, effectuer l’apprentissage de votre modèle et détecter des objets dans des images à l’aide de la bibliothèque de client Custom Vision.'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
@@ -11,12 +11,12 @@ ms.date: 04/19/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: vision personnalisée
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 45ac9fb96a6b8c0d5e20b616cf99b27e599f99fe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7aa148919cd4c30fb14c81db3a0f7e37ee7860a3
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725129"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309935"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-client-library"></a>Démarrage rapide : Créer un projet de détection d’objets avec la bibliothèque de client Custom Vision
 

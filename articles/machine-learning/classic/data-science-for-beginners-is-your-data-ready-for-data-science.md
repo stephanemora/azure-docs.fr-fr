@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 07db1f1c8021759fbd5702ad9353f74fcd1524c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e3cbbd725dc6c3343cc9fd2edc6739bbb79156a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100516972"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532346"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Vos données sont-elles prêtes pour la science des données ?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vidéo 2 : série Science des données pour les débutants
@@ -99,8 +99,8 @@ Si vous ajoutez davantage de données, le tableau devient plus clair et vous pou
 
 Avec assez de données pertinentes, connectées et précises, nous disposons de tous les ingrédients dont nous avons besoin pour une science des données de haute qualité.
 
-Nous vous invitons à consulter les quatre autres vidéos de la série *« Science des données pour les débutants »* de Microsoft Azure Machine Learning Studio (classique).
+Nous vous invitons à regarder les quatre autres vidéos de la série *Science des données pour les débutants* de Machine Learning Studio (classique).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio (classique)](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Présentation d’Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

@@ -2,13 +2,13 @@
 title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
-ms.date: 01/15/2021
-ms.openlocfilehash: e7becadab7f23acd7b85d6d82fd8abbfa7608add
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/28/2021
+ms.openlocfilehash: 04e9ead09061fad5630b883c6f5749bafc7a4a7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781520"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524906"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -32,9 +32,7 @@ L’importation d’images dans un registre de conteneurs Azure présente les av
 
 Pour importer des images conteneur, cet article nécessite que vous exécutiez l’interface Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
-> [!NOTE]
-> Si vous avez besoin de distribuer des images conteneur identiques dans plusieurs régions Azure, Azure Container Registry prend également en charge la [géoréplication](container-registry-geo-replication.md). En géoréplicant un registre (niveau de service Premium requis), vous pouvez servir plusieurs régions avec des noms d’image et d’étiquette identiques à partir d’un seul registre.
->
+[!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 > [!IMPORTANT]
 > Les modifications apportées à l’importation d’image entre deux registres de conteneurs Azure ont été introduites à partir du mois de janvier 2021 :
@@ -158,7 +156,10 @@ az acr import \
 
 ## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importer à partir d'un registre de conteneurs Azure situé dans un autre locataire AD
 
-Pour importer à partir d'un registre de conteneurs Azure situé dans un autre locataire Azure Active Directory, spécifiez le registre source par nom de serveur de connexion, et entrez des informations d'identification (nom d'utilisateur et mot de passe) permettant un accès par extraction au registre. Par exemple, utilisez un [jeton délimité par le référentiel](container-registry-repository-scoped-permissions.md) et un mot de passe, ou l'appID et le mot de passe d'un [principal de service](container-registry-auth-service-principal.md) Active Directory disposant d'un accès ACRPull au registre source. 
+Pour importer à partir d’un registre de conteneurs Azure situé dans un autre locataire Azure Active Directory, spécifiez le registre source par nom de serveur de connexion et entrez des informations d’identification permettant un accès par tirage (pull) au registre. 
+
+### <a name="cross-tenant-import-with-username-and-password"></a>Importation entre locataires avec nom d’utilisateur et mot de passe
+Par exemple, utilisez un [jeton délimité par le référentiel](container-registry-repository-scoped-permissions.md) et un mot de passe, ou l'appID et le mot de passe d'un [principal de service](container-registry-auth-service-principal.md) Active Directory disposant d'un accès ACRPull au registre source. 
 
 ```azurecli
 az acr import \
@@ -167,6 +168,28 @@ az acr import \
   --image targetimage:tag \
   --username <SP_App_ID> \
   --password <SP_Passwd>
+```
+
+### <a name="cross-tenant-import-with-access-token"></a>Importation entre locataires avec jeton d’accès
+
+Pour accéder au registre source à l’aide d’une identité dans le locataire source qui dispose d’autorisations de registre, vous pouvez obtenir un jeton d’accès :
+
+```azurecli
+# Login to Azure CLI with the identity, for example a user-assigned managed identity
+az login --identity --username <identity_ID>
+
+# Get access token returned by `az account get-access-token`
+az account get-access-token 
+```
+
+Dans le locataire cible, transmettez le jeton d’accès en tant que mot de passe à la commande `az acr import`. Le registre source est spécifié par le nom du serveur de connexion. Notez qu’aucun nom d’utilisateur n’est nécessaire dans cette commande :
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --password <access-token>
 ```
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importer à partir d’un registre de conteneurs privé non-Azure
@@ -184,7 +207,13 @@ az acr import \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à importer des images conteneur dans un registre de conteneurs Azure à partir d’un registre public ou d’un autre registre privé. Pour accéder à des options d’importation d’image supplémentaires, consultez les informations de référence sur la commande [az acr import][az-acr-import]. 
+Dans cet article, vous avez appris à importer des images conteneur dans un registre de conteneurs Azure à partir d’un registre public ou d’un autre registre privé. 
+
+* Pour accéder à des options d’importation d’image supplémentaires, consultez les informations de référence sur la commande [az acr import][az-acr-import]. 
+
+* L’importation d’images peut vous aider à déplacer du contenu vers un registre de conteneurs dans une région Azure, un abonnement ou un locataire Azure AD différent. Pour plus d’informations, consultez [Déplacer manuellement un registre de conteneurs vers une autre région](manual-regional-move.md).
+
+* Découvrez comment [désactiver l’exportation d’artefacts](data-loss-prevention.md) à partir d’un registre de conteneurs restreint par le réseau.
 
 
 <!-- LINKS - Internal -->

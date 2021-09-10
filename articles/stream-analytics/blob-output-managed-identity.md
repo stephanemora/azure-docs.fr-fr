@@ -1,21 +1,21 @@
 ---
 title: Authentifier la sortie blob avec Managed Identity Azure Stream Analytics
 description: Cet article explique comment utiliser des identités managées afin d’authentifier votre tâche Azure Stream Analytics pour la sortie de stockage Blob Azure.
-author: kim-ale
-ms.author: kimal
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.openlocfilehash: 98a78d9d769300fc4963869fbc4fa2607b800fad
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 07/07/2021
+ms.openlocfilehash: 708871f620614f893a641f20098f6ed58af464f5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591113"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486100"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Utiliser une identité managée (préversion) pour authentifier votre tâche Azure Stream Analytics auprès du Stockage Blob Azure
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics auprès de Stockage Blob Azure
 
-L’[authentification par identité managée](../active-directory/managed-identities-azure-resources/overview.md) (préversion) pour la sortie Stockage Blob Azure donne aux travaux Stream Analytics un accès direct à un compte de stockage au lieu d’utiliser une chaîne de connexion. Outre la sécurité améliorée, cette fonctionnalité vous permet également d’écrire des données dans un compte de stockage dans un réseau virtuel (VNET) au sein d’Azure.
+L’[authentification par identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la sortie du stockage Blob Azure donne aux travaux Stream Analytics un accès direct à un compte de stockage au lieu d’utiliser une chaîne de connexion. Outre la sécurité améliorée, cette fonctionnalité vous permet également d’écrire des données dans un compte de stockage dans un réseau virtuel (VNET) au sein d’Azure.
 
 Cet article vous montre comment activer une identité managée pour une ou des sorties Blob d’un travail Azure Stream Analytics via le portail Azure et un déploiement d’Azure Resource Manager.
 

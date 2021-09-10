@@ -5,12 +5,12 @@ description: Découvrir comment mettre à jour ou réinitialiser les information
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 128e2d38b002369381c860dbd94dbd93b278682d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 72cc0c6ab369b035df8c4a29c89be74fa9102cc5
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562971"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101515"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
@@ -97,7 +97,7 @@ Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informati
 ## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>Mise à jour du cluster AKS avec les informations d’identification du nouveau principal de service
 
 > [!IMPORTANT]
-> La mise à jour d’un cluster AKS de grande taille avec un nouveau principal de service est susceptible de prendre beaucoup de temps.
+> La mise à jour d’un cluster AKS de grande taille avec un nouveau principal de service est susceptible de prendre beaucoup de temps. Envisagez de passer en revue et de personnaliser les [paramètres de mise à niveau de la surcharge des nœuds][node-surge-upgrade] afin de réduire les perturbations pendant les mises à jour et les mises à niveau du cluster.
 
 Que vous ayez choisi de mettre à jour les informations d’identification du principal de service existant ou de créer un principal de service, mettez maintenant à jour le cluster AKS avec vos nouvelles informations d’identification à l’aide de la commande [az aks update-credentials][az-aks-update-credentials]. Les variables pour *--service-principal* et *--client-secret* sont utilisées :
 
@@ -142,3 +142,4 @@ Dans cet article, le principal de service du cluster AKS lui-même et les applic
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
+[node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade

@@ -7,14 +7,13 @@ ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 77bc1b435e92861cdabce7b0ce0ac7e9b4212138
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ed0985778f27f17292428dddadaf4d0dedc9cd46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562780"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Demander des données météorologiques en temps réel et prévues à l’aide des services Météo Azure Maps
 
@@ -50,17 +49,15 @@ Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vo
 
 Dans cet exemple, vous allez utiliser [l’API Get Current Conditions](/rest/api/maps/weather/getcurrentconditions) pour récupérer les conditions météorologiques actuelles pour des coordonnées situées à Seattle, WA.
 
-1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.  Nommez la collection puis sélectionnez le bouton **Create** (Créer). Vous utiliserez ce regroupement pour le reste des exemples de ce document.
+1. Ouvrez l’application Postman. Pour créer la demande, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande. 
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
-
-3. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
+2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
     ```http
     https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les informations météorologiques actuelles.
+3. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les informations météorologiques actuelles.
 
     ```json
     {
@@ -242,7 +239,7 @@ Dans cet exemple, vous allez utiliser [l’API Get Severe Weather Alerts](/rest/
 >[!NOTE]
 >Cet exemple récupère des alertes météorologiques graves au moment de la rédaction de cet article. Il est probable qu’il n’y ait plus d’alertes météorologiques graves à l’emplacement demandé. Pour récupérer les données d’alerte grave réelles lors de l’exécution de cet exemple, vous devez récupérer les données d’un emplacement avec des coordonnées différentes.
 
-1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Pour créer la demande, dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
@@ -294,7 +291,7 @@ Dans cet exemple, vous allez utiliser [l’API Get Severe Weather Alerts](/rest/
 
 Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](/rest/api/maps/weather/getdailyforecast) pour récupérer les prévisions météorologiques sur cinq jours pour des coordonnées situées à Seattle, WA.
 
-1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Pour créer la demande, dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
@@ -542,7 +539,7 @@ Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](/rest/api/map
 
 Dans cet exemple, vous allez utiliser [l’API Get Hourly Forecast](/rest/api/maps/weather/gethourlyforecast) pour récupérer les prévisions météorologiques horaires des 12 prochaines heures pour des coordonnées situées à Seattle, WA.
 
-1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Pour créer la demande, dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
@@ -643,13 +640,14 @@ Dans cet exemple, vous allez utiliser [l’API Get Hourly Forecast](/rest/api/ma
     ]
     }
     ```
+
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>Demander des données de prévisions météorologiques minute par minute
 
  [L’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecast) retourne des prévisions minute par minute pour un emplacement donné pour les 120 prochaines minutes. Les utilisateurs peuvent demander des prévisions météorologiques par intervalles de 1, 5 et 15 minutes. La réponse inclut des détails tels que le type de précipitation (y compris la pluie, la neige ou une combinaison des deux), l’heure de début et la valeur d’intensité des précipitations (dBZ).
 
 Dans cet exemple, vous allez utiliser [l’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecast) pour récupérer les prévisions météorologiques minute par minute pour des coordonnées situées à Seattle, WA. Les prévisions météorologiques sont fournies pour les 120 prochaines minutes. Notre requête demande que les prévisions soient données à des intervalles de 15 minutes, mais vous pouvez ajuster le paramètre sur une valeur de 1 ou 5 minutes.
 
-1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
+1. Pour créer la demande, dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP). Entrez un **Request name** (Nom de demande) pour la demande.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 

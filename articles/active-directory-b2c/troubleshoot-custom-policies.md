@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6298c8483c44472fe6f52f3e48b5c529c2d978a5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0a2f1e40b85eea5f02aec93a0cac97acc5dfeaf9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457490"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531815"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C
 
@@ -31,7 +31,7 @@ L’ID de corrélation Azure AD B2C est une valeur d’identificateur unique joi
 - Rechercher les journaux Azure Application Insights de la demande de connexion
 - Transmettre l’ID de corrélation à votre API REST et l’utiliser pour identifier le flux de connexion 
 
-L’ID de corrélation est modifié chaque fois qu’une nouvelle session est établie. Lors du débogage de vos stratégies, assurez-vous de fermer les onglets existants du navigateur. Vous pouvez également ouvrir un nouveau navigateur en mode privé.
+L’ID de corrélation est modifié chaque fois qu’une nouvelle session est établie. Lorsque vous déboguez vos stratégies, assurez-vous de fermer les onglets existants du navigateur ou d’ouvrir un nouveau navigateur en mode privé.
 
 ### <a name="get-the-azure-ad-b2c-correlation-id"></a>Obtenir l’ID de corrélation Azure AD B2C
 

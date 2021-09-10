@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: sstein
-ms.date: 06/17/2020
-ms.openlocfilehash: 6367a697d33a4d658dea6e68b3a7c9d75e3d8b1a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.reviewer: mathoma
+ms.date: 07/14/2021
+ms.openlocfilehash: c1bb51ff65e7239fc758553288c84a4a52f90740
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675359"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524362"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -103,7 +103,7 @@ Lorsqu'un ordinateur tente de se connecter à votre serveur à partir d'Internet
 
 Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Pour activer les connexions Azure, il doit y avoir une règle de pare-feu avec les adresses IP de début et de fin définies sur 0.0.0.0.
 
-Quand une application d’Azure tente de se connecter au serveur, le pare-feu confirme que les connexions Azure sont autorisées en vérifiant que cette règle de pare-feu existe. Vous pouvez activer la connexion directement à partir du panneau du portail Azure en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels**. Cette activation crée une règle de pare-feu entrante pour l’adresse IP 0.0.0.0 - 0.0.0.0 nommée **AllowAllWindowsIP**. Utilisez PowerShell ou Azure CLI pour créer une règle de pare-feu avec les adresses IP de début et de fin définies sur 0.0.0.0 si vous n’utilisez pas le portail. 
+Quand une application d’Azure tente de se connecter au serveur, le pare-feu confirme que les connexions Azure sont autorisées en vérifiant que cette règle de pare-feu existe. Vous pouvez activer la connexion directement à partir du panneau du portail Azure en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels**. L’activation de ce paramètre crée une règle de pare-feu de trafic entrant pour l’adresse IP 0.0.0.0 - 0.0.0.0 nommée **AllowAllWindowsAzureIps**. La règle peut être visualisée dans la vue [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) de votre base de données MASTER. Utilisez PowerShell ou Azure CLI pour créer une règle de pare-feu avec les adresses IP de début et de fin définies sur 0.0.0.0 si vous n’utilisez pas le portail. 
 
 > [!IMPORTANT]
 > Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Si vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.

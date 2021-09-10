@@ -10,12 +10,12 @@ ms.author: tklimmer
 ms.topic: reference
 ms.date: 05/12/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 63269512a33ce2743d1082001525030c85bc8a4a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ba7006c9dc266819e4c965ae3a72fc0f78506056
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462885"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649987"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Quels sont les outils qui sont inclus dans Azure Data Science Virtual Machine ?
 
@@ -32,7 +32,7 @@ Data Science Virtual Machine est fourni avec les outils de science des données 
 | [NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | [nvidia-smi dans DSVM](./dsvm-tools-deep-learning-frameworks.md#nvidia-system-management-interface-nvidia-smi) |
 | [PyTorch](https://pytorch.org) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | [PyTorch dans DSVM](./dsvm-tools-deep-learning-frameworks.md#pytorch) |
 | [TensorFlow](https://www.tensorflow.org) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [TensorFlow dans DSVM](./dsvm-tools-deep-learning-frameworks.md#tensorflow) |
-| Intégration à [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | <span class='green-check'>&#9989;</span></br> (SDK Python, exemples) | <span class='green-check'>&#9989;</span></br> (SDK Python/R, CLI, exemples) | [SDK Azure ML](./dsvm-tools-data-science.md#azure-machine-learning-sdk-for-python) |
+| Intégration avec [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (Python) | <span class='green-check'>&#9989;</span></br> (SDK Python, exemples) | <span class='green-check'>&#9989;</span></br> (Kit de développement logiciel (SDK) Python, CLI, exemples) | [SDK Azure ML](./dsvm-tools-data-science.md#azure-machine-learning-sdk-for-python) |
 | [XGBoost](https://github.com/dmlc/xgboost) | <span class='green-check'>&#9989;</span></br> (prise en charge de la configuration CUDA) | <span class='green-check'>&#9989;</span></br> (prise en charge de la configuration CUDA) | [XGBoost dans DSVM](./dsvm-tools-data-science.md#xgboost) |
 | [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | [Vowpal Wabbit dans DSVM](./dsvm-tools-data-science.md#vowpal-wabbit) |
 | [Weka](https://www.cs.waikato.ac.nz/ml/weka/) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> |  |

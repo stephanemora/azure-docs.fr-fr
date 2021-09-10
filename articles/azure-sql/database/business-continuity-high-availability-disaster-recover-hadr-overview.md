@@ -13,14 +13,14 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 06/25/2019
-ms.openlocfilehash: 2e246d6b67ad1457deb9057e771e5e95d4987809
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c4a7228662d1070f001b5cbe9d2199639362bccb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708888"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465639"
 ---
-# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
+# <a name="overview-of-business-continuity-with-azure-sql-database--azure-sql-managed-instance"></a>Vue d’ensemble de la continuité de l’activité avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 La **continuité de l’activité** dans Azure SQL Database et SQL Managed Instance fait référence aux mécanismes, stratégies et procédures qui permettent à votre entreprise de continuer à fonctionner en cas d’interruption affectant notamment son infrastructure informatique. Dans la plupart des cas, SQL Database et SQL Managed Instance gèrent les événements d’interruption qui peuvent se produire dans l’environnement cloud et préservent l’exécution de vos applications et processus métier. Toutefois, certains de ces événements ne peuvent pas être automatiquement gérés par SQL Database, notamment dans les cas suivants :

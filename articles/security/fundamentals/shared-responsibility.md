@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 08/31/2021
 ms.author: terrylan
-ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14d53d3f58c1bbdb03a5ac510f6a2e44157906f9
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99548947"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272104"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilité partagée dans le cloud
 
@@ -29,7 +29,7 @@ Quand vous considérez et évaluez les services de cloud public, il est essentie
 ## <a name="division-of-responsibility"></a>Répartition de la responsabilité
 Dans un centre de données local, vous être propriétaire de la pile entière. Quand vous migrez dans le cloud, certaines responsabilités sont transférées à Microsoft. Le schéma suivant illustre les domaines de responsabilité entre vous et Microsoft, selon le type de déploiement de votre pile.
 
-![Zones de responsabilité](./media/shared-responsibility/shared-responsibility.png)
+:::image type="content" source="media/shared-responsibility/shared-responsibility.svg" alt-text="Diagramme montrant les zones de responsabilité." border="false":::
 
 Vous avez vos données et les identités pour tous les types de déploiement dans le cloud. Vous êtes chargé de protéger la sécurité de vos données et des identités, des ressources locales, et des composants du cloud que vous contrôlez (qui varient selon le type de service).
 
@@ -45,7 +45,7 @@ Le cloud offre des avantages significatifs quand il s’agit de faire face à l�
 
 Le schéma suivant illustre une approche traditionnelle où un grand nombre de responsabilités de sécurité ne sont pas satisfaites en raison de ressources limitées. Dans l’approche basée sur le cloud, vous pouvez transférer les responsabilités de sécurité quotidiennes à votre fournisseur de cloud et réallouer vos ressources.
 
-![Les avantages de l’ère du cloud en matière de sécurité](./media/shared-responsibility/cloud-enabled-security.png)
+:::image type="content" source="media/shared-responsibility/cloud-enabled-security.svg" alt-text="Diagramme montrant les avantages de l’ère du cloud pour la sécurité." border="false":::
 
 Dans l’approche basée sur le cloud, vous pouvez aussi tirer parti des fonctionnalités de sécurité du cloud pour plus d’efficacité et utiliser l’intelligence cloud pour améliorer la détection des menaces et votre temps de réponse. En transférant les responsabilités au fournisseur de cloud, les organisations peuvent optimiser leur couverture de sécurité, ce qui leur permet de réaffecter des ressources de sécurité et leur budget à d'autres priorités de l’entreprise.
 

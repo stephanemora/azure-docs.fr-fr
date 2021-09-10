@@ -3,20 +3,21 @@ title: Gérer votre environnement à l’aide de modèles Azure Resource Manager
 description: Découvrez comment gérer un environnement Azure Time Series Insights par programmation à l’aide d’Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23b7906a7035ebb8af0558dcd28952aa3fb71c0b
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011657"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136181"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Créer des ressources Azure Time Series Insights Gen1 à l’aide de modèles Resource Manager
 
@@ -40,7 +41,7 @@ Un modèle Resource Manager est un fichier JSON qui définit l’infrastructure 
 - [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Types de ressource Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-Le modèle de démarrage rapide [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) est publié sur GitHub. Il crée un environnement Azure Time Series Insights, une source d’événement enfant configurée pour consommer des événements à partir d’un Event Hub et des stratégies qui accordent l’accès aux données de l’environnement. Si aucun hub d’événements existant n’est spécifié, il en sera créé un avec le déploiement.
+Le modèle de démarrage rapide [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub) est publié sur GitHub. Il crée un environnement Azure Time Series Insights, une source d’événement enfant configurée pour consommer des événements à partir d’un Event Hub et des stratégies qui accordent l’accès aux données de l’environnement. Si aucun hub d’événements existant n’est spécifié, il en sera créé un avec le déploiement.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,13 +51,13 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Installez Azure PowerShell en suivant les instructions disponibles dans [Prise en main d’Azure PowerShell](/powershell/azure/get-started-azureps).
 
-1. Clonez ou copiez le modèle [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) sur GitHub.
+1. Clonez ou copiez le modèle [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.json) sur GitHub.
 
    - Créer un fichier de paramètres
 
-     Pour créer un fichier de paramètres, copiez le fichier [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
+     Pour créer un fichier de paramètres, copiez le fichier [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
 
-      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
+      [!code-json[deployment-parameters](~/quickstart-templates/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
 
     <div id="required-parameters"></div>
 
@@ -249,7 +250,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
    - La page d’accueil du modèle de démarrage rapide sur GitHub comporte également un bouton **Déployer sur Azure**. Il ouvre une page Déploiement personnalisé sur le Portail Azure. Sur cette page, vous pouvez entrer ou sélectionner des valeurs pour chacun des paramètres des tables [Paramètres requis](#required-parameters) et [Paramètres facultatifs](#optional-parameters). Après avoir rempli les paramètres, cliquez sur le bouton **Acheter** pour lancer le déploiement du modèle.
     </br>
     </br>
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
        <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
     </a>
 

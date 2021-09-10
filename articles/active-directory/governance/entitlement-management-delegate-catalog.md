@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 07/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b66ef767795b320368224e5ef855332a735b210
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 5afa05b8a529d8a9e9fceeb4a113f0b743acfc05
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714311"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286574"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux créateurs de catalogue dans la gestion des droits d’utilisation Azure AD
 
-Un catalogue est un conteneur de ressources et de packages d’accès. Vous créez un catalogue lorsque vous souhaitez regrouper des ressources et packages d’accès liés. Par défaut, un administrateur général ou un administrateur d’utilisateurs peut [créer un catalogue](entitlement-management-catalog-create.md) et peut ajouter des utilisateurs supplémentaires en tant que propriétaires du catalogue.
+Un catalogue est un conteneur de ressources et de packages d’accès. Vous créez un catalogue lorsque vous souhaitez regrouper des ressources et packages d’accès liés. Par défaut, un administrateur général ou un administrateur de gouvernance des identités peut [créer un catalogue](entitlement-management-catalog-create.md) et peut ajouter des utilisateurs supplémentaires en tant que propriétaires du catalogue.
 
 Pour déléguer à des utilisateurs qui ne sont pas administrateurs, pour qu’ils puissent créer leurs propres catalogues, vous pouvez ajouter ces utilisateurs au rôle de créateur de catalogue défini par la gestion des droits d’utilisation Azure AD. Vous pouvez ajouter des utilisateurs individuels ou un groupe, dont les membres sont alors en mesure de créer des catalogues.  Après la création d’un catalogue, les utilisateurs peuvent ajouter par la suite des ressources dont ils sont propriétaires dans leur catalogue.
 
@@ -63,8 +63,20 @@ Pour permettre aux rôles délégués, tels que les créateurs de catalogue et l
 
     ![Paramètres utilisateur Azure AD - Portail d’administration](./media/entitlement-management-delegate-catalog/user-settings.png)
 
+## <a name="manage-role-assignments-programmatically-preview"></a>Gérer les attributions de rôles de manière programmatique (préversion)
+
+Vous pouvez également afficher et mettre à jour les créateurs de catalogue ainsi que les attributions de rôles propres au catalogue de gestion des droits d’utilisation à l’aide de Microsoft Graph.  Un utilisateur disposant d’un rôle approprié et d’une application qui a l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API Graph pour [lister les définitions de rôles](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) de la gestion des droits d’utilisation et [lister les attributions de rôles](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) de ces définitions de rôles.
+
+Pour récupérer une liste des utilisateurs et des groupes affectés au rôle créateurs de catalogue, le rôle ayant l’ID de définition `ba92d953-d8e0-4e39-a797-0cbedb0a89e8`, utilisez la requête Graph
+
+```http
+GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=roleDefinitionId eq 'ba92d953-d8e0-4e39-a797-0cbedb0a89e8'&$expand=principal
+```
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer et gérer un catalogue de ressources](entitlement-management-catalog-create.md)
 - [Déléguer la gouvernance des accès aux gestionnaires de package d’accès](entitlement-management-delegate-managers.md)
+- [Déléguer la gouvernance d’accès aux propriétaires de ressources](entitlement-management-delegate.md)
 

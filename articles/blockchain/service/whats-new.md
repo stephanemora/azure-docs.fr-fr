@@ -4,12 +4,12 @@ description: Découvrez les nouveautés Azure Blockchain Service, comme les dern
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea44366dd88ae1b98865727c9a3d3e038c924120
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94335024"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122641075"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Nouveautés Azure Blockchain Service
 
@@ -22,6 +22,10 @@ Azure Blockchain Service bénéficie d’améliorations en continu. Pour vous in
 - Problèmes connus
 
 ---
+
+## <a name="may-2021"></a>Mai 2021
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## <a name="june-2020"></a>Juin 2020
 
@@ -73,7 +77,7 @@ Dans Quorum v2.6.0, appeler la fonction *eth.estimateGas* sans fournir le param�
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>L’exploration s’arrête s’il y a moins de quatre nœuds validateurs
 
-Les réseaux de production doivent avoir au moins quatre nœuds validateurs. Quorum recommande un minimum de quatre nœuds validateurs pour se conformer à la tolérance de panne d’incident IBFT (3F+1). Vous devez disposer d’au moins deux nœuds Azure Blockchain Service de niveau *Standard* pour obtenir quatre nœuds validateurs. Un nœud standard est approvisionné de deux nœuds validateurs.  
+Les réseaux de production doivent avoir au moins quatre nœuds validateurs. Quorum recommande un minimum de quatre nœuds validateurs pour se conformer à la tolérance de panne d’incident IBFT (3F+1). Vous devez disposer d’au moins deux nœuds Azure Blockchain Service de niveau *Standard* pour obtenir quatre nœuds validateurs. Un nœud standard est approvisionné de deux nœuds validateurs.
 
 Si le réseau Blockchain sur Azure Blockchain Service ne comporte pas quatre nœuds validateurs, il se peut que l’exploration s’arrête sur le réseau. Il est possible de détecter l’arrêt de l’exploration en définissant une alerte sur les blocs traités. Dans un réseau sain, le bloc traité comportera 60 blocs par nœud toutes les cinq minutes.
 
@@ -97,7 +101,7 @@ Pour détecter les incidents sur Geth, vous pouvez consulter les journaux pour a
 
 Pour résoudre ce problème, envoyez des transactions signées au lieu d’envoyer des transactions non signées avec une commande permettant de déverrouiller le compte. Pour les transactions déjà signées en externe, le déverrouillage du compte n’est pas nécessaire.
 
-Si vous souhaitez envoyer des transactions non signées, déverrouillez le compte pour une durée infinie en envoyant 0 en tant que paramètre de temps dans la commande de déverrouillage. Vous pouvez verrouiller à nouveau le compte après l’envoi de toutes les transactions.  
+Si vous souhaitez envoyer des transactions non signées, déverrouillez le compte pour une durée infinie en envoyant 0 en tant que paramètre de temps dans la commande de déverrouillage. Vous pouvez verrouiller à nouveau le compte après l’envoi de toutes les transactions.
 
 Voici les paramètres de Geth utilisés par Azure Blockchain Service. Ces paramètres peuvent être ajustés.
 

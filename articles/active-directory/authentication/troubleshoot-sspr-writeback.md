@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 08/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03b93c09ebe1c8361379dba018d7c756f409d4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ccc9b6dffd6fa18fc18a9d16bc702553d277193d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745148"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866597"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Résoudre les problèmes relatifs à l’écriture différée de réinitialisation de mot de passe libre-service dans Azure Active Directory
 
@@ -49,6 +49,18 @@ Pour Azure AD Connect version *1.1.443.0* et versions ultérieures, vous avez b
 * *\*.servicebus.usgovcloudapi.net*
 
 Si vous avez besoin de plus de granularité, consultez la [liste des plages d’adresses IP des centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Cette liste est mise à jour tous les mercredis et entre en vigueur le lundi suivant.
+
+Pour déterminer si l’accès à une URL et à un port est restreint dans un environnement, exécutez la cmdlet suivante :
+
+```powershell
+Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
+```
+
+Ou exécutez la commande suivante :
+
+```powershell
+Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.servicebus.windows.net -Verbose
+```
 
 Pour plus d’informations, consultez les [conditions préalables à la connectivité pour Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
@@ -185,6 +197,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 | 31017| AuthTokenSuccess| Cet événement indique que nous avons correctement récupéré un jeton d’autorisation pour l’administrateur général spécifié pendant l’installation d’Azure AD Connect afin de démarrer le processus d’intégration ou de désintégration.|
 | 31018| KeyPairCreationSuccess| Cet événement indique que nous avons correctement créé la clé de chiffrement de mot de passe. Cette clé est utilisée pour chiffrer les mots de passe à partir du cloud à envoyer à votre environnement local.|
 | 31034| ServiceBusListenerError| Cet événement indique une erreur de connexion à l’écouteur Service Bus de votre locataire. Si le message d’erreur indique que le certificat distant n’est pas valide, vérifiez que votre serveur Azure AD Connect dispose de toutes les autorités de certification racines requises, comme décrit dans [Changements des certificats Azure TLS](../../security/fundamentals/tls-certificate-changes.md). |
+| 31044| PasswordResetService| Cet événement indique que la réécriture du mot de passe ne fonctionne pas. Le Service Bus écoute les demandes sur deux relais distincts à des fins de redondance. Chaque connexion de relais est gérée par un hôte de service unique. Le client de réécriture renvoie une erreur si l’un des hôtes de service n’est pas en cours d’exécution.|
 | 32000| UnknownError| Cet événement indique qu’une erreur inconnue s’est produite durant une opération de gestion de mot de passe. Examinez le texte de l’exception dans l’événement pour plus d’informations. Si vous rencontrez des problèmes, essayez de désactiver, puis de réactiver la réécriture du mot de passe. Si cela ne change rien, incluez une copie de votre journal des événements avec l’ID de suivi spécifié lorsque vous ouvrez une demande de support.|
 | 32001| ServiceError| Cet événement indique une erreur de connexion au service de réinitialisation de mot de passe à partir du cloud. Cette erreur se produit généralement quand le service local n’a pas pu se connecter au service web de réinitialisation de mot de passe.|
 | 32002| ServiceBusError| Cet événement indique une erreur de connexion à une instance Service Bus de votre locataire. Cela peut se produire si vous bloquez les connexions sortantes de votre environnement local. Vérifiez que votre pare-feu autorise les connexions sur TCP 443 et à https://ssprdedicatedsbprodncu.servicebus.windows.net, puis réessayez. Si vous rencontrez encore des problèmes, essayez de désactiver, puis de réactiver la réécriture du mot de passe.|

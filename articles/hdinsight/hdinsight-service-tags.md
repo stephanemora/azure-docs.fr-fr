@@ -4,13 +4,13 @@ description: Utilisez des étiquettes de service HDInsight pour autoriser le tra
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/11/2020
-ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 419feaf3102ba9db4335718131281481821fe6a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524007"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
@@ -59,20 +59,32 @@ Si votre cluster se trouve dans une région répertoriée dans ce tableau, il vo
 | Australie | Australie Est | HDInsight.AustraliaEast |
 | &nbsp; | Sud-Australie Est | HDInsight.AustraliaSoutheast |
 | &nbsp; | Centre de l’Australie | HDInsight.AustraliaCentral |
+| Brésil | Brésil Sud | HDInsight.BrazilSouth |
+| &nbsp; | Brésil Sud-Est | HDInsight.BrazilSoutheast |
 | Chine | Chine orientale 2 | HDInsight.ChinaEast2 |
 | &nbsp; | Chine Nord 2 | HDInsight.ChinaNorth2 |
-| États-Unis | Centre-Nord des États-Unis | HDInsight.NorthCentralUS |
-| &nbsp; | USA Ouest 2 | HDInsight.WestUS2 |
-| &nbsp; | Centre-USA Ouest | HDInsight.WestCentralUS |
-| Canada | Est du Canada | HDInsight.CanadaEast |
-| Brésil | Brésil Sud | HDInsight.BrazilSouth |
+| Japon | OuJapon Est | HDInsight.JapanWest |
 | Corée du Sud | Centre de la Corée | HDInsight.KoreaCentral |
 | &nbsp; | Corée du Sud | HDInsight.KoreaSouth |
 | Inde | Inde centrale | HDInsight.CentralIndia |
+| &nbsp; | Inde Ouest JIO | HDInsight.JioIndiaWest |
 | &nbsp; | Inde Sud | HDInsight.SouthIndia |
-| Japon | OuJapon Est | HDInsight.JapanWest |
+| Afrique du Sud | Afrique du Sud Nord | HDInsight.SouthAfricaNorth |
+| UAE | Émirats arabes unis Nord | HDInsight.UAENorth |
+| &nbsp; | Émirats arabes unis Centre | HDInsight.UAECentral |
 | France | France Centre| HDInsight.FranceCentral |
+| Allemagne | Allemagne Centre-Ouest| HDInsight.GermanyWestCentral |
+| Norvège | Norvège Est | HDInsight.NorwayEast |
+| Suisse | Suisse Nord | HDInsight.SwitzerlandNorth |
+| &nbsp; | Suisse Ouest | HDInsight.SwitzerlandWest |
 | Royaume-Uni | Sud du Royaume-Uni | HDInsight.UKSouth |
+| &nbsp; | Ouest du Royaume-Uni | HDInsight.UKWest |
+| États-Unis | Centre-Nord des États-Unis | HDInsight.NorthCentralUS |
+| &nbsp; | USA Ouest 2 | HDInsight.WestUS2 |
+| &nbsp; | USA Ouest 3 | HDInsight.WestUS3 |
+| &nbsp; | Centre-USA Ouest | HDInsight.WestCentralUS |
+| Canada | Est du Canada | HDInsight.CanadaEast |
+| &nbsp; | Centre du Canada | HDInsight.CanadaCentral |
 | Azure Government | US DoD - Centre | HDInsight.USDoDCentral |
 | &nbsp; | Gouvernement des États-Unis - Texas | HDInsight.USGovTexas |
 | &nbsp; | US DoD - Est | HDInsight.USDoDEast |

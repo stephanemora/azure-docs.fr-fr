@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0814f2896ec429650668a08590ffe7165fb120a3
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 682f855232ef021b10d148b3ede71a35dbaee760
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112282022"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867650"
 ---
 # <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blob pour gérer et rechercher des données sur Stockage Blob Azure
 
@@ -191,6 +191,9 @@ static async Task BlobIndexTagsExample()
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrer et rechercher des données avec des balises d’index de blobs
 
 Cette tâche peut être effectuée par un [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou un principal de sécurité qui a reçu l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` via un rôle Azure personnalisé.
+
+> [!NOTE]
+> Vous ne pouvez pas utiliser de balises d’index pour récupérer des versions précédentes. Les balises pour les versions précédentes ne sont pas passées au moteur d’index de blob. Pour plus d’informations, consultez [Conditions et problèmes connus](storage-manage-find-blobs.md#conditions-and-known-issues).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

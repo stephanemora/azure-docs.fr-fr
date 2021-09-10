@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: e7ff59c3c6ba75321c63db81d34ea4c7d46a841a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db2eb3bf906ffebe67489ab83cb7e13595b601d5
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748629"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112751"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Démarrage rapide : Déployer un cluster AKS avec des nœuds d’informatique confidentielle à l’aide d’Azure CLI
 
@@ -145,6 +145,9 @@ Si la sortie correspond au code précédent, votre cluster AKS est maintenant pr
 Vous êtes maintenant prêt à déployer une application de test. 
 
 Créez un fichier nommé *hello-world-enclave.yaml* pour y coller le manifeste YAML suivant. Vous trouvez cet exemple de code d’application dans le [projet Open Enclave](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). Ce déploiement suppose que vous avez déployé le module complémentaire *confcom*.
+
+> [!NOTE]
+> L’exemple suivant tire (pull) une image conteneur publique à partir de Docker Hub. Nous vous recommandons de configurer un secret d’extraction pour l’authentification à l’aide d’un compte Docker Hub au lieu de créer une requête de tirage anonyme. Pour une plus grande fiabilité lors de l’utilisation de contenu public, importez et gérez l’image dans un registre de conteneurs Azure privé. [En savoir plus sur l’utilisation des images publiques.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: batch/v1

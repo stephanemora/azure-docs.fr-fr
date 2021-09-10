@@ -3,12 +3,12 @@ title: Activer un bureau à distance graphique pour Linux dans Azure Lab Service
 description: Découvrez comment activer le Bureau à distance pour les machines virtuelles Linux dans un lab dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 604cde661fb566851d3eacdb42dd41f4effded7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647951"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562756"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Activer un bureau à distance graphique pour des machines virtuelles Linux dans Azure Lab Services
 Cet article explique comment effectuer les tâches suivantes :
@@ -25,12 +25,15 @@ Pour vous connecter à une machine virtuelle Linux à l’aide d’une **GUI** (
 Pour utiliser le protocole RDP, l’enseignant doit :
   - Activer une connexion Bureau à distance. Celle-ci est nécessaire pour ouvrir le port de la machine virtuelle pour le protocole RDP.
   - Installer le serveur de bureau à distance RDP.
-  - Installer un environnement de bureau graphique Linux (par exemple, MATE, XFCE, etc.).
+  - Installer un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.).
+
+> [!WARNING]
+>  Nous vous recommandons d’utiliser un environnement de bureau graphique différent de [GNOME](https://www.gnome.org/).  Évitez d’installer GNOME sur des machines virtuelles de labo, car GNOME présente un conflit avec l’agent Linux Azure qui est nécessaire pour que les machines virtuelles fonctionnent correctement dans Azure Lab Services.  Comme mentionné ci-dessus, nous vous recommandons d’utiliser un environnement de bureau graphique, tel que XFCE ou MATE.
 
 ### <a name="x2go-setup"></a>Configuration de X2Go
 Pour utiliser X2Go, l’enseignant doit :
 - Installer le serveur de bureau à distance X2Go.
-- Installer un environnement de bureau graphique Linux (par exemple, MATE, XFCE, etc.).
+- Installer un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.).
 
 X2Go utilise le port déjà activé pour SSH.  Par conséquent, aucune configuration supplémentaire n’est requise pour ouvrir un port sur la machine virtuelle pour X2Go.
 

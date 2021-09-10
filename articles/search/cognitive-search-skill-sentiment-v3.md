@@ -7,26 +7,21 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 1c74b716c6a22748a330fb3d325be3202ed89abc
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/12/2021
+ms.openlocfilehash: 4baadea0d78db64d97d1ae94317d7d506a141f41
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542452"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532944"
 ---
 # <a name="sentiment-cognitive-skill-v3"></a>Compétence cognitive Sentiment (v3)
 
-> [!IMPORTANT] 
-> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
-
-La compétence **Sentiment** v3 évalue du texte non structuré. Pour chaque enregistrement, elle fournit des étiquettes de sentiment (par exemple « négatif », « neutre » et « positif ») en fonction du score de confiance le plus élevé trouvé par le service au niveau de la phrase et du document. Elle utilise les modèles Machine Learning fournis par la version 3 du service [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services.
+La compétence **Sentiment** v3 évalue du texte non structuré. Pour chaque enregistrement, elle fournit des étiquettes de sentiment (par exemple « négatif », « neutre » et « positif ») en fonction du score de confiance le plus élevé trouvé par le service au niveau de la phrase et du document. Elle utilise les modèles Machine Learning fournis par la version 3 du service [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services. Elle expose également [les capacités d’exploration des opinions de l’API Analyse de texte](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), qui fournit des informations plus granulaires sur les opinions relatives aux attributs des produits ou des services dans le texte.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
+> Cette compétence est liée à Cognitive Services et nécessite [une ressource facturable](cognitive-search-attach-cognitive-services.md) pour les transactions dépassant 20 documents par indexeur et par jour. L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
-
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.V3.SentimentSkill

@@ -2,14 +2,14 @@
 title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5278408ac1adf1e12adf8f7facebd26e6d96d6d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 9dc4b87713d5b397b900f19e83c297130a10be3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813904"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563290"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -843,12 +843,13 @@ Les limites suivantes s’appliquent aux balises :
 * Chaque ressource, groupe de ressources et abonnement peuvent inclure un maximum de 50 paires nom/valeur d’étiquette. Si vous devez appliquer plus de balises que le nombre maximal autorisé, utilisez une chaîne JSON comme valeur de balise. La chaîne JSON peut contenir plusieurs valeurs appliquées à un seul nom de balise. Un groupe de ressources ou un abonnement peut contenir de nombreuses ressources qui ont chacune 50 paires nom/valeur d’étiquette.
 * Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
 * Les balises ne peuvent pas être appliquées à des ressources classiques comme les Services cloud.
+* Les groupes d’adresses IP Azure et les stratégies du Pare-feu Azure ne prennent pas en charge les opérations de correction, ce qui signifie qu’ils ne prennent pas en charge la mise à jour des balises via le Portail. Préférez les commandes de mise à jour pour ces ressources. Par exemple, vous pouvez mettre à jour les balises d’un groupe d’adresses IP à l’aide de la commande [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update). 
 * Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
    > * Les zones Azure DNS et Traffic Manager ne prennent pas en charge l’utilisation d’espaces dans l’étiquette, ou une étiquette commençant par un nombre.
    >
-   > * Azure Front Door ne prend pas en charge l’utilisation de `#` dans le nom de la balise.
+   > * Azure Front Door ne prend pas en charge l’utilisation de `#` ou `:` dans le nom de la balise.
    >
    > * Les ressources Azure suivantes prennent uniquement en charge 15 balises :
    >     * Azure Automation 

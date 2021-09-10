@@ -3,12 +3,12 @@ title: Configuration d’instances Lab Projet Lead The Way avec Azure Lab Servic
 description: Découvrez comment configurer des instances Lab pour enseigner dans le cadre de cours Project Lead The Way.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: aaaddcb2c2111ccfbf0edfc79bbefafb711b19dc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 85e8b8d55ed5a91c21c2554ce15e3ef893e30f15
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768532"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562759"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuration d’instances Lab pour des cours Project Lead The Way
 
@@ -100,7 +100,7 @@ Pour plus d’informations, consultez [Configuration d’un serveur de licences 
 ### <a name="template-machine"></a>Machine modèle
 Certains des fichiers d’installation nécessaires pour PLTW sont volumineux. Lors du téléchargement sur une machine virtuelle de modèle Lab, la copie est susceptible de prendre beaucoup de temps.
 
-Au lieu de les télécharger les fichiers d’installation sur la machine modèle et de tout y installer, nous vous recommandons de créer vos images PLTW dans votre environnement physique.  Vous pourrez alors importer les images personnalisées dans Shared Image Gallery, et ainsi les utiliser pour créer vos instances Lab.  Pour plus d’informations, consultez [Chargement d’une image personnalisée dans Shared Image Gallery](./upload-custom-image-shared-image-gallery.md).
+Au lieu de les télécharger les fichiers d’installation sur la machine modèle et de tout y installer, nous vous recommandons de créer vos images PLTW dans votre environnement physique.  Vous pourrez alors importer les images personnalisées dans une galerie d’images partagée afin de les utiliser pour créer vos instances Lab.  Pour plus d’informations, consultez [Approches recommandées pour la création d’images personnalisées](approaches-for-custom-image-creation.md).
 
 Si vous suivez cette recommandation, tenez compte des principales tâches à effectuer pour configurer une instance Lab :
 

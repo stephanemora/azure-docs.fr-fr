@@ -36,7 +36,7 @@
       href: quickstart-arc.md
 - name: Tutoriels
   items:
-    - name: Sécuriser les accès d’application au stockage et à Microsoft Graph
+    - name: 'Sécuriser les accès aux applications, le stockage et Microsoft Graph'
       items:
         - name: Vue d’ensemble
           href: scenario-secure-app-overview.md

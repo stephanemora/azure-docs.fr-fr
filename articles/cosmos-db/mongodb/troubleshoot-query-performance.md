@@ -4,16 +4,16 @@ description: Découvrez comment identifier, diagnostiquer et dépanner les API d
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 03/02/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sngun
-ms.openlocfilehash: 30e9623a63f0342f6800ffbb6b3534989d02ec02
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 90641a3ecbf7d09e9ecdc1101d97cedbe64b893e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524472"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039495"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Résoudre les problèmes de requête lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -349,3 +349,6 @@ La valeur `estimatedDelayFromRateLimitingInMilliseconds` donne une idée des ava
 
 * [Résoudre les problèmes de performances des requêtes (API SQL)](troubleshoot-query-performance.md)
 * [Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB](mongodb-indexing.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

@@ -2,7 +2,6 @@
 title: Kits SDK Azure IoT Hub | Microsoft Docs
 description: Liens vers les kits SDK Azure IoT Hub que vous pouvez utiliser pour générer des applications d’appareil et des applications back-end.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +11,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 67c9bd6c4f8779340a847815da8692e12e3ee1ac
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 823cb1ae9afb6af8b8ed0446e58930fa62ee7f07
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537056"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532250"
 ---
 # <a name="azure-iot-hub-sdks"></a>Kits de développement logiciel (SDK) IoT Hub
 
@@ -25,7 +24,7 @@ Il existe deux catégories de kits de développement logiciel (SDK) permettant d
 
 * [**Les kits SDK Service IoT Hub**](#azure-iot-hub-service-sdks) vous permettent de créer des applications back-end pour gérer votre hub IoT et, si vous le souhaitez, d’envoyer des messages, de planifier des travaux, d’appeler des méthodes directes ou d’envoyer les mises à jour de propriétés souhaitées à vos modules ou appareils IoT.
 
-* [**Les kits SDK Appareil IoT Hub**](../iot-develop/about-iot-sdks.md) vous permettent de générer des applications qui s’exécutent sur vos appareils IoT à l’aide d’un client d’appareil ou d’un client de module. Ces applications envoient des données de télémétrie à votre hub IoT et reçoivent le cas échéant des messages ou des mises à jour de tâche, de méthode ou de jumeau de ce hub IoT. Vous pouvez utiliser ces kits SDK afin de créer des applications d’appareil qui utilisent des conventions et des modèles [Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) pour publier leurs fonctionnalités sur des applications compatibles avec IoT Plug-and-Play. Vous pouvez également utiliser un client de module afin de créer des [modules](../iot-edge/iot-edge-modules.md) pour le [runtime Azure IoT Edge](../iot-edge/about-iot-edge.md).
+* [**Les kits SDK Appareil IoT Hub**](../iot-develop/about-iot-sdks.md) vous permettent de générer des applications qui s’exécutent sur vos appareils IoT à l’aide d’un client d’appareil ou d’un client de module. Ces applications envoient des données de télémétrie à votre hub IoT et reçoivent le cas échéant des messages ou des mises à jour de tâche, de méthode ou de jumeau de ce hub IoT. Vous pouvez utiliser ces kits SDK afin de créer des applications d’appareil qui utilisent des conventions et des modèles [Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md) pour publier leurs fonctionnalités sur des applications compatibles avec IoT Plug-and-Play. Vous pouvez également utiliser un client de module afin de créer des [modules](../iot-edge/iot-edge-modules.md) pour le [runtime Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 De plus, nous fournissons également un ensemble de SDK pour travailler avec le [Service Device Provisioning](../iot-dps/about-iot-dps.md).
 
@@ -70,9 +69,9 @@ Les kits Microsoft Azure IoT device SDK contiennent du code qui facilite la cré
 
 En savoir plus sur les kits SDK d’appareil IoT Hub dans la [documentation sur le développement d’appareil IoT](../iot-develop/about-iot-sdks.md).
 
-## <a name="os-platform-and-hardware-compatibility"></a>Compatibilité des plateformes de système d’exploitation et du matériel
+## <a name="sdk-and-hardware-compatibility"></a>Kit de développement logiciel (SDK) et compatibilité matérielle
 
-Les plateformes prises en charge pour les Kits de développement logiciel (SDK) se trouvent dans le document [Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT](iot-hub-device-sdk-platform-support.md).
+Pour plus d’informations sur le choix d’un Kit de développement logiciel (SDK) d’appareil, consultez [Vue d’ensemble des kits Azure IoT device SDK](../iot-develop/about-iot-sdks.md).
 
 Pour plus d’informations sur la compatibilité des Kits de développement logiciel (SDK) avec un matériel particulier, consultez le [catalogue d’appareils Azure Certified pour IoT](https://devicecatalog.azure.com/) ou un référentiel spécifique.
 
@@ -84,7 +83,7 @@ Documentation pertinente relative au développement à l’aide des kit Azure Io
 
 * Découvrez comment [gérer la connectivité et la messagerie fiable](iot-hub-reliability-features-in-sdks.md) à l’aide des kits IoT Hub SDK.
 * Découvrez comment [développer pour des plateformes mobiles](iot-hub-how-to-develop-for-mobile-devices.md) telles qu’iOS et Android.
-* [Prise en charge des plateformes par le kit de développement logiciel (SDK) Azure IoT](iot-hub-device-sdk-platform-support.md)
+* [Documentation sur le développement d’appareil IoT](../iot-develop/about-iot-sdks.md)
 
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 

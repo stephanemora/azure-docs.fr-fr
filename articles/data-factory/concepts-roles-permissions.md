@@ -4,14 +4,15 @@ description: Cet article décrit les rôles et autorisations requis pour créer 
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
+ms.subservice: security
 author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 7bc386e17cef3bfc6b2c4db83c1edcb04d2d9178
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 285b4c4fb9fae46ed7549352a93553b15a518e36
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906761"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535151"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -22,7 +23,7 @@ Cet article décrit les rôles requis pour créer et gérer des ressources Azure
 
 ## <a name="roles-and-requirements"></a>Rôles et conditions requises
 
-Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du Portail Azure, puis sélectionnez **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
+Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans l’angle supérieur droit du portail Azure, puis choisissez **Mes autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
 
 Les exigences applicables à la création et à la gestion des ressources enfants pour Data Factory (jeux de données, services liés, pipelines, déclencheurs et runtimes d’intégration) sont les suivantes :
 - Pour créer et gérer des ressources enfants dans le portail Azure, vous devez appartenir au rôle **Contributeur de Data Factory** au niveau du **groupe de ressources** ou à un niveau supérieur.

@@ -1,117 +1,114 @@
 ---
-title: Transformer des données XML d’un format vers un autre
-description: Créer des transformations ou des mappages qui convertissent des données XML entre les différents formats dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
+title: Transformer des données XML pour l’intégration d’entreprise B2B
+description: Transformez des données XML à l’aide de mappages dans Azure Logic Apps avec Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 07/08/2016
-ms.openlocfilehash: 038c1d4c0f0b5ffd7b9aabea2de32e3a44e3b221
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/26/2021
+ms.openlocfilehash: 30895da003122b760d6437b3cd14a270482f7a0a
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97654130"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105236"
 ---
-# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Créer des mappages qui convertissent des données XML entre les différents formats dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
+# <a name="transform-xml-for-workflows-in-azure-logic-apps"></a>Transformer des données XML pour des workflows dans Azure Logic Apps
 
-Le connecteur Enterprise Integration Transform convertit les données d’un format vers un autre format. Vous pouvez, par exemple, avoir un message entrant qui contient la date du jour au format AnnéeMoisJour. Vous pouvez utiliser une transformation pour remettre en forme la date au format MoisJourAnnée.
+Dans des scénarios d’intégration d’entreprise interentreprises (B2B), vous devrez peut-être convertir des données XML entre des formats. Dans Azure Logic Apps, votre workflow d’application logique peut transformer des données XML à l’aide d’un mappage XLST (Extensible Stylesheet Language Transformation) et de l’action **Transformer du XML**. Un mappage est un document XML qui décrit comment convertir les données de XML dans un autre format. Ce document se compose d’un schéma XML source en entrée et d’un schéma XML cible en sortie.  Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
 
-## <a name="what-does-a-transform-do"></a>Que fait une transformation ?
-Une transformation, également appelée mappage, est composée d’un schéma XML source (l’entrée) et d’un schéma XML cible (la sortie). Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
+Par exemple, imaginons que vous receviez régulièrement des commandes ou des factures B2B de la part d’un client qui utilise le format de date YearMonthDay (AAAAMMJJ). Votre organisation, quant à elle, utilise le format de date MonthDayYear (MMJJAAAA). Vous pouvez créer et utiliser un mappage qui transforme le format de date YearMonthDay au format MonthDayYear avant d’enregistrer les détails de la commande ou de la facture dans votre base de données d’activité clients.
 
-## <a name="how-to-create-a-transform"></a>Création d’une transformation
-Vous pouvez créer une transformation/un mappage à l’aide du [Kit de développement logiciel (SDK) Enterprise Integration](https://aka.ms/vsmapsandschemas)de Visual Studio. Lorsque vous avez terminé de créer et de tester la transformation, vous la téléchargez dans votre compte d’intégration. 
+Après avoir [créé un mappage](logic-apps-enterprise-integration-maps.md#create-maps) et vérifié que le mappage fonctionne, vous ajoutez ce mappage au compte d’intégration lié à votre application logique basée sur un plan de consommation mutualisée ou à l’application logique basée sur un plan ISE. Vous pouvez également ajouter ce mappage directement à votre application logique basée sur un plan standard à locataire unique. Pour plus d’informations, consultez [Ajouter des mappages XSLT pour la transformation XML dans Azure Logic Apps](logic-apps-enterprise-integration-maps.md). En supposant que votre workflow inclut l’action **Transformer du XML**, celle-ci s’exécute lorsque votre workflow est déclenché et lorsque du contenu XML est disponible pour la transformation.
 
-## <a name="how-to-use-a-transform"></a>Utilisation d’une transformation
-Après avoir chargé la transformation / le mappage dans votre compte d’intégration, vous pouvez l’utiliser pour créer une application logique. L’application logique exécute vos transformations à chaque fois qu’elle est déclenchée (et qu’il existe du contenu d’entrée qui doit être transformé).
+Si vous débutez avec les applications logiques, consultez la documentation suivante :
 
-**Voici les étapes à suivre pour utiliser une transformation**:
+* [En quoi consiste Azure Logic Apps - Type de ressource et environnements d’hôte ?](logic-apps-overview.md#resource-type-and-host-environment-differences)
 
-### <a name="prerequisites"></a>Prérequis
+* [Créer un workflow d’intégration avec Azure Logic Apps à locataire unique (Standard)](create-single-tenant-workflows-azure-portal.md)
 
-* Créer un compte d’intégration et y ajouter un mappage  
+* [Créer des workflows d’application logique à locataire unique](create-single-tenant-workflows-azure-portal.md)
 
-Maintenant que vous avez exécuté la configuration requise, il est temps de créer votre application logique :  
+* [Modèles de mesure de l’utilisation, de facturation et de tarification pour Azure Logic Apps](logic-apps-pricing.md)
 
-1. Créez une application logique et [liez-la à votre compte d’intégration](./logic-apps-enterprise-integration-create-integration-account.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le mappage.
-2. Ajouter un déclenchement de **Requête** à votre application logique  
-   ![Screenshot of the "Show Microsoft managed APIs" dropdown with the Request trigger selected. The dropdown is in a Logic app created using the Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
-3. Ajoutez l’action **Transformer XML** en sélectionnant d’abord **Ajouter une action**   
-   ![Screenshot showing the "Add an action" button selected in the Request trigger screen.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
-4. Entrez le mot *transform* dans la zone de recherche afin de filtrer toutes les actions et d’obtenir celle que vous souhaitez utiliser  
-   ![Screenshot showing how to search for the Transform XML action in the "Show Microsoft managed APIs" dropdown so that it can be added to the Request trigger.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
-5. Sélectionnez l’action **Transformer XML**   
-6. Ajoutez le **CONTENU** XML à transformer. Vous pouvez utiliser toute donnée XML que vous recevez dans la requête HTTP en tant que **CONTENU**. Dans cet exemple, sélectionnez le corps de la demande HTTP qui a déclenché l’application logique.
+## <a name="prerequisites"></a>Prérequis
+
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Un workflow d’application logique qui démarre déjà avec un déclencheur afin que vous puissiez ajouter l’action **Transformer du XML** si nécessaire dans votre workflow.
+
+* Si vous utilisez le type de ressource **Application logique (Standard)** , vous n’avez pas besoin de compte d’intégration. Au lieu de cela, vous pouvez ajouter des mappages directement à votre ressource d’application logique dans le portail Azure ou Visual Studio Code. Seul XSLT 1.0 est actuellement pris en charge. Vous pouvez ensuite utiliser ces mappages sur plusieurs workflows au sein de la *même ressource d’application logique*.
+
+* Si vous utilisez le type de ressource **Application logique (Consommation)** , vous devez posséder une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) où vous pouvez stocker vos mappages et autres artefacts à utiliser dans les solutions d’intégration d’entreprise et interentreprises (B2B). Cette ressource doit remplir les conditions suivantes :
+
+  * Associée au même abonnement Azure que votre ressource d’application logique.
+
+  * Existante dans le même emplacement ou la même région Azure que votre ressource d’application logique dans laquelle vous envisagez d’utiliser l’action **Transformer du XML**.
+
+  * Est [liée](logic-apps-enterprise-integration-create-integration-account.md#link-account) à votre ressource d’application logique dans laquelle vous souhaitez utiliser l’action **Transformer du XML**.
+
+## <a name="add-transform-xml-action"></a>Ajouter une action Transformer du XML
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique et votre workflow en mode concepteur.
+
+1. Si vous avez une application logique vide qui n’a pas de déclencheur, ajoutez un déclencheur de votre choix. Cet exemple utilise le déclencheur de demande. Sinon, passez à l’étape suivante.
+
+   Pour ajouter le déclencheur de requête, dans la zone de recherche du concepteur, entrez `HTTP request`, puis sélectionnez le déclencheur de requête nommé **Lors de la réception d’une requête HTTP**.
+
+1. Dans l’étape de votre workflow où vous souhaitez ajouter l’action **Transformer du XML**, choisissez l’une des étapes suivantes :
+
+   Pour une application logique basée sur un plan de consommation ou ISE, choisissez une étape :
+
+   * Pour ajouter l’action **Transformer du XML** à la fin de votre workflow, sélectionnez **Nouvelle étape**.
+
+   * Pour ajouter l’action **Transformer du XML** entre des étapes existantes, positionnez votre pointeur sur la flèche qui connecte ces étapes de sorte que le signe plus ( **+** ) apparaisse. Sélectionnez ce signe plus, puis sélectionnez **Ajouter une action**.
+
+   Pour une application logique basée sur un plan standard, choisissez une étape :
+
+   * Pour ajouter l’action **Transformer du XML** à la fin de votre workflow, sélectionnez le signe moins ( **+** ), puis **Ajouter une action**.
+
+   * Pour ajouter l’action **Transformer du XML** entre des étapes existantes, sélectionnez le signe plus ( **+** ) entre celles-ci, puis sélectionnez **Ajouter une action**.
+
+1. Sous **Choisir une opération**, sélectionnez **Intégré**. Dans la zone de recherche, entrez `transform xml`. Dans la liste des actions, sélectionnez **Transformer du XML**.
+
+1. Pour spécifier le contenu XML pour la transformation, vous pouvez utiliser toutes les données XML que vous recevez dans la requête HTTP. Cliquez dans la zone **Contenu** pour afficher la liste du contenu dynamique.
+
+   La liste de contenu dynamique affiche des jetons de propriété qui représentent les sorties des étapes précédentes du workflow. Si la liste n’affiche pas de propriété attendue, vérifiez le titre du déclencheur ou de l’action dans la liste, et si vous pouvez sélectionner **Afficher plus**.
+
+   Pour une application logique basée sur un plan de consommation ou ISE, le concepteur ressemble à l’exemple suivant :
+
+   ![Capture d’écran montrant un concepteur à plusieurs locataires avec le curseur dans la zone « Contenu » et une liste de contenu dynamique ouverte.](./media/logic-apps-enterprise-integration-transform/open-dynamic-content-list-multi-tenant.png)
+
+   Pour une application logique basée sur un plan standard, le concepteur ressemble à l’exemple suivant :
+
+   ![Capture d’écran montrant un concepteur à un seul locataire avec le curseur dans la zone « Contenu » et une liste de contenu dynamique ouverte.](./media/logic-apps-enterprise-integration-transform/open-dynamic-content-list-single-tenant.png)
+
+1. Dans la liste de contenu dynamique, sélectionnez le jeton de propriété pour le contenu que vous souhaitez valider.
+
+   Cet exemple sélectionne le jeton **Corps** du déclencheur.
 
    > [!NOTE]
-   > Vérifiez que le contenu de **Transformer XML** est au format XML. Si le contenu n’est pas au format XML ou s’il est codé en base 64, vous devez spécifier une expression qui traite le contenu. Vous pouvez par exemple utiliser des [fonctions](logic-apps-workflow-definition-language.md#functions) comme ```@base64ToBinary``` pour le décodage du contenu ou ```@xml``` pour le traitement du contenu au format XML.
- 
+   > Assurez-vous que le contenu que vous sélectionnez est bien du XML. Si le contenu n’est pas du XML ou s’il est codé en base 64, vous devez spécifier une expression qui traite le contenu. Par exemple, vous pouvez utiliser des [fonctions d’expression](workflow-definition-language-functions-reference.md), telles que `base64ToBinary()`, pour décoder le contenu ou `xml()` pour traiter le contenu comme du XML.
 
-7. Sélectionnez le nom du **MAPPAGE** que vous souhaitez utiliser pour effectuer la transformation. Le mappage doit déjà exister dans votre compte d’intégration. Lors d’une étape précédente, vous avez déjà attribué à votre application logique l’accès à votre compte d’intégration qui contient le mappage.      
-   ![Screenshot showing the Content and Map fields in the Transform XML screen for the Request trigger.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
-8. Enregistrez votre travail  
-    ![Capture d’écran montrant le bouton Enregistrer dans le concepteur Logic Apps.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+1. Pour spécifier le mappage à utiliser pour la transformation, ouvrez la liste **Mappage**, puis sélectionnez le mappage que vous avez ajouté précédemment.
 
-À ce stade, vous avez terminé de configurer votre mappage. Dans une application réelle, vous souhaiterez peut-être stocker les données transformées dans une application métier, comme SalesForce. Vous pouvez facilement ajouter une action pour envoyer la sortie de la transformation à SalesForce. 
+1. Lorsque vous avez terminé, veillez à enregistrer votre workflow d’application logique.
 
-Vous pouvez maintenant tester votre transformation en effectuant une demande au point de terminaison HTTP.  
+   Vous avez maintenant terminé la configuration de votre action **Transformer du XML**. Dans une application réelle, vous souhaiterez peut-être stocker les données transformées dans une application métier (LOB) telle que Salesforce. Pour envoyer la sortie transformée à Salesforce, ajoutez une action Salesforce.
 
+1. Pour tester votre action de transformation, déclenchez et exécutez votre workflow. Par exemple, pour le déclencheur de requête, envoyez une requête à l’URL de point de terminaison du déclencheur.
 
-## <a name="features-and-use-cases"></a>Fonctionnalités et cas d’usage
-* La transformation créée dans un mappage peut être simple, par exemple la copie d'un nom et de l'adresse d'un document vers un autre. Vous pouvez aussi créer des transformations plus complexes à l'aide des opérations de mappage prêtes à l'emploi.  
-* Plusieurs fonctions ou opérations de mappage sont disponibles, y compris des chaînes, des fonctions de date et d'heure, et ainsi de suite.  
-* Vous pouvez effectuer une copie de données directe entre les schémas. Dans le Mappeur inclus dans le Kit de développement logiciel (SDK), il suffit de dessiner une ligne qui relie les éléments dans le schéma source à leurs équivalents dans le schéma de destination.  
-* Lors de la création d’un mappage, sa représentation graphique est affichée, notamment toutes les relations et les liens que vous créez.
-* Utilisez la fonctionnalité Tester le mappage pour ajouter un exemple de message XML. Avec un simple clic, vous pouvez tester le mappage que vous avez créé et afficher la sortie générée.  
-* Téléchargement de mappages existants  
-* Comprend la prise en charge du format XML.
+## <a name="advanced-capabilities"></a>Fonctionnalités avancées
 
-## <a name="advanced-features"></a>Fonctionnalités avancées
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Assembly de référence ou code personnalisé à partir de mappages
 
-### <a name="reference-assembly-or-custom-code-from-maps"></a>Assembly de référence ou code personnalisé à partir de mappages 
-L’action de transformation prend également en charge les mappages et les transformations comportant une référence à un assembly externe. Cette fonctionnalité autorise les appels de code .NET personnalisé effectués directement à partir de mappages XSLT. Voici les prérequis à respecter pour utiliser des assemblys dans des mappages.
+Dans les workflows **Application logique (consommation)** , l’action **Transformer du XML** prend en charge les mappages faisant référence à un assembly externe. Pour plus d’informations, consultez [Ajouter des mappages XSLT pour les workflows dans Azure Logic Apps](logic-apps-enterprise-integration-maps.md#add-assembly).
 
-* Le mappage et l’assembly auquel il fait référence doivent être [chargés sur le compte d’intégration](./logic-apps-enterprise-integration-maps.md). 
+### <a name="byte-order-mark"></a>Marque d'ordre d'octet
 
-  > [!NOTE]
-  > Le mappage et l’assembly doivent être chargés dans un ordre précis. Vous devrez charger l’assembly avant de charger le mappage qui y fait référence.
-
-* Le mappage doit également comporter ces attributs et une section CDATA contenant l’appel au code de l’assembly :
-
-    * **name** est le nom d’assembly personnalisé.
-    * **namespace** est l’espace de noms de l’assembly qui comprend le code personnalisé.
-
-  Cet exemple montre un mappage qui fait référence à un assembly nommé « XslUtilitiesLib » et appelle la méthode `circumreference` à partir de celui-ci.
-
-  ```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
-  <msxsl:script language="C#" implements-prefix="user">
-    <msxsl:assembly name="XsltHelperLib"/>
-    <msxsl:using namespace="XsltHelpers"/>
-    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
-  </msxsl:script>
-  <xsl:template match="data">
-   <circles>
-    <xsl:for-each select="circle">
-      <circle>
-        <xsl:copy-of select="node()"/>
-          <circumference>
-            <xsl:value-of select="user:circumference(radius)"/>
-          </circumference>
-      </circle>
-    </xsl:for-each>
-   </circles>
-  </xsl:template>
-    </xsl:stylesheet>
-  ```
-
-
-### <a name="byte-order-mark"></a>Marque d’ordre d’octet
-Par défaut, la réponse de la transformation commence par la marque d’ordre d’octet. Cette fonctionnalité n’est disponible que dans l’éditeur en mode Code. Pour désactiver cette fonctionnalité, spécifiez `disableByteOrderMark` pour la propriété `transformOptions` :
+Par défaut, la réponse de la transformation commence par la marque d’ordre d’octet. Vous n’avez accès à cette fonctionnalité que dans l’éditeur en mode Code. Pour désactiver cette fonctionnalité, définissez la propriété `transformOptions` sur `disableByteOrderMark` :
 
 ```json
 "Transform_XML": {
@@ -129,10 +126,7 @@ Par défaut, la réponse de la transformation commence par la marque d’ordre d
 }
 ```
 
+## <a name="next-steps"></a>Étapes suivantes
 
-
-
-
-## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
-* [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "En savoir plus sur les mappages d’intégration d’entreprise")  
+* [Ajouter des mappages XSLT pour la transformation XML dans Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
+* [Valider des données XML pour des workflows dans Azure Logic Apps](logic-apps-enterprise-integration-xml-validation.md)

@@ -9,19 +9,19 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 677158c69ef15508ff9fc00e83ff87678cf9f983
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d49adc0be837197126aed617900a4a7c25fb84c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524197"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
 
 Les séries Ev4 et Esv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Elles sont idéales pour diverses applications d’entreprise utilisant beaucoup de mémoire et offrent jusqu’à 504 Gio de RAM. Elles sont dotées d’une vitesse d’horloge de Turbo cœur de 3,4 GHz.
 
 > [!NOTE]
-> Pour accéder à la FAQ, consultez [Tailles de machines virtuelles Azure sans disque temporaire local](azure-vms-no-temp-disk.md).
+> Pour accéder à la FAQ, consultez [Tailles de machines virtuelles Azure sans disque temporaire local](azure-vms-no-temp-disk.yml).
 
 ## <a name="ev4-series"></a>Série Ev4
 
@@ -35,20 +35,22 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge <br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|
-| Standard_E2_v4  | 2 | 16   | Stockage distant uniquement | 4 | 2|1 000  |
-| Standard_E4_v4  | 4 | 32  | Stockage distant uniquement | 8 | 2|2000  |
-| Standard_E8_v4  | 8 | 64 | Stockage distant uniquement | 16 | 4|4000 |
-| Standard_E16_v4 | 16 | 128 | Stockage distant uniquement | 32 | 8|8000 |
+| Standard_E2_v4<sup>1</sup>  | 2 | 16   | Stockage distant uniquement | 4 | 2|5 000  |
+| Standard_E4_v4  | 4 | 32  | Stockage distant uniquement | 8 | 2|10000  |
+| Standard_E8_v4  | 8 | 64 | Stockage distant uniquement | 16 | 4|12 500 |
+| Standard_E16_v4 | 16 | 128 | Stockage distant uniquement | 32 | 8|12 500 |
 | Standard_E20_v4 | 20 | 160 | Stockage distant uniquement | 32 | 8|10000 |
 | Standard_E32_v4 | 32 | 256 | Stockage distant uniquement | 32 | 8|16000 |
 | Standard_E48_v4 | 48 | 384 | Stockage distant uniquement | 32 | 8|24 000 |
 | Standard_E64_v4 | 64 | 504 | Stockage distant uniquement | 32| 8|30000 |
+
+<sup>1</sup> La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. 
 
 
 ## <a name="esv4-series"></a>Série Esv4
@@ -61,25 +63,28 @@ Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge <br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_E2s_v4  | 2 | 16  | Stockage distant uniquement | 4 | 3 200/48 | 2|1 000  |
-| Standard_E4s_v4  | 4 | 32  | Stockage distant uniquement | 8 | 6 400/96 | 2|2000  |
-| Standard_E8s_v4  | 8 | 64  | Stockage distant uniquement | 16 | 12 800/192 | 4|4000 |
-| Standard_E16s_v4 | 16 | 128 | Stockage distant uniquement | 32 | 25 600/384 | 8|8000 |
-| Standard_E20s_v4 | 20 | 160 | Stockage distant uniquement | 32 | 32 000/480  | 8|10000 |
-| Standard_E32s_v4 | 32 | 256 | Stockage distant uniquement | 32 | 51 200/768  | 8|16000 |
-| Standard_E48s_v4 | 48 | 384 | Stockage distant uniquement | 32 | 76 800/1152 | 8|24 000 |
-| Standard_E64s_v4<sup>1</sup> | 64 | 504| Stockage distant uniquement | 32 | 80 000/1 200 | 8|30000 |
-| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Stockage distant uniquement | 32 | 80000/1500 | 8|30000 |
 
-<sup>1</sup> [Tailles avec nombre de cœurs limité disponibles](./constrained-vcpu.md).
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> |Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_E2s_v4<sup>4</sup>  | 2 | 16  | Stockage distant uniquement | 4 | 3 200/48 | 4 000/200 | 2|5 000  |
+| Standard_E4s_v4  | 4 | 32  | Stockage distant uniquement | 8 | 6 400/96 | 8 000/200 | 2|10000  |
+| Standard_E8s_v4  | 8 | 64  | Stockage distant uniquement | 16 | 12 800/192 | 16 000/400 | 4|12 500 |
+| Standard_E16s_v4 | 16 | 128 | Stockage distant uniquement | 32 | 25 600/384 | 32 000/800 | 8|12 500 |
+| Standard_E20s_v4 | 20 | 160 | Stockage distant uniquement | 32 | 32 000/480  | 40 000/1 000 | 8|10000 |
+| Standard_E32s_v4 | 32 | 256 | Stockage distant uniquement | 32 | 51 200/768  | 64 000/1 600 | 8|16000 |
+| Standard_E48s_v4 | 48 | 384 | Stockage distant uniquement | 32 | 76 800/1152 | 80 000/2 000 | 8|24 000 |
+| Standard_E64s_v4 <sup>2</sup> | 64 | 504| Stockage distant uniquement | 32 | 80 000/1 200 | 80 000/2 000 | 8|30000 |
+| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Stockage distant uniquement | 32 | 80 000/1 200 | 80 000/2 000 | 8|30000 |
 
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
+<sup>1</sup> Les machines virtuelles de la série Esv4 peuvent [augmenter](./disk-bursting.md) leurs performances de disque et atteindre leur maximum de bursting pendant 30 minutes à la fois.<br>
+<sup>2</sup> [Tailles avec contraintes de cœurs disponibles)](./constrained-vcpu.md).<br>
+<sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.<br>
+<sup>4</sup> La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. 
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

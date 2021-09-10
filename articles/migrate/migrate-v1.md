@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 00e44185c938c94903e9b85a4748906721dac27f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0f3e3b927f5f3aed0a29473af4046fb5c09cf4f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571690"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465070"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -225,7 +225,7 @@ Après avoir configuré un espace de travail, vous devez télécharger et instal
 4. Copiez l’ID et la clé de l’espace de travail. Vous en aurez besoin lorsque vous installerez MMA sur la machine locale.
 
 > [!NOTE]
-> Pour automatiser l’installation des agents, vous pouvez utiliser un outil de déploiement, comme Configuration Manager, ou un outil partenaire, comme [Intigua](https://www.intigua.com/intigua-for-azure-migration), qui offre une solution de déploiement d’agent pour Azure Migrate.
+> Pour automatiser l’installation des agents, vous pouvez utiliser un outil de déploiement, comme Configuration Manager, ou un outil partenaire, comme Intigua, qui offre une solution de déploiement d’agent pour Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installer l’agent MMA sur une machine Windows

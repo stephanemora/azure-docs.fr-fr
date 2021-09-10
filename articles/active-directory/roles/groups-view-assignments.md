@@ -1,6 +1,6 @@
 ---
 title: Afficher les rôles attribués à un groupe dans Azure Active Directory | Microsoft Docs
-description: Découvrez la façon dont les rôles attribués à un groupe peuvent être consultés à l’aide du centre d’administration Azure AD. La consultation des groupes et des rôles attribués est une autorisation utilisateur par défaut.
+description: Découvrez la façon dont les rôles attribués à un groupe peuvent être consultés à l’aide du portail Azure. La consultation des groupes et des rôles attribués est une autorisation utilisateur par défaut.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -13,29 +13,31 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e44dc442180631b0ebe11cae374a59fed37cc13
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 87e59c7ab9bfc5fa9211d84d2d9a855dea97ec1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085740"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531808"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Afficher les rôles attribués à un groupe dans Azure Active Directory
 
-Cette section décrit la façon dont les rôles attribués à un groupe peuvent être consultés à l’aide du centre d’administration Azure AD. La consultation des groupes et des rôles attribués est une autorisation utilisateur par défaut.
+Cette section décrit la façon dont les rôles attribués à un groupe peuvent être consultés à l’aide du portail Azure. La consultation des groupes et des rôles attribués est une autorisation utilisateur par défaut.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Module AzureADPreview (avec PowerShell)
-- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+- Module AzureAD (avec PowerShell)
+- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
 
 Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [centre d’administration Azure AD](https://aad.portal.azure.com).
 
-1. Sélectionnez le groupe qui vous intéresse.
+1. Sélectionnez **Azure Active Directory** > **Groupes**.
+
+1. Sélectionnez un groupe assignable à un rôle qui vous intéresse.
 
 1. Sélectionnez **Rôles attribués**. Vous pouvez maintenant voir tous les rôles Azure AD attribués à ce groupe.
 
@@ -71,5 +73,5 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser des groupes cloud pour gérer les attributions de rôles](groups-concept.md)
-- [Résolution des problèmes des rôles attribués aux groupes cloud](groups-faq-troubleshooting.md)
+- [Utiliser des groupes Azure AD pour gérer les attributions de rôles](groups-concept.md)
+- [Résoudre les problèmes de rôles Azure AD attribués aux groupes](groups-faq-troubleshooting.yml)

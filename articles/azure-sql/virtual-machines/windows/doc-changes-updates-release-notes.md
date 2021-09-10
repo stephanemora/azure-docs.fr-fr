@@ -11,18 +11,31 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/25/2021
-ms.openlocfilehash: 512d502dc5877c15086d69f96643d4251dfc167b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/21/2021
+ms.openlocfilehash: c8f8699d58d26c745be8cb1207a88cdad6857f1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563334"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permet de déployer une machine virtuelle avec une image de SQL Server intégrée. Cet article résume les modifications apportées à la documentation en lien avec les nouvelles fonctionnalités et les améliorations introduites dans les mises en production récentes de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="july-2021"></a>Juillet 2021
+
+| Modifications | Détails |
+| --- | --- |
+| **Réparer l’extension IaaS SQL Server dans le portail** | Vous pouvez désormais vérifier l’état de votre extension d’agent IaaS SQL Server directement sur le portail Azure, et [réparer](sql-agent-extension-manually-register-single-vm.md#repair-extension) celle-ci si nécessaire. | 
+
+
+## <a name="june-2021"></a>Juin 2021
+
+| Modifications | Détails |
+| --- | --- |
+| **Améliorations de la sécurité dans le portail Azure** | Une fois [Azure Defender pour SQL](../../../security-center/defender-for-sql-usage.md) activé, vous pouvez afficher les recommandations de Security Center dans la [Ressource Machines virtuelles SQL sur le portail Azure](manage-sql-vm-portal.md#security-center). | 
 
 ## <a name="may-2021"></a>Mai 2021
 

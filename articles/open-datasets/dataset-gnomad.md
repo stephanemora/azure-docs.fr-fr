@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: fe194101c42974e4822c088f7255bfcec5e7a65d
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 779f39afa7ac9b9890013db546223274cdf37ad6
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982633"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867662"
 ---
 # <a name="genome-aggregation-database-gnomad"></a>Genome Aggregation Database (gnomAD)
 
@@ -34,18 +34,32 @@ Le compte de stockage qui héberge ce jeu de données se trouve dans la région 
 
 ## <a name="data-access"></a>Accès aux données
 
-Compte de stockage : « https://azureopendatastorage.blob.core.windows.net/gnomad  »
+Compte de stockage : « https://datasetgnomad.blob.core.windows.net/dataset/  »
 
-Les données sont publiquement accessibles sans restrictions, et l’outil azcopy est recommandé pour les opérations en bloc. Par exemple, pour afficher les fichiers VCF dans la version 3.0 de gnomAD :
+Les données sont publiquement accessibles sans restrictions. L’outil AzCopy est recommandé pour les opérations en bloc. Par exemple, pour afficher les fichiers VCF dans la version 3.0 de gnomAD :
 
 ```powershell
-$ azcopy ls https://azureopendatastorage.blob.core.windows.net/gnomad/release/3.0/vcf/genomes
+$ azcopy ls https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes
 ```
 
 Pour télécharger tous les fichiers VCF de manière récursive :
 
 ```powershell
-$ azcopy cp --recursive=true https://azureopendatastorage.blob.core.windows.net/gnomad/release/3.0/vcf/genomes .
+$ azcopy cp --recursive=true https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes .
+```
+
+**NOUVEAU : format Parquet des fichiers VCF de gnomAD v2.1.1 (exomes et génomes)**
+
+Pour afficher les fichiers Parquet :
+
+```powershell
+$ azcopy ls https://datasetgnomadparquet.blob.core.windows.net/dataset
+```
+
+Pour télécharger l’ensemble des fichiers de manière récursive :
+
+```powershell
+$ cp --recursive=true https://datasetgnomadparquet.blob.core.windows.net/dataset
 ```
 
 L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est également un outil utile pour parcourir la liste des fichiers dans la version gnomAD.

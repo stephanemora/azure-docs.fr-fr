@@ -6,14 +6,14 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 08/30/2021
+  ms.date: 09/01/2021
   ms.author: victorh
-  ms.openlocfilehash: 8e2a5c8dbdf22cadf68511cc0ced482728f12cf2
-  ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+  ms.openlocfilehash: 9eac926802af481d012d58e358b7d40776552049
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/30/2021
-  ms.locfileid: "123213859"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123436083"
 title: FAQ Pare-feu Azure
 summary: ''
 sections:
@@ -179,7 +179,7 @@ sections:
   - question: Lorsque je configure DNAT pour le trafic Internet entrant, dois-je également configurer une règle de réseau correspondante pour autoriser ce trafic ?
     answer: >
       Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
-  - question: Comment les caractères génériques fonctionnent-ils dans les URL et les FQDN cibles ?
+  - question: Comment les caractères génériques fonctionnent-ils dans les URL et FQDN cibles dans les règles d’application ?
     answer: "- **URL** : un astérisque fonctionne quand il est placé sur le côté le plus à droite ou le plus à gauche. S’il est à gauche, il ne peut pas faire partie du FQDN.\n- **FQDN** : un astérisque fonctionne quand il est placé sur le côté le plus à gauche.\n\nExemples :\n\n\n  |Type  |Règle  |Pris en charge ?  |Exemples positifs  |\n  |---------|---------|---------|---------|\n  |TargetURL  |`www.contoso.com` |Oui|`www.contoso.com`<br>`www.contoso.com/`|\n  |TargetURL  |`*.contoso.com` |Oui|`www.contoso.com`<br>`any.contoso.com/`|\n  |TargetURL  |`*contoso.com`|Oui         |`example.anycontoso.com`<br>`contoso.com`|\n  |TargetURL  |`www.contoso.com/test`|Oui|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|\n  |TargetURL  |`www.contoso.com/test/*`|Oui|`www.contoso.com/test/anything`<br>Remarque : `www.contoso.com/test` ne correspond **pas** (dernière barre oblique)|\n  |TargetURL  |`www.contoso.*/test/*`|Non|         |\n  |TargetURL  |`www.contoso.com/test?example=1`|Non|         |\n  |TargetURL  |`www.contoso.*`|Non|         |\n  |TargetURL  |`www.*contoso.com`|Non|         |\n  |TargetURL   |`www.contoso.com:8080`|Non|         |\n  |TargetURL   |`*.contoso.*`|Non|         |\n  |TargetFQDN    |`www.contoso.com`|Oui|`www.contoso.com`|\n  |TargetFQDN    |`*.contoso.com`|Oui|`www.contoso.com`<br>`any.contoso.com`|\n  |TargetFQDN    |`*contoso.com`|Oui|`example.anycontoso.com`<br>`contoso.com`|\n  |TargetFQDN    |`www.contoso.*`|Non|         |\n  |TargetFQDN    |`*.contoso.*`|Non|         |\n \n"
   - question: >
       Que signifie l’*état d’approvisionnement : Échec* ?

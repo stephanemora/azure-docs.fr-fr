@@ -7,15 +7,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 08/11/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 93ad9fc33f3faf599d442a922f18d76e838f82c0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 4492824c77a8a97810c5849c221c400560db4bad
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285733"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531814"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
@@ -38,7 +38,7 @@ Au cours de l’étape de *préparation*, Azure AD DS effectue une sauvegarde du
 
 ![Phase de préparation de la migration d’Azure AD DS](media/migrate-from-classic-vnet/migration-preparation.png)
 
-Dans l’étape de *migration*, les disques virtuels sous-jacents des contrôleurs de domaine du domaine managé classique sont copiés en vue de créer les machines virtuelles à l’aide du modèle de déploiement Resource Manager. Le domaine managé est ensuite recréé, ce qui comprend la configuration DNS et LDAPS. La synchronisation avec Azure AD est redémarrée, et les certificats LDAP sont restaurés. Il n’est pas nécessaire de rattacher des machines à un domaine managé ; elles continuent d’être jointes au domaine managé et à s’exécuter sans modification.
+Dans l’étape de *migration*, les disques virtuels sous-jacents des contrôleurs de domaine du domaine managé classique sont copiés en vue de créer les machines virtuelles à l’aide du modèle de déploiement Resource Manager. Le domaine managé est ensuite recréé, ce qui comprend la configuration DNS et LDAPS. La synchronisation avec Azure AD est redémarrée, et les certificats LDAP sont restaurés. Il n’est pas nécessaire de rattacher des machines à un domaine managé ; elles continuent d’être jointes au domaine managé et de s’exécuter sans modification.
 
 ![Migration d’Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
 
@@ -229,7 +229,7 @@ Pour préparer le domaine managé à la migration, effectuez les étapes suivant
 
 Une fois le domaine managé préparé et sauvegardé, il peut être migré. Cette étape recrée les machines virtuelles du contrôleur de domaine Azure Active Directory Domain Services au moyen du modèle de déploiement Resource Manager. Cette étape peut prendre 1 à 3 heures.
 
-Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Commit*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé préparé à la section précédente, par exemple *aaddscontoso.com* :
+Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Commit*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé préparé à la section précédente, par exemple *aaddscontoso.com*.
 
 Spécifiez le groupe de ressources cible qui contient le réseau virtuel vers lequel vous souhaitez faire migrer Azure AD DS, par exemple *myResourceGroup*. Indiquez le réseau virtuel cible, par exemple *myVnet*, et le sous-réseau, par exemple *DomainServices*.
 

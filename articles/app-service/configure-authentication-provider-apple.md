@@ -4,12 +4,12 @@ description: Découvrez comment configurer l’authentification Se connecter ave
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.openlocfilehash: b77e0613f502d003b5e4651e34be4cadbd4209a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01216b7527fd6479f43c3bf0b9d4abeb60d06435
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96602940"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093046"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Configurer l’application App Service ou Azure Functions pour se connecter à l’aide d’un fournisseur Se connecter avec Apple (préversion)
 
@@ -137,7 +137,7 @@ Ajoutez le secret client en tant que [paramètre d’application](./configure-co
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>Ajouter des informations sur le fournisseur à votre application
 
 > [!NOTE]
-> La configuration requise est dans un nouveau format d’API, actuellement pris en charge uniquement par la [configuration basée sur fichier (préversion)](.\app-service-authentication-how-to.md#config-file). Vous devrez suivre les étapes ci-dessous à l’aide d’un fichier de ce type.
+> La configuration requise est dans un nouveau format d’API, actuellement pris en charge uniquement par la [configuration basée sur fichier (préversion)](configure-authentication-file-based.md). Vous devrez suivre les étapes ci-dessous à l’aide d’un fichier de ce type.
 
 Cette section vous guide tout au long de la mise à jour de la configuration pour inclure votre nouveau fournisseur d’identité. Voici un exemple de configuration.
 
@@ -147,7 +147,7 @@ Cette section vous guide tout au long de la mise à jour de la configuration pou
     ```json
     "apple" : {
        "registration" : {
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_CLIENT_SECRET" 
         },
        "login": {

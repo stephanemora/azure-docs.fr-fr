@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: b61e1e0b185355c06d10648f267895e819162318
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 522cf0ad115e1149d7746ecadef96ae9494a1d8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525000"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Activer la redondance de zone pour Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache redondante interzone à l’aide du portail Azure.
@@ -51,18 +51,18 @@ Pour créer un cache, procédez comme suit :
    
     :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Zones de disponibilité":::
 
-1. Conservez les paramètres par défaut pour les autres options. 
+1. Configurez vos paramètres pour le clustering et/ou la persistance RDB.  
 
     > [!NOTE]
     > La redondance de zone ne prend pas en charge la persistance AOF et ne fonctionne pas actuellement avec la géoréplication.
     >
 
-1. Cliquez sur **Créer**. 
+1. Sélectionnez **Create** (Créer). 
    
     La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
    
     > [!NOTE]
-    > Les zones de disponibilité ne peuvent pas être modifiées après la création du cache.
+    > Les zones de disponibilité ne peuvent pas être modifiées ni activées après la création d’un cache. 
     >
 
 ## <a name="zone-redundancy-faq"></a>FAQ sur la redondance de zone

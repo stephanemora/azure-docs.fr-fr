@@ -3,12 +3,12 @@ title: Assurer le monitoring des applications et services Azure à l’aide de G
 description: Acheminez les données Azure Monitor et Application Insights en vue de les afficher dans Grafana.
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: decd0353bcb2cf048fd5591ea8c895cf22944809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1bfb3322dda2b6702eb3e18eb44cc0cb2cd942ec
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048656"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666858"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Maintenant, vous pouvez superviser les services et applications Azure à partir de [Grafana](https://grafana.com/) en utilisant le [plug-in Azure Monitor de source de données](https://grafana.com/plugins/grafana-azure-monitor-datasource). Le plug-in rassemble des données de performance d’application collectées par Azure Monitor, y compris divers journaux d’activité et métriques. Vous pouvez ensuite afficher ces données dans votre tableau de bord Grafana.
@@ -40,6 +40,9 @@ Pour configurer un serveur Grafana local, [téléchargez et installez Grafana da
 7. Récupérez l’adresse IP publique de votre serveur Grafana, puis revenez à la liste des ressources et sélectionnez **Adresse IP publique**.
 
 ## <a name="sign-in-to-grafana"></a>Se connecter à Grafana
+
+> [!IMPORTANT]
+> Le navigateur Internet Explorer et les anciens navigateurs de Microsoft Edge ne sont pas compatibles avec Grafana. Vous devez utiliser un navigateur basé sur Chromium, notamment Microsoft Edge. Voir [Navigateurs pris en charge pour Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
 1. À l’aide de l’adresse IP de votre serveur, ouvrez la page de connexion *http://\<IP address\>:3000* ou le *\<DNSName>\:3000* dans votre navigateur. 3000 étant le port par défaut, notez que vous avez peut-être sélectionné un port différent pendant la configuration. Une page de connexion doit s’afficher pour le serveur Grafana que vous avez créé.
 

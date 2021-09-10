@@ -2,21 +2,21 @@
 title: Informations de référence sur les paramètres d’application d’Azure Functions
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: eb595d666641003c813573a70ab7365732e0a386
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/27/2021
+ms.openlocfilehash: 7275d81401444dffbe0917bdb72ba79100880749
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983147"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563400"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
-Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont accessibles en tant que [variables d’environnement](functions-run-local.md#local-settings-file) locales. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
+Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont accessibles en tant que [variables d’environnement](functions-develop-local.md#local-settings-file) locales. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
+Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-develop-local.md#local-settings-file) contiennent d’autres options de configuration globale.
 
 > [!NOTE]
 > Vous pouvez utiliser des paramètres d’application pour remplacer les valeurs de paramètres host.json sans avoir à modifier le fichier host.json proprement dit. C’est utile dans des scénarios où vous devez configurer ou modifier des paramètres host.json spécifiques pour un environnement spécifique. Cela vous permet également de modifier les paramètres host.json sans avoir à republier votre projet. Pour plus d’informations, consultez l’[article de référence host.json](functions-host-json.md#override-hostjson-values). Les changements apportés aux paramètres d’application de fonction nécessitent le redémarrage de votre application de fonction.
@@ -294,6 +294,16 @@ La valeur de cette clé est fournie au format `<DESTINATION>:<VERBOSITY>`, qui e
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
+## <a name="scm_logstream_timeout"></a>SCM\_LOGSTREAM\_TIMEOUT
+
+Contrôle le délai d’attente, en secondes, lors de la connexion aux journaux de streaming. La valeur par défaut est 7 200 (2 heures). 
+
+|Clé|Exemple de valeur|
+|-|-|
+|SCM_LOGSTREAM_TIMEOUT|1800|
+
+L’exemple de valeur `1800` ci-dessus définit un délai d’attente de 30 minutes. Pour en savoir plus, consultez la section [Activer les journaux en continu](functions-run-local.md#enable-streaming-logs).
+
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
 Chaîne de connexion du compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés dans les plans de mise à l’échelle pilotés par les événements fonctionnant sous Windows. Pour plus d’informations, consultez [Créer une application de fonction](functions-infrastructure-as-code.md#windows).
@@ -306,11 +316,13 @@ Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Co
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-Pour les plans Premium uniquement. La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|1|
+
+Prise en charge sur les plans [Premium](functions-premium-plan.md) et [Dedicated (App Service)](dedicated-plan.md) [Standard et supérieur] sous Windows. Non prise en charge actuellement pour les plans Consommation et Premium sous Linux. 
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 

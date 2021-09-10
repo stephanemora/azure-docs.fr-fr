@@ -4,17 +4,17 @@ description: Utilisez Azure Event Grid pour vous abonner à des événements de 
 author: normesta
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 03/05/2020
+ms.date: 08/11/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: be726ea6722dca1e44d6e33883a5bb22e6783431
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d05f6086bcf4bc59e9bc7f680139ccaf7660578
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889312"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525613"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Démarrage rapide : Router des événements de stockage vers un point de terminaison web avec Azure CLI
 
@@ -160,3 +160,4 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 
 - [Réaction aux événements de stockage Blob](storage-blob-event-overview.md)
 - [À propos d’Event Grid](../../event-grid/overview.md)
+- [Exécuter une fonction Azure en réponse à un événement de réactivation de blob](archive-rehydrate-handle-event.md)

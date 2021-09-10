@@ -3,12 +3,12 @@ title: Estimation des coûts d’un plan Consommation dans Azure Functions
 description: Apprenez à mieux estimer les coûts induits par l’exécution de votre application de fonction dans un plan Consommation dans Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 648be6325cce5bad36795b113c8bbccb3e21d37b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9544dded7516b07ad7d919d08b0b9cd4e12d0607
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774000"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567320"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
 
@@ -67,138 +67,17 @@ Dans [votre facture](../cost-management-billing/understand/download-azure-invoic
 
 ### <a name="function-app-level-metrics"></a>Métriques au niveau de l’application de fonction
 
-Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) dans le [Azure portal] ou les API REST pour obtenir ces données.
+Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. 
 
-#### <a name="monitor-metrics-explorer"></a>Monitor Metrics Explorer
-
-Utilisez [Azure Monitor Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) pour voir dans un format graphique les données relatives aux coûts de vos applications de fonction relevant du plan Consommation. 
-
-1. En haut du [Azure portal], dans la zone de **recherche dans les services, ressources et documents**, recherchez `monitor` et sélectionnez **Monitor** sous **Services**.
-
-1. Sur la gauche, sélectionnez **Metrics** > **Sélectionner une ressource**, puis utilisez les paramètres situés sous l’image pour choisir votre application de fonction.
-
-    ![Sélectionner votre ressource d’application de fonction](media/functions-consumption-costing/select-a-resource.png)
-
-      
-    |Paramètre  |Valeur suggérée  |Description  |
-    |---------|---------|---------|
-    | Abonnement    |  Votre abonnement  | Abonnement contenant votre application de fonction.  |
-    | Resource group     | Votre groupe de ressources  | Groupe de ressources qui contient votre application de fonction.   |
-    | Type de ressource     |  App Services | Les applications de fonction s’affichent sous forme d’instances App Services dans Monitor. |
-    | Ressource     |  Votre application de fonction  | Application de fonction à superviser.        |
-
-1. Sélectionnez **Appliquer** pour choisir votre application de fonction comme ressource à superviser.
-
-1. À partir de **Métrique**, choisissez **Nombre d’exécutions de la fonction** et **Somme** pour **Agrégation**. Ainsi, la somme du nombre d’exécutions pendant la période choisie est ajoutée au graphique.
-
-    ![Définir une métrique d’application de fonction à ajouter au graphique](media/functions-consumption-costing/monitor-metrics-add-metric.png)
-
-1. Sélectionnez **Ajouter une métrique** et répétez les étapes 2 à 4 pour ajouter **Unités d’exécution de la fonction** au graphique. 
-
-Le graphique obtenu contient les totaux des deux métriques d’exécution dans l’intervalle de temps choisi, en l’occurrence deux heures.
-
-![Graphe du nombre d’exécutions et des unités de la fonction](media/functions-consumption-costing/monitor-metrics-execution-sum.png)
-
-Étant donné que le nombre d’unités d’exécution est bien supérieur au nombre d’exécutions, le graphique montre uniquement les unités d’exécution.
-
-Ce graphique présente un total de 1,11 milliard `Function Execution Units` consommé sur une période de deux heures, exprimé en Mo-millisecondes. Pour convertir ce total en Go-secondes, divisez-le par 1 024 000. Dans cet exemple, l’application de fonction a consommé `1110000000 / 1024000 = 1083.98` Go-secondes. Vous pouvez utiliser cette valeur et la multiplier par le prix en vigueur de la durée d’exécution figurant dans la [page des tarifs Functions][page des tarifs], ce qui vous permet d’obtenir le coût de ces deux heures, en supposant que vous avez déjà utilisé tous les forfaits gratuits de durée d’exécution. 
-
-#### <a name="azure-cli"></a>Azure CLI
-
-[Azure CLI](/cli/azure/) contient des commandes pour récupérer des métriques. Vous pouvez utiliser CLI à partir d’un environnement de commande local ou directement à partir du portail en utilisant [Azure Cloud Shell](../cloud-shell/overview.md). Par exemple, la commande [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) suivante retourne les données horaires sur la même période que celle utilisée précédemment.
-
-Veillez à remplacer `<AZURE_SUBSCRIPTON_ID>` par votre ID d’abonnement Azure en exécutant la commande.
-
-```azurecli-interactive
-az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
-```
-
-Cette commande retourne une charge utile JSON semblable à l’exemple suivant :
-
-```json
-{
-  "cost": 0.0,
-  "interval": "1:00:00",
-  "namespace": "Microsoft.Web/sites",
-  "resourceregion": "centralus",
-  "timespan": "2019-09-11T21:46:00Z/2019-09-11T23:18:00Z",
-  "value": [
-    {
-      "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption/providers/Microsoft.Insights/metrics/FunctionExecutionUnits",
-      "name": {
-        "localizedValue": "Function Execution Units",
-        "value": "FunctionExecutionUnits"
-      },
-      "resourceGroup": "metrics-testing-consumption",
-      "timeseries": [
-        {
-          "data": [
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T21:46:00+00:00",
-              "total": 793294592.0
-            },
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T22:46:00+00:00",
-              "total": 316576256.0
-            }
-          ],
-          "metadatavalues": []
-        }
-      ],
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    },
-    {
-      "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption/providers/Microsoft.Insights/metrics/FunctionExecutionCount",
-      "name": {
-        "localizedValue": "Function Execution Count",
-        "value": "FunctionExecutionCount"
-      },
-      "resourceGroup": "metrics-testing-consumption",
-      "timeseries": [
-        {
-          "data": [
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T21:46:00+00:00",
-              "total": 33538.0
-            },
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T22:46:00+00:00",
-              "total": 13040.0
-            }
-          ],
-          "metadatavalues": []
-        }
-      ],
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    }
-  ]
-}
-```
-Cette réponse particulière indique qu’entre `2019-09-11T21:46` et `2019-09-11T23:18`, l’application a consommé 1110000000 Mo-millisecondes (1083,98 Go-secondes).
+[!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]
 
 ### <a name="function-level-metrics"></a>Métriques au niveau de la fonction
 
 Les unités d’exécution de la fonction sont une combinaison de la durée d’exécution et de votre utilisation de la mémoire, ce qui en fait une mesure difficile pour comprendre l’utilisation de la mémoire. La métrique des données de mémoire n’est actuellement pas disponible par le biais d’Azure Monitor. En revanche, si vous voulez optimiser l’utilisation de la mémoire de votre application, vous pouvez utiliser les données du compteur de performances collectées par Application Insights.  
 
 Si vous ne l’avez pas déjà fait, [activez Application Insights dans votre application de fonction](configure-monitoring.md#enable-application-insights-integration). Une fois cette intégration activée, vous pouvez [interroger ces données de télémétrie dans le portail](analyze-telemetry-data.md#query-telemetry-data). 
+
+Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) dans le [portail Azure] ou les API REST pour obtenir ces données Monitor Metrics.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 601eec9c65ee7e9bc3c163da78a81a372f26507d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 42feac542760bbebc703cabc4ecc114b0ab4259d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061693"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531536"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
@@ -29,6 +29,14 @@ Cette fonctionnalité permet aux applications de gérer des scénarios tels que�
 
 - Vous n’avez pas besoin de l'authentification multifacteur pour accéder à une application, mais en avez besoin pour une autre. Par exemple, le client peut se connecter à une application d’assurance automobile avec un compte local ou social, mais il doit confirmer le numéro de téléphone avant d’accéder à l’application d’assurance habitation inscrite dans le même annuaire.
 - Vous n’avez pas besoin l'authentification multifacteur pour accéder à une application en général, mais en avez besoin pour accéder à des portions sensibles de celle-ci. Par exemple, le client peut se connecter à une application bancaire avec un compte local ou social pour consulter le solde de son compte, mais il doit confirmer le numéro de téléphone avant d’effectuer un virement.
+
+### <a name="verification-methods"></a>Méthodes de vérification
+
+Grâce à l’[accès conditionnel](conditional-access-identity-protection-overview.md), les utilisateurs peuvent être amenés à s’authentifier par l’intermédiaire de l’authentification multifacteur selon les choix de configuration que vous avez faits en tant qu’administrateur. Les méthodes de l’authentification multifacteur sont les suivantes :
+
+- Courrier
+- sms
+- Appels téléphoniques
 
 ## <a name="set-multi-factor-authentication"></a>Définir l'authentification multifacteur
 
@@ -46,8 +54,8 @@ Cette fonctionnalité permet aux applications de gérer des scénarios tels que�
    - **Toujours activé** – MFA est toujours requise, quelle que soit votre configuration de l’accès conditionnel. Lors de l’inscription, les utilisateurs sont invités à s’inscrire dans MFA. Lors de la connexion, si les utilisateurs ne sont pas déjà inscrits à l’authentification multifacteur, ils sont invités à s’y inscrire.
    - **Conditionnel** – Lors de l’inscription et de la connexion, les utilisateurs sont invités à s’inscrire à l’authentification MFA (à la fois les nouveaux utilisateurs et les utilisateurs existants qui ne sont pas inscrits à l’authentification MFA). Lors de la connexion, l’authentification MFA est appliquée uniquement quand une évaluation de la stratégie d’accès conditionnel active l’exige :
 
-      - Si le résultat est un défi d’authentification MFA sans risque, l’authentification MFA est appliquée. Si l’utilisateur n’est pas déjà inscrit à l’authentification multifacteur, il est invité à s’y inscrire.
-      - Si le résultat est un défi d’authentification MFA en raison d’un risque *et* que l’utilisateur n’est pas inscrit dans MFA, la connexion est bloquée.
+    - Si le résultat est un défi d’authentification MFA sans risque, l’authentification MFA est appliquée. Si l’utilisateur n’est pas déjà inscrit à l’authentification multifacteur, il est invité à s’y inscrire.
+    - Si le résultat est un défi d’authentification MFA en raison d’un risque *et* que l’utilisateur n’est pas inscrit dans MFA, la connexion est bloquée.
 
    > [!NOTE]
    >

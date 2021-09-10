@@ -1,14 +1,14 @@
 ---
 title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Azure Lighthouse vous aide à gérer efficacement Azure Sentinel sur des ressources client déléguées.
-ms.date: 03/02/2021
+ms.date: 08/16/2021
 ms.topic: how-to
-ms.openlocfilehash: c72dcdd190acfaf3db0b5c9feb1a30b00c63a94d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 44efc4afeb3ea238b5a8a29d8f12a7bfb4f6d621
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077823"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527727"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -38,6 +38,9 @@ Ce modèle centralisé de déploiement présente les avantages suivants :
 
 > [!NOTE]
 > Vous pouvez gérer des ressources déléguées situées dans différentes [régions](../../availability-zones/az-overview.md#regions). Toutefois, la délégation d’abonnements sur un [cloud national](../../active-directory/develop/authentication-national-cloud.md) et le cloud public Azure, ou sur deux clouds nationaux distincts, n’est pas prise en charge.
+
+> [!IMPORTANT]
+> Si tous les espaces de travail sont créés dans des locataires clients, le fournisseur de ressources Microsoft.SecurityInsights et Microsoft.OperationalInsights doit également être [inscrits](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) sur un abonnement dans le locataire gestionnaire.
 
 ## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC) granulaire
 
@@ -92,5 +95,5 @@ Après avoir configuré les connecteurs de données Office 365, vous pouvez uti
 
 - En savoir plus sur [Azure Sentinel](../../sentinel/overview.md).
 - Accédez à la page de tarification [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+- Explorez [Azure Sentinel All in One](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One), un projet visant à accélérer le déploiement et les tâches de configuration initiale d’un environnement Azure Sentinel.
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
-

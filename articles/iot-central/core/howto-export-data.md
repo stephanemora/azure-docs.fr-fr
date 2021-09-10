@@ -8,12 +8,12 @@ ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 914fd683c45415db4af1f932404bc2cc2cf35716
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 0435fece7394c0a1494e51581bce263cbf1e068a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814546"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461176"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
@@ -31,7 +31,7 @@ Par exemple, vous pouvez :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser les fonctionnalités d'exportation de données, vous devez disposer d'une [application V3](howto-get-app-info.md) ainsi que d'une autorisation d'[exportation de données](howto-manage-users-roles.md).
+Pour utiliser les fonctionnalités d'exportation de données, vous devez disposer d'une [application V3](howto-faq.yml#how-do-i-get-information-about-my-application-) ainsi que d'une autorisation d'[exportation de données](howto-manage-users-roles.md).
 
 Si vous avez une application v2, consultez [Migrer votre application IoT Central v2 vers v3](howto-migrate.md).
 
@@ -93,9 +93,9 @@ En l’absence de compte de stockage Azure vers lequel exporter, suivez ces éta
 
     |Niveau de performances|Type de compte|
     |-|-|
-    |Standard|Usage général v2|
-    |Standard|Usage général v1|
-    |Standard|Stockage d'objets blob|
+    |standard|Usage général v2|
+    |standard|Usage général v1|
+    |standard|Stockage d'objets blob|
     |Premium|Stockage d’objets blob de blocs|
 
 1. Pour créer un conteneur sur votre compte de stockage, accédez à celui-ci. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.
@@ -174,7 +174,7 @@ En plus de voir l’état de vos exportations dans IoT Central, vous pouvez uti
 - Nombre de messages correctement exportés vers les destinations.
 - Nombre d'erreurs rencontrées.
 
-Pour plus d’informations, consultez [Surveiller l’intégrité globale des appareils connectés à une application IoT Central](howto-monitor-application-health.md).
+Pour en savoir plus, consultez [Superviser l’intégrité de l’application](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## <a name="destinations"></a>Destinations
 
@@ -209,7 +209,7 @@ Chaque message exporté contient un formulaire normalisé du message complet que
 - `enqueuedTime` : Heure à laquelle IoT Central a reçu ce message.
 - `enrichments`: enrichissements configurés lors de l'exportation.
 - `module` : module IoT Edge qui a envoyé ce message. Ce champ apparaît uniquement si le message provient d’un module IoT Edge.
-- `component` : composant qui a envoyé ce message. Ce champ apparaît uniquement si les fonctionnalités envoyées dans le message ont été modélisées en tant que [composant dans le modèle d’appareil](howto-set-up-template.md#create-a-component).
+- `component` : composant qui a envoyé ce message. Ce champ apparaît uniquement si les capacités envoyées dans le message ont été modélisées en tant que composant dans le modèle d’appareil.
 - `messageProperties`: propriétés supplémentaires envoyées par l'appareil avec le message. Ces propriétés sont parfois appelées *propriétés d'application*. [Pour en savoir plus, consultez la documentation d'IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Pour Event Hubs et Service Bus, IoT Central exporte rapidement un nouveau message après l’avoir reçu d’un appareil. Dans les propriétés utilisateur (également appelées propriétés d'application) de chaque message, les propriétés `iotcentral-device-id`, `iotcentral-application-id` et `iotcentral-message-source` sont automatiquement incluses.
@@ -349,7 +349,7 @@ L’extrait de code suivant montre cette propriété dans le message exporté ve
 
 ## <a name="property-changes-format"></a>Format des modifications de propriétés
 
-Chaque message ou enregistrement représente une modification apportée à une propriété de l’appareil ou du cloud. Pour les propriétés de l'appareil, seules les modifications apportées à la valeur signalée sont exportées en tant que message distinct. Les informations incluses dans le message exporté sont les suivantes :
+Chaque message ou enregistrement représente les modifications apportées aux propriétés de l’appareil et du cloud. Les informations incluses dans le message exporté sont les suivantes :
 
 - `applicationId`: ID de l'application IoT Central.
 - `messageSource`: source du message - `properties`.
@@ -358,8 +358,9 @@ Chaque message ou enregistrement représente une modification apportée à une p
 - `schema`: nom et version du schéma de charge utile.
 - `enqueuedTime` : Heure à laquelle IoT Central a détecté cette modification.
 - `templateId`: ID du modèle d'appareil associé à l'appareil.
+- `properties` : Tableau des propriétés qui ont été modifiées, y compris les noms des propriétés et les valeurs qui ont été modifiés. Les informations sur le composant et le module sont incluses si la propriété est modélisée dans un composant ou un module IoT Edge.
 - `enrichments`: enrichissements configurés lors de l'exportation.
-
+- 
 Pour Event Hubs et Service Bus, IoT Central exporte de nouvelles données de messages à la file d’attente ou à la rubrique de votre Event Hub ou Service Bus en quasi-temps réel. Dans les propriétés utilisateur (également appelées propriétés d'application) de chaque message, les propriétés `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source` et `iotcentral-message-type` sont automatiquement incluses.
 
 Pour le stockage Blob, les messages sont regroupés par lot et exportés une fois par minute.
@@ -377,13 +378,13 @@ L’exemple suivant présente un message de modification des propriétés export
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
         "name": "MachineSerialNumber",
-        "value": "abc"
+        "value": "abc",
+        "module": "VitalsModule",
+        "component": "DeviceComponent"
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    },
-    "module": "VitalsModule",
-    "component": "DeviceComponent"
+    }
 }
 ```
 ## <a name="device-connectivity-changes-format"></a>Format des modifications de la connectivité des appareils

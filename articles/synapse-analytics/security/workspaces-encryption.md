@@ -1,19 +1,19 @@
 ---
 title: Chiffrement Azure Synapse Analytics
 description: Article qui explique le chiffrement dans Azure Synapse Analytics
-author: nanditavalsan
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 07/14/2021
-ms.author: nanditav
+ms.date: 07/20/2021
+ms.author: mesrivas
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: cc57f4af28aad79b9348cbbb4e939825daba06ea
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 7e54c654428d86e77f3bad3a92ade0c33a278856
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203559"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225053"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Chiffrement pour les espaces de travail Azure Synapse Analytics
 
@@ -30,10 +30,10 @@ La première couche de chiffrement pour les services Azure est activée avec les
 
 ## <a name="azure-synapse-encryption"></a>Chiffrement Azure Synapse
 
-Cette section vous permet de mieux comprendre la façon dont le chiffrement à clé gérée par le client est activé et appliqué dans les espaces de travail Synapse. Ce chiffrement utilise des clés existantes ou de nouvelles clés générées dans Azure Key Vault. Une clé unique est utilisée pour chiffrer toutes les données d’un espace de travail. Les espaces de travail Synapse prennent en charge les clés RSA avec des clés de 2 048 et 3 072 octets.
+Cette section vous permet de mieux comprendre la façon dont le chiffrement à clé gérée par le client est activé et appliqué dans les espaces de travail Synapse. Ce chiffrement utilise des clés existantes ou de nouvelles clés générées dans Azure Key Vault. Une clé unique est utilisée pour chiffrer toutes les données d’un espace de travail. Les espaces de travail Synapse prennent en charge les clés RSA de 2048 et 3072 octets, ainsi que les clés RSA-HSM.
 
 > [!NOTE]
-> Les espaces de travail Synapse ne prennent pas en charge l’utilisation de clés de chiffrement à courbe elliptique (ECC) pour le chiffrement.
+> Les espaces de travail Synapse ne prennent pas en charge l’utilisation de clés EC, EC-HSM, RSA-HSM et oct-HSM pour le chiffrement. 
 
 Les données des composants Synapse suivants sont chiffrées à l’aide de la clé gérée par le client configurée au niveau de l’espace de travail :
 * Pools SQL
@@ -44,7 +44,7 @@ Les données des composants Synapse suivants sont chiffrées à l’aide de la c
 
 ## <a name="workspace-encryption-configuration"></a>Configuration du chiffrement de l’espace de travail
 
-Les espaces de travail peuvent être configurés pour activer le double chiffrement avec une clé gérée par le client au moment de la création de l’espace de travail. Sélectionnez l’option « Activer le double chiffrement à l’aide d’une clé gérée par le client » sous l’onglet « Sécurité » lors de la création de votre nouvel espace de travail. Vous pouvez choisir d’entrer un URI d’identificateur de clé ou d’effectuer une sélection dans une liste de coffres de clés dans la **même région** que l’espace de travail. La **protection contre le vidage** doit être activée sur le Key Vault lui-même.
+Les espaces de travail peuvent être configurés pour activer le double chiffrement avec une clé gérée par le client au moment de la création de l’espace de travail. Activez le chiffrement double à l’aide d’une clé gérée par le client sous l’onglet « Sécurité » lors de la création de votre nouvel espace de travail. Vous pouvez choisir d’entrer un URI d’identificateur de clé ou d’effectuer une sélection dans une liste de coffres de clés dans la **même région** que l’espace de travail. La **protection contre le vidage** doit être activée sur le Key Vault lui-même.
 
 > [!IMPORTANT]
 > Le paramètre de configuration pour le double chiffrement ne peut pas être modifié après la création de l’espace de travail.
@@ -53,20 +53,28 @@ Les espaces de travail peuvent être configurés pour activer le double chiffrem
 
 ### <a name="key-access-and-workspace-activation"></a>Accès aux clés et activation de l’espace de travail
 
-Le modèle de chiffrement Azure Synapse avec des clés gérées par le client implique que l’espace de travail accède aux clés dans Azure Key Vault pour chiffrer et déchiffrer si nécessaire. Les clés sont rendues accessibles à l’espace de travail par le biais d’une stratégie d’accès ou d’un [accès RBAC Azure Key Vault](../../key-vault/general/rbac-guide.md). Lorsque vous accordez des autorisations via une stratégie d’accès Azure Key Vault, choisissez l’option [« Application uniquement »](../../key-vault/general/security-features.md#key-vault-authentication-options) lors de la création de la stratégie (sélectionnez l’identité managée par l’espace de travail et ne l’ajoutez pas comme application autorisée).
+Le modèle de chiffrement Azure Synapse avec des clés gérées par le client implique que l’espace de travail accède aux clés dans Azure Key Vault pour chiffrer et déchiffrer si nécessaire. Les clés sont rendues accessibles à l’espace de travail par le biais d’une stratégie d’accès ou d’un [accès RBAC Azure Key Vault](../../key-vault/general/rbac-guide.md). Lorsque vous accordez des autorisations via une stratégie d’accès Azure Key Vault, choisissez l’option [« Application uniquement »](../../key-vault/general/security-features.md#key-vault-authentication-options) lors de la création de la stratégie (sélectionnez l’identité managée de l’espace de travail et ne l’ajoutez pas comme application autorisée).
 
  L’identité managée par l’espace de travail doit avoir les autorisations nécessaires sur le coffre de clés pour que l’espace de travail puisse être activé. Cette approche progressive de l’activation de l’espace de travail garantit le chiffrement des données dans l’espace de travail avec la clé gérée par le client. Notez que le chiffrement peut être activé ou désactivé pour les Pools SQL dédiés. Par défaut, chaque pool n’est pas activé pour le chiffrement.
 
+#### <a name="using-a-user-assigned-managed-identity"></a>Utilisation d’une identité managée affectée par l’utilisateur
+Vous pouvez configurer des espaces de travail pour utiliser une [identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md) afin d’accéder à votre clé gérée par le client stockée dans Azure Key Vault. Configurez une identité managée affectée par l’utilisateur afin d’éviter l’activation par phases de votre espace de travail Azure Synapse lors de l’utilisation du chiffrement double avec des clés gérées par le client. Le rôle intégré Contributeur d’identité managée est requis pour attribuer une identité managée affectées par l’utilisateur à un espace de travail Azure Synapse.
+> [!NOTE]
+> Une identité managées attribuée par l’utilisateur ne peut pas être configurée pour accéder à une clé gérée par le client quand Azure Key Vault se trouve derrière un pare-feu.
+
+:::image type="content" source="./media/workspaces-encryption/workspaces-encryption-uami.png" alt-text="Ce diagramme montre l’option à sélectionner pour activer un espace de travail afin d’utiliser une identité managée affectée par l’utilisateur pour le chiffrement double avec une clé gérée par le client." lightbox="./media/workspaces-encryption/workspaces-encryption-uami.png":::
+
+
 #### <a name="permissions"></a>Autorisations
 
-Pour chiffrer ou déchiffrer des données au repos, l’identité gérée de l’espace de travail doit avoir les autorisations suivantes :
+Pour chiffrer ou déchiffrer des données au repos, l’identité managée doit avoir les autorisations suivantes :
 * WrapKey (pour insérer une clé dans Key Vault lors de la création d’une clé).
 * UnwrapKey (pour obtenir la clé pour le déchiffrement).
 * Get (pour lire la partie publique d’une clé)
 
 #### <a name="workspace-activation"></a>Activation de l’espace de travail
 
-Une fois que votre espace de travail (avec double chiffrement activé) est créé, il reste dans un état « En attente » tant que l’activation n’a pas été effectuée. L’espace de travail doit être activé pour que vous puissiez utiliser pleinement toutes les fonctionnalités. Par exemple, vous ne pouvez créer un pool SQL dédié qu’une fois l’activation effectuée. Accordez à l’identité managée par l’espace de travail l’accès au coffre de clés, puis cliquez sur le lien d’activation dans la bannière du Portail Azure de l’espace de travail. Une fois l’activation terminée, votre espace de travail est prêt à être utilisé avec l’assurance que toutes les données qu’il contient sont protégées par votre clé gérée par le client. Comme indiqué précédemment, le coffre de clés doit avoir la protection contre le vidage activée pour que l’activation aboutisse.
+Si vous ne configurez pas une identité managée affectée par l’utilisateur pour accéder aux clés gérées par le client lors de la création de l’espace de travail, votre espace de travail reste dans un État « en attente » jusqu’à ce que l’activation aboutisse. L’espace de travail doit être activé pour que vous puissiez utiliser pleinement toutes les fonctionnalités. Par exemple, vous ne pouvez créer un pool SQL dédié qu’une fois l’activation effectuée. Accordez à l’identité managée par l’espace de travail l’accès au coffre de clés, puis cliquez sur le lien d’activation dans la bannière du Portail Azure de l’espace de travail. Une fois l’activation terminée, votre espace de travail est prêt à être utilisé avec l’assurance que toutes les données qu’il contient sont protégées par votre clé gérée par le client. Comme indiqué précédemment, le coffre de clés doit avoir la protection contre le vidage activée pour que l’activation aboutisse.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="Ce diagramme montre la bannière avec le lien d’activation de l’espace de travail." lightbox="./media/workspaces-encryption/workspace-activation.png":::
 

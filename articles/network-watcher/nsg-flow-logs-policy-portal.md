@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a507f0845fad1e43ce775e5d46f9fa8a548e369f
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011099"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607473"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Démarrage rapide : Déployer et gérer les journaux de flux NSG à l’aide d’Azure Policy 
 
 ## <a name="overview"></a>Vue d’ensemble
 Azure Policy aide à appliquer les normes organisationnelles et à évaluer la conformité à l’échelle. Les cas d’usage courants pour Azure Policy incluent la mise en œuvre de la gouvernance pour la cohérence des ressources, la conformité réglementaire, la sécurité, le coût et la gestion. Dans cet article, nous allons utiliser deux stratégies intégrées disponibles pour les journaux de flux NSG afin de gérer l’installation de vos journaux de flux. La première stratégie marque tous les NSG sans les journaux de flux activés. La deuxième stratégie déploie automatiquement les journaux de flux pour les NSG sans les journaux de flux activés. 
 
-Si vous créez une stratégie Azure pour la première fois, vous pouvez lire : 
+Si vous créez une définition Azure Policy pour la première fois, vous pouvez lire : 
 - [Vue d’ensemble d’Azure Policy](../governance/policy/overview.md) 
-- [Tutoriel sur la création d’une stratégie](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutoriel sur la création d’une attribution Azure Policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Rechercher les stratégies
@@ -134,5 +134,6 @@ Une fois votre stratégie exécutée, vous devez voir quelque chose de semblable
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
+-   En savoir plus sur les [stratégies intégrées à Traffic Analytics](./traffic-analytics-policy-portal.md)
 -   Utilisez ce [tutoriel](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) aller plus loin en utilisant des modèles ARM pour déployer des journaux de flux et Traffic Analytics.
 -   En savoir plus sur [Network Watcher](./index.yml)

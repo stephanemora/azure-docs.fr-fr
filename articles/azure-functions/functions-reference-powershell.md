@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 9877f50fe7bb06cb33a38f8ee89fa09ad12c0693
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 297d8af86f22cc588060cb90f327ad6dd335437d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672475"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524834"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -393,6 +393,8 @@ Le tableau suivant répertorie les versions de PowerShell disponibles pour chaqu
 
 Vous pouvez afficher la version en imprimant `$PSVersionTable` à partir de n’importe quelle fonction.
 
+Pour en savoir plus sur la stratégie de support du runtime Azure Functions, veuillez consulter cet [article](./language-support-policy.md)
+
 ### <a name="running-local-on-a-specific-version"></a>Exécution locale sur une version spécifique
 
 Lors d’une exécution locale, le runtime Azure Functions utilise par défaut PowerShell Core 6. Pour utiliser PowerShell 7, vous devez ajouter le paramètre `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` au tableau `Values` du fichier local.setting.json, situé à la racine du projet. Lors d’une exécution locale sur PowerShell 7, votre fichier local.settings.json ressemble à l’exemple suivant : 
@@ -411,6 +413,7 @@ Lors d’une exécution locale, le runtime Azure Functions utilise par défaut P
 ### <a name="changing-the-powershell-version"></a>Changement de version de PowerShell
 
 Votre application de fonction doit être exécutée sur la version 3.x pour permettre la mise à niveau de PowerShell Core 6 vers PowerShell 7. Pour savoir comment procéder, consultez [Afficher et mettre à jour la version actuelle du runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
 
 Procédez comme suit pour modifier la version de PowerShell utilisée par votre application de fonction. Pour ce faire, vous pouvez utiliser le portail Azure ou PowerShell.
 
@@ -568,7 +571,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Lors de l’exécution en local, les paramètres de l’application sont lus à partir du fichier projet [local.settings.json](functions-run-local.md#local-settings-file).
+Lors de l’exécution en local, les paramètres de l’application sont lus à partir du fichier projet [local.settings.json](functions-develop-local.md#local-settings-file).
 
 ## <a name="concurrency"></a>Accès concurrentiel
 

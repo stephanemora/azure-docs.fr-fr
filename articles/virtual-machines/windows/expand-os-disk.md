@@ -1,30 +1,25 @@
 ---
 title: Développer le lecteur de système d’exploitation d’une machine virtuelle Windows dans Azure
 description: Développer la taille du lecteur de système d’exploitation d’une machine virtuelle à l’aide d’Azure PowerShell dans le modèle de déploiement Resource Manager.
-services: virtual-machines
-documentationcenter: ''
 author: kirpasingh
 manager: roshar
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7bbea4fabcfce3a8f73045ab1f5071b7df0855b8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: fbc7a6df9dfdd50315176db343c6c94aaefbba12
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670337"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692478"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir de la [Place de marché Azure](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut a une capacité de 127 Go (par défaut, certaines images peuvent avoir des disques de système d’exploitation de plus petite taille). Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie), et si nous recommandons d’installer des applications et des charges de travail nécessitant une utilisation importante du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge des scénarios spécifiques :
 
@@ -57,7 +52,7 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 5. Dans **Taille + performances**, sélectionnez la taille de disque souhaitée.
    
    > [!WARNING]
-   > La nouvelle taille doit être supérieure à la taille du disque actuelle. Le maximum autorisé est de 2 048 Go pour les disques du système d’exploitation (il est possible d’étendre la taille de l’objet blob du disque dur virtuel, mais le système d’exploitation ne peut utiliser que les premiers 2 048 Go de l’espace).
+   > La nouvelle taille doit être supérieure à la taille du disque actuelle. Le maximum autorisé est de 4 095 Go pour les disques du système d’exploitation. (Il est possible d’étendre la taille du blob du disque dur virtuel au-delà, mais le système d’exploitation ne peut utiliser que les premiers 4 095 Go d’espace.)
    > 
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Capture d'écran illustrant le volet Taille et performances, dans lequel une taille de disque est sélectionnée.":::
@@ -105,7 +100,7 @@ Ouvrez votre PowerShell ISE ou une fenêtre PowerShell en mode administrateur, p
     Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
     ```   
     > [!WARNING]
-    > La nouvelle taille doit être supérieure à la taille du disque actuelle. Le maximum autorisé est de 2 048 Go pour les disques du système d’exploitation (il est possible d’étendre la taille de l’objet blob du disque dur virtuel, mais le système d’exploitation ne peut utiliser que les premiers 2 048 Go de l’espace).
+    > La nouvelle taille doit être supérieure à la taille du disque actuelle. Le maximum autorisé est de 4 095 Go pour les disques du système d’exploitation. (Il est possible d’étendre la taille du blob du disque dur virtuel au-delà, mais le système d’exploitation ne peut utiliser que les premiers 4 095 Go d’espace.)
     > 
          
 6. La mise à jour de la machine virtuelle peut prendre quelques secondes. Une fois l’exécution de la commande terminée, redémarrez la machine virtuelle :

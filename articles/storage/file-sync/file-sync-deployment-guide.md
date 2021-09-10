@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5825f170a1bd14fc577284b8a512ff40aa614546
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 42ca317d4838513bb23bed9f5aa1028cb964d382
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677144"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768576"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -410,89 +410,7 @@ Un point de terminaison de serveur représente un emplacement spécifique sur un
 - La modification du chemin d’accès ou de la lettre de lecteur après l’établissement d’un point de terminaison de serveur sur un volume n’est pas prise en charge. Veillez à utiliser un chemin d’accès final sur votre serveur inscrit.
 - Un serveur inscrit peut prendre en charge plusieurs points de terminaison de serveur, mais un groupe de synchronisation ne peut avoir qu'un seul point de terminaison de serveur par serveur inscrit à un moment donné. Les autres points de terminaison de serveur du groupe de synchronisation doivent se trouver sur des serveurs inscrits distincts.
 
-# <a name="portal"></a>[Portail](#tab/azure-portal)
-Pour ajouter un point de terminaison de serveur, accédez au nouveau groupe de synchronisation, puis sélectionnez **Ajouter un point de terminaison de serveur**.
-
-![Ajouter un nouveau point de terminaison de serveur dans le volet Groupe de synchronisation](media/storage-sync-files-deployment-guide/create-sync-group-part-2.png)
-
-Dans le volet **Ajouter un point de terminaison de serveur**, entrez les informations suivantes pour créer un point de terminaison de serveur :
-
-- **Serveur inscrit** : nom du serveur ou du cluster où vous voulez créer le point de terminaison de serveur.
-- **Chemin d’accès** : chemin d’accès Windows Server à synchroniser en tant qu’élément du groupe de synchronisation.
-- **Hiérarchisation cloud** : commutateur pour activer ou désactiver la hiérarchisation cloud. La hiérarchisation cloud permet de hiérarchiser les fichiers rarement utilisés dans Azure Files.
-- **Espace libre du volume** : quantité d’espace libre à réserver sur le volume sur lequel se trouve le point de terminaison de serveur. Par exemple, si l’espace libre du volume est défini à 50 % sur un volume ayant un seul point de terminaison de serveur, environ la moitié de la quantité de données est hiérarchisée dans Azure Files. Que la hiérarchisation cloud soit activée ou non, le partage de fichiers Azure dispose toujours d’une copie complète des données dans le groupe de synchronisation.
-- **Mode de téléchargement initial** : Il s’agit d’une sélection facultative, à partir de la version 11 de l’agent, qui peut être utile lorsque vous avez des fichiers dans le partage de fichiers Azure, mais pas sur le serveur. Une telle situation peut exister, par exemple, si vous créez un point de terminaison de serveur pour ajouter un autre serveur de filiale à un groupe de synchronisation ou lorsque vous récupérez un serveur défaillant en cas de sinistre. Si la hiérarchisation cloud est activée, le comportement par défaut consiste à rappeler uniquement l’espace de noms, pas de contenu de fichier initialement. Cela est utile si vous pensez que les demandes d’accès des utilisateurs doivent décider du contenu du fichier qui est rappelé sur le serveur. Si la hiérarchisation cloud est désactivée, le comportement par défaut est que l’espace de noms sera d’abord téléchargé, puis les fichiers seront rappelés en fonction du timestamp de la dernière modification jusqu’à ce que la capacité locale soit atteinte. Vous pouvez toutefois changer le mode de téléchargement initial sur Espace de noms uniquement. Un troisième mode ne peut être utilisé que si la hiérarchisation cloud est désactivée pour ce point de terminaison de serveur. Ce mode évite de rappeler l’espace de noms d’abord. Les fichiers s’affichent uniquement sur le serveur local s’ils ont pu être téléchargés entièrement. Ce mode est utile si, par exemple, une application nécessite la présence de fichiers complets et ne peut pas tolérer des fichiers hiérarchisés dans son espace de noms.
-
-Pour ajouter le point de terminaison de serveur, sélectionnez **Créer**. Vos fichiers sont maintenant synchronisés entre le partage de fichiers Azure et Windows Server. 
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Exécutez les commandes PowerShell suivantes pour créer le point de terminaison de serveur, et veillez à remplacer `<your-server-endpoint-path>` et `<your-volume-free-space>` par les valeurs souhaitées et vérifiez le paramètre facultatif pour la stratégie de téléchargement initial facultatif.
-
-```powershell
-$serverEndpointPath = "<your-server-endpoint-path>"
-$cloudTieringDesired = $true
-$volumeFreeSpacePercentage = <your-volume-free-space>
-# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
-$initialDownloadPolicy = NamespaceOnly
-
-if ($cloudTieringDesired) {
-    # Ensure endpoint path is not the system volume
-    $directoryRoot = [System.IO.Directory]::GetDirectoryRoot($serverEndpointPath)
-    $osVolume = "$($env:SystemDrive)\"
-    if ($directoryRoot -eq $osVolume) {
-        throw [System.Exception]::new("Cloud tiering cannot be enabled on the system volume")
-    }
-
-    # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
-        -Name $registeredServer.FriendlyName `
-        -SyncGroup $syncGroup `
-        -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath `
-        -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
-        -InitialDownloadPolicy $initialDownloadPolicy
-} else {
-    # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
-        -Name $registeredServer.FriendlyName `
-        -SyncGroup $syncGroup `
-        -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath `
-        -InitialDownloadPolicy $initialDownloadPolicy
-}
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Utilisez la commande [az storagesync sync-group server-endpoint](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) pour créer un point de terminaison de serveur.
-
-```azurecli
-# Create a new sync group server endpoint 
-az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
-                                                 --name myNewServerEndpointName
-                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96c286e0
-                                                 --server-local-path d:\myPath
-                                                 --storage-sync-service myStorageSyncServiceNAme
-                                                 --sync-group-name mySyncGroupName
-
-# Create a new sync group server endpoint with additional optional parameters
-az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
-                                                 --storage-sync-service myStorageSyncServiceName \
-                                                 --sync-group-name mySyncGroupName \
-                                                 --name myNewServerEndpointName \
-                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96c286e0 \
-                                                 --server-local-path d:\myPath \
-                                                 --cloud-tiering on \
-                                                 --volume-free-space-percent 85 \
-                                                 --tier-files-older-than-days 15 \
-                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
-                                                 --offline-data-transfer on \
-                                                 --offline-data-transfer-share-name myfilesharename \
-
-```
-
----
+[!INCLUDE [storage-files-sync-create-server-endpoint](../../../includes/storage-files-sync-create-server-endpoint.md)]
 
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Configurer les paramètres de pare-feu et de réseau virtuel
 
@@ -533,7 +451,7 @@ Si vous n’avez pas de stockage supplémentaire pour l’intégration initiale 
 1. Une fois le rapprochement terminé, vous pourrez ouvrir les partages pour les modifier.
  
 L’approche par préamorçage a actuellement quelques limitations. 
-- Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation ne soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.  
+- Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.  
 - Une fois le point de terminaison cloud créé, Azure File Sync exécute un processus de détection des fichiers dans le cloud avant de démarrer la synchronisation initiale. Le temps nécessaire à ce processus varie en fonction de différents facteurs, comme la vitesse du réseau, la bande passante disponible et le nombre de fichiers et de dossiers. Pour donner une estimation approximative dans la préversion, le processus de détection s’exécute approximativement à une vitesse de 10 fichiers/s. Par conséquent, même si le préamorçage est rapide, le délai global nécessaire pour obtenir un système entièrement opérationnel peut se révéler beaucoup plus long lorsque les données sont préamorcées dans le cloud.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Restauration libre-service via Versions précédentes et VSS (Volume Shadow Copy Service)
@@ -576,7 +494,7 @@ Cela étant, si vous modifiez la planification de manière à obtenir un instant
 
 Le nombre maximal d'instantanés VSS par volume par défaut (64), ainsi que leur planification par défaut, se traduisent par un maximum de 45 jours de versions précédentes pouvant être restaurées par un professionnel de l’information et ce, en fonction du nombre d'instantanés VSS que vous pouvez stocker sur votre volume.
 
-Si le paramètre de 65 instantanés VSS par volume ne vous convient pas, vous pouvez [modifier cette valeur via une clé de Registre](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Si le maximum de 64 instantanés VSS par volume ne vous convient pas, vous pouvez [modifier cette valeur via une clé de Registre](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Pour que la nouvelle limite prenne effet, vous devez réexécuter la cmdlet de manière à activer la compatibilité des versions précédentes sur chaque volume sur lequel elle était précédemment activée, avec l'indicateur -Force afin de prendre en compte le nouveau nombre maximal d'instantanés VSS par volume. Un nouveau nombre de jours compatibles est alors calculé. Notez que cette modification prend uniquement effet sur les fichiers nouvellement hiérarchisés et remplace les personnalisations apportées à la planification VSS que vous avez peut-être établie.
 
 <a id="proactive-recall"></a>
@@ -630,6 +548,6 @@ Pour migrer un déploiement de DFS-R vers Azure File Sync :
 Pour plus d’informations, consultez [Interopérabilité d’Azure File Sync avec le système de fichiers DFS](file-sync-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Ajouter ou supprimer un point de terminaison de serveur pour Azure File Sync](file-sync-server-endpoint.md)
+- [Créer un point de terminaison de serveur de synchronisation de fichiers Azure](file-sync-server-endpoint-create.md)
 - [Inscrire ou désinscrire un serveur auprès d’Azure File Sync](file-sync-server-registration.md)
 - [Superviser Azure File Sync](file-sync-monitoring.md)

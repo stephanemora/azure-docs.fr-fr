@@ -1,6 +1,6 @@
 ---
-title: Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory | Microsoft Docs
-description: Affichez un aperçu des rôles Azure AD personnalisés pour la délégation de la gestion des identités. Gérez les attributions de rôles Azure dans le portail Azure, PowerShell ou l’API Graph.
+title: Utiliser des groupes Azure AD pour gérer les attributions de rôle – Azure Active Directory
+description: Utilisez des groupes Azure AD pour simplifier la gestion des attributions de rôle dans Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,69 +8,83 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d037f93b1381fcd7f1816104f6fd7b2e1200c852
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: bebba34e8d323bc60d83151e7b211388776b7b76
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438933"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532331"
 ---
-# <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)
+# <a name="use-azure-ad-groups-to-manage-role-assignments"></a>Utiliser des groupes Azure AD pour gérer les attributions de rôle
 
-Azure Active Directory (Azure AD) introduit une préversion publique dans laquelle vous pouvez attribuer un groupe cloud à des rôles intégrés Azure AD. Grâce à cette fonctionnalité, vous pouvez utiliser des groupes pour accorder un accès administrateur dans Azure AD avec le minimum d’effort de la part de vos Administrateurs généraux et Administrateurs de rôle privilégié.
+Azure Active Directory (Azure AD) vous permet de cibler des groupes Azure AD pour les attributions de rôle. L’attribution de rôles à des groupes peut simplifier la gestion des attributions de rôles dans Azure AD avec un effort minimal de la part de vos administrateurs généraux et administrateurs de rôles privilégiés.
 
-Examinez cet exemple : Contoso a recruté des personnes pour toutes les zones géographiques afin de gérer et réinitialiser les mots de passe des employés de son organisation Azure AD. Plutôt que de demander à un Administrateur de rôle privilégié ou à un Administrateur général d’attribuer le rôle Administrateur du support technique à chaque personne individuellement, il peut créer un groupe Contoso_Helpdesk_Administrators et l’attribuer au rôle. Lorsque des personnes rejoignent le groupe, elles se voient attribuer le rôle indirectement. Votre workflow de gouvernance actuel peut ensuite prendre en charge le processus d’approbation et l’audit de l’appartenance du groupe pour s’assurer que seuls les utilisateurs légitimes sont membres du groupe et donc affectés au rôle Administrateur du support technique.
+## <a name="why-assign-roles-to-groups"></a>Pourquoi attribuer des rôles à des groupes ?
 
-## <a name="how-this-feature-works"></a>Principe de la fonctionnalité
+Prenons l’exemple de l’entreprise Contoso qui a recruté des personnes dans plusieurs zones géographiques afin de gérer et réinitialiser les mots de passe des employés de son organisation Azure AD. Plutôt que de demander à un administrateur de rôles privilégiés ou à un administrateur général d’attribuer le rôle Administrateur du support technique à chaque personne individuellement, elle peut créer un groupe Contoso_Helpdesk_Administrators et attribuer le rôle au groupe. Lorsque des personnes rejoignent le groupe, elles se voient attribuer le rôle indirectement. Votre flux de travail de gouvernance actuel peut alors prendre en charge le processus d’approbation et l’audit de l’appartenance du groupe pour s’assurer que seuls les utilisateurs légitimes sont membres du groupe et donc affectés au rôle Administrateur du support technique.
 
-Créez un nouveau groupe Microsoft 365 ou un groupe de sécurité dont la propriété « isAssignableToRole » a la valeur « true ». Vous pouvez également activer cette propriété lors de la création d’un groupe dans le portail Azure en activant l’option **Des rôles Azure AD peuvent être attribués au groupe**. Dans les deux cas, vous pouvez affecter le groupe à un ou plusieurs rôles Azure AD de la même façon que vous attribuez des rôles aux utilisateurs. Un maximum de 300 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
+## <a name="how-role-assignments-to-groups-work"></a>Fonctionnement des attributions de rôle aux groupes
 
-Si vous ne souhaitez pas que les membres du groupe disposent d’un accès permanent au rôle, vous pouvez utiliser Azure AD Privileged Identity Management. Assignez un groupe comme membre éligible d’un rôle Azure AD. Chaque membre du groupe peut alors faire activer son affectation pour le rôle auquel le groupe est assigné. Il peut ensuite activer son attribution de rôle pour une durée déterminée.
+Pour attribuer un rôle à un groupe, vous devez créer un nouveau groupe de sécurité ou Microsoft 365 avec la propriété `isAssignableToRole` définie sur `true`. Dans le portail Azure, définissez l’option **Des rôles Azure AD peuvent être attribués au groupe** sur **Oui**. Dans les deux cas, vous pouvez attribuer un ou plusieurs rôles Azure AD au groupe de la même façon que vous attribuez des rôles aux utilisateurs.
+
+![Capture d’écran de la page Rôles et administrateurs](./media/groups-concept/role-assignable-group.png)
+
+## <a name="restrictions-for-role-assignable-groups"></a>Restrictions pour les groupes assignables à un rôle
+
+Les groupes assignables à un rôle présentent les restrictions suivantes :
+
+- Vous pouvez uniquement définir la propriété `isAssignableToRole` ou l’option **Des rôles Azure AD peuvent être attribués au groupe** pour les nouveaux groupes.
+- La propriété `isAssignableToRole` est **immuable**. Une fois qu’un groupe a été créé avec cette propriété définie, il ne peut plus être modifié.
+- Vous ne pouvez pas faire d’un groupe existant un groupe assignable à un rôle.
+- Un maximum de 300 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
+
+## <a name="how-are-role-assignable-groups-protected"></a>Comment les groupes assignables à un rôle sont-ils protégés ?
+
+Si un rôle est attribué à un groupe, tout administrateur informatique qui peut gérer l’appartenance au groupe peut également gérer indirectement l’appartenance à ce rôle. Par exemple, supposons qu’un groupe nommé Contoso_User_Administrators se voit attribuer le rôle Administrateur d’utilisateurs. Un Administrateur Exchange qui peut modifier l’appartenance au groupe peut s’ajouter au groupe Contoso_User_Administrators et devenir ainsi Administrateur d’utilisateurs. Comme vous pouvez le voir, un administrateur peut élever ses privilèges d’une manière que vous n’aviez pas prévue.
+
+Seuls les groupes dont la propriété `isAssignableToRole` est définie sur `true` au moment de la création peuvent se voir attribuer un rôle. La propriété est immuable. Une fois qu’un groupe a été créé avec cette propriété définie, il ne peut plus être modifié. Vous ne pouvez pas définir la propriété sur un groupe existant.
+
+Les groupes assignables à un rôle sont conçus pour aider à prévenir les violations potentielles en respectant les restrictions suivantes :
+
+- Seuls les administrateurs généraux et les administrateurs de rôles privilégiés peuvent créer un groupe assignable à un rôle.
+- Le type d’appartenance pour les groupes assignables à un rôle doit être « Affecté » et ne peut pas être un groupe dynamique Azure AD. L’alimentation automatisée de groupes dynamiques peut entraîner l’ajout d’un compte indésirable au groupe et don son affectation au rôle.
+- Par défaut, seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent gérer l’appartenance à un groupe attribuable à un rôle, mais vous pouvez déléguer la gestion des groupes attribuables à un rôle en leur ajoutant des propriétaires de groupe.
+- L’autorisation Microsoft Graph RoleManagement.ReadWrite.All est nécessaire pour pouvoir gérer l’appartenance à de tels groupes ; Group.ReadWrite.All ne fonctionne pas.
+- Pour empêcher une élévation des privilèges, seul un Administrateur de rôle privilégié ou un Administrateur général peut modifier les informations d’identification ou réinitialiser l’authentification multifacteur pour les membres et propriétaires d’un groupe attribuable à un rôle.
+- L’imbrication des groupes n’est pas prise en charge. Un groupe ne peut pas être ajouté en tant que membre d’un groupe assignable à un rôle.
+
+## <a name="use-pim-to-make-a-group-eligible-for-a-role-assignment"></a>Utiliser PIM pour rendre un groupe qualifié pour à une attribution de rôle
+
+Si vous ne souhaitez pas que les membres du groupe disposent d’un accès permanent à un rôle, vous pouvez utiliser [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) pour rendre un groupe qualifié pour à une attribution de rôle. Chaque membre du groupe est alors qualifié pour activer l’attribution de rôle pour une durée déterminée.
 
 > [!Note]
-> Vous devez disposer d’une version mise à jour de Privileged Identity Management pour être en mesure d’assigner un groupe à un rôle Azure AD via PIM. Vous pourriez être sur une version antérieure de PIM parce que votre organisation Azure AD exploite l’API Privileged Identity Management. Veuillez contacter l’alias pim_preview@microsoft.com pour déplacer votre organisation et mettre à jour votre API. Pour plus d’informations, consultez [Fonctionnalités et rôles Azure AD dans PIM](../privileged-identity-management/azure-ad-roles-features.md).
+> Vous devez utiliser une version mise à jour de PIM pour pouvoir attribuer un rôle Azure AD à un groupe. Vous pourriez utiliser une version antérieure de PIM parce que votre organisation Azure AD utilise l’API PIM. Envoyez un e-mail à pim_preview@microsoft.com pour déplacer votre organisation et mettre à jour votre API. Pour plus d’informations, consultez [Fonctionnalités et rôles Azure AD dans PIM](../privileged-identity-management/pim-configure.md).
 
-## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Avantages de la création d’un groupe spécial pour l’attribution d’un rôle
+## <a name="scenarios-not-supported"></a>Scénarios non pris en charge
 
-Si un rôle est attribué à un groupe, tout administrateur informatique qui peut gérer l’appartenance au groupe peut également gérer indirectement l’appartenance à ce rôle. Par exemple, supposons qu’un groupe Contoso_User_Administrators est affecté au rôle Administrateur d’utilisateurs. Un Administrateur Exchange qui peut modifier l’appartenance au groupe peut s’ajouter au groupe Contoso_User_Administrators et devenir ainsi Administrateur d’utilisateurs. Comme vous pouvez le voir, un administrateur peut élever ses privilèges d’une manière que vous n’aviez pas prévue.
+Les scénarios suivants ne sont pas pris en charge :  
 
-Azure AD vous permet de protéger un groupe affecté à un rôle à l’aide d’une nouvelle propriété appelée isAssignableToRole pour les groupes. Seuls les groupes cloud dont la propriété isAssignableToRole a la valeur « true » au moment de la création peuvent être affectés à un rôle. Cette propriété est non modifiable ; une fois qu’un groupe a été créé avec cette propriété définie sur « true », il ne peut pas être modifié. Vous ne pouvez pas définir la propriété sur un groupe existant. Nous avons conçu la manière dont les groupes sont affectés aux rôles afin d’éviter des violations potentielles :
-
-- Seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent créer un groupe attribuable à un rôle (avec la propriété « isAssignableToRole » activée).
-- Il ne peut pas s’agir d’un groupe dynamique Azure AD ; autrement dit, il doit avoir le type d’appartenance « Assigned ». L’alimentation automatisée de groupes dynamiques peut entraîner l’ajout d’un compte indésirable au groupe et don son affectation au rôle.
-- Par défaut, seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent gérer l’appartenance à un groupe attribuable à un rôle, mais vous pouvez déléguer la gestion des groupes attribuables à un rôle en leur ajoutant des propriétaires de groupe.
-- Pour empêcher une élévation des privilèges, seul un Administrateur de rôle privilégié ou un Administrateur général peut modifier les informations d’identification ou réinitialiser l’authentification multifacteur pour les membres et propriétaires d’un groupe attribuable à un rôle.
-- Aucune imbrication. Un groupe ne peut pas être ajouté en tant que membre d’un groupe assignable à un rôle.
-
-## <a name="limitations"></a>Limites
-
-Les scénarios suivants ne sont pas pris en charge pour le moment :  
-
-- Affecter des groupes locaux à des rôles Azure AD (intégrés ou personnalisés)
+- Attribuer des rôles Azure AD (intégrés ou personnalisés) à des groupes locaux.
 
 ## <a name="known-issues"></a>Problèmes connus
 
-- *Clients titulaires d’une licence Azure AD P2 uniquement :* n’affectez pas un groupe actif à un rôle à la fois par le biais d’Azure AD et de Privileged Identity Management (PIM). En particulier, n’affectez pas un rôle à un groupe assignable à un rôle lors de sa création *et* à l’aide de PIM plus tard. Cela entraînera des problèmes où les utilisateurs ne pourront pas voir leurs attributions de rôles actives dans PIM, ainsi que l’impossibilité de supprimer ces attributions PIM. Les attributions éligibles ne sont pas visées dans ce scénario. Si vous tentez d’effectuer cette affectation, vous pourriez constater des comportements inattendus, par exemple :
-  - L’heure de fin de l’attribution de rôle peut s’afficher de manière incorrecte.
-  - Dans le portail PIM, la rubrique **Mes rôles** ne peut afficher qu’une seule attribution de rôle, quel que soit le nombre de méthodes par lesquelles l’affectation est accordée (par le biais d’un ou de plusieurs groupes, directement ou non).
-- *Clients titulaires d’une licence Azure AD P2 uniquement :* même après avoir supprimé le groupe, celui-ci apparaît toujours comme membre éligible du rôle dans l’interface utilisateur PIM. Fonctionnellement, il n’y a aucun problème ; il s’agit simplement d’un problème de cache dans le portail Azure.  
-- Utilisez le nouveau [Centre d'administration Exchange](https://admin.exchange.microsoft.com/) pour les attributions de rôles via l'appartenance de groupe. L'ancien Centre d'administration Exchange ne prend pas encore en charge cette fonctionnalité. Les cmdlets Exchange PowerShell fonctionnent normalement.
-- Le portail Azure Information Protection (le portail classique) ne reconnaît pas encore l’appartenance au rôle par le biais d’un groupe. Vous pouvez [migrer vers la plateforme unifiée d’étiquetage de confidentialité](/azure/information-protection/configure-policy-migrate-labels), puis utiliser le centre Security & Compliance d’Office 365 pour gérer les rôles à l’aide des affectations de groupe.
-- L’[Apps Admin Center](https://config.office.com/) ne prend pas encore en charge cette fonctionnalité. Attribuez les utilisateurs directement au rôle Administrateur d’applications Office.
-- Le [Centre de conformité Microsoft 365](https://compliance.microsoft.com/) ne prend pas encore en charge cette fonctionnalité. Affectez des utilisateurs directement aux rôles Azure AD appropriés pour utiliser ce portail.
+Voici les problèmes connus concernant les groupes assignables à un rôle :
 
-Nous travaillons à corriger ces problèmes.
+- *Clients titulaires d’une licence Azure AD P2 uniquement :* même après avoir supprimé le groupe, celui-ci apparaît toujours comme membre qualifié du rôle dans l’interface utilisateur PIM. Fonctionnellement, il n’y a aucun problème ; il s’agit simplement d’un problème de cache dans le portail Azure.  
+- Utilisez le nouveau [centre d’administration Exchange](https://admin.exchange.microsoft.com/) pour les attributions de rôle via l’appartenance de groupe. L’ancien centre d’administration Exchange ne prend pas encore en charge cette fonctionnalité. Les cmdlets Exchange PowerShell fonctionnent normalement.
+- Le portail Azure Information Protection (le portail classique) ne reconnaît pas encore l’appartenance au rôle par le biais d’un groupe. Vous pouvez [migrer vers la plateforme unifiée d’étiquetage de confidentialité](/azure/information-protection/configure-policy-migrate-labels), puis utiliser le centre Security & Compliance d’Office 365 pour gérer les rôles à l’aide des affectations de groupe.
+- La plateforme [Apps admin center](https://config.office.com/) ne prend pas encore en charge cette fonctionnalité. Attribuez les utilisateurs directement au rôle Administrateur d’applications Office.
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
-L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. En outre, l’utilisation de Privileged Identity Management à des fins d’activation de rôle juste-à-temps requiert une licence Azure AD Premium P2. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. En outre, l’utilisation de Privileged Identity Management à des fins d’activation de rôle juste-à-temps requiert une licence Azure AD Premium P2. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer un groupe assignable à un rôle](groups-create-eligible.md)
-- [Attribuer un rôle à un groupe assignable à un rôle](groups-assign-role.md)
+- [Attribuer des rôles Azure AD aux groupes](groups-assign-role.md)

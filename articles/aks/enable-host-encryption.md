@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 04/26/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41f0a9beda1c72b778d4f238cc5aa629e10b6d7e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3eb2f0023cbd0bbe36b466ecf4a1380aa20a2c5c
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094273"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527970"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>Chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS)
 
@@ -26,9 +26,30 @@ Cette fonctionnalité ne peut être définie qu’au moment de la création du c
 
 ### <a name="prerequisites"></a>Prérequis
 
-
 - Vérifiez que l’extension CLI version 2.23 ou ultérieure est installée.
+- Vérifiez que l’indicateur de fonctionnalité `EncryptionAtHost` sous `Microsoft.Compute` est activé.
 
+### <a name="register-encryptionathost--preview-features"></a>Enregistrer `EncryptionAtHost` fonctionnalités d’évaluation
+
+Pour créer un cluster AKS qui utilise un chiffrement basé sur l’hôte, vous devez activer les indicateurs de fonctionnalité `EncryptionAtHost` sur votre abonnement.
+
+Inscrivez l’indicateur de fonctionnalité `EncryptionAtHost` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
+```
+
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources `Microsoft.Compute` à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ### <a name="limitations"></a>Limites
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ebe6a96c88d061138eb629f50aa37ea90fe40eb4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 45df0eb8bfc6ab5b181b8bc103c4a4a47f3196f6
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475876"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527846"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Convertir des ontologies conformes aux standards du secteur en langage DTDL pour Azure Digital Twins
 
@@ -37,7 +37,7 @@ Le tableau suivant est un exemple de la façon dont les constructions RDFS et OW
 
 L’extrait de code C# suivant montre comment un fichier de modèle RDF est chargé dans un graphique et converti en DTDL à l’aide de la bibliothèque [dotNetRDF](https://www.dotnetrdf.org/). 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/other/csharp/convertRDF.cs":::
 
 ## <a name="converter-samples"></a>Exemples de convertisseurs
 
@@ -61,6 +61,6 @@ Ce convertisseur a été utilisé pour traduire l’[ontologie RealEstateCore](h
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-* Découvrez plus en détail comment étendre les ontologies conformes aux standards du secteur pour répondre aux impératifs de vos spécifications : [Concepts : Extension des ontologies du secteur](concepts-ontologies-extend.md).
+* Découvrez plus en détail comment étendre les ontologies conformes aux normes du secteur pour répondre aux impératifs de vos spécifications : [Extension des ontologies du secteur](concepts-ontologies-extend.md).
 
 * Sinon, passez au développement de modèles à partir d’ontologies : [Utilisation de stratégies d’ontologie pour le développement de modèles](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

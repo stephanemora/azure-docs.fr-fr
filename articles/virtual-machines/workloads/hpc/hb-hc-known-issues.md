@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7f9a10aca24203b69ff38ff5fab7960681145af5
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: b9277e8ce7c9c3fff748efff42517c6c0baed57a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227827"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691473"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Cet article tente de répertorier les problèmes courants récents et leurs solutions correspondantes en lien avec l’utilisation de machines virtuelles HPC et GPU des séries [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
 
@@ -49,7 +51,7 @@ Pour plus de détails à ce sujet, consultez cet [article de la TechCommunity](h
 
 ## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>Installation du pilote InfiniBand sur des machines virtuelles non compatibles avec SR-IOV
 
-Actuellement les machines virtuelles H16r, H16mr et NC24r ne sont pas compatibles avec SR-IOV. Pour plus détails sur la bifurcation de la pile InfiniBand, voir [ici](../../sizes-hpc.md#rdma-capable-instances).
+Actuellement les machines virtuelles H16r, H16mr et NC24r ne sont pas compatibles avec SR-IOV. Pour plus d’informations sur la bifurcation de pile InfiniBand, consultez [Tailles des machines virtuelles Azure - HPC](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand peut être configuré sur des machines virtuelles compatibles avec SR-IOV à l’aide de pilotes OFED, tandis que les tailles machines virtuelles non compatibles avec SR-IOV requièrent des pilotes ND. Cette prise en charge d’IB est disponible de manière appropriée pour [CentOS, RHEL et Ubuntu](configure.md).
 
 ## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Adresse MAC en doublon avec cloud-init avec Ubuntu sur des machines virtuelles des séries H et N

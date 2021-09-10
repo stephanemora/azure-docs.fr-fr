@@ -12,22 +12,30 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2021
+ms.date: 07/27/2021
 ms.author: bagol
-ms.openlocfilehash: 1a3f199276d5c9b04ab5ac117c022a63fd3fb866
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 6e29b444f7a9e1afbea3ffc7f9d53c0279c6af8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665292"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524140"
 ---
-# <a name="investigate-incidents-with-ueba-data"></a>Enquêter sur les incidents à l'aide des données UEBA
+# <a name="tutorial-investigate-incidents-with-ueba-data"></a>Tutoriel : Enquêter sur les incidents à l’aide des données UEBA
 
 Cet article décrit des méthodes courantes d'[analyse du comportement des utilisateurs et des entités (UEBA)](identify-threats-with-entity-behavior-analytics.md) dans vos workflows d'enquête habituels, et fournit des exemples de procédures d'utilisation.
 
+> [!IMPORTANT]
+>
+> Les fonctionnalités mentionnées dans cet article sont actuellement disponibles en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+>
+
+> [!NOTE]
+> Ce tutoriel fournit des procédures basées sur des scénarios pour une tâche client de premier plan : enquêter à l’aide de données UEBA. Pour plus d’informations, consultez [Examiner les incidents avec Azure Sentinel](investigate-cases.md).
+>
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir utiliser des données UEBA dans vos enquêtes, vous devez [activer l'analyse du comportement des utilisateurs et des entités (UEBA) dans Azure Sentinel](enable-entity-behavior-analytics.md). 
+Avant de pouvoir utiliser des données UEBA dans vos enquêtes, vous devez [activer l'analyse du comportement des utilisateurs et des entités (UEBA) dans Azure Sentinel](enable-entity-behavior-analytics.md).
 
 Commencez à rechercher les insights basés sur la machine environ une semaine après l'activation de l'analyse UEBA.
 
@@ -75,13 +83,46 @@ Par exemple :
 
 [ ![Ouvrez la page de l'entité utilisateur associée à un incident. ](media/ueba/open-entity-pages.png)](media/ueba/open-entity-pages.png#lightbox)
 
-La page de l'entité utilisateur est également accessible via un lien figurant sur la [page de l'incident](tutorial-investigate-cases.md#how-to-investigate-incidents) lui-même et le [graphique d'enquête](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+La page de l'entité utilisateur est également accessible via un lien figurant sur la [page de l'incident](investigate-cases.md#how-to-investigate-incidents) lui-même et le [graphique d'enquête](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 > [!TIP]
 > Après avoir vérifié les données sur la page de l'entité utilisateur pour l'utilisateur associé à l'incident, accédez à la zone **Chasse** d'Azure Sentinel pour savoir si les homologues de l'utilisateur ont aussi l'habitude de se connecter à partir des mêmes emplacements. Si tel est le cas, cela renforce l'hypothèse d'un faux positif.
 >
 > Dans la zone **Chasse**, exécutez la requête **Ouverture de session depuis un emplacement géographique anormal**. Pour plus d’informations, consultez [Repérer les menaces avec Azure Sentinel](hunting.md).
 >
+
+### <a name="embed-identityinfo-data-in-your-analytics-rules-public-preview"></a>Incorporer des données IdentityInfo dans vos règles d’analyse (préversion publique)
+
+Comme les attaquants utilisent souvent les propres comptes d’utilisateur et de service de l’organisation, les données relatives à ces comptes d’utilisateur, notamment les informations d’identification et les privilèges de l’utilisateur, sont essentielles pour les analystes dans le processus d’investigation.
+
+Incorporez les données de la **table IdentityInfo** pour affiner vos règles d’analyse en fonction de vos cas d’usage, en réduisant les faux positifs et en accélérant éventuellement votre processus d’investigation.
+
+Par exemple :
+
+- Pour mettre en corrélation les événements de sécurité et la table **IdentityInfo** dans une alerte qui se déclenche si une personne extérieure au service **informatique** accède à un serveur :
+
+    ```kusto
+    SecurityEvent
+    | where EventID in ("4624","4672")
+    | where Computer == "My.High.Value.Asset"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.SubjectUserSid == $right.AccountSID
+    | where Department != "IT"
+    ```
+
+- Pour mettre en corrélation les journaux de connexion Azure AD et la table **IdentityInfo** dans une alerte qui se déclenche si une personne qui n’est pas membre d’un groupe de sécurité spécifique accède à une application :
+
+    ```kusto
+    SigninLogs
+    | where AppDisplayName == "GithHub.Com"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
+    | where GroupMembership !contains "Developers"
+    ```
+
+La table **IdentityInfo** se synchronise avec votre espace de travail Azure AD pour créer un instantané de vos données de profil utilisateur, telles que les métadonnées utilisateur, les informations de groupe et les rôles Azure AD attribués à chaque utilisateur. Pour plus d’informations, consultez [Table IdentityInfo](ueba-enrichments.md#identityinfo-table-public-preview) dans la documentation de référence sur les enrichissements UEBA.
 
 ## <a name="identify-password-spray-and-spear-phishing-attempts"></a>Identifier les tentatives de pulvérisation de mots de passe et de harponnage
 
@@ -105,11 +146,31 @@ Par exemple, pour enquêter sur un incident de type pulvérisation de mots de pa
 > Vous pouvez également exécuter la **requête de chasse** [Échecs d'ouverture de session anormaux](hunting.md) pour surveiller tous les échecs de connexion anormaux d'une organisation. Utilisez les résultats de la requête pour commencer à enquêter sur d'éventuelles attaques par pulvérisation de mots de passe.
 >
 
+## <a name="url-detonation-public-preview"></a>Détonation d’URL (préversion publique)
+
+Lorsqu’il existe des URL dans les journaux qui sont ingérées dans Azure Sentinel, ces URL sont automatiquement détonées afin d’accélérer le processus de triage. 
+
+Le graphique d’investigation comprend un nœud pour l’URL détonée, ainsi que les détails suivants :
+
+- **DetonationVerdict**. Détermination booléenne de haut niveau de la détonation. Par exemple, **Mauvais** signifie qu’il a été déterminé que le côté hébergeait un programme malveillant ou un contenu de hameçonnage.
+- **DetonationFinalURL**. URL finale de la page d’arrivée observée, après toutes les redirections à partir de l’URL d’origine.
+- **DetonationScreenshot**. Capture d’écran de l’apparence de la page au moment où l’alerte a été déclenchée. Sélectionnez la capture d’écran pour l’agrandir.
+
+Par exemple :
+
+:::image type="content" source="media/investigate-with-ueba/url-detonation-example.png" alt-text="Exemple de détonation d’URL affiché dans le graphique d’investigation.":::
+
+> [!TIP]
+> Si vous ne voyez pas d’URL dans vos journaux, vérifiez que la journalisation des URL, également appelée journalisation des menaces, est activée pour vos passerelles web sécurisées, vos proxys web, vos pare-feu ou vos IDS/IPS hérités.
+>
+> Vous pouvez également créer des journaux personnalisés pour acheminer des URL spécifiques qui vous intéressent vers Azure Sentinel pour approfondir votre investigation.
+>
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l'analyse UEBA, les enquêtes et la chasse :
 
 - [Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel](identify-threats-with-entity-behavior-analytics.md)
 - [Informations de référence sur les enrichissements UEBA Azure Sentinel](ueba-enrichments.md)
-- [Tutoriel : Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutoriel : Examiner les incidents avec Azure Sentinel](investigate-cases.md)
 - [Repérer les menaces avec Azure Sentinel](hunting.md)

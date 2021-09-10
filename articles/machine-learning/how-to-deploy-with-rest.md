@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: rsethur
 ms.author: seramasu
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.reviewer: laobri
-ms.openlocfilehash: b8162a9770aea9d8cb3d1220f0ab81169151f781
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devplatv2
+ms.openlocfilehash: 97cfd7a5121094af9fc1663fcdddcd4c620b77cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747596"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532341"
 ---
 # <a name="deploy-models-with-rest-preview"></a>Déployer des modèles avec REST (préversion)
 
@@ -34,7 +35,7 @@ Dans cet article, vous allez apprendre à utiliser les nouvelles API REST pour 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Un **abonnement Azure** pour lequel vous disposez de droits d’administration. Si vous n’avez pas d’abonnement de ce type, essayez l’[abonnement personnel gratuit ou payant](https://aka.ms/AMLFree).
+- Un **abonnement Azure** pour lequel vous disposez de droits d’administration. Si vous n’avez pas d’abonnement de ce type, essayez l’[abonnement personnel gratuit ou payant](https://azure.microsoft.com/free/).
 - Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - Un principal de service dans votre espace de travail. Les requêtes REST administratives utilisent l’[authentification du principal de service](how-to-setup-authentication.md#use-service-principal-authentication).
 - Un jeton d’authentification du principal de service. Suivez les étapes décrite dans [Récupérer un jeton d’authentification de principal de service](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) pour récupérer ce jeton. 
@@ -50,7 +51,7 @@ Dans cet article, vous allez apprendre à utiliser les nouvelles API REST pour 
 ## <a name="azure-machine-learning-managed-online-endpoints"></a>Points de terminaison en ligne managés Azure Machine Learning
 Les points de terminaison en ligne managés (préversion) vous permettent de déployer votre modèle sans avoir à créer ni gérer l’infrastructure sous-jacente. Dans cet article, vous allez créer un point de terminaison en ligne et un déploiement, puis le valider en l’appelant. Mais tout d’abord, vous devez inscrire les ressources nécessaires au déploiement, notamment le modèle, le code et l’environnement.
 
-Il existe de nombreuses façons de créer des points de terminaison en ligne Azure Machine Learning, [y compris l’interface CLI](how-to-deploy-managed-online-endpoints.md) et visuellement avec [le studio](how-to-use-managed-online-endpoint-studio.md). L’exemple suivant présente un point de terminaison en ligne managé avec l’API REST.
+Il existe de nombreuses façons de créer des points de terminaison en ligne Azure Machine Learning, [y compris Azure CLI](how-to-deploy-managed-online-endpoints.md) et visuellement avec [le studio](how-to-use-managed-online-endpoint-studio.md). L’exemple suivant présente un point de terminaison en ligne managé avec l’API REST.
 
 ## <a name="create-machine-learning-assets"></a>Créer des ressources de machine learning
 
@@ -154,6 +155,12 @@ Si vous n’envisagez pas d’utiliser le déploiement, vous devez le supprimer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment déployer votre modèle [à l’aide de l’interface CLI](how-to-deploy-managed-online-endpoints.md).
+* Découvrez comment déployer votre modèle [à l’aide d’Azure CLI](how-to-deploy-managed-online-endpoints.md).
 * Découvrez comment déployer votre modèle [à l’aide du studio](how-to-use-managed-online-endpoint-studio.md).
+* Découvrez comment [résoudre les problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md).
+* Découvrez comment [accéder aux ressources Azure avec un point de terminaison en ligne managé et une identité managée par le système (préversion)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md).
 * Découvrez comment [superviser les points de terminaison en ligne](how-to-monitor-online-endpoints.md).
+* Découvrez [Déploiement sécurisé pour les points de terminaison en ligne (préversion)](how-to-safely-rollout-managed-endpoints.md).
+* [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md).
+* [Liste des SKU pour les points de terminaison en ligne managés (préversion)](reference-managed-online-endpoints-vm-sku-list.md).
+* Découvrez les limites des points de terminaison managés dans [Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).

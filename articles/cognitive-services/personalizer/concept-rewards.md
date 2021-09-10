@@ -1,16 +1,19 @@
 ---
 title: Score de récompense - Personalizer
 description: Le score de récompense indique à quel point le choix de personnalisation, RewardActionID, était adapté à l’utilisateur. La valeur du score de récompense est déterminée par votre logique métier, en fonction des observations sur le comportement utilisateur. Personalizer effectue l’apprentissage de ses modèles Machine Learning en évaluant les récompenses.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69e5aeff345bdf66d1b171738a2fbf14c7f8b15c
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: ec2c9ba7e700a79cffc70cfd4eab7ea780527cff
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453481"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867038"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 
@@ -97,7 +100,7 @@ En additionnant les scores de récompense, votre récompense finale peut se trou
 
 Personalizer met en corrélation les informations d’un appel Rank avec les récompenses envoyées dans des appels de récompense pour effectuer l’apprentissage du modèle. Ceux-ci peuvent se produire à des moments différents. Personalizer attend pendant une durée limitée, en commençant lors de l’appel Rank, même si ce dernier a été effectué en tant qu’événement inactif et a été activé ultérieurement.
 
-Si le **Temps d’attente des récompenses** arrive à expiration et qu’aucune information de récompense n’a été générée, une récompense par défaut est appliquée à cet événement pour apprentissage. La durée d’attente maximale est de 6 jours.
+Si le **Temps d’attente des récompenses** arrive à expiration et qu’aucune information de récompense n’a été générée, une récompense par défaut est appliquée à cet événement pour apprentissage. La durée d’attente maximale est de 2 jours. Si votre scénario nécessite des temps d’attente de récompense plus longs (par exemple, pour des campagnes de messagerie marketing), nous proposons une préversion privée assortie de temps d’attente plus longs. Ouvrez un ticket de support dans le portail Azure pour contacter l’équipe et voir si vous êtes éligible et pouvez en profiter.
 
 ## <a name="best-practices-for-reward-wait-time"></a>Meilleures pratiques pour le temps d’attente des récompenses
 

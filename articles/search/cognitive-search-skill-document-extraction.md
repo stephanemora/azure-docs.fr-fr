@@ -1,28 +1,28 @@
 ---
 title: Compétence cognitive Extraction de document
 titleSuffix: Azure Cognitive Search
-description: Extrait le contenu d’un fichier dans le pipeline d’enrichissement. Cette compétence est actuellement en préversion publique.
+description: Extrait le contenu d’un fichier dans le pipeline d’enrichissement.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 08/12/2021
 ms.author: chalton
-ms.openlocfilehash: 681900e2d2175e3e52a906072ae0b31a835cd1c8
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 02d3431ecc7a5c460be75885fd786b3b4c4d276f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483656"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525384"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Compétence cognitive Extraction de document
 
 La compétence **Extraction de document** extrait le contenu d’un fichier dans le pipeline d’enrichissement. Cela vous permet de tirer parti de l’étape d’extraction de document qui se produit normalement avant l’exécution des compétences avec des fichiers qui peuvent être générés par d’autres compétences.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents dans l’indexation. L’extraction de texte à partir des documents est gratuite.
+> Cette compétence n’est pas liée à Cognitive Services et n’a pas d’exigence de clé Cognitive Services.
+> Cette compétence permet d’extraire du texte et des images. L’extraction de texte est gratuite. L’extraction d’images est [mesurée par Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/). Sur un service de recherche gratuit, le coût de 20 transactions par indexeur par jour est absorbé, ce qui vous permet de suivre des démarrages rapides, des tutoriels, etc., gratuitement. Pour les niveaux tarifaires De base, Standard et supérieurs, l’extraction d’images est facturée.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification](https://azure.microsoft.com/pricing/details/search/).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
@@ -45,7 +45,7 @@ Les paramètres respectent la casse.
 
 | Paramètre de configuration   | Valeurs autorisées | Description |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Définissez ce paramètre sur `none` pour ignorer les images incorporées ou les fichiers image du jeu de données. Il s’agit de la valeur par défaut. <br/>Pour l’[analyse d’image à l’aide de compétences cognitives](cognitive-search-concept-image-scenarios.md), définissez ce paramètre sur `generateNormalizedImages` pour que la compétence crée un tableau d’images normalisées dans le cadre du craquage de documents. Cette action nécessite de définir le paramètre `parsingMode` sur `default` et le paramètre `dataToExtract` sur `contentAndMetadata`. Une image normalisée fait référence à un traitement supplémentaire qui entraîne une sortie d’image uniforme, dimensionnée et pivotée pour promouvoir un rendu cohérent lorsque vous incluez des images dans les résultats d’une recherche visuelle (par exemple, des photographies de même taille dans un contrôle de graphique comme illustré dans la [démonstration JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Ces informations sont générées pour chaque image lorsque vous utilisez cette option.  <br/>Si vous définissez le paramètre sur `generateNormalizedImagePerPage`, les fichiers PDF sont traités différemment. Au lieu d’extraire les images incorporées, chaque page est rendue sous la forme d’une image et normalisée en conséquence.  Les autres types de fichiers sont traités de la même façon que si `generateNormalizedImages` était défini.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Définissez ce paramètre sur `none` pour ignorer les images incorporées ou les fichiers image du jeu de données. Il s’agit de la valeur par défaut. <br/>Pour l’[analyse d’image à l’aide de compétences cognitives](cognitive-search-concept-image-scenarios.md), définissez ce paramètre sur `generateNormalizedImages` pour que la compétence crée un tableau d’images normalisées dans le cadre du [craquage de documents](search-indexer-overview.md#document-cracking). Cette action nécessite de définir le paramètre `parsingMode` sur `default` et le paramètre `dataToExtract` sur `contentAndMetadata`. Une image normalisée fait référence à un traitement supplémentaire qui entraîne une sortie d’image uniforme, dimensionnée et pivotée pour promouvoir un rendu cohérent lorsque vous incluez des images dans les résultats d’une recherche visuelle (par exemple, des photographies de même taille dans un contrôle de graphique comme illustré dans la [démonstration JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Ces informations sont générées pour chaque image lorsque vous utilisez cette option.  <br/>Si vous définissez le paramètre sur `generateNormalizedImagePerPage`, les fichiers PDF sont traités différemment. Au lieu d’extraire les images incorporées, chaque page est rendue sous la forme d’une image et normalisée en conséquence.  Les autres types de fichiers sont traités de la même façon que si `generateNormalizedImages` était défini.
 | `normalizedImageMaxWidth` | Entier compris entre 50 et 10000 | Largeur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000. | 
 | `normalizedImageMaxHeight` | Entier compris entre 50 et 10000 | Hauteur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000. |
 

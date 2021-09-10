@@ -4,12 +4,12 @@ description: Découvrez comment ajouter une liaison de sortie pour connecter vos
 ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 28748b7b9d0622d62baeb0de144adcd89c061a72
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 9b5d6e4919db9fcf41eea8704878d10606833658
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790906"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829537"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connecter des fonctions à Stockage Azure avec Visual Studio
 
@@ -49,9 +49,15 @@ Comme vous utilisez une liaison de sortie stockage de file d’attente, l’exte
 
 1. Dans la console, exécutez la commande [Install-Package](/nuget/tools/ps-ref-install-package) suivante pour installer les extensions de stockage :
 
-    ```Command
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
-    ````
+    # <a name="in-process"></a>[In-process](#tab/in-process) 
+    ```bash
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage 
+    ```
+    # <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
+    ```bash
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues -IncludePrerelease
+    ```
+    ---
 
 Vous pouvez maintenant ajouter la liaison de sortie de stockage à votre projet.
 

@@ -5,23 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb1504e406e5edb25cea01fa2add5751257802e8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b1bb9c2ad21469ad6b658795f29361760d4bcf13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744446"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532072"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Méthodes d’authentification dans Azure Active Directory - Options téléphoniques
 
 Pour une authentification directe à l’aide d’un message texte, vous pouvez [configurer et activer des utilisateurs pour l’authentification par SMS](howto-authentication-sms-signin.md). La connexion par SMS est idéale pour les travailleurs de première ligne. Avec la connexion par SMS, les utilisateurs n’ont pas besoin de connaître le nom d’utilisateur et le mot de passe pour accéder aux applications et aux services. L’utilisateur entre son numéro de téléphone mobile enregistré, reçoit un SMS contenant un code de vérification et l’entre dans l’interface de connexion.
 
-Les utilisateurs peuvent également s'authentifier en utilisant un téléphone mobile ou un téléphone de bureau comme forme secondaire d'authentification lors de l’authentification Azure AD MFA ou de la réinitialisation de mot de passe en libre-service (SSPR).
+Les utilisateurs peuvent également s'authentifier en utilisant un téléphone mobile ou un téléphone de bureau comme forme secondaire d'authentification lors de l’authentification Azure AD MFA ou de la réinitialisation de mot de passe en libre-service (SSPR). 
+
+> [!NOTE]
+> La vérification par appel téléphonique n’est pas disponible pour les locataires Azure AD dotés d’un abonnement d’évaluation.  Par exemple, l’inscription à une licence EMS d’évaluation n’offre pas la capacité de vérification par appel téléphonique.
 
 Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : *+1 4251234567*.
 
@@ -50,7 +53,7 @@ Avec la vérification par appel téléphonique dans le cadre de l'authentificati
 
 ## <a name="office-phone-verification"></a>Vérification du téléphone de bureau
 
-Avec la vérification par appel téléphonique dans le cadre de l'authentification Azure AD MFA et de la réinitialisation SSPR, un appel vocal automatique est passé au numéro de téléphone enregistré par l'utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
+Avec la vérification par appel téléphonique dans le cadre de l'authentification Azure AD MFA et de la réinitialisation SSPR, un appel vocal automatique est passé au numéro de téléphone enregistré par l'utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier. 
 
 ## <a name="troubleshooting-phone-options"></a>Résolution des problèmes liés aux options du téléphone
 

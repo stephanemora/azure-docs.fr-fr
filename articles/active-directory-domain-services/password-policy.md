@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 08/11/2021
 ms.author: justinha
-ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c28711e937290df75687376f3ee6e067a69ad91d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619230"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524918"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur des domaines managés Azure Active Directory Domain Services
 
@@ -63,7 +63,7 @@ Quelle que soit la méthode de création de compte d’utilisateur choisie, les 
 
 * **Durée de verrouillage de compte :** 30
 * **Nombre d’échecs d’ouverture de session autorisés :** 5
-* **Réinitialisation du nombre d’échecs d’ouverture de session après :** 30 minutes
+* **Réinitialisation du nombre d’échecs d’ouverture de session après :** 2 minutes
 * **Âge maximal du mot de passe (durée de vie) :** 90 jours
 
 Avec ces paramètres par défaut, les comptes d’utilisateurs sont verrouillés pendant 30 minutes si cinq mots de passe non valides sont utilisés en l’espace de 2 minutes. Les comptes sont déverrouillés automatiquement après 30 minutes.
@@ -105,10 +105,7 @@ Pour créer une stratégie de mot de passe personnalisée, utilisez les outils d
 
     Définissez la précédence de votre stratégie de mot de passe personnalisée pour remplacer la valeur par défaut, par exemple *1*.
 
-1. Modifiez les autres paramètres de la stratégie de mot de passe comme vous le souhaitez. Souvenez-vous des points clés suivants :
-
-    * Les paramètres, tels que la complexité, l’âge ou le délai d’expiration du mot de passe, s’appliquent uniquement aux utilisateurs ayant été créés manuellement dans un domaine managé.
-    * Les paramètres de verrouillage de compte s’appliquent à tous les utilisateurs, mais prennent effet uniquement dans le domaine managé et non dans Azure AD lui-même.
+1. Modifiez les autres paramètres de la stratégie de mot de passe comme vous le souhaitez. Les paramètres de verrouillage de compte s’appliquent à tous les utilisateurs, mais prennent effet uniquement dans le domaine managé et non dans Azure AD lui-même.
 
     ![Créer une stratégie de mot de passe affinée personnalisée](./media/password-policy/custom-fgpp.png)
 

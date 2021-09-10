@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: inclure fichier
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 63653bb72c278a330101503dbaf2959b7e0eb39f
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: e8afed5b318a3a6601d90fcd235476174e40e358
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201332"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967892"
 ---
 ## <a name="sample-code"></a>Exemple de code
 Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).
@@ -243,18 +243,23 @@ Utilisez la méthode `sendMessage` pour envoyer un message à un fil identifié 
 
 - Utilisez `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur ;
 - Utilisez `type` pour spécifier le type de message, par exemple « text » ou « html » ;
+- Utilisez `metadata` (facultatif) pour inclure toutes les données supplémentaires que vous souhaitez envoyer avec le message. Ce champ constitue un mécanisme permettant aux développeurs d’étendre les fonctionnalités des messages de conversation et d’ajouter des informations personnalisées au cas d’usage. Par exemple, lors du partage d’un lien de fichier dans le message, vous souhaiterez peut-être ajouter « hasAttachment:true » dans les métadonnées pour que l’application du destinataire puisse l’analyser et l’afficher en conséquence.
 
 `SendChatMessageResult` est la réponse retournée à la suite de l’envoi du message; elle contient un ID, qui est l’ID unique du message.
 
 ```JavaScript
 const sendMessageRequest =
 {
-  content: 'Hello Geeta! Can you share the deck for the conference?'
+  content: 'Please take a look at the attachment'
 };
 let sendMessageOptions =
 {
   senderDisplayName : 'Jack',
-  type: 'text'
+  type: 'text',
+  metadata: {
+    'hasAttachment': 'true',
+    'attachmentUrl': 'https://contoso.com/files/attachment.docx'
+  }
 };
 const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 const messageId = sendChatMessageResult.id;

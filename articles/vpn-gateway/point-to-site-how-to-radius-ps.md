@@ -6,19 +6,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 07/27/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97c8f1111f84b36ead123dcad9f8d9faeb157336
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 638a38cf1cbe9aee231e1db400440330bd852b9f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558851"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562393"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurer une connexion point à site à un réseau virtuel à l’aide d’une authentification RADIUS : PowerShell
 
-Cet article explique comment créer un réseau virtuel avec une connexion point à site utilisant l’authentification RADIUS. Cette configuration n’est disponible que pour le modèle de déploiement Resource Manager.
+Cet article explique comment créer un réseau virtuel avec une connexion point à site utilisant l’authentification RADIUS. Cette configuration n’est disponible que pour le [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Les connexions VPN point à site sont utiles quand vous souhaitez vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple quand vous travaillez à distance de votre domicile ou en conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site lorsqu’un nombre restreint de clients doivent se connecter à un réseau virtuel.
 
@@ -34,7 +34,7 @@ Cet article vous aide à configurer une configuration P2S avec authentification 
 
 Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique. La connexion P2S crée la connexion VPN via SSTP (Secure Socket Tunneling Protocol), OpenVPN ou IKEv2.
 
-* SSTP est un tunnel VPN basé sur le protocole TLS qui n’est pris en charge que sur les plateformes clientes Windows. Il peut pénétrer des pare-feux, ce qui en fait une option idéale pour se connecter à Azure à partir de n’importe quel endroit. Côté serveur, nous prenons en charge SSTP, versions 1.0, 1.1 et 1.2. Le client détermine la version à utiliser. Pour Windows 8.1 et supérieur, SSTP utilise la version 1.2 par défaut.
+* SSTP est un tunnel VPN basé sur le protocole TLS qui n’est pris en charge que sur les plateformes clientes Windows. Il peut pénétrer des pare-feu, ce qui en fait une bonne option pour connecter des appareils Windows à Azure à partir de tout emplacement. Côté serveur, nous prenons en charge uniquement la version TLS 1.2. Pour améliorer les performances, l’extensibilité et la sécurité, envisagez d’utiliser le protocole OpenVPN à la place.
 
 * Protocole OpenVPN®, un protocole VPN basé sur SSL/TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (11.0 et versions ultérieures), Windows, Linux et Mac (macOS 10.13 et versions ultérieures).
 
@@ -161,7 +161,7 @@ L’article relatif au [serveur NPS (Network Policy Server)](/windows-server/net
 Configurez et créez la passerelle VPN pour votre réseau virtuel.
 
 * Le paramètre -GatewayType doit être défini sur la valeur « Vpn », tandis que le paramètre -VpnType doit être défini sur la valeur RouteBased.
-* L’achèvement d’une passerelle VPN peut prendre jusqu’à 45 minutes en fonction de la  [référence SKU de la passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku)  que vous sélectionnez.
+* La mise en place d’une passerelle VPN peut prendre 45 minutes ou plus, selon la  [référence (SKU) de la passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku)  que vous sélectionnez.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

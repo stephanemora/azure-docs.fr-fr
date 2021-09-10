@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 3b323bf920bd884e821d03bf2def37471775e720
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb0a7ede9ee4b4a5f6fbb2312026211784fa486c
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312703"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301561"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Spécifications techniques de l’appareil Azure Stack Edge Pro R
 
@@ -27,11 +27,11 @@ L’appareil Azure Stack Edge Pro R présente les spécifications suivantes en m
 | Caractéristique  | Valeur                                             |
 |----------------|---------------------------------------------------|
 | Type de processeur       | Deux processeurs Intel Xeon Silver 4114                   |
-| Processeur : raw       | 20 cœurs au total, 40 processeurs virtuels au total                    |
-| Processeur : utilisable    | 32 processeurs virtuels                                          |
+| Processeur : raw       | 20 cœurs au total, 40 processeurs virtuels au total                    |
+| Processeur (utilisable)    | 32 processeurs virtuels                                          |
 | Type de mémoire    | 16 Go RDIMM compatible Dell, 2666 MT/s, Dual Rank |
 | Mémoire : raw    | 256 Go de RAM (16 x 16 Go)                           |
-| Mémoire : utilisable | 230 Go de RAM                                        |
+| Mémoire : utilisable | 217 Go de RAM                                        |
 
 ## <a name="compute-acceleration-specifications"></a>Spécifications de l’accélération de calcul
 

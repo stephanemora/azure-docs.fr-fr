@@ -3,12 +3,12 @@ title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources, un nouvel abonnement ou une nouvelle région.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.openlocfilehash: 3a43ea09dd4986d1f2d0e2679e81f5b25b590f7e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f00acadf42c3767814850db59c64ab76b30de2ea
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968320"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297000"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -911,7 +911,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Oui | Oui | Non |
-> | Cluster AKS | **En attente** | **En attente** | Non<br/><br/> [Apprenez-en davantage](../../dev-spaces/index.yml) sur le déplacement vers une autre région.
+> | Cluster AKS | **En attente** | **En attente** | Non<br/><br/> [Apprenez-en davantage](/previous-versions/azure/dev-spaces/) sur le déplacement vers une autre région.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1104,7 +1104,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Oui | Oui | Non. [Plus d’informations](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region) |
+> | accounts | Oui | Oui | Non. [Plus d’informations](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-) |
 > | actiongroups | Oui | Oui | Non |
 > | activitylogalerts | Non | Non | Non |
 > | alertrules | Oui | Oui | Non |
@@ -2082,4 +2082,4 @@ Actuellement, les services tiers ne prennent pas en charge l’opération de dé
 
 - Pour obtenir les commandes permettant de déplacer des ressources, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](move-resource-group-and-subscription.md).
 - [En savoir plus](../../resource-mover/overview.md) sur le service de déplacement de ressources.
-- Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des virgules, téléchargez [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+- Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des virgules, téléchargez [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) pour la prise en charge du déplacement de groupe de ressources et d’abonnement. Si vous souhaitez une prise en charge du déplacement de ces propriétés et de la région, téléchargez [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).

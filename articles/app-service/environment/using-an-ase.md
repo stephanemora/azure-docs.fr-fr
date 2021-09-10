@@ -4,17 +4,20 @@ description: Apprenez à créer, publier et mettre à l’échelle des applicati
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da32a2bbd4824e589a6673b043551dce67c32e70
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594057"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122566110"
 ---
 # <a name="use-an-app-service-environment"></a>Utiliser un environnement App Service
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
 Un environnement ASE (App Service Environment) est un déploiement d’Azure App Service dans un sous-réseau dans l’instance de réseau virtuel Microsoft Azure d’un client. Un ASE se compose des éléments suivants :
 
@@ -88,9 +91,9 @@ Dans un ASE, vous pouvez mettre à l’échelle un plan App Service jusqu’à 1
 
 ## <a name="ip-addresses"></a>Adresses IP
 
-App Service peut allouer une adresse IP dédiée à une application. Cette fonctionnalité est disponible après la configuration d'un certificat SSL basé sur IP, comme indiqué ici : [Lier un certificat TLS/SSL personnalisé existant à Azure App Service][ConfigureSSL]. Dans un ASE d’équilibrage de charge interne (ILB), vous ne pouvez pas ajouter plus d’adresses IP à utiliser pour un protocole SSL basé sur IP.
+App Service peut allouer une adresse IP dédiée à une application. Cette fonctionnalité est disponible après la configuration d'un certificat de liaison TLS/SSL basé sur IP, comme indiqué ici : [Lier un certificat TLS/SSL personnalisé existant à Azure App Service][ConfigureSSL]. Dans un ASE d’équilibrage de charge interne (ILB), vous ne pouvez pas ajouter plus d’adresses IP à utiliser pour le protocole de liaison TLS/SSL basé sur IP.
 
-Avec un ASE externe, vous pouvez configurer le protocole SSL basé sur IP pour votre application de la même manière que dans l’App Service mutualisé. Il existe toujours une adresse de secours dans l’ASE, dans la limite de 30 adresses IP. Chaque fois que vous en utilisez une, une autre est ajoutée afin qu’une adresse soit toujours disponible. Un délai est nécessaire pour allouer une autre adresse IP. Ce délai empêche l’ajout rapide d’adresses IP.
+Avec un ASE externe, vous pouvez configurer un protocole de liaison TLS/SSL basé sur IP pour votre application de la même manière que dans l’App Service mutualisé. Il existe toujours une adresse de secours dans l’ASE, dans la limite de 30 adresses IP. Chaque fois que vous en utilisez une, une autre est ajoutée afin qu’une adresse soit toujours disponible. Un délai est nécessaire pour allouer une autre adresse IP. Ce délai empêche l’ajout rapide d’adresses IP.
 
 ## <a name="front-end-scaling"></a>Mise à l’échelle du serveur frontal
 
@@ -141,7 +144,7 @@ Pour configurer DNS dans les zones privées Azure DNS :
 
 Les paramètres DNS du suffixe de domaine par défaut de votre ASE ne limitent pas vos applications à être accessibles uniquement par ces noms. Vous pouvez définir un nom de domaine personnalisé sans validation sur vos applications dans un environnement ASE ILB. Si vous souhaitez ensuite créer une zone nommée *contoso.net*, vous pouvez le faire et la pointer vers l’adresse IP ILB. Le nom de domaine personnalisé fonctionne pour les demandes d’application, mais pas pour le site GCL. Le site GCL est disponible uniquement pour *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
-La zone nommée *.&lt;asename&gt;.appserviceenvironment.net* est globalement unique. Avant mai 2019, les clients pouvaient spécifier le suffixe de domaine de l’ASE ILB. Si vous souhaitez utiliser *.contoso.com* comme suffixe de domaine, vous pouvez le faire et inclure le site GCL. Ce modèle présentait quelques contraintes au niveau de la gestion du certificat SSL par défaut, de l’absence d’authentification unique auprès du site GCL, et de la nécessité d’utiliser un certificat générique. Le processus de mise à niveau du certificat par défaut de l’ASE ILB entraînait également une interruption du service et le redémarrage de l’application. Pour résoudre ces problèmes, le comportement de l’ASE ILB a été modifié pour utiliser un suffixe de domaine basé sur le nom de l’ASE, avec un suffixe appartenant à Microsoft. La modification apportée au comportement de l’ASE ILB affecte uniquement les environnements ASE ILB créés après mai 2019. Les environnements ASE ILB préexistants doivent toujours gérer le certificat par défaut de l’ASE et leur configuration DNS.
+La zone nommée *.&lt;asename&gt;.appserviceenvironment.net* est globalement unique. Avant mai 2019, les clients pouvaient spécifier le suffixe de domaine de l’ASE ILB. Si vous souhaitez utiliser *.contoso.com* comme suffixe de domaine, vous pouvez le faire et inclure le site GCL. Ce modèle présentait quelques contraintes au niveau de la gestion du certificat TLS/SSL par défaut, de l’absence d’authentification unique auprès du site GCL et de la nécessité d’utiliser un certificat générique. Le processus de mise à niveau du certificat par défaut de l’ASE ILB entraînait également une interruption du service et le redémarrage de l’application. Pour résoudre ces problèmes, le comportement de l’ASE ILB a été modifié pour utiliser un suffixe de domaine basé sur le nom de l’ASE, avec un suffixe appartenant à Microsoft. La modification apportée au comportement de l’ASE ILB affecte uniquement les environnements ASE ILB créés après mai 2019. Les environnements ASE ILB préexistants doivent toujours gérer le certificat par défaut de l’ASE et leur configuration DNS.
 
 ## <a name="publishing"></a>Publication
 
@@ -207,22 +210,15 @@ Pour créer une alerte concernant vos journaux, suivez les instructions de la se
 
 ## <a name="upgrade-preference"></a>Préférence de mise à niveau
 
-Si vous avez plusieurs ASE, vous souhaiterez peut-être mettre à niveau certains ASE avant d’autres. Dans l’objet du **Gestionnaire des ressources HostingEnvironment** d’ASE, vous pouvez définir une valeur pour **upgradePreference**. Le paramètre **upgradePreference** peut être configuré au moyen d’un modèle, ARMClient, ou https://resources.azure.com. Les trois valeurs possibles sont les suivantes :
+Si vous avez plusieurs ASE, vous souhaiterez peut-être mettre à niveau certains ASE avant d’autres. Ce comportement peut être activé par le biais de votre portail ASE.  Sous **Configuration**, vous avez la possibilité de définir **Préférence de mise à niveau**. Les trois valeurs possibles sont les suivantes :
 
 - **Aucun** : Azure ne met à niveau votre ASE dans aucun lot particulier. Cette valeur est la valeur par défaut.
 - **Tôt** : Votre ASE sera mis à niveau au cours de la première moitié des mises à niveau d’App Service.
 - **Tard** : Votre ASE sera mis à niveau au cours de la deuxième moitié des mises à niveau d’App Service.
 
-Si vous utilisez https://resources.azure.com, procédez comme suit pour définir la valeur d’**upgradePreferences** :
+Sélectionnez la valeur souhaitée, puis sélectionnez **Enregistrer**.  La valeur par défaut pour tout environnement ASE est **None**.
 
-1. accédez à resources.azure.com et connectez-vous avec votre compte Azure.
-1. Parcourez les ressources pour accéder aux abonnements\/\[nom d’abonnement\]\/resourceGroups\/\[nom de groupe de ressources\]\/fournisseurs\/Microsoft.Web\/hostingEnvironments\/\[noms de l’ASE\].
-1. Sélectionnez **Lecture/écriture** en haut.
-1. Sélectionnez **Modifier**.
-1. Définissez **upgradePreference** sur l’une des trois valeurs souhaitées.
-1. Sélectionnez **Correctif**.
-
-![affichage des ressources azure com][5]
+![Portail de configuration ASE][5]
 
 La fonctionnalité **upgradePreferences** est vraiment utile lorsque vous avez plusieurs ASE, car vos ASE paramétrés sur « Tôt » seront mis à niveau avant ceux paramétrés sur « Tard ». Lorsque vous avez plusieurs ASE, vous devez définir vos ASE de développement et de test sur « Tôt » et vos ASE de production sur « Tard ».
 

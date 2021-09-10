@@ -1,6 +1,6 @@
 ---
-title: Guide de migration de MySQL local vers Azure Database pour MySQL – Migration des données avec MySQL Workbench
-description: Suivez toutes les étapes du guide d’installation pour créer un environnement permettant de prendre en charge les étapes suivantes.
+title: 'Migrer MySQL local vers Azure Database pour MySQL : migration de données avec MySQL Workbench'
+description: Effectuez toutes les étapes du guide d’installation pour créer un environnement permettant de prendre en charge les étapes suivantes.
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 485a377decee390701cb43a99bd47e96f29f1f55
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 2b3dc8702251a6fcc53386cb17cbe44a45e59db2
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082754"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292964"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-data-migration-with-mysql-workbench"></a>Guide de migration de MySQL local vers Azure Database pour MySQL – Migration des données avec MySQL Workbench
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-data-migration-with-mysql-workbench"></a>Migrer MySQL local vers Azure Database pour MySQL : migration de données avec MySQL Workbench
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +34,7 @@ Selon le type de migration que vous avez choisi (hors connexion ou en ligne), vo
 
 ## <a name="configuring-server-parameters-target"></a>Configuration des paramètres du serveur (Cible)
 
-Passez en revue les paramètres du serveur avant de commencer le processus d’importation dans Azure Database pour MySQL. Les paramètres du serveur peuvent être récupérés et définis à l’aide du [portail Azure](/azure/mysql/howto-server-parameters) ou en appelant les [cmdlets Azure PowerShell pour MySQL](/azure/mysql/howto-configure-server-parameters-using-powershell) afin d’effectuer les modifications.
+Passez en revue les paramètres du serveur avant de commencer le processus d’importation dans Azure Database pour MySQL. Les paramètres du serveur peuvent être récupérés et définis à l’aide du [portail Azure](../../howto-server-parameters.md) ou en appelant les [cmdlets Azure PowerShell pour MySQL](../../howto-configure-server-parameters-using-powershell.md) afin d’effectuer les modifications.
 
 Exécutez le script PowerShell suivant pour obtenir tous les paramètres :
 
@@ -50,7 +52,7 @@ Get-AzMySqlConfiguration -ResourceGroupName $rgName -ServerName $serverName
 - Pour faire de même avec l’outil mysql, téléchargez la [certification racine de l’autorité de certification](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) sur c:\\temp (créez ce répertoire).
 
     > [!NOTE]
-    > Le certificat est susceptible d’être modifié. Pour obtenir les informations les plus récentes concernant le certificat, consultez [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à Azure Database pour MySQL](/azure/mysql/howto-configure-ssl).
+    > Le certificat est susceptible d’être modifié. Pour obtenir les informations les plus récentes concernant le certificat, consultez [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à Azure Database pour MySQL](../../howto-configure-ssl.md).
     
 - Exécutez le script suivant dans une invite de commandes en veillant à mettre à jour les jetons :
 
@@ -66,11 +68,11 @@ Pour prendre en charge la migration, définissez les paramètres de l’instance
 
 - `max\_allowed\_packet` : Définissez le paramètre sur `1073741824` (autrement dit, 1 Go) ou la plus grande taille d’une ligne dans la base de données afin d’éviter tout problème de dépassement dû à de longues lignes. Pensez à ajuster ce paramètre s’il existe des lignes BLOB volumineuses qui doivent être extraites (ou lues).
 
-- `innodb\_buffer\_pool\_size` : Effectuez un scale-up du serveur vers la SKU 32 vCores à mémoire optimisée à partir du niveau tarifaire du portail pendant la migration afin d’augmenter la valeur d’innodb\_buffer\_pool\_size. La valeur d’innodb\_buffer\_pool\_size peut être augmentée uniquement en effectuant un scale-up du calcul pour le serveur Azure Database pour MySQL. Consultez [Paramètres de serveur dans Azure Database pour MySQL](/azure/mysql/concepts-server-parameters#innodb_buffer_pool_size) pour connaître la valeur maximale du niveau. La valeur maximale dans un système 32 vCores à mémoire optimisée est `132070244352`.
+- `innodb\_buffer\_pool\_size` : effectuez un scale-up du serveur vers la SKU 32 vCores à mémoire optimisée à partir du niveau tarifaire du portail pendant la migration afin d’augmenter la valeur d’innodb\_buffer\_pool\_size. La valeur d’innodb\_buffer\_pool\_size peut être augmentée uniquement en effectuant un scale-up du calcul pour le serveur Azure Database pour MySQL. Consultez [Paramètres de serveur dans Azure Database pour MySQL](../../concepts-server-parameters.md#innodb_buffer_pool_size) pour connaître la valeur maximale du niveau. La valeur maximale dans un système 32 vCores à mémoire optimisée est `132070244352`.
 
-- `innodb\_io\_capacity` & `innodb\_io\_capacity\_max` : Remplacez le paramètre par `9000` pour améliorer l’utilisation des E/S et optimiser la vitesse de migration.
+- `innodb\_io\_capacity` & `innodb\_io\_capacity\_max` : remplacez le paramètre par `9000` pour améliorer l’utilisation des E/S et optimiser la vitesse de migration.
 
-- `max\_connections` : Si vous utilisez un outil qui génère plusieurs threads pour augmenter le débit, augmentez le nombre de connexions pour prendre en charge cet outil. La valeur par défaut est `151` et la valeur maximale `5000`.
+- `max\_connections` : si vous utilisez un outil qui génère plusieurs threads pour augmenter le débit, augmentez le nombre de connexions pour prendre en charge cet outil. La valeur par défaut est `151` et la valeur maximale `5000`.
 
     > [!NOTE]
     > Soyez vigilant lorsque vous effectuez une mise à l’échelle. Certaines opérations ne peuvent pas être annulées, comme la mise à l’échelle du stockage.
@@ -138,11 +140,11 @@ Une fois que les objets de base de données et les utilisateurs du système sour
 
 - Recherchez les instructions `SET GLOBAL` et modifiez-les pour un utilisateur valide ou supprimez-les entièrement.
 
-- Assurez-vous que `sql\_mode` n’est pas défini sur `NO\_AUTO\_CREATE\_USER`.
+- Vérifiez que `sql\_mode` n’est pas défini sur `NO\_AUTO\_CREATE\_USER`.
 
 - Supprimez la fonction `hello\_world`.
 
-- Dans MySQL Workbench, créez une nouvelle connexion à Azure Database pour MySQL.
+- Dans MySQL Workbench, créez une connexion à Azure Database pour MySQL.
 
     - Pour « Nom d’hôte », entrez le DNS complet du serveur (par exemple : `servername.mysql.database.azure.com`).
 
@@ -180,7 +182,7 @@ Une fois que les objets de base de données et les utilisateurs du système sour
 
 ## <a name="revert-server-parameters"></a>Restaurer les paramètres du serveur
 
-Les paramètres suivants peuvent être modifiés sur l’instance cible d’Azure Database pour MySQL. Ces paramètres peuvent être définis via le portail Azure ou en utilisant les [cmdlets Azure PowerShell pour MySQL](/azure/mysql/howto-configure-server-parameters-using-powershell).
+Les paramètres suivants peuvent être modifiés sur l’instance cible d’Azure Database pour MySQL. Ces paramètres peuvent être définis via le portail Azure ou en utilisant les [cmdlets Azure PowerShell pour MySQL](../../howto-configure-server-parameters-using-powershell.md).
 
 ```
 $rgName = "YourRGName";
@@ -215,6 +217,8 @@ az webapp restart -g $rgName -n $app\_name
 ```
 Vous avez terminé une migration d’un emplacement local vers Azure Database pour MySQL \!  
 
+
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Gestion post-migration](./10-post-migration-management.md)

@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: a7d0d934549d1dd06099bc02105cf2dcfdaa0109
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/08/2021
+ms.openlocfilehash: 4beb484a6f3e81fe6baa7cbeba33c0f18639fb18
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202854"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527922"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -40,38 +40,38 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | service | globale | 1-50 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
-> | service / apis | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / issues | api | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / issues / attachments | problème | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / issues / comments | problème | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / operations | api | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / operations / tags | opération | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
+> | service / apis | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / issues | api | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / issues / attachments | problème | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / issues / comments | problème | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / operations | api | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / operations / tags | opération | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
 > | service / apis / releases | api | 1-80 | Caractères alphanumériques, traits de soulignement et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique ou un trait de soulignement. |
-> | service / apis / schemas | api | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / tagDescriptions | api | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / apis / tags | api | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / api-version-sets | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / authorizationServers | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / backends | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / certificates | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / diagnostics | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / groups | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / groups / users | group | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / identityProviders | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / loggers | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / notifications | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / notifications / recipientEmails | notification | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / openidConnectProviders | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / policies | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / products | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / products / apis | product | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / products / groups | product | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / products / tags | product | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / properties | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / subscriptions | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / tags | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / templates | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
-> | service / users | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
+> | service / apis / schemas | api | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / tagDescriptions | api | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / apis / tags | api | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / api-version-sets | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / authorizationServers | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / backends | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / certificates | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / diagnostics | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / groups | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / groups / users | group | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / identityProviders | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / loggers | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / notifications | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / notifications / recipientEmails | notification | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / openidConnectProviders | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / policies | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / products | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / products / apis | product | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / products / groups | product | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / products / tags | product | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / properties | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / subscriptions | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / tags | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / templates | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
+> | service / users | service | 1-80 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -171,6 +171,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
+> | cloudservices | resource group | 1-15 <br><br>Voir la remarque ci-dessous. | Impossible d’utiliser un espace ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
 > | diskEncryptionSets | resource group | 1-80 | Caractères alphanumériques et traits de soulignement. |
 > | disks | resource group | 1-80 | Caractères alphanumériques, traits de soulignement et traits d’union. |
 > | galleries | resource group | 1-80 | Caractères alphanumériques et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
@@ -192,6 +193,13 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | communicationServices | globale | 1-63 | Caractères alphanumériques, traits d’union et traits de soulignement. |
+
+## <a name="microsoftconsumption"></a>Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entité | Étendue | Longueur | Caractères valides |
+> | --- | --- | --- | --- |
+> | budgets | abonnement ou groupe de ressources | 1-63 | Caractères alphanumériques, traits d’union et traits de soulignement. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -261,7 +269,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-30 | Caractères alphanumériques, traits de soulignement et traits d’union |
+> | workspaces | resource group | 3-64 | Caractères alphanumériques, traits de soulignement et traits d’union |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -405,7 +413,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`/&%\?` <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`:<>+/&%\?` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 > | components | resource group | 1-260 | Impossibilité d’utiliser :<br>`%&\?/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 > | scheduledQueryRules | resource group | 1-260 | Impossibilité d’utiliser :<br>`*<>%{}&:\\?/#` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 > | metricAlerts | resource group | 1-260 | Impossibilité d’utiliser :<br>`*#&+:<>?@%{}\/` <br><br>Ne peut pas se terminer par un espace ou un point.  |

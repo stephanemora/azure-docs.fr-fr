@@ -6,14 +6,14 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 9/06/2020
+ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 6e433950c04c4494201b090063b17a10e54a4822
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06d0e35534db97f1de48c55f9cc6f46f979514fa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685769"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527927"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Prise en charge de plusieurs origines par point de terminaison Azure CDN
 
@@ -83,6 +83,12 @@ Configurez un ou plusieurs groupes d’origines et choisissez un groupe d’orig
 3. Sélectionnez **Ajouter**.
 
 4. Sélectionnez **Configurer l'origine** pour définir le chemin d'accès de toutes les origines :
+
+    Le chemin Origin est utilisé pour réécrire l’URL que Microsoft CDN utilise lors de la construction de la requête redirigée vers l’origin. Il transportera également toutes les autres parties de la requête entrante. Par défaut, ce chemin n'est pas fourni. Par conséquent, Microsoft CDN utilisera le chemin URL entrant dans la requête transmise à l’origin.
+
+    Chemin de l'origine : `/fwd/`
+
+    Chemin URL entrant : `/foo/a/b/image1.jpg` </br> URL de Microsoft CDN à l’origin : `fwd/foo/a/b/image1.jpg.`
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configurer un chemin d’accès à l’origine" border="true":::
 

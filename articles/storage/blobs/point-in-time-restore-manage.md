@@ -10,12 +10,12 @@ ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd58ae6aa0083b0f2a02ef1c008e76f92f39b766
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7e2d71c1f388786c05052e773ea621caab92185e
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676298"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527965"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs
 
@@ -24,7 +24,7 @@ Vous pouvez utiliser la récupération jusqu`à une date et heure pour restaurer
 Pour en savoir plus sur la restauration jusqu’à une date et heure, consultez [Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard. Microsoft recommande également l’activation de la suppression réversible pour les conteneurs et les blobs afin de se protéger contre les suppressions accidentelles. Pour plus d’informations, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md) et [Suppression réversible pour les blobs](soft-delete-blob-overview.md).
+> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard. Microsoft recommande également l’activation de la suppression réversible pour les conteneurs et les blobs afin de se protéger contre les suppressions accidentelles. Pour plus d’informations, consultez [Suppression réversible pour les conteneurs](soft-delete-container-overview.md) et [Suppression réversible pour les blobs](soft-delete-blob-overview.md).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Activer et configurer la restauration dans le temps
 
@@ -128,7 +128,7 @@ Seuls les objets blob de blocs sont restaurés. Les objets blob de pages et les 
 >
 > Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
 >
-> Le temps nécessaire à la restauration d’un jeu de données dépend du nombre d’opérations d’écriture et de suppression effectuées au cours de la période de restauration. Par exemple, la restauration à un point situé 30 jours auparavant d’un compte avec 1 million d’objets, 3 000 objets ajoutés par jour et 1 000 objets supprimés par jour nécessite environ deux heures. Une période de rétention et une restauration à plus de 90 jours dans le passé ne sont pas recommandées pour un compte avec ce taux de changement.
+> Le temps nécessaire à la restauration d’un jeu de données dépend du nombre d’opérations d’écriture et de suppression effectuées au cours de la période de restauration. Il faut compter jusqu’à une heure pour que le travail de restauration soit pris en charge. Par exemple, la restauration à un point situé 30 jours auparavant d’un compte avec 1 million d’objets, 3 000 objets ajoutés par jour et 1 000 objets supprimés par jour nécessite environ 2 à 3 heures. Une restauration avec un petit nombre de modifications nécessiterait jusqu’à une heure de restauration. Une période de rétention et une restauration à plus de 90 jours dans le passé ne sont pas recommandées pour un compte avec ce taux de changement.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurer tous les conteneurs du compte
 

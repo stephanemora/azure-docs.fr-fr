@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
-ms.openlocfilehash: c334eee34eb878135d3d81ab15d03618c6604846
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f96ba97537763bb4aec0ce558a12d675369ad57
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86135174"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567755"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Prise en charge de l’utilisation de Site Recovery avec Sauvegarde Azure
 
@@ -25,4 +25,4 @@ Cet article résume la prise en charge de l’utilisation conjointe du [service 
 **Restauration de disque** | Aucune prise en charge actuelle | Si vous restaurez un disque sauvegardé, vous devez à nouveau désactiver et réactiver la réplication pour la machine virtuelle.
 **Restauration de machines virtuelles** | Aucune prise en charge actuelle | Si vous restaurez une machine virtuelle ou un groupe de machines virtuelles, vous devez désactiver et réactiver la réplication pour ces machines virtuelles.  
 
-
+Notez que le tableau ci-dessus est applicable à tous les scénarios Azure Site Recovery pris en charge.

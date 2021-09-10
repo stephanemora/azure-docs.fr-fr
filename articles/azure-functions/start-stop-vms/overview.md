@@ -4,19 +4,22 @@ description: Cet article décrit la version 2 de la fonctionnalité Start/Stop V
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
-ms.openlocfilehash: 8df0f31b57d7cd82ed89c4f5f0df37535ad9678a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/25/2021
+ms.openlocfilehash: 3e2946bf493da2570106fdb554704ef7f286b7cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562783"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Vue d’ensemble de la fonctionnalité Start/Stop VMs v2 (préversion)
 
 La fonctionnalité Start/Stop VMs v2 (préversion) démarre ou arrête les machines virtuelles Azure sur plusieurs abonnements. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur, fournit des insights via [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) et peut envoyer des notifications à l’aide de [groupes d’actions](../../azure-monitor/alerts/action-groups.md). La fonctionnalité peut gérer les machines virtuelles Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios.
 
 Cette nouvelle version de Start/Stop VMs v2 (préversion) fournit une option d’automatisation low-cost décentralisée pour les clients qui souhaitent optimiser les coûts de leurs machines virtuelles. Elle offre les mêmes fonctionnalités que la [version d’origine](../../automation/automation-solution-vm-management.md) disponible avec Azure Automation, mais est conçue pour tirer parti des technologies les plus récentes dans Azure.
+
+> [!NOTE]
+> Si vous rencontrez des problèmes lors du déploiement ou lors de l’utilisation de Start/Stop VMs v2 (préversion), ou si vous avez une question connexe, vous pouvez soumettre un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Le signalement d’un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n’est pas disponible pour cette préversion. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -28,15 +31,16 @@ Une fonction de point de terminaison de déclencheur HTTP est créée pour prend
 
 |Nom |Déclencheur |Description |
 |-----|--------|------------|
-|AlertAvailabilityTest |Minuteur |Cette fonction effectue le test de disponibilité pour s’assurer que la fonction principale **AutoStopVM** est toujours disponible.|
-|AutoStop |HTTP |Cette fonction prend en charge le scénario **AutoStop**, qui est la fonction de point d’entrée appelée à partir d’une application logique.|
-|AutoStopAvailabilityTest |Minuteur |Cette fonction effectue le test de disponibilité pour s’assurer que la fonction principale **AutoStop** est toujours disponible.|
-|AutoStopVM |HTTP |Cette fonction est déclenchée automatiquement par l’alerte de machine virtuelle lorsque la condition d’alerte est définie sur true.|
-|CreateAutoStopAlertExecutor |File d'attente |Cette fonction obtient les informations de charge utile de la fonction **AutoStop** pour créer l’alerte sur la machine virtuelle.|
 |Planifié |HTTP |Cette fonction concerne à la fois les scénarios planifiés et les scénarios séquencés (différenciés par le schéma de charge utile). Il s’agit de la fonction de point d’entrée appelée à partir de l’application logique et qui prend la charge utile pour traiter l’opération de démarrage ou d’arrêt de la machine virtuelle. |
-|ScheduledAvailabilityTest |Minuteur |Cette fonction effectue le test de disponibilité pour s’assurer que la fonction principale **Scheduled** est toujours disponible.|
-|VirtualMachineRequestExecutor |File d'attente |Cette fonction effectue l’opération de démarrage et d’arrêt réelle sur la machine virtuelle.|
+|AutoStop |HTTP |Cette fonction prend en charge le scénario **AutoStop**, qui est la fonction de point d’entrée appelée à partir d’une application logique.|
+|AutoStopVM |HTTP |Cette fonction est déclenchée automatiquement par l’alerte de machine virtuelle lorsque la condition d’alerte est définie sur true.|
 |VirtualMachineRequestOrchestrator |File d'attente |Cette fonction obtient les informations de charge utile de la fonction **Scheduled** et orchestre les demandes de démarrage et d’arrêt de la machine virtuelle.|
+|VirtualMachineRequestExecutor |File d'attente |Cette fonction effectue l’opération de démarrage et d’arrêt réelle sur la machine virtuelle.|
+|CreateAutoStopAlertExecutor |File d'attente |Cette fonction obtient les informations de charge utile de la fonction **AutoStop** pour créer l’alerte sur la machine virtuelle.|
+|HeartBeatAvailabilityTest |Minuteur |Cette fonction analyse la disponibilité des fonctions HTTP principales.|
+|CostAnalyticsFunction |Minuteur |Cette fonction calcule chaque mois le coût d’exécution de la solution de démarrage/arrêt v2.|
+|SavingsAnalyticsFunction |Minuteur |Cette fonction calcule chaque mois les économies totales réalisées par la solution de démarrage/arrêt v2.|
+|VirtualMachineSavingsFunction |File d'attente |Cette fonction calcule les économies réelles que la solution de démarrage/arrêt v2 a permis de réaliser sur une machine virtuelle.|
 
 Par exemple, la fonction de déclencheur HTTP **Scheduled** est utilisée pour gérer les scénarios de planification et de séquence. De même, la fonction de déclencheur HTTP **AutoStop** gère le scénario d’arrêt automatique.
 

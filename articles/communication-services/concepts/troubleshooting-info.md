@@ -2,18 +2,18 @@
 title: Résolution des problèmes dans Azure Communication Services
 description: Découvrez comment rassembler les informations dont vous avez besoin pour dépanner votre solution Communication Services.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 ms.author: manoskow
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d8e3dbc012e49b69e766d0551c0a91dcbb92660b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cd19094b876203569df83cf3bc165968d9051a2
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739581"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257993"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -77,7 +77,28 @@ chat_client = ChatClient(
 ```
 ---
 
-## <a name="access-your-call-id"></a>Accéder à votre ID d’appel
+## <a name="access-your-server-call-id"></a>Accéder à votre ID d’appel serveur
+Lors de la résolution des problèmes liés au kit de développement logiciel (SDK) Automatisation des appels, comme les problèmes d’enregistrement et de gestion des appels, vous devez collecter l’ID d’appel du serveur. Cet ID peut être collecté à l’aide de la méthode ```getServerCallId```.
+
+#### <a name="javascript"></a>JavaScript
+```
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
+
+
+## <a name="access-your-client-call-id"></a>Accéder à votre ID d’appel client
 
 Lors de la résolution de problèmes d’appels vocaux ou vidéo, vous pouvez être invité à fournir un `call ID`. Vous pouvez y accéder via la propriété `id` de l’objet `call` :
 
@@ -171,7 +192,7 @@ Vous pouvez y accéder en recherchant l’emplacement où votre application cons
 2. Saisissez `cmd.exe`
 3. Saisissez `where /r %USERPROFILE%\AppData acs*.blog`
 4. Veuillez vérifier si l’ID d’application de votre application correspond à celui renvoyé par la commande précédente.
-5. Ouvrez le dossier contenant les fichiers journaux en saisissant `start ` suivi du chemin retourné par l’étape 3. Par exemple : `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+5. Ouvrez le dossier contenant les fichiers journaux en saisissant `start ` suivi du chemin retourné par l’étape 3. Par exemple : `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Veuillez joindre tous les fichiers `*.blog` et `*.etl` à votre demande de support Azure.
 
 

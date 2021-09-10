@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 4fe458ce4f358e81c115761b571874a955ededc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2d0b082321adcba147dfefcf0ea9e7948df3bafb
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641510"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311653"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory"></a>Copier des données de Presto avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,6 +35,31 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-presto-using-ui"></a>Créer un service lié à Presto à l’aide de l’interface utilisateur
+
+Suivez les étapes suivantes pour créer un service lié à Presto dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse, sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Presto et sélectionnez le connecteur Presto.
+
+   :::image type="content" source="media/connector-presto/presto-connector.png" alt-text="Capture d’écran du connecteur Presto.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-presto/configure-presto-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Presto.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration du connecteur
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur Presto.
 

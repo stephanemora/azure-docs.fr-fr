@@ -2,18 +2,17 @@
 title: Compétence cognitive Modélisation
 titleSuffix: Azure Cognitive Search
 description: Extrayez des métadonnées et des informations structurées à partir de données non structurées pour les modeler en type complexe dans un pipeline d’enrichissement dans Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 9395f0446680135bde99193609bde82385f64b0b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85560816"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038779"
 ---
 # <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
@@ -24,7 +23,7 @@ De plus, la compétence **Modélisation** illustrée dans le [scénario 3](#nest
 Le nom de sortie est toujours « output ». En interne, le pipeline peut mapper un autre nom, comme « analyzedText » comme indiqué dans les exemples ci-dessous, mais la compétence **Modélisation** elle-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
 
 > [!NOTE]
-> La compétence **Modélisation** n’est pas liée à une API Cognitive Services et son utilisation ne vous est pas facturée. Toutefois, vous devez toujours [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource **Gratuit** qui vous limite à un petit nombre d’enrichissements quotidiens par jour.
+> Cette compétence n’est pas liée à Cognitive Services. Elle est non-facturable et n’a aucune exigence clé Cognitive Services.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -36,7 +35,6 @@ Considérez un scénario dans lequel vous souhaitez créer une structure appelé
 Toutefois, une autre approche de la création de types complexes consiste à utiliser la compétence **Modélisation**. Lorsque vous incluez cette compétence dans un ensemble de compétences, les opérations en mémoire pendant le traitement de l’ensemble de compétences peuvent sortir des formes de données avec des structures imbriquées, qui peuvent alors être mappées à un type complexe dans votre index. 
 
 L’exemple de définition de compétence suivant fournit les noms de membre comme entrée. 
-
 
 ```json
 {
@@ -66,26 +64,26 @@ L’exemple de définition de compétence suivant fournit les noms de membre com
 Un ensemble de compétences est appelé par un indexeur, et un indexeur nécessite un index. Une représentation de champ complexe dans votre index peut se présenter comme dans l’exemple suivant. 
 
 ```json
-
-    "name": "my-index",
-    "fields": [
-        {   "name": "myId", "type": "Edm.String", "key": true, "filterable": true   },
-        {   "name": "analyzedText", "type": "Edm.ComplexType",
-            "fields": [{
-                    "name": "text",
-                    "type": "Edm.String",
-                    "filterable": false,
-                    "sortable": false,
-                    "facetable": false,
-                    "searchable": true  },
-          {
-                    "name": "sentiment",
-                    "type": "Edm.Double",
-                    "searchable": true,
-                    "filterable": true,
-                    "sortable": true,
-                    "facetable": true
-                },
+"name":"my-index",
+"fields":[
+   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
+   { "name":"analyzedText", "type":"Edm.ComplexType",
+      "fields":[
+         {
+            "name":"text",
+            "type":"Edm.String",
+            "facetable":false,
+            "filterable":false,
+            "searchable":true,
+            "sortable":false  },
+         {
+            "name":"sentiment",
+            "type":"Edm.Double",
+            "facetable":true,
+            "filterable":true,
+            "searchable":true,
+            "sortable":true }
+      }
 ```
 
 ### <a name="skill-input"></a>Entrée de la compétence

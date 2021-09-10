@@ -23,6 +23,8 @@
 - name: Didacticiel
   expanded: false
   items:
+    - name: Installation de la version d’essai d’Azure Defender pour IoT
+      href: tutorial-onboarding.md
     - name: Intégrer Splunk
       href: tutorial-splunk.md
     - name: Intégrer ServiceNow

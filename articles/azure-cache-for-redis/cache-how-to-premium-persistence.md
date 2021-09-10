@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d115495f56a9e64672682a92d5837db48dbf052d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e167abee5bd98e5dcef702ae4629cd886cb75967
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099808"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465727"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configurer la persistance des données pour une instance Azure Cache pour Redis Premium
 
@@ -157,7 +157,7 @@ L’intervalle de fréquence de sauvegarde avec la persistance RDB ne démarre q
 
 ### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>Qu’advient-il des anciennes sauvegardes RDB quand une nouvelle sauvegarde est effectuée ?
 
-Toutes les sauvegardes avec la persistance RDB à l’exception de la plus récente sont supprimées automatiquement. Cette suppression peut ne pas avoir lieu immédiatement, mais les anciennes sauvegardes ne sont pas conservées indéfiniment.
+Toutes les sauvegardes avec la persistance RDB à l’exception de la plus récente sont supprimées automatiquement. Cette suppression peut ne pas avoir lieu immédiatement, mais les anciennes sauvegardes ne sont pas conservées indéfiniment. Notez que si la suppression réversible est activée pour votre compte de stockage, le paramètre de suppression réversible s’applique et les sauvegardes existantes continuent d’y résider à l’état de suppression réversible.
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>Quand dois-je utiliser un deuxième compte de stockage ?
 
@@ -194,7 +194,7 @@ Les données stockées dans des fichiers AOF sont divisées en plusieurs objets 
 
 Lorsque le clustering est activé, chaque partition dans le cache a son propre ensemble d’objets blob de pages, comme indiqué dans le tableau précédent. Par exemple, un cache P2 avec trois partitions distribue son fichier AOF entre 24 objets blob de pages (huit objets blob par partition, avec trois partitions).
 
-Après une réécriture, deux jeux de fichiers AOF se trouvent dans le stockage. Les réécritures se produisent en arrière-plan et s’ajoutent au premier jeu de fichiers. Les opérations de définition, envoyées au cache lors de la réécriture, sont ajoutées au second jeu. Une sauvegarde est stockée temporairement pendant la réécriture en cas de défaillance. La sauvegarde est rapidement supprimée après la fin d’une réécriture.
+Après une réécriture, deux jeux de fichiers AOF se trouvent dans le stockage. Les réécritures se produisent en arrière-plan et s’ajoutent au premier jeu de fichiers. Les opérations de définition, envoyées au cache lors de la réécriture, sont ajoutées au second jeu. Une sauvegarde est stockée temporairement pendant la réécriture en cas de défaillance. La sauvegarde est rapidement supprimée après la fin d’une réécriture. Notez que si la suppression réversible est activée pour votre compte de stockage, le paramètre de suppression réversible s’applique et les sauvegardes existantes continuent d’y résider à l’état de suppression réversible.
 
 ### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>Suis-je facturé pour le stockage utilisé dans la persistance des données ?
 

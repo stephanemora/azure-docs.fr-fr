@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec65980e3886b62b8718799d1566a11d5c13a679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933970"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122523982"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -80,10 +80,10 @@ Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit des ad
 - x.x.x.0 : Adresse du réseau
 - x.x.x.1 : Réservée par Azure pour la passerelle par défaut
 - x.x.x.2, x.x.x.3 : Réservée par Azure pour mapper les adresses IP Azure DNS à l’espace du réseau virtuel
-- x.x.x.255 : Adresse de diffusion réseau
+- x.x.x.255 : Adresse de diffusion réseau pour les sous-réseaux de taille /25 et plus. Il s’agit d’une adresse différente dans les sous-réseaux plus petits. 
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
-Le plus petit sous-réseau IPv4 pris en charge est /29 et le plus grand est /8 (à l’aide des définitions de sous-réseaux CIDR).  La taille des sous-réseaux IPv6 doit être exactement de /64.  
+Le plus petit sous-réseau IPv4 pris en charge est /29 et le plus grand est /2 (à l’aide des définitions de sous-réseaux CIDR).  La taille des sous-réseaux IPv6 doit être exactement de /64.  
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>Puis-je ajouter mes VLAN à Azure à l’aide de réseaux virtuels ?
 Non. Les réseaux virtuels sont des superpositions de couche 3. Azure ne prend en charge aucune sémantique de couche 2.
@@ -419,7 +419,7 @@ Il n’existe aucune limite sur le nombre total de points de terminaison de serv
 |Stockage Azure| 100|
 |Azure SQL| 128|
 |Azure Synapse Analytics|   128|
-|Azure KeyVault|    127|
+|Azure KeyVault|    200 |
 |Azure Cosmos DB|   64|
 |Azure Event Hub|   128|
 |Azure Service Bus| 128|

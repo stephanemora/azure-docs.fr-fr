@@ -1,17 +1,20 @@
 ---
 title: Format Common Data Model
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Transformer des données à l’aide du système de métadonnées Common Data Model
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 612faa714f6a31bb464d30cc5b30766734782d41
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387697"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641562"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -84,7 +87,7 @@ Lors du mappage des colonnes de flux de données aux propriétés des entités d
 2. Recherchez les partitions.Location, propriété 
 3. Remplacez « blob.core.windows.net » par « dfs.store.core.windows.net »
 4. Corrigez tout encodage « % 2F » dans l’URL en « / »
-5. Si vous utilisez des flux de données ADF, les caractères spéciaux dans le chemin d’accès du fichier de partition doivent être remplacés par des valeurs alphanumériques. Vous pouvez également basculer vers des flux de données Synapse
+5. Si vous utilisez des flux de données ADF, les caractères spéciaux dans le chemin d’accès du fichier de partition doivent être remplacés par des valeurs alphanumériques. Vous pouvez également basculer vers des flux de données Azure Synapse
 
 ### <a name="cdm-source-data-flow-script-example"></a>Exemple de script de flux de données sources CDM
 

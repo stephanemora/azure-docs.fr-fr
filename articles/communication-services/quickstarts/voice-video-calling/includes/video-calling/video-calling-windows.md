@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa934ea2dc29004057ffbd3bad7c5f7b5afe935
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 91ed308ecbeeb839dfddb78c0151e2c8aafd0d3b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593959"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123122751"
 ---
 Ce démarrage rapide explique comment démarrer un appel vidéo à deux avec le Kit de développement logiciel (SDK) Appel d’Azure Communication Services pour Windows.
 
@@ -161,8 +161,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -334,5 +333,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 Vous pouvez générer et exécuter le code sur Visual Studio. Notez que, pour les plateformes de solution, nous prenons en charge `ARM64`, `x64` et `x86`. 
 
 Vous pouvez passer un appel vidéo sortant en entrant un ID d’utilisateur dans le champ de texte, puis en cliquant sur le bouton `Start Call`. 
+
+Remarque : l’appel de `8:echo123` arrête le streaming vidéo, car le bot Echo ne prend pas en charge le streaming vidéo. 
 
 Pour plus d’informations sur les identifiants utilisateur, consultez le guide [Jetons d’accès utilisateur](../../../access-tokens.md). 

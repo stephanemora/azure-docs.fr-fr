@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/19/2021
 ms.author: azhussai
-ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 2e448f907e129f628c4614c9df703bf2c39ea47a
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727800"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665094"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -52,7 +52,7 @@ Application Gateway fournit plusieurs métriques de minutage intégrées associ�
 
   Temps moyen nécessaire pour la réception et le traitement d’une requête et l’envoi de la réponse. 
 
-  Il s’agit de l’intervalle entre le moment où Application Gateway reçoit le premier octet de la requête HTTP et le moment où le dernier octet de la réponse a été envoyé au client. Cela comprend le temps de traitement pris par Application Gateway, le *temps de réponse du dernier octet du principal*, le temps pris par Application Gateway pour envoyer toutes les réponses et le *RTT client*.
+  Il s’agit de l’intervalle entre le moment où Application Gateway reçoit le premier octet de la requête HTTP et le moment où le dernier octet de la réponse a été envoyé au client. Cela comprend le temps qu’Application Gateway prend pour le traitement, le *temps de réponse du dernier octet du serveur principal*, ainsi que le temps qu’Application Gateway prend pour envoyer toutes les réponses.
 
 - **RTT client**
 

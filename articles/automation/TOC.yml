@@ -14,11 +14,13 @@
   items:
     - name: Créer un compte Automation - Portail Azure
       href: quickstarts/create-account-portal.md
+    - name: Activer des identités managées - Portail Azure
+      href: quickstarts/enable-managed-identity.md
     - name: Activer Desired State Configuration pour une machine
       href: quickstarts/dsc-configuration.md
 - name: Tutoriels
   items:
-    - name: Utiliser une identité managée avec un runbook PowerShell
+    - name: Créer un runbook PowerShell avec une identité managée
       href: learn/powershell-runbook-managed-identity.md
     - name: Créer un runbook de workflow PowerShell
       href: learn/automation-tutorial-runbook-textual.md

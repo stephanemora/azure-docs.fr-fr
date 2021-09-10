@@ -2,32 +2,34 @@
 title: Configurer une connexion à un compte Cosmos DB à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment configurer une connexion d’indexeur à un compte Cosmos DB à l’aide d’une identité managée
-manager: luisca
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/02/2021
+ms.openlocfilehash: 38709d7799d09e38fdebc8eebd7484504ce4ebd2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93422091"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533164"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une base de données Cosmos DB à l’aide d’une identité managée
 
 Cette page explique comment configurer une connexion d’indexeur à une base de données Azure Cosmos DB à l’aide d’une identité managée au lieu de fournir des informations d’identification dans la chaîne de connexion de l’objet source de données.
+
+Vous pouvez utiliser une identité managée affectée par le système ou une identité managée affectée par l’utilisateur (préversion).
 
 Avant d’en apprendre plus sur cette fonctionnalité, il est recommandé de comprendre ce qu’est un indexeur et savoir comment configurer un indexeur pour votre source de données. Pour plus d’informations, consultez les liens suivants :
 
 * [Présentation de l’indexeur](search-indexer-overview.md)
 * [Indexeur Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
-## <a name="set-up-a-connection-using-a-managed-identity"></a>Configurer une connexion à l’aide d’une identité managée
+## <a name="1---set-up-a-managed-identity"></a>1\. Configurer une identité managée
 
-### <a name="1---turn-on-system-assigned-managed-identity"></a>1 – Activer l’identité managée affectée par le système
+Configurez l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) en utilisant l’une des options suivantes.
+
+### <a name="option-1---turn-on-system-assigned-managed-identity"></a>Option 1 : Activer une identité managée affectée par le système
 
 Quand une identité managée affectée par le système est activée, Azure crée une identité pour votre service de recherche qui peut être utilisée pour vous authentifier auprès d’autres services Azure au sein du même locataire et du même abonnement. Vous pouvez ensuite utiliser cette identité dans les attributions de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui autorisent l’accès aux données pendant l’indexation.
 
@@ -37,9 +39,52 @@ Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a é
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
  
-### <a name="2---add-a-role-assignment"></a>2 – Ajouter une attribution de rôle
+### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>Option 2 : Attribuer une identité managée affectée par l’utilisateur au service de recherche (préversion)
 
-Au cours de cette étape, vous allez accorder à votre service Recherche cognitive Azure l’autorisation de lire les données de votre compte Cosmos DB.
+Si vous n’avez pas encore créé d’identité managée affectée par l’utilisateur, vous devez en créer une. Une identité managée affectée par l’utilisateur est une ressource sur Azure.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Sélectionnez **+ Créer une ressource**.
+1. Dans la barre de recherche « Services de recherche et marketplace », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
+1. Donnez un nom descriptif à l’identité.
+
+Ensuite, attribuez l’identité managée affectée par l’utilisateur au service de recherche. Cela peut être fait à l’aide de l’[API de gestion 2021-04-01-preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+
+La propriété d’identité prend un type et une ou plusieurs identités affectées par l’utilisateur complètes :
+
+* **type** est le type d’identité. Les valeurs valides sont « SystemAssigned », « UserAssigned » ou « SystemAssigned, UserAssigned » si vous souhaitez utiliser les deux. La valeur « None » effacera du service de recherche toutes les identités affectées précédemment.
+* **userAssignedIdentities** comprend les détails de l’identité managée affectée par l’utilisateur.
+    * Format de l’identité managée affectée par l’utilisateur : 
+        * /subscriptions/**ID d’abonnement**/resourcegroups/**nom du groupe de ressources**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nom de l’identité managée**
+
+Exemple d’attribution d’une identité managée affectée par l’utilisateur à un service de recherche :
+
+```http
+PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+Content-Type: application/json
+
+{
+  "location": "[region]",
+  "sku": {
+    "name": "[sku]"
+  },
+  "properties": {
+    "replicaCount": [replica count],
+    "partitionCount": [partition count],
+    "hostingMode": "default"
+  },
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
+    }
+  }
+} 
+```
+ 
+## <a name="2---add-a-role-assignment"></a>2 – Ajouter une attribution de rôle
+
+Dans cette étape, vous allez accorder à votre service Recherche cognitive Azure ou à votre identité managée affectée par l’utilisateur l’autorisation de lire les données de votre base de données Cosmos DB.
 
 1. Dans le portail Azure, accédez au compte Cosmos DB qui contient les données que vous souhaitez indexer.
 2. Sélectionnez **Contrôle d’accès (IAM)**
@@ -49,17 +94,23 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 4. Sélectionner le **rôle Lecteur de compte Cosmos DB**
 5. Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
-6. Recherchez votre service de recherche, sélectionnez-le, puis sélectionnez **Enregistrer**.
+6. Si vous utilisez une identité managée affectée par le système, recherchez votre service de recherche, puis sélectionnez-le. Si vous utilisez une identité managée affectée par l’utilisateur, recherchez le nom de l’identité managée affectée par l’utilisateur, puis sélectionnez-le. Sélectionnez **Enregistrer**.
+
+    Exemple pour Cosmos DB utilisant une identité managée affectée par le système :
 
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Ajouter une attribution de rôle Lecteur et accès aux données")
 
-### <a name="3---create-the-data-source"></a>3 – Créer la source de données
+## <a name="3---create-the-data-source"></a>3 – Créer la source de données
 
-L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir de Cosmos DB à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
+Créez la source de données et fournissez soit une identité managée affectée par le système, soit une identité managée affectée par l’utilisateur (préversion). Notez que vous n’utilisez plus l’API REST de gestion dans les étapes ci-dessous.
+
+### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>Option 1 : Créer la source de données avec une identité managée affectée par le système
+
+L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) prennent en charge l’utilisation d’une identité managée affectée par le système. Voici un exemple de création d’une source de données pour indexer des données à partir de Cosmos DB à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
 
 Lorsque vous utilisez des identités managées pour l’authentification, les **informations d’identification** n’incluent pas de clé de compte.
 
-```
+```http
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [Search service admin key]
@@ -68,7 +119,7 @@ api-key: [Search service admin key]
     "name": "cosmos-db-datasource",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cosmos-db-resource-group/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmos-db-account/;"
+        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.DocumentDB/databaseAccounts/[Cosmos DB account name]/;"
     },
     "container": { "name": "myCollection", "query": null },
     "dataChangeDetectionPolicy": {
@@ -84,12 +135,53 @@ Le corps de la requête contient la définition de la source de données, qui do
 |---------|-------------|
 | **name** | Obligatoire. Choisissez un nom pour représenter votre objet source de données. |
 |**type**| Obligatoire. Doit être `cosmosdb`. |
-|**credentials** | Obligatoire. <br/><br/>Lors de la connexion à l’aide d’une identité managée, le format des **informations d’identification** doit être : *Database=[nom-base-de-données];ResourceId=[chaîne-id-ressource];(ApiKind=[type-api];)*<br/> <br/>Format de ResourceId : *ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**le nom de votre groupe de ressources**/providers/Microsoft.DocumentDB/databaseAccounts/**le nom de votre compte cosmos db**/;*<br/><br/>Pour les collections SQL, la chaîne de connexion ne requiert pas d’ApiKind.<br/><br/>Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion. <br/><br/>Pour les graphes Gremlin et les tables Cassandra, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.<br/>|
-| **container** | Contient les éléments suivants : <br/>**nom** : Obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.<br/>**query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d’un document JSON arbitraire de manière à ce qu’Azure Search puisse procéder à l’indexation.<br/>Pour l’API MongoDB, l’API Gremlin et l’API Cassandra, les requêtes ne sont pas prises en charge. |
+|**credentials** | Obligatoire. <br/><br/>Lors de la connexion à l’aide d’une identité managée, le format des **informations d’identification** doit être : *Database=[nom-base-de-données];ResourceId=[chaîne-id-ressource];(ApiKind=[type-api];)*<br/> <br/>Format de ResourceId : *ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**le nom de votre groupe de ressources**/providers/Microsoft.DocumentDB/databaseAccounts/**le nom de votre compte cosmos db**/;*<br/><br/>Pour les collections SQL, la chaîne de connexion ne requiert pas d’ApiKind.<br/><br/>Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion. <br/><br/>Pour les graphiques Gremlin, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations relatives à la mise en forme des informations d’identification.<br/>|
+| **container** | Contient les éléments suivants : <br/>**nom** : Obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.<br/>**query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d’un document JSON arbitraire de manière à ce qu’Azure Search puisse procéder à l’indexation.<br/>Pour l’API MongoDB et l’API Gremlin, les requêtes ne sont pas prises en charge. |
 | **dataChangeDetectionPolicy** | Recommandé |
 |**dataDeletionDetectionPolicy** | Facultatif |
 
-### <a name="4---create-the-index"></a>4 – Créer l’index
+### <a name="option-2---create-the-data-source-with-a-user-assigned-managed-identity"></a>Option 2 : Créer la source de données avec une identité managée affectée par l’utilisateur
+
+L’API REST 2021-04-30-preview prend en charge l’utilisation d’une identité managée affectée par l’utilisateur. Voici un exemple de création d’une source de données pour indexer des données à partir d’un compte de stockage à l’aide de l’[API REST](/rest/api/searchservice/create-data-source), d’une chaîne de connexion d’identité managée et de l’identité managée affectée par l’utilisateur.
+
+```http
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
+Content-Type: application/json
+api-key: [Search service admin key]
+
+{
+    "name": "cosmos-db-datasource",
+    "type": "cosmosdb",
+    "credentials": {
+        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.DocumentDB/databaseAccounts/[Cosmos DB account name]/;"
+    },
+    "container": { 
+        "name": "myCollection", "query": null 
+    },
+    "identity" : { 
+        "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]" 
+    },
+    "dataChangeDetectionPolicy": {
+        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName": "_ts"
+    }
+}
+```    
+
+Le corps de la requête contient la définition de la source de données, qui doit inclure les champs suivants :
+
+| Champ   | Description |
+|---------|-------------|
+| **name** | Obligatoire. Choisissez un nom pour représenter votre objet source de données. |
+|**type**| Obligatoire. Doit être `cosmosdb`. |
+|**credentials** | Obligatoire. <br/><br/>Lors de la connexion à l’aide d’une identité managée, le format des **informations d’identification** doit être : *Database=[nom-base-de-données];ResourceId=[chaîne-id-ressource];(ApiKind=[type-api];)*<br/> <br/>Format de ResourceId : *ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**le nom de votre groupe de ressources**/providers/Microsoft.DocumentDB/databaseAccounts/**le nom de votre compte cosmos db**/;*<br/><br/>Pour les collections SQL, la chaîne de connexion ne requiert pas d’ApiKind.<br/><br/>Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion. <br/><br/>Pour les graphiques Gremlin, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations relatives à la mise en forme des informations d’identification.<br/>|
+| **container** | Contient les éléments suivants : <br/>**nom** : Obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.<br/>**query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d’un document JSON arbitraire de manière à ce qu’Azure Search puisse procéder à l’indexation.<br/>Pour l’API MongoDB et l’API Gremlin, les requêtes ne sont pas prises en charge. |
+| **identity** | Contient la collection d’identités managées affectées par l’utilisateur. Une seule identité managée affectée par l’utilisateur doit être fournie lors de la création de la source de données. Contient les éléments suivants : <br/>**userAssignedIdentities** comprend les détails de l’identité managée affectée par l’utilisateur.<br/><br/>Format de l’identité managée affectée par l’utilisateur : /subscriptions/**ID d’abonnement**/resourcegroups/**nom du groupe de ressources**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nom de l’identité managée**.|
+| **dataChangeDetectionPolicy** | Recommandé |
+|**dataDeletionDetectionPolicy** | Facultatif |
+
+## <a name="4---create-the-index"></a>4 – Créer l’index
 
 L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
 
@@ -111,7 +203,7 @@ api-key: [admin key]
 
 Pour plus d’informations sur la création d’index, consultez [Création d'un index](/rest/api/searchservice/create-index)
 
-### <a name="5---create-the-indexer"></a>5 – Créer l’indexeur
+## <a name="5---create-the-indexer"></a>5 – Créer l’indexeur
 
 Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données.
 

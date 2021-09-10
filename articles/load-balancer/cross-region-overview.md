@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 0a08dfd1771ab0a8f866ffad1faa2c7d867b3072
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: f873bec75d0454aed2c6569a8f8dfaa7eaab9868
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075498"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534720"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -84,7 +84,7 @@ Lorsque vous exposez le point de terminaison global d’un équilibreur de charg
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>Adresse IP statique
-L'équilibreur de charge inter-région est fourni avec une adresse IP publique statique, ce qui garantit que l'adresse IP restera la même. Pour en savoir plus sur les adresses IP statiques, cliquez [ici](../virtual-network/public-ip-addresses.md#allocation-method).
+L'équilibreur de charge inter-région est fourni avec une adresse IP publique statique, ce qui garantit que l'adresse IP restera la même. Pour en savoir plus sur les adresses IP statiques, cliquez [ici](../virtual-network/public-ip-addresses.md#ip-address-assignment).
 
 ### <a name="client-ip-preservation"></a>Conservation de l'adresse IP du client
 L'équilibreur de charge inter-région est un équilibreur de charge réseau « Pass-through » de type Couche 4. Ce « Pass-through » conserve l'adresse IP d'origine du paquet.  L'adresse IP d'origine est accessible au code exécuté sur la machine virtuelle. Cette conservation vous permet d'appliquer une logique spécifique à une adresse IP.
@@ -140,6 +140,8 @@ L'équilibreur de charge inter-région achemine le trafic vers l'équilibreur de
 * Aucun équilibreur de charge privé ou interne ne peut pas être ajouté au pool principal de l’équilibreur de charge inter-région 
 
 * Les configurations IP frontales IPv6 inter-région ne sont pas prises en charge. 
+
+* Le trafic UDP n’est pas pris en charge sur l’équilibreur de charge inter-régions. 
 
 * Il est actuellement impossible de configurer une sonde d'intégrité. Une sonde d'intégrité par défaut collecte automatiquement les informations de disponibilité relatives à l'équilibreur de charge régional toutes les 20 secondes. 
 

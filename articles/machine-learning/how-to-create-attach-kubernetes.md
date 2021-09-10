@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 96d6897efd010393f0480d17ba5e4a1d252e0ff2
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 62e7f1b770db05f4dcd5d84cdc5f6a769566a4bd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597265"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867587"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -87,6 +87,9 @@ Ces méthodes de création d’un cluster AKS utilisent la version __par défaut
 Lors de l’**attachement** d’un cluster AKS existant, nous prenons en charge toutes les versions d’AKS actuellement prises en charge.
 
 > [!IMPORTANT]
+> Actuellement, Azure Machine Learning ne prend pas en charge le déploiement de modèles vers AKS version **1.21.x**
+
+> [!IMPORTANT]
 > Azure Kubernetes Service utilise le [pilote Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) pour les versions 1.16 et antérieures et le [pilote CSI des objets blob](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) pour les versions 1.17 et ultérieures. Ainsi, il est important de redéployer ou de [mettre à jour le service web](how-to-deploy-update-web-service.md) après la mise à niveau du cluster afin d’effectuer le déploiement avec la méthode blobfuse adéquate pour la version du cluster.
 
 > [!NOTE]
@@ -131,7 +134,7 @@ Result
 1.16.13
 ```
 
-Si vous souhaitez **vérifier par programme les versions disponibles**, utilisez l’API REST [Container Service Client - List Orchestrators](/rest/api/container-service/container-service-client/list-orchestrators). Pour trouver les versions disponibles, repérez les entrées où `orchestratorType` est `Kubernetes`. Les entrées `orchestrationVersion` associées contiennent les versions disponibles qui peuvent être **attachées** à votre espace de travail.
+Si vous souhaitez **vérifier par programme les versions disponibles**, utilisez l’API REST Container Service Client - List Orchestrators. Pour trouver les versions disponibles, repérez les entrées où `orchestratorType` est `Kubernetes`. Les entrées `orchestrationVersion` associées contiennent les versions disponibles qui peuvent être **attachées** à votre espace de travail.
 
 Pour trouver la version par défaut utilisée lors de la **création** d’un cluster via Azure Machine Learning, trouvez l’entrée dans laquelle `orchestratorType` est `Kubernetes` et `default` est `true`. La valeur `orchestratorVersion` associée est la version par défaut. L’extrait de code JSON suivant est un exemple d’entrée :
 

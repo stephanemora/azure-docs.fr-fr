@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6e8860d2b49e207859286eeecf994cfc5cfb507a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2a6136d4af030784bac3c45a3a5d631c41830d6c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641435"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303766"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copier des données de Netezza avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -44,7 +44,32 @@ Azure Data Factory fournit un pilote intégré pour permettre la connectivité. 
 
 ## <a name="get-started"></a>Bien démarrer
 
-Vous pouvez créer un pipeline qui utilise une activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [Tutoriel sur l’activité de copie](quickstart-create-data-factory-dot-net.md).
+Vous pouvez créer un pipeline qui utilise une activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md).
+
+## <a name="create-a-linked-service-to-netezza-using-ui"></a>Créer un service lié à Netezza à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Netezza dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse, sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Netezza, puis sélectionnez le connecteur Netezza.
+
+   :::image type="content" source="media/connector-netezza/netezza-connector.png" alt-text="Capture d’écran du connecteur Netezza.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-netezza/configure-netezza-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Netezza.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration du connecteur
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory propres au connecteur Netezza.
 

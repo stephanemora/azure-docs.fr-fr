@@ -5,16 +5,16 @@ description: Guide pratique pour créer un partage de fichiers Azure en utilisan
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 0100bd0e0eb0ee6dbd802ad1cf5df002a706c12c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f1eae19bda4fae0744483a647eed47104e366e52
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676160"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867047"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -31,6 +31,13 @@ Pour créer un partage de fichiers Azure, vous devez répondre à trois question
     Dans les comptes de stockage redondant localement et dans une zone, les partages de fichiers Azure peuvent s’étendre jusqu’à 100 Tio. Toutefois, dans les comptes de stockage géoredondant et de stockage géo-redondant interzone, les partages de fichiers Azure peuvent atteindre jusqu’à 5 Tio. 
 
 Pour plus d’informations sur ces trois choix, consultez [Planification d’un déploiement Azure Files](storage-files-planning.md).
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>Prérequis
 - Cet article suppose que vous avez déjà créé un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -58,7 +65,7 @@ La première section à compléter pour créer un compte de stockage s’intitul
 
 Pour créer un compte de stockage FileStorage, vérifiez que la case d’option **Performances** est définie sur *Premium* et que **Partages de fichiers** est sélectionné dans la liste déroulante **Type de compte Premium**.
 
-:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Capture d’écran de la case d’option Performances avec la sélection de Premium, et la sélection de FileStorage pour le Type de compte.":::
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Capture d’écran montrant la case d’option Performances avec Premium sélectionné, et FileStorage sélectionné pour le Type de compte.":::
 
 Les autres champs de base sont indépendants du choix du compte de stockage :
 - **Nom du compte de stockage** : nom de la ressource de compte de stockage à créer. Ce nom doit être globalement unique, mais il peut s’agir du nom de votre choix. Le nom du compte de stockage est utilisé comme nom de serveur lorsque vous montez un partage de fichiers Azure via SMB.
@@ -163,6 +170,37 @@ az storage account create \
 
 ---
 
+### <a name="enable-large-files-shares-on-an-existing-account"></a>Activer les partages de fichiers volumineux sur un compte existant
+Avant de créer un partage de fichiers Azure sur un compte existant, vous devez y activer les partages de fichiers volumineux si vous ne l’avez pas déjà fait. Les comptes de stockage standard avec LRS et ZRS ou ZRS peuvent être mis à niveau pour prendre en charge les partages de fichiers volumineux. Si vous avez un compte GRS, GZRS, RA-GRS ou RA-GZRS, vous devez le convertir en compte LRS avant de continuer.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+1. Ouvrez le [portail Azure](https://portal.azure.com) et accédez au compte de stockage sur lequel vous souhaitez activer les partages de fichiers volumineux.
+1. Ouvrez le compte de stockage et sélectionnez **Partages de fichiers**.
+1. Sélectionnez **Activé** pour **Partages de fichiers volumineux**, puis sélectionnez **Enregistrer**.
+1. Sélectionnez **Vue d’ensemble** puis **Actualiser**.
+1. Sélectionnez **Capacité de partage**, puis **100 Tio** et **Enregistrer**.
+
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Capture d’écran montrant le compte de stockage, et le panneau des partages de fichiers avec des partages de 100 Tio mis en évidence.":::
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Pour activer les partages de fichiers volumineux sur votre compte existant, utilisez la commande suivante. Remplacez `<yourStorageAccountName>` et `<yourResourceGroup>` par vos informations.
+
+```powershell
+Set-AzStorageAccount `
+    -ResourceGroupName <yourResourceGroup> `
+    -Name <yourStorageAccountName> `
+    -EnableLargeFileShare
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Pour activer les partages de fichiers volumineux sur votre compte existant, utilisez la commande suivante. Remplacez `<yourStorageAccountName>` et `<yourResourceGroup>` par vos informations.
+
+```azurecli-interactive
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
+```
+
+---
+
 ## <a name="create-a-file-share"></a>Créer un partage de fichiers
 Une fois que vous avez créé votre compte de stockage, il ne vous reste plus qu’à créer votre partage de fichiers. Ce processus est fondamentalement le même, que vous utilisiez un partage de fichiers Premium ou un partage de fichiers Standard. Vous devez tenir compte des différences suivantes.
 
@@ -173,7 +211,7 @@ Les partages de fichiers Standard peuvent être déployés sur l’un des niveau
 
 La propriété **quota** du partage de fichiers Premium est légèrement différente de celle du partage de fichiers Standard :
 
-- Pour les partages de fichiers Standard, il s’agit d’une limite supérieure du partage de fichiers Azure, au-delà de laquelle les utilisateurs finals ne peuvent pas aller. Si aucun quota n’est spécifié, le partage de fichiers Standard peut s’étendre jusqu’à 100 Tio (ou 5 Tio si la propriété de partages de fichiers volumineux n’est pas définie pour un compte de stockage).
+- Pour les partages de fichiers Standard, il s’agit d’une limite supérieure du partage de fichiers Azure, au-delà de laquelle les utilisateurs finals ne peuvent pas aller. Si aucun quota n’est spécifié, le partage de fichiers standard peut s’étendre jusqu’à 100 Tio ou 5 Tio si la propriété de partages de fichiers volumineux n’est pas définie pour un compte de stockage. Si lors de la création de votre compte de stockage vous n’avez pas activé les partages de fichiers volumineux, consultez [Activer les partages de fichiers volumineux sur un compte existant](#enable-large-files-shares-on-an-existing-account) pour savoir comment activer les partages de fichiers de 100 Tio. Les performances (E/S par seconde et Mbits/s) que vous recevez dépendent du quota que vous avez défini.
 
 - Pour les partages de fichiers Premium, le quota signifie la **taille approvisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-model).
 
@@ -185,7 +223,7 @@ Dans la liste des partages de fichiers, vous devez voir tous les partages de fic
 Le nouveau panneau de partage de fichiers doit s’afficher à l’écran. Renseignez les champs du nouveau panneau de partage de fichiers pour créer un partage de fichiers :
 
 - **Nom** : nom du partage de fichiers à créer.
-- **Quota** : quota de partage de fichiers pour les partages de fichiers Standard ; taille provisionnée du partage de fichiers pour les partages de fichiers Premium.
+- **Quota** : quota de partage de fichiers pour les partages de fichiers Standard ; taille provisionnée du partage de fichiers pour les partages de fichiers Premium. Pour les partages de fichiers standard, le quota détermine également les performances que vous recevez.
 - **Niveaux** : niveau sélectionné pour un partage de fichiers. Ce champ est uniquement disponible dans les **comptes de stockage universels (GPv2)** . Vous pouvez choisir entre les niveaux Transaction optimisée, Accès chaud et Accès froid. Le niveau du partage peut être modifié à tout moment. Nous vous recommandons de choisir le niveau le plus chaud possible pendant une migration afin de réduire les dépenses de transaction, puis de passer à un niveau inférieur, si vous le souhaitez, une fois la migration terminée.
 
 Sélectionnez **Créer** pour terminer la création du partage.
@@ -193,7 +231,7 @@ Sélectionnez **Créer** pour terminer la création du partage.
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Vous pouvez créer un partage de fichiers Azure avec l’applet de commande [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare). Les commandes PowerShell suivantes supposent que vous avez défini les variables `$resourceGroupName` et `$storageAccountName` comme indiqué ci-dessus à la section de création d’un compte de stockage avec Azure PowerShell. 
 
-L’exemple suivant montre la création d’un partage de fichiers avec un niveau explicite à l’aide du paramètre `-AccessTier`. Pour cela, vous devez utiliser la préversion du module Az.Storage, comme indiqué dans l’exemple. Si aucun niveau n’est spécifié, soit parce que vous utilisez le module Az.Storage en disponibilité générale, soit parce que vous n’avez pas inclus cette commande, le niveau par défaut des partages de fichiers Standard sera Transaction optimisée.
+L’exemple suivant montre la création d’un partage de fichiers avec un niveau explicite à l’aide du paramètre `-AccessTier`. Si aucun niveau n’est spécifié, le niveau par défaut des partages de fichiers standard est Transaction optimisée.
 
 > [!Important]  
 > Pour les partages de fichiers Premium, le paramètre `-QuotaGiB` fait référence à la taille provisionnée du partage de fichiers. La taille provisionnée du partage de fichiers est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Les partages de fichiers Standard sont facturés en fonction de l’utilisation, et non par rapport à la taille provisionnée.
@@ -272,6 +310,45 @@ az storage share-rm update \
     --storage-account $storageAccountName \
     --name $shareName \
     --access-tier "Cool"
+```
+
+---
+
+### <a name="expand-existing-file-shares"></a>Étendre des partages de fichiers existants
+Si vous activez les partages de fichiers volumineux sur un compte de stockage existant, vous devez développer les partages de fichiers existants dans ce compte de stockage pour tirer parti de l’augmentation de la capacité et de l’échelle. 
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+1. À partir de votre compte de stockage, sélectionnez **Partages de fichiers**.
+1. Cliquez avec le bouton droit sur votre partage de fichiers, puis sélectionnez **Quota**.
+1. Entrez la nouvelle taille souhaitée, puis sélectionnez **OK**.
+
+![Interface utilisateur du portail Azure avec le quota des partages de fichiers existants](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Pour définir le quota sur la taille maximale, utilisez la commande suivante. Remplacez `<YourResourceGroupName>`, `<YourStorageAccountName>` et `<YourStorageAccountFileShareName>` par vos informations.
+
+```powershell
+$resourceGroupName = "<YourResourceGroupName>"
+$storageAccountName = "<YourStorageAccountName>"
+$shareName="<YourStorageAccountFileShareName>"
+
+# update quota
+Set-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -QuotaGiB 102400
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Pour définir le quota sur la taille maximale, utilisez la commande suivante. Remplacez `<yourResourceGroupName>`, `<yourStorageAccountName>` et `<yourFileShareName>` par vos informations.
+
+```azurecli-interactive
+az storage share-rm update \
+    --resource-group <yourResourceGroupName> \
+    --storage-account <yourStorageAccountName> \
+    --name <yourFileShareName> \
+    --quota 102400
 ```
 
 ---

@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 79cc482d5bbd32cd4ba4efbce692d32ecc0cad8e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8089666388134e8443c515d86e91ae3ba5c32b58
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081314"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532740"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Déployer des machines virtuelles sur Azure Stack Edge Pro avec GPU via le portail Azure
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Vous pouvez créer et gérer des machines virtuelles sur un appareil Azure Stack Edge Pro GPU à l’aide du portail Azure, de modèles et de cmdlets Azure PowerShell, ainsi que via des scripts Azure CLI ou Python. Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro GPU à l’aide du portail Azure. 
+Vous pouvez créer et gérer des machines virtuelles sur un appareil Azure Stack Edge Pro GPU à l’aide du portail Azure, de modèles et de cmdlets Azure PowerShell, ainsi que via des scripts Azure CLI ou Python. Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro GPU à l’aide du portail Azure.
 
 > [!IMPORTANT] 
 > Nous vous recommandons d’activer l’authentification multifacteur pour l’utilisateur qui gère les machines virtuelles déployées sur votre appareil à partir du cloud.
@@ -48,7 +48,7 @@ Voici une synthèse globale du workflow de déploiement :
 
 Avant de commencer à créer et à gérer des machines virtuelles sur votre appareil via le portail Azure, assurez-vous de ce qui suit :
 
-1. Vous avez appliqué les paramètres réseau sur votre appareil Azure Stack Edge Pro comme décrit dans [Étape 1 : Configurer un appareil Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Vous avez appliqué les paramètres réseau sur votre appareil Azure Stack Edge Pro comme décrit dans [Étape 1 : Configurer un appareil Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
 
     1. Vous avez activé une interface réseau pour le calcul. Cette adresse IP d’interface réseau sert à créer un commutateur virtuel pour le déploiement de la machine virtuelle. Dans l’interface utilisateur locale de votre appareil, accédez à **Calcul**. Sélectionnez l’interface réseau que vous allez utiliser pour créer un commutateur virtuel.
 
@@ -69,75 +69,76 @@ Pour créer une machine virtuelle sur votre appareil Azure Stack Edge Pro GPU, p
 
    Pour plus d’informations sur la préparation du disque dur virtuel, consultez [Préparer une image généralisée à partir d’un disque dur virtuel Windows](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
 
-1. Dans le portail Azure, accédez à la ressource Azure Stack Edge de votre appareil. Accédez à **Services Edge** > **Machines virtuelles**.
+   [Dépannez les chargements d’images de machine virtuelle](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
-    ![Capture d’écran montrant Edge Services et Machines virtuelles.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+1. Dans le portail Azure, accédez à la ressource Azure Stack Edge de votre appareil. Ensuite, accédez à **Services Edge** > **Machines virtuelles**.
 
-1. Sélectionnez **Machines virtuelles** pour accéder à la page **Vue d’ensemble**. Sélectionnez **Activer** pour activer la gestion cloud des machines virtuelles.
+    ![Capture d’écran montrant le volet Vue d’ensemble d’un appareil Azure Stack Edge, avec l’option Machines virtuelles, sous Services Edge, mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
-    ![Capture d’écran de la page Vue d’ensemble avec le bouton Activer.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
+1. Sur la page **Vue d’ensemble**. Sélectionnez **Activer** pour activer la gestion cloud des machines virtuelles. 
+
+    ![Capture d’écran du volet Vue d’ensemble de la vue Machines virtuelles pour un appareil Azure Stack Edge. Le bouton Activer, qui permet d’activer la gestion cloud des machines virtuelles, est mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
 
 1. La première étape consiste à ajouter une image de machine virtuelle. Au cours de l’étape précédente, vous avez chargé un disque dur virtuel dans le compte de stockage. Vous allez utiliser ce disque dur virtuel pour créer une image de machine virtuelle.
 
-    Sélectionnez **Ajouter** pour télécharger le disque dur virtuel à partir du compte de stockage et l’ajouter à l’appareil. Le processus de téléchargement prend plusieurs minutes selon la taille du disque dur virtuel et de la bande passante Internet disponible pour le téléchargement. 
+    Sélectionnez **+ Ajouter une image** pour télécharger le disque dur virtuel à partir du compte de stockage et l’ajouter à l’appareil. Le processus de téléchargement prend plusieurs minutes selon la taille du disque dur virtuel et de la bande passante Internet disponible pour le téléchargement. 
 
-    ![Capture d’écran de la page Vue d’ensemble avec le bouton Ajouter.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
+    ![Capture d’écran du volet Vue d’ensemble pour Machines virtuelles, avec le bouton + Ajouter une image mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
-1. Dans le volet **Ajouter une image**, entrez les paramètres suivants. Sélectionnez **Ajouter**.
+1. Dans le volet **Ajouter une image**, renseignez les champs suivants. Sélectionnez ensuite **Ajouter**.
 
-
-    |Paramètre  |Description  |
+    |Champ  |Description  |
     |---------|---------|
     |Télécharger à partir d’un objet blob de stockage    |Accédez à l’emplacement de l’objet blob de stockage dans le compte de stockage où vous avez chargé le disque dur virtuel.         |
     |Télécharger vers    | Défini automatiquement sur l’appareil actuel sur lequel vous déployez la machine virtuelle.        |
+    |Groupe de ressources Edge  |Sélectionnez le groupe de ressources auquel ajouter l’image. |
     |Enregistrer l’image sous      | Nom de l’image de machine virtuelle que vous créez à partir du disque dur virtuel chargé dans le compte de stockage.        |
     |Type de système d’exploitation     |Sélectionnez Windows ou Linux en tant que système d’exploitation du disque dur virtuel que utiliserez pour créer l’image de machine virtuelle.         |
    
 
-    ![Capture d’écran qui montre la page Ajouter une image avec le bouton Ajouter.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
+    ![Capture d’écran montrant la page Ajouter une image pour une machine virtuelle, avec le bouton Ajouter mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
 
-1. Le disque dur virtuel est téléchargé et l’image de machine virtuelle est créée. Cette opération prend plusieurs minutes. Une notification s’affiche une fois l’image de machine virtuelle créée.
+1. Le disque dur virtuel est téléchargé et l’image de machine virtuelle est créée. Cette opération prend plusieurs minutes. Une notification s’affiche une fois l’image de machine virtuelle créée.<!--There's a fleeting notification that image creation is in progress, but I didn't see any notification that image creation completed successfully.-->
 
-    ![Capture d’écran qui montre la notification pour une exécution réussie.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-8.png)
+    ![Capture d’écran montrant le volet Vue d’ensemble pour Machines virtuelles sur un appareil Azure Stack Edge. Dans le volet Images, une machine virtuelle nouvellement créée est mise en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-8.png)
 
 
 1. Une fois créée, l’image de machine virtuelle est ajoutée à la liste des images dans le volet **Images**.
 
-    ![Capture d’écran montrant le volet Images.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
+    ![Capture d’écran montrant le volet Images dans la vue Machines virtuelles d’un appareil Azure Stack Edge. L’entrée d’une image de machine virtuelle est mise en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
 
     Le volet **Déploiements** se met à jour pour indiquer l’état du déploiement.
 
-    ![Capture d’écran qui montre le volet Déploiements.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-10.png)
+    ![Capture d’écran montrant le volet Déploiements dans la vue Machines virtuelles d’un appareil Azure Stack Edge. L’entrée d’une machine virtuelle déployée est mise en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-10.png)
 
     L’image nouvellement ajoutée s’affiche également dans la page **Vue d’ensemble**.
 
-    ![Capture d’écran de la page Vue d’ensemble avec l’image.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-11.png)
+    ![Capture d’écran montrant le volet Vue d’ensemble pour Machines virtuelles sur un appareil Azure Stack Edge. Une image de machine virtuelle nouvellement ajoutée est mise en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-11.png)
 
 
 ### <a name="add-a-vm"></a>Ajouter une machine virtuelle
 
 Suivez la procédure ci-dessous pour créer une machine virtuelle après avoir créé une image de machine virtuelle.
 
-1. Dans la page **Vue d’ensemble**, sélectionnez **Ajouter une machine virtuelle**.
+1. Dans la page **Vue d’ensemble** pour **Machines virtuelles**, sélectionnez **+ Ajouter une machine virtuelle**.
 
-    ![Capture d’écran montrant la page Présentation et le bouton Ajouter une machine virtuelle.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-1.png)
+    ![Capture d’écran montrant le volet Vue d’ensemble pour Machines virtuelles sur un appareil Azure Stack Edge. Le bouton + Ajouter une machine virtuelle est mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-1.png)
 
 1. Sous l’onglet **Informations de base**, entrez les paramètres suivants.
 
-
     |Paramètre |Description  |
     |---------|---------|
-    |Nom de la machine virtuelle     |         |
+    |Nom de la machine virtuelle     | Entrez le nom de la nouvelle machine virtuelle.        |
     |Groupe de ressources Edge     | Créez un groupe de ressources pour toutes les ressources associées à la machine virtuelle.        |
     |Image     | Effectuez une sélection parmi les images de machine virtuelle disponibles sur l’appareil.        |
-    |Taille     | Effectuez une sélection parmi les [Tailles de machine virtuelle prises en charge](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
+    |Taille     | Effectuez une sélection parmi les [Tailles de machine virtuelle prises en charge](azure-stack-edge-gpu-virtual-machine-sizes.md).<br>Pour une machine virtuelle avec GPU, sélectionnez une [taille de machine virtuelle de la série NCasT4-v3](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). |
     |Nom d’utilisateur     | Utilisez le nom d’utilisateur par défaut, **azureuser**, pour la connexion de l’administrateur à la machine virtuelle.        |
     |Type d'authentification    | Sélectionnez une clé publique SSH ou un mot de passe défini par l’utilisateur.       |
-    |Mot de passe     | Entrez un mot de passe de connexion à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité ](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)définies.        |
+    |Clé publique SSH | Affiché lorsque vous sélectionnez le type d’authentification **Clé publique SSH**. Collez-y la clé publique SSH. |
+    |Mot de passe     | Affiché lorsque vous sélectionnez le type d’authentification **Mot de passe**. Entrez un mot de passe de connexion à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité ](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)définies. |
     |Confirmer le mot de passe    | Entrez de nouveau le mot de passe.        |
 
-
-    ![Capture d’écran montrant l’onglet De base.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
+    ![Capture d’écran montrant l’onglet Informations de base dans l’Assistant Ajouter une machine virtuelle pour Azure Stack Edge. L’onglet Informations de base et le bouton Suivant : Disques sont mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
 
     Sélectionnez **Suivant : Disques**.
 
@@ -145,55 +146,59 @@ Suivez la procédure ci-dessous pour créer une machine virtuelle après avoir c
     
     1. Vous pouvez choisir entre **Créer et attacher un disque** ou **Attacher un disque existant**.
 
-        ![Capture d’écran montrant l’onglet Disques.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-1.png)
+        ![Capture d’écran montrant l’onglet Disques dans l’Assistant Ajouter une machine virtuelle pour Azure Stack Edge. L’option Créer et attacher un disque est mise en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-1.png)
 
     1. Sélectionnez **Créer et attacher un disque**. Dans le volet **Créer un disque**, indiquez le nom du disque et sa taille en Gio.
 
-        ![Capture d’écran montrant l’onglet Créer un disque.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
+        ![Capture d’écran montrant l’écran « Créer un disque » dans « Ajouter une machine virtuelle » pour Azure Stack Edge. Le bouton OK est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
     1. Répétez les étapes précédentes pour ajouter d’autres disques. Une fois les disques créés, ils s’affichent sous l’onglet **Disques**. Sélectionnez **Suivant : Mise en réseau**.
 
 1. Sous l’onglet **Mise en réseau**, vous allez configurer la connectivité réseau de votre machine virtuelle.
 
-    
     |Paramètre  |Description |
     |---------|---------|
     |Réseau virtuel    | Dans la liste déroulante, sélectionnez le commutateur virtuel créé sur votre appareil Azure Stack Edge lorsque vous avez activé le calcul sur l’interface réseau.    |
     |Subnet     | Ce champ est automatiquement renseigné avec le sous-réseau associé à l’interface réseau sur laquelle vous avez activé le calcul.         |
     |Adresse IP     | Indiquez une adresse IP statique ou dynamique pour votre machine virtuelle. L’adresse IP statique doit correspondre à une adresse IP disponible dans la plage de sous-réseau spécifiée.        |
 
-    ![Capture d’écran montrant l’onglet Mise en réseau.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
+    ![Capture d’écran de l’onglet Mise en réseau dans « Ajouter une machine virtuelle » pour Azure Stack Edge. L’onglet Mise en réseau et le bouton Suivant : Avancé sont mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
 
-    Sélectionnez **Suivant : Avancé**.
+    Sélectionnez **Suivant : Avancé**. Dans l’onglet **Avancé**, vous pouvez sélectionner une extension à installer pendant le déploiement de la machine virtuelle, et vous pouvez spécifier un script `cloud-init` pour personnaliser votre machine virtuelle.
 
-1. Sous l’onglet **Avancé**, vous pouvez spécifier les données personnalisées ou cloud-init pour personnaliser votre machine virtuelle. 
+1. Si vous souhaitez installer une extension sur votre machine virtuelle lorsque vous la créez, choisissez **Sélectionner une extension à installer**. Sélectionnez ensuite l’extension dans l’écran **Ajouter une extension**.
 
-    Vous pouvez utiliser cloud-init pour personnaliser une machine virtuelle lors de son premier démarrage. Utilisez cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. Comme cloud-init s’exécute pendant le processus de démarrage initial, aucune autre étape n’est requise pour appliquer votre configuration. Pour plus d’informations sur cloud-init, consultez [Vue d’ensemble de cloud-init](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+    Pour connaître les étapes détaillées de l’installation d’une extension GPU pendant le déploiement d’une machine virtuelle, consultez [Déployer des machines virtuelles avec GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
-    ![Capture d’écran montrant l’onglet Avancé.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-1.png)
+    ![Illustration de deux étapes pour ajouter une extension GPU à l’onglet Avancé dans « Ajouter une machine virtuelle ». Les options permettant de sélectionner et d’ajouter une extension sont mises en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
+
+1. Si vous souhaitez utiliser l’utilitaire `cloud-init` pour personnaliser la nouvelle machine virtuelle lors de son premier démarrage, dans l’onglet **Avancé**, collez votre script `cloud-init` dans la zone **Données personnalisées** sous **Données personnalisées et cloud-init**. 
+
+    Pour plus d’informations sur l’utilisation de `cloud-init`, consultez [Présentation de cloud-init](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+
+    ![Capture d’écran montrant l’onglet Avancé de l’Assistant Créer une nouvelle machine virtuelle, avec un script cloud-init dans la zone Données personnalisées mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-cloud-init-script.png)
 
     Sélectionnez **Suivant : Vérifier + créer**.
 
 1. Sur l’onglet **Vérifier + Créer**, passez en revue les spécifications de la machine virtuelle. Sélectionnez ensuite **Créer**.
 
-    ![Capture d’écran montrant l’onglet Vérifier + créer.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Capture d’écran montrant l’onglet Révision + créer de l’Assistant « Ajouter une machine virtuelle » dans Azure Stack Edge. L’onglet Révision + créer est mis en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. La création de la machine virtuelle démarre et peut prendre jusqu’à 20 minutes. Vous pouvez accéder à **Déploiements** pour suivre la création de la machine virtuelle.
 
-    ![Capture d’écran qui montre la page Déploiements.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
+    ![Capture d’écran montrant le volet Déploiements dans la vue Machines virtuelles d’un appareil Azure Stack Edge. L’entrée d’une machine virtuelle déployée est mise en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
-    
-1. Une fois la machine virtuelle créée, la page **Vue d’ensemble** se met à jour pour afficher la nouvelle machine virtuelle.
+1. Une fois la machine virtuelle créée, vous verrez votre nouvelle machine virtuelle dans le volet **Vue d’ensemble**.
 
-    ![Capture d’écran de la page Vue d’ensemble avec la nouvelle machine virtuelle répertoriée.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Capture d’écran montrant le volet Vue d’ensemble pour Machines virtuelles sur un appareil Azure Stack Edge. Une nouvelle machine virtuelle est mise en évidence dans la liste.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Sélectionnez la machine virtuelle que vous venez de créer pour accéder à **Machines virtuelles**.
 
-    ![Capture d’écran qui montre la sélection de la nouvelle machine virtuelle.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
+    ![Capture d’écran montrant le volet Machines virtuelles d’un appareil Azure Stack Edge. L’étiquette Machines virtuelles et une entrée de machine virtuelle sont mises en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Sélectionnez la machine virtuelle pour afficher les détails correspondants.
 
-    ![Capture d’écran montrant les détails de la machine virtuelle.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+    ![Capture d’écran montrant l’onglet Détails du volet Vue d’ensemble d’une machine virtuelle dans Azure Stack Edge. L’étiquette Vue d’ensemble et l’adresse IP dans Mise en réseau sont mises en évidence.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
     Vous allez utiliser l’adresse IP de l’interface réseau pour vous connecter à la machine virtuelle.
 
@@ -215,4 +220,8 @@ Suivez ces étapes pour vous connecter à une machine virtuelle Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment administrer votre appareil Azure Stack Edge Pro GPU, consultez [Administrer un appareil Azure Stack Edge Pro GPU avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md).
+- [Déployer une machine virtuelle avec GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md)
+- [Résoudre les problèmes de déploiement de machines virtuelles](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [Superviser l’activité des machines virtuelles sur votre appareil](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
+- [Superviser l’utilisation de l’UC et de la mémoire sur une machine virtuelle](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
+

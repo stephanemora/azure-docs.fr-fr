@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 0548b309f84f46d7e1a8c904115167d59cc6f10e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 4851e5cdfc5e50febf7d60ab4d7eaee2c95da5b4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417394"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866300"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>Images Docker prédéfinies pour l’inférence (préversion)
 
@@ -35,6 +35,7 @@ Les images conteneur Docker prédéfinies pour l’inférence [(préversion)](ht
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>Liste des images Docker prédéfinies pour l’inférence 
 
 * Toutes les images Docker s’exécutent en tant qu’utilisateur non racine.
+* Nous vous recommandons d’utiliser la balise `latest` pour les images docker. Les images docker prédéfinies pour l’inférence sont publiées dans le registre de conteneur Microsoft (MCR). Pour interroger la liste des balises disponibles, suivez les [instructions sur leur référentiel GitHub](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
 
 ### <a name="tensorflow"></a>TensorFlow
 

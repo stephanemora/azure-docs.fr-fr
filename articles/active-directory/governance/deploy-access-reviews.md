@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1878c2760cfcaa157d0ef233bb1931a5f310b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9acbe5d7b57906c894021ec4e4f83633433b3c3b
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970909"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525887"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -82,7 +82,7 @@ Les vidéos suivantes peuvent être utiles lorsque vous vous familiarisez avec l
 
 Vous avez besoin d’une licence Azure AD Premium (P2) valide pour chaque personne qui créeront ou effectueront des révisions d’accès, à l’exception des administrateurs généraux ou des administrateurs d’utilisateurs. Pour plus d’informations, consultez [Exigences de licence pour les révisions d’accès](access-reviews-overview.md).
 
-Vous pouvez également avoir besoin d’autres fonctionnalités d’Identity Governance, telles que la [gestion du cycle de vie des droits d’utilisation](entitlement-management-overview.md) ou Privileged Identity Management. Dans ce cas, vous pouvez également avoir besoin de licences connexes. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Vous pouvez également avoir besoin d’autres fonctionnalités d’Identity Governance, telles que la [gestion du cycle de vie des droits d’utilisation](entitlement-management-overview.md) ou Privileged Identity Management. Dans ce cas, vous pouvez également avoir besoin de licences connexes. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="plan-the-access-reviews-deployment-project"></a>Planifier le projet de déploiement des révisions d’accès
 
@@ -240,10 +240,10 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 
 **Exemple de plan de révision d’accès**
 
-| Composant| Value |
+| Composant| Valeur |
 | - | - |
 | **Ressources à réviser**| Accès à Microsoft Dynamics |
-| **Fréquence de révision**| Chaque mois |
+| **Fréquence de révision**| Mensuelle |
 | **Qui effectue la révision**| Responsables de programme du groupe d’entreprise Dynamics |
 | **Notification**| E-mail envoyé au début de la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
 | **Durée**| 48 heures à partir de la notification |
@@ -278,7 +278,7 @@ Les identités externes peuvent être autorisées à accéder aux ressources de 
 
 * Affectée à un rôle privilégié dans Azure AD ou dans un abonnement Azure
 
-Voir l’[exemple de script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Le script indique où les identités externes invitées dans le locataire sont utilisées. Vous pouvez voir l’appartenance à un groupe, les attributions de rôles et les attributions d’applications de l’utilisateur externe dans Azure AD. Le script n’affiche aucune attribution en dehors d’Azure AD, par exemple l’attribution directe des droits aux ressources SharePoint, sans l’utilisation de groupes.
+Voir l’[exemple de script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Le script indique où les identités externes invitées dans le locataire sont utilisées. Vous pouvez voir l’appartenance à un groupe, les attributions de rôles et les attributions d’applications de l’utilisateur externe dans Azure AD. Le script n’affiche aucune attribution en dehors d’Azure AD, par exemple, l’attribution directe des droits aux ressources SharePoint, sans l’utilisation de groupes.
 
 Lorsque vous créez une révision d’accès pour des groupes ou des applications, vous pouvez choisir de laisser le réviseur se concentrer sur Toute personne ayant un accès, ou sur Utilisateurs invités uniquement. En sélectionnant Utilisateurs invités uniquement, les réviseurs reçoivent une liste ciblée d’identités externes d’Azure AD B2B qui ont accès à la ressource.
 
@@ -336,7 +336,7 @@ Consulter [Utiliser les révisions d’accès Azure AD pour gérer les utilisate
 
 ### <a name="review-guest-users-group-memberships"></a>Examiner les appartenances de groupe des utilisateurs invités
 
-Consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](./manage-guest-access-with-access-reviews.md) pour savoir comment examiner l’accès des utilisateurs invités aux appartenances de groupe.
+Consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](./manage-guest-access-with-access-reviews.md) pour savoir comment réviser l’accès des utilisateurs invités aux appartenances de groupe.
 
 ### <a name="review-access-to-on-premises-groups"></a>Réviser l’accès aux groupes locaux
 

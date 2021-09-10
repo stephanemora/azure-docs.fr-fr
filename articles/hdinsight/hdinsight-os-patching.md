@@ -4,20 +4,20 @@ description: Découvrez comment configurer la planification de la mise à jour c
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/21/2020
-ms.openlocfilehash: 636caf592baa4df771f7cc50095911d0337456d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.openlocfilehash: 10ab6462096bbdabee0730e6ef60e07d8d51b438
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98939386"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223556"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux
 
 > [!IMPORTANT]
 > Les images Ubuntu sont accessibles pour la création d’un nouveau cluster Azure HDInsight dans les trois mois qui suivent leur publication. Plus aucun correctif automatique n'est disponible pour les clusters en cours. Les clients doivent utiliser des actions de script ou d'autres mécanismes pour corriger un cluster en cours d'exécution. Une bonne pratique consiste à exécuter ces actions de script et à appliquer les mises à jour de sécurité juste après la création du cluster.
 
-HDInsight prend en charge l’exécution des tâches courantes sur votre cluster, telles que l’installation des correctifs du système d’exploitation, les mises à jour de sécurité et le redémarrage des nœuds. Ces tâches sont accomplies à l’aide des deux scripts suivants qui peuvent être exécutés en tant qu’[actions de script](hdinsight-hadoop-customize-cluster-linux.md) et configurés avec les paramètres :
+HDInsight prend en charge l’exécution des tâches courantes sur votre cluster, telles que l’installation des correctifs du système d’exploitation, les mises à jour de sécurité du système d’exploitation et le redémarrage des nœuds. Ces tâches sont accomplies à l’aide des deux scripts suivants qui peuvent être exécutés en tant qu’[actions de script](hdinsight-hadoop-customize-cluster-linux.md) et configurés avec les paramètres :
 
 - `schedule-reboots.sh` : effectuez un redémarrage immédiat ou planifiez un redémarrage sur les nœuds de cluster.
 - `install-updates-schedule-reboots.sh` : installez toutes les mises à jour, les mises à jour du noyau et de la sécurité ou les mises à jour du noyau uniquement.

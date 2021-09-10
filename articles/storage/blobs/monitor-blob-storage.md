@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bd9e8c2e71f69045078111bd5a4ae7c0edf567aa
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: f38149e2259dbb6724a81e8139f46bd65a0edff0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527367"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532729"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervision du service Stockage Blob Azure
 
@@ -67,7 +67,7 @@ Pour collecter des journaux de ressources, vous devez créer un paramètre de di
 
 ## <a name="creating-a-diagnostic-setting"></a>Création d’un paramètre de diagnostic
 
-Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager. 
+Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager, ou Azure Policy. 
 
 Pour obtenir des instructions générales, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -159,7 +159,7 @@ Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSettin
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
-Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait par l’ID de ressource du service Blob. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait par l’ID de ressource du service Blob. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Points de terminaison** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
 
@@ -223,7 +223,7 @@ Activez les journaux à l’aide de la commande [az monitor diagnostic-settings 
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
 ```
 
-Remplacez l’espace réservé `<storage-service-resource--id>` dans cet extrait de code par le service Stockage Blob de l’ID de ressource. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+Remplacez l’espace réservé `<storage-service-resource--id>` dans cet extrait de code par le service Stockage Blob de l’ID de ressource. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Points de terminaison** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
 
@@ -269,6 +269,10 @@ Voici un exemple :
 
 Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour Stockage Azure](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+Vous pouvez créer un paramètre de diagnostic en utilisant une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Consultez [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
+
 ---
 
 ## <a name="analyzing-metrics"></a>Analyse des métriques
@@ -302,7 +306,7 @@ Pour obtenir la liste de toutes les métriques de prise en charge d'Azure Monito
 
 Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou une version ultérieure pour les mesures de stockage.
  
-Dans ces exemples, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
+Dans ces exemples, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
 
 Remplacez la variable `<subscription-ID>` par l’ID de votre abonnement. Pour obtenir des conseils sur la façon d’obtenir des valeurs pour `<tenant-ID>`, `<application-ID>` et `<AccessKey>`, consultez [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
@@ -444,7 +448,7 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
 
 Vous pouvez afficher la définition des métriques de votre compte de stockage ou du service de Stockage Blob. Utilisez l’applet de commande [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
-Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob.  Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
+Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob.  Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -466,7 +470,7 @@ Vous pouvez lire les valeurs des métriques de niveau compte de votre compte de 
 
 Vous pouvez afficher la définition des métriques de votre compte de stockage ou du service de Stockage Blob. Utilisez la commande [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions).
  
-Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
+Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -480,6 +484,10 @@ Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du se
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 ### <a name="template"></a>[Modèle](#tab/template)
+
+N/A.
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 N/A.
 
@@ -610,3 +618,4 @@ Non. Azure Compute prend en charge les métriques sur les disques. Pour obtenir 
 - Pour obtenir des informations de référence sur les journaux et les métriques créés par le service Stockage Blob Azure, consultez [Informations de référence sur les données de supervision du service Stockage Blob Azure](monitor-blob-storage-reference.md).
 - Pour plus d’informations sur la supervision des ressources Azure, consultez [Superviser des ressources Azure avec Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - Pour plus d’informations sur la migration des métriques, consultez [Migration des métriques de Stockage Azure](../common/storage-metrics-migration.md).
+- Pour les scénarios communs et les meilleures pratiques, consultez [Meilleures pratiques en matière de supervision de Stockage Blob Azure](blob-storage-monitoring-scenarios.md).

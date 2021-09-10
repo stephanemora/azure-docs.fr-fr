@@ -10,13 +10,13 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: e78f6762e3eb94e010909941cc84d19a37f3afc4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/22/2021
+ms.openlocfilehash: dc246908497d8f13bddbc06498900842850397ae
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691352"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525947"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Utiliser le traitement par lot pour améliorer les performances des applications Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -602,7 +602,7 @@ Cet exemple montre que les opérations de base de données encore plus complexes
 
 ### <a name="upsert"></a>Opération UPSERT
 
-Un autre scénario de traitement par lots implique la mise à jour simultanée de lignes existantes et l’insertion de nouvelles lignes. Cette opération est parfois appelée « UPSERT » (mise à jour + insertion). Plutôt que d’effectuer des appels distincts pour les opérations INSERT et UPDATE, l’instruction MERGE convient le mieux à cette tâche. L’instruction MERGE peut exécuter les deux opérations d’insertion et de mise à jour en un seul appel.
+Un autre scénario de traitement par lots implique la mise à jour simultanée de lignes existantes et l’insertion de nouvelles lignes. Cette opération est parfois appelée « UPSERT » (mise à jour + insertion). Plutôt que d’effectuer des appels distincts pour les opérations INSERT et UPDATE, l’instruction MERGE peut être un remplacement approprié. L’instruction MERGE peut exécuter les deux opérations d’insertion et de mise à jour en un seul appel. Les mécanismes de verrouillage de l’instruction MERGE fonctionnent différemment des instructions INSERT et UPDATE distinctes. Testez vos charges de travail spécifiques avant de les déployer en production.
 
 Les paramètres table peuvent être utilisés avec l’instruction MERGE pour effectuer des mises à jour et des insertions. Par exemple, considérez une table Employee simplifiée contenant les colonnes suivantes : EmployeeID, FirstName, LastName et SocialSecurityNumber :
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: ba0457bef8ad4e732cffe229e850272f68a6d30f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0dbdc6be4eb5dd61545bbf761d1805824690ebc7
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524075"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681367"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>Options de configuration pour experts, déploiement local et sources de journaux SAPControl
 
@@ -30,7 +30,7 @@ Cet article décrit comment déployer le connecteur de données SAP Azure Senti
 
 Les conditions préalables de base pour le déploiement de votre connecteur de données SAP Azure Sentinel sont les mêmes, quelle que soit votre méthode de déploiement.
 
-Avant de commencer, assurez-vous que votre système est conforme aux conditions préalables décrites dans le principal [tutoriel de déploiement du connecteur de données SAP](sap-deploy-solution.md#prerequisites).
+Avant de commencer, assurez-vous que votre système est conforme aux conditions préalables décrites dans la [procédure de déploiement du connecteur de données SAP](sap-deploy-solution.md#prerequisites) principal.
 
 Pour plus d’informations, consultez [Exigences de SAP détaillées pour la solution SAP Azure Sentinel (préversion publique)](sap-solution-detailed-requirements.md).
 
@@ -362,6 +362,7 @@ Pour plus d’informations, consultez [Déployer la solution SAP](sap-deploy-so
 
 Pour plus d'informations, consultez les pages suivantes :
 
+- [Déployer le connecteur de données SAP Azure Sentinel via SNC](sap-solution-deploy-snc.md)
 - [Exigences de SAP détaillées pour la solution SAP Azure Sentinel](sap-solution-detailed-requirements.md)
 - [Informations de référence sur les journaux de la solution SAP Azure Sentinel](sap-solution-log-reference.md)
 - [Solution SAP Azure Sentinel : informations de référence relatives au contenu de sécurité](sap-solution-security-content.md)

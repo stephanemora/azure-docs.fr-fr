@@ -5,17 +5,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24797f6524cd9a129f8eafb5b13e4bd1a26cf803
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711057"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432191"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution Agent Health dans Azure Monitor
 La solution Agent Health dans Azure vous permet de savoir quels agents, parmi tous ceux au service de l’espace de travail Log Analytics dans Azure Monitor ou d’un groupe d’administration System Center Operations Manager connecté à Azure Monitor, ne répondent pas et envoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../agents/agent-windows.md) au service de l’espace de travail Log Analytics ou d’un [groupe d’administration Operations Manager](../agents/om-agents.md) inclut dans votre espace de travail.
 
 ## <a name="solution-components"></a>Composants de la solution
@@ -78,6 +78,7 @@ L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de
 | `SCAgentChannel` | La valeur correspond à *Direct* et/ou *SCManagementServer*.|
 | `IsGatewayInstalled` | Si la passerelle Log Analytics est installée, la valeur correspond à *true*. Dans le cas contraire, elle correspond à *false*.|
 | `ComputerIP` | IP publique de l’ordinateur. Sur les machines virtuelles Azure, l’IP publique s’affiche, le cas échéant. Pour les machines virtuelles utilisant des IP privées, cette opération affiche l’adresse SNAT Azure (et non l’IP privée). |
+| `ComputerPrivateIPs` | Liste des adresses IP privées de l’ordinateur. |
 | `RemoteIPCountry` | Lieu où l’ordinateur est déployé.|
 | `ManagementGroupName` | Nom du groupe d’administration Operations Manager.|
 | `SourceComputerId` | ID unique de l’ordinateur.|

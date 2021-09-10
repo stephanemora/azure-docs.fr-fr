@@ -11,19 +11,19 @@ author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
 ms.date: 03/23/2021
-ms.openlocfilehash: ae950029e0e20fb0233cb1ca7905309f9c3e7b2a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 8ea21993103e5c461a8cea84f7739160338605a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532639"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Réglage manuel dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Le réglage automatique Azure SQL Database et Azure SQL Managed Instance fournit une optimisation des performances et une stabilisation des charges de travail grâce à un réglage continu des performances basé sur l'intelligence artificielle et l'apprentissage automatique.
 
-Le réglage automatique est un service de performances intelligent entièrement géré qui utilise l’intelligence intégrée pour surveiller en continu les requêtes exécutées sur une base de données, dont il améliore automatiquement les performances. Pour cela, il adapte de manière dynamique la base de données à l’évolution des charges de travail et applique des recommandations de réglage. Le réglage automatique apprend horizontalement de toutes les bases de données sur Azure grâce à l’intelligence artificielle et améliore ses actions de réglage de manière dynamique. Plus une base de données s’exécute avec le réglage automatique activé, meilleures sont ses performances.
+Le réglage automatique est un service de performances intelligent entièrement géré qui utilise l’intelligence intégrée pour surveiller en continu les requêtes exécutées sur une base de données, dont il améliore automatiquement les performances. Pour cela, il adapte de manière dynamique une base de données à l’évolution des charges de travail et applique des recommandations de réglage. Le réglage automatique apprend horizontalement de toutes les bases de données sur Azure grâce à l’intelligence artificielle et améliore ses actions de réglage de manière dynamique. Plus une base de données s’exécute avec le réglage automatique activé, meilleures sont ses performances.
 
 Le réglage automatique Azure SQL Database et Azure SQL Managed Instance est peut-être l'une des fonctionnalités les plus importantes à activer pour fournir des charges de travail de base de données stables avec des performances optimales.
 

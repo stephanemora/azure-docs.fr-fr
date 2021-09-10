@@ -2,30 +2,36 @@
 title: Compétence cognitive Analyse d’image
 titleSuffix: Azure Cognitive Search
 description: Extrayez le texte sémantique par analyse d’image à l’aide de la compétence cognitive Analyse d’image dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: d6b32dfedcb5ad5322a32c519084eac3858225ba
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91948933"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532962"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
 La compétence **Analyse d’image** extrait un ensemble complet de caractéristiques visuelles basées sur le contenu d’une image. Par exemple, vous pouvez générer une légende à partir d’une image, générer des balises ou identifier des célébrités et des paysages. Cette compétence utilise les modèles d’apprentissage automatique fournis par [Vision par ordinateur](../cognitive-services/computer-vision/overview.md) dans Cognitive Services. 
 
+**Analyse d’images** fonctionne sur les images qui répondent aux exigences suivantes :
+
++ L’image doit être au format JPEG, PNG, GIF ou BMP
++ La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
++ Les dimensions de l’image doivent être supérieures à 50 x 50 pixels
+
 > [!NOTE]
-> Les petits volumes (moins de 20 transactions) peuvent être exécutés gratuitement dans la Recherche cognitive Azure, mais l’exécution de charges de travail plus volumineuses nécessite l’[attachement d’une ressource facturable Cognitive Services](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
+> Cette compétence est liée à Cognitive Services et nécessite [une ressource facturable](cognitive-search-attach-cognitive-services.md) pour les transactions dépassant 20 documents par indexeur et par jour. L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> 
+> En outre, l’extraction d’images est [facturée par Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 
+## <a name="odatatype"></a>@odata.type 
 
-## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
@@ -43,8 +49,6 @@ Les paramètres respectent la casse.
 | Nom d’entrée      | Description                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Type complexe. Ne fonctionne actuellement qu'avec le champ « /documents/normalized_images », généré par l'indexeur d'objets Blob Azure lorsque ```imageAction``` est défini sur une valeur supérieure à ```none```. Pour plus d’informations, consultez [l’exemple](#sample-output).|
-
-
 
 ##  <a name="sample-skill-definition"></a>Exemple de définition de qualification
 
@@ -86,7 +90,9 @@ Les paramètres respectent la casse.
             ]
         }
 ```
+
 ### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Exemple d’index (uniquement pour les champs categories, description, faces et tags)
+
 ```json
 {
     "fields": [
@@ -298,7 +304,9 @@ Les paramètres respectent la casse.
 }
 
 ```
+
 ### <a name="sample-output-field-mapping-for-the-above-index"></a>Exemple de mappage de champs de sortie (pour l’index ci-dessus)
+
 ```json
     "outputFieldMappings": [
         {
@@ -322,6 +330,7 @@ Les paramètres respectent la casse.
             "targetFieldName": "brands"
         }
 ```
+
 ### <a name="variation-on-output-field-mappings-nested-properties"></a>Variation sur les mappages de champs de sortie (propriétés imbriquées)
 
 Vous pouvez définir des mappages de champs de sortie sur des propriétés de niveau inférieur, comme simplement les points de repère ou les célébrités. Dans ce cas, assurez-vous que votre schéma d’index a un champ destiné à contenir spécifiquement les points de repère.
@@ -333,6 +342,7 @@ Vous pouvez définir des mappages de champs de sortie sur des propriétés de ni
             "targetFieldName": "celebrities"
         }
 ```
+
 ##  <a name="sample-input"></a>Exemple d’entrée
 
 ```json
@@ -540,6 +550,7 @@ Si vous obtenez une erreur similaire à `"One or more skills are invalid. Detail
 
 ## <a name="see-also"></a>Voir aussi
 
++ [Présentation du service Analyse d'images](../cognitive-services/computer-vision/overview-image-analysis.md)
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer)

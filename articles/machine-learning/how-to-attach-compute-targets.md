@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/02/2020
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 9388a6e01885e4a3a0c5aa95c254910c96a4e36a
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 8d9910755162ea1da593f2e9ee50183c0a3eaa60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902354"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525021"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurer des cibles de calcul pour l'apprentissage et le déploiement de modèles
 
@@ -29,13 +29,12 @@ Cet article explique comment configurer l'espace de travail pour utiliser ces re
 * Pools Apache Spark (avec Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks
+* Azure Databricks, utilisé comme cible de calcul de formation uniquement dans les [pipelines Machine Learning](how-to-create-machine-learning-pipelines.md).
 * Service Analytique Azure Data Lake
 * Azure Container Instance
-
+* Azure Kubernetes Service et Kubernetes compatible avec Azure Arc (préversion)
 
 Pour utiliser les cibles de calcul gérées par Azure Machine Learning service, consultez :
-
 
 * [Instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md)
 * [Cluster de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md)
@@ -346,9 +345,23 @@ Si vous souhaitez obtenir un exemple plus détaillé, veuillez consulter un [exe
 
 Des instances Azure Container Instances (ACI) sont créées de façon dynamique lorsque vous déployez un modèle. Vous ne pouvez pas créer ou attacher des ACI à votre espace de travail de quelque autre manière que ce soit. Pour plus d’informations, consultez [Déployer un modèle dans Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+## <a name="kubernetes-preview"></a><a id="kubernetes"></a>Kubernetes (préversion)
 
-Azure Kubernetes Service (AKS) propose différentes options de configuration lorsqu’il est utilisé conjointement à Azure Machine Learning. Pour plus d’informations, consultez [Créer et attacher Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+Azure Machine Learning vous propose les options suivantes pour attacher vos propres clusters Kubernetes pour la formation :
+
+* [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service fournit un cluster managé dans Azure.
+* [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md). Utilisez des clusters Kubernetes avec Azure Arc si votre cluster est hébergé en dehors d’Azure.
+
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+Pour détacher un cluster Kubernetes de votre espace de travail, utilisez la méthode suivante :
+
+```python
+compute_target.detach()
+```
+
+> [!WARNING]
+> Détacher un cluster **ne supprime pas le cluster**. Pour supprimer un cluster Azure Kubernetes Service, consultez [Utiliser Azure CLI avec AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). Pour supprimer un cluster Kubernetes avec Azure Arc, consultez [Démarrage rapide Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 06/25/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
-ms.openlocfilehash: 95ac82bfbdef8843f3eb4fc10cea7a0309d9eb89
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: e6a06c2a2a525e89fd6d7ab61f983f2b91c1cc8a
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656831"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989000"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure
 
@@ -42,8 +42,6 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure offre une nouvelle exp
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans la zone de recherche située en haut, recherchez l’étendue à laquelle vous souhaitez accorder l’accès. Par exemple, recherchez **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource spécifique.
-
-    ![Capture d’écran de la recherche d’un groupe de ressources dans le portail Azure.](./media/shared/rg-portal-search.png)
 
 1. Cliquez sur la ressource spécifique pour cette étendue.
 
@@ -124,8 +122,6 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
 1. Dans la zone de recherche située en haut, recherchez l’étendue à laquelle vous souhaitez accorder l’accès. Par exemple, recherchez **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource spécifique.
 
-    ![Capture d’écran de la recherche d’un groupe de ressources dans le portail Azure pour une expérience en préversion.](./media/shared/rg-portal-search.png)
-
 1. Cliquez sur la ressource spécifique pour cette étendue.
 
     Voici l’illustration d’un exemple de groupe de ressources.
@@ -150,7 +146,7 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
     ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle pour une expérience en préversion.](./media/shared/add-role-assignment-menu-preview.png)
 
-    La page Attribuer un rôle s’ouvre.
+    La page Ajouter une attribution de rôle s’ouvre.
 
 ## <a name="step-3-select-the-appropriate-role-preview"></a>Étape 3 : Sélectionner le rôle approprié (préversion)
 
@@ -158,7 +154,7 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
     Vous pouvez rechercher un rôle par nom ou par description. Vous pouvez également filtrer les rôles par type et par catégorie.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Sélectionner un rôle pour une expérience en préversion.](./media/role-assignments-portal/roles.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Roles pour une expérience en préversion.](./media/shared/roles.png)
 
 1. Dans la colonne **Détails**, cliquez sur **Afficher** pour obtenir plus de détails sur un rôle.
 
@@ -170,21 +166,21 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
 1. Sous l’onglet **Membres**, sélectionnez **Utilisateur, groupe ou principal de service** pour attribuer le rôle sélectionné à un ou plusieurs utilisateurs, groupes ou principaux de service (applications) Azure AD.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Ajouter des membres pour une expérience en préversion.](./media/role-assignments-portal/members.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Membres pour une expérience en préversion.](./media/shared/members.png)
 
-1. Cliquez sur **Ajouter des membres**.
+1. Cliquez sur **Sélectionner des membres**.
 
 1. Recherchez et sélectionnez les utilisateurs, les groupes ou les principaux de service.
 
-    Vous pouvez entrer du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
+    Vous pouvez entrer du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage ou des adresses e-mail dans le répertoire.
 
-   ![Capture d’écran de l’option Ajouter des membres à l’aide du volet Sélectionner des membres pour une expérience en préversion.](./media/role-assignments-portal/select-principal.png)
+   ![Capture d’écran de la fenêtre Sélectionner des membres pour une expérience en préversion.](./media/shared/select-members.png)
 
 1. Cliquez sur **Enregistrer** pour ajouter des utilisateurs, des groupes ou des principaux de service à la liste Membres.
 
 1. Pour attribuer le rôle sélectionné à une ou plusieurs identités managées, sélectionnez **Identité managée**.
 
-1. Cliquez sur **Ajouter des membres**.
+1. Cliquez sur **Sélectionner des membres**.
 
 1. Dans le volet **Sélectionner des identités gérées**, indiquez si le type est une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md) ou une [identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md).
 

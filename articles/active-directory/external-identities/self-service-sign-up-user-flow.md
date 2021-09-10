@@ -5,23 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59e573c9b24d9a8b5577b55d143fcaca67952f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 36bc5a283665abb03bd1c49a0a067b551bcc979d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120757"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720947"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Ajouter un flux utilisateur d’inscription en libre-service à une application
-
-> [!NOTE]
-> Certaines des fonctionnalités mentionnées dans cet article sont des fonctionnalités en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pour les applications que vous générez, vous pouvez créer des flux d’utilisateur qui permettent à un utilisateur de s’inscrire à une application et de créer un compte invité. Un flux d’utilisateur d’inscription en libre-service définit la série d’étapes que l’utilisateur suit lors de l’inscription, les fournisseurs d’identité que vous l’autorisez à utiliser et les attributs utilisateur que vous souhaitez collecter. Vous pouvez associer une ou plusieurs applications à un seul flux d’utilisateur.
 
@@ -32,9 +29,9 @@ Pour les applications que vous générez, vous pouvez créer des flux d’utilis
 
 ### <a name="add-identity-providers-optional"></a>Ajouter des fournisseur d’identité (facultatif)
 
-Azure AD est le fournisseur d’identité par défaut pour l’inscription en libre-service. Cela signifie que les utilisateurs peuvent s’inscrire par défaut avec un compte Azure AD. Dans vos flux d’utilisateurs d’inscription en libre-service, vous pouvez également inclure des fournisseurs d’identité sociale tels que Google et Facebook, un compte Microsoft (préversion) et un code secret à usage unique envoyé par e-mail (préversion).
+Azure AD est le fournisseur d’identité par défaut pour l’inscription en libre-service. Cela signifie que les utilisateurs peuvent s’inscrire par défaut avec un compte Azure AD. Dans vos flux d’utilisateur d’inscription en libre-service, vous pouvez également inclure des fournisseurs d’identité sociale tels que Google et Facebook, Compte Microsoft et Code secret à usage unique envoyé par e-mail. Pour plus d’informations, voir les articles suivants :
 
-- [Fournisseur d’identité de compte Microsoft (préversion)](microsoft-account.md)
+- [Fournisseur d’identité Compte Microsoft](microsoft-account.md)
 - [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md)
 - [Ajouter Facebook à votre liste de fournisseurs d’identité sociale](facebook-federation.md)
 - [Ajouter Google à votre liste de fournisseurs d’identité sociale](google-federation.md)

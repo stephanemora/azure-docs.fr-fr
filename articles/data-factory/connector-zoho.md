@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 8f2066c797966d8862e3397fd3091363bda2fab3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9dff844b3922742fb2790a7b0fca22b4b12bbb2c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641263"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311055"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copier des données de Zoho à l’aide d’Azure Data Factory (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,6 +41,31 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-zoho-using-ui"></a>Créer un service lié à Zoho à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Zoho dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse, sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez Zoho et sélectionnez le connecteur Zoho.
+
+   :::image type="content" source="media/connector-zoho/zoho-connector.png" alt-text="Sélectionnez le connecteur Zoho.":::    
+
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+   :::image type="content" source="media/connector-zoho/configure-zoho-linked-service.png" alt-text="Configurez un service lié à Zoho.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration du connecteur
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Zoho.
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 07/23/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: absinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00fc768357d80fa22305b3b85e084dc636bd5a7c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3c5131cb56ff65b6c559186cf491c4367ecbc7d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525202"
 ---
 # <a name="list-azure-ad-role-definitions"></a>Répertorier les définitions de rôles Azure AD
 
@@ -26,11 +26,18 @@ Une définition de rôle est une collection d’autorisations qui peuvent être 
 
 Cet article explique comment répertorier les rôles intégrés et personnalisés Azure AD, ainsi que leurs autorisations.
 
-## <a name="list-all-roles"></a>Répertorier tous les rôles
+## <a name="prerequisites"></a>Prérequis
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) et sélectionnez **Azure Active Directory**.
+- Module AzureADPreview (avec PowerShell)
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
 
-1. Sélectionnez **Rôles et administrateurs** pour voir la liste de tous les rôles disponibles.
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
+
+## <a name="azure-portal"></a>Portail Azure
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Rôles et administrateurs** pour afficher la liste de tous les rôles disponibles.
 
     ![liste des rôles sur le portail Azure](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
 
@@ -38,10 +45,60 @@ Cet article explique comment répertorier les rôles intégrés et personnalisé
 
     Cette page inclut des liens vers la documentation correspondante pour vous guider tout au long de la gestion des rôles.
 
-    ![Capture d'écran représentant la page « Administrateur général - Description ».](./media/role-definitions-list/role-description.png)
+    ![Capture d'écran représentant la page « Administrateur général - Description ».](./media/role-definitions-list/role-description-updated.png)
+
+## <a name="powershell"></a>PowerShell
+
+Effectuez les étapes suivantes pour répertorier les rôles Azure AD à l’aide de PowerShell.
+
+1. Ouvrez une fenêtre PowerShell et utilisez [Import-Module](/powershell/module/microsoft.powershell.core/import-module) pour importer le module AzureADPreview. Pour plus d'informations, consultez [Prérequis pour utiliser PowerShell ou de l'Afficheur Graph](prerequisites.md).
+
+    ```powershell
+    Import-Module -Name AzureADPreview -Force
+    ```
+
+2. Dans une fenêtre PowerShell, utilisez [Connect-AzureAD](/powershell/module/azuread/connect-azuread) pour vous connecter à votre locataire.
+
+    ```powershell
+    Connect-AzureAD
+    ```
+3. Utilisez [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) pour obtenir tous les rôles.
+
+    ```powershell
+    Get-AzureADMSRoleDefinition
+    ```
+
+4. Pour afficher la liste des autorisations d’un rôle, utilisez la cmdlet suivante.
+    
+    ```powershell
+    # Do this avoid truncation of the list of permissions
+    $FormatEnumerationLimit = -1
+    
+    (Get-AzureADMSRoleDefinition -Filter "displayName eq 'Conditional Access Administrator'").RolePermissions | Format-list
+    ```
+
+## <a name="microsoft-graph-api"></a>API Microsoft Graph
+
+Suivez ces instructions pour répertorier les rôles Azure AD à l’aide de l’API Microsoft Graph dans [Afficheur Graph](https://aka.ms/ge).
+
+1. Connectez-vous à l’[Afficheur Graph](https://aka.ms/ge).
+2. Sélectionnez **GET** en tant que méthode HTTP dans la liste déroulante. 
+3. Sélectionnez la version de l’API sur **bêta**.
+4. Ajoutez la requête suivante pour utiliser l’API [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions).
+
+   ```HTTP
+   GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+   ```
+
+5. Sélectionnez **Exécuter la requête** pour répertorier les rôles.
+6. Pour afficher les autorisations d’un rôle, utilisez l’API suivante.
+
+   ```HTTP
+   GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=DisplayName eq 'Conditional Access Administrator'&$select=rolePermissions
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Pour plus d'informations sur les autorisations associées aux rôles, consultez [Rôles intégrés Azure AD](permissions-reference.md).
-* Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](../fundamentals/users-default-permissions.md).
+* [Répertorier les attributions de rôle Azure AD](view-assignments.md).
+* [Attribuer des rôles Azure AD aux utilisateurs](manage-roles-portal.md).
+* [Rôles intégrés Azure AD](permissions-reference.md).

@@ -4,13 +4,13 @@ description: Apprenez à utiliser un modèle Resource Manager pour créer une al
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: f31371c3d33354c4d8e6c849c9739eb9001c7641
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/12/2021
+ms.openlocfilehash: d3414b0de4a173b08815fc274e06e67814f6c887
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961784"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687512"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal avec un modèle Resource Manager
 
@@ -200,7 +200,7 @@ Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/schedu
 
 Ce code JSON peut être enregistré et déployé à l'aide d'[Azure Resource Manager sur le portail Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="template-for-all-resource-types-from-api-version-2020-05-01-preview"></a>Modèle adapté à tous les types de ressources (à partir de la version 2020-05-01-preview de l'API)
+## <a name="template-for-all-resource-types-from-api-version-2021-02-01-preview"></a>Modèle adapté à tous les types de ressources (à partir de la version 2021-02-01-preview de l’API)
 
 Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) adapté à tous les types de ressources (exemples de données définis en tant que variables) :
 
@@ -249,6 +249,20 @@ Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/schedu
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -360,7 +374,7 @@ Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/schedu
         },
         "muteActionsDuration": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -389,7 +403,7 @@ Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/schedu
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -416,11 +430,15 @@ Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/schedu
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 9ebf502fc2ae83651e8f69472b3b2042cef723d8
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: f29302efdf6d2a0c0b12ec15d897efda16cdc368
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537241"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535232"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Liaison de sortie Azure Event Grid pour Azure Functions
 
@@ -162,7 +162,100 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # <a name="java"></a>[Java](#tab/java)
 
-La liaison de sortie Event Grid n’est pas disponible pour Java.
+L’exemple suivant illustre une fonction Java qui écrit un message à une rubrique personnalisée Event Grid. La fonction utilise la méthode `setValue` de la liaison pour générer une chaîne.
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<String> outputEvent,
+            final ExecutionContext context) {
+        context.getLogger().info("Java EventGrid trigger processed a request." + content);
+        final String eventGridOutputDocument = "{\"id\": \"1807\", \"eventType\": \"recordInserted\", \"subject\": \"myapp/cars/java\", \"eventTime\":\"2017-08-10T21:03:07+00:00\", \"data\": {\"make\": \"Ducati\",\"model\": \"Monster\"}, \"dataVersion\": \"1.0\"}";
+        outputEvent.setValue(eventGridOutputDocument);
+    }
+}
+```
+
+Vous pouvez également utiliser une classe POJO pour envoyer des messages EventGrid.
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<EventGridEvent> outputEvent,
+            final ExecutionContext context) {
+        context.getLogger().info("Java EventGrid trigger processed a request." + content);
+
+        final EventGridEvent eventGridOutputDocument = new EventGridEvent();
+        eventGridOutputDocument.setId("1807");
+        eventGridOutputDocument.setEventType("recordInserted");
+        eventGridOutputDocument.setEventTime("2017-08-10T21:03:07+00:00");
+        eventGridOutputDocument.setDataVersion("1.0");
+        eventGridOutputDocument.setSubject("myapp/cars/java");
+        eventGridOutputDocument.setData("{\"make\": \"Ducati\",\"model\":\"monster\"");
+
+        outputEvent.setValue(eventGridOutputDocument);
+    }
+}
+
+class EventGridEvent {
+    private String id;
+    private String eventType;
+    private String subject;
+    private String eventTime;
+    private String dataVersion;
+    private String data;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDataVersion() {
+        return dataVersion;
+    }
+
+    public void setDataVersion(String dataVersion) {
+        this.dataVersion = dataVersion;
+    }
+
+    public String getEventTime() {
+        return eventTime;
+    }
+
+    public void setEventTime(String eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }  
+}
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -364,7 +457,19 @@ Les attributs ne sont pas pris en charge par le script C#.
 
 # <a name="java"></a>[Java](#tab/java)
 
-La liaison de sortie Event Grid n’est pas disponible pour Java.
+Pour les classes Java, utilisez l’attribut [EventGridAttribute](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/EventGridOutput.java).
+
+Le constructeur de l’attribut prend le nom d’un paramètre d’application qui contient le nom de la rubrique et le nom d’un paramètre d’application qui contient la clé de la rubrique. Pour plus d’informations sur ces paramètres, consultez [Sortie - configuration](#configuration). Voici un exemple d’attribut `EventGridOutput` :
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<String> outputEvent, final ExecutionContext context) {
+            ...
+    }
+}
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -376,7 +481,7 @@ Les attributs ne sont pas pris en charge par PowerShell.
 
 # <a name="python"></a>[Python](#tab/python)
 
-La liaison de sortie Event Grid n’est pas disponible pour Python.
+Les attributs ne sont pas pris en charge par Python.
 
 ---
 
@@ -415,7 +520,7 @@ Les applications qui utilisent la version 3.0.0 ou une version ultérieure de l�
 
 # <a name="java"></a>[Java](#tab/java)
 
-La liaison de sortie Event Grid n’est pas disponible pour Java.
+Envoyez des messages individuels en appelant un paramètre de méthode tel que `out EventGridOutput paramName`, et écrivez plusieurs messages avec `ICollector<EventGridOutput>`.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -427,7 +532,9 @@ Accédez à l’événement de sortie avec la cmdlet `Push-OutputBinding` pour e
 
 # <a name="python"></a>[Python](#tab/python)
 
-La liaison de sortie Event Grid n’est pas disponible pour Python.
+Il existe deux options pour produire en sortie un message Event Grid à partir d’une fonction :
+- **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur renvoyée de la fonction est conservée sous la forme d’un message EventGrid.
+- **Impératif** : Passez une valeur à la méthode [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) du paramètre déclaré en tant que type [Out](/python/api/azure-functions/azure.functions.out). La valeur transmise à `set` est conservée en tant que message EventGrid.
 
 ---
 

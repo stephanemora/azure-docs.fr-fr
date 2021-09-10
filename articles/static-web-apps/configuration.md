@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/17/2021
 ms.author: cshoe
-ms.openlocfilehash: 693a102c988d87dc4ed6ac9f0f4cb2176ec78ca5
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 210618ba5c49fbe0e53bd5b3fb2fe808b6b6aa03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059991"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531637"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurer Azure Static Web Apps
 
@@ -25,13 +25,16 @@ La configuration d’Azure Static Web Apps est définie dans le fichier _staticw
 - Remplacement des réponses HTTP
 - Définitions globales d’en-tête HTTP
 - Types MIME personnalisés
+- Mise en réseau
 
 > [!NOTE]
 > [_routes.jssur_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) qui a été précédemment utilisé pour configurer le routage est déconseillé. Utilisez _staticwebapp.config.jssur_ tel que décrit dans cet article pour configurer le routage et d’autres paramètres pour votre application web statique.
+> 
+> Ce document concerne Azure Static Web Apps, qui est un produit autonome et distinct de la fonctionnalité d’[hébergement de sites web statiques](../storage/blobs/storage-blob-static-website.md) de Stockage Azure.
 
 ## <a name="file-location"></a>Emplacement du fichier
 
-L’emplacement recommandé pour le fichier _staticwebapp.config.json_ est le dossier défini comme `app_location` dans le [fichier de workflow](./github-actions-workflow.md). Toutefois, le fichier peut être placé à n’importe quel emplacement au sein du dossier du code source de votre application.
+L’emplacement recommandé pour le fichier _staticwebapp.config.json_ est le dossier défini comme `app_location` dans le [fichier de workflow](./github-actions-workflow.md). Toutefois, le fichier peut être placé dans n’importe quel sous-dossier dans le dossier défini comme `app_location`.
 
 Pour plus de détails, consultez l’[exemple de fichier config](#example-configuration-file).
 
@@ -76,9 +79,9 @@ Chaque propriété a un objectif spécifique dans le pipeline de demande/répons
 
 ## <a name="securing-routes-with-roles"></a>Sécurisation des itinéraires avec des rôles
 
-Les itinéraires sont sécurisés en ajoutant un ou plusieurs noms de rôles dans le tableau `allowedRoles` d’une règle, et les utilisateurs sont associés à des rôles personnalisés via des [invitations](./authentication-authorization.md). Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
+Les itinéraires sont sécurisés en y ajoutant un ou plusieurs noms de rôles dans le tableau `allowedRoles` de la règle. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
 
-Par défaut, chaque utilisateur appartient au rôle `anonymous` intégré et tous les utilisateurs connectés sont membres du rôle `authenticated`.
+Par défaut, chaque utilisateur appartient au rôle `anonymous` intégré et tous les utilisateurs connectés sont membres du rôle `authenticated`. Si vous le souhaitez, les utilisateurs sont associés à des rôles personnalisés via des [invitations](./authentication-authorization.md).
 
 Par exemple, pour limiter un itinéraire aux seuls utilisateurs authentifiés, ajoutez le rôle `authenticated` intégré au groupe `allowedRoles`.
 
@@ -149,7 +152,17 @@ Les cas d’usage courants pour les itinéraires de caractères génériques son
 
 Les applications monopages s’appuient souvent sur le routage côté client. Ces règles d’acheminement côté client mettent à jour l’emplacement de la fenêtre du navigateur sans effectuer de demande au serveur. Si vous actualisez la page ou si vous accédez directement aux URL générées par les règles d’acheminement côté client, un itinéraire de secours côté serveur est requis pour servir la page HTML appropriée (qui est généralement le fichier _index.html_ de votre application côté client).
 
-Vous pouvez configurer votre application pour qu’elle utilise des règles qui implémentent un itinéraire de secours, comme illustré dans l’exemple suivant, qui utilise un caractère générique de chemin d’accès avec un filtre de fichiers :
+Vous pouvez définir une règle de secours en ajoutant une section `navigationFallback`. L’exemple suivant renvoie _/index.html_ pour toutes les demandes de fichier statique qui ne correspondent pas à un fichier déployé.
+
+```json
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
+```
+
+Vous pouvez contrôler les demandes qui renvoient le fichier de secours en définissant un filtre. Dans l’exemple suivant, les demandes concernant certains itinéraires du dossier _/images_ et tous les fichiers du dossier _/css_ sont exclues du renvoi du fichier de secours.
 
 ```json
 {
@@ -184,6 +197,9 @@ Dans l’exemple de structure de fichiers ci-dessous, les résultats suivants so
 | _/css/global.css_                                      | Le fichier de feuille de style                                                                                           | `200`              |
 | Tout autre fichier en dehors des dossiers _/images_ ou _/css_ | Le fichier _/index.html_                                                                                        | `200`              |
 
+> [!IMPORTANT]
+> Si vous effectuez une migration à partir du fichier [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) déconseillé, n’incluez pas l’itinéraire de secours hérité (`"route": "/*"`) dans les [règles d’acheminement](#routes).
+
 ## <a name="global-headers"></a>En-têtes globaux
 
 La section `globalHeaders` fournit un ensemble d’[en-têtes HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) appliqués à chaque réponse, sauf s’ils sont remplacés par une règle d’[en-tête d’itinéraire](#route-headers). Sinon, l’union des en-têtes de l’itinéraire et des en-têtes globaux est renvoyée.
@@ -217,24 +233,44 @@ L’exemple de configuration suivant montre comment remplacer un code d’erreur
 {
   "responseOverrides": {
     "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
+      "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
       "statusCode": 302,
       "redirect": "/login"
     },
     "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
+      "rewrite": "/custom-forbidden-page.html"
     },
     "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "rewrite": "/custom-404.html"
     }
   }
 }
 ```
+
+## <a name="networking"></a>Mise en réseau
+
+La section `networking` contrôle la configuration réseau de votre application web statique. Pour restreindre l’accès à votre application, spécifiez une liste de blocs d’adresses IP autorisés dans `allowedIpRanges`.
+
+> [!NOTE]
+> La configuration de la mise en réseau est uniquement disponible dans le plan Standard d’Azure Static Web Apps.
+
+Définissez chaque bloc d’adresses IPv4 dans la notation CIDR (Classless InterDomain Routing). Pour plus d’informations sur la notation de routage CIDR, consultez [Routage CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Chaque bloc d’adresses IPv4 peut désigner un espace d’adressage public ou privé. Si vous souhaitez autoriser l’accès à partir d’une seule adresse IP, vous pouvez utiliser le bloc CIDR `/32`.
+
+```json
+{
+  "networking": {
+    "allowedIpRanges": [
+      "10.0.0.0/24",
+      "100.0.0.0/32",
+      "192.168.100.0/22"
+    ]
+  }
+}
+```
+
+Lorsqu’un ou plusieurs blocs d’adresses IP sont spécifiés, les demandes provenant d’adresses IP qui ne correspondent à aucune valeur dans `allowedIpRanges` se voient refuser l’accès.
 
 ## <a name="example-configuration-file"></a>Exemple de fichier de configuration
 
@@ -345,7 +381,7 @@ En fonction de la configuration ci-dessus, passez en revue les scénarios suivan
 
 ## <a name="restrictions"></a>Restrictions
 
-Les restrictions suivantes existent pour le fichier _staticwebapps.config.json_.
+Les restrictions suivantes existent pour le fichier _staticwebapp.config.json_.
 
 - La taille maximale des fichiers est de 100 ko.
 - Maximum de 50 rôles distincts.

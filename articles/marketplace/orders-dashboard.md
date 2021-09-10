@@ -4,28 +4,27 @@ description: Découvrez comment accéder aux rapports d’analytique concernant 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 344c7e6c14ca8ecdd91ffb9c148ce01d2b937573
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
+ms.openlocfilehash: 1cc7e76833ac710ae4bdd511efa3033f8cf8fed7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531448"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
 Cet article fournit des informations sur le tableau de bord Commandes de l’Espace partenaires. Ce tableau de bord présente des informations sur vos commandes, notamment les tendances de croissance, dans un format graphique et téléchargeable.
 
-Pour accéder au tableau de bord Commandes dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Commandes**.
-
 >[!NOTE]
-> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Terminologie relative à l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).
 
 ## <a name="orders-dashboard"></a>Tableau de bord des commandes
 
-Le tableau de bord Commandes présente les commandes en cours pour l’ensemble de vos offres Software as a Service (SaaS). Vous pouvez afficher une représentation graphique des éléments suivants :
+Le [tableau de bord Commandes](https://go.microsoft.com/fwlink/?linkid=2165914) présente les commandes en cours pour l’ensemble de vos offres software as a service (SaaS). Vous pouvez afficher une représentation graphique des éléments suivants :
 
 - Tendance des commandes
 - Commandes par siège et tendance de site
@@ -40,6 +39,8 @@ Le tableau de bord Commandes présente les commandes en cours pour l’ensemble 
 ## <a name="elements-of-the-orders-dashboard"></a>Éléments du tableau de bord Commandes
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Commandes et lire les données.
+
+Pour accéder au tableau de bord Commandes dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Commandes**.
 
 ### <a name="month-range"></a>Plage de mois
 
@@ -118,7 +119,7 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 | ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Pour les offres d’infrastructure, il s’agit du GUID de l’abonnement Azure du client. Pour les offres SaaS, il est représenté par des zéros, car les achats SaaS ne nécessitent pas d’abonnement Azure. | ID d’abonnement de la Place de marché |
 | MonthStartDate | Date de début du mois | Date de début du mois représente le mois d’achat. Le format est aaaa-mm-jj. | MonthStartDate |
 | Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. | OfferType |
-| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> | AzureLicenseType |
+| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal. Les valeurs possibles sont les suivantes :<ul><li>[Fournisseur de solutions cloud](cloud-solution-providers.md)</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li><li>GTM</li></ul> | AzureLicenseType |
 | Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les différentes valeurs sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | Plan associé à l’offre | SKU |
 | Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. | CustomerCountry |
@@ -136,7 +137,16 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 | ID de client | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. | CustomerId |
 | ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. | BillingAccountId |
 | AssetCount | Nombre de ressources | Nombre de ressources associées à l’ID de commande. | Déprécié |
+| Non disponible* | TermStartDate | Indique la date de début d’une période pour une commande. | TermStartDate |
+| Non disponible* | TermEndDate | Indique la date de fin d’une période pour une commande. | TermEndDate |
+| Non disponible* | purchaseRecordId | Identificateur de l’enregistrement d’achat lié à une commande. | purchaseRecordId |
+| Non disponible* | purchaseRecordLineItemId | Identificateur de l’élément de ligne d’enregistrement d’achat associé à cette commande. | purchaseRecordLineItemId |
+| Non disponible* | EstimatedCharges | Prix facturé au client pour toutes les unités de la commande, hors taxes. Dans les pays où les taxes sont incluses, ce prix comprend les taxes en vigueur. Dans le cas contraire, elles ne sont pas incluses. | EstimatedCharges |
+| Non disponible* | Devise | Devise de facturation de l’offre | Devise |
+| Non disponible* | HasTrial | Indique si la période d’évaluation est activée pour une offre. | HasTrial |
 |||||
+
+`*` Ces nouveaux champs sont actuellement fournis dans le jeu de données ISVOrderV2 et sont accessibles par programmation.
 
 ### <a name="orders-page-filters"></a>Filtres de page des commandes
 
@@ -153,4 +163,4 @@ Les filtres de la page **Commandes** s’appliquent au niveau de la page Command
 - Pour consulter les métriques d’utilisation et de facturation à l’usage des offres de machines virtuelles, voir [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](ratings-reviews.md).
-- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.yml).

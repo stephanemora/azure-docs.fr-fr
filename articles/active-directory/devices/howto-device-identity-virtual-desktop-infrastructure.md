@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a122c5dc10600b612c20d3a742f3500944562357
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 4973dabe12f56105ab0eefdac485311d8f4df10b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407990"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864289"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -54,13 +54,14 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 |   | Managée<sup>4</sup> | Windows actuel et Windows de bas niveau | Persistante | Oui |
 |   |   | Windows actuel | Non persistante | Non |
 |   |   | Appareils Windows de bas niveau | Non persistante | Oui<sup>6</sup> |
-| Appareil joints Azure AD | Adresses IP fédérées | Windows actuel | Persistante | Non |
+| Appareil joints Azure AD | Adresses IP fédérées | Windows actuel | Persistante | Limitée<sup>7</sup> |
 |   |   |   | Non persistante | Non |
-|   | Adresses IP gérées | Windows actuel | Persistante | Non |
+|   | Adresses IP gérées | Windows actuel | Persistante | Limitée<sup>7</sup> |
 |   |   |   | Non persistante | Non |
 | Appareils inscrits sur Azure AD | Fédérée/managée | Windows actuel/Windows de bas niveau | Persistante/non persistante | Non applicable |
 
 <sup>1</sup> Les appareils **Windows actuels** sont Windows 10, Windows Server 2016 v1803 ou ultérieur et Windows Server 2019.
+
 <sup>2</sup> Les appareils **Windows de bas niveau** sont Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Pour des informations relatives à la prise en charge de Windows 7, consultez [Fin de la prise en charge de Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Pour obtenir des informations de support sur Windows Server 2008 R2, consultez [Préparez-vous à la fin du support de Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> Un environnement d’infrastructure d’identité **fédérée** représente un environnement avec un fournisseur d’identité, tel qu’AD FS ou d’autres IdP tiers.
@@ -71,6 +72,7 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 
 <sup>6</sup> La **prise en charge de la non persistance pour Windows de bas niveau** nécessite une considération supplémentaire, comme indiqué ci-dessous dans la section d’aide.
 
+<sup>7</sup> **La prise en charge de la jointure Azure AD** est uniquement disponible avec Azure Virtual Desktop et Windows 365.
 
 ## <a name="microsofts-guidance"></a>Conseils de Microsoft
 
@@ -96,7 +98,7 @@ Lors du déploiement d’une VDI non persistante, Microsoft recommande aux admin
    - Pour les déploiements VDI non persistants sur Windows actuel et de bas niveau, vous devez supprimer les appareils qui ont une propriété **ApproximateLastLogonTimestamp** antérieure à 15 jours.
 
 > [!NOTE]
-> Lors de l’utilisation d’une plateforme VDI non persistante, si vous voulez empêcher l’état de jonction d’appareils, vérifiez que la clé de Registre suivante est définie :  
+> Lorsque vous utilisez une plateforme VDI non persistante, si vous souhaitez empêcher l’ajout d’un compte professionnel ou scolaire, assurez-vous que la clé de Registre suivante est définie :  
 > `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
 >
 > Assurez-vous que vous exécutez Windows 10 version 1803 ou ultérieure.  
@@ -109,7 +111,9 @@ Lors du déploiement d’une VDI non persistante, Microsoft recommande aux admin
 > * `%localappdata%\Microsoft\TokenBroker`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
+> L’itinérance du certificat d’appareil du compte professionnel n’est pas prise en charge. Le certificat, émis par « MS-Organization-Access », est stocké dans le magasin de certificats personnel (MY) de l’utilisateur actuel et sur l’ordinateur local.
 
 
 ### <a name="persistent-vdi"></a>VDI persistante

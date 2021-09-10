@@ -4,19 +4,18 @@ description: En savoir plus sur les performances de SMB Multichannel.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 08/25/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 995ece7fb5d199a4c403d4512c29eae46fe9fdcb
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: e19011751115e305be40b33bec72e35e47a80293
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112116658"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967262"
 ---
 # <a name="smb-multichannel-performance"></a>Performances de SMB Multichannel
-
-Azure Files SMB Multichannel (version préliminaire) permet à un client SMB 3.x d’établir plusieurs connexions réseau avec les partages de fichiers Premium dans un compte FileStorage. Le protocole SMB 3.x a introduit la fonctionnalité SMB Multichannel dans les clients Windows Server 2012 et Windows 8. Pour cette raison, tout client Azure Files SMB 3.x qui prend en charge SMB Multichannel peut tirer parti de la fonctionnalité pour ses partages de fichiers Azure Premium. L’activation de SMB Multichannel sur un compte de stockage n’entraîne aucun coût supplémentaire.
+SMB Multichannel permet à un client SMB 3 d'établir plusieurs connexions réseau à un partage de fichiers SMB. Azure Files prend en charge SMB Multichannel sur des partages de fichiers Premium (partages de fichiers dans le type de compte de stockage FileStorage). L’activation de SMB Multichannel dans Azure Files occasionne des coûts supplémentaires. Par défaut, SMB Multichannel est désactivé.
 
 ## <a name="applies-to"></a>S’applique à
 | Type de partage de fichiers | SMB | NFS |
@@ -26,8 +25,7 @@ Azure Files SMB Multichannel (version préliminaire) permet à un client SMB 3.
 | Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="benefits"></a>Avantages
-
-Azure Files SMB Multichannel permet aux clients d’utiliser plusieurs connexions réseau qui améliorent les performances tout en réduisant le coût de possession. L’agrégation de bande passante sur plusieurs cartes réseau et l’utilisation de la prise en charge de la mise à l’échelle côté réception pour distribuer la charge d’e/s sur plusieurs UC présentent des performances améliorées.
+SMB Multichannel permet aux clients d’utiliser plusieurs connexions réseau qui améliorent les performances tout en réduisant le coût de possession. L’agrégation de bande passante sur plusieurs cartes réseau et l’utilisation de la prise en charge de la mise à l’échelle côté réception pour distribuer la charge d’e/s sur plusieurs UC présentent des performances améliorées.
 
 - **Débit accru** : Plusieurs connexions autorisent le transfert des données sur plusieurs chemins d’accès en parallèle et, par conséquent, permettent de tirer des avantages considérables des charges de travail qui utilisent des fichiers de plus grande taille avec des tailles d’e/s plus élevées et qui nécessitent un débit élevé à partir d’une seule machine virtuelle ou d’un plus petit ensemble de machines virtuelles. Certaines de ces charges de travail incluent des supports multimédia et de divertissement pour la création ou le transcodage de contenu, la génomique et l’analyse des risques de services financiers.
 - **IOPS le plus élevé** : La fonctionnalité RSS de la carte réseau permet une distribution efficace de la charge sur plusieurs UC avec plusieurs connexions. Cela permet d’obtenir une mise à l’échelle des IOPS et une utilisation efficace des UC de machines virtuelles. Cela est utile pour les charges de travail qui ont de petites tailles d’e/s, telles que les applications de base de données.
@@ -40,22 +38,20 @@ Pour en savoir plus sur SMB Multichannel, reportez-vous à la [documentation de 
 Cette fonctionnalité offre de meilleures performances pour les applications multithread, mais elle n’aide généralement pas les applications monothread. Consultez la section [Comparaison des performances](#performance-comparison) pour plus de détails.
 
 ## <a name="limitations"></a>Limites
-
-[!INCLUDE [storage-files-smb-multi-channel-restrictions](../../../includes/storage-files-smb-multi-channel-restrictions.md)]
-
-### <a name="regional-availability"></a>Disponibilité régionale
-
-[!INCLUDE [storage-files-smb-multi-channel-regions](../../../includes/storage-files-smb-multi-channel-regions.md)]
+SMB Multichannel pour les partages de fichiers Azure présente actuellement les restrictions suivantes :
+- Pris en charge uniquement sur les clients[Windows](storage-how-to-use-files-windows.md) et [Linux](storage-how-to-use-files-linux.md) qui utilisent SMB 3.1.1. Vérifiez que les systèmes d’exploitation clients SMB sont corrigés aux niveaux recommandés.
+- Le nombre maximal de canaux est de quatre. Pour plus d’informations consultez [ce lien](storage-troubleshooting-files-performance.md#cause-4-number-of-smb-channels-exceeds-four).
 
 ## <a name="configuration"></a>Configuration
-
 SMB Multichannel fonctionne uniquement lorsque la fonctionnalité est activée côté client (votre client) et côté service (votre compte de stockage Azure).
 
 Sur les clients Azure, SMB Multichannel est activé par défaut. Vous pouvez vérifier votre configuration en exécutant la commande PowerShell suivante : 
 
-`Get-smbClientConfiguration | select EnableMultichannel`.
+```PowerShell
+Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
+```
  
-Sur votre compte de stockage Azure, vous devez activer SMB Multichannel. Consultez [Activer SMB Multichannel (aperçu)](storage-files-enable-smb-multichannel.md).
+Sur votre compte de stockage Azure, vous devez activer SMB Multichannel. Consultez [Réactiver SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 
 ### <a name="disable-smb-multichannel"></a>Désactiver SMB Multichannel
 Dans la plupart des scénarios, en particulier les charges de travail multithread, les clients doivent obtenir des performances améliorées avec SMB Multichannel. Toutefois, pour certains scénarios spécifiques tels que les charges de travail monothread ou à des fins de test, vous pouvez désactiver SMB Multichannel. Consultez la section [Comparaison des performances](#performance-comparison) pour plus de détails.
@@ -138,6 +134,5 @@ Les conseils suivants peuvent vous aider à optimiser vos performances :
 Les tailles d’e/s supérieures améliorent le débit et entraînent des latences plus élevées, ce qui réduit le nombre d’IOPS. Des tailles d’e/s plus petites augmentent les IOPS, mais entraînent une diminution du débit net et des latences.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- [Activer SMB Multichannel sur un compte FileStorage (préversion)](storage-files-enable-smb-multichannel.md)
+- [Activer SMB Multichannel](files-smb-protocol.md#smb-multichannel)
 - Pour en savoir plus sur SMB Multichannel, reportez-vous à la [documentation de Windows](/azure-stack/hci/manage/manage-smb-multichannel).

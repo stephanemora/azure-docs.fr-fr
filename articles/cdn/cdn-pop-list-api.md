@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 07/06/2021
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 4197b1a5f047190872d055dc2ba8ccaa11efbe6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155f3817b913e38e503d0a8fcaa6083922067ebd
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376341"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487612"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP actuelle pour Azure CDN
 
@@ -36,11 +36,7 @@ Pour verrouiller votre application de sorte qu’elle n’accepte que le trafic 
 
 Configurez les ACL IP pour vos back-ends de manière à accepter uniquement le trafic en provenance de l’espace d’adressage IP de Microsoft Azure CDN et des services d’infrastructure d’Azure. 
 
-* Espace d’adressage IP du back-end IPv4 de Microsoft Azure CDN : 147.243.0.0/16
-* Espace d’adressage IP du back-end IPv6 de Microsoft Azure CDN : 2a01:111:2050::/44
-
-Pour utiliser des étiquettes de service avec Azure CDN de Microsoft, utilisez l’étiquette Azure Front Door. Vous trouverez les plages d’adresses IP et les étiquettes de service pour les services Microsoft [ici](https://www.microsoft.com/download/details.aspx?id=56519).
-
+Utilisez les [étiquettes de service](../virtual-network/service-tags-overview.md) d’Azure Front Door avec Azure CDN de Microsoft pour configurer les plages d’adresses IP du serveur principal de Microsoft. Pour obtenir la liste complète, consultez [Plages d’adresses IP et étiquettes de service](https://www.microsoft.com/en-us/download/details.aspx?id=56519) pour les services Microsoft.
 
 ## <a name="typical-use-case"></a>Cas d’utilisation classique
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2021
-ms.openlocfilehash: 053ba5b768e9a09eb50f71a8296d42f85a9e4515
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: a2c500072dfd1137f14d7ae663c6736bf6328c33
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532956"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866309"
 ---
 # <a name="iot-hub-ip-addresses"></a>Adresses IP IoT Hub
 
@@ -30,18 +30,18 @@ Vous pouvez utiliser ces préfixes d’adresse IP pour contrôler la connectivit
 | Vérifiez que votre point de terminaison d’appareil IoT Hub reçoit des connexions uniquement à partir de vos appareils et ressources réseau | La messagerie [appareil-à-cloud](./iot-hub-devguide-messaging.md)et [cloud-à-appareil](./iot-hub-devguide-messages-c2d.md), les [méthodes directes](./iot-hub-devguide-direct-methods.md), les [jumeaux d’appareil et de module](./iot-hub-devguide-device-twins.md) et les [flux d’appareil](./iot-hub-device-streams-overview.md) | Utilisez la [fonctionnalité de filtre IP](iot-hub-ip-filtering.md) d’IoT Hub pour autoriser les connexions à partir de vos appareils et des adresses IP de vos ressources réseau (voir la section [limitations](#limitations-and-workarounds)). | 
 | Assurez-vous que les ressources de point de terminaison personnalisées de vos itinéraires (comptes de stockage, Service Bus et Event Hub) sont accessibles à partir de vos ressources réseau uniquement | [Routage de messages](./iot-hub-devguide-messages-d2c.md) | Suivez les instructions de votre ressource sur restreindre la connectivité (par exemple, via des [règles de pare-feu](../storage/common/storage-network-security.md), des [liens privés](../private-link/private-endpoint-overview.md) ou des [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md)). Utilisez des balises de service _AzureIoTHub_ pour découvrir les préfixes d’adresses IP IoT Hub et ajoutez des règles d’autorisation pour ces préfixes IP sur la configuration du pare-feu de votre ressource (voir la section [limitations](#limitations-and-workarounds)). |
 
-
-
 ## <a name="best-practices"></a>Meilleures pratiques
 
-* Lorsque vous ajoutez des règles d’autorisation dans la configuration du pare-feu de vos appareils, il est préférable de fournir les [ports spécifiques utilisés par les protocoles applicables](./iot-hub-devguide-protocols.md#port-numbers).
+* L’adresse IP d’un hub IoT peut être modifiée sans préavis. Pour limiter les interruptions, utilisez autant que possible le nom d’hôte du hub IoT (par exemple, myhub.azure-devices.net) pour la configuration de la mise en réseau et du pare-feu. 
 
-* Les préfixes d’adresse IP de l’hub IoT sont susceptibles d’être modifiés. Ces modifications sont publiées régulièrement par le biais de balises de service avant d’être prises en compte. Il est donc important que vous développiez des processus pour récupérer et utiliser régulièrement les balises de service les plus récentes. Ce processus peut être automatisé via l’[API de détection de balises de service](../virtual-network/service-tags-overview.md#service-tags-on-premises). Notez que l’API de détection de balises de service est toujours en préversion et peut, dans certains cas, ne pas générer la liste complète de balises et adresses IP. En attendant la mise à la disposition générale de l'API de détection, pensez à utiliser les [balises de service au format JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+* Pour les systèmes IoT sans résolution de nom de domaine (DNS) soumis à des contraintes, des plages d’adresses IP IoT Hub sont publiées périodiquement via des balises de service avant la prise d’effet des modifications. Il est donc important que vous développiez des processus pour récupérer et utiliser régulièrement les balises de service les plus récentes. Ce processus peut être automatisé via l’[API de détection de balises de service](../virtual-network/service-tags-overview.md#service-tags-on-premises). Notez que l’API de détection de balises de service est toujours en préversion et peut, dans certains cas, ne pas générer la liste complète de balises et adresses IP. En attendant la mise à la disposition générale de l'API de détection, pensez à utiliser les [balises de service au format JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+
 
 * Utilisez la balise *AzureIoTHub.[nom de région]* pour identifier les préfixes IP utilisés par les points de terminaison de l’hub IoT dans une région spécifique. Pour tenir compte de la récupération d’urgence d’un centre de données ou de [basculement régional](iot-hub-ha-dr.md), assurez-vous que la connectivité aux préfixes IP de la région de géolocalisation de votre IoT Hub est également activée.
 
 * Dans IoT Hub, la configuration de règles de pare-feu peut bloquer la connectivité requise pour exécuter des commandes Azure CLI et PowerShell sur votre instance IoT Hub. Pour l'éviter, vous pouvez ajouter des règles d’autorisation afin de permettre aux préfixes des adresses IP de vos clients de réactiver les clients CLI ou PowerShell pour communiquer avec votre instance IoT Hub.  
 
+* Lorsque vous ajoutez des règles d’autorisation dans la configuration du pare-feu de vos appareils, il est préférable de fournir les [ports spécifiques utilisés par les protocoles applicables](./iot-hub-devguide-protocols.md#port-numbers).
 
 ## <a name="limitations-and-workarounds"></a>Limitations et solutions de contournement
 

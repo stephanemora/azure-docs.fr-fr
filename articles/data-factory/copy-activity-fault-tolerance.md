@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 55d8c089bd73a3e85666208ed6edc13c654c24bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 544d298616c8021991fedb1ee47d452cfbc427f3
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641477"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255033"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -91,12 +91,12 @@ path | Chemin des fichiers journaux. | Spécifiez le chemin que vous utilisez po
 > Vous trouverez ci-dessous les conditions préalables à l’activation de la tolérance de panne dans l’activité de copie lors de la copie de fichiers binaires.
 > Pour ignorer des fichiers particuliers lorsqu’ils sont supprimés du magasin source :
 > - Les jeux de données source et récepteur doivent être au format binaire, et le type de compression ne peut pas être spécifié. 
-> - Les types de magasins de données pris en charge sont Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, Système de fichiers, FTP, SFTP, Amazon S3, Google Cloud Storage et HDFS.
+> - Les types de magasins de données pris en charge sont Stockage Blob Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, Système de fichiers, FTP, SFTP, Amazon S3, Google Cloud Storage et HDFS.
 > - Si vous spécifiez plusieurs fichiers dans le jeu de données source, qui peut être un dossier, un caractère générique ou une liste de fichiers, l’activité de copie peut ignorer les fichiers d’erreur particuliers. Si un seul fichier est spécifié dans le jeu de données source à copier vers la destination, l’activité de copie échoue si une erreur s’est produite.
 >
 > Pour ignorer des fichiers particuliers lorsqu’ils ne sont plus accessibles du magasin source :
 > - Les jeux de données source et récepteur doivent être au format binaire, et le type de compression ne peut pas être spécifié. 
-> - Les types de magasins de données pris en charge sont Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 et HDFS.
+> - Les types de magasins de données pris en charge sont Stockage Blob Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, SFTP, Amazon S3 et HDFS.
 > - Si vous spécifiez plusieurs fichiers dans le jeu de données source, qui peut être un dossier, un caractère générique ou une liste de fichiers, l’activité de copie peut ignorer les fichiers d’erreur particuliers. Si un seul fichier est spécifié dans le jeu de données source à copier vers la destination, l’activité de copie échoue si une erreur s’est produite.
 >
 > Pour ignorer des fichiers particuliers lorsqu’ils sont vérifiés comme étant incohérents entre la source et le magasin de destination :

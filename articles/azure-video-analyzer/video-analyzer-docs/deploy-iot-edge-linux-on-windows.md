@@ -2,13 +2,13 @@
 title: Déployer sur IoT Edge pour Linux sur Windows - Azure
 description: Cet article fournit des conseils sur la façon de déployer sur un appareil IoT Edge pour Linux sur Windows.
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 2907318f7d1c49c4aea247880a9880e724b46ca6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: e80721375cf4b0c912fe47ec76c2cebe92359f90
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385896"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532415"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Déployer sur un appareil IoT Edge pour Linux sur Windows (EFLOW)
 
@@ -25,19 +25,17 @@ Dans cet article, vous allez découvrir comment déployer Azure Video Analyzer s
 
 Ce qui suit décrit le flux global du document. En 5 étapes simples, vous devez être prêt à exécuter Azure Video Analyzer sur un appareil Windows disposant d’EFLOW :
 
-![Diagramme d’IoT Edge pour Linux sur Windows (EFLOW)](./media/deploy-iot-edge-linux-on-windows/eflow.png)
+![Diagramme d’IoT Edge pour Linux sur Windows (EFLOW).](./media/deploy-iot-edge-linux-on-windows/eflow.png)
 
-1. [Installez EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) sur votre appareil Windows. 
+1. [Installez EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) sur votre appareil Windows à l’aide de PowerShell.
 
-    1. Si vous utilisez votre PC Windows, dans la page d’accueil de [Windows Admin Center](/windows-server/manage/windows-admin-center/overview), dans la liste des connexions figure une connexion d’hôte local représentant le PC sur lequel vous exécutez Windows Admin Center. 
-    1. Les autres serveurs, ordinateurs ou clusters que vous gérez s’affichent également ici.
-    1. Vous pouvez utiliser Windows Admin Center pour installer et gérer Azure EFLOW sur votre appareil local ou des appareils gérés distants. Dans ce guide, la connexion d’hôte local sert d’appareil cible pour le déploiement d’Azure IoT Edge pour Linux sur Windows. localhost est donc également listé en tant qu’appareil IoT Edge.
 
-    ![Étapes de déploiement - Windows Admin Center](./media/deploy-iot-edge-linux-on-windows/windows-admin-center.png) 
-1. Cliquez sur l’appareil IoT Edge pour vous y connecter. Une vue d’ensemble et un onglet Interface de commande s’affichent. C’est par le biais de l’onglet Interface de commande que vous pouvez envoyer des commandes à votre appareil de périphérie.
+1. Une fois EFLOW configuré, saisissez la commande `Connect-EflowVm` dans PowerShell (avec des privilèges administratifs) pour vous connecter. Cela fera apparaître un terminal bash dans PowerShell pour contrôler la machine virtuelle EFLOW, où vous pourrez exécuter des commandes Linux, notamment des utilitaires comme Top et Nano. 
 
-    ![Étapes de déploiement - Gestionnaire Azure IoT Edge](./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager.png)
-1. Accédez à l’interface de commande et tapez la commande suivante :
+    > [!TIP] 
+    > Pour quitter la machine virtuelle EFLOW, saisissez `exit` dans le terminal.
+
+1. Connectez-vous à la machine virtuelle EFLOW via PowerShell et saisissez la commande suivante :
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
 
@@ -51,18 +49,22 @@ Ce qui suit décrit le flux global du document. En 5 étapes simples, vous deve
     * `/var/media`
 
     Notez la présence des fichiers vidéo (*.mkv) dans le dossier /home/localedgeuser/samples/input, qui servent de fichiers d’entrée à analyser. 
-1. Une fois que l’appareil de périphérie est configuré, qu’il est inscrit auprès du hub et qu’il s’exécute correctement avec les structures de dossiers appropriées créées, l’étape suivante consiste à configurer les ressources Azure supplémentaires ci-dessous et à déployer le module AVA. 
-
-    * Compte de stockage
-    * Compte Azure Media Services
+1. Une fois que le périphérique est configuré, qu’il est inscrit auprès du hub et qu’il s’exécute correctement avec les structures de dossiers appropriées créées, l’étape suivante consiste à configurer les ressources Azure supplémentaires ci-dessous et à déployer le module AVA. Le modèle de déploiement suivant s’occupe de la création des ressources :
 
     [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+    
+    Le processus de déploiement prend environ 20 minutes. À la fin de l’opération, certaines ressources Azure sont déployées dans l’abonnement Azure, notamment :
+
+    * Compte Video Analyzer : ce service cloud est utilisé pour inscrire le module de périphérie Video Analyzer ainsi que pour la lecture des vidéos enregistrées et l’analytique vidéo.
+    * Compte de stockage : pour stocker les vidéos enregistrées et l’analytique vidéo.
+    * Identité managée : il s’agit de l’identité managée affectée par l’utilisateur qui permet de gérer l’accès au compte de stockage ci-dessus.
+    * IoT Hub : fait office de hub de messagerie centralisé pour la communication bidirectionnelle entre votre application IoT, les modules IoT Edge et les appareils qu'il gère.
 
     Dans le modèle, quand vous êtes invité à indiquer si vous avez besoin d’un appareil de périphérie, choisissez l’option Use an existing edge device (Utiliser un appareil de périphérie existant), car vous avez déjà créé l’appareil et le hub IoT. Vous êtes également invité à entrer le nom du hub IoT et l’ID d’appareil IoT Edge au cours des étapes suivantes.  
     
     ![Utiliser un appareil existant](./media/deploy-iot-edge-linux-on-windows/use-existing-device.png) 
 
-    Une fois terminé, vous pouvez vous reconnecter à l’interface de commande de l’appareil IoT Edge et exécuter la commande suivante.
+    Une fois terminé, vous pouvez vous reconnecter à la machine virtuelle EFLOW et exécuter la commande suivante.
 
     **`sudo iotedge list`**
 

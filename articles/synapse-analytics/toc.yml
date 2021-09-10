@@ -599,7 +599,7 @@ items:
             href: ./spark/apache-spark-notebook-concept.md
           - name: Gestion des packages
             href: ./spark/apache-spark-azure-portal-add-libraries.md
-          - name: Outils de supervision
+          - name: Surveiller les applications Apache Spark
             href: monitoring/how-to-monitor-spark-applications.md
       - name: Guides pratiques
         items:
@@ -645,14 +645,18 @@ items:
                 href: ./spark/apache-spark-history-server.md
               - name: Superviser les applications Spark
                 href: monitoring/apache-spark-applications.md
-              - name: Superviser les pools Spark
+              - name: Superviser les pools Apache Spark
                 href: monitoring/how-to-monitor-spark-pools.md
-              - name: "Connecter et superviser les métriques de niveau application Azure\_Synapse\_Spark"
+              - name: Collecter les métriques des applications Apache Spark avec des API
                 href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-              - name: "Superviser les métriques de niveau application Apache\_Spark avec Prometheus et Grafana"
+              - name: "Superviser les métriques des applications Apache\_Spark avec Prometheus et Grafana"
                 href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-              - name: Utiliser Azure Log Analytics pour collecter et visualiser les métriques et les journaux (préversion)
+              - name: Superviser vos applications Apache Spark avec Azure Log Analytics (préversion)
                 href: ./spark/apache-spark-azure-log-analytics.md
+              - name: Collecter les journaux et les métriques des applications Apache Spark avec un compte de stockage Azure
+                href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
+              - name: Collecter les journaux et les métriques des applications Apache Spark avec Azure Event Hubs
+                href: ./spark//azure-synapse-diagnostic-emitters-azure-eventhub.md
           - name: Sources de données
             items:
               - name: Azure Cosmos DB Spark 3

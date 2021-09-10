@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 11/16/2020
-ms.openlocfilehash: 648dbe6b8d275c832f219cb6f3119ac0bc518a54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2364f0c029b57649ed56fa9ba93ed3978db2ca41
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508467"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527923"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Présentation des environnements Azure Machine Learning
 
@@ -78,7 +78,7 @@ Si la définition de l’environnement n’existe pas encore dans l’ACR Espace
  1. Téléchargement d’une image de base et exécution des étapes Docker
  2. Génération d’un environnement Conda en fonction des dépendances Conda spécifiées dans la définition d’environnement
 
-La deuxième étape est omise si vous spécifiez des [dépendances gérées par l’utilisateur](/python/api/azureml-core/azureml.core.environment.pythonsection). Dans ce cas, vous êtes responsable de l’installation des packages Python, en les incluant dans votre image de base, ou de la spécification des étapes Docker personnalisées lors de la première étape. Vous devez aussi spécifier l’emplacement correct de l’exécutable Python. Il est également possible d’utiliser une [image de base Docker personnalisée](how-to-deploy-custom-docker-image.md).
+La deuxième étape est omise si vous spécifiez des [dépendances gérées par l’utilisateur](/python/api/azureml-core/azureml.core.environment.pythonsection). Dans ce cas, vous êtes responsable de l’installation des packages Python, en les incluant dans votre image de base, ou de la spécification des étapes Docker personnalisées lors de la première étape. Vous devez aussi spécifier l’emplacement correct de l’exécutable Python. Il est également possible d’utiliser une [image de base Docker personnalisée](./how-to-deploy-custom-container.md).
 
 ### <a name="image-caching-and-reuse"></a>Mise en cache et réutilisation des images
 
@@ -102,9 +102,11 @@ Le diagramme suivant montre trois définitions d’environnement. Deux d’entre
 ![Diagramme de la mise en cache d’environnement en tant qu’images Docker](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> Si vous créez un environnement avec une dépendance de package désépinglée, par exemple ```numpy```, cet environnement continuera à utiliser la version de package installée _au moment de la création de l’environnement_. En outre, tout environnement ultérieur avec une définition correspondante continuera à utiliser l’ancienne version. 
-
-Pour mettre à jour le package, spécifiez un numéro de version afin de forcer la regénération de l’image, par exemple ```numpy==1.18.1```. Les nouvelles dépendances, notamment celles imbriquées, seront installées et risquent de provoquer le non-fonctionnement d’un scénario précédemment opérationnel. 
+> * Si vous créez un environnement avec une dépendance de package non épinglée, par exemple `numpy`, l’environnement utilise la version de package qui était *installée lors de sa création*. En outre, tout environnement futur qui utilise une définition correspondante utilisera la version d’origine. 
+>
+>   Pour mettre à jour le package, spécifiez un numéro de version afin de forcer la regénération de l’image, par exemple `numpy==1.18.1`. Les nouvelles dépendances, notamment celles imbriquées, seront installées, et elles peuvent provoquer le non-fonctionnement d’un scénario précédemment opérationnel.
+>
+> * L’utilisation d’une image de base non épinglée comme `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` dans votre définition d’environnement entraîne la régénération de l’environnement chaque fois que la balise la plus récente est mise à jour. Il est supposé que vous souhaitez tenir à jour la version la plus récente pour diverses raisons, comme pour les vulnérabilités, les mises à jour système et les correctifs. 
 
 > [!WARNING]
 >  La méthode [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) regénérera l’image mise en cache, avec comme effet secondaire possible la mise à jour des packages désépinglés et la rupture de la reproductibilité pour toutes les définitions d’environnement correspondant à cette image mise en cache.
@@ -113,4 +115,3 @@ Pour mettre à jour le package, spécifiez un numéro de version afin de forcer 
 
 * Découvrez comment [créer et utiliser des environnements](how-to-use-environments.md) dans Azure Machine Learning.
 * Consultez la documentation de référence du kit de développement logiciel (SDK) Python pour la [classe d’environnement](/python/api/azureml-core/azureml.core.environment%28class%29).
-* Consultez la documentation de référence du kit de développement logiciel (SDK) R pour les [environnements](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

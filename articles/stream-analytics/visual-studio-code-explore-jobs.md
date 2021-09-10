@@ -4,14 +4,14 @@ description: Cet article vous montre comment exporter un travail Azure Stream An
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.date: 05/15/2019
+ms.date: 07/21/2021
 ms.topic: how-to
-ms.openlocfilehash: 4f1c0650820a419275ade6095344033b6d81a568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85b6dece608f47818f2115d0462dd4a56752581f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532783"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explorer Azure Stream Analytics avec Visual Studio Code (préversion)
 
@@ -20,6 +20,7 @@ L’extension Azure Stream Analytics pour Visual Studio Code permet aux dévelop
 - [Créer](quick-create-visual-studio-code.md), lancer et arrêter des travaux
 - Exporter des travaux existants vers un projet local
 - Répertorier les travaux et afficher les entités de travail
+- Afficher le diagramme de travail et déboguer dans Moniteur de travaux
 
 ## <a name="export-a-job-to-a-local-project"></a>Exporter un travail vers un projet local
 
@@ -41,6 +42,49 @@ Vous pouvez utiliser la vue des tâches pour interagir avec les tâches Azure St
 3. Cliquez avec le bouton droit sur le nœud de votre travail, puis choisissez le nœud **Ouvrir la vue des travaux dans le portail** pour ouvrir la vue des travaux dans le portail Azure.
 
    ![Ouvrir la vue des travaux dans le portail](./media/vscode-explore-jobs/open-job-view.png)
+
+## <a name="view-job-diagram-and-debug-in-job-monitor"></a>Afficher le diagramme de travail et déboguer dans Moniteur de travaux
+
+Vous pouvez utiliser Moniteur de travaux dans Visual Studio Code pour afficher et dépanner vos travaux Azure Stream Analytics.
+
+### <a name="view-job-diagram-and-job-summary"></a>Afficher le diagramme de travail et le résumé du travail
+1. Sélectionnez **Moniteur de travaux**. Votre moniteur de travaux doit s’afficher, et le diagramme de travail doit être chargé automatiquement.
+   
+   ![Ouvrir Moniteur de travaux](./media/vscode-explore-jobs/open-job-monitor.png)
+
+2.  Vous pouvez afficher le diagramme de votre travail et cliquer sur **Résumé du travail** pour afficher les propriétés et les informations de votre travail. 
+
+      ![Afficher le résumé du travail](./media/vscode-explore-jobs/view-jobs-summary.png)
+
+3.  Vous pouvez cliquer sur le bouton **Tester la connexion** pour tester la connexion à vos entrées et sorties.
+
+      ![Tester la connexion](./media/vscode-explore-jobs/test-connection.png)
+
+4.  Vous pouvez également cliquer sur le bouton **Localiser le script** pour afficher votre requête.
+   
+      ![Afficher la requête](./media/vscode-explore-jobs/view-query.png)
+
+### <a name="monitor-and-debug-with-metrics"></a>Superviser et déboguer à l’aide de Métriques
+
+1.  Cliquez sur le bouton fléché pour ouvrir le panneau Métriques.
+
+      ![Ouvrir le panneau Métriques](./media/vscode-explore-jobs/open-metrics-panel.png)
+
+2.  Vous pouvez interagir avec ce panneau et analyser votre travail à l’aide des principales métriques affichées dans le graphique. Vous pouvez choisir d’afficher les métriques au niveau du travail ou les métriques au niveau des nœuds. Vous pouvez également décider quelles métriques vous souhaitez voir apparaître dans le graphique.
+
+      ![Afficher les métriques](./media/vscode-explore-jobs/view-metrics.png)
+
+### <a name="debug-with-diagnostic-logs-and-activity-logs"></a>Déboguer avec les journaux de diagnostic et les journaux d’activité
+
+Vous pouvez afficher les journaux de diagnostic et les journaux d’activité de votre travail pour la résolution des problèmes.
+
+1. Sélectionnez l’onglet **Journaux de diagnostic**.
+
+   ![Afficher les journaux de diagnostic](./media/vscode-explore-jobs/view-diagnostic-log.png)
+
+2. Sélectionnez l’onglet **Journaux d’activité**. 
+
+   ![Afficher les journaux d’activité](./media/vscode-explore-jobs/view-activity-logs.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

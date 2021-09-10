@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da05251dab17aeb086be53a8583110dd5f12d7b3
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: b933829ec9cfdb322cf0498c10966b9c244ac98e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541629"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531623"
 ---
 # <a name="specify-a-face-detection-model"></a>Spécifier un modèle de détection des visages
 
@@ -33,7 +33,7 @@ Si vous hésitez à utiliser le modèle le plus récent, passez à la section [�
 Vous devez maîtriser les concepts de la détection de visages par intelligence artificielle (AI). Si ce n’est pas le cas, consultez le guide conceptuel ou le guide pratique pour la détection de visage :
 
 * [Concepts de détection de visage](../concepts/face-detection.md)
-* [Comment détecter des visages dans une image](HowtoDetectFacesinImage.md)
+* [Appeler l’API de détection](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Détecter des visages avec le modèle spécifié
 
@@ -109,7 +109,7 @@ La meilleure façon de comparer les performances des modèles de détection cons
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment spécifier le modèle de détection des visages à utiliser avec différentes API Visage. Voici maintenant un guide de démarrage rapide pour commencer à utiliser la détection des visages.
+Dans cet article, vous avez appris comment spécifier le modèle de détection des visages à utiliser avec différentes API Visage. Voici maintenant un démarrage rapide pour prendre en main la détection et l’analyse des visages.
 
 * [SDK .NET Visage](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Kit de développement logiciel (SDK) Face Python](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

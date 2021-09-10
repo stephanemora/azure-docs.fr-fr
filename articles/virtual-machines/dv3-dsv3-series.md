@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 22400164ac82df3ec0e0e24daf6d823eae219837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7877e674b4a027616d3593251602610cfa145c33
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566428"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691221"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 et Dsv3
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de la série Dv3 s’exécutent sur les processeurs Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), ou Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) dans une configuration hyper-thread, ce qui offre une meilleure valeur pour la plupart des charges de travail universelles. La mémoire a été étendue (d’environ 3,5 Gio/vCPU à 4 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading. La série Dv3 n’offre plus les tailles de machine virtuelle à mémoire élevée de la série D/Dv2, qui ont été déplacées vers les séries [Ev3 et Esv3](ev3-esv3-series.md) à mémoire optimisée.
 
@@ -34,19 +36,21 @@ Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre de cartes réseau/bande passante réseau max. |
 |---|---|---|---|---|---|---|
-| Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1 000  |
+| Standard_D2_v3<sup>1</sup>  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1 000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2 000  |
 | Standard_D8_v3  | 8  | 32  | 200  | 16 | 12000/187/93   | 4/4 000  |
 | Standard_D16_v3 | 16 | 64  | 400  | 32 | 24000/375/187  | 8/8 000  |
 | Standard_D32_v3 | 32 | 128 | 800  | 32 | 48000/750/375  | 8/16 000 |
 | Standard_D48_v3 | 48 | 192 | 1200 | 32 | 96000/1000/500 | 8/24 000 |
 | Standard_D64_v3 | 64 | 256 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
+
+<sup>1</sup> Les performances réseau accélérées ne peuvent être appliquées qu’à une seule carte réseau. 
 
 ## <a name="dsv3-series"></a>Dsv3-series
 
@@ -60,13 +64,13 @@ Machines virtuelles de série Dsv3 dotées de la technologie Hyper-Threading d�
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit de stockage temporaire et débit maximal de rafale mis en cache : IOPS/Mo/s<sup>1</sup> | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit de stockage temporaire et débit maximal de rafale mis en cache : IOPS/Mbits/s<sup>2</sup> | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4 000/32 (50)       | 4 000/100    |3 200/48    | 4 000/100   | 2/1 000  |
+| Standard_D2s_v3<sup>3</sup>  | 2  | 8   | 16  | 4  | 4 000/32 (50)       | 4 000/100    |3 200/48    | 4 000/100   | 2/1 000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8 000/64 (100)      | 8 000/200    |6 400/96    | 8 000/200   | 2/2 000  |
 | Standard_D8s_v3  | 8  | 32  | 64  | 16 | 16 000/128 (200)    | 16 000/400   |12 800/192  | 16 000/400  | 4/4 000  |
 | Standard_D16s_v3 | 16 | 64  | 128 | 32 | 32 000/256 (400)    | 32 000/800   |25 600/384  | 32 000/800  | 8/8 000  |
@@ -74,7 +78,9 @@ Machines virtuelles de série Dsv3 dotées de la technologie Hyper-Threading d�
 | Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96 000/768 (1 200)   | 96 000/2 000  |76 800/1152 | 80 000/2 000 | 8/24 000 |
 | Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128 000/1 024 (1 600) | 128 000/2 000 |80 000/1 200 | 80 000/2 000 | 8/30 000 |
 
-<sup>1</sup> Les machines virtuelles de la série Dsv3 peuvent [augmenter via le mode rafale](./disk-bursting.md) leurs performances de disque et atteindre le maximum du mode rafale pendant au plus 30 minutes à la fois.
+<sup>1</sup> Les machines virtuelles de la série Dsv3 peuvent [augmenter via le mode rafale](./disk-bursting.md) leurs performances de disque et atteindre le maximum du mode rafale pendant au plus 30 minutes à la fois.<br>
+<sup>2</sup> Les performances réseau accélérées ne peuvent être appliquées qu’à une seule carte réseau. 
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

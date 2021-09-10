@@ -10,18 +10,21 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 776daa5b97d5e6957956e1bccabb8c8b1fe5917f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550945"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694347"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Télécharger vos détails d’utilisation
-Pour commencer, [téléchargez vos détails d’utilisation](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Le tableau ci-dessous fournit la définition et des exemples de valeurs d’utilisation pour des machines virtuelles déployées par le biais d’Azure Resource Manager. Il ne contient pas d’informations détaillées sur les machines virtuelles déployées par le biais de notre modèle classique.
+Pour commencer, [téléchargez vos détails d’utilisation](../cost-management-billing/understand/download-azure-daily-usage.md). Le tableau ci-dessous fournit la définition et des exemples de valeurs d’utilisation pour des machines virtuelles déployées par le biais d’Azure Resource Manager. Il ne contient pas d’informations détaillées sur les machines virtuelles déployées par le biais de notre modèle classique.
 
 
 | Champ | Signification | Exemples de valeurs | 
@@ -38,7 +41,7 @@ Pour commencer, [téléchargez vos détails d’utilisation](../cost-management-
 | Groupe de ressources | Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager.](../azure-resource-manager/management/overview.md)|`MyRG`|
 | ID de l’instance | Identificateur pour la ressource. L’identificateur contient le nom que vous avez spécifié pour la ressource lors de sa création. Pour les machines virtuelles, l’ID de l’instance contient l’ID d’abonnement, le nom du groupe de ressources et le nom de la machine virtuelle (ou le nom du groupe identique en cas d’utilisation d’un groupe de machines virtuelles identiques).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Balises| Balise que vous affectez à la ressource. Utilisez des balises pour regrouper les enregistrements de facturation. Découvrez comment baliser vos machines virtuelles à l’aide de [CLI](./tag-cli.md) ou de [PowerShell](./tag-portal.md). Disponible uniquement pour les machines virtuelles Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
-| Informations supplémentaires | Métadonnées relatives au service. Pour les machines virtuelles, nous renseignons les données suivantes dans le champ d’informations supplémentaires : <br><br> Type d’image : image spécifique que vous avez exécutée. Vous trouverez la liste complète des chaînes prises en charge dans la section Type d’image ci-dessous.<br><br> Type de service : taille que vous avez déployée.<br><br> VMName : nom de votre machine virtuelle. Ce champ est renseigné uniquement pour des machines virtuelles appartenant à un groupe identique. Si vous avez besoin du nom d’une machine virtuelle appartenant à un groupe identique, vous le trouverez dans la chaîne ID de l’instance ci-dessus.<br><br> UsageType : spécifie le type d’utilisation représenté.<br><br> ComputeHR est l’utilisation des Heures de calcul pour la machine virtuelle sous-jacente, comme Standard_D1_v2.<br><br> ComputeHR_SW correspond aux frais logiciels Premium si la machine virtuelle utilisent des logiciels Premium, comme Microsoft R Server. | Machines Virtuelles<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Logiciel Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
+| Informations supplémentaires | Métadonnées relatives au service. Pour les machines virtuelles, nous renseignons les données suivantes dans le champ d’informations supplémentaires : <br><br> Type d’image : image spécifique que vous avez exécutée. Vous trouverez la liste complète des chaînes prises en charge dans la section Type d’image ci-dessous.<br><br> Type de service : taille que vous avez déployée.<br><br> VMName : nom de votre machine virtuelle. Ce champ est renseigné uniquement pour des machines virtuelles appartenant à un groupe identique. Si vous avez besoin du nom d’une machine virtuelle appartenant à un groupe identique, vous le trouverez dans la chaîne ID de l’instance ci-dessus.<br><br> UsageType : spécifie le type d’utilisation représenté.<br><br> ComputeHR est l’utilisation des Heures de calcul pour la machine virtuelle sous-jacente, comme Standard_D1_v2.<br><br> ComputeHR_SW correspond aux frais logiciels Premium si la machine virtuelle utilisent des logiciels Premium. | Machines Virtuelles<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Logiciel Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Type d’image
 Pour certaines images de la galerie Azure, le type d’image est renseigné dans le champ Informations supplémentaires. Cela permet aux utilisateurs de comprendre et de suivre ce qu’ils ont déployé sur leur machine virtuelle. Les valeurs suivantes sont renseignées dans ce champ en fonction de l’image que vous avez déployée :
@@ -130,7 +133,7 @@ Microsoft.ClassicCompute représente les ressources classiques déployées par l
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Pourquoi le champ ID de l’instance est-il vide pour l’utilisation de ma machine virtuelle ?
 Si vous déployez par le biais du modèle de déploiement classique, la chaîne ID de l’instance n’est pas disponible.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Pourquoi les balises pour mes machines virtuelles ne figurent-elles pas dans les détails d’utilisation ?
-Les balises figurent uniquement dans le fichier CSV d’utilisation pour les machines virtuelles Resource Manager. Les balises de ressources classiques ne sont pas disponibles dans les détails d’utilisation.
+Les balises figurent dans le fichier CSV d’utilisation pour les machines virtuelles Resource Manager. Les balises de ressources classiques ne sont pas disponibles dans les détails d’utilisation.
 ### <a name="how-can-the-consumed-quantity-be-more-than-24-hours-one-day"></a>Comment la quantité consommée peut-elle être supérieure à 24 heures en une journée ?
 Dans le modèle classique, la facturation des ressources est agrégée au niveau du service cloud. Si vous avez plusieurs machines virtuelles dans un service cloud qui utilise le même compteur de facturation, l’utilisation est agrégée. Les machines virtuelles déployées par le biais de Resource Manager étant facturées au niveau de la machine virtuelle, cette agrégation ne s’appliquera pas.
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>Pourquoi la tarification n’est-elle pas disponible pour les tailles DS/ADFS/GS/LS dans la page de facturation ?

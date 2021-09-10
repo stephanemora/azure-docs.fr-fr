@@ -6,12 +6,12 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 1e641e878bc5370c9f9d7c0cc83be79008b2ebdd
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 0e877439b18d4c7ff6c4b21baa18b3b0fd1586b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111852104"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531442"
 ---
 # <a name="tutorial-create-a-power-bi-report-from-azure-sentinel-data"></a>Tutoriel : Créer un rapport Power BI depuis des données Azure Sentinel
 
@@ -29,6 +29,9 @@ Dans ce tutoriel, vous allez :
 
 Les personnes auxquelles vous avez accordé l’accès dans le service Power BI et les membres du canal Teams peuvent voir le rapport sans avoir besoin d’autorisations Azure Sentinel.
 
+> [!NOTE]
+> Ce tutoriel fournit une procédure basée sur un scénario pour répondre à une demande importante des clients : l’affichage des rapports d’analyse dans PowerBI pour vos données Azure Sentinel. Pour plus d’informations, consultez [Connecter des sources de données](connect-data-sources.md) et [Visualiser les données collectées](get-visibility.md).
+>
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
@@ -203,5 +206,5 @@ Actualisez votre rapport Power BI selon une planification, afin que les données
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Importation de données de journal Azure Monitor dans Power BI](/azure/azure-monitor/visualize/powerbi)
+- [Importation de données de journal Azure Monitor dans Power BI](../azure-monitor/visualize/powerbi.md)
 - [Langage de formule Power Query M](/powerquery-m/)

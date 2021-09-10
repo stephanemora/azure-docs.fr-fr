@@ -3,12 +3,12 @@ title: Créer une stratégie de placement (préversion)
 description: Découvrez comment créer une stratégie de positionnement dans une solution VMware Azure pour contrôler le placement des machines virtuelles sur les ordinateurs hôtes au sein d’un cluster par le biais du Portail Azure.
 ms.topic: how-to
 ms.date: 8/18/2021
-ms.openlocfilehash: b7a29abfc0a59da445323c0aa651928c02e65a9b
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 85146ce86dea0d3cfa7397cdaae6fefc8cf4a23b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527917"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967541"
 ---
 # <a name="create-a-placement-policy-in-azure-vmware-solution-preview"></a>Créer une stratégie de positionnement dans une solution VMware Azure (préversion)
 
@@ -32,7 +32,7 @@ Une stratégie de positionnement comporte au moins cinq composants requis :
 - **Machine virtuelle** : Définit les machines virtuelles et les hôtes pour la politique. Selon le type de règle que vous créez, votre stratégie peut vous obliger à spécifier un nombre de machines virtuelles et d’ordinateurs hôtes. Pour plus d'informations, voir [Types de politiques de placement](#placement-policy-types) ci-dessous.
 
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez avoir un accès de niveau _Contributeur_ au cloud privé pour gérer les politiques de placement.
 
@@ -203,23 +203,23 @@ En tant que titulaire du rôle cloudadmin, vous pouvez afficher, mais pas modifi
 En outre, vous pouvez surveiller diverses opérations de règle DRS, telles que des recommandations et des erreurs, à partir de l’onglet moniteur du cluster.
 
 
-## <a name="faqs"></a>Foire aux questions
+## <a name="faqs"></a>FAQ
 
 ### <a name="are-these-the-same-as-drs-affinity-rules"></a>Sont-elles identiques aux règles d’affinité DRS ?
-Oui, et Non. Bien que vSphere DRS implémente l’ensemble actuel de stratégies, nous avons simplifié l’expérience. La modification des groupes de machines virtuelles et des groupes d’hôtes est une opération fastidieuse, surtout lorsque les hôtes sont éphémères par nature et peuvent être remplacés dans un environnement Cloud. À mesure que les ordinateurs hôtes sont remplacés dans l’inventaire vSphere dans un environnement local, l’administrateur vSphere doit modifier le groupe hôte pour s’assurer que les contraintes de placement Machine virtuelle-Hôte souhaitées continuent de rester en vigueur. Les stratégies de positionnement dans la solution VMware Azure mettent à jour les groupes hôtes quand un ordinateur hôte est pivoté ou modifié. De même, si vous mettez à l’échelle dans un cluster, le groupe hôte est automatiquement mis à jour, le cas échéant. Cela élimine la surcharge liée à la gestion des groupes hôtes pour le client.
+Oui, et Non. Bien que vSphere DRS implémente l’ensemble actuel de stratégies, nous avons simplifié l’expérience. La modification des groupes de machines virtuelles et des groupes d’hôtes est une opération fastidieuse, surtout lorsque les hôtes sont éphémères par nature et peuvent être remplacés dans un environnement cloud. À mesure que des ordinateurs hôtes sont remplacés dans l’inventaire vSphere au sein d’un environnement local, l’administrateur vSphere doit modifier le groupe hôte pour s’assurer que les contraintes de placement machine virtuelle-hôte souhaitées restent effectives. Les stratégies de positionnement dans la solution VMware Azure mettent à jour les groupes hôtes quand un ordinateur hôte est pivoté ou modifié. De même, si vous mettez à l’échelle dans un cluster, le groupe hôte est automatiquement mis à jour, le cas échéant. Cela élimine la surcharge liée à la gestion des groupes hôtes pour le client.
 
 
 ### <a name="as-this-is-an-existing-functionality-available-in-vcenter-why-cant-i-use-it-directly"></a>Étant donné qu’il s’agit d’une fonctionnalité existante disponible dans vCenter, pourquoi ne puis-je pas l’utiliser directement ? 
 
 Azure VMware Solution fournit des clouds privés VMware dans Azure. Dans cette infrastructure VMware gérée, Microsoft gère les clusters, les hôtes, les banques de serveurs et les commutateurs virtuels distribués dans le cloud privé. En même temps, le locataire est responsable de la gestion des charges de travail déployées sur le cloud privé. Par conséquent, le client qui administre le cloud privé [n’a pas le même jeu de privilèges](concepts-identity.md) que celui disponible pour l’administrateur VMware dans un déploiement local. 
 
-En outre, l’absence de granularité souhaitée dans les privilèges vSphere présente des difficultés lors de la gestion de l’emplacement des charges de travail sur le cloud privé. Par exemple, les règles vSphere DRS couramment utilisées localement pour définir des règles d’affinité et d’anti-affinité ne peuvent pas être utilisées telles quelles dans un environnement de Cloud VMware, car certaines d’entre elles peuvent bloquer l’exploitation quotidienne du Cloud privé. Les stratégies de positionnement vous permettent de définir ces règles via le portail AVS, ce qui évite d’avoir à utiliser des règles DRS. Couplées à une expérience simplifiée, elles garantissent également que les règles n’ont pas d’impact sur les activités de maintenance et d’exploitation de l’infrastructure quotidienne. 
+En outre, l’absence de granularité souhaitée dans les privilèges vSphere présente des difficultés lors de la gestion de l’emplacement des charges de travail sur le cloud privé. Par exemple, les règles du Data Replication Service de vSphere couramment utilisées localement pour définir des règles d’affinité et d’anti-affinité ne peuvent pas être utilisées telles quelles dans un environnement de cloud VMware, car certaines d’entre elles peuvent bloquer l’exploitation quotidienne du cloud privé. Les stratégies de placement constituent un moyen définir ces règles à l’aide du portail Azure VMware Solution, ce qui permet de contourner la nécessité d’utiliser les règles du Data Replication Service. Couplées à une expérience simplifiée, elles garantissent également que les règles n’ont pas d’impact sur les activités quotidiennes de maintenance et d’exploitation de l’infrastructure. 
 
 
-###  <a name="what-caveats-should-i-be-aware-of"></a>Quels sont les avertissements à connaître ?
+###  <a name="what-caveats-should-i-know-about"></a>Quels sont les avertissements à connaître ?
 
-Les règles de mise en place du VM-Host doivent être des règles de gestion et ne sont pas prises en charge par les stratégies de positionnement. 
+Les règles **MUST** de placement machine virtuelle-hôte ne sont pas prises en charge par qu’elles bloquent les opérations de maintenance. 
 
-Les règles SHOULD Machines Virtuelles-Hôte doivent être des règles préférentielles, où vSphere DRS tente d’adapter les règles dans la mesure du possible. Le Data Replication Service de vSphere peut avoir recours à des machines virtuelles vMotion soumises au VM-Host doit occasionnellement s’assurer que les charges de travail obtiennent les ressources dont ils ont besoin. Il s’agit d’un comportement vSphere DRS standard, et la fonctionnalité des stratégies de positionnement ne change pas le comportement DRS vSphere sous-jacent.
+Les règles **SHOULD** de placement machine virtuelle-hôte sont des règles préférentielles où le Data Replication Service de vSphere tente d’adapter les règles autant que possible. Le Data Replication Service de vSphere peut avoir occasionnellement recours à des machines virtuelles vMotion soumises aux règles **SHOULD** de placement machine virtuelle-hôte pour s’assurer que les charges de travail obtiennent les ressources dont elles ont besoin. Il s’agit d’un comportement standard du Data Replication Service de vSphere, et la fonctionnalité des stratégies de placement ne change pas le comportement sous-jacent du Data Replication Service de vSphere.
 
-Si vous créez des règles en conflit, ces conflits peuvent apparaître sur le vCenter et les règles nouvellement définies peuvent ne pas être prises en compte. Il s’agit d’un comportement DRS standard vSphere, les journaux qui peuvent être observés dans le vCenter.
+Si vous créez des règles en conflit, ces conflits peuvent apparaître sur le vCenter et les règles nouvellement définies peuvent ne pas être prises en compte. Il s’agit d’un comportement standard du Data Replication Service de vSphere, dont les journaux sont visibles dans le vCenter.

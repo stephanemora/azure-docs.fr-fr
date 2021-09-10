@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7c3459d5df540304b0595ac6aacf039c558d6c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6f40b395bffabd089831a7a827a4ab81e216727c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094651"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524535"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Ajouter et gérer des utilisateurs dans une unité administrative dans Azure Active Directory
 
@@ -31,7 +31,7 @@ Dans Azure Active Directory (Azure AD), vous pouvez ajouter des utilisateurs à 
 - Licences Azure AD gratuites pour les membres de l'unité administrative
 - Administrateur de rôle privilégié ou Administrateur général
 - Module AzureAD (avec PowerShell)
-- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
 
 Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
@@ -43,9 +43,9 @@ Vous pouvez affecter des utilisateurs à des unités administratives individuell
 
 - Affectez des utilisateurs individuels à partir d’un profil utilisateur :
 
-   1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com).
+   1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [centre d’administration Azure AD](https://aad.portal.azure.com).
 
-   1. Sélectionnez **Utilisateurs** et, afin d’ouvrir le profil de l’utilisateur, sélectionnez l’utilisateur à affecter à une unité administrative.
+   1. Sélectionnez **Azure Active Directory** > **Utilisateurs** et, afin d’ouvrir le profil de l’utilisateur, sélectionnez l’utilisateur à affecter à une unité administrative.
    
    1. Sélectionnez **Unités administratives**. 
    
@@ -55,17 +55,19 @@ Vous pouvez affecter des utilisateurs à des unités administratives individuell
 
 - Affectez des utilisateurs individuels à partir d’une unité administrative :
 
-   1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com).
-   1. Sélectionnez **Unités administratives** puis sélectionnez l’unité administrative à laquelle l’utilisateur doit être affecté.
+   1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [centre d’administration Azure AD](https://aad.portal.azure.com).
+
+   1. Sélectionnez **Azure Active Directory** > **Unités administratives**, puis sélectionnez l’unité administrative à laquelle l’utilisateur doit être affecté.
+
    1. Sélectionnez **Tous les utilisateurs**, puis sélectionnez **Ajouter un membre** et enfin, à partir du volet **Ajouter un membre**, choisissez un ou plusieurs utilisateurs à affecter à l’unité administrative.
 
         ![Capture d’écran du volet « Utilisateurs » de l’unité administrative permettant d’affecter un utilisateur à une unité administrative.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
 - Affectez des utilisateurs dans une opération en bloc :
 
-   1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com).
+   1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [centre d’administration Azure AD](https://aad.portal.azure.com).
 
-   1. Sélectionnez **Unités administratives**.
+   1. Sélectionnez **Azure Active Directory** > **Unités administratives**.
 
    1. Sélectionnez l’unité administrative à laquelle vous souhaitez ajouter des utilisateurs.
 

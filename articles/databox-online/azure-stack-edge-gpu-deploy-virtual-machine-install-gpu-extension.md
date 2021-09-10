@@ -6,20 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 76e1f80e1c6e1d977521724959db6ad36694f238
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 80337c4953182e903655eddb360fc8b49a88ca59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110684115"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531845"
 ---
 # <a name="install-gpu-extension-on-vms-for-your-azure-stack-edge-pro-gpu-device"></a>Installer l’extension GPU sur des machines virtuelles pour votre appareil Azure Stack Edge Pro avec GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-Cet article explique comment installer l’extension du pilote GPU pour installer les pilotes NVIDIA appropriés sur les machines virtuelles GPU s’exécutant sur votre appareil Azure Stack Edge. L’article couvre les étapes d’installation de l’extension GPU sur les machines virtuelles Windows et Linux.
+Cet article explique comment installer l’extension du pilote GPU pour installer les pilotes NVIDIA appropriés sur les machines virtuelles GPU s’exécutant sur votre appareil Azure Stack Edge. L’article couvre les étapes d’installation d’une extension GPU à l’aide de modèles Azure Resource Manager sur des machines virtuelles Windows et Linux.
+
+> [!NOTE]
+> Dans le portail Azure, vous pouvez installer une extension GPU pendant la création de la machine virtuelle ou après son déploiement. Pour connaître les étapes et la configuration requise, consultez [Déployer des machines virtuelles avec GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -32,11 +35,9 @@ Avant d’installer l’extension GPU sur les machines virtuelles GPU exécutée
 
         Dans l’exemple suivant, le port 2 était connecté à Internet et a été utilisé pour activer le réseau de calcul. Si Kubernetes n’est pas déployé sur votre environnement, vous pouvez ignorer l’IP du nœud Kubernetes et l’attribution de l’IP du service externe.
 
-        ![Activer les paramètres de calcul sur le port connecté à Internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+        ![Capture d’écran du volet de calcul d’un appareil Azure Stack Edge. Les paramètres de calcul du port 2 sont mis en surbrillance.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension/enable-compute-network-1.png)
 1. [Téléchargez les fichiers de paramètres et les modèles d’extension GPU](https://aka.ms/ase-vm-templates) sur votre ordinateur client. Décompressez-les dans le répertoire qui vous servira de répertoire de travail.
 1. Vérifiez que le client que vous allez utiliser pour accéder à votre appareil est toujours connecté à l’instance Azure Resource Manager sur Azure PowerShell. La connexion à Azure Resource Manager expire toutes les 1,5 heures ou si votre appareil Azure Stack Edge redémarre. Dans ce cas, toute cmdlet que vous exécutez retourne un message d’erreur indiquant que vous n’êtes plus connecté à Azure. Vous devez vous reconnecter. Pour obtenir des instructions détaillées, consultez [Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-connect-resource-manager.md).
-
-
 
 ## <a name="edit-parameters-file"></a>Modification du fichier de paramètres
 
@@ -391,6 +392,9 @@ PS C:\Program Files\NVIDIA Corporation\NVSMI>
 
 Pour plus d’informations, consultez [Extension du pilote GPU Nvidia pour Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md).
 
+> [!NOTE]
+> Une fois que vous avez terminé l’installation du pilote et de l’extension du GPU, vous n’avez plus besoin d’utiliser un port avec accès Internet pour le calcul.
+
 ### <a name="linux"></a>[Linux](#tab/linux)
 
 Pour vérifier l’installation du pilote, procédez comme suit :
@@ -468,6 +472,10 @@ Pour vérifier l’installation du pilote, procédez comme suit :
 
 Pour plus d’informations, consultez [Extension du pilote GPU Nvidia pour Linux](../virtual-machines/extensions/hpccompute-gpu-linux.md).
 
+> [!NOTE]
+> Une fois que vous avez terminé l’installation du pilote et de l’extension du GPU, vous n’avez plus besoin d’utiliser un port avec accès Internet pour le calcul.
+
+
 ---
 
 
@@ -493,6 +501,8 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 Découvrez comment :
 
+- [Résoudre les problèmes d’extension GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md).
+- [Superviser l’activité des machines virtuelles sur votre appareil](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
 - [Gérer les disques de machine virtuelle](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md).
 - [Gérer les interfaces réseau machines virtuelles](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 - [Gérer les tailles de machine virtuelle](azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md).

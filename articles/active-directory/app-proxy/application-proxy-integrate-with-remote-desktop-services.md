@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4a7a4fdcad177c6108399a0cb1e64327c3eac8f5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: aa5c8ae942bb48c78526867eb44cc2084c056d48
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186010"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649679"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Publier le bureau à distance avec le proxy d’application Azure Active Directory
 
@@ -42,7 +42,7 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 ## <a name="requirements"></a>Spécifications
 
 - Les points de terminaison du rôle Site Web Bureau à distance et du rôle Passerelle Bureau à distance doivent se trouver sur le même ordinateur et avoir une racine commune. Le rôle Site web Bureau à distance et le rôle Passerelle Bureau à distance sont publiés sous la forme d’une seule application avec le proxy d’application afin de vous proposer une expérience d’authentification unique pour les deux applications.
-- Vous devez déjà avoir [déployé RDS](/windows-server/remote/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](../app-proxy/application-proxy-add-on-premises-application.md). Vérifiez que vous avez respecté les conditions préalables pour activer Proxy d’application, telles que l’installation du connecteur, l’ouverture des ports et des URL requis et l’activation de TLS 1.2 sur le serveur.
+- Vous devez déjà avoir [déployé RDS](/windows-server/remote/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](../app-proxy/application-proxy-add-on-premises-application.md). Vérifiez que vous avez respecté les conditions préalables pour activer Proxy d’application, telles que l’installation du connecteur, l’ouverture des ports et des URL requis et l’activation de TLS 1.2 sur le serveur. Pour savoir quels ports doivent être ouverts et d’autres détails, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via un proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md).
 - Vos utilisateurs finaux doivent utiliser un navigateur compatible pour se connecter à Site Web Bureau à distance ou au client Site Web Bureau à distance. Pour plus d’informations, consultez [Prise en charge des configurations client](#support-for-other-client-configurations).
 - Lors de la publication sur Site Web Bureau à distance, il est recommandé d’utiliser les mêmes noms de domaine complets interne et externe. Si les noms de domaine complets interne et externe sont différents, vous devez alors désactiver la traduction d’en-tête de requête pour éviter que le client reçoive des liens non valides.
 - Si vous utilisez Site Web Bureau à distance sur Internet Explorer, vous devez activer le module complémentaire ActiveX RDS.

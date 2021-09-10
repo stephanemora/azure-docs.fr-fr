@@ -1,19 +1,20 @@
 ---
-title: Copier ou sauvegarder des travaux Azure Stream Analytics
-description: Cet article explique comment copier ou sauvegarder un travail Azure Stream Analytics.
+title: Copier, sauvegarder et déplacer vos travaux Azure Stream Analytics entre les régions
+description: Cet article explique comment déplacer, copier et sauvegarder un travail Azure Stream Analytics.
 author: su-jie
 ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
+ms.custom: subject-moving-resources
 ms.date: 09/11/2019
-ms.openlocfilehash: 864c5ffc9ed88f438a5be5a1fcb55d0b78df5e07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b3d203d3d34612b3495fa3eceaf13e357eaa2be
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98016609"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829405"
 ---
-# <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copier ou sauvegarder des travaux Azure Stream Analytics
+# <a name="copy-back-up-and-move-your-azure-stream-analytics-jobs-between-regions"></a>Copier, sauvegarder et déplacer vos travaux Azure Stream Analytics entre les régions
 
 Vous pouvez copier ou sauvegarder vos travaux Azure Stream Analytics déployés à l’aide de Visual Studio Code ou de Visual Studio. La copie d’un travail vers une autre région n’a pas pour effet de copie la dernière heure de sortie. Par conséquent, vous ne pouvez pas utiliser l’option [**Lors du dernier arrêt**](./start-job.md#start-options) lors du démarrage du travail copié.
 

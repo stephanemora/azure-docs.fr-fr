@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les machines virtuel
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d60b06331f10f33fabfb7ef03365ee6ac8689bcf
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2fc5057826eda1856b5b3671b6a995e9e80468f5
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315162"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720643"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Déployer Azure Monitor Application Insights Agent sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure
 
@@ -20,7 +20,7 @@ Cet article vous explique comment activer la supervision Application Insights à
 > Les applications basées sur **Java** qui s’exécutent sur des machines virtuelles Azure et VMSS sont supervisées avec l’ **[agent Application Insights Java 3.0](./java-in-process-agent.md)** , qui est généralement disponible.
 
 > [!IMPORTANT]
-> L’agent Azure Application Insights pour les applications ASP.NET s’exécutant sur **machines virtuelles Azure et VMSS** est actuellement disponible en version préliminaire publique. Pour surveiller vos applications ASP.Net qui s’exécutent **localement**, utilisez l’agent [Azure Application Insights pour les serveurs locaux](./status-monitor-v2-overview.md), qui est généralement disponible et pris en charge intégralement.
+> L’agent Azure Application Insights pour les applications ASP.NET et ASP.NET Core s’exécutant sur des **machines virtuelles Azure et VMSS** est actuellement disponible en préversion publique. Pour surveiller vos applications ASP.NET qui s’exécutent **localement**, utilisez l’agent [Azure Application Insights pour les serveurs locaux](./status-monitor-v2-overview.md), qui est en disponibilité générale et pris en charge intégralement.
 > La préversion pour les machines virtuelles Azure et VMSS est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -35,10 +35,10 @@ Il existe deux manières d’activer la supervision des applications pour les ap
 * Pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure, nous recommandons au minimum d’activer ce niveau de supervision. Après cela, en fonction de votre scénario spécifique, vous pouvez évaluer si une instrumentation manuelle est nécessaire.
 
 > [!NOTE]
-> L’instrumentation automatique est disponible uniquement pour les applications .NET hébergées par IIS et Java. Utilisez un kit SDK pour instrumenter les applications ASP.NET Core, Node.js et Python hébergées sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure.
+> L’instrumentation automatique est disponible uniquement pour Java et les applications ASP.NET et ASP.NET Core hébergées par IIS. Utilisez un Kit de développement logiciel (SDK) pour instrumenter les applications Node.js et Python hébergées sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure.
 
 
-#### <a name="net"></a>.NET
+#### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
   * Le module Application Insights Agent collecte automatiquement les mêmes signaux de dépendance prêts à l’emploi que le kit SDK .NET. Pour en savoir plus, consultez [Collecte automatique de dépendance](./auto-collect-dependencies.md#net).
         
@@ -47,16 +47,13 @@ Il existe deux manières d’activer la supervision des applications pour les ap
 
 ### <a name="code-based-via-sdk"></a>Avec du code via le kit SDK
     
-#### <a name="net"></a>.NET
+#### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
   * Pour les applications .NET, cette approche est beaucoup plus personnalisable, mais elle nécessite d’[ajouter une dépendance sur les packages NuGet du SDK Application Insights](./asp-net.md). Cette méthode implique également de gérer vous-même l’installation des mises à jour vers la dernière version des packages.
 
   * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](./api-custom-events-metrics.md).
 
     > [!NOTE]
     > Pour les applications .NET uniquement, si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un Kit de développement logiciel (SDK), sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](#troubleshooting) ci-après.
-
-#### <a name="net-core"></a>.NET Core
-Pour superviser les applications .NET Core, utilisez le [SDK](./asp-net-core.md). 
 
 #### <a name="java"></a>Java 
 

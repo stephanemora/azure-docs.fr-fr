@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/28/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e08f9090682a62ffe209122e88adca9e9710b96
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 3b1d7d8b658e0a0ac01789ca8a13ce0a2f779767
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524537"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -119,13 +119,13 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50048 | SubjectMismatchesIssuer : l’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire. |
 | AADSTS50049 | NoSuchInstanceForDiscovery : instance inconnue ou non valide. |
 | AADSTS50050 | MalformedDiscoveryRequest : le format de la requête est incorrect. |
-| AADSTS50053 | IdsLocked : le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrects. |
-| AADSTS50055 | InvalidPasswordExpiredPassword : le mot de passe a expiré. |
-| AADSTS50056 | Le mot de passe est nul ou non valide. Le mot de passe pour cet utilisateur n’existe pas dans le magasin. |
-| AADSTS50057 | UserDisabled : le compte d’utilisateur est désactivé. Le compte a été désactivé par un administrateur. |
-| AADSTS50058 | UserInformationNotProvided : cela signifie qu’un utilisateur n’est pas connecté. Il s’agit d’une erreur courante qui est attendue lorsqu’un utilisateur n’est pas authentifié et n’est pas encore connecté.</br>Si cette erreur est rencontrée dans un contexte d'authentification unique où l'utilisateur s'est précédemment connecté, cela signifie que la session d'authentification unique est introuvable ou invalide.</br>Cette erreur peut être retournée à l’application si prompt=none est spécifié. |
+| AADSTS50053 | Cette erreur peut résulter de deux raisons différentes : <br><ul><li>IdsLocked : le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrects. L’utilisateur est bloqué en raison de tentatives de connexion répétées. Voir [Atténuer les risques et débloquer les utilisateurs](../identity-protection/howto-identity-protection-remediate-unblock.md) ; ou</li><li>La connexion a été bloquée, car elle provient d’une adresse IP présentant des activités malveillantes.</li></ul> <br>Pour déterminer la raison de l’échec à l’origine de cette erreur, connectez-vous au [portail Azure](https://portal.azure.com).  Accédez à votre locataire Azure AD, puis à **Surveillance** -> **Connexions**. Recherchez la connexion d’utilisateur ayant échoué avec le **code d’erreur de connexion** 50053 et vérifiez la **raison de l’échec**.|
+| AADSTS50055 | InvalidPasswordExpiredPassword : le mot de passe a expiré. Le mot de passe de l’utilisateur a expiré et, par conséquent, sa connexion ou sa session a été interrompue. Il lui sera proposé de le réinitialiser ou il pourra demander à un administrateur de le réinitialiser via [Réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory](../fundamentals/active-directory-users-reset-password-azure-portal.md). |
+| AADSTS50056 | Mot de passe est nul ou non valide : le mot de passe pour cet utilisateur n’existe pas dans le répertoire. Il faut demander à l’utilisateur d’entrer à nouveau son mot de passe. |
+| AADSTS50057 | UserDisabled : le compte d’utilisateur est désactivé. L’objet utilisateur dans Active Directory qui soutient ce compte a été désactivé. Un administrateur peut réactiver ce compte [via Powershell](/powershell/module/activedirectory/enable-adaccount). |
+| AADSTS50058 | UserInformationNotProvided : les informations de session ne sont pas suffisantes pour l’authentification unique. Cela signifie qu’un utilisateur n’est pas connecté. Il s’agit d’une erreur courante qui est attendue lorsqu’un utilisateur n’est pas authentifié et n’est pas encore connecté.</br>Si cette erreur est rencontrée dans un contexte d'authentification unique où l'utilisateur s'est précédemment connecté, cela signifie que la session d'authentification unique est introuvable ou invalide.</br>Cette erreur peut être retournée à l’application si prompt=none est spécifié. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided : les informations d’identification de locataire sont introuvables dans la requête ou déduites des informations d’identification fournies. L’utilisateur peut contacter l’administrateur du locataire pour qu’il l’aide à résoudre le problème. |
-| AADSTS50061 | SignoutInvalidRequest : la requête de déconnexion n’est pas valide. |
+| AADSTS50061 | SignoutInvalidRequest : impossible de terminer la déconnexion. La demande n’était pas valide. |
 | AADSTS50064 | CredentialAuthenticationError : la validation des informations d’identification sur le nom d’utilisateur ou le mot de passe a échoué. |
 | AADSTS50068 | SignoutInitiatorNotParticipant : la déconnexion a échoué. L’application qui a initié la déconnexion ne participe pas à la session active. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier : la déconnexion a échoué. La demande de déconnexion a spécifié un identificateur de nom qui ne correspond à aucune session existante. |
@@ -136,14 +136,16 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50079 | UserStrongAuthEnrollmentRequired : en raison d’une modification de la configuration apportée par l’administrateur, ou du déplacement de l’utilisateur vers un nouvel emplacement, l’utilisateur est tenu d’utiliser l’authentification multifacteur. |
 | AADSTS50085 | Le jeton d’actualisation a besoin d’une connexion IDP sociale. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe. |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError : le service est temporairement indisponible. Réessayez. |
-| AADSTS50089 | Échec du jeton de flux. L’authentification a échoué. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe. |
+| AADSTS50087 | SasRetryableError : une erreur temporaire s’est produite lors de l’authentification forte. Recommencez. |
+| AADSTS50088 | La limite des appels d’authentification multifacteur est atteinte. Réessayez dans quelques minutes. |
+| AADSTS50089 | L’authentification a échoué en raison de l’expiration du jeton de flux. Attendu : les codes d’authentification, les jetons d’actualisation et les sessions expirent avec le temps ou sont révoqués par l’utilisateur ou un administrateur. L’application demandera une nouvelle connexion à l’utilisateur. |
 | AADSTS50097 | DeviceAuthenticationRequired : l’authentification de l’appareil est requise. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized : la signature JWT n’est pas valide. |
 | AADSTS50105 | EntitlementGrantsNotFound : l’utilisateur connecté n’est pas affecté à un rôle pour l’application concernée. Affectez l’utilisateur à l’application. Pour en savoir plus, consultez l’article sur la résolution des problèmes liés à l’erreur [AADSTS50105](/troubleshoot/azure/active-directory/error-code-aadsts50105-user-not-assigned-role). |
 | AADSTS50107 | InvalidRealmUri : l’objet de domaine de fédération requis n’existe pas. Contactez l’administrateur du locataire. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat : problème avec l’en-tête JWT. Contactez l’administrateur du locataire. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter : la transformation des revendications contient un paramètre d’entrée non valide. Contactez l’administrateur du locataire pour mettre à jour la stratégie. |
+| AADSTS501241 | L’entrée obligatoire « {paramName} » manque dans l’ID de transformation « {transformId} ». Cette erreur est renvoyée lorsqu’Azure AD tente de générer une réponse SAML à l’application. La revendication NameID ou NameIdentifier est obligatoire dans la réponse SAML et si Azure AD ne parvient pas à obtenir l’attribut source pour la revendication NameID, il renvoie cette erreur. Pour résoudre ce problème, assurez-vous d’ajouter des règles de revendication dans Portail Azure > Azure Active Directory > Applications d’entreprise > Sélectionner votre application > Authentification unique > Attributs utilisateur et revendications > Identifiant utilisateur unique (ID de nom).  |
 | AADSTS50125 | PasswordResetRegistrationRequiredInterrupt : la connexion a été interrompue en raison d’une réinitialisation de mot de passe ou d’une entrée d’inscription de mot de passe. |
 | AADSTS50126 | InvalidUserNameOrPassword : erreur de validation des informations d’identification en raison d’un nom d’utilisateur ou d’un mot de passe non valide. |
 | AADSTS50127 | BrokerAppNotInstalled : l’utilisateur a besoin d’installer une application de répartiteur pour accéder à ce contenu. |
@@ -156,7 +158,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50135 | PasswordChangeCompromisedPassword : La modification du mot de passe est nécessaire en raison du risque du compte. |
 | AADSTS50136 | RedirectMsaSessionToApp : une seule session MSA est détectée. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken : la session n’est pas valide en raison d’un jeton d’actualisation externe manquant. |
-| AADSTS50140 | KmsiInterrupt : cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
+| AADSTS50140 | KmsiInterrupt : cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. Il s’agit d’une partie attendue du flux de connexion, où il est demandé à l’utilisateur s’il souhaite rester connecté à son navigateur actuel pour faciliter les connexions ultérieures. Pour plus d’informations, consultez [The new Azure AD sign-in and “Keep me signed in” experiences rolling out now!](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/the-new-azure-ad-sign-in-and-keep-me-signed-in-experiences/m-p/128267) (Nouvelles expériences de connexion Azure AD et de maintien de la connexion en cours de déploiement). Vous pouvez [ouvrir un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails.|
 | AADSTS50143 | Incompatibilité de session. La session n’est pas valide, car le locataire de l’utilisateur ne correspond pas à l’indicateur de domaine en raison d’une ressource différente. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword : Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. Générez un nouveau mot de passe pour l’utilisateur ou demandez à l’utilisateur d’utiliser l’outil de réinitialisation en libre-service pour le réinitialiser. |
 | AADSTS50146 | MissingCustomSigningKey : cette application doit être configurée avec une clé de signature spécifique. Elle n’est configuré avec aucune clé, ou la clé a expiré ou n’est pas encore valide. |
@@ -193,6 +195,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS65004 | UserDeclinedConsent : l’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
 | AADSTS65005 | MisconfiguredApplication : la liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Pour en savoir plus, consultez l’article sur la résolution des problèmes liés à l’erreur [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app). |
 | AADSTS650052 | L’application a besoin d’accéder à un service `(\"{name}\")` auquel votre organisation `\"{organization}\"` n’est pas abonnée ou qu’elle n’a pas activé. Contactez votre administrateur informatique pour examiner la configuration de vos abonnements de service. |
+| AADSTS650054 |  L’application a demandé des autorisations pour accéder à une ressource qui a été supprimée ou qui n’est plus disponible. Assurez-vous que toutes les ressources que l’application appelle sont présentes dans le locataire dans lequel vous travaillez. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant : échec d’authentification. Le jeton d’actualisation n'est pas valide. L’erreur peut être due à l’une des raisons suivantes :<ul><li>L’en-tête de liaison de jeton est vide</li><li>Le hachage de liaison de jeton ne correspond pas</li></ul> |
 | AADSTS70001 | UnauthorizedClient : l’application est désactivée. Pour en savoir plus, consultez l’article sur la résolution des problèmes liés à l’erreur [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
@@ -200,6 +203,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS70003 | UnsupportedGrantType : l’application a retourné un type d’autorisation non pris en charge. |
 | AADSTS70004 | InvalidRedirectUri : l’application a retourné un URI de redirection non valide. L’adresse de redirection spécifiée par le client ne correspond à aucune adresse configurée ni à aucune adresse de la liste d’approbation OIDC. |
 | AADSTS70005 | UnsupportedResponseType : l’application a renvoyé un type de réponse non pris en charge pour les raisons suivantes :<ul><li>Le type de réponse « jeton » n’est pas activé pour l’application</li><li>Le type de réponse « id_token » requiert la portée « OpenID ». La réponse contient une valeur de paramètre OAuth non prise en charge dans l’élément wctx codé.</li></ul> |
+| AADSTS700054 | Response_type « id_token » n’est pas activé pour l’application.  L’application a demandé un jeton d’ID au point de terminaison d’autorisation, mais n’a pas activé l’octroi implicite de jeton d’ID.  Accédez à Portail Azure > Azure Active Directory > Inscriptions d’applications > Sélectionner votre application > Authentification > Sous « Octroi implicite et flux hybrides », assurez-vous que « Jetons d’ID » est sélectionné.|
 | AADSTS70007 | UnsupportedResponseMode : l’application a renvoyé une valeur non prise en charge pour `response_mode` lors de la requête d’un jeton.  |
 | AADSTS70008 | ExpiredOrRevokedGrant : le jeton d’actualisation a expiré en raison d’une inactivité. Le jeton a été émis le XXX et il était inactif pendant un certain laps de temps. |
 | AADSTS70011 | InvalidScope : la portée demandée par l’application n’est pas valide. |

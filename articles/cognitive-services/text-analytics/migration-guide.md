@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/21/2021
+ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: 4edd78b89ed30d6458eee94e328b8c05f141bfd6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e10c1f8622e1bbb60a3fbb4f5d6fd5bd3da46255
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457686"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550441"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrer vers la version 3.x de l’API Analyse de texte
 
-Si vous utilisez la version 2.1 de l’API Analyse de texte, cet article vous aide à mettre à niveau votre application pour utiliser la version 3.x. La version 3.0 est en disponibilité générale et introduit de nouvelles fonctionnalités comme la [Reconnaissance d’entité nommée (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) et le [contrôle de version de modèle](concepts/model-versioning.md). Une préversion de v3.1 (v3.1-preview.x) est également disponible, elle ajoute des fonctionnalités comme l’[exploration des opinions](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). Les modèles utilisés dans v2 ne reçoivent pas les mises à jour ultérieures. 
+Si vous utilisez la version 2.1 de l’API Analyse de texte, cet article vous aide à mettre à niveau votre application pour utiliser la version 3.x. Les versions 3.1 et 3.0 sont en disponibilité générale et introduisent de nouvelles fonctionnalités comme la [Reconnaissance d’entité nommée (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) et le [contrôle de version de modèle](concepts/model-versioning.md). La version 3.1 est également disponible, ce qui ajoute des fonctionnalités telles que l’[exploration des opinions](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et la détection d’[informations d’identification personnelle](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii). Les modèles utilisés dans les versions 2 ou 3.1-preview.x ne reçoivent pas les mises à jour ultérieures. 
 
 ## <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment-analysis)
+
+> [!TIP]
+> Vous souhaitez utiliser la dernière version de l’API dans votre application ? Pour plus d’informations sur la version actuelle de l’API, consultez l’article de guide pratique [analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) et le [guide de démarrage rapide](quickstarts/client-libraries-rest-api.md). 
 
 ### <a name="feature-changes"></a>Évolution des fonctionnalités 
 
@@ -31,12 +34,12 @@ L’analyse des sentiments dans la version 2.1 retourne des scores de sentiment
 
 #### <a name="rest-api"></a>API REST
 
-Si votre application utilise l’API REST, mettez à jour son point de terminaison de demande sur le point de terminaison v3 pour l’analyse des sentiments. Par exemple, `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`. Vous devez également mettre à jour l’application pour utiliser les étiquettes de sentiment retournées dans la [réponse de l’API](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+Si votre application utilise l’API REST, mettez à jour son point de terminaison de demande sur le point de terminaison v3 pour l’analyse des sentiments. Par exemple, `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`. Vous devez également mettre à jour l’application pour utiliser les étiquettes de sentiment retournées dans la [réponse de l’API](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
 
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
 
 #### <a name="client-libraries"></a>Bibliothèques clientes
 
@@ -44,9 +47,12 @@ Consultez la documentation de référence pour obtenir des exemples de réponse 
 
 ## <a name="ner-and-entity-linking"></a>[NER et liaison d’entités](#tab/named-entity-recognition)
 
+> [!TIP]
+> Vous souhaitez utiliser la dernière version de l’API dans votre application ? Pour plus d’informations sur la version actuelle de l’API, consultez l’article de guide pratique [liaison NER et entité](how-tos/text-analytics-how-to-entity-linking.md) et le [guide de démarrage rapide](quickstarts/client-libraries-rest-api.md). 
+
 ### <a name="feature-changes"></a>Évolution des fonctionnalités
 
-Dans la version 2.1, l’API Analyse de texte utilise un seul point de terminaison pour la reconnaissance d’entité nommée (NER) et la liaison d’entités. La version 3 fournit une détection étendue des entités nommées et utilise des points de terminaison séparés pour les demandes NER et de liaison d’entités. À partir de v3.1-preview.1, NER peut également détecter les informations personnelles `pii` et médicales `phi`. 
+Dans la version 2.1, l’API Analyse de texte utilise un seul point de terminaison pour la reconnaissance d’entité nommée (NER) et la liaison d’entités. La version 3 fournit une détection étendue des entités nommées et utilise des points de terminaison séparés pour les demandes NER et de liaison d’entités. Dans v3.1-preview.1, NER peut également détecter les informations personnelles `pii` et médicales `phi`. 
 
 ### <a name="steps-to-migrate"></a>Étapes de migration
 
@@ -55,17 +61,17 @@ Dans la version 2.1, l’API Analyse de texte utilise un seul point de terminai
 Si votre application utilise l’API REST, mettez à jour son point de terminaison de demande sur le point de terminaison v3 pour NER et/ou la liaison d’entités.
 
 Liaison d’entités
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/linking`
 
 NER
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/general`
 
 Vous devez également mettre à jour votre application pour utiliser les [catégories d’entité](named-entity-types.md) retournées dans la [réponse de l’API](how-tos/text-analytics-how-to-entity-linking.md#view-results).
 
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/EntitiesRecognitionGeneral)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
 
 #### <a name="client-libraries"></a>Bibliothèques clientes
 
@@ -102,6 +108,9 @@ Le tableau suivant répertorie les catégories d’entités retournées pour NER
 
 ## <a name="language-detection"></a>[Détection de la langue](#tab/language-detection)
 
+> [!TIP]
+> Vous souhaitez utiliser la dernière version de l’API dans votre application ? Pour plus d’informations sur la version actuelle de l’API, consultez l’article de guide pratique [détection de la langue](how-tos/text-analytics-how-to-language-detection.md) et le [guide de démarrage rapide](quickstarts/client-libraries-rest-api.md). 
+
 ### <a name="feature-changes"></a>Évolution des fonctionnalités 
 
 La sortie de la fonctionnalité de détection de langue a changé dans la version 3. La réponse JSON contient `ConfidenceScore` au lieu de `score`. La version 3 ne retourne également qu’une seule langue dans un attribut `detectedLanguage` pour chaque document.
@@ -110,18 +119,21 @@ La sortie de la fonctionnalité de détection de langue a changé dans la versio
 
 #### <a name="rest-api"></a>API REST
 
-Si votre application utilise l’API REST, mettez à jour son point de terminaison de demande sur le point de terminaison v3 pour la détection de langue. Par exemple, `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`. Vous devez également mettre à jour l’application pour utiliser `ConfidenceScore` au lieu de `score` dans la [réponse de l’API](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+Si votre application utilise l’API REST, mettez à jour son point de terminaison de demande sur le point de terminaison v3 pour la détection de langue. Par exemple, `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/languages`. Vous devez également mettre à jour l’application pour utiliser `ConfidenceScore` au lieu de `score` dans la [réponse de l’API](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
 
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Languages)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages)
 
 #### <a name="client-libraries"></a>Bibliothèques clientes
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ## <a name="key-phrase-extraction"></a>[Extraction de phrases clés](#tab/key-phrase-extraction)
+
+> [!TIP]
+> Vous souhaitez utiliser la dernière version de l’API dans votre application ? Pour plus d’informations sur la version actuelle de l’API, consultez l’article de guide pratique [extraction de phrase clé](how-tos/text-analytics-how-to-keyword-extraction.md) et le [guide de démarrage rapide](quickstarts/client-libraries-rest-api.md). 
 
 ### <a name="feature-changes"></a>Évolution des fonctionnalités 
 
@@ -136,7 +148,7 @@ Si votre application utilise l’API REST, mettez à jour son point de terminais
 Consultez la documentation de référence pour obtenir des exemples de réponse JSON.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
-* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/KeyPhrases)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases)
 
 #### <a name="client-libraries"></a>Bibliothèques clientes
 

@@ -1,27 +1,23 @@
 ---
 title: Services de réseau Azure Allemagne | Microsoft Docs
 description: Fournir une comparaison des fonctionnalités et des conseils pour la connectivité privée à Azure Allemagne
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 42b68d14776c2c2bd52c69034443052c7d942801
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: aa1d648cf3e3f43d4a29c5dc199420f8d731848a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033490"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "122562081"
 ---
 # <a name="azure-germany-networking-services"></a>Services de réseau Azure Allemagne
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## <a name="expressroute-private-connectivity"></a>ExpressRoute (connectivité privée)
 Azure ExpressRoute est mis à la disposition générale dans Azure Allemagne. Pour plus d’informations (y compris sur les partenaires et les emplacements de peering), consultez la [documentation générale ExpressRoute ](../expressroute/index.yml).
 
@@ -33,10 +29,10 @@ Azure ExpressRoute est mis à la disposition générale dans Azure Allemagne. Po
 * Les emplacements ExpressRoute Azure Allemagne fournissent des itinéraires optimisés (notamment des sauts plus courts, une faible latence, de hautes performances) pour les clients et les régions géo-redondantes Azure Allemagne.
 * La connexion privée ExpressRoute Azure Allemagne n’utilise pas, ne parcourt pas et ne dépend pas d’Internet.
 * L’infrastructure physique et logique d’Azure Allemagne est physiquement dédiée et séparée du réseau cloud Microsoft international.
-* ExpressRoute Azure Allemagne fournit une connectivité privée aux services cloud Microsoft Azure, mais pas aux services cloud Office 365 ou Dynamics 365.
+* ExpressRoute Azure Allemagne fournit une connectivité privée aux services cloud Microsoft Azure, mais pas aux services cloud Microsoft 365 ou Dynamics 365.
 
 ### <a name="considerations"></a>Considérations
-Deux services de base fournissent une connectivité réseau privée à Azure Allemagne : ExpressRoute et VPN (site à site pour une organisation typique).
+Deux services de base fournissent une connectivité de réseau privé à Azure Allemagne : ExpressRoute et VPN (de site à site pour une organisation standard).
 
 Vous pouvez utiliser ExpressRoute pour créer des connexions privées entre les centres de données Azure Allemagne et votre infrastructure locale, ou au sein d’un environnement de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent davantage de fiabilité, des vitesses supérieures et des latences inférieures par rapport aux connexions Internet classiques. Dans certains cas, l’utilisation de connexions ExpressRoute pour le transfert de données entre des systèmes locaux et Azure offre des avantages significatifs en matière de coûts.   
 
@@ -69,4 +65,4 @@ Généralement, le peering de réseaux virtuels est disponible dans Azure Allema
 Généralement, la passerelle VPN Azure est disponible dans Azure Allemagne. Pour plus d’informations, consultez [la documentation générale sur la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Allemagne](https://blogs.msdn.microsoft.com/azuregermany/).
+Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Allemagne](/archive/blogs/azuregermany/).

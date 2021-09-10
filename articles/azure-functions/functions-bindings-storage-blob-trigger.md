@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4624a33b12afc5eff033fe2d57bf25f812c9e667
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b1be9681246711cfd722bdc4d4806d75875f3429
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891299"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525648"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Déclencheur Stockage Blob Azure pour Azure Functions
 
@@ -43,6 +43,8 @@ Le [déclencheur Event Grid](functions-bindings-event-grid.md) possède égaleme
 - **Comptes de stockage Blob uniquement** : Les [comptes de stockage Blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts) sont pris en charge pour les liaisons d’entrée et de sortie, mais pas pour les déclencheurs blob.
 
 - **Scalabilité élevée** : La scalabilité élevée peut être définie comme des conteneurs qui contiennent plus de 100 000 objets blob ou des comptes de stockage avec plus de 100 mises à jour d’objets blob par seconde.
+
+- **Blobs existants** : Le déclencheur de blobs traitera tous les blobs existants dans le conteneur lorsque vous aurez configuré le déclencheur. Si vous avez un conteneur avec de nombreux blobs existants et que vous souhaitez uniquement déclencher pour les nouveaux blobs, utilisez le déclencheur Event Grid.
 
 - **Minimisation de la latence** : Si votre application de fonction est dans le plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Pour éviter toute latence, vous pouvez passer à un plan App Service dans lequel est activé AlwaysOn. Vous pouvez également utiliser un [déclencheur Event Grid](functions-bindings-event-grid.md) avec votre compte de stockage Blob. Pour obtenir un exemple, consultez le [tutoriel Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 

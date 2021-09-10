@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70cc20b51587a70e8a124b6f3b5d047ff827db83
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 695786a43291bdb0cb679d79cfa4e6d08cf67770
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034586"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867218"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -58,7 +58,7 @@ Quand cette case est cochée, les utilisateurs doivent effectuer une authentific
 
 Les organisations qui ont déployé Microsoft Intune peuvent utiliser les informations retournées par leurs appareils pour identifier les appareils qui remplissent les conditions de conformité spécifiques. Ces informations de conformité de la stratégie sont transmises d’Intune à Azure AD, où l’accès conditionnel peut prendre des décisions pour accorder ou bloquer l’accès aux ressources. Pour plus d’informations sur les stratégies de conformité, consultez l’article [Définir des règles sur les appareils pour autoriser l’accès aux ressources de votre organisation à l’aide d’Intune](/intune/protect/device-compliance-get-started).
 
-Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par un système GPM tiers pour les appareils Windows 10. Jamf Pro est le seul système MDM tiers pris en charge. Pour plus d’informations sur l’intégration, consultez l’article [Intégrer JAMF Pro à Intune pour assurer la conformité](/intune/protect/conditional-access-integrate-jamf).
+Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par un système GPM tiers pour les appareils Windows 10. Une liste des systèmes MDM tiers pris en charge est disponible dans l’article [Prendre en charge les partenaires tiers de conformité des appareils dans Intune](/mem/intune/protect/device-compliance-partners).
 
 Les appareils doivent être inscrits dans Azure AD pour pouvoir être marqués comme conformes. Pour plus d’informations sur l’inscription des appareils, consultez l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
 
@@ -72,7 +72,7 @@ Lorsque le [flux OAuth de code d’appareil](../develop/v2-oauth2-device-code.md
 
 Les organisations peuvent exiger que toute tentative d’accès aux applications cloud sélectionnées provienne d’une application cliente approuvée. Ces applications clientes approuvées prennent en charge les [stratégies de protection des applications Intune](/intune/app-protection-policy), quelle que soit votre solution de gestion des périphériques mobiles (GPM).
 
-Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou bien Microsoft Authenticator ou le portail d’entreprise Microsoft pour appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers le magasin d’applications approprié pour installer l’application de répartiteur requise.
+Pour appliquer ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, ce qui requiert l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou bien Microsoft Authenticator ou le portail d’entreprise Microsoft pour appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers le magasin d’applications approprié pour installer l’application de répartiteur requise.
 
 La prise en charge de ce paramètre est confirmée pour les applications clientes suivantes :
 
@@ -92,7 +92,7 @@ La prise en charge de ce paramètre est confirmée pour les applications cliente
 - Microsoft OneNote
 - Microsoft Outlook
 - Planificateur Microsoft
-- Microsoft PowerApps
+- Microsoft Power Apps
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
@@ -122,7 +122,7 @@ Consultez l’article [Guide pratique pour exiger des applications clientes appr
 
 Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une [stratégie de protection des applications Intune](/intune/app-protection-policy) soit présente sur l’application cliente pour qu’il soit possible d’accéder aux applications cloud sélectionnées. 
 
-Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou le portail d’entreprise Microsoft pour les appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers l’App Store pour installer cette application.
+Pour appliquer ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, ce qui requiert l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou le portail d’entreprise Microsoft pour les appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers l’App Store pour installer cette application.
 
 Les applications doivent disposer du kit **SDK Intune** avec une **assurance de stratégie** implémentée et répondre à certaines exigences supplémentaires pour prendre en charge ce paramètre. Les développeurs qui implémentent des applications avec le kit SDK Intune peuvent trouver plus d’informations sur ces exigences dans la documentation du kit SDK.
 
@@ -140,12 +140,13 @@ La prise en charge de ce paramètre est confirmée pour les applications cliente
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Teams
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Teams, Microsoft Kaizala, Microsoft Skype Entreprise et Microsoft Visio ne prennent pas en charge l’octroi **Exiger une stratégie de protection des applications**. Si vous avez besoin que ces applications fonctionnent, utilisez exclusivement l’octroi **Exiger une stratégie de protection des applications**. L’utilisation de la clause entre les deux octrois ne fonctionnera pas pour ces trois applications.
+> Microsoft Kaizala, Microsoft Skype Entreprise et Microsoft Visio ne prennent pas en charge l’octroi **Exiger une stratégie de protection des applications**. Si vous avez besoin que ces applications fonctionnent, utilisez exclusivement l’octroi **Exiger une stratégie de protection des applications**. L’utilisation de la clause entre les deux octrois ne fonctionnera pas pour ces trois applications.
 
 **Remarques**
 
@@ -158,22 +159,22 @@ Consultez l’article [Guide pratique pour exiger une stratégie de protection d
 
 ### <a name="require-password-change"></a>Nécessite une modification du mot de passe 
 
-Lorsqu’un risque utilisateur est détecté, en s’appuyant sur les conditions de la stratégie de risque utilisateur, les administrateurs peuvent choisir de faire modifier le mot de passe de manière sécurisée à l’aide de la réinitialisation de mot de passe en libre-service Azure AD. Si un risque utilisateur est détecté, les utilisateurs peuvent effectuer la réinitialisation de mot de passe en libre-service pour résoudre automatiquement, ce qui fermera l’événement utilisateur à risque afin d’éviter toute perturbation inutile pour les administrateurs. 
+Lorsqu’un risque utilisateur est détecté, en s’appuyant sur les conditions de la stratégie de risque utilisateur, les administrateurs peuvent choisir de faire modifier le mot de passe de manière sécurisée à l’aide de la réinitialisation de mot de passe en libre-service Azure AD. Si un risque utilisateur est détecté, les utilisateurs peuvent effectuer la réinitialisation du mot de passe en libre-service pour une correction automatique ; ce processus fermera l’événement utilisateur à risque afin d’éviter toute perturbation inutile pour les administrateurs. 
 
 Lorsqu'un utilisateur est invité à modifier son mot de passe, il doit d'abord procéder à une authentification multifacteur. Vous devez vous assurer que tous vos utilisateurs se sont inscrits à l’authentification multifacteur afin qu'ils soient prêts au cas où un risque serait détecté pour leur compte.  
 
 > [!WARNING]
 > Les utilisateurs doivent avoir déjà été inscrits pour la réinitialisation du mot de passe libre-service avant de déclencher la stratégie de risque utilisateur. 
 
-Il existe quelques restrictions lorsque vous configurez une stratégie utilisant le contrôle de modification de mot de passe.  
+Il existe quelques restrictions lorsque vous configurez une stratégie utilisant le contrôle des modifications de mot de passe :  
 
-1. La stratégie doit être affectée à « toutes les applications cloud ». Cela empêche une personne malintentionnée d’utiliser une autre application pour modifier le mot de passe de l’utilisateur et réinitialiser le risque du compte, en se connectant simplement à une autre application. 
+1. La stratégie doit être affectée à « toutes les applications cloud ». Cette exigence empêche un attaquant d’utiliser une autre application pour modifier le mot de passe de l’utilisateur et réinitialiser le risque du compte, en se connectant à une autre application. 
 1. L’exigence de modification du mot de passe ne peut pas être utilisée avec d’autres contrôles, comme l’exigence d’un appareil conforme.  
 1. Le contrôle de modification du mot de passe ne peut être utilisé qu’avec la condition d’affectation d’utilisateurs et de groupes, la condition d’affectation d’applications cloud (qui doit être définie sur « tous ») et les conditions de risque utilisateur. 
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
-Si votre organisation a créé des conditions d’utilisation, des options supplémentaires peuvent être visibles sous les contrôles d’octroi. Ces options permettent aux administrateurs de demander l’acceptation des conditions d’utilisation comme condition d’accès aux ressources protégées par la stratégie. Pour plus d’informations sur les conditions d’utilisation, consultez l’article [Conditions d’utilisation d’Azure Active Directory](terms-of-use.md).
+Si votre organisation a créé des Conditions d’utilisation, d’autres options peuvent être visibles sous les contrôles d’octroi. Ces options permettent aux administrateurs de demander l’acceptation des conditions d’utilisation comme condition d’accès aux ressources protégées par la stratégie. Pour plus d’informations sur les conditions d’utilisation, consultez l’article [Conditions d’utilisation d’Azure Active Directory](terms-of-use.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

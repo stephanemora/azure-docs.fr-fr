@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 3205d4c4c6d8d7d821cb65400a4c1f19d6484005
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c5f1509a5d037e5866ed86266693e955bdca2d6f
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226531"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186422"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 
@@ -34,6 +34,7 @@ Si vous recevez des erreurs durant l’importation de votre document OpenAPI, v�
 ### <a name="general"></a><a name="open-api-general"> </a>Généralités
 
 -   Les paramètres requis pour le chemin d'accès et la requête doivent avoir des noms uniques. (Dans OpenAPI, un nom de paramètre doit être unique seulement dans un emplacement, par exemple, pour un chemin, une requête, un en-tête. Toutefois, dans Gestion des API nous autorisons la discrimination des opérations dans les paramètres de chemin et de requête (non pris en charge par OpenAPI). C’est pourquoi nous demandons à ce que les noms de paramètre soient uniques dans l’ensemble du modèle d’URL.)
+- En cas d’importation incluse dans Gestion des API, une spécification OpenAPI peut avoir une taille maximale de 4 Mo. La limite de taille ne s’applique pas quand un document OpenAPI est fourni via l’URL d’un emplacement accessible à partir de votre service Gestion des API.
 -   Les pointeurs `\$ref` ne peuvent pas référencer des fichiers externes.
 -   `x-ms-paths` et `x-servers` sont les seules extensions prises en charge.
 -   Les extensions personnalisées sont ignorées à l’importation et ne sont pas enregistrées ni conservées pour l’exportation.

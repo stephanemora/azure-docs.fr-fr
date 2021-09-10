@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9f80b91695af6350376d5fcd97732e1a056278a9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: cd040ef394163113b46f9af46aef0aead9cb37ca
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413084"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689276"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurer et optimiser les machines virtuelles
 
-Cet article donne des conseils sur la configuration et l’optimisation des machines virtuelles de la [série H](../../sizes-hpc.md) et de la [série N](../../sizes-gpu.md) avec InfiniBand pour le calcul haute performance.
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
+Cet article présente des conseils sur la configuration et l’optimisation des machines virtuelles compatibles InfiniBand [série H](../../sizes-hpc.md) et [série N](../../sizes-gpu.md) pour le calcul haute performance.
 
 ## <a name="vm-images"></a>Images de machine virtuelle
 Sur les machines virtuelles avec InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA.
@@ -102,7 +104,7 @@ Les images de base de machine virtuelle Ubuntu Server 16.04 LTS, 18.04 LTS et
 - Les scripts utilisés lors de la création d’images de machine virtuelle HPC Ubuntu 18.04 et 20.04 basées sur LTS à partir d’une image de base de la Place de marché Ubuntu se trouvent sur le [référentiel azhpc-images](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
 
 > [!NOTE]
-> Mellanox OFED 5.1 et versions ultérieures ne prennent pas en charge les cartes InfiniBand ConnectX3-Pro sur les machines virtuelles de série N compatibles SR-IOV avec FDR InfiniBand (p. ex. NCv3). Utilisez la version LTS de Mellanox OFED 4.9-0.1.7.0 ou une version ultérieure sur les machines virtuelles de la série N avec des cartes ConnectX3-Pro. Vous trouverez plus de détails [ici](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+> Mellanox OFED 5.1 et versions ultérieures ne prennent pas en charge les cartes InfiniBand ConnectX3-Pro sur les machines virtuelles de série N compatibles SR-IOV avec FDR InfiniBand (p. ex. NCv3). Utilisez la version LTS de Mellanox OFED 4.9-0.1.7.0 ou une version ultérieure sur les machines virtuelles de la série N avec des cartes ConnectX3-Pro. Pour plus d’informations, consultez [Pilotes InfiniBand Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### <a name="suse-linux-enterprise-server-vm-images"></a>Images de machine virtuelle SUSE Linux Enterprise Server
 Les images de machine virtuelle SLES 12 SP3 pour HPC, SLES 12 SP3 pour HPC (Premium), SLES 12 SP1 pour HPC, SLES 12 SP1 pour HPC (Premium), SLES 12 SP4 et SLES 15 dans la place de marché sont pris en charge. Ces images de machine virtuelle sont préchargées avec les pilotes Network Direct pour RDMA (sur les tailles de machine virtuelle sans SR-IOV) et Intel MPI version 5.1. En savoir plus sur la [configuration des MPI](setup-mpi.md) sur les machines virtuelles.

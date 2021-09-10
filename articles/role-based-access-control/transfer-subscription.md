@@ -8,20 +8,22 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/06/2021
+ms.date: 07/14/2021
 ms.author: rolyon
-ms.openlocfilehash: a12f3ca25df2d4473361e0a1ef596384813dc6a8
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 64f164c7d5e60e92e30986f8a39b34e92b1fdce4
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854735"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202476"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
 Les organisations peuvent avoir plusieurs abonnements Azure. Chaque abonnement est associé à un annuaire Azure Active Directory (Azure AD) spécifique. Pour faciliter la gestion, vous souhaiterez peut-être transférer un abonnement vers un autre annuaire Azure AD. Lorsque vous transférez un abonnement à un autre annuaire Azure AD, certaines ressources ne sont pas transférées vers l’annuaire cible. Par exemple, toutes les attributions de rôles et tous les rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure sont **définitivement** supprimés de l’annuaire source et ne sont pas transférés vers l’annuaire cible.
 
 Cet article décrit les étapes de base que vous pouvez suivre pour transférer un abonnement vers un autre annuaire Azure AD et recréer certaines des ressources après le transfert.
+
+Si vous préférer **bloquer** le transfert d’abonnements vers différents annuaires au sein de votre organisation, vous pouvez configurer une stratégie d’abonnement. Pour plus d’informations, consultez [Gérer les stratégies d’abonnement Azure](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 > [!NOTE]
 > Pour les abonnements aux fournisseurs de solutions cloud (CSP) Azure, le changement d’annuaire Azure AD pour l’abonnement n’est pas pris en charge.
@@ -249,18 +251,19 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 
 ### <a name="list-other-known-resources"></a>Répertorier les autres ressources connues
 
-1. Utilisez [az account show](/cli/azure/account#az_account_show) pour obtenir votre ID d’abonnement.
+1. Utilisez l’extension [az account show](/cli/azure/account#az_account_show) pour obtenir votre ID d’abonnement (en `bash`).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
-
-1. Utilisez l'extension [az graph](/cli/azure/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD.
+    
+1. Utilisez l’extension [az graph](/cli/azure/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD (en `bash`).
 
     ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    az graph query -q 'resources 
+        | where type != "microsoft.azureactivedirectory/b2cdirectories" 
+        | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true 
+        | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions $subscriptionId --output yaml
     ```
 
 ## <a name="step-2-transfer-the-subscription"></a>Étape 2 : Transférer l’abonnement

@@ -8,17 +8,17 @@ ms.author: ishansri
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.openlocfilehash: 3e7a33d9213d7af44d2cfc50baa847534618f7e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9142f03f5f23e843018f7d9b702ef8da3d650758
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608494"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578681"
 ---
 # <a name="text-normalization-for-case-insensitive-filtering-faceting-and-sorting"></a>Normalisation du texte pour le filtrage, les facettes et le tri sans prise en compte de la casse
 
- > [!IMPORTANT]
- > Normalizer est disponible en préversion publique, via l’**API REST 2020-06-30-preview**. Les fonctionnalités d’évaluation sont proposées telles quelles, dans le cadre de Conditions d’utilisation supplémentaires.
+> [!IMPORTANT] 
+> Cette fonctionnalité est disponible en préversion publique dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST en préversion](/rest/api/searchservice/index-preview) prend en charge cette fonctionnalité.
 
 La recherche et la récupération de documents à partir d’un index Recherche cognitive Azure requiert la mise en correspondance de la requête avec le contenu du document. Le contenu peut être analysé pour produire des jetons pour la correspondance, comme c’est le cas lorsque le paramètre `search` est utilisé, ou il peut être utilisé tel quel pour la correspondance stricte de mot clé, comme avec `$filter`, `facets` et `$orderby`. Cette approche de type « tout ou rien » couvre la plupart des scénarios, mais elle est limitée lorsqu’un prétraitement simple, comme la gestion de la casse, l’élimination des accents, l’asciifolding, etc., est requis sans passer par l’ensemble de la chaîne d’analyse.
 

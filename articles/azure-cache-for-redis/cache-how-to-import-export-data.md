@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: a877ee39c2d5a3760df50ebb3575793d1500de96
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0430217ab8c2f113127c6a2e519d9e394fc3d3e7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795529"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318678"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importer et exporter des données dans le Cache Azure pour Redis
 
@@ -73,7 +73,12 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
 2. Sélectionnez **Choisir un conteneur de stockage**, puis sélectionnez le compte de stockage souhaité. Le compte de stockage doit être situé dans les mêmes région et abonnement que votre cache.
 
    > [!IMPORTANT]
-   > La fonctionnalité d’exportation s’utilise sur les objets blob de pages qui sont pris en charge par les comptes de stockage Resource Manager et classiques. L’exportation n’est pas prise en charge par les comptes de stockage d’objets blob pour l’instant. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
+   >
+   > - La fonctionnalité d’exportation s’utilise sur les objets blob de pages qui sont pris en charge par les comptes de stockage Resource Manager et classiques.
+   > - Azure Cache pour Redis ne prend pas en charge l’exportation vers les comptes de stockage ADLS Gen2.
+   > - L’exportation n’est pas prise en charge par les comptes de stockage d’objets blob pour l’instant.
+   >
+   > Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
    >
 
     ![Compte de stockage](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
@@ -154,7 +159,7 @@ Oui, pour les instructions PowerShell, consultez les articles [pour importer un 
 
 Sur la gauche, si vous restez sur **Importer des données** ou **Exporter des données** pendant plus de 15 minutes avant de démarrer l’opération, vous recevez une erreur avec un message similaire à ce qui suit :
 
-```output
+```azcopy
 The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 ```
 

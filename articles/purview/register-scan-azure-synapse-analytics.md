@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f2797af01dad10c04c8a56cf52a584ea0f04af31
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 09dc3c20ca95f32ee4c8f01d6b4986adfcd3703e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656742"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563310"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Inscrire et analyser des pools SQL dédiés (anciennement SQL DW)
 
@@ -27,7 +27,6 @@ Azure Synapse Analytics (anciennement SQL DW) prend en charge les analyses compl
 
 ### <a name="known-limitations"></a>Limitations connues
 
-> * Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) dans Azure Synapse Analytics.
 > * Azure Purview prend en charge 300 colonnes au maximum sous l’onglet Schéma. Au-delà, il affiche « Additional-Columns-Truncated » (Colonnes-Supplémentaires-Tronquées). 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -57,11 +56,11 @@ Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation�
 CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
+EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-L’authentification doit avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Elle doit également être en mesure d’interroger les tables à échantillonner pour la classification. Il est recommandé d’attribuer l’autorisation `db_owner` à l’identité.
+L’authentification doit avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Elle doit également être en mesure d’interroger les tables à échantillonner pour la classification. Il est recommandé d’attribuer l’autorisation `db_datareader` à l’identité.
 
 ### <a name="service-principal"></a>Principal de service
 
@@ -97,7 +96,7 @@ En outre, vous devez créer un utilisateur Azure AD dans Azure Synapse Analytics
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
+ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -120,13 +119,13 @@ Lorsque la méthode d’authentification sélectionnée est **Authentification S
 
 ## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Inscrire un pool SQL dédié (anciennement SQL DW)
 
-Pour inscrire un nouveau serveur Azure Synapse Analytics dans votre Data Catalog, procédez comme suit :
+Pour inscrire un nouveau pool SQL dédié dans Purview, procédez comme suit :
 
 1. Accédez à votre compte Purview.
-1. Sélectionnez **Sources** dans la barre de navigation à gauche.
-1. Sélectionnez **Inscription**.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
+1. Sélectionnez **Inscrire**.
 1. Dans **Inscrire des sources**, sélectionnez **Pool SQL dédié (anciennement SQL DW)** .
-1. Sélectionnez **Continuer**.
+1. Sélectionnez **Continue** (Continuer)
 
 Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez comme suit :
 
@@ -138,7 +137,35 @@ Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez co
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source de pool SQL dédié que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/sql-dedicated-pool-set-up-scan.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des tables spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/scope-scan.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/select-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

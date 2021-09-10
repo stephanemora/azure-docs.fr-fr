@@ -1,24 +1,26 @@
 ---
-title: Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
-description: Découvrez comment résoudre les problèmes liés aux connecteurs dans Azure Data Factory.
+title: Résoudre les problèmes des connecteurs
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment résoudre les problèmes liés aux connecteurs dans Azure Data Factory et Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/07/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref
-ms.openlocfilehash: 7407a28c442ce2ddc7fe9df3fdd71c5af4c488bc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: has-adal-ref, synapse
+ms.openlocfilehash: 27e9f92f7ea2be3ebdafbf973c4d1def179d5636
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971898"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864141"
 ---
-# <a name="troubleshoot-azure-data-factory-connectors"></a>Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
+# <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Résoudre les problèmes des connecteurs Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explore les façons courantes de résoudre les problèmes liés aux connecteurs dans Azure Data Factory.
+Cet article explore les façons courantes de résoudre les problèmes liés aux connecteurs Azure Data Factory et Azure Synapse.
 
 ## <a name="azure-blob-storage"></a>Stockage Blob Azure
 
@@ -39,6 +41,31 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Résolution** : Modifiez la définition JSON du jeu de données ou du pipeline pour rendre les types cohérents, puis réexécutez le déploiement.
 
+### <a name="error-code-fipsmodeisnotsupport"></a>Code d’erreur : FIPSModeIsNotSupport
+
+- **Message** : `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+
+- **Cause** : La stratégie FIPS est activée sur la machine virtuelle sur laquelle le runtime d’intégration auto-hébergé a été installé.
+
+- **Recommandation** : Désactivez le mode FIPS sur la machine virtuelle où le runtime d’intégration auto-hébergé a été installé. Windows ne recommande pas le mode FIPS.
+
+### <a name="error-code-azureblobinvalidblocksize"></a>Code d’erreur : AzureBlobInvalidBlockSize
+
+- **Message** : `Block size should between %minSize; MB and 100 MB.`
+
+- **Cause** : La taille de bloc dépasse la limite de l’objet blob.
+
+### <a name="error-code-azurestorageoperationfailedconcurrentwrite"></a>Code d’erreur : AzureStorageOperationFailedConcurrentWrite
+
+- **Message** : `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+- **Cause** : Plusieurs exécutions d’activité de copie simultanées ou des applications écrivent dans le même fichier.
+
+### <a name="error-code-azureappendblobconcurrentwriteconflict"></a>Code d’erreur : AzureAppendBlobConcurrentWriteConflict
+
+- **Message** : `Detected concurrent write to the same append blob file, it's possible because you have multiple concurrent copy activities runs or applications writing to the same file '%name;'. Please check your ADF configuration and retry.`
+
+- **Cause** : Plusieurs demandes d’écriture simultanées se produisent, ce qui provoque des conflits sur le contenu du fichier.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
@@ -85,7 +112,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Symptômes** : Lorsque vous importez un schéma pour Azure Cosmos DB pour le mappage de colonnes, certaines colonnes sont manquantes. 
 
-- **Cause** : Data Factory déduit le schéma à partir des 10 premiers documents Azure Cosmos DB. Si certaines colonnes ou propriétés du document ne contiennent pas de valeurs, le schéma n’est pas détecté par Data Factory et, par conséquent, n’est pas affiché.
+- **Cause** : Les pipelines Azure Data Factory et Synapse déduisent le schéma des 10 premiers documents Azure Cosmos DB. Si certaines colonnes ou propriétés du document ne contiennent pas de valeurs, le schéma n’est pas détecté et, par conséquent, n’est pas affiché.
 
 - **Résolution** : Vous pouvez paramétrer la requête comme indiqué dans le code suivant pour forcer l’affichage des valeurs de colonnes dans le jeu de résultats avec des valeurs vides. Supposons que la colonne *impossible* est absente dans les 10 premiers documents. Vous pouvez également ajouter manuellement la colonne pour le mappage.
 
@@ -139,7 +166,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Cause** : L’une des causes possibles est que le principal du service ou l’identité managée que vous utilisez n’a pas l’autorisation d’accéder à certains dossiers ou fichiers.
 
-- **Résolution** : Accordez les autorisations appropriées sur tous les dossiers et sous-dossiers que vous devez copier. Pour en savoir plus, consultez [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md#linked-service-properties).
+- **Résolution** : Accordez les autorisations appropriées sur tous les dossiers et sous-dossiers que vous devez copier. Pour en savoir plus, consultez [Copier des données vers ou depuis Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties).
 
 ### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Message d’erreur : Échec d’obtention du jeton d’accès à l’aide du principal du service. Erreur ADAL : service_unavailable
 
@@ -164,7 +191,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
   | Analyse de la cause                                               | Recommandation                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | Si Azure Data Lake Storage Gen2 lève une erreur, une opération a échoué.| Consultez le message d’erreur détaillé généré par Azure Data Lake Storage Gen2. Si l’erreur est un échec temporaire, recommencez l’opération. Si vous avez besoin d’aide supplémentaire, contactez le support Stockage Azure et fournissez l’ID de la requête indiqué dans le message d’erreur. |
-  | Si le message d’erreur contient la chaîne « Forbidden », le principal du service ou l’identité managée que vous utilisez ne dispose peut-être pas des autorisations suffisantes pour accéder à Azure Data Lake Storage Gen2. | Pour résoudre cette erreur, consultez [Copier et transformer des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory](./connector-azure-data-lake-storage.md#service-principal-authentication). |
+  | Si le message d’erreur contient la chaîne « Forbidden », le principal du service ou l’identité managée que vous utilisez ne dispose peut-être pas des autorisations suffisantes pour accéder à Azure Data Lake Storage Gen2. | Pour résoudre cette erreur, consultez [Copier et transformer des données dans Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md#service-principal-authentication). |
   | Si le message d’erreur contient la chaîne « InternalServerError », l’erreur est retournée par Azure Data Lake Storage Gen2. | L’erreur peut être due à un échec temporaire. Si c’est le cas, recommencez l’opération. Si le problème persiste, contactez le support Stockage Azure et fournissez l’ID de la requête indiqué dans le message d’erreur. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>La requête au compte Azure Data Lake Storage Gen2 a provoqué une erreur de dépassement de délai
@@ -195,6 +222,20 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
         }
         ```
 
+        
+## <a name="azure-database-for-postgresql"></a>Azure Database pour PostgreSQL
+
+### <a name="error-code-azurepostgresqlnpgsqldatatypenotsupported"></a>Code d’erreur : AzurePostgreSqlNpgsqlDataTypeNotSupported
+
+- **Message** : `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
+
+- **Recommandation** : Choisissez une colonne de partition avec int, bigint, smallint, serial, bigserial, smallserial, timestamp avec ou sans fuseau horaire, time sans fuseau horaire ni type de données date.
+
+### <a name="error-code-azurepostgresqlnpgsqlpartitioncolumnnamenotprovided"></a>Code d’erreur : AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
+
+- **Message** : `Partition column name must be specified.`
+
+- **Cause** : Le nom de colonne de partition n’a pas pu être déterminé automatiquement car il n’a pas été fourni.
                   
 ## <a name="azure-files-storage"></a>Stockage Azure Files
 
@@ -220,7 +261,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
     | Pour Azure SQL, si le message d’erreur contient un code d’erreur SQL, par exemple « SqlErrorNumber=[errorcode] », consultez le guide de résolution des problèmes Azure SQL. | Pour obtenir une recommandation, consultez [Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance](../azure-sql/database/troubleshoot-common-errors-issues.md). |
     | Vérifiez si le port 1433 figure sur la liste d’autorisation du pare-feu. | Pour plus d’informations, consultez [Ports utilisés par SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
     | Si le message d’erreur contient la chaîne « SqlException »,SQL Database génère l’erreur indiquant qu’une opération spécifique a échoué. | Pour plus d’informations, effectuez une recherche par code d’erreur SQL dans [Erreurs du moteur de base de données](/sql/relational-databases/errors-events/database-engine-events-and-errors). Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL. |
-    | S’il s’agit d’un problème temporaire (par exemple, une connexion réseau instable), ajoutez une nouvelle tentative dans la stratégie d’activité à atténuer. | Pour plus d’informations, consultez [Pipelines et activités dans Azure Data Factory](./concepts-pipelines-activities.md#activity-policy). |
+    | S’il s’agit d’un problème temporaire (par exemple, une connexion réseau instable), ajoutez une nouvelle tentative dans la stratégie d’activité à atténuer. | Pour plus d’informations, consultez [Pipelines et activités](./concepts-pipelines-activities.md#activity-policy). |
     | Si le message d’erreur contient la chaîne « Le client avec l’adresse IP "…" n’est pas autorisé à accéder au serveur » et que vous essayez de vous connecter à Azure SQL Database, l’erreur est généralement causée par un problème de pare-feu Azure SQL Database. | Dans Configuration du pare-feu Azure SQL Server, activez l’option **Autoriser les services et les ressources Azure à accéder à ce serveur**. Pour plus d’informations, consultez [Règles de pare-feu IP Azure SQL Database et Azure Synapse](../azure-sql/database/firewall-configure.md). |
     
 ### <a name="error-code-sqloperationfailed"></a>Code d’erreur : SqlOperationFailed
@@ -233,7 +274,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
     | Si le message d’erreur contient la chaîne « SqlException », SQL Database génère l’erreur indiquant qu’une opération spécifique a échoué. | Si l’erreur SQL n’est pas claire, essayez de régler la base de données sur le niveau de compatibilité « 150 » le plus récent. Cela peut lever des erreurs SQL de dernière version. Pour plus d’informations, consultez la [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Pour plus d’informations sur la résolution des problèmes SQL, effectuez une recherche par code d’erreur SQL dans [Erreurs du moteur de base de données](/sql/relational-databases/errors-events/database-engine-events-and-errors). Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL. |
     | Si le message d’erreur contient la chaîne « PdwManagedToNativeInteropException », cela est généralement dû à une incompatibilité entre les tailles de colonne source et récepteur. | Vérifiez la taille des colonnes source et récepteur. Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL. |
-    | Si le message d’erreur contient la chaîne « InvalidOperationException », cela est généralement dû à des données d’entrée non valides. | Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie, qui peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](./copy-activity-fault-tolerance.md). |
+    | Si le message d’erreur contient la chaîne « InvalidOperationException », cela est généralement dû à des données d’entrée non valides. | Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie, qui peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie](./copy-activity-fault-tolerance.md). |
 
 
 ### <a name="error-code-sqlunauthorizedaccess"></a>Code d’erreur : SqlUnauthorizedAccess
@@ -331,7 +372,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Cause** : La copie en bloc SQL a échoué à cause d’une longueur de colonne non valide reçue du client de l’utilitaire de copie en bloc (bcp).
 
-- **Recommandation** :  Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie. Cela peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](./copy-activity-fault-tolerance.md).
+- **Recommandation** :  Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie. Cela peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie](./copy-activity-fault-tolerance.md).
 
 
 ### <a name="error-code-sqlconnectionisclosed"></a>Code d’erreur : SqlConnectionIsClosed
@@ -342,6 +383,37 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Recommandation** :  Relancez la connexion. Si le problème persiste, contactez le support Azure SQL.
 
+### <a name="error-code-sqlserverinvalidlinkedservicecredentialmissing"></a>Code d’erreur : SqlServerInvalidLinkedServiceCredentialMissing
+
+- **Message** : `The SQL Server linked service is invalid with its credential being missing.`
+
+- **Cause** : Le service lié n’a pas été configuré correctement.
+
+- **Recommandation** : Validez et corrigez le service lié SQL Server. 
+
+### <a name="error-code-sqlparallelfailedtodetectpartitioncolumn"></a>Code d’erreur : SqlParallelFailedToDetectPartitionColumn
+
+- **Message** : `Failed to detect the partition column with command '%command;', %message;.`
+
+- **Cause** : Il n’existe aucune clé primaire ou clé unique dans la table.
+
+- **Recommandation** : Vérifiez la table pour vous assurer qu’une clé primaire ou un index unique est créé. 
+
+### <a name="error-code-sqlparallelfailedtodetectphysicalpartitions"></a>Code d’erreur : SqlParallelFailedToDetectPhysicalPartitions
+
+- **Message** : `Failed to detect the physical partitions with command '%command;', %message;.`
+
+- **Cause** : Aucune partition physique n’est créée pour la table. Vérifiez votre base de données.
+
+- **Recommandation** : Référencez [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15&preserve-view=true) (Créer des tables partitionnées et des index) pour résoudre ce problème.
+
+### <a name="error-code-sqlparallelfailedtogetpartitionrangesynapse"></a>Code d’erreur : SqlParallelFailedToGetPartitionRangeSynapse
+
+- **Message** : `Failed to get the partitions for azure synapse with command '%command;', %message;.`
+
+- **Cause** : Aucune partition physique n’est créée pour la table. Vérifiez votre base de données.
+
+- **Recommandation** : Référencez les [tables de partitionnement dans un pool SQL dédié](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md) pour résoudre ce problème.
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Message d’erreur : Échec lors de la conversion d’une chaîne de caractères en valeur de type uniqueidentifier
 
@@ -450,6 +522,12 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
     3. Mettez à jour le schéma de table en conséquence.
 
+### <a name="error-code-faileddboperation"></a>Code d’erreur : FailedDbOperation
+
+- **Message** : `User does not have permission to perform this action.`
+
+- **Recommandation** : Assurez-vous que l’utilisateur configuré dans le connecteur Azure Synapse Analytics doit disposer de l’autorisation « CONTROL » sur la base de données cible lors de l’utilisation de PolyBase pour charger des données. Pour des informations plus détaillées, consultez [ce document](./connector-azure-sql-data-warehouse.md#required-database-permission).
+
 
 ## <a name="azure-table-storage"></a>Stockage de table Azure
 
@@ -470,7 +548,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Message** : `Error thrown from driver. Sql code: '%code;'`
 
-- **Cause** : Si le message d’erreur contient la chaîne « SQLSTATE=51002 SQLCODE=-805 », suivez le « conseil » sous [Copier des données à partir de DB2 à l’aide d’Azure Data Factory](./connector-db2.md#linked-service-properties).
+- **Cause** : Si le message d’erreur contient la chaîne « SQLSTATE=51002 SQLCODE=-805 », suivez le « conseil » sous [Copier des données à partir de DB2](./connector-db2.md#linked-service-properties).
 
 - **Recommandation** :  Essayez de définir « NULLID » dans la propriété `packageCollection`.
 
@@ -495,7 +573,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
   | Analyse de la cause                                               | Recommandation                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | Le nombre de colonnes de la ligne problématique est plus important que le nombre de colonnes de la première ligne. Cela peut être dû à un problème de données ou à des paramètres de délimiteur de colonne ou de guillemet incorrects. | Récupérez le nombre de lignes dans le message d’erreur, vérifiez la colonne de la ligne et corrigez les données. |
-  | Si le nombre de colonnes attendu est « 1 » dans le message d’erreur, vous avez peut-être spécifié des paramètres de compression ou de mise en forme incorrects, ce qui a provoqué l’analyse incorrecte de vos fichiers par Data Factory. | Vérifiez les paramètres de mise en forme pour vous assurer qu’ils correspondent à vos fichiers sources. |
+  | Si le nombre de colonnes attendu est « 1 » dans le message d’erreur, vous avez peut-être spécifié des paramètres de compression ou de mise en forme incorrects, ce qui a provoqué l’analyse incorrecte des fichiers. | Vérifiez les paramètres de mise en forme pour vous assurer qu’ils correspondent à vos fichiers sources. |
   | Si votre source est un dossier, il est possible que les fichiers du dossier spécifié aient un schéma différent. | Assurez-vous que les fichiers dans le dossier spécifié ont un schéma identique. |
 
 
@@ -514,7 +592,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Symptômes** : Certaines colonnes sont manquantes lorsque vous importez un schéma ou prévisualisez des données. Message d’erreur : `The valid structure information (column name and type) are required for Dynamics source.`
 
-- **Cause** : Ce problème est lié à la conception, car Data Factory ne peut pas afficher les colonnes qui ne contiennent pas de valeurs dans les 10 premiers enregistrements. Assurez-vous que les colonnes que vous avez ajoutées sont au format correct. 
+- **Cause** : Ce problème est lié à la conception, car Data Factory et les pipelines Synapse ne peuvent pas afficher les colonnes qui ne contiennent pas de valeurs dans les 10 premiers enregistrements. Assurez-vous que les colonnes que vous avez ajoutées sont au format correct. 
 
 - **Recommandation** : Ajoutez manuellement les colonnes sous l’onglet de mappage.
 
@@ -561,59 +639,18 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
  
  - **Message** : `Failed to connect to Dynamics: %message;` 
  
- - **Cause** : Vous voyez `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` ou autrement `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` si votre cas d’usage remplit les **trois** conditions suivantes :
-    - Vous vous connectez à Dynamics 365, Common Data Service ou Dynamics CRM.
-    - Vous utilisez l’authentification Office 365.
-    - Votre locataire et votre utilisateur sont configurés dans Azure Active Directory pour [l’accès conditionnel](../active-directory/conditional-access/overview.md) et/ou Multifactor Authentication est requis (voir ce [lien](/powerapps/developer/data-platform/authenticate-office365-deprecation) vers la documentation de Dataverse).
-    
-    Dans ces circonstances, la connexion aboutissait avant le 08/06/2021.
-    À partir du 09/06/2021, la connexion commencera à échouer en raison de la dépréciation du service de découverte régional (voir ce [lien](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
- 
- -  **Recommandation** :  
-    Si votre locataire et votre utilisateur sont configurés dans Azure Active Directory pour [l’accès conditionnel](../active-directory/conditional-access/overview.md) et/ou que Multifactor Authentication est requis, vous devez utiliser « Azure AD service-principal » pour l’authentification après le 08/06/2021. Pour obtenir des instructions détaillées, référez-vous à ce [lien](./connector-dynamics-crm-office-365.md#prerequisites).
+ - **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
+    | Analyse de la cause                                               | Recommandation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Vous voyez `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` ou `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` si votre cas d’usage remplit les **trois** conditions suivantes : <br/> 1. Vous vous connectez à Dynamics 365, Common Data Service ou Dynamics CRM.<br/>  2. Vous utilisez l’authentification Office 365.<br/>  3. Votre locataire et votre utilisateur sont configurés dans Azure Active Directory pour [l’accès conditionnel](../active-directory/conditional-access/overview.md) et/ou Multifactor Authentication est requis (voir ce [lien](/powerapps/developer/data-platform/authenticate-office365-deprecation) vers la documentation de Dataverse).<br/>  Dans ces circonstances, la connexion aboutissait avant le 08/06/2021. À partir du 09/06/2021, la connexion commencera à échouer en raison de la dépréciation du service de découverte régional (voir ce [lien](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).| Si votre locataire et votre utilisateur sont configurés dans Azure Active Directory pour [l’accès conditionnel](../active-directory/conditional-access/overview.md) et/ou que Multifactor Authentication est requis, vous devez utiliser « Azure AD service-principal » pour l’authentification après le 08/06/2021. Pour obtenir des instructions détaillées, référez-vous à ce [lien](./connector-dynamics-crm-office-365.md#prerequisites).|
+    |Si vous voyez `Office 365 auth with OAuth failed` dans le message d’erreur, cela signifie que votre serveur peut avoir des configurations non compatibles avec OAuth.| 1. Contactez l’équipe du support technique de Dynamics avec le message d’erreur détaillé pour obtenir de l’aide. <br/> 2. Utilisez l’authentification du principal de service. Pour cela, vous pouvez vous référer à cet article : [Exemple : Dynamics en ligne à l’aide du principal de service Azure AD et de l’authentification du certificat](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    |Si vous voyez `Unable to retrieve authentication parameters from the serviceUri` dans le message d’erreur, cela signifie que vous entrez une URL de service Dynamics ou un proxy/pare-feu incorrect pour intercepter le trafic. |1. Assurez-vous que vous avez placé l’URI de service correct dans le service lié.<br/> 2. Si vous utilisez le runtime d’intégration auto-hébergé, assurez-vous que le pare-feu/proxy n’intercepte pas les demandes adressées au serveur Dynamics. |
+    |Si vous voyez `An unsecured or incorrectly secured fault was received from the other party` dans le message d’erreur, cela signifie que des réponses inattendues ont été obtenues du côté serveur.  | 1. Vérifiez que votre nom d’utilisateur et votre mot de passe sont corrects si vous utilisez l’authentification Office 365. <br/> 2. Vérifiez que vous avez entré le bon URI de service. <br/> 3. Si vous utilisez l’URL CRM régionale (l’URL comporte un chiffre après « crm »), veillez à utiliser le bon identifiant régional.<br/> 4. Contactez l’équipe du support technique de Dynamics pour obtenir de l’aide. |
+    |Si vous voyez `No Organizations Found` dans le message d’erreur, cela signifie que le nom de votre organisation est incorrect ou que vous avez utilisé un identificateur de région CRM erroné dans l’URL du service.|1. Vérifiez que vous avez entré le bon URI de service.<br/>2. Si vous utilisez l’URL CRM régionale (l’URL comporte un chiffre après « crm »), veillez à utiliser le bon identifiant régional. <br/> 3. Contactez l’équipe du support technique de Dynamics pour obtenir de l’aide. |
+    | Si vous voyez `401 Unauthorized` et un message d’erreur relatif à AAD, cela signifie qu’il y a un problème avec le principal du service. |Suivez les instructions du message d’erreur pour corriger le problème du principal de service. |
+   |Pour les autres erreurs, le problème se trouve généralement côté serveur. |Utilisez [XrmToolBox](https://www.xrmtoolbox.com/) pour établir la connexion. Si l’erreur persiste, contactez l’équipe du support technique de Dynamics pour obtenir de l’aide. |
 
- - **Cause** : Si vous voyez `Office 365 auth with OAuth failed` dans le message d’erreur, cela signifie que votre serveur peut avoir des configurations non compatibles avec OAuth. 
- 
- - **Recommandation** : 
-    1. Contactez l’équipe du support technique de Dynamics avec le message d’erreur détaillé pour obtenir de l’aide.  
-    1. Utilisez l’authentification du principal de service. Pour cela, vous pouvez vous référer à cet article : [Exemple : Dynamics en ligne à l’aide du principal de service Azure AD et de l’authentification du certificat](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
- 
-
- - **Cause** : Si vous voyez `Unable to retrieve authentication parameters from the serviceUri` dans le message d’erreur, cela signifie que vous entrez une URL de service Dynamics ou un proxy/pare-feu incorrect pour intercepter le trafic. 
- 
- - **Recommandation** :
-    1. Assurez-vous que vous avez placé l’URI de service correct dans le service lié. 
-    1. Si vous utilisez le runtime d’intégration auto-hébergé, assurez-vous que le pare-feu/proxy n’intercepte pas les demandes adressées au serveur Dynamics. 
-   
- 
- - **Cause** : Si vous voyez `An unsecured or incorrectly secured fault was received from the other party` dans le message d’erreur, cela signifie que des réponses inattendues ont été obtenues du côté serveur. 
- 
- - **Recommandation** : 
-    1. Vérifiez que votre nom d’utilisateur et votre mot de passe sont corrects si vous utilisez l’authentification Office 365. 
-    1. Vérifiez que vous avez entré le bon URI de service. 
-    1. Si vous utilisez l’URL CRM régionale (l’URL comporte un chiffre après « crm »), veillez à utiliser le bon identifiant régional.
-    1. Contactez l’équipe du support technique de Dynamics pour obtenir de l’aide. 
- 
-
- - **Cause** : Si vous voyez `No Organizations Found` dans le message d’erreur, cela signifie que le nom de votre organisation est incorrect ou que vous avez utilisé un identificateur de région CRM erroné dans l’URL du service. 
- 
- - **Recommandation** : 
-    1. Vérifiez que vous avez entré le bon URI de service.
-    1. Si vous utilisez l’URL CRM régionale (l’URL comporte un chiffre après « crm »), veillez à utiliser le bon identifiant régional. 
-    1. Contactez l’équipe du support technique de Dynamics pour obtenir de l’aide. 
-
- 
- - **Cause** : Si vous voyez `401 Unauthorized` et un message d’erreur relatif à AAD, cela signifie qu’il y a un problème avec le principal du service. 
-
- - **Recommandation** : Suivez les instructions du message d’erreur pour corriger le problème du principal de service.  
- 
- 
- - **Cause** : Pour les autres erreurs, le problème se trouve généralement côté serveur. 
-
- - **Recommandation** : Utilisez [XrmToolBox](https://www.xrmtoolbox.com/) pour établir la connexion. Si l’erreur persiste, contactez l’équipe du support technique de Dynamics pour obtenir de l’aide. 
- 
- 
 ### <a name="error-code-dynamicsoperationfailed"></a>Code d’erreur : DynamicsOperationFailed 
  
 - **Message** : `Dynamics operation failed with error code: %code;, error message: %message;.` 
@@ -680,6 +717,14 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Recommandation** :  Vérifiez le port du serveur cible. FTP utilise le port 21.
 
+### <a name="error-code-ftpfailedtoreadftpdata"></a>Code d’erreur : FtpFailedToReadFtpData
+
+- **Message** : `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
+
+- **Cause** : La plage de ports comprise entre 1024 et 65535 n’est pas ouverte pour le transfert de données en mode passif pris en charge par le pipeline Data Factory ou Synapse.
+
+- **Recommandation** : Vérifiez les paramètres de pare-feu du serveur cible. Ouvrez le port 1024-65535 ou la plage de ports spécifié dans le serveur FTP à l’adresse IP SHIR/Azure IR.
+
 
 ## <a name="http"></a>HTTP
 
@@ -687,7 +732,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Message** : `Failed to read data from http server. Check the error from http server：%message;`
 
-- **Cause** : Cette erreur se produit quand Azure Data Factory communique avec le serveur HTTP, mais que l’opération de requête HTTP échoue.
+- **Cause** : Cette erreur se produit quand une fabrique de données ou un pipeline Synapse communique avec le serveur HTTP, mais que l’opération de requête HTTP échoue.
 
 - **Recommandation** :  Vérifiez le code d’état HTTP dans le message d’erreur, puis corrigez le problème du serveur distant.
 
@@ -698,11 +743,11 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Message** : `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
-- **Cause** : Dans Data Factory, les valeurs DateTime sont prises en charge dans la plage comprise entre 0001-01-01 00:00:00 et 9999-12-31 23:59:59. Cependant, Oracle prend en charge une plage plus étendue de valeurs DateTime (comme les siècles av. J-C ou min/s>59), ce qui entraîne une défaillance dans Data Factory.
+- **Cause** : Dans Azure Data Factory et les pipelines Synapse, les valeurs DateTime sont prises en charge dans la plage comprise entre 0001-01-01 00:00:00 et 9999-12-31 23:59:59. Cependant, Oracle prend en charge une plage plus étendue de valeurs DateTime (comme les siècles av. J-C ou min/s>59), ce qui entraîne une défaillance.
 
 - **Recommandation** : 
 
-    Pour voir si la valeur dans Oracle est comprise dans la plage de Data Factory, exécutez `select dump(<column name>)`. 
+    Pour voir si la valeur dans Oracle est comprise dans la plage prise en charge, exécutez `select dump(<column name>)`. 
 
     Pour connaître la séquence d’octets dans le résultat, consultez [Comment les dates sont-elles stockées dans Oracle ?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
@@ -758,9 +803,9 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Message** : `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **Cause** : Le format Parquet n’est pas pris en charge dans Azure Data Factory.
+- **Cause** : Le format Parquet n’est pas pris en charge dans Azure Data Factory et les pipelines Synapse.
 
-- **Recommandation** :  Vérifiez les données sources en accédant à [Formats de fichier et codecs de compression pris en charge par l’activité de copie dans Azure Data Factory](./supported-file-formats-and-compression-codecs.md).
+- **Recommandation** : Vérifiez les données sources en accédant à [Formats de fichier et codecs de compression pris en charge par l’activité de copie](./supported-file-formats-and-compression-codecs.md).
 
 
 ### <a name="error-code-parquetmisseddecimalprecisionscale"></a>Code d’erreur : ParquetMissedDecimalPrecisionScale
@@ -796,7 +841,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Cause** : Les données ne peuvent pas être converties dans le type spécifié dans mappings.source.
 
-- **Recommandation** :  Revérifiez les données sources ou spécifiez le type de données approprié pour cette colonne dans le mappage des colonnes de l’activité de copie. Pour plus d’informations, consultez [Formats de fichier et codecs de compression pris en charge par l’activité de copie dans Azure Data Factory](./supported-file-formats-and-compression-codecs.md).
+- **Recommandation** :  Revérifiez les données sources ou spécifiez le type de données approprié pour cette colonne dans le mappage des colonnes de l’activité de copie. Pour plus d’informations, consultez [Formats de fichier et de codecs de compression pris en charge par l’activité de copie](./supported-file-formats-and-compression-codecs.md).
 
 
 ### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>Code d’erreur : ParquetDataCountNotMatchColumnCount
@@ -881,6 +926,21 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
     - La première ligne contenant des espaces blancs sert de nom de colonne.
     - Le type OriginalType est pris en charge. Essayez d’éviter d’utiliser ces caractères spéciaux : `,;{}()\n\t=`. 
 
+### <a name="error-code-parquetdatetimeexceedlimit"></a>Code d’erreur : ParquetDateTimeExceedLimit
+
+- **Message** : `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **Cause** : Si la valeur DateHeure est « 0001-01-01 00:00:00 », cela peut être dû à la différence entre le calendrier julien et le calendrier grégorien. Pour plus d’informations, consultez [Différence entre les dates du calendrier julier et du calendrier grégorien proleptique](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates).
+
+- **Résolution** : Vérifiez la valeur des graduations et évitez d’utiliser la valeur DateTime « 0001-01-01 00:00:00 ».
+
+### <a name="error-code-parquetinvalidcolumnname"></a>Code d’erreur : ParquetInvalidColumnName
+
+- **Message** : `The column name is invalid. Column name cannot contain these character:[,;{}()\n\t=]`
+
+- **Cause** : Le nom du domaine contient des caractères non valides.
+
+- **Résolution** : ajoutez ou modifiez le mappage de colonnes pour que le nom de la colonne réceptrice soit valide.
 
 ## <a name="rest"></a>REST
 
@@ -888,9 +948,23 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Message** : `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
+- **Cause** : Cette erreur se produit quand une fabrique de données ou un pipeline Synapse communique avec le point de terminaison REST via le protocole HTTP et que l’opération de requête échoue.
+
+- **Recommandation** : Vérifiez le code d’état HTTP ou le message dans le message d’erreur et corriger le problème du serveur distant.
+
+### <a name="error-code-restsourcecallfailed"></a>Code d’erreur : RestSourceCallFailed
+
+- **Message** : `The HttpStatusCode %statusCode; indicates failure.&#xA;Request URL: %requestUri;&#xA;Response payload:%payload;`
+
 - **Cause** : Cette erreur se produit quand Azure Data Factory communique avec le point de terminaison REST via le protocole HTTP et que l’opération de requête échoue.
 
-- **Recommandation** :  Vérifiez le code d’état HTTP ou le message dans le message d’erreur et corrifer le problème du serveur distant.
+- **Recommandation** : Vérifiez le code d’état HTTP, l’URL de la requête ou la charge utile de la réponse dans le message d’erreur et corrigez le problème du serveur distant.
+
+### <a name="error-code-restsinkunsupportedcompressiontype"></a>Code d’erreur : RestSinkUNSupportedCompressionType
+
+- **Message** : `User Configured CompressionType is Not Supported By Azure Data Factory：%message;`
+
+- **Recommandation** : Vérifiez les types de compression pris en charge pour le récepteur REST.
 
 ### <a name="unexpected-network-response-from-the-rest-connector"></a>Réponse réseau inattendue du connecteur REST
 
@@ -907,7 +981,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
       Vous pouvez également utiliser 'curl--help' pour exécuter des options plus avancées de la commande.
 
-    - Si seul le connecteur REST Data Factory retourne une réponse inattendue, contactez le support technique de Microsoft pour poursuivre la résolution des problèmes.
+    - Si seul le connecteur REST retourne une réponse inattendue, contactez le support technique de Microsoft pour poursuivre la résolution des problèmes.
     
     - Notez que 'curl' peut ne pas convenir pour reproduire le problème de validation du certificat SSL. Dans certains scénarios, la commande 'curl' a été exécutée avec succès sans rencontrer de problème de validation du certificat SSL. Toutefois, lorsque la même URL est exécutée dans un navigateur, aucun certificat SSL n’est réellement retourné pour permettre au client d’établir une relation de confiance avec le serveur.
 
@@ -944,7 +1018,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
     Si le contenu de la clé privée provient de votre coffre de clés, le fichier de clé d’origine peut fonctionner si vous le chargez directement dans le service lié SFTP.
 
-    Pour plus d’informations, consultez [Copier des données depuis et vers le serveur SFTP à l’aide d’Azure Data Factory](./connector-sftp.md#use-ssh-public-key-authentication). Le contenu de la clé privée est un contenu de clé privée SSH encodé en base64.
+    Pour plus d’informations, consultez [Copier des données depuis et vers le serveur SFTP à l’aide de la fabrique de données ou des pipelines Synapse](./connector-sftp.md#use-ssh-public-key-authentication). Le contenu de la clé privée est un contenu de clé privée SSH encodé en base64.
 
     Encodez *l’intégralité* du contenu du fichier de clé privée d’origine avec un encodage en base64 et stockez la chaîne encodée dans votre coffre de clés. Le fichier de clé privée d’origine est celui qui peut fonctionner dans le service lié SFTP si vous sélectionnez **Charger** à partir d’un fichier.
 
@@ -973,7 +1047,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Recommandation** :  
 
-    La clé privée SSH au format PKCS#8 (commençant par « -----BEGIN ENCRYPTED PRIVATE KEY----- ») n’est actuellement pas prise en charge pour l’accès au serveur SFTP dans Data Factory. 
+    La clé privée SSH au format PKCS#8 (commençant par « -----BEGIN ENCRYPTED PRIVATE KEY----- ») n’est actuellement pas prise en charge pour l’accès au serveur SFTP. 
 
     Exécutez les commandes ci-dessous pour convertir la clé au format de clé SSH classique (commençant par « ------BEGIN RSA PRIVATE KEY----- ») :
 
@@ -1006,7 +1080,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Recommandation** :  Vérifiez le port du serveur cible. Par défaut, SFTP utilise le port 22.
 
-- **Cause** : Si le message d’erreur contient la chaîne « La réponse du serveur ne contient pas d’identification de protocole SSH », il est possible que le serveur SFTP limite la connexion. Data Factory crée plusieurs connexions pour opérer des téléchargements parallèles à partir du serveur SFTP et atteint parfois la limitation du serveur SFTP. En règle générale, les différents serveurs retournent des erreurs différentes lorsqu’ils rencontrent une limitation.
+- **Cause** : Si le message d’erreur contient la chaîne « La réponse du serveur ne contient pas d’identification de protocole SSH », il est possible que le serveur SFTP limite la connexion. Plusieurs connexions sont créées pour opérer des téléchargements parallèles à partir du serveur SFTP, lequel atteint parfois la limitation de serveur SFTP. En règle générale, les différents serveurs retournent des erreurs différentes lorsqu’ils rencontrent une limitation.
 
 - **Recommandation** :  
 
@@ -1017,6 +1091,40 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
     * Si vous utilisez un IR auto-hébergé, ajoutez l’adresse IP de l’ordinateur IR auto-hébergé à la liste d’autorisation.
     * Lorsque vous utilisez Azure IR, consultez [Adresses IP Azure Integration Runtime](./azure-integration-runtime-ip-addresses.md). Si vous ne souhaitez pas ajouter une plage d’adresses IP à la liste d’autorisation du serveur SFTP, utilisez plutôt le runtime d’intégration auto-hébergé.
 
+
+#### <a name="error-code-sftppermissiondenied"></a>Code d’erreur : SftpPermissionDenied
+
+- **Message** : `Permission denied to access '%path;'`
+
+- **Cause** : L’utilisateur indiqué n’a pas d’autorisation de lecture ou d’écriture sur le dossier ou le fichier lors de son fonctionnement.
+
+- **Recommandation** : Accordez à l’utilisateur l’autorisation de lire ou d’écrire dans le dossier ou les fichiers sur le serveur SFTP.
+ 
+### <a name="error-code-sftpauthenticationfailure"></a>Code d’erreur : SftpAuthenticationFailure
+
+- **Message** : `Meet authentication failure when connect to Sftp server '%server;' using '%type;' authentication type. Please make sure you are using the correct authentication type and the credential is valid. For more details, see our troubleshooting docs.`
+
+- **Cause** : Les informations d’identification spécifiées (votre mot de passe ou votre clé privée) ne sont pas valides.
+
+- **Recommandation** : Vérifiez vos informations d’identification.
+
+- **Cause** : Le type d’authentification spécifié n’est pas autorisé ou n’est pas suffisant pour terminer l’authentification sur votre serveur SFTP.
+
+- **Recommandation** : Appliquez les options suivantes pour utiliser le type d’authentification correct :
+    - Si votre serveur requiert un mot de passe, utilisez « Basic ».
+    - Si votre serveur requiert une clé privée, utilisez l’authentification par clé publique SSH.
+    - Si votre serveur nécessite à la fois « password » (un mot de passe) et « private key » (une clé privée), utilisez « Authentification multifacteur ».
+
+- **Cause** : votre serveur SFTP requiert « keyboard-interactive » (interaction au clavier) pour l’authentification alors que vous avez indiqué « password » (mot de passe).
+
+- **Recommandation** : 
+
+    « keyboard-interactive » est une méthode d’authentification spéciale différente de « password ». Cela signifie que, lors de la connexion à un serveur, vous devez entrer le mot de passe manuellement et vous ne pouvez pas utiliser le mot de passe enregistré précédemment. Toutefois Azure Data Factory (ADF) est un service de transfert de données planifié et aucune zone d’entrée contextuelle ne vous permet de fournir le mot de passe au moment de l’exécution. <br/> 
+    
+    En guise de compromis, une option est fournie pour simuler la saisie en arrière-plan à la place de votre saisie manuelle réelle, ce qui équivaut à changer le paramètre « keyboard-interactive » en « password ». Si vous pouvez accepter ce problème de sécurité, suivez les étapes ci-dessous pour l’activer :<br/> 
+    1. Sur le portail ADF, pointez sur le service lié SFTP, puis ouvrez sa charge utile en sélectionnant le bouton code.
+    1. Ajoutez `"allowKeyboardInteractiveAuth": true` dans la section « typeProperties ».
+ 
 ## <a name="sharepoint-online-list"></a>Liste SharePoint Online
 
 ### <a name="error-code-sharepointonlineauthfailed"></a>Code d’erreur : SharePointOnlineAuthFailed
@@ -1094,7 +1202,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Résolution** : Découvrez [pourquoi nous ne recommandons plus le « mode FIPS »](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), et déterminez si vous pouvez désactiver FIPS sur votre machine IR auto-hébergé.
 
-    Ou, si vous souhaitez simplement laisser Azure Data Factory contourner FIPS et faire en sorte que l’exécution de l’activité aboutisse, procédez comme suit :
+    Par ailleurs, si vous souhaitez simplement contourner FIPS et faire en sorte que l’exécution de l’activité aboutisse, procédez comme suit :
 
     1. Ouvrez le dossier dans lequel le runtime d’intégration auto-hébergé est installé. Le chemin est, en général, *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared*.
 
@@ -1104,13 +1212,170 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
     3. Enregistrez le fichier, puis redémarrez la machine du runtime d’intégration auto-hébergé.
 
+### <a name="error-code-jniexception"></a>Code d’erreur : JniException
+
+- **Message** : `An error occurred when invoking Java Native Interface.`
+
+- **Cause** : Si le message d’erreur contient « Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.] » (« impossible de créer la JVM : code de retour JNI [-6] [échec de l’appel JNI : arguments non valides.] »), la cause possible est que la machine virtuelle Java (JVM) ne peut pas être créée, car certains arguments non conformes (globaux) sont définis.
+
+- **Recommandation** : Connectez-vous à la machine qui héberge *chaque nœud* de votre IR auto-hébergé. Vérifiez que la variable système est définie correctement, comme suit : `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Redémarrez tous les nœuds de l’IR, puis réexécutez le pipeline.
+
+### <a name="error-code-getoauth2accesstokenerrorresponse"></a>Code d’erreur : GetOAuth2AccessTokenErrorResponse
+
+- **Message** : `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
+
+- **Cause** : Votre ID client ou clé secrète client n’est pas valide, et l’authentification a échoué sur votre serveur d’autorisation.
+
+- **Recommandation** : Corrigez tous les paramètres de transmission des informations d’identification du client OAuth2 de votre serveur d’autorisation.
+
+### <a name="error-code-failedtogetoauth2accesstoken"></a>Code d’erreur : FailedToGetOAuth2AccessToken
+
+- **Message** : `Failed to get access token from your token endpoint. Error message: %errorMessage;.`
+
+- **Cause** : Les paramètres de transmission des informations d’identification du client OAuth2 ne sont pas valides.
+
+- **Recommandation** : Corrigez tous les paramètres de transmission des informations d’identification du client OAuth2 de votre serveur d’autorisation.
+
+### <a name="error-code-oauth2accesstokentypenotsupported"></a>Code d’erreur : OAuth2AccessTokenTypeNotSupported
+
+- **Message** : `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
+
+- **Cause** : Votre serveur d’autorisation n’est pas pris en charge.
+
+- **Recommandation** : Utilisez un serveur d’autorisation qui peut retourner des jetons avec des types de jetons pris en charge.
+
+### <a name="error-code-oauth2clientidcolonnotallowed"></a>Code d’erreur : OAuth2ClientIdColonNotAllowed
+
+- **Message** : `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
+
+- **Cause** : Votre ID client comprend le caractère deux-points non valide (`:`).
+
+- **Recommandation** : Utilisez un ID de client valide.
+
+### <a name="error-code-managedidentitycredentialobjectnotsupported"></a>Code d’erreur : ManagedIdentityCredentialObjectNotSupported
+
+- **Message** : `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **Recommandation** : Vérifiez la version prise en charge et mettez à niveau le runtime d’intégration vers une version plus récente.
+
+### <a name="error-code-querymissingformatsettingsindataset"></a>Code d’erreur : QueryMissingFormatSettingsInDataset
+
+- **Message** : `The format settings are missing in dataset %dataSetName;.`
+
+- **Cause** : Le type de jeu de données est binaire, ce qui n’est pas pris en charge.
+
+- **Recommandation** : Utilisez à la place le jeu de données DelimitedText, JSON, Avro, ORC ou Parquet.
+
+- **Cause** : Pour le stockage de fichiers, les paramètres de format sont absents du jeu de données.
+
+- **Recommandation** : Désélectionnez la « copie binaire » dans le jeu de données et définissez les paramètres de mise en forme appropriés.
+
+### <a name="error-code-queryunsupportedcommandbehavior"></a>Code d’erreur : QueryUnsupportedCommandBehavior
+
+- **Message** : `The command behavior "%behavior;" is not supported.`
+
+- **Recommandation** : N’ajoutez pas le comportement de la commande en tant que paramètre de l’URL de requête d’API en préversion ou GetSchema.
+
+### <a name="error-code-dataconsistencyfailedtogetsourcefilemetadata"></a>Code d’erreur : DataConsistencyFailedToGetSourceFileMetadata
+
+- **Message** : `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
+
+- **Cause** : Il existe un problème temporaire dans le magasin de données récepteur ou bien la récupération des métadonnées à partir du magasin de données récepteur n’est pas autorisée.
+
+### <a name="error-code-dataconsistencyfailedtogetsinkfilemetadata"></a>Code d’erreur : DataConsistencyFailedToGetSinkFileMetadata
+
+- **Message** : `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
+
+- **Cause** : Il existe un problème temporaire dans le magasin de données récepteur ou bien la récupération des métadonnées à partir du magasin de données récepteur n’est pas autorisée.
+
+### <a name="error-code-dataconsistencyvalidationnotsupportedfornondirectbinarycopy"></a>Code d’erreur : DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
+
+- **Message** : `Data consistency validation is not supported in current copy activity settings.`
+
+- **Cause** : La validation de la cohérence des données est uniquement prise en charge dans le scénario de copie binaire directe.
+
+- **Recommandation** : Supprimez la propriété « validateDataConsistency » dans la charge utile de l’activité de copie.
+
+### <a name="error-code-dataconsistencyvalidationnotsupportedforlowversionselfhostedintegrationruntime"></a>Code d’erreur : DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
+
+- **Message** : `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **Recommandation** : Vérifiez la version prise en charge du runtime d’intégration et mettez-la à niveau vers une version supérieure, ou supprimez la propriété « validateDataConsistency » des activités de copie.
+
+### <a name="error-code-skipmissingfilenotsupportedfornondirectbinarycopy"></a>Code d’erreur : SkipMissingFileNotSupportedForNonDirectBinaryCopy
+
+- **Message** : `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommandation** : Supprimez « fileMissing » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipinconsistencydatanotsupportedfornondirectbinarycopy"></a>Code d’erreur : SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
+
+- **Message** : `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
+
+- **Recommandation** : supprimez « dataInconsistency » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipforbiddenfilenotsupportedfornondirectbinarycopy"></a>Code d’erreur : SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
+
+- **Message** : `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommandation** : Supprimez « fileForbidden » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipforbiddenfilenotsupportedforthisconnector"></a>Code d’erreur : SkipForbiddenFileNotSupportedForThisConnector
+
+- **Message** : `Skip forbidden file is not supported for this connector: ('%connectorName;').`
+
+- **Recommandation** : supprimez « fileForbidden » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipinvalidfilenamenotsupportedfornondirectbinarycopy"></a>Code d’erreur : SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
+
+- **Message** : `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommandation** : supprimez « invalidFileName » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipinvalidfilenamenotsupportedforsource"></a>Code d’erreur : SkipInvalidFileNameNotSupportedForSource
+
+- **Message** : `Skip invalid file name is not supported for '%connectorName;' source.`
+
+- **Recommandation** : Supprimez « invalidFileName » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipinvalidfilenamenotsupportedforsink"></a>Code d’erreur : SkipInvalidFileNameNotSupportedForSink
+
+- **Message** : `Skip invalid file name is not supported for '%connectorName;' sink.`
+
+- **Recommandation** : Supprimez « invalidFileName » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-skipallerrorfilenotsupportedfornonbinarycopy"></a>Code d’erreur : SkipAllErrorFileNotSupportedForNonBinaryCopy
+
+- **Message** : `Skip all error file is not supported in current copy activity settings, it's only supported with binary copy with folder.`
+
+- **Recommandation** : Supprimez « allErrorFile » du paramètre skipErrorFile dans la charge utile de l’activité de copie.
+
+### <a name="error-code-deletefilesaftercompletionnotsupportedfornondirectbinarycopy"></a>Code d’erreur : DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
+
+- **Message** : `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
+
+- **Recommandation** : Supprimez le paramètre « deleteFilesAfterCompletion » ou utilisez la copie binaire directe.
+
+### <a name="error-code-deletefilesaftercompletionnotsupportedforthisconnector"></a>Code d’erreur : DeleteFilesAfterCompletionNotSupportedForThisConnector
+
+- **Message** : `'deleteFilesAfterCompletion' is not supported for this connector: ('%connectorName;').`
+
+- **Recommandation** : Supprimez le paramètre « deleteFilesAfterCompletion » dans la charge utile de l’activité de copie.
+
+### <a name="error-code-failedtodownloadcustomplugins"></a>Code d’erreur : FailedToDownloadCustomPlugins
+
+- **Message** : `Failed to download custom plugins.`
+
+- **Cause** : Liens de téléchargement non valides ou problèmes de connectivité temporaires.
+
+- **Recommandation** : Réessayez si le message indique qu’il s’agit d’un problème temporaire. Si le problème persiste, contactez l’équipe du support technique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

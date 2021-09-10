@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: b7ad200bba527d0b4b841483175b2672d94f162e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b9e18bb9bf313ce2bbf1441b319b841a3153f38b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962861"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535075"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -58,7 +58,7 @@ Vous pouvez appeler l’API Analyse de texte de façon synchrone (pour des scén
 
 ## <a name="using-the-api-asynchronously"></a>Utilisation de l’API de manière asynchrone
 
-La version v3.1-preview.5 de l’API Analyse de texte fournit deux points de terminaison asynchrones : 
+L’API Analyse de texte v3.1 fournit deux points de terminaison asynchrones : 
 
 * Le point de terminaison `/analyze` pour l’Analyse de texte vous permet d’analyser le même jeu de documents texte avec plusieurs fonctionnalités d’analyse de texte en un seul appel d’API. Auparavant, pour utiliser plusieurs fonctionnalités, vous deviez effectuer des appels d’API distincts pour chaque opération. Tenez compte de cette fonctionnalité lorsque vous devez analyser de grands ensembles de documents avec plusieurs fonctionnalités d’Analyse de texte.
 
@@ -76,11 +76,14 @@ Consultez le tableau ci-dessous pour savoir quelles fonctionnalités vous pouvez
 | Liaison d’entités | ✔ | ✔* |
 | Analyse de texte pour la santé (conteneur) | ✔ |  |
 | Analyse de texte pour la santé (API) |  | ✔  |
+| Synthèse de texte |  | ✔  |
 
 `*` - Appelé de façon asynchrone via le point de terminaison `/analyze`.
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+
+[!INCLUDE [text-analytics-character-limits](../includes/character-limits.md)]
 
 <a name="json-schema"></a>
 
@@ -131,6 +134,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
 * Liaison d’entités
 * Analyse des sentiments
 * Exploration des opinions
+* Synthèse de texte
 
 | Élément | Valeurs valides | Requis ? | Usage |
 |---------|--------------|-----------|-------|
@@ -139,10 +143,10 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
 |`documents` | Inclut les champs `id` et `text` en dessous | Obligatoire | Contient des informations pour chaque document envoyé, ainsi que le texte brut du document. |
 |`id` | String | Obligatoire | Les ID que vous fournissez sont utilisés pour structurer la sortie. |
 |`text` | Texte brut non structuré, jusqu’à 125 000 caractères. | Obligatoire | Doit être en anglais, qui est la seule langue actuellement prise en charge. |
-|`tasks` | Inclut les fonctionnalités d’Analyse de texte suivantes : `entityRecognitionTasks`, `entityLinkingTasks`, `keyPhraseExtractionTasks`, `entityRecognitionPiiTasks` ou `sentimentAnalysisTasks`. | Obligatoire | Une ou plusieurs fonctionnalités d’Analyse de texte que vous souhaitez utiliser. Notez que `entityRecognitionPiiTasks` a un paramètre `domain` facultatif qui peut avoir la valeur `pii` ou `phi` et le `pii-categories` pour la détection de types d’entité sélectionnés. Si le paramètre `domain` n’est pas spécifié, la valeur système par défaut est `pii`. De même, `sentimentAnalysisTasks` a le paramètre booléen `opinionMining` qui permet d’inclure les résultats de l’exploration des opinions dans la sortie de l’Analyse des sentiments. |
+|`tasks` | Inclut les fonctionnalités d’Analyse de texte suivantes : `entityRecognitionTasks`, `entityLinkingTasks`, `keyPhraseExtractionTasks`, `entityRecognitionPiiTasks`, `extractiveSummarizationTasks` ou `sentimentAnalysisTasks`. | Obligatoire | Une ou plusieurs fonctionnalités d’Analyse de texte que vous souhaitez utiliser. Notez que `entityRecognitionPiiTasks` a un paramètre `domain` facultatif qui peut avoir la valeur `pii` ou `phi` et le `piiCategories` pour la détection de types d’entité sélectionnés. Si le paramètre `domain` n’est pas spécifié, la valeur système par défaut est `pii`. De même, `sentimentAnalysisTasks` a le paramètre booléen `opinionMining` qui permet d’inclure les résultats de l’exploration des opinions dans la sortie de l’Analyse des sentiments. |
 |`parameters` | Inclut les champs `model-version` et `stringIndexType` en dessous | Obligatoire | Ce champ est inclus dans les tâches de fonctionnalités au-dessus que vous choisissez. Ils contiennent des informations sur la version du modèle que vous souhaitez utiliser et sur le type d’index. |
 |`model-version` | String | Obligatoire | Spécifiez la version du modèle appelée que vous souhaitez utiliser.  |
-|`stringIndexType` | String | Obligatoire | Spécifiez le décodeur de texte correspondant à votre environnement de programmation.  Les types pris en charge sont `textElement_v8` (par défaut), `unicodeCodePoint` et `utf16CodeUnit`. Pour plus d’informations, consultez l’article sur les [décalages de texte](../concepts/text-offsets.md#offsets-in-api-version-31-preview).  |
+|`stringIndexType` | String | Obligatoire | Spécifiez le décodeur de texte correspondant à votre environnement de programmation.  Les types pris en charge sont `textElement_v8` (par défaut), `unicodeCodePoint` et `utf16CodeUnit`. Pour plus d’informations, consultez l’article sur les [décalages de texte](../concepts/text-offsets.md#offsets-in-api-version-31).  |
 |`domain` | String | Facultatif | S’applique uniquement en tant que paramètre à la tâche `entityRecognitionPiiTasks` et peut être défini sur `pii` ou `phi`. Si la valeur n’est pas spécifiée, par défaut, il s’agit de `pii`.  |
 
 ```json
@@ -165,8 +169,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -174,8 +177,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "true",
+                    "loggingOptOut": true,
                     "domain": "phi",
                     "piiCategories":["default"]
                 }
@@ -185,8 +187,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -194,7 +195,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -202,9 +203,8 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
-                    "loggingOptOut": "false",
-                    "opinionMining": "true"
+                    "loggingOptOut": false,
+                    "opinionMining": true
                 }
             }
         ]
@@ -215,7 +215,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
 
 ### <a name="asynchronous-requests-to-the-health-endpoint"></a>Demandes asynchrones adressées au point de terminaison `/health`
 
-Le format des demandes d’API adressées à l’Analyse de texte pour l’API hébergée de santé est le même que pour son conteneur. Les documents sont envoyés dans un objet JSON sous forme de texte brut non structuré. XML n’est pas pris en charge. Le schéma JSON se compose des éléments décrits ci-dessous.  Complétez et envoyez le [formulaire de demande Cognitive Services](https://aka.ms/csgate) pour demander l’accès à la préversion publique d’Analyse de texte pour la santé. Vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour la santé. 
+Le format des demandes d’API adressées à l’Analyse de texte pour l’API hébergée de santé est le même que pour son conteneur. Les documents sont envoyés dans un objet JSON sous forme de texte brut non structuré. XML n’est pas pris en charge. Le schéma JSON se compose des éléments décrits ci-dessous.  Renseignez et envoyez le [formulaire de demande Cognitive Services](https://aka.ms/csgate) pour demander l’accès à Analyse de texte pour la santé.
 
 | Élément | Valeurs valides | Requis ? | Usage |
 |---------|--------------|-----------|-------|
@@ -249,7 +249,10 @@ example.json
 
 Dans Postman (ou un autre outil de test d’API web), ajoutez le point de terminaison pour la fonctionnalité que vous souhaitez utiliser. Utilisez le tableau en dessous pour rechercher le format de point de terminaison approprié, puis remplacez `<your-text-analytics-resource>` par le point de terminaison de votre ressource. Par exemple :
 
-`https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
+> [!TIP]
+> Vous pouvez appeler la version 3.0 des points de terminaison synchrones ci-dessous en remplaçant `/v3.1` par `/v3.0/`.
+
+`https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1/languages`
 
 #### <a name="synchronous"></a>[Synchrone](#tab/synchronous)
 
@@ -257,14 +260,14 @@ Dans Postman (ou un autre outil de test d’API web), ajoutez le point de termin
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
-| Détection de la langue | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| Analyse des sentiments | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Exploration des opinions | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
-| Extraction d’expressions clés | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
-| Reconnaissance d’entité nommée – Général | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| Reconnaissance d’entité nommée – PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii` |
-| Reconnaissance d’entité nommée – PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi` |
-| Liaison d’entités | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/linking` |
+| Détection de la langue | POST | `<your-text-analytics-resource>/text/analytics/v3.1/languages` |
+| Analyse des sentiments | POST | `<your-text-analytics-resource>/text/analytics/v3.1/sentiment` |
+| Exploration des opinions | POST | `<your-text-analytics-resource>/text/analytics/v3.1/sentiment?opinionMining=true` |
+| Extraction d’expressions clés | POST | `<your-text-analytics-resource>/text/analytics/v3.1/keyPhrases` |
+| Reconnaissance d’entité nommée – Général | POST | `<your-text-analytics-resource>/text/analytics/v3.1/entities/recognition/general` |
+| Reconnaissance d’entité nommée – PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1/entities/recognition/pii` |
+| Reconnaissance d’entité nommée – PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1/entities/recognition/pii?domain=phi` |
+| Liaison d’entités | POST | `<your-text-analytics-resource>/text/analytics/v3.1/entities/linking` |
 
 #### <a name="asynchronous"></a>[Asynchrone](#tab/asynchronous)
 
@@ -272,16 +275,16 @@ Dans Postman (ou un autre outil de test d’API web), ajoutez le point de termin
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
-| Envoyer un travail d’analyse | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze` |
-| Obtenir l’état et les résultats d’une analyse | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>` |
+| Envoyer un travail d’analyse | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1/analyze` |
+| Obtenir l’état et les résultats d’une analyse | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Points de terminaison pour l’envoi de demandes asynchrones au point de terminaison `/health`
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
-| Envoyer une Analyse de texte pour un travail sur la santé  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs` |
-| Obtenir l’état et les résultats d’un travail | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
-| Annuler le travail | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
+| Envoyer une Analyse de texte pour un travail sur la santé  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1/entities/health/jobs` |
+| Obtenir l’état et les résultats d’un travail | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1/entities/health/jobs/<Operation-Location>` |
+| Annuler le travail | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -317,9 +320,9 @@ Envoyez la demande API. Si vous avez appelé un point de terminaison synchrone, 
 Si vous avez appelé les points de terminaison asynchrones `/analyze` ou `/health`, vérifiez que vous avez reçu un code de réponse 202. Vous devrez obtenir la réponse pour afficher les résultats :
 
 1. Dans la réponse de l’API, recherchez `Operation-Location` dans l’en-tête, qui identifie le travail que vous avez envoyé à l’API. 
-2. Créez une demande GET pour le point de terminaison que vous avez utilisé. Consultez le [tableau ci-dessus](#set-up-a-request) pour le format du point de terminaison, ainsi que la [documentation de référence de l’API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/AnalyzeStatus). Par exemple :
+2. Créez une demande GET pour le point de terminaison que vous avez utilisé. Consultez le [tableau ci-dessus](#set-up-a-request) pour le format du point de terminaison, ainsi que la [documentation de référence de l’API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/AnalyzeStatus). Par exemple :
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1/analyze/jobs/<Operation-Location>`
 
 3. Ajoutez `Operation-Location` à la demande.
 
@@ -357,7 +360,7 @@ En cas de réussite, la demande GET adressée au point de terminaison `/analyze`
 
 * [Vue d’ensemble d’Analyse de texte](../overview.md)
 * [Versions du modèle](../concepts/model-versioning.md)
-* [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+* [Questions fréquentes (FAQ)](../text-analytics-resource-faq.yml)</br>
 * [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/client-libraries-rest-api.md)
 * [Nouveautés](../whats-new.md)

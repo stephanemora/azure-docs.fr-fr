@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 03abe4e4e098d46060e33ba114872905e54a443f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85760971b8f4eb8bfbb431193636532a498d7236
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96317059"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665598"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostiquer les problèmes de configuration des liaisons privées sur Azure Key Vault
 
@@ -279,7 +279,7 @@ Pour que la résolution de noms du coffre de clés fonctionne, il doit exister u
 De même, la valeur de l’enregistrement `A` (adresse IP) doit être l’[adresse IP privée du coffre de clés](#find-the-key-vault-private-ip-address-in-the-virtual-network). Si vous trouvez l’enregistrement `A` mais qu’il contient une adresse IP incorrecte, vous devez supprimer l’adresse IP incorrecte et en ajouter une nouvelle. Il est recommandé de supprimer la totalité de l’enregistrement `A` et d’en ajouter un nouveau.
 
 >[!NOTE]
-> Lorsque vous supprimez ou modifiez un enregistrement `A`, l’ordinateur peut toujours résoudre l’ancienne adresse IP car la valeur TTL (Durée de vie) n’a peut-être pas encore expiré. Il est recommandé de toujours spécifier une valeur de durée de vie inférieure ou égale à 60 secondes (une minute) et pas plus de 600 secondes (10 minutes). Si vous spécifiez une valeur trop importante, la récupération de vos clients peut prendre trop de temps.
+> Lorsque vous supprimez ou modifiez un enregistrement `A`, l’ordinateur peut toujours résoudre l’ancienne adresse IP car la valeur TTL (Durée de vie) n’a peut-être pas encore expiré. Il est recommandé de toujours spécifier une valeur de durée de vie minimale de 10 secondes et n’excédant pas 600 secondes (10 minutes). Si vous spécifiez une valeur trop importante, la récupération de vos clients peut prendre trop de temps.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>Résolution DNS pour plusieurs réseaux virtuels
 

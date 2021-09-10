@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c692c814bf3ae71b34f1c31c8ab29a4cda968f1f
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449136"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203810"
 ---
 # <a name="front-door-routing-methods"></a>Méthodes de routage Front Door
 
@@ -26,7 +26,7 @@ Quatre méthodes de routage du trafic sont disponibles dans Front Door :
 
 * **[Latence](#latency) :** Le routage basé sur la latence garantit que les requêtes sont envoyées aux backends ayant la latence la plus faible acceptables dans une plage de sensibilité. En fait, les requêtes de vos utilisateurs sont envoyées à l'ensemble de back-ends « le plus proche » en termes de latence du réseau.
 * **[Priority](#priority):** Vous pouvez attribuer des priorités à vos back-ends lorsque vous souhaitez configurer un back-end principal pour traiter l'ensemble du trafic. Le back-end secondaire peut servir de sauvegarde en cas d'indisponibilité du back-end principal.
-* **[Weighted](#weighted):** Vous pouvez attribuer des pondérations à vos back-ends lorsque vous souhaitez répartir le trafic sur un ensemble de back-ends, que vous souhaitiez effectuer une répartition uniforme ou en fonction de coefficients de pondération.
+* **[Pondéré](#weighted) :** vous pouvez attribuer des pondérations à vos serveurs principaux si vous voulez distribuer le trafic entre un ensemble de serveurs principaux de façon équitable ou selon les coefficients de pondération. Le trafic est distribué selon les pondérations si les latences des serveurs principaux sont comprises dans la plage de sensibilité de latence acceptable dans le pool principal.
 * **[Affinité de session](#affinity) :** Vous pouvez configurer l'affinité de session de vos hôtes ou domaines front-end afin que les requêtes d'un même utilisateur final soient envoyées au même back-end.
 
 Toutes les configurations Front Door incluent la supervision de l’intégrité des backends et le basculement global instantané automatisé. Pour plus d’informations, consultez [Supervision des backends Front Door](front-door-health-probes.md). Votre instance Front Door peut fonctionner à partir d'une seule méthode de routage. Mais en fonction des besoins de votre application, vous pouvez également combiner plusieurs méthodes de routage pour créer une topologie de routage optimale.
@@ -44,7 +44,7 @@ Vous trouverez ci-dessous le flux décisionnel global :
 | Tout d'abord, sélectionnez tous les back-ends qui sont signalés intègres (200 OK) par la sonde d'intégrité. S'il y a six back-ends A, B, C, D, E et F, parmi lesquels C est non intègre et E est désactivé, la liste des back-ends disponibles est A, B, D et F.  | Sont ensuite sélectionnés les back-ends disposant de la priorité la plus élevée parmi ceux qui sont disponibles. Si la priorité des back-ends A, B et D est de 1 et celle du back-end F de 2, les back-ends sélectionnés sont A, B et D.| Sélectionnez les backends ayant une plage de latence (latence minimale et sensibilité de latence spécifiées en millisecondes). Si le back-end A possède une valeur de 15 ms, le back-end B une valeur de 30 ms et le back-end D une valeur 60 ms en dehors de l'environnement Front Door où la requête est arrivée et que la sensibilité de latence est de 30 ms, le pool de latences les plus faibles comprend les back-ends A et B, D étant éloigné de 30 ms du back-end le plus proche qui est A. | Enfin, Front Door répartira le trafic par tourniquet (Round Robin) entre le pool de backends sélectionné final dans les proportions définies par les pondérations spécifiées. Par exemple, si le backend A a une pondération de 5 et que le backend B a une pondération de 8, le trafic sera distribué dans les proportions 5:8 entre les backends A et B. |
 
 >[!NOTE]
-> Par défaut, la propriété de sensibilité de latence est définie sur 0 ms, ce qui correspond au transfert systématique de la requête au backend disponible le plus rapide.
+> Par défaut, la propriété de sensibilité de latence est définie sur 0 ms, ce qui indique que la requête est toujours redirigée vers le serveur principal le plus rapide disponible et que les pondérations sur les serveurs principaux ne prennent pas effet, sauf si deux serveurs principaux ont la même latence réseau.
 
 ## <a name="priority-based-traffic-routing"></a><a name = "priority"></a>Routage du trafic basé sur les priorités
 

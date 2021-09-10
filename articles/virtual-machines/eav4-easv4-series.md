@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: ayshak
 ms.reviewer: jushiman
-ms.openlocfilehash: e91239e1438deae10fcbd20fe3efb1d9fbd0264a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c040c0d4d3c4d2492a866afbf86fdde52809cd45
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525334"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691183"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 et Easv4
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines de séries Eav4 et Easv4 utilisent le processeur EPYC<sup>TM</sup> 7452 2,35 Ghz d’AMD dans une configuration multithread avec un cache L3 jusqu’à 256 Mo, ce qui améliore les options d’exécution de la plupart des charges de travail à mémoire optimisée. Les séries Eav4 et Easv4 ont les mêmes configurations de mémoire et de disque que les séries Ev3 et Esv3.
 
@@ -64,7 +66,7 @@ Les tailles de la série Easv4 sont basées sur le processeur AMD EPYC<sup>TM</
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_E2as_v4<sup>3</sup>|2|16|32|4|4000 / 32 (50)|3200 / 48| 4 000/200 |2 | 800 |
+| Standard_E2as_v4<sup>3</sup>|2|16|32|4|4000 / 32 (50)|3200 / 48| 4 000/200 |2 | 800 |
 | Standard_E4as_v4 <sup>2</sup>|4|32|64|8|8000 / 64 (100)|6400 / 96| 8 000/200 |2 | 1 600 |
 | Standard_E8as_v4 <sup>2</sup>|8|64|128|16|16000 / 128 (200)|12800 / 192| 16 000/400 |4 | 3200 |
 | Standard_E16as_v4 <sup>2</sup>|16|128|256|32|32 000 / 255 (400)|25600 / 384| 32 000/800 |8 | 6 400 |

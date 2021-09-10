@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 07/12/2021
 ms.reviewer: sngun
-ms.openlocfilehash: f714a70a0d9eb971498fc2f9fe648804a59b5136
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 55ec61dc83aa9821433cd3a53230d9e5c5d545ec
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475011"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664900"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modèle de ressource Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -155,6 +155,7 @@ Les éléments Azure Cosmos prennent en charge les opérations suivantes. Vous p
 
 Découvrez comment gérer votre compte Azure Cosmos et d’autres concepts :
 
+* Pour en savoir plus, consultez le module d’apprentissage de l’[API SQL Azure Cosmos DB](/learn/modules/intro-to-azure-cosmos-db-core-api/).
 * [Comment gérer votre compte Azure Cosmos](how-to-manage-database-account.md)
 * [Diffusion mondiale](distribute-data-globally.md)
 * [Niveaux de cohérence](consistency-levels.md)

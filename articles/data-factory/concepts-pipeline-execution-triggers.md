@@ -1,28 +1,30 @@
 ---
-title: Exécution et déclencheurs du pipeline dans Azure Data Factory
-description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
+title: Exécution du pipeline et déclencheurs
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory ou Azure Synapse Analytics, soit à la demande, soit en créant un déclencheur.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/05/2018
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e0696d648fa176314c4ed73eb68f4edbd73c32a2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/24/2021
+ms.custom: devx-track-azurepowershell, synapse
+ms.openlocfilehash: b0fda7e6376cd7adb302db2c0f3aac39da38b407
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675138"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821508"
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory-or-azure-synapse-analytics"></a>Exécution de pipeline et déclencheurs dans Azure Data Factory ou Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Version actuelle](concepts-pipeline-execution-triggers.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions distinctes du pipeline. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique.
+Une _exécution de pipeline_ dans Azure Data Factory et Azure Synapse définit une instance d’une exécution de pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions distinctes du pipeline. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique.
 
 Les exécutions de pipeline sont généralement instanciées en transmettant des arguments aux paramètres que vous définissez dans les pipelines. Vous pouvez exécuter un pipeline manuellement ou via un _déclencheur_. Cet article décrit de manière détaillée ces deux méthodes d’exécution d’un pipeline.
 
@@ -133,11 +135,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Vous pouvez utiliser le SDK .NET pour appeler des pipelines Data Factory à partir d'Azure Functions, de vos services web, etc.
+> Vous pouvez utiliser le Kit de développement logiciel (SDK) .NET pour appeler des pipelines à partir d’Azure Functions, de vos services web, etc.
 
 ## <a name="trigger-execution"></a>Exécution de déclencheur
 
-Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, Data Factory prend en charge trois types de déclencheurs :
+Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, le service prend en charge trois types de déclencheurs :
 
 - Déclencheur de planification : déclencheur qui appelle un pipeline selon un planning horaire.
 

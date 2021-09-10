@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0119d9b1938698ed27d9c1539c1366859d0fc7f9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0252305167f0f77d310810af0a147106fae9e0c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411950"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524388"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub"></a>Comment créer une appliance virtuelle réseau dans un hub Azure Virtual WAN
 
@@ -93,6 +93,8 @@ Dans cette étape, vous allez créer une appliance virtuelle réseau dans le hub
 1. Sur cette page, vous serez invité à accepter les conditions du contrat d’accès du coadministrateur. C’est la norme avec les applications managées où l’Éditeur aura accès à certaines ressources dans ce déploiement. Cochez la case **J’accepte les conditions générales ci-dessus**, puis sélectionnez **Créer**.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Connecter le réseau virtuel au hub
+
+Dans cette section, vous créez une connexion entre votre hub et le réseau virtuel.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

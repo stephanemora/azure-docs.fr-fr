@@ -1,22 +1,22 @@
 ---
 title: Métriques pour Azure Spring Cloud
 description: Découvrir comment passer en revue les indicateurs de performance dans Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d7b9f068eef38a7567e5b595277ee92493a6c16
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d09b2aff00d32dc3865c13e2aaab94a0a86464e3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129258"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533271"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Métriques pour Azure Spring Cloud
 
-Azure Metrics Explorer est un composant du portail Microsoft Azure qui permet de tracer des graphiques, de corréler visuellement des tendances et d’examiner les pics et les creux des indicateurs de performance. Utilisez l’explorateur de métriques pour examiner l’intégrité et l’utilisation de vos ressources. 
+Azure Metrics Explorer est un composant du portail Microsoft Azure qui permet de tracer des graphiques, de corréler visuellement des tendances et d’examiner les pics et les creux des indicateurs de performance. Utilisez l’explorateur de métriques pour examiner l’intégrité et l’utilisation de vos ressources.
 
 Dans Azure Spring Cloud, il existe deux points de vue pour les métriques.
 * Graphiques dans la page de présentation de chaque application
@@ -27,13 +27,14 @@ Dans Azure Spring Cloud, il existe deux points de vue pour les métriques.
 Les graphiques dans la **Vue d’ensemble** de l’application permettent des vérifications d’état rapides pour chaque application. La page des **indicateurs de performance** courants contient tous les indicateurs de performance disponibles à des fins de référence. Vous pouvez créer vos propres graphiques dans la page des indicateurs de performance courants et les épingler au tableau de bord.
 
 ## <a name="application-overview-page"></a>Page de vue d’ensemble de l’application
-Dans **Apps**, sélectionnez une application pour rechercher des graphiques dans la page de vue d’ensemble.  
 
- ![Gestion des indicateurs de performance d’application](media/metrics/metrics-2.png)
+Dans **Apps**, sélectionnez une application pour rechercher des graphiques dans la page de vue d’ensemble.
 
-La page **Vue d’ensemble de l’application** de chaque application, présente un graphique des métriques qui vous permet d’effectuer une vérification rapide de l’état de votre application.  
+![Gestion des indicateurs de performance d’application](media/metrics/metrics-2.png)
 
- ![Vue d’ensemble des indicateurs de performance d’application](media/metrics/metrics-3.png)
+La page **Vue d’ensemble de l’application** de chaque application, présente un graphique des métriques qui vous permet d’effectuer une vérification rapide de l’état de votre application.
+
+![Vue d’ensemble des indicateurs de performance d’application](media/metrics/metrics-3.png)
 
 Azure Spring Cloud fournit les cinq graphiques suivants, dont les indicateurs de performance sont mis à jour toutes les minutes :
 
@@ -60,6 +61,7 @@ Sélectionnez ensuite le type d’agrégation de chaque indicateur de performanc
 ![Agrégation d’indicateurs de performance](media/metrics/metrics-5.png)
 
 Le type d'agrégation indique comment agréger des points d’indicateurs de performance dans le graphique en fonction du temps. Un point de métrique brut est créé chaque minute, et le type de pré-agrégation au cours d’une minute est prédéfini par le type de métrique.
+
 * Somme : Additionne toutes les valeurs comme résultat cible.
 * Moyenne : Utilise la valeur moyenne de la période comme résultat cible.
 * Max/Min : Utilise la valeur maximale/minimale de la période comme résultat cible.
@@ -68,9 +70,10 @@ L’intervalle de temps peut également être ajusté des 30 dernières minutes
 
 ![Modification d’indicateur de performance](media/metrics/metrics-6.png)
 
-Par défaut, la vue regroupe tous les indicateurs de performance de l’application du service Azure Spring Cloud. Les indicateurs de performance d’une application ou d’une instance peuvent être filtrés dans l’affichage.  Cliquez sur **Ajouter un filtre**, définissez la propriété sur **Application**, puis sélectionnez l’application cible que vous voulez superviser dans la zone de texte **Valeurs**. 
+Par défaut, la vue regroupe tous les indicateurs de performance de l’application du service Azure Spring Cloud. Les indicateurs de performance d’une application ou d’une instance peuvent être filtrés dans l’affichage. Sélectionnez **Ajouter un filtre**, définissez la propriété sur **Application**, puis sélectionnez l’application cible que vous voulez superviser dans la zone de texte **Valeurs**.
 
 Vous pouvez utiliser deux types de filtres (propriétés) :
+
 * Application : filtrer par nom d’application
 * Instance : filtrer par instance d’application
 
@@ -88,18 +91,22 @@ Vous pouvez également utiliser l’option **Appliquer la division**, qui permet
 Les tableaux suivants affichent les indicateurs de performance disponibles et leurs détails.
 
 ### <a name="error"></a>Error
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
 >|----|----|----|------------|
 >| tomcat.global.error | tomcat.global.error | Count | Nombre d’erreurs qui se sont produites dans les requêtes traitées |
 
 ### <a name="performance"></a>Performances
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | Pourcentage | Utilisation récente du processeur pour l’ensemble du système (obsolète et non recommandé). Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique que toutes les UC étaient inactives pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont été actives 100 % du temps pendant la dernière période observée.|
 >| process.cpu.usage | Pourcentage d’utilisation du processeur d’application | Pourcentage | Utilisation récente du processeur pour le processus de la machine virtuelle Java (obsolète et non recommandé). Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique qu’aucune des UC n’exécutait de threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont exécuté des threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
->| AppCpuUsage | Utilisation du processeur de l’application | Pourcentage | Utilisation récente du processeur du processus JVM sur le processeur alloué à cette application, valeur de type double comprise entre [0.0, 1.0]. La valeur 0.0 indique qu’aucune des UC n’exécutait de threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont exécuté des threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
+>| Utilisation du processeur de l’application | | Pourcentage | Utilisation récente de l’UC par le processus JVM par rapport à l’UC allouée à cette application. Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique qu’aucune des UC n’exécutait de threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont exécuté des threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
+>| Utilisation de l’UC de l’application (déconseillée) | | Pourcentage | Métrique déconseillée Utilisation de l’UC de l’application. Utilisez la nouvelle métrique Utilisation de l’UC de l’application à la place.|
+>| Utilisation de la mémoire de l’application | | Pourcentage | Utilisation récente de la mémoire du processus JVM par rapport à la mémoire allouée à cette application. Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique qu’aucune mémoire n’a été allouée par les threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toute la mémoire a été allouée par les threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
 >| jvm.memory.committed | jvm.memory.committed | Octets | Représente la quantité de mémoire dont la disponibilité est garantie pour une utilisation par la machine virtuelle Java. La machine virtuelle Java peut libérer de la mémoire sur le système et l’allocation peut être inférieure à la quantité initialement. validée sera toujours supérieure ou égale à la quantité utilisée. |
 >| jvm.memory.used | jvm.memory.used | Octets | Représente la quantité de mémoire actuellement utilisée, en octets. |
 >| jvm.memory.max | jvm.memory.max | Octets | Représente la quantité maximale de mémoire utilisable pour la gestion de la mémoire. La quantité de mémoire utilisée et validée sera toujours inférieure ou égale à Max si la quantité maximale est définie. Une allocation de mémoire peut échouer si elle tente d’augmenter la mémoire utilisée de telle sorte que used > committed même si used <= max serait toujours vrai (par exemple, lorsque la mémoire virtuelle du système est insuffisante). |
@@ -138,6 +145,7 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostics/dotnet-counters).
 
 ### <a name="request"></a>Requête
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
 >|----|----|----|------------|
@@ -159,6 +167,7 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostics/dotnet-counters).
 
 ### <a name="session"></a>session
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
 >|----|----|----|------------|
@@ -169,16 +178,10 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Nombre de sessions qui n’ont pas été créées parce que le nombre maximal de sessions actives a été atteint. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Nombre de sessions actives Tomcat |
 
-## <a name="see-also"></a>Voir aussi
-
-* [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](./quickstart-logs-metrics-tracing.md)
-
-* [Bien démarrer avec Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
-
-* [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
-
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](./quickstart-logs-metrics-tracing.md)
+* [Bien démarrer avec Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
+* [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
 * [Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions](./tutorial-alerts-action-groups.md)
-
 * [Quotas et plans de service pour Azure Spring Cloud](./quotas.md)

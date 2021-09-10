@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 01/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2650e3a9ce58b611c1aff1a569cc1e8f0980fd4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 622bff79d48ae707e2b32556e05dad658a0322bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833487"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524369"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Envoyer un e-mail depuis un runbook
 
@@ -20,16 +20,17 @@ Vous pouvez envoyer un e-mail à partir d’un runbook avec [SendGrid](https://s
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Un compte SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account)
+* [Un compte SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account)
+* La vérification de l’expéditeur a été configurée dans SendGrid. [Domain (Domaine) ou Single Sender (Expéditeur unique)](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/) 
 * [Un compte Automation](./index.yml) avec modules **Az**
 * [Un compte d’identification](./automation-security-overview.md#run-as-accounts) pour stocker et exécuter le runbook
 
 ## <a name="create-an-azure-key-vault"></a>Créer un Azure Key Vault
 
-Vous pouvez créer un coffre de clés Azure à l’aide du script PowerShell suivant. Remplacez les valeurs des variables par les valeurs propres à votre environnement. Utilisez l’interface intégrée Azure Cloud Shell via le bouton **Essayer** en haut à droite du bloc de code. Vous pouvez également copier et exécuter le code localement si les [modules Az](/powershell/azure/install-az-ps) sont installés sur votre ordinateur local.
+Vous pouvez créer un coffre de clés Azure à l’aide du script PowerShell suivant. Remplacez les valeurs des variables par les valeurs propres à votre environnement. Utilisez l’interface intégrée Azure Cloud Shell via le bouton **Essayer** en haut à droite du bloc de code. Vous pouvez également copier et exécuter le code localement si les [modules Az](/powershell/azure/install-az-ps) sont installés sur votre ordinateur local. Ce script crée également une [stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md) qui permet au compte d’identification d’obtenir et de définir des secrets de coffre de clés dans le coffre de clés spécifié.
 
 > [!NOTE]
-> Pour récupérer votre clé API, suivez les étapes décrites dans [Rechercher votre clé API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key).
+> Pour récupérer votre clé API, suivez les étapes décrites dans [Rechercher votre clé API SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -100,8 +101,8 @@ Une fois que vous avez créé un coffre de clés et stocké votre clé API `Send
 
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
-    $VaultName = "<Enter your vault name>&quot;
-    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name &quot;SendGridAPIKey").SecretValue
+    $VaultName = "<Enter your vault name>"
+    $SENDGRID_API_KEY = Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey" -AsPlainText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")

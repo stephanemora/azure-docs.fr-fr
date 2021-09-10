@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a33170fecab6efbe86568eb81b87637ca5da24
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 95c875c1a4ded86686120bb4de67904ef69a53c6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714293"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286555"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD
 
@@ -35,6 +35,8 @@ Pour déléguer la création et la gestion des packages d’accès dans un catal
 Cette vidéo fournit une vue d’ensemble de la délégation de la gouvernance des accès du propriétaire de catalogue au gestionnaire de package d’accès.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
+
+En plus des rôles propriétaire du catalogue et gestionnaire de package d’accès, vous pouvez également ajouter des utilisateurs avec le rôle lecteur de catalogue, qui fournit un accès en affichage seul au catalogue, ou celui de gestionnaire d’attributions de package d’accès, qui permet aux utilisateurs de modifier les affectations, mais pas d’accéder aux packages ni aux stratégies.
 
 ## <a name="as-a-catalog-owner-delegate-to-an-access-package-manager"></a>En tant que propriétaire de catalogue, déléguer à un gestionnaire de package d’accès
 

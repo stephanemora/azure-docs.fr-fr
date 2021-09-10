@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c2173118b58ca92d69286fb36014872c19058bd6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a280a191d25a2d41173b30c56447b1ece7077206
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779972"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524267"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personnaliser la configuration des nœuds pour les pools de nœuds Azure Kubernetes service (AKS) [préversion]
 
-La personnalisation de la configuration de votre nœud vous permet de configurer ou de régler les paramètres de votre système d’exploitation ou les paramètres kubelet pour répondre aux besoins des charges de travail. Lorsque vous créez un cluster AKS ou ajoutez un pool de nœuds à votre cluster, vous pouvez personnaliser un sous-ensemble de paramètres de système d’exploitation et kubelet couramment utilisés. Pour configurer des paramètres au-delà de ce sous-ensemble, [utilisez un ensemble de démons pour personnaliser vos configurations nécessaires sans perdre la prise en charge AKS pour vos nœuds](support-policies.md#shared-responsibility).
+La personnalisation de la configuration de votre nœud vous permet de configurer ou de régler les paramètres de votre système d’exploitation ou les paramètres kubelet pour répondre aux besoins des charges de travail. Lorsque vous créez un cluster AKS ou ajoutez un pool de nœuds à votre cluster, vous pouvez personnaliser un sous-ensemble de paramètres de système d’exploitation et kubelet couramment utilisés. Pour configurer des paramètres au-delà de ce sous-ensemble, [utilisez un ensemble de démons pour personnaliser vos configurations nécessaires sans perdre la prise en charge d’AKS pour vos nœuds](support-policies.md#shared-responsibility).
 
 ## <a name="register-the-customnodeconfigpreview-preview-feature"></a>Inscrire la fonctionnalité d’évaluation `CustomNodeConfigPreview`
 
@@ -198,7 +198,7 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
-[aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
+[aks-view-master-logs]: ../azure-monitor/containers/container-insights-log-query.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az_aks_show

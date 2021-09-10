@@ -9,16 +9,23 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dea90773340bb16b4f3c01e11affb2d4d2851b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592314"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531440"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Informations de référence sur les données de supervision d’Azure Files
 
 Pour plus d’informations sur la collecte et l’analyse des données de supervision concernant Azure Files, consultez [Supervision d’Azure Files](storage-files-monitoring.md).
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 ## <a name="metrics"></a>Mesures
 
@@ -44,7 +51,7 @@ Ce tableau présente les [métriques Azure Files](../../azure-monitor/essentials
 | FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 | FileShareCapacityQuota | Limite supérieure de la quantité de stockage pouvant être utilisée par le service Azure Files, en octets. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024|
 | FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
-| FileShareProvisionedIOPS | Nombre d’IOPS provisionnées sur un partage de fichiers. Cette métrique s’applique uniquement au stockage de fichiers Premium. <br/><br/> Unité : octets <br/> Type d’agrégation : Average |
+| FileShareProvisionedIOPS | Nombre d’IOPS provisionnées sur un partage de fichiers. Cette métrique s’applique uniquement au stockage de fichiers Premium. <br/><br/> Unité : CountPerSecond <br/> Type d’agrégation : Average |
 | FileShareSnapshotCount | Nombre d’instantanés présents sur le partage dans le service Azure Files du compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : Average | 
 |FileShareSnapshotSize|Quantité de stockage utilisée par les instantanés dans le service Azure Files du compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average|
 

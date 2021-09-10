@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc3defd1bf3e3052f45f00eeeec0078ce0f6bbde
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491383"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524041"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Activer la réinitialisation de mot de passe en libre-service Azure Active Directory depuis l’écran de connexion Windows
 
@@ -45,6 +45,7 @@ Les limitations suivantes s’appliquent à l’utilisation de SSPR depuis l’�
     - *HideFastUserSwitching* a la valeur enabled ou 1
     - *DontDisplayLastUserName* a la valeur enabled ou 1
     - *NoLockScreen* a la valeur enabled ou 1
+    - *BlockNonAdminUserInstall* a la valeur enabled ou 1
     - *EnableLostMode* est défini sur l’appareil
     - Explorer.exe est remplacé par un interpréteur de commandes personnalisé
 - La combinaison des trois paramètres spécifiques suivants peut empêcher le fonctionnement de cette fonctionnalité.

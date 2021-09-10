@@ -10,14 +10,17 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 759bd7fb48134d2e0da4514a143d3ffb5d5336bb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ac879292086b56003ac934a3f3005b2a8ecc0516
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953778"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112570"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
+
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Chaque licence à 2 processeurs ou chaque ensemble de licences à 16 cœurs a droit à 2 instances pouvant contenir jusqu’à 8 cœurs ou à 1 instance pouvant contenir jusqu’à 16 cœurs. L’offre Azure Hybrid Benefit pour les licences de l’édition Standard ne peut être utilisée qu’une seule fois : localement ou dans Azure. Les avantages de l’édition Datacenter permettent une utilisation simultanée en local et dans Azure.
@@ -69,12 +72,14 @@ az vm create \
 
 ### <a name="template"></a>Modèle
 Dans vos modèles Resource Manager, vous pouvez spécifier un paramètre supplémentaire `licenseType`. Pour en savoir plus sur la création de modèles Azure Resource Manager, [cliquez ici](../../azure-resource-manager/templates/syntax.md).
+
 ```json
 "properties": {
     "licenseType": "Windows_Server",
     "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
     }
+}    
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Convertir une machine virtuelle existante pour utiliser Azure Hybrid Benefit pour Windows Server
@@ -146,27 +151,39 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 > La modification du type de licence sur la machine virtuelle n’entraîne pas le redémarrage du système ni l’interruption de service. Il s’agit uniquement d’un indicateur de gestionnaire de licences de métadonnées.
 >
 
-## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Lister toutes les machines virtuelles avec Azure Hybrid Benefit pour Windows Server dans un abonnement
-Pour afficher et compter toutes les machines virtuelles déployées avec Azure Hybrid Benefit pour Windows Server, vous pouvez exécuter la commande suivante à partir de votre abonnement :
+## <a name="list-all-vms-and-vmss-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Lister toutes les machines virtuelles et tous les groupes de machines virtuelles identiques avec Azure Hybrid Benefit pour Windows Server dans un abonnement
+Pour afficher et compter toutes les machines virtuelles et tous les groupes de machines virtuelles identiques déployés avec Azure Hybrid Benefit pour Windows Server, vous pouvez exécuter la commande suivante à partir de votre abonnement :
 
 ### <a name="portal"></a>Portail
 À partir de la machine virtuelle ou du panneau de ressources du groupe de machines virtuelles identiques, vous pouvez voir la liste de toutes vos machines virtuelles et le type de licence en ajoutant « Azure Hybrid Benefit » dans la colonne du tableau. Le paramètre de machine virtuelle peut indiquer l’état « Activé », « Non activé » ou « Non pris en charge».
 
 ### <a name="powershell"></a>PowerShell
+Pour les machines virtuelles :
 ```powershell
-$vms = Get-AzVM
-$vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+Get-AzVM | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+```
+
+Pour les groupes de machines virtuelles identiques :
+```powershell
+Get-AzVmss | Select * -ExpandProperty VirtualMachineProfile | ? LicenseType -eq 'Windows_Server' | select ResourceGroupName, Name, LicenseType
 ```
 
 ### <a name="cli"></a>Interface de ligne de commande
+Pour les machines virtuelles :
 ```azurecli
 az vm list --query "[?licenseType=='Windows_Server']" -o table
+```
+
+Pour les groupes de machines virtuelles identiques :
+```azurecli
+az vmss list --query "[?virtualMachineProfile.licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Déployer un groupe de machines virtuelles identiques avec Azure Hybrid Benefit pour Windows Server
 Au sein des modèles Resource Manager de votre groupe de machines virtuelles identiques, vous devez spécifier un paramètre supplémentaire `licenseType` dans votre propriété VirtualMachineProfile. Vous pouvez le faire durant la création ou la mise à jour de votre groupe identique avec un modèle ARM, PowerShell, Azure CLI ou REST.
 
 L’exemple qui suit utilise un modèle ARM avec une image Windows Server 2016 Datacenter :
+
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -186,6 +203,7 @@ L’exemple qui suit utilise un modèle ARM avec une image Windows Server 2016 D
             "adminUsername": "[parameters('adminUsername')]",
             "adminPassword": "[parameters('adminPassword')]"
     }
+}    
 ```
 Vous pouvez également consulter [Modifier un groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) pour accéder à d’autres méthodes de mise à jour d’un groupe.
 

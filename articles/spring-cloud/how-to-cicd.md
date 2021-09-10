@@ -1,25 +1,31 @@
 ---
 title: Automatiser les déploiements d’applications dans Azure Spring Cloud
 description: Décrit comment utiliser la tâche Azure Spring Cloud pour Azure Pipelines.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2df1c8f0e091e553e045efb8aea5665d29bbc53f
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 2ac965e54a66eb2489ae7a4bfa9cac363f494b4f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839326"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533289"
 ---
 # <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatiser les déploiements d’applications dans Azure Spring Cloud
 
+Cet article explique comment utiliser la [tâche Azure Spring Cloud pour Azure pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) afin de déployer des applications.
+
 Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps vous aide à organiser et à contrôler ces travaux clés. 
 
-Cet article explique comment utiliser la [tâche Azure Spring Cloud pour Azure pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) afin de déployer des applications.
+La vidéo suivante décrit l’automatisation de bout en bout à l’aide des outils de votre choix, y compris Azure Pipelines.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/D2cfXAbUwDc?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Créer une connexion de service Azure Resource Manager
 
@@ -28,6 +34,7 @@ Pour découvrir comment créer une connexion de service Azure Resource Manager �
 ## <a name="build-and-deploy-apps"></a>Créer et déployer des applications
 
 ::: zone pivot="programming-language-csharp"
+
 ### <a name="deploy-artifacts"></a>Déployer des artefacts
 
 Vous pouvez générer et déployer vos projets à l’aide d’une série de tâches. Cet extrait de code définit des variables, une tâche .NET Core pour générer l’application et une tâche Azure Spring Cloud pour déployer l’application.
@@ -82,6 +89,7 @@ steps:
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
 ### <a name="deploy-artifacts"></a>Déployer des artefacts
 
 #### <a name="to-production"></a>En production
@@ -109,7 +117,6 @@ steps:
 Le déploiement présenté dans la section précédente reçoit immédiatement le trafic de l’application lors du déploiement. Parfois, les développeurs souhaitent tester leurs applications dans l’environnement de production, mais avant que l’application ne reçoive le trafic des clients.
 
 L’extrait de code suivant génère l’application de la même façon que ci-dessus, puis la déploie dans un déploiement intermédiaire. Dans cet exemple, le déploiement intermédiaire doit déjà exister. Pour une autre approche, consultez [Stratégies de déploiement bleu-vert](concepts-blue-green-deployment-strategies.md).
-
 
 ```yaml
 steps:
@@ -148,9 +155,9 @@ Il est possible de déployer directement sur Azure sans étape de génération d
     DeploymentName: 'default'
     Package: $(Build.SourcesDirectory)
 ```
+
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Démarrage rapide : Déployer votre première application Azure Spring Cloud](./quickstart.md)
-

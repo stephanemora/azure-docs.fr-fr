@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85c6d8520938ffc859a7116d1dc9e61cb26534e4
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f9ed7b31625275c808555534fcd49314444ab0ad
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030554"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114388144"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Journaux des connexions dans Azure Active Directory
 
@@ -164,6 +164,10 @@ Vous pouvez filtrer les données d’un journal pour les limiter à un niveau qu
 ![Filtre d’application cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> Pour des raisons de confidentialité, Azure AD ne renseigne pas ce champ pour le locataire d’origine dans le cas d’un scénario interlocataire.
+
+
 |Nom|Authentification moderne|Description|
 |---|:-:|---|
 |SMTP authentifié| |Utilisé par les clients POP et IMAP pour envoyer des e-mails.|
@@ -182,6 +186,10 @@ Vous pouvez filtrer les données d’un journal pour les limiter à un niveau qu
 |POP3| |Un client de messagerie hérité qui utilise POP3 pour récupérer le courrier électronique.|
 |Reporting Web Services| |Utilisé pour récupérer des données de rapports dans Exchange Online.|
 |Autres clients| |Affiche toutes les tentatives de connexion d’utilisateurs où l’application cliente n’est pas incluse ou connue.|
+
+
+
+
 
 
 
@@ -296,7 +304,7 @@ Lorsque vous affichez le rapport des connexions, sélectionnez l’onglet **Info
 >- La ligne **Authentification principale** n’est pas initialement consignée. 
 
 
-## <a name="usage-of-managed-applications&quot;></a>Utilisation des applications gérées
+## <a name="usage-of-managed-applications"></a>Utilisation des applications gérées
 
 En disposant d’une vue centrée sur les applications de vos données de connexion, vous pouvez répondre aux questions telles que :
 
@@ -306,7 +314,7 @@ En disposant d’une vue centrée sur les applications de vos données de connex
 
 Le point d’entrée de ces données correspond aux trois principales applications de votre organisation. Les données sont contenues dans le rapport sur les 30 derniers jours dans la section **Vue d’ensemble** sous **Applications d’entreprise**.
 
-![Capture d’écran montrant où vous pouvez sélectionner Vue d’ensemble.](./media/concept-sign-ins/10.png &quot;Activité de connexion")
+![Capture d’écran montrant où vous pouvez sélectionner Vue d’ensemble.](./media/concept-sign-ins/10.png "Activité de connexion")
 
 Les graphiques d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos trois principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 

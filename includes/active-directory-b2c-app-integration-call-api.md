@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 07/05/2021
 ms.author: mimart
-ms.openlocfilehash: 3d4bb5ff840a2f4ee5c4c33e2cc51dfe440866a7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ebc113e993eadc41c2b1c58c9130908727101a6f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524057"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227727"
 ---
 Une fois l’authentification terminée, les utilisateurs interagissent avec l’application, qui appelle une API web protégée. L’API web utilise l’authentification par [jeton du porteur](https://datatracker.ietf.org/doc/html/rfc6750). Le jeton du porteur est le jeton d’accès obtenu par l’application auprès d’Azure AD B2C. L’application transmet le jeton dans l’en-tête d’autorisation de la requête HTTPS. 
     

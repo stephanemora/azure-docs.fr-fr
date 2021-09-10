@@ -1,197 +1,85 @@
 ---
-title: 'Démarrage rapide : Créer un compte Azure Purview dans le portail Azure (préversion)'
+title: 'Démarrage rapide : Créer un compte Azure Purview dans le portail Azure'
 description: Ce guide de démarrage rapide explique comment créer un compte Azure Purview et configurer des autorisations pour commencer à l’utiliser.
 author: nayenama
 ms.author: nayenama
-ms.date: 10/23/2020
+ms.date: 08/18/2021
 ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 7c75e550c1987302559fb07e3785686244d128a0
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 4f0ef5010a0862b1fa5514d83f6570eefa2c4e10
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060981"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102530"
 ---
-# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
+# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure.
 
-> [!IMPORTANT]
-> Azure Purview est actuellement disponible en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
-
-Dans ce guide de démarrage rapide, vous créez un compte Azure Purview.
+Azure Purview est un outil de gouvernance unifiée des données qui vous aide à gérer votre paysage de données. Ce guide de démarrage rapide décrit les étapes de création d’un compte Azure Purview dans le portail Azure et la prise en main du processus de classification, de sécurisation et de découverte de vos données dans Purview.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+* Le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être Contributeur ou Propriétaire, ou être administrateur de l’abonnement Azure.
+
 * Votre propre [locataire Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Votre compte doit avoir l’autorisation de créer des ressources dans l’abonnement.
+* Pas de [Stratégies Azure](../governance/policy/overview.md) empêchant la création de **comptes de stockage** ou d’**espaces de noms Event Hub**. Purview déploie un compte Stockage géré et un Event Hub lors de sa création. Si une politique de blocage existe et doit rester en place, veuillez suivre notre [Guide de marquage des exceptions Purview](create-purview-portal-faq.md) pour préparer votre environnement.
 
-* Si **Azure Policy** empêche toutes les applications de créer un **compte de stockage** et un **espace de noms EventHub**, vous devez introduire une exception de stratégie au moyen d’une étiquette pouvant être renseignée lors du processus de création d’un compte Purview. La raison principale vient de ce que, pour chaque compte Purview créé, un groupe de ressources managé doit être créé, et dans ce groupe de ressources, un compte de stockage et un espace de noms EventHub.
+## <a name="create-an-azure-purview-account"></a>Créer un compte Azure Purview
 
-    > [!important]
-    > Vous n’êtes pas obligé de suivre cette étape si vous ne disposez pas d’Azure Policy, ou si aucune stratégie Azure existante ne bloque la création du **compte de stockage** et de l’**espace de noms EventHub**.
+1. Accédez à la page **Comptes Purview** dans le [portail Azure](https://portal.azure.com).
 
-    1. Accédez au portail Azure et recherchez **Stratégie**.
-    1. Suivez [Créer une définition de stratégie personnalisée](../governance/policy/tutorials/create-custom-policy-definition.md) ou modifiez une stratégie existante pour ajouter deux exceptions avec l’opérateur `not` et l’étiquette `resourceBypass` :
+    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Capture d’écran montrant la page des comptes Purview dans le portail Azure":::
 
-        ```json
-        {
-          "mode": "All",
-          "policyRule": {
-            "if": {
-              "anyOf": [
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              },
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.EventHub/namespaces"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              }]
-            },
-            "then": {
-              "effect": "deny"
-            }
-          },
-          "parameters": {}
-        }
-        ```
-        
-        > [!Note]
-        > Tant que la stratégie détecte l’étiquette, celle-ci peut être constituée de n’importe quel texte à côté de `resourceBypass` ; c’est à vous de définir sa valeur lors de la création de Purview aux étapes suivantes.
+1. Sélectionnez **Créer** afin de créer un compte Azure Purview.
 
-        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Capture d’écran illustrant la création d’une définition de stratégie.":::
+   :::image type="content" source="media/create-catalog-portal/select-create.png" alt-text="Capture d’écran avec le bouton de création en évidence pour Azure Purview dans le portail Azure.":::
+  
+      Vous pouvez aussi aller sur la Place de marché, rechercher **Azure Purview**, et sélectionner **Créer**.
 
-    1. [Créez une affectation de stratégie](../governance/policy/assign-policy-portal.md) à l’aide de la stratégie personnalisée créée.
+     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Capture d’écran montrant Azure Purview sur la Place de marché Azure, avec le bouton de création en évidence.":::
 
-       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Capture d’écran illustrant la création d’une affectation de stratégie" lightbox="./media/create-catalog-portal/policy-assignment.png":::
+1. Sur la nouvelle page Créer un compte Purview, sous l’onglet **Général**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer votre compte Purview.
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+1. Sélectionnez un **groupe de ressources** existant ou créez-en un pour contenir votre compte Purview.
 
-Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
+    Pour plus d’informations sur les groupes de ressources, consultez notre article sur l’[utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-## <a name="configure-your-subscription"></a>Configurer votre abonnement
+1. Entrez un **nom de compte Purview**. Les espaces et les symboles ne sont pas autorisés.
+    Le nom du compte Purview doit être globalement unique. Si vous voyez l’erreur suivante, modifiez le nom du compte Purview et essayez de créer à nouveau.
 
-Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement en vue d’autoriser l’exécution d’Azure Purview dans votre abonnement :
+    :::image type="content" source="media/create-catalog-portal/name-error.png" alt-text="Capture d’écran montrant l’écran Créer un compte Purview avec un nom de compte déjà utilisé, et le message d’erreur mis en évidence.":::
 
-   1. Dans le portail Azure, recherchez et sélectionnez **Abonnements**.
+1. Choisissez un **emplacement**.
+    La liste affiche uniquement les emplacements qui prennent en charge Purview. L’emplacement que vous choisissez sera la région dans laquelle votre compte Purview et les métadonnées seront stockés. Les sources peuvent être hébergées dans d’autres régions.
 
-   1. Dans la liste des abonnements, sélectionnez l’abonnement que vous souhaitez utiliser. L’autorisation d’accès administratif pour l’abonnement est nécessaire.
-
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Capture d’écran illustrant la sélection d’un abonnement dans le portail Azure.":::
-
-   1. Sur votre abonnement, sélectionnez **Fournisseurs de ressources**. Dans le volet **Fournisseurs de ressources**, recherchez et inscrivez les trois fournisseurs de ressources : 
-       1. **Microsoft.Purview**
-       1. **Microsoft.Storage**
-       1. **Microsoft.EventHub** 
-      
-      S’ils ne sont pas inscrits, inscrivez-les en sélectionnant **Inscrire**.
-
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Capture d’écran illustrant l’inscription du fournisseur de ressources Microsoft.Azure Purview dans le portail Azure.":::
-
-## <a name="create-an-azure-purview-account-instance"></a>Créer une instance de compte Azure Purview
-
-1. Accédez à la page **Comptes Purview** dans le portail Azure et sélectionnez **Ajouter** pour créer un compte Azure Purview. Vous pouvez également accéder à la Place de marché pour rechercher **Comptes Purview**, puis sélectionner **Créer**. Notez que vous ne pouvez ajouter qu’un seul compte Azure Purview à la fois.
-
-   :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Capture d’écran illustrant la création d’une instance de compte Azure Purview dans le portail Azure.":::
-
-    > [!Note] 
-    > Le déplacement de compte Azure Purview entre régions n’est pas pris en charge. Pour plus d’informations à ce sujet, consultez [Prise en charge des opérations de déplacement pour les ressources](../azure-resource-manager/management/move-support-resources.md).
-
-1. Dans l’onglet **De base**, effectuez les actions suivantes :
-    1. Sélectionnez un **groupe de ressources**.
-    1. Entrez le **Nom du compte Purview** pour votre catalogue. Les espaces et les symboles ne sont pas autorisés.
-    1. Choisissez un **Emplacement**, puis sélectionnez **Suivant : Configuration**.
-1. Sous l’onglet **Configuration**, sélectionnez la **Taille de la plateforme** souhaitée, les valeurs autorisées étant 4 et 16 unités de capacité (CU). Si vous le souhaitez, donnez un autre nom au groupe de ressources managé Azure Purview. Sélectionnez **Suivant : Balises**.
-
-    > [!Note] 
-    > Le [groupe de ressources managé](create-catalog-portal.md#azure-purview-managed-resources) contiendra un compte de stockage managé et un espace de noms Event Hub dédié et utilisé par le compte Azure Purview.
-
-3. Le cas échéant, sous l’onglet **Étiquettes**, vous pouvez ajouter une ou plusieurs étiquettes. Ces étiquettes sont destinées uniquement à être utilisées dans le portail Azure, et non dans Azure Purview. 
-
-    > [!Note] 
-    > Si vous utilisez **Azure Policy** et qu’il vous faut ajouter une exception, comme dans les **Prérequis**, vous devez choisir l’étiquette appropriée. Par exemple, vous pouvez ajouter l’étiquette `resourceBypass` : :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Ajout d’une étiquette au compte Purview.":::
+      > [!Note]
+      > Azure Purview ne prend pas en charge le déplacement de comptes inter-régions. Veillez donc à déployer dans la bonne région. Pour plus d’informations à ce sujet, consultez [Prise en charge des opérations de déplacement pour les ressources](../azure-resource-manager/management/move-support-resources.md).
 
 1. Sélectionnez **Vérifier + créer**, puis **Créer**. La création prend quelques minutes. L’instance de compte Azure Purview nouvellement créée apparaît dans la liste de la page de vos **Comptes Purview**.
-1. Lorsque le provisionnement du nouveau compte est terminé, sélectionnez **Accéder à la ressource**.
 
-    > [!Note]
-    > Si le provisionnement a échoué avec l’état `Conflict`, cela signifie qu’une stratégie Azure empêche Purview de créer un **compte de stockage** et un **espace de noms EventHub**. Vous devez suivre les étapes de la section **Prérequis** pour ajouter des exceptions.
-    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Message d’erreur de conflit Purview":::
+    :::image type="content" source="media/create-catalog-portal/create-resource.png" alt-text="Capture d’écran montrant l’écran Créer un compte Purview avec le bouton Vérifier + créer en évidence":::
 
-1. Sélectionnez **Lancer le compte Purview**.
+## <a name="open-purview-studio"></a>Ouvrir Purview Studio
 
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Capture d’écran de la sélection permettant de lancer le catalogue du compte Azure Purview.":::
+Une fois votre compte Azure Purview créé, vous allez utiliser Purview Studio pour y accéder et le gérer. Il existe deux façons d’ouvrir Purview Studio :
 
-## <a name="add-a-security-principal-to-a-data-plane-role"></a>Ajouter un principal de sécurité à un rôle de plan de données
+* Ouvrir votre compte Purview sur le [portail Azure](https://portal.azure.com). Sélectionnez la vignette « Ouvrir Purview Studio » sur la page Vue d’ensemble.
+    :::image type="content" source="media/create-catalog-portal/open-purview-studio.png" alt-text="Capture d’écran montrant la page de présentation du compte Purview, avec la vignette Purview Studio en évidence.":::
 
-Pour que vous ou votre équipe puissiez commencer à utiliser Azure Purview, un ou plusieurs principaux de sécurité doivent être ajoutés à l’un des rôles de plan de données prédéfinis : **Lecteur de données Purview**, **Conservateur de données Purview** ou **Administrateur de sources de données Purview**. Pour plus d’informations sur les autorisations du catalogue de données Azure Purview, consultez [Autorisations du catalogue](catalog-permissions.md).
-
-Pour ajouter un principal de sécurité au rôle de plan de données **Conservateur de données Purview** dans un compte Azure Purview :
-
-1. Accédez à la page [**Comptes Purview**](https://aka.ms/purviewportal) dans le portail Azure.
-
-1. Sélectionnez le compte Azure Purview que vous souhaitez modifier.
-
-1. Sur la page **Compte Purview**, sélectionnez l’onglet **Contrôle d’accès (IAM)** .
-
-1. Cliquez sur **+ Ajouter**
-
-Si, après avoir cliqué sur Ajouter, deux options s’affichent marquées (désactivées), cela signifie que vous ne détenez pas les autorisations appropriées pour ajouter un utilisateur à un rôle de plan de données dans le compte Azure Purview. Vous devez trouver un propriétaire, un administrateur de l’accès utilisateur ou une autre personne disposant de l’autorité d’affectation de rôle sur votre compte Azure Purview. Vous pouvez rechercher les personnes ad hoc en sélectionnant l’onglet **Attributions de rôles**, puis en faisant défiler la liste pour trouver le propriétaire ou l’administrateur de l’accès utilisateur, et contacter ces personnes.
-
-1. Sélectionnez **Ajouter une attribution de rôle**.
-
-1. Pour le rôle, indiquez **Rôle Conservateur de données Purview** ou **Rôle Administrateur de sources de données Purview**, en fonction de l’utilisation qui sera faite du principal de sécurité (pour plus d’informations, consultez [Autorisations du catalogue](catalog-permissions.md) et [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)).
-
-1. Pour **Attribuer l’accès à**, laissez la valeur par défaut **Utilisateur, groupe ou principal de service**.
-
-1. Pour **Sélectionner**, entrez le nom de l’utilisateur, du principal de service ou du groupe Azure Active Directory que vous souhaitez affecter, puis cliquez sur son nom dans le volet des résultats.
-
-1. Cliquez sur **Save**(Enregistrer).
-
-## <a name="azure-purview-managed-resources"></a>Ressources managées Azure Purview
-Pendant le déploiement d’un compte Azure Purview, un nouveau groupe de ressources managé avec un nouveau compte de stockage Azure et un nouvel espace de noms Event Hub est également déployé, ainsi qu’un compte Azure Purview, dans votre abonnement Azure. Vous pouvez choisir une autre convention d’affectation de noms pour le groupe de ressources managé pendant le déploiement.
-
-Ces ressources sont essentielles au fonctionnement du compte Azure Purview. Elles sont utilisées pour contenir les données temporaires jusqu’à ce que les informations soient ingérées dans le catalogue de données Azure Purview. 
-
-Une attribution de refus est automatiquement ajoutée au groupe de ressources managé pour tous les principaux. L’identité managée Azure Purview constitue la seule exclusion pour permettre à Azure Purview de gérer les ressources (compte de stockage et espace de noms Event Hub) du groupe de ressources. Vous ne pouvez donc pas supprimer ni modifier le groupe de ressources managé, les ressources managées ni leur contenu dans le plan de données. Toutefois, le groupe de ressources managé et son contenu sont automatiquement supprimés en cas de suppression du compte Purview. 
-
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-Si vous n’avez plus besoin de ce compte Azure Purview, supprimez-le en procédant de la façon suivante :
-
-1. Accédez à la page **Comptes Purview** dans le portail Azure.
-
-2. Sélectionnez le compte Azure Purview que vous avez créé au début de ce guide de démarrage rapide. Sélectionnez **Supprimer**, entrez le nom du compte, puis sélectionnez **Supprimer**.
+* Vous pouvez également accéder à [https://web.purview.azure.com](https://web.purview.azure.com), sélectionner votre compte Purview et vous connecter à votre espace de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez vu comment créer un compte Azure Purview.
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Purview et à y accéder par le biais de Purview Studio.
 
-Passez à l’article suivant pour savoir comment autoriser les utilisateurs à accéder à votre compte Azure Purview. 
+Lisez les articles suivants pour apprendre à naviguer dans Purview Studio, à créer une collection et à accorder l’accès à Purview.
 
-> [!div class="nextstepaction"]
-> [Ajouter des utilisateurs à votre compte Azure Purview](catalog-permissions.md)
+* [Utilisation de Purview Studio](use-purview-studio.md)
+* [Création d'une collection](quickstart-create-collection.md)
+* [Ajouter des utilisateurs à votre compte Azure Purview](catalog-permissions.md)

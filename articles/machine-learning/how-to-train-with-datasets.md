@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 573868d8dc637afcab1970d0e41ed2ed0830808d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 191c76c6ec67112df71d8d5525b2c5938627b3d6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538849"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458535"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Si vous ne voulez pas encore rendre vos données disponibles pour l’apprentiss
 
 Pour créer des jeux de données et effectuer un entraînement avec eux, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -126,7 +126,7 @@ L’exemple suivant
 * monte le jeu de données d’entrée sur la cible de calcul.
 
 > [!Note]
-> Si vous utilisez une image de base Docker personnalisée, vous devez installer fuse via `apt-get install -y fuse` en tant que dépendance pour que le montage du jeu de données fonctionne. Découvrez la procédure de [création d’une image de build personnalisée](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
+> Si vous utilisez une image de base Docker personnalisée, vous devez installer fuse via `apt-get install -y fuse` en tant que dépendance pour que le montage du jeu de données fonctionne. Découvrez la procédure de [création d’une image de build personnalisée](./how-to-deploy-custom-container.md).
 
 Pour l’exemple de notebook, consultez [Procédure de configuration d’une exécution de formation avec entrée et sortie de données](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
@@ -228,17 +228,14 @@ with open(mounted_input_path, 'r') as f:
 
 Le montage ou le téléchargement de fichiers de tout format sont pris en charge pour des jeux de données créés à partir des stockages suivants : Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL. 
 
-Quand vous **montez** un jeu de données, vous attachez les fichiers référencés par le jeu de données à un répertoire (point de montage) et le rendez disponible sur la cible de calcul. Le montage est pris en charge pour les calculs basés sur Linux, y compris la capacité de calcul Azure Machine Learning, les machines virtuelles et HDInsight. 
+Quand vous **montez** un jeu de données, vous attachez les fichiers référencés par le jeu de données à un répertoire (point de montage) et le rendez disponible sur la cible de calcul. Le montage est pris en charge pour les calculs basés sur Linux, y compris la capacité de calcul Azure Machine Learning, les machines virtuelles et HDInsight. Si la taille de vos données dépasse la taille du disque de calcul, le téléchargement n’est pas possible. Pour ce scénario, nous recommandons un montage, car seuls les fichiers de données utilisés par votre script sont chargés au moment du traitement.
 
-Lorsque vous **téléchargez** un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. 
+Lorsque vous **téléchargez** un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente à la diffusion en continu des données à partir des services de stockage. Pour les téléchargements multinœuds, consultez [Comment éviter la limitation](#troubleshooting). 
 
 > [!NOTE]
 > Le nom du chemin de téléchargement ne doit pas dépasser 255 caractères alphanumériques pour le système d’exploitation Windows. Pour le système d’exploitation Linux, le nom du chemin de téléchargement ne doit pas dépasser 4 096 caractères alphanumériques. En outre, pour le système d’exploitation Linux, le nom de fichier (qui est le dernier segment du chemin de téléchargement `/path/to/file/{filename}`) ne doit pas dépasser 255 caractères alphanumériques.
 
-Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente à la diffusion en continu des données à partir des services de stockage. Si la taille de vos données dépasse la taille du disque de calcul, le téléchargement n’est pas possible. Pour ce scénario, nous recommandons un montage, car seuls les fichiers de données utilisés par votre script sont chargés au moment du traitement.
-
 Le code suivant monte `dataset` dans le répertoire Temp dans le chemin `mounted_path`
-
 
 ```python
 import tempfile
@@ -297,6 +294,18 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
   * Si vous n’avez pas de règles de trafic sortant pour le [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md) et que vous utilisez `azureml-sdk>=1.12.0`, mettez à jour `azureml-dataset-runtime` et ses dépendances pour qu’ils disposent des améliorations les plus récentes de la version mineure spécifique ou, si vous l’utilisez dans une exécution, recréez votre environnement pour qu’il puisse disposer du patch le plus récent avec le correctif. 
   * Si vous utilisez `azureml-sdk<1.12.0`, effectuez une mise à niveau vers la version la plus récente.
   * Si vous avez des règles de trafic sortant NSG, assurez-vous qu’il existe une règle de trafic sortant qui autorise tout le trafic pour l’étiquette de service `AzureResourceMonitor`.
+
+**Échec de l’initialisation du jeu de données : StreamAccessException a été causé par ThrottlingException**
+
+Pour les téléchargements de fichiers multinœuds, tous les nœuds peuvent tenter de télécharger tous les fichiers du jeu de données de fichiers à partir du service Stockage Azure, ce qui entraîne une erreur de limitation. Pour éviter la limitation, définissez initialement la variable d’environnement `AZUREML_DOWNLOAD_CONCURRENCY` sur une valeur égale à huit fois le nombre de cœurs de processeur divisé par le nombre de nœuds. La configuration d’une valeur pour cette variable d’environnement peut nécessiter une certaine forme d’expérimentation, l’aide susmentionnée constitue donc un point de départ.
+
+L’exemple suivant suppose 32 cœurs et 4 nœuds.
+
+```python
+from azureml.core.environment import Environment 
+myenv = Environment(name="myenv")
+myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
+```
 
 ### <a name="azurefile-storage"></a>Stockage AzureFile
 

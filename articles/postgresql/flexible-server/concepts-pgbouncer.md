@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: 92068911c2df95a835de45ea6bb0ba786baf596f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 07/30/2021
+ms.openlocfilehash: 86543f160a9ffc725a9512069bac39e6e222d543
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989438"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525008"
 ---
 # <a name="pgbouncer-in-azure-database-for-postgresql---flexible-server"></a>PgBouncer dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -25,7 +25,7 @@ PgBouncer utilise un modèle plus léger qui utilise des E/S asynchrones et uniq
 Lorsque cette option est activée, PgBouncer s’exécute sur le port 6432 de votre serveur de base de données. Vous pouvez modifier la configuration de la connexion de base de données de votre application pour qu’elle utilise le même nom d’hôte, mais modifiez le port sur 6432 pour commencer à utiliser PgBouncer et tirer parti de la mise à l’échelle améliorée des connexions inactives.
 
 > [!Note]
-> PgBouncer est pris en charge uniquement sur les niveaux de calcul Usage général et Mémoire optimisée.
+> PgBouncer est pris en charge sur les niveaux de calcul Usage général et À mémoire optimisée dans la mise en réseau d’accès public et d’accès privé.
 
 ## <a name="enabling-and-configuring-pgbouncer"></a>Activation et configuration de PgBouncer
 
@@ -36,10 +36,14 @@ Vous pouvez configurer les paramètres de PgBouncer comme suit :
 | Nom du paramètre             | Description | Default | 
 |----------------------|--------|-------------|
 | pgbouncer.default_pool_size | Définir la valeur de ce paramètre sur le nombre de connexions par paire utilisateur/base de données      | 50       | 
-| pgBouncer.max_client_conn | Définissez la valeur de ce paramètre sur le plus grand nombre de connexions clientes à PgBouncer que vous souhaitez prendre en charge      | 5 000     | 
+| pgBouncer.max_client_conn | Définissez la valeur de ce paramètre sur le plus grand nombre de connexions clientes à PgBouncer que vous souhaitez prendre en charge.     | 5 000     | 
 | pgBouncer.pool_mode | Définissez cette valeur de paramètre sur TRANSACTION pour le regroupement de transactions (ce qui est le paramètre recommandé pour la plupart des charges de travail).      | TRANSACTION     |
 | pgBouncer.min_pool_size | Ajoutez plus de connexions au serveur pour le pool si le nombre actuel est inférieur à celui défini.    |   0 (désactivé)   |
-| pgBouncer.stats_users | facultatif. Définissez la valeur de ce paramètre sur le nom d’un utilisateur existant, pour pouvoir vous connecter à la base de données de statistiques spéciale PgBouncer (nommée « PgBouncer »)    |      |
+| pgbouncer.ignore_startup_parameters | Liste de paramètres séparés par des virgules que PgBouncer peut ignorer. Par exemple, vous pouvez laisser PgBouncer ignorer le paramètre `extra_float_digits`.|   |
+| pgbouncer.query_wait_timeout | Durée maximale (en secondes) que les requêtes sont autorisées à passer en attente d’exécution. Si la requête n’est pas affectée à un serveur pendant ce temps, le client est déconnecté. | 120 s |
+| pgBouncer.stats_users | facultatif. Définissez la valeur de ce paramètre sur le nom d’un utilisateur existant, pour pouvoir vous connecter à la base de données de statistiques spéciale PgBouncer (nommée « PgBouncer »).    |      |
+
+Pour plus d’informations sur les configurations de PgBouncer, consultez [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
 > [!Note] 
 > La mise à niveau de PgBouncer sera gérée par Azure.

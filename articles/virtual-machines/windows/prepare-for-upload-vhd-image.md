@@ -10,14 +10,16 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 8315c2fa094f1d12a788d42a336cb01feb58c6c9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 92b4b495944fb6180e669c495d61b4594f3e4daf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450273"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697194"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Avant de charger une machine virtuelle Windows locale sur Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge les machines virtuelles des générations 1 et 2 qui sont au format de fichier VHD et ont un disque de taille fixe. La taille maximale autorisée pour le disque dur virtuel du système d’exploitation sur une machine virtuelle de première génération est de 2 To.
 
@@ -442,6 +444,9 @@ En particulier, un déchiffrement complet des lecteurs est nécessaire avant l�
 
 
 ### <a name="generalize-a-vhd"></a>Généraliser un disque dur virtuel
+
+>[!NOTE]
+> Si vous créez une image généralisée à partir d’une machine virtuelle Azure existante, nous vous recommandons de supprimer les extensions de machine virtuelle avant d’exécuter Sysprep.
 
 >[!NOTE]
 > Après avoir exécuté `sysprep.exe` dans les étapes suivantes, arrêtez la machine virtuelle. Ne la réactivez pas avant d’avoir créé une image à partir de celle-ci dans Azure.

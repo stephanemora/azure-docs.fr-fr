@@ -6,18 +6,18 @@ manager: arjmands
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/18/2017
+ms.date: 07/13/2021
 ms.author: eustacea
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7b0cf04adbf3da1f02e9f18b5e3c20760f9dbf53
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bd8576994f47eb370c4e396253d9b8594fb43145
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147190"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287172"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -36,7 +36,7 @@ La fonctionnalité d’autorité de certification X.509 permet l’authentificat
 
 ## <a name="prerequisite"></a>Configuration requise
 
-La fonctionnalité d’autorité de certification X.509 nécessite un compte IoT Hub.  [Découvrez comment créer une instance IoT Hub](quickstart-send-telemetry-dotnet.md) si vous n’en avez pas.
+La fonctionnalité d’autorité de certification X.509 nécessite un compte IoT Hub.  [Découvrez comment créer une instance IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) si vous n’en avez pas.
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>Guide pratique pour obtenir un certificat d’autorité de certification X.509
 
@@ -82,7 +82,7 @@ Créer un appareil X.509 pour votre IoT Hub
 
 Lorsque les appareils sont enregistrés à l’aide d’un certificat d’autorité de certificat X.509 et signés dans une chaîne de certificats de confiance, la dernière étape est l’authentification des appareils lorsqu’ils se connectent, même pour la première fois.  Lorsqu’un appareil signé à l’aide d’un certificat d’autorité de certification X.509 se connecte, il charge sa chaîne de certificats pour validation. La chaîne inclut tous les certificats intermédiaires d’autorité de certification et d’appareil.  Grâce à ces informations, IoT Hub authentifie l’appareil dans un processus en deux étapes.  IoT Hub valide par chiffrement la chaîne de certificats pour la cohérence interne, puis lance une procédure de vérification de la preuve de possession sur l’appareil.  IoT Hub authentifie l’appareil si celui-ci répond de façon correcte à la demande de preuve de possession.  Cette déclaration suppose que la clé privée de l’appareil est protégée et que seul l’appareil peut répondre correctement à cette demande.  Nous recommandons d’installer sur les appareils des puces sécurisées de type Hardware Secure Modules (HSM) afin de protéger les clés privées.
 
-La connexion réussie d’un appareil à IoT Hub termine le processus d’authentification et constitue un bon indicateur d’une configuration correcte.
+La connexion réussie d’un appareil à IoT Hub termine le processus d’authentification et constitue un bon indicateur d’une configuration correcte. Chaque fois qu’un appareil se connecte, IoT Hub renégocie la session TLS et vérifie le certificat X.509 de l’appareil. 
 
 Découvrez ici comment [effectuer cette étape de connexion de l’appareil](./tutorial-x509-scripts.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3da80de79490ce21ae99a4dd7dd36c08054cd666
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d55308876db0928bef4fdf3b89ace10305f7c47d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751574"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524200"
 ---
 # <a name="what-is-msix-app-attach"></a>Qu’est-ce que l’attachement d’application MSIX ?
 
@@ -27,7 +27,7 @@ Il existe plusieurs moyens de distribuer des applications dans Azure Virtual Des
 
 - Placer des applications dans une image principale
 - Utiliser des outils comme SCCM ou Intune pour la gestion centralisée
-- Approvisionnement dynamique d’applications (AppV, VMWare AppVolumes ou Citrix AppLayering)
+- Approvisionnement dynamique d’applications (AppV, VMware AppVolumes ou Citrix AppLayering)
 - Créer des outils ou des scripts personnalisés à l’aide de Microsoft et d’un outil tiers
 
 ## <a name="what-does-msix-app-attach-do"></a>Que fait l’attachement d’application MSIX ?
@@ -56,4 +56,4 @@ Le tableau suivant compare la fonctionnalité clé de l’attachement d’applic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez en savoir plus sur l’attachement d’application MSIX, consultez notre [Glossaire](app-attach-glossary.md) et notre [FAQ](app-attach-faq.md). Sinon, commencez avec [Configurer l’attachement d’application](app-attach.md).
+Si vous souhaitez en savoir plus sur l’attachement d’application MSIX, consultez notre [Glossaire](app-attach-glossary.md) et notre [FAQ](app-attach-faq.yml). Sinon, commencez avec [Configurer l’attachement d’application](app-attach.md).

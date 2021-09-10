@@ -9,13 +9,14 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
-ms.openlocfilehash: bc1983a16ba2ec85dc943e10d7b2220b0de1dc88
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.custom: devplatv2
+ms.date: 06/17/2021
+ms.openlocfilehash: 8ce9241e11bd9aa259c8b7a1bf3114be677a01bd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408530"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447649"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Que sont les points de terminaison Azure Machine Learning (préversion) ? 
 
@@ -28,7 +29,7 @@ Cet article porte sur les points suivants :
 > * Points de terminaison
 > * Déploiements
 > * Points de terminaison en ligne managés
-> * Points de terminaison en ligne AKS
+> * Points de terminaison en ligne Azure Kubernetes Service (AKS)
 > * Points de terminaison d’inférence par lot
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>Que sont les points de terminaison et les déploiements (préversion) ?
@@ -56,11 +57,11 @@ Azure Machine Learning utilise le concept de points de terminaison et de déplo
 ### <a name="multiple-developer-interfaces"></a>Plusieurs interfaces développeur
 
 Créez et gérez des points de terminaison de traitement de lots et en ligne avec plusieurs outils de développement :
-- Interface de ligne de commande
+- Interface de ligne de commande Azure
 - API ARM/REST
 - Portail web du studio Azure Machine Learning
 - Portail Azure (informatique/administrateur)
-- Prise en charge des pipelines MLOps CI/CD avec l’interface CLI et les interfaces REST/ARM
+- Prise en charge des pipelines MLOps CI/CD avec l’interface Azure CLI et les interfaces REST/ARM
 
 ## <a name="what-are-online-endpoints-preview"></a>Que sont les points de terminaison en ligne (préversion) ?
 
@@ -109,7 +110,7 @@ Il existe deux types de points de terminaison en ligne : les **points de termin
 
 |  | Points de terminaison en ligne managés | Points de terminaison en ligne AKS |
 |-|-|-|
-| **Utilisateurs concernés** | Utilisateurs qui souhaitent un déploiement de modèle managé et une expérience MLOps améliorée | Utilisateurs qui préfèrent AKS (Azure Kubernetes Service) et peuvent gérer les exigences d’infrastructure |
+| **Utilisateurs concernés** | Utilisateurs qui souhaitent un déploiement de modèle managé et une expérience MLOps améliorée | Utilisateurs qui préfèrent AKS (Azure Kubernetes Service) et peuvent autogérer les exigences d’infrastructure |
 | **Gestion de l’infrastructure** | Provisionnement de calcul, mise à l’échelle, mises à jour de l’image du système d’exploitation hôte et durcissement de la sécurité managés | Responsabilité de l’utilisateur |
 | **Type de capacité de calcul** | Managé (AmlCompute) | AKS |
 | **Supervision standard** | [Surveillance Azure](how-to-monitor-online-endpoints.md) <br> (comprend des métriques clés telles que la latence et le débit) | Non pris en charge |
@@ -189,5 +190,7 @@ Définissez l’emplacement de sortie de stockage sur n’importe quel magasin d
 - [Guide pratique pour déployer des points de terminaison en ligne managés avec Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [Guide pratique pour déployer des points de terminaison de traitement de lots avec Azure CLI](how-to-use-batch-endpoint.md)
 - [Guide pratique pour utiliser des points de terminaison en ligne managés avec le studio](how-to-use-managed-online-endpoint-studio.md)
+- [Déployer des modèles avec REST (préversion)](how-to-deploy-with-rest.md)
 - [Guide pratique pour superviser des points de terminaison en ligne managés](how-to-monitor-online-endpoints.md)
 - [Guide pratique pour voir les coûts des points de terminaison en ligne](how-to-view-online-endpoints-costs.md)
+- [Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

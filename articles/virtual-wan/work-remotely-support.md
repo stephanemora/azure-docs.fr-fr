@@ -2,17 +2,17 @@
 title: Azure Virtual WAN et travail à distance
 description: Découvrez comment tirer parti d’Azure Virtual WAN pour travailler à distance dans le contexte de la pandémie de COVID-19.
 services: virtual-wan
-author: reyandap
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: fb3af5f19e81ccf21a9ca38fe45514aa0bdf471e
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: c82bce78f82e28d4accc97ec816e6b1edc9346cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580247"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532611"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN et prise en charge du travail à distance
 
@@ -51,11 +51,11 @@ Le Virtual WAN de base fournit uniquement un VPN site à site. Pour que les util
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Informations supplémentaires
 
-Un Virtual WAN prend en charge un hub par région/emplacement. Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md). Chaque concentrateur prend en charge jusqu’à 10 000 connexions d’utilisateurs distants, 1 000 connexions de branche, quatre circuits ExpressRoute et 500 connexions de réseau virtuel. Lorsque vous mettez à l’échelle les utilisateurs distants, si vous avez des questions, n’hésitez pas à rechercher de l’aide en envoyant un e-mail à azurevirtualwan@microsoft.com. Si vous avez besoin d’un support technique, veillez à ouvrir un ticket de support à partir du portail Azure pour obtenir de l’aide.
+Virtual WAN prend en charge plusieurs hubs par région/localisation. Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md). Chaque concentrateur prend en charge jusqu’à 10 000 connexions d’utilisateurs distants, 1 000 connexions de branche, quatre circuits ExpressRoute et 500 connexions de réseau virtuel. Lorsque vous mettez à l’échelle les utilisateurs distants, si vous avez des questions, n’hésitez pas à rechercher de l’aide en envoyant un e-mail à azurevirtualwan@microsoft.com. Si vous avez besoin d’un support technique, veillez à ouvrir un ticket de support à partir du portail Azure pour obtenir de l’aide.
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+Voir la [FAQ sur Virtual WAN](virtual-wan-faq.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

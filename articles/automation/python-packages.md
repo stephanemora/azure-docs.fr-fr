@@ -3,15 +3,15 @@ title: Gérer des packages Python 2 dans Azure Automation
 description: Cet article explique comment gérer des packages Python 2 dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: fd830afd5628591019902ca583f9cbc8e2a7ecad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d5cf0a3d577949edd9e8174ef74e5fede96e67e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97683392"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965687"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gérer des packages Python 2 dans Azure Automation
 
@@ -83,6 +83,9 @@ groups = resource_client.resource_groups.list()
 for group in groups:
     print group.name
 ```
+
+> [!NOTE]
+> Le package `automationassets` Python n’étant pas disponible sur pypi.org, il n’est pas disponible pour importation sur une machine Windows.
 
 ## <a name="develop-and-test-runbooks-offline"></a>Développer et tester les runbooks en mode hors connexion
 

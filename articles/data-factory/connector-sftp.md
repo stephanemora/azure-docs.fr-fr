@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: b86ac52b08aa61c0b8a0a88be5d34937cfd24ca4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 94034e1a7c297e33209c42b5aa93fed2b52feb3f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641268"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316533"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données depuis et vers le serveur SFTP à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -46,6 +46,30 @@ Plus précisément, le connecteur SFTP prend en charge les opérations suivantes
 ## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-an-sftp-linked-service-using-ui"></a>Créer un service lié SFTP à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié SFTP dans l’interface utilisateur du portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse et sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez SFTP et sélectionnez le connecteur SFTP.
+
+    :::image type="content" source="media/connector-sftp/sftp-connector.png" alt-text="Capture d’écran du connecteur SFTP.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-sftp/configure-sftp-linked-service.png" alt-text="Capture d’écran de la configuration d’un service lié SFTP.":::
+
+## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités spécifiques de SFTP.
 

@@ -9,22 +9,24 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: d44f2cfa72bd53b01da073fca31ca698eb42720d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47498a3b790af5b1ff8eeee821b655e8a307660d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520474"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693594"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Définir des modules R personnalisés pour Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Cette rubrique explique comment créer et déployer un module R Studio personnalisé (classique). Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
 
-Un **module personnalisé** est un module défini par l'utilisateur, qui peut être chargé dans votre espace de travail et exécuté dans le cadre d'une expérience Azure Machine Learning Studio (classique). Un **module R personnalisé** est un module exécutant une fonction R définie par l’utilisateur. **R** est un langage de programmation utilisé pour le traitement informatique des statistiques et les graphiques. Les chercheurs de données et les statisticiens s’en servent pour implémenter des algorithmes. Actuellement, R est le seul langage pris en charge dans les modules personnalisés, mais la prise en charge de langages supplémentaires est prévue pour les versions à venir.
+Un **module personnalisé** est un module défini par l’utilisateur, qui peut être chargé dans votre espace de travail et exécuté dans le cadre d’une expérience Machine Learning Studio (classique). Un **module R personnalisé** est un module exécutant une fonction R définie par l’utilisateur. **R** est un langage de programmation utilisé pour le traitement informatique des statistiques et les graphiques. Les chercheurs de données et les statisticiens s’en servent pour implémenter des algorithmes. Actuellement, R est le seul langage pris en charge dans les modules personnalisés, mais la prise en charge de langages supplémentaires est prévue pour les versions à venir.
 
-Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning Studio (classique), en ce sens qu'ils peuvent être utilisés comme n'importe quel autre module. Ils peuvent être exécutés avec d’autres modules, inclus dans des expériences publiées ou dans des visualisations. Vous contrôlez l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience qui contient des modules personnalisés peut également être publiée dans Azure AI Gallery pour faciliter le partage.
+Les modules personnalisés présentent un **état de première classe** dans Machine Learning Studio (classique), en ce sens qu’ils peuvent être utilisés comme n’importe quel autre module. Ils peuvent être exécutés avec d’autres modules, inclus dans des expériences publiées ou dans des visualisations. Vous contrôlez l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience qui contient des modules personnalisés peut également être publiée dans Azure AI Gallery pour faciliter le partage.
 
 ## <a name="files-in-a-custom-r-module"></a>Fichiers dans un module R personnalisé
 Un module R personnalisé est défini par un fichier .zip contenant au moins deux fichiers :
@@ -55,7 +57,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE)
 ```
 
 ### <a name="the-xml-definition-file"></a>Le fichier de définition XML
-Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learning Studio (classique), vous devez créer un fichier de définition XML afin de définir l'apparence du module **Custom Add Rows** et son comportement. 
+Pour exposer cette fonction `CustomAddRows` en tant que module Machine Learning Studio (classique), vous devez créer un fichier de définition XML afin de définir l’apparence du module **Custom Add Rows** et son comportement. 
 
 ```xml
 <!-- Defined a module using an R Script -->
@@ -98,7 +100,7 @@ En revanche, l’attribut **id** de l’élément **Output** ne correspond à au
 ### <a name="package-and-register-the-module"></a>Empaqueter et inscrire le module
 Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, puis compressez les deux fichiers ensemble dans un fichier *CustomAddRows.zip*.
 
-Pour les enregistrer dans votre espace de travail Machine Learning, accédez à votre espace de travail dans Azure Machine Learning Studio (classique), cliquez sur le bouton **+NOUVEAU** situé dans la partie inférieure de la fenêtre et choisissez **MODULE -> À PARTIR DU PACKAGE ZIP** pour charger le nouveau module **Custom Add Rows**.
+Pour les inscrire dans votre espace de travail Machine Learning, accédez à votre espace de travail dans Machine Learning Studio (classique), cliquez sur le bouton **+NOUVEAU** situé dans la partie inférieure de la fenêtre et choisissez **MODULE -> À PARTIR DU PACKAGE ZIP** pour charger le nouveau module **Custom Add Rows**.
 
 ![Charger les zip](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -106,7 +108,7 @@ Le module **Custom Add Rows** peut désormais être ouvert par vos expériences�
 
 ## <a name="elements-in-the-xml-definition-file"></a>Éléments dans le fichier de définition XML
 ### <a name="module-elements"></a>Éléments de module
-L’élément **Module** est utilisé pour définir un module personnalisé dans le fichier XML. Plusieurs modules peuvent être définis dans un fichier XML à l’aide de plusieurs éléments **module** . Chaque module de votre espace de travail doit avoir un nom unique. Si vous enregistrez un module personnalisé avec le même nom qu’un module personnalisé existant, le module existant est remplacé par le nouveau module. Les modules personnalisés peuvent, toutefois, être inscrits avec le même nom qu’un module Azure Machine Learning Studio (classique) existant. Dans ce cas, ils apparaissent dans la catégorie **Personnalisé** de la palette de modules.
+L’élément **Module** est utilisé pour définir un module personnalisé dans le fichier XML. Plusieurs modules peuvent être définis dans un fichier XML à l’aide de plusieurs éléments **module** . Chaque module de votre espace de travail doit avoir un nom unique. Si vous enregistrez un module personnalisé avec le même nom qu’un module personnalisé existant, le module existant est remplacé par le nouveau module. Les modules personnalisés peuvent, toutefois, être inscrits avec le même nom qu’un module Machine Learning Studio (classique) existant. Dans ce cas, ils apparaissent dans la catégorie **Personnalisé** de la palette de modules.
 
 ```xml
 <Module name="Custom Add Rows" isDeterministic="false"> 
@@ -125,7 +127,7 @@ Règles relatives aux limites de caractères dans les éléments Module :
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
-Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de données et de paramètres d’entrée qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Azure Machine Learning Studio (classique) ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d'entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
+Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de données et de paramètres d’entrée qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Machine Learning Studio (classique) ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d’entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
 
 Il existe des fonctions non déterministes, notamment RAND ou une fonction qui retourne la date ou l’heure actuelle. Si votre module utilise une fonction non déterministe, vous pouvez spécifier que le module n’est pas déterministe en définissant l’attribut facultatif **isDeterministic** sur **FALSE**. Cela permet de s’assurer que le module est réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé. 
 
@@ -351,7 +353,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
   * **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Item**.
 
 ### <a name="auxiliary-files"></a>Fichiers auxiliaires
-Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. Toutes les structures de répertoire présentes sont conservées. Cela signifie que l'approvisionnement du fichier fonctionne de la même façon en local et lors de l'exécution d'Azure Machine Learning Studio (classique). 
+Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. Toutes les structures de répertoire présentes sont conservées. Cela signifie que l’approvisionnement du fichier fonctionne de la même façon en local et lors de l’exécution de Machine Learning Studio (classique). 
 
 > [!NOTE]
 > Notez que tous les fichiers sont extraits vers le répertoire « src ». Tous les chemins doivent donc comporter un préfixe « src/ ».

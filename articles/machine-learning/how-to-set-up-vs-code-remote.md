@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 04/08/2021
-ms.openlocfilehash: 534becdfcba1ccc992daadc5007e2eb56337a45e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/15/2021
+ms.openlocfilehash: b3e30a4914ac52c9d9661d3b6d6e07f54f0afdc6
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379265"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114230412"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Se connecter à une instance de calcul Azure Machine Learning dans Visual Studio Code (préversion)
 
@@ -35,25 +35,10 @@ Pour configurer une instance de calcul distante pour le développement, vous dev
 * Espace de travail Azure Machine Learning. [Utilisez l’extension Azure Machine Learning de Visual Studio Code pour créer un espace de travail](how-to-manage-resources-vscode.md#create-a-workspace) si vous n’en avez pas déjà un.
 * Instance de calcul Azure Machine Learning. [Utilisez l’extension Azure Machine Learning Visual Studio Code pour créer une instance de calcul](how-to-manage-resources-vscode.md#create-compute-instance) si vous n’en avez pas.
 
+> [!IMPORTANT]
+> Pour vous connecter à une instance de calcul derrière un pare-feu, consultez [Utiliser l’espace de travail derrière un pare-feu pour Azure Machine Learning](how-to-access-azureml-behind-firewall.md#visual-studio-code-hosts).
+
 Pour vous connecter à votre instance de calcul distante :
-
-# <a name="vs-code"></a>[Code Visual Studio](#tab/extension)
-
-### <a name="azure-machine-learning-extension"></a>Extension Azure Machine Learning
-
-1. Dans VS Code, lancez l’extension Azure Machine Learning.
-1. Développez le nœud **Instances de calcul** dans votre extension.
-1. Cliquez avec le bouton droit sur l’instance de calcul à laquelle vous souhaitez vous connecter, puis sélectionnez **Se connecter à l’instance de calcul**.
-
-:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Se connecter à l’instance de calcul dans l’extension Visual Studio Code Azure ML" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
-
-### <a name="command-palette"></a>Palette de commandes
-
-1. Dans VS Code, ouvrez la palette de commandes en sélectionnant **Affichage > Palette de commandes**.
-1. Entrez **Azure ML : Se connecter à l’instance de calcul** dans la zone de texte.
-1. Sélectionnez votre abonnement.
-1. Sélectionnez votre espace de travail.
-1. Sélectionnez votre instance de calcul ou créez-en une nouvelle.
 
 # <a name="studio"></a>[Studio](#tab/studio)
 
@@ -76,6 +61,24 @@ Accédez à [ml.azure.com](https://ml.azure.com).
 1. Sélectionnez **Éditeurs > Modifier dans VS Code (préversion)** .
 
 :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Se connecter à l’instance de calcul dans VS Code Azure ML Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+# <a name="vs-code"></a>[Code Visual Studio](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Extension Azure Machine Learning
+
+1. Dans VS Code, lancez l’extension Azure Machine Learning.
+1. Développez le nœud **Instances de calcul** dans votre extension.
+1. Cliquez avec le bouton droit sur l’instance de calcul à laquelle vous souhaitez vous connecter, puis sélectionnez **Se connecter à l’instance de calcul**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Se connecter à l’instance de calcul dans l’extension Visual Studio Code Azure ML" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>Palette de commandes
+
+1. Dans VS Code, ouvrez la palette de commandes en sélectionnant **Affichage > Palette de commandes**.
+1. Entrez **Azure ML : Se connecter à l’instance de calcul** dans la zone de texte.
+1. Sélectionnez votre abonnement.
+1. Sélectionnez votre espace de travail.
+1. Sélectionnez votre instance de calcul ou créez-en une nouvelle.
 
 ---
 

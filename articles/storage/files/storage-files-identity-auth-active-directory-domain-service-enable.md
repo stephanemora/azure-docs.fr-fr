@@ -4,16 +4,16 @@ description: Découvrez comment activer l’authentification basée sur l’iden
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2021
+ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 05a92cd9f2ce7d5e23896f3dd8109abde5be69ca
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f995b4b17330f6469f05c5399c2129fa7abc33bf
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669908"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462549"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Activer l’authentification Azure Active Directory Domain Services sur Azure Files
 
@@ -22,8 +22,16 @@ ms.locfileid: "110669908"
 Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de lire notre [guide de planification](storage-files-planning.md) avant de vous lancer dans les articles suivants.
 
 > [!NOTE]
-> Azure Files prend en charge l’authentification Kerberos avec Azure AD DS uniquement avec RC4-HMAC. Le chiffrement Kerberos AES n’est pas encore pris en charge.
+> Le service Azure Files prend en charge l’authentification Kerberos à l’aide d’Azure AD DS avec les chiffrements RC4-HMAC et AES 256.
+>
 > Azure Files prend en charge l’authentification pour Azure AD DS avec une synchronisation complète avec Azure AD. Si vous avez activé la synchronisation délimitée dans Azure AD DS qui synchronise uniquement un ensemble limité d’identités d’Azure AD, l’authentification et l’autorisation ne sont pas prises en charge.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -87,13 +95,14 @@ N’oubliez pas que vous pouvez activer l’authentification Azure AD DS sur SMB
 Pour activer l’authentification Azure AD DS sur SMB avec le [portail Azure](https://portal.azure.com), procédez comme suit :
 
 1. Dans le Portail Azure, accédez à votre compte de stockage existant, ou [créez un compte de stockage](../common/storage-account-create.md).
-1. Dans la section **Paramètres**, sélectionnez **Configuration**.
-1. Sous **Accès basé sur l’identité pour les partages de fichiers**, mettez le bouton bascule **Azure Active Directory Domain Service (AAD DS)** en position **Activé**.
+1. Dans la section **Partages de fichiers**, sélectionnez **Active Directory : Non configuré**.
+
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Capture d’écran du volet Partages de fichiers dans votre compte de stockage, avec Active Directory mis en évidence." lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
+
+1. Sélectionnez **Azure Active Directory Domain Services**, puis positionnez le bouton bascule sur **Activé**.
 1. Sélectionnez **Enregistrer**.
 
-L’image suivante montre comment activer l’authentification Azure AD DS sur SMB pour votre compte de stockage.
-
-:::image type="content" source="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png" alt-text="Capture d’écran du panneau de configuration dans votre compte de stockage, Azure Active Directory Domain Services est activé." lightbox="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-highlight.png" alt-text="Capture d’écran du volet Active Directory, avec Azure Active Directory Domain Services activé." lightbox="media/storage-files-active-directory-enable/files-azure-ad-highlight.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

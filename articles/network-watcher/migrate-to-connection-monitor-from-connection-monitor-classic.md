@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: fc5bcc7f0cd11160b33bb6501526fce9f29d710b
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c9130b83d0d4491152e05157c9cb52dfb89231a1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366383"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105738"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrer vers le Moniteur de connexion à partir du Moniteur de connexion (classique)
 
@@ -67,8 +67,23 @@ Après le début de la migration, les modifications suivantes ont lieu :
 * Les moniteurs de connexion migrés ne sont plus affichés comme l’ancienne solution de moniteur de connexion. Ils sont désormais disponibles uniquement dans Moniteur de connexion.
 * Toutes les intégrations externes, telles que les tableaux de bord dans Power BI et Grafana, et les intégrations aux systèmes Security Information and Event Management (SIEM) doivent être migrées manuellement. Il s’agit de la seule étape manuelle que vous devez effectuer pour migrer votre installation.
 
+## <a name="common-errors-encountered"></a>Erreurs courantes rencontrées
+
+Voici quelques-unes des erreurs courantes rencontrées lors de la migration : 
+
+| Error  |    Motif   |
+|---|---|
+|Les moniteurs de connexion suivants ne peuvent pas être importés, car Network Watcher n’est pas activée pour une ou plusieurs combinaisons abonnement-région. Activez Network Watcher et cliquez sur Actualiser pour les importer. Liste de moniteurs de connexion  {0}   |  Cette erreur se produit lorsque l’utilisateur migre des tests de Moniteur de connexion (classique) vers Moniteur de connexion et que l’extension Network Watcher n’est pas activée dans un ou plusieurs abonnements et régions de Moniteur de connexion (classique). L’utilisateur doit activer l’extension NW dans l’abonnement et actualiser pour les importer avant de procéder à nouveau à la migration   |
+|Les moniteurs de connexion ayant les tests suivants ne peuvent pas être importés, car l’extension Network Watcher n’est pas installée sur une ou plusieurs machines virtuelles Azure. Installez l’extension Network Watcher et cliquez sur Actualiser pour les importer. Liste des tests : {0} |    Cette erreur se produit lorsque l’utilisateur migre des tests de Moniteur de connexion (classique) vers Moniteur de connexion et que l’extension Network Watcher n’est pas installée sur une ou plusieurs machines virtuelles Azure de Moniteur de connexion (classique). L’utilisateur doit installer l’extension NW sur la machine virtuelle Azure et actualiser avant de procéder à nouveau à la migration |
+|Aucune ligne à afficher   |  Cette erreur se produit lorsque l’utilisateur tente de migrer des abonnements de Moniteur de connexion (classique) vers Moniteur de connexion, mais qu’aucun moniteur de connexion (classique) n’est créé dans les abonnements |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur le Moniteur de connexion, consultez :
 * [Migration de Network Performance Monitor vers Moniteur de connexion](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Créer un Moniteur de connexion à l’aide du portail Azure](./connection-monitor-create-using-portal.md)
+
+
+    
+ 
+    

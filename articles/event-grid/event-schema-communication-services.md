@@ -2,14 +2,14 @@
 title: Azure Communication Services comme source Event Grid
 description: Cet article explique comment utiliser Azure Communication Services comme source d’événement Event Grid.
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/11/2021
 ms.author: mikben
-ms.openlocfilehash: 72941faf122be50d2c721fd4c8421ae4339d5d2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e4245d9f38c00ec337d689a11d185299d71891
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656241"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525196"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Gestion des événements dans Azure Communication Services
 
@@ -17,7 +17,7 @@ Azure Communication Services s’intègre à [Azure Event Grid](https://azure.mi
 
 Azure Event Grid est un service de routage d’événement complètement managé qui utilise le modèle publication-abonnement. Event Grid offre une prise en charge intégrée des services Azure comme [Azure Functions](../azure-functions/functions-overview.md) et [Azure Logic Apps](../azure-functions/functions-overview.md). Il peut envoyer des alertes d’événement à des services non-Azure à l’aide de webhooks. Pour obtenir une liste complète des gestionnaires d’événements qui prennent en charge Event Grid, consultez [Présentation d’Azure Event Grid](overview.md).
 
-:::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Schéma montrant le modèle d’événement d’Azure Event Grid.":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Schéma montrant le modèle d’événement d’Azure Event Grid.":::
 
 > [!NOTE]
 > Pour en savoir plus sur le rapport entre la résidence des données et la gestion des événements, consultez la [documentation conceptuelle relative à la résidence des données](../communication-services/concepts/privacy.md).
@@ -50,6 +50,7 @@ Azure Communication Services émet les types d’événements suivants :
 | Microsoft.Communication.ChatThreadPropertiesUpdated| Publié lors de la mise à jour des propriétés d’un fil de conversation telles que le sujet|    
 | Microsoft.Communication.ChatMessageEditedInThread | Publié quand un message est édité dans un fil de conversation |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Publié quand un message est supprimé d’un fil de conversation  |  
+| Microsoft.Communication.RecordingFileStatusUpdated | Publié lorsque le fichier d’enregistrement est disponible |
 
 Vous pouvez utiliser le portail Azure ou Azure CLI pour vous abonner aux événements émis par votre ressource Communication Services. Démarrez la gestion des événements en examinant [Guide pratique pour gérer les événements SMS dans Communication Services](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)
 
@@ -141,6 +142,10 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
     "data": {
       "messageBody": "Welcome to Azure Communication Services",
       "messageId": "1613694358927",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
@@ -181,6 +186,10 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
       "editTime": "2021-02-19T00:28:20.784Z",
       "messageBody": "Let's Chat about new communication services.",
       "messageId": "1613694357917",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
@@ -730,6 +739,10 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
     "data": {
       "messageBody": "Talk about new Thread Events in commuication services",
       "messageId": "1613783230064",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "type": "Text",
       "version": "1613783230064",
       "senderDisplayName": "Bob",
@@ -762,6 +775,10 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
       "editTime": "2021-02-20T00:59:10.464+00:00",
       "messageBody": "8effb181-1eb2-4a58-9d03-ed48a461b19b",
       "messageId": "1613782685964",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "type": "Text",
       "version": "1613782750464",
       "senderDisplayName": "Scott",
@@ -814,7 +831,40 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
   }
 ]
 ```
+> [!IMPORTANT]
+> La fonctionnalité d’enregistrement d’appel est toujours en Préversion publique
 
+### <a name="microsoftcommunicationrecordingfilestatusupdated"></a>Microsoft.Communication.RecordingFileStatusUpdated
+
+```json
+[
+ {
+  "id": "7283825e-f8f1-4c61-a9ea-752c56890500",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/}{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/recording/call/{call-id}/recordingId/{recording-id}",
+  "data": {
+    "recordingStorageInfo": {
+      "recordingChunks": [
+        {
+          "documentId": "0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8",
+          "index": 0,
+          "endReason": "SessionEnded",
+          "contentLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/video",
+          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata"
+        }
+      ]
+    },
+    "recordingStartTime": "2021-07-27T15:20:23.6089755Z",
+    "recordingDurationMs": 6620,
+    "sessionEndReason": "CallEnded"
+  },
+  "eventType": "Microsoft.Communication.RecordingFileStatusUpdated",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-27T15:20:34.2199328Z"
+ }
+]
+```
 
 ## <a name="quickstarts-and-how-tos"></a>Guides de démarrage rapide et guides pratiques
 

@@ -1,25 +1,25 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 07/28/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 4145cc06148db0f12ff2a2288512069155d09a44
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc30e9a22d2de952974b064cb82e8e7adf0579f8
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531664"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078392"
 ---
 | Ressource | Limite |
 | --- | --- |
 | Débit de données |30 Gbits/s|
 |Limites de règle|10 000 sources/destinations uniques dans les règles de réseau|
-|Nombre maximum de règles DNAT|250 |
+|Nombre maximum de règles DNAT|298 (pour les pare-feu configurés avec une adresse IP publique unique)<br><br> La limitation DNAT est due à la plateforme sous-jacente. Le nombre maximal de règles DNAT est de 298. Cependant, toutes les adresses IP publiques supplémentaires réduisent le nombre de règles DNAT disponibles. Par exemple, deux adresses IP publiques autorisent 297 règles DNAT. Si le protocole d’une règle est configuré à la fois pour TCP et pour UDP, elle compte pour deux règles.|
 |Taille minimale d’AzureFirewallSubnet |/26|
 |Plage de ports dans les règles de réseau et d’application|1 - 65535|
 |Adresses IP publiques|250 maximum. Toutes les adresses IP publiques peuvent être utilisées dans des règles DNAT et toutes contribuent aux ports SNAT disponibles.|

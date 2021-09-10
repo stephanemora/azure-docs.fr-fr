@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: bcd0992347033fa355db1f952e775a5077fecabe
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 0db6f8d43a2492b59b407e43eee016d130915c77
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554505"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687740"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Contrôler les mises à jour avec le contrôle de maintenance et le portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le contrôle de maintenance vous permet de décider du moment où appliquer les mises à jour sur vos machines virtuelles isolées et vos hôtes dédiés Azure. Cette rubrique traite des options du portail Azure pour le contrôle de la maintenance. Pour en savoir plus sur les avantages de l’utilisation du contrôle de la maintenance, ses limitations et d’autres options de gestion, consultez [Gestion des mises à jour de plateforme avec le contrôle de maintenance](maintenance-control.md).
 
@@ -87,7 +89,7 @@ Vous pouvez également vérifier un hôte spécifique à l’aide de **Machines 
 
 ## <a name="apply-updates"></a>Appliquer des mises à jour
 
-Vous pouvez appliquer des mises à jour en attente à la demande à l’aide de **machines virtuelles**. Dans les détails de la machine virtuelle, cliquez sur **Maintenance**, puis sur **Appliquer la maintenance maintenant**.
+Vous pouvez appliquer des mises à jour en attente à la demande. Dans les détails de la machine virtuelle ou d’Azure Dedicated Host, cliquez sur **Maintenance**, puis sur **Appliquer la maintenance maintenant**. L’application des appels de mise à jour peut prendre jusqu’à 2 heures.
 
 ![Capture d’écran montrant comment appliquer des mises à jour en attente](media/virtual-machines-maintenance-control-portal/maintenance-configurations-apply-updates-now.png)
 

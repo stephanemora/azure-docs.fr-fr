@@ -2,13 +2,13 @@
 title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager (modèles ARM) à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 05/17/2021
-ms.openlocfilehash: 9a1ead39ed680921f444068e8e52136247272ac5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/16/2021
+ms.openlocfilehash: ee60651da5cee986a19cba9940c068679b342c53
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959925"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525891"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
@@ -185,6 +185,12 @@ Vous définissez des ressources avec la structure suivante :
           "<tag-name1>": "<tag-value1>",
           "<tag-name2>": "<tag-value2>"
       },
+      "identity": {
+        "type": "<system-assigned-or-user-assigned-identity>",
+        "userAssignedIdentities": {
+          "<resource-id-of-identity>": {}
+        }
+      },
       "sku": {
           "name": "<sku-name>",
           "tier": "<sku-tier>",
@@ -234,6 +240,7 @@ Vous définissez des ressources avec la structure suivante :
 | location |Variable |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. Voir [Définir l’emplacement des ressources](resource-location.md). |
 | dependsOn |Non |Les ressources qui doivent être déployées avant le déploiement de cette ressource. Resource Manager évalue les dépendances entre les ressources et les déploie dans le bon ordre. Quand les ressources ne dépendent pas les unes des autres, elles sont déployées en parallèle. La valeur peut être une liste séparée par des virgules de noms de ressource ou d’identificateurs de ressource uniques. Répertoriez uniquement les ressources qui sont déployées dans ce modèle. Les ressources qui ne sont pas définies dans ce modèle doivent déjà exister. Évitez d’ajouter des dépendances inutiles, car cela risque de ralentir votre déploiement et de créer des dépendances circulaires. Pour obtenir des conseils sur la définition des dépendances, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md). |
 | tags |Non |Balises associées à la ressource. Appliquer des balises pour organiser logiquement des ressources dans votre abonnement. |
+| identité | No | Certaines ressources prennent en charge des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Ces ressources ont un objet Identité au niveau racine de la déclaration de ressource. Vous pouvez définir si l’identité est affectée par l’utilisateur ou affectée par le système. Pour les identités affectées par l’utilisateur, fournissez une liste d’ID de ressource pour les identités. Définissez la clé sur l’ID de ressource et la valeur sur un objet vide. Pour plus d’informations, consultez [Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant des modèles](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md). |
 | sku | Non | Certaines ressources autorisent les valeurs qui définissent la référence SKU à déployer. Par exemple, vous pouvez spécifier le type de redondance pour un compte de stockage. |
 | kind | Non | Certaines ressources autorisent une valeur qui définit le type de ressource que vous déployez. Par exemple, vous pouvez spécifier le type Cosmos DB à créer. |
 | scope | Non | La propriété scope est uniquement disponible pour les [types de ressources d’extension](../management/extension-resource-types.md). Utilisez-la lorsque vous spécifiez une étendue différente de celle du déploiement. Voir [Définition de l’étendue pour les ressources d’extension dans les modèles Resource Manager](scope-extension-resources.md). |
@@ -280,13 +287,11 @@ Vous avez quelques options permettant d’ajouter des commentaires et des métad
 
 ### <a name="comments"></a>Commentaires
 
-Pour les commentaires insérés, vous pouvez utiliser `//` ou `/* ... */`.
+Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`.
 
 > [!NOTE]
 >
-> Pour déployer des modèles avec des commentaires, utilisez Azure PowerShell ou Azure CLI. Pour l’interface CLI, utilisez la version 2.3.0 ou ultérieure et spécifiez le commutateur `--handle-extended-json-format`.
->
-> Les commentaires ne sont pas pris en charge lorsque vous déployez le modèle par le biais du Portail Azure, d’un pipeline DevOps ou de l’API REST.
+> Lorsque vous utilisez Azure CLI pour déployer des modèles avec des commentaires, utilisez la version 2.3.0 ou ultérieure et spécifiez le commutateur `--handle-extended-json-format`.
 
 ```json
 {
@@ -381,9 +386,9 @@ Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, voir la propri
 
 > [!NOTE]
 >
-> Pour déployer des modèles avec des chaînes à plusieurs lignes, utilisez Azure PowerShell ou Azure CLI. Pour l’interface CLI, utilisez la version 2.3.0 ou ultérieure et spécifiez le commutateur `--handle-extended-json-format`.
+> Pour déployer des modèles avec des chaînes multilignes, utilisez Azure PowerShell ou Azure CLI. Pour l’interface CLI, utilisez la version 2.3.0 ou ultérieure et spécifiez le commutateur `--handle-extended-json-format`.
 >
-> Les chaînes multilignes ne sont pas pris en charge lorsque vous déployez le modèle par le biais du Portail Azure, d’un pipeline DevOps ou de l’API REST.
+> Les chaînes multilignes ne sont pas prises en charge lorsque vous déployez le modèle via le portail Azure, d’un pipeline de DevOps ou l’API REST.
 
 
 ```json
@@ -406,8 +411,8 @@ Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, voir la propri
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
+* Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 * Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles ARM](template-functions.md).
 * Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés et imbriqués lors du déploiement de ressources Azure](linked-templates.md).
 * Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles ARM](./best-practices.md).
-* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.md).
+* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.yml).

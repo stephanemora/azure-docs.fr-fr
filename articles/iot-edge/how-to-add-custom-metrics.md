@@ -2,19 +2,18 @@
 title: Ajout de métriques personnalisées - Azure IoT Edge
 description: Enrichir les métriques intégrées avec des métriques propres à des scénarios à partir de modules personnalisés
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12defc783be6fb1a87b815284b1fbf019d8c8817
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 8e9c5b74b19af00228f03b26450b987d87283376
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904384"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525484"
 ---
 # <a name="add-custom-metrics-preview"></a>Ajouter des métriques personnalisées (préversion)
 
@@ -32,7 +31,7 @@ Consultez les [meilleures pratiques](https://prometheus.io/docs/practices/naming
 
 * Incluez le nom du module au début du nom de la métrique pour préciser le module qui a émis la métrique.
 
-* Incluez le nom du hub IoT, l’ID d’appareil IoT Edge et l’ID de module en tant qu’étiquettes (également appelées *balises*/*dimensions*) dans chaque métrique. Ces informations sont disponibles sous forme de variables d’environnement pour chaque module démarré par l’agent IoT Edge. L’approche est [illustrée](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49) dans l’exemple de référentiel. Sans ce contexte, il est impossible d’associer une valeur de métrique donnée à un appareil particulier.
+* Incluez le nom du hub IoT ou de l’application IoT Central, l’identité d’appareil IoT Edge et l’ID de module en tant qu’étiquettes (également appelées *balises*/*dimensions*) dans chaque métrique. Ces informations sont disponibles sous forme de variables d’environnement pour chaque module démarré par l’agent IoT Edge. L’approche est [illustrée](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49) dans l’exemple de référentiel. Sans ce contexte, il est impossible d’associer une valeur de métrique donnée à un appareil particulier.
 
 * Incluez un ID d’instance dans les étiquettes. Un ID d’instance peut être n’importe quel ID unique, tel qu’un [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) qui est généré lors du démarrage du module. Les informations d’ID d’instance peuvent aider à rapprocher les redémarrages de module lors du traitement des métriques d’un module dans le backend.
 
@@ -57,7 +56,7 @@ sudo docker exec replace-with-metrics-collector-module-name curl http://replace-
 
 Une fois que vous avez reçu des métriques personnalisées dans Log Analytics, vous pouvez créer des visualisations et des alertes personnalisées. Les classeurs de supervision peuvent être enrichis pour ajouter des visualisations soutenues par des requêtes.
 
-Chaque métrique est associée à l’ID de ressource du hub IoT. C’est pourquoi vous pouvez vérifier si vos métriques personnalisées ont été correctement gérées à partir de la page **Journaux** du hub IoT associé et non de l’espace de travail Log Analytics en appui. Utilisez cette requête KQL de base pour effectuer la vérification :
+Chaque métrique est associée à l’ID de ressource du hub IoT ou de l’application IoT Central. C’est pourquoi vous pouvez vérifier si vos métriques personnalisées ont été correctement ingérées à partir de la page **Journaux** du hub IoT ou de l’application IoT Central associé et non celle de l’espace de travail Log Analytics de secours. Utilisez cette requête KQL de base pour effectuer la vérification :
 
 ```KQL
 InsightsMetrics

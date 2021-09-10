@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e38f590628381710afec1d7bbf1ceb0daf9f77a2
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 7a24b9631362618ee3be5e94066ac5267ac85962
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032210"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504870"
 ---
 # <a name="url-path-based-routing-overview"></a>Présentation du routage basé sur le chemin d’accès de l’URL
 
@@ -27,7 +27,7 @@ Dans l’exemple suivant, Application Gateway achemine le trafic pour contoso.co
 Les requêtes pour http\://contoso.com/video/* sont routées vers VideoServerPool, et celles pour http\://contoso.com/images/* vers ImageServerPool. DefaultServerPool est sélectionné si aucun des modèles de chemin d’accès ne correspond.
 
 > [!IMPORTANT]
-> Pour la référence SKU v1, les règles sont traitées dans l’ordre où elles sont listées dans le portail. Si un écouteur de base est indiqué en premier et correspond à une demande entrante, elle est traitée par cet écouteur. Pour la référence SKU v2, les correspondances exactes ont une priorité plus élevée. Il est cependant vivement recommandé de configurer des écouteurs multisites avant de configurer un écouteur de base. Vous avez ainsi l’assurance que le trafic est acheminé vers le serveur principal approprié.
+> Pour les références (SKU) v1 et v2, les règles sont traitées dans l’ordre où elles sont répertoriées dans le portail. Si un écouteur de base est indiqué en premier et correspond à une demande entrante, elle est traitée par cet écouteur. Il est cependant vivement recommandé de configurer des écouteurs multisites avant de configurer un écouteur de base. Vous avez ainsi l’assurance que le trafic est acheminé vers le serveur principal approprié.
 
 ## <a name="urlpathmap-configuration-element"></a>Élément de configuration UrlPathMap
 
@@ -76,9 +76,9 @@ Les règles de chemin ne respectent pas la casse.
 |---------|---------|
 |`/images/*`     |Oui|
 |`/images*`     |Oui|
-|`/images/*.jpg`     |non|
-|`/*.jpg`     |non|
-|`/Repos/*/Comments/*`     |non|
+|`/images/*.jpg`     |Non|
+|`/*.jpg`     |Non|
+|`/Repos/*/Comments/*`     |Non|
 |`/CurrentUser/Comments/*`     |Oui|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ Les règles de chemin ne respectent pas la casse.
 |---------|---------|
 |`/images/*`     |Oui|
 |`/images*`     |Oui|
-|`/images/*.jpg`     |non|
-|`/*.jpg`     |non|
-|`/Repos/*/Comments/*`     |non|
+|`/images/*.jpg`     |Non|
+|`/*.jpg`     |Non|
+|`/Repos/*/Comments/*`     |Non|
 |`/CurrentUser/Comments/*`     |Oui|
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) .

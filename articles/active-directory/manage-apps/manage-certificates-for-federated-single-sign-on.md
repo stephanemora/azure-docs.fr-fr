@@ -2,22 +2,22 @@
 title: Gestion des certificats de fédération dans Azure AD | Microsoft Docs
 description: Apprenez à personnaliser la date d’expiration pour vos certificats de fédération, mais aussi à renouveler les certificats arrivant à expiration.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 538307a4ffe9970960a4f8cea32ed8052bb87bf9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5217f358e7977d8414204c48d82dd6b4f1554b1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080612"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532718"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory
 
@@ -60,7 +60,7 @@ Tout d'abord, créez et enregistrez un nouveau certificat avec une date d'expira
 1. Sélectionnez **Nouveau certificat**. Une nouvelle ligne apparaît sous la liste des certificats, où la date d'expiration par défaut est fixée à exactement trois ans après la date du jour. (Vos modifications n'ont pas encore été enregistrées et vous pouvez donc toujours modifier la date d'expiration.)
 1. Dans la ligne du nouveau certificat, pointez sur la colonne de date d'expiration, puis sélectionnez l'icône **Sélectionner une date** (calendrier). Un contrôle de calendrier apparaît, affichant les jours du mois pour la date d'expiration actuelle de la nouvelle ligne.
 1. Utilisez le contrôle du calendrier pour définir une nouvelle date. Vous pouvez choisir n'importe quelle date entre la date du jour et trois ans après aujourd’hui.
-1. Sélectionnez **Enregistrer**. Le nouveau certificat affiche maintenant un statut **Inactif**, la date d'expiration que vous avez choisie et une empreinte.
+1. Sélectionnez **Enregistrer**. Le nouveau certificat affiche maintenant un statut **Inactif**, la date d'expiration que vous avez choisie et une empreinte. **Remarque** : Lorsque vous avez un certificat existant qui a déjà expiré et que vous générez un nouveau certificat, le nouveau certificat sera pris en compte pour la signature des jetons, même si vous ne l’avez pas encore activé.
 1. Sélectionnez **X** pour revenir à la page **Configurer l’authentification unique avec SAML - Préversion**.
 
 ### <a name="upload-and-activate-a-certificate"></a>Charger et activer un certificat
@@ -77,6 +77,8 @@ Téléchargez ensuite le nouveau certificat au bon format, chargez-le dans l'app
 1. Pour passer au nouveau certificat, retournez à la page **Certificat de signature SAML** puis, dans la nouvelle ligne de certificat enregistrée, sélectionnez les points de suspension (**...**) et choisissez **Définir comme certificat actif**. L'état du nouveau certificat devient **Actif**, et le certificat précédemment actif devient **Inactif**.
 1. Continuez à suivre les instructions de configuration de l’authentification SAML de l'application que vous avez affichées précédemment afin de charger le certificat de signature SAML au bon format d'encodage.
 
+Si votre application n’a pas de validation pour l’expiration du certificat et que le certificat correspond à la fois dans Azure Active Directory et votre application, votre application est toujours accessible en dépit de l’expiration du certificat. Vérifiez que votre application peut valider la date d’expiration du certificat.
+
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Ajouter des adresses e-mail de notification d’expiration du certificat
 
 Azure AD enverra un e-mail de notification 60, 30 et 7 jours avant expiration du certificat SAML. Vous pouvez ajouter plusieurs adresses e-mail pour recevoir des notifications. Pour spécifier les adresses e-mail auxquelles les notifications doivent être envoyées :
@@ -89,7 +91,7 @@ Azure AD enverra un e-mail de notification 60, 30 et 7 jours avant expiration d
 
 Vous pouvez ajouter jusqu’à 5 adresses de messagerie à la liste de notification (y compris l’adresse de messagerie de l’administrateur qui a ajouté l’application). Si vous avez besoin d’un plus grand nombre de personnes à notifier, utilisez des e-mails de liste de distribution.
 
-Vous recevez l’e-mail de notification de la part de aadnotification@microsoft.com. Pour éviter que l’e-mail ne soit traité comme un courrier indésirable, ajoutez cette adresse e-mail à vos contacts.
+Vous recevez l’e-mail de notification de la part de azure-noreply@microsoft.com. Pour éviter que l’e-mail ne soit traité comme un courrier indésirable, ajoutez cette adresse e-mail à vos contacts.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Renouvellement d’un certificat arrivant à expiration
 
@@ -102,8 +104,10 @@ Si un certificat est sur le point d'expirer, vous pouvez le renouveler en utilis
    1. Ignorez les deux étapes suivantes.
 
 1. Si l'application ne peut gérer qu'un seul certificat à la fois, choisissez un intervalle de temps d'arrêt pour effectuer l'étape suivante. (Sinon, si l'application ne sélectionne pas automatiquement le nouveau certificat mais peut gérer plusieurs certificats de signature, vous pouvez effectuer l'étape suivante à tout moment.)
-1. Avant l'expiration de l'ancien certificat, suivez les instructions de la section [Charger et activer un certificat](#upload-and-activate-a-certificate) précédente.
+1. Avant l'expiration de l'ancien certificat, suivez les instructions de la section [Charger et activer un certificat](#upload-and-activate-a-certificate) précédente. Si votre certificat d’application n’est pas mis à jour après la mise à jour d’un nouveau certificat dans Azure Active Directory, l’authentification sur votre application peut échouer.
 1. Connectez-vous à l'application pour vérifier que le certificat fonctionne correctement.
+
+Si votre application ne valide pas l’expiration du certificat configuré dans Azure Active Directory et que le certificat correspond à la fois dans Azure Active Directory et votre application, votre application est toujours accessible en dépit de l’expiration du certificat. Vérifiez que votre application peut valider l’expiration du certificat.
 
 ## <a name="related-articles"></a>Articles connexes
 

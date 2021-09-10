@@ -10,13 +10,13 @@ ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
-ms.openlocfilehash: 9bfe0ad6e94ea40ad5edc97e8b3259bb817df03f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 07/06/2021
+ms.openlocfilehash: 5443386a8e62d6576d73161519546e368f41ad82
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788334"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532945"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -38,7 +38,7 @@ Avec les jeux de données Azure Machine Learning, vous pouvez :
 
 Pour créer et utiliser des jeux de données, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’en avez pas, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’en avez pas, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -48,10 +48,13 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 
     **OR**
 
-    * Travaillez sur votre propre bloc-notes Jupyter et installez vous-même le kit de développement logiciel (SDK) à l’aide de [ces instructions](/python/api/overview/azure/ml/install).
+    * Travaillez sur votre propre notebook Jupyter et [installez vous-même le Kit de développement logiciel (SDK)](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://pypi.org/project/azureml-dataprep/), qui n’est compatible qu’avec Python 64 bits. Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) et CentOS (7). Si vous utilisez des distributions non pris en charge, suivez [ce guide](/dotnet/core/install/linux) afin d'installer .NET Core 2.1 pour continuer. 
+> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://pypi.org/project/azureml-dataprep/), qui n’est compatible qu’avec Python 64 bits. Si vous développez sous __Linux__, ces classes reposent sur .NET Core 2.1 et ne sont prises en charge que par certaines distributions. Pour plus d’informations sur les distributions prises en charge, consultez la colonne .NET Core 2.1 dans l’article [Installer .NET sur Linux](/dotnet/core/install/linux).
+
+> [!IMPORTANT]
+> Si le package peut fonctionner sur les anciennes versions des distributions Linux, nous vous déconseillons d’utiliser un distribution dont le support standard n’est pas assuré. Les distributions qui ne bénéficient pas du support standard peuvent présenter des failles de sécurité, car ils ne reçoivent pas les dernières mises à jour. Nous vous recommandons d’utiliser la version prise en charge la plus récente avec laquelle votre distribution est compatible.
 
 ## <a name="compute-size-guidance"></a>Conseils liés à la taille de calcul
 
@@ -85,7 +88,7 @@ Créez un TabularDataset avec le [Kit de développement logiciel (SDK) Python](#
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Accéder à des jeux de données dans un réseau virtuel
 
-Si votre espace de travail se trouve dans un réseau virtuel, vous devez configurer le jeu de données pour ignorer la validation. Pour plus d’informations sur l’utilisation de magasins de données et de jeux de données dans un réseau virtuel, consultez [Sécuriser un espace de travail et les ressources associées](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+Si votre espace de travail se trouve dans un réseau virtuel, vous devez configurer le jeu de données pour ignorer la validation. Pour plus d’informations sur l’utilisation de magasins de données et de jeux de données dans un réseau virtuel, consultez [Sécuriser un espace de travail et les ressources associées](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 <a name="datasets-sdk"></a>
 
@@ -111,7 +114,7 @@ Pour créer des jeux de données à partir d’un magasin de données avec le ki
 
 Utilisez la méthode [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) sur la classe `FileDatasetFactory` pour charger des fichiers de n’importe quel format et créer un FileDataset non inscrit. 
 
-Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -132,11 +135,11 @@ Pour réutiliser et partager des jeux de données dans des expériences au sein 
 
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
-Utilisez la méthode [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Pour lire les fichiers au format .parquet, utilisez la méthode [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
+Utilisez la méthode [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Pour lire les fichiers au format .parquet, utilisez la méthode [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
 
-Consultez la [documentation de référence de TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) pour plus d’informations sur les formats de fichiers pris en charge, ainsi que sur la syntaxe et les modèles de conception. 
+Consultez la [documentation de référence de TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) pour plus d’informations sur les formats de fichiers pris en charge, ainsi que sur la syntaxe et les modèles de conception comme la [prise en charge de plusieurs lignes](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--). 
 
-Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_delimited_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_delimited_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 Le code suivant obtient l’espace de travail existant et le magasin de données souhaité par nom. Ensuite, il transmet les emplacements du magasin de fichiers et des fichiers au paramètre `path` pour créer un nouvel objet TabularDataset, `weather_ds`.
 
@@ -280,9 +283,6 @@ new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'
 partition_keys = new_dataset.partition_keys # ['country']
 ```
 
->[!IMPORTANT]
-> Les partitions TabularDataset peuvent également être appliquées dans des pipelines Azure Machine Learning comme entrée à votre ParallelRunStep dans de nombreux modèles d’application. Découvrez un exemple dans la [documentation relative à l’accélérateur de nombreux modèles](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb).
-
 ## <a name="explore-data"></a>Explorer des données
 
 Une fois que vous avez terminé votre data wrangling, vous pouvez [inscrire](#register-datasets) votre jeu de données, puis le charger dans votre notebook pour l’exploration des données avant la formation du modèle.
@@ -362,7 +362,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Créer des jeux de données à l'aide d'Azure Resource Manager
 
-De nombreux modèles sont disponibles à l’adresse [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) et peuvent être utilisés pour créer des jeux de données.
+De nombreux modèles sont disponibles à l’adresse [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) et peuvent être utilisés pour créer des jeux de données.
 
 Pour plus d'informations sur l'utilisation de ces modèles, consultez [Utiliser un modèle Azure Resource Manager afin de créer un espace de travail pour Azure Machine Learning](how-to-create-workspace-template.md).
 

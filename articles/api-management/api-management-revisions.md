@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new, devx-track-azurepowershell
-ms.openlocfilehash: bd837faaaa986659ad9b30aa3cf853ea490cec6d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 16a5dc58a8fddca2cef2c393aaecca61fef61a3c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812135"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187718"
 ---
 # <a name="revisions-in-azure-api-management"></a>Révisions dans Gestion des API Azure
 
@@ -56,6 +56,9 @@ Vous pouvez définir une révision comme actuelle à l’aide du portail Azure. 
 Lorsque vous créez une révision, vous pouvez définir une description à des fins de suivi personnel. Les descriptions ne sont pas lues par les utilisateurs de votre API.
 
 Lorsque vous définissez une révision comme actuelle, vous pouvez également spécifier une note de journal des modifications public. Le journal des modifications est disponible dans le portail des développeurs pour permettre à vos utilisateurs d’API de le consulter. Vous pouvez modifier votre note de journal des modifications à l’aide de la cmdlet PowerShell `Update-AzApiManagementApiRelease`.
+
+> [!NOTE]
+> Certaines propriétés de l’API, telles que le **Nom d’affichage** et le **Suffixe de l’API**, ne peuvent être mises à jour que dans la révision actuelle.
 
 ## <a name="versions-and-revisions"></a>Versions et révisions
 

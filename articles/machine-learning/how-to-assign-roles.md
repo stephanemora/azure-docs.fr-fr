@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: d18d674c47d3e337ce5c789d1dc038acbf6792ba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2e0b503cd305697a808c08a2fe903d0f27972448
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525022"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à gérer l’accès (autorisation) à un
 >
 > * [Contrôler l’accès aux ressources de cluster Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Utiliser Azure RBAC pour l’autorisation Kubernetes](../aks/manage-azure-rbac.md)
-> * [Utiliser Azure RBAC pour accéder aux données de blob](../storage/common/storage-auth-aad-rbac-portal.md)
+> * [Utiliser Azure RBAC pour accéder aux données de blob](../storage/blobs/assign-azure-role-data-access.md)
 
 > [!WARNING]
 > L’application de certains rôles peut limiter les fonctionnalités de l’interface utilisateur dans Azure Machine Learning Studio pour d’autres utilisateurs. Par exemple, si le rôle d’un utilisateur ne permet pas de créer une instance de calcul, l’option de création d’une instance de calcul n’est pas disponible dans Studio. Ce comportement est attendu et empêche l’utilisateur de tenter des opérations qui retourneraient une erreur d’accès refusé.
@@ -121,7 +121,7 @@ az role definition create --role-definition data_scientist_role.json
 Une fois déployé, ce rôle est disponible dans l’espace de travail spécifié. Vous pouvez à présent ajouter et attribuer ce rôle dans le portail Azure. Vous pouvez également attribuer ce rôle à un utilisateur à l’aide de la commande CLI `az ml workspace share` suivante :
 
 ```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
 ```
 
 Pour plus d’informations sur les rôles personnalisés, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md). 
@@ -163,7 +163,7 @@ Vous devez disposer d’autorisations sur l’ensemble de l’étendue de votre 
 
 ## <a name="use-azure-resource-manager-templates-for-repeatability"></a>Utiliser des modèles Azure Resource Manager pour la répétabilité
 
-Si vous pensez que vous allez devoir recréer des attributions de rôles complexes, un modèle de Azure Resource Manager peut vous être d’une aide précieuse. Le modèle [201-machine-learning-dependencies-role-assignment](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) montre comment spécifier des attributions de rôles dans le code source en vue de leur réutilisation. 
+Si vous pensez que vous allez devoir recréer des attributions de rôles complexes, un modèle de Azure Resource Manager peut vous être d’une aide précieuse. Le [modèle machine-learning-dependencies-role-assignment](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) montre comment spécifier des attributions de rôles dans le code source en vue de leur réutilisation. 
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
@@ -182,7 +182,7 @@ Le tableau suivant résume les activités Azure Machine Learning et les autorisa
 | Publication de pipelines et de points de terminaison | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Déploiement d’un modèle inscrit sur une ressource AKS/ACI | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring par rapport à un point de terminaison AKS déployé | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (lorsque vous n’utilisez pas l’authentification Azure Active Directory) OU `"/workspaces/read"` (lorsque vous utilisez l’authentification par jeton) |
-| Accès au stockage à l’aide de notebooks interactifs | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| Accès au stockage à l’aide de notebooks interactifs | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action"` |
 | Créer un nouveau rôle personnalisé | Propriétaire, contributeur ou rôle personnalisé autorisant `Microsoft.Authorization/roleDefinitions/write` | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/computes/write` |
 
 > [!TIP]
@@ -453,6 +453,42 @@ Vous permet de définir un rôle dédié uniquement à l’étiquetage des donn�
 }
 ```
 
+### <a name="labeling-team-lead"></a>Responsable de l’équipe d’étiquetage
+
+Vous permet d’examiner et de rejeter le jeu de données étiqueté et d’afficher des insights sur l’étiquetage. En outre, ce rôle vous permet également de jouer le rôle d’un étiqueteur.
+
+`labeling_team_lead_custom_role.json` :
+```json
+{
+    "properties": {
+        "roleName": "Labeling Team Lead",
+        "description": "Team lead for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## <a name="troubleshooting"></a>Dépannage
 
 Voici quelques éléments à prendre en compte lorsque vous utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
@@ -465,7 +501,7 @@ Voici quelques éléments à prendre en compte lorsque vous utilisez le contrôl
 
 - Pour déployer vos ressources de calcul à l’intérieur d’un réseau virtuel, vous devez disposer d’autorisations explicites pour les actions suivantes :
     - `Microsoft.Network/virtualNetworks/*/read` sur les ressources de commutateur virtuel.
-    - `Microsoft.Network/virtualNetworks/subnet/join/action` sur la ressource de sous-réseau.
+    - `Microsoft.Network/virtualNetworks/subnets/join/action` sur la ressource de sous-réseau.
     
     Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).
 

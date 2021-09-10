@@ -4,18 +4,21 @@ description: Comment modifier les cibles de stockage Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 06/30/2021
 ms.author: v-erkel
-ms.openlocfilehash: ebf68c1eb06984e2de8114c53e1bb55d52aed70a
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e0100c9e184d1704d127e1ef5a33c2144e721a89
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862630"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587087"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
-Vous pouvez supprimer ou modifier les cibles de stockage avec le portail Azure ou Azure CLI.
+Vous pouvez modifier les cibles de stockage avec le portail Azure ou Azure CLI. Par exemple, vous pouvez modifier les stratégies d’accès, les modèles d’utilisation et les chemins d’accès d’espace de noms pour une cible de stockage existante.
+
+> [!TIP]
+> Consultez [Gérer les cibles de stockage](manage-storage-targets.md) pour savoir comment supprimer ou suspendre des cibles de stockage, ou les faire écrire des données en mémoire cache dans le stockage principal.
 
 Selon le type de stockage, vous pouvez modifier ces valeurs de cible de stockage :
 
@@ -30,53 +33,26 @@ Selon le type de stockage, vous pouvez modifier ces valeurs de cible de stockage
 
 * Pour les cibles de stockage ADLS-NFS, vous pouvez modifier le chemin d’accès de l’espace de noms, la stratégie d’accès et le modèle d’utilisation.
 
-Vous ne pouvez pas modifier le nom, le type ou le système de stockage back-end d’une cible de stockage (conteneur d’objets blob ou nom d’hôte/adresse IP NFS). Si vous avez besoin de modifier ces propriétés, supprimez la cible de stockage et créez-en une autre, avec la nouvelle valeur.
+Vous ne pouvez pas modifier le nom, le type ou le système de stockage principal d’une cible de stockage. Si vous avez besoin de modifier ces propriétés, supprimez la cible de stockage et créez-en une autre, avec la nouvelle valeur.
 
-> [!TIP]
-> La [vidéo Gestion d’Azure HPC Cache](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) montre comment modifier une cible de stockage dans le portail Azure.
+La [vidéo Gestion d’Azure HPC Cache](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) montre comment modifier une cible de stockage dans le portail Azure.
 
-## <a name="remove-a-storage-target"></a>Supprimer une cible de stockage
-
-### <a name="portal"></a>[Portail](#tab/azure-portal)
-
-Pour supprimer une cible de stockage, ouvrez la page **Cibles de stockage**. Sélectionnez la cible de stockage dans la liste et cliquez sur le bouton **Supprimer**.
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
-
-Utilisez [az hpc-cache storage-target remove](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage_target_remove) pour supprimer une cible de stockage du cache.
-
-```azurecli
-$ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
-
-{- Finished ..
-  "endTime": "2020-07-09T21:45:06.1631571+00:00",
-  "name": "2f95eac1-aded-4860-b19c-3f089531a7ec",
-  "startTime": "2020-07-09T21:43:38.5461495+00:00",
-  "status": "Succeeded"
-}
-```
-
----
-
-Le fait de supprimer une cible de stockage supprime l’association du système de stockage avec ce système Azure HPC Cache, mais ne modifie pas le système de stockage back-end. Par exemple, si vous avez utilisé un conteneur Stockage Blob Azure, le conteneur et son contenu existent toujours une fois que vous l’avez supprimé du cache. Vous pouvez ajouter le conteneur à un autre Azure HPC Cache, le rajouter à ce cache ou le supprimer avec le portail Azure.
-
-Toutes les modifications de fichiers stockées dans le cache sont écrites dans le système de stockage back-end avant la suppression de la cible de stockage. Ce processus peut prendre une heure ou plus si un grand nombre de données modifiées se trouvent dans le cache.
-
-## <a name="change-a-blob-storage-targets-namespace-path"></a>Modifier le chemin d’accès de l’espace de noms d’une cible de stockage blob
+## <a name="change-a-blob-storage-targets-namespace-path-or-access-policy"></a>Modifier le chemin d’accès ou la stratégie d’accès de l’espace de noms d’une cible de stockage blob
 
 Les chemins d’espace de noms sont les chemins utilisés par les clients pour monter cette cible de stockage. (Pour en savoir plus, consultez [Planifier l’espace de noms agrégé](hpc-cache-namespace.md) et [Configurer l’espace de noms agrégé](add-namespace-paths.md)).
 
-Le chemin de l’espace de noms est la seule mise à jour que vous pouvez effectuer sur une cible de stockage blob Azure. Utilisez le portail Azure ou Azure CLI pour le modifier.
+Utilisez le portail Azure ou Azure CLI pour modifier le chemin d’accès de l’espace de noms ou la stratégie d’accès.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Utilisez la page **Espace de noms** pour votre Azure HPC Cache. La page Espace de noms est décrite plus en détail dans l’article [Configurer l’espace de noms agrégé](add-namespace-paths.md).
+Utilisez la page **Espace de noms** de votre cache Azure HPC pour mettre à jour le chemin d’accès d’espace de noms ou la stratégie d’accès du client. La page Espace de noms est décrite plus en détail dans l’article [Configurer l’espace de noms agrégé](add-namespace-paths.md).
 
-Cliquez sur le nom du chemin d’accès que vous souhaitez modifier, puis créez le nouveau chemin dans la fenêtre d’édition qui s’affiche.
+1. Cliquez sur le chemin d’accès que vous souhaitez modifier.
+   ![Capture d’écran de la page Espace de noms avec le curseur sur un élément dans la colonne Chemin d’accès de l’espace de noms (première colonne à gauche). Le nom est mis en forme en tant que lien hypertexte et le curseur indique qu’il est possible de cliquer dessus.](media/edit-select-namespace.png)
 
-![Capture d’écran de la page Espace de noms après sélection d’un chemin d’accès d’espace de noms Blob. Les champs d’édition s’affichent dans un volet à droite.](media/update-namespace-blob.png)
+1. Utilisez la fenêtre d’édition pour saisir un nouveau chemin virtuel ou mettre à jour la stratégie d’accès.
+
+   ![Capture d’écran de la page Espace de noms après sélection d’un chemin d’accès d’espace de noms Blob. Les champs d’édition s’affichent dans un volet à droite.](media/update-namespace-blob.png)
 
 Après avoir apporté les modifications souhaitées, cliquez sur **OK** pour mettre à jour la cible de stockage ou cliquez sur **Annuler** pour abandonner les modifications.
 
@@ -97,23 +73,22 @@ Pour modifier l’espace de noms d’une cible de stockage blob avec Azure CLI, 
 
 Pour les cibles de stockage NFS, vous pouvez modifier ou ajouter des chemins d’accès d’espace de noms virtuels, modifier les valeurs d’exportation NFS ou de sous-répertoires vers lesquelles pointe un chemin d’accès et modifier le modèle d’utilisation.
 
-Les cibles de stockage dans les caches avec certains types de paramètres DNS personnalisés disposent également d’un contrôle pour actualiser leurs adresses IP. (Ce type de configuration est rare.)
+Les cibles de stockage dans les caches avec certains types de paramètres DNS personnalisés disposent également d’un contrôle pour actualiser leurs adresses IP. (Ce type de configuration est rare.) Découvrez comment actualiser les paramètres DNS dans [Gérer les cibles de stockage](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 La procédure est indiquée ci-dessous :
 
 * [Modifier les valeurs d’espaces de noms agrégés](#change-aggregated-namespace-values) (chemin d’espace de noms virtuel, stratégie d’accès, exportation et sous-répertoire d’exportation)
 * [Modifier le modèle d’utilisation](#change-the-usage-model)
-* [Actualiser le DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>Modifier les valeurs d’espaces de noms agrégés
 
-Vous pouvez utiliser le portail Azure ou Azure CLI pour modifier le chemin de l’espace de noms côté client, l’exportation de stockage et le sous-répertoire d’exportation (si utilisé).
+Vous pouvez utiliser le portail Azure ou Azure CLI pour modifier le chemin de l’espace de noms côté client, l’exportation de stockage et le sous-répertoire d’exportation (si utilisé). Si vous avez besoin de modifier la stratégie d’accès, utilisez le portail Azure.
 
 Lisez les instructions de la page [Ajouter des chemins d’accès aux espaces de noms NFS](add-namespace-paths.md#nfs-namespace-paths) si vous avez besoin d’un rappel sur la création de plusieurs chemins d’accès valides sur une cible de stockage.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Utilisez la page **Espace de noms** de votre cache Azure HPC Cache pour mettre à jour les valeurs d’espace de noms. Cette page est décrite plus en détail dans l’article [Configurer l’espace de noms agrégé](add-namespace-paths.md).
+Utilisez la page **Espace de noms** de votre cache Azure HPC pour mettre à jour les valeurs d’espace de noms, y compris la stratégie d’accès du client. Cette page est décrite plus en détail dans l’article [Configurer l’espace de noms agrégé](add-namespace-paths.md).
 
 ![Capture d’écran de la page Espace de noms du portail avec la page de mise à jour NFS ouverte à droite](media/update-namespace-nfs.png)
 
@@ -154,13 +129,13 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 Le modèle d’utilisation influe sur le mode de conservation des données par le cache. Pour en savoir plus, consultez [Comprendre les modèles d’utilisation du cache](cache-usage-models.md).
 
 > [!NOTE]
-> Si vous modifiez les modèles d’utilisation, vous devrez peut-être remonter les clients pour éviter les erreurs NLM. Pour plus de détails, consultez [Savoir quand remonter les clients](cache-usage-models.md#know-when-to-remount-clients-for-nlm).
+> Vous ne pouvez pas changer entre **Lire les écritures volumineuses rares** et d’autres modèles d’utilisation. Pour en savoir plus, consultez [Comprendre les modèles d’utilisation du cache](cache-usage-models.md#change-usage-models).
 
 Pour modifier le modèle d’utilisation d’une cible de stockage NFS, utilisez l’une des méthodes suivantes.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Modifiez le modèle d’utilisation à partir de la page **Cibles de stockage** dans le portail Azure. Cliquez sur le nom de la cible de stockage à modifier.
+Ouvrez la page **Cibles de stockage** sur le portail Azure. Cliquez sur le nom d’une cible de stockage dans la liste pour ouvrir sa page d’édition.
 
 ![Capture d’écran de la page de modification d’une cible de stockage NFS](media/edit-storage-nfs.png)
 
@@ -184,19 +159,7 @@ Si le cache est arrêté ou n’est pas sain, la mise à jour s’applique une f
 
 ---
 
-### <a name="update-ip-address-custom-dns-configurations-only"></a>Mettre à jour l’adresse IP (configurations DNS personnalisées uniquement)
-
-Si votre cache utilise une configuration DNS non définie par défaut, il est possible que l’adresse IP de votre cible de stockage NFS soit modifiée en raison des modifications DNS principales. Si votre serveur DNS modifie l’adresse IP du système de stockage principal, HPC Azure Cache peut perdre l’accès au système de stockage.
-
-Dans l’idéal, vous devez utiliser le gestionnaire du système DNS personnalisé de votre cache pour planifier les mises à jour, car ces modifications rendent le stockage indisponible.
-
-Si vous devez mettre à jour l’adresse IP fournie par le DNS d’une cible de stockage, un bouton apparaît dans la liste Cibles de stockage. Cliquez sur **Actualiser le DNS** pour interroger le serveur DNS personnalisé afin d’obtenir une nouvelle adresse IP.
-
-![Capture d’écran de la liste Cibles de stockage. Pour une cible de stockage, le menu « ... » dans la colonne la plus à droite est ouvert et deux options s’affichent : Supprimer et Actualiser le DNS.](media/refresh-dns.png)
-
-En cas de réussite, la mise à jour doit prendre moins de deux minutes. Vous ne pouvez actualiser qu’une cible de stockage à la fois. Attendez la fin de l’opération précédente avant d’en essayer une autre.
-
-## <a name="update-an-adls-nfs-storage-target-preview"></a>Mettre à jour une cible de stockage ADLS-NFS (préversion)
+## <a name="update-an-adls-nfs-storage-target"></a>Mettre à jour une cible de stockage ADLS-NFS
 
 Comme pour les cibles NFS, vous pouvez modifier le chemin d’accès de l’espace de noms et le modèle d’utilisation pour les cibles de stockage ADLS-NFS.
 
@@ -214,8 +177,8 @@ Utilisez la page **Espace de noms** de votre cache Azure HPC Cache pour mettre �
 
 La configuration pour les modèles d’utilisation ADLS-NFS est identique à la sélection du modèle d’utilisation NFS. Lisez les instructions du portail dans [Modifier le modèle d’utilisation](#change-the-usage-model) dans la section NFS ci-dessus. Des outils supplémentaires pour la mise à jour des cibles de stockage ADLS-NFS sont en cours de développement.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur ces options, voir [Ajouter des cibles de stockage](hpc-cache-add-storage.md).
+* Lisez [Gérer les cibles de stockage](manage-storage-targets.md) pour obtenir des informations sur l’arrêt, la suppression et la purge de cibles de stockage spécifiques.
+* Pour en savoir plus sur les options de cible de stockage, voir [Ajouter des cibles de stockage](hpc-cache-add-storage.md).
 * Pour plus d’informations sur l’utilisation des chemins d’accès virtuels, voir [Planifier l’espace de noms agrégé](hpc-cache-namespace.md).

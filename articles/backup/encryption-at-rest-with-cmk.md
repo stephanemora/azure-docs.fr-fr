@@ -2,14 +2,14 @@
 title: Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48268af7ec4874d0e5c9ad3bb79a95307aba15b7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b952cf75776536652f96132049d8cef59c963e17
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672164"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527946"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -37,6 +37,7 @@ Cet article aborde les sujets suivants :
 - Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région**. De même, les clés doivent être des **clés RSA** uniquement et doivent être à l’état **activé**.
 
 - Le déplacement d’un coffre Recovery Services chiffré par clé CMK d’un groupe de ressources ou d’un abonnement vers un autre n’est pas actuellement pris en charge.
+- Les coffres Recovery Services chiffrés avec des clés gérées par le client ne prennent pas en charge la restauration inter-région des instances sauvegardées.
 - Lorsque vous déplacez un coffre Recovery Services déjà chiffré avec des clés gérées par le client vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et sa CMK (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. En outre, toutes les autorisations de contrôle d’accès en fonction du rôle (RBAC) configurées dans l’abonnement devront être reconfigurées.
 
 - Cette fonctionnalité peut être configurée à l’aide du portail Azure ou de PowerShell.
@@ -286,11 +287,11 @@ Avant de poursuivre la configuration de la protection, nous vous recommandons vi
 >[!IMPORTANT]
 > Avant de poursuivre la configuration de la protection, vous devez avoir **correctement** effectué les étapes suivantes :
 >
->1. Création de votre coffre de sauvegarde.
+>1. Création de votre coffre Recovery Services.
 >1. Activation de l’identité managée affectée par le système du coffre Recovery Services ou attribution d’une identité managée affectée par l’utilisateur au coffre.
->1. Attribution d’autorisations à votre coffre de sauvegarde (ou l’identité managée affectée par l’utilisateur) pour lui permettre d’accéder aux clés de chiffrement à partir de votre coffre de clés.
+>1. Attribution d’autorisations à votre coffre Recovery Services (ou l’identité managée affectée par l’utilisateur) pour lui permettre d’accéder aux clés de chiffrement à partir de votre coffre de clés.
 >1. Activation de la suppression définitive et de la protection contre le vidage pour votre coffre de clés.
->1. Affectation d’une clé de chiffrement valide à votre coffre de sauvegarde.
+>1. Affectation d’une clé de chiffrement valide à votre coffre Recovery Services.
 >
 >Si toutes les étapes ci-dessus ont été confirmées, poursuivez alors la configuration de la sauvegarde.
 

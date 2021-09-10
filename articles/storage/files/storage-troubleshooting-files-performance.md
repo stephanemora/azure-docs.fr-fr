@@ -1,22 +1,29 @@
 ---
 title: Guide de résolution des problèmes de performances des partages de fichiers Azure
 description: Résoudre les problèmes de niveau de performance connus avec les partages de fichiers Azure. Découvrez les causes potentielles et les solutions de contournement associées lorsque ces problèmes surviennent.
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.author: rogarana
+ms.date: 07/06/2021
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b303dbc20cf0caf4bb0d75f28a2983bc0f27064d
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 65b703a4f193e6b1197c3c8f2cb03ffbc349471b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065022"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532338"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
 Cet article répertorie certains problèmes courants liés à des partages de fichiers Azure. Il décrit des causes potentielles et des solutions de contournement de ces problèmes.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Latence élevée, débit faible et problèmes généraux de niveau de performance
 
@@ -58,9 +65,9 @@ Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques
     > [!NOTE]
     > Pour recevoir une alerte, consultez la section [« Comment créer une alerte si un partage de fichiers est limité »](#how-to-create-an-alert-if-a-file-share-is-throttled), plus loin dans cet article.
 
-### <a name="solution"></a>Solution
+#### <a name="solution"></a>Solution
 
-- Si vous utilisez un partage de fichiers standard, activez les [partages de fichiers volumineux](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) sur votre compte de stockage. Les partages de fichiers volumineux prennent en charge jusqu’à 10 000 IOPS par partage.
+- Si vous utilisez un partage de fichiers standard, [activez les partages de fichiers volumineux](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) sur votre compte de stockage et [augmentez la taille du quota de partage de fichiers pour tirer parti de la prise en charge des partages de fichiers volumineux](storage-how-to-create-file-share.md#expand-existing-file-shares). Les partages de fichiers volumineux prennent en charge des limites élevées d’IOPS et de bande passante. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité d’Azure Files](storage-files-scale-targets.md).
 - Si vous utilisez un partage de fichiers premium, augmentez la taille du partage de fichiers approvisionné pour rehausser la limite d’IOPS. Pour plus d’informations, consultez [Présentation du provisionnement des partages de fichiers Premium](./understanding-billing.md#provisioned-model).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Cause 2 : Métadonnées ou charge de travail importante de l’espace de noms
@@ -71,7 +78,7 @@ Pour déterminer si la plupart de vos demandes sont centrées sur des métadonn�
 
 ![Capture d’écran des options de métriques pour les partages de fichiers premium, montrant un filtre de propriété « Nom de l’API ».](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### <a name="workaround"></a>Solution de contournement
+#### <a name="workaround"></a>Solution de contournement
 
 - Vérifiez si l’application peut être modifiée pour réduire le nombre d’opérations sur les métadonnées.
 - Ajoutez un disque dur virtuel (VHD) sur le partage de fichiers, et montez-le sur SMB à partir du client pour effectuer des opérations de fichiers sur les données. Cette approche fonctionne pour des scénarios à un seul rédacteur/lecteur ou des scénarios avec plusieurs lecteurs et aucun rédacteur. Comme le système de fichiers appartient au client plutôt qu’à Azure Files, les opérations sur les métadonnées peuvent être locales. La configuration offre des performances similaires à celles d’un stockage local directement attaché.
@@ -80,10 +87,18 @@ Pour déterminer si la plupart de vos demandes sont centrées sur des métadonn�
 
 Si l’application que vous utilisez est à thread unique, cette configuration peut entraîner un débit d’IOPS sensiblement inférieur au débit maximal possible, selon la taille de votre partage approvisionné.
 
-### <a name="solution"></a>Solution
+#### <a name="solution"></a>Solution
 
 - Augmentez le parallélisme de l’application en augmentant le nombre de threads.
 - Basculer vers des applications où le parallélisme est possible. Par exemple, pour des opérations de copie, vous pourriez utiliser AzCopy ou RoboCopy à partir de clients Windows, ou la commande **parallèle** à partir de clients Linux.
+
+### <a name="cause-4-number-of-smb-channels-exceeds-four"></a>Cause 4 : Le nombre de canaux SMB est supérieur à quatre
+
+Si vous utilisez SMB Multichannel et que vous avez plus de quatre canaux, cela entraîne une dégradation des performances. Pour déterminer si le nombre de vos connexions est supérieur à quatre, utilisez la cmdlet PowerShell `get-SmbClientConfiguration` pour afficher les paramètres actuels du nombre de connexions.
+
+#### <a name="solution"></a>Solution
+
+Définissez le paramètre Windows par carte réseau pour SMB de sorte que le nombre total de canaux ne dépasse pas quatre. Par exemple, si vous avez deux cartes réseau, vous pouvez définir la valeur maximale par carte réseau sur deux à l’aide de la cmdlet PowerShell suivante : `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
 
 ## <a name="very-high-latency-for-requests"></a>Latence très élevée pour les requêtes
 
@@ -275,7 +290,7 @@ Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail 
 12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
 13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
-Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Comment créer des alertes si un partage de fichiers premium tend à être limité
 
@@ -313,7 +328,7 @@ Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consult
     >    - À l’étape 5, sélectionnez la métrique **Transactions** au lieu de la métrique **Sortie**.
     >    - À l’étape 10, la seule option pour le **Type d’agrégation** est *Totale*. Par conséquent, la valeur de seuil dépend de la granularité d’agrégation sélectionnée. Par exemple, si vous souhaitez que votre seuil soit de 80&nbsp;pour cent des IOPS de base configurées et que vous sélectionnez *1 heure* comme **Granularité d’agrégation**, votre **Valeur de seuil** correspond à vos IOPS de base (en octets) &times;&nbsp;0,8 &times;&nbsp;3600. 
 
-Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="see-also"></a>Voir aussi
 - [Résoudre les problèmes d’Azure Files dans Windows](storage-troubleshoot-windows-file-connection-problems.md)  

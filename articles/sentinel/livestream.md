@@ -13,16 +13,21 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2020
+ms.date: 07/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a711cca01431346896ac5d0aee5dce8524ed721f
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84783161"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202493"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Utiliser le livestream de chasse dans Azure Sentinel pour détecter les menaces
+
+> [!IMPORTANT]
+>
+> - L’expérience de requête inter-ressource (voir les éléments marqués ci-dessous) est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+>
 
 Utilisez le livestream de chasse pour créer des sessions interactives dans lesquelles vous pouvez tester les nouvelles requêtes créées à mesure que des événements se produisent, recevoir les notifications des sessions quand une correspondance est trouvée et lancer des investigations si nécessaire. Vous pouvez créer rapidement une session de livestream à l’aide d’une requête Log Analytics.
 
@@ -61,7 +66,10 @@ Vous pouvez créer une session de livestream à partir d’une requête de chass
 1. Dans le volet **Flux temps réel** :
     
     - Si vous avez démarré une session de livestream à partir d’une requête existante, examinez la requête et apportez-y les éventuelles modifications souhaitées.
-    - Si vous avez créé une session de livestream depuis le début, créez votre requête. 
+    - Si vous avez créé une session de livestream depuis le début, créez votre requête.
+
+    > [!NOTE]
+    > Livestream prend en charge les **requêtes inter-ressources** (en préversion) des données dans Azure Data Explorer. [**En savoir plus sur les requêtes inter-ressources**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
 
 1. Dans la barre de commandes, sélectionnez **Lecture**.
     

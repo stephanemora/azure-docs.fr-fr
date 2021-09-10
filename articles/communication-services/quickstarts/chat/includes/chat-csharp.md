@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: inclure fichier
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 73621e7ef9f68747edde9cfb16289fb6dc82695a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: e1962ebc42c688adfecd18f7d46ce4957147ac7e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201085"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967891"
 ---
 ## <a name="sample-code"></a>Exemple de code
 Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).
@@ -49,7 +49,7 @@ dotnet build
 Installer le kit de développement logiciel (SDK) Azure Communication Chat pour .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0
+dotnet add package Azure.Communication.Chat
 ```
 
 ## <a name="object-model"></a>Modèle objet
@@ -136,9 +136,19 @@ Utilisez `SendMessage` pour envoyer un message à un fil de conversation.
 - Utilisez `content` pour fournir le contenu du message (obligatoire).
 - Utilisez `type` pour le type de contenu du message tel que « Text » ou « Html ». S’il n’est pas spécifié, « Text » est défini.
 - Utilisez `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur. S’il n’est pas spécifié, une chaîne vide est définie.
+- Utilisez `metadata` (facultatif) pour inclure toutes les données supplémentaires que vous souhaitez envoyer avec le message. Ce champ constitue un mécanisme permettant aux développeurs d’étendre les fonctionnalités des messages de conversation et d’ajouter des informations personnalisées au cas d’usage. Par exemple, lors du partage d’un lien de fichier dans le message, vous souhaiterez peut-être ajouter « hasAttachment:true » dans les métadonnées pour que l’application du destinataire puisse l’analyser et l’afficher en conséquence.
 
 ```csharp
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
+{
+    Content = "Please take a look at the attachment",
+    MessageType = ChatMessageType.Text
+};
+sendChatMessageOptions.Metadata["hasAttachment"] = "true";
+sendChatMessageOptions.Metadata["attachmentUrl"] = "https://contoso.com/files/attachment.docx";
+
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(sendChatMessageOptions);
+
 string messageId = sendChatMessageResult.Id;
 ```
 

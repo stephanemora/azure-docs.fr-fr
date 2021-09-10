@@ -1,23 +1,22 @@
 ---
-title: Analyse des utilisateurs, des sessions et des événements dans Azure Application Insights
+title: Analyse des utilisateurs, des sessions et des événements dans Application Insights
 description: Analyse démographique des utilisateurs de votre application web.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: 6eb91734afac81e103cebea48865793fa687ad71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: 09dc9ba915b0ecf99219aadd9214192b9f4b1e19
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024827"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532644"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse des utilisateurs, des sessions et des événements dans Application Insights
 
-Découvrez quand des personnes utilisent votre application web, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, ainsi que les navigateurs et les systèmes d’exploitation qu’ils utilisent. Analysez les données de télémétrie d’utilisation et d’activité à l’aide d’[Azure Application Insights](./app-insights-overview.md).
+Découvrez quand des personnes utilisent votre application web, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, ainsi que les navigateurs et les systèmes d’exploitation qu’ils utilisent. Analysez la télémétrie d’utilisation et d’activité à l’aide d’[Application Insights](./app-insights-overview.md).
 
-![Capture d’écran des utilisateurs d’Application Insights](./media/usage-segmentation/0001-users.png)
+:::image type="content" source="./media/usage-segmentation/users.png" alt-text="La capture d’écran montre l’onglet Utilisateurs avec un graphique en aires." lightbox="./media/usage-overview/users.png":::
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -31,29 +30,23 @@ Trois des panneaux d’utilisation exploitent le même outil pour segmenter et t
 * **Outil Sessions** : nombre de sessions d’activité utilisateur ayant inclus certaines pages et fonctionnalités de votre application. Une session est comptabilisée après une demi-heure d’inactivité de l’utilisateur ou après 24 heures d’utilisation continue.
 * **Outil Événements** : fréquence à laquelle certaines pages et fonctionnalités de votre application sont utilisées. L’affichage d’une page est comptabilisé lorsqu’un navigateur charge la page à partir de votre application, à condition que vous l’ayez [instrumentée](./javascript.md). 
 
-    Un événement personnalisé représente une occurrence de quelque chose qui se produit dans votre application, souvent une interaction utilisateur, comme un clic sur un bouton ou l’achèvement d’une tâche. Vous insérez le code dans votre application pour [générer des événements personnalisés](./api-custom-events-metrics.md#trackevent).
+    Un événement personnalisé représente une occurrence de quelque chose qui se produit dans votre application, souvent une interaction utilisateur, comme la sélection d’un bouton ou l’achèvement d’une tâche. Vous insérez le code dans votre application pour [générer des événements personnalisés](./api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Interrogation de certains utilisateurs
 
 Explorez les différents groupes d’utilisateurs en ajustant les options d’interrogation en haut de l’outil Utilisateurs :
 
-* Afficher : choisissez une cohorte d’utilisateurs à analyser.
-* Qui a utilisé : choisissez les événements personnalisés et les affichages de pages.
-* Pendant : choisissez un intervalle de temps.
-* Par : choisissez comment compartimenter les données, soit par période temporelle, soit par une autre propriété telle que le navigateur ou la ville.
-* Fractionner par : choisissez une propriété selon laquelle fractionner ou segmenter les données. 
-* Ajouter des filtres : limitez la requête à certains utilisateurs, certaines sessions ou certains événements en fonction de leurs propriétés, telles que le navigateur ou la ville. 
+- Pendant : choisissez un intervalle de temps.
+- Afficher : choisissez une cohorte d’utilisateurs à analyser.
+- Qui a utilisé : choisissez les événements personnalisés, les requêtes et les vues de page.
+- Événements : choisissez plusieurs événements, requêtes et vues de page qui montreront les utilisateurs qui sont à l’origine d’au moins un, mais pas nécessairement tous, des événements sélectionnés.
+- Par valeur sur l’axe X : choisissez comment compartimenter les données, soit par intervalle de temps, soit par une autre propriété telle que le navigateur ou la ville.
+- Fractionner par : choisissez une propriété selon laquelle fractionner ou segmenter les données. 
+- Ajouter des filtres : limitez la requête à certains utilisateurs, certaines sessions ou certains événements en fonction de leurs propriétés, telles que le navigateur ou la ville. 
  
-## <a name="saving-and-sharing-reports"></a>Enregistrement et partage de rapports 
-Vous pouvez enregistrer des rapports d’utilisateurs, privés (uniquement pour vous) dans la section Mes rapports, ou partagés avec tout le monde, avec un accès à cette ressource Application Insights dans la section Rapports partagés.
-
-Pour partager un lien vers un rapport des utilisateurs, des sessions ou des événements ; cliquez sur **Partager** dans la barre d’outils, puis copiez le lien.
-
-Pour partager une copie des données dans un rapport des utilisateurs, des sessions ou des événements ; cliquez sur **Partager** dans la barre d’outils, puis cliquez sur l’**icône Word** pour créer un document Word avec les données. Ou cliquez sur l’**icône Word** au-dessus du graphique principal.
-
 ## <a name="meet-your-users"></a>Découvrir vos utilisateurs
 
-La section **Meet your users** (Découvrir vos utilisateurs) fournit des informations sur cinq exemples d’utilisateurs mis en correspondance par la requête actuelle. La prise en compte et l’analyse des comportements des personnes, en plus des agrégats, fournissent des informations sur la façon dont les personnes utilisent réellement votre application.
+La section **Meet your users** (Découvrir vos utilisateurs) fournit des informations sur cinq exemples d’utilisateurs mis en correspondance par la requête actuelle. L’exploration des comportements individuels et globaux peut fournir des informations sur la façon dont les usagers utilisent réellement votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

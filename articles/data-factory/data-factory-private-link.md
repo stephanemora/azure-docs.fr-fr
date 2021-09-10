@@ -4,15 +4,16 @@ description: Découvrez comment fonctionne Azure Private Link dans Azure Data Fa
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2021
-ms.openlocfilehash: 9d41ff8d2b0bfd1e83f15366e152398f5de8ccf9
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 06/16/2021
+ms.openlocfilehash: f4ae3d0653ce99be2017b1ef08ca0645c599ee10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020964"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524803"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link pour Azure Data Factory
 
@@ -46,7 +47,7 @@ Avec la prise en charge de Liaison privée pour Azure Data Factory, vous pouvez�
 
 Les communications avec le service Azure Data Factory transitent par Liaison privée et assurent une connectivité privée sécurisée. 
 
-![Diagramme d’une liaison privée pour Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
+:::image type="content" source="./media/data-factory-private-link/private-link-architecture.png" alt-text="Diagramme d’une liaison privée pour Azure Data Factory.":::
 
 L’activation du service Private Link pour chacun des canaux de communication précédents offre les fonctionnalités suivantes :
 - **Pris en charge** :
@@ -60,7 +61,7 @@ L’activation du service Private Link pour chacun des canaux de communication p
    > Pour les fonctionnalités non encore prises en charge, vous devez toujours configurer le domaine et le port précédemment mentionnés dans le réseau virtuel ou le pare-feu de votre entreprise. 
 
    > [!NOTE]
-   > La connexion à Azure Data Factory via un point de terminaison privé s’applique uniquement au runtime d’intégration auto-hébergé dans la fabrique de données. Elle n’est pas prise en charge dans Synapse.
+   > La connexion à Azure Data Factory via un point de terminaison privé s’applique uniquement au runtime d’intégration auto-hébergé dans la fabrique de données. Non pris en charge pour Azure Synapse.
 
 > [!WARNING]
 > Si vous activez Private Link dans Azure Data Factory et bloquez simultanément l’accès public, assurez-vous que lorsque vous créez un service lié, vos informations d’identification sont stockées dans un coffre de clés Azure. Dans le cas contraire, les informations d’identification ne fonctionneront pas.
@@ -151,7 +152,7 @@ Vous devez également créer ou attribuer une machine virtuelle existante pour e
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -172,7 +173,7 @@ Vous devez également créer ou attribuer une machine virtuelle existante pour e
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | Sélectionnez le réseau virtuel que vous avez créé ci-dessus. |

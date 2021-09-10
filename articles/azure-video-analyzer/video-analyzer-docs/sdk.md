@@ -4,13 +4,13 @@ description: En savoir plus sur les kits de développement logiciel (SDK) d’Az
 author: bennage
 ms.author: christb
 ms.topic: reference
-ms.date: 05/14/2021
-ms.openlocfilehash: 25e94b06fbc45d16ef198e2d77a653a407fcf1c9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/01/2021
+ms.openlocfilehash: d350c757ec977f743cdcc921770a670863dc9577
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954435"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122528028"
 ---
 # <a name="azure-video-analyzer-sdks"></a>Kits de développement logiciel (SDK) d’Azure Video Analyzer
 
@@ -35,6 +35,10 @@ Les plateformes suivantes sont prises en charge :
 - [.NET](https://aka.ms/ava/sdk/client/net)
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
+
+## <a name="see-also"></a>Voir aussi
+
+- Vous pouvez également consulter les [API d’Azure Video Analyzer](https://docs.microsoft.com/rest/api/videoanalyzer/).
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
