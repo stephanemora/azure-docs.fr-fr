@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2021
+ms.date: 08/05/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ff9a6c989446c2cee074485ba02fddd40cbfc83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a91a5df939ee55b37369b73e02fa0921a9e4688c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953309"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562457"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procédure : Intégrer des journaux d’activité Azure Active Directory à Splunk à l’aide d’Azure Monitor
 
@@ -42,16 +42,16 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
     ![Bouton « Synthèse des données »](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. Sélectionnez l’onglet **Sourcetypes**, puis **amal: aadal:audit**
+2. Sélectionnez l’onglet **Sourcetypes**, puis **mscs:azure:eventhub**
 
-    ![Onglet Sourcetypes de Synthèse des données](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![Onglet Sourcetypes de Synthèse des données](./media/howto-integrate-activity-logs-with-splunk/source-eventhub.png)
 
-    Les journaux d’activité d’Azure AD sont présentés dans la figure suivante :
+Ajoutez **body.records.category=AuditLogs** à la recherche. Les journaux d’activité d’Azure AD sont présentés dans la figure suivante :
 
-    ![Journaux d’activité](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
+   ![Journaux d’activité](./media/howto-integrate-activity-logs-with-splunk/activity-logs.png)
 
 > [!NOTE]
-> Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk (par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk), vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk. Pour ce faire, utilisez cette [fonction Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS) déclenchée par de nouveaux messages dans le hub d’événements. 
+> Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk (par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk), vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk. Pour ce faire, utilisez cette [fonction Azure](https://github.com/splunk/azure-functions-splunk) déclenchée par de nouveaux messages dans le hub d’événements. 
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

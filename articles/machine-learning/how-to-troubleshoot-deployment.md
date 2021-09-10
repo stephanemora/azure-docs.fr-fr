@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: df2e47b75b4dd01274a2ec2c4f5b5acaac164ca0
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 2fddb83123f22a99e0b65363f52c2b8c3bbfbfc3
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536272"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597993"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Résolution des problèmes de déploiement de modèle distant 
 
@@ -31,7 +31,7 @@ Découvrez comment dépanner, résoudre ou contourner les erreurs courantes que 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+* Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install).
 * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -213,9 +213,11 @@ Effectuez ces actions pour les erreurs suivantes :
 
 |Error  | Résolution  |
 |---------|---------|
+| Erreur de conflit 409| Quand une opération est déjà en cours, toute nouvelle opération sur le même service web répond avec une erreur de conflit 409. Par exemple, si une opération de création ou de mise à jour du service web est en cours et que vous déclenchez une nouvelle opération de suppression, une erreur est générée. |
 |Échec de génération d’image lors du déploiement de service web     |  Ajoutez « pynacl==1.2.1 » en tant que dépendance pip au fichier Conda pour la configuration d’image       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Remplacez la référence SKU des machines virtuelles utilisées dans votre déploiement par une référence SKU disposant de plus de mémoire. |
 |Échec FPGA     |  Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous n’aurez pas demandé un quota FPGA et qu’il n’aura pas été approuvé. Pour demander un accès, remplissez le formulaire de demande de quota : https://aka.ms/aml-real-time-ai       |
+
 
 ## <a name="advanced-debugging"></a>Débogage avancé
 

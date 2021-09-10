@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classique) : Gérer les espaces de travail – Azure'
-description: Gérer l’accès aux espaces de travail Azure Machine Learning Studio (classique), et déployer et gérer les services web de l’API Machine Learning
+description: Gérer l’accès aux espaces de travail Machine Learning Studio (classique), et déployer et gérer les services web de l’API Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,20 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: c41c5350e29555a11bb74eeca9af62a6b87cfced
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afc53c04110674706c930ba49f19e5be0da86e9c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101094280"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581211"
 ---
-# <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gérer un espace de travail Azure Machine Learning Studio (classique)
+# <a name="manage-a-machine-learning-studio-classic-workspace"></a>Gérer un espace de travail Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 > [!NOTE]
-> Pour plus d’informations sur la gestion des services web dans le portail des services web Azure Machine Learning, voir [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
+> Pour plus d’informations sur la gestion des services web dans le portail des services web Azure Machine Learning, voir [Gérer un service web à l’aide du portail des services web Machine Learning](manage-new-webservice.md).
 > 
 > 
 
@@ -43,7 +43,7 @@ Outre les options et les informations de gestion des ressources standard disponi
 - Afficher la page **Propriétés** : cette page contient les informations d’espace de travail et de ressource. Vous pouvez modifier l’abonnement et le groupe de ressources auxquels cet espace de travail est connecté.
 - **Resynchroniser les clés de stockage** : l’espace de travail gère les clés d’accès au compte de stockage. Si le compte de stockage modifie les clés, vous pouvez cliquer sur **Resynchroniser les clés** pour les synchroniser avec l’espace de travail.
 
-Pour gérer les services web associés à cet espace de travail Studio (classique), utilisez le portail des services web Machine Learning. Pour en savoir plus, consultez l’article [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
+Pour gérer les services web associés à cet espace de travail Studio (classique), utilisez le portail des services web Machine Learning. Pour en savoir plus, consultez l’article [Gérer un service web à l’aide du portail des services web Machine Learning](manage-new-webservice.md).
 
 > [!NOTE]
 > Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning Studio (classique), vous devez lui attribuer un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 

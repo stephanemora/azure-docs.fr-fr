@@ -1,22 +1,22 @@
 ---
 title: Haute disponibilité et récupération d’urgence Azure IoT Hub | Microsoft Docs
 description: Décrit les options Azure et IoT Hub qui vous aident à créer des solutions Azure IoT à haute disponibilité dotées de fonctionnalités de récupération d’urgence.
-author: jlian
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.author: philmea
-ms.openlocfilehash: 10a3360f30d211336e4ce861b124a307c85fb150
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.author: robinsh
+ms.openlocfilehash: 6b7fea611eeb3701bc624be8354b4639966dfaa6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308249"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563347"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
-La première étape de l’implémentation d’une solution IoT résiliente consiste, pour les architectes, développeurs et chefs d’entreprise, à définir les objectifs de temps de fonctionnement pour les solutions qu’ils développent. Ces objectifs peuvent être principalement définis en fonction des objectifs stratégiques applicables à chaque scénario. Dans ce contexte, l’article [Conception d’applications résilientes pour Azure](/azure/architecture/resiliency/) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d'activité et de reprise d'activité. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/reliability/disaster-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
+La première étape de l’implémentation d’une solution IoT résiliente consiste, pour les architectes, développeurs et chefs d’entreprise, à définir les objectifs de temps de fonctionnement pour les solutions qu’ils développent. Ces objectifs peuvent être principalement définis en fonction des objectifs stratégiques applicables à chaque scénario. Dans ce contexte, l’article [Conception d’applications résilientes pour Azure](/azure/architecture/framework/resiliency/app-design) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d'activité et de reprise d'activité. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/reliability/disaster-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
 
 Cet article décrit les fonctionnalités de haute disponibilité et de récupération d’urgence offertes par le service IoT Hub. Il aborde essentiellement les aspects suivants :
 
@@ -60,7 +60,7 @@ Ces deux options de basculement offrent les objectifs de point de récupération
 Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle. Cela signifie que vos messages appareil-à-cloud continuent de fonctionner et que l’intégralité du registre de l’appareil est intacte. Les événements émis via Event Grid peuvent être utilisés sur les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles. Aucune manipulation supplémentaire n’est requise pour les points de terminaison personnalisés.
 
 > [!CAUTION]
-> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. 
+> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. Pour plus d’informations, consultez [Basculement manuel et Event Hub](#manual-failover-and-event-hub).
 >
 > - Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison Events intégré, vous devrez peut-être effectuer un **redémarrage**. Cela est dû au fait que, pendant le basculement, les décalages précédents ne sont plus valides.
 >
@@ -81,6 +81,18 @@ L’option de basculement manuel est toujours disponible, que la région primair
 La fonctionnalité de basculement manuel est disponible sans coût supplémentaire pour les hubs IoT créés après le 18 mai 2017.
 
 Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Effectuer un basculement manuel pour un hub IoT](tutorial-manual-failover.md)
+
+## <a name="manual-failover-and-event-hub"></a>Basculement manuel et Event Hub
+
+Comme indiqué précédemment dans la section **Attention**, le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement manuel. Cela est dû au fait que le client Event Hub n’a pas de visibilité sur les événements IoT Hub. Il en va de même pour d’autres clients basés sur le cloud, tels que Functions et Azure Stream Analytics. Pour récupérer le point de terminaison et le nom, vous pouvez utiliser le portail Azure ou exploiter un exemple inclus.
+
+### <a name="use-the-portal"></a>Utiliser le portail
+
+Pour plus d’informations sur l’utilisation du portail pour récupérer le point de terminaison compatible avec Event Hub et le nom compatible avec Event Hub, consultez [Lire à partir du point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint).
+
+### <a name="use-the-included-sample"></a>Utiliser l’exemple inclus
+
+Pour utiliser la chaîne de connexion IoT Hub pour recapturer le point de terminaison compatible avec Event Hub, tirez parti d’un exemple situé dans [https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs) qui montre comment utiliser la chaîne de connexion IoT Hub pour recapturer le point de terminaison compatible EventHub. L’exemple de code utilise la chaîne de connexion pour obtenir le nouveau point de terminaison Event Hub et rétablir la connexion. Visual Studio doit être installé sur votre machine.
 
 ### <a name="running-test-drills"></a>Exécution d’exercices de test
 
@@ -141,5 +153,5 @@ Voici un résumé des options de haute disponibilité/récupération d’urgence
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md)
-* [Bien démarrer avec les hubs IoT (démarrage rapide)](quickstart-send-telemetry-dotnet.md)
+* [Bien démarrer avec les hubs IoT (démarrage rapide)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 * [Tutoriel : Effectuer un basculement manuel pour un hub IoT](tutorial-manual-failover.md)

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: devx-track-python
+ms.custom: devx-track-python, has-adal-ref
 author: likebupt
 ms.author: keli19
-ms.date: 01/02/2021
-ms.openlocfilehash: 6003ca9156d8553604d7ebbf94c5c3373d077f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/15/2021
+ms.openlocfilehash: d4ac33619d653b99de32dcd86cf226f217382f43
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102500697"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535219"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -162,8 +162,8 @@ Le module Exécuter un script Python contient un exemple de code Python que vous
     
     Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution du pipeline. Si l’archive est contenue dans une structure de répertoires, la structure est conservée.
  
-    > [!WARNING]
-    > **N’utilisez pas** **app** comme nom de dossier ou de script, car **app** est un mot réservé pour les services intégrés. Toutefois, vous pouvez utiliser d’autres espaces de noms comme `app123`.
+    > [!IMPORTANT]
+    > Utilisez un nom unique et explicite pour les fichiers du lot de scripts, car certains mots courants (comme `test`, `app`, etc.) sont réservés aux services intégrés.
    
     Voici un exemple de regroupement de scripts, qui contient un fichier de script Python et un fichier txt :
       

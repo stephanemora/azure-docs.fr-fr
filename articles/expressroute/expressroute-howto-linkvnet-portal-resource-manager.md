@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: bed2f746d0216a120b1f144a410a15d533ae3113
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7b5aff80acca790f1ae8c4a852f8b353dfa7312a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866636"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433833"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutoriel : Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 
@@ -180,12 +180,13 @@ Lorsque vous ajoutez une nouvelle connexion pour votre passerelle ExpressRoute, 
 > Vous pouvez utiliser [Moniteur de connexion](how-to-configure-connection-monitor.md) pour vérifier que votre trafic atteint la destination à l’aide de FastPath.
 >
 
-## <a name="enroll-in-expressroute-fastpath-features-preview"></a>S’inscrire dans les fonctionnalités de ExpressRoute FastPath (préversion)
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>S’inscrire aux fonctionnalités d’ExpressRoute FastPath (préversion)
 
 La prise en charge de FastPath pour le peering de réseaux virtuels est désormais en préversion publique. L’inscription est disponible uniquement par le biais d’Azure PowerShell. Pour obtenir des instructions sur l’inscription, consultez [Fonctionnalités d’évaluation de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
 
 > [!NOTE] 
-> Si vous avez déjà configuré FastPath et que vous souhaitez vous inscrire à la fonctionnalité d’évaluation, vous devez effectuer les opérations suivantes :
+> Toutes les connexions configurées pour FastPath dans l’abonnement cible sont inscrites à cette préversion. Nous ne recommandons pas l’activation de cette préversion dans les abonnements de production.
+> Si vous avez déjà configuré FastPath et que vous souhaitez vous inscrire à la fonctionnalité en préversion, vous devez effectuer les opérations suivantes :
 > 1. Inscrivez-vous à la fonctionnalité en préversion FastPath avec la commande Azure PowerShell ci-dessus.
 > 1. Désactivez, puis réactivez FastPath sur la connexion cible.
 

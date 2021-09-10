@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: e26434ae1ff2f9d8829d3665807f7d9916233833
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: c16b4a91f297621fa96e0e18f816d77e9f3b4e2a
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792235"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322401"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Répliquer des données via ExpressRoute avec Azure Migrate : migration de serveur
 
@@ -170,48 +170,67 @@ Si la résolution DNS est incorrecte, procédez comme suit :
 - Si vous utilisez un DNS personnalisé, vérifiez vos paramètres DNS personnalisés et confirmez que la configuration DNS est correcte. Pour obtenir de l’aide, consultez [Vue d’ensemble du point de terminaison privé : configuration DNS](../private-link/private-endpoint-overview.md#dns-configuration). 
 - Si vous utilisez des serveurs DNS fournis par Azure, utilisez ce guide comme référence pour la [résolution avancée des problèmes](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone).   
 
+### <a name="configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-expressroute-private-peering-connectivity"></a>Configurer des règles de contournement de proxy sur l’appliance Azure Migrate (pour la connectivité de Peering privé ExpressRoute) 
+Pour le contournement du proxy, vous pouvez ajouter une règle de contournement du proxy pour le compte de stockage de cache comme suit : 
+- _storageaccountname_.blob.core.windows.net.
+
+> [!Important]
+>  Ne contournez pas *.blob.core.windows.net étant donné qu’Azure Migrate utilise un autre compte de stockage, qui a besoin d’un accès à Internet. Ce compte de stockage, le compte de stockage de la passerelle, est uniquement utilisé pour stocker des informations d’état relatives aux machines virtuelles en cours de réplication. Vous pouvez rechercher le compte de stockage de la passerelle en identifiant le préfixe _**gwsa**_ dans le nom du compte de stockage dans le groupe de ressources du projet Azure Migrate. 
+
 ## <a name="replicate-data-by-using-an-expressroute-circuit-with-microsoft-peering"></a>Réplication des données à l’aide d’un circuit ExpressRoute avec peering Microsoft
 
 Vous pouvez utiliser le peering Microsoft ou un domaine de peering public existant (déconseillé pour les nouvelles connexions ExpressRoute) pour acheminer le trafic de réplication via un circuit ExpressRoute.
 
 ![Diagramme montrant la réplication avec le peering Microsoft.](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Même si les données de réplication transitent par le circuit de peering Microsoft, une connectivité Internet est nécessaire à partir du site local pour les autres communications (plan de contrôle) avec Azure Migrate. D’autres URL ne sont pas accessibles via ExpressRoute. L’appliance de réplication ou l’hôte Hyper-V a besoin d’accéder aux URL pour orchestrer le processus de réplication. Passez en revue les exigences en matière d’URL en fonction de votre scénario de migration : [migrations sans agent VMware](./migrate-appliance.md#public-cloud-urls) ou [migrations avec agent](./migrate-replication-appliance.md).
+Même si les données de réplication transitent par le circuit de peering Microsoft, vous avez toujours besoin d’une connectivité Internet depuis le site local pour le trafic du plan de contrôle et d’autres URL qui ne sont pas accessibles via ExpressRoute. L’appliance de réplication ou l’hôte Hyper-V a besoin d’accéder aux URL pour orchestrer le processus de réplication. Passez en revue les exigences en matière d’URL en fonction de votre scénario de migration : [migrations sans agent VMware](./migrate-appliance.md#public-cloud-urls) ou [migrations avec agent](./migrate-replication-appliance.md). 
 
-Si vous vous servez d’un proxy sur votre site local et souhaitez utiliser ExpressRoute pour le trafic de réplication, configurez un contournement du proxy pour les URL correspondantes sur l’appliance locale.
-
-### <a name="configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations"></a>Configurer des règles de contournement proxy sur l’appliance Azure Migrate (pour les migrations sans agent VMware)
-
-1. Établissez une connexion Bureau à distance avec l’appliance Azure Migrate.
-1. Ouvrez le fichier *C:/ProgramData/MicrosoftAzure/Config/appliance.json* dans le Bloc-notes.
-1. Dans le fichier, remplacez la ligne `"EnableProxyBypassList": "false"` par `"EnableProxyBypassList": "true"`. Enregistrez les modifications, puis redémarrez l’appliance.
-1. Après le redémarrage, lorsque vous ouvrez le gestionnaire de configuration de l’appliance, vous pouvez voir l’option de contournement du proxy dans l’interface utilisateur de l’application web. Ajoutez les URL suivantes à la liste de contournement du proxy :
-
-    - .*.vault.azure.net
-    - .*.servicebus.windows.net
-    - .*.discoverysrv.windowsazure.com
-    - .*.migration.windowsazure.com
-    - .*.hypervrecoverymanager.windowsazure.com
-    - .*.blob.core.windows.net
-
-### <a name="configure-proxy-bypass-rules-on-the-replication-appliance-for-agent-based-migrations"></a>Configurer des règles de contournement proxy sur l’appliance de réplication (pour les migrations basées sur un agent)
-
-Pour configurer la liste de contournement du proxy sur le serveur de configuration et les serveurs de traitement, procédez comme suit :
-
-1. Téléchargez [l’outil PsExec](/sysinternals/downloads/psexec) pour accéder au contexte de l’utilisateur système.
-1. Ouvrez Internet Explorer dans le contexte de l’utilisateur système en exécutant la ligne de commande suivante : `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
-1. Ajoutez des paramètres de proxy dans Internet Explorer.
-1. Dans la liste de contournement, ajoutez les URL *.blob.core.windows.net, *.hypervrecoverymanager.windowsazure.com et *.backup.windowsazure.com. 
-
-Les règles de contournement ci-dessus garantissent que le trafic de réplication peut transiter par ExpressRoute, tandis que la communication de gestion peut accéder à Internet via le proxy.
-
-Vous devez également publier des itinéraires dans le filtre de routage pour les communautés BGP suivantes afin que le trafic de réplication Azure Migrate transite par un circuit ExpressRoute au lieu d’Internet :
+ Pour le transfert de données de réplication via le Peering Microsoft, configurez les filtres d’itinéraire pour publier des itinéraires pour les points de terminaison de stockage Azure. Il s’agirait des communautés BGP régionales pour la région Azure cible (région pour la migration). Pour acheminer le trafic du plan de contrôle via le Peering Microsoft, configurez les filtres d’itinéraire pour publier des itinéraires pour d’autres points de terminaison publics, le cas échéant.  
 
 - Communauté BGP régionale pour la région Azure source (région du projet Azure Migrate)
 - Communauté BGP régionale pour la région Azure cible (région pour la migration)
 - Communauté BGP pour Azure Active Directory (12076:5060)
 
 Pour plus d’informations, consultez [Filtres de routage](../expressroute/how-to-routefilter-portal.md) et la liste des [Communautés BGP pour ExpressRoute](../expressroute/expressroute-routing.md#bgp).
+
+### <a name="proxy-configuration-for-expressroute-microsoft-peering"></a>Configuration du proxy pour le Peering Microsoft ExpressRoute
+
+Si l’appliance utilise un proxy pour la connectivité Internet, vous devrez peut-être configurer le contournement du proxy pour que certaines URL puissent les acheminer via le circuit de Peering Microsoft. 
+
+#### <a name="configure-proxy-bypass-rules-for-expressroute-microsoft-peering-on-the-azure-migrate-appliance-for-vmware-agentless-migrations"></a>Configurer des règles de contournement proxy pour le Peering ExpressRoute Microsoft sur l’appliance Azure Migrate (pour les migrations sans agent VMware)
+
+1. Établissez une connexion Bureau à distance avec l’appliance Azure Migrate.
+2.  Ouvrez le fichier *C:/ProgramData/MicrosoftAzure/Config/appliance.json* dans le Bloc-notes.
+3. Dans le fichier, remplacez la ligne `"EnableProxyBypassList": "false"` par `"EnableProxyBypassList": "true"`. Enregistrez les modifications, puis redémarrez l’appliance.
+4. Après le redémarrage, lorsque vous ouvrez le gestionnaire de configuration de l’appliance, vous pouvez voir l’option de contournement du proxy dans l’interface utilisateur de l’application web. 
+5. Pour le trafic de réplication, vous pouvez configurer une règle de contournement de proxy pour « .*.blob.core.windows.net ». Vous pouvez configurer des règles de contournement de proxy pour d’autres points de terminaison de plan de contrôle en fonction des besoins. Ces points de terminaison sont les suivants : 
+
+    - .*.vault.azure.net
+    - .*.servicebus.windows.net
+    - .*.discoverysrv.windowsazure.com
+    - .*.migration.windowsazure.com
+    - .*.hypervrecoverymanager.windowsazure.com
+
+> [!Note]
+> Les URL suivantes ne sont pas accessibles via ExpressRoute et nécessitent une connectivité Internet : *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (facultatif), aka.ms/* (facultatif), download.microsoft.com/download.
+
+
+#### <a name="configure-proxy-bypass-rules-expressroute-microsoft-peering-on-the-replication-appliance-for-agent-based-migrations"></a>Configurer des règles de contournement proxy avec Peering ExpressRoute Microsoft sur l’appliance de réplication (pour les migrations basées sur un agent)
+
+Pour configurer la liste de contournement du proxy sur le serveur de configuration et les serveurs de traitement, procédez comme suit :
+
+1. Téléchargez [l’outil PsExec](/sysinternals/downloads/psexec) pour accéder au contexte de l’utilisateur système.
+2. Ouvrez Internet Explorer dans le contexte de l’utilisateur système en exécutant la ligne de commande suivante : `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
+3. Ajoutez des paramètres de proxy dans Internet Explorer.
+4. Pour le trafic de réplication, vous pouvez configurer une règle de contournement de proxy pour « .*.blob.core.windows.net ». Vous pouvez configurer des règles de contournement de proxy pour d’autres points de terminaison de plan de contrôle en fonction des besoins. Ces points de terminaison sont les suivants : 
+
+    - .*.backup.windowsazure.com
+    - .*.hypervrecoverymanager.windowsazure.com
+
+Les règles de contournement pour le point de terminaison de stockage Azure garantissent que le trafic de réplication peut transiter via ExpressRoute, tandis que la communication de plan de contrôle peut accéder à Internet via le proxy. 
+
+> [!Note]
+> Les URL suivantes ne sont pas accessibles via ExpressRoute et nécessitent une connectivité Internet : *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (facultatif), aka.ms/* (facultatif), download.microsoft.com/download, dev.mysql.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

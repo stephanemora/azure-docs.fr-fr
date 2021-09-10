@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 48766e51e3408e11c264b77c43b066f3fedc6c28
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d48cefcae16829bc0a58cdb4f4a43f52d78f8460
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080503"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563303"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gérer programmatiquement des classeurs
 
@@ -193,7 +193,7 @@ Ce modèle montre comment déployer un classeur simple qui affiche « Hello Worl
 | `workbookType` | Galerie dans laquelle le classeur s’affichera. Valeurs prises en charge : workbook, `tsg`, Azure Monitor, etc. |
 | `workbookSourceId` | ID de l’instance de ressource à laquelle le classeur sera associé. Le nouveau classeur s’affichera en rapport avec cette instance de ressource, par exemple dans le sommaire de la ressource sous _Classeur_. Si vous souhaitez que votre classeur apparaisse dans la galerie de classeurs d’Azure Monitor, utilisez la chaîne _Azure Monitor_ au lieu d’un ID de ressource. |
 | `workbookId` | GUID unique de cette instance de classeur. Utilisez _[newGuid()]_ pour créer automatiquement un nouveau GUID. |
-| `kind` | Permet de spécifier si le classeur créé est partagé ou privé. Utilisez la valeur _shared_ pour les classeurs partagés et _user_ pour les classeurs privés. |
+| `kind` | Permet de spécifier si le classeur créé est partagé ou privé. Tous les nouveaux classeurs utilisent la valeur _partagé_. |
 | `location` | Emplacement Azure où sera créé le classeur. Utilisez _[resourceGroup().location]_ pour le créer dans le même emplacement que le groupe de ressources. |
 | `serializedData` | Contient le contenu ou la charge utile à utiliser dans le classeur. Utilisez le modèle Resource Manager de l’interface utilisateur des classeurs pour récupérer la valeur. |
 
@@ -307,4 +307,4 @@ Pour une raison technique, ce mécanisme ne permet pas de créer des instances d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment les classeurs sont utilisés dans la nouvelle [expérience d’insights pour le stockage](../insights/storage-insights-overview.md).
+Découvrez comment les classeurs sont utilisés dans la nouvelle [expérience d’insights pour le stockage](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).

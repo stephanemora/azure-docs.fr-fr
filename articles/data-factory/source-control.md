@@ -2,17 +2,18 @@
 title: Contrôle de code source
 description: Découvrez comment configurer le contrôle de code source dans Azure Data Factory
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2021
-ms.openlocfilehash: 77f5d940c06ef5a2a504033225b42b7ddd2c17c1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: 0eb7356542eb7016cd27cc76e048857e8d7f9955
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903269"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598085"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -55,9 +56,9 @@ Il existe quatre façons différentes de connecter un référentiel Git à votre
 
 ### <a name="configuration-method-1-home-page"></a>Méthode de configuration 1 : page d'accueil
 
-Dans la page d’accueil Azure Data Factory, sélectionnez **Configurer le dépôt de code**.
+Dans la partie supérieure de la page d’accueil Azure Data Factory, sélectionnez **Configurer le dépôt de code**.
 
-![Configurer un référentiel de code à partir de la page d’accueil](media/author-visually/configure-repo.png)
+![Configurer un référentiel de code à partir de la page d’accueil](media/doc-common-process/set-up-code-repository.png)
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Méthode de configuration 2 : Zone de travail de création
 
@@ -240,6 +241,8 @@ Un volet latéral s’ouvre, dans lequel vous confirmez que la branche de public
 > [!IMPORTANT]
 > La branche primaire n’est pas représentative de ce qui est déployé dans le service Data Factory. La branche primaire *doit* être publiée manuellement sur le service Data Factory.
 
+
+
 ## <a name="best-practices-for-git-integration"></a>Meilleures pratiques d'intégration Git
 
 ### <a name="permissions"></a>Autorisations
@@ -261,17 +264,34 @@ L’utilisation de Key Vault de l’authentification MSI facilite également l�
 
 ### <a name="stale-publish-branch"></a>Branche de publication obsolète
 
-Si la branche de publication n’est pas synchronisée avec la branche primaire et contient des ressources obsolètes malgré une publication récente, essayez de suivre les étapes suivantes :
+Voici quelques exemples de situations qui peuvent provoquer une branche de publication obsolète :
+
+- Un utilisateur a plusieurs branches. Dans une branche de fonctionnalité, l’utilisateur a supprimé un service lié qui n’est pas associé à AKV (les services liés non-AKV sont publiés immédiatement, qu’ils soient dans Git ou non) et n’a jamais fusionné la branche de fonctionnalité dans la branche de collaboration.
+- Un utilisateur a modifié la fabrique de données à l’aide du SDK ou de PowerShell.
+- Un utilisateur a déplacé toutes les ressources vers une nouvelle branche et a essayé de publier pour la première fois. Les services liés doivent être créés manuellement au moment de l’importation des ressources.
+- Un utilisateur charge manuellement un service lié ou un fichier JSON de runtime d’intégration non-AKV. Il fait référence à cette ressource à partir d’une autre ressource telle qu’un jeu de données, un service lié ou un pipeline. Un service lié non-AKV créé par le biais de l’expérience utilisateur est publié immédiatement parce que les informations d’identification doivent être chiffrées. Si vous chargez un jeu de données qui fait référence à ce service lié et essayez de le publier, l’expérience utilisateur autorise cette opération puisqu’il existe dans l’environnement git. Il est rejeté au moment de la publication dans la mesure où il n’existe pas dans le service de fabrique de données.
+
+Si la branche de publication n’est pas synchronisée avec la branche primaire et contient des ressources obsolètes malgré une publication récente, vous pouvez recourir à l’une des solutions suivantes :
+
+#### <a name="option-1-use-overwrite-live-mode-functionality"></a>Option 1 : utiliser la fonctionnalité de **remplacement en mode réel**
+
+Il publie ou remplace le code de votre branche de collaboration dans le mode en direct. Le code de votre référentiel est considéré comme source fiable. 
+
+<u>*Flux de code :*</u> ***Branche de collaboration -> Mode réel***
+
+![forcer la publication du code à partir de la branche de collaboration](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+
+#### <a name="option-2-disconnect-and-reconnect-git-repository"></a>Option 2 : déconnecter le référentiel git et le reconnecter
+
+Elle importe le code du mode réel dans la branche de collaboration. Elle considère le code en mode réel comme étant la source fiable. 
+
+<u>*Flux de code :*</u> ***Mode réel -> Branche de collaboration***  
 
 1. Supprimez votre dépôt Git actuel
 1. Reconfigurez Git avec les mêmes paramètres, mais vérifiez que l’option **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le dépôt) est sélectionnée et choisissez **Nouvelle branche**
 1. Créez une demande de tirage pour fusionner les modifications apportées à la branche de collaboration 
 
-Voici quelques exemples de situations qui peuvent provoquer une branche de publication obsolète :
-- Un utilisateur a plusieurs branches. Dans une branche de fonctionnalité, l’utilisateur a supprimé un service lié qui n’est pas associé à AKV (les services liés non-AKV sont publiés immédiatement, qu’ils soient dans Git ou non) et n’a jamais fusionné la branche de fonctionnalité dans la branche de collaboration.
-- Un utilisateur a modifié la fabrique de données à l’aide du SDK ou de PowerShell.
-- Un utilisateur a déplacé toutes les ressources vers une nouvelle branche et a essayé de publier pour la première fois. Les services liés doivent être créés manuellement au moment de l’importation des ressources.
-- Un utilisateur charge manuellement un service lié ou un fichier JSON de runtime d’intégration non-AKV. Il fait référence à cette ressource à partir d’une autre ressource telle qu’un jeu de données, un service lié ou un pipeline. Un service lié non-AKV créé par le biais de l’expérience utilisateur est publié immédiatement parce que les informations d’identification doivent être chiffrées. Si vous chargez un jeu de données qui fait référence à ce service lié et essayez de le publier, l’expérience utilisateur autorise cette opération puisqu’il existe dans l’environnement git. Il est rejeté au moment de la publication dans la mesure où il n’existe pas dans le service de fabrique de données.
+Choisissez l’une ou l’autre des méthodes en fonction des besoins. 
 
 ## <a name="switch-to-a-different-git-repository"></a>Passer à un autre dépôt Git
 

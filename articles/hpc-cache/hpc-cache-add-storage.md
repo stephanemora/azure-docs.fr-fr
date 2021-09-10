@@ -4,15 +4,15 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/12/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: aae7d29abbb9ef18846e85e9a54ff0fb97f09181
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3ea51d88d65b8016e68673703ee823df19bcf608
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738515"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294950"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -20,7 +20,7 @@ Les *cibles de stockage* constituent un stockage back-end pour des fichiers acce
 
 Vous pouvez définir 10 cibles de stockage différentes pour n’importe quel cache, et les caches plus volumineux peuvent [prendre en charge jusqu’à 20 cibles de stockage](#size-your-cache-correctly-to-support-your-storage-targets).
 
-Le cache présente toutes les cibles de stockage d’un espace de noms agrégé. Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage.
+Le cache présente toutes les cibles de stockage d’un [espace de noms agrégé](hpc-cache-namespace.md). Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage.
 
 N’oubliez pas que les exportations de stockage doivent être accessibles à partir du réseau virtuel de votre cache. Pour le stockage matériel local, vous devrez peut-être configurer un serveur DNS capable de résoudre les noms d’hôtes pour l’accès au stockage NFS. Pour plus d’informations, lisez [Accès DNS](hpc-cache-prerequisites.md#dns-access).
 
@@ -38,12 +38,37 @@ Cliquez sur l’image ci-dessous pour regarder une [vidéo de démonstration](ht
 
 ## <a name="size-your-cache-correctly-to-support-your-storage-targets"></a>Dimensionner correctement votre cache pour prendre en charge vos cibles de stockage
 
-Le nombre de cibles de stockage prises en charge dépend de la taille du cache définie lors de la création de ce dernier. Cette taille est une combinaison de la capacité de débit (en Go/s) et de la capacité de stockage (en To).
+Le nombre de cibles de stockage prises en charge dépend de la taille du cache définie lors de la création de ce dernier. La capacité du cache est une combinaison de la capacité de débit (en Go/s) et de la capacité de stockage (en To).
 
-* Jusqu’à 10 cibles de stockage : si vous choisissez la taille de stockage de cache la plus faible ou intermédiaire en guise de valeur de débit, votre cache peut avoir jusqu’à 10 cibles de stockage.
-* Jusqu’à 20 cibles de stockage : choisissez la taille de cache la plus élevée en guise de valeur de débit si vous souhaitez utiliser plus de 10 cibles de stockage. (Si vous utilisez Azure CLI, choisissez la taille de cache valide la plus élevée pour votre référence SKU de cache.)
+* Jusqu’à 10 cibles de stockage : un cache standard avec la valeur de stockage de cache la plus petite ou moyenne pour votre débit sélectionné peut compter un maximum de 10 cibles de stockage.
+
+  Par exemple, si vous choisissez un débit de 2 Go/seconde et que vous ne choisissez pas la taille de stockage de cache la plus élevée, votre cache prend en charge un maximum de 10 cibles de stockage.
+
+* Jusqu’à 20 cibles de stockage -
+
+  * Tous les caches à haut débit (qui ont des tailles de stockage de cache préconfigurées) peuvent prendre en charge jusqu’à 20 cibles de stockage.
+  * Les caches standard peuvent prendre en charge jusqu’à 20 cibles de stockage si vous choisissez la taille de cache disponible la plus élevée pour la valeur de débit sélectionnée. (Si vous utilisez Azure CLI, choisissez la taille de cache valide la plus élevée pour votre référence SKU de cache.)
 
 Pour plus d’informations sur les paramètres de débit et de taille de cache, consultez [Définir la capacité du cache](hpc-cache-create.md#set-cache-capacity) .
+
+## <a name="choose-the-correct-storage-target-type"></a>Choisir le type de cible de stockage approprié
+
+Vous pouvez sélectionner parmi trois types de cible de stockage : **NFS**, **Blob** et **ADLS-NFS**. Choisissez le type qui correspond au type de système de stockage que vous utiliserez pour stocker vos fichiers au cours de ce projet de cache HPC.
+
+* **NFS** - Créer une cible de stockage NFS pour accéder aux données sur un système de stockage connecté au réseau. Il peut s’agir d’un système de stockage local ou d’un autre type de stockage accessible via NFS.
+
+  * Exigences : [Conditions requises pour le stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)
+  * Instructions : [Ajouter une cible de stockage NFS](#add-a-new-nfs-storage-target)
+
+* **Objet BLOB** - Utilisez une cible de stockage Blob pour stocker vos fichiers de travail dans un nouveau conteneur d’objets BLOB Azure. Ce conteneur ne peut être lu ou écrit que dans l’Azure HPC Cache.
+
+  * Prérequis : [Exigences relatives au stockage Blob](hpc-cache-prerequisites.md#blob-storage-requirements)
+  * Instructions : [Ajouter une cible de stockage Blob Azure](#add-a-new-azure-blob-storage-target)
+
+* **ADLS-NFS** - La cible de stockage ADLS-NFS accèdent aux données à partir d’un conteneur [d’objets BLOB NFS](../storage/blobs/network-file-system-protocol-support.md). Vous pouvez précharger le conteneur à l’aide de commandes NFS standard, et les fichiers peuvent être lus plus tard avec NFS.
+
+  * Prérequis : [Exigences relatives au stockage ADLS-NFS](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)
+  * Instructions : [Ajouter une cible de stockage ADLS-NFS](#add-a-new-adls-nfs-storage-target)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Ajouter une cible de stockage Blob Azure
 
@@ -52,7 +77,9 @@ Les nouvelles cibles de stockage Blob nécessitent un conteneur d’objets blob 
 Sur le portail Azure, la page **Ajouter une cible de stockage** offre la possibilité de créer un conteneur d’objets blob juste avant de l’ajouter.
 
 > [!NOTE]
-> Pour le stockage Blob monté sur NFS, utilisez le type [Cible de stockage ADLS-NFS](#).
+>
+> * Pour le stockage Blob monté sur NFS, utilisez le type [Cible de stockage ADLS-NFS](#add-a-new-adls-nfs-storage-target).
+> * [Les configurations de cache à haut débit](hpc-cache-create.md#choose-the-cache-type-for-your-needs) ne prennent pas en charge les cibles de stockage d’objets BLOB Azure standard. Utilisez plutôt le stockage d’objets BLOB NFS (ADLS-NFS).
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -91,7 +118,7 @@ Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (Azure RBA
 
 Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](../role-based-access-control/built-in-roles.md#storage-account-contributor) et [Contributeur aux données Blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) pour l’utilisateur « HPC Cache Resource Provider ».
 
-Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à partir de laquelle vous ajoutez une cible de stockage Blob. Rappelez-vous qu’il peut falloir jusqu’à cinq minutes pour que les paramètres de rôle se propagent dans l’environnement Azure. Par conséquent, après avoir ajouté les rôles, vous devez attendre quelques minutes avant de créer une cible de stockage.
+Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page du portail à partir de laquelle vous ajoutez une cible de stockage Blob. Rappelez-vous qu’il peut falloir jusqu’à cinq minutes pour que les paramètres de rôle se propagent dans l’environnement Azure. Par conséquent, après avoir ajouté les rôles, vous devez attendre quelques minutes avant de créer une cible de stockage.
 
 1. Ouvrez **Contrôle d’accès (IAM)** pour votre compte de stockage.
 
@@ -107,7 +134,7 @@ Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à par
     ![Page Ajouter une attribution de rôle](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
-   > Si vous ne trouvez pas le fournisseur de ressources HPC Cache, essayez de rechercher la chaîne « storagecache » à la place. Il se peut que les utilisateurs qui ont participé aux préversions de HPC Cache (avant la disponibilité générale) doivent utiliser l’ancien nom du principal de service.
+   > Si vous ne trouvez pas le fournisseur de ressources HPC Cache, essayez de rechercher la chaîne « storagecache » à la place. Il s’agissait d’un nom antérieur à la disponibilité générale pour le principal du service.
 
 <!-- 
 Steps to add the Azure roles:
@@ -116,9 +143,9 @@ Steps to add the Azure roles:
 
 1. Click the **+** at the top of the page and choose **Add a role assignment**.
 
-1. Select the role "Storage Account Contributor&quot; from the list.
+1. Select the role "Storage Account Contributor" from the list.
 
-1. In the **Assign access to** field, leave the default value selected (&quot;Azure AD user, group, or service principal").  
+1. In the **Assign access to** field, leave the default value selected ("Azure AD user, group, or service principal").  
 
 1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
 
@@ -183,7 +210,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>Ajouter une cible de stockage NFS
 
-Une cible de stockage NFS a des paramètres différents d’une cible de stockage d’objets blob. Le paramètre du modèle d’utilisation aide le cache à mettre en cache efficacement les données de ce système de stockage.
+Une cible de stockage NFS a des paramètres différents d’une cible de stockage d’objets BLOB, y compris un paramètre de modèle d’utilisation qui indique au cache comment stocker les données de ce système de stockage.
 
 ![Capture d’écran de la page Ajouter la cible de stockage avec le type de cible défini sur NFS](media/add-nfs-target.png)
 
@@ -191,13 +218,15 @@ Une cible de stockage NFS a des paramètres différents d’une cible de stockag
 > Avant de créer une cible de stockage NFS, assurez-vous que votre système de stockage est accessible à partir de l’Azure HPC Cache et répond aux exigences d’autorisation. La création d’une cible de stockage échoue si le cache ne peut pas accéder au système de stockage. Pour plus d’informations, consultez [Conditions requises pour le stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) et [Résolution des problèmes de configuration NAS et des cibles de stockage NFS](troubleshoot-nas.md).
 
 ### <a name="choose-a-usage-model"></a>Choisir un modèle d’utilisation
-<!-- referenced from GUI by aka.ms link -->
 
 Lorsque vous créez une cible de stockage qui utilise NFS pour atteindre son système de stockage, vous devez choisir un modèle d’utilisation pour cette cible. Ce modèle détermine la façon dont vos données sont mises en cache.
 
 Pour plus d’informations sur l’ensemble de ces paramètres, consultez [Comprendre les modèles d’utilisation](cache-usage-models.md).
 
-Les modèles d’utilisation intégrés vous permettent de choisir la manière d’équilibrer la vitesse de réponse avec le risque d’obtenir des données obsolètes. Si vous souhaitez optimiser la vitesse de lecture des fichiers, vous pourriez ne pas vous préoccuper du fait que les fichiers dans le cache sont vérifiés par rapport aux fichiers sur le serveur principal. En revanche, si vous souhaitez vous assurer que vos fichiers sont toujours à jour avec le stockage étendu, choisissez un modèle qui effectue des vérifications fréquemment.
+Les modèles d’utilisation intégrés de HPC Cache vous permettent de choisir la manière d’équilibrer la vitesse de réponse avec le risque d’obtenir des données obsolètes. Si vous souhaitez optimiser la vitesse de lecture des fichiers, vous pourriez ne pas vous préoccuper du fait que les fichiers dans le cache sont vérifiés par rapport aux fichiers sur le serveur principal. En revanche, si vous souhaitez vous assurer que vos fichiers sont toujours à jour avec le stockage étendu, choisissez un modèle qui effectue des vérifications fréquemment.
+
+> [!NOTE]
+> [Les caches de style à débit élevé](hpc-cache-create.md#choose-the-cache-type-for-your-needs) prennent en charge la mise en cache en lecture uniquement.
 
 Ces trois options couvrent la plupart des situations :
 
@@ -246,7 +275,7 @@ Fournissez les informations suivantes pour une cible de stockage NFS :
 
 * **Type de cible** - Choisissez **NFS**.
 
-* **Nom d’hôte** - Entrez l’adresse IP ou le nom de domaine complet de votre système de stockage NFS (utilisez un nom de domaine uniquement si votre cache a accès à un serveur DNS capable de résoudre ce nom).
+* **Nom d’hôte** - Entrez l’adresse IP ou le nom de domaine complet de votre système de stockage NFS (Utilisez un nom de domaine uniquement si votre cache a accès à un serveur DNS capable de résoudre le nom.) Vous pouvez entrer plusieurs adresses IP si votre système de stockage est référencé par plusieurs adresses IP.
 
 * **Modèle d’utilisation** : choisissez l’un des profils de mise en cache des données en fonction de votre workflow, comme décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model) précédemment.
 
@@ -324,22 +353,23 @@ Sortie :
 
 ---
 
-## <a name="add-a-new-adls-nfs-storage-target-preview"></a>Ajouter une cible de stockage ADLS-NFS (PRÉVERSION)
+## <a name="add-a-new-adls-nfs-storage-target"></a>Ajouter une nouvelle cible de stockage ADLS-NFS
 
 Les cibles de stockage ADLS-NFS utilisent des conteneurs d’objets Blob Azure qui prennent en charge le protocole NFS 3.0.
 
-> [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. La disponibilité est limitée et les fonctionnalités peuvent changer entre maintenant et le moment où la fonctionnalité sera proposée en disponibilité générale. N’utilisez pas la technologie en préversion dans des systèmes de production.
->
-> Consultez [Prise en charge du protocole NFS 3.0](../storage/blobs/network-file-system-protocol-support.md) pour obtenir les dernières informations.
+Consultez [Prise en charge du protocole NFS 3.0](../storage/blobs/network-file-system-protocol-support.md) pour en savoir plus sur cette fonctionnalité.
 
 Les cibles de stockage ADLS-NFS ont des similarités avec les cibles de stockage d’objets Blob et avec les cibles de stockage NFS. Par exemple :
 
 * Comme pour une cible de stockage d’objets Blob, vous devez accorder à Azure HPC Cache l’autorisation d’[accéder à votre compte de stockage](#add-the-access-control-roles-to-your-account).
 * À l’instar d’une cible de stockage NFS, vous devez définir un [modèle d’utilisation](#choose-a-usage-model) du cache.
-* Étant donné que les conteneurs d’objets Blob compatibles NFS possèdent une structure hiérarchique compatible NFS, vous n’avez pas besoin d’utiliser le cache pour ingérer les données, et les conteneurs sont lisibles par d’autres systèmes NFS. Vous pouvez précharger des données dans un conteneur ADLS-NFS, les ajouter à un cache HPC en tant que cible de stockage, puis accéder aux données ultérieurement à partir de l’extérieur d’un cache HPC. Lorsque vous utilisez un conteneur d’objets Blob standard en tant que cible de stockage du cache HPC, les données sont écrites dans un format propriétaire et sont accessibles uniquement à partir d’autres produits compatibles avec le Azure HPC Cache.
+* Étant donné que les conteneurs d’objets Blob compatibles NFS possèdent une structure hiérarchique compatible NFS, vous n’avez pas besoin d’utiliser le cache pour ingérer les données, et les conteneurs sont lisibles par d’autres systèmes NFS.
 
-Avant de pouvoir créer une cible de stockage ADLS-NFS, vous devez créer un compte de stockage compatible NFS. Suivez les conseils dans [Conditions préalables pour Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) et les instructions dans [Monter le stockage Blob à l’aide de NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Une fois votre compte de stockage configuré, vous pouvez créer un conteneur lors de la création de la cible de stockage.
+  Vous pouvez précharger des données dans un conteneur ADLS-NFS, les ajouter à un cache HPC en tant que cible de stockage, puis accéder aux données ultérieurement à partir de l’extérieur d’un cache HPC. Lorsque vous utilisez un conteneur d’objets Blob standard en tant que cible de stockage du cache HPC, les données sont écrites dans un format propriétaire et sont accessibles uniquement à partir d’autres produits compatibles avec le Azure HPC Cache.
+
+Avant de pouvoir créer une cible de stockage ADLS-NFS, vous devez créer un compte de stockage compatible NFS. Suivez les étapes dans [Conditions préalables pour Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements) et les instructions dans [Monter le stockage Blob à l’aide de NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Si vous n’utilisez pas le même réseau virtuel pour le cache et le compte de stockage, assurez-vous que le réseau virtuel du cache peut accéder au réseau virtuel du compte de stockage.
+
+Une fois votre compte de stockage configuré, vous pouvez créer un conteneur lors de la création de la cible de stockage.
 
 Pour en savoir plus sur cette configuration, consultez [Utiliser le stockage blob monté sur NFS avec Azure HPC Cache](nfs-blob-considerations.md).
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 08d2e50df2365c327d16d3232fd3edc0544e3ffd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f408a9182727d8e4395972f8d9f7025f8342b4eb
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745796"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635147"
 ---
 # <a name="spatial-analysis-operations"></a>Opérations d’analyse spatiale
 
@@ -83,10 +83,11 @@ Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les o
 "gpu_index": 0,
 "do_calibration": true,
 "enable_recalibration": true,
-"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_frequency_seconds": 86400,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000
+"calibration_quality_check_one_round_sample_collect_num": 10,
+"calibration_quality_check_queue_max_size": 1000,
+"calibration_event_frequency_seconds": -1
 }
 ```
 
@@ -99,9 +100,100 @@ Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les o
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | Nombre minimal de secondes entre la collecte de nouveaux échantillons de données pour le réétalonnage et le contrôle de la qualité. La valeur par défaut est `300` (5 minutes). Utilisé uniquement si `enable_recalibration=True`.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | Nombre minimal de nouveaux échantillons de données à collecter par cycle de collecte d’échantillons. La valeur par défaut est `10`. Utilisé uniquement si `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Nombre maximal d’échantillons de données à stocker quand le modèle de caméra est étalonné. La valeur par défaut est `1000`. Utilisé uniquement si `enable_recalibration=True`.|
+| `calibration_event_frequency_seconds` | int | Fréquence de sortie (en secondes) des événements d’étalonnage de l’appareil photo. La valeur `-1` indique que l’étalonnage de l’appareil photo ne doit pas être envoyé sauf si les informations d’étalonnage de celui-ci ont été modifiées. La valeur par défaut est `-1`.|
 | `enable_breakpad`| bool | Indique si vous souhaitez activer la fonctionnalité breakpad, qui est utilisé pour générer le vidage sur incident à des fins de débogage. La valeur par défaut de ce paramètre est `false`. Si vous le définissez sur `true`, vous devez également ajouter `"CapAdd": ["SYS_PTRACE"]` dans la `HostConfig` partie du conteneur `createOptions`. Par défaut, le vidage sur incident est chargé sur l’application AppCenter [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) ; si vous souhaitez que les vidages sur incident soient chargés sur votre application AppCenter, vous pouvez remplacer la variable d’environnement `RTPT_APPCENTER_APP_SECRET` par le secret d’application de votre application.
 | `enable_orientation` | bool | Indique si vous voulez calculer, ou non, l’orientation pour les personnes détectées. `enable_orientation` est défini par défaut sur False. |
 
+
+### <a name="camera-calibration-output"></a>Sortie d’étalonnage de l’appareil photo
+Il s’agit d’un exemple de la sortie de l’étalonnage de l’appareil photo si elle est activée. Les points de suspension indiquent la présence d’objets du même type dans une liste.
+```
+{
+  "type": "cameraCalibrationEvent",
+  "sourceInfo": {
+    "id": "camera1",
+    "timestamp": "2021-04-20T21:15:59.100Z",
+    "width": 640,
+    "height": 360,
+    "frameId": 531,
+    "cameraCalibrationInfo": {
+      "status": "Calibrated",
+      "cameraHeight": 13.294151306152344,
+      "focalLength": 372.0000305175781,
+      "tiltupAngle": 0.9581864476203918,
+      "lastCalibratedTime": "2021-04-20T21:15:59.058"
+    }
+  },
+  "zonePlacementInfo": {
+    "optimalZoneRegion": {
+      "type": "POLYGON",
+       "points": [
+        {
+          "x": 0.8403755868544601,
+          "y": 0.5515320334261838
+        },
+        {
+          "x": 0.15805946791862285,
+          "y": 0.5487465181058496
+        },
+        ...
+      ],
+      "name": "optimal_zone_region"
+    },
+    "fairZoneRegion": {
+      "type": "POLYGON",
+      "points": [
+        {
+          "x": 0.7871674491392802,
+          "y": 0.7437325905292479
+        },
+        {
+          "x": 0.22065727699530516,
+          "y": 0.7325905292479109
+        },
+        ...
+      ],
+      "name": "fair_zone_region"
+    },
+    "uniformlySpacedPersonBoundingBoxes": [
+      {
+        "type": "RECTANGLE",
+        "points": [
+          {
+            "x": 0.0297339593114241,
+            "y": 0.0807799442896936
+          },
+          {
+            "x": 0.10015649452269171,
+            "y": 0.2757660167130919
+          }
+        ]
+      },
+      ...
+    ],
+    "personBoundingBoxGroundPoints": [
+      {
+        "x": -22.944068908691406,
+        "y": 31.487680435180664
+      },
+      ...
+    ]
+  }
+}
+```
+
+Consultez [Sortie de l’opération d’analyse spatiale](#spatial-analysis-operation-output) pour plus de détails sur `source_info`.
+
+| Nom du champ ZonePlacementInfo | Type| Description|
+|---------|---------|---------|
+| `optimalZonePolygon` | object| Polygone dans l’image de l’appareil photo dans lequel il est possible de placer des lignes ou des zones pour vos opérations en vue de résultats optimaux. <br/> Chaque paire de valeurs représente x et y pour les vertex d’un polygone. Le polygone représente les zones dans lesquelles les personnes sont suivies ou comptées, et les points de polygone sont basés sur des coordonnées normalisées (0-1), où le coin supérieur gauche est (0,0, 0,0) et le coin inférieur droit est (1,0, 1,0).|
+| `fairZonePolygon` | object| Polygone dans l’image de l’appareil photo dans lequel il est possible de placer des lignes ou des zones pour vos opérations en vue de résultats corrects, mais éventuellement pas optimaux. <br/> Consultez `optimalZonePolygon` ci-dessus pour obtenir une explication détaillée du contenu. |
+| `uniformlySpacedPersonBoundingBoxes` | list | Liste des zones englobantes des personnes dans l’image de l’appareil photo, distribuées uniformément dans l’espace réel. Les valeurs sont basées sur les coordonnées normalisées (0-1).|
+| `personBoundingBoxGroundPoints` | list | Liste de coordonnées au niveau du sol par rapport à l’appareil photo. Chaque coordonnée correspond au coin inférieur droit du cadre englobant dans `uniformlySpacedPersonBoundingBoxes` avec le même index. <br/> Consultez le champ `centerGroundPoint` de la section [Format JSON pour les insights d’intelligence artificielle cognitiveservices.vision.spatialanalysis-persondistance](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) pour plus de détails sur le calcul des coordonnées au niveau du sol. |
+
+Exemple de sortie d’informations de placement de zone visualisées sur une image vidéo : ![visualisation des informations d’emplacement de zone](./media/spatial-analysis/zone-placement-info-visualization.png)
+
+Les informations sur le placement des zones fournissent des suggestions pour vos configurations, mais il convient de suivre scrupuleusement les directives de [Configuration de l’appareil photo](#camera-configuration) pour obtenir les meilleurs résultats.
 
 ### <a name="speed-parameter-settings"></a>Configuration des paramètres de vitesse
 Vous pouvez configurer le calcul de la vitesse par le biais des paramètres du nœud de suivi.
@@ -269,7 +361,7 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `name` | string| Nom convivial de cette zone.|
 | `polygon` | list| Chaque paire de valeurs représente x et y pour les vertex d’un polygone. Le polygone représente les zones dans lesquelles les utilisateurs sont comptés et la distance entre les personnes. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. 
 | `threshold` | float| Les événements sont envoyés lorsque la personne dépasse ce nombre de pixels à l’intérieur de la zone. |
-| `type` | string| Pour **cognitiveservices.vision.spatialanalysis-persondistance**, cela doit être `people_distance`.|
+| `type` | string| Pour **cognitiveservices.vision.spatialanalysis-persondistance**, cela doit être `persondistance`.|
 | `trigger` | string| Type de déclencheur pour l’envoi d’un événement. Les valeurs prises en charge sont `event` pour l’envoi d’événements lorsque le nombre change ou `interval` pour envoyer des événements régulièrement, que le nombre ait changé ou non.
 | `output_frequency` | int | Vitesse à laquelle les événements sont émis. Lorsque `output_frequency` = X, un envoi est effectué tous les X événements, par ex. `output_frequency` = 2 signifie qu’un événement sur deux fait l’objet d’une sortie. La valeur `output_frequency` s’applique à la fois à `event` et à `interval`.|
 | `minimum_distance_threshold` | float| Distance en pieds qui déclenchera un événement « TooClose » lorsque les personnes sont moins éloignées que cette distance.|

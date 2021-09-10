@@ -1,6 +1,6 @@
 ---
-title: Sauvegarder une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide de l'outil RMAN et du service Stockage Azure
-description: Apprenez à sauvegarder une base de données Oracle Database 19c dans le service de stockage cloud Azure.
+title: Sauvegarder une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l’aide de l’outil RMAN et d’Azure Files
+description: Apprenez à sauvegarder une base de données Oracle Database 19c dans Azure Files.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 44d1345a8c02c2cde5d0bc34d1b509af321c42c0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f30a7fcbc99f6a47574d101e3792d992dc2c1af8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952273"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260037"
 ---
-# <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Stockage Azure
+# <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-files"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l’aide d’Azure Files
 
-Cet article explique comment utiliser le service Stockage Azure comme support pour sauvegarder et restaurer une base de données Oracle exécutée sur une machine virtuelle Azure. Vous utiliserez l'outil Oracle RMAN pour sauvegarder la base de données sur le stockage Azure Files monté sur la machine virtuelle à l'aide du protocole SMB. L'utilisation du stockage Azure comme support de sauvegarde est une solution extrêmement économique et performante. Cela dit, pour les bases de données très volumineuses, le service Sauvegarde Azure constitue une meilleure solution.
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
+
+Cet article explique comment utiliser Azure Files comme support pour sauvegarder et restaurer une base de données Oracle exécutée sur une machine virtuelle Azure. Vous utiliserez Oracle RMAN pour sauvegarder la base de données sur un partage de fichiers Azure monté sur la machine virtuelle à l’aide du protocole SMB. L’utilisation d’Azure Files comme support de sauvegarde est une solution extrêmement économique et performante. Cela dit, pour les bases de données très volumineuses, le service Sauvegarde Azure constitue une meilleure solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -166,14 +168,14 @@ Cet article explique comment utiliser le service Stockage Azure comme support po
 
 Pour effectuer une sauvegarde sur Azure Files, procédez comme suit :
 
-1. Configurez le stockage Azure Files.
-1. Montez le partage de fichiers Azure Files sur votre machine virtuelle.
+1. Configurer Azure Files.
+1. Monter le partage de fichiers Azure sur votre machine virtuelle.
 1. Sauvegardez la base de données.
 1. Restaurez et récupérez la base de données.
 
-### <a name="set-up-azure-file-storage"></a>Configurer le stockage Azure Files
+### <a name="set-up-azure-files"></a>Configurer Azure Files
 
-Au cours de cette étape, vous allez sauvegarder la base de données Oracle sur le stockage Azure Files à l'aide de l'outil Oracle Recovery Manager (RMAN). Les partages de fichiers Azure sont des partages de fichiers entièrement gérés qui résident dans le cloud. Ils sont accessibles via le protocole SMB (Server Message Block) ou NFS (Network File System). Cette étape couvre la création d'un partage de fichiers qui utilise le protocole SMB pour procéder au montage sur votre machine virtuelle. Pour plus d'informations sur le montage à l'aide du protocole NFS, consultez [Monter le stockage Blob à l'aide du protocole NFS 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+Au cours de cette étape, vous allez sauvegarder la base de données Oracle dans Azure Files à l’aide d’Oracle Recovery Manager (RMAN). Les partages de fichiers Azure sont des partages de fichiers entièrement gérés qui résident dans le cloud. Ils sont accessibles via le protocole SMB (Server Message Block) ou NFS (Network File System). Cette étape couvre la création d'un partage de fichiers qui utilise le protocole SMB pour procéder au montage sur votre machine virtuelle. Pour plus d'informations sur le montage à l'aide du protocole NFS, consultez [Monter le stockage Blob à l'aide du protocole NFS 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 Lors du montage d'Azure Files, nous utiliserons `cache=none` pour désactiver la mise en cache des données du partage de fichiers. Et pour veiller à ce que les fichiers créés dans le partage appartiennent à l'utilisateur oracle, définissez également les options `uid=oracle` et `gid=oinstall`. 
 
@@ -181,9 +183,7 @@ Lors du montage d'Azure Files, nous utiliserons `cache=none` pour désactiver la
 
 Pour commencer, configurez votre compte de stockage.
 
-1. Configurer Azure Files sur le portail Azure
-
-    Dans le portail Azure, sélectionnez **+ Créer une ressource** _, puis recherchez et sélectionnez _ *_Compte de stockage_**
+1. Dans le portail Azure, sélectionnez **+ Créer une ressource** _, puis recherchez et sélectionnez _ *_Compte de stockage_**
     
     ![Capture d’écran montrant où créer une ressource et sélectionner le compte de stockage.](./media/oracle-backup-recovery/storage-1.png)
     
@@ -191,11 +191,9 @@ Pour commencer, configurez votre compte de stockage.
     
     ![Capture d’écran montrant où choisir votre groupe de ressources existant.](./media/oracle-backup-recovery/file-storage-1.png)
    
-   
 3. Cliquez sur l’onglet ***Avancé** _ et, sous Azure Files, définissez _*_Partages de fichiers volumineux_*_ sur _*_Activé_**. Cliquez sur Vérifier + créer, puis sur Créer.
     
     ![Capture d’écran montrant où définir Partages de fichiers volumineux sur Activé.](./media/oracle-backup-recovery/file-storage-2.png)
-    
     
 4. Une fois le compte de stockage créé, accédez à la ressource et sélectionnez ***Partages de fichiers***.
     
@@ -354,9 +352,9 @@ Dans cette section, nous utiliserons l'outil Oracle Recovery Manager (RMAN) pour
     RMAN> backup as compressed backupset database plus archivelog;
     ```
 
-Vous venez de sauvegarder la base de données en ligne à l'aide d'Oracle RMAN, et la sauvegarde a été placée sur le stockage Azure Files. Cette méthode présente l'avantage d'utiliser les fonctionnalités de l'outil RMAN tout en stockant les sauvegardes dans le stockage Azure Files, où elles sont accessibles à partir d'autres machines virtuelles, ce qui peut s'avérer utile si vous avez besoin de cloner la base de données.  
+Vous venez de sauvegarder la base de données en ligne à l’aide d’Oracle RMAN, et la sauvegarde a été placée dans Azure Files. Cette méthode présente l’avantage d’utiliser les fonctionnalités de RMAN tout en stockant les sauvegardes dans Azure Files, où elles sont accessibles à partir d’autres machines virtuelles, ce qui peut s’avérer utile si vous avez besoin de cloner la base de données.  
     
-L'utilisation de l'outil RMAN et du stockage Azure Files pour la sauvegarde de bases de données présente de nombreux avantages, mais le temps de sauvegarde et de restauration est lié à la taille de la base de données. Par conséquent, pour les bases de données très volumineuses, cette opération peut prendre beaucoup de temps.  Un autre mécanisme de sauvegarde, utilisant des sauvegardes de machines virtuelles cohérentes avec les applications Sauvegarde Azure, a recours à la technologie de capture instantanée qui permet des sauvegardes très rapides, quelle que soit la taille de la base de données. L'intégration à un coffre Recovery Services offre un stockage sécurisé de vos sauvegardes Oracle Database sur le stockage cloud Azure, ainsi qu'un accès à partir d'autres machines virtuelles et régions Azure. 
+L’utilisation de RMAN et d’Azure Files pour la sauvegarde de bases de données présente de nombreux avantages, mais le temps de sauvegarde et de restauration est lié à la taille de la base de données. Par conséquent, pour les bases de données très volumineuses, cette opération peut prendre beaucoup de temps. Un autre mécanisme de sauvegarde, utilisant des sauvegardes de machines virtuelles cohérentes avec les applications Sauvegarde Azure, a recours à la technologie de capture instantanée qui permet des sauvegardes très rapides, quelle que soit la taille de la base de données. L'intégration à un coffre Recovery Services offre un stockage sécurisé de vos sauvegardes Oracle Database sur le stockage cloud Azure, ainsi qu'un accès à partir d'autres machines virtuelles et régions Azure. 
 
 ### <a name="restore-and-recover-the-database"></a>Restaurer et récupérer la base de données
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: d964dc25fd450f244e34140080e77cdc0e319941
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b0a0b8cb4d3ff5ce10348608d66a451517b60016
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749426"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535385"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Ressources pour la création de connecteurs Azure Sentinel personnalisés
 
@@ -198,11 +198,13 @@ Vous pouvez utiliser la technique d’analyse intégrée de votre connecteur per
 Par exemple :
 
 - **Si vous avez utilisé Logstash**, utilisez le plug-in de filtre [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) pour analyser vos données.
-- **Si vous avez utilisé une fonction Azure**, analysez vos données à l’aide du code. Pour plus d’informations, consultez [Analyseurs](normalization.md#parsers).
+- **Si vous avez utilisé une fonction Azure**, analysez vos données à l’aide du code.
 
-Azure Sentinel prend en charge l’analyse au moment de la requête. L’analyse au moment de la requête vous permet d’envoyer (push) des données dans le format d’origine, puis de les analyser à la demande, le cas échéant.
+Azure Sentinel prend en charge l’analyse au moment de la requête. L’analyse au moment de la requête vous permet d’envoyer (push) des données dans le format d’origine, puis de les analyser à la demande, le cas échéant. 
 
 L’analyse au moment de la requête signifie également que vous n’avez pas besoin de connaître la structure exacte de vos données à l’avance, lorsque vous créez votre connecteur personnalisé, ni même les informations que vous devez extraire. Au lieu de cela, analysez vos données à tout moment, même pendant une investigation.
+
+Pour plus d’informations sur l’analyse au moment de la requête, consultez [Analyseurs](normalization-about-parsers.md).
 
 > [!NOTE]
 > La mise à jour de votre analyseur s’applique également aux données que vous avez déjà ingérées dans Azure Sentinel.
@@ -211,9 +213,11 @@ L’analyse au moment de la requête signifie également que vous n’avez pas b
 
 Utilisez les données ingérées dans Azure Sentinel pour sécuriser votre environnement à l’aide de l’un des processus suivants :
 
-- [Obtenir une visibilité des alertes](quickstart-get-visibility.md)
-- [Visualiser et superviser vos données](tutorial-monitor-your-data.md)
-- [Investiguer les incidents](tutorial-investigate-cases.md)
-- [Détecter les menaces](tutorial-detect-threats-built-in.md)
+- [Obtenir une visibilité des alertes](get-visibility.md)
+- [Visualiser et superviser vos données](monitor-your-data.md)
+- [Investiguer les incidents](investigate-cases.md)
+- [Détecter les menaces](detect-threats-built-in.md)
 - [Automatiser la prévention des menaces](tutorial-respond-threats-playbook.md)
 - [Être à l’affût des menaces](hunting.md)
+
+Découvrez également un exemple de création d’un connecteur personnalisé pour surveiller Zoom : [Surveiller Zoom avec Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

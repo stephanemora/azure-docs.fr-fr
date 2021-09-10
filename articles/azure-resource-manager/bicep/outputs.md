@@ -3,16 +3,16 @@ title: Sorties dans Bicep
 description: Décrit comment définir des variables dans Bicep
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 95366013ed972e0251c99732ea4b344b5b94e743
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1468f1a8a42f51dec1d195d39fe9096746c8193f
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026446"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635138"
 ---
 # <a name="outputs-in-bicep"></a>Sorties dans Bicep
 
-Cet article explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM) et un fichier Bicep. Vous utilisez des sorties quand vous devez retourner des valeurs à partir des ressources déployées.
+Cet article explique comment définir des valeurs de sortie dans un fichier Bicep. Vous utilisez des sorties quand vous devez retourner des valeurs à partir des ressources déployées.
 
 Le format de chaque valeur de sortie doit résoudre l’un des [types de données](data-types.md).
 
@@ -112,7 +112,7 @@ Le modèle suivant ne déploie aucune ressource. Il montre quelques façons de r
 
 Bicep ne prend pas en charge les boucles pour le moment.
 
-:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/output.bicep":::
 
 ## <a name="get-output-values"></a>Obtenir des valeurs de sortie
 

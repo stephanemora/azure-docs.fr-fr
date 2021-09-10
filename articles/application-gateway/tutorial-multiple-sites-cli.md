@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c637f22a21b73450746a90b83ea7c87249da1d45
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772669"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113507408"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Ajouter des règles de routage
 
-Les règles sont traitées dans par ordre de création. Le trafic est dirigé à l’aide de la première règle qui correspond, quelle que soit la particularité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
+Les règles sont traitées dans l’ordre dans lequel elles sont répertoriées si le champ priorité de la règle n’est pas utilisé. Le trafic est dirigé à l’aide de la première règle qui correspond, quelle que soit la particularité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu.
 
 Dans cet exemple, vous créez deux nouvelles règles et supprimez la règle par défaut qui a été créée lorsque vous avez déployé la passerelle d’application. Vous pouvez ajouter la règle à l’aide de la commande [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
@@ -171,6 +171,29 @@ az network application-gateway rule delete \
   --gateway-name myAppGateway \
   --name rule1 \
   --resource-group myResourceGroupAG
+```
+### <a name="add-priority-to-routing-rules"></a>Ajouter une priorité aux règles d’acheminement
+
+Pour vous assurer que des règles plus spécifiques sont traitées en premier, utilisez le champ de priorité de la règle pour vous assurer qu’elles ont une priorité plus élevée. Le champ de priorité de la règle doit être défini pour toutes les règles de routage des demandes existantes et toute nouvelle règle créée ultérieurement doit également avoir une valeur de priorité de règle.
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name wccontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener wccontosoListener \
+  --rule-type Basic \
+  --priority 200 \
+  --address-pool wccontosoPool
+
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name shopcontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener shopcontosoListener \
+  --rule-type Basic \
+  --priority 100 \
+  --address-pool shopcontosoPool
+
 ```
 
 ## <a name="create-virtual-machine-scale-sets"></a>Créer des groupes de machines virtuelles identiques

@@ -1,18 +1,18 @@
 ---
 title: Configurer un environnement de préproduction dans Azure Spring Cloud | Microsoft Docs
 description: Découvrir comment utiliser le déploiement bleu-vert avec Azure Spring Cloud
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9f8f09b61998c0b9c2d46291e4559741beac8acc
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: e17bc1bd057ba631e7d7dadb2d53f7d8b3db633b
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812488"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563413"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Cet article explique comment configurer un déploiement intermédiaire à l'aide
 
 Cet article utilise une application générée à partir de Spring Initializr. Si vous souhaitez utiliser une autre application pour cet exemple, vous devrez apporter une modification simple à une partie publique de l'application afin de différencier votre déploiement intermédiaire du déploiement de production.
 
->[!TIP]
+> [!TIP]
 > [Azure Cloud Shell](https://shell.azure.com) est un interpréteur de commandes interactif gratuit que vous pouvez utiliser pour exécuter les instructions de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez votre instance de Cloud Shell. Pour en savoir plus, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md).
 
 Pour configurer un déploiement bleu-vert dans Azure Spring Cloud, suivez les instructions des sections ci-dessous.
@@ -39,76 +39,82 @@ Installez l’extension Azure Spring Cloud pour Azure CLI à l’aide de la comm
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 ## <a name="prepare-the-app-and-deployments"></a>Préparer l'application et les déploiements
+
 Pour générer l'application, procédez comme suit :
 
 1. Générez le code de l'exemple d'application à l'aide de Spring Initializr avec [cette configuration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
 
 2. Téléchargez le code.
-3. Ajoutez le fichier source HelloController.java suivant au dossier `\src\main\java\com\example\hellospring\` :
+3. Ajoutez le fichier source *HelloController.java* suivant au dossier *\src\main\java\com\example\hellospring\* :
 
    ```java
-   package com.example.hellospring; 
-   import org.springframework.web.bind.annotation.RestController; 
-   import org.springframework.web.bind.annotation.RequestMapping; 
+   package com.example.hellospring;
+   import org.springframework.web.bind.annotation.RestController;
+   import org.springframework.web.bind.annotation.RequestMapping;
 
-   @RestController 
+   @RestController
 
-   public class HelloController { 
+   public class HelloController {
 
-   @RequestMapping("/") 
+   @RequestMapping("/")
 
-     public String index() { 
+     public String index() {
+         return "Greetings from Azure Spring Cloud!";
+     }
 
-         return "Greetings from Azure Spring Cloud!"; 
-     } 
-
-   } 
+   }
    ```
-4. Générez le fichier .jar :
+
+4. Générez le fichier  *.jar* :
 
    ```azurecli
    mvn clean package -DskipTests
    ```
+
 5. Créez l’application dans votre instance d’Azure Spring Cloud :
 
    ```azurecli
    az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --assign-endpoint
    ```
+
 6. Déployez l’application sur Azure Spring Cloud :
 
    ```azurecli
    az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
+
 7. Modifiez le code de votre déploiement intermédiaire :
 
    ```java
-   package com.example.hellospring; 
-   import org.springframework.web.bind.annotation.RestController; 
-   import org.springframework.web.bind.annotation.RequestMapping; 
+   package com.example.hellospring;
+   import org.springframework.web.bind.annotation.RestController;
+   import org.springframework.web.bind.annotation.RequestMapping;
 
-   @RestController 
+   @RestController
 
-   public class HelloController { 
+   public class HelloController {
 
-   @RequestMapping("/") 
+   @RequestMapping("/")
 
-     public String index() { 
+     public String index() {
+         return "Greetings from Azure Spring Cloud! THIS IS THE GREEN DEPLOYMENT";
+     }
 
-         return "Greetings from Azure Spring Cloud! THIS IS THE GREEN DEPLOYMENT"; 
-     } 
-
-   } 
+   }
    ```
-8. Régénérez le fichier .jar :
+
+8. Régénérez le fichier  *.jar* :
 
    ```azurecli
-   mvn clean packge -DskipTests
+   mvn clean package -DskipTests
    ```
-9. Créez le déploiement vert : 
+
+9. Créez le déploiement vert :
 
    ```azurecli
-   az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar 
+   az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 ## <a name="view-apps-and-deployments"></a>Afficher les applications et les déploiements
@@ -130,31 +136,31 @@ Affichez les applications déployées en procédant comme suit :
    ![Capture d'écran affichant la liste des déploiements d'applications.](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
 
 1. Sélectionnez l'URL pour ouvrir l'application actuellement déployée.
-    
+
    ![Capture d'écran illustrant l'URL de l'application déployée.](media/spring-cloud-blue-green-staging/running-blue-app.png)
 
 1. Sélectionnez **Production** dans la colonne **État** pour afficher l'application par défaut.
-    
+
    ![Capture d'écran illustrant l'URL de l'application par défaut.](media/spring-cloud-blue-green-staging/running-default-app.png)
 
 1. Sélectionnez **Intermédiaire** dans la colonne **État** pour afficher l'application intermédiaire.
-    
+
    ![Capture d'écran illustrant l'URL de l'application intermédiaire.](media/spring-cloud-blue-green-staging/running-staging-app.png)
 
 >[!TIP]
-> * Vérifiez que votre point de terminaison de test se termine par une barre oblique (/) pour garantir le bon chargement du fichier CSS.  
+> * Vérifiez que votre point de terminaison de test se termine par une barre oblique (/) pour garantir le bon chargement du fichier CSS.
 > * Si votre navigateur vous demande d’entrer des informations d’identification de connexion pour afficher la page, utilisez [URL Decode](https://www.urldecoder.org/) pour décoder votre point de terminaison de test. URL Decode renvoie une URL au format *https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green*. Utilisez ce format pour accéder à votre point de terminaison.
 
->[!NOTE]    
+>[!NOTE]
 > Les paramètres du serveur de configuration s'appliquent à la fois à votre environnement intermédiaire et à votre environnement de production. Par exemple, si vous définissez *somepath* comme chemin du contexte (*server.servlet.context-path*) de votre passerelle d'application dans le serveur de configuration, le chemin de votre déploiement vert devient *https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...* .
- 
+
 Si vous visitez votre passerelle d’application publique à ce stade, vous devriez voir l’ancienne page sans votre nouveau changement.
 
 ## <a name="set-the-green-deployment-as-the-production-environment"></a>Définir le déploiement vert comme environnement de production
 
 1. Après avoir vérifié votre changement dans votre environnement intermédiaire, vous pouvez l’envoyer (push) en production. Sur la page **Applications** > **Déploiements**, sélectionnez l'application qui se trouve actuellement en **Production**.
 
-1. Sélectionnez les points de suspension situés après l'**État de l'inscription** du déploiement vert, puis sélectionnez **Définir en tant que déploiement de production**. 
+1. Sélectionnez les points de suspension situés après l'**État de l'inscription** du déploiement vert, puis sélectionnez **Définir en tant que déploiement de production**.
 
    ![Capture d'écran illustrant les sélections nécessaires pour définir la build intermédiaire en tant que build de production.](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 

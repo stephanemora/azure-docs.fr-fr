@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: 6646a2e5a074219df13f3bf373edfc53310c8104
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 07f208753265e35bbc51c74f74a87a1742fa52ff
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556601"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727476"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Rechercher dans le contenu Stockage Blob Azure
 
@@ -38,7 +38,7 @@ Une fois créé et rempli, l’index existe indépendamment de votre conteneur d
 
 Vous devez disposer des services Recherche cognitive Azure et Stockage Blob Azure. Dans Stockage Blob, vous avez besoin d’un conteneur qui fournit le contenu source.
 
-Vous pouvez commencer directement dans votre page du portail des comptes Stockage. Dans la page de navigation de gauche, sous **Service Blob**, cliquez sur **Ajouter Recherche cognitive Azure** pour créer un nouveau service ou en sélectionner un existant. 
+Vous pouvez commencer directement dans votre page du portail des comptes Stockage. Dans la page de navigation de gauche, sous **Service Blob**, sélectionnez **Ajouter Recherche cognitive Azure** pour créer un nouveau service ou en sélectionner un existant. 
 
 Une fois que vous avez ajouté Recherche cognitive Azure à votre compte de stockage, vous pouvez suivre le processus standard d’indexation de données blob. Nous vous recommandons d’utiliser l’Assistant **Importation des données** de Recherche cognitive Azure pour une mise en route simple ou d’appeler les API REST à l’aide d’un outil comme Postman. Ce tutoriel vous explique pas à pas comment appeler l’API REST dans Postman : [Indexer et rechercher des données semi-structurées (objets blob JSON) dans la Recherche cognitive Azure](search-semi-structured-data.md). 
 
@@ -48,7 +48,7 @@ Un *indexeur* est un sous-service qui reconnaît les sources de données dans Re
 
 Dans Stockage Azure, les objets blob sont indexés à l’aide de l’[indexeur de stockage d’objets blob de Recherche cognitive Azure](search-howto-indexing-azure-blob-storage.md). Vous pouvez appeler cet indexeur à partir de l’Assistant **Importation des données**, d’une API REST ou du kit SDK .NET. Dans le code, vous pouvez utiliser cet indexeur en définissant le type et en fournissant des informations de connexion qui incluent un compte Stockage Azure associé à un conteneur d’objets blob. Vous pouvez créer un sous-ensemble de vos objets blob en créant un répertoire virtuel, que vous pouvez ensuite transmettre comme paramètre, ou en filtrant sur une extension de type de fichier.
 
-Un indexeur effectue le « craquage de document » en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office et d’autres types de contenu sont détectés. Le craquage de document avec extraction de texte n’est pas facturé. Si vos objets blob contiennent des images, celles-ci sont ignorées si vous n’[ajoutez pas l’enrichissement par IA](search-blob-ai-integration.md). L’indexation standard s’applique uniquement au contenu texte.
+Un indexeur effectue le [« craquage de document »](search-indexer-overview.md#document-cracking) en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office et d’autres types de contenu sont détectés. Le craquage de document avec extraction de texte n’est pas facturé. Si vos objets blob contiennent des images, celles-ci sont ignorées si vous n’[ajoutez pas l’enrichissement par IA](search-blob-ai-integration.md). L’indexation standard s’applique uniquement au contenu texte.
 
 L’indexeur d’objets blob est assorti de paramètres de configuration et prend en charge le suivi des modifications si les données sous-jacentes fournissent suffisamment d’informations. Vous trouverez des informations supplémentaires sur les fonctionnalités de base dans [Indexeur de stockage d’objets blob de Recherche cognitive Azure](search-howto-indexing-azure-blob-storage.md).
 

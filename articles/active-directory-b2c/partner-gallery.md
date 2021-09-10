@@ -11,16 +11,18 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9703ef0caa5df967033001cbeb241d1649eb2a11
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 4935b42efa6e6fd17d66ddfba744ae36653ed952
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930266"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535139"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
-Notre réseau de partenaires ISV étend les fonctionnalités de nos solutions et vous aide ainsi à offrir des expériences fluides aux utilisateurs finaux. Azure AD B2C vous pouvez de vous intégrer avec des partenaires fournisseurs de logiciels indépendants pour activer des méthodes d’authentification multifacteur (MFA), effectuer un contrôle d’accès en fonction du rôle, activer la vérification et la confirmation d’identité, améliorer la sécurité grâce à la détection des bots et la protection contre les fraudes, et répondre aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). Suivez nos exemples de procédures détaillées pour découvrir comment intégrer des applications avec les partenaires fournisseurs de logiciels indépendants.
+Notre réseau de partenaires ISV étend les fonctionnalités de nos solutions et vous aide ainsi à offrir des expériences fluides aux utilisateurs finaux. Azure AD B2C vous pouvez de vous intégrer avec des partenaires fournisseurs de logiciels indépendants pour activer des méthodes d’authentification multifacteur (MFA), effectuer un contrôle d’accès en fonction du rôle, activer la vérification et la confirmation d’identité, améliorer la sécurité grâce à la détection des bots et la protection contre les fraudes, et répondre aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). Suivez nos exemples de procédures détaillées pour découvrir comment intégrer des applications avec les partenaires fournisseurs de logiciels indépendants. 
+
+Pour être pris en compte dans cet exemple de documentation, envoyez votre demande d’application dans le [portail Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx). Pour toute question supplémentaire, envoyez un e-mail à [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 >[!NOTE]
 >Sur le [site de la communauté Azure Active Directory B2C sur GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/), vous trouverez également des exemples de stratégies personnalisées fournis par la communauté.
@@ -43,10 +45,12 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 
 | Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
 |:-------------------------|:--------------|
+| ![Capture d’écran d’un logo BlokSec](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) est une solution d’authentification sans mot de passe et MFA sans jeton, qui fournit des services en temps réel basés sur le consentement et qui protège les clients contre les cyberattaques axées sur l’identité, telles que l’usurpation de mot de passe, l’hameçonnage et les attaques de l’intercepteur. |
 | ![Capture d’écran d’un logo Hypr](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) est un fournisseur d’authentification sans mot de passe qui remplace les mots de passe par des chiffrements à clé publique, éliminant les fraudes, le hameçonnage et la réutilisation des informations d’identification. |
 | ![Capture d’écran d’un logo Itsme](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) est une solution d’identification numérique conforme aux normes eiDAS (Electronic Identification, Authentication and Trust Services) qui permet aux utilisateurs de se connecter en toute sécurité sans avoir à utiliser de lecteurs de cartes, de mots de passe, de méthode d’authentification à deux facteurs ni de codes PIN multiples. |
 |![Capture d’écran d’un logo Keyless.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) est un fournisseur d’authentification sans mot de passe qui propose une authentification sous la forme d’une analyse biométrique faciale et élimine ainsi la fraude, le hameçonnage et la réutilisation des informations d’identification.
 | ![Capture d’écran d’un logo Nevis](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) permet une authentification sans mot de passe et offre une expérience utilisateur final axée sur l’interface mobile, entièrement personnalisée avec l’application Nevis Access pour une authentification forte du client et pour garantir le respect des obligations relatives aux transactions de la directive 2 sur les services de paiement (PSD2). |
+| ![Capture d’écran d’un logo nok nok](./media/partner-gallery/nok-nok-logo.png) | [Nok Nok](./partner-nok-nok.md) fournit une authentification sans mot de passe et active l’authentification multifactorielle certifiée FIDO, comme FIDO UAF, FIDO U2F, WebAuthn et FIDO2 pour les applications mobiles et web. Les clients Nok Nok peuvent améliorer leur sécurité tout en équilibrant l’expérience utilisateur.
 | ![Capture d’écran d’un logo Trusona](./media/partner-gallery/trusona-logo.png) | L’intégration avec [Trusona](./partner-trusona.md) vous aide à sécuriser vos connexions, et permet l’authentification sans mot de passe, l’authentification multifacteur et l’analyse de licence numérique. |
 | ![Capture d’écran d’un logo Twilio](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) fournit plusieurs solutions qui permettent l’authentification multifacteur (MFA) par l’envoi par SMS d’un mot de passe à usage unique (OTP), d’un mot de passe à usage unique et durée définie (TOTP) ou de notifications Push, et aident à se conformer aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). |
 | ![Capture d’écran d’un logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) permet une authentification forte du client en analysant le modèle de saisie d’un utilisateur. Il permet aux entreprises d’activer une authentification multifacteur sans assistance et de se conformer aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). |
@@ -67,6 +71,7 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 
 | Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
 |:-------------------------|:--------------|
+| ![Capture d’écran d’un logo Datawiza](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) permet l’authentification unique (SSO) et le contrôle d’accès granulaire pour vos applications, et étend Azure AD B2C pour la protection des applications héritées locales.  |
 | ![Capture d’écran d’un logo Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) permet un accès hybride sécurisé aux applications héritées locales sur plusieurs clouds. |
 | ![Capture d’écran d’un logo Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) fournit un accès hybride sécurisé à des applications locales en appliquant des stratégies d’accès cohérentes, en assurant la synchronisation des identités et en simplifiant la transition des applications entre des systèmes d’identité hérités et le contrôle d’accès et l’authentification standard fournis par Azure AD B2C. |
 | ![Capture d’écran d’un logo Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) fournit un accès sécurisé basé sur des stratégies aux applications privées et aux ressources, sans les risques liés aux coûts, à la charge ou à la sécurité d’un réseau privé virtuel (VPN). |
@@ -87,7 +92,9 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 
 | Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
 |:-------------------------|:--------------|
-| ![Capture d’écran du logo Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) est un fournisseur de WAF qui aide les organisations à se protéger contre les attaques malveillantes visant à exploiter des vulnérabilités telles que SQLi et XSS. |
+|  ![Capture d’écran d’un logo Akamai](./media/partner-gallery/akamai-logo.png) | [Pare-feu d’applications web Akamai](./partner-akamai.md) permet une manipulation précise du trafic afin de protéger et de sécuriser votre infrastructure d’identité contre les attaques malveillantes.  |
+|  ![Capture d’écran du logo Azure WAF](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) protège de manière centralisée vos applications web contre les vulnérabilités et attaques courantes.  |
+![Capture d’écran du logo Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) est un fournisseur de WAF qui aide les organisations à se protéger contre les attaques malveillantes visant à exploiter des vulnérabilités telles que SQLi et XSS. |
 
 
 ## <a name="additional-information"></a>Informations supplémentaires

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/21/2021
+ms.date: 09/01/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 649bf52c48867f4508a7071cb1443b62eae36010
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 3dfcfcab7421b6aa8710310fdffa08f54688c4fd
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532914"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219936"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent
 
@@ -28,15 +28,18 @@ ms.locfileid: "122532914"
 
 Le fait d’inscrire votre machine virtuelle SQL Server auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) déverrouille une multitude de fonctionnalités pour votre SQL Server sur une machine virtuelle Azure.
 
-Cet article vous apprend à inscrire une machine virtuelle SQL Server individuelle auprès de l’extension SQL IaaS Agent. Vous pouvez également inscrire toutes les machines virtuelles SQL Server [automatiquement](sql-agent-extension-automatic-registration-all-vms.md) ou [plusieurs machines virtuelles scriptées en bloc](sql-agent-extension-manually-register-vms-bulk.md).
+Cet article vous apprend à inscrire une machine virtuelle SQL Server individuelle auprès de l’extension SQL IaaS Agent. Vous pouvez également inscrire toutes les machines virtuelles SQL Server dans une inscription [automatiquement](sql-agent-extension-automatic-registration-all-vms.md) ou [plusieurs machines virtuelles scriptées en bloc](sql-agent-extension-manually-register-vms-bulk.md).
+
+> [!NOTE]
+> À compter de septembre 2021, l’inscription auprès de l’extension IaaS SQL en mode complet ne nécessite plus le redémarrage du service SQL Server. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-S’inscrire auprès de [l’extension SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) crée la _ressource_ de **machine virtuelle SQL** dans votre abonnement ; il s’agit d’une ressource _distincte_ de la ressource de machine virtuelle. Le fait de désinscrire votre machine virtuelle SQL Server de l’extension va supprimer la _ressource_ de **machine virtuelle SQL**, mais pas la machine virtuelle elle-même.
+S’inscrire auprès de [l’extension SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) crée la [**ressource** de _machine virtuelle SQL_](manage-sql-vm-portal.md) dans votre abonnement ; il s’agit d’une ressource _distincte_ de la ressource de machine virtuelle. Le fait de désinscrire votre machine virtuelle SQL Server de l’extension va supprimer la _ressource_ de **machine virtuelle SQL**, mais pas la machine virtuelle elle-même.
 
 Pendant le déploiement d’une image de machine virtuelle SQL Server de la Place de marché Azure via le portail Azure, la machine virtuelle SQL Server est inscrite automatiquement à l’extension. Toutefois, si vous choisissez d’installer automatiquement SQL Server sur une machine virtuelle Azure ou de configurer une machine virtuelle Azure à partir d’un disque dur virtuel personnalisé, vous devez inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent pour déverrouiller toutes les fonctionnalités et capacités de gestion.
 
-Pour utiliser l’extension SQL IaaS Agent, vous devez d’abord [inscrire votre abonnement auprès du fournisseur **Microsoft.SqlVirtualMachine**](#register-subscription-with-resource-provider), ce qui donne à l’extension SQL IaaS Agent la capacité de créer des ressources dans cet abonnement spécifique.
+Pour utiliser l’extension SQL IaaS Agent, vous devez d’abord [inscrire votre abonnement auprès du fournisseur **Microsoft.SqlVirtualMachine**](#register-subscription-with-rp), ce qui donne à l’extension SQL IaaS Agent la capacité de créer des ressources dans cet abonnement spécifique.
 
 > [!IMPORTANT]
 > L’extension SQL IaaS Agent collecte des données dans le seul but de fournir d’autres avantages aux clients lors de l’utilisation de SQL Server dans Machines virtuelles Azure. Microsoft n’utilisera pas ces données pour les audits de gestion des licences sans le consentement préalable du client. Pour plus d’informations, consultez l’[Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
@@ -49,9 +52,9 @@ Pour inscrire votre machine virtuelle SQL Server auprès de l’extension, voici
 - Une [machine virtuelle Windows Server 2008 (ou version ultérieure)](../../../virtual-machines/windows/quick-create-portal.md) de modèle de ressource Azure avec [SQL Server 2008 (ou version ultérieure)](https://www.microsoft.com/sql-server/sql-server-downloads), déployée sur le cloud public ou le cloud Azure Government.
 - La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli) ou d’[Azure PowerShell (5.0 minimum)](/powershell/azure/install-az-ps).
 
-## <a name="register-subscription-with-resource-provider"></a>Inscription d’un abonnement auprès d’un fournisseur de ressources
+## <a name="register-subscription-with-rp"></a>Inscrire un abonnement auprès d’un fournisseur de ressources
 
-Pour inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent, vous devez d’abord inscrire votre abonnement auprès du fournisseur de ressources **Microsoft.SqlVirtualMachine**. Ainsi, l’extension SQL IaaS Agent peut créer des ressources dans votre abonnement.  Pour ce faire, vous pouvez utiliser le portail Azure, l’interface Azure CLI ou Azure PowerShell.
+Pour inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent, vous devez d’abord inscrire votre abonnement auprès du fournisseur de ressources (RP) **Microsoft.SqlVirtualMachine**. Ainsi, l’extension SQL IaaS Agent peut créer des ressources dans votre abonnement. Pour ce faire, vous pouvez utiliser le portail Azure, l’interface Azure CLI ou Azure PowerShell.
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -83,19 +86,74 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## <a name="register-with-extension"></a>S’inscrire auprès de l’extension
+## <a name="full-mode"></a>Mode complet
 
-Il existe trois modes d’administration pour l’extension [SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md#management-modes).
+Pour inscrire directement votre machine virtuelle SQL Server en mode complet, utilisez la commande Azure PowerShell suivante :
 
-L’inscription de l’extension en mode d’administration complet redémarre le service SQL Server ; il est donc recommandé d’inscrire tout d’abord l’extension en mode léger, puis de procéder à la [mise à niveau vers le mode complet](#upgrade-to-full) pendant une fenêtre de maintenance.
+  ```powershell-interactive
+  # Get the existing  Compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 
-### <a name="lightweight-management-mode"></a>Mode de gestion léger
+  # Register with SQL IaaS Agent extension in full mode
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  
+  ```
 
-Utilisez l’interface de ligne de commande Azure ou Azure PowerShell pour inscrire votre machine virtuelle SQL Server auprès de l’extension en mode léger. Le service SQL Server ne sera pas redémarré. Vous pouvez ensuite effectuer une mise à niveau vers le mode complet à tout moment ; cependant, comme cela entraîne le redémarrage du service SQL Server, nous vous recommandons d’attendre une fenêtre de maintenance planifiée.
+Pour en savoir plus sur le mode complet, consultez [modes de gestion](sql-server-iaas-agent-extension-automate-management.md#management-modes).
+
+### <a name="upgrade-to-full"></a>Mettre à niveau vers le mode complet
+
+Les machines virtuelles SQL Server qui ont inscrit l’extension en mode *léger* peuvent effectuer une mise à niveau vers le mode _complet_ à l’aide du portail Azure, de l’interface de ligne de commande Azure ou d’Azure PowerShell. Les machines virtuelles SQL Server en mode _sans agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Il est impossible de passer à une version inférieure. Pour ce faire, vous devez [désinscrire](#unregister-from-extension) la machine virtuelle SQL Server de l’extension SQL IaaS Agent. Cette opération supprime la _ressource_ de **machine virtuelle SQL**, mais ne supprime pas la machine virtuelle elle-même.
+
+#### <a name="azure-portal"></a>Portail Azure
+
+Pour mettre à niveau l’extension en mode complet à l’aide du portail Azure, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à votre ressource [machines virtuelles SQL](manage-sql-vm-portal.md#access-the-resource).
+1. Sélectionnez votre machine virtuelle SQL Server et accédez à la page **Vue d’ensemble**.
+1. Pour les machines virtuelles SQL Server avec les modes d’extension IaaS NoAgent ou léger, sélectionnez le message **Seules les mises à jour de type de licence et d’édition sont disponibles avec le mode d’extension IaaS SQL...** .
+
+   ![Sélections de changement de mode à partir du portail](./media/sql-agent-extension-manually-register-single-vm/change-sql-iaas-mode-portal.png)
+
+1. Sélectionnez **Confirmer** pour mettre à niveau votre mode d’extension IaaS SQL Server sur full.
+
+    ![Sélectionnez **Confirmer** pour mettre à niveau votre mode d’extension IaaS SQL Server sur full.](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
+
+#### <a name="command-line"></a>Ligne de commande
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
+
+Pour mettre à niveau l’extension en mode complet, exécutez l’extrait de code Azure CLI suivant :
+
+  ```azurecli-interactive
+  # Update to full mode
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Pour mettre à niveau l’extension en mode complet, exécutez l’extrait de code Azure PowerShell suivant :
+
+  ```powershell-interactive
+  # Get the existing  Compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+
+  # Register with SQL IaaS Agent extension in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
+  ```
+
+---
+
+## <a name="lightweight-mode"></a>Mode léger
+
+Utilisez Azure CLI ou Azure PowerShell pour inscrire votre machine virtuelle SQL Server avec l’extension en mode léger pour des fonctionnalités limitées. 
 
 Indiquez une licence SQL Server de type paiement à l’utilisation (`PAYG`) pour payer en fonction de l’utilisation, Azure Hybrid Benefit (`AHUB`) pour utiliser votre propre licence ou récupération d’urgence (`DR`) pour activer la [licence de réplica de récupération d’urgence gratuite](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
 
 Les instances de cluster de basculement et les déploiements multi-instances ne peuvent être inscrits auprès de l’extension SQL IaaS Agent qu’en mode léger.
+
+Pour en savoir plus sur le mode léger, consultez [modes de gestion](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
@@ -118,26 +176,11 @@ Inscrire une machine virtuelle SQL Server en mode léger avec Azure PowerShell 
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
     -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
-
 ---
 
-### <a name="full-management-mode"></a>Mode de gestion complet
+## <a name="noagent-management-mode"></a>Mode de gestion sans agent
 
-L’inscription de votre machine virtuelle SQL Server en mode complet redémarre le service SQL Server. Agissez avec précaution.
-
-Pour inscrire directement votre machine virtuelle SQL Server en mode complet (et éventuellement redémarrer votre service SQL Server), utilisez la commande Azure PowerShell suivante :
-
-  ```powershell-interactive
-  # Get the existing  Compute VM
-  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Register with SQL IaaS Agent extension in full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-  ```
-
-### <a name="noagent-management-mode"></a>Mode de gestion sans agent
-
-Les instances de SQL Server 2008 et 2008 R2 installées sur Windows Server 2008 (_non R2_) peuvent être inscrites auprès de l’extension SQL IaaS Agent en [mode sans agent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Cette option garantit la conformité et permet de surveiller la machine virtuelle SQL Server dans le portail Azure avec des fonctionnalités limitées.
+Les instances de SQL Server 2008 et 2008 R2 installées sur Windows Server 2008 (_non R2_) peuvent être inscrites auprès de l’extension SQL IaaS Agent en [mode NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Cette option garantit la conformité et permet de surveiller la machine virtuelle SQL Server dans le portail Azure avec des fonctionnalités limitées.
 
 Pour le **type de licence**, spécifiez `AHUB`, `PAYG` ou `DR`. Pour l’**offre d’image**, spécifiez `SQL2008-WS2008` ou `SQL2008R2-WS2008`.
 
@@ -167,9 +210,10 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
+
 ## <a name="check-extension-mode"></a>Vérifier le mode d’extension
 
-Utilisez Azure PowerShell pour vérifier le mode dans lequel se trouve votre extension de l’agent IaaS SQL Server. 
+Utilisez Azure PowerShell pour vérifier le mode de gestion dans lequel se trouve votre extension de l’agent IaaS SQL Server. 
 
 Pour vérifier le mode de l’extension, utilisez cette cmdlet Azure PowerShell : 
 
@@ -183,9 +227,6 @@ $sqlvm.SqlManagementType
 
 Les machines virtuelles SQL Server qui ont inscrit l’extension en mode *léger* peuvent effectuer une mise à niveau vers le mode _complet_ à l’aide du portail Azure, de l’interface de ligne de commande Azure ou d’Azure PowerShell. Les machines virtuelles SQL Server en mode _sans agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Il est impossible de passer à une version inférieure. Pour ce faire, vous devez [désinscrire](#unregister-from-extension) la machine virtuelle SQL Server de l’extension SQL IaaS Agent. Cette opération supprime la _ressource_ de **machine virtuelle SQL**, mais ne supprime pas la machine virtuelle elle-même.
 
-> [!NOTE]
-> Lorsque vous mettez à niveau le mode de gestion de l’extension IaaS SQL vers le mode complet (Full), le service SQL Server est redémarré. Dans certains cas, le redémarrage peut entraîner la modification des noms de principal du service (SPN) associés au service SQL Server en un compte d’utilisateur incorrect. Si vous rencontrez des problèmes de connectivité après la mise à niveau du mode de gestion vers le mode complet, [désinscrivez puis réinscrivez vos SPN](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
-
 ### <a name="azure-portal"></a>Portail Azure
 
 Pour mettre à niveau l’extension en mode complet à l’aide du portail Azure, procédez comme suit :
@@ -193,13 +234,13 @@ Pour mettre à niveau l’extension en mode complet à l’aide du portail Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à votre ressource [machines virtuelles SQL](manage-sql-vm-portal.md#access-the-resource).
 1. Sélectionnez votre machine virtuelle SQL Server, puis choisissez **Vue d’ensemble**.
-1. Pour les machines virtuelles SQL Server avec les modes IaaS NoAgent ou léger, sélectionnez le message **Seules les mises à jour de type de licence et d’édition sont disponibles avec l’extension IaaS SQL**.
+1. Pour les machines virtuelles SQL Server avec les modes IaaS NoAgent ou léger, sélectionnez le message **Seules les mises à jour de type de licence et d’édition sont disponibles avec l’extension IaaS SQL actuelle...** .
 
    ![Sélections de changement de mode à partir du portail](./media/sql-agent-extension-manually-register-single-vm/change-sql-iaas-mode-portal.png)
 
-1. Activez la case à cocher **J’accepte de redémarrer le service SQL Server sur la machine virtuelle**, puis sélectionnez **Confirmer** pour mettre à niveau votre mode IaaS vers le mode complet.
+1. Sélectionnez **Confirmer** pour mettre à niveau votre mode IaaS d’extension SQL Server sur full.
 
-    ![Case à cocher J’accepte de redémarrer le service SQL Server sur la machine virtuelle](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
+    ![Sélectionnez **Confirmer** pour mettre à niveau votre mode IaaS d’extension SQL Server sur full](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
 
 ### <a name="command-line"></a>Ligne de commande
 
@@ -281,7 +322,6 @@ Il est possible que votre extension de l’agent IaaS SQL soit dans un état d�
 1. Si votre état de provisionnement indique **Échec**, sélectionnez **Réparer** pour réparer l’extension. Si votre état est **Réussite**, vous pouvez cocher la case en regard de **Forcer la réparation** pour réparer l’extension, quel que soit l’état. 
 
    ![Si votre état de provisionnement indique **Échec**, sélectionnez **Réparer** pour réparer l’extension. Si votre état est **Réussite**, vous pouvez cocher la case en regard de **Forcer la réparation** pour réparer l’extension, quel que soit l’état.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
-
 
 
 ## <a name="unregister-from-extension"></a>Désinscrire de l’extension

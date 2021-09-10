@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 996d08eef2f3ab140c07ec77b031993c9c45aed9
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: ea9f57364d6b7cca884f87c36623a73bbcb37ae6
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564090"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186872"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importation de mises à jour dans Device Update pour IoT Hub – Schéma et autres informations
 Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, veillez à consulter d’abord les [concepts](import-concepts.md) et le [guide pratique](import-update.md). Pour des détails sur le schéma utilisé lors de la construction d’un manifeste d’importation, ainsi que des informations sur les objets associés, voir ci-dessous.
@@ -93,10 +93,10 @@ URL d’autorisation : https://login.microsoftonline.com/common/oauth2/authoriz
 
 **Étendues**
 
-| Name | Description |
+| Nom | Description |
 | --- | --- |
-| https://api.adu.microsoft.com/user_impersonation | Emprunter l’identité de votre compte d’utilisateur |
-| https://api.adu.microsoft.com/.default  | Flux d’informations d’identification du client |
+| `https://api.adu.microsoft.com/user_impersonation` | Emprunter l’identité de votre compte d’utilisateur |
+| `https://api.adu.microsoft.com/.default`  | Flux d’informations d’identification du client |
 
 
 **autorisations**
@@ -123,8 +123,8 @@ az account get-access-token --resource 'https://api.adu.microsoft.com/'
 _Utilisation des informations d’identification de l’utilisateur_ 
 
 ```powershell
-$clientId = '1e5942b3-36f1-43eb-88d9-98c12d95000b’
-$tenantId = '72f988bf-86f1-41af-91ab-2d7cd011db47’
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
 $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
 $Scope = 'https://api.adu.microsoft.com/user_impersonation'
 

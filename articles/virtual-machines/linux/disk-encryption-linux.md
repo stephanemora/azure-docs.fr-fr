@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: eed40e353531ec6df4ecafad3757845b45a99886
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: ee1adc5b6964b8583c33b68a9e02bb77cb050f4a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071842"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698547"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité DM-Crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation et des disques de données. Il assure en outre le chiffrement des disques temporaires lors de l’utilisation de la fonctionnalité EncryptFormatAll.
 
@@ -81,26 +83,29 @@ Connect-AzAccount
 Si vous avez plusieurs abonnements et que vous souhaitez en spécifier un, utilisez la cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) pour les lister, puis la cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext) :
 
 ```powershell
-Set-AzContext -Subscription -Subscription <SubscriptionId>
+Set-AzContext -Subscription <SubscriptionId>
 ```
 
 L’exécution de la cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) permet de vérifier que l’abonnement approprié a été sélectionné.
 
 Pour vérifier que les cmdlets Azure Disk Encryption sont installées, utilisez la cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command) :
-     
+
 ```powershell
 Get-command *diskencryption*
 ```
+
 Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps). 
 
 ## <a name="enable-encryption-on-an-existing-or-running-linux-vm"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution
+
 Dans ce scénario, vous pouvez activer le chiffrement en utilisant le modèle Resource Manager, des applets de commande PowerShell ou des commandes CLI. Si vous avez besoin d’informations de schéma pour l’extension de machine virtuelle, consultez l’article [Azure Disk Encryption pour extension Linux](../extensions/azure-disk-enc-linux.md).
 
 >[!IMPORTANT]
  >Il est impératif de réaliser un instantané et/ou une sauvegarde d’une instance de machine virtuelle basée sur un disque managé en dehors d’Azure Disk Encryption et avant de l’activer. Vous pouvez prendre un instantané du disque managé à partir du portail ou par le biais de [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md). Les sauvegardes vous garantissent une possibilité de récupération en cas de défaillance inattendue pendant le chiffrement. Une fois la sauvegarde effectuée, il est possible d’utiliser la cmdlet Set-AzVMDiskEncryptionExtension pour chiffrer des disques managés en spécifiant le paramètre -skipVmBackup. La commande Set-AzVMDiskEncryptionExtension échoue sur les machines virtuelles basées sur des disques managés tant qu’une sauvegarde n’a pas été effectuée et que ce paramètre n’a pas été spécifié. 
 >
->Le chiffrement ou la désactivation du chiffrement peut entraîner le redémarrage de la machine virtuelle. 
->
+> Le chiffrement ou la désactivation du chiffrement peut entraîner le redémarrage de la machine virtuelle.
+
+Pour désactiver le chiffrement, consultez [Désactiver le chiffrement et supprimer l’extension de chiffrement](#disable-encryption-and-remove-the-encryption-extension).
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-azure-cli"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution avec Azure CLI 
 
@@ -129,14 +134,10 @@ La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
-
-- **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
-
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
-     ```
+Pour désactiver le chiffrement, consultez [Désactiver le chiffrement et supprimer l’extension de chiffrement](#disable-encryption-and-remove-the-encryption-extension).
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-powershell"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution avec PowerShell
+
 Utilisez l’applet de commande [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) pour activer le chiffrement sur une machine virtuelle en cours d’exécution dans Azure. Prenez un [instantané](snapshot-copy-managed-disk.md) et/ou effectuez une sauvegarde de la machine virtuelle avec [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md) avant de chiffrer les disques. Le paramètre -skipVmBackup est déjà spécifié dans les scripts PowerShell pour chiffrer une machine virtuelle Linux en cours d'exécution.
 
 -  **Chiffrer une machine virtuelle en cours d’exécution :** Le script ci-dessous initialise vos variables et exécute la cmdlet Set-AzVMDiskEncryptionExtension. Les prérequis que sont le groupe de ressources, la machine virtuelle et le coffre de clés ont été créés. Remplacez MyVirtualMachineResourceGroup, MySecureVM et MySecureVault par vos valeurs. Modifiez le paramètre -VolumeType pour spécifier les disques que vous chiffrez.
@@ -178,12 +179,9 @@ Utilisez l’applet de commande [Set-AzVMDiskEncryptionExtension](/powershell/mo
      ```azurepowershell-interactive 
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
-    
-- **Désactiver le chiffrement de disque :** Pour désactiver le chiffrement, utilisez la cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
-     
-     ```azurepowershell-interactive 
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-     ```
+
+Pour désactiver le chiffrement, consultez [Désactiver le chiffrement et supprimer l’extension de chiffrement](#disable-encryption-and-remove-the-encryption-extension).
+
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-with-a-template"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution avec un modèle
 
@@ -206,6 +204,8 @@ Le tableau suivant répertorie des paramètres du modèle Resource Manager pour 
 | location | Emplacement pour toutes les ressources. |
 
 Pour plus d’informations sur la configuration du modèle de chiffrement de disque de machine virtuelle Linux, consultez [Azure Disk Encryption pour Linux](../extensions/azure-disk-enc-linux.md).
+
+Pour désactiver le chiffrement, consultez [Désactiver le chiffrement et supprimer l’extension de chiffrement](#disable-encryption-and-remove-the-encryption-extension).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur les machines virtuelles Linux
 
@@ -311,14 +311,14 @@ Utilisez les instructions des mêmes scripts Azure Disk Encryption pour prépare
 * [Préparer un disque dur virtuel Linux déjà chiffré](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-linux-vhd)
 
 >[!IMPORTANT]
- >Il est impératif de réaliser un instantané et/ou une sauvegarde d’une instance de machine virtuelle basée sur un disque managé en dehors d’Azure Disk Encryption et avant de l’activer. Vous pouvez prendre un instantané du disque managé à partir du portail ou utiliser le service [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md). Les sauvegardes vous garantissent une possibilité de récupération en cas de défaillance inattendue pendant le chiffrement. Une fois la sauvegarde effectuée, il est possible d’utiliser la cmdlet Set-AzVMDiskEncryptionExtension pour chiffrer des disques managés en spécifiant le paramètre -skipVmBackup. La commande Set-AzVMDiskEncryptionExtension échoue sur les machines virtuelles basées sur des disques managés tant qu’une sauvegarde n’a pas été effectuée et que ce paramètre n’a pas été spécifié. 
+ >Il est impératif de réaliser un instantané et/ou une sauvegarde d’une instance de machine virtuelle basée sur un disque managé en dehors d’Azure Disk Encryption et avant de l’activer. Vous pouvez prendre un instantané du disque managé à partir du portail ou utiliser le service [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md). Les sauvegardes vous garantissent une possibilité de récupération en cas de défaillance inattendue pendant le chiffrement. Une fois la sauvegarde effectuée, il est possible d’utiliser la cmdlet Set-AzVMDiskEncryptionExtension pour chiffrer des disques managés en spécifiant le paramètre -skipVmBackup. La commande Set-AzVMDiskEncryptionExtension échoue sur les machines virtuelles basées sur des disques managés tant qu’une sauvegarde n’a pas été effectuée et que ce paramètre n’a pas été spécifié.
 >
-> Le chiffrement ou la désactivation du chiffrement peut entraîner le redémarrage de la machine virtuelle. 
+> Le chiffrement ou la désactivation du chiffrement peut entraîner le redémarrage de la machine virtuelle.
 
 
 
 ### <a name="use-azure-powershell-to-encrypt-vms-with-pre-encrypted-vhds"></a>Utiliser Azure PowerShell pour chiffrer des machines virtuelles avec des disques durs virtuels préchiffrés 
-Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré avec la cmdlet PowerShell [Set-AzVMOSDisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples). L’exemple ci-dessous vous montre certains paramètres courants. 
+Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré avec la cmdlet PowerShell [Set-AzVMOSDisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples). L’exemple ci-dessous vous montre certains paramètres courants.
 
 ```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
@@ -386,9 +386,58 @@ Contrairement à la syntaxe de PowerShell, l’interface CLI ne nécessite pas q
     >[!NOTE]
     > La syntaxe de la valeur du paramètre disk-encryption-keyvault est la chaîne d’identificateur complet : /subscriptions/[GUID_ID_abonnement]/resourceGroups/[nom_groupe_ressourcesKV]/providers/Microsoft.KeyVault/vaults/[nom_coffre_clés]</br> La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de la clé KEK comme dans : https://[nom_coffre_clés].vault.azure.net/keys/[nom_clé_kek]/[ID_unique_clé_kek] 
 
+## <a name="disable-encryption-and-remove-the-encryption-extension"></a>Désactiver le chiffrement et supprimer l’extension de chiffrement
 
-## <a name="disable-encryption-for-linux-vms"></a>Désactiver le chiffrement pour les machines virtuelles Linux
-[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
+
+Vous pouvez désactiver l’extension Azure Disk Encryption et vous pouvez également la supprimer. Il s’agit de deux opérations distinctes.
+
+Pour supprimer ADE, il est recommandé de désactiver d’abord le chiffrement, puis de supprimer l’extension. Si vous supprimez l’extension de chiffrement sans la désactiver, les disques seront toujours chiffrés. Si vous désactivez le chiffrement **après** la suppression de l’extension, l’extension sera réinstallée (pour effectuer l’opération de déchiffrement) et devra être supprimée une deuxième fois.
+
+> [!WARNING]
+> Vous ne pouvez **pas** désactiver le chiffrement si le disque du système d’exploitation est chiffé. (Les disques du système d’exploitation sont chiffrés lorsque l’opération de chiffrement d’origine spécifie volumeType=ALL ou volumeType=OS.) 
+>
+> La désactivation du chiffrement ne fonctionne que lorsque les disques de données sont chiffrés, mais que le disque du système d’exploitation ne l’est pas.
+
+### <a name="disable-encryption"></a>Désactiver le chiffrement
+
+Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un modèle Resource Manager. Le fait de désactiver le chiffrement ne supprime **pas** l’extension (voir [Supprimer l’extension de chiffrement](#remove-the-encryption-extension)).
+
+- **Désactiver le chiffrement de disque avec Azure PowerShell :** Pour désactiver le chiffrement, utilisez la cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption).
+
+     ```azurepowershell-interactive
+     Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
+     ```
+
+- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). 
+
+     ```azurecli-interactive
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
+     ```
+
+- **Désactiver le chiffrement avec un modèle Resource Manager :** 
+
+    1. Cliquez sur **Déployer sur Azure** dans le modèle [Désactiver le chiffrement de disque sur une machine virtuelle Linux en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm-without-aad).
+    2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement, la machine virtuelle, le type de volume, les conditions juridiques et le contrat.
+    3.  Cliquez sur **Acheter** pour désactiver le chiffrement de disque sur une machine virtuelle Linux en cours d’exécution.
+
+### <a name="remove-the-encryption-extension"></a>Supprimer l’extension de chiffrement
+
+Si vous souhaitez déchiffrer vos disques et supprimer l’extension de chiffrement, vous devez désactiver le chiffrement **avant** de supprimer l’extension (voir [Désactiver le chiffrement](#disable-encryption)).
+
+Vous pouvez supprimer l’extension de chiffrement à l’aide d’Azure PowerShell ou d’Azure CLI. 
+
+- **Désactiver le chiffrement de disque avec Azure PowerShell :** pour supprimer le chiffrement, utilisez la cmdlet [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension).
+
+     ```azurepowershell-interactive
+     Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
+     ```
+
+- **Désactiver le chiffrement avec Azure CLI :** pour supprimer le chiffrement, utilisez la commande [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete).
+
+     ```azurecli-interactive
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForLinux"
+     ```
+
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 

@@ -4,13 +4,13 @@ description: Utilisez Azure Resource Manager et Azure CLI pour déployer des res
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: aa23bfd9d867b9e0d5d2724a2b1f41b9fbc8e5da
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/15/2021
+ms.openlocfilehash: 1feb5f2e858113086b9349c79dacb024570fb5a4
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954765"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635156"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-cli"></a>Déployer des ressources avec Bicep et Azure CLI
 
@@ -147,6 +147,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 Utilisez des guillemets doubles autour du JSON que vous voulez passer à l’objet.
 
+Vous pouvez utiliser une variable pour contenir les valeurs de paramètre. Dans Bash, définissez la variable sur toutes les valeurs de paramètre et ajoutez-la à la commande de déploiement.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-bicep> \
+  --parameters $params
+```
+
+Toutefois, si vous utilisez Azure CLI avec l’invite de commandes (CMD) Windows ou PowerShell, définissez la variable sur une chaîne JSON. Échappez les guillemets : `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
+
 ### <a name="parameter-files"></a>Fichiers de paramètres
 
 Au lieu de passer des paramètres en tant que valeurs inline dans votre script, il peut s’avérer plus facile d’utiliser un fichier JSON qui contient les valeurs des paramètres. Le fichier de paramètres doit être un fichier local. Les fichiers de paramètres externes ne sont pas pris en charge avec Azure CLI. Le fichier Bicep utilise des fichiers de paramètres JSON.
@@ -169,7 +182,7 @@ Avant de déployer votre fichier Bicep, vous pouvez obtenir un aperçu des chan
 
 ## <a name="deploy-template-specs"></a>Déployer des specs de modèle
 
-Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
+Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep). Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
 
 ## <a name="deployment-name"></a>Nom du déploiement
 
@@ -200,5 +213,5 @@ Pour éviter les conflits lors de déploiements simultanés et faire en sorte qu
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour restaurer un déploiement réussi lorsque vous obtenez une erreur, consultez [Restaurer en cas d’erreur vers un déploiement réussi](../templates/rollback-on-error.md).
-* Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../templates/syntax.md).
+- Pour comprendre comment définir des paramètres dans votre fichier, consultez [Comprendre la structure et la syntaxe des fichiers Bicep](file.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](../templates/common-deployment-errors.md).

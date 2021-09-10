@@ -7,18 +7,18 @@ ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0868720668f5db09748e6976327f1500bc8a4781
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8d85f5f18ad21b5a27a7fdb48e9ee14ab751f5d5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733352"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113757908"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>Migrer votre application IoT Central v2 vers v3
 
 Actuellement, lorsque vous créez une application IoT Central, il s’agit d’une application v3. Si vous avez déjà créé une application, selon la date à laquelle vous l’avez créée, il peut s’agir d’une application v2. Cet article explique comment migrer une application v2 vers une application v3 pour vous assurer que vous utilisez les fonctionnalités d’IoT Central les plus récentes.
 
-Pour savoir comment identifier la version d’une application IoT Central, consultez [À propos de votre application](howto-get-app-info.md).
+Pour savoir comment identifier la version d’une application IoT Central, consultez [Comment obtenir des informations sur mon application ?](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 Les étapes à suivre pour migrer une application de la version 2 à la version 3 sont les suivantes :
 
@@ -72,7 +72,7 @@ Après la création de votre application v3, apportez les modifications de conf
 
 Voici quelques étapes de configuration recommandées à prendre en compte :
 
-- [Configurer les tableaux de bord](howto-add-tiles-to-your-dashboard.md)
+- [Configurer les tableaux de bord](howto-manage-dashboards.md)
 - [Configurer une exportation de données](howto-export-data.md)
 - [Configurer des règles et des actions](quick-configure-rules.md)
 - [Personnaliser l’interface utilisateur de l’application](howto-customize-ui.md)

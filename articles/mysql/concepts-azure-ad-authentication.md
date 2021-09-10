@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 5fb4e8e4b204653c3d78f89a42220dd78b0eec1f
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: ea70b094c1b53a5ec4a7c80705e4ac795e6d8629
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570949"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598421"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 L’authentification Microsoft Azure Active Directory (Azure AD) est un mécanisme de connexion à Azure Database pour MySQL à l’aide d’identités définies dans Azure AD.
 Avec l’authentification Azure AD, vous pouvez gérer les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé, ce qui simplifie la gestion des autorisations.
@@ -52,7 +54,7 @@ En cas d’utilisation de l’authentification Azure AD, il existe deux comptes 
 
 ## <a name="permissions"></a>Autorisations
 
-Pour créer des utilisateurs qui peuvent s’authentifier avec Azure AD, vous devez être l'administrateur Azure AD désigné. Cet utilisateur est attribué en configurant le compte d’administrateur Azure AD pour un serveur Azure Database pour MySQL spécifique.
+Pour créer des utilisateurs qui peuvent s’authentifier avec Azure AD, vous devez être l’administrateur Azure AD désigné. Cet utilisateur est attribué en configurant le compte d’administrateur Azure AD pour un serveur Azure Database pour MySQL spécifique.
 
 Pour créer un utilisateur de base de données Azure AD, vous devez vous connecter en tant qu’administrateur Azure AD. Cela est illustré dans [Configurer et se connecter avec Azure AD pour Azure Database pour MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 

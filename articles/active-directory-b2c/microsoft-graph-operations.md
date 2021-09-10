@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 06/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 834afe8d0f0c5c53c2cb300d666dbcccbee46ec0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9157b6212adac3c9bfa5f5c00a9c580a615bf8cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962426"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562203"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gérer Azure AD B2C avec Microsoft Graph
 
@@ -40,7 +40,7 @@ Pour utiliser l’API MS Graph et interagir avec les ressources de votre locata
 
 ## <a name="user-phone-number-management-beta"></a>Gestion des numéros de téléphone des utilisateurs (bêta)
 
-Numéro de téléphone pouvant être utilisé par un utilisateur pour se connecter à l’aide de [SMS ou appels vocaux](identity-provider-local.md#phone-sign-in)ou de l’[authentification multifacteur](multi-factor-authentication.md). Pour plus d’informations, consultez [API des méthodes d’authentification Azure AD](/graph/api/resources/phoneauthenticationmethod).
+Numéro de téléphone pouvant être utilisé par un utilisateur pour se connecter à l’aide de [SMS ou appels vocaux](sign-in-options.md#phone-sign-in)ou de l’[authentification multifacteur](multi-factor-authentication.md). Pour plus d’informations, consultez [API des méthodes d’authentification Azure AD](/graph/api/resources/phoneauthenticationmethod).
 
 - [Ajouter](/graph/api/authentication-post-phonemethods)
 - [Liste](/graph/api/authentication-list-phonemethods)
@@ -57,7 +57,7 @@ Notez que l’opération [list](/graph/api/authentication-list-phonemethods) ret
 
 ## <a name="self-service-password-reset-email-address-beta"></a>Adresse e-mail de réinitialisation de mot de passe en libre-service (bêta)
 
-Adresse e-mail pouvant être utilisée par un [compte de connexion nom_utilisateur](identity-provider-local.md#username-sign-in) pour réinitialiser le mot de passe. Pour plus d’informations, consultez [API des méthodes d’authentification Azure AD](/graph/api/resources/emailauthenticationmethod).
+Adresse e-mail pouvant être utilisée par un [compte de connexion nom_utilisateur](sign-in-options.md#username-sign-in) pour réinitialiser le mot de passe. Pour plus d’informations, consultez [API des méthodes d’authentification Azure AD](/graph/api/resources/emailauthenticationmethod).
 
 - [Ajouter](/graph/api/emailauthenticationmethod-post)
 - [Liste](/graph/api/emailauthenticationmethod-list)
@@ -152,6 +152,12 @@ Pour plus d’informations sur l’accès aux journaux d’audit Azure AD B2C, c
 - [Mettre à jour une stratégie d’accès conditionnel](/graph/api/conditionalaccesspolicy-update)
 - [Supprimer une stratégie d’accès conditionnel](/graph/api/conditionalaccesspolicy-delete)
 
+## <a name="how-to-programmatically-manage-microsoft-graph"></a>Comment gérer Microsoft Graph par programmation
+
+Lorsque vous souhaitez gérer Microsoft Graph, vous pouvez le faire comme pour une application à l’aide des autorisations de l’application, ou vous pouvez utiliser des autorisations déléguées. Pour ces autorisations déléguées, l’utilisateur ou un administrateur consent aux autorisations demandées par l’application. L’application se voit déléguer la permission d’agir en tant qu’utilisateur connecté lorsqu’elle effectue des appels vers la ressource cible. Les autorisations d’application sont utilisées par les applications qui n’ont pas besoin d’un utilisateur connecté présent et nécessitent donc des autorisations d’application. C’est pourquoi seuls les administrateurs peuvent donner leur consentement pour les autorisations de l’application.
+
+> [!NOTE]
+> Les autorisations déléguées pour les utilisateurs qui se connectent par le biais de flux d’utilisateurs ou de stratégies personnalisées ne peuvent pas être utilisées sur des autorisations déléguées pour Microsoft Graph.
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Exemple de code : Comment gérer les comptes d’utilisateurs par programmation
 
 Cet exemple de code est une application console .NET Core qui utilise le [SDK Microsoft Graph](/graph/sdks/sdks-overview) pour interagir avec l’API Microsoft Graph. Son code illustre comment appeler l’API pour gérer par programmation les utilisateurs dans un locataire Azure AD B2C.
@@ -181,6 +187,9 @@ Une fois que vous avez obtenu l’exemple de code, configurez-le pour votre envi
 
 L’application affiche une liste de commandes que vous pouvez exécuter. Par exemple, obtenir tous les utilisateurs, obtenir un seul utilisateur, supprimer un utilisateur, mettre à jour le mot de passe d’un utilisateur et importer en bloc.
 
+> [!NOTE]
+> Pour que l’application mette à jour les mots de passe des comptes d’utilisateur, vous devez [accorder le rôle Administrateur d’utilisateurs](microsoft-graph-get-started.md#optional-grant-user-administrator-role) à l’application.
+ 
 ### <a name="code-discussion"></a>Considérations sur le code
 
 L’exemple de code utilise le kit [SDK Microsoft Graph](/graph/sdks/sdks-overview), qui est conçu pour simplifier la création d’applications qualitatives, efficaces et résilientes qui accèdent à Microsoft Graph.

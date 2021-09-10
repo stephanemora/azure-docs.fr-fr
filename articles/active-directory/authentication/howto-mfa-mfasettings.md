@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 08/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 45efa0e955040931516924a1a8a8576a1a8bf12f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 340c9f549d1d60a19867ea4de58834d921871854
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563416"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
@@ -98,7 +98,11 @@ Pour activer et configurer les alertes de fraude, effectuez les étapes suivante
 
 ### <a name="view-fraud-reports"></a>Afficher les rapports de fraude
 
-Sélectionnez **Azure Active Directory** > **Connexions** > **Informations d’authentification**. Le rapport sur les fraudes fait maintenant partie du rapport des connexions Azure AD standard. Il s’affiche dans **« Détails des résultats »** (accès refusé par MFA, code fraude entré).
+Lorsqu’un utilisateur signale une fraude, l’événement s’affiche dans le rapport de connexions (comme une connexion qui a été rejetée par l’utilisateur) et dans les journaux d’audit.
+
+- Pour consulter les rapports sur les fraudes dans le rapport de connexions, cliquez sur **Azure Active Directory** > **Connexions** > **Détails d’authentification**. Le rapport sur les fraudes fait partie du rapport de connexions Azure AD standard et s’affiche dans **Détails des résultats** (**Accès refusé par MFA, code fraude entré**).
+
+- Pour consulter les rapports sur les fraudes dans les journaux d'audit, cliquez sur **Azure Active Directory** > **Journaux d'audit**. Le rapport sur les fraudes s’affiche sous Type d’activité **Fraude signalée : l’utilisateur ne peut pas utiliser la MFA** ou **Fraude signalée : aucune action entreprise** selon les paramètres de niveau de locataire pour le rapport sur les fraudes.
  
 ## <a name="notifications"></a>Notifications
 

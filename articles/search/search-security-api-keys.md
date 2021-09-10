@@ -7,19 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/25/2021
+ms.openlocfilehash: f452aa6ababd338ccc86b7c7c40854367ed46e41
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310663"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460621"
 ---
-# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Créer et gérer des clés API pour l’authentification avec Recherche cognitive Azure
+# <a name="use-api-keys-for-azure-cognitive-search-authentication"></a>Utiliser des clés API pour l’authentification avec Recherche cognitive Azure
 
-Lors de la connexion à un service de recherche, toutes les requêtes doivent inclure une clé API en lecture seule générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification des requêtes entrantes au point de terminaison de votre service de recherche et est obligatoire dans chaque requête. 
+Recherche cognitive utilise des clés API comme méthodologie d’authentification principale. Pour les demandes entrantes adressées aux services de recherche, telles que les demandes de création ou d’interrogation d’un index, les clés API sont la seule option d’authentification dont vous disposez. Quelques scénarios de demandes sortantes, en particulier ceux qui impliquent des indexeurs, peuvent utiliser des identités et des rôles Azure Active Directory.
 
-+ Dans les [solutions REST](search-get-started-rest.md), la `api-key` est généralement spécifiée dans un en-tête de requête
+Les clés API sont générées lors de la création du service. La transmission d’une clé API valide à la demande est considérée comme preuve que la demande provient d’un client autorisé. Il y a deux sortes de clés. Les *clés d’administration* fournissent des autorisations en écriture sur le service et accordent également des droits d’interrogation des informations système. Les *clés de requête* communiquent des autorisations de lecture et peuvent être utilisées par les applications pour interroger un index spécifique. 
+
+> [!NOTE]
+> L’autorisation pour les opérations de plan de données à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure est désormais en préversion. Vous pouvez utiliser cette fonctionnalité en préversion pour ajouter ou remplacer des clés API [avec des rôles Azure pour la recherche](search-security-rbac.md). 
+
+## <a name="using-api-keys-in-search"></a>Utilisation des clés API dans la recherche
+
+Lors de la connexion à un service de recherche, toutes les requêtes doivent inclure une clé API générée spécialement pour votre service.
+
++ Dans les [solutions REST](search-get-started-rest.md), la clé API est généralement spécifiée dans un en-tête de requête
 
 + Dans les [solutions .NET](search-howto-dotnet-sdk.md), une clé est souvent spécifiée comme paramètre de configuration, puis transmise en tant que [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -29,7 +38,7 @@ Vous pouvez consulter et gérer les clés API dans le [portail Azure](https://po
 
 ## <a name="what-is-an-api-key"></a>Qu’est-ce qu’une clé API ?
 
-Une clé API est une chaîne unique composée de chiffres et de lettres générés de manière aléatoire, qui est transmise à chaque requête adressée au service de recherche. Le service acceptera la requête si la requête proprement dite et la clé sont valides. 
+Une clé API est une chaîne unique composée de chiffres et de lettres générés de manière aléatoire, qui sont transmises à chaque requête adressée au service de recherche. Le service acceptera la requête si la requête proprement dite et la clé sont valides. 
 
 Deux types de clés sont utilisés pour accéder à votre service de recherche : administration (lecture-écriture) et requête (lecture seule).
 
@@ -89,13 +98,13 @@ Après avoir créé de nouvelles clés via le portail ou la couche de gestion, l
 
 ## <a name="secure-api-keys"></a>Sécuriser les clés API
 
-Par le biais des [autorisations basées sur le rôle](search-security-rbac.md), vous pouvez supprimer ou lire les clés, mais vous ne pouvez pas remplacer une clé avec un mot de passe défini par l’utilisateur ou utiliser Active Directory en tant que méthode d’authentification principale pour accéder aux opérations de recherche. 
+[Affectations de rôles](search-security-rbac.md) détermine qui peut lire et gérer des clés. Les membres des rôles suivants peuvent afficher et régénérer les clés : Propriétaire, Collaborateur, [Collaborateurs Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor). Le rôle Lecteur n’a pas accès aux clés API.
 
-La sécurité des clés est assurée en limitant l’accès via le portail ou des interfaces Resource Manager (PowerShell ou interface de ligne de commande). Comme indiqué, les administrateurs des abonnements peuvent afficher et régénérer toutes les clés API. Par précaution, passez en revue les affectations de rôle pour comprendre qui a accès aux clés Admin.
+Les administrateurs des abonnements peuvent afficher et régénérer toutes les clés API. Par précaution, passez en revue les affectations de rôle pour comprendre qui a accès aux clés Admin.
 
-+ Dans le tableau de bord de service, cliquez sur **Contrôle d’accès (IAM)** , puis sur l’onglet **Attributions de rôles** pour afficher les affectations de rôle pour votre service.
-
-Les membres des rôles suivants peuvent afficher et régénérer les clés : Propriétaire, Collaborateur, [Collaborateurs Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor)
+1. Accédez à la page du service de recherche dans le portail Azure.
+1. Dans le volet de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôles**.
+1. Définissez **Étendue** sur **Cette ressource** pour afficher des attributions de rôles pour votre service.
 
 ## <a name="see-also"></a>Voir également
 

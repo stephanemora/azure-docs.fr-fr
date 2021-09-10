@@ -4,15 +4,15 @@ description: Comment créer une instance de cache Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/15/2021
 ms.author: v-erkel
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 72c9590cca805d0a6e22d42f482ad80935e842d3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: eb7d88424a04754612f981d58e8e1d6cb85ce0fb
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706795"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770589"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -28,7 +28,7 @@ Cliquez sur l’image ci-dessous pour regarder une [vidéo de démonstration](ht
 
 ## <a name="define-basic-details"></a>Définir les détails de base
 
-![capture d’écran de la page Détails du projet dans le portail Azure](media/hpc-cache-create-basics.png)
+![Capture d’écran de la page Détails du projet dans le portail Azure.](media/hpc-cache-create-basics.png)
 
 Dans **Détails du projet**, sélectionnez l’abonnement et le groupe de ressources qui doit héberger le cache.
 
@@ -39,49 +39,92 @@ Dans **Détails sur le service**, définissez le nom du cache et les autres attr
 * Sous-réseau : choisissez ou créez un sous-réseau avec au moins 64 adresses IP (/24). Ce sous-réseau doit être utilisé uniquement pour cette instance Azure HPC Cache.
 
 ## <a name="set-cache-capacity"></a>Définir la capacité du cache
-<!-- referenced from GUI - update aka.ms link if you change this header text -->
+<!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text -->
 
-Dans la page **Cache**, vous devez définir la capacité de votre cache. Les valeurs définies ici déterminent la quantité de données que votre cache peut contenir et la rapidité avec laquelle il peut traiter les requêtes des clients.
+Dans la page **Cache**, vous devez définir la capacité de votre cache. Les valeurs définies ici déterminent à quelle vitesse votre cache peut traiter les requêtes des clients et quelle quantité de données il peut contenir.
 
 La capacité influe également sur le coût du cache et le nombre de cibles de stockage qu’il peut prendre en charge.
 
-Choisissez la capacité en définissant les deux valeurs suivantes :
+La capacité du cache est une combinaison de deux valeurs :
 
 * Taux de transfert de données maximal pour le cache (débit), en Go/seconde
 * Quantité de stockage allouée aux données mises en cache, en To
 
-Choisissez l’une des valeurs de débit et des tailles de stockage du cache disponibles.
+![Capture d’écran de la page de dimensionnement du cache dans le portail Azure.](media/hpc-cache-create-capacity.png)
 
-> [!TIP]
-> Si vous souhaitez utiliser plus de 10 cibles de stockage avec votre cache, vous devez choisir la valeur de taille de stockage de cache la plus élevée disponible pour votre taille de débit. Pour plus d’informations, consultez [Ajouter des cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+### <a name="understand-throughput-and-cache-size"></a>Comprendre le débit et la taille du cache
 
-Gardez à l’esprit que le taux de transfert de données réel dépend de la charge de travail, des vitesses réseau et du type de cible de stockage. Les valeurs que vous choisissez définissent le débit maximal pour l’ensemble du système de mise en cache. Toutefois, certaines d’entre elles sont utilisées pour les tâches de surcharge. Par exemple, si un client demande un fichier qui n’est pas déjà stocké dans le cache, ou si le fichier est marqué comme étant obsolète, votre cache utilise une partie de son débit pour l’extraire du stockage back-end.
+Plusieurs facteurs peuvent affecter l’efficacité de votre HPC Cache, mais le choix d’une valeur de débit appropriée et de la taille de stockage du cache est l’un des plus importants.
 
-Azure HPC Cache gère les fichiers mis en cache et préchargés pour maximiser les taux de réussite du cache. Le contenu du cache est évalué en permanence, et les fichiers sont déplacés vers un stockage à long terme quand ils sont moins fréquemment sollicités. Choisissez une taille de stockage du cache qui peut contenir facilement l’ensemble actif de fichiers de travail ainsi que de l’espace supplémentaire pour les métadonnées et d’autres surcharges.
+Lorsque vous choisissez une valeur de débit, gardez à l’esprit que le taux de transfert de données réel dépend de la charge de travail, des vitesses réseau et du type de cible de stockage.
 
-![capture d’écran de la page de dimensionnement du cache](media/hpc-cache-create-capacity.png)
+Les valeurs que vous choisissez définissent le débit maximal pour l’ensemble du système de mise en cache. Toutefois, certaines d’entre elles sont utilisées pour les tâches de surcharge. Par exemple, si un client demande un fichier qui n’est pas déjà stocké dans le cache, ou si le fichier est marqué comme étant obsolète, votre cache utilise une partie de son débit pour l’extraire du stockage back-end.
+
+Azure HPC Cache gère les fichiers mis en cache et préchargés pour maximiser les taux de réussite du cache. Le contenu du cache est évalué en permanence, et les fichiers sont déplacés vers un stockage à long terme quand ils sont moins fréquemment sollicités.
+
+Choisissez une taille de stockage du cache qui peut contenir facilement l’ensemble actif de fichiers de travail ainsi que de l’espace supplémentaire pour les métadonnées et d’autres surcharges.
+
+Le débit et la taille du cache affectent également le nombre de cibles de stockage prises en charge pour un cache particulier. Si vous souhaitez utiliser plus de 10 cibles de stockage avec votre cache, vous devez choisir la valeur de taille de stockage de cache la plus élevée disponible pour votre taille de débit ou choisir l’une des configurations à débit élevé en lecture seule. Pour plus d’informations, consultez [Ajouter des cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+
+Si vous avez besoin d’aide pour dimensionner correctement votre cache, contactez le service et le support Microsoft.
+
+### <a name="choose-the-cache-type-for-your-needs"></a>Choisir le type de cache pour vos besoins
+
+Lorsque vous choisissez la capacité de votre cache, vous remarquerez peut-être que certaines valeurs de débit ont des tailles de cache fixes, tandis que d’autres vous permettent de sélectionner des options de taille de cache multiples. Cela est dû au fait qu’il existe deux styles différents de l’infrastructure du cache :
+
+* Caches standard : répertoriés sous **Cache en lecture-écriture​** dans le menu de débit
+
+  Avec les caches standard, vous pouvez choisir parmi plusieurs valeurs de taille de cache. Ces caches peuvent être configurés pour le mode lecture seule ou pour la mise en cache en lecture et en écriture.
+
+* Caches à débit élevé : répertoriés sous **Cache en lecture seule** dans le menu de débit
+
+  Les configurations à débit élevé ont défini des tailles de cache, car elles sont préconfigurées avec des disques NVME. Elles sont conçues pour optimiser uniquement l’accès en lecture au fichier.
+
+![Capture d’écran du menu de débit maximal dans le portail. Il existe plusieurs options de taille sous le titre « Mise en cache en lecture-écriture » et plusieurs sous l’en-tête « Lecture seule ».](media/rw-ro-cache-sizing.png)
+
+Ce tableau explique quelques différences importantes entre les deux options.
+
+| Attribut | Cache standard | Cache à débit élevé |
+|--|--|--|
+| Catégorie de menu débit |« Cache en lecture-écriture​ »| « Cache en lecture seule »|
+| Tailles de débit | 2, 4 ou 8 Go/s | 4,5, 9 ou 16 Go/s |
+| Tailles de cache | 3, 6 ou 12 To pour 2 Go/s<br/> 6, 12 ou 24 To pour 4 Go/s<br/> 12, 24 ou 48 To pour 8 Go/s| 21 To pour 4,5 Go/s <br/> 42 To pour 9 Go/s <br/> 84 To pour 16 Go/s |
+| Nombre maximal de cibles de stockage | [10 ou 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) selon la sélection de la taille du cache | 20 |
+| Types de cibles de stockage compatibles | Objet BLOB Azure, stockage NFS local, objet BLOB compatible NFS | stockage NFS local <br/>Le stockage d’objets BLOB NFS est en version préliminaire pour cette combinaison |
+| Styles de mise en cache | Mise en cache en lecture ou mise en cache en lecture/écriture | Mise en cache en lecture uniquement |
+| Le cache peut être arrêté pour limiter les coûts quand il n’est pas nécessaire | Oui | Non |
+
+Découvrez plus d'informations sur ces options :
+
+* [Nombre maximal de cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)
+* [Modes de mise en cache en lecture et en écriture](cache-usage-models.md#basic-file-caching-concepts)
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Activer le chiffrement Azure Key Vault (facultatif)
-
-La page **Clés de chiffrement de disque** s’affiche entre les onglets **Cache** et **Étiquettes**.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Si vous souhaitez gérer les clés de chiffrement utilisées pour votre stockage de cache, fournissez vos informations Azure Key Vault sur la page **Clés de chiffrement de disque**. Le coffre de clés doit se trouver dans la même région et dans le même abonnement que le cache.
 
 Vous pouvez ignorer cette section si vous n’avez pas besoin de clés gérées par le client. Par défaut, Azure chiffre les données avec des clés gérées par Microsoft. En savoir plus sur le [chiffrement de stockage Azure](../storage/common/storage-service-encryption.md).
 
 > [!NOTE]
->
-> * Après avoir créé le cache, vous ne pouvez plus passer d’une clé gérée par Microsoft à une clé gérée par le client.
-> * Une fois le cache créé, vous devez l’autoriser à accéder au coffre de clés. Cliquez sur le bouton **Activer le chiffrement** dans la page **Vue d’ensemble** du cache pour activer le chiffrement. Effectuez cette étape dans les 90 minutes qui suivent la création du cache.
-> * Les caches de disque sont créés après cette autorisation. Cela signifie que le temps de création initial du cache est court, mais que le cache ne sera pas prêt à être utilisé pendant dix minutes ou plus après que vous en aurez autorisé l’accès.
+> Après avoir créé le cache, vous ne pouvez plus passer d’une clé gérée par Microsoft à une clé gérée par le client.
 
 Pour obtenir une explication complète du processus de chiffrement avec clé gérée par le client, lisez [Utiliser des clés de chiffrement gérées par le client pour Azure HPC Cache](customer-keys.md).
 
-![capture d’écran de la page des clés de chiffrement avec l’option « gérée par le client » sélectionnée et les champs du coffre de clés affichés](media/create-encryption.png)
+![Capture d’écran de la page des clés de chiffrement avec l’option « Managé par le client » sélectionnée et les formulaires de configuration « Paramètres de clé du client » et « Identités gérées » affichés.](media/create-encryption.png)
 
 Sélectionnez **Gérée par le client** pour choisir le chiffrement avec clé gérée par le client. Les champs de spécification du coffre de clés s’affichent. Sélectionnez le coffre Azure Key Vault à utiliser, puis sélectionnez la clé et la version à utiliser pour ce cache. La clé doit être une clé RSA 2048 bits. Vous pouvez créer un coffre de clés, une clé ou une version de clé à partir de cette page.
 
-Après avoir créé le cache, vous devez l’autoriser à utiliser le service de coffre de clés. Pour plus d’informations, consultez [Autoriser le chiffrement Azure Key Vault à partir du cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache).
+Cochez la case **Toujours utiliser la version actuelle de la clé** si vous souhaitez utiliser la [permutation automatique des clés](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
+
+Si vous voulez utiliser une identité managée spécifique pour ce cache, configurez-la dans la section **Identités managées**. Consultez [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md) pour en savoir plus.
+
+> [!NOTE]
+> Vous pouvez modifier l’identité attribuée après la création du cache.
+
+Si vous utilisez une identité gérée attribuée par le système ou une identité affectée par l’utilisateur qui n’a pas encore accès à votre coffre de clés, vous devez suivez une étape supplémentaire après avoir créé le cache. Cette étape manuelle autorise l’identité managée du cache à utiliser le coffre de clés.
+
+* Consultez [Choisir une option d’identité gérée pour le cache](customer-keys.md#choose-a-managed-identity-option-for-the-cache) pour comprendre les différences dans les paramètres d’identité managée.
+* Pour plus d’informations, consultez [Autoriser le chiffrement Azure Key Vault à partir du cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) pour en savoir plus sur l’étape manuelle.
 
 ## <a name="add-resource-tags-optional"></a>Ajouter des balises de ressources (facultatif)
 
@@ -100,7 +143,7 @@ La création du cache prend environ 10 minutes. Vous pouvez suivre la progressi
 ![capture d’écran de l’instance de cache Azure HPC Cache dans le portail Azure](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> Si votre cache utilise des clés de chiffrement gérées par le client, le cache peut apparaître dans la liste des ressources avant que l’état du déploiement ne devienne Terminé. Dès que l’état du cache est **En attente de la clé**, vous pouvez [l’autoriser](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) à utiliser le coffre de clés.
+> Si votre cache utilise des clés de chiffrement gérées par le client et requiert une étape d’autorisation manuelle après la création, le cache peut apparaître dans la liste des ressources avant que l’état de son déploiement ne devienne Terminé. Dès que l’état du cache est **En attente de la clé**, vous pouvez [l’autoriser](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) à utiliser le coffre de clés.
 
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -120,8 +163,7 @@ Fournissez ces valeurs :
 * Région Azure
 * Sous-réseau de cache, au format suivant :
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
-nets/<cache_subnet_name>"``
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
 
   Le sous-réseau de cache a besoin d’au moins 64 adresses IP (/24), et il ne peut pas héberger d’autres ressources.
 
@@ -225,8 +267,7 @@ Remplacez les valeurs suivantes :
 * Région Azure
 * Sous-réseau de cache, au format suivant :
 
-  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
-nets/<cache_subnet_name>"`
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   Le sous-réseau de cache a besoin d’au moins 64 adresses IP (/24), et il ne peut pas héberger d’autres ressources.
 
@@ -293,4 +334,4 @@ Le message inclut des informations utiles, notamment les éléments suivants :
 Une fois votre cache apparaît dans la liste **Ressources**, vous pouvez passer à l’étape suivante.
 
 * [Définissez des cibles de stockage](hpc-cache-add-storage.md) pour permettre à votre cache d’accéder à vos sources de données.
-* Si vous utilisez des clés de chiffrement gérées par le client, vous devez [autoriser le chiffrement Azure Key Vault](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) à partir de la page de présentation du cache pour terminer la configuration de ce dernier. Vous devez effectuer cette étape avant de pouvoir ajouter un stockage. Pour plus d’informations, consultez [Utiliser des clés de chiffrement gérées par le client](customer-keys.md).
+* Si vous utilisez des clés de chiffrement gérées par le client, vous devez [autoriser le chiffrement Azure Key Vault](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) à partir de la page de présentation du cache pour terminer la configuration de ce dernier, suivez les conseils dans [Utiliser les clés de chiffrement gérées par le client](customer-keys.md). Vous devez effectuer cette étape avant de pouvoir ajouter un stockage.

@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: fcad6b0079a612e6e30861fa9af17704e43231f8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 79be8f9d98816690171476d9c5764884e1b4e0f7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563373"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Concevoir une stratégie de chargement de données PolyBase pour un pool SQL dédié dans Azure Synapse Analytics
 
 Les entrepôts de données SMP traditionnels utilisent un processus d’extraction, transformation et chargement (ETL) pour le chargement des données. Un pool Azure SQL est une architecture de traitement massivement parallèle (MPP) qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage. L'utilisation d'un processus ELT permet de tirer parti des capacités de traitement de requêtes distribuées intégrées et d'éliminer les ressources nécessaires à la transformation des données avant le chargement.
 
-Bien que le pool SQL prenne en charge de nombreuses méthodes de chargement, notamment des options non-Polybase telles que les API BCP et SQL BulkCopy, le moyen le plus rapide et le plus scalable de charger des données consiste à utiliser PolyBase.  PolyBase est une technologie qui accède aux données externes stockées dans Stockage Blob Azure ou Azure Data Lake Store par le biais du langage T-SQL.
+Bien que le pool SQL prenne en charge de nombreuses méthodes de chargement, notamment des options non-Polybase, telles que les API BCP et SQL BulkCopy, le moyen le plus rapide et le plus évolutif de charger des données consiste à utiliser PolyBase.  PolyBase est une technologie qui accède aux données externes stockées dans Stockage Blob Azure ou Azure Data Lake Store par le biais du langage T-SQL.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
@@ -85,7 +85,7 @@ Voici des outils et services que vous pouvez utiliser pour déplacer des donnée
 
 - Le service [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) améliore le débit, les performances et la prévisibilité du réseau. ExpressRoute est un service qui achemine vos données via une connexion privée dédiée vers Azure. Les connexions ExpressRoute n’acheminent pas vos données via le réseau Internet public. Elles offrent davantage de fiabilité, des vitesses supérieures, des latences inférieures et une sécurité renforcée par rapport aux connexions publiques sur Internet.
 - [L’utilitaire AzCopy](../../storage/common/storage-use-azcopy-v10.md) déplace les données vers le stockage Azure via l’Internet public. Il fonctionne si la taille de vos données ne dépasse pas les 10 To. Pour effectuer des chargements réguliers avec AzCopy, testez la vitesse du réseau pour voir si elle est acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) dispose d’une passerelle que vous pouvez installer sur votre serveur local. Ensuite, vous pouvez créer un pipeline pour déplacer des données à partir de votre serveur local vers le stockage Azure. Pour utiliser Data Factory avec le pool SQL dédié, consultez [Charger des données dans un pool SQL dédié](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md) dispose d’une passerelle que vous pouvez installer sur votre serveur local. Ensuite, vous pouvez créer un pipeline pour déplacer des données à partir de votre serveur local vers le stockage Azure. Pour utiliser Data Factory avec le pool SQL dédié, consultez [Charger des données dans un pool SQL dédié](../../data-factory/load-azure-sql-data-warehouse.md).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Préparer les données pour le chargement
 
@@ -120,7 +120,7 @@ Pour charger des données avec PolyBase, vous pouvez utiliser l’une des option
 
 - [PolyBase avec T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) fonctionne bien lorsque vos données se trouvent dans le stockage Blob Azure ou dans Azure Data Lake Store. Il vous offre un contrôle optimal sur le processus de chargement, mais nécessite également que vous définissiez des objets de données externes. Les autres méthodes définissent ces objets en arrière-plan pendant que vous mappez les tables sources vers les tables de destination.  Pour orchestrer les chargements T-SQL, vous pouvez utiliser Azure Data Factory, SSIS ou les fonctions Azure.
 - [Polybase avec SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) fonctionne bien quand vos données sources se trouvent dans SQL Server. SSIS définit le mappage de la table « source vers destination » et orchestre aussi le chargement. Si vous disposez déjà de packages SSIS, vous pouvez modifier les packages pour travailler avec le nouvel entrepôt de données de destination.
-- [PolyBase avec Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) est un autre outil d’orchestration.  Il définit un pipeline et planifie les travaux.
+- [PolyBase avec Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md) est un autre outil d’orchestration.  Il définit un pipeline et planifie les travaux.
 - [PolyBase avec Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) transfère les données d’une table Azure Synapse Analytics vers une trame de données Databricks et/ou écrit des données d’une trame de données Databricks dans une table Azure Synapse Analytics à l’aide de la technologie PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Options de chargement non-PolyBase
@@ -139,7 +139,7 @@ Lorsque vous concevez un processus ETL, commencez par exécuter le processus sur
 
 ## <a name="partner-loading-solutions"></a>Solutions de chargement des partenaires
 
-La plupart de nos partenaires proposent des solutions de chargement. Pour en savoir plus, consultez la liste de nos [partenaires de solutions](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+La plupart de nos partenaires proposent des solutions de chargement. Pour en savoir plus, consultez la liste de nos [partenaires de solutions](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

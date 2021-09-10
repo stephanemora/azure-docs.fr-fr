@@ -1,20 +1,22 @@
 ---
 title: Copier et transformer des données dans Stockage Blob Azure
-description: Découvrez comment copier des données vers et depuis un stockage Blob, et comment transformer les données dans un stockage Blob en utilisant Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment copier des données vers et depuis un stockage Blob, et comment transformer les données dans un stockage Blob en utilisant Azure Data Factory ou Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: 7f3880b74fe570410d24b28752f5b3d4068d978d
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 07/19/2021
+ms.openlocfilehash: 8c89e63850a68a68d6d53e35bb36b4abbe111052
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481388"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642005"
 ---
-# <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Stockage Blob Azure à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > - [Version 1](v1/data-factory-azure-blob-connector.md)
@@ -22,10 +24,10 @@ ms.locfileid: "109481388"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité Copy dans Azure Data Factory pour copier des données d’un stockage d’objets Blob Azure ou vers un stockage d’objets blob Azure. Il explique également comment utiliser l’activité Data Flow pour transformer des données en stockage d’objets blob Azure. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory et Azure Synapse pour copier des données depuis et vers Stockage Blob Azure. Il explique également comment utiliser l’activité Data Flow pour transformer des données en stockage d’objets blob Azure. Pour en savoir plus, lisez les articles d’introduction d’[Azure Data Factory](introduction.md) et d’[Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md).
 
 >[!TIP]
->Pour découvrir un scénario de migration de lac de données ou d’entrepôt de données, consultez [Utiliser Azure Data Factory pour migrer des données d’un lac de données ou d’un entrepôt de données vers Azure](data-migration-guidance-overview.md).
+>Pour découvrir un scénario de migration de lac de données ou d’entrepôt de données, consultez l’article [Migrer des données depuis votre lac de données ou entrepôt de données vers Azure](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -49,7 +51,7 @@ Pour l’activité Copy, ce connecteur de stockage d’objets blob prend en char
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Azure Data Factory spécifiques au stockage Blob.
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités de pipeline Data Factory et Synapse spécifiques au stockage Blob.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -58,18 +60,19 @@ Ce connecteur de stockage d’objets blob prend en charge les types d’authenti
 - [Authentification par clé de compte](#account-key-authentication)
 - [Authentification avec une signature d’accès partagé](#shared-access-signature-authentication)
 - [Authentification d’un principal du service](#service-principal-authentication)
-- [Identités managées pour l’authentification des ressources Azure](#managed-identity)
+- [Authentification via une identité managée affectée par le système](#managed-identity)
+- [Authentification via une identité managée affectée par l’utilisateur](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
 >- Si vous utilisez le runtime d’intégration Azure public pour vous connecter à votre Stockage Blob avec l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** activée sur le pare-feu Stockage Azure, vous devez recourir à [l’authentification par identité managée](#managed-identity).
->- Si vous utilisez PolyBase ou l’instruction COPY pour charger des données dans Azure Synapse Analytics et que votre Stockage Blob source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser l’authentification par identité managée comme l’exige Synapse. Pour en savoir plus sur la configuration requise, consultez la section sur [Authentification par identité managée](#managed-identity).
+>- Si vous utilisez PolyBase ou l’instruction COPY pour charger des données dans Azure Synapse Analytics et que votre Stockage Blob source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser l’authentification par identité managée comme l’exige Azure Synapse. Pour en savoir plus sur la configuration requise, consultez la section sur [Authentification par identité managée](#managed-identity).
 
 >[!NOTE]
 >Les activités Azure HDInsight et Azure Machine Learning prennent en charge uniquement l’authentification utilisant des clés de compte de stockage d’objets blob Azure.
 
 ### <a name="account-key-authentication"></a>Authentification par clé de compte
 
-Pour l’authentification par clé de compte de stockage, Data Factory prend en charge les propriétés suivantes :
+Les propriétés suivantes sont prises en charge pour l’authentification par clé de compte de stockage dans les pipelines Azure Data Factory ou Synapse :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -136,15 +139,15 @@ Vous n’êtes pas obligé de partager vos clés d’accès de compte. La signat
 Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
->- Azure Data Factory prend désormais en charge les *signatures d’accès partagé de service* et les *signatures d’accès partagé de compte*. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé](../storage/common/storage-sas-overview.md).
+>- Le service prend désormais en charge les *signatures d’accès partagé de service* et les *signatures d’accès partagé de compte*. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé](../storage/common/storage-sas-overview.md).
 >- Dans les configurations de jeu de données ultérieures, le chemin du dossier est le chemin absolu commençant au niveau du conteneur. Vous devez en configurer un qui soit aligné avec le chemin dans votre URI SAS.
 
-Pour l’authentification par signature d’accès partagé, Data Factory prend en charge les propriétés suivantes :
+Les propriétés suivantes sont prises en charge pour l’utilisation de l’authentification par signature d’accès partagé :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété `type` doit être définie sur `AzureBlobStorage` (recommandé) ou `AzureStorage` (voir la remarque ci-dessous). | Oui |
-| sasUri | Spécifiez l’URI de signature d’accès partagé des ressources de stockage, telles qu’un objet blob ou un conteneur. <br/>Marquez ce champ comme `SecureString` pour le stocker en toute sécurité dans Data Factory. Vous pouvez également placer le jeton SAP dans Azure Key Vault pour utiliser la rotation automatique et supprimer la portion jeton. Pour plus d’informations, consultez les exemples suivants et [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| sasUri | Spécifiez l’URI de signature d’accès partagé des ressources de stockage, telles qu’un objet blob ou un conteneur. <br/>Marquez ce champ comme `SecureString` pour le stocker en toute sécurité. Vous pouvez également placer le jeton SAP dans Azure Key Vault pour utiliser la rotation automatique et supprimer la portion jeton. Pour plus d’informations, consultez les exemples suivants et [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Non |
 
 >[!NOTE]
@@ -202,13 +205,13 @@ Pour l’authentification par signature d’accès partagé, Data Factory prend 
 
 Lorsque vous créez un URI de signature d’accès partagé, prenez en compte les points suivants :
 
-- Définissez des autorisations de lecture/écriture appropriées sur les objets en fonction de l’utilisation du service lié (lecture, écriture, lecture/écriture) dans votre fabrique de données.
+- Définissez des autorisations de lecture/écriture appropriées sur les objets en fonction de l’utilisation du service lié (lecture, écriture, lecture/écriture).
 - Définissez le paramètre **Heure d’expiration** correctement. Assurez-vous que l’accès aux objets du stockage n’expire pas pendant la période active du pipeline.
-- L’URI doit être créé au niveau du blob ou du conteneur appropriés en fonction des besoins. Un URI de signature d’accès partagé à un objet blob permet à Azure Data Factory d’accéder à cet objet blob particulier. Un URI de signature d’accès partagé à un conteneur de stockage Blob permet à Azure Data Factory d’itérer via des objets blob dans ce conteneur. Pour fournir l’accès à plus ou moins d’objets ultérieurement ou mettre à jour l’URI de signature d’accès partagé, rappelez-vous de mettre à jour le service lié avec le nouvel URI.
+- L’URI doit être créé au niveau du blob ou du conteneur appropriés en fonction des besoins. Un URI de signature d’accès partagé vers un objet blob permet à la fabrique de données ou au pipeline Synapse d’accéder à cet objet blob spécifique. Un URI de signature d’accès partagé vers un conteneur de stockage Blob permet à la fabrique de données d’itérer via des objets blob dans ce conteneur. Pour fournir l’accès à plus ou moins d’objets ultérieurement ou mettre à jour l’URI de signature d’accès partagé, rappelez-vous de mettre à jour le service lié avec le nouvel URI.
 
 ### <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
-Pour des informations générales sur l’authentification du principal de service du Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](../storage/common/storage-auth-aad.md).
+Pour des informations générales sur l’authentification du principal de service du Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
 
 Pour l’authentification de principal de service, effectuez les étapes suivantes :
 
@@ -218,7 +221,7 @@ Pour l’authentification de principal de service, effectuez les étapes suivant
     - Clé de l'application
     - ID client
 
-2. Accordez l’autorisation appropriée au principal de service dans le Stockage Blob Azure : Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/common/storage-auth-aad-rbac-portal.md).
+2. Accordez l’autorisation appropriée au principal de service dans le Stockage Blob Azure : Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/blobs/assign-azure-role-data-access.md).
 
     - **En tant que source**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage**.
     - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
@@ -231,15 +234,15 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. | Oui |
 | accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/><br/>Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker de façon sécurisée, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant dans l’angle supérieur droit du portail Azure. | Oui |
-| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud du pipeline de fabrique de données ou Synapse est utilisé. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Non |
 
 >[!NOTE]
 >
 >- Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification de principal du service n’est pas prise en charge dans Data Flow.
->- Si vous accédez au stockage d’objets blob via un point de terminaison privé à l’aide de Data Flow, notez que lorsque l’authentification du principal de service est utilisée, Data Flow se connecte au point de terminaison ADLS Gen2 au lieu du point de terminaison Blob. Veillez à créer le point de terminaison privé correspondant dans ADF pour activer l’accès.
+>- Si vous accédez au stockage d’objets blob via un point de terminaison privé à l’aide de Data Flow, notez que lorsque l’authentification du principal de service est utilisée, Data Flow se connecte au point de terminaison ADLS Gen2 au lieu du point de terminaison Blob. Veillez à créer le point de terminaison privé correspondant dans votre fabrique de données ou votre espace de travail Synapse pour activer l’accès.
 
 >[!NOTE]
 >L’authentification du principal du service n’est prise en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.
@@ -269,21 +272,18 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 }
 ```
 
-### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a> Identités managées pour l’authentification des ressources Azure
+### <a name="system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Authentification via une identité managée affectée par le système
 
-Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité managée pour l’authentification de stockage d’objets blob, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier à partir de votre stockage d’objets blob.
+Une fabrique de données ou un pipeline de Synapse peut être associé à une [identité managée attribuée par le système pour les ressources Azure](data-factory-service-identity.md#system-assigned-managed-identity), qui représente cette ressource pour l’authentification auprès d’autres services Azure. Vous pouvez utiliser directement cette identité managée attribuée par le système pour l’authentification de stockage d’objets blob, ce qui revient à utiliser votre propre principal de service. Cela permet à la ressource désignée d’accéder aux données et de les copier à partir de votre stockage d’objets blob. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md)
 
-Pour des informations générales sur l’authentification de Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](../storage/common/storage-auth-aad.md). Pour utiliser des identités managées afin d’authentifier des ressources Azure, procédez comme suit :
+Pour des informations générales sur l’authentification de Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). Pour utiliser des identités managées afin d’authentifier des ressources Azure, procédez comme suit :
 
-1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’ID d’objet d’identité managée générée en même temps que votre fabrique.
+1. [Récupérez les informations d’identité managée affectée par le système](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’ID d’objet d’identité managée attribué par le système générée en même temps que votre fabrique ou espace de travail Synapse.
 
-2. Accordez l’autorisation d’identité managée dans le stockage d’objets blob Azure. Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/common/storage-auth-aad-rbac-portal.md).
+2. Accordez l’autorisation d’identité managée dans le stockage d’objets blob Azure. Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/blobs/assign-azure-role-data-access.md).
 
     - **En tant que source**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage**.
     - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
-
->[!IMPORTANT]
->Si vous utilisez PolyBase ou l’instruction COPY pour charger des données du Stockage Blob (comme source ou emplacement de préproduction) dans Azure Synapse Analytics et que vous avez recours à l’authentification par identité managée pour le Stockage Blob, veillez également à suivre les étapes 1 à 3 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si vous configurez le Stockage Blob avec un point de terminaison de réseau virtuel Azure, vous devez également activer **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans le menu des paramètres **Pare-feu et réseaux virtuels** du compte Stockage Azure, comme l’exige Synapse.
 
 Les propriétés prises en charge pour un service lié de Stockage Blob Azure sont les suivantes :
 
@@ -293,14 +293,6 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. | Oui |
 | accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/><br/>Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Non |
-
-> [!NOTE]
->
-> - Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification d’identité managée n’est pas prise en charge dans Data Flow.
-> - Si vous accédez au stockage d’objets blob via un point de terminaison privé à l’aide de Data Flow, notez que lorsque l’authentification du principal de service est utilisée, Data Flow se connecte au point de terminaison ADLS Gen2 au lieu du point de terminaison Blob. Veillez à créer le point de terminaison privé correspondant dans ADF pour activer l’accès.
-
-> [!NOTE]
-> Les identités managées pour l’authentification des ressources Azure ne sont prises en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.
 
 **Exemple :**
 
@@ -320,6 +312,63 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
     }
 }
 ```
+
+### <a name="user-assigned-managed-identity-authentication"></a>Authentification d’identité managée affectée par l’utilisateur
+Une fabrique de données peut être affectée à une ou plusieurs [identités managées par l’utilisateur](data-factory-service-identity.md#user-assigned-managed-identity). Vous pouvez utiliser cette identité managée affectée par l’utilisateur pour l’authentification du stockage Blob, qui permet d’accéder aux données et de les copier depuis ou vers Stockage Blob. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md)
+
+Pour des informations générales sur l’authentification de Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). Pour utiliser l’authentification par identité managée affectée par l’utilisateur, effectuez les étapes suivantes :
+
+1. [Créez une ou plusieurs identités managées affectées par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) et accordez une autorisation dans Stockage Blob Azure. Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/blobs/assign-azure-role-data-access.md).
+
+    - **En tant que source**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage**.
+    - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
+     
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur. 
+
+
+Les propriétés prises en charge pour un service lié de Stockage Blob Azure sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété **type** doit être définie sur **AzureBlobStorage**. | Oui |
+| serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. | Oui |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/><br/>Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
+| credentials | Spécifiez l’identité managée affectée par l’utilisateur en tant qu’objet d’informations d’identification. | Oui |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Non |
+
+**Exemple :**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+>[!IMPORTANT]
+>Si vous utilisez PolyBase ou l’instruction COPY pour charger des données du Stockage Blob (comme source ou emplacement de préproduction) dans Azure Synapse Analytics et que vous avez recours à l’authentification par identité managée pour le Stockage Blob, veillez également à suivre les étapes 1 à 3 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si vous configurez le Stockage blob avec un point de terminaison de réseau virtuel Azure, vous devez également activer **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans le menu des paramètres **Pare-feu et réseaux virtuels** du compte Stockage Azure, comme l’exige Azure Synapse.
+
+> [!NOTE]
+>
+> - Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification d’identité managée attribuée par le système/attribuée par l’utilisateur n’est pas prise en charge dans Data Flow.
+> - Si vous accédez au stockage d’objets blob via un point de terminaison privé à l’aide de Data Flow, notez que lorsque l’authentification d’identité managée attribuée par le système/attribuée par l’utilisateur est utilisée, Data Flow se connecte au point de terminaison ADLS Gen2 au lieu du point de terminaison Blob. Veillez à créer le point de terminaison privé correspondant dans ADF pour activer l’accès.
+
+> [!NOTE]
+> L’authentification d’identité managée attribuée par le système/attribuée par l’utilisateur n’est prise en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -392,7 +441,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 | maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non                                            |
 
 > [!NOTE]
-> Pour les formats Parquet et de texte délimité, le type **BlobSource** pour la source de l’activité Copy mentionnée dans la section suivante est toujours pris en charge à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle jusqu’à ce que l’interface utilisateur de création de Data Factory ait basculé vers la génération de ces nouveaux types.
+> Pour les formats Parquet et de texte délimité, le type **BlobSource** pour la source de l’activité Copy mentionnée dans la section suivante est toujours pris en charge à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle jusqu’à ce que l’interface utilisateur de création ait basculé vers la génération de ces nouveaux types.
 
 **Exemple :**
 
@@ -436,7 +485,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 ```
 
 > [!NOTE]
-> Le conteneur `$logs`, qui est automatiquement créé au moment de l'activation de Storage Analytics pour un compte de stockage, n'apparaît pas lorsqu'une opération d'énumération des conteneurs est effectuée via l'interface utilisateur de Data Factory. Le chemin d'accès au fichier doit être fourni directement pour permettre à Data Factory de consommer les fichiers à partir du conteneur `$logs`.
+> Le conteneur `$logs`, qui est automatiquement créé au moment de l'activation de Storage Analytics pour un compte de stockage, n'apparaît pas lorsqu'une opération d'énumération des conteneurs est effectuée via l'interface utilisateur. Le chemin d'accès au fichier doit être fourni directement pour permettre à vos données de fabrique ou au pipeline Synapse de consommer les fichiers à partir du conteneur `$logs`.
 
 ### <a name="blob-storage-as-a-sink-type"></a>Stockage Blob en tant que type de récepteur
 
@@ -448,8 +497,9 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété `type` sous `storeSettings` doit être définie sur `AzureBlobStorageWriteSettings`. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
-| blockSizeInMB | Spécifiez la taille du bloc, en Mo, qui est utilisée pour écrire des données dans des objets blobs de blocs. En savoir plus sur les [objets blobs de blocs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Les valeurs valides sont *comprises entre 4 et 100 Mo*. <br/>Par défaut, Data Factory détermine automatiquement la taille de bloc en fonction du type et des données de votre magasin source. Pour une copie non binaire dans un stockage d’objets blob, la taille de bloc par défaut est de 100 Mo, ce qui permet de stocker jusqu’à 4,95 To de données. Cela peut ne pas être optimal si vos données ne sont pas volumineuses, en particulier si vous utilisez le runtime d’intégration auto-hébergé avec des connexions réseau médiocres qui entraînent des problèmes de délai d’expiration d’opération ou de performances. Vous pouvez spécifier explicitement une taille de bloc, tout en veillant à ce que `blockSizeInMB*50000` soit suffisamment grand pour stocker les données. Dans le cas contraire, l’exécution de l’activité Copy échoue. | Non |
+| blockSizeInMB | Spécifiez la taille du bloc, en Mo, qui est utilisée pour écrire des données dans des objets blobs de blocs. En savoir plus sur les [objets blobs de blocs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Les valeurs autorisées sont comprises *entre 4 et 100 Mo*. <br/>Par défaut, le service détermine automatiquement la taille du bloc en fonction du type et des données de votre magasin source. Pour une copie non binaire dans un stockage d’objets blob, la taille de bloc par défaut est de 100 Mo, ce qui permet de stocker jusqu’à 4,95 To de données. Cela peut ne pas être optimal si vos données ne sont pas volumineuses, en particulier si vous utilisez le runtime d’intégration auto-hébergé avec des connexions réseau médiocres qui entraînent des problèmes de délai d’expiration d’opération ou de performances. Vous pouvez spécifier explicitement une taille de bloc, tout en veillant à ce que `blockSizeInMB*50000` soit suffisamment grand pour stocker les données. Dans le cas contraire, l’exécution de l’activité Copy échoue. | Non |
 | maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non       |
+| metadata |Définissez des métadonnées personnalisées lors de la copie dans le récepteur. Chaque objet sous le tableau `metadata` représente une colonne supplémentaire. `name` définit le nom de clé de métadonnées et `value` indique la valeur des données de cette clé. Si la [fonctionnalité de conservation des attributs](./copy-activity-preserve-metadata.md#preserve-metadata) est utilisée, les métadonnées spécifiées vont s’unir/remplacer les métadonnées du fichier source.<br/><br/>Les valeurs de données autorisées sont :<br/>- `$$LASTMODIFIED` : une variable réservée indique de stocker l’heure de la dernière modification des fichiers sources. Appliquez à la source basée sur un fichier uniquement avec le format binaire.<br/><b>- Expression<b><br/>- <b>Valeur statique<b>| Non       |
 
 **Exemple :**
 
@@ -478,7 +528,21 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
                 "type": "ParquetSink",
                 "storeSettings":{
                     "type": "AzureBlobStorageWriteSettings",
-                    "copyBehavior": "PreserveHierarchy"
+                    "copyBehavior": "PreserveHierarchy",
+                    "metadata": [
+                        {
+                            "name": "testKey1",
+                            "value": "value1"
+                        },
+                        {
+                            "name": "testKey2",
+                            "value": "value2"
+                        },
+                        {
+                            "name": "lastModifiedKey",
+                            "value": "$$LASTMODIFIED"
+                        }
+                    ]
                 }
             }
         }
@@ -503,7 +567,7 @@ Cette section décrit le comportement résultant de l’utilisation d’un chemi
 
 Supposons que vous disposez de la structure de dossiers sources suivante et que vous souhaitez copier les fichiers en gras :
 
-| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration de Data Factory                                            |
+| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration 
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | conteneur<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- Conteneur : `container`<br>- chemin d’accès du dossier : `FolderA`<br><br>**Dans la source de l’activité Copy :**<br>- chemin d’accès à la liste de fichiers : `container/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès de la liste de fichiers pointe vers un fichier texte dans le même magasin de données, qui contient la liste de fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données. |
 
@@ -543,7 +607,7 @@ Dans une transformation de source, vous pouvez lire à partir d’un conteneur, 
 
 ![Options de la source](media/data-flow/sourceOptions1.png "Options de la source")
 
-**Chemin avec des caractères génériques :** L’utilisation d’un modèle à caractères génériques donne pour instruction à Data Factory de lire en boucle chaque dossier et fichier correspondant dans une même transformation de source. Il s’agit d’un moyen efficace de traiter plusieurs fichiers dans un seul et même flux. Ajoutez plusieurs modèles de correspondance à caractères génériques avec le signe plus qui apparaît quand vous pointez sur votre modèle à caractères génériques existant.
+**Chemin d’accès à caractères génériques :** L’utilisation d’un modèle à caractères génériques donne pour instruction au service de parcourir en boucle chaque dossier et fichier correspondant dans une même transformation de la source. Il s’agit d’un moyen efficace de traiter plusieurs fichiers dans un seul et même flux. Ajoutez plusieurs modèles de correspondance à caractères génériques avec le signe plus qui apparaît quand vous pointez sur votre modèle à caractères génériques existant.
 
 Dans le conteneur source, choisissez une série de fichiers qui correspondent à un modèle. Seul un conteneur peut être spécifié dans le jeu de données. Votre chemin contenant des caractères génériques doit donc également inclure le chemin de votre dossier à partir du dossier racine.
 
@@ -565,7 +629,7 @@ Tout d’abord, définissez un caractère générique pour inclure tous les chem
 
 ![Paramètres du fichier source de partition](media/data-flow/partfile2.png "Paramètre du fichier de partition")
 
-Utilisez le paramètre **Chemin racine de la partition** pour définir le niveau supérieur de la structure de dossiers. Quand vous affichez le contenu de vos données via un aperçu des données, vous voyez que Data Factory ajoute les partitions résolues trouvées dans chacun de vos niveaux de dossiers.
+Utilisez le paramètre **Chemin racine de la partition** pour définir le niveau supérieur de la structure de dossiers. Quand vous affichez le contenu de vos données à l’aide d’un aperçu des données, vous voyez que le service ajoute les partitions résolues trouvées dans chacun de vos niveaux de dossiers.
 
 ![Chemin racine de la partition](media/data-flow/partfile1.png "Aperçu du chemin racine de la partition")
 
@@ -628,7 +692,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle mentionné précédemment. L’interface utilisateur de création de Data Factory a basculé vers la génération du nouveau modèle.
+>Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle mentionné précédemment. L’interface utilisateur de création a basculé vers la génération du nouveau modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
@@ -757,4 +821,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des magasins de données pris en charge par l’activité Copy dans Data Factory en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge par l'activité Copy en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

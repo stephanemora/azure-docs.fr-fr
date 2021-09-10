@@ -1,19 +1,19 @@
 ---
 title: Gestion des attributions de rôles RBAC Synapse dans Synapse Studio
 description: Cet article explique comment attribuer et révoquer des rôles RBAC Synapse dans des principaux de sécurité AAD
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01f923828f0b83280d033b9bc6e5c7b6bbebae35
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8bbb6185368b438376529d69409d301c0cdd9c97
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784072"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562471"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Gestion des attributions de rôles RBAC Synapse dans Synapse Studio
 
@@ -33,7 +33,7 @@ Cet article explique comment ajouter et supprimer des attributions de rôles RBA
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio  
 
-Pour attribuer un rôle à un utilisateur, un groupe, un principal du service ou une identité managée, [ouvrez Synapse Studio](https://web.azuresynapse.net/) et sélectionnez votre espace de travail. 
+Pour attribuer un rôle à un utilisateur, un groupe, un principal du service ou une identité managée, [ouvrez Synapse Studio](https://web.azuresynapse.net/) et connectez-vous à votre espace de travail. 
 
 ![Se connecter à l’espace de travail](./media/common/login-workspace.png) 
  

@@ -1,19 +1,19 @@
 ---
 title: Contrôle de code source dans Synapse Studio
 description: Découvrez comment configurer le contrôle de code source dans Azure Synapse Studio
-author: liud
+author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7371bc023cc13278c0d1382ac1ac60ee42a39f0b
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 10df7f8db2a787300787f8995ac0ea3a33736e68
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809137"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563004"
 ---
 # <a name="source-control-in-synapse-studio"></a>Contrôle de code source dans Synapse Studio
 
@@ -100,7 +100,10 @@ L’intégration de GitHub à Synapse Studio prend à la fois en charge le servi
 
 ### <a name="github-settings"></a>Paramètres GitHub
 
-Quand vous vous connectez à votre référentiel git, commencez par sélectionner GitHub comme type de référentiel, puis indiquez votre compte GitHub ou votre URL GitHub Enterprise Server si vous utilisez GitHub Enterprise Server, puis cliquez sur **Continuer**.
+Quand vous vous connectez à votre référentiel Git, commencez par sélectionner votre type de référentiel comme GitHub, puis indiquez votre compte d’GitHub, votre URL GitHub Enterprise Server si vous utilisez GitHub Enterprise Server, ou le nom de votre organisation GitHub Enterprise si vous utilisez GitHub Enterprise Cloud. Sélectionnez **Continuer**.
+
+> [!NOTE]
+> Si vous utilisez GitHub Enterprise Cloud, laissez la case **Utiliser GitHub Enterprise Server** désélectionnée. 
 
 ![Paramètres du référentiel GitHub](media/connect-with-github-repo-1.png)
 
@@ -128,7 +131,7 @@ Si vous vous connectez à GitHub à partir de Synapse Studio pour la première f
 
 1. Dans le volet Configuration git, entrez le nom de l’organisation dans le champ *Compte GitHub*. Une invite de connexion à GitHub s’affiche. 
 
-1. Connectez-vous à l’aide des informations d’identification de l’utilisateur.
+1. Connectez-vous à l’aide des informations d’identification de l’utilisateur. 
 
 1. Vous êtes invité à autoriser Synapse en tant qu’application appelée *Azure Synapse*. Dans cet écran, une option vous permet d’accorder à Synapse l’autorisation d’accéder à l’organisation. Si vous ne voyez pas l’option permettant d’accorder une autorisation, demandez à un administrateur d’accorder manuellement l’autorisation par le biais de GitHub.
 
