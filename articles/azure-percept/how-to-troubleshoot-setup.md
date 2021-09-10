@@ -1,20 +1,20 @@
 ---
-title: Résoudre des problèmes dans le cadre de la configuration d’Azure Percept DK
+title: Résoudre les problèmes relatifs à la configuration d’Azure Percept DK
 description: Découvrez des conseils de dépannage pour certains des problèmes les plus courants rencontrés lors de l’expérience de configuration
-author: mimcco
-ms.author: mimcco
+author: SillyKeith
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: troubleshooting
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: df99c356ad82704f7fbd5e40ef6c382e429ad5b4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 40b7289b3c6fd841a0af9b9a61f66906e0dfa028
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562232"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226842"
 ---
-# <a name="azure-percept-dk-setup-experience-troubleshooting-guide"></a>Guide de résolution des problèmes rencontrés lors de l’expérience de configuration d’Azure Percept DK
+# <a name="troubleshoot-the-azure-percept-dk-setup-experience"></a>Résoudre les problèmes relatifs à la configuration d’Azure Percept DK
 
 Reportez-vous au tableau ci-dessous pour obtenir des solutions de contournement aux problèmes courants rencontrés lors de la [configuration d’Azure Percept DK](./quickstart-percept-dk-set-up.md). Si votre problème persiste, contactez le service clientèle d’Azure.
 
@@ -26,5 +26,5 @@ Reportez-vous au tableau ci-dessous pour obtenir des solutions de contournement 
 |L’ordinateur hôte affiche un avertissement de sécurité concernant la connexion au point d’accès du DK Azure Percept.|Il s’agit d’un problème connu qui sera résolu dans une prochaine mise à jour.|Il est plus prudent de poursuivre l’installation.|
 |Le point d’accès Wi-Fi d’Azure Percept DK (scz-xxxx ou apd-xxxx) apparaît dans la liste des réseaux, mais ne parvient pas à se connecter.|Cela peut être dû à un endommagement temporaire du point d’accès Wi-Fi du kit de développement.|Redémarrez le kit de développement et réessayez.|
 |Impossible de se connecter à un réseau Wi-Fi lors de l’expérience d’installation.|Le réseau Wi-Fi doit disposer actuellement d’une connectivité Internet pour pouvoir communiquer avec Azure. EAP[PEAP/MSCHAP], les portails captifs et la connectivité EAP-TLS d’entreprise ne sont actuellement pas pris en charge.|Vérifiez que votre type de réseau Wi-Fi est pris en charge et qu’il dispose d’une connectivité Internet.|
-|**Erreurs de code de l’appareil** <br><br> Si vous avez reçu les erreurs suivantes sur la page de codes de l’appareil : <br><br>**Dans l’interface utilisateur de l’expérience d’installation** - Impossible d’obtenir un code d’appareil. Assurez-vous que l’appareil est connecté à Internet ; <br><br> **En mode développeur web du navigateur** - Échec du chargement de la ressource : le serveur a répondu avec l’état 503 (service non disponible) <br><br>ou <br><br>Le certificat n'est pas encore valide. | Il y a un problème avec votre réseau Wi-Fi qui empêche l’appareil de formuler des requêtes DNS ou de contacter un serveur de temps NTP. | Essayez de brancher un câble Ethernet au kit de développement ou de vous connecter à un autre réseau de Wi-Fi, puis réessayez. <br><br> Les causes les moins courantes peuvent être que la date/l’heure de votre ordinateur hôte soient incorrectes.  |
+|**Erreurs de code de l’appareil** <br><br> Si vous avez reçu les erreurs suivantes sur la page de codes de l’appareil : <br><br>**Dans l’interface utilisateur de l’expérience d’installation** - Impossible d’obtenir un code d’appareil. Assurez-vous que l’appareil est connecté à Internet ; <br><br> **En mode développeur web du navigateur** - Échec du chargement de la ressource : le serveur a répondu avec l’état 503 (service non disponible) <br><br>or <br><br>Le certificat n'est pas encore valide. | Il y a un problème avec votre réseau Wi-Fi qui empêche l’appareil de formuler des requêtes DNS ou de contacter un serveur de temps NTP. | Essayez de brancher un câble Ethernet au kit de développement ou de vous connecter à un autre réseau de Wi-Fi, puis réessayez. <br><br> Les causes les moins courantes peuvent être que la date/l’heure de votre ordinateur hôte soient incorrectes.  |
 |**Problèmes lors de l’utilisation du code de l’appareil**<br><br> Une fois que vous avez utilisé le code de l’appareil et que vous vous êtes connecté à Azure, un message d’erreur Azure s’affiche à propos des autorisations de stratégie ou des problèmes de conformité. Vous ne pourrez pas continuer l’installation.<br><br> Voici quelques-unes des erreurs que vous pouvez voir :<br><br>**BlockedByConditionalAccessOnSecurityPolicy** L’administrateur de locataire a configuré une stratégie de sécurité qui bloque cette requête. Vérifiez les stratégies de sécurité définies au niveau du locataire pour déterminer si votre requête répond à la stratégie. <br><br>**DevicePolicyError** : l’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel.<br><br>**DeviceNotCompliant** : une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme. L’utilisateur doit inscrire ses appareils auprès d’un fournisseur approuvé de gestion des périphériques mobiles, comme Intune<br><br>**BlockedByConditionalAccess** : l’accès a été bloqué par des stratégies d’accès conditionnel. La stratégie d’accès n’autorise pas l’émission de jeton.<br><br>**Vous ne pouvez pas y accéder pour le moment** - Votre connexion a réussi, mais ne répond pas aux critères vous permettant d’accéder à cette ressource   |Certains locataires Azure peuvent bloquer l’utilisation de « codes d’appareil » pour la manipulation des ressources Azure pour des raisons de sécurité. C’est généralement le résultat des stratégies IT d’accès conditionnel de votre organisation. Par conséquent, l’expérience d’installation d’Azure Percept ne peut pas créer de ressources Azure pour vous. <br><br>Votre stratégie d’accès conditionnel requiert que vous soyez connecté à votre réseau d’entreprise ou à votre VPN pour continuer.    |Collaborez avec votre organisation pour comprendre les stratégies IT d’accès conditionnel.  |

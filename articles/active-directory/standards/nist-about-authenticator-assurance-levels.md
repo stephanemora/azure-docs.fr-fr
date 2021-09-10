@@ -1,5 +1,5 @@
 ---
-title: Niveaux d’assurance de l’authentificateur NIST avec Azure Active Directory
+title: Niveaux d’assurance d’authentificateur NIST avec Azure Active Directory
 description: Vue d’ensemble des niveaux d’assurance de l’authentificateur, tels qu’ils sont appliqués à Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,18 +13,18 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cf1b096963c5b83c359c6583573c709655bc1c
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 72462bf14fb8c287335e0497cbaa00102521b310
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517723"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889847"
 ---
-# <a name="about-authenticator-assurance-levels"></a>À propos des niveaux d’assurance de l’authentificateur
+# <a name="about-authenticator-assurance-levels"></a>À propos des niveaux d’assurance d’authentificateur
 
-Le NIST (National Institute of Standards and Technology) développe les spécifications techniques pour les agences fédérales américaines mettant en œuvre des solutions d’identité. [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) définit les recommandations techniques relatives à l’implémentation de l’authentification numérique. Ce document s’appuie pour cela sur une infrastructure dotée de niveaux AAL (AAL, Authenticator Assurance Levels). Les niveaux AAL caractérisent la force de l’authentification d’une identité numérique. Ce guide couvre également la gestion du cycle de vie des authentificateurs, y compris la révocation. 
+L’institut National Institute of Standards and Technology (NIST) élabore les exigences techniques pour les agences fédérales américaines qui implémentent des solutions d’identité. [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) définit les recommandations techniques relatives à l’implémentation de l’authentification numérique. Il s’appuie pour cela sur une infrastructure de niveaux d’assurance d’authentificateur (AAL, Authenticator Assurance Levels). Les niveaux AAL caractérisent la force de l’authentification d’une identité numérique. Ce guide couvre également la gestion du cycle de vie des authentificateurs, dont leur révocation. 
 
-La norme comprend des exigences AAL pour 11 catégories d’exigence :
+La norme inclut des exigences de niveau AAL pour les catégories d’exigence suivantes :
 
 * Types d’authentificateurs autorisés
 
@@ -44,32 +44,32 @@ La norme comprend des exigences AAL pour 11 catégories d’exigence :
 
 * Intention d’authentification
 
-* Stratégie de conservation des enregistrements
+* Stratégie de rétention des enregistrements
 
 * Contrôles de la confidentialité
 
-## <a name="applying-nist-aals-in-your-environment"></a>Application des niveaux NIST AAL dans votre environnement
+## <a name="apply-nist-aals-in-your-environment"></a>Appliquer les niveaux AAL NIST dans votre environnement
 
 > [!TIP]
-> Nous vous recommandons de respecter au moins le niveau AAL 2, à moins que des raisons commerciales, des normes industrielles ou des exigences de conformité ne vous obligent à respecter le niveau AAL3.
+> Nous vous recommandons de respecter au moins le niveau AAL2. Respectez le niveau AAL3 si nécessaire pour des raisons professionnelles, des normes industrielles ou des exigences de conformité.
 
-En général, le niveau AAL1 n’est pas recommandé, car il accepte les solutions par mot de passe seulement, et les mots de passe sont la forme d’authentification la plus facile à compromettre. Consultez [Votre mot de pa$$e n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
+En général, le niveau AAL1 n’est pas recommandé, car il accepte les solutions par mot de passe seulement, et les mots de passe sont la forme d’authentification la plus facile à compromettre. Pour plus d’informations, consultez le billet de blog [Votre mot de pa$$e n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
 
-Bien que le NIST n’exige pas la résistance à l’emprunt d’identité du vérificateur (également connu sous le nom d’hameçonnage des informations d’identification) jusqu’au niveau AAL3, nous vous recommandons vivement de traiter cette menace à tous les niveaux. Vous pouvez sélectionner des authentificateurs qui fournissent une résistance à l’emprunt d’identité du vérificateur, par exemple en exigeant des appareils à jonction Azure AD ou à jonction hybride Azure AD. Si vous utilisez Office 365, vous pouvez vous servir d’Office 365 - Protection avancée contre les menaces, et plus particulièrement des [stratégies anti-hameçonnage](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
+Bien que le NIST n’exige pas de résistance à l’emprunt d’identité de vérificateur (également appelé hameçonnage d’informations d’identification) jusqu’au niveau AAL3, nous vous recommandons vivement de traiter cette menace à tous les niveaux. Vous pouvez sélectionner des authentificateurs qui fournissent une résistance à l’emprunt d’identité du vérificateur, par exemple, en exigeant que les appareils soient joints à Azure Active Directory (Azure AD) ou à Azure AD Hybride. Si vous utilisez Office 365, vous pouvez vous servir d’Office 365 – Protection avancée contre les menaces, en particulier de ses [stratégies anti-hameçonnage](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
 
-À mesure que vous évaluez le niveau NIST AAL approprié pour votre organisation, vous pouvez déterminer si l’ensemble de votre organisation doit respecter les normes du NIST, ou si des groupes spécifiques d’utilisateurs et de ressources peuvent être formés, en n’appliquant les configurations du niveau NIST AAL qu’à un groupe particulier d’utilisateurs et de ressources. 
+À mesure que vous évaluez le niveau AAL NIST approprié pour votre organisation, déterminez si l’ensemble de celle-ci doit respecter les normes NIST. S’il est possible de séparer des groupes spécifiques d’utilisateurs et de ressources, vous pouvez appliquer les configurations de niveau AAL NIST à un groupe spécifique d’utilisateurs et de ressources. 
 
 ## <a name="security-controls-privacy-controls-records-retention-policy"></a>Contrôles de sécurité, contrôles de confidentialité, stratégie de conservation des enregistrements
 
-Azure et Azure Government ont obtenu une autorisation d’exploitation provisoire (P-ATO, Provisional Authority to Operate) de [niveau d’impact élevé NIST SP 800-53](https://nvd.nist.gov/800-53/Rev4/impact/high) auprès du Joint Authorization Board, le plus haut degré en matière d’accréditation FedRAMP, qui autorise l’utilisation d’Azure et Azure Government pour traiter des données très sensibles.
+Azure et Azure Government ont obtenu du Joint Authorization Board une autorisation d’exploitation provisoire (P-ATO) de [niveau Impact élevé NIST SP 800-53](https://nvd.nist.gov/800-53/Rev4/impact/high). Ce niveau représente la barre la barre la plus élevée pour l’accréditation FedRAMP, et autorise l’utilisation d’Azure et Azure Government pour traiter des données très sensibles.
 
-Ces certifications Azure et Azure Government satisfont aux exigences en matière de contrôles de sécurité, de contrôles de confidentialité et de stratégie de conservation des enregistrements pour les niveaux AAL1, AAL2 et AAL3.
+Ces certifications Azure et Azure Government satisfont aux exigences en matière de contrôles de sécurité et de conformité, ainsi que de stratégie de rétention des enregistrements des niveaux AAL1, AAL2 et AAL3.
 
-L’audit FedRAMP d’Azure et d’Azure Government incluait le système de gestion de la sécurité des informations qui englobe l’infrastructure, le développement, les opérations, la gestion et la prise en charge des services concernés. Une fois qu’une autorisation P-ATO est accordée, un fournisseur de services cloud doit toujours obtenir une autorisation d’exploitation (ATO, Authority to Operate) auprès de l’organisme public avec lequel il travaille. Pour Azure, un organisme public ou les organisations travaillant avec celui-ci peuvent utiliser l’autorisation P-ATO d’Azure dans son propre processus d’autorisation de sécurité, et s’appuyer sur cette autorisation comme base pour l’émission d’une autorisation ATO de l’organisme qui répond également aux exigences FedRAMP.
+L’audit FedRAMP d’Azure et d’Azure Government incluait le système de gestion de la sécurité des informations qui englobe l’infrastructure, le développement, les opérations, la gestion et la prise en charge des services concernés. Une fois qu’une autorisation P-ATO est accordée, un fournisseur de services cloud doit encore obtenir une autorisation d’exploitation (ATO) de l’organisme gouvernemental avec lequel il travaille. Pour Azure, un organisme gouvernemental ou des organisations travaillant avec celui-ci peuvent utiliser l’autorisation P-ATO d’Azure dans leur propre processus d’autorisation de sécurité. Ils peuvent également s’appuyer sur cette autorisation comme base pour l’émission d’une autorisation ATO répondant également aux exigences FedRAMP.
 
-Azure continue de prendre en charge plus de services de niveaux d’impact élevé FedRAMP que n’importe quel autre fournisseur de cloud. Et même si FedRAMP High dans le cloud public Azure répond aux besoins de nombreux clients du secteur public des États-Unis, les organismes ayant des exigences plus rigoureuses continuent de s’appuyer sur Azure Government, qui offre des protections supplémentaires, telles que le contrôle accru du personnel. Microsoft répertorie tous les services publics Azure actuellement disponibles dans Azure Government jusqu’à la limite de FedRAMP High, ainsi que les services planifiés pour l’année en cours.
+Azure continue de prendre en charge plus de services de niveaux d’impact élevé FedRAMP que n’importe quel autre fournisseur de cloud. Et même si FedRAMP High dans le cloud public Azure répond aux besoins de nombreux clients du secteur public des États-Unis, les organismes ayant des exigences plus strictes peuvent s’appuyer sur Azure Government. Azure Government fournit des protections supplémentaires, telles que le filtrage renforcé du personnel. Microsoft répertorie tous les services publics Azure actuellement disponibles dans Azure Government jusqu’à la limite de FedRAMP High, ainsi que les services planifiés pour l’année en cours.
 
-De plus, Microsoft s’engage pleinement à [protéger et à gérer les données des clients](https://www.microsoft.com/trust-center/privacy/data-management) avec des stratégies de conservation des enregistrements clairement énoncées. En tant qu’entreprise mondiale comptant des clients dans presque tous les pays du monde, Microsoft dispose d’une solide gamme de solutions de conformité pour aider ses clients. Pour consulter la liste complète de nos offres de conformité, consultez [Offre de conformité Microsoft](https://docs.microsoft.com/compliance/regulatory/offering-home). 
+De plus, Microsoft s’engage pleinement à [protéger et à gérer les données des clients](https://www.microsoft.com/trust-center/privacy/data-management) avec des stratégies de conservation des enregistrements clairement énoncées. En tant qu’entreprise mondiale comptant des clients dans presque tous les pays du monde, Microsoft dispose d’une solide portefeuille de solutions de conformité pour vous aider. Pour voir la liste complète de nos offres de conformité, consultez [Offre de conformité Microsoft](/compliance/regulatory/offering-home). 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
@@ -81,8 +81,8 @@ De plus, Microsoft s’engage pleinement à [protéger et à gérer les données
 
 [Types d'authentificateurs NIST](nist-authenticator-types.md)
 
-[Atteindre le niveau AAL1 NIST avec Azure AD](nist-authenticator-assurance-level-1.md)
+[Atteindre le niveau AAL1 NIST avec Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Obtention du niveau NIST AAL2 avec Azure AD](nist-authenticator-assurance-level-2.md)
+[Atteindre le niveau AAL2 NIST avec Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Obtention du niveau NIST AAL3 avec Azure AD](nist-authenticator-assurance-level-3.md) 
+[Atteindre le niveau AAL3 NIST avec Azure AD](nist-authenticator-assurance-level-3.md)

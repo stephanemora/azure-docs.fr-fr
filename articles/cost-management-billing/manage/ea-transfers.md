@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 08/02/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cc8d65ec4b714bbb98036c5ed3deabd4b75d3c98
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943693"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563320"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferts Azure Enterprise
 
@@ -59,6 +59,9 @@ Cette section est fournie à titre d’information uniquement, car l’action ne
 
 Lorsque vous demandez à transférer une inscription d’entreprise complète vers une autre inscription, les actions suivantes se produisent :
 
+- L’utilisation transférée peut prendre jusqu’à 72 heures pour être reflétée dans la nouvelle inscription.
+- Si l’affichage des frais d’administrateur de service ou de propriétaire du compte ont été activés sur l’inscription transférée, ils doivent être activés sur la nouvelle inscription.
+- Si vous utilisez des rapports d’API ou Power BI, générez une nouvelle clé API sous votre nouvelle inscription.
 - L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, effectuent un transfert vers une nouvelle inscription cible.
 - L’état de l’inscription est défini sur _Transféré_. L’inscription transférée est disponible uniquement à des fins de création de rapports d’utilisation.
 - Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche toute utilisation supplémentaire en relation avec l’inscription.
@@ -85,6 +88,17 @@ Autres points à garder à l’esprit avant un transfert d’inscription :
 - L’approbation des administrateurs EA pour les inscriptions source et cible est obligatoire.
 - Si un transfert d’inscription ne répond pas à vos exigences, envisagez un transfert de compte.
 - L’état de l’inscription source est mis à jour sur Transféré et sera disponible uniquement à des fins de création de rapports d’utilisation historiques.
+- Il n’y a aucun temps d’arrêt lors du transfert d’une inscription.
+- Jusqu’à 24 à 48 heures peuvent s’écouler avant que l’utilisation soit reflétée dans l’inscription cible.
+- Les paramètres d’affichage des coûts pour les administrateurs de service ou les propriétaires de compte ne sont pas reportés.
+  - En cas d’activation préalable, les paramètres doivent être activés pour l’inscription cible.
+- Toutes les clés API utilisées dans l’inscription source doivent être régénérées pour l’inscription cible.
+- Si les inscriptions source et de destination se trouvent sur des instances de cloud différentes, le transfert échoue. Le support Azure peut transférer uniquement dans la même instance de cloud.
+- Pour les réservations (instances réservées) :
+  - L’inscription ou le transfert de compte entre différentes devises affectent les achats de réservations mensuelles.
+  - À chaque changement de devise pendant ou après un transfert d’inscription, les réservations payées mensuellement sont annulées pour l’inscription source. Ce comportement est intentionnel et affecte uniquement les achats de réservations mensuelles.
+  - Il se peut que vous deviez racheter les réservations mensuelles annulées à partir de l’inscription source à l’aide de la nouvelle inscription dans la devise locale ou la nouvelle devise.
+
 
 ### <a name="auto-enrollment-transfer"></a>Transfert d’inscription automatique
 

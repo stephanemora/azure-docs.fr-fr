@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 06/14/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6a31d32a4888e50cdfccf1bf609418fb31ef69e3
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 902704052524a396812e4d9d3848c754c3a7c4a3
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569585"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580869"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurer l’équilibreur de charge pour l’écouteur VNN AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,6 +43,8 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
+
+Vous pouvez créer un équilibreur de charge interne ou externe. Un équilibreur de charge interne ne peut émaner que de ressources privées accessibles internes au réseau.  Un équilibreur de charge externe peut router du trafic de ressources publiques vers des ressources internes. Quand vous configurez un équilibreur de charge interne, utilisez la même adresse IP que la ressource écouteur de groupe de disponibilité durant la configuration des règles d’équilibrage de charge. Quand vous configurez un équilibreur de charge externe, vous ne pouvez pas utiliser la même adresse IP que celle de l’écouteur de groupe de disponibilité, car l’adresse IP de celui-ci ne peut pas être une adresse IP publique. Ainsi, pour utiliser un équilibreur de charge externe, allouez logiquement une adresse IP située dans le même sous-réseau que le groupe de disponibilité, qui n’est pas en conflit avec une autre adresse IP, et utilisez cette adresse comme adresse IP frontale pour les règles d’équilibrage de charge. 
 
 Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibreur de charge :
 
@@ -77,7 +79,7 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 1. Associez le pool principal au groupe à haute disponibilité contenant les machines virtuelles.
 
-1. Sous **Configurations IP du réseau cible**, sélectionnez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront la FCI ou le groupe de disponibilité.
+1. Sous **Configurations IP du réseau cible**, sélectionnez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront le groupe de disponibilité.
 
 1. Sélectionnez **OK** pour créer le pool principal.
 
@@ -99,6 +101,10 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 ## <a name="set-load-balancing-rules"></a>Définir les règles d’équilibrage de charge
 
+Définissez les règles d’équilibrage de charge pour l’équilibreur de charge. 
+
+# <a name="private-load-balancer"></a>[Équilibreur de charge privé](#tab/ilb)
+
 1. Dans le volet de l’équilibreur de charge, sélectionnez **Règles d’équilibrage de charge**.
 
 1. Sélectionnez **Ajouter**.
@@ -106,7 +112,7 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 1. Définissez les paramètres de règles d’équilibrage de charge :
 
    - **Name** : Nom des règles d’équilibrage de charge.
-   - **Adresse IP du serveur frontal** : L’adresse IP de la SQL Server instances FCI ou de la ressource réseau en cluster de l’écouteur GA.
+   - **Adresse IP frontale** : adresse IP pour la ressource réseau en cluster de l’écouteur de groupe de disponibilité.
    - **Port** : Port TCP SQL Server. Le port d’instance par défaut est 1433.
    - **Port principal** : Même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)** .
    - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
@@ -117,9 +123,33 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 1. Sélectionnez **OK**.
 
+# <a name="public-load-balancer"></a>[Équilibreur de charge public](#tab/elb)
+
+1. Dans le volet de l’équilibreur de charge, sélectionnez **Règles d’équilibrage de charge**.
+
+1. Sélectionnez **Ajouter**.
+
+1. Définissez les paramètres de règles d’équilibrage de charge :
+
+   - **Name** : Nom des règles d’équilibrage de charge.
+   - **Adresse IP frontale** : adresse IP publique que les clients utilisent pour se connecter au point de terminaison public. 
+   - **Port** : Port TCP SQL Server. Le port d’instance par défaut est 1433.
+   - **Port principal** : port utilisé par l’écouteur du groupe de disponibilité. Par défaut, il s’agit du port 1433. 
+   - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
+   - **Sonde d’intégrité** : La sonde d’intégrité que vous avez configurée précédemment.
+   - **Persistance de session** : Aucun.
+   - **Délai d’inactivité (minutes)**  : 4.
+   - **Adresse IP flottante (retour serveur direct)**  : désactivée.
+
+1. Sélectionnez **OK**.
+
+---
+
 ## <a name="configure-cluster-probe"></a>Configurer le probe du cluster
 
 Définissez le paramètre de port de sonde de cluster dans PowerShell.
+
+# <a name="private-load-balancer"></a>[Équilibreur de charge privé](#tab/ilb)
 
 Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant avec des valeurs à partir de votre environnement. Supprimez les crochets pointus (`<` et `>`) du script.
 
@@ -140,9 +170,9 @@ Le tableau ci-dessous décrit les valeurs que vous devez mettre à jour :
 |**Valeur**|**Description**|
 |---------|---------|
 |`Cluster Network Name`| Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
-|`AG listener IP Address Resource Name`|Nom de la ressource pour l’adresse IP de la FCI SQL Server ou de l’écouteur de groupe de disponibilité. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
-|`ILBIP`|Adresse IP de l’équilibreur de charge interne (ILB). Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale de l’équilibreur de charge interne. Il s’agit également de l’adresse IP de la FCI SQL Server. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<AG listener IP Address Resource Name>`.|
-|`nnnnn`|Port de probe que vous avez configuré dans le probe d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide.|
+|`AG listener IP Address Resource Name`|Nom de ressource pour l’adresse IP de l’écouteur du groupe de disponibilité. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle du groupe de disponibilité, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
+|`ILBIP`|Adresse IP de l’équilibreur de charge interne (ILB). Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale de l’équilibreur de charge interne.  Il s’agit de la même adresse IP que celle de l’écouteur du groupe de disponibilité. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<AG listener IP Address Resource Name>`.|
+|`nnnnn`|Port de sonde que vous avez configuré dans la sonde d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide.|
 |« SubnetMask »| Masque de sous-réseau pour le paramètre de cluster. Il doit s’agir de l’adresse de diffusion TCP IP : `255.255.255.255`.| 
 
 
@@ -151,6 +181,45 @@ Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres 
 ```powershell
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
+
+# <a name="public-load-balancer"></a>[Équilibreur de charge public](#tab/elb)
+
+Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant avec des valeurs à partir de votre environnement. Supprimez les crochets pointus (`<` et `>`) du script.
+
+```powershell
+$ClusterNetworkName = "<Cluster Network Name>"
+$IPResourceName = "<Availability group Listener IP Address Resource Name>" 
+$ELBIP = "<n.n.n.n>" 
+[int]$ProbePort = <nnnnn>
+
+Import-Module FailoverClusters
+
+Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ELBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+```
+
+Le tableau ci-dessous décrit les valeurs que vous devez mettre à jour :
+
+
+|**Valeur**|**Description**|
+|---------|---------|
+|`Cluster Network Name`| Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
+|`AG listener IP Address Resource Name`|Nom de ressource pour l’adresse IP de l’écouteur du groupe de disponibilité. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle du groupe de disponibilité, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
+|`ELBIP`|Adresse IP de l’équilibreur de charge externe (ELB). Cette adresse est configurée dans le portail Azure comme adresse frontale de l’équilibreur de charge externe, et utilisée pour la connexion à l’équilibreur de charge public à partir de ressources externes.|
+|`nnnnn`|Port de sonde que vous avez configuré dans la sonde d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide.|
+|« SubnetMask »| Masque de sous-réseau pour le paramètre de cluster. Il doit s’agir de l’adresse de diffusion TCP IP : `255.255.255.255`.| 
+
+
+Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres de cluster dans PowerShell. Exécutez ce script :
+
+```powershell
+Get-ClusterResource $IPResourceName | Get-ClusterParameter
+```
+
+> [!NOTE]
+> Étant donné qu’il n’y a pas d’adresse IP privée pour l’équilibreur de charge externe, les utilisateurs ne peuvent pas utiliser directement le nom DNS du nom de réseau virtuel (VNN), car il résout l’adresse IP dans le sous-réseau. Utilisez l’adresse IP publique de l’équilibreur de charge public ou configurez un autre mappage DNS sur le serveur DNS. 
+
+
+---
 
 ## <a name="modify-connection-string"></a>Modifier la chaîne de connexion 
 
@@ -166,6 +235,7 @@ Get-ClusterResource yourListenerName|Set-ClusterParameter HostRecordTTL 300
 ```
 
 Pour plus d’informations, consultez la documentation relative au [délai de connexion de l’écouteur](/troubleshoot/sql/availability-groups/listener-connection-times-out) SQL Server. 
+
 
 > [!TIP]
 > - Définissez le paramètre MultiSubnetFailover = true dans la chaîne de connexion même pour les solutions HADR qui couvrent un seul sous-réseau afin de prendre en charge la répartition future des sous-réseaux sans avoir à mettre à jour les chaînes de connexion.  

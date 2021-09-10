@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec4457eeb60029783981824b93d2eadfaa1271b
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: adb0073ca5d8bfb822d7ac47d7e7f770d18423ca
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866318"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535387"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Accès conditionnel : applications, actions et contexte d’authentification cloud
 
@@ -40,7 +40,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database et Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
-- Common Data Service
+- Dynamics CRM en ligne
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Gestion Microsoft Azure](#microsoft-azure-management)
@@ -48,12 +48,12 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Microsoft Cloud App Security
 - Portail de contrôle des accès aux outils de Microsoft Commerce
 - Service d’authentification des outils Microsoft Commerce
+- Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - [Inscription à Microsoft Intune](/intune/enrollment/multi-factor-authentication)
 - Planificateur Microsoft
-- Microsoft Power Apps
-- Microsoft Power Automate
+- Microsoft PowerApps
 - Recherche Microsoft Bing
 - Microsoft StaffHub
 - Microsoft Stream
@@ -85,6 +85,7 @@ S’ils le souhaitent, les administrateurs peuvent exclure des applications spé
 
 Les applications de clé suivantes sont incluses dans l’application cliente Office 365 :
 
+   - Microsoft Flow
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
@@ -97,8 +98,7 @@ Les applications de clé suivantes sont incluses dans l’application cliente Of
    - Office Online
    - Office.com
    - OneDrive
-   - Power Automate
-   - Power Apps
+   - PowerApps
    - Skype Entreprise Online
    - Sway
 

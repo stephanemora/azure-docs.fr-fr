@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96d3957a7626e393728d4a309bc56ecaa19d4e83
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950310"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400918"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Conservation des listes de contrôle d’accès, des attributs et des horodatages de fichiers avec Azure Data Box
 
@@ -102,6 +102,45 @@ where
 |`/log+:<LogFile>`  |Ajoute la sortie au fichier journal existant.|
 
 Pour plus d’informations sur ces paramètres `robocopy`, consultez [Tutoriel : Copier des données sur Azure Data Box Disk par le biais de SMB](./data-box-deploy-copy-data.md).
+
+> [!NOTE]
+> Si vous utilisez `/copyall` pour copier vos données, les listes de contrôle d’accès sources des répertoires et des fichiers sont transférées vers Azure Files. Si vous disposez uniquement d’un accès en lecture à vos données sources et n’avez pas pu modifier les données sources, vous ne disposerez d’un accès en lecture que sur les données dans la Data Box. Utilisez `/copyall` uniquement si vous envisagez de copier toutes les listes de contrôle d’accès des répertoires et des fichiers avec les données.
+
+#### <a name="use-robocopy-to-list-copy-modify-files-on-data-box"></a>Utilisez la commande robocopy pour répertorier, copier et modifier des fichiers sur Data Box
+
+Voici quelques-uns des scénarios courants que vous allez utiliser lors de la copie de données à l’aide de la commande `robocopy`.
+
+- **Copier uniquement les données vers Data Box, pas les listes de contrôle d’accès des répertoires et des fichiers**
+
+    Utilisez l’option `/dcopy:DAT` pour copier uniquement les données, les attributs et les horodateurs. Les listes de contrôle d’accès des répertoires et des fichiers ne sont pas copiées.
+
+- **Copier les données et les listes de contrôle d’accès des répertoires et des fichiers vers Data Box**
+
+    Utilisez `/copyall` pour copier toutes les données sources, y compris les listes de contrôle d’accès des répertoires et des fichiers.
+
+- **Répertorier le système de fichiers sur Data Box à l’aide de la commande robocopy**
+
+    Pour répertorier le contenu du répertoire, utilisez la commande suivante :
+
+    `robocopy <source-dir> NULL /l /s /xx /njh /njs /fp /B`
+
+    Notez que l’Explorateur de fichiers ne vous autorise pas à répertorier ces fichiers.
+    
+- **Copier ou supprimer des dossiers et des fichiers sur Data Box**
+
+    Pour copier un seul fichier, utilisez la commande suivante :
+
+    `robocopy <source-dir> <destination-dir> <file-name> /B`
+
+    Pour supprimer un seul fichier, utilisez la commande suivante :
+
+    `robocopy <source-dir> <destination-dir> <file-name> /purge /B`
+
+    Dans la commande ci-dessus, `<source-dir>` ne doit pas contenir le fichier : `<file-name>` . Ensuite, la commande ci-dessus synchronise la destination avec la source, ce qui entraîne la suppression du fichier de la destination.
+
+    Notez que l’Explorateur de fichiers peut ne pas vous autoriser à effectuer les opérations ci-dessus.
+
+Pour plus d’informations, consultez [Utilisation des commandes robocopy](/windows-server/administration/windows-commands/robocopy).
 
 ### <a name="linux-data-copy-tool"></a>Outil de copie de données Linux
 
