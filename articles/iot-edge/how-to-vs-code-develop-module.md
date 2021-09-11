@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 08/24/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c204308cff285860c0e887d41eca56ecc220226
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: cb0c6bd32c2bb1087635ee9ae61c0c569d3575f2
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039052"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563386"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
@@ -117,18 +117,6 @@ La solution comprend quatre éléments :
 - Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **SimulatedTemperatureSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires](module-composition.md).
 
 Pour savoir comment le module de température simulée fonctionne, afficher le [code source SimulatedTemperatureSensor.csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
-
-### <a name="set-iot-edge-runtime-version"></a>Définir la version du runtime IoT Edge
-
-L’extension IoT Edge est par défaut la dernière version stable du runtime IoT Edge lors de la création de vos ressources de déploiement. La dernière version stable est la version 1.2. Si vous développez des modules pour des appareils qui exécutent la version de support à long terme 1.1 ou la version 1.0 antérieure, mettez à jour la version du runtime IoT Edge dans Visual Studio Code pour qu’elle corresponde.
-
-1. Sélectionnez **Afficher** > **Palette de commandes**.
-
-1. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: Set default IoT Edge runtime version** (Azure IoT Edge : Définir la version du runtime IoT Edge par défaut).
-
-1. Dans la liste, choisissez la version du runtime que vos appareils IoT Edge exécutent.
-
-Une fois que vous avez sélectionné une nouvelle version du runtime, votre manifeste de déploiement est mis à jour dynamiquement pour refléter la modification apportée aux images du module de runtime.
 
 ## <a name="add-additional-modules"></a>Ajouter des modules supplémentaires
 

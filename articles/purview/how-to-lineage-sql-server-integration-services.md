@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.openlocfilehash: aa4fb6b7870831d0f24b0a7071cbf0dfd2431c14
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 2bdcdf79ee28bf6a3c233decd6dceafce74276ef
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294556"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258371"
 ---
 # <a name="how-to-get-lineage-from-sql-server-integration-services-ssis-into-azure-purview"></a>Comment obtenir la traçabilité de SQL Server Integration Services (SSIS) dans Azure Purview
 
 Cet article aborde les aspects de la traçabilité des données de SQL Server Integration Services (SSIS) dans Azure Purview.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - [Effectuer un « lift-and-shift » des charges de travail SQL Server Integration Services vers le cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 
@@ -35,7 +35,7 @@ L’extraction de traçabilité SSIS locale n’est pas encore prise en charge.
 | Stockage Blob Azure | Oui |
 | Azure Data Lake Storage Gen1 | Oui |
 | Azure Data Lake Storage Gen2 | Oui |
-| Stockage Fichier Azure | Oui |
+| Azure Files | Oui |
 | Azure SQL Database \* | Oui |
 | Azure SQL Managed Instance\*| Oui |
 | Azure Synapse Analytics\* | Oui |
