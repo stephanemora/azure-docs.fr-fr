@@ -1,23 +1,22 @@
 ---
-title: Mettre à jour Azure Percept DK via une connexion USB-C
+title: Mettre à jour Azure Percept DK via une connexion par câble USB-C
 description: Découvrez comment mettre à jour Azure Percept DK via une connexion par câble USB-C
-author: EthanChangAED
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: eef23597e6cb8f215fd7ce2374d66ff104cc00bc
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: e40a75f91ebf371d27b541b74ba427f42bc518f3
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226011"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652903"
 ---
-# <a name="update-azure-percept-dk-over-a-usb-c-connection"></a>Mettre à jour Azure Percept DK via une connexion USB-C
+# <a name="update-the-azure-percept-dk-over-a-usb-c-cable-connection"></a>Mettre à jour Azure Percept DK via une connexion par câble USB-C
 
 Ce guide explique comment mettre à jour correctement le système d’exploitation et le microprogramme de votre kit de développement via une connexion USB. Voici une vue d’ensemble de ce que vous allez faire dans le cadre de cette procédure.
-
 1. Télécharger le package de mise à jour sur un ordinateur hôte
 1. Exécuter la commande qui transfère le package de mise à jour vers le kit de développement
 1. Mettre le kit de développement en mode USB à l’aide d’une connexion SSH ou des commutateurs DIP
@@ -28,6 +27,7 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 > La mise à jour de votre kit de développement via une connexion USB aura pour effet de supprimer toutes les données existantes sur l’appareil, y compris les modèles et conteneurs d’IA.
 >
 > Suivez toutes les instructions dans l’ordre. Sauter des étapes pourrait avoir pour effet de mettre votre kit de développement dans un état inutilisable.
+
 
 ## <a name="prerequisites"></a>Prérequis
 

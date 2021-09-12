@@ -12,12 +12,12 @@ ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c88954434c38a04d0d1263e96639e6cca03c3a1b
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: b64806b3683db8f6cd3ec665b462f4f6f26397eb
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534725"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770151"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Activer des domaines personnalisés pour Azure Active Directory B2C
 
@@ -114,7 +114,7 @@ Suivez les étapes ci-dessous pour créer une Front Door pour votre locataire Az
 
 L’hôte frontal est le nom de domaine que votre application utilise. Lorsque vous créez une Front Door, l’hôte frontal par défaut est un sous-domaine de `azurefd.net`.
 
-Par commodité, Azure Front Door permet d’associer un domaine personnalisé à l’hôte frontal. Avec cette option, vous associez l’interface utilisateur Azure AD B2C à un domaine personnalisé dans votre URL au lieu d’un nom de domaine appartenant à une Front Door. Par exemple : https://login.contoso.com.
+Par commodité, Azure Front Door permet d’associer un domaine personnalisé à l’hôte frontal. Avec cette option, vous associez l’interface utilisateur Azure AD B2C à un domaine personnalisé dans votre URL au lieu d’un nom de domaine appartenant à une Front Door. Par exemple : `https://login.contoso.com`.
 
 Pour ajouter un hôte frontal, procédez comme suit :
 
@@ -367,7 +367,7 @@ Une fois que vous avez ajouté le domaine personnalisé et configuré votre appl
 
 ::: zone-end
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="azure-ad-b2c-returns-a-page-not-found-error"></a>Azure AD B2C renvoie une erreur de page introuvable
 

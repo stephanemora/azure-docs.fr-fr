@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 04/02/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec6ac99e8a7fcee0f726bc95608aca79345622bc
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 65445d67f87e5c10aef6f7e8b7e20e0908271a21
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122564014"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034598"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Gérer les espaces de travail Azure Machine Learning à l’aide d’Azure CLI
 
@@ -237,9 +237,6 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 ```
 
 ---
-
-> [!IMPORTANT]
-> L’utilisation d’un espace de travail Azure Machine Learning avec point de terminaison privé n’est pas disponible dans les régions Azure Government.
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clé gérée par le client et espace de travail High Business Impact
 
