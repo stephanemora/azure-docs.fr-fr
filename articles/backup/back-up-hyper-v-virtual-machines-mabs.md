@@ -2,13 +2,13 @@
 title: Sauvegarder des machines virtuelles Hyper-V à l’aide de MABS
 description: Cet article contient les procédures de sauvegarde et de récupération des machines virtuelles à l’aide du serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: b4de791269161b477fc07d6539feaa975fdd72ad
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 07/09/2021
+ms.openlocfilehash: e10bab2af14cdf540b5c5ec9c670e6ccb2c8807a
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739995"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585405"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Hyper-V avec le serveur de sauvegarde Azure
 
@@ -62,7 +62,7 @@ Voici les prérequis pour la sauvegarde des machines virtuelles Hyper-V avec MAB
 
 |Configuration requise|Détails|
 |------------|-------|
-|Prérequis pour MABS|- Si vous souhaitez effectuer une récupération au niveau de l’élément pour les machines virtuelles (récupérer des fichiers, des dossiers, des volumes), vous devez installer le rôle Hyper-V sur le serveur MABS.  Si vous souhaitez uniquement récupérer la machine virtuelle et non effectuer une récupération au niveau de l’élément, le rôle n’est pas obligatoire.<br />- Vous pouvez protéger jusqu’à 800 machines virtuelles de 100 Go chacune sur un serveur MABS et autoriser plusieurs serveurs MABS prenant en charge de plus grands clusters.<br />- MABS exclut le fichier d’échange des sauvegardes incrémentielles pour améliorer les performances de sauvegarde de la machine virtuelle.<br />- MABS peut sauvegarder un cluster ou un serveur Hyper-V dans le même domaine que le serveur MABS, ou dans un domaine enfant ou approuvé. Si vous souhaitez sauvegarder Hyper-V dans un groupe de travail ou un domaine non approuvé, vous devez configurer l’authentification. Pour un seul serveur Hyper-V, vous pouvez utiliser l’authentification NTLM ou par certificat. Pour un cluster, vous pouvez utiliser l’authentification par certificat uniquement.<br />- L’utilisation de la sauvegarde au niveau de l’hôte pour sauvegarder des données de machine virtuelle sur des disques directs n’est pas prise en charge. Dans ce scénario, nous vous recommandons d’utiliser une sauvegarde au niveau de l’hôte pour sauvegarder des fichiers VHD et une sauvegarde au niveau de l’invité pour sauvegarder les autres données qui ne sont pas visibles sur l’hôte.<br />   \- Vous pouvez sauvegarder des machines virtuelles stockées sur des volumes dédupliqués.|
+|Prérequis pour MABS|- Si vous souhaitez effectuer une récupération au niveau élément pour des machines virtuelles (récupérer des fichiers, des dossiers ou des volumes), vous devez activer le rôle Hyper-V sur le serveur MABS (le rôle Hyper-V est installé par défaut pendant l’installation de MABS). Si vous souhaitez uniquement récupérer la machine virtuelle et non effectuer une récupération au niveau de l’élément, le rôle n’est pas obligatoire.<br />- Vous pouvez protéger jusqu’à 800 machines virtuelles de 100 Go chacune sur un serveur MABS et autoriser plusieurs serveurs MABS prenant en charge de plus grands clusters.<br />- MABS exclut le fichier d’échange des sauvegardes incrémentielles pour améliorer les performances de sauvegarde de la machine virtuelle.<br />- MABS peut sauvegarder un cluster ou un serveur Hyper-V dans le même domaine que le serveur MABS, ou dans un domaine enfant ou approuvé. Si vous souhaitez sauvegarder Hyper-V dans un groupe de travail ou un domaine non approuvé, vous devez configurer l’authentification. Pour un seul serveur Hyper-V, vous pouvez utiliser l’authentification NTLM ou par certificat. Pour un cluster, vous pouvez utiliser l’authentification par certificat uniquement.<br />- L’utilisation de la sauvegarde au niveau de l’hôte pour sauvegarder des données de machine virtuelle sur des disques directs n’est pas prise en charge. Dans ce scénario, nous vous recommandons d’utiliser une sauvegarde au niveau de l’hôte pour sauvegarder des fichiers VHD et une sauvegarde au niveau de l’invité pour sauvegarder les autres données qui ne sont pas visibles sur l’hôte.<br />   \- Vous pouvez sauvegarder des machines virtuelles stockées sur des volumes dédupliqués.|
 |Prérequis pour les machines virtuelles Hyper-V|- La version des composants d’intégration qui s’exécute sur la machine virtuelle doit être la même que la version de l’hôte Hyper-V. <br />- Pour chaque sauvegarde de machine virtuelle, vous aurez besoin d’espace libre sur le volume hébergeant les fichiers de disque dur virtuel afin de donner à Hyper-V un espace suffisant pour les disques de différenciation (AVHD) lors de la sauvegarde. L’espace doit être au moins égal au temps de la fenêtre de calcul **Taille initiale du disque\*Taux de variation\*Sauvegarde**. Si vous exécutez plusieurs sauvegardes sur un cluster, vous aurez besoin d’une capacité de stockage suffisante pour accueillir les AVHD pour chacune des machines virtuelles à l’aide de ce calcul.<br />- Pour sauvegarder des machines virtuelles situées sur des serveurs hôtes Hyper-V exécutant Windows Server 2012 R2, un contrôleur SCSI doit être spécifié pour la machine virtuelle, même s’il n’est connecté à rien. (Dans la sauvegarde de Windows Server 2012 R2, l’hôte Hyper-V monte un nouveau disque dur virtuel dans la machine virtuelle, puis le démonte par la suite. Seul le contrôleur SCSI peut prendre en charge cette opération et est par conséquent requis pour la sauvegarde en ligne de la machine virtuelle.  Sans ce paramètre, l’ID d’événement 10103 est émis lorsque vous tentez de sauvegarder la machine virtuelle.)|
 |Composants requis Linux|- Vous pouvez sauvegarder des machines virtuelles Linux à l’aide de MABS. Seuls les instantanés cohérents au niveau des fichiers sont pris en charge.|
 |Sauvegarder des machines virtuelles avec un stockage CSV|- Pour le stockage CSV, installez le fournisseur de matériel des services VSS (Volume Shadow Copy Services) sur le serveur Hyper-V. Contactez votre fournisseur de réseau SAN pour connaître le fournisseur de matériel VSS.<br />- Si un seul nœud s’arrête de manière inattendue dans un cluster CSV, MABS effectue une vérification de cohérence sur les machines virtuelles qui étaient en cours d’exécution sur ce nœud.<br />- Si vous devez redémarrer un serveur Hyper-V avec le chiffrement de lecteur BitLocker activé sur le cluster CSV, vous devez exécuter une vérification de cohérence pour les machines virtuelles Hyper-V.|
@@ -155,6 +155,39 @@ Lorsque vous pouvez récupérer une machine virtuelle sauvegardée, vous utilise
 6. Dans l’écran de résumé, vérifiez que tous les détails sont corrects. Si les détails ne sont pas corrects ou si vous souhaitez apporter une modification, sélectionnez **Précédent**. Si vous êtes satisfait des paramètres, sélectionnez **Récupérer** pour démarrer le processus de récupération.
 
 7. L’écran **État de la récupération** fournit des informations sur le travail de récupération.
+
+## <a name="restore-an-individual-file-from-a-hyper-v-vm"></a>Restaurer un fichier individuel à partir d’une machine virtuelle Hyper-V 
+
+Vous pouvez restaurer des fichiers individuels à partir d’un point de récupération de machine virtuelle Hyper-V protégé. Cette fonctionnalité est uniquement disponible pour les machines virtuelles Windows Server. La restauration de fichiers individuels est similaire à la restauration de la machine virtuelle entière, à l’exception du fait que vous naviguez dans le fichier VMDK et recherchez les fichiers souhaités, avant de lancer le processus de récupération. Pour récupérer un fichier individuel ou sélectionner des fichiers à partir d’une machine virtuelle Windows Server : 
+
+>[!Note]
+>La restauration d’un fichier individuel à partir d’une machine virtuelle Hyper-V est disponible uniquement pour les points de récupération de disque et de machine virtuelle Windows. 
+
+1. Dans la console Administrateur de MABS, sélectionnez la vue **Récupération**. 
+
+1. À l’aide du volet **Parcourir**, parcourez ou filtrez pour rechercher la machine virtuelle que vous souhaitez récupérer. Une fois que vous sélectionnez un dossier ou une machine virtuelle Hyper-V, le volet **Points de récupération pour** affiche les points de récupération disponibles. 
+
+    ![Volet « Points de récupération pour » pour la récupération de fichiers à partir d’une machine virtuelle Hyper-V](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk.png)
+
+1. Dans le volet **Points de récupération pour**, utilisez le calendrier pour sélectionner la date qui contient le ou les points de récupération souhaités. Selon la façon dont la stratégie de sauvegarde a été configurée, les dates peuvent avoir plusieurs points de récupération. Une fois que vous avez sélectionné le jour de la prise du point de récupération, vérifiez que vous avez choisi la bonne **Heure de récupération**. Si la date sélectionnée comporte plusieurs points de récupération, choisissez votre point de récupération en le sélectionnant dans le menu déroulant Heure de récupération. Une fois que vous avez choisi le point de récupération, la liste des éléments récupérables s’affiche dans le volet Chemin. 
+
+1. Pour rechercher les fichiers que vous souhaitez récupérer, dans le volet **Chemin**, double-cliquez sur l’élément dans la colonne Élément récupérable pour l’ouvrir. Sélectionnez le fichier, les fichiers ou les dossiers que vous souhaitez récupérer. Pour choisir plusieurs éléments, maintenez la touche **Ctrl** enfoncée tout en sélectionnant chaque élément. Utilisez le volet **Chemin** pour effectuer une recherche dans la liste des fichiers ou des dossiers figurant dans la colonne **Élément récupérable**. **Rechercher dans la liste ci-dessous** n’effectue pas de recherche dans les sous-dossiers. Pour effectuer une recherche dans des sous-dossiers, double-cliquez sur le dossier. Utilisez le bouton Haut pour vous déplacer d’un dossier enfant vers le dossier parent. Vous pouvez sélectionner plusieurs éléments (fichiers et dossiers), mais ils doivent se trouver dans le même dossier parent. Vous ne pouvez pas récupérer d’éléments de dossiers différents lors de la même tâche de récupération. 
+
+    ![Vérifier la sélection à récupérer dans une machine virtuelle Hyper-V](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk-ilr-2.png) 
+
+1. Une fois que vous avez sélectionné les éléments à récupérer, dans la barre d’outils Console Administrateur, sélectionnez **Récupérer**  pour ouvrir l’**Assistant Récupération**. Dans l’Assistant Récupération, l'écran **Vérifier la récupération sélectionnée** affiche les éléments sélectionnés à récupérer. 
+
+1. Dans l’écran **Spécifier les options de récupération**, si vous souhaitez activer la limitation de bande passante réseau, sélectionnez **Modifier**. Pour laisser la limitation du réseau désactivée, sélectionnez **Suivant**. Aucune autre option dans cet écran de l’Assistant n’est disponible pour les machines virtuelles VMware. Si vous choisissez de modifier la limitation de bande passante réseau, dans la boîte de dialogue Limiter la bande passante, sélectionnez **Activer la limitation de l’utilisation de la bande passante réseau**. Une fois la limitation activée, configurez les **Paramètres** et la **Planification des tâches**. 
+
+1. Dans l'écran **Sélectionner le type de récupération**, sélectionnez **Suivant**. Vous pouvez uniquement récupérer les fichiers ou dossiers d'un dossier réseau. 
+
+1. Dans l'écran **Spécifier la destination**, sélectionnez **Parcourir** afin de rechercher un emplacement réseau pour vos fichiers ou dossiers. MABS crée un dossier où tous les éléments récupérés sont copiés. Le nom du dossier a le préfixe MABS_day-month-year. Lorsque vous sélectionnez un emplacement pour les fichiers ou le dossier récupérés, les détails de cet emplacement (destination, chemin de destination et espace disponible) sont fournis. 
+
+    ![Spécifier l’emplacement de récupération des fichiers à partir d’une machine virtuelle Hyper-V](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-specify-destination.png) 
+
+1. Dans l’écran **Spécifier les options de récupération**, choisissez quels paramètres de sécurité appliquer. Vous pouvez choisir de modifier la limitation de l’utilisation de la bande passante réseau, mais la limitation est désactivée par défaut. Par ailleurs, **Récupération SAN** et **Notification** ne sont pas activées. 
+
+1. Dans l'écran **Résumé**, passez en revue vos paramètres et sélectionnez **Récupérer** pour démarrer le processus de récupération. L'écran **État de la récupération** affiche la progression de l’opération de récupération. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

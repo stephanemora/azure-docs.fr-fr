@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 04/23/2020
-ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: vanto
+ms.date: 08/11/2021
+ms.openlocfilehash: 51494c02ea56c68945377b50869a1bad2be6718f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96454296"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562646"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utiliser l’authentification Azure Active Directory
 
@@ -152,6 +152,7 @@ Les méthodes d’authentification suivantes sont prises en charge pour les prin
 - Un seul administrateur Azure AD (utilisateur ou groupe) peut être configuré pour un serveur dans SQL Database ou Azure Synapse à tout moment.
   - L’ajout de principaux de serveur (connexions) Azure AD pour SQL Managed Instance permet de créer plusieurs principaux de serveur (connexions) Azure AD pouvant être ajoutés au rôle `sysadmin`.
 - Seul un administrateur Azure AD pour le serveur peut se connecter initialement au serveur ou à l’instance managée avec un compte Azure Active Directory. L’administrateur Active Directory peut configurer les utilisateurs de base de données Azure AD suivants.
+- Les utilisateurs Azure AD et les principaux de service (applications Azure AD) membres de plus de 2 048 groupes de sécurité Azure AD ne sont pas pris en charge pour la connexion à la base de données dans SQL Database, Managed Instance ou Azure Synapse.
 - Nous vous conseillons de définir l’expiration du délai de connexion à 30 secondes.
 - SQL Server 2016 Management Studio et SQL Server Data Tools pour Visual Studio 2015 (version 14.0.60311.1 d’avril 2016 ou ultérieure) prennent en charge l’authentification Azure Active Directory. (L’authentification Azure AD est prise en charge par le **Fournisseur de données .NET Framework pour SQL Server** ; .NET Framework version 4.6 minimum). Par conséquent, les dernières versions de ces outils et applications de la couche Données (DAC et BACPAC) peuvent utiliser l’authentification Azure AD.
 - À partir de la version 15.0.1, l’[utilitaire sqlcmd](/sql/tools/sqlcmd-utility) et l’[utilitaire bcp](/sql/tools/bcp-utility) prennent en charge l’authentification interactive Active Directory avec Multi-Factor Authentication (MFA).

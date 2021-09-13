@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e7618232c38f8686e7b21e4a0660d812d9638f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792087"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524638"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,9 +47,8 @@ Les informations d'identification sont utilisées par la requête élastique pou
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
-CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-SECRET = '<password>'
-[;]
+CREATE DATABASE SCOPED CREDENTIAL [<credential_name>]  WITH IDENTITY = '<username>',  
+SECRET = '<password>';
 ```
 
 > [!NOTE]
@@ -59,9 +58,15 @@ SECRET = '<password>'
 
 Syntaxe :
 
-<External_Data_Source> ::= CREATE EXTERNAL DATA SOURCE <data_source_name> WITH (TYPE = RDBMS, LOCATION = ’<fully_qualified_server_name>’, DATABASE_NAME = ‘<remote_database_name>’,  
-    CREDENTIAL = <credential_name> ) [;]
-
+```syntaxsql
+<External_Data_Source> ::=
+CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
+    (TYPE = RDBMS,
+    LOCATION = ’<fully_qualified_server_name>’,
+    DATABASE_NAME = ‘<remote_database_name>’,  
+    CREDENTIAL = <credential_name>
+    ) [;]
+```
 > [!IMPORTANT]
 > Le paramètre TYPE doit être défini sur **RDBMS**.
 
@@ -90,10 +95,17 @@ select * from sys.external_data_sources;
 
 Syntaxe :
 
+```syntaxsql
 CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
-    ( { <column_definition> } [ ,...n ]) { WITH ( <rdbms_external_table_options> ) } )[;]
+    ( { <column_definition> } [ ,...n ])
+    { WITH ( <rdbms_external_table_options> ) }
+    )[;]
 
-<rdbms_external_table_options> ::= DATA_SOURCE = <External_Data_Source>, [ SCHEMA_NAME = N'nonescaped_schema_name',] [ OBJECT_NAME = N'nonescaped_object_name',]
+<rdbms_external_table_options> ::=
+    DATA_SOURCE = <External_Data_Source>,
+    [ SCHEMA_NAME = N'nonescaped_schema_name',]
+    [ OBJECT_NAME = N'nonescaped_object_name',]
+```
 
 ### <a name="example"></a>Exemple
 
@@ -125,9 +137,9 @@ La requête élastique étend la syntaxe de la table externe existante pour déf
 
 La syntaxe permettant de créer des tables externes à l’aide de sources de données externes comme indiqué dans la section précédente est la suivante :
 
-La clause DATA_SOURCE définit la source de données externe (par exemple, la base de données distante en cas de partitionnement horizontal) utilisée pour la table externe.  
+La clause DATA_SOURCE définit la source de données externe (par exemple, la base de données distante pour un partitionnement vertical) utilisée pour la table externe.  
 
-Les clauses SCHEMA_NAME et OBJECT_NAME offrent la possibilité de mapper une définition de table externe sur une table dans un autre schéma base de données, ou sur une table portant un autre nom, respectivement. Cela s’avère utile si vous souhaitez définir une table externe sur une vue de catalogue ou une vue de gestion dynamique sur votre base de données distante, ou dans toute autre situation dans laquelle le nom de table distant est déjà utilisé en local.  
+Les clauses SCHEMA_NAME et OBJECT_NAME permettent de mapper la définition de table externe sur une table dans un autre schéma sur la base de données distante ou sur une table portant un autre nom, respectivement. Ce mappage s’avère utile si vous souhaitez définir une table externe sur une vue de catalogue ou une vue de gestion dynamique sur votre base de données distante, ou dans toute autre situation dans laquelle le nom de table distant est déjà utilisé en local.  
 
 L’instruction DDL suivante supprime une définition de table externe existante du catalogue local. Elle n’affecte pas la base de données distante.
 
@@ -135,11 +147,11 @@ L’instruction DDL suivante supprime une définition de table externe existante
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Autorisations pour CREATE/DROP EXTERNAL TABLE** : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires au DDL de table externe, lequel est aussi nécessaire pour faire référence à la source de données sous-jacente.  
+**Autorisations CREATE/DROP EXTERNAL TABLE** : Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires à la DDL de table externe, qui est également requise pour faire référence à la source de données sous-jacente.  
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 
-Les utilisateurs ayant accès à la table externe acquièrent un accès automatique aux tables distantes sous-jacentes avec les informations d’identification fournies dans la définition de source de données externe. Vous devez gérer l’accès à la table externe avec beaucoup d’attention pour éviter une élévation de privilèges non souhaitée par le biais d’informations d’identification de la source de données externe. Les autorisations SQL standard permettent de GRANT (OCTROYER) ou de REVOKE (RÉVOQUER) l’accès à une table externe comme s’il s’agissait d’une table normale.  
+Les utilisateurs ayant accès à la table externe acquièrent un accès automatique aux tables distantes sous-jacentes avec les informations d’identification fournies dans la définition de source de données externe. Gérez l’accès à la table externe avec beaucoup d’attention pour éviter une élévation de privilèges non souhaitée par le biais des informations d’identification de la source de données externe. Les autorisations SQL standard permettent de GRANT (OCTROYER) ou de REVOKE (RÉVOQUER) l’accès à une table externe comme s’il s’agissait d’une table normale.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>Exemple : interrogation de bases de données partitionnées verticalement
 

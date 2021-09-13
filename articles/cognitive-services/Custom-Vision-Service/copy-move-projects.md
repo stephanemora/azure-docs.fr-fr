@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 3938f7f5dae00a3628e2c9e2fec21a364efac95d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d546726e03420b41b4ff445418e30274904c6e5c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084697"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635057"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copier et déplacer vos projets Custom Vision
 
@@ -103,6 +103,9 @@ Vous obtiendrez une réponse `200/OK` avec les métadonnées sur le projet expor
   "token": "string"
 }
 ```
+
+> [!TIP]
+> Si vous recevez une erreur « Jeton non valide » quand vous importez votre projet, il se peut que la chaîne d’URL du jeton ne soit pas encodée web. Vous pouvez encoder le jeton à l’aide d’un [encodeur d’URL](https://meyerweb.com/eric/tools/dencoder/).
 
 ## <a name="import-the-project"></a>Importer le projet
 

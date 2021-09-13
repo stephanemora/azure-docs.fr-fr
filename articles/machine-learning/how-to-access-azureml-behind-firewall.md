@@ -1,7 +1,7 @@
 ---
-title: Utiliser un pare-feu
+title: Configurer le trafic réseau entrant et sortant
 titleSuffix: Azure Machine Learning
-description: Contrôler l’accès aux espaces de travail Azure Machine Learning avec les pare-feu Azure. En savoir plus sur les hôtes que vous devez autoriser via le pare-feu.
+description: Comment configurer le trafic réseau entrant et sortant requis lors de l’utilisation d’un espace de travail Azure Machine Learning sécurisé.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 790b5a3e34d36d674511507bc5e9ed452c5ba74e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2bcc1a9fdd930a8c9dd85604528a276f9de8d6e8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563019"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123113104"
 ---
-# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
+# <a name="configure-inbound-and-outbound-network-traffic"></a>Configurer le trafic réseau entrant et sortant
 
-Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md).
+Dans cet article, découvrez les exigences de communication réseau pour la sécurisation d’un espace de travail Azure Machine Learning dans un réseau virtuel (VNet). Il explique comment configurer le Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
 > Cet article s’applique à l’espace de travail Azure Machine Learning, que celui-ci utilise un point de terminaison privé ou un point de terminaison de service.
@@ -32,7 +32,7 @@ Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l
 > * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 > * [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 > * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-> * [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+> * [Activer les fonctionnalités du studio](how-to-enable-studio-virtual-network.md)
 > * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
 
 ## <a name="required-public-internet-access"></a>Accès Internet public obligatoire
@@ -99,6 +99,14 @@ Ces regroupements de règles sont décrits plus en détail dans [Quels sont les 
 
 1. Pour limiter le trafic sortant pour les modèles déployés sur Azure Kubernetes Service (AKS), consultez les articles [Restreindre le trafic sortant dans Azure Kubernetes Service](../aks/limit-egress-traffic.md) et [Déployer des modèles Machine Learning dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
 
+### <a name="azure-kubernetes-services"></a>Azure Kubernetes Services
+
+Lorsque vous utilisez Azure Kubernetes Service avec Azure Machine Learning, le trafic suivant doit être autorisé :
+
+* Exigences générales en entrée/sortie pour AKS, comme décrit dans l’article [Restreindre le trafic sortant dans le service Kubernetes Azure](../aks/limit-egress-traffic.md).
+* __Sortant__ vers mcr.microsoft.com.
+* Lors du déploiement d’un modèle sur un cluster AKS, suivez les instructions de l’article [Déployer des modèles ML dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
+
 ### <a name="diagnostics-for-support"></a>Diagnostics pour la prise en charge
 
 S’il vous faut collecter des informations de diagnostic dans le cadre du support Microsoft, procédez comme suit :
@@ -111,6 +119,7 @@ S’il vous faut collecter des informations de diagnostic dans le cadre du suppo
     + **dc.services.visualstudio.com**
 
     Pour obtenir la liste des adresses IP des hôtes Azure Monitor, consultez [Adresses IP utilisées par Azure Monitor](../azure-monitor/app/ip-addresses.md).
+
 ## <a name="other-firewalls"></a>Autres pare-feu
 
 Les instructions de cette section sont génériques, car chaque pare-feu dispose de sa propre terminologie et de configurations spécifiques. Si vous avez des questions, consultez la documentation du pare-feu que vous utilisez.
@@ -149,19 +158,19 @@ Les hôtes des tableaux suivants sont détenus par Microsoft et fournissent les 
 
 | **Obligatoire pour** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Cluster/instance de calcul | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
 | Cluster/instance de calcul | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Instance de calcul | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Instance de calcul | \*.instances.azureml.ms |  |  |
+| Compte Stockage Azure | \*.blob.core.windows.net</br>\*.table.core.windows.net</br>\*.queue.core.windows.net | \*.blob.core.usgovcloudapi.net</br>\*.table.core.usgovcloudapi.net</br>\*.queue.core.usgovcloudapi.net | \*blob.core.chinacloudapi.cn</br>\*.table.core.chinacloudapi.cn</br>\*.queue.core.chinacloudapi.cn |
+| Azure Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net | \*.vault.azure.cn |
 
 > [!IMPORTANT]
 > Votre pare-feu doit autoriser la communication avec \*.instances.azureml.ms sur les ports __TCP__ __18881, 443 et 8787__.
 
-**Ressources associées utilisées par Azure Machine Learning**
+**Images Docker gérées par Azure Machine Learning**
 
 | **Obligatoire pour** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Compte Stockage Azure | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Registre de conteneurs Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Images prédéfinies Azure Machine Learning | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
@@ -204,9 +213,13 @@ Les hôtes de cette section permettent d’installer des packages R et sont requ
 | ---- | ---- |
 | **cloud.r-project.org** | Utilisé lors de l’installation des packages CRAN. |
 
-### <a name="azure-kubernetes-services-hosts"></a>Hôtes Azure Kubernetes Services
+### <a name="azure-kubernetes-services"></a>Azure Kubernetes Services
 
-Pour plus d’informations sur les hôtes avec lesquels AKS doit communiquer, consultez les articles [Restreindre le trafic sortant dans Azure Kubernetes Service](../aks/limit-egress-traffic.md) et [Déployer des modèles Machine Learning dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
+Lorsque vous utilisez Azure Kubernetes Service avec Azure Machine Learning, le trafic suivant doit être autorisé :
+
+* Exigences générales en entrée/sortie pour AKS, comme décrit dans l’article [Restreindre le trafic sortant dans le service Kubernetes Azure](../aks/limit-egress-traffic.md).
+* __Sortant__ vers mcr.microsoft.com.
+* Lors du déploiement d’un modèle sur un cluster AKS, suivez les instructions de l’article [Déployer des modèles ML dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
 
 ### <a name="visual-studio-code-hosts"></a>Hôtes Visual Studio Code
 
@@ -228,7 +241,7 @@ Cet article fait partie d’une série sur la sécurisation d’un workflow Azur
 * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 * [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+* [Activer les fonctionnalités du studio](how-to-enable-studio-virtual-network.md)
 * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
 
 Pour plus d’informations sur la configuration du Pare-feu Azure, consultez [Didacticiel : Déployer et configurer le Pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md).

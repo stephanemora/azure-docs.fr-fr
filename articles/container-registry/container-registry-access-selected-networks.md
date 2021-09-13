@@ -2,13 +2,13 @@
 title: Configurer l’accès au registre public
 description: Configurez des règles IP pour activer l’accès à un registre de conteneurs Azure à partir de certaines IP publiques ou plages d’adresses.
 ms.topic: article
-ms.date: 03/08/2021
-ms.openlocfilehash: 00912f0e66c84feff40e6439d59ccdfa82a4ab6a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/30/2021
+ms.openlocfilehash: cb48a91190f352154a2f0af1e02dcd3e36f436d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785833"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524017"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurer des règles de réseau IP public
 
@@ -108,15 +108,32 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ## <a name="troubleshoot"></a>Dépanner
 
+### <a name="access-behind-https-proxy"></a>Accès derrière un proxy HTTPS
+
 Si une règle de réseau public est définie ou si l’accès public au registre est refusé, les tentatives de connexion au registre à partir d’un réseau public non autorisé échouent. L’accès client depuis derrière un proxy HTTPS échoue également si aucune règle d’accès n’est définie pour le proxy. Un message d'erreur semblable à `Error response from daemon: login attempt failed with status: 403 Forbidden` ou `Looks like you don't have access to registry` s'affiche.
 
 Ces erreurs peuvent également se produire si vous utilisez un proxy HTTPS qui est autorisé par une règle d’accès réseau, mais que le proxy n’est pas correctement configuré dans l’environnement client. Vérifiez que votre client Docker et le démon Docker sont configurés pour le comportement du proxy. Pour plus d’informations, consultez [proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) dans la documentation Docker.
 
+### <a name="access-from-azure-pipelines"></a>Accès à partir d’Azure Pipelines
+
+Si vous utilisez Azure Pipelines avec un registre de conteneurs Azure qui limite l’accès à des adresses IP spécifiques, il se peut que le pipeline ne puisse pas accéder au registre, car l’adresse IP sortante du pipeline n’est pas fixe. Par défaut, le pipeline exécute des travaux à l’aide d’un [agent](/azure/devops/pipelines/agents/agents) hébergé par Microsoft sur un pool de machines virtuelles avec un ensemble d’adresses IP qui varie.
+
+Une solution de contournement consiste à remplacer l’agent hébergé par Microsoft utilisé pour exécuter le pipeline par un agent autohébergé. Avec un agent auto-hébergé s’exécutant sur une machine [Windows](/azure/devops/pipelines/agents/v2-windows) ou [Linux](/azure/devops/pipelines/agents/v2-linux) que vous gérez, vous contrôlez l’adresse IP sortante du pipeline et vous pouvez ajouter cette adresse à une règle d’accès IP au registre.
+
+### <a name="access-from-aks"></a>Accès à partir d’AKS
+
+Si vous utilisez AKS (Azure Kubernetes Service) avec un registre de conteneurs Azure qui limite l’accès à des adresses IP spécifiques, vous ne pouvez pas configurer une adresse IP AKS fixe par défaut. L’adresse IP de sortie du cluster AKS est attribuée de façon aléatoire.
+
+Pour permettre au cluster AKS d’accéder au registre, vous disposez des options suivantes :
+
+* Si vous utilisez Azure Basic Load Balancer, configurez une [adresse IP statique](../aks/egress.md) pour le cluster AKS. 
+* Si vous utilisez Azure Standard Load Balancer, consultez les instructions de [contrôle du trafic de sortie](../aks/limit-egress-traffic.md) à partir du cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour restreindre l’accès à un registre à l’aide d’un point de terminaison privé dans un réseau virtuel, consultez [Configurer Azure Private Link pour un registre de conteneurs Azure](container-registry-private-link.md).
 * Si vous devez configurer des règles d’accès au registre derrière un pare-feu client, consultez [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](container-registry-firewall-access-rules.md).
+* Si vous avez besoin d’autres conseils pour la résolution des problèmes, consultez [Résoudre des problèmes de réseau avec un registre](container-registry-troubleshoot-access.md).
 
 [az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add

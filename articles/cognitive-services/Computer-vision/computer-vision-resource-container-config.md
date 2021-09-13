@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 3e6c4b73e8aeb26c6ac4025ef3c07fb4f8d48eaf
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d5e405447a93f23f4845a018a74229aacbbad09c
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308640"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302119"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurer des conteneurs Docker OCR Read
 
@@ -41,6 +41,9 @@ Les paramètres de configuration spécifiques au conteneur sont les suivants :
 |Non|Storage:ObjectStore:AzureBlob:ConnectionString| Conteneurs v3.x uniquement. Chaîne de connexion de stockage d'objets blob Azure. |
 |Non|Storage:TimeToLiveInDays| Conteneurs v3.x uniquement. Période d’expiration du résultat, en jours. Le paramètre spécifie à quel moment le système doit effacer les résultats de la reconnaissance. La valeur par défaut est 2 jours (48 heures), ce qui signifie qu’il n’est pas garanti que les résultats actifs au-delà de cette période puissent être récupérés. |
 |Non|Task:MaxRunningTimeSpanInMinutes| Conteneurs v3.x uniquement. Durée maximale d’exécution pour une requête unique. La valeur par défaut est de 60 minutes. |
+|No|EnableSyncNTPServer| Conteneurs v3.x uniquement. Active le mécanisme de synchronisation du serveur NTP, qui garantit la synchronisation entre l’heure système et le runtime de tâche attendu. Notez que ceci nécessite un trafic réseau externe. Par défaut, il s’agit de `true`. |
+|Non|NTPServerAddress| Conteneurs v3.x uniquement. Serveur NTP pour la synchronisation de l’heure. Par défaut, il s’agit de `time.windows.com`. |
+|Non|Mounts::Shared| Conteneurs v3.x uniquement. Dossier local pour le stockage du résultat de la reconnaissance. Par défaut, il s’agit de `/share`. Pour l’exécution d’un conteneur sans utiliser le stockage Blob Azure, nous vous recommandons de monter un volume dans ce dossier pour avoir la certitude de disposer de l’espace suffisant pour les résultats de la reconnaissance. |
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 

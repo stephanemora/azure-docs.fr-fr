@@ -2,13 +2,13 @@
 title: Gérer et superviser des bases de données SQL Server sur une machine virtuelle Azure
 description: Cet article décrit comment gérer et surveiller des bases de données SQL Server s’exécutant sur une machine virtuelle Azure.
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 3938e26e134f7d823d8a6f6fac631ebf4442e6ab
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/27/2021
+ms.openlocfilehash: e768eae283aaf113d68f425cb306860411a9bcd9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519134"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524691"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -123,6 +123,9 @@ Dans le tableau de bord du coffre, accédez à **Gérer** > **Stratégies de sau
   ![Modifier la stratégie de sauvegarde](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
 La modification de la stratégie aura un impact sur tous les éléments de sauvegarde associés et déclenchera les tâches de **configuration de la protection** correspondantes.
+
+>[!Note]
+>La modification de la stratégie affectera également les points de récupération existants. <br><br> Pour les points de récupération qui ne sont pas restés pendant une durée de 180 jours au niveau archive, leur suppression occasionne un coût de suppression précoce. [Plus d’informations](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion)
 
 ### <a name="inconsistent-policy"></a>Stratégie incohérente
 

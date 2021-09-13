@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies
+title: Bonnes pratiques concernant l’utilisation de l’API univariée Détecteur d’anomalies
 titleSuffix: Azure Cognitive Services
 description: En savoir plus sur les meilleures pratiques lors de la détection d’anomalies avec l’API Détecteur d’anomalies.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1662fd39030082dfbfef4d38d1803b3d6f82e5
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98936207"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297295"
 ---
-# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Bonnes pratiques pour l’utilisation de l’API Détecteur d’anomalies
+# <a name="best-practices-for-using-the-anomaly-detector-univariate-api"></a>Bonnes pratiques relatives à l’utilisation de l’API univariée Détecteur d’anomalies
 
 L’API Détecteur d’anomalies est un service de détection d’anomalies sans état. La précision et les performances de ses résultats peuvent être affectées par :
 

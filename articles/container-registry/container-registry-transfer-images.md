@@ -4,12 +4,12 @@ description: Transférez des collections d’images ou d’autres artefacts d’
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: c966600b0ca9d65cf533c3c2f0aca211c84917bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a82bee4c0750004db11753c56f06b2ef19badf1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780772"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562123"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transférer des artefacts vers un autre registre
 
@@ -434,11 +434,12 @@ az resource delete \
   * Il est possible que l’exécution du pipeline ne soit pas terminée. Une exécution d’exportation ou d’importation peut prendre du temps. 
   * Pour les autres problèmes de pipeline, transmettez l’[ID de corrélation](../azure-resource-manager/templates/deployment-history.md) du déploiement de l’exécution d’exportation ou d’importation à l’équipe Azure Container Registry.
 * **Problèmes lors de l’extraction de l’image dans un environnement physiquement isolé**
-  * Si vous constatez des erreurs concernant des couches étrangères ou des tentatives de résoudre mcr.microsoft.com en tenant d’extraire une image dans un environnement physiquement isolé, votre manifeste d’image contient probablement des couches non distribuables. En raison de la nature d’un environnement physiquement isolé, l’extraction de ces images échoue souvent. Vous pouvez confirmer que c’est le cas en vérifiant si le manifeste d’image contient des références à des registres externes. Si c’est le cas, vous devrez envoyer les couches non distribuables à votre ACR de cloud public avant de déployer un exécution de pipeline d’exportation pour cette image. Pour obtenir des conseils sur la façon de procéder, consultez [Comment faire pour envoyer des couches non distribuables à un registre ?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
+  * Si vous constatez des erreurs concernant des couches étrangères ou des tentatives de résoudre mcr.microsoft.com en tenant d’extraire une image dans un environnement physiquement isolé, votre manifeste d’image contient probablement des couches non distribuables. En raison de la nature d’un environnement physiquement isolé, l’extraction de ces images échoue souvent. Vous pouvez confirmer que c’est le cas en vérifiant si le manifeste d’image contient des références à des registres externes. Si c’est le cas, vous devrez envoyer les couches non distribuables à votre ACR de cloud public avant de déployer un exécution de pipeline d’exportation pour cette image. Pour obtenir des conseils sur la façon de procéder, consultez [Comment faire pour envoyer des couches non distribuables à un registre ?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour importer des images d’un seul conteneur dans un registre de conteneurs Azure à partir d’un registre public ou d’un autre registre privé, consultez la documentation de référence de la commande [az acr import][az-acr-import].
+* Pour importer des images d’un seul conteneur dans un registre de conteneurs Azure à partir d’un registre public ou d’un autre registre privé, consultez la documentation de référence de la commande [az acr import][az-acr-import].
+* Découvrez comment [bloquer la création de pipelines d’exportation](data-loss-prevention.md) à partir d’un registre de conteneurs avec accès réseau restreint.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

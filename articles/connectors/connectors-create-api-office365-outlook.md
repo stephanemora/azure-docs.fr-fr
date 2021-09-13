@@ -1,20 +1,20 @@
 ---
-title: Intégrer à Office 365 Outlook
+title: Se connecter à Office 365 Outlook
 description: Automatiser les tâches et les workflows qui gèrent la messagerie, les contacts et les calendriers dans Office 365 avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 08/11/2021
 tags: connectors
-ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b60565cec180242535402daee27ed5018505727a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095464"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562984"
 ---
-# <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gérer la messagerie, les contacts et les calendriers dans Office 365 Outlook avec Azure Logic Apps
+# <a name="connect-to-office-365-outlook-using-azure-logic-apps"></a>Se connecter à Office 365 Outlook à l’aide d’Azure Logic Apps
 
 Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Office 365 Outlook](/connectors/office365connector/), vous pouvez créer des tâches et des workflows automatisés qui gèrent votre compte professionnel ou scolaire en générant des applications logiques. Par exemple, vous pouvez automatiser les tâches suivantes :
 
@@ -26,20 +26,31 @@ Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un compte Outlook auquel vous vous connectez avec un [compte professionnel ou scolaire](https://www.office.com/). Si vous disposez d’un compte @outlook.com ou @hotmail.com, utilisez plutôt le [connecteur Outlook.com](../connectors/connectors-create-api-outlook.md). Pour vous connecter à Outlook avec un autre compte d’utilisateur, tel qu’un compte de service, consultez [Se connecter avec d’autres comptes](#connect-using-other-accounts).
+* Les informations d’identification de compte Microsoft Office 365 utilisées avec Outlook quand vous vous connectez avec un [compte professionnel ou scolaire](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
+
+  Vous avez besoin de ces informations d’identification pour autoriser votre workflow à accéder à votre compte Outlook.
+
+  > [!NOTE]
+  > Si vous disposez d’un compte @outlook.com ou @hotmail.com, utilisez le [connecteur Outlook.com](../connectors/connectors-create-api-outlook.md). Pour vous connecter à Outlook avec un autre compte d’utilisateur, tel qu’un compte de service, consultez [Se connecter avec d’autres comptes](#connect-using-other-accounts).
+  >
+  > Si vous utilisez [Microsoft Azure géré par 21Vianet](https://portal.azure.cn), l’authentification Azure AD (Active Directory) fonctionne uniquement avec un compte pour Microsoft Office 365 géré par 21Vianet (.cn) et non les comptes .com.
 
 * Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Outlook. Pour démarrer votre workflow avec un déclencheur Office 365 Outlook, vous devez disposer d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour ajouter une action Office 365 Outlook à votre workflow, votre application logique doit déjà disposer d’un déclencheur.
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Outlook. Pour démarrer votre workflow avec un déclencheur Office 365 Outlook, vous devez disposer d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour ajouter une action Office 365 Outlook à votre workflow, votre workflow d’application logique doit déjà disposer d’un déclencheur.
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans son fichier Swagger, consultez la [page de référence du connecteur](/connectors/office365/).
 
 ## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
 Un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) désigne un événement qui démarre le workflow dans votre application logique. Cet exemple d’application logique utilise un déclencheur « d’interrogation » qui recherche tous les événements de calendrier mis à jour dans votre compte e-mail, en fonction de l’intervalle et de la fréquence spécifiés.
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique vide dans le Concepteur d’application logique.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique vide dans le concepteur visuel.
 
 1. Dans la zone de recherche, entrez `office 365 outlook` en guise de filtre. Cet exemple sélectionne **Lorsqu’un événement à venir démarre bientôt**.
-   
+
    ![Sélectionner un déclencheur pour démarrer votre application logique](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Si vous n’avez pas encore de connexion active vers votre compte Outlook, vous êtes invité à vous connecter et à créer cette connexion. Pour vous connecter à Outlook avec un autre compte d’utilisateur, tel qu’un compte de service, consultez [Se connecter avec d’autres comptes](#connect-using-other-accounts). Sinon, entrez les informations pour les propriétés du déclencheur.
@@ -53,7 +64,7 @@ Un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) dési
 
 1. Dans le déclencheur, définissez les valeurs de **Fréquence** et **Intervalle**. Pour ajouter d’autres propriétés de déclencheur disponibles, telles que **Fuseau horaire**, sélectionnez ces propriétés dans la liste **Ajouter un nouveau paramètre**.
 
-   Par exemple, si vous souhaitez que le déclencheur vérifie le calendrier toutes les 15 minutes, définissez **Fréquence** sur **Minute**, et **Intervalle** sur `15`. 
+   Par exemple, si vous souhaitez que le déclencheur vérifie le calendrier toutes les 15 minutes, définissez **Fréquence** sur **Minute**, et **Intervalle** sur `15`.
 
    ![Définir la fréquence et l’intervalle pour le déclencheur](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -63,11 +74,11 @@ Un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) dési
 
 ## <a name="add-an-action"></a>Ajouter une action
 
-Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une opération qui est définie par le workflow dans votre application logique. Cet exemple d’application logique crée un contact dans Office 365 Outlook. Vous pouvez utiliser la sortie d’un autre déclencheur ou d’une autre action pour créer le contact. Par exemple, supposez que votre application logique utilise le déclencheur Dynamics 365, **Lorsqu’un enregistrement est créé**. Vous pouvez ajouter l’action Office 365 Outlook **Créer un contact** et utiliser les sorties du déclencheur SalesForce pour créer le contact.
+Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une opération qui est définie par le workflow dans votre application logique. Cet exemple d’application logique crée un contact dans Office 365 Outlook. Vous pouvez utiliser la sortie d’un autre déclencheur ou d’une autre action pour créer le contact. Par exemple, supposez que votre application logique utilise le déclencheur Salesforce **Lorsqu’un enregistrement est créé**. Vous pouvez ajouter l’action Office 365 Outlook **Créer un contact** et utiliser les sorties du déclencheur pour créer le contact.
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le concepteur visuel.
 
-1. Pour ajouter une action comme dernière étape à votre workflow, sélectionnez **Nouvelle étape**. 
+1. Pour ajouter une action comme dernière étape à votre workflow, sélectionnez **Nouvelle étape**.
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
@@ -111,10 +122,6 @@ Si vous essayez de vous connecter à Outlook à l’aide d’un compte différen
    1. Dans l’action **Envoyer un e-mail**, ouvrez la liste **Ajouter un paramètre**, puis sélectionnez le paramètre **De (Envoyer en tant que)** .
 
    1. Une fois que le paramètre apparaît sur l’action, entrez l’adresse e-mail du compte de service.
-
-## <a name="connector-reference"></a>Référence de connecteur
-
-Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans son fichier Swagger, consultez la [page de référence du connecteur](/connectors/office365/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

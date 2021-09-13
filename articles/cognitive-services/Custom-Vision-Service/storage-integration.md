@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 06/25/2021
 ms.author: pafarley
-ms.openlocfilehash: 92a9b79e4de60e7308224b435953ac7b3eefc8a1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f21313a357c5c86087d3505cfdf654d9958d3893
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951072"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982363"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Intégrer le stockage Azure pour les notifications et la sauvegarde
 
@@ -35,12 +35,11 @@ Ce guide vous montre comment utiliser ces API REST avec cURL. Vous pouvez égale
 
 Accédez à votre ressource de formation Custom Vision sur le portail Azure, sélectionnez la page **Identité** , puis activez l’identité managée affectée par le système.
 
-Ensuite, accédez à votre ressource de stockage dans le portail Azue. Accédez à la page **Contrôle d’accès (IAM)** et ajoutez une attribution de rôle pour chaque fonctionnalité d’intégration :
-* Sélectionnez votre ressource de formation Custom Vision et attribuez le rôle **Contributeur aux données Blob du stockage** si vous envisagez d’utiliser la fonctionnalité de sauvegarde de modèle. 
-* Sélectionnez ensuite votre ressource de formation Custom Vision et attribuez le **Contributeur aux données en file d’attente du stockage** si vous envisagez d’utiliser la fonctionnalité de file d’attente de notification.
+Ensuite, accédez à votre ressource de stockage dans le portail Azue. Accédez à la page **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle (préversion)** . Ajoutez ensuite une attribution de rôle pour l’une des fonctionnalités d’intégration ou les deux :
+* Si vous envisagez d’utiliser la fonctionnalité de sauvegarde de modèle, sélectionnez le rôle **Contributeur aux données Blob du stockage** et ajoutez votre ressource d’entraînement Custom Vision comme membre. Sélectionnez **Vérifier + attribuer** pour terminer.
+* Si vous envisagez d’utiliser la fonctionnalité de file d’attente de notification, sélectionnez le rôle **Contributeur aux données en file d’attente du stockage** et ajoutez votre ressource d’entraînement Custom Vision comme membre. Sélectionnez **Vérifier + attribuer** pour terminer.
 
-> [!div class="mx-imgBorder"]
-> ![Page d’attribution de rôle au compte de stockage](./media/storage-integration/storage-access.png)
+Pour obtenir de l’aide concernant les attributions de rôle, consultez [Attribuer des rôles Azure à l’aide du portail Azure](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ### <a name="get-integration-urls"></a>Obtenir les URL d'intégration
 

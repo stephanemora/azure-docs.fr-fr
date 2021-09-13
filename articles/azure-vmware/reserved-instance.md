@@ -3,16 +3,16 @@ title: Instances réservées d’Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution. L’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles.
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 8407d4e85718660bfcf17b3597710ed5237b41e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6204e7cade66ee60885db20226981980f4741a76
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745814"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534982"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
-Lorsque vous validez une instance réservée d’[Azure VMware Solution](introduction.md), vous économisez de l’argent.  La remise de réservation est appliquée automatiquement aux hôtes Azure VMware Solution en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. 
+Lorsque vous validez une instance réservée d’[Azure VMware Solution](introduction.md), vous économisez de l’argent. La remise de réservation s’applique automatiquement aux hôtes Azure VMware Solution en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. De plus, un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. 
 
 ## <a name="purchase-restriction-considerations"></a>Considérations en matière de restriction d’achat
 
@@ -38,7 +38,7 @@ Ces conditions s’appliquent à l’achat d’une instance réservée d’hôte
 
 -   Pour les abonnements EA, vous devez activer l’option **Ajouter des instances réservées** dans le [portail EA](https://ea.azure.com/). Si elle est désactivée, vous devez être administrateur EA de l’abonnement pour l’activer.
 
--   Pour un abonnement dans le cadre d’un plan Azure du fournisseur de solutions Cloud (CSP), le partenaire doit acheter les instances réservées dans le portail Azure pour le client. 
+-   Pour un abonnement dans le cadre d’un plan Azure Fournisseur de solutions Cloud (CSP), le partenaire doit acheter les instances réservées du client dans le portail Azure. 
 
 ### <a name="buy-reserved-instances-for-an-ea-subscription"></a>Acheter des instances réservées pour un abonnement EA
 
@@ -55,7 +55,7 @@ Ces conditions s’appliquent à l’achat d’une instance réservée d’hôte
    | Champ        |  Description |
    | ------------ | ------------ |
    | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P), Contrat client Microsoft ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde du Paiement anticipé Azure (anciennement « Engagement financier »), le cas échéant, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur la carte de crédit de l’abonnement ou sur un mode de paiement par facture. |
-   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul>       |
+   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Ainsi, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte pour des abonnements individuels utilisant les tarifs de paiement à l’utilisation.</li></ul>       |
    | Région       | Région Azure couverte par la réservation.   |
    | Taille de l’hôte    | AV36    |
    | Terme         | Une année ou trois ans.  |
@@ -71,20 +71,20 @@ Les fournisseurs de solutions Cloud qui souhaitent acheter des instances réserv
 
 3. Développez les détails du client, puis sélectionnez **Portail de gestion Microsoft Azure**. 
 
-   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Zone Clients de l’Espace partenaires Microsoft" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
+   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Capture d’écran montrant la zone Clients de l’Espace partenaires Microsoft avec le portail de gestion Microsoft Azure sélectionné." lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
 
 4. Dans le portail Azure, sélectionnez **Tous les services** > **Réservations**.
 
 5. Sélectionnez **Acheter maintenant**, puis sélectionnez **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Réservations dans Portail Microsoft Azure" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Capture d’écran montrant où acheter des réservations Azure VMware Solution dans le portail Microsoft Azure." lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Renseignez les champs obligatoires. Les attributs sélectionnés qui correspondent aux hôtes Azure VMware Solution en cours d’exécution sont éligibles pour la remise de réservation.  Les attributs incluent la référence SKU, les régions (le cas échéant) et l’étendue. L’étendue de réservation détermine où les économies de la réservation s’appliquent.
 
    | Champ        |  Description |
    | ------------ | ------------ |
-   | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un abonnement éligible qui, dans ce cas, est un abonnement CSP.|
-   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul>       |
+   | Abonnement | Abonnement avec lequel la réservation est payée. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un abonnement éligible qui, dans ce cas, est un abonnement CSP.|
+   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Ainsi, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte pour des abonnements individuels utilisant les tarifs de paiement à l’utilisation.</li></ul>       |
    | Région       | Région Azure couverte par la réservation.   |
    | Taille de l’hôte    | AV36    |
    | Terme         | Une année ou trois ans.  |

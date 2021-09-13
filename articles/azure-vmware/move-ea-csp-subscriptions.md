@@ -4,12 +4,12 @@ description: Cet article explique comment déplacer un abonnement Azure VMware S
 ms.custom: subject-moving-resources
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 02f35efe90d4670c4ab38155f129ec0d61c1b03d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b4541bf1cf13a8b4c090365c31c2403685a69c7f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966703"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527668"
 ---
 # <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Déplacer l’abonnement Azure VMware Solution vers un autre abonnement
 
@@ -39,7 +39,7 @@ Vous devez disposer au moins des droits de contributeur sur les abonnements **so
 
    :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="Capture d’écran de la ressource cible.":::
 
-1. Confirmez la validation des ressources que vous avez sélectionnées pour être déplacées.  Cette opération permet de valider toutes les ressources sélectionnées pour être déplacées. Pendant la validation des ressources sélectionnées, vous verrez l’état **Validation en attente**. 
+1. Confirmez la validation des ressources que vous avez sélectionnées pour être déplacées. Pendant la validation, vous verrez l’état **Validation en attente**. 
 
    :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="Capture d’écran montrant le déplacement de la ressource.":::
 

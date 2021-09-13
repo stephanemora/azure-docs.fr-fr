@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment mettre à jour la configuratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dfa05a3bc26c21da95d60374582f10a1a0b84d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91567823"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458844"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Mettre à jour les configurations du coffre Azure Recovery Services à l’aide de l’API REST
 
@@ -25,7 +25,7 @@ Par conséquent, vous devez choisir avec précaution de désactiver ou non la su
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Extraire l’état de suppression réversible à l’aide de l’API REST
 
-Par défaut, l’état de suppression réversible est activé pour tout coffre Recovery Services créé. Pour extraire/mettre à jour l’état de suppression réversible pour un coffre, utilisez le [document de l’API REST](/rest/api/backup/backupresourcevaultconfigs) relatif à la configuration du coffre de sauvegarde.
+Par défaut, l’état de suppression réversible est activé pour tout coffre Recovery Services créé. Pour extraire/mettre à jour l’état de suppression réversible pour un coffre, utilisez le [document de l’API REST](/rest/api/backup/backup-resource-vault-configs) relatif à la configuration du coffre de sauvegarde.
 
 Pour extraire l’état actuel de suppression réversible pour un coffre, utilisez l’opération *GET*.
 
@@ -45,7 +45,7 @@ La réponse correcte pour l’opération « GET » est indiquée ci-dessous :
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exemple de réponse
 
@@ -81,7 +81,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Les définitions courantes suivantes permettent de créer un corps de demande.
 
-Pour plus d’informations, consultez la [documentation de l’API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body).
+Pour plus d’informations, consultez la [documentation de l’API REST](/rest/api/backup/backup-resource-vault-configs/update#request-body).
 
 |Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
@@ -109,7 +109,7 @@ La réponse correcte pour l’opération « PATCH » est indiquée ci-dessous�
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response-for-the-patch-operation"></a>Exemple de réponse à l’opération PATCH
 

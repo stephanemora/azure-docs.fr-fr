@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma, moslake
-ms.date: 02/09/2021
-ms.openlocfilehash: e0f2ffbb09929a919f90fdec50fe72173af78606
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 07/26/2021
+ms.openlocfilehash: aad6da736bde6a50d3bf0b0164830333823f444b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411860"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709756"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrer Azure SQL Database à partir du modèle DTU vers le modèle vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,15 +35,15 @@ Pour choisir l’objectif de service, ou la taille de calcul, pour la base de do
 > [!TIP]
 > Cette règle est approximative, car elle ne prend pas en compte la génération de matériel utilisé pour la base de données ou le pool élastique DTU. 
 
-Dans le modèle DTU, toute [génération de matériel](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model) disponible peut être utilisée pour votre base de données ou pool élastique. En outre, vous disposez uniquement d’un contrôle indirect sur le nombre de vCores (UC logiques), en choisissant des valeurs DTU ou eDTU supérieures ou inférieures. 
+Dans le modèle DTU, le système peut sélectionner toute [génération de matériel](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model) disponible peut votre base de données ou pool élastique. En outre, dans le modèle DTU, vous disposez uniquement d’un contrôle indirect sur le nombre de vCores (processeurs logiques) en choisissant des valeurs DTU ou eDTU supérieures ou inférieures. 
 
-Avec le modèle vCore, les clients doivent faire un choix explicite en termes de génération de matériel et de nombre de vCores (UC logiques). Le modèle DTU n’offre pas ces choix, mais la génération de matériel et le nombre d’UC logiques utilisées pour chaque base de données et pool élastique sont exposés via des vues de gestion dynamique. Il est ainsi possible de déterminer de manière plus précise l’objectif de service vCore correspondant. 
+Dans le modèle vCore, les clients doivent faire un choix explicite en termes de génération de matériel et de nombre de vCores (processeurs logiques). Le modèle DTU n’offre pas ces choix, mais la génération de matériel et le nombre de processeurs logiques utilisés pour chaque base de données et pool élastique sont exposés dans les vues de gestion dynamique. Il est ainsi possible de déterminer de manière plus précise l’objectif de service vCore correspondant. 
 
 L’approche suivante utilise ces informations pour déterminer un objectif de service vCore avec une allocation de ressources semblable, afin d’obtenir un niveau de performance similaire après migration vers le modèle vCore.
 
 ### <a name="dtu-to-vcore-mapping"></a>Mappage DTU vers vCore
 
-Une requête T-SQL ci-dessous, lorsqu’elle est exécutée dans le contexte d’une base de données DTU à migrer, renvoie un nombre de vCores correspondant (éventuellement fractionnaire) dans chaque génération de matériel du modèle vCore. En arrondissant ce nombre au nombre de vCores disponibles le plus proche pour les [bases de données](resource-limits-vcore-single-databases.md) et [pools élastiques](resource-limits-vcore-elastic-pools.md) dans chaque génération de matériel du modèle vCore, les clients peuvent choisir l’objectif de service vCore qui correspond le mieux à la base de données ou au pool élastique DTU. 
+Une requête T-SQL ci-dessous, quand elle est exécutée dans le contexte d’une base de données DTU à migrer, retourne un nombre de vCores correspondant (éventuellement fractionnaire) dans chaque génération de matériel du modèle vCore. En arrondissant ce nombre au nombre de vCores disponibles le plus proche pour les [bases de données](resource-limits-vcore-single-databases.md) et [pools élastiques](resource-limits-vcore-elastic-pools.md) dans chaque génération de matériel du modèle vCore, les clients peuvent choisir l’objectif de service vCore qui correspond le mieux à la base de données ou au pool élastique DTU. 
 
 Les exemples de scénarios de migration utilisant cette approche sont décrits dans la section [Exemples](#dtu-to-vcore-migration-examples).
 
@@ -65,7 +65,7 @@ SELECT rg.slo_name,
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
-WHERE dtu_limit > 0
+WHERE rg.dtu_limit > 0
       AND
       DB_NAME() <> 'master'
       AND
@@ -103,18 +103,18 @@ FROM dtu_vcore_map;
 En plus du nombre de vCores (UC logiques) et de la génération de matériel, plusieurs autres facteurs peuvent influencer le choix de l’objectif de service vCore :
 
 - La requête T-SQL de mappage correspond aux objectifs de service DTU et vCore en termes de capacité d’UC. Dès lors, les résultats sont plus précis pour les charges de travail liées au processeur.
-- Pour la même génération de matériel et le même nombre de vCores, les limites IOPS et de débit du journal des transactions des bases de données vCore sont souvent plus élevées que celles des bases de données DTU. Pour les charges de travail dépendantes des E/S, il est possible de réduire le nombre de vCores du modèle vCore afin obtenir le même niveau de performance. Les limites de ressources des bases de données DTU et vCore en valeurs absolues sont exposées dans la vue [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). La comparaison de ces valeurs entre la base de données DTU à migrer et une base de données vCore utilisant un objectif de service proche vous permet de sélectionner plus précisément l’objectif de service vCore.
+- Pour la même génération de matériel et le même nombre de vCores, les limites IOPS et de débit du journal des transactions des bases de données vCore sont souvent plus élevées que celles des bases de données DTU. Pour les charges de travail dépendantes des E/S, il est possible de réduire le nombre de vCores du modèle vCore afin obtenir le même niveau de performance. Les limites de ressources réelles des bases de données DTU et vCore sont exposées dans la vue [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). La comparaison de ces valeurs entre le pool ou la base de données DTU à migrer et un pool ou une base de données vCore avec un objectif de service proche vous permet de sélectionner plus précisément l’objectif de service vCore.
 - La requête de mappage renvoie également la quantité de mémoire par cœur pour la base de données ou le pool élastique DTU à migrer, et pour chaque génération de matériel du modèle vCore. Il convient d’obtenir une mémoire totale similaire ou supérieure après migration vers vCore pour les charges de travail nécessitant un cache de données important à des fins de performances suffisantes, ou pour les charges de travail nécessitant des allocations de mémoire importantes à des fins de traitement des requêtes. Pour ces charges de travail, en fonction des performances réelles, il peut s’avérer nécessaire d’augmenter le nombre de vCores afin d’obtenir suffisamment de mémoire totale.
 - L’[utilisation des ressources d’historique](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de la base de données DTU doit être prise en compte lors du choix de l’objectif de service vCore. Les bases de données DTU présentant systématiquement des ressources processeur sous-exploitées peuvent nécessiter moins de vCores que le nombre renvoyé par la requête de mappage. À l’inverse, les bases de données DTU présentant une utilisation du processeur systématiquement élevée traduisant des performances de charge de travail inadaptées peuvent nécessiter plus de vCores que le nombre renvoyé par la requête.
-- Si vous migrez des bases de données avec des modèles d’utilisation intermittents ou imprévisibles, pensez à recourir au niveau de calcul [Serverless](serverless-tier-overview.md). Notez que le nombre maximal de workers (requêtes) simultanés sur un serveur est de 75 % la limite du calcul configurée pour le même nombre de vCores maximal configuré. En outre, la mémoire maximale disponible sur un serveur est de 3 Go multiplié par le nombre maximal de vCores configurés. Par exemple, la mémoire maximale est de 120 Go lorsque 40 vCores Max sont configurés.   
+- Si vous migrez des bases de données avec des modèles d’utilisation intermittents ou imprévisibles, pensez à recourir au niveau de calcul [Serverless](serverless-tier-overview.md). Notez que le nombre maximal de workers (requêtes) simultanés sur un serveur est de 75 % la limite du calcul configurée pour le même nombre de vCores maximal configuré. En outre, la mémoire maximale disponible avec le niveau serverless est de 3 Go multipliés par le nombre maximal de vCores configurés, ce qui est inférieur à la mémoire par cœur pour le calcul provisionné. Par exemple, sur Gen5, la mémoire maximale est de 120 Go quand le nombre maximal de vCores configurés est 40 avec le niveau serverless et de 204 Go pour un calcul provisionné avec 40 vCores.
 - Dans le modèle vCore, la taille maximale de base de données prise en charge peut varier en fonction de la génération de matériel. Pour les bases de données volumineuses, vérifiez les tailles maximales prises en charge dans le modèle vCore pour les [bases de données uniques](resource-limits-vcore-single-databases.md) et les [pools élastiques](resource-limits-vcore-elastic-pools.md).
 - Pour les pools élastiques, les modèles [DTU](resource-limits-dtu-elastic-pools.md) et [vCore](resource-limits-vcore-elastic-pools.md) présentent des différences en termes de nombre maximal de bases de données par pool prises en charge. Cela doit être pris en compte lors de la migration de pools élastiques avec de nombreuses bases de données.
-- Certaines générations de matériel peuvent ne pas être disponibles dans toutes les régions. Vérifiez la disponibilité sous [générations de matériel pour les SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) ou [générations de matériel pour SQL Managed instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
+- Certaines générations de matériel peuvent ne pas être disponibles dans toutes les régions. Vérifiez la disponibilité en consultant [Générations de matériel pour SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations).
 
 > [!IMPORTANT]
 > Les instructions relatives au dimensionnement de DTU vers vCore ci-dessus sont fournies pour vous aider à faire une estimation initiale de l’objectif de service de la base de données cible.
 >
-> La configuration optimale de la base de données cible dépend de la charge de travail. Ainsi, pour atteindre le rapport prix/performances optimal après migration, il peut être nécessaire de tirer parti de la flexibilité du modèle vCore pour ajuster le nombre de vCores, la génération de matériel et les niveaux de service et de calcul, ainsi que d’ajuster d’autres paramètres de configuration de base de données, comme le [degré maximal de parallélisme](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> La configuration optimale de la base de données cible dépend de la charge de travail. Ainsi, pour bénéficier du rapport prix/performance optimal après la migration, vous devrez peut-être vous appuyer sur la flexibilité du modèle vCore pour ajuster le nombre de vCores, la génération de matériel et les niveaux de service et de calcul. Vous devrez peut-être également ajuster les paramètres de configuration de base de données tels que le [degré maximal de parallélisme](configure-max-degree-of-parallelism.md) et/ou modifier le [niveau de compatibilité](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) de base de données pour bénéficier des améliorations récentes du moteur de base de données.
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>Exemples de migration DTU vers vCore
@@ -198,7 +198,7 @@ Si vous créez une base de données secondaire de géoréplication dans le pool 
 
 ## <a name="use-database-copy-to-migrate-from-dtu-to-vcore"></a>Utiliser la copie de base de données pour migrer de DTU vers vCore
 
-Vous pouvez copier n’importe quelle base de données avec une taille de calcul DTU vers une base de données avec une taille de calcul vCore, sans aucune restriction ni séquencement spécial, tant que la taille de calcul cible prend en charge la taille maximale de la base de données source. La copie de base de données crée un instantané des données dès que commence l’opération de copie, et elle ne synchrone pas les données entre la source et la cible.
+Vous pouvez copier n’importe quelle base de données avec une taille de calcul DTU vers une base de données avec une taille de calcul vCore, sans aucune restriction ni séquencement spécial, tant que la taille de calcul cible prend en charge la taille maximale de la base de données source. La copie de base de données crée un instantané des données cohérent au niveau transactionnel au moment où démarre l’opération de copie. Elle ne synchronise pas les données entre la source et la cible après ce moment précis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

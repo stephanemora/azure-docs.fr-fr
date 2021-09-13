@@ -2,19 +2,21 @@
 title: Sauvegarder des objets blob Azure dans un compte de stockage à l’aide d’Azure PowerShell
 description: Découvrez comment sauvegarder tous les objets blob Azure dans un compte de stockage à l’aide d’Azure PowerShell.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 55d33283360adae4894032bec648cfc973391f38
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/06/2021
+ms.openlocfilehash: 0f3e7d03abbf4a5bfbb5d5cb533df04a17c71edf
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968677"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533215"
 ---
 # <a name="back-up-all-azure-blobs-in-a-storage-account-using-azure-powershell"></a>Sauvegarder tous les objets blob Azure dans un compte de stockage à l’aide d’Azure PowerShell
 
 Cet article explique comment sauvegarder tous les [objets blob Azure](./blob-backup-overview.md) dans un compte de stockage à l’aide d’Azure PowerShell.
 
 Dans cet article, vous allez apprendre à :
+
+- Avant de commencer
 
 - Créer un coffre de sauvegarde
 
@@ -26,6 +28,10 @@ Pour plus d’informations sur la disponibilité par région, les scénarios pri
 
 > [!IMPORTANT]
 > La prise en charge des objets blob Azure est disponible à partir de la version Az 5.9.0.
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Consultez les [prérequis](./blob-backup-configure-manage.md#before-you-start) et la [matrice de prise en charge](./blob-backup-support-matrix.md) avant de commencer.
 
 ## <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde
 
@@ -57,7 +63,7 @@ Type                : Microsoft.DataProtection/backupVaults
 Après la création du coffre, nous allons créer une stratégie de sauvegarde pour protéger les objets blob Azure.
 
 > [!IMPORTANT]
-> Même si vous voyez la Redondance du stockage de sauvegarde du coffre, celle-ci ne s’applique pas à la sauvegarde opérationnelle d’objets blob, car la sauvegarde est locale par nature et aucune donnée n’est stockée dans le coffre de sauvegarde. Le coffre de sauvegarde. Le coffre de sauvegarde est ici l’entité de gestion destinée à vous aider à gérer la protection des objets blob de blocs dans vos comptes de stockage.
+> Même si vous voyez la Redondance du stockage de sauvegarde du coffre, celle-ci ne s’applique pas à la sauvegarde opérationnelle d’objets blob, car la sauvegarde est locale par nature et aucune donnée n’est stockée dans le coffre de sauvegarde. Le coffre de sauvegarde est ici l’entité de gestion destinée à vous aider à gérer la protection des objets blob de blocs dans vos comptes de stockage.
 
 ## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
 

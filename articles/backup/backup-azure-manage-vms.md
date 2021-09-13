@@ -2,13 +2,13 @@
 title: Gérer et surveiller les sauvegardes de machines virtuelles Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 08/02/2020
-ms.openlocfilehash: 70ce8ababcb596c3eb804e429156000ff7d64ecc
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/27/2021
+ms.openlocfilehash: 015ce2a16359f3a99fcd71c8ea7f97142c2d54e6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372569"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531657"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -140,6 +140,10 @@ Une notification vous informe que les travaux de sauvegarde ont été interrompu
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrêter la protection et supprimer les données de sauvegarde
 
 Pour arrêter la protection et supprimer les données d’une machine virtuelle :
+
+>[!Note]
+>Pour les points de récupération qui ne sont pas restés pendant une durée de 180 jours au niveau archive, leur suppression occasionne un coût de suppression précoce. [Plus d’informations](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion)
+
 
 1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Arrêter la sauvegarde**.
 2. Choisissez **Supprimer les données de sauvegarde** et confirmez votre choix si nécessaire. Entrez le nom de l’élément de sauvegarde et ajoutez un commentaire si vous le souhaitez.

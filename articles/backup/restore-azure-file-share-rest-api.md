@@ -3,12 +3,12 @@ title: Restaurer des partages de fichiers Azure avec l’API REST
 description: Découvrez comment utiliser l’API REST pour restaurer des partages de fichiers entiers ou des fichiers spécifiques à partir d’un point de restauration créé par le service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7673379df250892671eb01fd2635cca651f69b04
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88761795"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457434"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurer des partages de fichiers Azure à l’aide de l’API REST
 
@@ -33,7 +33,7 @@ Pour cet article, nous allons utiliser les ressources suivantes :
 
 ## <a name="fetch-containername-and-protecteditemname"></a>Extraire ContainerName et ProtectedItemName
 
-Pour la plupart des appels d’API liés à la restauration, vous devez passer des valeurs pour les paramètres d’URI {containerName} et {protectedItemName}. Utilisez l’attribut ID dans le corps de la réponse de l’opération [GET backupprotectableitems](/rest/api/backup/protecteditems/get) pour récupérer les valeurs de ces paramètres. Dans notre exemple, l’ID du partage de fichiers que vous souhaitez protéger est le suivant :
+Pour la plupart des appels d’API liés à la restauration, vous devez passer des valeurs pour les paramètres d’URI {containerName} et {protectedItemName}. Utilisez l’attribut ID dans le corps de la réponse de l’opération [GET backupprotectableitems](/rest/api/backup/protected-items/get) pour récupérer les valeurs de ces paramètres. Dans notre exemple, l’ID du partage de fichiers que vous souhaitez protéger est le suivant :
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 

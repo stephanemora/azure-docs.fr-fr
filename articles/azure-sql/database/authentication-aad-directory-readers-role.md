@@ -8,22 +8,19 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: d764c6b6cff6a0ba23d659d4fda63e21aac9b155
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/30/2021
+ms.openlocfilehash: 738338c4f3931e97965e697ca1bf316018a495c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644188"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562647"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rôle Lecteurs de répertoire dans Azure Active Directory pour Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-> [!NOTE]
-> La fonctionnalité de cet article est en **préversion publique**.
-
-Azure Active Directory (Azure AD) a introduit [l’utilisation des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)](../../active-directory/roles/groups-concept.md). Cela permet d’affecter des rôles Azure AD à des groupes.
+Azure AD (Active Directory) a introduit l’[utilisation de groupes Azure AD pour gérer les attributions de rôles](../../active-directory/roles/groups-concept.md). Cela permet d’affecter des rôles Azure AD à des groupes.
 
 Lors de l’activation d’une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) pour Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics, le rôle [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) Azure AD doit être attribué à l’identité pour permettre l’accès en lecture à l’[API Graph Azure AD](/graph/migrate-azure-ad-graph-planning-checklist). L’identité managée de SQL Database et Azure Synapse est appelée identité du serveur. L’identité managée de SQL Managed Instance est appelée « identité de l’instance gérée » et est automatiquement affectée lors de la création de l’instance. Pour plus d’informations sur l’affectation d’une identité de serveur à une instance SQL Database ou Azure Synapse, consultez [Permettre aux principaux de service de créer des utilisateurs Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
@@ -45,7 +42,7 @@ L’attribution du rôle **Lecteurs de répertoire** à l’identité du serveur
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Octroi du rôle Lecteurs de répertoire à un groupe Azure AD
 
-Actuellement en **préversion publique**, vous pouvez désormais demander à un [administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator) ou [administrateur de rôle privilégié](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) de créer un groupe Azure AD et d’affecter l’autorisation [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) au groupe. Cela permettra l’accès à l’API Graph Azure AD pour les membres de ce groupe. En outre, les utilisateurs Azure AD qui sont propriétaires de ce groupe sont autorisés à assigner de nouveaux membres pour ce groupe, y compris les identités des serveurs logiques SQL Azure.
+Vous pouvez désormais demander à un [administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator) ou [administrateur de rôle privilégié](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) de créer un groupe Azure AD et d’attribuer l’autorisation [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) au groupe. Cela permettra l’accès à l’API Graph Azure AD pour les membres de ce groupe. En outre, les utilisateurs Azure AD qui sont propriétaires de ce groupe sont autorisés à assigner de nouveaux membres pour ce groupe, y compris les identités des serveurs logiques SQL Azure.
 
 Cette solution nécessite toujours un utilisateur doté de privilèges élevés (administrateur général ou administrateur de rôle privilégié) pour créer un groupe et affecter des utilisateurs en tant qu’activité ponctuelle, mais les propriétaires du groupe Azure AD peuvent ensuite attribuer des membres supplémentaires. Cela élimine le besoin d’impliquer un utilisateur à privilèges élevés pour configurer chaque base de données SQL Database, instance SQL Managed Instance ou serveur Azure Synapse dans son locataire Azure AD.
 

@@ -3,12 +3,12 @@ title: Résoudre les problèmes de performances de registre
 description: Symptômes, causes et résolution des problèmes courants liés aux performances d’un registre
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8557c8c342919073099a14be91c743b65c4d7fbc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4a93df09c8ceb587815227c073ec69dcd1205451
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069073"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524013"
 ---
 # <a name="troubleshoot-registry-performance"></a>Résoudre les problèmes de performances de registre
 
@@ -21,6 +21,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 * L’envoi et l’extraction d’images avec l’interface de ligne de commande de Docker prennent plus de temps que prévu.
 * Le déploiement d’images sur un service tel qu’Azure Kubernetes Service prend plus de temps que prévu.
 * Vous ne parvenez pas à effectuer un grand nombre d’opérations d’envoi ou d’extraction simultanées dans le temps prévu.
+* Vous voyez une erreur HTTP 429 de type `Too many requests`
 * Les opérations d’envoi ou d’extraction dans un registre géorépliqué prennent plus de temps que prévu, ou les opérations d’envoi échouent avec l’erreur `Error writing blob` ou `Error writing manifest`.
 
 ## <a name="causes"></a>Causes
@@ -46,7 +47,7 @@ Pour le déploiement d’images vers d’autres services, vérifiez les régions
 Liens connexes :
 
 * [Niveaux de service Azure Container Registry](container-registry-skus.md)    
-* [FAQ sur le registre de conteneurs](container-registry-faq.md)
+* [FAQ sur le registre de conteneurs](container-registry-faq.yml)
 * [Objectifs de performances et de scalabilité pour le service Stockage Blob Azure](../storage/blobs/scalability-targets.md)
 
 ### <a name="check-client-hardware"></a>Vérifier le matériel du client
@@ -103,8 +104,8 @@ Si la [collecte des journaux de ressources](monitor-service.md) est activée dan
 
 Liens connexes :
 
-* [Superviser Azure Container Registry](monitor-service.md)
-* [FAQ sur le registre de conteneurs](container-registry-faq.md)
+* [Journaux pour l’évaluation et l’audit de diagnostics](./monitor-service.md)
+* [FAQ sur le registre de conteneurs](container-registry-faq.yml)
 * [Meilleures pratiques pour Azure Container Registry](container-registry-best-practices.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

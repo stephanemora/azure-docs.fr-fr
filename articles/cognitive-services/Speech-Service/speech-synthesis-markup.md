@@ -3,20 +3,20 @@ title: Langage SSML - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Utilisation du langage de balisage de synthèse vocale pour contrôler la prononciation et la prosodie dans la synthèse vocale.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3ba2dad93778e9d4482fa00c854a73dbc616d290
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b71d0d114388c25f3f14c85d37f0568ceed49337
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750404"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527833"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -86,11 +86,11 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 **Exemple**
 
 > [!NOTE]
-> Cet exemple utilise la voix `en-US-JennyNeural`. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech).
+> Cet exemple utilise la voix `en-US-ChristopherNeural`. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -113,7 +113,7 @@ Dans l’élément `speak`, vous pouvez spécifier plusieurs voix pour la sortie
     <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-ChristopherNeural">
         Good morning to you too Jenny!
     </voice>
 </speak>
@@ -395,7 +395,7 @@ Utilisez l’élément `break` pour insérer des pauses (ou des interruptions) e
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -424,7 +424,7 @@ Utilisez l’élément `mstts:silence` pour insérer des pauses avant ou après 
 **Exemple** : Dans cet exemple, `mtts:silence` est utilisé pour ajouter 200 ms de silence entre deux phrases.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-<voice name="en-US-AriaNeural">
+<voice name="en-US-ChristopherNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -451,7 +451,7 @@ L’élément `s` peut contenir du texte et les éléments suivants : `audio`, 
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -490,7 +490,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
@@ -498,7 +498,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -506,7 +506,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -603,7 +603,7 @@ Une fois que vous avez publié votre lexique personnalisé, vous pouvez le réf�
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -677,7 +677,7 @@ La cadence d’élocution peut s’appliquer aux voix neurales et standard au ni
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -693,7 +693,7 @@ Les modifications de volume peuvent s’appliquer aux voix standard au niveau de
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -709,7 +709,7 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -724,7 +724,7 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -764,6 +764,7 @@ Les types de contenu suivants sont pris en charge pour les attributs `interpret-
 | `ordinal` | | Le texte est prononcé sous forme de nombre ordinal. Le moteur de synthèse vocale prononce :<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Par exemple, « Sélectionnez la troisième option ». |
 | `telephone` | | Le texte est prononcé sous forme de numéro de téléphone. L’attribut `format` peut contenir des chiffres correspondant à l’indicatif d’un pays. Par exemple, « 1 » pour les États-Unis ou « 39 » pour l’Italie. Le moteur de synthèse vocale peut utiliser ces informations pour guider la prononciation d’un numéro de téléphone. Le numéro de téléphone peut également inclure l’indicatif du pays qui, le cas échéant, est prioritaire sur l’indicatif du pays dans `format`. Le moteur de synthèse vocale prononce :<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Par exemple, « Mon numéro avec indicatif régional est huit huit huit cinq cinq cinq un deux un deux ». |
 | `time` | hms12, hms24 | Le texte est prononcé sous forme d'heure. L’attribut `format` indique si l’heure correspond à l'horloge de 12 heures (hms12) ou 24 heures (hms24). Utilisez deux points pour séparer les nombres représentant les heures, les minutes et les secondes. Voici quelques exemples d'heure valides : 12:35, 1:14:32, 08:15 et 02:50:45. Le moteur de synthèse vocale prononce :<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Par exemple, « Le train part à 4 heures ». |
+| `name` | | Le texte est prononcé comme nom de personne. Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />comme [æd]. <br />Dans les noms chinois, certains caractères se prononcent différemment quand ils apparaissent dans un nom de famille. Par exemple, le moteur de synthèse vocale prononce 仇 dans <br /><br />`<say-as interpret-as="address">仇先生</say-as>`<br /><br /> comme [qiú] et non [chóu]. |
 
 **Utilisation**
 
@@ -775,7 +776,7 @@ Le moteur de synthèse vocale prononce l’exemple ci-dessous comme suit : « 
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -813,7 +814,7 @@ Tout audio inclus dans le document SSML doit respecter les exigences suivantes 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -853,7 +854,7 @@ Un seul fichier audio en arrière-plan est autorisé par document SSML. Toutefoi
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

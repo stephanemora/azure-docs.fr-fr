@@ -2,17 +2,20 @@
 title: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 description: Dans cet article, découvrez comment utiliser le serveur de sauvegarde Azure pour sauvegarder des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
-ms.date: 05/24/2020
-ms.openlocfilehash: 12374393d0f94c567a68f1e28b6479e0747f3d40
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: d734b9852da54c13d498cfd4a60caf007735d2f6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084589"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722580"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
 Cet article explique comment sauvegarder des machines virtuelles VMware s’exécutant sur des hôtes VMware ESXi/vCenter Server vers Azure en utilisant le serveur de sauvegarde Azure(MABS).
+
+>[!Note]
+>Avec la version de correctif cumulatif 2 pour MABS v3, vous pouvez désormais sauvegarder des machines virtuelles VMware 7.0 également.
 
 Cet article explique comment :
 
@@ -33,6 +36,13 @@ MABS fournit les fonctionnalités suivantes lors de la sauvegarde de machines vi
 - MABS protège les machines virtuelles stockées sur un disque local, un système NFS (Network File System) ou un stockage en cluster.
 - MABS protège les machines virtuelles migrées pour l’équilibrage de charge : À mesure que les machines virtuelles sont migrées pour l’équilibrage de charge, MABS détecte et continue automatiquement la protection des machines virtuelles.
 - MABS peut récupérer des fichiers/dossiers d’une machine virtuelle Windows sans récupérer l’ensemble de la machine virtuelle, ce qui permet de récupérer plus rapidement les fichiers nécessaires.
+
+## <a name="support-matrix"></a>Matrice de prise en charge
+
+| Versions de MABS | Versions de machine virtuelle VMware prises en charge pour la sauvegarde |
+| --- | --- |
+| MABS v3 UR2 | Serveur VMware 7.0, 6.7, 6.5 ou 6.0 (version sous licence) |
+| MABS v3 UR1 | Serveur VMware 6.7, 6.5, 6.0 ou 5.5 (version sous licence) |
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 
@@ -160,7 +170,7 @@ Le serveur de sauvegarde Azure a besoin d’un compte d’utilisateur avec des a
 
 Le tableau suivant indique les privilèges que vous devez attribuer au compte d'utilisateur que vous créez :
 
-| Privilèges du compte d'utilisateur vCenter 6.5                          | Privilèges du compte d'utilisateur vCenter 6.7                            |
+| Privilèges du compte d'utilisateur vCenter 6.5                          | Privilèges du compte d’utilisateur vCenter 6.7 (et versions ultérieures)                            |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
 | Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
@@ -401,9 +411,9 @@ Ajoutez des machines virtuelles VMware pour la sauvegarde. Les groupes de protec
 ## <a name="vmware-parallel-backups"></a>Sauvegardes parallèles VMware
 
 >[!NOTE]
-> Cette fonctionnalité s’applique à MABS v3 UR1.
+> Cette fonctionnalité s’applique à MABS v3 UR1 (et versions ultérieures).
 
-Dans les versions antérieures de MABS, les sauvegardes parallèles n’étaient effectuées que sur les groupes de protection. Avec MABS v3 UR1, toutes les sauvegardes des machines virtuelles VMware appartenant à un même groupe de protection sont effectuées en parallèle, ce qui permet d’accélérer le processus de sauvegarde. Tous les travaux de réplication delta VMware s’exécutent en parallèle. Par défaut, le nombre de travaux qui s’exécutent en parallèle est configuré sur 8.
+Dans les versions antérieures de MABS, les sauvegardes parallèles n’étaient effectuées que sur les groupes de protection. Avec MABS v3 UR1 (et versions ultérieures), toutes les sauvegardes des machines virtuelles VMware appartenant à un même groupe de protection sont effectuées en parallèle, ce qui permet d’accélérer le processus de sauvegarde. Tous les travaux de réplication delta VMware s’exécutent en parallèle. Par défaut, le nombre de travaux qui s’exécutent en parallèle est configuré sur 8.
 
 Vous pouvez modifier le nombre de travaux à l’aide de la clé de Registre, comme indiqué ci-dessous (celle-ci n’est pas présente par défaut, vous devez donc l’ajouter) :
 
@@ -413,9 +423,9 @@ Vous pouvez modifier le nombre de travaux à l’aide de la clé de Registre, co
 > [!NOTE]
 > Vous pouvez augmenter le nombre de travaux. Si vous définissez ce nombre sur 1, les travaux de réplication seront exécutés les uns après les autres. Pour augmenter le nombre de travaux à exécuter en parallèle, vous devez prendre en compte les performances de VMware. Tenez compte du nombre de ressources en cours d’utilisation et de toute autre utilisation nécessaire sur le serveur VMWare vSphere, puis déterminez le nombre de travaux de réplication delta à exécuter en parallèle. Cette modification affectera uniquement les groupes de protection qui viennent d’être créés. Pour les groupes de protection existants, vous devez ajouter temporairement une autre machine virtuelle au groupe de protection. La configuration du groupe de protection doit être mise à jour en conséquence. Vous pouvez supprimer cette machine virtuelle du groupe de protection une fois la procédure terminée.
 
-## <a name="vmware-vsphere-67"></a>VMware vSphere 6.7
+## <a name="vmware-vsphere-67-and-70"></a>VMware vSphere 6.7 et 7.0
 
-Pour sauvegarder vSphere 6.7, effectuez les opérations suivantes :
+Pour sauvegarder vSphere 6.7 et 7.0, effectuez les opérations suivantes :
 
 - Activer TLS 1.2 sur le serveur MABS
 
@@ -447,9 +457,9 @@ Windows Registry Editor Version 5.00
 ## <a name="exclude-disk-from-vmware-vm-backup"></a>Exclure un disque de la sauvegarde de machine virtuelle VMware
 
 > [!NOTE]
-> Cette fonctionnalité s’applique à MABS v3 UR1.
+> Cette fonctionnalité s’applique à MABS v3 UR1 (et versions ultérieures).
 
-Avec MABS v3 UR1, vous pouvez exclure un disque de la sauvegarde de machine virtuelle VMware. Le script de configuration **ExcludeDisk.ps1** se trouve dans `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
+Avec MABS v3 UR1 (et versions ultérieures), vous pouvez exclure un disque spécifique de la sauvegarde de machine virtuelle VMware. Le script de configuration **ExcludeDisk.ps1** se trouve dans `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
 
 Pour configurer l’exclusion du disque, effectuez les étapes suivantes :
 

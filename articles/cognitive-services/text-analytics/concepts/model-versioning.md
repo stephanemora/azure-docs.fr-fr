@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/03/2021
+ms.date: 06/17/2021
 ms.author: aahi
-ms.openlocfilehash: 60b9b7ace0f788c7ae5b248c4011ccde52811d2b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d1804505a73be2db8d7088caf74063381fa0ba33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757136"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524583"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Contrôle de version de modèle dans l’API Analyse de texte
 
@@ -39,13 +39,20 @@ Utilisez le tableau ci-dessous pour rechercher les versions de modèle prises en
 
 Pour plus d’informations sur les mises à jour de ces modèles, consultez la section [Nouveautés](../whats-new.md).
 
+## <a name="extractive-summarization"></a>Résumé extractif
+
+Le résumé extractif est disponible à partir de la `version 3.1-preview.1` par le biais du point de terminaison `analyze` asynchrone. 
+
+La version de modèle actuelle est `2021-08-01`.
+
 ## <a name="text-analytics-for-health"></a>Analyse de texte pour la santé
 
 Le conteneur [Analyse de texte pour l’intégrité](../how-tos/text-analytics-for-health.md) utilise une gestion de versions de modèle distinct des points de terminaison d’API ci-dessus.  Notez qu’une seule version de modèle est disponible par image conteneur.
 
 | Point de terminaison                        | Étiquette de l’image conteneur                     | Version du modèle |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.015370001-onprem-amd64` ou la plus récente          | `2021-03-01`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64` ou la plus récente            | `2021-05-15`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
 | `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |

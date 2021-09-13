@@ -10,19 +10,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: sstein, emlisa
+ms.reviewer: mathoma, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 21ac73b461ebcb171f48621aa27a16dfc0e8c936
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 97085073a566d525eedeb6bd2e72273dad36e1d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531580"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-L'objectif de l'architecture Haute disponibilité d'Azure SQL Database et de SQL Managed Instance est de garantir que votre base de données est opérationnelle au minimum 99,99 % du temps (pour plus d'informations sur les contrats de niveau de service [SLA] spécifiques aux différents niveaux de service, consultez [SLA d'Azure SQL Database et SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/sql-database/)), sans que vous vous préoccupiez de l'impact des opérations de maintenance et des pannes. Azure gère automatiquement les tâches de maintenance critiques, telles les mises à jour correctives, les sauvegardes, les mises à niveau de Windows et d'Azure SQL, ainsi que les événements non planifiés, comme les défaillances matérielles, logicielles ou réseau sous-jacentes.  Lorsque la base de données sous-jacente d'Azure SQL Database fait l'objet d'une mise à jour corrective ou d'un basculement, le temps d'arrêt n'est pas perceptible si vous [utilisez une logique de nouvelle tentative](develop-overview.md#resiliency) dans votre application. Pour assurer la disponibilité de vos données, SQL Database et SQL Managed Instance bénéficient de fonctionnalités de récupération rapide, même dans les situations les plus critiques.
+L'objectif de l'architecture Haute disponibilité d'Azure SQL Database et de SQL Managed Instance est de garantir que votre base de données est opérationnelle au minimum 99,99 % du temps (pour plus d'informations sur les contrats de niveau de service [SLA] spécifiques aux différents niveaux de service, consultez [SLA d'Azure SQL Database et SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-database)), sans que vous vous préoccupiez de l'impact des opérations de maintenance et des pannes. Azure gère automatiquement les tâches de maintenance critiques, telles les mises à jour correctives, les sauvegardes, les mises à niveau de Windows et d'Azure SQL, ainsi que les événements non planifiés, comme les défaillances matérielles, logicielles ou réseau sous-jacentes.  Lorsque la base de données sous-jacente d'Azure SQL Database fait l'objet d'une mise à jour corrective ou d'un basculement, le temps d'arrêt n'est pas perceptible si vous [utilisez une logique de nouvelle tentative](develop-overview.md#resiliency) dans votre application. Pour assurer la disponibilité de vos données, SQL Database et SQL Managed Instance bénéficient de fonctionnalités de récupération rapide, même dans les situations les plus critiques.
 
 La solution de haute disponibilité est conçue pour garantir que les données validées ne sont jamais perdues pour cause d’échecs, que les opérations de maintenance n’affectent pas votre charge de travail, et que la base de données n’est pas un point de défaillance unique dans votre architecture logicielle. Rien, pas même une fenêtre de maintenance ou un temps d’arrêt, ne doit vous obliger à arrêter la charge de travail pendant la mise à niveau ou la maintenance de la base de données.
 
@@ -48,7 +48,7 @@ Dès que le moteur de base de données ou que le système d'exploitation est mis
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilité redondante interzone du niveau de service Usage général (préversion)
 
-La configuration redondante interzone pour le niveau de service Usage général est proposée pour le calcul provisionné et sans serveur. Cette configuration utilise des [Zones de disponibilité Azure](../../availability-zones/az-overview.md)  pour répliquer les bases de données sur plusieurs emplacements physiques au sein d’une région Azure.En sélectionnant la redondance dans une zone, vous pouvez rendre vos bases de données uniques sans serveur et approvisionnées à usage général et vos pools élastiques nouveaux et existants résistants à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application.
+La configuration redondante interzone pour le niveau de service Usage général est proposée pour le calcul provisionné et sans serveur. Cette configuration utilise des [Zones de disponibilité Azure](../../availability-zones/az-overview.md)  pour répliquer les bases de données sur plusieurs emplacements physiques au sein d’une région Azure.En sélectionnant la redondance de zone, vous pouvez rendre vos bases de données uniques serverless et provisionnées à usage général et vos pools élastiques nouveaux et existants résilients à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application.
 
 La configuration redondante interzone pour le niveau Usage général contient deux couches :  
 

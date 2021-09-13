@@ -1,23 +1,23 @@
 ---
-title: Prise en charge du niveau Archive (préversion)
+title: Prise en charge du niveau de stockage archive
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/04/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c817e5e0fbed7ebe6c659a91e180820de3fdc677
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ccb85c42685f962da3c9faf098d7847a93f4de74
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410096"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562130"
 ---
-# <a name="archive-tier-support-preview"></a>Prise en charge du niveau Archive (préversion)
+# <a name="archive-tier-support"></a>Prise en charge du niveau de stockage archive
 
 Les clients s’appuient sur le service Sauvegarde Azure pour stocker leurs données de sauvegarde, notamment pour une conservation à long terme (LTR), avec des exigences de conservation définies par les règles de conformité de l’organisation. Dans la plupart des cas, les données de sauvegarde plus anciennes sont rarement utilisées, et stockées uniquement à des fins de conformité.
 
 Le service Sauvegarde Azure prend en charge la sauvegarde des points de conservation à long terme dans le niveau Archive, en plus des captures instantanées et du niveau Standard.
 
-## <a name="scope-for-preview"></a>Étendue de la préversion
+## <a name="scope"></a>Étendue
 
 Charges de travail prises en charge :
 
@@ -36,8 +36,8 @@ Clients pris en charge :
 
 - La fonctionnalité est fournie à l’aide de PowerShell.
 
->[!NOTE]
->La prise en charge du niveau Archive pour les machines virtuelles Azure et SQL Server dans Azure est en préversion publique limitée avec des inscriptions limitées. Pour vous inscrire à la prise en charge d’archives, utilisez ce [lien](https://aka.ms/ArchivePreviewInterestForm).
+>[!Note]
+>La prise en charge du niveau archive pour les serveurs SQL Server dans des machines virtuelles Azure est désormais en disponibilité générale dans les régions Europe Nord, Inde Centre, Asie Sud-Est et Australie Est. Pour obtenir la liste détaillée des régions prises en charge, reportez-vous à la [matrice de prise en charge](#support-matrix).    <br><br>    Pour les autres régions pour les serveurs SQL Server dans des machines virtuelles Azure, la prise en charge du niveau archive est en préversion publique limitée. La prise en charge du niveau archive pour les machines virtuelles Azure est également en préversion publique limitée. Pour vous inscrire à la préversion publique limitée, utilisez [ce lien](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## <a name="get-started-with-powershell"></a>Bien démarrer avec PowerShell
 
@@ -46,7 +46,7 @@ Clients pris en charge :
 1. Exécutez la commande suivante dans PowerShell :
   
     ```azurepowershell
-    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
     ```
 
 1. Connectez-vous à Azure à l’aide la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
@@ -86,7 +86,7 @@ Clients pris en charge :
 
     ```
     >[!NOTE]
-    >L’intervalle entre la date de début et la date de fin ne doit pas être supérieur à 30 jours.<br><br>Si vous voulez afficher les points de récupération pour un autre intervalle de temps, modifiez les dates de début et de fin en conséquence.
+    >Si vous voulez afficher les points de récupération pour un autre intervalle de temps, modifiez les dates de début et de fin en conséquence.
 ## <a name="use-powershell"></a>Utiliser PowerShell
 
 ### <a name="check-archivable-recovery-points"></a>Vérifier les points de récupération archivables
@@ -207,6 +207,13 @@ Les points de récupération qui ne sont pas restés au niveau Archive pendant a
 
 L’option Arrêter la protection et supprimer les données supprime tous les points de récupération. Pour les points de récupération qui ne sont pas restés pendant une durée de 180 jours au niveau Archive, leur suppression occasionne un coût de suppression précoce.
 
+## <a name="support-matrix"></a>Matrice de prise en charge
+
+| Charges de travail | Préversion | Mise à la disposition générale |
+| --- | --- | --- |
+| SQL Server dans les machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est |
+| Machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud, Asie Sud-Est, Australie Est, Inde Centre, Europe Nord | Aucune |
+
 ## <a name="error-codes-and-troubleshooting-steps"></a>Codes d’erreur et étapes de résolution des problèmes
 
 Il existe plusieurs codes d’erreur qui apparaissent quand un point de récupération ne peut pas être déplacé vers une archive.
@@ -217,7 +224,7 @@ Il existe plusieurs codes d’erreur qui apparaissent quand un point de récupé
 
 **Description** : ce code d’erreur s’affiche quand le type de point de récupération sélectionné ne peut pas être déplacé vers l’archive.
 
-**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope-for-preview).
+**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope).
 
 ### <a name="recoverypointhaveactivedependencies"></a>RecoveryPointHaveActiveDependencies
 
@@ -225,7 +232,7 @@ Il existe plusieurs codes d’erreur qui apparaissent quand un point de récupé
 
 **Description** : le point de récupération sélectionné a des dépendances actives et ne peut donc pas être déplacé vers l’archive.
 
-**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope-for-preview).
+**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope).
 
 ### <a name="minlifespaninstandardrequiredforarchive"></a>MinLifeSpanInStandardRequiredForArchive
 
@@ -233,7 +240,7 @@ Il existe plusieurs codes d’erreur qui apparaissent quand un point de récupé
 
 **Description** : le point de récupération doit rester au niveau Standard pendant un minimum de trois mois pour les machines virtuelles Azure, et 45 jours pour SQL Server sur des machines virtuelles Azure.
 
-**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope-for-preview).
+**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope).
 
 ### <a name="minremaininglifespaninarchiverequired"></a>MinRemainingLifeSpanInArchiveRequired
 
@@ -241,7 +248,7 @@ Il existe plusieurs codes d’erreur qui apparaissent quand un point de récupé
 
 **Description** : la durée de vie minimale requise pour un point de récupération pour l’éligibilité du déplacement d’archive est de six mois.
 
-**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope-for-preview).
+**Action recommandée** : vérifiez l’éligibilité du point de récupération [ici](#scope).
 
 ### <a name="usererrorrecoverypointalreadyinarchivetier"></a>UserErrorRecoveryPointAlreadyInArchiveTier
 

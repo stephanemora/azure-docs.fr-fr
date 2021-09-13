@@ -1,27 +1,27 @@
 ---
 title: Créer et utiliser des tables de registre pouvant être mises à jour
 description: Découvrez comment créer et utiliser des tables de registre pouvant être mises à jour dans Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 739523f6d98ea2905f4de5071581c8f4d8484893
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e4027bcaba4e89e89bec2ffa45d50c94e9a07b12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076417"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524755"
 ---
 # <a name="create-and-use-updatable-ledger-tables"></a>Créer et utiliser des tables de registre pouvant être mises à jour
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans la région USA Centre-Ouest.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
 
 Cet article explique comment créer une [table de registre pouvant être mise à jour](ledger-updatable-ledger-tables.md) dans Azure SQL Database. Ensuite, vous insérerez des valeurs dans votre table de registre pouvant être mise à jour, puis mettrez les données à jour. Enfin, vous visualiserez les résultats en utilisant la vue du registre. Nous utiliserons l’exemple d’une application bancaire qui suit le solde des comptes de ses clients. Notre exemple vous donne un aperçu pratique de la relation entre la table de registre pouvant être mise à jour et la table d’historique correspondante et la vue du registre correspondantes.
 
@@ -161,7 +161,7 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    FROM [Account].[Balance] 
    GO
    
-   SELECT * FROM <Your unique history table name>
+   SELECT * FROM [<Your unique history table name>]
    GO 
    
    SELECT * FROM Account.Balance_Ledger

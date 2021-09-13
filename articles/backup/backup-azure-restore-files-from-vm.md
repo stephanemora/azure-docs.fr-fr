@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 76d81aa92643002bc5cd2b8859941af8e7440c87
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: dd1a5ff9fbf85fbce4c4ae7a79b745589b3596e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421865"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524296"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -133,13 +133,13 @@ Assurez-vous aussi que vous disposez de la [machine appropriée pour exécuter l
 
 Si vous exécutez le script sur un ordinateur disposant d’un accès restreint, assurez-vous qu’il a accès aux éléments suivants :
 
-- `download.microsoft.com` ou étiquette de service `AzureFrontDoor.FirstParty` dans le groupe de sécurité réseau
-- URL Recovery Services (GEO-NAME fait référence à la région où réside le coffre Recovery Services.)
+- Étiquette de service `download.microsoft.com` ou `AzureFrontDoor.FirstParty` dans NSG sur le port 443 (sortant)
+- URL Recovery Services (GEO-NAME fait référence à la région où réside le coffre Recovery Services) sur le port 3260 (sortant)
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (pour les régions publiques Azure) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (pour Azure China 21Vianet) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (pour Azure US Government) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (pour Azure Allemagne) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
-- Ports sortants 53 (DNS), 443, 3260
+- Résolution de DNS public sur le port 53 (sortant)
 
 > [!NOTE]
 >
@@ -159,6 +159,12 @@ L’accès à `download.microsoft.com` est requis pour télécharger les composa
 Assurez-vous aussi que vous disposez de la [machine appropriée pour exécuter le script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) et qu’elle est conforme à la [configuration requise du système d’exploitation](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>Étape 5 : Exécution du script et identification des volumes
+
+> [!NOTE]
+>
+> Le script est généré en anglais uniquement et n’est pas localisé. Il peut donc être nécessaire que les paramètres régionaux système soient définis sur l’anglais pour que le script s’exécute correctement.
+> 
+
 
 ### <a name="for-windows"></a>Pour Windows
 

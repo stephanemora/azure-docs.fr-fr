@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/04/2021
-ms.openlocfilehash: 4a400417fef8ac89ccf30799f4969ba8f789e260
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/21/2021
+ms.openlocfilehash: d3980a490a5ce61d7c428f76b8503fc49a62fbb3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555305"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562777"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ Cet article détaille les limites de ressources des bases de données uniques da
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 
-Chaque réplica en lecture seule a ses propres ressources, comme les vCores, la mémoire, les E/S par seconde sur les données, TempDB, les workers et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources détaillées plus loin dans cet article.
+Chaque réplica en lecture seule d’une base de données a ses propres ressources comme les vCores, la mémoire, les IOPS de données, TempDB, les Workers et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources détaillées plus loin dans cet article.
 
 Vous pouvez définir le niveau de service, la taille de calcul (objectif de service) et la quantité de stockage pour une base de données unique en utilisant :
 
@@ -195,7 +195,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 
 ### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
 
-|Taille de calcul (objectif de service)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Taille de calcul (objectif de service)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen5_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -653,7 +653,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Stockage In-Memory OLTP (Go)|172|216|304|704|1768|
 |Taille maximale des données (Go)|1 280|1536|2 048|4096|4096|
 |Taille maximale du journal <sup>1</sup>|427|512|683|1 024|1 024|
-|Taille maximale des données TempDB (Go)|4096|2 048|1 024|768|640|
+|Taille maximale des données TempDB (Go)|640|768|1 024|2 048|4096|
 |[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|13836|13836|13836|13836|13836|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|

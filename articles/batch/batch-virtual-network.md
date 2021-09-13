@@ -2,14 +2,14 @@
 title: Approvisionner un pool dans un réseau virtuel
 description: Découvrez comment créer un pool Batch dans un réseau virtuel Azure afin que les nœuds de calcul puissent communiquer en toute sécurité avec d’autres machines virtuelles du réseau, comme un serveur de fichiers.
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: 5279e9efb426c327761f14188b436e47387ea1eb
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: bc8f63af713b3b56d85426ce9be86214572506be
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903080"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635129"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -38,14 +38,16 @@ Pour autoriser les nœuds de calcul à communiquer de façon sécurisée avec d�
 Lorsque vous avez créé votre réseau virtuel et lui avez attribué un sous-réseau, vous pouvez créer un pool Batch avec ce réseau virtuel. Suivez ces étapes pour créer un pool à partir du portail Azure : 
 
 1. Accédez à votre compte  Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant le réseau virtuel que vous envisagez d’utiliser.
-2. Dans la fenêtre **Paramètres** située à gauche, sélectionnez l’élément de menu **Pools**.
-3. Dans la fenêtre **Pools**, sélectionnez **Ajouter**.
-4. Dans la fenêtre **Ajouter un pool**, sélectionnez l’option que vous souhaitez utiliser à partir de la liste déroulante **Type d’image**.
-5. Sélectionnez le **Serveur de publication/Offre/Référence (SKU)** correspondant à votre image personnalisée.
-6. Spécifiez les autres paramètres obligatoires, notamment **Taille de nœud**, **Nœuds dédiés cibles** et **Nœuds basse priorité** et éventuellement les paramètres facultatifs.
-7. Dans **Réseau virtuel**, sélectionnez le réseau virtuel et le sous-réseau que vous souhaitez utiliser.
+1. Dans la fenêtre **Paramètres** située à gauche, sélectionnez l’élément de menu **Pools**.
+1. Dans la fenêtre **Pools**, sélectionnez **Ajouter**.
+1. Dans la fenêtre **Ajouter un pool**, sélectionnez l’option que vous souhaitez utiliser à partir de la liste déroulante **Type d’image**.
+1. Sélectionnez le **Serveur de publication/Offre/Référence (SKU)** correspondant à votre image personnalisée.
+1. Spécifiez les autres paramètres obligatoires, notamment **Taille de nœud**, **Nœuds dédiés cibles** et **Nœuds basse priorité** et éventuellement les paramètres facultatifs.
+1. Dans **Réseau virtuel**, sélectionnez le réseau virtuel et le sous-réseau que vous souhaitez utiliser.
+1. Sélectionnez **OK** pour créer votre pool.
 
-   ![Ajouter un pool avec un réseau virtuel](./media/batch-virtual-network/add-vnet-pool.png)
+> [!IMPORTANT]
+> Si vous essayez de supprimer un sous-réseau qui est utilisé par un pool, vous obtiendrez un message d’erreur. Avant de supprimer un sous-réseau, vous devez supprimer tous les pools qui l’utilisent.
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Routages définis par l’utilisateur pour le tunneling forcé
 
@@ -62,8 +64,6 @@ Pour vérifier que les nœuds de votre pool fonctionnent dans un réseau virtuel
 - Si vous utilisez des montages de fichiers virtuels, passez en revue les [impératifs réseau](virtual-file-mount.md#networking-requirements), et vérifiez qu’aucun trafic nécessaire n’est bloqué.
 
 Lorsque vous ajoutez un UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch associé et définissez **Type de tronçon suivant** sur **Internet**.
-
-![Itinéraire défini par l’utilisateur](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
 > Les adresses IP du service Batch peuvent changer au fil du temps. Pour éviter les pannes dues à un changement d’adresse IP, créez un processus permettant d’actualiser automatiquement les adresses IP du service Batch et de les maintenir à jour dans votre table de route.

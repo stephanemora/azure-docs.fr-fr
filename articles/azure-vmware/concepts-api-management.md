@@ -3,19 +3,18 @@ title: Concepts - Gestion des API
 description: Découvrez comment la Gestion des API protège les API s’exécutant sur des machines virtuelles Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 04/28/2021
-ms.openlocfilehash: aba60f255019701722b38036c87bcb592a0a4410
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 14b2d81d0080ebf389c817d1c718d207aa922b0d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204528"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525357"
 ---
 # <a name="publish-and-protect-apis-running-on-azure-vmware-solution-vms"></a>Publier et protéger des API qui s’exécutent sur des machines virtuelles Azure VMware Solution
 
-[Gestion des API](https://azure.microsoft.com/services/api-management/) de Microsoft Azure vous permet de publier de manière sécurisée sur des contrôles serveur consommateurs internes ou externes.  Seuls les SKU Développeur (développement) et Premium (production) permettent l’intégration de Réseau virtuel Microsoft Azure pour publier des API qui s’exécutent sur des charges de travail Azure VMware Solution.  Les deux SKU activent la connectivité entre le service de Gestion des API et le serveur principal. 
+[Gestion des API](https://azure.microsoft.com/services/api-management/) de Microsoft Azure vous permet de publier de manière sécurisée sur des contrôles serveur consommateurs internes ou externes.  Seuls les SKU Développeur (développement) et Premium (production) permettent l’intégration de Réseau virtuel Microsoft Azure pour publier des API qui s’exécutent sur des charges de travail Azure VMware Solution. De plus, les deux SKU activent la connectivité entre le service de Gestion des API et le back-end.
 
-La configuration de Gestion des API est la même pour les services principaux qui s’exécutent sur des machines virtuelles Azure VMware Solution et localement. Pour les deux types de déploiements, Gestion des API configure l’adresse IP virtuelle sur l’équilibreur de charge comme point de terminaison principal lorsque le serveur principal est placé derrière un équilibreur de charge NSX sur Azure VMware Solution. 
-
+La configuration de Gestion des API est la même pour les services back-end qui s’exécutent sur des machines virtuelles Azure VMware Solution et localement. De plus, Gestion des API configure l’IP virtuelle sur l’équilibreur de charge comme point de terminaison back-end pour les deux déploiements quand le serveur back-end est placé derrière un équilibreur de charge NSX sur Azure VMware Solution.
 
 ## <a name="external-deployment"></a>Déploiement externe
 
@@ -31,7 +30,7 @@ Le flux de trafic passe par l’instance de Gestion des API, qui soustrait les s
 
 Gestion des API a une API publique Azure, et l’activation du service Azure DDoS Protection est recommandée. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="Déploiement externe – Gestion des API pour Azure VMware Solution":::
+:::image type="content" source="media/api-management/api-management-external-deployment.png" alt-text="Diagramme montrant un déploiement Gestion des API externe pour Azure VMware Solution" border="false":::
 
 
 ## <a name="internal-deployment"></a>Déploiement interne
@@ -56,4 +55,4 @@ Dans un déploiement interne, les API sont exposées à la même instance de Ges
 * Le trafic externe entre dans Azure via Application Gateway, qui utilise la couche de protection externe pour la Gestion des API.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Déploiement interne – Gestion des API pour Azure VMware Solution" lightbox="media/api-management/internal-deployment.png":::
+:::image type="content" source="media/api-management/api-management-internal-deployment.png" alt-text="Diagramme montrant un déploiement Gestion des API interne pour Azure VMware Solution" lightbox="media/api-management/api-management-internal-deployment.png" border="false":::

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: ffea4e8edd9cc6c11644017e972db3ce3202c766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563108"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>À propos d’Azure Cloud Services (support étendu)
 
@@ -21,10 +21,13 @@ Désormais en disponibilité générale, Azure Cloud Services (support étendu) 
 
 Avec cette modification, le modèle de déploiement basé sur Azure Service Manager pour Azure Cloud Services est renommé [Azure Cloud Services (classique)](../cloud-services/cloud-services-choose-me.md). Vous conserverez la capacité de créer et de déployer rapidement vos applications et services cloud et web. Vous serez en mesure de mettre à l’échelle votre infrastructure de services cloud en fonction de la demande actuelle et de vous assurer que les performances de vos applications puissent suivre le rythme tout en réduisant les coûts.  
 
+:::image type="content" source="media/inside-azure-for-iot.png" alt-text="Vidéo YouTube sur les services cloud (support étendu)." link="https://youtu.be/H4K9xTUvNdw":::
+
+
 ## <a name="what-does-not-change"></a>Ce qui ne change pas 
 - Vous créez le code, définissez les configurations et le déployez sur Azure. Azure configure l’environnement Compute, exécute votre code, puis le supervise le gère à votre place.
-- Azure Cloud Services (support étendu) prend également en charge deux types de rôles, [web et Worker](../cloud-services/cloud-services-choose-me.md). Il n’y a pas de changement dans la conception, l’architecture ou les composants des rôles Worker et web. 
-- Les trois composants d’un service cloud, à savoir la définition de service (.csdef), la configuration de service (.cscfg) et le package de services (.cspkg), sont reportés et leur [format](cloud-services-model-and-package.md) n’est pas modifié. 
+- Azure Cloud Services (support étendu) prend également en charge deux types de rôles, [web et Worker](../cloud-services/cloud-services-choose-me.md). Il n’y a pas de changement dans la conception, l’architecture ou les composants des rôles de travail et web. 
+- Les trois composants d’un service cloud, à savoir la définition de service (.csdef), la configuration de service (.cscfg) et le package de services (.cspkg), sont reportés et les [formats](cloud-services-model-and-package.md) ne sont pas modifiés. 
 - Aucune modification n’est requise pour le code du runtime, car le plan de données est identique et seul le plan de contrôle change. 
 - Les versions du système d’exploitation invité d’Azure et les mises à jour associées sont alignées sur Azure Cloud Services (classique).
 - Le processus de mise à jour sous-jacent en ce qui concerne les domaines de mise à jour, la procédure de mise à niveau, la restauration et les changements de service autorisés pendant une mise à jour ne changent pas.
@@ -37,7 +40,7 @@ Des modifications minimes sont requises dans les fichiers de configuration de se
 
 Les principales différences entre Azure Cloud Services (classique) et Azure Cloud Services (support étendu) par rapport au déploiement sont les suivantes : 
 
-- Les déploiements Azure Resource Manager utilisent des [modèles ARM](../azure-resource-manager/templates/overview.md) qui sont un fichier JavaScript Object Notation (JSON) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. La configuration du service et le fichier de définition de service doivent être cohérents avec le [modèle ARM](../azure-resource-manager/templates/overview.md) lors du déploiement d’Azure Cloud Services (support étendu). Pour ce faire, vous pouvez [créer manuellement le modèle ARM](deploy-template.md) ou le créer à l’aide de [PowerShell](deploy-powershell.md), [Portail Azure](deploy-portal.md) et [Visual Studio](deploy-visual-studio.md).  
+- Les déploiements Azure Resource Manager utilisent des [modèles ARM](../azure-resource-manager/templates/overview.md) qui sont un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. La configuration du service et le fichier de définition de service doivent être cohérents avec le [modèle ARM](../azure-resource-manager/templates/overview.md) lors du déploiement d’Azure Cloud Services (support étendu). Pour ce faire, vous pouvez [créer manuellement le modèle ARM](deploy-template.md) ou le créer à l’aide de [PowerShell](deploy-powershell.md), [Portail Azure](deploy-portal.md) et [Visual Studio](deploy-visual-studio.md).  
 
 - Les clients doivent utiliser [Azure Key Vault](../key-vault/general/overview.md) pour [gérer les certificats dans Azure Cloud Services (support étendu)](certificates-and-key-vault.md). Azure Key Vault vous permet de stocker et de gérer en toute sécurité les informations d’identification de l’application telles que les secrets, les clés et les certificats dans un référentiel cloud central et sécurisé. Vos applications peuvent s’authentifier auprès de Key Vault au moment de l’exécution pour récupérer les informations d’identification. 
 
@@ -63,4 +66,4 @@ En fonction de l’application, Azure Cloud Services (support étendu) peut néc
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
 - Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
-- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
+- Consultez la [foire aux questions (FAQ)](faq.yml) relative à Azure Cloud Services (support étendu).

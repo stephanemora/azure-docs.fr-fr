@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 348805670187f2362eb17dae40aa94e70f1daa24
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 89091f8914acea62370290e25a2f98f5bcb220a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532522"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Décalages de texte dans la sortie de l’API Analyse de texte
 
@@ -24,7 +24,7 @@ La prise en charge multilingue et d’emojis a conduit à des encodages Unicode 
 
 En raison des différentes longueurs des codages multilingues et d’emojis possibles, l’API Analyse de texte peut retourner des décalages dans la réponse.
 
-## <a name="offsets-in-the-api-response"></a>Décalages dans la réponse de l’API. 
+## <a name="offsets-in-the-api-response"></a>Décalages dans la réponse de l’API 
 
 Chaque fois que des décalages sont retournés dans la réponse de l’API, par exemple [Reconnaissance d’entité nommée](../how-tos/text-analytics-how-to-entity-linking.md) ou [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md), gardez à l’esprit ce qui suit :
 
@@ -40,7 +40,7 @@ Dans .NET, envisagez d’utiliser la classe [StringInfo](/dotnet/api/system.glob
 
 L’API Analyse de texte retourne également ces éléments textuels pour des raisons de commodité.
 
-## <a name="offsets-in-api-version-31-preview"></a>Décalages dans la version 3.1-preview de l'API
+## <a name="offsets-in-api-version-31"></a>Décalages dans la version 3.1 de l’API
 
 Dans la version 3.1 de l’API, tous les points de terminaison de l’API Analyse de texte qui retourneront un décalage prendront en charge le paramètre `stringIndexType`. Ce paramètre ajuste les attributs `offset` et `length` dans la sortie de l'API pour qu'ils correspondent au schéma d'itération de chaîne demandé. Actuellement, trois types sont pris en charge :
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: d3a4a8bb54c5bafa9eb50ed4441cd6eebe2acc6c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 86db0ce090c68f1a610aae6c69ed74dcf303416a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079910"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635201"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Stockage : Meilleures pratiques sur les performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +87,7 @@ De nombreuses machines virtuelles Azure contiennent un autre type de disque appe
 
 Le lecteur de stockage temporaire n’est pas conservé dans le stockage distant et ne doit donc pas stocker les fichiers de base de données utilisateur, les fichiers journaux des transactions ou tout ce qui doit être préservé. 
 
-Placez tempdb sur le lecteur SSD temporaire local `D:\` pour les charges de travail SQL Server, sauf si la consommation du cache local est un problème. Si vous utilisez une machine virtuelle qui [n’a pas de disque temporaire](../../../virtual-machines/azure-vms-no-temp-disk.md), il est recommandé de placer la base de données tempdb sur son propre disque isolé ou pool de stockage dont la mise en cache est définie sur lecture seule. Pour plus d’informations, consultez les [stratégies de mise en cache des données tempdb](performance-guidelines-best-practices-storage.md#data-file-caching-policies).
+Placez tempdb sur le lecteur SSD temporaire local `D:\` pour les charges de travail SQL Server, sauf si la consommation du cache local est un problème. Si vous utilisez une machine virtuelle qui [n’a pas de disque temporaire](../../../virtual-machines/azure-vms-no-temp-disk.yml), il est recommandé de placer la base de données tempdb sur son propre disque isolé ou pool de stockage dont la mise en cache est définie sur lecture seule. Pour plus d’informations, consultez les [stratégies de mise en cache des données tempdb](performance-guidelines-best-practices-storage.md#data-file-caching-policies).
 
 ### <a name="data-disks"></a>Disques de données
 
@@ -193,10 +193,12 @@ Le tableau suivant fournit un résumé des stratégies de mise en cache recomman
 |---------|---------|
 | **Disque de données** | Activez la mise en cache `Read-only` pour les disques qui hébergent des fichiers de données SQL Server. <br/> Les lectures à partir du cache sont plus rapides que les lectures non mises en cache du disque de données. <br/> Les IOPS et le débit non mis en cache, plus les IOPS et le débit mis en cache, entraînent des performances totales disponibles à partir de la machine virtuelle dans les limites des machines virtuelles, mais les performances réelles varient en fonction de la capacité de la charge de travail à utiliser le cache (taux de correspondance dans le cache). <br/>|
 |**Disque du journal des transactions**|Définissez la stratégie de mise en cache sur `None` pour les disques qui hébergent le journal des transactions.  Il n’existe aucun avantage en matière de performances pour activer la mise en cache pour le disque du journal des transactions. Effectivement, si la mise en cache `Read-only` ou `Read/Write` est activée sur le lecteur de journal, cela peut nuire aux performances des écritures sur le lecteur et réduire la quantité de cache disponible pour les lectures sur le lecteur de données.  |
-|**Disque du système d’exploitation** | La stratégie de mise en cache par défaut peut être `Read-only` ou `Read/write` pour le lecteur du système d’exploitation. <br/> Il n’est pas recommandé de modifier le niveau de mise en cache du lecteur de système d’exploitation.  |
+|**Disque du système d’exploitation** | La stratégie de mise en cache par défaut est `Read/write` pour le lecteur du système d’exploitation. <br/> Il n’est pas recommandé de modifier le niveau de mise en cache du lecteur de système d’exploitation.  |
 | **tempdb**| Si tempdb ne peut pas être placée sur le lecteur éphémère `D:\` pour des raisons de capacité, vous pouvez soit redimensionner la machine virtuelle pour obtenir un lecteur éphémère plus grand, soit placer tempdb sur un lecteur de données distinct avec la mise en cache `Read-only` configurée. <br/> Le cache de la machine virtuelle et le lecteur éphémère utilisent tous deux le disque SSD local. Vous devez donc garder cela à l’esprit lorsque le dimensionnement des E/S de tempdb est compté par rapport aux limites d’IOPS et de débit des machines virtuelles mis en cache en cas d’hébergement sur le lecteur éphémère.| 
 | | | 
 
+> [!IMPORTANT]
+> La modification du paramètre de cache d’un disque Azure détache et rattache le disque cible. Quand vous modifiez le paramètre de cache d’un disque hébergeant des fichiers de données, de journaux ou d’application SQL Server, veillez à arrêter le service SQL Server et tous les autres services associés pour éviter toute altération des données.
 
 Pour plus d’informations, consultez [Mise en cache du disque](../../../virtual-machines/premium-storage-performance.md#disk-caching). 
 

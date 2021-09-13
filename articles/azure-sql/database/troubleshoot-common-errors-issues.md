@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: sstein,vanto
-ms.date: 01/14/2021
-ms.openlocfilehash: 5953099567edc3ef0f09ae07fd2708b1ce748dd9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.reviewer: mathoma,vanto
+ms.date: 08/20/2021
+ms.openlocfilehash: 1e656227387bebc9806ad06574084bd01fcc0b35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413606"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603796"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,6 +30,7 @@ L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveu
 
 | Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
+| 926 |14 |La base de données « replicatedmaster » n’a pas pu être ouverte. Elle a été marquée SUSPECT lors de la récupération. Pour plus d’informations, consultez le journal des erreurs SQL Server.<br/><br/>Cette erreur peut être journalisée dans le journal des erreurs SQL Managed Instance pour une courte période à la dernière étape d’une reconfiguration quand l’ancienne base de donnée primaire arrête son journal.<br/>D’autres scénarios non temporaires impliquant ce message d’erreur sont décrits dans la [documentation sur les erreurs MSSQL](/sql/relational-databases/errors-events/mssqlserver-926-database-engine-error).|
 | 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. Pour plus d’informations, consultez [Erreurs 4000 à 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md).|
@@ -43,7 +44,7 @@ L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveu
 
 1. Consultez le [tableau de bord du service Microsoft Azure](https://azure.microsoft.com/status) pour obtenir la liste des coupures prévues qui se sont produites au moment où les erreurs ont été signalées par l’application.
 2. Les applications qui se connectent à un service cloud, tel qu’Azure SQL Database, doivent s’attendre à des événements périodiques de reconfiguration et implémenter une logique de nouvelle tentative pour gérer ces erreurs au lieu d’afficher ces événements en tant qu’erreurs de l’application aux utilisateurs.
-3. Lorsqu’une base de données approche des limites de ressources, cela peut s’apparenter à un problème de connectivité transitoire. Consultez l’article [Limites des ressources](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
+3. Lorsqu’une base de données approche des limites de ressources, cela peut s’apparenter à un problème de connectivité transitoire. Consultez l’article [Limites des ressources](resource-limits-logical-server.md#what-happens-when-resource-limits-are-reached).
 4. Si les problèmes de connectivité persistent ou si la durée pendant laquelle votre application rencontre une erreur dépasse les 60 secondes ou si plusieurs occurrences de l’erreur s’affichent dans un jour donné, créez une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options) .
 
 #### <a name="implementing-retry-logic"></a>Implémenter la logique de nouvelle tentative
@@ -127,12 +128,12 @@ En règle générale, l’administrateur de service peut utiliser les étapes su
 5. Dans l’Explorateur d’objets SSMS, développez **Bases de données**.
 6. Sélectionnez la base de données dont vous souhaitez autoriser l’accès.
 7. Cliquez avec le bouton droit sur **Sécurité**, puis sélectionnez **Nouveau**, **Utilisateur**.
-8. Dans le script généré avec des espaces réservés, modifiez et exécutez la requête SQL suivante :
+8. Remplacez les paramètres de modèle dans le script généré avec des espaces réservés (exemple ci-dessous) en effectuant les étapes décrites [ici](/sql/ssms/template/replace-template-parameters), puis exécutez-le :
 
    ```sql
-   CREATE USER <user_name, sysname, user_name>
-   FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
+   CREATE USER [<user_name, sysname, user_name>]
+   FOR LOGIN [<login_name, sysname, login_name>]
+   WITH DEFAULT_SCHEMA = [<default_schema, sysname, dbo>];
    GO
 
    -- Add user to the database owner role

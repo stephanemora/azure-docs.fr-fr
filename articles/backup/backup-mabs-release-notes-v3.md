@@ -2,14 +2,14 @@
 title: Notes de publication du serveur de sauvegarde Microsoft Azure v3
 description: Cet article décrit les informations relatives aux problèmes connus et les solutions de contournement pour le serveur de sauvegarde Microsoft Azure (MABS) v3.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/27/2021
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b570442fb439c73886b23b07b39ecefb553c0ecf
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91254259"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720755"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notes de publication du serveur de sauvegarde Microsoft Azure
 
@@ -74,6 +74,9 @@ Cet article décrit les problèmes connus et les solutions de contournement pour
 ## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>Après l’installation d’UR1, les rapports MABS ne sont pas mis à jour avec les nouveaux fichiers RDL
 
 **Description** : Avec UR1, le problème de mise en forme du rapport MABS est résolu grâce à la mise à jour des fichiers RDL. Les nouveaux fichiers RDL ne sont pas automatiquement remplacés par les fichiers existants.
+
+>[!NOTE]
+>Ce problème a été résolu dans MABS v3 UR2.
 
 **Solution de contournement** : Pour remplacer les fichiers RDL, procédez comme suit :
 

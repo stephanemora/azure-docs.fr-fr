@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.openlocfilehash: 022297407200f6045cd0cf4c0922a83c41333a04
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0eb5e7c48bf15583e96a5bf30149ba01ee7c2e33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752750"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525130"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -52,7 +52,7 @@ Pour supprimer correctement un coffre, vous devez suivre les étapes ci-après d
 
 Une fois ces étapes terminées, vous pouvez poursuivre la [suppression du coffre](#delete-the-recovery-services-vault).
 
-Si vous n’avez pas d’éléments protégés localement ou dans le cloud, mais que vous obtenez toujours l’erreur de suppression du coffre, effectuez les étapes décrites dans [Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
+Si vous ne **parvenez toujours pas à supprimer le coffre** qui ne contient aucune dépendance, effectuez les étapes listées dans [**Supprimer le coffre à l’aide du client ARM**](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Supprimer des éléments protégés dans le cloud
 

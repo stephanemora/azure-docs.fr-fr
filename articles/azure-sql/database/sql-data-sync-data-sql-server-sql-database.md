@@ -11,12 +11,12 @@ author: MaraSteiu
 ms.author: masteiu
 ms.reviewer: mathoma
 ms.date: 08/20/2019
-ms.openlocfilehash: c3a2be7a00c6718dd33b573faec4a619cbf5a1bb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f0ec1d641fc78e4fde612f987ad319d62bd9eeaf
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074842"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914226"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -142,7 +142,6 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 ### <a name="general-limitations"></a>Limitations générales
 
 - Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
-- Une table doit avoir un index cluster pour utiliser la synchronisation des données.
 - Une clé primaire ne peut pas avoir les types de données suivants : sql_variant, binary, varbinary, image et xml.
 - Si vous utilisez les types de données suivants comme clé primaire, n’oubliez pas que la précision n’est prise en charge qu’à la seconde près : time, datetime, datetime2 et datetimeoffset.
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
@@ -154,6 +153,8 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Si deux clés primaires ne sont pas différentes dans le cas (par exemple, Foo et foo), la synchronisation des données ne prend pas en charge ce scénario.
 - La troncation des tables n’est pas une opération prise en charge par la synchronisation des données (les modifications ne sont pas suivies).
 - Les bases de données hyperscale ne sont pas prises en charge. 
+- Les tables optimisées en mémoire ne sont pas prises en charge.
+- Si le hub et les bases de données membres se trouvent dans un réseau virtuel, Data Sync ne fonctionnera pas, car l’application de synchronisation, responsable de l’exécution de la synchronisation entre le hub et les membres, ne prend pas en charge l’accès au hub ou aux bases de données membres dans une liaison privée d’un client. Cette limitation s’applique toujours quand le client utilise également la fonctionnalité Private Link de Data Sync. 
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 
@@ -198,6 +199,10 @@ Une fois le groupe de synchronisation créé et provisionné, vous pouvez désac
 
 > [!NOTE]
 > Si vous modifiez les paramètres de schéma du groupe de synchronisation, vous devez autoriser le service Data Sync à accéder à nouveau au serveur afin que la base de données Hub puisse être reprovisionnée.
+
+### <a name="region-data-residency"></a>Résidence des données dans une région 
+
+Si vous synchronisez des données dans la même région, SQL Data Sync ne stocke/traite pas les données client en dehors de la région dans laquelle l’instance de service est déployée. Si vous synchronisez des données entre différentes régions, SQL Data Sync réplique les données client dans les régions appairées.
 
 ## <a name="faq-about-sql-data-sync"></a>FAQ sur SQL Data Sync
 

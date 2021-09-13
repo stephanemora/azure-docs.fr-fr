@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: cb005621a3439d5c7976221d816536b46efb986c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 3fe90f5c9038c37e3ac3e9fba357ea27ca089679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744991"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525127"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage
 
@@ -90,4 +90,4 @@ Si vous détectez les visages à partir d’un flux vidéo, vous pouvez éventue
 
 Maintenant que vous êtes familiarisé avec les concepts de détection des visages, découvrez comment écrire un script pour détecter les visages dans une image donnée.
 
-* [Détecter des visages sur une image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [Appeler l’API de détection](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

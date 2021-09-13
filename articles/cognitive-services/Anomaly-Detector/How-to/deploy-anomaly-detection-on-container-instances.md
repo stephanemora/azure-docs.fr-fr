@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mbullwin
-ms.openlocfilehash: 3979bb82bfa055cc2a134bf3119097c452ffb855
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec057d625342c2e80478b0555395f6bc5250ee6b
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94364120"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296772"
 ---
-# <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Déployer un conteneur détecteur d’anomalies sur Azure Container Instances
+# <a name="deploy-an-anomaly-detector-univariate-container-to-azure-container-instances"></a>Déployer un conteneur univarié Détecteur d’anomalies sur Azure Container Instances
 
 Découvrez comment déployer le conteneur [détecteur d’anomalies](../anomaly-detector-container-howto.md) de Cognitive Services sur Azure [Container Instances](../../../container-instances/index.yml). Cette procédure illustre la création d’une ressource Détecteur d’anomalies. Puis nous aborderons l’extraction de l’image de conteneur associée. Enfin, nous mettrons en avant la possibilité d’exercer l’orchestration des deux à partir d’un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
 

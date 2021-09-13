@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 73e42ac1f076b67d31cbad0823ea63db40045c1e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 584e200beac484ea742d51341a9cb93f0cfc4a41
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746030"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525038"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 
@@ -47,6 +47,12 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 
 ```objc
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+```
+
+```go
+import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
+
+config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
 ```
 
 Vous pouvez créer un module de reconnaissance à partir de l’objet de configuration. La journalisation est alors activée pour tous les modules de reconnaissance.
@@ -141,6 +147,31 @@ self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.
 ```
 
 Vous trouverez des informations complémentaires sur le système de fichiers iOS [ici](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
+
+## <a name="logging-with-multiple-recognizers"></a>Journalisation avec plusieurs modules de reconnaissance
+
+Même si un chemin de sortie de fichier journal est spécifié comme propriété de configuration dans un objet `SpeechRecognizer` ou un autre objet de SDK, la journalisation de SDK est une fonctionnalité singleton au *niveau processus* sans concept d’instances individuelles. Vous pouvez la considérer comme le constructeur `SpeechRecognizer` (ou un constructeur similaire) appelant implicitement une routine « Configurer la journalisation globale » statique et interne avec les données de propriété disponibles dans le `SpeechConfig` correspondant.
+
+Ainsi, par exemple, vous ne pouvez pas configurer six modules de reconnaissance parallèles pour générer des sorties simultanément dans six fichiers distincts. Au lieu de cela, le dernier module de reconnaissance créé configure l’instance de journalisation globale pour qu’elle génère une sortie dans le fichier spécifié dans ses propriétés de configuration et l’ensemble de la journalisation du SDK sera émis dans ce fichier.
+
+Ceci signifie également que la durée de vie de l’objet qui a configuré la journalisation n’est pas liée à la durée de la journalisation. La journalisation ne s’arrêtera pas en réponse à la publication d’un objet de SDK et se poursuivra tant qu’aucune nouvelle configuration de journalisation ne sera fournie. Quand une journalisation au niveau processus a démarré, vous pouvez l’arrêter en définissant le chemin du fichier journal sur une chaîne vide à la création d’un objet.
+
+Pour réduire la confusion potentielle durant la configuration de la journalisation pour plusieurs instances, il peut être utile de considérer le contrôle de la journalisation indépendamment des objets effectuant effectivement le travail. Voici un exemple de paire de routines d’assistance :
+
+```cpp
+void EnableSpeechSdkLogging(const char* relativePath)
+{
+    auto configForLogging = SpeechConfig::FromSubscription("unused_key", "unused_region");
+    configForLogging->SetProperty(PropertyId::Speech_LogFilename, relativePath);
+    auto emptyAudioConfig = AudioConfig::FromStreamInput(AudioInputStream::CreatePushStream());
+    auto temporaryRecognizer = SpeechRecognizer::FromConfig(configForLogging, emptyAudioConfig);
+}
+
+void DisableSpeechSdkLogging()
+{
+    EnableSpeechSdkLogging("");
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

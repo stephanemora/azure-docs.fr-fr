@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 07/22/2021
 ms.author: erhopf
-ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e81b2121e8b4f71040014d3e211177dc8656b556
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94363321"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447615"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -64,8 +64,8 @@ La vidéo suivante montre l’utilisation d’une clé Cognitive Services.
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Authentification avec une clé d’abonnement multiservice
 
->[!WARNING]
-> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, services Speech, Custom Vision et Détecteur d’anomalies.
+> [!WARNING]
+> À ce stade, la clé multiservice ne prend pas en charge QnA Maker, le Lecteur immersif, Personalizer et le Détecteur d’anomalies.
 
 Cette option utilise également une clé d’abonnement pour authentifier les requêtes. La principale différence tient au fait qu’une clé d’abonnement n’est pas liée à un service spécifique. Vous pouvez ainsi utiliser une seule clé pour authentifier des requêtes auprès de plusieurs services Cognitive Services. Pour plus d’informations sur la disponibilité régionale, les fonctionnalités prises en charge et les tarifs, consultez les [tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
@@ -96,6 +96,13 @@ L’authentification multiservice est prise en charge dans ces régions :
 - `westeurope`
 - `westus`
 - `westus2`
+- `francecentral`
+- `koreacentral`
+- `northcentralus`
+- `southafricanorth`
+- `uaenorth`
+- `switzerlandnorth`
+
 
 ### <a name="sample-requests"></a>Exemples de demandes
 

@@ -1,29 +1,29 @@
 ---
 title: Événements d’audit Azure SQL Database avec des tables prenant en charge la comptabilité
 description: Vue d’ensemble des fonctionnalités d’audit du Registre Azure SQL Database
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: eafca78dc22a01784eee79293fb7a2ec798818ad
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d032b311809449d35a017fdd053fb97447b8479c
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386367"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666734"
 ---
 # <a name="azure-sql-database-audit-events-with-ledger-enabled-tables"></a>Événements d’audit du Registre Azure SQL Database avec des tables prenant en charge la comptabilité
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le Registre Azure SQL Database est actuellement en **préversion publique**.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
 
-Lorsque vous effectuez des activités d’investigation avec des tables prenant en charge la comptabilité, en plus des données capturées dans la vue du registre et dans le registre des bases de données, des ID d’action supplémentaires sont ajoutés aux journaux d’audit SQL.  Le tableau suivant présente ces nouveaux événements de journalisation d’audit, ainsi que les conditions qui déclenchent les événements.
+Quand vous effectuez des activités de forensique avec des tables prenant en charge les registres, les données sont capturées dans la vue de registre et dans le registre des bases de données. D’autres ID d’action sont ajoutés aux journaux d’audit SQL. Les tableaux suivants décrivent ces nouveaux événements de journalisation d’audit. Les conditions qui déclenchent les événements sont indiquées après chaque tableau.
 
 ## <a name="enable-ledger"></a>Activer le registre
 
@@ -39,7 +39,7 @@ Lorsque vous effectuez des activités d’investigation avec des tables prenant 
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condition déclenchant l’événement** : création d’une table de registre ou conversion d’une table normale en table de registre.
+**Conditions qui déclenchent l’événement** : quand vous créez une table de registre ou convertissez une table classique en table de registre.
 
 ## <a name="alter-ledger"></a>Modifier le registre
 
@@ -55,7 +55,7 @@ Lorsque vous effectuez des activités d’investigation avec des tables prenant 
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condition déclenchant l’événement** : suppression ou attribution d’un nouveau nom à une table du registre, conversion d’une table du registre en table normale, ajout, suppression ou attribution d’un nouveau nom à une colonne dans une table du registre.
+**Conditions qui déclenchent l’événement** : quand vous supprimez ou renommez une table de registre, convertissez une table de registre en table classique et ajoutez, supprimez ou renommez une colonne d’une table de registre.
 
 
 ## <a name="generate-ledger-digest"></a>Générer un résumé du registre
@@ -72,7 +72,7 @@ Lorsque vous effectuez des activités d’investigation avec des tables prenant 
 | **configuration_group_name** | LEDGER_OPERATION_GROUP  |
 | **action_in_log** | 1 |
 
-**Condition déclenchant l’événement** : génération d’un résumé du registre.
+**Conditions qui déclenchent l’événement** : quand vous générez une synthèse de registre.
 
 ## <a name="verify-ledger"></a>Vérifier le registre
 
@@ -88,9 +88,9 @@ Lorsque vous effectuez des activités d’investigation avec des tables prenant 
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condition déclenchant l’événement** : vérification d’un résumé du registre.
+**Conditions qui déclenchent l’événement** : quand vous vérifiez une synthèse de registre.
 
-## <a name="ledger-operation-group"></a>Groupe d’opérations du registre
+## <a name="ledger-operation-group"></a>Groupe d’opérations de registre
 
 | Colonne | Valeur |
 |--|--|
@@ -104,7 +104,7 @@ Lorsque vous effectuez des activités d’investigation avec des tables prenant 
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**Condition déclenchant l’événement** : N/A
+**Conditions qui déclenchent l’événement** : non applicable
 
 | Colonne | Valeur |
 |--|--|
@@ -118,10 +118,10 @@ Lorsque vous effectuez des activités d’investigation avec des tables prenant 
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**Condition déclenchant l’événement** : N/A 
+**Conditions qui déclenchent l’événement** : non applicable 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Audit pour Azure SQL Database et Azure Synapse Analytics](auditing-overview.md)
 - [Vue d’ensemble du registre Azure SQL Database](ledger-overview.md)
-- [Démarrage rapide : créer une base de données Azure SQL Database avec le registre activé](ledger-create-a-single-database-with-ledger-enabled.md)
+- [Démarrage rapide : Créer une base de données dans Azure SQL Database avec le registre activé](ledger-create-a-single-database-with-ledger-enabled.md)

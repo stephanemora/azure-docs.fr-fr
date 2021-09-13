@@ -3,20 +3,20 @@ title: Prise en charge des langues – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le service Speech prend en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge, par fonctionnalité de service.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: 2879ecbc6b50c3cd2bd7541357886f5d6dfe483b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 7066a001d27376be6f9b8464beafc0cad2b54437
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752492"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122564004"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -104,6 +104,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Maltais (Malte)                    | `mt-MT` | Texte                                   |                           |                          |
 | Marathi (Inde)                    | `mr-IN` | Texte                                   |                           |                          |
 | Norvégien (bokmål, Norvège)         | `nb-NO` | Texte                                   |     Oui                      |                          |
+| Persan (Iran)                     | `fa-IR` | Texte                                   |                           |                          |
 | Polonais (Pologne)                    | `pl-PL` | Texte                                   |       Oui                    |                          |
 | Portugais (Brésil)                | `pt-BR` | Audio (20190620, 20201015)<br>Texte<br>Prononcer|          Oui                 |                          |
 | Portugais (Portugal)              | `pt-PT` | Texte<br>Prononcer                  |             Oui              |                          |
@@ -133,6 +134,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Espagnol (Uruguay)                  | `es-UY` | Texte<br>Prononcer                  |                           |                          |
 | Espagnol (États-Unis)                      | `es-US` | Texte<br>Prononcer                  |                           |                          |
 | Espagnol (Venezuela)                | `es-VE` | Texte<br>Prononcer                  |                           |                          |
+| Swahili (Kenya)                    | `sw-KE` | Texte<br>Prononcer                  |                           |                          |
 | Suédois (Suède)                   | `sv-SE` | Texte                                   |   Oui                        |                          |
 | Tamoul (Inde)                      | `ta-IN` | Texte                                   |                           |                          |
 | Télougou (Inde)                     | `te-IN` | Texte                                   |                           |                          |
@@ -217,8 +219,19 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-MiaNeural` | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Male | `en-GB-RyanNeural` | Général |
 | Anglais (États-Unis) | `en-US` | Female | `en-US-AriaNeural` | Général, plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Anglais (États-Unis) | `en-US` | Female | `en-US-JennyNeural` | Général |
-| Anglais (États-Unis) | `en-US` | Male | `en-US-GuyNeural` | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-JennyNeural` | Général, plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-GuyNeural` | Général, plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-AmberNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-AshleyNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-CoraNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-ElizabethNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-MichelleNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-MonicaNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Kid | `en-US-AnaNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-BrandonNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-ChristopherNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-JacobNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-EricNeural` <sup>Nouveau</sup> | Général |
 | Estonien (Estonie) | `et-EE` | Female | `et-EE-AnuNeural` | Général |
 | Estonien (Estonie) | `et-EE` | Male | `et-EE-KertNeural` | Général |
 | Finnois (Finlande) | `fi-FI` | Female | `fi-FI-NooraNeural` | Général |
@@ -329,18 +342,7 @@ Les voix neuronales ci-dessous sont en préversion publique.
 
 | Langage                         | Paramètres régionaux  | Sexe | Nom de la voix                             | Prise en charge du style |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Anglais (États-Unis) | `en-US` | Female | `en-US-AmberNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Female | `en-US-AshleyNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Female | `en-US-CoraNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Female | `en-US-ElizabethNeural` <sup>Nouveau</sup> | Général |
 | Anglais (États-Unis) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>Nouveau</sup> | Fonctionnalités multilingues générales disponibles [avec SSML](speech-synthesis-markup.md#create-an-ssml-document) |
-| Anglais (États-Unis) | `en-US` | Female | `en-US-MichelleNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Female | `en-US-MonicaNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Kid | `en-US-AnaNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Male | `en-US-BrandonNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Male | `en-US-ChristopherNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Male | `en-US-JacobNeural` <sup>Nouveau</sup> | Général |
-| Anglais (États-Unis) | `en-US` | Male | `en-US-EricNeural` <sup>Nouveau</sup> | Général |
 
 > [!IMPORTANT]
 > Les voix en préversion publique sont uniquement disponibles dans 3 régions de service : USA Est, Europe Ouest et Asie Sud-Est.
@@ -356,7 +358,7 @@ Pour savoir comment configurer et ajuster les voix neuronales, comme les styles 
 > La voix `en-US-JessaNeural` a basculé sur `en-US-AriaNeural`. Si vous utilisiez « Jessa », procédez à une conversion vers « Aria ».
 
 > [!TIP]
-> Vous pouvez continuer à utiliser le mappage de nom de service complet comme « Voix Microsoft Server Speech Text to Speech (en-US, AriaNeural) » dans vos requêtes de synthèse vocale.
+> Vous pouvez continuer à utiliser le mappage de nom de service complet comme « Voix Microsoft Server Speech Text to Speech (en-US, ChristopherNeural) » dans vos requêtes de synthèse vocale.
 
 ### <a name="standard-voices"></a>Voix standard
 
@@ -478,6 +480,7 @@ Custom Voice est disponible au niveau neuronal (Voix neuronale personnalisée). 
 | Coréen (Corée) | `ko-KR` | Oui | Oui |
 | Norvégien (bokmål, Norvège) | `nb-NO` | Oui | Non |
 | Portugais (Brésil) | `pt-BR` | Oui | Oui |
+| Russe (Russie) | `ru-RU` | Oui | Oui |
 | Espagnol (Mexique) | `es-MX` | Oui | Oui |
 | Espagnol (Espagne) | `es-ES` | Oui | Oui |
 

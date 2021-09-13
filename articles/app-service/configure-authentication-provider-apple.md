@@ -4,12 +4,12 @@ description: Découvrez comment configurer l’authentification Se connecter ave
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.openlocfilehash: 01216b7527fd6479f43c3bf0b9d4abeb60d06435
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 4b123b0711954e45108b934622f0fabab5be15e0
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093046"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259339"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Configurer l’application App Service ou Azure Functions pour se connecter à l’aide d’un fournisseur Se connecter avec Apple (préversion)
 
@@ -81,7 +81,7 @@ Pour plus d’informations sur la génération et la validation des jetons, cons
 ### <a name="sign-the-client-secret-jwt"></a>Signer le jeton JWT de la clé secrète client
 Vous allez utiliser le fichier `.p8` téléchargé précédemment pour signer le JWT de la clé secrète client. Ce fichier est un [fichier PCKS#8](https://en.wikipedia.org/wiki/PKCS_8) qui contient la clé de signature privée au format PEM. De nombreuses bibliothèques peuvent créer et signer le JWT pour vous. 
 
-Différents types de bibliothèques open source sont disponibles en ligne pour la création et la signature des jetons JWT. Pour plus d’informations sur la génération de jetons JWT, rendez-vous à l’adresse jwt.io. Par exemple, l’une des façons de générer la clé secrète client consiste à importer le [package NuGet Microsoft.IdentityModel.Tokens](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) et à exécuter une petite quantité de code C# indiquée ci-dessous.
+Différents types de bibliothèques open source sont disponibles en ligne pour la création et la signature des jetons JWT. Pour plus d’informations sur la génération de jetons JWT, consultez [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Par exemple, l’une des façons de générer la clé secrète client consiste à importer le [package NuGet Microsoft.IdentityModel.Tokens](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) et à exécuter une petite quantité de code C# indiquée ci-dessous.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;

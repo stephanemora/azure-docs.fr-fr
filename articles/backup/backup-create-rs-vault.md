@@ -2,14 +2,14 @@
 title: Créer et configurer des coffres Recovery Services
 description: Dans cet article, découvrez comment créer et configurer des coffres Recovery Services stockant les sauvegardes et points de récupération. Découvrez comment utiliser la restauration inter-région pour restaurer dans une région secondaire.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: b301ce0ab2f4b57a03e3ba24d672bb4102a1a997
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: cbb1280b1ed78d82c312169f99a0d46f312fbd9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794219"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531391"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -46,14 +46,14 @@ L’option de restauration **Restauration inter-région (CRR)** vous permet de r
 
 Elle prend en charge les sources de données suivantes :
 
-- Machines virtuelles Azure (disponibilité générale)
-- Bases de données SQL hébergées sur des machines virtuelles Azure (préversion)
-- Bases de données SAP HANA hébergées sur des machines virtuelles Azure (préversion)
+- Machines virtuelles Azure
+- Bases de données SQL hébergées sur des machines virtuelles Azure
+- Bases de données SAP HANA hébergées sur des machines virtuelles Azure
 
 L’utilisation de la restauration inter-région vous permet d’effectuer les opérations suivantes :
 
-- effectuer des recherches dans le cadre d’un audit ou d’une condition de conformité
-- restaurer les données en cas de sinistre dans la région primaire
+- Effectuer des recherches dans le cadre d’un audit ou d’une condition de conformité
+- Restaurer les données en cas de sinistre dans la région primaire
 
 Lors de la restauration d’une machine virtuelle, vous pouvez restaurer la machine virtuelle ou son disque. Si vous effectuez une restauration à partir de bases de données SQL/SAP HANA hébergées sur des machines virtuelles Azure, vous pouvez restaurer des bases de données ou leurs fichiers.
 
@@ -65,8 +65,7 @@ Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration inte
 >Avant de commencer :
 >
 >- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
->- La fonctionnalité de restauration inter-région (CRR) pour les machines virtuelles Azure est désormais disponible dans toutes les régions Azure publiques.
->- La restauration inter-région pour les bases de données SQL Server et SAP HANA sur des machines virtuelles Azure est disponible en préversion dans toutes les régions Azure publiques.
+>- La fonctionnalité de restauration inter-région (CRR, Cross Region Restore) pour les machines virtuelles Azure et les bases de données SQL et SAP HANA est désormais en disponibilité générale dans toutes les régions Azure publiques et souveraines. Pour plus d’informations sur la disponibilité par région, consultez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore).
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, la CRR pour les machines virtuelles Azure est prise en charge pour les machines virtuelles Azure Azure Resource Manager et les machines virtuelles Azure chiffrées. Les machines virtuelles Azure classiques ne sont pas prises en charge. Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
@@ -78,6 +77,9 @@ Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration inte
 Un coffre créé avec la redondance GRS comprend l’option permettant de configurer la fonctionnalité de restauration interrégion. Chaque coffre GRS aura une bannière, laquelle fera le lien avec la documentation. Pour configurer la CRR pour le coffre, accédez au volet Configuration de la sauvegarde, qui contient l’option permettant d’activer cette fonctionnalité.
 
  ![Bannière Configuration de la sauvegarde](./media/backup-azure-arm-restore-vms/banner.png)
+
+>[!Note]
+>Si vous avez accès à des régions appairées restreintes et que vous ne parvenez toujours pas à voir les paramètres de restauration inter-région dans le panneau **Configuration de la sauvegarde**, réinscrivez le fournisseur de ressources Recovery Services. <br><br> Pour réinscrire le fournisseur, accédez à votre abonnement dans le portail Azure, accédez à **Fournisseur de ressources** dans la barre de navigation de gauche, sélectionnez **Microsoft.RecoveryServices**, puis sélectionnez **Réinscrire**.
 
 1. À partir du portail, accédez à votre coffre Recovery Services > **Propriétés** (sous **Paramètres**).
 1. Dans **Configuration de la sauvegarde** sélectionnez **Mettre à jour**.

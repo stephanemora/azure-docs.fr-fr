@@ -2,17 +2,28 @@
 title: Mises à jour de plateforme pour Azure VMware Solution
 description: Découvrez les mises à jour de plateforme pour Azure VMware Solution.
 ms.topic: reference
-ms.date: 05/26/2021
-ms.openlocfilehash: 38cd183b783989f6a682b68e92e490354b032750
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 07/23/2021
+ms.openlocfilehash: 01667e4a22dc220e9895071d047210e8487ff2bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538061"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563240"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Mises à jour de plateforme pour Azure VMware Solution
 
 Azure VMware Solution appliquera les mises à jour importantes à partir de mars 2021. Vous recevrez une notification via Azure Service Health qui indiquera le calendrier de maintenance. Pour plus d’informations, consultez [Maintenance de l’hôte et gestion du cycle de vie](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## <a name="july-23-2021"></a>23 juillet 2021
+
+Tous les nouveaux clouds privés Azure VMware Solution sont désormais déployés avec la version [!INCLUDE [nsxt-version](includes/nsxt-version.md)] de NSX-T. Pour les clouds privés existants, NSX-T sera mis à niveau vers la version [!INCLUDE [nsxt-version](includes/nsxt-version.md)] en septembre 2021.
+ 
+Vous recevrez un e-mail contenant la date et l’heure prévues de la maintenance. Vous pouvez replanifier une mise à niveau. L’e-mail fournit également des détails sur le composant mis à niveau, son effet sur les charges de travail, l’accès au cloud privé et d’autres services Azure. 
+
+Pour plus d’informations sur cette version de NSX-T, consultez les notes de publication de [VMware NSX-T Data Center[!INCLUDE [nsxt-version](includes/nsxt-version.md)]](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
+
+
+
 
 ## <a name="may-25-2021"></a>25 mai 2021
 Selon le bulletin de sécurité VMware [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), de multiples vulnérabilités ont été signalées dans VMware ESXi et vSphere Client (HTML5). 
@@ -25,7 +36,7 @@ Aucune action supplémentaire n’est requise.
  
 Le service Azure VMware Solution effectuera des travaux de maintenance jusqu'au 23 mai 2021 pour appliquer des mises à jour importantes au serveur vCenter dans votre cloud privé.  Vous recevrez une notification via Azure Service Health qui indiquera le calendrier de maintenance de votre cloud privé.
  
-Pendant ce temps, VMware vCenter sera indisponible et vous ne pourrez pas gérer les machines virtuelles (arrêter, démarrer, créer ou supprimer). Pendant cette période, il est recommandé de ne pas planifier d'autres activités telles que la mise à l'échelle du cloud privé ou la création de nouveaux réseaux dans votre cloud privé.
+Pendant ce temps, VMware vCenter sera indisponible et vous ne pourrez pas gérer les machines virtuelles (arrêter, démarrer, créer ou supprimer). Pendant cette période, il est recommandé de ne pas planifier d’autres activités telles que le scale-up du cloud privé ou la création de réseaux dans votre cloud privé.
  
 Il n'y aura aucun impact sur les charges de travail exécutées dans votre cloud privé.
 

@@ -1,32 +1,32 @@
 ---
 title: 'Azure SQL Managed Instance : rétention des sauvegardes à long terme'
-description: Découvrez comment stocker et restaurer des sauvegardes automatisées sur des conteneurs de Stockage Blob Azure distincts pour une instance SQL Managed Instance avec PowerShell.
+description: Découvrez comment stocker et restaurer des sauvegardes automatisées sur des conteneurs de Stockage Blob Azure distincts pour une instance managée Azure SQL avec le portail Azure et PowerShell.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma, sstein
-ms.date: 02/25/2021
-ms.openlocfilehash: 1f2988a383620fa1e69b64841b93700f92313a5c
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
+ms.date: 07/13/2021
+ms.openlocfilehash: cc25b431c6e1eb4cbb6b31cfc5f9b1a1a26f8a03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592525"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532823"
 ---
-# <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gérer la conservation des sauvegardes à long terme Azure SQL Managed Instance (PowerShell)
+# <a name="manage-azure-sql-managed-instance-long-term-backup-retention"></a>Gérer la conservation des sauvegardes à long terme Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Dans Azure SQL Managed Instance, une fonctionnalité en préversion publique vous permet de configurer une stratégie de [rétention des sauvegardes à long terme](../database/long-term-retention-overview.md) (LTR). Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs Stockage Blob Azure distincts pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
+Dans Azure SQL Managed Instance, une fonctionnalité en préversion publique vous permet de configurer une stratégie de [rétention des sauvegardes à long terme](../database/long-term-retention-overview.md) (LTR). Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs Stockage Blob Azure distincts pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec le portail Azure et PowerShell.
 
    > [!IMPORTANT]
    > La LTR pour les instances gérées est actuellement disponible en préversion publique dans les régions publiques Azure. 
 
-Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
+Les sections suivantes vous montrent comment utiliser le portail Azure et PowerShell pour configurer la conservation des sauvegardes à long terme, voir les sauvegardes dans le stockage Azure SQL et effectuer une restauration à partir d’une sauvegarde dans le stockage Azure SQL.
 
 
 ## <a name="using-the-azure-portal"></a>Utilisation du portail Azure

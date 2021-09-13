@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 12/19/2018
-ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: ''
+ms.date: 07/23/2021
+ms.openlocfilehash: 79226ed8fa4d4e78120a0c91b672d4cfa23712fc
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96501207"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675108"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Événements étendus dans une base de données SQL Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Vous trouverez des informations supplémentaires sur les événements étendus d
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
+Cet article part du principe que vous connaissez déjà les éléments suivants :
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Événements étendus](/sql/relational-databases/extended-events/extended-events)
@@ -49,12 +49,12 @@ Il est utile d’avoir une connaissance préalable des éléments suivants lorsq
 
 ## <a name="code-samples"></a>Exemples de code
 
-Des rubriques connexes fournissent deux exemples de code :
+Les articles connexes incluent deux exemples de code :
 
 - [Code cible de la mémoire tampon en anneau pour les événements étendus dans Azure SQL Database](xevent-code-ring-buffer.md)
 
   - Script Transact-SQL simple court.
-  - Dans la rubrique concernant l’exemple de code, nous insistons sur le fait que, lorsque vous avez fini de traiter une cible de la mémoire tampon en anneau, vous devez en libérer les ressources en exécutant une instruction `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Vous pouvez ensuite ajouter une autre instance de mémoire tampon en anneau avec l’instruction `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+  - Dans l’article concernant l’exemple de code, nous insistons sur le fait que, quand vous avez fini de traiter une cible de la mémoire tampon en anneau, vous devez en libérer les ressources en exécutant une instruction `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Vous pouvez ensuite ajouter une autre instance de mémoire tampon en anneau avec l’instruction `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 - [Code cible du fichier d’événements pour les événements étendus dans Azure SQL Database](xevent-code-event-file.md)
 
@@ -75,13 +75,13 @@ La fonctionnalité des événements étendus est prise en charge par plusieurs [
 
 | Nom de<br/>la vue catalogue | Description |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Retourne une ligne pour chaque action d'un événement d'une session d'événements. |
-| **sys.database_event_session_events** |Renvoie une ligne pour chaque événement d’une session d’événements. |
-| **sys.database_event_session_fields** |Renvoie une ligne pour chaque colonne pouvant être personnalisée définie explicitement sur les événements et les cibles. |
-| **sys.database_event_session_targets** |Retourne une ligne pour chaque cible d'événement d'une session d'événements. |
-| **sys.database_event_sessions** |Retourne une ligne pour chaque session d’événements dans la base de données. |
+| `sys.database_event_session_actions` |Retourne une ligne pour chaque action d'un événement d'une session d'événements. |
+| `sys.database_event_session_events` |Renvoie une ligne pour chaque événement d’une session d’événements. |
+| `sys.database_event_session_fields` |Renvoie une ligne pour chaque colonne pouvant être personnalisée définie explicitement sur les événements et les cibles. |
+| `sys.database_event_session_targets` |Retourne une ligne pour chaque cible d'événement d'une session d'événements. |
+| `sys.database_event_sessions` |Retourne une ligne pour chaque session d’événements dans la base de données. |
 
-Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_* . Les noms suivent le modèle **sys.server_event_%** .
+Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_* . Le modèle de nom est de type `sys.server_event_%`.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Nouvelles vues de gestion dynamique [(DMV)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
@@ -89,30 +89,30 @@ Azure SQL Database a des [vues de gestion dynamique (DMV)](/sql/relational-datab
 
 | Nom de la vue de gestion dynamique | Description |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Retourne des informations sur les actions de la session d'événements. |
-| **sys.dm_xe_database_session_events** |Retourne des informations sur les événements de la session. |
-| **sys.dm_xe_database_session_object_columns** |Indique les valeurs de configuration d'objets liés à une session. |
-| **sys.dm_xe_database_session_targets** |Renvoie des informations sur les cibles d’une session d’événements. |
-| **sys.dm_xe_database_sessions** |Renvoie une ligne pour chaque session d’événements incluse dans la base de données actuelle. |
+| `sys.dm_xe_database_session_event_actions` |Retourne des informations sur les actions de la session d'événements. |
+| `sys.dm_xe_database_session_events` |Retourne des informations sur les événements de la session. |
+| `sys.dm_xe_database_session_object_columns` |Indique les valeurs de configuration d'objets liés à une session. |
+| `sys.dm_xe_database_session_targets` |Renvoie des informations sur les cibles d’une session d’événements. |
+| `sys.dm_xe_database_sessions` |Renvoie une ligne pour chaque session d’événements incluse dans la base de données actuelle. |
 
 Dans Microsoft SQL Server, les noms des vues catalogue similaires ne contiennent pas la partie *\_database*, par exemple :
 
-- **sys.dm_xe_sessions**, au lieu de name<br/>**sys.dm_xe_database_sessions**.
+- `sys.dm_xe_sessions` plutôt que `sys.dm_xe_database_sessions`.
 
 ### <a name="dmvs-common-to-both"></a>Vues de gestion dynamique communes aux deux produits
 
 Pour les événements étendus, des vues de gestion dynamique supplémentaires sont communes à Azure SQL Database, Azure SQL Managed Instance et Microsoft SQL Server :
 
-- **sys.dm_xe_map_values**
-- **sys.dm_xe_object_columns**
-- **sys.dm_xe_objects**
-- **sys.dm_xe_packages**
+- `sys.dm_xe_map_values`
+- `sys.dm_xe_object_columns`
+- `sys.dm_xe_objects`
+- `sys.dm_xe_packages`
 
 <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## <a name="find-the-available-extended-events-actions-and-targets"></a>Rechercher les actions, cibles et événements étendus disponibles
 
-Vous pouvez exécuter une simple instruction SQL **SELECT** pour obtenir une liste des événements, actions et cibles disponibles.
+Pour obtenir la liste des événements, actions et cibles disponibles, utilisez l’exemple de requête :
 
 ```sql
 SELECT
@@ -140,9 +140,9 @@ SELECT
 
 Voici les cibles capables de capturer des résultats à partir de vos sessions d’événements sur Azure SQL Database :
 
-- [Cible de mémoire tampon en anneau](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) -Maintient brièvement les données d’événements en mémoire.
-- [Cible de compteur d’événements](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - Compte tous les événements qui se produisent pendant une session d’événements étendus.
-- [Cible du fichier d’événements](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - Écrit les mémoires tampons complètes dans un conteneur Azure Storage.
+- [Cible de mémoire tampon en anneau](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target) -Maintient brièvement les données d’événements en mémoire.
+- [Cible de compteur d’événements](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_counter-target) - Compte tous les événements qui se produisent pendant une session d’événements étendus.
+- [Cible du fichier d’événements](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target) - Écrit les mémoires tampons complètes dans un conteneur Azure Storage.
 
 L’API [ETW (suivi d’événements pour Windows)](/dotnet/framework/wcf/samples/etw-tracing) n’est pas disponible pour les événements étendus sur Azure SQL Database.
 
@@ -151,11 +151,11 @@ L’API [ETW (suivi d’événements pour Windows)](/dotnet/framework/wcf/sample
 Il existe certaines différences liées à la sécurité qui conviennent à l’environnement cloud d’Azure SQL Database :
 
 - Les événements étendus sont fondés sur le modèle d’isolement à locataire unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
-- Vous ne pouvez pas émettre une instruction **CREATE EVENT SESSION** dans le contexte de la base de données **master**.
-
+- Vous ne pouvez pas émettre une instruction `CREATE EVENT SESSION` dans le contexte de la base de données `master`.
+    
 ## <a name="permission-model"></a>Modèle d’autorisation
 
-Vous devez disposer de l’autorisation **Contrôle** sur la base de données pour émettre une instruction **CREATE EVENT SESSION**. Le propriétaire de la base de données (dbo) possède l’autorisation **Contrôle** .
+Vous devez disposer de l’autorisation **Contrôle** sur la base de données pour émettre une instruction `CREATE EVENT SESSION`. Le propriétaire de la base de données (dbo) possède l’autorisation **Contrôle** .
 
 ### <a name="storage-container-authorizations"></a>Autorisations de conteneur de stockage
 
@@ -168,6 +168,11 @@ Le jeton SAP que vous générez pour votre conteneur Azure Storage doit spécifi
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 
 Il existe des scénarios où l’utilisation intensive des événements étendus peut accumuler plus de mémoire active qu’il n’en faut pour l’intégrité de l’ensemble du système. Par conséquent, Azure SQL Database définit et ajuste dynamiquement les limites de quantité de mémoire active pouvant être accumulée par une session d’événements. De nombreux facteurs entrent dans le calcul dynamique.
+
+La mémoire disponible pour les sessions XEvent dans Azure SQL Database est limitée :
+  - Pour les bases de données Azure SQL uniques dans le modèle d’achat DTU, chaque base de données peut utiliser jusqu’à 128 Mo. Cette valeur est élevée à 256 Mo uniquement dans le niveau Premium.
+  - Pour les bases de données Azure SQL uniques dans le modèle d’achat vCore, chaque base de données peut utiliser jusqu’à 128 Mo.
+  - Dans un pool élastique, les bases de données individuelles sont soumises aux limites des bases de données uniques. Au total, elles ne peuvent pas dépasser 512 Mo.
 
 Si vous recevez un message d’erreur indiquant qu’une quantité maximale de mémoire a été appliquée, vous pouvez envisager certaines actions correctives, notamment :
 
@@ -182,13 +187,11 @@ La cible **Fichier d’événement** peut rencontrer une latence ou des problèm
 
 ## <a name="related-links"></a>Liens connexes
 
-- [Utilisation d’Azure PowerShell avec Azure Storage](/powershell/module/az.storage/)
 - [Applets de commande Azure Storage](/powershell/module/Azure.Storage)
 - [Utilisation d'Azure PowerShell avec Azure Storage](/powershell/module/az.storage/)
 - [Utilisation du stockage d’objets blob à partir de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
 - [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
-- [Billets de blog de Jonathan Kehayias sur les événements étendus dans Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - La page web *Mises à jour de service* Azure, restreinte par paramètre à Azure SQL Database :
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 

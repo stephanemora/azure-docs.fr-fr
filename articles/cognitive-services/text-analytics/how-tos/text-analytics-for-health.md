@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/18/2021
 ms.author: aahi
-ms.openlocfilehash: 37dd6eddc302062d756df79a03bd13cfc8c881e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5b1883b06ae234ed8a4f9adf949cf26919f7b877
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757172"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550153"
 ---
-# <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
+# <a name="how-to-use-text-analytics-for-health"></a>Guide pratique : Utiliser l’Analyse de texte pour la santé
 
 > [!IMPORTANT] 
-> L’Analyse de texte pour l’intégrité est une fonctionnalité en version préliminaire fournie « en l’état » et « avec toutes les erreurs ». Par conséquent, l’Analyse de texte pour l’intégrité (préversion) ne doit pas être implémentée ou déployée dans le cadre d’une utilisation en production. L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Le client doit disposer séparément d’une licence pour tous les vocabulaires sources qu’il envisage d’utiliser selon les conditions définies dans cette [Annexe du Contrat de licence du métathésaurus de l’UMLS](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) ou de tout lien équivalent futur. Il incombe au client de s’assurer de la conformité avec les termes du contrat de licence, y compris en ce qui concerne les restrictions géographiques ou autres restrictions applicables.
+> L’Analyse de texte pour la santé est une fonctionnalité fournie « en l’état » et « avec toutes les erreurs ». L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Le client doit disposer séparément d’une licence pour tous les vocabulaires sources qu’il envisage d’utiliser selon les conditions définies dans cette [Annexe du Contrat de licence du métathésaurus de l’UMLS](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) ou tout lien équivalent futur. Il incombe au client de s’assurer de la conformité avec les termes du contrat de licence, y compris en ce qui concerne les restrictions géographiques ou autres restrictions applicables.
 
 
 Analyse de texte pour la santé est une fonctionnalité du service de l’API Analyse de texte qui extrait et étiquette des informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les dossiers médicaux électroniques.  Il existe deux façons d’utiliser ce service : 
@@ -94,17 +94,15 @@ La dernière préversion de la bibliothèque de client Analyse de texte vous per
 
 ### <a name="preparation"></a>Préparation
 
-La qualité des résultats de la fonctionnalité Analyse de texte pour la santé est d’autant meilleure que vous lui donnez de petites quantités de texte à analyser. C’est l’inverse de certaines autres fonctionnalités Analyse de texte comme l’extraction d’expressions clés qui donne de meilleurs résultats avec des blocs de texte plus volumineux. Pour obtenir des résultats optimaux pour ces opérations, envisagez de restructurer les entrées en conséquence.
-
 Vous devez disposer des documents JSON dans ce format : ID, texte et langue. 
 
-La taille du document doit être inférieure à 5 120 caractères par document. Pour connaître le nombre maximal de documents autorisés dans une collection, consultez l’article [Limites de données](../concepts/data-limits.md?tabs=version-3) sous Concepts. La collection est soumise dans le corps de la demande.
+La taille du document doit être inférieure à 5 120 caractères par document. Pour connaître le nombre maximal de documents autorisés dans une collection, consultez l’article [Limites de données](../concepts/data-limits.md?tabs=version-3) sous Concepts. La collection est soumise dans le corps de la demande. Si votre texte dépasse cette limite, envisagez de le diviser en demandes distinctes. Pour obtenir les meilleurs résultats, divisez le texte entre les phrases.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Structurer la requête d’API pour l’API web asynchrone hébergée
 
-Pour le conteneur et l’API web hébergée, vous devez créer une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md), une commande cURL ou la **console de test d’API** indiquée dans les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) pour créer et envoyer rapidement une requête POST à l’API web hébergée dans la région de votre choix. Dans le point de terminaison v3.1-preview.5 de l’API, le paramètre de requête booléen `loggingOptOut` peut être utilisé pour activer la journalisation à des fins de dépannage.  La valeur par défaut est TRUE si aucune valeur n’est spécifiée dans la requête demandée.
+Pour le conteneur et l’API web hébergée, vous devez créer une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md), une commande cURL ou la **console de test d’API** indiquée dans les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health) pour créer et envoyer rapidement une requête POST à l’API web hébergée dans la région de votre choix. Dans le point de terminaison v3.1 de l’API, le paramètre de requête booléen `loggingOptOut` peut être utilisé pour activer la journalisation à des fins de dépannage.  La valeur par défaut est TRUE si aucune valeur n’est spécifiée dans la requête demandée.
 
-Envoyez la requête POST vers `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs` Voici un exemple de fichier JSON joint au corps POST de la requête d’API Analyse de texte pour la santé :
+Envoyez la requête POST vers `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs` Voici un exemple de fichier JSON joint au corps POST de la requête d’API Analyse de texte pour la santé :
 
 ```json
 example.json
@@ -124,20 +122,20 @@ example.json
 
 Étant donné que cette requête POST est utilisée pour envoyer un travail pour l’opération asynchrone, il n’y a pas de texte dans l’objet de la réponse.  Toutefois, vous avez besoin de la valeur operation-location KEY dans les en-têtes de réponse pour effectuer une requête GET afin de vérifier l’état du travail et de la sortie.  Voici un exemple de valeur operation-location KEY dans l’en-tête de réponse de la requête POST :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs/<jobID>`
 
 Pour vérifier l’état du travail, faites une requête GET à l’URL dans la valeur de l’en-tête operation-location KEY de la réponse POST.  Les états suivants sont utilisés pour refléter l’état d’un travail : `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` et `cancelled`.  
 
-Vous pouvez annuler un travail dont l’état est `NotStarted` ou `running` avec un appel DELETE HTTP à la même URL que la requête GET.  Pour plus d’informations sur l’appel DELETE, consultez les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/CancelHealthJob).
+Vous pouvez annuler un travail dont l’état est `NotStarted` ou `running` avec un appel DELETE HTTP à la même URL que la requête GET.  Pour plus d’informations sur l’appel DELETE, consultez les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/CancelHealthJob).
 
 Voici un exemple de réponse d’une requête GET.  La sortie est disponible et récupérable jusqu’à ce que le délai `expirationDateTime` (24 heures à partir de l’heure de création du travail) soit écoulé, après quoi la sortie est purgée.
 
 ```json
 {
-    "jobId": "be437134-a76b-4e45-829e-9b37dcd209bf",
-    "lastUpdateDateTime": "2021-03-11T05:43:37Z",
-    "createdDateTime": "2021-03-11T05:42:32Z",
-    "expirationDateTime": "2021-03-12T05:42:32Z",
+    "jobId": "69081148-055b-4f92-977d-115df343de69",
+    "lastUpdateDateTime": "2021-07-06T19:06:03Z",
+    "createdDateTime": "2021-07-06T19:05:41Z",
+    "expirationDateTime": "2021-07-07T19:05:41Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -219,14 +217,14 @@ Voici un exemple de réponse d’une requête GET.  La sortie est disponible et 
                         "length": 13,
                         "text": "intravenously",
                         "category": "MedicationRoute",
-                        "confidenceScore": 1.0
+                        "confidenceScore": 0.99
                     },
                     {
                         "offset": 73,
                         "length": 7,
                         "text": "120 min",
                         "category": "Time",
-                        "confidenceScore": 0.94
+                        "confidenceScore": 0.98
                     }
                 ],
                 "relations": [
@@ -274,7 +272,7 @@ Voici un exemple de réponse d’une requête GET.  La sortie est disponible et 
             }
         ],
         "errors": [],
-        "modelVersion": "2021-03-01"
+        "modelVersion": "2021-05-15"
     }
 }
 ```
@@ -285,7 +283,7 @@ Voici un exemple de réponse d’une requête GET.  La sortie est disponible et 
 Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé, en remplaçant la variable `serverURL` par la valeur appropriée.  Notez que la version de l’API dans l’URL du conteneur est différente de celle de l’API hébergée.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -484,17 +482,17 @@ La détection d’assertion représente des entités inversées comme une valeur
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty": "negative"
+                            "certainty&quot;: &quot;negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id": "C0013404"
+                                "id&quot;: &quot;C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id": "0000005442"
+                                "id&quot;: &quot;0000005442"
                             },
     ...
 ```

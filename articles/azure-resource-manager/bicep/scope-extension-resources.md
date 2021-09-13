@@ -4,13 +4,13 @@ description: Décrit comment utiliser la propriété scope lors du déploiement 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 59b6576dfb1bd5e0ac4f56e6a59b6ea4d5c4b5f4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/30/2021
+ms.openlocfilehash: a899622c22d68217fd4fbf73e495f89885f4d7ba
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026464"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527953"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Définir l’étendue des ressources d’extension dans Bicep
 
@@ -25,9 +25,9 @@ Cet article montre comment définir l’étendue d’un type de ressource d’ex
 
 ## <a name="apply-at-deployment-scope"></a>Appliquer au niveau de l’étendue du déploiement
 
-Pour appliquer un type de ressource d’extension au niveau de l’étendue du déploiement, vous ajoutez la ressource à votre modèle, comme avec n’importe quel type de ressource. Les étendues disponibles sont un [groupe de ressources](deploy-to-resource-group.md), un [abonnement](deploy-to-subscription.md), un [groupe d’administration](deploy-to-management-group.md) et un [locataire](deploy-to-tenant.md). L’étendue de déploiement doit prendre en charge le type de ressource.
+Pour appliquer un type de ressource d’extension au niveau de l’étendue du déploiement cible, ajoutez la ressource à votre modèle comme avec n’importe quel autre type de ressource. Les étendues disponibles sont un [groupe de ressources](deploy-to-resource-group.md), un [abonnement](deploy-to-subscription.md), un [groupe d’administration](deploy-to-management-group.md) et un [locataire](deploy-to-tenant.md). L’étendue de déploiement doit prendre en charge le type de ressource.
 
-Le modèle suivant déploie un verrou.
+Quand il est déployé sur un groupe de ressources, le modèle suivant lui ajoute un verrou.
 
 ```bicep
 resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
@@ -39,7 +39,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-L’exemple suivant attribue un rôle.
+Dans l’exemple suivant, un rôle est attribué à l’abonnement sur lequel il est déployé.
 
 ```bicep
 targetScope = 'subscription'
@@ -75,7 +75,7 @@ resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-previ
 
 ## <a name="apply-to-resource"></a>Appliquer à la ressource
 
-Pour appliquer une ressource d’extension à une ressource, utilisez la propriété `scope`. Définissez la propriété scope sur le nom de la ressource à laquelle vous ajoutez l’extension. La propriété scope est une propriété racine pour le type de ressource d’extension.
+Pour appliquer une ressource d’extension à une ressource, utilisez la propriété `scope`. Dans la propriété scope, référencez la ressource à laquelle vous ajoutez l’extension. Vous référencez la ressource en fournissant le nom symbolique de la ressource. La propriété scope est une propriété racine pour le type de ressource d’extension.
 
 L’exemple suivant crée un compte de stockage et lui applique un rôle.
 
@@ -102,7 +102,7 @@ var role = {
 }
 var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageName 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2019-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -118,10 +118,24 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     roleDefinitionId: role[builtInRoleType]
     principalId: principalId
   }
-  scope: storageName
-  dependsOn: [
-    storageName
-  ]
+  scope: demoStorageAcct
+}
+```
+
+Vous pouvez appliquer une ressource d’extension à une ressource existante. Dans l’exemple suivant, un verrou est ajouté à un compte de stockage existant.
+
+```bicep
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+  name: 'examplestore'
+}
+
+resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'storeLock'
+  scope: demoStorageAcct
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Storage account should not be deleted.'
+  }
 }
 ```
 

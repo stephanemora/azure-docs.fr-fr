@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6657147d044d49ff72532ad270552a175c197c8f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ae8759bd10096737b400fe672c3555ff5fd41585
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078217"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296628"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procédure : Utiliser l’API Détecteur d’anomalies sur vos données de série chronologique  
+# <a name="how-to-use-the-anomaly-detector-univariate-api-on-your-time-series-data"></a>Guide pratique pour utiliser l’API univariée Détecteur d’anomalies sur vos données de série chronologique  
 
 [L’API Détecteur d’anomalies](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) propose deux méthodes de détection des anomalies. Vous pouvez soit détecter les anomalies sous forme de lot tout au long de votre série chronologique, soit au moment où vos données sont générées en détectant l’état d’anomalie du dernier point de données. Le modèle de détection retourne les résultats d’anomalie, ainsi que la valeur attendue de chaque point de données et les limites supérieure et inférieure de la détection d’anomalie. Vous pouvez utiliser ces valeurs pour visualiser la plage des valeurs normales et les anomalies dans les données.
 
-## <a name="anomaly-detection-modes"></a>Modes de détection d’anomalie 
+## <a name="anomaly-detection-modes"></a>Modes de détection d’anomalie
 
 L’API Détecteur d’anomalies fournit des modes de détection : batch et diffusion en continu.
 

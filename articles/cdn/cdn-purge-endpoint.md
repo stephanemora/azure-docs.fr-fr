@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/17/2019
+ms.date: 06/30/2021
 ms.author: allensu
-ms.openlocfilehash: 4fe4b99f9635ff254f1a75e03f13d7e6ffcb3c49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d54b181ee55d841f8739008a2fb6657f7885cb96
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366515"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126443"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -57,13 +57,16 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
     3. **Vidage du domaine racine** : videz la racine du point de terminaison avec « / » dans le chemin d’accès.
    
    > [!TIP]
-   > Les chemins doivent être spécifiés pour le vidage et doivent être une URL relative qui satisfait à [l’expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) suivante. Le **vidage totale** et le **vidage de caractère générique** ne sont pas pris en charge par compatible avec **Azure CDN par Akamai**.
-   > > Vidage d’URL unique `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Chaîne de requête `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   > > Vidage de caractère générique `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
+   > 1. Les chemins doivent être spécifiés pour le vidage et doivent être une URL relative qui satisfait à [l’expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) suivante. Le **vidage total** et le **vidage de caractère générique** ne sont pas pris en charge par **Azure CDN d’Akamai** actuellement.
+   >
+   >    1. Vidage d’URL unique `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   >    1. Chaîne de requête `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   >    1. Vidage de caractère générique `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
-   > Après avoir saisi du texte, d’autres zones de texte **Chemin d’accès** s’afficheront pour vous permettre de créer une liste de plusieurs éléments multimédias.  Vous pouvez supprimer des éléments multimédias de la liste en cliquant sur le bouton points de suspension (...).
+   >    Après avoir saisi du texte, d’autres zones de texte **Chemin d’accès** s’afficheront pour vous permettre de créer une liste de plusieurs éléments multimédias.  Vous pouvez supprimer des éléments multimédias de la liste en cliquant sur le bouton points de suspension (...).
    > 
+   > 1. Dans Azure CDN de Microsoft, les chaînes de requête dans le chemin URL à vider ne sont pas prises en compte. Si le chemin à vider est fourni sous la forme `/TestCDN?myname=max`, seul `/TestCDN` est pris en compte. La chaîne de requête `myname=max` est omise. `TestCDN?myname=max` et `TestCDN?myname=clark` seront vidés.
+
 5. Cliquez sur le bouton **Vider** .
    
     ![Bouton Vider](./media/cdn-purge-endpoint/cdn-purge-button.png)

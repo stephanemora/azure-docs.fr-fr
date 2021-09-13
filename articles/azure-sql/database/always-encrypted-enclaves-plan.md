@@ -9,20 +9,17 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
-ms.openlocfilehash: ccf4d00aa48edfc5cbe8df894d7d1a28387ecff2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 07/14/2021
+ms.openlocfilehash: bed170c4dbf61006c7d2aca14117f8946563f357
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411560"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727289"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Planifier les enclaves Intel SGX et l’attestation dans Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted avec enclaves sécurisées pour Azure SQL Database est actuellement en **préversion publique**.
 
 [Always Encrypted avec enclaves sécurisées](/sql/relational-databases/security/encryption/always-encrypted-enclaves) dans Azure SQL Database utilise des enclaves [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) et requiert [Microsoft Azure Attestation](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
@@ -38,13 +35,9 @@ Intel SGX est une technologie d’environnement d’exécution de confiance bas�
 
 ## <a name="plan-for-attestation-in-azure-sql-database"></a>Planifier l’attestation dans Azure SQL Database
 
-[Microsoft Azure Attestation](../../attestation/overview.md) (préversion) est une solution permettant d’attester les environnements d’exécution de confiance (TEE), y compris les enclaves Intel SGX dans les bases de données Azure SQL utilisant la génération de matériel de série DC.
+[Microsoft Azure Attestation](../../attestation/overview.md) est une solution permettant d’attester les environnements d’exécution de confiance (TEE), y compris les enclaves Intel SGX dans les bases de données Azure SQL utilisant la génération de matériel de série DC.
 
-Afin d’utiliser Azure Attestation pour l’attestation des enclaves Intel SGX dans Azure SQL Database, vous devez :
-
-1. Créer un [fournisseur d’attestation](../../attestation/basic-concepts.md#attestation-provider) et le configurer avec une stratégie d’attestation. 
-
-2. Accorder à votre serveur logique Azure SQL l’accès au fournisseur d’attestation créé.
+Pour utiliser Azure Attestation pour l’attestation d’enclaves Intel SGX dans Azure SQL Database, vous devez créer un [fournisseur d’attestation](../../attestation/basic-concepts.md#attestation-provider) et le configurer avec la stratégie d’attestation fournie par Microsoft. Consultez [Configurer l’attestation pour Always Encrypted à l’aide d’Azure Attestation](always-encrypted-enclaves-configure-attestation.md).
 
 ## <a name="roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation"></a>Rôles et responsabilités lors de la configuration des enclaves SGX et de l’attestation
 

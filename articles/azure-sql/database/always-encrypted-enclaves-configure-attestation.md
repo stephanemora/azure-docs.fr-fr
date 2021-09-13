@@ -1,5 +1,5 @@
 ---
-title: Configurer Azure Attestation pour votre serveur logique Azure SQL
+title: Configurer l’attestation pour Always Encrypted à l’aide de l’attestation Azure
 description: Configurez Azure Attestation pour Always Encrypted avec enclaves sécurisées dans Azure SQL Database.
 keywords: chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, Always Encrypted, enclaves sécurisées, SGX, attestation
 services: sql-database
@@ -10,21 +10,18 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
+ms.date: 07/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e2e6bc57a830b5257d246a4229e174cf8612d3c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6a27acf96b42a4a963b88e281fd692a91616b7e4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662519"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727198"
 ---
-# <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurer Azure Attestation pour votre serveur logique Azure SQL
+# <a name="configure-attestation-for-always-encrypted-using-azure-attestation"></a>Configurer l’attestation pour Always Encrypted à l’aide de l’attestation Azure
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted avec enclaves sécurisées pour Azure SQL Database est actuellement en **préversion publique**.
 
 [Microsoft Azure Attestation](../../attestation/overview.md) est une solution pour l’attestation des environnements d’exécution de confiance (TEE), notamment les enclaves Intel Software Guard Extensions (Intel SGX). 
 
@@ -42,6 +39,9 @@ Afin d’utiliser Azure Attestation pour l’attestation des enclaves Intel SGX 
 Un [fournisseur d’attestation](../../attestation/basic-concepts.md#attestation-provider) est une ressource dans Azure Attestation qui évalue les [demandes d’attestation](../../attestation/basic-concepts.md#attestation-request) par rapport aux [stratégies d’attestation](../../attestation/basic-concepts.md#attestation-request) et émet les [jetons d’attestation](../../attestation/basic-concepts.md#attestation-token). 
 
 Les stratégies d’attestation sont spécifiées à l’aide de la [grammaire des règles de revendication](../../attestation/claim-rule-grammar.md).
+
+> [!IMPORTANT]
+> Un fournisseur d’attestation est créé avec la stratégie par défaut pour les enclaves Intel SGX ce qui ne valide pas le code qui s’exécute à l’intérieur de l’enclave. Microsoft vous conseille vivement de définir la stratégie recommandée ci-dessous et de ne pas utiliser la stratégie par défaut pour Always Encrypted avec enclaves sécurisées.
 
 Microsoft recommande la stratégie suivante pour l’attestation des enclaves Intel SGX utilisées pour Always Encrypted dans Azure SQL Database :
 
@@ -69,7 +69,7 @@ La stratégie ci-dessus vérifie les éléments suivants :
   > L’un des principaux objectifs de l’attestation est de convaincre les clients que le fichier binaire qui s’exécute dans l’enclave est celui qui est supposé s’exécuter. Les stratégies d’attestation fournissent deux mécanismes à cet effet. L’un est la revendication **mrenclave** qui est le hachage du fichier binaire supposé s’exécuter dans une enclave. Le problème avec la revendication **mrenclave** est que le hachage du fichier binaire change même avec des modifications banales du code, ce qui rend difficile la révision du code s’exécutant dans l’enclave. Par conséquent, nous vous recommandons d’utiliser la revendication **mrsigner**, qui est un hachage d’une clé utilisée pour signer le fichier binaire de l’enclave. Quand Microsoft révise l’enclave, la revendication **mrsigner** reste la même tant que la clé de signature ne change pas. Ainsi, il devient possible de déployer des fichiers binaires mis à jour sans interrompre les applications des clients. 
 
 > [!IMPORTANT]
-> Un fournisseur d’attestation est créé avec la stratégie par défaut pour les enclaves Intel SGX ce qui ne valide pas le code qui s’exécute à l’intérieur de l’enclave. Microsoft vous conseille vivement de définir la stratégie recommandée ci-dessus et de ne pas utiliser la stratégie par défaut pour Always Encrypted avec enclaves sécurisées.
+> Microsoft peut (à de rares occasions) devoir appliquer une rotation à la clé utilisée pour signer le fichier binaire d’enclave Always Encrypted. Avant qu’une nouvelle version du fichier binaire d’enclave, signée avec une nouvelle clé, soit déployée sur Azure SQL Database, cet article sera mis à jour pour fournir une nouvelle stratégie d’attestation recommandée et des instructions sur la façon dont vous devez mettre à jour la stratégie dans vos fournisseurs d’attestation pour assurer le fonctionnement ininterrompu de vos applications.
 
 Pour obtenir des instructions sur la création d’un fournisseur d’attestation et la configuration avec une stratégie d’attestation, consultez :
 
@@ -82,6 +82,7 @@ Pour obtenir des instructions sur la création d’un fournisseur d’attestatio
 - [Démarrage rapide : Configurer Azure Attestation avec Azure CLI](../../attestation/quickstart-azure-cli.md)
     > [!IMPORTANT]
     > Quand vous configurez votre stratégie d’attestation avec Azure CLI, définissez le paramètre `attestation-type` sur `SGX-IntelSDK`.
+
 
 ## <a name="determine-the-attestation-url-for-your-attestation-policy"></a>Déterminer l’URL d’attestation pour votre stratégie d’attestation
 

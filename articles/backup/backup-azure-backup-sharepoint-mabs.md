@@ -2,13 +2,13 @@
 title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
-ms.date: 04/26/2020
-ms.openlocfilehash: dd0c6ede50151114994152ed2375cf53f708c620
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 07/30/2021
+ms.openlocfilehash: 2c52ace2515fbb1423c2ca3be75dfde837e6dd5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769360"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524526"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 
@@ -80,7 +80,7 @@ Pour sauvegarder la batterie de serveurs SharePoint, configurez la protection po
 
 1. Dans **Sélectionnez les membres du groupe**, développez le serveur qui détient le rôle WFE. S’il y a plusieurs serveurs WFE, sélectionnez celui sur lequel vous avez installé ConfigureSharePoint.exe.
 
-    Lorsque vous développez l’ordinateur exécutant SharePoint, MABS interroge VSS pour savoir quelles données MABS peut protéger. Si la base de données SharePoint est distante, MABS s’y connecte. Si les sources de données SharePoint ne s’affichent pas, vérifiez que l’enregistreur VSS est en cours d’exécution sur l’ordinateur qui exécute SharePoint et sur toute instance distante de SQL Server. Ensuite, assurez-vous que l’agent MABS est installé à la fois sur l’ordinateur exécutant SharePoint et sur l’instance distante de SQL Server. En outre, assurez-vous que les bases de données SharePoint ne sont pas protégées ailleurs en tant que bases de données SQL Server.
+    Lorsque vous développez l’ordinateur exécutant SharePoint, MABS interroge VSS pour identifier les données que MABS peut protéger. Si la base de données SharePoint est distante, MABS s’y connecte. Si les sources de données SharePoint ne s’affichent pas, vérifiez que l’enregistreur VSS est en cours d’exécution sur l’ordinateur qui exécute SharePoint et sur toute instance distante de SQL Server. Ensuite, assurez-vous que l’agent MABS est installé à la fois sur l’ordinateur exécutant SharePoint et sur l’instance distante de SQL Server. En outre, assurez-vous que les bases de données SharePoint ne sont pas protégées ailleurs en tant que bases de données SQL Server.
 
 1. Dans **Sélectionner la méthode de protection des données**, spécifiez la façon dont vous souhaitez gérer les sauvegardes à court et à long terme. La sauvegarde à court terme se fait toujours sur le disque en premier, avec la possibilité de sauvegarder du disque vers le cloud Azure à l’aide de Sauvegarde Azure \(à court ou long terme\).
 
@@ -254,6 +254,25 @@ La procédure suivante utilise l’exemple d’une batterie de serveurs avec deu
    Une vérification de cohérence commencera.
 
 1. Si vous avez effectué l’étape 6, vous pouvez maintenant supprimer le volume du groupe de protection.
+
+## <a name="remove-a-database-from-a-sharepoint-farm"></a>Supprimer une base de données d’une batterie de serveurs SharePoint
+
+Quand une base de données est supprimée d’une batterie de serveurs SharePoint, MABS ignore la sauvegarde de cette base de données, continue à sauvegarder les autres bases de données de la batterie de serveurs SharePoint et alerte l’administrateur de sauvegarde.
+
+### <a name="mabs-alert---farm-configuration-changed"></a>Alerte MABS - La configuration de la batterie de serveurs a été modifiée
+
+Il s’agit d’une alerte d’avertissement générée dans le serveur de sauvegarde Microsoft Azure (MABS, Microsoft Azure Backup Server) quand la protection automatique d’une base de données SharePoint échoue. Pour plus d’informations sur la cause de cette alerte, consultez le volet **Détails** de l’alerte.
+
+Pour résoudre cette alerte, effectuez les étapes suivantes :
+
+1. Vérifiez que la base de données a été réellement supprimée de la batterie de serveurs auprès de l’administrateur SharePoint. Si la base de données a été supprimée de la batterie de serveurs, elle doit être supprimée de la protection active dans MABS.
+1. Pour supprimer la base de données de la protection active :
+   1. Dans la **console Administrateur MABS**, cliquez sur **Protection** sur la barre de navigation.
+   1. Dans le volet **Affichage**, cliquez avec le bouton droit sur le groupe de protection de la batterie de serveurs SharePoint, puis cliquez sur **Arrêter la protection du membre**.
+   1. Dans la boîte de dialogue **Arrêter la protection**, cliquez sur **Conserver les données protégées**.
+   1. Cliquez sur **Arrêter la protection**.
+
+Vous pouvez de nouveau ajouter la batterie de serveurs SharePoint à la protection à l’aide de l’assistant **Modifier le groupe de protection**. Pendant la reprotection, sélectionnez le serveur front-end SharePoint, puis cliquez sur **Actualiser** pour mettre à jour le cache de base de données SharePoint. Sélectionnez la batterie de serveurs SharePoint et continuez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
