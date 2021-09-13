@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1244cc0fdd9a5c978ee64c1aa7ce4af20272c818
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95975953"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634439"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
@@ -48,11 +48,11 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
    |---|---|---|
    |**Nom**|customProbe|Cette valeur est le nom convivial donné à la sonde accessible par le biais du portail.|
    |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité. |
-   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à \<protocol\>://\<host name\>:\<port\>/\<urlPath\>|
+   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à \<protocol\>://\<host name\>:\<port\>/\<urlPath\>  Il peut également s’agir de l’adresse IP privée du serveur ou de l’adresse IP publique, ou de l’entrée DNS de l’adresse IP publique.  Cette opération tente d’accéder au serveur quand elle est utilisée avec une entrée de chemin d’accès basée sur un fichier, et de valider un fichier spécifique qui existe sur ce serveur en tant que contrôle d’intégrité.|
    |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *host* dans la sonde sur le nom d’hôte indiqué dans les paramètres HTTP auxquels cette sonde est associée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Choisir un port à partir de paramètres HTTP back-end**| Oui ou Non|Définit le *port* de la sonde d’intégrité sur le port indiqué dans les paramètres HTTP auxquels cette sonde est associée. Si vous choisissez Non, vous pouvez entrer un port de destination personnalisé à utiliser |
    |**Port**| 1-65535 | Port personnalisé à utiliser pour les sondes d’intégrité | 
-   |**Chemin d’accès**|/ ou n’importe quel chemin valide|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
+   |**Chemin d’accès**|/ ou n’importe quel chemin valide|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / ».  Vous pouvez également entrer un chemin de serveur à un fichier pour un contrôle d’intégrité statique au lieu d’une approche basée sur le web.  Des chemins de fichier doivent être utilisés lors de l’utilisation d’une adresse IP publique/privée ou d’une entrée DNS d’adresse IP publique en tant qu’entrée de nom d’hôte.|
    |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
    |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible. Notez que la valeur du délai d’attente ne doit pas être supérieure à la valeur « Intervalle » utilisée dans ce paramètre de sonde ou la valeur « Délai d’attente de la demande » dans le paramètre HTTP qui sera associé à cette sonde.|
    |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
@@ -99,9 +99,9 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
    |---|---|---|
    |**Nom**|customProbe|Cette valeur est le nom convivial donné à la sonde accessible par le biais du portail.|
    |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité. |
-   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à (protocole)://(nom d’hôte):(port de httpsetting)/urlPath.  Cela s’applique lorsque plusieurs sites sont configurés sur Application Gateway. Si Application Gateway est configurée pour un seul site, entrez « 127.0.0.1 ».|
+   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à (protocole)://(nom d’hôte):(port de httpsetting)/urlPath.  Cela s’applique lorsque plusieurs sites sont configurés sur Application Gateway. Si Application Gateway est configurée pour un seul site, entrez « 127.0.0.1 ».  Vous pouvez également entrer un chemin de serveur vers un fichier pour un contrôle d’intégrité statique au lieu d’une approche basée sur le web. Des chemins de fichier doivent être utilisés lors de l’utilisation d’une adresse IP publique/privée ou d’une entrée DNS d’adresse IP publique en tant qu’entrée de nom d’hôte.|
    |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *hôte* dans la sonde sur le nom d’hôte de la ressource back-end dans le pool back-end associé au paramètre HTTP auquel cette sonde est liée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
-   |**Chemin d’accès**|/ ou n’importe quel chemin valide|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
+   |**Chemin d’accès**|/ ou n’importe quel chemin valide|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut http:\//contoso.com, utilisez simplement « / ». Vous pouvez également entrer un chemin de serveur vers un fichier pour un contrôle d’intégrité statique au lieu d’une approche basée sur le web.  Des chemins de fichier doivent être utilisés lors de l’utilisation d’une adresse IP publique/privée ou d’une entrée DNS d’adresse IP publique en tant qu’entrée de nom d’hôte.|
    |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
    |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible. Notez que la valeur du délai d’attente ne doit pas être supérieure à la valeur « Intervalle » utilisée dans ce paramètre de sonde ou la valeur « Délai d’attente de la demande » dans le paramètre HTTP qui sera associé à cette sonde.|
    |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: d86d4248b449ad3961a7798fd36a320eb6a74009
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721119cd8927ee78639dd0e1449a36deb82938ef
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217071"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563948"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "98217071"
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Cet article explique comment créer une machine virtuelle dans le modèle de déploiement Azure Resource Manager à l’aide de PowerShell. Il n’est pas possible d’affecter plusieurs adresses IP à des ressources créées à l’aide du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../azure-resource-manager/management/deployment-models.md).
+Cet article explique comment créer une machine virtuelle dans le modèle de déploiement Azure Resource Manager à l’aide de PowerShell. Certaines adresses IP ne peuvent pas être affectées à une seule carte réseau créée par le biais du modèle de déploiement classique, et ce même si une machine virtuelle classique peut être équipée de plusieurs cartes réseau, chacune ayant sa propre adresse IP. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../azure-resource-manager/management/deployment-models.md).
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 

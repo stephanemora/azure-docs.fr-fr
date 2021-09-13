@@ -1,18 +1,18 @@
 ---
 title: Exemples de modèles d’IA Azure Percept
 description: Apprenez-en davantage sur les modèles d’intelligence artificielle disponibles pour le prototypage et le déploiement.
-author: tsampige
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 78eb20b0229faef9c067b4bab475759badccd19e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0db18be3e075df6e5566bd622f956839f23769c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221270"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524955"
 ---
 # <a name="azure-percept-sample-ai-models"></a>Exemples de modèles d’IA Azure Percept
 

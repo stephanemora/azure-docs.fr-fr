@@ -3,15 +3,15 @@ title: Démarrer un runbook Azure Automation depuis un Webhook
 description: Cet article vous explique comment utiliser un Webhook pour démarrer un runbook dans Azure Automation à partir d’un appel HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/18/2021
+ms.date: 07/21/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a80897fcd6676d0030417091f593c9967394314
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 50299b64577ed93f7aa1b09f2b5b20ccca88404e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887363"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472554"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Démarrer un runbook depuis un Webhook
 
@@ -22,7 +22,7 @@ Un webhook permet à un service externe de démarrer un runbook particulier dans
 
 ![Présentation des webhooks](media/automation-webhooks/webhook-overview-image.png)
 
-Pour comprendre la configuration requise du client pour le protocole TLS 1.2 avec les webhooks, consultez [Application de TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Pour comprendre la configuration requise du client pour le protocole TLS 1.2 avec les webhooks, consultez [TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
 
 ## <a name="webhook-properties"></a>Propriétés des webhooks
 
@@ -32,7 +32,7 @@ Le tableau suivant décrit les propriétés que vous devez configurer pour un we
 |:--- |:--- |
 | Nom |Nom du webhook. Vous pouvez attribuer le nom de votre choix, puisque celui-ci n’est pas visible par le client. Il sert seulement à identifier le runbook dans Azure Automation. À titre de meilleure pratique, nommez le webhook d’après le client qui l’utilise. |
 | URL |URL du webhook. Il s’agit de l’adresse unique qu’un client appelle avec une méthode HTTP POST pour démarrer le runbook lié au webhook. Elle est générée automatiquement lorsque vous créez le webhook. Vous ne pouvez pas spécifier d’URL personnalisée. <br> <br> L’URL contient un jeton de sécurité qui permet à un système tiers d’appeler le runbook sans authentification supplémentaire. Pour cette raison, vous devez traiter l’URL comme un mot de passe. Pour des raisons de sécurité, vous pouvez uniquement afficher l’URL dans le portail Azure au moment de la création du webhook. Notez l'URL dans un emplacement sécurisé en vue d'une utilisation ultérieure. |
-| Date d'expiration | Date d’expiration du webhook, après laquelle il ne peut plus être utilisé. Vous pouvez modifier la date d’expiration du webhook après sa création, tant que celui-ci n’a pas encore expiré. |
+| Date d'expiration | Date d’expiration du webhook, après laquelle il ne peut plus être utilisé. Vous pouvez modifier la date d’expiration du webhook après sa création, tant que celui-ci n’a pas expiré. |
 | activé | Paramètre indiquant si le webhook doit être activé par défaut lors de sa création. Si vous affectez la valeur Disabled à cette propriété, aucun client ne pourra utiliser le webhook. Vous pouvez définir cette propriété pendant ou après la création du webhook. |
 
 ## <a name="parameters-used-when-the-webhook-starts-a-runbook"></a>Paramètres utilisés lorsque le webhook démarre un runbook
@@ -47,20 +47,20 @@ Le paramètre `WebhookData` possède les propriétés suivantes :
 
 | Propriété | Description |
 |:--- |:--- |
-| `WebhookName` | Nom du webhook. |
-| `RequestHeader` | Table de hachage contenant les en-têtes de la requête POST entrante. |
-| `RequestBody` | Corps de la requête POST entrante. Le corps conserve les mises en forme de données (chaînes, JSON, XML ou données encodées dans un formulaire). Le Runbook doit être écrit pour fonctionner avec le format de données qui est attendu. |
+| WebhookName | Nom du webhook. |
+| RequestHeader | Table de hachage contenant les en-têtes de la requête POST entrante. |
+| RequestBody | Corps de la requête POST entrante. Le corps conserve la mise en forme des données (chaînes, JSON, XML ou données encodées dans un formulaire). Le Runbook doit être écrit pour fonctionner avec le format de données qui est attendu. |
 
 Aucune configuration du webhook n’est nécessaire pour prendre en charge le paramètre `WebhookData`. En outre, le runbook n’est pas obligé de l’accepter. Si le runbook ne définit pas le paramètre, tous les détails de la requête envoyée à partir du client sont ignorés.
 
 > [!NOTE]
 > Lors de l’appel d’un webhook, le client doit toujours stocker toutes les valeurs de paramètre en cas d’échec de l’appel. En cas de panne réseau ou de problème de connexion, l’application ne pourra pas récupérer les appels de webhook qui ont échoué.
 
-Si vous spécifiez une valeur pour `WebhookData` lors de la création du webhook, celle-ci sera remplacée lorsque le webhook démarrera le runbook avec les données de la requête POST du client. Cela se produit même s’il n’existe aucune donnée dans le corps de la requête de l’application. 
+Si vous spécifiez une valeur pour `WebhookData` lors de la création du webhook, celle-ci est remplacée quand le webhook démarre le runbook avec les données de la demande POST du client. Cela se produit même si l’application n’inclut aucune donnée dans le corps de la demande.
 
 Si vous démarrez un runbook qui définit `WebhookData` à l’aide d’un mécanisme autre qu’un webhook, vous pouvez fournir une valeur pour `WebhookData` que le runbook reconnaîtra. Cette valeur doit correspondre à un objet ayant les mêmes [propriétés](#webhook-properties) que le paramètre `WebhookData`, afin que le runbook puisse l’utiliser de la même manière qu’il utilise les objets `WebhookData` qui sont passés par un webhook.
 
-Par exemple, si vous démarrez le runbook suivant à partir du portail Azure et souhaitez passer des exemples de données de webhook à des fins de test, vous devez passer ces données au format JSON dans l’interface utilisateur.
+Par exemple, si vous démarrez le runbook suivant à partir du portail Azure et souhaitez passer des exemples de données de webhook à des fins de test, vous devez passer ces données au format JSON dans l’interface utilisateur.
 
 ![Paramètre WebhookData à partir de l'interface utilisateur](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
@@ -82,7 +82,7 @@ Nous passons maintenant l’objet JSON suivant dans l’interface utilisateur p
 
 ## <a name="webhook-security"></a>Sécurité des webhooks
 
-La sécurité d’un webhook dépend de la confidentialité de son URL, laquelle contient un jeton de sécurité permettant au webhook d’être appelé. Azure Automation n’effectue pas d’authentification de la requête tant que celle-ci est adressée à la bonne URL. Pour cette raison, vos clients ne doivent pas utiliser les webhooks pour les runbooks qui exécutent des opérations hautement sensibles, sans recourir à un autre moyen de validation de la requête.
+La sécurité d’un webhook dépend de la confidentialité de son URL, laquelle contient un jeton de sécurité permettant au webhook d’être appelé. Azure Automation n’effectue pas d’authentification de la demande tant que celle-ci est adressée à l’URL appropriée. Par conséquent, vos clients ne doivent pas utiliser les webhooks pour les runbooks qui exécutent des opérations hautement sensibles, sans recourir à un autre moyen de validation de la demande.
 
 Tenez compte des stratégies suivantes :
 
@@ -90,263 +90,443 @@ Tenez compte des stratégies suivantes :
 
 * Faites en sorte que le runbook valide une condition externe quand il reçoit une demande de webhook. Par exemple, imaginez un runbook qui soit appelé par GitHub à chaque nouvelle validation effectuée dans un dépôt GitHub. Avant de poursuivre, le runbook peut se connecter à GitHub pour vérifier qu’une nouvelle validation s’est produite.
 
-* Azure Automation prend en charge les étiquettes de service de réseau virtuel Azure, plus précisément [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md) et déclencher des webhooks à partir de votre réseau virtuel. Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom d’étiquette de service **GuestAndHybridManagement** dans le champ source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service Automation. Cette étiquette de service ne permet pas d’autoriser un contrôle plus granulaire en limitant les plages d’adresses IP à une région spécifique.
+* Azure Automation prend en charge les étiquettes de service de réseau virtuel Azure, plus précisément [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md) et déclencher des webhooks à partir de votre réseau virtuel. Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom d’étiquette de service **GuestAndHybridManagement** dans le champ source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service Automation. Cette étiquette de service ne permet pas d’autoriser un contrôle plus précis en limitant les plages d’adresses IP à une région spécifique.
 
 ## <a name="create-a-webhook"></a>Créer un webhook
 
-Utilisez la procédure suivante pour créer un webhook lié à un Runbook dans le portail Azure.
-
-1. Dans la page Runbooks du portail Azure, cliquez sur le runbook que le webhook démarre afin d’afficher les informations relatives au runbook. Vérifiez que le champ **État** du runbook est défini sur **Publié**.
-2. Cliquez sur **Webhook** en haut de la page pour ouvrir la page Ajouter un webhook.
-3. Cliquez sur **Créer un webhook** pour ouvrir la page Créer un webhook.
-4. Renseignez les champs **Nom** et **Date d’expiration** pour le webhook, et spécifiez si celui-ci doit être activé. Pour plus d’informations sur ces propriétés, consultez [Propriétés des webhooks](#webhook-properties).
-5. Cliquez sur l'icône de copie et appuyez sur Ctrl + C pour copier l'URL du webhook. Puis enregistrez-la dans un endroit sûr. 
-
-    > [!IMPORTANT]
-    > Une fois que vous avez créé le webhook,vous ne pouvez plus récupérer l’URL. Veillez à le copier et à l’enregistrer comme ci-dessus.
-
-   ![URL du webhook](media/automation-webhooks/copy-webhook-url.png)
-
-1. Cliquez sur **Paramètres** pour fournir les valeurs des paramètres du Runbook. Si le runbook a des paramètres obligatoires, vous ne pouvez pas créer le webhook sans fournir de valeurs.
-
-2. Cliquez sur **Créer** pour créer le webhook.
-
-## <a name="use-a-webhook"></a>Utiliser un webhook
-
-Pour utiliser un webhook après sa création, votre client doit émettre une requête HTTP `POST` avec l’URL du webhook. La syntaxe est :
-
-```http
-http://<Webhook Server>/token?=<Token Value>
-```
-
-Le client reçoit de la requête `POST` l’un des codes de retour suivants.
-
-| Code | Texte | Description |
-|:--- |:--- |:--- |
-| 202 |Acceptée |La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
-| 400 |Demande incorrecte |La requête a été refusée pour l'une des raisons suivantes : <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l’URL n’est pas valide.</li>  </ul> |
-| 404 |Introuvable |La requête a été refusée pour l'une des raisons suivantes : <ul> <li>Le webhook est introuvable.</li> <li>Le Runbook est introuvable.</li> <li>Le compte est introuvable.</li>  </ul> |
-| 500 |Erreur interne du serveur |L'URL est valide, mais une erreur s'est produite. Soumettez à nouveau la demande. |
-
-Si la requête aboutit, la réponse webhook contiendra l’ID de travail au format JSON, comme illustré ci-dessous. Elle contiendra un seul ID de travail. Toutefois, le format JSON permettra des améliorations ultérieures potentielles.
-
-```json
-{"JobIds":["<JobId>"]}
-```
-
-Le client ne peut pas déterminer l’issue du travail du runbook ou de son état d’achèvement à partir du webhook. Il peut trouver ces informations à l’aide de l’ID du travail et d’un autre mécanisme tel que [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) ou l’[API Azure Automation](/rest/api/automation/job).
-
-### <a name="use-a-webhook-from-an-arm-template"></a>Utiliser un webhook d’un modèle ARM
-
-Des webhooks Automation peuvent également être appelés par des [modèles Azure Resource Manager (ARM)](../azure-resource-manager/templates/overview.md). Le modèle ARM émet une demande `POST` et reçoit un code de retour comme tout autre client. Consultez [Utiliser un webhook](#use-a-webhook).
-
-   > [!NOTE]
-   > Pour des raisons de sécurité, l’URI n’est retourné que la première fois qu’un modèle est déployé.
-
-Cet exemple de modèle crée un environnement de test et retourne l’URI du webhook qu’il crée.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "automationAccountName": {
-            "type": "String",
-            "metadata": {
-                "description": "Automation account name"
-            }
-        },
-        "webhookName": {
-            "type": "String",
-            "metadata": {
-                "description": "Webhook Name"
-            }
-        },
-        "runbookName": {
-            "type": "String",
-            "metadata": {
-                "description": "Runbook Name for which webhook will be created"
-            }
-        },
-        "WebhookExpiryTime": {
-            "type": "String",
-            "metadata": {
-                "description": "Webhook Expiry time"
-            }
-        },
-        "_artifactsLocation": {
-            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/",
-            "type": "String",
-            "metadata": {
-                "description": "URI to artifacts location"
-            }
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2020-01-13-preview",
-            "name": "[parameters('automationAccountName')]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "sku": {
-                    "name": "Free"
-                }
-            },
-            "resources": [
-                {
-                    "type": "runbooks",
-                    "apiVersion": "2018-06-30",
-                    "name": "[parameters('runbookName')]",
-                    "location": "[resourceGroup().location]",
-                    "dependsOn": [
-                        "[parameters('automationAccountName')]"
-                    ],
-                    "properties": {
-                        "runbookType": "Python2",
-                        "logProgress": "false",
-                        "logVerbose": "false",
-                        "description": "Sample Runbook",
-                        "publishContentLink": {
-                            "uri": "[uri(parameters('_artifactsLocation'), 'scripts/AzureAutomationTutorialPython2.py')]",
-                            "version": "1.0.0.0"
-                        }
-                    }
-                },
-                {
-                    "type": "webhooks",
-                    "apiVersion": "2018-06-30",
-                    "name": "[parameters('webhookName')]",
-                    "dependsOn": [
-                        "[parameters('automationAccountName')]",
-                        "[parameters('runbookName')]"
-                    ],
-                    "properties": {
-                        "isEnabled": true,
-                        "expiryTime": "[parameters('WebhookExpiryTime')]",
-                        "runbook": {
-                            "name": "[parameters('runbookName')]"
-                        }
-                    }
-                }
-            ]
-        }
-    ],
-    "outputs": {
-        "webhookUri": {
-            "type": "String",
-            "value": "[reference(parameters('webhookName')).uri]"
-        }
-    }
-}
-```
-
-## <a name="renew-a-webhook"></a>Renouveler un webhook
-
-Lorsqu’un webhook est créé, il reste valide pendant dix ans, puis expire automatiquement. Une fois que le webhook a expiré, vous ne pouvez pas le réactiver. Vous pouvez uniquement le supprimer, puis le recréer. 
-
-Vous pouvez prolonger la durée de validité d’un webhook qui n’a pas encore expiré. Pour prolonger la durée de validité d’un webhook :
-
-1. Accédez au runbook qui contient le webhook. 
-2. Sélectionnez **Webhooks** sous **Ressources**. 
-3. Cliquez sur le webhook dont vous voulez prolonger la durée de validité. 
-4. Dans la page Webhook, choisissez une nouvelle date et une nouvelle heure d’expiration, puis cliquez sur **Enregistrer**.
-
-## <a name="sample-runbook"></a>Exemple de runbook
-
-L’exemple de runbook suivant accepte les données du webhook et démarre les machines virtuelles spécifiées dans le corps de la demande. Pour tester ce runbook, dans votre compte Automation sous **Runbooks**, cliquez sur **Créer un runbook**. Si vous ne savez pas comment créer un runbook, consultez [Création d’un runbook](automation-quickstart-create-runbook.md).
-
-> [!NOTE]
-> Pour les runbooks PowerShell non graphiques, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation.
+Un webhook a besoin d’un runbook publié. Cette procédure pas à pas utilise une version modifiée du runbook créé dans [Créer un runbook Azure Automation](automation-quickstart-create-runbook.md). Pour suivre la procédure, modifiez votre runbook PowerShell avec le code suivant :
 
 ```powershell
 param
 (
-    [Parameter (Mandatory = $false)]
+    [Parameter(Mandatory=$false)]
     [object] $WebhookData
 )
 
-# If runbook was called from Webhook, WebhookData will not be null.
-if ($WebhookData) {
+if ($WebhookData.RequestBody) { 
+    $names = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
-    # Check header for message to validate request
-    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
-    {
-        Write-Output "Header has required information"}
-    else
-    {
-        Write-Output "Header missing required information";
-        exit;
-    }
-
-    # Retrieve VMs from Webhook request body
-    $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-
-    # Authenticate to Azure by using the service principal and certificate. Then, set the subscription.
-
-    Write-Output "Authenticating to Azure with service principal and certificate"
-    $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName"
-
-    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
-            if ($Conn -eq $null)
-            {
-                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
-            }
-            Write-Output "Authenticating to Azure with service principal."
-            Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Output
-
-        # Start each virtual machine
-        foreach ($vm in $vms)
+        foreach ($x in $names)
         {
-            $vmName = $vm.Name
-            Write-Output "Starting $vmName"
-            Start-AzVM -Name $vm.Name -ResourceGroup $vm.ResourceGroup
+            $name = $x.Name
+            Write-Output "Hello $name"
         }
 }
 else {
-    # Error
-    write-Error "This runbook is meant to be started from an Azure alert webhook only."
+    Write-Output "Hello World!"
 }
 ```
 
-## <a name="test-the-sample"></a>Tester l’exemple
+Ensuite, enregistrez et publiez le runbook révisé. Les exemples ci-dessous montrent comment créer un webhook à l’aide du portail Azure, de PowerShell et de REST.
 
-L'exemple suivant utilise Windows PowerShell pour démarrer un Runbook avec un webhook. Tous les langages qui peuvent envoyer une requête HTTP peuvent utiliser un webhook. Windows PowerShell est utilisé ici à titre d’exemple.
+### <a name="from-the-portal"></a>À partir du portail
 
-Le Runbook s'attend à une liste de machines virtuelles au format JSON dans le corps de la requête. Le runbook vérifie également que les en-têtes contiennent un message défini afin de vérifier que l’appelant webhook est valide.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-```azurepowershell-interactive
-$uri = "<webHook Uri>"
+1. Sur le Portail Azure, accédez à votre compte Automation.
 
-$vms  = @(
-            @{ Name="vm01";ResourceGroup="vm01"},
-            @{ Name="vm02";ResourceGroup="vm02"}
-        )
-$body = ConvertTo-Json -InputObject $vms
-$header = @{ message="StartedbyContoso"}
-$response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $header
-$jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
-```
+1. Sous **Automation du processus**, cliquez sur **Runbooks** pour ouvrir la page **Runbooks**.
 
-L’exemple suivant montre le corps de la requête qui est disponible pour le runbook dans la propriété `RequestBody` de `WebhookData`. Cette valeur est au format JSON afin d’être compatible avec le format inclus dans le corps de la requête.
+1. Sélectionnez votre runbook dans la liste pour ouvrir la page **Vue d’ensemble** du runbook.
 
-```json
-[
+1. Sélectionnez **Ajouter un webhook** pour ouvrir la page **Ajouter un webhook**.
+
+   :::image type="content" source="media/automation-webhooks/add-webhook-icon.png" alt-text="Page Vue d’ensemble du runbook avec l’option Ajouter un webhook mise en évidence":::
+
+1. Dans la page **Ajouter un webhook**, sélectionnez **Créer un webhook**.
+
+   :::image type="content" source="media/automation-webhooks/add-webhook-page-create.png" alt-text="Page Ajouter un webhook avec l’option de création mise en évidence":::
+
+1. Entrez le **nom** du webhook. La date d’expiration par défaut pour le champ **Expire** est d’un an à partir de la date actuelle.
+
+1. Cliquez sur l’icône de copie ou appuyez sur <kbd>Ctrl+C</kbd> pour copier l’URL du webhook. Ensuite, enregistrez l’URL en lieu sûr.
+
+    :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Page Créer un webhook avec l’URL mise en évidence":::
+
+    > [!IMPORTANT]
+    > Une fois que vous avez créé le webhook,vous ne pouvez plus récupérer l’URL. Veillez à le copier et à l’enregistrer comme ci-dessus.
+
+1. Sélectionnez **OK** pour revenir à la page **Ajouter un webhook**.
+
+1. Dans la page **Ajouter un webhook**, sélectionnez **Configurer les paramètres et les paramètres d’exécution** pour ouvrir la page **Paramètres**.
+
+   :::image type="content" source="media/automation-webhooks/add-webhook-page-parameters.png" alt-text="Page Ajouter un webhook avec les paramètres mis en évidence":::
+
+1. Passez en revue la page **Paramètres**. Pour l’exemple de runbook utilisé dans cet article, aucune modification n’est nécessaire. Sélectionnez **OK** pour revenir à la page **Ajouter un webhook**.
+
+1. Dans la page **Ajouter un webhook**, sélectionnez **Créer**. Le webhook est créé et vous êtes redirigé vers la page **Vue d’ensemble** du runbook.
+
+### <a name="using-powershell"></a>Utilisation de PowerShell
+
+1. Vérifiez que vous avez la dernière version du [module Az](/powershell/azure/new-azureps-module-az) de PowerShell.
+
+1. Connectez-vous à Azure de manière interactive à l’aide de l’applet de commande [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) et suivez les instructions.
+
+    ```powershell
+    # Sign in to your Azure subscription
+    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
     {
-        "Name":  "vm01",
-        "ResourceGroup":  "myResourceGroup"
-    },
-    {
-        "Name":  "vm02",
-        "ResourceGroup":  "myResourceGroup"
+        Connect-AzAccount
     }
-]
-```
+    ```
 
-L'illustration suivante montre la requête envoyée à partir de Windows PowerShell et sa réponse. L’ID de travail est extrait de la réponse et converti en une chaîne.
+1. Utilisez l’applet de commande [New-AzAutomationWebhook](/powershell/module/az.automation/new-azautomationwebhook) pour créer un webhook pour un runbook Automation. Fournissez une valeur appropriée pour les variables, puis exécutez le script.
 
-![Bouton Webhooks](media/automation-webhooks/webhook-request-response.png)
+    ```powershell
+    # Initialize variables with your relevant values
+    $resourceGroup = "resourceGroupName"
+    $automationAccount = "automationAccountName"
+    $runbook = "runbookName"
+    $psWebhook = "webhookName"
+    
+    # Create webhook
+    $newWebhook = New-AzAutomationWebhook `
+        -ResourceGroup $resourceGroup `
+        -AutomationAccountName $automationAccount `
+        -Name $psWebhook `
+        -RunbookName $runbook `
+        -IsEnabled $True `
+        -ExpiryTime "12/31/2022" `
+        -Force
+    
+    # Store URL in variable; reveal variable
+    $uri = $newWebhook.WebhookURI
+    $uri
+    ```
+
+   La sortie est une URL qui ressemble à : `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
+
+1. Vous pouvez également vérifier le webhook avec l’applet de commande PowerShell [Get-AzAutomationWebhook](/powershell/module/az.automation/get-azautomationwebhook).
+
+    ```powershell
+    Get-AzAutomationWebhook `
+        -ResourceGroup $resourceGroup `
+        -AutomationAccountName $automationAccount `
+        -Name $psWebhook
+    ```
+
+### <a name="using-rest"></a>Utilisation de REST
+
+La commande PUT est documentée dans [Webhook - Create ou Update](/rest/api/automation/webhook/create-or-update). Cet exemple utilise l’applet de commande PowerShell [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) pour envoyer la demande PUT.
+
+1. Créez un fichier appelé `webhook.json` et collez-y le code suivant :
+
+    ```json
+    {
+      "name": "RestWebhook",
+      "properties": {
+        "isEnabled": true,
+        "expiryTime": "2022-03-29T22:18:13.7002872Z",
+        "runbook": {
+          "name": "runbookName"
+        }
+      }
+    }
+    ```
+
+   Avant d’exécuter, modifiez la valeur de la propriété **runbook:name** en spécifiant le vrai nom de votre runbook. Passez en revue [Propriétés des webhooks](#webhook-properties) pour plus d’informations sur ces propriétés.
+
+1. Vérifiez que vous avez la dernière version du [module Az](/powershell/azure/new-azureps-module-az) de PowerShell.
+
+1. Connectez-vous à Azure de manière interactive à l’aide de l’applet de commande [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) et suivez les instructions.
+
+    ```powershell
+    # Sign in to your Azure subscription
+    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Connect-AzAccount
+    }
+    ```
+
+1. Fournissez une valeur appropriée pour les variables, puis exécutez le script.
+
+    ```powershell
+    # Initialize variables
+    $subscription = "subscriptionID"
+    $resourceGroup = "resourceGroup"
+    $automationAccount = "automationAccount"
+    $runbook = "runbookName"
+    $restWebhook = "webhookName"
+    $file = "path\webhook.json"
+
+    # consume file
+    $body = Get-Content $file
+    
+    # Craft Uri
+    $restURI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount/webhooks/$restWebhook`?api-version=2015-10-31"
+    ```
+
+1. Exécutez le script suivant pour obtenir un jeton d’accès. Si votre jeton d’accès a expiré, vous devez réexécuter le script.
+
+    ```powershell
+    # Obtain access token
+    $azContext = Get-AzContext
+    $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+    $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+    $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+    $authHeader = @{
+        'Content-Type'='application/json'
+        'Authorization'='Bearer ' + $token.AccessToken
+    }
+    ```
+
+1. Exécutez le script suivant pour créer le webhook à l’aide de l’API REST.
+
+    ```powershell
+    # Invoke the REST API
+    # Store URL in variable; reveal variable
+    $response = Invoke-RestMethod -Uri $restURI -Method Put -Headers $authHeader -Body $body
+    $webhookURI = $response.properties.uri
+    $webhookURI
+    ```
+
+   La sortie est une URL qui ressemble à : `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
+
+1. Vous pouvez également utiliser [Webhook - Get](/rest/api/automation/webhook/get) pour récupérer le webhook identifié par son nom. Vous pouvez exécuter les commandes PowerShell suivantes :
+
+    ```powershell
+    $response = Invoke-RestMethod -Uri $restURI -Method GET -Headers $authHeader
+    $response | ConvertTo-Json
+    ```
+
+## <a name="use-a-webhook"></a>Utiliser un webhook
+
+Cet exemple utilise l’applet de commande PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) pour envoyer la demande POST à votre nouveau webhook.
+
+1. Préparez les valeurs à passer au runbook en tant que corps de l’appel de webhook. Pour des valeurs relativement simples, vous pouvez écrire le script des valeurs comme suit :
+
+    ```powershell
+    $Names  = @(
+                @{ Name="Hawaii"},
+                @{ Name="Seattle"},
+                @{ Name="Florida"}
+            )
+    
+    $body = ConvertTo-Json -InputObject $Names
+    ```
+
+1. Pour de plus grandes séries de valeurs, vous pouvez utiliser un fichier. Créez un fichier nommé `names.json` et collez-y le code suivant :
+
+    ```json
+    [
+        { "Name": "Hawaii" },
+        { "Name": "Florida" },
+        { "Name": "Seattle" }
+    ]
+    ```
+
+    Remplacez la valeur de la variable `$file` par le vrai chemin du fichier JSON avant d’exécuter les commandes PowerShell suivantes.
+
+    ```powershell
+    # Revise file path with actual path
+    $file = "path\names.json"
+    $bodyFile = Get-Content -Path $file 
+    ```
+
+1. Exécutez les commandes PowerShell suivantes pour appeler le webhook à l’aide de l’API REST.
+
+    ```powershell
+    $response = Invoke-WebRequest -Method Post -Uri $webhookURI -Body $body -UseBasicParsing
+    $response
+    
+    $responseFile = Invoke-WebRequest -Method Post -Uri $webhookURI -Body $bodyFile -UseBasicParsing
+    $responseFile
+    ```
+
+   À des fins d’illustration, deux appels ont été effectués pour les deux méthodes différentes de production du corps. Pour la production, utilisez une seule méthode.  La sortie doit ressembler à ce qui suit (une seule sortie est affichée) :
+
+   :::image type="content" source="media/automation-webhooks/webhook-post-output.png" alt-text="Sortie de l’appel de webhook":::
+
+    Le client reçoit de la requête `POST` l’un des codes de retour suivants.
+
+    | Code | Texte | Description |
+    |:--- |:--- |:--- |
+    | 202 |Acceptée |La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
+    | 400 |Demande incorrecte |La demande n’a pas été acceptée pour l’une des raisons suivantes : <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l’URL n’est pas valide.</li>  </ul> |
+    | 404 |Introuvable |La demande n’a pas été acceptée pour l’une des raisons suivantes : <ul> <li>Le webhook est introuvable.</li> <li>Le runbook est introuvable.</li> <li>Le compte est introuvable.</li>  </ul> |
+    | 500 |Erreur interne du serveur |L'URL est valide, mais une erreur s'est produite. Soumettez à nouveau la demande. |
+
+    Si la requête aboutit, la réponse webhook contiendra l’ID de travail au format JSON, comme illustré ci-dessous. Elle contiendra un seul ID de travail. Toutefois, le format JSON permettra des améliorations ultérieures potentielles.
+
+    ```json
+    {"JobIds":["<JobId>"]}
+    ```
+
+1. L’applet de commande PowerShell [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) sera utilisée pour récupérer la sortie. L’[API Azure Automation](/rest/api/automation/job) peut également être utilisée.
+
+    ```powershell
+    #isolate job ID
+    $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
+    
+    # Get output
+    Get-AzAutomationJobOutput `
+        -AutomationAccountName $automationAccount `
+        -Id $jobid `
+        -ResourceGroupName $resourceGroup `
+        -Stream Output
+    ```
+
+   Le résultat doit être semblable à ce qui suit :
+
+   :::image type="content" source="media/automation-webhooks/webhook-job-output.png" alt-text="Sortie du travail de webhook.":::
+
+## <a name="update-a-webhook"></a>Mettre à jour un webhook
+
+Lorsqu’un webhook est créé, il reste valide pendant 10 ans, puis expire automatiquement. Une fois que le webhook a expiré, vous ne pouvez pas le réactiver. Vous pouvez uniquement le supprimer, puis le recréer. Vous pouvez prolonger la durée de validité d’un webhook qui n’a pas encore expiré. Pour étendre un webhook, effectuez les étapes suivantes.
+
+1. Accédez au runbook qui contient le webhook.
+1. Sous **Ressources**, sélectionnez **Webhooks**, puis le webhook que vous voulez étendre.
+1. Dans la page **Webhook**, choisissez une nouvelle date et une nouvelle heure d’expiration, puis sélectionnez **Enregistrer**.
+
+Passez en revue l’appel d’API [Webhook - Update](/rest/api/automation/webhook/update) et l’applet de commande PowerShell [Set-AzAutomationWebhook](/powershell/module/az.automation/set-azautomationwebhook) pour d’autres modifications possibles.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Voici des exemples de suppression d’un webhook d’un runbook Automation.
+
+- Avec PowerShell, vous pouvez utiliser l’applet de commande [Remove-AzAutomationWebhook](/powershell/module/az.automation/remove-azautomationwebhook) comme indiqué ci-dessous. Aucune sortie n’est retournée.
+
+    ```powershell
+    Remove-AzAutomationWebhook `
+        -ResourceGroup $resourceGroup `
+        -AutomationAccountName $automationAccount `
+        -Name $psWebhook
+    ```
+
+- Avec REST, vous pouvez utiliser l’API REST [Webhook - Delete](/rest/api/automation/webhook/delete) comme indiqué ci-dessous.
+
+    ```powershell
+    Invoke-WebRequest -Method Delete -Uri $restURI -Headers $authHeader
+    ```
+
+   Une sortie de `StatusCode        : 200` signifie que la suppression a réussi.
+
+## <a name="create-runbook-and-webhook-with-arm-template"></a>Créer un runbook et un webhook avec un modèle ARM
+
+Il est également possible de créer des webhooks Automation à l’aide des modèles [Azure Resource Manager](../azure-resource-manager/templates/overview.md). Cet exemple de modèle crée un compte Automation, quatre runbooks et un webhook pour le runbook nommé.
+
+1. Créez un fichier nommé `webhook_deploy.json` et collez-y le code suivant :
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "automationAccountName": {
+                "type": "String",
+                "metadata": {
+                    "description": "Automation account name"
+                }
+            },
+            "webhookName": {
+                "type": "String",
+                "metadata": {
+                    "description": "Webhook Name"
+                }
+            },
+            "runbookName": {
+                "type": "String",
+                "metadata": {
+                    "description": "Runbook Name for which webhook will be created"
+                }
+            },
+            "WebhookExpiryTime": {
+                "type": "String",
+                "metadata": {
+                    "description": "Webhook Expiry time"
+                }
+            },
+            "_artifactsLocation": {
+                "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/",
+                "type": "String",
+                "metadata": {
+                    "description": "URI to artifacts location"
+                }
+            }
+        },
+        "resources": [
+            {
+                "type": "Microsoft.Automation/automationAccounts",
+                "apiVersion": "2020-01-13-preview",
+                "name": "[parameters('automationAccountName')]",
+                "location": "[resourceGroup().location]",
+                "properties": {
+                    "sku": {
+                        "name": "Free"
+                    }
+                },
+                "resources": [
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2018-06-30",
+                        "name": "[parameters('runbookName')]",
+                        "location": "[resourceGroup().location]",
+                        "dependsOn": [
+                            "[parameters('automationAccountName')]"
+                        ],
+                        "properties": {
+                            "runbookType": "Python2",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "Sample Runbook",
+                            "publishContentLink": {
+                                "uri": "[uri(parameters('_artifactsLocation'), 'scripts/AzureAutomationTutorialPython2.py')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    },
+                    {
+                        "type": "webhooks",
+                        "apiVersion": "2018-06-30",
+                        "name": "[parameters('webhookName')]",
+                        "dependsOn": [
+                            "[parameters('automationAccountName')]",
+                            "[parameters('runbookName')]"
+                        ],
+                        "properties": {
+                            "isEnabled": true,
+                            "expiryTime": "[parameters('WebhookExpiryTime')]",
+                            "runbook": {
+                                "name": "[parameters('runbookName')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "outputs": {
+            "webhookUri": {
+                "type": "String",
+                "value": "[reference(parameters('webhookName')).uri]"
+            }
+        }
+    }
+    ```
+
+1. L’exemple de code PowerShell suivant déploie le modèle à partir de votre machine. Fournissez une valeur appropriée pour les variables, puis exécutez le script.
+
+    ```powershell
+    $resourceGroup = "resourceGroup"
+    $templateFile = "path\webhook_deploy.json"
+    $armAutomationAccount = "automationAccount"
+    $armRunbook = "ARMrunbookName"
+    $armWebhook = "webhookName"
+    $webhookExpiryTime = "12-31-2022"
+    
+    New-AzResourceGroupDeployment `
+        -Name "testDeployment" `
+        -ResourceGroupName $resourceGroup `
+        -TemplateFile $templateFile `
+        -automationAccountName $armAutomationAccount `
+        -runbookName $armRunbook `
+        -webhookName $armWebhook `
+        -WebhookExpiryTime $webhookExpiryTime
+    ```
+
+   > [!NOTE]
+   > Pour des raisons de sécurité, l’URI n’est retourné que la première fois qu’un modèle est déployé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,15 +3,15 @@ title: Gérer un compte d'identification Azure Automation
 description: Cet article explique comment gérer votre compte d’identification Azure Automation avec PowerShell ou à partir du portail Azure.
 services: automation
 ms.subservice: ''
-ms.date: 05/17/2021
+ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2d615df07e89e1fc2d4e63066d320002718d200
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b6248ee0815d90be83030931c011bb2e8208eeaa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059677"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531402"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gérer un compte d'identification Azure Automation
 
@@ -23,7 +23,7 @@ Dans cet article, nous abordons la gestion d’un compte d’identification ou d
    * Comment renouveler un certificat auprès d’une autorité de certification d’entreprise ou tierce
    * Gérer les autorisations pour le compte d’identification
 
-Pour plus d’informations sur l’authentification des comptes Azure Automation et des conseils relatifs aux scénarios d’automatisation des processus, consultez [Vue d’ensemble de l’authentification des comptes Automation](automation-security-overview.md).
+Pour plus d’informations sur l’authentification des comptes Azure Automation, les autorisations requises pour gérer le compte d’identification et des conseils relatifs aux scénarios d’automatisation des processus, consultez [Vue d’ensemble de l’authentification des comptes Automation](automation-security-overview.md).
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renouveler un certificat auto-signé
 

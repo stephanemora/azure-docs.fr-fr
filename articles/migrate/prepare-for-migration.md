@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: d88c02f261052f0cf3e29ef210d8a8af15733d7f
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 4b7cd5c72beaf96e8ffbeb11960e27a5bd25adae
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720267"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272940"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -149,7 +149,7 @@ Le tableau suivant récapitule les étapes accomplies automatiquement pour les s
 
 Apprenez-en davantage sur les étapes nécessaires à l’[exécution d’une machine virtuelle Linux sur Azure](../virtual-machines/linux/create-upload-generic.md) et obtenez des instructions pour certaines distributions Linux très répandues.
 
-Passez en revue la liste des [packages requis](../virtual-machines/extensions/agent-linux.md#requirements) pour installer l’agent VM Linux. Azure Migrate installe automatiquement l’agent VM Linux pour RHEL6, RHEL7, CentOS7 (la version 6 doit être prise en charge de façon similaire à RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04, Ubuntu 19.04, Ubuntu 19.10, et Ubuntu 20.04 lors de l’utilisation de la méthode de migration VMware sans agent.
+Passez en revue la liste des [packages requis](../virtual-machines/extensions/agent-linux.md#requirements) pour installer l’agent VM Linux. Azure Migrate installe automatiquement l’agent de machine virtuelle Linux pour RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7 et Oracle 7 lors de l’utilisation de la méthode de migration VMware sans agent.
 
 ## <a name="check-azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 

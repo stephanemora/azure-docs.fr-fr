@@ -7,24 +7,23 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: cf352cf9ce944ef3f1bb2702fda249deb6ce186e
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 9f7f5569d5381a7d1ff4d7ebbeac535105f22c93
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407720"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563658"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Créer un contrôleur de données Azure Arc à l’aide des outils Kubernetes
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour obtenir des informations générales, consultez la rubrique [Créer le contrôleur de données Azure Arc](create-data-controller.md).
 
-Pour créer le contrôleur de données Azure Arc à l’aide des outils Kubernetes, vous devez avoir installé ceux-ci.  Les exemples de cet article utilisent `kubectl`, mais des approches similaires peuvent être utilisées avec d’autres outils Kubernetes tels que le tableau de bord Kubernetes, `oc`ou `helm` si vous êtes familiarisé avec ces outils et Kubernetes yaml/json.
+Pour créer le contrôleur de données Azure Arc à l’aide des outils Kubernetes, vous devez avoir installé ces derniers.  Les exemples de cet article utilisent `kubectl`, mais des approches similaires peuvent être utilisées avec d’autres outils Kubernetes tels que le tableau de bord Kubernetes, `oc`ou `helm` si vous êtes familiarisé avec ces outils et Kubernetes yaml/json.
 
 [Installer l’outil kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
@@ -33,27 +32,72 @@ Pour créer le contrôleur de données Azure Arc à l’aide des outils Kubernet
 
 ### <a name="cleanup-from-past-installations"></a>Nettoyage des installations précédentes
 
-Si vous avez installé un contrôleur de données Azure Arc dans le passé, sur le même cluster et que vous l’avez supprimé à l’aide de la commande `azdata arc dc delete`, il se peut que des objets de niveau cluster doivent encore être supprimés. Exécutez les commandes suivantes pour supprimer les objets de niveau cluster du contrôleur de données Azure Arc :
+Si vous avez installé le contrôleur de données Azure Arc dans le passé sur le même cluster et que vous l’avez supprimé, il se peut que des objets de niveau cluster doivent encore être supprimés. Exécutez les commandes suivantes pour supprimer les objets de niveau cluster du contrôleur de données Azure Arc :
 
 ```console
 # Cleanup azure arc data service artifacts
-kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete crd postgresqls.arcdata.microsoft.com 
+
+# Note: not all of these objects will exist in your environment depending on which version of the Arc data controller was installed
+
+# Custom resource definitions (CRD)
+kubectl delete crd datacontrollers.arcdata.microsoft.com
+kubectl delete crd postgresqls.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com
+kubectl delete crd dags.sql.arcdata.microsoft.com
+kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
+kubectl delete crd monitors.arcdata.microsoft.com
+
+# Cluster roles and role bindings
+kubectl delete clusterrole arcdataservices-extension
+kubectl delete clusterrole arc:cr-arc-metricsdc-reader
+kubectl delete clusterrole arc:cr-arc-dc-watch
+kubectl delete clusterrole cr-arc-webhook-job
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
+kubectl delete clusterrolebinding {namespace}:crb-arc-metricsdc-reader
+kubectl delete clusterrolebinding {namespace}:crb-arc-dc-watch
+kubectl delete clusterrolebinding crb-arc-webhook-job
+
+# API services
+# Up to May 2021 release
+kubectl delete apiservice v1alpha1.arcdata.microsoft.com
+kubectl delete apiservice v1alpha1.sql.arcdata.microsoft.com
+
+# June 2021 release
+kubectl delete apiservice v1beta1.arcdata.microsoft.com
+kubectl delete apiservice v1beta1.sql.arcdata.microsoft.com
+
+# GA/July 2021 release
+kubectl delete apiservice v1.arcdata.microsoft.com
+kubectl delete apiservice v1.sql.arcdata.microsoft.com
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get mutatingwebhookconfiguration'
+kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{namespace}
+
 ```
 
 ## <a name="overview"></a>Vue d’ensemble
 
 La création du contrôleur de données Azure Arc présente les étapes générales suivantes :
-1. Créez les définitions de ressource personnalisées pour le contrôleur de données Arc, l’instance gérée Azure SQL et PostgreSQL Hyperscale. **[Requiert des autorisations d’administrateur de cluster Kubernetes]**
-2. Créez un espace de noms dans lequel le contrôleur de données sera créé. **[Requiert des autorisations d’administrateur de cluster Kubernetes]**
-3. Créez le service du programme d’amorçage, y compris le jeu de réplicas, le compte de service, le rôle et la liaison de rôle.
-4. Créez un secret pour le nom d’utilisateur et le mot de passe de l’administrateur du contrôleur de données.
-5. Créez le contrôleur de données.
-   
+
+   > [!IMPORTANT]
+   > Certaines étapes ci-dessous requièrent des autorisations d’administrateur de cluster Kubernetes.
+
+1. Créez les définitions de ressource personnalisées pour le contrôleur de données Arc, l’instance gérée Azure SQL et PostgreSQL Hyperscale. 
+1. Créez un espace de noms dans lequel le contrôleur de données sera créé. 
+1. Créez le service du programme d’amorçage, y compris le jeu de réplicas, le compte de service, le rôle et la liaison de rôle.
+1. Créez un secret pour le nom d’utilisateur et le mot de passe de l’administrateur du contrôleur de données.
+1. Créez la tâche de déploiement de webhook, le rôle de cluster et la liaison de rôle de cluster. 
+1. Créez le contrôleur de données.
+
+
 ## <a name="create-the-custom-resource-definitions"></a>Créer les définitions de ressource personnalisées
 
-Exécutez la commande suivante pour créer les définitions de ressources personnalisées.  **[Requiert des autorisations d’administrateur de cluster Kubernetes]**
+Exécutez la commande suivante pour créer les définitions de ressources personnalisées.  
+
+   > [!IMPORTANT]
+   > Requiert des autorisations d’administrateur de cluster Kubernetes.
 
 ```console
 kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
@@ -66,12 +110,18 @@ Exécutez une commande semblable à la suivante pour créer un espace de noms d�
 ```console
 kubectl create namespace arc
 ```
+Si vous utilisez OpenShift, vous devrez modifier les annotations `openshift.io/sa.scc.supplemental-groups` et `openshift.io/sa.scc.uid-range` sur l’espace de noms à l’aide de `kubectl edit namespace <name of namespace>`.  Modifiez ces annotations existantes pour qu’elles correspondent à ces ID/plages fsGroup et UID _spécifiques_.
 
-Si d’autres personnes utilisant cet espace de noms ne sont pas des administrateurs de cluster, nous vous recommandons de créer un rôle d’administrateur d’espace de noms et d’accorder ce rôle à ces utilisateurs via une liaison de rôle.  L’administrateur de l’espace de noms doit avoir les autorisations complètes sur l’espace de noms.  De plus amples informations seront fournies ultérieurement sur la manière de proposer aux utilisateurs un accès plus granulaire en fonction du rôle.
+```console
+openshift.io/sa.scc.supplemental-groups: 1000700001/10000
+openshift.io/sa.scc.uid-range: 1000700001/10000
+```
+
+Si d’autres personnes utilisant cet espace de noms ne sont pas des administrateurs de cluster, nous vous recommandons de créer un rôle d’administrateur d’espace de noms et d’accorder ce rôle à ces utilisateurs via une liaison de rôle.  L’administrateur de l’espace de noms doit avoir les autorisations complètes sur l’espace de noms.  Vous trouverez des exemples de liaisons de rôles et des rôles plus précis dans le [dépôt GitHub Azure Arc](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac).
 
 ## <a name="create-the-bootstrapper-service"></a>Créer le service du programme d’amorçage
 
-Le service du programme d’amorçage gère les demandes entrantes pour la création, la modification et la suppression de ressources personnalisées telles qu’un contrôleur de données, une instance gérée SQL ou un groupe de serveurs PostgreSQL Hyperscale.
+Le service du programme d’amorçage traite les demandes entrantes pour la création, la modification et la suppression de ressources personnalisées telles qu’un contrôleur de données, des instances managées SQL ou des groupes de serveurs PostgreSQL Hyperscale.
 
 Exécutez la commande suivante pour créer un service de programme d’amorçage, un compte de service pour le service du programme d’amorçage, ainsi qu’un rôle et une liaison de rôle pour le compte de service du programme d’amorçage.
 
@@ -103,13 +153,13 @@ L’exemple ci-dessous suppose que vous avez créé un nom de secret d’extract
       - name: arc-private-registry #Create this image pull secret if you are using a private container registry
       containers:
       - name: bootstrapper
-        image: mcr.microsoft.com/arcdata/arc-bootstrapper:latest #Change this registry location if you are using a private container registry.
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.0.0_2021-07-30 #Change this registry location if you are using a private container registry.
         imagePullPolicy: Always
 ```
 
-## <a name="create-a-secret-for-the-data-controller-administrator"></a>Créer un secret pour l’administrateur du contrôleur de données
+## <a name="create-a-secret-for-the-kibanagrafana-dashboards"></a>Créer un secret pour les tableaux de bord Kibana/Grafana
 
-Le nom d’utilisateur et le mot de passe de l’administrateur du contrôleur de données permettent de s’authentifier auprès de l’API du contrôleur de données pour exécuter des fonctions d’administration.  Choisissez un mot de passe sécurisé et partagez-le uniquement avec ceux qui doivent disposer de privilèges d’administrateur de cluster.
+Le nom d’utilisateur et le mot de passe sont utilisés pour authentifier l’accès aux tableaux de bord Kibana et Grafana en tant qu’administrateur.  Choisissez un mot de passe sécurisé et partagez-le uniquement avec ceux qui doivent disposer de ces privilèges.
 
 Une clé secrète Kubernetes est stockée sous la forme d’une chaîne encodée en base64, une pour le nom d’utilisateur et l’autre pour le mot de passe.
 
@@ -145,6 +195,22 @@ kubectl create --namespace arc -f <path to your data controller secret file>
 kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.yaml
 ```
 
+## <a name="create-the-webhook-deployment-job-cluster-role-and-cluster-role-binding"></a>Créer la tâche de déploiement de webhook, le rôle de cluster et la liaison de rôle de cluster
+
+Tout d'abord, créez une copie du [fichier modèle](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/web-hook.yaml) localement sur votre ordinateur afin de pouvoir modifier certains des paramètres.
+
+Modifiez le fichier et remplacez `{{namespace}}` à tous les emplacements comportant le nom de l’espace de noms que vous avez créé à l’étape précédente. **Enregistrez le fichier .**
+
+Exécutez la commande suivante pour créer le rôle de cluster et les liaisons de rôles de cluster.  
+
+   > [!IMPORTANT]
+   > Requiert des autorisations d’administrateur de cluster Kubernetes.
+
+```console
+kubectl create -n arc -f <path to the edited template file on your computer>
+```
+
+
 ## <a name="create-the-data-controller"></a>Créer le contrôleur de données
 
 Vous êtes maintenant prêt à créer le contrôleur de données lui-même.
@@ -160,16 +226,14 @@ Modifiez les éléments suivants selon les besoins :
 
 **RECOMMANDÉ POUR LA RÉVISION ET ÉVENTUELLEMENT LA MODIFICATION DES VALEURS PAR DÉFAUT**
 - **storage..className** : classe de stockage à utiliser pour les fichiers de données et les fichiers journaux du contrôleur de données.  En cas de doute sur les classes de stockage disponibles dans votre cluster Kubernetes, vous pouvez exécuter la commande suivante : `kubectl get storageclass`.  La valeur par défaut est `default`, ce qui suppose qu'il existe une classe de stockage nommée `default` et non pas qu’une classe de stockage _est_ utilisée par défaut.  Remarque : Il existe deux paramètres className à définir pour la classe de stockage souhaitée, l’un pour les données et l’autre pour les journaux.
-- **serviceType** : Modifiez le type de service en `NodePort` si vous n’utilisez pas de programme d’équilibrage de charge.  Remarque : Deux paramètres serviceType doivent être modifiés.
-- Sur la plateforme de conteneur Azure Red Hat OpenShift ou Red Hat OpenShift, vous devez appliquer la contrainte de contexte de sécurité avant de créer le contrôleur de données. Suivez les instructions de la rubrique [Appliquer une contrainte de contexte de sécurité pour les services de données avec Azure Arc sur OpenShift](how-to-apply-security-context-constraint.md).
-- **Sécurité** Pour la plateforme de conteneurs Azure Red Hat OpenShift ou Red Hat OpenShift, remplacez les paramètres `security:` par les valeurs suivantes dans le fichier YAML du contrôleur de données. 
+- **serviceType** : Modifiez le type de service en `NodePort` si vous n’utilisez pas de programme d’équilibrage de charge.
+- **Sécurité** Pour Azure Red Hat OpenShift ou Red Hat OpenShift Container Platform, remplacez les paramètres `security:` par les valeurs suivantes dans le fichier YAML du contrôleur de données.
 
 ```yml
   security:
-    allowDumps: true
+    allowDumps: false
     allowNodeMetricsCollection: false
     allowPodMetricsCollection: false
-    allowRunAsRoot: false
 ```
 
 **FACULTATIF**
@@ -177,7 +241,7 @@ Modifiez les éléments suivants selon les besoins :
 - **displayName** : Affectez-lui la même valeur que l’attribut Name en haut du fichier.
 - **registry** : Microsoft Container Registry est le registre par défaut.  Si vous extrayez les images de Microsoft Container Registry et [les transférez vers un registre de conteneurs privé](offline-deployment.md), entrez l’adresse IP ou le nom DNS de votre registre ici.
 - **dockerRegistry** : secret d’extraction d’image à utiliser pour extraire les images à partir d’un registre de conteneurs privé, si nécessaire.
-- **repository** : `arcdata` est le registre par défaut sur Microsoft Container Registry.  Si vous utilisez un registre de conteneurs privé, entrez le chemin d’accès au dossier/référentiel contenant les images de conteneur des services de données avec Azure Arc.
+- **repository** : `arcdata` est le registre par défaut sur Microsoft Container Registry.  Si vous utilisez un registre de conteneurs privé, entrez le chemin du dossier/référentiel contenant les images de conteneur des services de données avec Azure Arc.
 - **imageTag** : l’étiquette de la dernière version actuelle est utilisée par défaut dans le modèle mais vous pouvez la modifier si vous souhaitez utiliser une version antérieure.
 
 L’exemple suivant montre un fichier YAML de contrôleur de données terminé. Mettez à jour l’exemple pour votre environnement, en fonction de vos besoins et des informations ci-dessus.
@@ -188,32 +252,29 @@ kind: ServiceAccount
 metadata:
   name: sa-mssql-controller
 ---
-apiVersion: arcdata.microsoft.com/v1alpha1
-kind: datacontroller
+apiVersion: arcdata.microsoft.com/v1
+kind: DataController
 metadata:
   generation: 1
-  name: arc
+  name: arc-dc
 spec:
   credentials:
     controllerAdmin: controller-login-secret
     dockerRegistry: arc-private-registry #Create a registry secret named 'arc-private-registry' if you are going to pull from a private registry instead of MCR.
-    serviceAccount: sa-mssql-controller
+    serviceAccount: sa-arc-controller
   docker:
     imagePullPolicy: Always
-    imageTag: latest
+    imageTag: v1.0.0_2021-07-30
     registry: mcr.microsoft.com
     repository: arcdata
+  infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]
   security:
-    allowDumps: true
-    allowNodeMetricsCollection: true
-    allowPodMetricsCollection: true
-    allowRunAsRoot: false
+    allowDumps: true #Set this to false if deploying on OpenShift
+    allowNodeMetricsCollection: true #Set this to false if deploying on OpenShift
+    allowPodMetricsCollection: true #Set this to false if deploying on OpenShift
   services:
   - name: controller
     port: 30080
-    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
-  - name: serviceProxy
-    port: 30777
     serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
   settings:
     ElasticSearch:
@@ -224,7 +285,7 @@ spec:
       resourceGroup: <your resource group>
       subscription: <your subscription GUID>
     controller:
-      displayName: arc
+      displayName: arc-dc
       enableBilling: "True"
       logs.rotation.days: "7"
       logs.rotation.size: "5000"
@@ -271,10 +332,6 @@ kubectl describe pod/<pod name> --namespace arc
 #Example:
 #kubectl describe pod/control-2g7bl --namespace arc
 ```
-
-L’extension Azure Arc pour Azure Data Studio fournit un notebook pour vous guider au fil de l’installation de Kubernetes activé par Azure Arc et de sa configuration pour surveiller un dépôt git contenant un exemple de fichier yaml de SQL Managed Instance. Lorsque tout est connecté, un nouveau service Managed Instance SQL est déployé sur votre cluster Kubernetes.
-
-Reportez-vous au notebook **Déployer un service SQL Managed Instance à l’aide de Kubernetes activé par Azure Arc et de Flux** dans l’extension Azure Arc pour Azure Data Studio.
 
 ## <a name="troubleshooting-creation-problems"></a>Résolution des problèmes de création
 

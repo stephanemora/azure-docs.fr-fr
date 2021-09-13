@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/08/2021
 ms.author: robinsh
-ms.openlocfilehash: abbef6e0e244f7cfc937f738c7c2d0acd89549dd
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: ccbf43eaf10b68f5d23cae5895324dd095932b5e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205197"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830062"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestion automatique des Modules et des appareils IoT avec Azure CLI
 
@@ -50,7 +50,7 @@ Les configurations de Module automatiques nécessitent l’utilisation de jumeau
 
 ## <a name="use-tags-to-target-twins"></a>Utiliser des balises pour cibler des jumeaux
 
-Avant de pouvoir créer une configuration, vous devez spécifier les appareils ou les Modules concernés. Azure IoT Hub identifie des appareils et utilise des balises dans le jumeau de Module et identifie les Modules à l’aide de balises dans le jumeau de Module. Chaque appareil ou Module peut avoir plusieurs balises, et vous pouvez les définir comme bon vous semble pour votre solution. Par exemple, si vous gérez des appareils à différents emplacements, ajoutez les étiquettes suivantes à un jumeau d’appareil :
+Avant de pouvoir créer une configuration, vous devez spécifier les appareils ou les Modules concernés. Azure IoT Hub identifie des appareils et utilise des balises dans le jumeau de Module et identifie les Modules à l’aide de balises dans le jumeau de Module. Chaque appareil ou module peut avoir plusieurs balises, et vous pouvez les définir de la manière qui correspond le mieux à votre solution. Par exemple, si vous gérez des appareils à différents emplacements, ajoutez les étiquettes suivantes à un jumeau d’appareil :
 
 ```json
 "tags": {
@@ -63,7 +63,7 @@ Avant de pouvoir créer une configuration, vous devez spécifier les appareils o
 
 ## <a name="define-the-target-content-and-metrics"></a>Définir le contenu cible et les métriques
 
-Le contenu cible et les requêtes de métriques sont spécifiés sous forme de documents JSON qui décrivent les propriétés souhaitées du jumeau d’appareil ou de Module à définir et les propriétés indiquées à mesurer.  Pour créer une configuration automatique avec Azure CLI, enregistrez le contenu cible et les métriques localement dans des fichiers .txt. Vous utiliserez les chemins des fichiers dans une section ultérieure, au moment d’exécuter la commande pour appliquer la configuration à votre appareil.
+Le contenu cible et les requêtes de métriques sont spécifiés sous forme de documents JSON qui décrivent les propriétés souhaitées du jumeau d’appareil ou de Module à définir et les propriétés indiquées à mesurer. Pour créer une configuration automatique avec Azure CLI, enregistrez le contenu cible et les métriques localement dans des fichiers .txt. Vous utiliserez les chemins des fichiers dans une section ultérieure, au moment d’exécuter la commande pour appliquer la configuration à votre appareil.
 
 Voici un exemple de contenu cible de base pour une configuration d’appareil automatique :
 

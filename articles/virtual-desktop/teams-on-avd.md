@@ -3,15 +3,15 @@ title: Microsoft Teams sur Azure Virtual Desktop - Azure
 description: Comment utiliser Microsoft Teams sur Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 08/02/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 05d1188e00235001ba4d8fd173d4f03a28dadf90
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 63c75636fcab47a31735b772f85a8dccbb9c65f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758107"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524271"
 ---
 # <a name="use-microsoft-teams-on-azure-virtual-desktop"></a>Utiliser Microsoft Teams sur Azure Virtual Desktop
 
@@ -30,7 +30,7 @@ Avec l’optimisation des médias pour Microsoft Teams, le client Windows Deskto
 Avant d’utiliser Microsoft Teams sur Azure Virtual Desktop, vous devez effectuer les opérations suivantes :
 
 - [Préparez votre réseau](/microsoftteams/prepare-network/) pour Microsoft Teams.
-- Installez le [client Windows Desktop](connect-windows-7-10.md) sur un appareil Windows 10 ou Windows 10 IoT Entreprise présentant la [configuration matérielle requise pour Microsoft Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Installez le [client Windows Desktop](./user-documentation/connect-windows-7-10.md) sur un appareil Windows 10 ou Windows 10 IoT Entreprise présentant la [configuration matérielle requise pour Microsoft Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connectez-vous à une machine virtuelle Windows 10 multisession ou Windows 10 Entreprise.
 
 ## <a name="install-the-teams-desktop-app"></a>Installer l’application de bureau Teams
@@ -51,7 +51,7 @@ Pour activer l’optimisation des médias pour Teams, définissez la clé de Reg
 
 ### <a name="install-the-teams-websocket-service"></a>Installer le service WebSocket de Teams
 
-Installez le [service redirecteur WebRTC Bureau à distance](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) le plus récent sur votre image de machine virtuelle. Si vous rencontrez une erreur d’installation, installez [la dernière version de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), puis réessayez.
+Installez le [service redirecteur WebRTC Bureau à distance](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWFYsj) le plus récent sur votre image de machine virtuelle. Si vous rencontrez une erreur d’installation, installez [la dernière version de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), puis réessayez.
 
 #### <a name="latest-websocket-service-versions"></a>Dernières versions du service WebSocket
 
@@ -59,8 +59,13 @@ Le tableau suivant présente les dernières versions du service WebSocket :
 
 |Version        |Date de publication  |
 |---------------|--------------|
+|1.0.2106.14001 |29/07/2021    |
 |1.0.2006.11001 |28/07/2020    |
 |0.11.0         |29/05/2020    |
+
+#### <a name="updates-for-version-10210614001"></a>Mises à jour pour la version 1.0.2106.14001
+
+Amélioration de la fiabilité de la connexion entre le service redirecteur WebRTC et le plug-in client WebRTC.
 
 #### <a name="updates-for-version-10200611001"></a>Mises à jour pour la version 1.0.2006.11001
 

@@ -2,19 +2,22 @@
 title: Métriques de disque
 description: Exemples de métriques de bursting de disque
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 461d8c7ae29c56a80b8863b2900c051158add918
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674973"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689377"
 ---
 # <a name="disk-performance-metrics"></a>Mesures de performances de disque
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Azure propose des métriques dans le portail Azure qui fournissent des informations sur la façon dont vos machines virtuelles et vos disques fonctionnent. Vous pouvez également récupérer les métriques via un appel d’API. Cet article est divisé en 3 sous-sections :
 
 - **Métriques de profondeur de file d’attente, de débit et d’E/S de disque** : ces métriques vous permettent de voir les performances de stockage sous l’angle d’un disque et d’une machine virtuelle.
@@ -58,7 +61,9 @@ Les métriques suivantes permettent l’observabilité de notre fonctionnalité 
 - **Pourcentage de crédits d’E/S en rafale utilisés par le disque de système d’exploitation** : pourcentage cumulé de la rafale IOPS utilisée pour le disque de système d’exploitation. Émis selon un intervalle de 5 minutes.
 
 ## <a name="storage-io-utilization-metrics"></a>Métriques d’utilisation des E/S de stockage
-Les métriques suivantes aident à diagnostiquer les goulots d’étranglement dans votre combinaison Machine virtuelle et Disque. Ces métriques sont uniquement disponibles dans le cadre de l’utilisation d’une machine virtuelle Premium. Ces métriques sont disponibles pour tous les types de disques, sauf le type Ultra. 
+Les métriques suivantes aident à diagnostiquer les goulots d’étranglement dans votre combinaison Machine virtuelle et Disque. Ces métriques sont disponibles uniquement avec la configuration suivante :
+- Disponible uniquement pour les séries de machines virtuelles qui prennent en charge le stockage Premium.
+- Non disponible pour les disques Ultra. Tous les autres types de disque sur ces séries de machines virtuelles peuvent utiliser ces métriques.
 
 Mesures permettant de diagnostiquer les limitations des E/S disque :
 

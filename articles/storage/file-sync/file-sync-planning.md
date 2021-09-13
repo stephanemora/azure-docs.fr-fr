@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: ffff2c1831aab09a1c622ced98cfe180fe0ec5d7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 741f20a19c4bfe842ed2c14cee51c1ae19c1d9da
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679198"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258475"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -181,6 +181,33 @@ Le tableau suivant présente l'état d'interopérabilité des fonctionnalités d
 | $RECYCLE.BIN| Dossier |
 | \\SyncShareState | Dossier de synchronisation |
 
+### <a name="consider-how-much-free-space-you-need-on-your-local-disk"></a>Déterminez la quantité d’espace libre dont vous avez besoin sur votre disque local
+Lorsque vous planifiez l’utilisation d’Azure File Sync, prenez en compte l’espace libre dont vous avez besoin sur le disque local sur lequel vous envisagez de disposer d’un point de terminaison de serveur.
+
+Avec Azure File Sync, vous devez prendre en compte les éléments suivants qui occupent de l’espace sur votre disque local :
+- Avec la hiérarchisation Cloud activée :
+    - Points d’analyse pour les fichiers hiérarchisés
+    - Base de données de métadonnées Azure File Sync
+    - Heatstore Azure File Sync
+    - Fichiers entièrement téléchargés dans votre cache à chaud (le cas échéant)
+    - Exigences en matière de stratégie d’espace libre du volume
+
+- Avec la hiérarchisation Cloud désactivée :  
+    - Fichiers entièrement téléchargés
+    - Heatstore Azure File Sync
+    - Base de données de métadonnées Azure File Sync
+
+Nous allons utiliser un exemple pour illustrer comment estimer la quantité d’espace libre nécessaire sur votre disque local. Supposons que vous avez installé votre agent Azure File Sync sur votre machine virtuelle Azure Windows et que vous envisagez de créer un point de terminaison de serveur sur le disque F. Vous disposez d’un million de fichiers que vous souhaitez intégralement hiérarchiser, 100 000 répertoires et une taille de cluster de disque de 4 Kio. La taille du disque est de 1 000 Gio. Vous souhaitez activer la hiérarchisation Cloud et définir votre stratégie d’espace libre de volume à 20 %. 
+
+1. NTFS alloue une taille de cluster pour chacun des fichiers hiérarchisés. 1 million de fichiers * taille de cluster 4 Kio = 4 000 000 Kio (4 Gio)
+> [!Note]  
+> L’espace occupé par les fichiers hiérarchisés est alloué par NTFS. Par conséquent, il n’apparaîtra dans aucune interface utilisateur.
+3. Les métadonnées de synchronisation occupent une taille de cluster par élément. (1 million de fichiers + 100 000 répertoires) * taille de cluster 4 Kio = 4 400 000 Kio (4,4 Gio)
+4. L’accumulateur de chaleur Azure File Sync occupe 1,1 Kio par fichier. 1 million de fichiers * 1,1 Kio = 1 100 000 Kio (1,1 Gio)
+5. La stratégie d’espace libre du volume est de 20 %. 1 000 Gio * 0,2 = 200 Gio
+
+Dans ce cas, Azure File Sync aura besoin d’environ 209,5 millions de Kio (209,5 Gio) d’espace pour cet espace de noms. Ajoutez cette valeur à tout espace libre supplémentaire souhaité pour déterminer la quantité d’espace libre nécessaire pour ce disque.
+
 ### <a name="failover-clustering"></a>Clustering de basculement
 Le clustering de basculement Windows Server est pris en charge par Azure File Sync pour l’option de déploiement « Serveur de fichiers pour une utilisation générale ». Le clustering de basculement n’est pas pris en charge sur le « serveur de fichiers avec montée en puissance parallèle pour les données d’application » (SOFS) ou sur les volumes partagés de cluster (CSV).
 
@@ -310,11 +337,6 @@ Pour plus d’informations sur le chiffrement en transit, voir [ Exiger un trans
 
 ## <a name="storage-tiers"></a>Niveaux de stockage
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Activer les partages de fichiers Standard pour couvrir jusqu'à 100 Tio
-
-Par défaut, les partages de fichiers standard peuvent couvrir jusqu’à 5 Tio seulement. Cependant, vous pouvez augmenter la limite de partage jusqu’à 100 Tio. Pour découvrir comment augmenter la limite de votre partage, consultez [Activer et créer des partages de grands fichiers](../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
-
 
 #### <a name="regional-availability"></a>Disponibilité régionale
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
