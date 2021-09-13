@@ -4,12 +4,12 @@ description: Cet article explique comment résoudre les problèmes de déploieme
 services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8112b7637fc2737a80ab9235b962b2adef6d1b19
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651117"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607794"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Résoudre les problèmes de déploiement de fonctionnalités
 
@@ -105,20 +105,20 @@ Vous pouvez supprimer la requête pour cette fonctionnalité, puis réactiver la
 
 #### <a name="issue"></a>Problème
 
-Ce code d’erreur indique que le déploiement a échoué en raison d’une violation d’une ou de plusieurs stratégies.
+Ce code d’erreur indique que le déploiement a échoué en raison d’une violation d’une ou de plusieurs affectations d’Azure Policy.
 
 #### <a name="cause"></a>Cause 
 
-Une stratégie empêche l’opération de se terminer.
+Une affectation d’Azure Policy empêche l’opération de se terminer.
 
 #### <a name="resolution"></a>Résolution
 
-Pour déployer correctement la fonctionnalité, vous devez modifier la stratégie indiquée. Étant donné qu’il existe plusieurs types de stratégies peuvent être définis, les modifications requises dépendent de la stratégie enfreinte. Par exemple, si une stratégie est définie sur un groupe de ressources qui refuse l’autorisation de modifier le contenu de certaines ressources contenues, vous pouvez choisir l’un de ces correctifs :
+Pour déployer correctement la fonctionnalité, vous devez envisager de modifier la définition de la stratégie indiquée. Étant donné qu’il existe plusieurs types de définitions de stratégie pouvant être définis, les modifications requises dépendent de la définition de stratégie enfreinte. Par exemple, si une définition de stratégie est affectée à un groupe de ressources qui refuse l’autorisation de modifier le contenu de certaines ressources contenues, vous pouvez choisir l’un de ces correctifs :
 
-* Retirer la stratégie.
+* Supprimez l’affectation de stratégie tout entière.
 * Essayez d’activer la fonctionnalité pour un autre groupe de ressources.
-* Ciblez de nouveau la stratégie sur une ressource spécifique, par exemple un compte Automation.
-* Révisez l’ensemble de ressources pour le refus desquelles cette stratégie a été configurée.
+* Ciblez de nouveau l’affectation de stratégie sur une ressource spécifique, par exemple un compte Automation.
+* Révisez l’ensemble de ressources que la définition de stratégie doit refuser.
 
 Consultez les notifications dans l’angle supérieur droit du portail Azure, ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement en échec. Pour en savoir plus sur Azure Policy, consultez [Présentation d’Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 

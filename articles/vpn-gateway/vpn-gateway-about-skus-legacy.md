@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f1325141ecd9220e3564c402c5fa75fa690fe29
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: bb48d72c892723e7b6c3ca2009ea874f788bb5ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110661964"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531700"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)
 
@@ -39,7 +39,7 @@ Vous pouvez redimensionner votre passerelle selon une référence SKU de passere
 
 ### <a name="resource-manager"></a>Gestionnaire de ressources
 
-Pour redimensionner une passerelle pour le modèle de déploiement du Gestionnaire des ressources à l’aide de PowerShell, utilisez la commande suivante :
+Si vous souhaitez redimensionner une passerelle pour le [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md) à l’aide de PowerShell, utilisez la commande suivante :
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg

@@ -24,6 +24,6 @@
     - name: Pilote Docker Azure
       href: 'https://docs.docker.com/machine/drivers/azure/'
     - name: Site Docker Azure
-      href: 'https://www.docker.com/docker-azure'
+      href: 'https://docs.docker.com/cloud/aci-integration/'
     - name: Site Docker
       href: 'https://docker.com'

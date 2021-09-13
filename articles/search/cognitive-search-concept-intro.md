@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: ab899a58bab3c4e37b6aa66669f0e060fb7e7e28
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 73a1ae771ba3e3e5876b2efd3914b9e38ab0e426
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562753"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222352"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -75,7 +75,7 @@ Les compétences personnalisées peuvent prendre en charge des scénarios plus c
 
 ## <a name="enrichment-steps"></a>Étapes d’enrichissement <a name="enrichment-steps"></a>
 
-Un pipeline d’enrichissement se compose d’[*indexeurs*](search-indexer-overview.md) dotés d’[*ensembles de compétences*](cognitive-search-working-with-skillsets.md). Un ensemble de compétences définit les étapes d’enrichissement, et l’indexeur pilote l’ensemble de compétences. Lorsque vous configurez un indexeur, vous pouvez inclure des propriétés telles que les mappages de champs de sortie qui envoient le contenu enrichi à un [index de recherche](search-what-is-an-index.md) ou à une [base de connaissances](knowledge-store-concept-intro.md).
+Un pipeline d’enrichissement se compose d’[*indexeurs*](search-indexer-overview.md) dotés d’[*ensembles de compétences*](cognitive-search-working-with-skillsets.md). Un ensemble de compétences définit les étapes d’enrichissement, et l’indexeur pilote l’ensemble de compétences. Lorsque vous configurez un indexeur, vous pouvez inclure des propriétés telles que les mappages de champs de sortie qui envoient le contenu enrichi à un [index de recherche](search-what-is-an-index.md) ou des projections qui définissent des structures de données dans une [base de connaissances](knowledge-store-concept-intro.md).
 
 Après l’indexation, vous pouvez accéder au contenu via des requêtes de recherche ainsi qu’à l’aide de tous les [types de requête pris en charge par Recherche cognitive Azure](search-query-overview.md).
 
@@ -143,5 +143,7 @@ Pour itérer sur les étapes ci-dessus, [réinitialisez l’indexeur](search-how
 
 + [Démarrage rapide : Procédure pas à pas d’enrichissement par IA à partir du portail](cognitive-search-quickstart-blob.md)
 + [Tutoriel : En savoir plus sur les API REST d’enrichissement par IA](cognitive-search-tutorial-blob.md)
-+ [Base de connaissances](knowledge-store-concept-intro.md)
-+ [Créer une base de connaissances avec REST](knowledge-store-create-rest.md)
++ [Concepts des ensembles de compétences](cognitive-search-working-with-skillsets.md)
++ [Concepts de base de connaissances](knowledge-store-concept-intro.md)
++ [Créer un ensemble de compétences](cognitive-search-defining-skillset.md)
++ [Créer une base de connaissances](knowledge-store-create-rest.md)

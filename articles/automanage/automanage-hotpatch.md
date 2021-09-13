@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f7af8ebc054b49df03a7f03c512db08a5098f2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5de4c52015a8282591edeee6de9fd27aae042324
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524033"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770661"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Patch à chaud pour les nouvelles machines virtuelles (préversion)
 
@@ -24,7 +24,7 @@ ms.locfileid: "122524033"
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Les fonctionnalités de Patch à chaud se trouvent dans l’une de ces images de l’_Edition du serveur Windows Azure_  : centre de données du serveur Windows 2019 : édition azure (core), centre de données du serveur Windows 2022 : édition azure (core)
+> Hotpatch peut être évalué sur _Windows Server 2022 Datacenter : Azure Edition (Core) Preview_.  Hotpatch sur _Windows Server 2019 Datacenter : Azure Edition Preview_ n’est plus disponible pour évaluation.
 
 La Mise à jour corrective à chaud est une nouvelle façon d’installer les mises à jour sur les nouvelles machines virtuelles de l’_Edition du serveur Windows Azure_ ne nécessitant pas de redémarrage après l’installation. Cet article contient des informations relatives à Hotpatch pour les machines virtuelles de l’_Edition du serveur Windows Azure_ présentant les avantages suivants :
 * Impact plus faible sur la charge de travail avec moins de redémarrages
@@ -218,7 +218,7 @@ Il existe des points importants à prendre en compte pour l’exécution d’une
 
 ### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>Puis-je effectuer une mise à niveau à partir de mon OS Windows Server existant ?
 
-* La mise à niveau à partir de versions existantes du Serveur Windows (à savoir, les éditions non Azure du Serveur Windows 2016 ou 2019) vers _le centre de données du Serveur Windows 2022 : Edition Azure_  est prise en charge. La mise à niveau vers le _Centre de données du Serveur Windows 2019 : Edition Azure_ n’est pas prise en charge.
+* Oui, la mise à niveau à partir de versions existantes du Serveur Windows (à savoir, Windows Server 2016 ou 2019) vers le _Centre de données Windows Server 2022 : Azure Edition_  est prise en charge. 
 
 ### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>Puis-je utiliser Hotpatch pour les charges de travail de production durant la préversion ?
 

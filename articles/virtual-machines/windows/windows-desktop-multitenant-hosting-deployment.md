@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 9a2b93a951b9aa2056ee547d8d74c90eb7d96f71
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 08193cc933bfd7c1d183df119b1602270ecf6f74
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983831"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688504"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Guide pratique pour déployer Windows 10 sur Azure avec des droits d’hébergement multilocataire 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
+
 Pour les clients avec Windows 10 Entreprise E3/E5 par utilisateur ou Windows Virtual Desktop Access par utilisateur (licences d’abonnement utilisateur ou licences d’abonnement utilisateur de composant additionnel), les droits d’hébergement multilocataire pour Windows 10 permettent de placer les licences Windows 10 sur le cloud et d’exécuter des machines virtuelles Windows 10 sur Azure sans acheter de licence supplémentaire. Les droits d’hébergement multilocataire sont disponibles uniquement pour Windows 10 (version 1703 ou ultérieure).
 
 Pour plus d’informations, consultez [Hébergement multilocataire pour Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -30,7 +32,7 @@ Pour plus d’informations, consultez [Hébergement multilocataire pour Windows�
 À l’aide du [centre d’administration Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center), vous pouvez vérifier si une licence Windows 10 prise en charge a été attribuée à un utilisateur.
 
 > [!IMPORTANT]
-> Les utilisateurs doivent disposer de l’une des licences d’abonnement ci-dessous pour pouvoir utiliser des images Windows 10 dans Azure. Si vous n’avez pas l’une de ces licences d’abonnement, vous pouvez les acheter via votre [partenaire de service cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) ou directement par l’intermédiaire de [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+> Les utilisateurs **doivent** disposer de l’une des licences d’abonnement ci-dessous pour pouvoir utiliser des images Windows 10 dans Azure pour n’importe quelle charge de travail de production. Si vous n’avez pas l’une de ces licences d’abonnement, vous pouvez les acheter via votre [partenaire de service cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) ou directement par l’intermédiaire de [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
 
 **Licences d’abonnement éligibles :**
 

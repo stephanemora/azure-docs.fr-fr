@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 571f273d54989b0ea2f014294cd570c26b5e6931
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3efac96949d701bbc0147abf8712d4995f781d47
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562891"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771843"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Superviser des instances App Service à l’aide du contrôle d’intégrité
 
@@ -99,6 +99,10 @@ Imaginez que vous avez deux applications (ou une application avec un emplacement
 ### <a name="what-if-all-my-instances-are-unhealthy"></a>Que se passe-t-il si aucune de mes instances n’est intègre ?
 
 Dans le cas où toutes les instances de votre application sont défectueuses, App Service supprime les instances de l’équilibreur de charge jusqu’au pourcentage spécifié dans `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. Dans ce scénario, l’exécution de toutes les instances d’application défectueuses à partir de la rotation de l’équilibreur de charge entraînerait une panne de votre application.
+
+### <a name="does-health-check-work-on-app-service-environments"></a>Le contrôle d’intégrité fonctionne-t-il sur les environnements App Service ?
+
+Oui, dans les environnements App Service (ASE), la plateforme effectue un test Ping sur vos instances sur le chemin d’accès spécifié et supprime les instances défectueuses de l’équilibreur de charge, de sorte que les requêtes ne sont pas acheminées vers elles. Toutefois, ces instances non saines ne seront pas remplacées par de nouvelles instances si elles ne restent non saines pendant 1 heure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)

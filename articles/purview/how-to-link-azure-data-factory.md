@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: 0a5ab1b8e79c3cfacb2944369b5f9234355ba4c8
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.date: 08/25/2021
+ms.openlocfilehash: 31ac845591387ec0c7061945e3324cd5249d7b23
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534764"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037795"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -20,7 +20,7 @@ Ce document explique les étapes nécessaires pour connecter un compte Azure Dat
 
 ## <a name="view-existing-data-factory-connections"></a>Afficher les connexions Data Factory existantes
 
-Plusieurs fabriques de données Azure peuvent se connecter à un même Data Catalog Azure Purview pour envoyer des informations de traçabilité. La limite actuelle vous permet de connecter dix comptes Data Factory à la fois à partir du centre d’administration Purview. Pour afficher la liste des comptes Data Factory connectés à votre Data Catalog Purview, effectuez les étapes suivantes :
+Plusieurs fabriques de données Azure peuvent se connecter à un même catalogue Azure Purview pour envoyer des informations de traçabilité. La limite actuelle vous permet de connecter dix comptes Data Factory à la fois à partir du centre d’administration Purview. Pour afficher la liste des comptes Data Factory connectés à votre compte Purview, effectuez les étapes suivantes :
 
 1. Sélectionnez **Gestion** dans le volet de navigation gauche.
 2. Sous **Connexions de traçabilité**, sélectionnez **Data Factory**.
@@ -30,26 +30,25 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
 
 4. Notez les différentes valeurs de l’**État** de connexion :
 
-    - **Connecté** : la fabrique de données est connectée au catalogue de données.
+    - **Connecté** : la fabrique de données est connectée au compte Purview.
     - **Déconnecté** : la fabrique de données a accès au catalogue, mais elle est connectée à un autre catalogue. En conséquence, la traçabilité des données ne sera pas automatiquement signalée au catalogue.
     - **Accès impossible** : l’utilisateur actuel n’a pas accès à la fabrique de données ; l’état de la connexion est donc inconnu.
- >[!Note]
- >Pour afficher les connexions Data Factory, vous devez détenir l’un des rôles Purview. L’héritage des rôles à partir du groupe d’administration n’est **pas pris en charge** :
- >- Contributeur
- >- Propriétaire
- >- Lecteur
- >- Administrateur de l’accès utilisateur
+
+>[!Note]
+>Pour afficher les connexions Data Factory, vous devez avoir l’un des rôles suivants. L’héritage des rôles à partir du groupe d’administration n’est pas pris en charge.
+>- Pour un compte Purview créé **le 18 août 2021 ou après** : rôles d’**administrateurs de collection** sur la collection racine.
+>- Pour un compte Purview créé **avant le 18 août 2021** : rôles de **Propriétaire** intégré à Azure, de **Contributeur**, de **Lecteur** ou d’**Administrateur de l’accès utilisateur**.
 
 ## <a name="create-new-data-factory-connection"></a>Créer une connexion Data Factory
 
 >[!Note]
->Pour ajouter ou supprimer les connexions Data Factory, vous devez détenir l’un des rôles Purview. L’héritage des rôles à partir du groupe d’administration n’est **pas pris en charge** :
->- Propriétaire
->- Administrateur de l'accès utilisateur
+>Pour ajouter ou supprimer des connexions Data Factory, vous devez avoir l’un des rôles suivants. L’héritage des rôles à partir du groupe d’administration n’est pas pris en charge.
+>- Pour un compte Purview créé **le 18 août 2021 ou après** : rôles d’**administrateurs de collection** sur la collection racine.
+>- Pour un compte Purview créé **avant le 18 août 2021** : rôles de **Propriétaire** ou d’**Administrateur de l’accès utilisateur**. 
 >
 > De plus, les utilisateurs doivent être le « contributeur » ou le « propriétaire » de la fabrique de données. 
 
-Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à votre Catalogue de données Purview.
+Procédez comme suit pour connecter une fabrique de données existante à votre compte Purview. Vous pouvez également [connecter Data Factory au compte Purview depuis ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
 1. Sélectionnez **Gestion** dans le volet de navigation gauche.
 2. Sous **Connexions de traçabilité**, sélectionnez **Data Factory**.
@@ -68,18 +67,16 @@ Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à 
 >[!Note]
 >Nous prenons désormais en charge l’ajout de 10 fabriques de données maximum à la fois. Si vous souhaitez ajouter plus de 10 fabriques de données à la fois, veuillez créer un ticket de support.
 
-### <a name="how-does-the-authentication-work"></a>Comment fonctionne l’authentification ?
+### <a name="how-authentication-works"></a>Fonctionnement de l’authentification
 
-Lorsqu’un utilisateur Purview inscrit une fabrique de données auquel il a accès, les événements suivants se produisent dans le serveur principal :
+L’identité managée de la fabrique de données est utilisée pour authentifier les opérations push de traçabilité de la fabrique de données vers Purview. Lors de la connexion d’une fabrique de données à Purview sur l’interface utilisateur, l’attribution de rôle est automatiquement ajoutée. 
 
-1. **L’identité managée Data Factory** est ajoutée au rôle RBAC Purview **Curateur de données Purview**.
+- Pour un compte Purview créé **le 18 août 2021 ou après**, accordez le rôle **Curateur de données** à l’identité managée de la fabrique de données sur votre **collection racine** Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview](../purview/catalog-permissions.md) et comment [Ajouter des rôles et restreindre l’accès par le biais de regroupements](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Capture d’écran montrant Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
-     
-2. Le pipeline de Data Factory doit être exécuté de nouveau afin que les métadonnées de traçabilité puissent être renvoyées vers Purview.
-3. Après exécution, les métadonnées Data Factory sont envoyées vers Purview.
+- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de la fabrique de données le rôle Azure [**Curateur de données Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../purview/catalog-permissions.md#legacy-permission-guide).
 
 ### <a name="remove-data-factory-connections"></a>Supprimer des connexions Data Factory
+
 Pour supprimer une connexion Data Factory, effectuez les étapes suivantes :
 
 1. Dans la page **Connexion Data Factory**, sélectionnez le bouton **Supprimer** en regard d’une ou plusieurs connexions Data Factory.
@@ -101,22 +98,6 @@ Azure Purview capture la traçabilité du runtime à partir des activités Azure
 L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-ensemble des systèmes de données pris en charge par Data Factory, comme décrit dans les sections suivantes.
 
 [!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
-
-### <a name="data-flow-support"></a>Prise en charge de flux de données
-
-| Banque de données | Prise en charge |
-| ------------------- | ------------------- | 
-| Stockage Blob Azure | Oui |
-| Azure Cosmos DB\* (API SQL) | Oui | 
-| Azure Data Lake Storage Gen1 | Oui |
-| Azure Data Lake Storage Gen2 | Oui |
-| Azure Database pour MySQL\* | Oui | 
-| Azure Database pour PostgreSQL \* | Oui |
-| Azure SQL Database \* | Oui |
-| Azure SQL Managed Instance\* | Oui | 
-| Azure Synapse Analytics\* | Oui |
-
-*\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
 
 ### <a name="execute-ssis-package-support"></a>Exécuter la prise en charge du Package SSIS
 

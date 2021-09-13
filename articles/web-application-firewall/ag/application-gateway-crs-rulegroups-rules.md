@@ -5,15 +5,15 @@ description: Cette page fournit des informations sur les règles et groupes CRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2021
+ms.date: 07/06/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 4a5f1dba6e0e1411a4268b07f6d66788f3aa8c0f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9aa4277c3d13419a4083193c07d807decea21c59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772716"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562367"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
@@ -427,6 +427,12 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |920340|Requête contenant du contenu mais dont l’en-tête Content-Type est manquant|
 |920341|Requête dont le contenu nécessite l’en-tête Content-Type|
 |920350|L’en-tête d’hôte est une adresse IP numérique|
+|920360|Nom d’argument trop long|
+|920370|Valeur d’argument trop longue|
+|920380|Trop d’arguments dans la requête|
+|920390|Taille totale d’arguments dépassée|
+|920400|Taille du fichier chargé trop volumineuse|
+|920410|Taille totale des fichiers chargés trop volumineuse|
 |920420|Type de contenu de requête non autorisé par la stratégie|
 |920430|Version du protocole HTTP non autorisée par la stratégie|
 |920440|Extension de fichier URL limitée par la stratégie|

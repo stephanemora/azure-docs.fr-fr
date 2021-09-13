@@ -7,74 +7,49 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 1d4faaaf6b1a459e8af679a43502d816d9c98fbd
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: bbf9ab64e1214a5b7676a8e5f506ba627a362198
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495881"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562965"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Créer une instance gérée Azure SQL sur Azure Arc
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## <a name="login-to-the-azure-arc-data-controller"></a>Se connecter au contrôleur de données Azure Arc
-
-Avant de pouvoir créer une instance, connectez-vous au contrôleur de données Azure Arc si vous ne l’avez pas encore fait.
-
-```console
-azdata login
-```
-
-Vous serez ensuite invité à entrer le nom d’utilisateur, le mot de passe et l’espace de noms système.  
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
 
 ## <a name="create-an-azure-sql-managed-instance"></a>Créer une instance gérée SQL Azure
 
-Pour afficher les options de création disponibles pour SQL Managed Instance, utilisez la commande suivante :
-```console
-azdata arc sql mi create --help
+Pour afficher les options disponibles de la commande create pour SQL Managed Instance, utilisez la commande suivante :
+```azurecli
+az sql mi-arc create --help
 ```
 
 Pour créer une instance SQL Managed Instance, utilisez la commande suivante :
 
-```console
-azdata arc sql mi create -n <instanceName> --storage-class-data <storage class> --storage-class-logs <storage class>
+```azurecli
+az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s
 ```
 
 Exemple :
 
-```console
-azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --storage-class-logs managed-premium
+```azurecli
+az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s
 ```
 > [!NOTE]
 >  La longueur des noms doit être inférieure à 13 caractères et conforme aux [conventions d’affectation des noms DNS](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
 >
->  Lorsque vous spécifiez l’allocation de mémoire et l’allocation vCore, utilisez cette formule pour vous assurer de la réussite de votre création. Pour chaque vCore, vous devez disposer d’au moins 4 Go de RAM de la capacité disponible sur le nœud Kubernetes où le pod d’instance gérée SQL s’exécutera.
+>  Lorsque vous spécifiez l’allocation de mémoire et l’allocation vCore, utilisez cette formule pour garantir des performances acceptables : pour chaque vCore, vous devez disposer d’au moins 4 Go de RAM de capacité disponibles sur le nœud Kubernetes où le pod d’instance gérée SQL s’exécutera.
 >
->  Lors de la création d’une instance SQL, le nom ne doit pas comporter de majuscules si vous procédez à l’approvisionnement dans Azure
->
->  Pour répertorier les classes de stockage disponibles dans votre cluster Kubernetes, exécutez `kubectl get storageclass` 
-
-
-> [!NOTE]
-> Si vous souhaitez automatiser la création d’instances SQL et éviter l’invite interactive pour le mot de passe d’administrateur, vous pouvez définir les variables d’environnement `AZDATA_USERNAME` et `AZDATA_PASSWORD` sur le nom d’utilisateur et le mot de passe souhaités avant d’exécuter la commande `azdata arc sql mi create`.
+>  Si vous souhaitez automatiser la création d’instances SQL et éviter l’invite interactive pour le mot de passe d’administrateur, vous pouvez définir les variables d’environnement `AZDATA_USERNAME` et `AZDATA_PASSWORD` sur le nom d’utilisateur et le mot de passe souhaités avant d’exécuter la commande `az sql mi-arc create`.
 > 
 >  Si vous avez créé le contrôleur de données à l’aide d’AZDATA_USERNAME et d’AZDATA_PASSWORD dans la même session de terminal, les valeurs d’AZDATA_USERNAME et d’AZDATA_PASSWORD seront également utilisées pour créer l’instance gérée SQL.
 
 > [!NOTE]
-> La création de Azure SQL Managed Instance n’inscrira pas les ressources dans Azure. Les étapes d’inscription de la ressource sont décrites dans les articles suivants : 
-> - [Afficher les journaux et les métriques à l’aide de Kibana et Grafana](monitor-grafana-kibana.md)
+> Si vous utilisez le mode de connectivité indirect, la création d’une instance Azure SQL Managed Instance dans Kubernetes n’inscrit pas automatiquement les ressources dans Azure. Les étapes d’inscription de la ressource sont décrites dans les articles suivants : 
 > - [Charger des données de facturation dans Azure et les afficher dans le portail Azure](view-billing-data-in-azure.md) 
 
 
@@ -82,20 +57,13 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 
 Pour afficher l’instance, utilisez la commande suivante :
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
-La sortie doit se présenter comme suit :
+Vous pouvez copier l’adresse IP externe et le numéro de port à partir d’ici et vous y connecter à l’aide de votre outil favori de connexion à une instance SQL Server/Azure SQL, tel qu’Azure Data Studio ou SQL Server Management Studio.
 
-```console
-Name    Replicas    ServerEndpoint    State
-------  ----------  ----------------  -------
-sqldemo 1/1         10.240.0.4:32023  Ready
-```
-
-Si vous utilisez AKS ou `kubeadm` ou OpenShift, etc., vous pouvez copier l’adresse IP externe et le numéro de port à partir d’ici et vous y connecter à l’aide de votre outil favori pour vous connecter à une instance SQL Server/SQL Azure, par exemple Azure Data Studio ou SQL Server Management Studio. Toutefois, si vous utilisez la machine virtuelle de démarrage rapide, consultez l’article [Se connecter à SQL Managed Instance avec Azure Arc](connect-managed-instance.md) pour obtenir des instructions spéciales.
-
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Se connecter à SQL Managed Instance avec Azure Arc](connect-managed-instance.md)

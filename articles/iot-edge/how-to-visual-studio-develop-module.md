@@ -5,15 +5,15 @@ services: iot-edge
 author: kgremban
 manager: lizross
 ms.author: kgremban
-ms.date: 07/19/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 69ac8ca51fb4bf418af3569e2d294053c1956134
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e7ded6eb8b3e8ee44594e75eb22b920c4e0649b6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447391"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037581"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio 2019 pour développer et déboguer des modules pour Azure IoT Edge
 
@@ -25,7 +25,7 @@ L’extension Azure IoT Edge Tools pour Visual Studio vous offre les possibilit�
 
 * Créer, modifier, générer, exécuter et déboguer des solutions et des modules Azure IoT Edge sur votre ordinateur de développement local.
 * Déployer votre solution IoT Edge sur un appareil IoT Edge via Azure IoT Hub.
-* Coder vos modules Azure IoT en C ou C# tout en bénéficiant de tous les avantages du développement Visual Studio.
+* Codez vos modules Azure IoT en C ou C# tout en bénéficiant de tous les avantages du développement Visual Studio.
 * Gérer des appareils et modules IoT Edge via une interface utilisateur.
 
 Cet article vous explique comment utiliser Azure IoT Edge Tools pour Visual Studio 2019 pour développer vos modules IoT Edge. Vous y découvrez également comment déployer votre projet sur un appareil IoT Edge. Actuellement, Visual Studio 2019 prend en charge les modules écrits en C et C#. Les architectures d’appareils prises en charge sont Windows x64 et Linux x64 ou ARM32. Pour plus d’informations sur les systèmes d’exploitation, les langages et les architectures pris en charge, consultez [Prise en charge des langages et architectures](module-development.md#language-and-architecture-support).
@@ -48,7 +48,7 @@ Une fois votre Visual Studio 2019 prêt, vous avez également besoin des outils 
 
 * Téléchargez et installez [Docker Community Edition](https://docs.docker.com/install/) sur votre machine de développement pour générer et exécuter vos images de module. Vous devez configurer Docker CE pour qu’il s’exécute en mode conteneur Linux ou Windows, selon le type de modules que vous développez.
 
-* Configurez votre environnement de développement local pour le débogage, l’exécution et le test de votre solution IoT Edge en installant l’[outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installez [Python (2.7/3.6+) et Pip](https://www.python.org/), puis installez le package **iotedgehubdev** en exécutant la commande suivante sur votre terminal. Vérifiez que votre version de l’outil de développement Azure IoT pour EdgeHub est supérieure à 0.3.0.
+* Configurez votre environnement de développement local pour le débogage, l’exécution et le test de votre solution IoT Edge en installant l’[outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installez [Python (3.5/3.6/3.7/3.8) et Pip](https://www.python.org/), puis installez le package **iotedgehubdev** en exécutant la commande suivante sur votre terminal. Vérifiez que votre version de l’outil de développement Azure IoT pour EdgeHub est supérieure à 0.3.0.
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -103,7 +103,7 @@ Le modèle de projet IoT Edge dans Visual Studio crée une solution qui peut êt
 
 1. Sur la page **Créer un projet**, recherchez **Azure IoT Edge**. Sélectionnez le projet correspondant à la plateforme et l’architecture de votre appareil IoT Edge, puis cliquez sur **suivant**.
 
-   ![Créer un projet](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Créer un projet":::
 
 1. Dans la page **Configurer votre nouveau projet**, entrez un nom pour votre projet, spécifiez l’emplacement, puis sélectionnez **Créer**.
 
@@ -122,6 +122,18 @@ Le dossier du module contient un fichier pour le code de votre module, nommé `p
 Le dossier du projet contient la liste de tous les modules inclus dans ce projet. À ce stade, il ne devrait afficher qu’un seul module, mais vous pouvez en ajouter d’autres. Pour plus d’informations sur l’ajout de modules à un projet, consultez la section [Générer et déboguer plusieurs modules](#build-and-debug-multiple-modules) plus loin dans cet article.
 
 Le dossier du projet contient également un fichier nommé `deployment.template.json`. Ce fichier est un modèle de manifeste de déploiement IoT Edge définissant tous les modules qui s’exécuteront sur un appareil, ainsi que la façon dont ils communiqueront entre eux. Pour plus d’informations sur les manifestes de déploiement, consultez [Découvrir comment déployer des modules et établir des routes](module-composition.md). Si vous ouvrez ce modèle de déploiement, vous constatez que les deux modules de runtime, **edgeAgent** et **edgeHub**, sont inclus, ainsi que le module personnalisé que vous avez créé dans ce projet Visual Studio. Un quatrième module nommé **SimulatedTemperatureSensor** est également inclus. Ce module par défaut génère des données simulées que vous pouvez utiliser pour tester vos modules, ou les supprimer s’ils ne sont pas nécessaires. Pour voir comment fonctionne le capteur de température simulé, consultez le [code source SimulatedTemperatureSensor.csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
+### <a name="set-iot-edge-runtime-version"></a>Définir la version du runtime IoT Edge
+
+L’extension IoT Edge est par défaut la dernière version stable du runtime IoT Edge lors de la création de vos ressources de déploiement. Actuellement, la dernière version stable est la version 1.2. Si vous développez des modules pour des appareils qui exécutent la version de support à long terme 1.1 ou la version 1.0 antérieure, mettez à jour la version du runtime IoT Edge dans Visual Studio pour qu’elle corresponde.
+
+1. Dans l’Explorateur de solutions, cliquez avec le bouton de droite sur le nom de votre projet, puis sélectionnez **Définir la version du runtime IoT Edge**.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Cliquez avec le bouton de droite sur le nom de votre projet et sélectionnez Définir la version IoT Edge du runtime.":::
+
+1. Utilisez le menu déroulant pour choisir la version du runtime que vos appareils IoT Edge exécutent, puis sélectionnez **OK** pour enregistrer vos modifications.
+
+1. Générez à nouveau le manifeste de déploiement avec la nouvelle version du runtime. Cliquez avec le bouton de droite sur le nom de votre projet, puis sélectionnez **Générer un déploiement pour IoT Edge**.
 
 ## <a name="develop-your-module"></a>Développer votre module
 

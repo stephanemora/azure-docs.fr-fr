@@ -3,14 +3,14 @@ title: Activer la journalisation des diagnostics
 description: Découvrez comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, mais aussi comment accéder aux informations enregistrées par Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: b12b3db9266284509e88cef85a33a1a43b500907
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: b7bf1d7353917808fca222a7027dda74f89aff70
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075480"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532008"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -104,7 +104,9 @@ Pour enregistrer la page d’erreur ou le suivi des demandes ayant échoué pour
 
 Sous **Messages d’erreurs détaillés** ou **Suivi des demandes ayant échoué**, sélectionnez **Activé**, puis sélectionnez **Enregistrer**.
 
-Les deux types de journaux sont stockés dans le système de fichiers App Service. Jusqu’à 50 erreurs (fichiers/dossiers) sont conservées. Lorsque le nombre de fichiers HTML dépasse 50, les 26 erreurs les plus anciennes sont automatiquement supprimées.
+Les deux types de journaux sont stockés dans le système de fichiers App Service. Jusqu’à 50 erreurs (fichiers/dossiers) sont conservées. Lorsque le nombre de fichiers HTML dépasse 50, les fichiers d’erreur les plus anciens sont automatiquement supprimés.
+
+La fonctionnalité de suivi des demandes ayant échoué capture par défaut un journal des demandes qui ont échoué avec les codes d’état HTTP compris entre 400 et 600. Pour spécifier des règles personnalisées, vous pouvez remplacer la section `<traceFailedRequests>` dans le fichier *web.config*.
 
 ## <a name="add-log-messages-in-code"></a>Ajouter des messages de journalisation dans le code
 
@@ -190,14 +192,14 @@ Le tableau suivant renseigne sur les types et la descriptions des journaux pris 
 | AppServiceEnvironmentPlatformLogs | Oui | N/A | Oui | Oui | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
 | AppServiceAuditLogs | Oui | Oui | Oui | Oui | Activité de connexion via FTP et Kudu |
 | AppServiceFileAuditLogs | Oui | Oui | À confirmer | À confirmer | Modifications de fichier apportées au contenu du site ; **disponible seulement pour le niveau Premium et supérieur** |
-| AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Journaux d’activité d’application |
+| AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Journaux d’activité d’application |
 | AppServiceIPSecAuditLogs  | Oui | Oui | Oui | Oui | Demandes à partir de règles IP |
 | AppServicePlatformLogs  | À confirmer | Oui | Oui | Oui | journaux des opérations du conteneur |
 | AppServiceAntivirusScanAuditLogs | Oui | Oui | Oui | Oui | [Journaux de l’analyse antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) avec Microsoft Defender ; **disponibles seulement pour le niveau Premium** | 
 
-<sup>1</sup> Pour les applications Tomcat, ajoutez « TOMCAT_USE_STARTUP_BAT » aux paramètres de l’application et définissez-le sur false ou 0. Vous devez disposer de la *dernière* version de Tomcat et utiliser *java.util.logging*.
+<sup>1</sup> Pour les applications Tomcat, ajoutez `TOMCAT_USE_STARTUP_BAT` aux paramètres de l’application et définissez-le sur `false` ou `0`. Vous devez disposer de la *dernière* version de Tomcat et utiliser *java.util.logging*.
 
-<sup>2</sup> Pour les applications Java SE, ajoutez « $WEBSITE_AZMON_PREVIEW_ENABLED » aux paramètres de l’application et définissez-le sur true ou 1.
+<sup>2</sup> Pour les applications Java SE, ajoutez `WEBSITE_AZMON_PREVIEW_ENABLED` aux paramètres de l’application et définissez-le sur `true` ou `1`.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
 * [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/logs/log-query-overview.md)

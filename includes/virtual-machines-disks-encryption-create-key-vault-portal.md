@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/15/2021
+ms.date: 08/25/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e05dd70ab0919ca4429cee15ecfc9d6ac9ee627
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 6a8a503f5357ec69a1bab007f4ae2849582fed3b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122261707"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835586"
 ---
 La configuration des clés gérées par le client pour vos disques vous oblige à créer des ressources dans un ordre particulier si vous les utilisez pour la première fois. Tout d’abord, vous devez créer et configurer un Azure Key Vault.
 
@@ -60,11 +60,8 @@ Maintenant que vous avez créé le coffre de clés Azure et une clé, vous devez
 
 1. Recherchez **Ensembles de chiffrement de disque** et sélectionnez-le.
 1. Dans le volet **Jeux de chiffrement de disque** sélectionnez **+ Créer**.
-
-    ![Capture d’écran de l’écran principal du portail de chiffrement de disque. Mise en surbrillance du bouton Ajouter](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
-
 1. Sélectionnez votre groupe de ressources, attribuez un nom à votre jeu de chiffrement et sélectionnez la même région que votre coffre de clés.
-1. Pour **Type de chiffrement**, sélectionnez **Chiffrement au repos avec une clé gérée par le client**.
+1. Pour **Type de chiffrement SSE**, sélectionnez **Chiffrement au repos avec une clé gérée par le client**.
 
     > [!NOTE]
     > Une fois que vous avez créé un jeu de chiffrement de disque avec un type de chiffrement particulier, il n’est plus possible de le modifier. Si vous souhaitez utiliser un type de chiffrement différent, vous devez créer un nouveau jeu de chiffrement de disque.
@@ -72,6 +69,7 @@ Maintenant que vous avez créé le coffre de clés Azure et une clé, vous devez
 1. Sélectionnez **Cliquer pour choisir une clé**.
 1. Sélectionnez le coffre de clés et la clé que vous avez créés précédemment, ainsi que la version.
 1. Appuyez sur **Sélectionner**.
+1. Si vous souhaitez activer la [rotation automatique des clés gérées par le client](../articles/virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys), sélectionnez **Rotation automatique des clés**.
 1. Sélectionnez **Vérifier + créer**, puis **Créer**.
 
-    ![Capture d’écran du volet de création du chiffrement de disque. Indique l’abonnement, le groupe de ressources, le nom du jeu de chiffrement de disque, la région et le coffre de clés + sélecteur de clé.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="Capture d’écran du volet de création du chiffrement de disque montrant l’abonnement, le groupe de ressources, le nom du jeu de chiffrement du disque, la région et le coffre de clés ainsi que le sélecteur de clé." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::

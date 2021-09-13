@@ -1,7 +1,7 @@
 ---
-title: Installer, configurer et utiliser l’interface CLI (v2)
+title: Installer et configurer l’interface CLI (v2)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment installer, configurer et utiliser l’extension Azure CLI pour le machine learning.
+description: Découvrez comment installer et configurer l’extension Azure CLI pour Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 081ecae157f992a40c70d3c1c9fed3357f2ab5a8
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 8034b9e6027f85d9dd5385fda18f81523830944f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535166"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772707"
 ---
-# <a name="install-set-up-and-use-the-cli-v2"></a>Installer, configurer et utiliser l’interface CLI (v2)
+# <a name="install-and-set-up-the-cli-v2"></a>Installer et configurer l’interface CLI (v2)
 
 L’extension `ml` (préversion) d’[Azure CLI](/cli/azure/) est l’interface améliorée d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles.
 

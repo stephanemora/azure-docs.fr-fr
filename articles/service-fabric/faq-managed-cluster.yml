@@ -6,14 +6,14 @@ metadata:
   ms.author: micraft
   author: craftyhouse
   ms.service: service-fabric
-  ms.date: 7/14/2021
+  ms.date: 8/23/2021
   ms.custom: references_regions
-  ms.openlocfilehash: 6b77924cd499eec27175eba1f690c2429420c625
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: de8cf3599c35ed9069800353a38c46d353eab53a
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122534848"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122864982"
 title: Questions fréquentes (FAQ) sur les clusters Service Fabric managés
 summary: Voici quelques questions fréquentes (FAQ) et des réponses sur les clusters managés Service Fabric.
 sections:
@@ -42,7 +42,7 @@ sections:
   - question: >
       Quelle est la différence entre les clusters des niveaux tarifaires De base et Standard ?
     answer: >
-      Un cluster de niveau tarifaire De base signifie que la plupart des configurations sont fournies par le fournisseur de ressources Service Fabric. Les clusters de niveau tarifaire De base sont destinés à être utilisés pour les tests et les environnements de préproduction. Un cluster de niveau tarifaire Standard permet aux utilisateurs de configurer le cluster en fonction de leurs besoins. Pour plus d’informations, consultez [SKU de cluster managé Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+      Les clusters de niveau tarifaire De base sont destinés à être utilisés pour les tests et les environnements de préproduction, et une modification minimale de leur configuration est prise en charge. Un cluster de niveau tarifaire Standard permet aux utilisateurs de configurer le cluster en fonction de leurs besoins. Pour plus d’informations, consultez [SKU de cluster managé Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
   - question: >
       Où puis-je voir les fonctionnalités planifiées ou en suggérer une ?
     answer: "Veuillez consulter notre projet GitHub pour les [clusters managés](https://github.com/microsoft/service-fabric/projects/17)      \n"
@@ -55,11 +55,18 @@ sections:
   - question: >
       Je souhaite avoir un équilibreur de charge interne uniquement, est-ce possible ?
     answer: >
-      Il n’est actuellement pas possible d’avoir un équilibreur de charge interne uniquement. Nous vous recommandons de verrouiller les règles de groupe de sécurité réseau (NSG) pour bloquer tout trafic entrant/sortant indésirable.
+      Cette solution est prise en charge avec la version 2021-07-01-preview. Consultez [Configurer les paramètres réseau pour les clusters Service Fabric managés](./how-to-managed-cluster-networking.md#byolb)
+  - question: >
+      Puis-je activer IPv6 ?
+    answer: >
+      Cette solution est prise en charge avec la version 2021-07-01-preview. Consultez [Configurer les paramètres réseau pour les clusters Service Fabric managés](./how-to-managed-cluster-networking.md#ipv6)
+  - question: >
+      Puis-je utiliser un réseau virtuel existant pour un cluster managé Service Fabric ?
+    answer: >
+      Cette solution est prise en charge avec la version 2021-07-01-preview. Consultez [Configurer les paramètres réseau pour les clusters Service Fabric managés](./how-to-managed-cluster-networking.md#byolb)
   - question: >
       Puis-je mettre automatiquement mon cluster à l’échelle ?
-    answer: >
-      La mise à l'échelle automatique n'est actuellement pas prise en charge.
+    answer: "La mise à l’échelle automatique n’est pas disponible actuellement. Pour plus d’informations, veuillez consulter notre projet GitHub pour les [clusters managés](https://github.com/microsoft/service-fabric/projects/17). \n"
   - question: >
       Puis-je déployer mon cluster sur plusieurs zones de disponibilité ?
     answer: >
