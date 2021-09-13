@@ -5,23 +5,20 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/31/2019
+ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12c9466a4bee6adb77a0e46e63767c2b22fcc01d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73511522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524316"
 ---
-# <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Configurer la protection bot pour le pare-feu d’applications web (WAF) sur Azure Application Gateway (préversion)
+# <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway"></a>Configurer la protection bot pour Web Application Firewall sur Azure Application Gateway
 
 Cet article explique comment configurer une règle de protection bot dans le pare-feu d’applications Web (WAF) Azure pour Application Gateway à l’aide du Portail Azure. 
 
 Vous pouvez activer un ensemble de règles de protection bot managées pour votre WAF afin de bloquer ou de journaliser des requêtes provenant d’adresses IP malveillantes. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. Intelligent Security Graph alimente l’intelligence des menaces Microsoft et est utilisé par de nombreux services, dont Azure Security Center.
-
-> [!NOTE]
-> Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d'informations, consultez les  [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
 ## <a name="prerequisites"></a>Prérequis
 

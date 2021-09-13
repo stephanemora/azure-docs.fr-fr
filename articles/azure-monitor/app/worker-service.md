@@ -4,12 +4,12 @@ description: Surveillance des applications .NET Core/.NET Framework non HTTP av
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: c1ca594626d4384c9dfb62990ee2017d2094fca4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ed4670c1eda0a6a6b1b32ca69cc8a2010ae486e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371853"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524760"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights pour les applications Service Worker (applications non HTTP)
 
@@ -19,7 +19,7 @@ Le nouveau kit de développement logiciel (SDK) n’effectue pas de collecte de 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-Le [SDK Application Insights pour Service Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) est particulièrement bien adapté aux applications non HTTP, peu importe où et comment elles s’exécutent. Si votre application est en cours d’exécution et dispose d’une connectivité réseau vers Azure, les données de télémétrie peuvent être collectées. La surveillance Application Insights est prise en charge partout où .NET Core est pris en charge. Ce package peut être utilisé dans le nouveau [Service Worker .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), les [tâches en arrière-plan dans Asp.Net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services), les applications console (.NET Core/ .NET Framework), etc.
+Le [SDK Application Insights pour Service Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) est particulièrement bien adapté aux applications non HTTP, peu importe où et comment elles s’exécutent. Si votre application est en cours d’exécution et dispose d’une connectivité réseau vers Azure, les données de télémétrie peuvent être collectées. La surveillance Application Insights est prise en charge partout où .NET Core est pris en charge. Ce package peut être utilisé dans le nouveau [Service Worker .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), les [tâches en arrière-plan dans ASP.NET Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services), les applications console (.NET Core/ .NET Framework), etc.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,7 +44,7 @@ Les instructions spécifiques pour chaque type d’application sont décrites da
 
 ## <a name="net-core-30-worker-service-application"></a>Application de service Worker .NET Core 3.0
 
-Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService)
 
 1. Télécharger et installer [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Créer un projet Service Worker à l’aide du nouveau modèle de projet ou de la ligne de commande Visual Studio `dotnet new worker`
@@ -136,7 +136,7 @@ En règle générale, `APPINSIGHTS_INSTRUMENTATIONKEY` spécifie la clé d’ins
 
 [Ce](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio) document décrit la façon de créer des tâches en arrière-plan dans une application ASP.NET Core 2.1/2.2.
 
-Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/BackgroundTasksWithHostedService)
 
 1. Installez le package [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) dans l’application.
 2. Ajoutez `services.AddApplicationInsightsTelemetryWorkerService();` à la méthode `ConfigureServices()`, comme dans cet exemple :
@@ -223,7 +223,7 @@ Voici le code pour `TimedHostedService` où réside la logique de tâche en arri
 
 Comme indiqué au début de cet article, le nouveau package peut être utilisé pour activer Application Insights Telemetry à partir d’une application de console normale. Ce package cible [`NetStandard2.0`](/dotnet/standard/net-standard) et peut donc être utilisé pour les applications console .NET Core 2.0 ou version ultérieure, et dans .NET Framework 4.7.2 ou version ultérieure.
 
-Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp)
 
 1. Installez le package [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) dans l’application.
 
@@ -305,7 +305,7 @@ Les [métriques temps réel](./live-stream.md) peuvent être utilisées pour vé
 
 ### <a name="ilogger-logs"></a>Journaux ILogger
 
-Les journaux émis via `ILogger` de gravité `Warning` ou supérieure sont automatiquement capturés. Suivez les [docs ILogger](ilogger.md#control-logging-level) pour personnaliser les niveaux de journalisation capturés par Application Insights.
+Les journaux émis via `ILogger` de gravité `Warning` ou supérieure sont automatiquement capturés. Suivez les [docs ILogger](ilogger.md#logging-level) pour personnaliser les niveaux de journalisation capturés par Application Insights.
 
 ### <a name="dependencies"></a>Les dépendances
 
@@ -532,16 +532,16 @@ Obtenez une instance de `TelemetryClient` à l’aide de l’injection de constr
 
 L’intégration de l’IDE Visual Studio est actuellement prise en charge uniquement pour les applications ASP.NET/ASP.NET Core. Ce document sera mis à jour lorsque Visual Studio prendra en charge l’intégration d’applications de service Worker.
 
-### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>Puis-je activer la surveillance Application Insights à l’aide d’outils tels que Status Monitor ?
+### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-azure-monitor-application-insights-agent-formerly-status-monitor-v2"></a>Puis-je activer la supervision d’Application Insights à l’aide d’outils tels qu’Azure Monitor Agent Application Insights (anciennement Status Monitor v2) ?
 
-Non. [Status Monitor](./monitor-performance-live-website-now.md) et [Status Monitor version 2](./status-monitor-v2-overview.md) prennent actuellement en charge ASP.NET 4.x uniquement.
+Non, l’[agent Azure Monitor Application Insights](./status-monitor-v2-overview.md) prend actuellement en charge ASP.NET 4.x uniquement.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Si j’exécute mon application sous Linux, toutes les fonctionnalités sont-elles prises en charge ?
 
 Oui. La prise en charge de fonctionnalités pour ce SDK est la même sur toutes les plateformes, avec les exceptions suivantes :
 
 * Les compteurs de performance ne sont pris en charge que sous Windows, à l’exception de Process CPU/Memory (UC/Mémoire de processus) affiché dans Métriques temps réel.
-* Même si `ServerTelemetryChannel` est activé par défaut, si l’application est exécutée sous Linux ou MacOS, le canal ne crée pas automatiquement un dossier de stockage local pour conserver temporairement les données de télémétrie s’il existe des problèmes de réseau. En raison de cette limitation, les données de télémétrie sont perdues en cas de problèmes temporaires de réseau ou de serveur. Pour contourner ce problème, configurez un dossier local pour le canal :
+* Même si `ServerTelemetryChannel` est activé par défaut, si l’application est exécutée sous Linux ou macOS, le canal ne crée pas automatiquement un dossier de stockage local pour conserver temporairement les données de télémétrie s’il existe des problèmes de réseau. En raison de cette limitation, les données de télémétrie sont perdues en cas de problèmes temporaires de réseau ou de serveur. Pour contourner ce problème, configurez un dossier local pour le canal :
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -561,11 +561,11 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>Exemples d'applications
 
-[Application console .NET Core](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Choisissez cet exemple si vous utilisez une application console écrite en .NET Core (version 2.0 ou ultérieure) ou .NET Framework (version 4.7.2 ou ultérieure)
+[Application console .NET Core](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp) Choisissez cet exemple si vous utilisez une application console écrite en .NET Core (version 2.0 ou ultérieure) ou .NET Framework (version 4.7.2 ou ultérieure)
 
-[Tâches en arrière-plan ASP .NET Core avec HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService) Choisissez cet exemple si vous utilisez Asp.Net Core 2.1/2.2 et créez des tâches en arrière-plan conformément aux instructions officielles stipulées [ici](/aspnet/core/fundamentals/host/hosted-services)
+[Tâches en arrière-plan ASP.NET Core avec HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/BackgroundTasksWithHostedService) Choisissez cet exemple si vous utilisez ASP.NET Core 2.1/2.2 et créez des tâches en arrière-plan conformément aux instructions officielles stipulées [ici](/aspnet/core/fundamentals/host/hosted-services)
 
-[Service Worker .NET Core 3.0](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Utilisez cet exemple si vous disposez d’une application Service Worker .NET Core 3.0, conformément aux instructions officielles ([ici](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template))
+[Service Worker .NET Core 3.0](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService) Utilisez cet exemple si vous disposez d’une application Service Worker .NET Core 3.0, conformément aux instructions officielles ([ici](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template))
 
 ## <a name="open-source-sdk"></a>Kit de développement logiciel (SDK) open source
 

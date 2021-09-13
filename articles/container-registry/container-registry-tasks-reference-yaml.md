@@ -1,14 +1,14 @@
 ---
 title: Informations de référence sur YAML - ACR Tasks
 description: Référence pour la définition de tâches dans YAML pour ACR Tasks, y compris les propriétés de tâche, les types d’étapes, les propriétés d’étape et les variables intégrées.
-ms.topic: article
+ms.topic: reference
 ms.date: 07/08/2020
-ms.openlocfilehash: 126fcbce0569b2be6d9302cbbb718fa11e3e8046
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31e96c64ef8209e5e18add9508fe379f1eb0f414
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780944"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302660"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -63,12 +63,12 @@ Plusieurs exemples de fichiers de tâche sont référencés dans les sections su
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-La mise en forme des exemples de commandes part du principe que vous avez configuré un registre par défaut dans l’interface de ligne de commande Azure. Le paramètre `--registry` est donc omis. Pour configurer un registre par défaut, utilisez la commande [az configure][az-configure] avec le paramètre `--defaults`, qui accepte une valeur `acr=REGISTRY_NAME`.
+La mise en forme des exemples de commandes part du principe que vous avez configuré un registre par défaut dans l’interface de ligne de commande Azure. Le paramètre `--registry` est donc omis. Pour configurer un registre par défaut, utilisez la commande [az config][az-config] avec la commande `set`, qui accepte une paire clé-valeur `defaults.acr=REGISTRY_NAME`.
 
 Par exemple, pour configurer l’interface de ligne de commande Azure avec un registre par défaut nommé « myregistry », procédez comme suit :
 
 ```azurecli
-az configure --defaults acr=myregistry
+az config set defaults.acr=myregistry
 ```
 
 ## <a name="task-properties"></a>Propriétés de tâche
@@ -78,7 +78,7 @@ Les propriétés de tâche apparaissent généralement dans la partie supérieur
 | Propriété | Type | Facultatif | Description | Remplacement pris en charge | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Oui | Version du fichier `acr-task.yaml` analysé par le service ACR Tasks. Si ACR Tasks s’efforce de maintenir la compatibilité descendante, cette valeur permet à ACR Tasks d’assurer la compatibilité au sein d’une version définie. En l’absence de version définie explicitement, la dernière version est utilisée par défaut. | Non | None |
-| `stepTimeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une étape peut être exécutée. Si la propriété est spécifiée sur une tâche, elle définit la propriété `timeout` par défaut de toutes les étapes. Si la propriété `timeout` est spécifiée à une étape, elle remplace la propriété fournie par la tâche. | Oui | 600 (10 minutes) |
+| `stepTimeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une étape peut être exécutée. Si la propriété `stepTimeout` est spécifiée sur une tâche, elle définit la propriété `timeout` par défaut de toutes les étapes. Si la propriété `timeout` est spécifiée à une étape, elle remplace la propriété `stepTimeout` fournie par la tâche.<br/><br/>La somme des valeurs de délai d’expiration d’une tâche doit correspondre à la valeur de la propriété `timeout` d’exécution de la tâche (par exemple, définie en passant `--timeout` à la commande `az acr task create`). Si la valeur `timeout` d’exécution de la tâche est inférieure, elle est prioritaire.  | Oui | 600 (10 minutes) |
 | `workingDirectory` | string | Oui | Répertoire de travail du conteneur pendant l’exécution. Si la propriété est spécifiée sur une tâche, elle définit la propriété `workingDirectory` par défaut de toutes les étapes. Si elle est spécifiée à une étape, elle remplace la propriété fournie par la tâche. | Oui | `c:\workspace` sous Windows ou `/workspace` sous Linux |
 | `env` | [chaîne, chaîne,...] | Oui |  Tableau de chaînes au format `key=value` qui définissent les variables d’environnement pour la tâche. Si la propriété est spécifiée sur une tâche, elle définit la propriété `env` par défaut de toutes les étapes. Si elle est spécifiée à une étape, elle remplace toutes les variables d’environnement héritées de la tâche. | Oui | None |
 | `secrets` | [clé secrète, clé secrète, ...] | Oui | Tableau d’objets [clé secrète](#secret). | Non | None |
@@ -631,4 +631,4 @@ Pour les builds à une seule étape, consultez la [vue d’ensemble d’ACR Tas
 <!-- LINKS - Internal -->
 [az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-configure]: /cli/azure/reference-index#az_configure
+[az-config]: /cli/azure/reference-index#az_config

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: de84e3e2a8da3e1b5195978a8a2204fdfa2108d7
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a29bd1513f021be03cf6c6bd4aa83d13062de170
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105100"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563584"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)
 
@@ -127,14 +127,29 @@ Il existe deux niveaux d’accès nécessaires pour pleinement utiliser un clust
 
 Pour accéder à d'autres services Azure, comme Cosmos DB, Key Vault ou Stockage Blob, le pod a besoin d'informations d'identification d'accès. Vous pouvez définir des informations d'identification d'accès avec l'image conteneur ou les injecter en tant que secret Kubernetes. Dans les deux cas, vous devez les créer et les attribuer manuellement. Généralement, ces informations d'identification sont réutilisées entre les pods et ne font pas l'objet d'une rotation régulière.
 
-Les identités managées par pod pour les ressources Azure vous permettent de demander automatiquement l'accès aux services par le biais d'Azure AD. Les identités managées par pod sont actuellement disponibles à l'état de préversion pour AKS. Pour commencer, consultez la documentation [Utiliser des identités managées par pod Azure Active Directory dans Azure Kubernetes Service (préversion)[( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity). 
+Les identités managées par pod pour les ressources Azure vous permettent de demander automatiquement l'accès aux services par le biais d'Azure AD. Les identités managées par pod sont actuellement disponibles à l'état de préversion pour AKS. Pour commencer, consultez la documentation [Utiliser des identités managées par pod Azure Active Directory dans Azure Kubernetes Service (préversion)](./use-azure-ad-pod-identity.md). 
+
+L’identité de pod Azure Active Directory prend en charge 2 modes de fonctionnement :
+
+1. Mode standard : dans ce mode, les 2 composants suivants sont déployés sur le cluster AKS : 
+    * [Managed Identity Controller (MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/) : contrôleur Kubernetes qui surveille les modifications apportées aux pods, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) et [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) via le serveur d’API Kubernetes. Lorsqu’il détecte une modification pertinente, le MIC ajoute ou supprime [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) en fonction des besoins. Plus précisément, lorsqu’un pod est planifié, le MIC affecte l’identité managée sur Azure au VMSS sous-jacent utilisé par le pool de nœuds au cours de la phase de création. Quand tous les pods utilisant l’identité sont supprimés, il supprime l’identité du VMSS du pool de nœuds, sauf si la même identité managée est utilisée par d’autres pods. Le MIC effectue des actions similaires quand AzureIdentity ou AzureIdentityBinding sont créés ou supprimés.
+    * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/) : pod qui s’exécute en tant que DaemonSet sur chaque nœud du cluster AKS. L’identité NMI intercepte les demandes de jeton de sécurité adressées au [service de métadonnées d’instance Azure](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) sur chaque nœud, les redirige vers elle-même et vérifie si le pod a accès à l’identité pour laquelle il demande un jeton et récupère le jeton auprès du locataire Azure Active Directory pour le compte de l’application.
+2. Mode managé : dans ce mode, il n’existe que l’identité NMI. L’identité doit être affectée manuellement et gérée par l’utilisateur. Pour plus d’informations, consultez [Identité des pods en mode managé](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/). Dans ce mode, lorsque vous utilisez la commande [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add) pour ajouter une identité de pod à un cluster Azure Kubernetes Service (AKS), elle crée [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) et [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) dans l’espace de noms spécifié par le paramètre `--namespace`, tandis que le fournisseur de ressources AKS affecte l’identité managée spécifiée par le paramètre `--identity-resource-id` au groupe de machines virtuelles identiques (VMSS) de chaque pool de nœuds dans le cluster AKS.
+
+> [!NOTE]
+> Si, à la place, vous décidez d’installer l’identité de pod Azure Active Directory à l’aide du [module complémentaire de cluster AKS](./use-azure-ad-pod-identity.md), le programme d’installation utilise le mode `managed`.
+
+Le mode `managed` offre les avantages suivants par rapport au mode `standard` :
+
+1. L’attribution d’identité sur le VMSS d’un pool de nœuds peut prendre entre 40 et 60 s. Dans le cas de cronjobs ou d’applications qui requièrent l’accès à l’identité et ne tolèrent pas le délai d’affectation, il est préférable d’utiliser le mode `managed` car l’identité est préaffectée au VMSS du pool de nœuds, manuellement ou via la commande [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add).
+2. En mode `standard`, le MIC requiert des autorisations en écriture sur le VMSS utilisé par le cluster AKS et l’autorisation `Managed Identity Operator` sur les identités managées affectées par l’utilisateur. Lors de l’exécution en `managed mode`, étant donné qu’il n’y a pas de MIC, les attributions de rôles ne sont pas requises.
 
 Au lieu de définir manuellement des informations d'identification pour les pods, les identités managées par pod demandent un jeton d'accès en temps réel et l'utilisent uniquement pour accéder aux services qui leur sont attribués. Dans AKS, eux composants gèrent les opérations pour permettre aux pods d’utiliser des identités managées :
 
 * Le **serveur NMI (Node Management Identity)** est un pod qui s’exécute en tant que DaemonSet sur chaque nœud du cluster AKS. Le serveur NMI écoute les demandes adressées par les pods aux services Azure.
 * Le **fournisseur de ressources Azure** interroge le serveur d’API Kubernetes et recherche un mappage d’identités Azure qui correspond à un pod.
 
-Lorsque des pods demandent l'accès à un service Azure, les règles de réseau redirigent le trafic vers le serveur NMI. 
+Lorsque les pods demandent un jeton de sécurité à Azure Active Directory pour accéder à un service Azure, les règles de réseau redirigent le trafic vers le serveur NMI. 
 1. Le serveur NMI :
     * Identifie les pods demandant l'accès aux services Azure en fonction de leur adresse distante ;
     * interroge le fournisseur de ressources Azure. 

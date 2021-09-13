@@ -4,15 +4,17 @@ description: Apprenez à automatiser la suspension et la reprise d’un pool SQL
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
+ms.reviewer: wiassaf
+ms.subservice: sql
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 454c25891759d99b3f622d66920f20d2ec0f1a6c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 01fd517be7e60a5ab16e7844d8c149ddac2dcb3e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081637"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525436"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Suspendre et reprendre des pools SQL dédiés avec des pipelines Synapse
 
@@ -22,21 +24,21 @@ Les étapes suivantes vous guident tout au long de la configuration de la suspen
 
 1. Créer un pipeline.
 1. Configurez des paramètres dans votre pipeline.
-1. Identifiez la liste des pools SQL dédiés dans votre espace de travail Synapse.
+1. Identifiez la liste des pools SQL dédiés dans votre espace de travail Azure Synapse.
 1. Filtrez les pools SQL dédiés que vous ne souhaitez pas suspendre ou reprendre à partir de la liste. 
 1. Parcourez chaque pool SQL dédié et :
     1. Vérifiez l’état du pool SQL dédié.
     1. Évaluez l’état du pool SQL dédié.
     1. Suspendez ou reprenez le pool SQL dédié.
 
-Ces étapes sont présentées dans un pipeline simple dans Synapse :
+Ces étapes sont présentées dans un pipeline simple dans Azure Synapse :
 
 ![Pipeline Synapse simple](./media/how-to-pause-resume-pipelines/simple-pipeline.png)
 
 
 Selon la nature de votre environnement, l’ensemble du processus décrit ici peut ne pas s’appliquer, et vous pouvez simplement choisir les étapes appropriées. Le processus décrit ici peut être utilisé pour suspendre ou reprendre toutes les instances dans un environnement de développement, de test ou PoC. Dans le cas d’un environnement de production, il est plus probable que vous planifiiez une pause ou une reprise instance par instance, et vous n’aurez donc besoin que des étapes 5A à 5C.
 
-Les étapes ci-dessus utilisent les API REST pour Synapse et Azure SQL :
+Les étapes ci-dessus utilisent les API REST pour Azure Synapse et Azure SQL :
 
 - [Opérations sur les pools SQL dédiés](/rest/api/synapse/sqlpools)
  
@@ -65,7 +67,7 @@ Le pipeline que vous allez créer reposera sur des paramètres. Les paramètres 
 |Nom  |Type  |Valeur par défaut  |Description|
 |---------|---------|---------|-----------|
 |ResourceGroup    |string        |Synapse          |Nom du groupe de ressources pour vos pools SQL dédiés|
-|SubscriptionID   |string        |<SubscriptionID> |ID d’abonnement pour votre groupe de ressources|
+|SubscriptionID   |string        |`<SubscriptionID>` |ID d’abonnement pour votre groupe de ressources|
 |WorkspaceName    |string        |Synapse          |Nom de votre espace de travail|
 |SQLPoolName      |string        |SQLPool1         |Nom de votre pool SQL dédié|
 |PauseorResume    |string        |Suspendre            |L’état souhaité à la fin de l’exécution du pipeline|
@@ -225,5 +227,5 @@ Vous trouverez plus d’informations sur l’identité managée pour Azure Synap
 
 [Octroyer des autorisations à une identité managée de l’espace de travail](../security/how-to-grant-workspace-managed-identity-permissions.md)
 
-[Contrôle d’accès SQL pour les exécutions de pipelines Synapse](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-synapse-pipeline-runs)
+[Contrôle d’accès SQL pour les exécutions de pipelines Synapse](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
 

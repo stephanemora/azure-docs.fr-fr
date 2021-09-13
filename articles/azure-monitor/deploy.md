@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: dc73ac91320e1860c5c30f1b31962ad826a1038f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 151caf0aadba66eafac464c55b073968ea4022e7
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076795"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609484"
 ---
 # <a name="deploy-azure-monitor"></a>Déployer Azure Monitor
 L’activation d’Azure Monitor pour surveiller toutes vos ressources Azure consiste en une combinaison de configuration de composants Azure Monitor et de configuration des ressources Azure pour générer des données d’analyse collectées par Azure Monitor. Cet article décrit les différentes étapes requises pour une implémentation complète d’Azure Monitor avec une configuration commune afin de surveiller toutes les ressources de votre abonnement Azure. Les descriptions de base de chaque étape sont fournies avec des liens vers d’autres documents pour des exigences de configuration détaillées.
@@ -65,7 +65,7 @@ Les ressources dans Azure génèrent automatiquement des [journaux de ressources
 
 Il y a un coût pour ce regroupement.par conséquent, reportez-vous à [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) avant de l’implémenter sur un nombre important de ressources. Consultez également [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](logs/manage-cost-storage.md) pour plus d’informations sur l’optimisation du coût de votre collection de journaux.
 
-Pour créer des paramètres de diagnostic dans une ressource Azure, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](essentials/diagnostic-settings.md#create-in-azure-portal). Étant donné qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, consultez [Déployer Azure Monitor à l’échelle](deploy-scale.md) pour plus d’informations sur l’utilisation de la [Stratégie Azure](../governance/policy/overview.md) afin de créer automatiquement des paramètres chaque fois qu’une ressource Azure est créée.
+Pour créer des paramètres de diagnostic dans une ressource Azure, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](essentials/diagnostic-settings.md#create-in-azure-portal). Étant donné qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, consultez [Déployer Azure Monitor à grande échelle](deploy-scale.md) pour plus d’informations sur l’utilisation d’[Azure Policy](../governance/policy/overview.md) afin de créer automatiquement des paramètres chaque fois qu’une ressource Azure est créée.
 
 ### <a name="enable-insights-and-solutions"></a>Activer les Insights et solutions
 Les insights et solutions offrent une surveillance spécialisée pour un service ou une solution spécifique. Les Insights utilisent des fonctionnalités plus récentes d’Azure Monitor telles que des classeurs. Vous devez donc utiliser un aperçu s’il est disponible pour votre service. Ils sont automatiquement disponibles dans chaque abonnement Azure, mais ils peuvent nécessiter une certaine configuration pour bénéficier de toutes les fonctionnalités. Ils utilisent généralement les métriques de plateforme et les journaux de ressources que vous avez configurés précédemment et peuvent collecter des données supplémentaires.
@@ -129,7 +129,7 @@ Pour activer l’analyse pour une application, vous devez décider si vous allez
 - [Applications hébergées sur Azure Web Apps](app/azure-web-apps.md)
 - [Applications Java](app/java-in-process-agent.md)
 - [Applications ASP.NET hébergées dans IIS sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure](app/azure-vm-vmss-apps.md)
-- [Applications ASP.NET hébergées par IIS sur une machine virtuelle locale](app/monitor-performance-live-website-now.md)
+- [Applications ASP.NET hébergées par IIS localement](app/status-monitor-v2-overview.md)
 
 
 **La surveillance basée sur le code** est plus personnalisable et collecte des données de télémétrie supplémentaires, mais elle nécessite l’ajout d’une dépendance à votre code sur les packages NuGet du kit de développement logiciel (SDK) Application Insights. Pour plus d’informations sur l’activation de la surveillance en fonction de votre application, consultez les ressources suivantes.

@@ -1,22 +1,22 @@
 ---
-title: Répertorier les groupes de serveurs PostgreSQL Hyperscale activé pour Azure Arc créés dans un contrôleur de données Azure Arc
-description: Répertorier les groupes de serveurs PostgreSQL Hyperscale activé pour Azure Arc créés dans un contrôleur de données Azure Arc
+title: Lister les groupes de serveurs PostgreSQL Hyperscale avec Azure Arc créés dans un contrôleur de données Azure Arc
+description: Listez les groupes de serveurs PostgreSQL Hyperscale avec Azure Arc créés dans un contrôleur de données Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7577ca4b8a1d7db7ea99aadfef4fd2a445b66425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7254ed303e45c69f291aa5c7a06f63390aaed162
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90930775"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525256"
 ---
-# <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Répertorier les groupes de serveurs PostgreSQL Hyperscale activé pour Azure Arc créés dans un contrôleur de données Azure Arc
+# <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Lister les groupes de serveurs PostgreSQL Hyperscale avec Azure Arc créés dans un contrôleur de données Azure Arc
 
 Cet article explique comment récupérer la liste des groupes de serveurs créés dans votre contrôleur de données Arc.
 
@@ -24,10 +24,11 @@ Pour récupérer cette liste, utilisez l’une des méthodes suivantes une fois 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="from-cli-with-azdata"></a>À partir de l’interface CLI avec azdata
+## <a name="from-cli-with-azure-cli-extension-az"></a>À partir de l’interface CLI avec l’extension Azure CLI (az)
+
 Le format général de la commande est le suivant :
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 Elle renverra une sortie comme suit :
@@ -38,8 +39,8 @@ postgres01  Ready    2
 postgres02  Ready    2
 ```
 Pour plus d’informations sur les paramètres disponibles pour cette commande, exécutez :
-```console
-azdata arc postgres server list --help
+```azurecli
+az postgres arc-server list --help
 ```
 
 ## <a name="from-cli-with-kubectl"></a>À partir de l’interface CLI avec kubectl
@@ -66,4 +67,4 @@ Pour répertorier les groupes de serveurs qui exécutent la version 11 de postgr
 ## <a name="next-steps"></a>Étapes suivantes :
 
 * [Lisez l’article sur la façon d’obtenir des points de terminaison de connexion et formez les chaînes de connexion pour vous connecter à votre groupe de serveurs](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
-* [Lisez l’article expliquant comment configurer un groupe de serveurs PostgreSQL Hyperscale activé pour Azure Arc](show-configuration-postgresql-hyperscale-server-group.md)
+* [Lisez l’article expliquant comment montrer la configuration d’un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc](show-configuration-postgresql-hyperscale-server-group.md)

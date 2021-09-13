@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 45df0eb8bfc6ab5b181b8bc103c4a4a47f3196f6
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: d95e9e6ed85e170efeb570fa46f634a9071c687c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527846"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772392"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Convertir des ontologies conformes aux standards du secteur en langage DTDL pour Azure Digital Twins
 
@@ -43,7 +43,7 @@ L’extrait de code C# suivant montre comment un fichier de modèle RDF est char
 
 ### <a name="rdf-converter-application"></a>Application de conversion RDF 
 
-Un exemple d’application disponible convertit un fichier de modèle RDF en [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) pour une utilisation par le service Azure Digital Twins. Il a été validé pour le schéma [Brick](https://brickschema.org/ontology/) et peut être étendu pour d’autres schémas du secteur du bâtiment (par exemple, [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/) ou [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
+Un exemple d’application disponible convertit un fichier de modèle RDF en [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) pour une utilisation par le service Azure Digital Twins. Il a été validé pour le schéma [Brick](https://brickschema.org/ontology/) et peut être étendu pour d’autres schémas du secteur du bâtiment (par exemple, [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/) ou [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 
 L’exemple est une [application en ligne de commande .NET Core appelée RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/).
 

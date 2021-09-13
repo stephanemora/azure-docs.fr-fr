@@ -1,21 +1,22 @@
 ---
-title: 'Configurer l’authentification Azure AD pour la connexion VPN utilisateur : WAN virtuel'
+title: Configurer une connexion VPN utilisateur à l’aide de l’authentification Azure Active Directory
+titleSuffix: Azure Virtual WAN
 description: Découvrez comment configurer l’authentification Azure Active Directory pour un réseau privé virtuel utilisateur Virtual WAN (connexion point à site).
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: alzam
+ms.date: 08/19/2021
+ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 59b93327aae8a400b4d1ab6c9ea3f67e5bd9dd03
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6b1390890b07a5f3dc0493a4e0164a7a53ab143e
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703368"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597587"
 ---
-# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurer l’authentification Azure Active Directory pour une connexion VPN utilisateur
+# <a name="configure-a-user-vpn-connection---azure-active-directory-authentication"></a>Configurer une connexion VPN utilisateur – Authentification Azure Active Directory
 
 Cet article vous montre comment configurer l’authentification Azure AD pour un VPN utilisateur dans Virtual WAN afin de vous connecter à vos ressources dans Azure par le biais d’une connexion VPN OpenVPN. L’authentification Azure Active Directory est disponible uniquement pour les passerelles basées sur le protocole OpenVPN et les clients Windows.
 

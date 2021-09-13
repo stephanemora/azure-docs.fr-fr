@@ -1,53 +1,54 @@
 ---
-title: Guide pratique pour sécuriser une application monopage avec connexion non interactive
+title: Guide pratique pour sécuriser une application web monopage à l’aide d’une connexion non interactive dans Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: Comment configurer une application monopage avec un contrôle d’accès en fonction du rôle Azure (RBAC Azure) non interactif et le Kit de développement logiciel (SDK) web Azure Maps.
+description: Guide pratique pour configurer une application web monopage avec un contrôle d’accès en fonction du rôle Azure (Azure RBAC) non interactif et le kit SDK web Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 06/21/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.custom: devx-track-js
-ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, subject-rbac-steps
+ms.openlocfilehash: 9bf18a9122bbe8406b76cfd822cc2a5a86339a52
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092720"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641226"
 ---
-# <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Guide pratique pour sécuriser une application monopage avec connexion non interactive
+# <a name="how-to-secure-a-single-page-web-application-with-non-interactive-sign-in"></a>Guide pratique pour sécuriser une application web monopage à l’aide d’une connexion non interactive
 
-Le guide suivant se rapporte à une application qui utilise Azure Active Directory (Azure AD) pour fournir un jeton d’accès à des applications Azure Maps quand l’utilisateur ne peut pas se connecter à Azure AD. Ce processus nécessite l’hébergement d’un service web qui doit être sécurisé de façon à être accessible uniquement par l’application web monopage. Il existe plusieurs implémentations qui peuvent effectuer l’authentification auprès d’Azure AD. Ce guide s’appuie sur le produit Azure Functions pour acquérir des jetons d’accès.
+Cet article explique comment sécuriser une application web monopage avec Azure Active Directory (Azure AD), lorsque l’utilisateur n’est pas en mesure de se connecter à Azure AD.
+
+Pour créer ce flux d’authentification non interactif, nous allons créer un service web sécurisé Azure Function qui sera chargé de l’acquisition des jetons d’accès à partir d’Azure AD. Ce service web sera uniquement disponible pour votre application web monopage.
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 > [!Tip]
-> Azure Maps peut prendre en charge les jetons d’accès à partir des flux interactifs/d’authentification de l’utilisateur. Les flux interactifs permettent de bénéficier d’une étendue de révocation d’accès et de gestion des secrets plus restreinte.
+> Azure Maps peut prendre en charge les jetons d’accès à partir des flux interactifs ou d’authentification unique de l’utilisateur. Vous pouvez utiliser les flux interactifs pour une étendue plus limitée de révocation d’accès et de gestion des secrets.
 
-## <a name="create-azure-function"></a>Créer une fonction Azure
+## <a name="create-an-azure-function"></a>Création d’une fonction Azure
 
-Créez une application de service web sécurisée qui est responsable de l’authentification auprès d’Azure AD. 
+Pour créer une application de service web sécurisée, responsable de l’authentification auprès d’Azure AD :
 
-1. Créez une fonction dans le portail Azure. Pour plus d’informations, consultez [Créer une fonction Azure](../azure-functions/functions-get-started.md).
+1. Créez une fonction dans le portail Azure. Pour plus d’informations, consultez [Bien démarrer avec Azure Functions](../azure-functions/functions-get-started.md).
 
-2. Configurez la stratégie CORS sur la fonction Azure pour qu’elle soit accessible par l’application web monopage. Cela permet de sécuriser les clients du navigateur aux origines autorisées de votre application web. Voir [Ajouter des fonctionnalités CORS](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
+2. Configurez la stratégie CORS sur la fonction Azure pour que l’application web monopage puisse y accéder. La stratégie CORS sécurise l’accès des clients de navigateur aux origines autorisées de votre application web. Pour plus d’informations, consultez [Ajoutez des fonctionnalités CORS](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 3. [Ajoutez une identité affectée par le système](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) sur la fonction Azure afin d’autoriser la création d’un principal de service pour l’authentification auprès d’Azure AD.  
 
-4. Accordez l’accès en fonction du rôle pour l’identité affectée par le système au compte Azure Maps. Pour plus d’informations, consultez [Accorder l’accès en fonction du rôle](#grant-role-based-access).
+4. Accordez l’accès en fonction du rôle pour l’identité affectée par le système au compte Azure Maps. Pour plus d’informations, consultez [Accorder un accès en fonction du rôle](#grant-role-based-access-for-users-to-azure-maps).
 
-5. Écrivez du code pour la fonction Azure afin d’obtenir des jetons d’accès Azure Maps à l’aide d’une identité affectée par le système avec l’un des mécanismes pris en charge ou le protocole REST. Voir [Obtenir des jetons pour les ressources Azure](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity).
+5. Écrivez du code pour la fonction Azure afin d’obtenir des jetons d’accès Azure Maps à l’aide d’une identité affectée par le système avec l’un des mécanismes pris en charge ou le protocole REST. Pour plus d’informations, consultez [Obtenir des jetons pour les ressources Azure](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity).
 
-    Exemple de protocole REST :
+    Voici un exemple de protocole REST :
 
     ```http
     GET /MSI/token?resource=https://atlas.microsoft.com/&api-version=2019-08-01 HTTP/1.1
     Host: localhost:4141
     ```
 
-    Exemple de réponse :
+    Et voici un exemple de réponse :
 
     ```http
     HTTP/1.1 200 OK
@@ -62,12 +63,12 @@ Créez une application de service web sécurisée qui est responsable de l’aut
     }
     ```
 
-6. Configurer la sécurité pour la fonction Azure HttpTrigger
+6. Configurez la sécurité pour la fonction Azure HttpTrigger :
 
-   * [Créer une clé d’accès à une fonction](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
-   * [Sécurisez le point de terminaison HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) pour la fonction Azure en production.
-   
-7. Configurez le SDK web Azure Maps de l’application web. 
+   1. [Créer une clé d’accès à une fonction](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   1. [Sécurisez le point de terminaison HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) pour la fonction Azure en production.
+
+7. Configurez le kit SDK web Azure Maps d’une application web. 
 
     ```javascript
     //URL to custom endpoint to fetch Access token
@@ -100,25 +101,11 @@ Créez une application de service web sécurisée qui est responsable de l’aut
         });
     ```
 
-## <a name="grant-role-based-access"></a>Accorder un accès en fonction du rôle
-
-Vous accordez le *contrôle d’accès en fonction du rôle (Azure RBAC)* en affectant l’identité affectée par le système à une ou plusieurs définitions de rôles Azure. Pour afficher les définitions de rôle Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*.
-
-1. Accédez à votre **compte Azure Maps**. Sélectionnez **Contrôle d’accès (IAM)**  > **Attributions de rôles**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Accorder l’accès à l’aide d’Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
-
-2. Sous l’onglet **Attributions de rôle**, sou **Rôle**, sélectionnez une définition de rôle Azure Maps intégrée, comme **Lecteur de données Azure Maps** ou **Contributeur aux données Azure Maps**. Sous **Attribuer l’accès à**, sélectionnez **Application de fonction**. Sélectionnez le principal par nom. Ensuite, sélectionnez **Enregistrer**.
-
-   * Pour plus d’informations, consultez [Attribuer des rôles Azure](../role-based-access-control/role-assignments-portal.md).
-
-> [!WARNING]
-> Les définitions de rôles intégrées Azure Maps fournissent un accès d’autorisation très large à de nombreuses API REST Azure Maps. Pour limiter l’accès aux API à un minimum, consultez cet [article](../role-based-access-control/custom-roles.md) expliquant comment créer une définition de rôle personnalisée et affecter l’identité affectée par le système à la définition de rôle personnalisée. Cela permet d’activer les privilèges minimum nécessaires à l’application pour accéder à Azure Maps.
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur le scénario d’application monopage :
+Mieux comprendre un scénario d’application monopage :
 > [!div class="nextstepaction"]
 > [Application monopage](../active-directory/develop/scenario-spa-overview.md)
 

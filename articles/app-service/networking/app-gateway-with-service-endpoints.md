@@ -1,6 +1,6 @@
 ---
-title: Intégration d’Application Gateway par des points de terminaison de service – Azure App Service | Microsoft Docs
-description: Décrit comment Application Gateway s’intègre à Azure App Service sécurisé par des points de terminaison de service.
+title: Intégration d’Application Gateway – Azure App Service | Microsoft Docs
+description: Décrit comment Application Gateway s’intègre à Azure App Service.
 services: app-service
 documentationcenter: ''
 author: madsd
@@ -11,18 +11,18 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: b383c28ca5097a6a30dc43f48213b0793ccdee11
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 50de997203357f86cae4a684eb55b5e30e97b712
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096379"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562664"
 ---
-# <a name="application-gateway-integration-with-service-endpoints"></a>Intégration d’Application Gateway par des points de terminaison de service
-Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) et aborde les considérations relatives aux ASE ILB et externe.
+# <a name="application-gateway-integration"></a>Intégration d’Application Gateway
+Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) à l’aide du point de terminaison de service pour sécuriser le trafic. L’article aborde également les considérations relatives à l’utilisation d’un point de terminaison privé et à l’intégration avec ILB et l’environnement ASE externe. Enfin, l’article présente des considérations sur le site SCM/Kudu.
 
 ## <a name="integration-with-app-service-multi-tenant"></a>Intégration à App Service (multilocataire)
 App Service (multilocataire) dispose d’un point de terminaison public accessible sur Internet. À l’aide des [points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md), vous pouvez autoriser le trafic uniquement à partir d’un sous-réseau spécifique au sein d’un réseau virtuel Azure et bloquer tout le reste. Dans le scénario suivant, nous allons utiliser cette fonctionnalité pour nous assurer qu’une instance App Service peut uniquement recevoir le trafic d’une instance Application Gateway spécifique.
@@ -40,7 +40,7 @@ Avec Portail Azure, vous suivez quatre étapes pour approvisionner et configurer
 
 Vous pouvez maintenant accéder au App Service via Application Gateway, mais si vous essayez d’y accéder directement, vous devriez recevoir une erreur HTTP 403 indiquant que le site web est arrêté.
 
-![Capture d’écran montrant le texte d’une erreur 403 – Interdit.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="Capture d’écran montrant le texte d’une erreur 403 – Interdit.":::
 
 ## <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
 Le [modèle de déploiement Resource Manager][template-app-gateway-app-service-complete] fournira un scénario complet. Le scénario se compose d’une instance App Service verrouillée par des points de terminaison de service et une restriction d’accès pour recevoir uniquement le trafic provenant d’Application Gateway. Le modèle comprend de nombreuses valeurs Smart Defaults et des suffixes uniques ajoutés aux noms des ressources pour qu’ils soient simples. Pour les remplacer, vous devez cloner le référentiel ou télécharger le modèle pour le modifier.
@@ -55,6 +55,12 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 Dans la configuration par défaut, la commande vérifie à la fois le paramétrage de la configuration du point de terminaison de service dans le sous-réseau et la restriction d’accès dans l’App Service.
+
+## <a name="considerations-when-using-private-endpoint"></a>Considérations relatives à l’utilisation d’un point de terminaison privé
+
+Comme alternative au point de terminaison de service, vous pouvez utiliser un point de terminaison privé pour sécuriser le trafic entre Application Gateway et App Service (multilocataire). Vous devez vous assurer qu’Application Gateway peut résoudre par DNS l’adresse IP privée des applications App Service ou que vous utilisez l’adresse IP privée dans le pool back-end et que vous remplacez le nom d’hôte dans les paramètres http.
+
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagramme montrant le trafic dirigé vers une passerelle applicative dans un réseau virtuel Azure et, de là, traversant un point de terminaison privé vers des instances d’applications dans App Service":::
 
 ## <a name="considerations-for-ilb-ase"></a>Considérations relatives à ASE ILB
 ASE ILB n’est pas exposé à Internet et le trafic entre l’instance et une Application Gateway est donc déjà isolé dans le réseau virtuel. Le [guide pratique](../environment/integrate-with-application-gateway.md) suivant configure un ASE ILB et l’intègre à une Application Gateway à l’aide du Portail Azure.

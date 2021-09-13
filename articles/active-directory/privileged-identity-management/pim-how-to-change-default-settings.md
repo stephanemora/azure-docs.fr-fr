@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2021
+ms.date: 08/25/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f843aebfea4e7c5b956d5e150c4e54dffa764a5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 558f8b720992f44a747689cb0e69436507b685c4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532715"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866993"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -94,7 +94,7 @@ Vous pouvez exiger que les utilisateurs saisissent une justification métier lor
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
-Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès que l’un d’eux approuve ou refuse. Vous ne pouvez pas demander l’approbation d’au moins deux utilisateurs. Pour exiger l’approbation pour activer un rôle, procédez comme suit.
+Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès que l’un d’eux approuve ou refuse. Vous ne pouvez pas forcer l’approbation d’un deuxième ou d’un approbateur suivant. Pour exiger l’approbation pour activer un rôle, procédez comme suit.
 
 1. Cochez la case **Exiger une approbation pour activer**.
 
@@ -102,11 +102,9 @@ Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès q
 
     ![Sélectionner un volet d’utilisateur ou de groupe pour sélectionner les approbateurs](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Sélectionnez au moins un utilisateur, puis cliquez sur **Sélectionner**. Sélectionnez au moins un approbateur. Si aucun approbateur spécifique n’est sélectionné, les administrateurs de rôle privilégié/administrateurs généraux deviendront les approbateurs par défaut.
+1. Sélectionnez au moins un utilisateur, puis cliquez sur **Sélectionner**. Sélectionnez au moins un approbateur. Si aucun approbateur spécifique n’est sélectionné, les administrateurs à rôle privilégié/administrateurs généraux deviendront les approbateurs par défaut.
 
-    Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
-
-1. Une fois que vous avez spécifié tous vos paramètres de rôle, sélectionnez **Mettre à jour** pour enregistrer vos modifications.
+1. Sélectionnez **Mettre à jour** pour enregistrer vos modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

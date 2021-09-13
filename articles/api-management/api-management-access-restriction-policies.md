@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 06/22/2021
+ms.date: 08/20/2021
 ms.author: apimpm
-ms.openlocfilehash: be920fa3cd35d2b1e92891d5595dfbe27a258447
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8d3370558e8dde2227834fa8f67577ca393b9564
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532321"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687722"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -138,7 +138,7 @@ Dans l’exemple suivant, la limite de débit par abonnement est de 20 appels p
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nom de l’API à laquelle la limite de débit s’applique.                                                | Oui      | N/A     |
 | calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans `renewal-period`. | Oui      | N/A     |
-| renewal-period | Durée en secondes de la fenêtre glissante pendant laquelle le nombre de demandes autorisées ne doit pas dépasser la valeur spécifiée dans `calls`.                                              | Oui      | N/A     |
+| renewal-period | Durée en secondes de la fenêtre glissante pendant laquelle le nombre de demandes autorisées ne doit pas dépasser la valeur spécifiée dans `calls`. Valeur maximale autorisée : 300 secondes.                                            | Oui      | N/A     |
 | retry-after-header-name    | Nom d’un en-tête de réponse dont la valeur est l’intervalle de tentative recommandé en secondes après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | retry-after-variable-name    | Nom d’une variable d’expression de stratégie qui stocke l’intervalle de tentative recommandé, en secondes, après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | remaining-calls-header-name    | Le nom d’un en-tête de réponse dont la valeur après chaque exécution de stratégie est le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
@@ -211,10 +211,10 @@ Dans l’exemple suivant, la limite de débit de 10 appels par 60 secondes est
 
 | Nom                | Description                                                                                           | Obligatoire | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
+| calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. L’expression de stratégie est autorisée. | Oui      | N/A     |
 | counter-key         | Clé à utiliser pour la stratégie de limite de débit.                                                             | Oui      | N/A     |
 | increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le débit (`true`).        | Non       | N/A     |
-| renewal-period      | Durée en secondes de la fenêtre glissante pendant laquelle le nombre de demandes autorisées ne doit pas dépasser la valeur spécifiée dans `calls`.                                           | Oui      | N/A     |
+| renewal-period      | Durée en secondes de la fenêtre glissante pendant laquelle le nombre de demandes autorisées ne doit pas dépasser la valeur spécifiée dans `calls`. L’expression de stratégie est autorisée. Valeur maximale autorisée : 300 secondes.                 | Oui      | N/A     |
 | retry-after-header-name    | Nom d’un en-tête de réponse dont la valeur est l’intervalle de tentative recommandé en secondes après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | retry-after-variable-name    | Nom d’une variable d’expression de stratégie qui stocke l’intervalle de tentative recommandé, en secondes, après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | remaining-calls-header-name    | Le nom d’un en-tête de réponse dont la valeur après chaque exécution de stratégie est le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |

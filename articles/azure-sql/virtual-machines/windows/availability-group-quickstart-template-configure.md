@@ -15,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: ab57e66ff37fb31a91a1949896a4e7736669d6c6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0f9d98eb2a4fe09728a890af59b4c54afbed3737
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078920"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291652"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,8 +29,8 @@ Cet article explique comment utiliser les modèles de démarrage rapide Azure po
 
    | Modèle | Description |
    | --- | --- |
-   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Crée le cluster de basculement Windows et joint les machines virtuelles SQL Server à ce dernier. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Crée l’écouteur de groupe de disponibilité et configure l’équilibreur de charge interne. Ce modèle peut être utilisé seulement si le cluster de basculement Windows a été créé avec le modèle **101-sql-vm-ag-setup**. |
+   | [sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) | Crée le cluster de basculement Windows et joint les machines virtuelles SQL Server à ce dernier. |
+   | [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) | Crée l’écouteur de groupe de disponibilité et configure l’équilibreur de charge interne. Ce modèle peut être utilisé seulement si le cluster de basculement Windows a été créé avec le modèle **101-sql-vm-ag-setup**. |
    | &nbsp; | &nbsp; |
 
 D’autres étapes de la configuration du groupe de disponibilité sont obligatoirement manuelles, notamment la création du groupe de disponibilité et celle de l’équilibreur de charge interne. Cet article décrit la séquence des étapes automatisées et manuelles.
@@ -60,7 +60,7 @@ Une fois que vos machines virtuelles SQL Server ont été inscrites auprès de l
 
 L’ajout de machines virtuelles SQL Server au groupe de ressources *SqlVirtualMachineGroup* amorce le service de cluster de basculement Windows pour créer le cluster et joint ces machines virtuelles SQL Server à ce cluster. Cette étape est automatisée avec le modèle de démarrage rapide **101-sql-vm-ag-setup**. Vous pouvez l’implémenter en effectuant les étapes suivantes :
 
-1. Accédez au modèle de démarrage rapide [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup). Ensuite, sélectionnez **Déployer sur Azure** pour ouvrir le modèle de démarrage rapide sur la portail Azure.
+1. Accédez au modèle de démarrage rapide [**sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup). Ensuite, sélectionnez **Déployer sur Azure** pour ouvrir le modèle de démarrage rapide sur la portail Azure.
 1. Complétez les champs obligatoires pour configurer les métadonnées du cluster de basculement Windows. Vous pouvez laisser les champs facultatifs vides.
 
    Le tableau suivant indique les valeurs nécessaires pour le modèle : 
@@ -161,7 +161,7 @@ Créez l’écouteur de groupe de disponibilité et configurez l’équilibreur 
    
    
 Pour configurer l’équilibreur de charge interne et créer l’écouteur de groupe de disponibilité, procédez comme suit :
-1. Accédez au modèle de démarrage rapide [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) et sélectionnez **Déployer sur Azure** pour démarrer le modèle de démarrage rapide sur le portail Azure.
+1. Accédez au modèle de démarrage rapide [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) et sélectionnez **Déployer sur Azure** pour démarrer le modèle de démarrage rapide sur le portail Azure.
 1. Complétez les champs obligatoires pour configurer l’équilibreur de charge interne, puis créez l’écouteur de groupe de disponibilité. Vous pouvez laisser les champs facultatifs vides. 
 
    Le tableau suivant indique les valeurs nécessaires pour le modèle : 

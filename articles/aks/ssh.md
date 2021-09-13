@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/17/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 7ca318a21e4b3f764060757e1102e6e4665aec3e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 87e548cd39c7c064b11131c28790d8335bd942fb
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467825"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527797"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
 
@@ -75,13 +75,17 @@ node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0     
 
 Dans l’exemple ci-dessus, *node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx* est le nom du pod démarré par `kubectl debug`.
 
-Copiez votre clé SSH privée dans le pod créé par `kubectl debug`. Cette clé privée est utilisée pour créer la connexion SSH au nœud Windows Server AKS. Si nécessaire, remplacez `~/.ssh/id_rsa` par l’emplacement de votre clé SSH privée :
+À l’aide de `kubectl port-forward`, vous pouvez ouvrir une connexion au pod déployé :
 
-```azurecli-interactive
-kubectl cp ~/.ssh/id_rsa node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx:/id_rsa
+```
+$ kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
+Forwarding from 127.0.0.1:2022 -> 22
+Forwarding from [::1]:2022 -> 22
 ```
 
-Utilisez `kubectl get nodes` pour afficher l’adresse IP interne du nœud Windows Server :
+L’exemple ci-dessus commence à transférer le trafic réseau du port 2022 de votre ordinateur de développement vers le port 22 sur le pod déployé. Lorsque vous utilisez `kubectl port-forward` pour ouvrir une connexion et transférer le trafic réseau, la connexion reste ouverte jusqu’à ce que vous arrêtiez la commande `kubectl port-forward`.
+
+Ouvrez un nouveau terminal et utilisez `kubectl get nodes` pour afficher l’adresse IP interne du nœud Windows Server :
 
 ```output
 $ kubectl get nodes -o wide
@@ -94,16 +98,10 @@ aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.
 
 Dans l’exemple ci-dessus, *10.240.0.67* est l’adresse IP interne du nœud Windows Server.
 
-Revenez au terminal démarré par `kubectl debug` et mettez à jour l’autorisation de la clé SSH privée que vous avez copiée dans le pod.
-
-```azurecli-interactive
-chmod 0400 id_rsa
-```
-
 Créez une connexion SSH au nœud Windows Server à l’aide de l’adresse IP interne. Le nom d’utilisateur par défaut pour les nœuds AKS est *azureuser*. Acceptez l’invite pour poursuivre la connexion. Vous obtenez alors l’invite Bash de votre nœud Windows Server :
 
 ```output
-$ ssh -i id_rsa azureuser@10.240.0.67
+$ ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@10.240.0.67
 
 The authenticity of host '10.240.0.67 (10.240.0.67)' can't be established.
 ECDSA key fingerprint is SHA256:1234567890abcdefghijklmnopqrstuvwxyzABCDEFG.
@@ -117,9 +115,18 @@ Microsoft Windows [Version 10.0.17763.1935]
 azureuser@aksnpwin000000 C:\Users\azureuser>
 ```
 
+L’exemple ci-dessus se connecte au port 22 sur le nœud Windows Server via le port 2022 sur votre ordinateur de développement.
+
+> [!NOTE]
+> Si vous préférez utiliser l’authentification par mot de passe, utilisez `-o PreferredAuthentications=password`. Par exemple :
+>
+> ```console
+>  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.240.0.67
+> ```
+
 ## <a name="remove-ssh-access"></a>Supprimer l’accès SSH
 
-Quand vous avez terminé, quittez (`exit`) la session SSH, puis quittez (`exit`) la session de conteneur interactive. Quand cette session de conteneur se ferme, le pod utilisé pour l’accès SSH à partir du cluster AKS est supprimé.
+Quand vous avez terminé, quittez (`exit`) la session SSH, arrêtez tout réacheminement de port, puis quittez (`exit`) la session de conteneur interactive. Une fois la session de conteneur interactive fermée, le pod utilisé pour l’accès SSH à partir du cluster AKS est supprimé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -128,7 +135,7 @@ Si vous avez besoin de données de dépannage supplémentaires, vous pouvez [Aff
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

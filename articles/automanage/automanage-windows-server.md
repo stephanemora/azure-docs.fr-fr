@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 8ada2b5dbf58791da7bfbd11201a683c6a060f94
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 68269b511d101f7c2c346a4bee45aef86bda8fe3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649600"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223106"
 ---
 # <a name="azure-automanage-for-machines-best-practices---windows-server"></a>Meilleures pratiques Azure Automanage pour les machines – Windows Server
 
@@ -28,7 +28,6 @@ Automanage prend en charge les versions suivantes de Windows Server :
 - Windows Server 2012/R2
 - Windows Server 2016
 - Windows Server 2019
-- Windows Server 2019 Azure Edition
 - Windows Server 2022
 - Windows Server 2022 Azure Edition
 
@@ -42,8 +41,9 @@ Automanage prend en charge les versions suivantes de Windows Server :
 |[Microsoft Antimalware](../security/fundamentals/antimalware.md)    |Microsoft Antimalware pour Azure offre une protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Il fournit des alertes lorsqu’un logiciel malveillant ou indésirable connu essaye de s’installer ou de s’exécuter sur vos systèmes Azure. **Remarque :** Pour fonctionner correctement, Microsoft Antimalware requiert qu’aucun autre logiciel anti-programme malveillant ne soit installé.  En savoir [plus](../security/fundamentals/antimalware.md). |Production, Dev/Test    |Oui    |
 |[Gestion des mises à jour](../automation/update-management/overview.md)    |Vous pouvez utiliser la solution Update Management d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos machines. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur toutes les machines d’agent et gérer le processus d’installation des mises à jour nécessaires pour les serveurs. En savoir [plus](../automation/update-management/overview.md).    |Production, Dev/Test    |Non    |
 |[Suivi des modifications et inventaire](../automation/change-tracking/overview.md) |La fonctionnalité Suivi des modifications et inventaire combine les fonctions de suivi des modifications et d’inventaire pour vous permettre d’effectuer le suivi des modifications apportées à l’infrastructure des machines virtuelles et des serveurs. Le service prend en charge le suivi des modifications sur les services, les démons, les logiciels, le registre et les fichiers de votre environnement pour vous aider à diagnostiquer les changements indésirables et à déclencher des alertes. La prise en charge de l’inventaire vous permet d’interroger les ressources intégrées pour voir les applications installées et d’autres éléments de configuration.  En savoir [plus](../automation/change-tracking/overview.md).    |Production, Dev/Test    |Non    |
-|[Configuration d’invité Azure](../governance/policy/concepts/guest-configuration.md) | La stratégie Guest Configuration est utilisée pour superviser la configuration et signaler la conformité de la machine. Le service de gestion automatique installe les [lignes de base de sécurité Windows](/windows/security/threat-protection/windows-security-baselines) à l’aide de l’extension de configuration invitée. Pour les machines Windows, le service Guest Configuration réapplique automatiquement les paramètres de base de référence s’ils ne sont pas conformes. En savoir [plus](../governance/policy/concepts/guest-configuration.md).    |Production, Dev/Test    |Non    |
+|[Configuration invité](../governance/policy/concepts/guest-configuration.md) | La stratégie de Configuration invité est utilisée pour superviser la configuration et signaler la conformité de la machine. Le service de Gestion automatique installe les [lignes de base de sécurité Windows](/windows/security/threat-protection/windows-security-baselines) à l’aide de l’extension de la configuration invité. Pour les machines Windows, le service Guest Configuration réapplique automatiquement les paramètres de base de référence s’ils ne sont pas conformes. En savoir [plus](../governance/policy/concepts/guest-configuration.md).    |Production, Dev/Test    |Non    |
 |[Diagnostics de démarrage](../virtual-machines/boot-diagnostics.md)    | Les diagnostics de démarrage sont une fonctionnalité de débogage pour les machines virtuelles Azure qui permet de diagnostiquer les échecs de démarrage de machine virtuelle. Les diagnostics de démarrage permettent à un utilisateur d’observer l’état de la machine virtuelle lors de son démarrage en collectant des informations de journal série et des captures d’écran. Cette fonctionnalité est activée uniquement pour les machines qui utilisent des disques managés. |Production, Dev/Test    |Non    |
+|[Windows Admin Center](/windows-server/manage/windows-admin-center/azure/manage-vm)    | Utilisez Windows Admin Center (préversion) dans le Portail Azure pour gérer le système d’exploitation Windows Server à l’intérieur d’une machine virtuelle Azure. Cette fonctionnalités n’est prise en charge que pour les machines utilisant Windows Server version 2016 ou ultérieure. Automanage configure Windows Admin Center via une adresse IP privée. Si vous souhaitez vous connecter à Windows Admin Center via une adresse IP publique, ouvrez une règle de port entrant pour le port 6516. Automanage intègre Windows Admin Center pour le profil Dev/Test par défaut. Utilisez les préférences pour activer ou désactiver Windows Admin Center pour les environnements de Production et de Dev/Test. |Production, Dev/Test    |Oui    |
 |[Compte Azure Automation](../automation/automation-create-standalone-account.md)    |Azure Automation prend en charge la gestion tout au long du cycle de vie de votre infrastructure et des applications. En savoir [plus](../automation/automation-intro.md).    |Production, Dev/Test    |Non    |
 |[Espace de travail Log Analytics](../azure-monitor/logs/log-analytics-overview.md) |Azure Monitor stocke des données de journal dans un espace de travail Log Analytics, qui est une ressource Azure et un conteneur où les données sont collectées, agrégées, et qui sert de limite d’administration. En savoir [plus](../azure-monitor/logs/design-logs-deployment.md).    |Production, Dev/Test    |Non    |
 

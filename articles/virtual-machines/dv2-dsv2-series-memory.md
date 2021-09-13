@@ -1,5 +1,5 @@
 ---
-title: Machines virtuelles des séries Dv2 et DSv2 à mémoire optimisée – Machines virtuelles Microsoft Azure
+title: Machines virtuelles des séries Dv2 et Dsv2 à mémoire optimisée - Machines virtuelles Azure
 description: Spécifications pour les machines virtuelles des séries Dv2 et DSv2.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f07e4542e380e4e8057d9011a6b613e9ad55a058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2010bdb442112af6e62ed30abc8323b669b5166
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560325"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688334"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Séries Dv2 et Dsv2 à mémoire optimisée
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les séries Dv2 et Dsv2, suites de la série D d’origine, sont dotées d’une UC plus puissante. Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) ou Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell). La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
@@ -28,7 +30,7 @@ Les tailles de la série Dv2 s’exécutent sur des processeurs Intel® Xeon® P
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br> 
 
@@ -40,7 +42,7 @@ Les tailles de la série Dv2 s’exécutent sur des processeurs Intel® Xeon® P
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8|12 000 |
 | Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1 000 | 60 000/937/468 | 64/64x500 | 8|25 000<sup>2</sup> |
 
-<sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
+<sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.<br>
 <sup>2</sup> 25 000 MBps avec mise en réseau accélérée.
 
 ## <a name="dsv2-series-11-15"></a>Série DSv2 11-15
@@ -53,7 +55,7 @@ Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge <br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br> 
 
@@ -68,7 +70,7 @@ Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou MBps) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d'informations, consultez [Conception pour de hautes performances](./premium-storage-performance.md).
 <sup>2</sup> L’instance est isolée sur le matériel Intel Haswell et dédiée à un seul client.  
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles.  
-<sup>4</sup> 25 000 MBps avec mise en réseau accélérée.
+<sup>4</sup> 25 000 MBps avec mise en réseau accélérée.<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

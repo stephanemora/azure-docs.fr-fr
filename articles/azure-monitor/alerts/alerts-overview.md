@@ -3,12 +3,12 @@ title: Vue d’ensemble des alertes et de la surveillance des notifications dans
 description: Vue d’ensemble des alertes dans Azure Monitor
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee0d6cd4c895bbcd78767776a86bd63cfa4f5242
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038048"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525132"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -151,7 +151,7 @@ Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans l
 | Resource group | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Type de ressource | Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
 | Ressource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
-| severity | Sélectionnez un niveau de gravité d’alerte ou **Tous** pour inclure les alertes de tous les niveaux de gravité. |
+| Gravité | Sélectionnez un niveau de gravité d’alerte ou **Tous** pour inclure les alertes de tous les niveaux de gravité. |
 | Condition de surveillance | Sélectionnez une condition d’analyse ou **Toutes** pour inclure les alertes correspondant à toutes les conditions. |
 | État d’alerte | Sélectionnez un état d’alerte ou **Toutes** pour inclure les alertes correspondant à tous les états. |
 | Service de surveillance | Sélectionnez un service ou **Tous** pour inclure tous les services. Seules les alertes créées par des règles utilisant ce service comme cible sont incluses. |
@@ -180,26 +180,22 @@ Pour pouvoir utiliser et gérer des instances d’alerte, l’utilisateur doit d
 
 Vous pouvez interroger par programmation les alertes générées pour votre abonnement. Des requêtes peut consister à créer des vues personnalisées en dehors du portail Microsoft Azure, ou à analyser vos alertes pour identifier des tendances et modèles.
 
-Pour accéder aux alertes générées pour vos abonnements, utilisez soit l’[API REST Alert Management](/rest/api/monitor/alertsmanagement/alerts), soit [Azure Resource Graph](../../governance/resource-graph/overview.md) et l’[API REST pour Ressources](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
+Il est recommandé d’utiliser [Azure Resource Graph](../../governance/resource-graph/overview.md) avec le schéma `AlertsManagementResources` pour interroger les alertes déclenchées. Resource Graph est recommandé lorsque vous devez gérer des alertes générées pour plusieurs abonnements.
 
-L’API REST Resource Graph pour les ressources vous permet d’interroger le système pour afficher les instances d’alerte à grande échelle. Elle est recommandée lorsque vous devez gérer des alertes générées pour de nombreux abonnements. 
-
-L’exemple suivant de demande adressée à l’API REST Resource Graph renvoie le nombre d’alertes au sein d’un abonnement :
+L’exemple suivant de demande adressée à l’API REST Resource Graph renvoie les alertes au sein d’un seul abonnement au cours du dernier jour :
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
+  "query": "alertsmanagementresources | where properties.essentials.lastModifiedDateTime > ago(1d) | project alertInstanceId = id, parentRuleId = tolower(tostring(properties['essentials']['alertRule'])), sourceId = properties['essentials']['sourceCreatedId'], alertName = name, severity = properties.essentials.severity, status = properties.essentials.monitorCondition, state = properties.essentials.alertState, affectedResource = properties.essentials.targetResourceName, monitorService = properties.essentials.monitorService, signalType = properties.essentials.signalType, firedTime = properties['essentials']['startDateTime'], lastModifiedDate = properties.essentials.lastModifiedDateTime, lastModifiedBy = properties.essentials.lastModifiedUserName"
 }
 ```
 
-Vous pouvez également voir le résultat de cette requête de Resource Graph dans le portail avec Azure Resource Graph Explorer : [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+Vous pouvez également voir le résultat de cette requête Resource Graph dans le portail avec Azure Resource Graph Explorer : [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0A%7C%20where%20properties.essentials.lastModifiedDateTime%20%3E%20ago(1d)%0A%7C%20project%20alertInstanceId%20%3D%20id%2C%20parentRuleId%20%3D%20tolower(tostring(properties%5B 'essentials'%5D%5B'alertRule'%5D))%2C%20sourceId%20%3D%20properties%5B'essentials'%5D%5B'sourceCreatedId'%5D%2C%20alertName%20%3D%20name%2C%20severity%20%3D%20properties.essentials.severity%2C%20status%20%3D%20properties.essentials.monitorCondition%2C%20state%20%3D%20properties.essentials.alertState%2C%20affectedResource%20%3D%20properties.essentials.targetResourceName%2C%20monitorService%20%3D%20properties.essentials.monitorService%2C%20signalType%20%3D%20properties.essentials.signalType%2C%20firedTime%20%3D%20properties%5B'essentials'%5D%5B'startDateTime'%5D%2C%20lastModifiedDate%20%3D%20properties.essentials.lastModifiedDateTime%2C%20lastModifiedBy%20%3D%20properties.essentials.lastModifiedUserName)
 
-Vous pouvez interroger les alertes sur leurs champs [essentiels](../alerts/alerts-common-schema-definitions.md#essentials).
-
-[L’API REST Alert Management](/rest/api/monitor/alertsmanagement/alerts) vous permet d’obtenir des informations supplémentaires sur des alertes spécifiques, y compris leurs champs [Contexte de l’alerte](../alerts/alerts-common-schema-definitions.md#alert-context).
+Vous pouvez également utiliser l’[API REST Alert Management](/rest/api/monitor/alertsmanagement/alerts) dans les scénarios d’interrogation à l’échelle inférieure ou pour mettre à jour les alertes déclenchées.
 
 ## <a name="smart-groups"></a>Groupes intelligents
 

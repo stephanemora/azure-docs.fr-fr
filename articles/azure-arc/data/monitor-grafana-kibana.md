@@ -7,29 +7,27 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 12/08/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: cb53aba300b933c78d9ac2f5fc5cf8054f3413e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d8d18d296a54b85cb3b571099e13f8c3e4e7a9c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669999"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525255"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Afficher les journaux et les métriques à l’aide de Kibana et Grafana
 
-Les tableaux de bord web Kibana et Grafana sont fournis pour apporter des informations et plus clarté aux espaces de noms Kubernetes utilisés par les services de données Azure Arc activés.
+Les tableaux de bord web Kibana et Grafana sont fournis pour apporter des insights et plus de clarté aux espaces de noms Kubernetes utilisés par les services de données avec Azure Arc.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 ## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Suivre les instances managées Azure SQL sur Azure Arc
 
 Pour accéder aux journaux et aux tableaux de bord de surveillance pour la SQL Managed Instance avec Arc activé, exécutez la commande CLI `azdata` suivante
 
-```bash
-
-azdata arc sql endpoint list -n <name of SQL instance>
+```azurecl
+az sql mi-arc endpoint list -n <name of SQL instance>
 
 ```
 Les tableaux de bord Grafana sont les suivants :
@@ -43,7 +41,7 @@ Les tableaux de bord Grafana sont les suivants :
 >  Lorsque vous êtes invité à entrer un nom d’utilisateur et un mot de passe, entrez le nom d’utilisateur et le mot de passe que vous avez fournis au moment où vous avez créé le contrôleur de données Azure Arc.
 
 > [!NOTE]
->  Un avertissement de certificat s’affiche, car les certificats utilisés dans la préversion sont des certificats auto-signés.
+>  Un avertissement de certificat s’affiche, car les certificats sont auto-signés.
 
 
 ## <a name="monitor-azure-database-for-postgresql-hyperscale-on-azure-arc"></a>Surveiller Azure Database pour PostgreSQL Hyperscale sur Azure Arc
@@ -52,7 +50,7 @@ Pour accéder aux journaux et aux tableaux de bord de surveillance pour PostgreS
 
 ```bash
 
-azdata arc postgres endpoint list -n <name of postgreSQL instance>
+az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 
 ```
 

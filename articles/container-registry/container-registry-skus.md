@@ -2,13 +2,13 @@
 title: Niveaux de service et fonctionnalités du registre
 description: Découvrez les fonctionnalités et les limites (quotas) des niveaux de service (SKU) De base, Standard et Premium d’Azure Container Registry.
 ms.topic: article
-ms.date: 05/18/2020
-ms.openlocfilehash: 323d36fe022d8b8e9618b8beb1facae93d22df4e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/24/2021
+ms.openlocfilehash: 8c27426cae6d80e31aef3d7ef9b75d28a14bd923
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781250"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437537"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveaux de service Azure Container Registry
 
@@ -27,6 +27,41 @@ Les niveaux De base, Standard et Premium fournissent toutes les mêmes fonctionn
 Le tableau suivant détaille les fonctionnalités et les limites de registre des niveaux de service De base, Standard et Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
+
+## <a name="registry-throughput-and-throttling"></a>Débit et limitation du registre
+
+### <a name="throughput"></a>Débit 
+
+Quand vous générez un taux élevé d’opérations de registre, utilisez les limites d’opérations de lecture et écriture et de bande passante du niveau de service comme guide pour le débit maximal attendu. Ces limites affectent les opérations de plan de données, y compris la génération de liste, la suppression, l’envoi (push) et le tirage (pull) d’images et d’autres artefacts.
+
+Pour estimer le débit spécifique de tirages et d’envois d’images, tenez compte des limites du registre et de ces facteurs : 
+
+* Nombre et taille des couches d’images
+* Réutilisation des couches ou des images de base entre les images
+* Appels d’API supplémentaires qui peuvent être nécessaires pour chaque tirage ou envoi
+
+Pour obtenir des informations détaillées, consultez la documentation relative à l’[API Docker HTTP V2](https://docs.docker.com/registry/spec/api/).
+
+Pour évaluer le débit du registre ou résoudre les problèmes correspondants, tenez compte également de la configuration de votre environnement client :
+
+* La configuration de votre démon Docker pour les opérations simultanées
+* Votre connexion réseau au point de terminaison (ou aux points de terminaison si votre registre est [géorépliqué](container-registry-geo-replication.md)) des données du registre.
+
+Si vous rencontrez des problèmes de débit avec votre registre, consultez [Résoudre les problèmes de performances de registre](container-registry-troubleshoot-performance.md). 
+
+#### <a name="example"></a>Exemple
+
+L’envoi d’une seule image `nginx:latest` de 133 Mo sur un registre de conteneurs Azure nécessite plusieurs opérations de lecture et d’écriture pour les cinq couches de l’image : 
+
+* Opérations de lecture pour lire le manifeste de l’image s’il existe dans le registre
+* Opérations d’écriture pour écrire le blob de configuration de l’image
+* Opérations d’écriture pour écrire le manifeste de l’image
+
+### <a name="throttling"></a>Limitation
+
+Vous pouvez être confronté à une limitation des opérations de tirage et d’envoi quand le registre détermine que le taux de requêtes dépasse les limites autorisées pour le niveau de service du registre. Vous pouvez alors voir une erreur HTTP 429 de type `Too many requests`.
+
+La limitation peut se produire temporairement quand vous générez une rafale d’opérations de tirage et d’envoi d’images sur une période très brève, même si le taux moyen d’opérations de lecture et d’écriture est compris dans les limites du registre. Vous devrez peut-être implémenter une logique de nouvelle tentative avec un backoff dans votre code ou réduire le taux maximal de requêtes adressées au registre.
 
 ## <a name="changing-tiers"></a>Changer de niveau
 

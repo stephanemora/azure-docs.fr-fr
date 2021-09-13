@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: f5c0e8ae52d2af25c41550df1c59680d47360477
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 07/30/2021
+ms.openlocfilehash: 8c6f3ebaa72457d93e4b3e491656f494511bd994
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987845"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563012"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Sauvegarder et restaurer dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -77,6 +77,8 @@ Vous pouvez choisir entre le dernier point de restauration et un point de restau
 
 La durée de récupération estimée dépend de plusieurs facteurs, notamment la taille des bases de données, le volume des journaux des transactions à traiter, la bande passante réseau et le nombre total de bases de données à récupérer dans la même région au même moment. La durée de récupération globale est généralement comprise entre quelques minutes et quelques heures.
 
+Si vous avez configuré votre serveur dans un réseau virtuel, vous pouvez effectuer la restauration vers le même réseau virtuel ou vers un autre réseau virtuel. Cependant, vous ne pouvez pas effectuer une restauration sur un accès public. De même, si vous avez configuré votre serveur avec un accès public, vous ne pouvez pas restaurer sur un accès privé.
+
 
 > [!IMPORTANT]
 > Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../../azure-resource-manager/management/lock-resources.md).
@@ -96,6 +98,109 @@ Après la restauration de la base de données, vous pouvez effectuer les tâches
 -   Configurer les alertes, selon les besoins.
   
 -  Si vous avez restauré la base de données configurée avec une haute disponibilité et que vous voulez configurer le serveur restauré avec une haute disponibilité, vous pouvez effectuer [ces étapes](./how-to-manage-high-availability-portal.md).
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+### <a name="backup-related-questions"></a>Questions relatives à la sauvegarde
+
+* **Comment Azure gère-t-il la sauvegarde de mon serveur ?**
+ 
+    Par défaut, Azure Database pour PostgreSQL active les sauvegardes automatisées de l’ensemble de votre serveur (englobant toutes les bases de données créées) avec une période de conservation par défaut de 7 jours. Une capture instantanée incrémentielle quotidienne de la base de données est effectuée. Les fichiers journaux (WAL) sont archivés en continu sur Azure Blob.
+
+* **Est-ce que je peux configurer ces sauvegardes automatiques pour qu’elles soient conservées à long terme ?**
+  
+    Non. Actuellement, nous ne prenons en charge qu’un maximum de 35 jours de conservation. Vous pouvez effectuer des sauvegardes manuelles et les utiliser pour les besoins de conservation à long terme.
+
+* **Comment faire une sauvegarde manuelle de mes serveurs Postgres ?**
+  
+    Vous pouvez effectuer une sauvegarde manuelle en utilisant l’outil PostgreSQL pg_dump comme documenté [ici](https://www.postgresql.org/docs/current/app-pgdump.html). Pour obtenir des exemples, vous pouvez vous référer à la [documentation de mise à niveau/migration](../howto-migrate-using-dump-and-restore.md) que vous pouvez utiliser aussi pour les sauvegardes. Si vous voulez sauvegarder Azure Database pour PostgreSQL dans un stockage Blob, reportez-vous à notre blog de la communauté technique [Backup Azure Database for PostgreSQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/backup-azure-database-for-postgresql-to-a-blob-storage/ba-p/803343). 
+
+* **Quelles sont les fenêtres de sauvegarde pour mon serveur ? Puis-je les personnaliser ?**
+  
+    Les fenêtres de sauvegarde sont gérées directement par Azure et ne peuvent pas être personnalisées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. Les sauvegardes d’instantanés suivantes sont des sauvegardes incrémentielles qui sont effectuées une fois par jour.
+
+* **Mes sauvegardes sont-elles chiffrées ?**
+  
+    Oui. Toutes les données et sauvegardes d’Azure Database pour PostgreSQL ainsi que les fichiers temporaires créés pendant l’exécution d’une requête sont chiffrés en utilisant le chiffrement AES 256 bits. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé. 
+
+* **Est-ce que je peux restaurer une ou plusieurs bases de données sur un serveur ?**
+  
+    La restauration d’une ou de plusieurs bases de données ou tables n’est pas prise en charge directement. Cependant, vous devez restaurer le serveur tout entier sur un nouveau serveur, puis extraire la ou les tables ou bases de données nécessaires, puis les importer sur votre serveur.
+
+* **Mon serveur est-il disponible pendant que la sauvegarde est en cours ?**
+    Oui. Les sauvegardes sont des opérations en ligne qui utilisent des captures instantanées. L’opération de capture instantanée ne prend que quelques secondes et n’interfère pas avec les charges de travail de production, ce qui garantit la haute disponibilité du serveur. 
+
+* **Lors de la configuration de la fenêtre de maintenance du serveur, devons-nous prendre en compte la fenêtre de sauvegarde ?**
+  
+    Non. Les sauvegardes sont déclenchées en interne dans le cadre du service managé et n’ont pas incidence sur la fenêtre de maintenance gérée.
+
+* **Où sont stockées mes sauvegardes automatisées et comment gérer leur conservation ?**
+  
+    Azure Database pour PostgreSQL crée automatiquement des sauvegardes du serveur et les stocke automatiquement dans un stockage redondant interzone dans les régions où plusieurs zones sont prises en charge, ou dans un stockage localement redondant dans les régions qui ne prennent pas encore en charge plusieurs zones. Vous ne pouvez pas exporter ces fichiers de sauvegarde. Vous pouvez utiliser des sauvegardes seulement pour restaurer votre serveur à un instant dans le passé. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez si vous le souhaitez configurer la conservation des sauvegardes jusqu’à 35 jours.
+
+* **Comment les sauvegardes sont-elles effectuées dans un serveur activé pour la haute disponibilité ?**
+  
+    Les volumes de données du serveur flexible sont sauvegardés en utilisant des captures instantanées incrémentielles des disques managés du serveur principal. La sauvegarde WAL est effectuée à partir du serveur principal ou du serveur de secours.
+
+* **Comment vérifier que des sauvegardes sont effectuées sur mon serveur ?**
+
+    La meilleure façon de vérifier la disponibilité de sauvegardes valides est d’effectuer des restaurations périodiques à un instant dans le passé, et de vérifier que les sauvegardes sont valides et restaurables. Les opérations de sauvegarde ou les fichiers ne sont pas exposés aux utilisateurs finaux.
+
+* **Où voir l’espace utilisé par les sauvegardes ?**
+  
+    Dans le portail Azure, sous Supervision, cliquez sur Métriques : vous pouvez trouver la « métrique Utilisation de la sauvegarde », qui vous permet de superviser l’utilisation totale des sauvegardes.
+
+* **Qu’advient-il de mes sauvegardes si je supprime mon serveur ?**
+  
+    Si vous supprimez le serveur, toutes les sauvegardes qui appartiennent au serveur sont également supprimées et ne peuvent pas être restaurées. À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des verrous de gestion.
+
+* **Comment les sauvegardes sont-elles conservées pour les serveurs arrêtés ?**
+
+    Aucune nouvelle sauvegarde n’est effectuée pour les serveurs arrêtés. Toutes les sauvegardes plus anciennes (dans la fenêtre de conservation) au moment de l’arrêt du serveur sont conservées jusqu’à ce que le serveur soit redémarré, après quoi la conservation des sauvegardes pour le serveur actif est gouvernée par sa fenêtre de conservation des sauvegardes.
+
+* **Comment mes sauvegardes sont-elles facturées ?**
+  
+    Le serveur flexible fournit jusqu’à 100 % du stockage de votre serveur provisionné en stockage de sauvegarde sans coût supplémentaire. Tout stockage supplémentaires utilisé pour les sauvegardes est facturé par Go par mois, en fonction du modèle tarifaire. La facturation du stockage de sauvegarde est également régie par la période de conservation sélectionnée et l’option de redondance des sauvegardes choisie, indépendamment de l’activité transactionnelle sur le serveur, qui a un impact direct sur le stockage de sauvegarde total utilisé.
+
+* **Comment suis-je facturé pour un serveur arrêté ?**
+  
+    Pendant que votre instance de serveur est arrêtée, aucune nouvelle sauvegarde n’est effectuée. Vous êtes facturé pour le stockage provisionné et le stockage de sauvegarde (sauvegardes stockées dans votre fenêtre de conservation spécifiée). Le stockage de sauvegarde gratuit est limité à la taille de votre base de données provisionnée ; toutes les données de sauvegarde excédentaires seront facturées en utilisant le prix des sauvegardes.
+
+* **J’ai configuré mon serveur avec une haute disponibilité redondante interzone. Faites-vous deux sauvegardes et serai-je facturé deux fois ?**
+  
+    Non. Que les serveurs soient ou non à haute disponibilité, un seul jeu de copies de sauvegarde est conservé et vous n’êtes facturé qu’une seule fois.
+
+### <a name="restore-related-questions"></a>Questions relatives à la restauration
+
+* **Comment restaurer mon serveur ?**
+
+    Azure prend en charge la restauration à un instant dans le passé (pour tous les serveurs), permettant aux utilisateurs de restaurer le point de restauration le plus récent ou un point personnalisé en utilisant le portail Azure, Azure CLI et l’API. 
+
+    Pour restaurer votre serveur à partir des sauvegardes effectuées manuellement en utilisant des outils comme pg_dump, vous pouvez d’abord créer un serveur flexible, puis restaurer votre ou vos bases de données sur le serveur en utilisant [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html).
+
+* **Est-ce que je peux effectuer une restauration vers une autre zone de disponibilité au sein de la même région ?**
+  
+    Oui. Si la région prend en charge plusieurs zones de disponibilité, la sauvegarde est stockée sur un compte ZRS et vous permet de restaurer dans une autre zone. 
+
+* **Combien de temps faut-il pour effectuer une restauration à un instant dans le passé ? Pourquoi ma restauration prend-elle autant de temps ?**
+  
+    L’opération de restauration des données à partir de la capture instantanée ne dépend pas de la taille des données ; cependant, la durée du processus de récupération qui applique les journaux (activités de transaction à réappliquer) peut varier en fonction de la sauvegarde précédente, de la date/heure demandée et de la quantité de journaux à traiter. Ceci s’applique à la fois à la restauration au sein de la même zone ou dans une autre zone. 
+ 
+* **Si je restaure mon serveur activé pour la haute disponibilité, le serveur de restauration est-il automatiquement configuré avec la haute disponibilité ?**
+  
+    Non. Le serveur est restauré en tant que serveur flexible à une seule instance. Une fois la restauration terminée, vous pouvez si vous le souhaitez configurer le serveur avec la haute disponibilité.
+
+* **J’ai configuré mon serveur dans un réseau virtuel. Est-ce que je peux restaurer dans un autre réseau virtuel ?**
+  
+    Oui. Au moment de la restauration, choisissez un autre réseau virtuel pour restaurer.
+
+* **Est-ce que je peux restaurer mon serveur en accès public dans un réseau virtuel ou vice versa ?**
+
+    Non. Actuellement, nous ne prenons pas en charge la restauration de serveurs entre accès public et privé.
+
+* **Comment faire le suivi de mon opération de restauration ?**
+  
+    Actuellement, il n’existe aucun moyen d’effectuer le suivi de l’opération de restauration. Vous pouvez consulter le journal d’activité pour déterminer si l’opération est en cours ou terminée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -2,14 +2,14 @@
 title: Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b952cf75776536652f96132049d8cef59c963e17
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f16974d00f4801f288180814daf9ff5ed4558748
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527946"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778718"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -113,7 +113,11 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Attribuer une identité managée affectée par l’utilisateur au coffre
+### <a name="assign-user-assigned-managed-identity-to-the-vault-in-preview"></a>Attribuer une identité managée affectée par l’utilisateur au coffre (préversion)
+
+>[!Note]
+>- Les coffres utilisant des identités gérées affectées par l’utilisateur pour le chiffrement CMK ne prennent pas en charge l’utilisation de points de terminaison privés pour Sauvegarde Microsoft Azure.
+>- Les coffres de clés Azure qui limitent l’accès à des réseaux spécifiques ne sont pas encore pris en charge pour une utilisation avec des identités managées affectées par l’utilisateur pour le chiffrement CMK.
 
 Pour attribuer l’identité managée affectée par l’utilisateur à votre coffre Recovery Services, procédez comme suit :
 

@@ -9,14 +9,16 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
 ms.custom: contperf-fy21q3-portal, devx-track-azurecli
-ms.openlocfilehash: db21cf9e4dc28a83b98f58e73db9a5d76f80aef2
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b0df8d446716363f21c468838523ffe4804f2e9c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886673"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691904"
 ---
 # <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Rechercher des informations sur les images de Place de marché Azure à l’aide d’Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cette rubrique décrit comment utiliser Azure CLI pour rechercher des images de machine virtuelle sur la Place de marché Microsoft Azure. Ces informations permettent de spécifier une image de la Place de marché lorsque vous créez une machine virtuelle par programmation avec l’interface CLI, des modèles de Resource Manager ou d’autres outils.
 
@@ -195,7 +197,7 @@ Pour déployer cette image, vous devez accepter les conditions générales et fo
 
 ## <a name="accept-the-terms"></a>Accepter les conditions
 
-Pour afficher et accepter les termes du contrat de licence, utilisez la commande [az vm image accept-terms](/cli/azure/vm/image/terms). Lorsque vous acceptez les termes, vous activez un déploiement par programmation dans votre abonnement. Vous ne devez accepter qu’une fois les conditions par abonnement pour l’image. Par exemple :
+Pour voir et accepter les termes du contrat de licence, utilisez la commande [az vm image terms](/cli/azure/vm/image/terms). Lorsque vous acceptez les termes, vous activez un déploiement par programmation dans votre abonnement. Vous ne devez accepter qu’une fois les conditions par abonnement pour l’image. Par exemple :
 
 ```azurecli
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest

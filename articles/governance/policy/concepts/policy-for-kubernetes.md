@@ -4,12 +4,12 @@ description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent p
 ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20b3362823644ab478e2069fbc610079820302c3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 615145c7267d580d7a22dd34452e68c9cd905cdc
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534952"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965129"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Comprendre Azure Policy pour les clusters Kubernetes
 
@@ -407,10 +407,10 @@ Vous pouvez également utiliser le démarrage rapide [Attribuer une stratégie �
 Le module complémentaire contacte le service Azure Policy toutes les quinze minutes pour vérifier si des modifications ont été apportées aux affectations de stratégie.
 Pendant ce cycle d’actualisation, le module complémentaire recherche d’éventuelles modifications, qui déclenchent la création, la mise à jour ou la suppression des modèles de contrainte et des contraintes.
 
-Dans un cluster Kubernetes, si un espace de noms a l’une des étiquettes suivantes, les demandes d’admission avec violations sont refusées. Les résultats de l’évaluation de la conformité sont toujours disponibles.
+Dans un cluster Kubernetes, si un espace de noms possède une étiquette appropriée au cluster, les demandes d’admission avec violations sont refusées. Les résultats de l’évaluation de la conformité sont toujours disponibles.
 
-- `control-plane`
-- `admission.policy.azure.com/ignore`
+- Cluster Kubernetes avec Azure Arc : `admission.policy.azure.com/ignore`
+- Cluster Azure Kubernetes Service : `control-plane`
 
 > [!NOTE]
 > Un administrateur de cluster peut être autorisé à créer et mettre à jour des modèles et ressources de contrainte installés par le module complémentaire Azure Policy, ces scénarios ne sont pas pris en charge, car les mises à jour manuelles sont remplacées. Gatekeeper continue d’évaluer les stratégies qui existaient avant l’installation du module complémentaire et l’affectation de définitions de stratégie Azure Policy.

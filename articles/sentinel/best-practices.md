@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 570dccac5b7ddae323ce37dfbfbf850a54d576d6
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 4a47a13405402b381c1a1b3682f5d42038218959
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525743"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689148"
 ---
 # <a name="best-practices-for-azure-sentinel"></a>Meilleures pratiques pour Azure Sentinel
 
@@ -159,6 +159,8 @@ La documentation d’Azure Sentinel contient davantage d’aide relative aux mei
     - [Détection des menaces prête à l’emploi](detect-threats-built-in.md)
     - [Créer des règles d’analytique personnalisées pour détecter des menaces](detect-threats-custom.md)
     - [Utiliser Jupyter Notebook pour rechercher des menaces de sécurité](notebooks.md)
+
+Pour plus d’informations, consultez également notre vidéo : [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

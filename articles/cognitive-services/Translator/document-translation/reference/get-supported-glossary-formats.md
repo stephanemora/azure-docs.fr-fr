@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 0185a4b18ed56899de9c235bbd0438ef1dedf7c4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ae21b4e510dc7e1f95303c562f58032758717d56
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412724"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540699"
 ---
 # <a name="get-supported-glossary-formats"></a>Obtenir les formats de glossaire pris en charge
 
-La méthode get supported glossary formats retourne une liste des formats de glossaires pris en charge par le service Traduction de documentation. La liste comprend l’extension de fichier commune utilisée.
+La méthode Get (pour les formats de glossaire pris en charge) retourne une liste des formats de glossaires pris en charge par le service Traduction de documentation. La liste comprend l’extension de fichier commune utilisée.
 
 ## <a name="request-url"></a>URL de la demande
 
@@ -33,7 +33,7 @@ Découvrez comment déterminer votre [nom de domaine personnalisé](../get-start
 > [!IMPORTANT]
 >
 > * **Toutes les requêtes d’API adressées au service Traduction de documentation nécessitent un point de terminaison de domaine personnalisé**.
-> * Vous ne pouvez pas utiliser le point de terminaison qui se trouve dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP au service Traduction de document.
+> * Vous ne pouvez pas utiliser le point de terminaison qui se trouve dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP au service Traduction de documentation.
 
 ## <a name="request-headers"></a>En-têtes de requête
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 8f9f6c18e75b0c8238583742a2a99d0e365edbd0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 85422b8bc587c858fc219379e553d1705e5aaabe
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166358"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564042"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -439,9 +439,21 @@ Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonn
 
 ## <a name="poison-messages"></a>Messages incohérents
 
-En cas d’échec d’une fonction de déclenchement de file d’attente, Azure Functions réessaie la fonction jusqu’à cinq fois (première tentative comprise) pour un message de file d’attente donné. Si les cinq tentatives échouent, le runtime Functions ajoute un message à une file d’attente nommée *&lt;nom_file_d’attente_d’origine>-poison*. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
+En cas d’échec d’une fonction de déclenchement de file d’attente, Azure Functions réessaie la fonction jusqu’à cinq fois (première tentative comprise) pour un message de file d’attente donné. Si les cinq tentatives échouent, le runtime Functions ajoute un message à une file d’attente nommée *&lt;nom_file_d’attente_d’origine&gt;-poison*. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
 
 Pour gérer manuellement les messages incohérents, vérifiez la propriété [dequeueCount](#message-metadata) dans le message de file d’attente.
+
+
+## <a name="peek-lock"></a>Afficher-verrouiller
+Le modèle Afficher-verrouiller se produit automatiquement pour les déclencheurs de file d’attente. Lorsque les messages sont retirés de la file d’attente, ils sont marqués comme invisibles et associés à un délai d’expiration géré par le service Stockage.
+
+Lorsque la fonction démarre, elle commence le traitement d’un message dans les conditions suivantes.
+
+- Si la fonction réussit, l’exécution de la fonction se termine et le message est supprimé.
+- Si la fonction échoue, la visibilité du message est réinitialisée. Une fois réinitialisé, le message est retraité la prochaine fois que la fonction demande un nouveau message.
+- Si la fonction ne se termine jamais en raison d’un incident, la visibilité du message expire et le message réapparaît dans la file d’attente.
+
+Tout le mécanisme de visibilité est géré par le service Stockage, et non par le runtime Functions.
 
 ## <a name="polling-algorithm"></a>Algorithme d’interrogation
 
@@ -449,14 +461,15 @@ Le déclencheur de file d’attente implémente un algorithme d’interruption e
 
 L’algorithme utilise la logique suivante :
 
-- Lorsqu’un message est trouvé, le runtime attend deux secondes, puis vérifie s’il existe un autre message.
-- Lorsqu’aucun message n’est trouvé, il attend environ quatre secondes avant de réessayer.
+- Lorsqu’un message est trouvé, le runtime attend 100 millisecondes, puis vérifie s’il existe un autre message.
+- Quand aucun message n’est trouvé, il attend environ 200 millisecondes avant de réessayer.
 - Après plusieurs échecs de tentatives d’obtention d’un message de file d’attente, le temps d’attente continue à augmenter jusqu’à ce qu’il atteigne le délai d’attente maximal par défaut (une minute).
 - La durée d’attente maximale est configurable via la propriété `maxPollingInterval` dans le [fichier host.json](functions-host-json-v1.md#queues).
 
 Pour le développement local, l’intervalle d’interrogation maximal par défaut est de deux secondes.
 
-En ce qui concerne la facturation, le temps passé par le runtime à interroger est « gratuit » et n’est pas compté sur votre compte.
+> [!NOTE]
+> Pour ce qui est de la facturation lors de l’hébergement d’applications de fonction dans le plan de consommation, vous n’êtes pas facturé pour le temps que le runtime consacre à l’interrogation.
 
 ## <a name="concurrency"></a>Accès concurrentiel
 

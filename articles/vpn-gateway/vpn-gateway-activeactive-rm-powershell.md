@@ -10,16 +10,16 @@ ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 373c3e28e1d2dffdde8e8483a78c23174bd6513a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ee5213adf10ddc7ea17c93011989e52fe570b3ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678593"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524328"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 
-Cet article vous guide dans les étapes de création de connexions intersites en mode actif/actif, et de connexions de réseau virtuel à réseau virtuel à l’aide du modèle de déploiement Resource Manager et de PowerShell. Vous pouvez également configurer une passerelle active-active dans le portail Azure.
+Cet article vous guide dans les étapes de création de connexions intersites en mode actif/actif, et de connexions de réseau virtuel à réseau virtuel à l’aide du [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md) et de PowerShell. Vous pouvez également configurer une passerelle active-active dans le portail Azure.
 
 ## <a name="about-highly-available-cross-premises-connections"></a>À propos des connexions intersites hautement disponibles
 Pour obtenir une haute disponibilité des connexions intersites et de réseau virtuel à réseau virtuel, vous devez déployer plusieurs passerelles VPN, et établir plusieurs connexions parallèles entre vos réseaux et Azure. Pour une vue d’ensemble des options de connectivité et de topologie, voir [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](vpn-gateway-highlyavailable.md).
@@ -49,7 +49,7 @@ Les autres propriétés sont les mêmes que celles des passerelles en mode actif
 
 ### <a name="before-you-begin"></a>Avant de commencer
 * Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Si vous ne souhaitez pas utiliser CloudShell dans votre navigateur, vous devrez installer les cmdlets PowerShell pour Azure Resource Manager. Consultez [Présentation d’Azure PowerShell](/powershell/azure/) pour plus d’informations sur l’installation des applets de commande PowerShell.
+* Si vous ne souhaitez pas utiliser CloudShell dans votre navigateur, vous devrez installer les applets de commande PowerShell pour Azure Resource Manager. Consultez [Présentation d’Azure PowerShell](/powershell/azure/) pour plus d’informations sur l’installation des applets de commande PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Étape 1 – Créer et configurer le réseau virtuel VNet1
 #### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
@@ -122,7 +122,7 @@ $gw1ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $sub
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Créer la passerelle VPN avec une configuration en mode actif/actif
-Créez la passerelle de réseau virtuel pour TestVNet1. Notez qu’il existe deux entrées GatewayIpConfig, et que l’indicateur EnableActiveActiveFeature est défini. La création d’une passerelle peut prendre un certain temps (45 minutes ou plus).
+Créez la passerelle de réseau virtuel pour TestVNet1. Notez qu’il existe deux entrées GatewayIpConfig, et que l’indicateur EnableActiveActiveFeature est défini. La création d’une passerelle peut prendre un certain temps (45 minutes ou plus, en fonction de la SKU sélectionnée).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug

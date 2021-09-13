@@ -7,12 +7,12 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c67d6895fe4dde54992c7a79067a45dcdff18305
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98015417"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586416"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exporter un modèle Azure Resource Manager de tâche Azure Stream Analytics
 
@@ -42,11 +42,11 @@ L’étape suivante consiste à compiler le script de la tâche dans un modèle 
 
 1. Notez qu’un dossier **Deploy** s’affiche dans votre espace de travail Stream Analytics.
 
-1. Explorez le fichier *JobTemplate.json* qui est le modèle de gestion des ressources Azure utilisé pour le déploiement.
+1. Explorez le fichier *JobTemplate.json* qui est le modèle Azure Resource Manager utilisé pour le déploiement.
 
 ## <a name="complete-the-parameters-file"></a>Compléter le fichier de paramètres
 
-Ensuite, complétez le fichier de paramètres du modèle Azure Resource Management.
+Ensuite, complétez le fichier de paramètres du modèle Azure Resource Manager.
 
 1. Ouvrez le fichier *JobTemplate.parameters.json* situé dans le dossier **Deploy** de votre espace de travail Stream Analytics dans Visual Studio Code.
 

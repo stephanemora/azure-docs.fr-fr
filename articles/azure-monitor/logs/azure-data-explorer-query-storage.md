@@ -1,5 +1,5 @@
 ---
-title: Interroger les données exportées dans Azure Monitor avec Azure Data Explorer (préversion)
+title: Interroger les données exportées d’Azure Monitor avec Azure Data Explorer
 description: Utilisez Azure Data Explorer pour interroger les données exportées à partir de votre espace de travail Log Analytics vers un compte de stockage Azure.
 author: osalzberg
 ms.author: bwren
@@ -7,14 +7,14 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ad938d15f8e21ed34014c0a743b5ba891f5476e0
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e3ab2a3bfc6e42e1cba479ee8dacb97d8f46305a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316836"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527746"
 ---
-# <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Interroger les données exportées dans Azure Monitor avec Azure Data Explorer (préversion)
+# <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer"></a>Interroger les données exportées d’Azure Monitor avec Azure Data Explorer
 L’exportation de données à partir d’Azure Monitor vers un compte de stockage Azure permet une conservation à faible coût et la réallocation des journaux dans des régions différentes. Utilisez Azure Data Explorer pour interroger les données exportées à partir de vos espaces de travail Log Analytics. Une fois configurées, les tables prises en charge qui sont envoyées à partir de vos espaces de travail vers un compte de stockage Azure seront disponibles en tant que source de données pour Azure Data Explorer.
 
 Le flux de processus est le suivant : 
@@ -30,7 +30,7 @@ Le flux de processus est le suivant :
 ## <a name="send-data-to-azure-storage"></a>Envoyer des données vers le stockage Azure
 Les journaux Azure Monitor peuvent être exportés vers un compte de stockage Azure à l’aide d’une des options suivantes.
 
-- Pour exporter toutes les données de votre espace de travail Log Analytics vers un hub d’événements ou un compte de stockage Azure, utilisez la fonctionnalité d’exportation de données de l’espace de travail Log Analytics des journaux Azure Monitor. Consultez [Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)](./logs-data-export.md).
+- Pour exporter toutes les données de votre espace de travail Log Analytics vers un hub d’événements ou un compte de stockage Azure, utilisez la fonctionnalité d’exportation de données de l’espace de travail Log Analytics des journaux Azure Monitor. Consultez [Exportation des données de l’espace de travail Log Analytics dans Azure Monitor](./logs-data-export.md).
 - Exportation planifiée à partir d’une requête de journal à l’aide d’une application logique. Cela est similaire à la fonctionnalité d’exportation de données, mais vous permet d’envoyer des données filtrées ou agrégées vers le stockage Azure. Toutefois, cette méthode est sujette aux [limites des requêtes de journal](../service-limits.md#log-analytics-workspaces). Consultez [Archiver des données de l’espace de travail Log Analytics dans le stockage Azure à l’aide d’une application logique](./logs-export-logic-app.md).
 - Exportation unique à l’aide d’une application logique. Consultez [Connecteur Azure Monitor Logs pour Logic Apps et Power Automate](./logicapp-flow-connector.md).
 - Exportation unique vers l’ordinateur local à l’aide d’un script PowerShell. Consultez [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
@@ -80,6 +80,10 @@ $SecondCommand = @()
 foreach ($record in $output) {
     if ($record.DataType -eq 'System.DateTime') {
         $dataType = 'datetime'
+    } elseif ($record.DataType -eq 'System.Int32') {
+        $dataType = 'int32'
+    } elseif ($record.DataType -eq 'System.Double') {
+        $dataType = 'double'
     } else {
         $dataType = 'string'
     }

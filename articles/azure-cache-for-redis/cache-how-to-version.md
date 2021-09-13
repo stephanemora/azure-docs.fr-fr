@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 23bc9f92f405fe29aa43b266c0b18b8620e1d18c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d1dda6c4c414c79daf8223794c7d89846fad418f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463083"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532210"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Définir la version de Redis pour Azure Cache pour Redis (préversion)
 Dans cet article, vous allez apprendre à configurer la version logicielle Redis à utiliser avec votre instance de cache. Azure Cache pour Redis offre la version principale la plus récente de ReDis et au moins une version précédente. Il mettra à jour ces versions régulièrement à mesure que de nouvelles versions de Redis seront publiées. Vous pouvez choisir entre les deux versions disponibles. N’oubliez pas que votre cache sera automatiquement mis à niveau vers la version suivante si la version qu’il utilise actuellement n’est plus prise en charge.
@@ -21,7 +21,7 @@ Dans cet article, vous allez apprendre à configurer la version logicielle Redis
 >
 
 > [!IMPORTANT]
-> Une fois que Redis 6.0 est mis à la disposition générale (GA), Redis 6.0 est la version par défaut pour les nouveaux caches. Vous avez toujours la possibilité de créer des caches Redis 4.0 et vous serez en mesure de mettre à niveau vos caches Redis 4.0 vers des caches Redis 6.0 à la disponibilité générale. 
+> Une fois que Redis 6.0 est mis à la disposition générale (GA), Redis 6.0 est la version par défaut pour les nouveaux caches. Vous aurez toujours la possibilité de créer des caches Redis 4.0. 
 >
 
 ## <a name="prerequisites"></a>Prérequis
@@ -50,13 +50,23 @@ Pour créer un cache, procédez comme suit :
    
     :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Version de Redis.":::
 
-1. Cliquez sur **Créer**. 
+1. Sélectionnez **Create** (Créer). 
    
     La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
 
     > [!NOTE]
     > À ce stade, la version de Redis ne peut pas être modifiée une fois qu’un cache a été créé.
     >
+
+## <a name="faq"></a>Forum aux questions
+
+### <a name="what-features-arent-supported-with-redis-6"></a>Quelles fonctionnalités ne sont pas prises en charge avec Redis 6 ?
+
+Actuellement, Redis 6 ne prend pas en charge le clustering, la redondance de zone, la liste de contrôle d’accès, PowerShell, Azure CLI, Terraform et la géo-réplication entre un cache Redis 4.0 et un cache 6.0. 
+
+### <a name="can-i-change-the-version-of-my-cache-after-its-created"></a>Puis-je modifier la version de mon cache après sa création ?
+
+Actuellement, vous ne pouvez pas modifier la version de votre cache une fois qu’il a été créé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.

@@ -1,20 +1,20 @@
 ---
-title: Modèles IA Azure Percept
+title: Exemples de modèles d’IA Azure Percept
 description: Apprenez-en davantage sur les modèles d’intelligence artificielle disponibles pour le prototypage et le déploiement.
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f10a330de52d40f728cd628a1d7cb83b54ad1ff6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 78eb20b0229faef9c067b4bab475759badccd19e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557358"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221270"
 ---
-# <a name="azure-percept-ai-models"></a>Modèles IA Azure Percept
+# <a name="azure-percept-sample-ai-models"></a>Exemples de modèles d’IA Azure Percept
 
 Azure Percept vous permet de développer et de déployer des modèles IA directement dans votre [Azure Percept DK](./overview-azure-percept-dk.md) à partir d’[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Le déploiement de modèle utilise [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) et [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 4a25d7a23d486c8ce22fa433cc1ead390726facc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9b6cddc32b81f0e1bf915bfa09527a3ef395f744
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531999"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connecteur Azure Monitor Logs pour Logic Apps et Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) et [Power Automate](https://flow.microsoft.com) vous permettent de créer des workflows automatisés utilisant des centaines d’actions pour divers services. Le connecteur Azure Monitor Logs vous permet de générer des workflows qui récupèrent des données à partir d’un espace de travail Log Analytics ou d’une application Application Insights dans Azure Monitor. Cet article décrit les actions incluses dans le connecteur et montre pas à pas comment générer un workflow utilisant ces données.
@@ -20,11 +20,10 @@ Par exemple, vous pouvez créer une application logique pour utiliser les donné
 
 ## <a name="connector-limits"></a>Limites des connecteurs
 Le connecteur de journaux Azure Monitor a les limites suivantes :
-* Taille maximale des données : 16 Mo
-* Taille maximale de la réponse aux requêtes : 100 Mo
+* Taille maximale de la réponse aux requêtes ~16,7 Mo (16 Mio). L’infrastructure de connecteur impose que la limite soit définie sur une valeur inférieure à la limite de l’API de requête
 * Nombre maximal d’enregistrements : 500 000
-* Délai d’expiration maximal des requêtes : 110 secondes.
-* Les visualisations de graphique peuvent être disponibles dans la page Journaux et manquantes dans le connecteur, car le connecteur et la page Journaux n’utilisent pas les mêmes bibliothèques de graphiques.
+* Délai d’expiration maximal des requêtes : 110 secondes
+* Les visualisations de graphique peuvent être disponibles dans la page Journaux et manquantes dans le connecteur, car le connecteur et la page Journaux n’utilisent pas les mêmes bibliothèques de graphiques
 
 En fonction de la taille de vos données et de la requête que vous utilisez, le connecteur peut atteindre ses limites et échouer. Vous pouvez contourner ce type de situation en ajustant la périodicité du déclencheur pour que le connecteur s’exécute plus fréquemment et interroge moins de données. Vous pouvez utiliser des requêtes qui agrègent vos données pour retourner moins d’enregistrements et de colonnes.
 

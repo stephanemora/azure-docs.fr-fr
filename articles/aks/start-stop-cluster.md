@@ -3,22 +3,24 @@ title: Démarrer et arrêter Azure Kubernetes Service (AKS)
 description: Découvrez comment arrêter ou démarrer un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 08/09/2021
 author: palma21
-ms.openlocfilehash: 734986d2c9b372214a54c1308e4ca445940c5f65
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fefdb4619c017d7c43e4dfa84c8099450310ca2f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111808922"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524963"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Arrêter et démarrer un cluster Azure Kubernetes Service (AKS)
 
-Il se peut que vos charges de travail AKS n’aient pas besoin de s’exécuter en continu, par exemple un cluster de développement utilisé uniquement pendant les heures de bureau. Cela se traduit par des heures où votre cluster Azure Kubernetes Service (AKS) peut être inactif et n’exécute plus que les composants système. Vous pouvez réduire l’encombrement du cluster en [mettant à l’échelle tous les pools de nœud `User` sur 0](scale-cluster.md#scale-user-node-pools-to-0), mais votre [pool `System`](use-system-pools.md) est toujours requis pour exécuter les composants système pendant que le cluster est en cours d’exécution. Pour optimiser davantage vos coûts pendant ces périodes, vous pouvez complètement désactiver (arrêter) votre cluster. Cette action arrête complètement le plan de contrôle et les nœuds de l’agent, ce qui vous permet d’économiser tous les coûts de calcul, tout en conservant l’ensemble de vos objets et votre état de cluster pour le redémarrage. Vous pouvez ensuite reprendre là où vous aviez laissé les choses après un week-end, ou faire en sorte que votre cluster s’exécute uniquement lorsque vous exécutez vos programmes de traitement par lots.
+Il se peut que vos charges de travail AKS n’aient pas besoin de s’exécuter en continu, par exemple un cluster de développement utilisé uniquement pendant les heures de bureau. Cela se traduit par des heures où votre cluster Azure Kubernetes Service (AKS) peut être inactif et n’exécute plus que les composants système. Vous pouvez réduire l’encombrement du cluster en [mettant à l’échelle tous les pools de nœud `User` sur 0](scale-cluster.md#scale-user-node-pools-to-0), mais votre [pool `System`](use-system-pools.md) est toujours requis pour exécuter les composants système pendant que le cluster est en cours d’exécution.
+Pour optimiser davantage vos coûts pendant ces périodes, vous pouvez complètement désactiver (arrêter) votre cluster. Cette action arrête complètement le plan de contrôle et les nœuds de l’agent, ce qui vous permet d’économiser tous les coûts de calcul, tout en conservant l’ensemble de vos objets et votre état de cluster pour le redémarrage. Vous pouvez ensuite reprendre là où vous aviez laissé les choses après un week-end, ou faire en sorte que votre cluster s’exécute uniquement lorsque vous exécutez vos programmes de traitement par lots.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec l’interface Azure CLI][aks-quickstart-cli], [avec Azure PowerShell][kubernetes-walkthrough-powershell] ou [avec le portail Azure][aks-quickstart-portal].
 
 ### <a name="limitations"></a>Limites
 
@@ -30,6 +32,8 @@ Lorsque vous utilisez la fonctionnalité de démarrage/arrêt du cluster, les re
 - Les PrivateEndpoints provisionnés par le client qui sont liés à un cluster privé doivent être supprimés et recréés quand vous démarrez un cluster AKS arrêté.
 
 ## <a name="stop-an-aks-cluster"></a>Arrêter un cluster AKS
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Vous pouvez utiliser la commande `az aks stop` pour arrêter l’exécution des nœuds et du plan de contrôle d’un cluster AKS. L’exemple suivant arrête un cluster nommé *myAKSCluster* :
 
@@ -55,12 +59,35 @@ Vous pouvez vérifier à quel moment votre cluster est arrêté à l’aide de l
 
 Si `provisioningState` affiche `Stopping`, cela signifie que votre cluster n’a pas encore été complètement arrêté.
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Vous pouvez utiliser l’applet de commande [Stop-AzAksCluster][stop-azakscluster] pour arrêter les nœuds et le plan de contrôle d’un cluster AKS en cours d’exécution. L’exemple suivant arrête un cluster nommé *myAKSCluster* :
+
+```azurepowershell-interactive
+Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+```
+
+Vous pouvez vérifier que votre cluster est arrêté à l’aide de l’applet de commande[Get-AzAksCluster][get-azakscluster] et en confirmant que `ProvisioningState` a pour valeur `Stopped` comme dans la sortie ci-dessous :
+
+```Output
+ProvisioningState       : Stopped
+MaxAgentPools           : 100
+KubernetesVersion       : 1.20.7
+...
+```
+
+Si `ProvisioningState` affiche `Stopping`, cela signifie que votre cluster n’a pas encore été complètement arrêté.
+
+---
+
 > [!IMPORTANT]
 > Si vous utilisez des [budgets d’interruption de pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/), l’opération d’arrêt peut prendre plus de temps, car le processus de drainage prendra plus de temps.
 
 ## <a name="start-an-aks-cluster"></a>Démarrer un cluster AKS
 
-Vous pouvez utiliser la commande `az aks start` pour démarrer les nœuds et le plan de contrôle d’un cluster AKS arrêté. Le cluster est redémarré avec l’état du plan de contrôle et le nombre de nœuds d’agent précédents.  
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Vous pouvez utiliser la commande `az aks start` pour démarrer les nœuds et le plan de contrôle d’un cluster AKS arrêté. Le cluster est redémarré avec l’état du plan de contrôle et le nombre de nœuds d’agent précédents.
 L’exemple suivant démarre un cluster nommé *myAKSCluster* :
 
 ```azurecli-interactive
@@ -85,8 +112,33 @@ Vous pouvez vérifier à quel moment votre cluster a démarré à l’aide de la
 
 Si `provisioningState` affiche `Starting`, cela signifie que votre cluster n’a pas encore été complètement démarré.
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Vous pouvez utiliser l’applet de commande [Start-AzAksCluster][start-azakscluster] pour démarrer les nœuds et le plan de contrôle d’un cluster AKS arrêté. Le cluster est redémarré avec l’état du plan de contrôle et le nombre de nœuds d’agent précédents.
+L’exemple suivant démarre un cluster nommé *myAKSCluster* :
+
+```azurepowershell-interactive
+Start-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+```
+
+Vous pouvez vérifier à quel moment votre cluster a démarré à l’aide de l’applet de commande [Get-AzAksCluster][get-azakscluster] et en confirmant que `ProvisioningState` a pour valeur `Succeeded` comme dans la sortie suivante :
+
+```Output
+ProvisioningState       : Succeeded
+MaxAgentPools           : 100
+KubernetesVersion       : 1.20.7
+...
+```
+
+Si `ProvisioningState` affiche `Starting`, cela signifie que votre cluster n’a pas encore été complètement démarré.
+
+---
+
 > [!NOTE]
-> Si vous utilisez le programme de mise à l’échelle automatique de cluster, quand vous redémarrez votre cluster, le nombre de nœuds actuel peut ne pas être compris entre les valeurs de plage minimale et maximale que vous avez définies. Il s’agit du comportement attendu. Le cluster démarre avec le nombre de nœuds dont il a besoin pour exécuter ses charges de travail, et ce nombre n’est pas impacté par les paramètres de votre programme de mise à l’échelle automatique. Lorsque votre cluster effectue des opérations de mise à l’échelle, les valeurs minimale et maximale ont un impact sur votre nombre de nœuds actuel, et le cluster finit par atteindre et rester dans la plage souhaitée, jusqu’à ce que vous l’arrêtiez.
+> Lorsque vous démarrez la sauvegarde de votre cluster, le comportement suivant est attendu :
+>
+> * L’adresse IP de votre serveur d’API peut changer.
+> * Si vous utilisez le programme de mise à l’échelle automatique de cluster, quand vous redémarrez votre cluster, le nombre de nœuds actuel peut ne pas être compris entre les valeurs de plage minimale et maximale que vous avez définies. Le cluster démarre avec le nombre de nœuds dont il a besoin pour exécuter ses charges de travail, et ce nombre n’est pas impacté par les paramètres de votre programme de mise à l’échelle automatique. Lorsque votre cluster effectue des opérations de mise à l’échelle, les valeurs minimale et maximale ont un impact sur votre nombre de nœuds actuel, et le cluster finit par atteindre et rester dans la plage souhaitée, jusqu’à ce que vous l’arrêtiez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -106,3 +158,7 @@ Si `provisioningState` affiche `Starting`, cela signifie que votre cluster n’a
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[kubernetes-walkthrough-powershell]: kubernetes-walkthrough-powershell.md
+[stop-azakscluster]: /powershell/module/az.aks/stop-azakscluster
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster
+[start-azakscluster]: /powershell/module/az.aks/start-azakscluster

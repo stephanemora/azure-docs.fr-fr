@@ -5,12 +5,12 @@ description: Découvrez comment mettre à jour des nœuds Linux et les redémarr
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a81d778b8346a03622ef837b6732e7d50e807652
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88164238"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563133"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Appliquer des mises à jour de sécurité et du noyau à des nœuds Linux dans Azure Kubernetes Service (AKS)
 
@@ -39,6 +39,12 @@ Certaines mises à jour de sécurité, comme des mises à jour du noyau, nécess
 
 Vous pouvez utiliser vos propres workflows et vos propres processus pour gère les redémarrages des nœuds, ou bien utiliser `kured` pour orchestrer le processus. Avec `kured`, un [DaemonSet][DaemonSet] est déployé et exécute un pod sur chaque nœud Linux du cluster. Ces pods du DaemonSet recherchent l’existence du fichier */var/run/reboot-required*, puis lancent un processus pour redémarrer les nœuds.
 
+### <a name="node-image-upgrades"></a>Mises à niveau d’images de nœud
+
+Les mises à niveau sans assistance appliquent les mises à jour au système d’exploitation des nœuds Linux, mais l’image utilisée pour créer les nœuds de votre cluster reste inchangée. Si un nouveau nœud Linux est ajouté à votre cluster, l’image d’origine est utilisée pour créer ce nœud. Ce nouveau nœud recevra toutes les mises à jour de sécurité et de noyau disponibles au cours de la vérification automatique chaque nuit, mais restera non corrigé jusqu’à ce que toutes les vérifications et tous les redémarrages soient terminés.
+
+Sinon, vous pouvez utiliser la mise à niveau des images de nœud pour rechercher et mettre à jour les images de nœud utilisées par votre cluster. Pour plus d’informations sur la mise à niveau des images de nœud, consultez [Mise à niveau des images de nœud Azure Kubernetes service (AKS)][node-image-upgrade].
+
 ### <a name="node-upgrades"></a>Mises à niveau de nœuds
 
 Un processus supplémentaire dans AKS vous permet de *mettre à niveau* un cluster. Une mise à niveau consiste généralement à passer à une version plus récente de Kubernetes, et pas seulement à appliquer des mises à jour de sécurité du nœud. Une mise à niveau AKS effectue les actions suivantes :
@@ -65,7 +71,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."kubernetes\.io/os"=linux
 ```
 
 Vous pouvez également configurer des paramètres supplémentaires pour `kured`, comme l’intégration à Prometheus ou Slack. Pour plus d’informations sur les paramètres de configuration supplémentaires, consultez le [chart Helm kured][kured-install].
@@ -118,3 +124,4 @@ Pour connaître les clusters AKS qui utilisent des nœuds Windows Server, consul
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[node-image-upgrade]: node-image-upgrade.md

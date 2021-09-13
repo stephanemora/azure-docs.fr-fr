@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 73cce13f296d65167ab2c45f677849b7f05f8b3a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b9efc6c8f568d054662f9084d63b83de7b39e776
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410114"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562652"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -30,7 +30,6 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 - Exportation planifiée à partir d’une requête de journal à l’aide d’une application logique. Cela est similaire à la fonctionnalité d’exportation de données, mais vous permet d’envoyer des données filtrées ou agrégées vers le stockage Azure. Cette méthode étant sujette aux [limites des requêtes de journal](../service-limits.md#log-analytics-workspaces), consultez [Archiver des données de l’espace de travail Log Analytics dans le Stockage Azure à l’aide d’une application logique](logs-export-logic-app.md).
 - Exportation unique vers l’ordinateur local à l’aide d’un script PowerShell. Consultez [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
-
 ## <a name="limitations"></a>Limites
 
 - Actuellement, la configuration peut être effectuée à l’aide d’une interface CLI ou de requêtes REST. Le Portail Azure ou PowerShell ne sont pas encore pris en charge.
@@ -38,7 +37,7 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 - Les tables prises en charge sont actuellement limitées à celles qui sont propres à la section [tables prises en charge](#supported-tables) ci-dessous. Par exemple, les tables de journal personnalisées ne sont actuellement pas prises en charge.
 - Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table tant qu’elle n’est pas prise en charge. 
 - Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur `Table <tableName> does not exist in the workspace`.
-- L'exportation des données sera disponible dans toutes les régions, mais elle n'est actuellement pas disponible dans les régions suivantes : régions Azure Government, Japon Ouest, Brésil Sud-Est, Norvège Est, Norvège Ouest, Émirats arabes unis Nord, Émirats arabes unis Centre, Australie Centre 2, Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, Inde Sud, France Sud, Japon Ouest
+- L’exportation des données sera disponible dans toutes les régions, mais n’est actuellement pas disponible dans les régions suivantes : Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, Australie Centre 2, Émirats arabes unis Centre, Émirats arabes unis Nord, Japon Ouest, Brésil Sud-Est, Norvège Est, Norvège Ouest, France Sud, Inde Sud, Corée Sud, Inde Centre JIO, Inde Ouest JIO, Canada Est, USA Ouest 3, Suède Centre, Suède Sud, clouds gouvernementaux, Chine.
 - Vous pouvez définir l'activation d'un maximum de 10 règles dans votre espace de travail. Des règles supplémentaires sont autorisées mais à l'état désactivé. 
 - La destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
 - Le compte de stockage de destination ou Event Hub doit se trouver dans la même région que l’espace de travail Log Analytics.
@@ -61,7 +60,7 @@ Le format des données du compte de stockage est en [lignes JSON](../essentials/
 
 [![Exemple de données de stockage](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
-L’exportation de données Log Analytics peut écrire des objets Blob d’ajout à des comptes de stockage immuables lorsque le paramètre *allowProtectedAppendWrites* est activé sur les stratégies de rétention temporelles. Cela permet l’écriture de nouveaux blocs dans un objet blob d’ajout tout en conservant la protection et la conformité de l’immuabilité. Consultez [Autoriser les écritures protégées d’objets blob d’ajout](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+L’exportation de données Log Analytics peut écrire des objets Blob d’ajout à des comptes de stockage immuables lorsque le paramètre *allowProtectedAppendWrites* est activé sur les stratégies de rétention temporelles. Cela permet l’écriture de nouveaux blocs dans un objet blob d’ajout tout en conservant la protection et la conformité de l’immuabilité. Consultez [Autoriser les écritures protégées d’objets blob d’ajout](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Event Hub
 Les données sont envoyées à votre Event Hub quasiment en temps réel à mesure qu’elles atteignent Azure Monitor. Un Event Hub est créé pour chaque type de données que vous exportez avec le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un Event Hub nommé *am-SecurityEvent*. Si vous souhaitez que les données exportées atteignent un Event Hub spécifique, ou si vous avez une table avec un nom qui dépasse la limite de 47 caractères, vous pouvez fournir votre propre nom Event Hub et y exporter toutes les données pour les tables définies.
@@ -76,8 +75,8 @@ Considérations :
 ## <a name="prerequisites"></a>Prérequis
 Voici les conditions préalables qui doivent être remplies avant de configurer l’exportation de données Log Analytics :
 
-- Les destinations doivent être créées avant la configuration de la règle d’exportation et doivent se trouver dans la même région que votre espace de travail Log Analytics. Si vous devez répliquer vos données vers d’autres comptes de stockage, vous pouvez utiliser l’une des [options de redondance du stockage Azure](../../storage/common/storage-redundancy.md).  
-- Le compte de stockage doit être StorageV1 ou StorageV2. Le stockage classique n’est pas pris en charge  
+- Les destinations doivent être créées avant la configuration de la règle d’exportation et doivent se trouver dans la même région que votre espace de travail Log Analytics. Si vous devez répliquer vos données vers d’autres comptes de stockage, vous pouvez utiliser l’une des [options de redondance du Stockage Azure](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), y compris GRS et GZRS.
+- Le compte de stockage doit être StorageV1 ou supérieur. Le stockage classique n’est pas pris en charge.
 - Si vous avez configuré votre compte de stockage pour autoriser l’accès à partir de réseaux sélectionnés, vous devez ajouter une exception dans les paramètres de votre compte de stockage pour permettre à Azure Monitor d’écrire dans votre stockage.
 
 ## <a name="enable-data-export"></a>Activer l’exportation de données
@@ -440,7 +439,7 @@ N/A
 Les règles d’exportation peuvent être désactivées pour vous permettre d’arrêter l’exportation lorsque vous n’avez pas besoin de conserver des données pendant un certain temps, par exemple lorsque des tests sont en cours. Utilisez la commande suivante pour désactiver une règle d’exportation de données à l’aide de l’interface CLI.
 
 ```azurecli
-az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
+az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --enable false
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -543,7 +542,7 @@ Si la règle d’exportation de données inclut une table qui n’existe pas, el
 
 
 ## <a name="supported-tables"></a>Tables prises en charge
-Les tables prises en charge sont actuellement limitées à celles spécifiées ci-dessous. Toutes les données de la table sont exportées, sauf si des restrictions sont spécifiées. Cette liste sera mise à jour à mesure que des tables supplémentaires sont ajoutées.
+Les tables prises en charge sont actuellement limitées à celles spécifiées ci-dessous. Toutes les données de la table sont exportées, sauf si des restrictions sont spécifiées. Cette liste est mise à jour à mesure que des tables supplémentaires sont ajoutées.
 
 | Table de charge de travail | Limites |
 |:---|:---|
@@ -558,8 +557,11 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | AADManagedIdentitySignInLogs |  |
 | AADNonInteractiveUserSignInLogs |  |
 | AADProvisioningLogs |  |
+| AADRiskyUsers |  |
 | AADServicePrincipalSignInLogs |  |
+| AADUserRiskEvents |  |
 | ABSBotRequests |  |
+| ACSAuthIncomingOperations |  |
 | ACSBillingUsage |  |
 | ACSChatIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
@@ -569,6 +571,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | ADFSSignInLogs |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
+| ADPDiagnostics |  |
 | ADPRequests |  |
 | ADReplicationResult |  |
 | ADSecurityAssessmentRecommendation |  |
@@ -580,7 +583,9 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | ADXQuery |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
+| AEWAuditLogs |  |
 | Alerte |  |
+| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
 | AppPlatformSystemLogs |  |
@@ -594,13 +599,17 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
 | AWSCloudTrail |  |
+| AWSGuardDuty |  |
+| AWSVPCFlow |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
 | BlockchainApplicationLog |  |
 | BlockchainProxyLog |  |
+| CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
+| CDBGremlinRequests |  |
 | CDBMongoRequests |  |
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
@@ -636,6 +645,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
+| EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
 | Événement | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
 | ExchangeAssessmentRecommendation |  |
@@ -645,9 +655,14 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | HDInsightAmbariSystemMetrics |  |
 | HDInsightHadoopAndYarnLogs |  |
 | HDInsightHadoopAndYarnMetrics |  |
+| HDInsightHBaseLogs |  |
+| HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveTezAppStats |  |
+| HDInsightJupyterNotebookEvents |  |
+| HDInsightKafkaLogs |  |
+| HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
@@ -674,6 +689,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | KubeServices |  |
 | LAQueryLogs |  |
 | McasShadowItReporting |  |
+| MCCEventLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -681,8 +697,8 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | MicrosoftHealthcareApisAuditLogs |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
-| OfficeActivity | Prise en charge partielle : Certaines des données sont ingérées via des webhooks d’O365 vers LA. Cette partie est manquante dans l’exportation actuellement. |
-| Opération | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
+| OfficeActivity | Prise en charge partielle dans les clouds gouvernementaux – Certaines données sont ingérées via des webhooks d’O365 vers LA. Cette partie est manquante dans l’exportation actuellement. |
+| Opération | Prise en charge partielle – Certaines données sont ingérées via des services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
 | Perf | Prise en charge partielle : Seules les données de performances Windows sont actuellement prises en charge. Les données de performances Linux sont actuellement manquantes dans l’exportation. |
 | PowerBIDatasetsWorkspace |  |
 | PurviewScanStatusLogs |  |
@@ -693,7 +709,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | SecurityBaselineSummary |  |
 | SecurityCef |  |
 | SecurityDetection |  |
-| SecurityEvent | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
+| SecurityEvent | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l’agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n’est pas pris en charge lors de l’exportation.2 |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -706,6 +722,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | SigninLogs |  |
 | SPAssessmentRecommendation |  |
 | SQLAssessmentRecommendation |  |
+| SQLSecurityAuditEvents |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -719,9 +736,9 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| syslog | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
+| syslog | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l’agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n’est pas pris en charge lors de l’exportation.2 |
 | ThreatIntelligenceIndicator |  |
-| Update | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
+| Update | Prise en charge partielle – Certaines données sont ingérées via des services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Utilisation |  |
@@ -730,7 +747,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | Liste de surveillance |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
-| WireData | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
+| WireData | Prise en charge partielle – Certaines données sont ingérées via des services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
 | WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |

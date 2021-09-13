@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 39f1245883c7d296de5b2bad77f1558be9b49910
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c162a782965156545cf238f8f0489409433a0345
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887417"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531479"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -53,7 +53,7 @@ Dans cet article, nous allons résumer les détails de la migration pour les poi
 Azure Migrate fournit une plateforme unifiée pour évaluer et migrer vers Azure des serveurs, une infrastructure, des applications et des données locaux. Pour AKS, vous pouvez utiliser Azure Migrate pour effectuer les tâches suivantes :
 
 * [Conteneuriser les applications ASP.NET et migrer vers AKS](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
-* [Conteneuriser les applications web Java et migrer vers AKS](../migrate/tutorial-containerize-java-kubernetes.md)
+* [Conteneuriser les applications web Java et migrer vers AKS](../migrate/tutorial-app-containerization-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS avec Standard Load Balancer et Virtual Machine Scale Sets
 
@@ -182,11 +182,13 @@ Des outils open source vous aident à créer des disques managés et à migrer d
 
 Nous vous recommandons d’utiliser votre pipeline d’intégration continue (CI) et de déploiement continu (CD) existant pour déployer une configuration éprouvée sur AKS. Vous pouvez utiliser Azure Pipelines pour [générer et déployer vos applications sur AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clonez vos tâches de déploiement existantes et vérifiez que `kubeconfig` pointe vers le nouveau cluster AKS.
 
-Si ce n’est pas possible, exportez les définitions de ressources depuis votre cluster Kubernetes existant, puis appliquez-les à AKS. Vous pouvez utiliser `kubectl` pour exporter des objets.
+Si ce n’est pas possible, exportez les définitions de ressources depuis votre cluster Kubernetes existant, puis appliquez-les à AKS. Vous pouvez utiliser `kubectl` pour exporter des objets. Par exemple :
 
 ```console
-kubectl get deployment -o=yaml --export > deployments.yaml
+kubectl get deployment -o yaml > deployments.yaml
 ```
+
+Veillez à examiner la sortie et à supprimer tous les champs de données actifs inutiles.
 
 ### <a name="moving-existing-resources-to-another-region"></a>Déplacement des ressources existantes dans une autre région
 

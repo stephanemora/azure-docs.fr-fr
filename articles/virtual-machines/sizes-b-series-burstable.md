@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: risverma
-ms.openlocfilehash: 54958eb6fa6d3ef855bdc3667921535ab47c7b29
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: cdfb44518c75dbb57d184fa72eb7639fd56f738c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524331"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
-Les machines virtuelles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les preuves de concept, les petites bases de données et les environnements de build pour le développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base qui génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès qu’elle a cumulé des crédits, la machine virtuelle peut étendre son niveau de performance en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application réclame des performances de processeur plus élevées.
+Les machines virtuelles de la série B peuvent être déployées sur une grande variété de types de matériel et de processeur, ce qui permet une allocation de bande passante concurrentielle. Les machines virtuelles de la série B sont idéales pour les charges de travail qui ne nécessitent pas en permanence la totalité des performances du processeur, par exemple les serveurs web, les preuves de concept, les petites bases de données et les environnements de build de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base qui génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès qu’elle a cumulé des crédits, la machine virtuelle peut étendre son niveau de performance en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application réclame des performances de processeur plus élevées.
 
 La série B est disponible dans les tailles de machines virtuelles suivantes :
 
@@ -35,20 +35,23 @@ La série B est disponible dans les tailles de machines virtuelles suivantes :
 <br>
 <br>
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits initiaux | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/MBps | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5 %   | 100 %  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
-| Standard_B1s              | 1  | 1   | 4   | 10 %  | 100 %  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
-| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100 %  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 2  |
-| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 3  |
-| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22.5 | 1920/22.5 | 3  |
-| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 3600/35   | 2880/35   | 4  |
-| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 4320/50   | 4  |
-| Standard_B12ms            | 12 | 48  | 96  | 202 % | 1200 % | 360 | 121 | 2909 | 16 | 6480/75   | 4320/50   | 6  |
-| Standard_B16ms            | 16 | 64  | 128 | 270 % | 1600 % | 480 | 162 | 3888 | 32 | 8640/100  | 4320/50   | 8  |
-| Standard_B20ms            | 20 | 80  | 160 | 337 % | 2000 % | 600 | 203 | 4860 | 32 | 10800/125 | 4320/50   | 8  |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits initiaux | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/MBps | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> |Nombre max de cartes réseau |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_B1ls<sup>2</sup> | 1  | 0.5 | 4   | 5 %   | 100 %  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 4 000/100  | 2 |
+| Standard_B1s              | 1  | 1   | 4   | 10 %  | 100 %  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 4 000/100  | 2 |
+| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100 %  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 4 000/100  | 2 |
+| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 4 000/100  | 3 |
+| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22.5 | 1920/22.5 | 4 000/100  | 3 |
+| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 3600/35   | 2880/35   | 8 000/200  | 4 |
+| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 4320/50   | 8 000/200  | 4 |
+| Standard_B12ms            | 12 | 48  | 96  | 202 % | 1200 % | 360 | 121 | 2909 | 16 | 6480/75   | 4320/50   | 16 000/400 | 6 |
+| Standard_B16ms            | 16 | 64  | 128 | 270 % | 1600 % | 480 | 162 | 3888 | 32 | 8640/100  | 4320/50   | 16 000/400 | 8 |
+| Standard_B20ms            | 20 | 80  | 160 | 337 % | 2000 % | 600 | 203 | 4860 | 32 | 10800/125 | 4320/50   | 16 000/400 | 8 |
 
-<sup>1</sup> B1ls est pris en charge uniquement par Linux
+<sup>1</sup> Les machines virtuelles de la série B peuvent disposer d’un [bursting](./disk-bursting.md) des performances de leurs disques et atteindre le niveau maximal de bursting pendant 30 minutes d’affilée.
+
+<sup>2</sup> B1ls est pris en charge uniquement sur Linux
+
 
 ## <a name="workload-example"></a>Exemple de charge de travail
 

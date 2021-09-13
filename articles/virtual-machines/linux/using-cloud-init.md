@@ -7,14 +7,14 @@ ms.subservice: extensions
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/29/2021
 ms.author: srijangupta
-ms.openlocfilehash: 406793d1e28f48a007cdf92ef87042e6f79bcbde
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: be1bf712d91aaaff460ff2dcc4a899f8b8a089be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208146"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532335"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces configurations cloud-init sont exécutées au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -38,68 +38,65 @@ Il existe deux étapes pour rendre cloud-init disponible pour les systèmes d’
 ### <a name="canonical"></a>Canonical
 | Éditeur/version| Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical 20.04 |UbuntuServer |18.04-LTS |latest |Oui | Oui |
+|Canonical 20.04 |UbuntuServer |20.04-LTS |latest |Oui | Oui |
 |Canonical 18.04 |UbuntuServer |18.04-LTS |latest |Oui | Oui |
-|Canonical 16.04|UbuntuServer |16.04-LTS |latest |Oui | Oui |
-|Canonical 14.04|UbuntuServer |14.04.5-LTS |latest |Oui | Oui |
+
 
 ### <a name="rhel"></a>RHEL
-| Éditeur/version | Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
+| Éditeur/version| Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Oui | Oui, prise en charge de la version du package : *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Oui (Remarque : Il s’agit d’une image de préversion et elle **ne doit plus** être utilisée, elle sera supprimée le 1er septembre 2020.) | N/A |
-|RedHat 7.7 (Gen1)|RHEL |7,7 | 7.7.2020051912 | Oui | Oui, prise en charge de la version du package : *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | Oui | Oui, prise en charge de la version du package : *18.5-6.el7*|
-|RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | Oui | Oui, prise en charge de la version du package : *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | Oui | Oui, prise en charge de la version du package : *18.5-6.el7*|
-|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | Oui  | Oui, prise en charge de la version du package : *18.5-6.el7*|
-|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | Oui (Remarque : Il s’agit d’une image de préversion et, lorsque toutes les images RHEL 8.1 prendront en charge cloud-init, elle sera supprimée le 1er août 2020.) | Non, ETA pour la prise en charge complète en juin 2020|
-|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | Oui (Remarque : Il s’agit d’une image de préversion et, lorsque toutes les images RHEL 8.1 prendront en charge cloud-init, elle sera supprimée le 1er août 2020.) | Non, ETA pour la prise en charge complète en juin 2020 |
+|RedHat 7 |RHEL |7.7, 7.8, 7_9 |latest |Oui | Oui |
+|RedHat 8 |RHEL |8.1, 8.2, 8_3, 8_4 |latest |Oui | Oui |
 
-* Toutes les images RedHat:RHEL 7.8 et 8.2 (Gen1 et Gen2) sont approvisionnées à l’aide de cloud-init.
+* Toutes les autres références SKU RedHat à partir de RHEL 7 (version 7.7) et RHEL 8 (version 8.1), notamment les images Gen1 et Gen2, sont provisionnées à l’aide de cloud-init. Les images RHEL 6 ne prennent pas en charge cloud-init. 
+
 
 ### <a name="centos"></a>CentOS
-
-| Éditeur/version | Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
+ Éditeur/version| Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |Oui (Remarque : Il s’agit d’une image de préversion et elle **ne doit plus** être utilisée, elle sera supprimée le 1er septembre 2020.) | N/A |
-|OpenLogic 7.7 |CentOS | 7,7 |7.7.2020062400 |Oui | Oui, prise en charge de la version du package : `18.5-6.el7.centos.5`|
-|OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |Oui | Oui, prise en charge de la version du package : `18.5-6.el7.centos.5`|
-|OpenLogic 7.7 |CentOS-HPC | 7,7 |7.6.2020062600 |Oui | Oui, prise en charge de la version du package : `18.5-6.el7.centos.5`|
-|OpenLogic 7.7 (Gen2) |CentOS-HPC | 7_7-gen2 |7.6.2020062601 |Oui | Oui, prise en charge de la version du package : `18.5-6.el7.centos.5`|
-|OpenLogic 8.1 |CentOS | 8_1 |8.1.2020062400 |Oui | Oui, prise en charge de la version du package : `18.5-7.el8_1.1`|
-|OpenLogic 8.1 (Gen2) |CentOS | 8_1-gen2 |8.1.2020062401 |Oui | Oui, prise en charge de la version du package : `18.5-7.el8_1.1`|
-|OpenLogic 8.1 |CentOS-HPC | 8_1 |8.1.2020062400 |Oui | Oui, prise en charge de la version du package : `18.5-7.el8_1.1`|
-|OpenLogic 8.1 (Gen2) |CentOS-HPC:8_1-gen2 | 8_1-gen2 |8.1.2020062401 |Oui | Oui, prise en charge de la version du package : `18.5-7.el8_1.1`|
+|OpenLogic 7 |CentOS |7.7, 7.8, 7.9 |latest |Oui | Oui |
+|OpenLogic 8 |CentOS |8.1, 8.2, 8.3 |latest |Oui | Oui |
 
-* Toutes les images OpenLogic:CentOS 7.8 et 8.2 (Gen1 et Gen2) sont approvisionnées à l’aide de cloud-init.
+* Toutes les autres références SKU CentOS à partir de CentOS 7 (version 7.7) et CentOS 8 (version 8.1), notamment les images Gen1 et Gen2, sont provisionnées à l’aide de cloud-init. Les images CentOS 6.10, 7.4, 7.5 et 7.6 ne prennent pas en charge cloud-init. 
+
+> [!NOTE]
+> OpenLogic s’appelle désormais Rogue Wave Software 
+
+
 
 ### <a name="oracle"></a>Oracle
 
-| Éditeur/version | Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
+ Éditeur/version| Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| Image de préversion (Remarque : Il s’agit d’une image de préversion et, lorsque toutes les images Oracle 7.7 prendront en charge cloud-init, elle sera supprimée au milieu de l’année 2020 ; vous recevrez un avis.) | Non, en préversion, le package est : *18.5-3.0.1.el7*
+|Oracle 7 |Oracle Linux |77, 78, ol79 |latest |Oui | Oui |
+|Oracle 8 |Oracle Linux |81, ol82, ol83-lvm, ol84-lvm |latest |Oui | Oui |
+
+* Toutes les autres références SKU Oracle à partir d’Oracle 7 (version 7.7) et Oracle 8 (version 8.1), notamment les images Gen1 et Gen2, sont provisionnées à l’aide de cloud-init.
+
 
 ### <a name="suse-sles"></a>SUSE SLES
-Ces images SLES ont été mises à jour de façon à approvisionner à l’aide de cloud-init, les variantes d’images Gen2 ont également été mises à jour.
-* suse:sles-15-sp1-{basic/byos/hpc/hpc-byos/chost-byos}:gen1:2020.06.10
-* suse:sles-sap-15-sp1:gen1:2020.06.10
-* suse:sles-sap-15-sp1-byos:gen1:2020.06.10
-* suse:manager-proxy-4-byos:gen1:2020.06.10
-* suse:manager-server-4-byos:gen1:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:15:2020.06.10
-* suse:sles-12-sp5:gen1:2020.06.10
-* suse:sles-12-sp5{-byos/basic/hpc-byos/hpc}:gen1:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
+
+ Éditeur/version| Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+| SUSE 15 |SLES (SUSE Linux Enterprise Server) |sp1, sp2, sp3 |latest |Oui | Oui |
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |Oui | Oui |
+
+* Toutes les autres références SKU SUSE à partir de SLES 15 (sp1) et SLES 12 (sp5), notamment les images Gen1 et Gen2, sont provisionnées à l’aide de cloud-init.
+* De plus, ces images sont également provisionnées avec cloud-init -
+
+
+ Éditeur/version| Offre | Référence SKU / Version
+|:--- |:--- |:---
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
+| SUSE 15 |SLES (SUSE Linux Enterprise Server) |manager-proxy-4-byosgen1:2020.06.10
+| SUSE 15 |SLES (SUSE Linux Enterprise Server) |manager-server-4-byos:gen1:2020.06.10
 
 
 ### <a name="debian"></a>Debian
 | Éditeur/version | Offre | SKU | Version | image compatible avec cloud-init | prise en charge des packages cloud-init sur Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| Oui (Remarque : Il s’agit d’une image de préversion et elle **ne doit plus** être utilisée, elle sera supprimée le 1er janvier 2021.) | Non, en préversion |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| Oui (Remarque : Il s’agit d’une image de préversion et elle **ne doit plus** être utilisée, elle sera supprimée le 1er janvier 2021.) | Non, en préversion |
 | debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| Oui | Oui, prise en charge de la version du package : `20.2-2~deb10u1` |
 | debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| Oui | Oui, prise en charge de la version du package : `20.2-2~deb10u1` |
 
@@ -116,6 +113,9 @@ cloud-init ne peut pas traiter les extensions Azure. Par conséquent, WALA est t
 Lorsque vous créez une machine virtuelle, si vous n’incluez pas le commutateur `--custom-data` de l’interface de ligne de commande Azure au moment de l’approvisionnement, cloud-init ou WALA prend les paramètres minimaux d’approvisionnement de machines virtuelles requis pour configurer la machine virtuelle et exécuter le déploiement avec les valeurs par défaut.  Si vous référencez la configuration cloud-init avec le commutateur `--custom-data`, tout ce qui est contenu dans vos données personnalisées sera disponible pour cloud-init au démarrage de la machine virtuelle.
 
 Les configurations cloud-init appliquées aux machines virtuelles n’étant soumises à aucune contrainte de temps, aucune mise en échec de déploiement par expiration de ces dernières n’est possible. Cela n’est pas le cas pour WALA : si vous modifiez les valeurs par défaut de WALA pour traiter les données personnalisées, cela ne doit pas dépasser le temps total d’approvisionnement de machines virtuelles de 40 minutes. Si tel est le cas, la création de la machine virtuelle échouera.
+
+## <a name="cloud-init-vm-provisioning-without-a-udf-driver"></a>Provisionnement de machines virtuelles cloud-init sans pilote UDF  
+À partir de cloud-init 21.2, vous pouvez utiliser cloud-init pour provisionner une machine virtuelle dans Azure sans pilote UDF. Si aucun pilote UDF n’est disponible dans l’image, cloud-init utilise les métadonnées disponibles dans Azure Instance Metadata Service pour provisionner la machine virtuelle. Notez que cette option fonctionne uniquement pour la clé SSH et les [données utilisateur](../user-data.md). Pour passer un mot de passe ou des données personnalisées à une machine virtuelle durant son provisionnement, vous devez utiliser un pilote UDF.
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Déploiement d’une machine virtuelle compatible cloud-init
 Il est aussi simple de déployer une machine virtuelle cloud-init que de référencer une distribution compatible cloud-init durant le déploiement.  Les gestionnaires de la distribution Linux doivent décider d’activer cloud-init et de l’intégrer dans leurs images publiées Azure. Une fois que vous avez confirmé que l’image que vous souhaitez déployer est compatible cloud-init, vous pouvez utiliser l’interface de ligne de commande Azure pour le déploiement. 

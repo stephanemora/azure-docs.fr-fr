@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f787a01cb4e83b05b30a1e802658ed95a983e6a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9414ea2574737cdad2551442a2d1ce7c844b04b6
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461037"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662336"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Installer l’agent Azure Monitor
 Cet article présente les différentes options actuellement disponibles pour installer l’[agent Azure Monitor](azure-monitor-agent-overview.md) sur les machines virtuelles Azure et les serveurs Azure Arc, ainsi que les options permettant de créer des [associations avec des règles de collecte de données](data-collection-rule-azure-monitor-agent.md) qui définissent les données que l’agent doit collecter.
@@ -37,6 +37,15 @@ L’agent Azure Monitor est implémenté en tant qu’[extension de machine virt
 | Serveur de publication | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
+
+## <a name="extension-versions"></a>Versions d’extension
+Il est vivement recommandé d’effectuer la mise à jour vers les versions GA et ultérieures au lieu d’utiliser les versions préliminaires.
+
+| Date de sortie | Notes de publication | Windows | Linux |
+|:---|:---|:---|:---|:---|
+| Juin 2021 | Disponibilité générale annoncée. <ul><li>Toutes les fonctionnalités à l’exception de la destination des métriques sont désormais en disponibilité générale</li><li>Qualité de production, sécurité et conformité</li><li>Disponibilité dans toutes les régions publiques</li><li>Améliorations des performances et de la mise à l’échelle pour l’EPS le plus élevé</li></ul> [En savoir plus](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
+| Juillet 2021 | <ul><li>Prise en charge des proxies directs</li><li>Prise en charge de la passerelle Log Analytics</li></ul> [En savoir plus](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
+| Août 2021 | Résolution du problème autorisant les métriques Azure Monitor comme seule destination | 1.1.2.0 | 1.10.9.0 (ne pas utiliser 1.10.7.0) |
 
 
 ## <a name="install-with-azure-portal"></a>Installer avec Portail Azure

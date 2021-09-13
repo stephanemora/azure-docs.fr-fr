@@ -4,13 +4,13 @@ description: Découvrez comment utiliser le portail Azure ou l’interface CLI p
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 01/11/2021
-ms.openlocfilehash: 0b2f70e2727832514f1ce92d1ce0da90f0a6a2e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 08/02/2021
+ms.openlocfilehash: 49e9dee0b28eb17f2a4241570a2f0752f33b9020
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038031"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563118"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
@@ -45,6 +45,9 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
     - Vous pouvez également **Sélectionner toutes les valeurs actuelles et futures** pour les dimensions. Cette option permet de mettre à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
 
     La règle d’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](./alerts-metric-overview.md).
+    
+    > [!NOTE]
+    > L’utilisation de « Tous » comme valeur de dimension équivaut à sélectionner « Toutes les valeurs actuelles et futures ».
 
 9. Sélectionnez le type de **Seuil**, l’**Opérateur** et le **Type d’agrégation**. Cela permet de déterminer la logique que la règle d’alerte de métrique évaluera.
     - Si vous utilisez un seuil **Statique**, définissez une **Valeur du seuil**. Le graphique de métrique peut aider à déterminer un seuil raisonnable.
@@ -62,8 +65,6 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 
 15. Cliquez sur **Terminé** pour enregistrer la règle d’alerte de métrique.
 
-> [!NOTE]
-> Les règles d’alerte de métrique créées via le portail sont créées dans le même groupe de ressources que la ressource cible.
 
 ## <a name="view-and-manage-with-azure-portal"></a>Afficher et gérer avec le Portail Azure
 
@@ -83,7 +84,7 @@ Vous pouvez afficher et gérer les règles d’alerte de métrique à l’aide d
 5. Dans Modifier la règle, cliquez sur le **critère d’alerte** que vous souhaitez modifier. Vous pouvez modifier la métrique, la condition de seuil et les autres champs en fonction des besoins
 
     > [!NOTE]
-    > Vous ne pouvez pas modifier la **ressource cible** et le **nom de la règle d’alerte** une fois l’alerte de métrique créée.
+    > Vous ne pouvez pas modifier le **nom de la règle d’alerte** une fois la règle d’alerte de métrique créée.
 
 6. Cliquez sur **Terminé** pour enregistrer vos modifications.
 
@@ -125,7 +126,7 @@ Les sections précédentes décrivaient comment créer, afficher et gérer des r
 6. Vous pouvez désactiver une règle d’alerte de métrique à l’aide de la commande suivante.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
     ```
 
 7. Vous pouvez supprimer une règle d’alerte de métrique à l’aide de la commande suivante.

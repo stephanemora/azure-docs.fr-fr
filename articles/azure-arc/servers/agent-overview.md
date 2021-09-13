@@ -4,12 +4,12 @@ description: Cet article fournit une présentation détaillée de l’agent des 
 ms.date: 08/18/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 04324fa93c728440b0e590bad1d74e98c6e62df1
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: fa3b934d6909a3975bf9d01b6cd2f8f2fd2428e4
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527798"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771003"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs avec Azure Arc
 
@@ -26,11 +26,11 @@ Le package d’agent Azure Connected Machine contient plusieurs composants logiq
 
 * Le service HIMDS (Hybrid Instance Metadata service) gère la connexion à Azure et l’identité Azure de l’ordinateur connecté.
 
-* L’agent Guest Configuration fournit les fonctionnalités de stratégie dans l’invité (In-Guest Policy) et de configuration de l’invité (Guest Configuration), comme l’évaluation de la conformité de l’ordinateur avec les stratégies requises.
+* L’agent de configuration d’invité fournit des fonctionnalités, comme l’évaluation de la conformité de l’ordinateur avec les stratégies requises et l’implémentation de la conformité.
 
-    Notez le comportement suivant avec Azure Policy [Guest Configuration](../../governance/policy/concepts/guest-configuration.md) pour un ordinateur déconnecté :
+    Notez le comportement suivant avec la [configuration d’invité](../../governance/policy/concepts/guest-configuration.md) Azure Policy pour un ordinateur déconnecté :
 
-    * Une attribution de stratégie Guest Configuration qui cible les ordinateurs déconnectés n’est pas affectée.
+    * Une attribution Azure Policy qui cible les ordinateurs déconnectés n’est pas affectée.
     * L’attribution d’invité est stockée localement pendant 14 jours. Pendant la période de 14 jours, si l’agent Connected Machine se reconnecte au service, les attributions de stratégie sont réappliquées.
     * Les attributions sont supprimées au bout de 14 jours et ne sont pas réattribuées à l’ordinateur après la période de 14 jours.
 
@@ -51,8 +51,8 @@ Les informations relatives aux métadonnées sur la machine connectée sont coll
 * Pulsation de l'agent Connected Machine
 * Version de l’agent Machine connectée
 * Clé publique pour l’identité managée
-* État de conformité de la stratégie et détails (si vous utilisez des stratégies de configuration invitées Azure Policy)
-* Microsoft SQL Server installé (valeur booléenne)
+* État de conformité de la stratégie et détails (si vous utilisez des stratégies de configuration invitées)
+* SQL Server installé (valeur booléenne)
 * ID de ressource de cluster (pour les nœuds Azure Stack HCI) 
 
 Les informations de métadonnées suivantes sont demandées par l’agent à partir d’Azure :
@@ -155,7 +155,7 @@ URL :
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`*.guestconfiguration.azure.com` |Guest Configuration|
+|`*.guestconfiguration.azure.com` |Configuration invité|
 |`*.his.arc.azure.com`|Service d’identité hybride|
 |`*.blob.core.windows.net`|Source de téléchargement pour les extensions de serveurs avec Azure Arc|
 
@@ -163,8 +163,8 @@ Les agents de préversion (version 0.11 et antérieure) nécessitent également
 
 | Ressource de l’agent | Description |
 |---------|---------|
-|`agentserviceapi.azure-automation.net`|Guest Configuration|
-|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
+|`agentserviceapi.azure-automation.net`|Configuration invité|
+|`*-agentservice-prod-1.azure-automation.net`|Configuration invité|
 
 Pour obtenir la liste d’adresses IP de chaque balise de service/région, consultez le fichier JSON - [Plages d’adresses IP Azure et balises de service – Cloud Public](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publie chaque semaine une mise à jour contenant chacun des services Azure et les plages d’adresses IP qu’il utilise. Ces informations dans le fichier JSON constituent la liste actuelle des plages d’adresses IP qui correspondent à chaque balise de service. Les adresses IP sont sujettes à modification. Si des plages d’adresses IP sont requises par la configuration de votre pare-feu, utilisez l’étiquette de service **AzureCloud** pour autoriser l’accès à tous les services Azure. Ne désactivez pas la supervision ou l’inspection de la sécurité de ces URL ; autorisez-les comme vous le feriez pour tout autre trafic Internet.
 
@@ -231,7 +231,7 @@ Une fois l’agent Connected Machine pour Windows installé, les modifications d
     |%ProgramData%\AzureConnectedMachineAgent |Contient les fichiers de configuration de l’agent.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contient les jetons acquis.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contient le fichier de configuration de l’agent `agentconfig.json` qui enregistre ses informations d’inscription auprès du service.|
-    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Chemin d’installation contenant les fichiers de l’agent Guest Configuration. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Chemin d’installation contenant les fichiers de l’agent de configuration d’invité. |
     |%ProgramData%\GuestConfig |Contient les stratégies (appliquées) à partir d’Azure.|
     |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Les extensions sont téléchargées à partir d’Azure et copiées ici.|
 
@@ -281,7 +281,7 @@ Une fois l’agent Connected Machine pour Linux installé, les modifications de 
     |-------|------------|
     |/var/opt/azcmagent/ |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
     |/opt/azcmagent/ |
-    |/opt/GC_Ext | Chemin d’installation contenant les fichiers de l’agent Guest Configuration.|
+    |/opt/GC_Ext | Chemin d’installation contenant les fichiers de l’agent de configuration d’invité.|
     |/opt/DSC/ |
     |/var/opt/azcmagent/tokens |Contient les jetons acquis.|
     |/var/lib/GuestConfig |Contient les stratégies (appliquées) à partir d’Azure.|

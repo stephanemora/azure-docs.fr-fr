@@ -2,13 +2,13 @@
 title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware Solution et des clusters vSphere.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 97f31c18fd753c89f2201fddfff4d31c8501bae2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/25/2021
+ms.openlocfilehash: 6e068462cada0a324d646766574e05414ad92772
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531661"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968507"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster Azure VMware Solution
 
@@ -45,7 +45,7 @@ Le diagramme montre un abonnement Azure avec deux clouds privés représentant u
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Maintenance de l’hôte et gestion du cycle de vie
 
-Un avantage des clouds privés Azure VMware Solution est que la plateforme est maintenue pour vous.  Microsoft est responsable de la gestion du cycle de vie des logiciels VMware (ESXi vCenter et vSAN). Microsoft est également responsable de la gestion du cycle de vie des appliances NSX-T et du démarrage de la configuration du réseau, par exemple la création de la passerelle de niveau 0 et l’activation du routage Nord-Sud. Vous êtes responsable de la configuration du SDN NSX-T : segments réseau, règles de pare-feu distribuées, passerelles de niveau 1 et équilibreurs de charge. 
+
 
 [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 

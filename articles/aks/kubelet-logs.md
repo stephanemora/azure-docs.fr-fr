@@ -4,12 +4,12 @@ description: Découvrez comment afficher des informations de dépannage dans les
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 355c665db2627fe04595a8b519b16bd475ebcadf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20296d100d5a6bcd2cffbc93f29bfd71f56099c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735146"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562539"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux d’activité kubelet à partir de nœuds serveur Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,14 @@ Commencez par créer une connexion SSH avec le nœud duquel vous avez besoin de 
 
 ## <a name="get-kubelet-logs"></a>Obtenir des journaux d’activité kubelet
 
-Une fois connecté au nœud, exécutez la commande suivante pour récupérer les journaux d’activité *kubelet* :
+Une fois connecté au nœud via `kubectl debug`, exécutez la commande suivante pour extraire les journaux *kubelet* :
 
 ```console
-sudo journalctl -u kubelet -o cat
+chroot /host
+journalctl -u kubelet -o cat
 ```
+> [!NOTE]
+> Vous n’avez pas besoin d’utiliser `sudo journalctl` car vous êtes déjà `root` sur le nœud.
 
 > [!NOTE]
 > Pour les nœuds Windows, les données du journal se trouvent dans `C:\k` et peuvent être consultées à l’aide de la commande *more* :
@@ -71,8 +74,8 @@ Si vous avez besoin d’informations de dépannage supplémentaires à partir du
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

@@ -4,15 +4,15 @@ description: Brève vue d’ensemble des emplacements dans lesquels sont stocké
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ef72214cf0a5a5d0d65cc13dba88a4776b4240ad
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: bc356e828adbe9b2d93a202f6b58673dd4ec5efc
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745292"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125903"
 ---
 # <a name="data-locations-for-azure-virtual-desktop"></a>Emplacements de données pour Azure Virtual Desktop
 
@@ -49,7 +49,8 @@ Nous prenons actuellement en charge le stockage des données susmentionnées dan
 
 - États-Unis (US) (en disponibilité générale)
 - Europe (EU) (en disponibilité générale)
-- Royaume-Uni (UK) (préversion publique)
+- Royaume-Uni (RU) (en disponibilité générale)
+- Canada (CA) (en disponibilité générale)
 
 D’autres zones géographiques sont ajoutées au fur et à mesure du développement du service. Les informations stockées sont chiffrées au repos et des miroirs géoredondants sont conservés à l’intérieur de la zone géographique. Les données client, telles que les paramètres d’application et les données utilisateur, se trouvent à l’emplacement choisi par le client et ne sont pas gérées par le service.
 

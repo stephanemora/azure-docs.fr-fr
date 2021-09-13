@@ -9,23 +9,25 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 116e99339ac79e9e6a2de5e7a6222460a71bf4a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51191a8b5e2ad377092e2303c2245caa466f0adc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615089"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690314"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows
+
 > [!IMPORTANT]
-> Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette dépréciation et [son impact sur vous](classic-vm-deprecation.md#how-does-this-affect-me).
+> Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette désapprobation et [son impact sur vous](classic-vm-deprecation.md#how-does-this-affect-me).
 
 
 
-Cet article fournit une vue d’ensemble de l’outil de migration pris en charge par la plateforme, explique comment migrer des ressources d’Azure Service Manager (ASM) vers des modèles de déploiement Resource Manager (ARM) et explique comment connecter des ressources à partir des deux modèles de déploiement qui coexistent dans votre abonnement à l’aide de passerelles entre sites de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Cet article fournit une vue d’ensemble de l’outil de migration pris en charge par la plateforme, explique comment migrer les ressources d’ASM (Azure Service Manager), également appelé modèle de déploiement classique, vers des modèles de déploiement ARM (Azure Resource Manager). Il décrit en détail comment connecter les ressources des deux modèles de déploiement qui coexistent dans votre abonnement à l’aide de passerelles de réseau virtuel de site à site. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
-ASM prend en charge deux produits de calcul différents : les machines virtuelles Azure (classiques), également appelées machines virtuelles IaaS, et [Azure Cloud Services (classique)](../cloud-services/index.yml), également appelés machines virtuelles PaaS ou rôles de travail/web. Ce document traite uniquement de la migration de machines virtuelles Azure (classiques).
+ASM prend en charge deux produits de calcul différents, Machines virtuelles Azure (modèle classique), également appelé Machines virtuelles IaaS, et [Azure Cloud Services (modèle classique)](../cloud-services/index.yml) également appelé Machines virtuelles PaaS ou Rôles web/Rôles de travail. Ce document traite uniquement de la migration de machines virtuelles Azure (classiques).
 
 ## <a name="goal-for-migration"></a>Objectif de la migration
 Resource Manager autorise le déploiement d’applications complexes à l’aide de modèles, configure les machines virtuelles au moyen d’extensions de machines virtuelles et intègre la gestion des accès et le balisage. Azure Resource Manager inclut un déploiement extensible, en parallèle, de machines virtuelles dans des groupes à haute disponibilité. Le nouveau modèle de déploiement assure également la gestion de façon indépendante du cycle de vie des services de calcul, de réseau et de stockage. Enfin, il applique la sécurité par défaut grâce à la mise en œuvre de machines virtuelles dans un réseau virtuel.
@@ -35,7 +37,8 @@ Pratiquement toutes les fonctionnalités du modèle de déploiement Classic sont
 ## <a name="supported-resources--configurations-for-migration"></a>Ressources et configurations prises en charge pour la migration
 
 ### <a name="supported-resources-for-migration"></a>Ressources prises en charge pour la migration
-* Virtual Machines
+* Machines virtuelles (service cloud avec machines virtuelles)
+* [Cloud Services (avec rôles web/rôles de travail)](../cloud-services-extended-support/in-place-migration-overview.md)
 * Groupes à haute disponibilité
 * Comptes de stockage
 * Virtual Network
@@ -88,12 +91,12 @@ Pour permettre une migration fluide, vous pouvez déployer des machines virtuell
 Si votre compte de stockage ne dispose d’aucun disque associé ni de données de machines virtuelles et ne possède que des objets blob, des fichiers, des tables et des files d’attente, la migration vers Azure Resource Manager peut être réalisée comme migration autonome sans dépendances.
 
 > [!NOTE]
-> Le modèle de déploiement Resource Manager n’intègre pas le concept d’images et de disques classiques. Une fois le compte de stockage migré, les images et disques classiques ne sont pas visibles dans la pile Resource Manager, mais les disques durs virtuels de secours restent dans le compte de stockage.
+> Le modèle de déploiement Resource Manager n’intègre pas le concept d’images et de disques classiques. Une fois le compte de stockage migré, les images et les disques du modèle classique ne sont plus visibles dans le portail Azure. Toutefois, les VHD associés restent dans le compte de stockage.
 
 Les captures d’écran suivantes montrent comment mettre à niveau un compte de stockage classique vers un compte de stockage Azure Resource Manager à l’aide du portail Azure :
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à votre compte de stockage.
-3. Dans la section **Paramètres**, cliquez sur **Migrer vers ARM**.
+3. Dans la section **Paramètres**, cliquez sur **Migrer vers Azure Resource Manager**.
 4. Cliquez sur **Valider** pour déterminer la faisabilité de la migration.
 5. Si la validation réussit, cliquez sur **Préparer** pour créer un compte de stockage migré.
 6. Tapez **oui** pour confirmer la migration et cliquez sur **Valider** pour terminer la migration.
@@ -136,10 +139,9 @@ Les configurations non prises en charge actuellement sont les suivantes.
 | Calcul |Machines virtuelles dotées d’alertes et de stratégies de mise à l’échelle automatique |La migration a lieu et ces paramètres sont ignorés. Il est vivement recommandé d’évaluer votre environnement avant de procéder à la migration. Vous pouvez également choisir de reconfigurer les paramètres d’alerte une fois la migration terminée. |
 | Calcul |Extensions XML de machines virtuelles (BGInfo 1.*, débogueur Visual Studio, Web Deploy et débogage à distance) |Cela n'est pas pris en charge. Il est recommandé de supprimer ces extensions de la machine virtuelle pour continuer la migration ; sinon, elles seront automatiquement supprimées pendant le processus de migration. |
 | Calcul |Diagnostics de démarrage avec le stockage Premium |Désactivez la fonctionnalité Diagnostics de démarrage pour les machines virtuelles avant de poursuivre la migration. Vous pouvez réactiver les Diagnostics de démarrage dans la pile Resource Manager une fois la migration terminée. En outre, les objets Blob utilisés pour la capture d’écran et les journaux d’activité de série doivent être supprimés afin que vous ne soyez plus facturé pour ces objets Blob. |
-| Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement. |
 | Calcul | Services cloud qui contiennent plus d’un groupe à haute disponibilité ou des groupes à haute disponibilité multiples. |Non pris en charge actuellement. Placez les machines virtuelles dans le même groupe à haute disponibilité avant la migration. |
 | Calcul | Machine virtuelle avec l’extension Azure Security Center | Azure Security Center installe automatiquement les extensions sur vos machines virtuelles pour contrôler leur sécurité et déclencher des alertes. Ces extensions sont généralement installées automatiquement si la stratégie d’Azure Security Center est activée sur l’abonnement. Pour migrer les machines virtuelles, désactivez la stratégie du centre de sécurité sur l’abonnement, ce qui supprimera l’extension de surveillance Security Center des machines virtuelles. |
-| Calcul | Machine virtuelle avec une extension de sauvegarde ou de capture instantanée | Ces extensions sont installées sur une machine virtuelle configurée avec le service Sauvegarde Azure. Alors que la migration de ces machines virtuelles n’est pas prise en charge, suivez les instructions mentionnées [ici](./migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) pour conserver les sauvegardes qui ont été effectuées avant la migration.  |
+| Calcul | Machine virtuelle avec une extension de sauvegarde ou de capture instantanée | Ces extensions sont installées sur une machine virtuelle configurée avec le service Sauvegarde Azure. Bien que la migration de ces machines virtuelles ne soit pas prise en charge, suivez les conseils d’aide fournis dans les [Questions fréquentes (FAQ) sur la migration du modèle classique vers le modèle Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) pour conserver les sauvegardes effectuées avant la migration.  |
 | Calcul | Machine virtuelle avec extension d’Azure Site Recovery | Ces extensions sont installées sur une machine virtuelle configurée avec le service Azure Site Recovery. Même si la migration du stockage utilisé avec Site Recovery fonctionnera, il y aura des conséquences sur la réplication actuelle. Vous devez désactiver et activer la réplication de machine virtuelle après la migration du stockage. |
 | Réseau |Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail |Non pris en charge actuellement. Placez les rôles Web/de travail dans leur propre réseau virtuel avant la migration. Une fois que le réseau virtuel classique a migré, le réseau virtuel Azure Resource Manager qui a migré peut être appairé avec le réseau virtuel classique pour obtenir une configuration similaire à celle d’avant.|
 | Réseau | Circuits Express Route classiques |Non pris en charge actuellement. Ces circuits doivent migrer vers Azure Resource Manager avant le début de la migration IaaS. Pour en savoir plus, consultez [Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](../expressroute/expressroute-move.md).|
@@ -156,4 +158,4 @@ Les configurations non prises en charge actuellement sont les suivantes.
 * [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](migration-classic-resource-manager-cli.md)
 * [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
 * [Passer en revue les erreurs courantes de migration](migration-classic-resource-manager-errors.md)
-* [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md)
+* [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.yml)

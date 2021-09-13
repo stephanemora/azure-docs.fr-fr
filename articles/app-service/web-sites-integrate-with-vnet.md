@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/04/2021
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 444831d1d8e9982ac0837e90fe04941b5ae928a7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ac90dadc93ce09bc2ce0af6314e4bd2c48ab79f8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524266"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768669"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
@@ -123,9 +123,7 @@ Vous pouvez également configurer Tout acheminer à l’aide de CLI (*Remarque*�
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
 ```
 
-Le paramètre de configuration Tout acheminer remplace et prévaut sur le paramètre d’application `WEBSITE_VNET_ROUTE_ALL` hérité.
-
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="Paramètre d’application Tout acheminer":::
+Le paramètre de configuration Tout acheminer est le moyen recommandé d’activer le routage de tout le trafic. L’utilisation du paramètre de configuration vous permet d’auditer le comportement avec une [stratégie intégrée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). Le paramètre d’application `WEBSITE_VNET_ROUTE_ALL` existant peut toujours être utilisé et vous pouvez activer tout le routage du trafic avec l’un ou l’autre des paramètres.
 
 #### <a name="network-routing"></a>Routage réseau
 

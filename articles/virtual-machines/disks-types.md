@@ -3,17 +3,17 @@ title: Sélectionner un type de disque pour les machines virtuelles Azure IaaS -
 description: Découvrez les types de disques Azure disponibles pour les machines virtuelles, notamment les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard.
 author: roygara
 ms.author: rogarana
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 782d4d18e9b6ffc16c1d95a995cef806adc42904
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5c8e9a7d2d9989ef3080741753f604b9eb5d4289
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083419"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362176"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -23,7 +23,7 @@ Azure Managed Disks propose quatre types de disque, chaque type étant destiné 
 
 Le tableau suivant compare quatre types de disque managé : les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard pour vous aider dans votre choix.
 
-| Detail | Disque Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detail | Disque Ultra | SSD Premium | Disques SSD standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Type de disque   |SSD   |SSD   |SSD   |HDD   |
 |Scénario   |Charges de travail gourmandes en E/S, telles que le système [SAP HANA](workloads/sap/hana-vm-operations-storage.md), les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
@@ -78,13 +78,11 @@ Pour en savoir plus sur les types et les tailles de machines virtuelles individu
 ### <a name="disk-size"></a>Taille du disque
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Lorsque vous configurez un disque de stockage Premium, contrairement au stockage standard, la capacité, les E/S par seconde et le débit de ce disque sont assurés. Par exemple, si vous créez un disque P50, Azure configure une capacité de stockage de 4 095 Go, 7 500 E/S par seconde et un débit de 250 Mo/s pour ce disque. Votre application peut utiliser tout ou partie de la capacité et des performances. Les disques SSD Premium sont conçus pour fournir des latences faibles de quelques millisecondes ainsi que l’IOPS et le débit cibles décrits dans le précédent tableau 99,9 % du temps.
+Lorsque vous configurez un disque de stockage Premium, contrairement au stockage standard, la capacité, les E/S par seconde et le débit de ce disque sont assurés. Par exemple, si vous créez un disque P50, Azure configure une capacité de stockage de 4 095 Go, 7 500 E/S par seconde et un débit de 250 Mo/s pour ce disque. Votre application peut utiliser tout ou partie de la capacité et des performances. Les disques SSD Premium sont conçus pour fournir des latences en millisecondes à un seul chiffre ainsi que pour cibler 99,9 % du temps les IOPS et le débit décrits dans le tableau précédent.
 
 ## <a name="bursting"></a>Mode en rafales
 
-Les tailles de disques SSD Premium inférieures à P30 offrent désormais un mode rafale et peuvent augmenter leur IOPS par disque jusqu’à 3 500 et leur bande passante jusqu’à 170 Mo/s. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Les crédits s’accumulent automatiquement dans un compartiment de rafales quand le trafic de disque est inférieur aux performances cibles provisionnées et les crédits sont automatiquement consommés quand le trafic dépasse la cible, jusqu’à la limite maximale de rafales. La limite maximale de rafales définit le plafond des IOPS de disque et de la bande passante même si vous disposez de crédits de rafales à consommer. Les rafales de disque offrent une meilleure tolérance aux changements imprévisibles des modèles d’E/S. Vous pouvez en tirer le meilleur parti pour le démarrage du disque du système d’exploitation et les applications dont le trafic est imprévisible.    
-
-La prise en charge du mode rafale du disque sera activée sur les nouveaux déploiements des tailles de disque par défaut, sans nécessiter l’intervention de l’utilisateur. Pour les disques existants dont les tailles sont applicables, vous pouvez activer les rafales de l’une ou l’autre des manières suivantes : détacher et rattacher le disque, ou arrêter et redémarrer la machine virtuelle attachée. Toutes les tailles de disques applicables au mode en rafales vont commencer avec un compartiment disposant d’un crédit de rafales complet dès que le disque est attaché à une machine virtuelle qui prend en charge une durée maximale de pointe de rafales limitée à 30 minutes. Pour en savoir plus sur le fonctionnement du mode en rafales sur les disques Azure, consultez [Mode en rafales des disques SSD Premium](./disk-bursting.md). 
+Les disques SSD Premium offrent le bursting de disque. Les rafales de disque offrent une meilleure tolérance aux changements imprévisibles des modèles d’E/S. Vous pouvez en tirer le meilleur parti pour le démarrage du disque du système d’exploitation et les applications dont le trafic est imprévisible. Pour en savoir plus sur le fonctionnement du bursting des disques Azure, consultez [Bursting de disque](disk-bursting.md#disk-level-bursting).
 
 ### <a name="transactions"></a>Transactions
 
@@ -102,6 +100,10 @@ Les disques SSD Standard sont conçus pour fournir des latences de quelques mill
 ### <a name="transactions"></a>Transactions
 
 Pour les disques SSD Standard, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S dont le débit est supérieur à 256 Kio sont considérées comme des opérations d’E/S distinctes, de 256 Kio chacune. Ces transactions ont un impact sur la facturation.
+
+### <a name="bursting"></a>Mode en rafales
+
+Les disques SSD Standard offrent le bursting de disque. Les rafales de disque offrent une meilleure tolérance aux changements imprévisibles des modèles d’E/S. Vous pouvez en tirer le meilleur parti pour le démarrage du disque du système d’exploitation et les applications dont le trafic est imprévisible. Pour en savoir plus sur le fonctionnement du bursting des disques Azure, consultez [Bursting de disque](disk-bursting.md#disk-level-bursting).
 
 ## <a name="standard-hdd"></a>HDD Standard
 

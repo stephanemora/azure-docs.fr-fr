@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 2b4719561ad94d54267410d0af28db6ee8d82b00
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc6a56cff3492011a4717d867f08a580cf5a198c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799103"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562791"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Résolution des erreurs intermittentes de connexion sortante dans Azure App Service
 
@@ -43,15 +43,15 @@ Plusieurs solutions vous permettent d’éviter les limites de port SNAT. Ils co
 * Pools de connexions : En regroupant vos connexions, vous évitez d’ouvrir de nouvelles connexions réseau pour les appels aux mêmes adresse et port.
 * Points de terminaison de service : Vous n’avez pas de restriction de port SNAT pour les services sécurisés dotés de points de terminaison de service.
 * Points de terminaison privés : Vous n’avez pas de restriction de port SNAT pour les services sécurisés dotés de points de terminaison privés.
-* NAT Gateway : Avec une instance NAT Gateway, vous disposez de ports SNAT sortant de 64 Ko utilisables par les ressources qui envoient du trafic via celle-ci.
+* Passerelle NAT : Avec une passerelle NAT, vous disposez de 64 000 ports SNAT sortants utilisables par les ressources qui envoient du trafic via celle-ci.
 
 Éviter le problème de port SNAT consiste à éviter la création de nouvelles connexions de façon répétée sur le même hôte et le même port. Les pools de connexions représentent l’une des méthodes les plus évidentes pour résoudre ce problème.
 
 Si votre destination est un service Azure qui prend en charge les points de terminaison de service, vous pouvez éviter les problèmes d’épuisement des ports SNAT en utilisant l’[intégration de réseau virtuel régional](./web-sites-integrate-with-vnet.md) et des points de terminaison de service ou des points de terminaison privés. Lorsque vous utilisez l’intégration de réseau virtuel régional et placez des points de terminaison de service sur le sous-réseau d’intégration, le trafic sortant de votre application vers ces services n’aura pas de restrictions de ports SNAT sortants. De même, si vous utilisez l’intégration de réseau virtuel régional et des points de terminaison privés, aucun problème de ports SNAT sortants n’est lié à cette destination. 
 
-Si votre destination correspond à un point de terminaison externe situé en dehors d’Azure, l’utilisation d’une instance NAT Gateway vous permet de disposer de ports SNAT sortants de 64 Ko. Elle met également à votre disposition une adresse sortante dédiée que vous ne partagez avec personne. 
+Si votre destination correspond à un point de terminaison externe situé en dehors d’Azure, l’[utilisation d’une passerelle NAT](./networking/nat-gateway-integration.md) vous permet de disposer de 64 000 ports SNAT sortants. Elle met également à votre disposition une adresse sortante dédiée que vous ne partagez avec personne. 
 
-Si possible, améliorez votre code de manière à utiliser des pools de connexions et éviter tout problème. Il n’est pas toujours possible de modifier le code de manière assez rapide pour atténuer ce problème. Si vous ne pouvez pas modifier votre code dans les temps, optez pour les autres solutions. La meilleure solution à ce problème consiste à combiner au mieux toutes les solutions. Essayez d’utiliser des points de terminaison de service et des points de terminaison privés pour les services Azure et l’instance NAT Gateway pour le reste. 
+Si possible, améliorez votre code de manière à utiliser des pools de connexions et éviter tout problème. Il n’est pas toujours possible de modifier le code de manière assez rapide pour atténuer ce problème. Si vous ne pouvez pas modifier votre code dans les temps, optez pour les autres solutions. La meilleure solution à ce problème consiste à combiner au mieux toutes les solutions. Essayez d’utiliser des points de terminaison de service et des points de terminaison privés vers les services Azure et la passerelle NAT pour le reste. 
 
 Les stratégies générales d’atténuation de l’épuisement des ports SNAT sont décrites dans la [section Résolution des problèmes](../load-balancer/load-balancer-outbound-connections.md) de la documentation **Connexions sortantes d’Azure**. Parmi ces stratégies, les éléments suivants s’appliquent aux applications et aux fonctions hébergées sur Azure App Service.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2021
 ms.author: yelevin
-ms.openlocfilehash: ce1d2fafd330848c19dc5386fad11d87bfe2670a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1335d10b1fd46b24326636e7caece4583c84f523
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524451"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253502"
 ---
 # <a name="connect-azure-sentinel-to-stixtaxii-threat-intelligence-feeds"></a>Connecter Azure Sentinel aux flux de renseignements sur les menaces STIX/TAXII
 
@@ -32,7 +32,7 @@ La norme du secteur la plus largement adoptée pour la transmission du renseigne
 
 En savoir plus sur le [renseignement sur les menaces](understand-threat-intelligence.md) dans Azure Sentinel, et plus particulièrement sur les [flux de renseignements sur les menaces TAXII](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) qui peuvent être intégrés à Azure Sentinel.
 
-## <a name="prerequisites"></a>Configuration requise  
+## <a name="prerequisites"></a>Prérequis  
 
 - Vous devez disposer d’autorisations en lecture et en écriture dans l’espace de travail Azure Sentinel pour stocker vos indicateurs de menace.
 - Vous devez disposer d’un **URI racine d’API** et d’un **ID de collection** pour TAXII 2.0 ou TAXII 2.1.
@@ -60,9 +60,9 @@ Pour importer des indicateurs de menace dans Azure Sentinel à partir d’un ser
 
 1. Choisissez l’**espace de travail** dans lequel vous voulez importer des indicateurs de menace à partir du serveur TAXII.
 
-1. Sélectionnez **Connecteurs de données** dans le menu, sélectionnez **Threat Intelligence - TAXII** dans la galerie des connecteurs, puis cliquez sur le bouton **Ouvrir la page du connecteur**.
+1. Sélectionnez **Connecteurs de données** dans le menu, sélectionnez **Threat Intelligence - TAXII** dans la galerie des connecteurs, sélectionnez le bouton **Ouvrir la page du connecteur**.
 
-1. Entrez un **nom convivial** pour cette collection du serveur TAXII, l’**URL racine d’API**, l’**ID de collection**, un **nom d’utilisateur** (le cas échéant) et un **mot de passe** (le cas échéant), et choisissez le groupe d’indicateurs et la fréquence d’interrogation que vous souhaitez. Cliquez sur le bouton **Add** .
+1. Entrez un **nom convivial** pour cette collection du serveur TAXII, l’**URL racine d’API**, l’**ID de collection**, un **nom d’utilisateur** (le cas échéant) et un **mot de passe** (le cas échéant), et choisissez le groupe d’indicateurs et la fréquence d’interrogation que vous souhaitez. Sélectionnez le bouton **Ajouter**.
 
     :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-configure-taxii-servers.png" alt-text="Configurer des serveurs TAXII":::
  

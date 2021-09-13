@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: fb277b2468d0cf4df5d28e412a5fb91f777b46bf
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 02bdb1812556d08b00885a68fb50443e97d6977c
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525640"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214051"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Inscrire et analyser Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 
 Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, vous devez récupérer votre clé d’accès et la stocker dans le coffre de clés :
 
-1. Accédez à votre compte de stockage ADLS Gen2
+1. Accéder à votre compte de stockage ADLS Gen2
 1. Sélectionnez **Sécurité + mise en réseau > Clés d’accès**.
 1. Copiez votre *clé* et enregistrez-la quelque part pour les étapes suivantes
 1. Accédez à votre coffre de clés.

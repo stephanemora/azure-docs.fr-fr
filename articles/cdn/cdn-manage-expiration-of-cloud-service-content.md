@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78716b77492b146b076bfc31a71d12954f482114
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93240968"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564103"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gérer l’expiration du contenu web dans Azure CDN
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serve
 
     ![Exemple de règles de mise en cache personnalisées CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
-    La première règle de mise en cache personnalisée définit une durée de mise en cache de quatre heures pour tous les fichiers du dossier `/webfolder1` présent sur le serveur d’origine spécifié par votre point de terminaison. La deuxième règle remplace la première règle pour le fichier `file1.txt` uniquement, et définit une durée de mise en cache de deux heures pour celui-ci.
+    La première règle de mise en cache personnalisée définit une durée de mise en cache de quatre jours pour tous les fichiers du dossier `/webfolder1` présent sur le serveur d’origine spécifié par votre point de terminaison. La deuxième règle remplace la première règle pour le fichier `file1.txt` uniquement et définit une durée de mise en cache de deux jours pour celui-ci.
 
 1. Sélectionnez **Enregistrer**.
 

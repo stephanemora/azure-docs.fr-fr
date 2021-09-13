@@ -1,20 +1,19 @@
 ---
-title: Analyse de l’usage avec Azure Application Insights | Microsoft Docs
+title: Analyse de l’utilisation avec Application Insights | Azure Monitor
 description: Comprenez vos utilisateurs et ce qu’ils font avec votre application.
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 8be8f6ad5285819d2cdb7e369c98d6e9da9d76c8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/30/2021
+ms.openlocfilehash: 67739c94afeb841450eb465fe5cd5259093e2e78
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082339"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562360"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
-Quelles sont les fonctionnalités de votre application web ou mobile les plus populaires ? Vos utilisateurs atteignent-ils leurs objectifs avec votre application ? Disparaissent-ils à des stades spécifiques, et reviennent-ils plus tard ?  [Azure Application Insights](./app-insights-overview.md) vous permet d’obtenir des insights utiles sur l’utilisation de votre application. Chaque fois que vous mettez à jour votre application, vous pouvez évaluer son bon fonctionnement pour les utilisateurs. Grâce à ces informations, vous pouvez prendre des décisions basées sur des données sur les cycles de développement suivants.
+Quelles sont les fonctionnalités de votre application web ou mobile les plus populaires ? Vos utilisateurs atteignent-ils leurs objectifs avec votre application ? Disparaissent-ils à des stades spécifiques, et reviennent-ils plus tard ?  [Application Insights](./app-insights-overview.md) vous permet d’obtenir des insights utiles sur la façon dont les gens utilisent votre application. Chaque fois que vous mettez à jour votre application, vous pouvez évaluer son bon fonctionnement pour les utilisateurs. Grâce à ces informations, vous pouvez prendre des décisions basées sur des données sur les cycles de développement suivants.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## <a name="send-telemetry-from-your-app"></a>Envoyer des données de télémétrie à partir de votre application
 
@@ -47,7 +46,7 @@ La meilleure expérience est obtenue en installant Application Insights à la fo
 
 3. **Code de l’application mobile :** utilisez le SDK App Center pour collecter les événements à partir de votre application, puis envoyer des copies de ces événements à Application Insights pour analyse en [suivant ce guide](../app/mobile-center-quickstart.md).
 
-4. **Obtenir la télémétrie :** exécutez votre projet en mode débogage pendant quelques minutes, puis examinez les résultats dans le panneau Vue d’ensemble dans Application Insights.
+4. **Obtenir des données de télémétrie :** exécutez votre projet en mode de débogage pendant quelques minutes, puis examinez les résultats dans le panneau Vue d’ensemble dans Application Insights.
 
     Publiez votre application pour surveiller les performances de votre application et découvrir ce que vos utilisateurs font avec votre application.
 
@@ -56,7 +55,7 @@ Découvrez quand des personnes utilisent votre application, les pages qui les in
 
 Les rapports Utilisateurs et sessions filtrent vos données par pages ou événements personnalisés, et les segmentent par propriétés telles que l’emplacement, l’environnement et la page. Vous pouvez également ajouter vos propres filtres.
 
-![Capture d’écran montrant la page Vue d’ensemble des utilisateurs pour une société fictive.](./media/usage-overview/users.png)  
+:::image type="content" source="./media/usage-overview/users.png" alt-text="Capture d’écran montrant l’onglet Utilisateurs avec un graphique à barres" lightbox="./media/usage-overview/users.png":::
 
 Aperçu des modèles intéressants appropriés dans le jeu de données.  
 
@@ -73,11 +72,11 @@ La rétention vous permet de comprendre la fréquence à laquelle vos utilisateu
 - Formuler des hypothèses en fonction des données utilisateur réel 
 - Déterminer si la rétention est un problème dans votre produit 
 
-![Capture d’écran montrant la page Vue d’ensemble de la rétention avec des informations sur la fréquence à laquelle les utilisateurs reviennent pour utiliser leur application.](./media/usage-overview/retention.png) 
+:::image type="content" source="./media/usage-overview/retention.png" alt-text="Capture d’écran montrant le classeur de conservation avec des informations sur la fréquence à laquelle les utilisateurs reviennent pour utiliser leur application" lightbox="./media/usage-overview/retention.png":::
 
 Les commandes de rétention en haut vous permettent de définir des événements spécifiques et un intervalle de temps pour calculer la rétention. Le graphique au centre fournit une représentation visuelle du pourcentage de rétention globale sur l’intervalle de temps spécifié. Le graphique en bas représente la rétention sur une période de temps donnée. Ce niveau de détail vous permet de comprendre de manière plus approfondie ce que font vos utilisateurs et ce qui les peut amener à revenir.  
 
-[En savoir plus sur l’outil de rétention](usage-retention.md)
+[Plus d’informations sur le classeur de conservation](usage-retention.md)
 
 ## <a name="custom-business-events"></a>Événements personnalisés
 
@@ -87,12 +86,11 @@ Vous pouvez également utiliser le [plug-in Collecte automatique de l’analytiq
 
 Bien que les pages consultées puissent représenter des événements utiles, cela n’est en général pas le cas. Un utilisateur peut ouvrir une page produit sans acheter le produit. 
 
-Grâce aux événements spécifiques, vous pouvez représenter la progression de vos utilisateurs sur votre site. Vous pouvez connaître leurs préférences sur les différentes options et où ils abandonnent ou rencontrent des difficultés. Grâce à ces informations, vous pouvez prendre des décisions avisées sur les priorités de vos travaux de développement en souffrance.
+Grâce aux événements spécifiques, vous pouvez représenter la progression de vos utilisateurs sur votre site. Découvrez leurs préférences pour les différentes options et où ils abandonnent ou rencontrent des difficultés. Grâce à ces informations, vous pouvez prendre des décisions avisées sur les priorités de vos travaux de développement en souffrance.
 
 Les événements peuvent être enregistrés à partir du côté client de l’application :
 
 ```JavaScript
-
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
@@ -107,14 +105,15 @@ Ou du côté serveur :
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Vous pouvez joindre des valeurs de propriété à ces événements, afin de pouvoir filtrer ou fractionner les événements lorsque vous les étudiez dans le portail. Un ensemble standard de propriétés est également associé à chaque événement, comme des ID d’utilisateur anonymes, vous permettant ainsi de suivre la séquence d’activités d’un utilisateur.
+Vous pouvez joindre des valeurs de propriété à ces événements, afin de pouvoir filtrer ou fractionner les événements lorsque vous les étudiez dans le portail. Un ensemble standard de propriétés est également attaché à chaque événement, comme des ID d’utilisateur anonymes, vous permettant ainsi de suivre la séquence d’activités d’un utilisateur.
 
 En savoir plus sur les [événements personnalisés](./api-custom-events-metrics.md#trackevent) et les [propriétés](./api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Segmenter et traiter les événements
 
 Dans les outils Utilisateurs, Sessions et Événements, vous pouvez segmenter et traiter des événements personnalisés par utilisateur, nom d’événement et propriétés.
-![Capture d’écran montrant la page Vue d’ensemble des utilisateurs pour une société fictive.](./media/usage-overview/users.png)  
+
+:::image type="content" source="./media/usage-overview/events.png" alt-text="Capture d’écran montrant l’onglet Événements filtré par AnalyticsItemsOperation et fractionné par AppID" lightbox="./media/usage-overview/events.png":::
   
 ## <a name="design-the-telemetry-with-the-app"></a>Concevoir la télémétrie avec l’application
 

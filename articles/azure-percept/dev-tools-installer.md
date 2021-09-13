@@ -1,20 +1,20 @@
 ---
-title: Vue d’ensemble du Dev Tools Pack Installer d’Azure Percept
+title: Installer les outils de développement Azure Percept
 description: Découvrir comment utiliser le Dev Tools Pack Installer pour accélérer le développement avancé avec Azure Percept
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 49d5a6ed7b23169e655a02cdbb14df52a6e82231
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f445170d3cd2b2cfeb45a85371409a539368ba22
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099782"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225004"
 ---
-# <a name="dev-tools-pack-installer-overview"></a>Vue d’ensemble du Dev Tools Pack Installer
+# <a name="install-azure-percept-development-tools"></a>Installer les outils de développement Azure Percept
 
 Le Dev Tools Pack Installer est une solution tout-en-un qui installe et configure tous les outils nécessaires au développement d’une solution avancée de périphérie intelligente.
 

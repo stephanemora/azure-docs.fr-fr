@@ -11,15 +11,15 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/14/2021
+ms.date: 07/16/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b93e7febc478452d713d115162280f0fd2657a3
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 4050a986c98b492f71383bd5c677d68288882611
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579460"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114404656"
 ---
 # <a name="sizing"></a>Dimensionnement
 
@@ -39,7 +39,7 @@ Pour obtenir plus d’informations sur l’exécution de ces rapports et obtenir
 
 ## <a name="sizing-greenfield-implementations"></a>Dimensionnement des nouvelles implémentations
 
-Si vous démarrez votre implémentation à partir de zéro, SAP Quick Sizer calcule les besoins en mémoire de l'implémentation du logiciel SAP sur HANA.
+Lorsque vous démarrez une implémentation à partir de zéro, SAP Quick Sizer calcule les besoins en mémoire de l’implémentation du logiciel SAP sur HANA.
 
 ## <a name="memory-requirements"></a>Besoins en mémoire
 

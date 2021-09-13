@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 25e12ce4fd361cb053eae8b0d9992031a91d4616
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d3cffbe9ebaa71ca5c4dfd8681159f83ff06eb38
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469013"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821463"
 ---
 # <a name="monitoring-virtual-wan"></a>Supervision de Virtual WAN
 
@@ -34,16 +34,42 @@ Les métriques dans Azure Monitor sont des valeurs numériques décrivant certai
 
 Les métriques suivantes sont disponibles pour les passerelles VPN site à site Azure :
 
+#### <a name="tunnel-packet-drop-metrics"></a>Métriques de dépôt de paquets Tunnel
+| Métrique | Description|
+| --- | --- |
+| **Nombre d’annulations de paquets de sortie par tunnel** | Nombre de paquets sortants annulés par tunnel.|
+| **Nombre d’annulations de paquets d’entrée par tunnel** | Nombre de paquets entrants annulés par tunnel.|
+| **Rejets de paquets NAT de tunnel** | Nombre de paquets traduits rejetés sur un tunnel, par type de rejet et règle NAT.|
+| **Rejet de paquets TS de sortie de tunnel pour incompatibilité** | Nombre de rejets de paquets sortants du sélecteur de trafic pour incompatibilité dans un tunnel.|
+| **Rejet de paquets TS d’entrée de tunnel pour incompatibilité** | Nombre de rejets de paquets entrants du sélecteur de trafic pour incompatibilité dans un tunnel.|
+
+#### <a name="ipsec-metrics"></a>Métriques IPSEC
+| Métrique | Description|
+| --- | --- |
+| **Nombre de tunnels MMSA** | Nombre de MMSA créés ou supprimés.|
+| **Nombre de tunnels QMSA** | Nombre de QMSA IPSEC créés ou supprimés.|
+
+#### <a name="routing-metrics"></a>Métriques de routage
+| Métrique | Description|
+| --- | --- |
+| **État du pair BGP** | État de connectivité BGP par homologue et par instance.|
+| **Itinéraires BGP publiés** | Nombre d’itinéraires publiés par homologue et par instance.|
+| **Itinéraires BGP appris** | Nombre d’itinéraires appris par homologue et par instance.|
+| **Nombre de préfixes d’adresse de réseau virtuel** | Nombre de préfixes d’adresse de réseau virtuel qui sont utilisés/publiés par la passerelle.|
+
+Vous pouvez consulter les métriques par homologue et métrique d’instance en sélectionnant **Apply splitting** (Appliquer le fractionnement) et en choisissant la valeur par défaut. 
+
+#### <a name="traffic-flow-metrics"></a>Métrique de flux de circulation
 | Métrique | Description|
 | --- | --- |
 | **Bande passante de passerelle** | Bande passante moyenne agrégée site à site d’une passerelle en octets par seconde.|
 | **Bande passante de tunnel** | Bande passante moyenne d’un tunnel en octets par seconde.|
 | **Octets de sortie de tunnel** | Octets sortants d’un tunnel. |
 | **Paquets de sortie de tunnel** | Nombre de paquets sortants d’un tunnel. |
-| **Rejet de paquets TS de sortie de tunnel pour incompatibilité** | Nombre de rejets de paquets sortants du sélecteur de trafic pour incompatibilité dans un tunnel.|
 | **Octets d’entrée de tunnel** | Octets entrants d’un tunnel.|
 | **Paquets en entrée du tunnel** | Nombre de paquets entrants d’un tunnel.|
-| **Rejet de paquets TS d’entrée de tunnel pour incompatibilité** | Nombre de rejets de paquets entrants du sélecteur de trafic pour incompatibilité dans un tunnel.|
+| **Pic PPS dans le tunnel** | Nombre de paquets par seconde par connexion de liaison au cours de la dernière minute.|
+| **Nombre de flux Tunnel** | Nombre de flux distincts créés par connexion de liaison.|
 
 ### <a name="point-to-site-vpn-gateways"></a>Passerelles VPN point à site
 
@@ -53,6 +79,7 @@ Les métriques suivantes sont disponibles pour les passerelles VPN point à site
 | --- | --- |
 | **Bande passante P2S de passerelle** | Bande passante moyenne agrégée point à site d’une passerelle en octets par seconde. |
 | **Nombre de connexions P2S** |Nombre de connexions point à site d’une passerelle. Nombre de connexions point à site d’une passerelle. Pour vous assurer de voir des métriques exactes dans Azure Monitor, sélectionnez **Somme** comme **type d’agrégation** pour **Nombre de connexions P2S**. Vous pouvez également sélectionner **Max** si vous fractionnez également par **Instance**. |
+| **Nombre d’itinéraires VPN de l’utilisateur** | Nombre d’itinéraires VPN utilisateur configurés sur la passerelle VPN. Cette métrique peut être répartie en itinéraires **statiques** et en itinéraires **dynamiques**.
 
 ### <a name="azure-expressroute-gateways"></a>Passerelles ExpressRoute Azure
 

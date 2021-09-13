@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 8bcd45ab1270d478b05b3929d7b8914976612294
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b81356c0a17315bbb614b4def5db90e4dbae9af3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645308"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450857"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure
 
@@ -106,7 +106,7 @@ Ces fonctionnalités sont possibles car Azure NetApp Files est basé sur des sys
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Gestion des licences logiciels Oracle Database sur Azure
 
-Microsoft Azure est un environnement cloud agréé pour l’exécution d’Oracle Database. Le tableau Oracle Core Factor ne s’applique pas à la gestion des licences de bases de données Oracle dans le cloud. À la place, lorsque vous utilisez des machines virtuelles avec la technologie Hyper-Threading activée pour les bases de données Édition Entreprise, comptez deux vCPU comme équivalant à une licence Oracle Processor si l’hyperthreading est activé (comme indiqué dans le document de stratégie). Vous trouverez les détails de la stratégie [ici](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Microsoft Azure est un environnement cloud agréé pour l’exécution d’Oracle Database. Le tableau Oracle Core Factor ne s’applique pas à la gestion des licences de bases de données Oracle dans le cloud. À la place, lorsque vous utilisez des machines virtuelles avec la technologie Hyper-Threading activée pour les bases de données Édition Entreprise, comptez deux vCPU comme équivalant à une licence Oracle Processor si l’hyperthreading est activé (comme indiqué dans le document de stratégie). Pour plus d’informations sur les stratégies, consultez [Licences logicielles Oracle dans l’environnement de Cloud Computing](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
 Les bases de données Oracle nécessitent généralement davantage de mémoire et d’E/S. C’est pourquoi l’usage de [machines virtuelles à mémoire optimisée](../../sizes-memory.md) est recommandé pour ces charges de travail. Pour optimiser davantage vos charges de travail, il est recommandé d’utiliser des [processeurs virtuels au nombre de cœurs limité](../../constrained-vcpu.md) pour les charges de travail Oracle Database nécessitant des capacités importantes de mémoire, de stockage et de bande passante d’E/S, mais pas un nombre important de cœurs.
 
 Lors de la migration de logiciels et charges de travail Oracle d’un environnement local vers Microsoft Azure, Oracle offre la mobilité de licence décrite dans le [Forum aux questions concernant Oracle sur Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)

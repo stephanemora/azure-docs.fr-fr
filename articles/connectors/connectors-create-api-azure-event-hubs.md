@@ -3,16 +3,16 @@ title: Se connecter à Azure Event Hubs
 description: Connectez-vous à votre Event Hub et ajoutez un déclencheur ou une action à votre flux de travail dans Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 05/03/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/16/2021
 tags: connectors
-ms.openlocfilehash: 7f82debf0cc09d032b00de8197cf873c01801353
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 079d131cac55c6d7a54547a3720546ab6422f7d5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755582"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473073"
 ---
 # <a name="connect-to-an-event-hub-from-workflows-in-azure-logic-apps"></a>Se connecter à un Event Hub à partir des flux de travail dans Azure Logic Apps
 
@@ -135,10 +135,12 @@ Les étapes suivantes décrivent comment ajouter un déclencheur, par exemple **
 
 ## <a name="trigger-polling-behavior"></a>Comportement d’interrogation du déclencheur
 
-Tous les déclencheurs Event Hub sont des déclencheurs *d’interrogation longue*, ce qui signifie que le déclencheur traite tous les événements, puis attend 30 secondes par partition le temps qu’un plus grand nombre d’événements s’affichent dans votre Event Hub. 
+Tous les déclencheurs Event Hubs sont des déclencheurs à interrogation longue. Ce comportement signifie que quand un déclencheur est activé, il traite tous les événements, puis attend 30 secondes, le temps qu’un plus grand nombre d’événements s’affichent dans votre hub d’événements. Si aucun événement ne s’affiche sous ce délai de 30 secondes, il est normal que le déclencheur soit ignoré. Dans le cas contraire, le déclencheur poursuit la lecture des événements jusqu’à ce que votre Event Hub. La prochaine interrogation de déclencheur est basée sur l’intervalle de récurrence que vous définissez dans les propriétés du déclencheur.
 
 Par exemple, si le déclencheur est configuré avec quatre partitions, ce délai peut prendre jusqu’à deux minutes avant que le déclencheur ne termine d’interroger toutes les partitions. Si aucun événement n’est reçu dans ce délai, l’exécution du déclencheur est ignorée. Dans le cas contraire, le déclencheur poursuit la lecture des événements jusqu’à ce que votre Event Hub. La prochaine interrogation de déclencheur est basée sur l’intervalle de récurrence que vous spécifiez dans les propriétés du déclencheur.
 
+Si vous savez dans quelle(s) partition(s) spécifique(s) les messages s’affichent, vous pouvez mettre à jour le déclencheur pour lire les événements de cette ou de ces partitions uniquement en définissant les clés de partition maximale et minimale du déclencheur. Pour plus d’informations, consultez la section [Ajouter un déclencheur Event Hubs](#add-trigger).
+     
 ## <a name="trigger-checkpoint-behavior"></a>Comportement du point de contrôle du déclencheur
 
 Lorsqu’un déclencheur Event Hubs lit les événements de chaque partition dans un Event Hub, le déclencheur utilise son propre état pour de conserver les informations sur le décalage du flux (la position de l’événement dans une partition) et les partitions sur lesquelles le déclencheur lit les événements.

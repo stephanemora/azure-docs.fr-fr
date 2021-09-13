@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f85a8d539c8f841bafaae9d877446c5e6ecb416
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673567"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122535032"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Conseils pour la conception de tables distribuées à l’aide d’un pool SQL dédié dans Azure Synapse Analytics
 
-Recommandations pour la conception de tables distribuées par hachage et par tourniquet (round robin) dans des pools SQL dédiés.
+Cet article contient des recommandations pour la conception de tables distribuées par hachage et par tourniquet (round robin) dans des pools SQL dédiés.
 
 Cet article suppose que les concepts de distribution et de déplacement de données dans un pool SQL dédié vous sont familiers.  Pour plus d'informations, consultez [Architecture Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
@@ -28,7 +28,7 @@ Cet article suppose que les concepts de distribution et de déplacement de donn�
 
 Une table distribuée apparaît sous la forme d’une table unique, mais les lignes sont en réalité stockées sur 60 distributions. Les lignes sont distribuées avec un algorithme de hachage ou de tourniquet.  
 
-Les **tables distribuées par hachage** améliorent les performances des requêtes sur des tables de faits volumineuses et sont au cœur de cet article. Les **tables distribuées par tourniquet** sont utiles pour améliorer la vitesse de chargement. Ces choix de conception ont un impact significatif sur l’amélioration des performances des requêtes et de chargement.
+La **distribution par hachage**, qui est au cœur de cet article, améliore les performances des requêtes sur des tables de faits volumineuses. La **distribution par tourniquet (round robin)** est utile pour améliorer la vitesse de chargement. Ces choix de conception ont un impact significatif sur l’amélioration des performances des requêtes et de chargement.
 
 Une autre option de stockage de table est de répliquer une petite table sur tous les nœuds de calcul. Pour plus d’informations, consultez [Guide de conception pour les tables répliquées](design-guidance-for-replicated-tables.md). Pour choisir rapidement parmi les trois options, consultez Tables distribuées dans la [vue d’ensemble des tables](sql-data-warehouse-tables-overview.md).
 
@@ -107,7 +107,7 @@ Pour obtenir des performances optimales, toutes les distributions doivent avoir 
   
 Pour équilibrer le traitement parallèle, sélectionnez une colonne de distribution qui :
 
-- **Possède de nombreuses valeurs uniques.** La colonne peut avoir quelques valeurs en double. Toutefois, toutes les lignes ayant la même valeur sont affectées à la même distribution. Avec 60 distributions, la colonne doit avoir au moins 60 valeurs uniques.  Généralement, le nombre de valeurs uniques est beaucoup plus important.
+- **Possède de nombreuses valeurs uniques.** La colonne peut contenir des valeurs en double.  Toutes les lignes ayant la même valeur sont affectées à la même distribution. Étant donné qu’il y a 60 distributions, certaines peuvent avoir des valeurs uniques supérieures à 1, tandis que d’autres peuvent finir avec des valeurs égales à zéro.  
 - **N’a pas de valeurs NULL, ou a uniquement quelques valeurs NULL.** Pour prendre un exemple extrême, si toutes les valeurs dans la colonne sont NULL, toutes les lignes sont affectées à la même distribution. Par conséquent, le traitement des requêtes est limité à une distribution et ne bénéficie pas du traitement parallèle.
 - **N’est pas une colonne de date**. Toutes les données pour la même date arrivent dans la même distribution. Si plusieurs utilisateurs filtrent tous sur la même date, seule 1 des 60 distributions effectue tout le travail de traitement.
 

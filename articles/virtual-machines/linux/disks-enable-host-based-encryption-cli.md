@@ -2,22 +2,24 @@
 title: Activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte - Azure CLI - Disques managés
 description: Utilisez le chiffrement sur l’hôte pour activer le chiffrement de bout en bout sur vos disques managés Azure.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 10fe02b0deb505fcedc6fc3119150709b6613b04
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c5bdbcf37818cba66b9eaf7ba4f5f95deb785fe4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673020"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691913"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez Azure CLI pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
-Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte ainsi que sur d'autres types de chiffrement de disques managés, consultez [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
+Lorsque vous activez le chiffrement sur l'hôte, les données stockées sur l'hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte ainsi que sur d'autres types de chiffrement de disques managés, consultez [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -124,6 +126,20 @@ az vm show -n $vmName \
 --query [securityProfile.encryptionAtHost] -o tsv
 ```
 
+
+### <a name="update-a-vm-to-disable-encryption-at-host"></a>Mettre à jour une machine virtuelle pour désactiver le chiffrement sur l’hôte. 
+
+Vous devez libérer votre machine virtuelle pour pouvoir désactiver le chiffrement sur l’hôte.
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm update -n $vmName \
+-g $rgName \
+--set securityProfile.encryptionAtHost=false
+```
+
 ### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Créer un groupe de machines virtuelles identiques avec chiffrement sur l’hôte activé avec des clés gérées par le client. 
 
 Créez un groupe de machines virtuelles identiques avec disques managés à l’aide de l’URI de ressource du DiskEncryptionSet créé précédemment afin de chiffrer le cache des disques de système d’exploitation et des disques de données avec des clés gérées par le client. Les disques temporaires sont chiffrés avec des clés gérées par la plateforme. 
@@ -191,6 +207,19 @@ vmssName=yourVMName
 az vmss show -n $vmssName \
 -g $rgName \
 --query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-disable-encryption-at-host"></a>Mettre à jour un groupe de machines virtuelles identiques pour désactiver le chiffrement sur l’hôte. 
+
+Vous pouvez désactiver le chiffrement sur l’hôte pour votre groupe de machines virtuelles identiques, mais cela affecte uniquement les machines virtuelles créées une fois que vous avez désactivé le chiffrement sur l’hôte. Pour les machines virtuelles existantes, vous devez libérer la machine virtuelle, [désactiver le chiffrement sur l’hôte pour cette machine virtuelle individuelle](#update-a-vm-to-disable-encryption-at-host), puis réallouer la machine virtuelle.
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss update -n $vmssName \
+-g $rgName \
+--set virtualMachineProfile.securityProfile.encryptionAtHost=false
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>Recherche des tailles de machine virtuelle prises en charge

@@ -5,12 +5,12 @@ author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
-ms.openlocfilehash: dfb34489ccba60890c7cc7066691ec9a975542b8
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f3aeb0614907d1f10e3f080a2399029711192bb8
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527974"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662217"
 ---
 # <a name="move-log-analytics-workspace-to-another-region-using-the-azure-portal"></a>Déplacer un espace de travail Log Analytics vers une autre région à l’aide du portail Azure
 
@@ -18,7 +18,7 @@ Il existe différents scénarios dans lesquels vous pouvez être amené à dépl
 
 Un espace de travail Log Analytics ne peut pas être déplacé d’une région à une autre. Toutefois, vous pouvez utiliser un modèle de Azure Resource Manager pour exporter la ressource d’espace de travail et les ressources associées. Vous pouvez ensuite indexer les ressources dans une autre région en exportant l’espace de travail vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant le modèle dans la nouvelle région. Pour plus d’informations sur Resource Manager et les modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Un environnement d’espace de travail peut être complexe et inclure des sources connectées, des solutions gérées, des services liés, des alertes et des packs de requêtes. Toutes les ressources ne peuvent pas être exportées dans un modèle Resource Manager, et certaines nécessitent une configuration distincte lorsque vous déplacez un espace de travail.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Pour exporter la configuration de l’espace de travail vers un modèle qui peut être déployé dans une autre région, vous devez avoir le rôle [Contributeur Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) ou [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor), ou avoir un rôle ayant des privilèges plus élevés.
 
@@ -276,9 +276,9 @@ union
 
 Si vous souhaitez abandonner l’espace de travail source, supprimez les ressources exportées ou le groupe de ressources qui les contient. Pour ce faire, sélectionnez le groupe de ressources cible dans Portail Azure : si vous avez créé un nouveau groupe de ressources pour ce déploiement, cliquez sur **Supprimer le groupe de ressources** dans la barre d’outils de la page Vue d’ensemble. Si le modèle a été déployé sur un groupe de ressources existant, sélectionnez les ressources qui ont été déployées avec le modèle, puis cliquez sur **Supprimer** dans la barre d’outils.
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up"></a>Nettoyage
 
-L’espace de travail d’origine et les données qui y ont été ingérées avant la migration restent dans la région d’origine et les données sont soumises à la stratégie de rétention dans l’espace de travail. Il est recommandé de conserver l’espace de travail d’origine pendant toute la durée de vie de vos données antérieures, afin de vous permettre d’effectuer des [requêtes](./cross-workspace-query.md#performing-a-query-across-multiple-resources) sur les espaces de travail cible et d’origine. Si vous n’avez plus besoin d’accéder à des données antérieures dans l’espace de travail d’origine ou à d’autres ressources dans la région d’origine, sélectionnez le groupe de ressources d’origine dans Portail Azure, sélectionnez les ressources que vous souhaitez supprimer et cliquez sur **Supprimer** dans la barre d’outils.
+Alors que les nouvelles données sont ingérées dans votre nouvel espace de travail, les anciennes données de l’espace de travail d’origine restent disponibles pour les requêtes et sont soumises à la stratégie de rétention définie dans l’espace de travail. Il est recommandé de conserver l’espace de travail d’origine pendant toute la durée de vie de vos données antérieures, afin de vous permettre d’effectuer des [requêtes](./cross-workspace-query.md#performing-a-query-across-multiple-resources) sur les espaces de travail. Si vous n’avez plus besoin d’accéder à des données antérieures dans l’espace de travail d’origine, sélectionnez le groupe de ressources d’origine dans le Portail Azure, sélectionnez les ressources que vous souhaitez supprimer et cliquez sur **Supprimer** dans la barre d’outils.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

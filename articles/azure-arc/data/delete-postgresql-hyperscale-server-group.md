@@ -1,22 +1,22 @@
 ---
-title: Créer un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
-description: Créer un groupe de serveurs Postgres Hyperscale activé par Azure Arc
+title: Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
+description: Supprimez un groupe de serveurs Postgres Hyperscale avec Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 00387e190df3bcc6f654868d078a068e9196a635
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670356"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563246"
 ---
-# <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
+# <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
 
 Ce document décrit les étapes permettant de supprimer un groupe de serveurs de votre installation Azure Arc.
 
@@ -26,31 +26,31 @@ Ce document décrit les étapes permettant de supprimer un groupe de serveurs de
 
 À titre d’exemple, considérons que nous voulons supprimer l’instance _postgres01_ de l’installation ci-dessous :
 
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    3
 ```
 
 Le format général de la commande delete est le suivant :
-```console
-azdata arc postgres server delete -n <server group name>
+```azurecli
+az postgres arc-server delete -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 Lorsque vous exécutez cette commande, il vous est demandé de confirmer la suppression du groupe de serveurs. Si vous utilisez des scripts pour automatiser les suppressions, vous devez utiliser le paramètre --force pour ignorer la demande de confirmation. Par exemple, vous exécutez une commande telle que : 
-```console
-azdata arc postgres server delete -n <server group name> --force
+```azurecli
+az postgres arc-server delete -n <server group name> --force --k8s-namespace <namespace> --use-k8s
 ```
 
 Pour plus d’informations sur la commande delete, exécutez la commande suivante :
-```console
-azdata arc postgres server delete --help
+```azurecli
+az postgres arc-server delete --help 
 ```
 
 ### <a name="delete-the-server-group-used-in-this-example"></a>Supprimer le groupe de serveurs utilisé dans cet exemple
 
-```console
-azdata arc postgres server delete -n postgres01
+```azurecli
+az postgres arc-server delete -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Récupérer les revendications de volume persistant (PVC) Kubernetes
@@ -112,7 +112,7 @@ persistentvolumeclaim "data-postgres01-0" deleted
   
 
 >[!NOTE]
-> Comme indiqué, le fait de ne pas supprimer les PVC peut finalement conduire votre cluster Kubernetes à une situation où il lèvera des erreurs. Certaines de ces erreurs peuvent inclure l’incapacité de se connecter à votre cluster Kubernetes avec azdata, car les pods peuvent en être exclus en raison de ce problème de stockage (comportement Kubernetes normal).
+> Comme indiqué, le fait de ne pas supprimer les PVC peut finalement conduire votre cluster Kubernetes à une situation où il lèvera des erreurs. Certaines de ces erreurs peuvent inclure la possibilité de créer, lire, mettre à jour ou supprimer des ressources de l’API Kubernetes, ou de pouvoir exécuter des commandes comme `az arcdata dc export`, car les pods de contrôleur peuvent être éliminés des nœuds Kubernetes en raison de ce problème de stockage (comportement Kubernetes normal).
 >
 > Par exemple, vous pouvez voir des messages dans les journaux, similaires à ce qui suit :  
 > ```output
@@ -123,4 +123,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## <a name="next-step"></a>Étape suivante
-Créer [PostgreSQL Hyperscale avec Azure Arc](create-postgresql-hyperscale-server-group.md)
+Créer une instance [PostgreSQL Hyperscale avec Azure Arc](create-postgresql-hyperscale-server-group.md)

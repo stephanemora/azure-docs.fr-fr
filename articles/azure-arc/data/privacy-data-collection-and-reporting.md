@@ -7,20 +7,19 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 07/30/2021
 ms.custom: template-concept
-ms.openlocfilehash: 46c2addc8c844e2fe909bccddfa4927feef5a34a
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 189021997362da8508d2e60c23cc3acb1238ca55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495773"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531628"
 ---
 # <a name="azure-arc-data-services-data-collection-and-reporting"></a>Collecte de données et création de rapports des services de données avec Azure Arc
 
 Cet article décrit les données que les services de données avec Azure Arc transmettent à Microsoft. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="related-products"></a>Produits connexes
 
@@ -29,6 +28,9 @@ Les services de données avec Azure Arc peuvent utiliser la totalité ou une par
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
 - Azure Data Studio
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - Azure CLI (az)
 - Azure Data CLI (`azdata`) 
 
@@ -86,12 +88,12 @@ Il existe trois types de ressources :
 
 - SQL Managed Instance avec Azure Arc 
 - Groupe de serveurs PostgreSQL Hyperscale avec Azure Arc 
-- SQL Server avec Azure Arc 
+- SQL Server sur des serveurs avec Azure Arc 
 - Contrôleur de données 
 
 Les sections suivantes présentent les propriétés, les types et les descriptions qui sont collectés et stockés pour chaque type de ressource : 
 
-### <a name="arc-enabled-sql-server"></a>SQL Server avec Azure Arc 
+### <a name="sql-server-on-azure-arc-enabled-servers"></a>SQL Server sur des serveurs avec Azure Arc 
 - Édition de SQL Server. 
    - `string: Edition` 
 - ID de ressource de la ressource de conteneur (Azure Arc pour les serveurs). 
@@ -256,10 +258,6 @@ Dans les situations de support, il peut vous être demandé de fournir des journ
 |Les vues    |Les vues peuvent contenir des données client, mais sont restreintes et partagées uniquement par l’utilisateur     |
 |Vidages sur incident – données client | Rétention maximale de 30 jours pour les vidages sur incident ; peut contenir des données de contrôle d’accès <br/><br/> Les objets de statistiques, les valeurs de données dans les lignes et les textes des requêtes peuvent se trouver dans les vidages sur incident des clients    |
 |Vidages sur incident – données personnelles | Ordinateur, noms de connexion/d’utilisateur, e-mails, informations de localisation, identification du client : nécessitent le consentement de l’utilisateur pour être inclus  |
-
-### <a name="customer-experience-improvement-program-ceip-telemetry"></a>Programme d’amélioration de l’expérience utilisateur (CEIP) [Télémétrie] 
-
-La télémétrie est utilisée pour suivre les métriques d’utilisation et les informations sur l’environnement relatives au produit. Voir [Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Charger des données d’utilisation sur Azure Monitor](upload-usage-data.md)

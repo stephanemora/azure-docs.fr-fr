@@ -6,13 +6,13 @@ ms.author: v-ssudhir
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/21/2021
-ms.openlocfilehash: 9e987b4db88379e0dfe40b8839b073b893811fb4
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 08/19/2021
+ms.openlocfilehash: f6f63c24f98cd362619823ca4ebe1d66d35e6ced
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547605"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598026"
 ---
 # <a name="troubleshoot-network-connectivity"></a>Résoudre les problèmes de connectivité réseau
 Cet article vous aide à résoudre les problèmes de connectivité réseau à l’aide d’Azure Migrate avec des points de terminaison privés.
@@ -49,7 +49,7 @@ Les informations sur les détails du point de terminaison privé et sur les FQDN
 
 Exemple illustrant la résolution DNS du FQDN de la liaison privée du compte de stockage.  
 
-- Entrez _nslookup<nom-compte-stockage>_ .blob.core.windows.net.  Remplacez <nom-compte-stockage> par le nom du compte de stockage utilisé pour Azure Migrate.  
+- Entrez _nslookup ```<storage-account-name>_.blob.core.windows.net.``` ; remplacez ```<storage-account-name>``` par le nom du compte de stockage utilisé pour Azure Migrate.  
 
     Vous recevrez un message similaire à celui ci :  
 
@@ -61,6 +61,7 @@ Vous pouvez vérifier la résolution DNS pour d’autres artefacts Azure Migrate
 
 Si la résolution DNS est incorrecte, procédez comme suit :  
 
+**Recommandé** pour les tests : Vous pouvez mettre à jour manuellement les enregistrements DNS de votre environnement source en modifiant le fichier des hôtes DNS sur votre appliance locale avec les FQDN des ressources de liaison privée et leurs adresses IP privées associées.
 - Si vous utilisez un DNS personnalisé, vérifiez vos paramètres DNS personnalisés et confirmez que la configuration DNS est correcte. Pour obtenir de l’aide, consultez [Vue d’ensemble du point de terminaison privé : configuration DNS](../private-link/private-endpoint-overview.md#dns-configuration).
 - Si vous utilisez des serveurs DNS fournis par Azure, reportez-vous à la section ci-dessous pour une résolutions des problèmes plus approfondie.  
 
@@ -121,3 +122,176 @@ Il s’agit d’une liste non exhaustive d’éléments qui peuvent être prése
 - Des solutions de passerelle personnalisée (NAT) peuvent avoir un impact sur la façon dont le trafic est acheminé, notamment le trafic des requêtes DNS.
 
 Pour plus d’informations, consultez le [guide Résoudre les problèmes de connectivité Private Endpoint.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
+
+## <a name="common-issues-while-using-azure-migrate-with-private-endpoints"></a>Problèmes courants lors de l’utilisation d’Azure Migrate avec des points de terminaison privés
+Dans cette section, nous allons lister quelques-uns des problèmes les plus fréquents et suggérer des étapes de dépannage à effectuer vous-même pour résoudre le problème.
+
+### <a name="appliance-registration-fails-with-the-error-forbiddentoaccesskeyvault"></a>L’inscription de l’appliance échoue avec l’erreur ForbiddenToAccessKeyVault
+L’opération de création ou de mise à jour du coffre de clés Azure pour <_Nom_coffre_clés_> a échoué en raison de l’erreur <_Message_erreur_>
+#### <a name="possible-causes"></a>Causes possibles :
+Ce problème peut se produire si le compte Azure utilisé pour inscrire l’appliance ne dispose pas des autorisations nécessaires ou si l’appliance Azure Migrate ne peut pas accéder au coffre de clés.
+#### <a name="remediation"></a>Correction :
+**Étapes de dépannage des problèmes d’accès au coffre de clés :**
+1. Vérifiez que le compte d’utilisateur Azure utilisé pour inscrire l’appliance dispose au moins d’autorisations Contributeur pour l’abonnement.
+2. Vérifiez que l’utilisateur qui tente d’inscrire l’appliance a accès au coffre de clés et qu’une stratégie d’accès lui est affectée dans la section Coffre de clés>Stratégie d’accès. [En savoir plus](../key-vault/general/assign-access-policy-portal.md)
+- [Apprenez-en davantage](./migrate-appliance.md#appliance---vmware) sur les rôles et autorisations Azure requis.
+
+**Étapes pour résoudre les problèmes de connectivité au coffre de clés :** Si vous avez activé l’appliance pour la connectivité de point de terminaison privé, effectuez les étapes suivantes pour résoudre les problèmes de connectivité réseau :
+- Vérifiez que l’appliance est hébergée dans le même réseau virtuel ou qu’elle est connectée au réseau virtuel Azure cible (où le point de terminaison privé du coffre de clés a été créé) via une liaison privée. Le point de terminaison privé du coffre de clés est créé dans le réseau virtuel sélectionné lors de l’expérience de création du projet. Vous pouvez vérifier les détails du réseau virtuel dans la page **Azure Migrate > Propriétés**.
+![Propriétés d’Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)  
+
+- Vérifiez que l’appliance dispose d’une connectivité réseau avec le coffre de clés via une liaison privée. Pour vérifier la connectivité de la liaison privée, effectuez une résolution DNS du point de terminaison de la ressource de coffre de clés depuis le serveur local hébergeant l’appliance, et vérifiez qu’il est résolu en une adresse IP privée.
+- Accédez à **Azure Migrate : Découverte et évaluation > Propriétés** pour trouver les détails des points de terminaison privés pour des ressources comme le coffre de clés créé lors de l’étape de génération des clés.  
+
+    ![Propriétés de l’évaluation de serveur d’Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
+- Sélectionnez **Télécharger les paramètres DNS** pour télécharger les mappages DNS.
+
+    ![Télécharger les paramètres DNS](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)  
+
+- Ouvrez la ligne de commande et exécutez la commande nslookup suivante pour vérifier la connectivité réseau avec l’URL du coffre de clés mentionnée dans le fichier des paramètres DNS.   
+
+    ```console
+    nslookup <your-key-vault-name>.vault.azure.net
+    ```
+
+    Si vous exécutez la commande ns lookup pour résoudre l’adresse IP d’un coffre de clés via un point de terminaison public, vous obtenez un résultat semblable à ceci :
+
+    ```console
+    c:\ >nslookup <your-key-vault-name>.vault.azure.net
+
+    Non-authoritative answer:
+    Name:    
+    Address:  (public IP address)
+    Aliases:  <your-key-vault-name>.vault.azure.net
+    ```
+
+    Si vous exécutez la commande ns lookup pour résoudre l’adresse IP d’un coffre de clés via un point de terminaison privé, vous obtenez un résultat semblable à ceci :
+
+    ```console
+    c:\ >nslookup your_vault_name.vault.azure.net
+
+    Non-authoritative answer:
+    Name:    
+    Address:  10.12.4.20 (private IP address)
+    Aliases:  <your-key-vault-name>.vault.azure.net
+              <your-key-vault-name>.privatelink.vaultcore.azure.net
+    ```
+
+    La commande nslookup doit être résolue en une adresse IP privée comme mentionné ci-dessus. L’adresse IP privée doit correspondre à celle figurant dans le fichier des paramètres DNS.
+
+Si la résolution DNS est incorrecte, procédez comme suit :
+1. Mettez à jour manuellement les enregistrements DNS de l’environnement source en modifiant le fichier des hôtes DNS sur l’appliance locale avec les mappages DNS et les adresses IP privées associées. Cette option est recommandée pour les tests.
+
+   ![Fichier des hôtes DNS](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
+
+2. Si vous utilisez un serveur DNS personnalisé, vérifiez vos paramètres DNS personnalisés et vérifiez que la configuration DNS est correcte. Pour obtenir de l’aide, consultez [Vue d’ensemble du point de terminaison privé : configuration DNS](../private-link/private-endpoint-overview.md#dns-configuration).
+3. Si le problème persiste, [reportez-vous à cette section](#validate-the-private-dns-zone).
+
+Une fois que vous avez vérifié la connectivité, réessayez le processus d’inscription.
+
+### <a name="start-discovery-fails-with-the-error-agentnotconnected"></a>Démarrer la découverte échoue avec l’erreur AgentNotConnected
+L’appliance n’a pas pu lancer la détection, car l’agent local ne peut pas communiquer avec le point de terminaison de service Azure Migrate : <_Nom_URL_> dans Azure.
+
+![Erreur d’agent non connecté](./media/how-to-use-azure-migrate-with-private-endpoints/agent-not-connected-error.png)  
+
+#### <a name="possible-causes"></a>Causes possibles :
+Ce problème peut se produire si l’appliance ne parvient pas à atteindre le ou les points de terminaison de service mentionnés dans le message d’erreur.
+#### <a name="remediation"></a>Correction :
+Vérifiez que l’appliance a une connectivité directe ou via le proxy, et qu’elle peut résoudre le point de terminaison de service fourni dans le message d’erreur.  
+
+Si vous avez activé l’appliance pour la connectivité de point de terminaison privé, vérifiez que l’appliance est connectée au réseau virtuel Azure via une liaison privée, et qu’elle peut résoudre le ou les points de terminaison de service fournis dans le message d’erreur.
+
+**Étapes de résolution des problèmes de connectivité de liaison privée aux points de terminaison de service Azure Migrate :**
+
+Si vous avez activé l’appliance pour la connectivité de point de terminaison privé, effectuez les étapes suivantes pour résoudre les problèmes de connectivité réseau :
+
+- Vérifiez que l’appliance est hébergée dans le même réseau virtuel ou qu’elle est connectée au réseau virtuel Azure cible (où les points de terminaison privés ont été créés) via une liaison privée. Les points de terminaison privés pour les services Azure Migrate sont créés dans le réseau virtuel sélectionné lors de l’expérience de création du projet. Vous pouvez vérifier les détails du réseau virtuel dans la page **Azure Migrate > Propriétés**.
+
+![Propriétés d’Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)   
+
+- Vérifiez que l’appliance a une connectivité réseau vers les URL de point de terminaison de service et les autres URL mentionnées dans le message d’erreur via une connexion de liaison privée. Pour vérifier la connectivité de la liaison privée, effectuez une résolution DNS des URL depuis le serveur local hébergeant l’appliance et vérifiez qu’elles sont résolues en adresses IP privées.
+- Accédez à **Azure Migrate : Découverte et évaluation > Propriétés** pour trouver les détails des points de terminaison privés pour les points de terminaison de service créés lors de l’étape de génération des clés.  
+    ![Propriétés de l’évaluation de serveur d’Azure Migrate](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
+- Sélectionnez **Télécharger les paramètres DNS** pour télécharger les mappages DNS.
+
+    ![Télécharger les paramètres DNS](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)   
+
+|**Mappages DNS contenant des URL de point de terminaison privés**  | **Détails** |
+|--- | ---|
+|*.disc.privatelink.test.migration.windowsazure.com | Point de terminaison du service de découverte d’Azure Migrate
+|*.asm.privatelink.test.migration.windowsazure.com  | Point de terminaison du service d’évaluation d’Azure Migrate  
+|*.hub.privatelink.test.migration.windowsazure.com  | Point de terminaison du hub Azure Migrate destiné à recevoir des données provenant d’autres offres de Microsoft ou d’[éditeurs de logiciels indépendants (ISV)](./migrate-services-overview.md#isv-integration) externes
+|*.vault.azure.net | Point de terminaison Key Vault
+|*.blob.core.windows.net | Point de terminaison de compte de stockage pour les données de dépendances et de performances  
+
+En plus des URL ci-dessus, l’appliance doit accéder aux URL suivantes via Internet, directement ou via un proxy.
+
+| **Autres URL de cloud public <br> (URL de point de terminaison public)** | **Détails** |
+|--- | ---|
+|*. portal.azure.com | Accédez au Portail Azure
+|\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Utilisée par Azure Active Directory pour le contrôle d’accès et la gestion des identités
+|management.azure.com | Pour déclencher des déploiements Azure Resource Manager
+|*.services.visualstudio.com (facultatif) | Chargez les journaux de l’appliance utilisés pour la surveillance interne.
+|aka.ms/* (facultatif) | Autoriser l’accès aux liaisons aka ; utilisé pour télécharger et installer les dernières mises à jour pour les services de d’appliance
+|download.microsoft.com/download | Autoriser les téléchargements à partir du Centre de téléchargement Microsoft    
+
+- Ouvrez la ligne de commande et exécutez la commande nslookup suivante pour vérifier la connectivité de liaison privée avec les URL listées dans le fichier des paramètres DNS. Répétez cette étape pour toutes les URL du fichier des paramètres DNS.
+
+    _**Illustration** : Vérification de la connectivité de liaison privée au point de terminaison du service de découverte_
+
+    ```console
+    nslookup 04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+    ```
+    Si la demande peut atteindre le point de terminaison du service de découverte via un point de terminaison privé, vous obtenez un résultat qui se présente comme ceci :
+
+    ```console
+    nslookup 04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+
+    Non-authoritative answer:
+    Name:    
+    Address:  10.12.4.23 (private IP address)
+    Aliases:  04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+              prod.cus.discoverysrv.windowsazure.com
+    ```
+
+    La commande nslookup doit être résolue en une adresse IP privée comme mentionné ci-dessus. L’adresse IP privée doit correspondre à celle figurant dans le fichier des paramètres DNS.
+
+Si la résolution DNS est incorrecte, procédez comme suit :
+1. Mettez à jour manuellement les enregistrements DNS de l’environnement source en modifiant le fichier des hôtes DNS sur l’appliance locale avec les mappages DNS et les adresses IP privées associées. Cette option est recommandée pour les tests.
+
+   ![Fichier des hôtes DNS](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
+
+2. Si vous utilisez un serveur DNS personnalisé, vérifiez vos paramètres DNS personnalisés et vérifiez que la configuration DNS est correcte. Pour obtenir de l’aide, consultez [Vue d’ensemble du point de terminaison privé : configuration DNS](../private-link/private-endpoint-overview.md#dns-configuration).
+3. Si le problème persiste, [reportez-vous à cette section](#validate-the-private-dns-zone).
+
+Une fois que vous avez vérifié la connectivité, réessayez le processus de découverte.
+
+### <a name="importexport-request-fails-with-the-error-403-this-request-is-not-authorized-to-perform-this-operation"></a>La demande d’importation/exportation échoue avec l’erreur « 403 : Cette demande n’est pas autorisée à effectuer cette opération » 
+
+La demande d’exportation/importation/téléchargement du rapport échoue avec l’erreur *« 403 : Cette demande n’est pas autorisée à effectuer cette opération »* pour les projets avec une connectivité de point de terminaison privé.
+
+#### <a name="possible-causes"></a>Causes possibles : 
+Cette erreur peut se produire si la demande d’importation/exportation n’a pas été lancée depuis un réseau autorisé. Ceci peut se produire si la demande d’importation/exportation/téléchargement a été lancée depuis un client qui n’est pas connecté au service Azure Migrate (réseau virtuel Azure) via un réseau privé. 
+
+#### <a name="remediation"></a>Correction
+**Option 1** *(recommandée)*  :
+  
+Pour résoudre cette erreur, réessayez l’opération d’importation/exportation/téléchargement depuis un client résidant sur un réseau virtuel connecté à Azure via une liaison privée. Vous pouvez ouvrir le portail Azure sur votre réseau local ou sur la machine virtuelle de votre appliance, puis réessayer l’opération. 
+
+**Option 2** :
+
+La demande d’importation/exportation/téléchargement établit une connexion à un compte de stockage pour le chargement/téléchargement des rapports. Vous pouvez également modifier les paramètres réseau du compte de stockage utilisé pour l’opération d’importation/exportation/téléchargement et autoriser l’accès au compte de stockage via d’autres réseaux (réseaux publics).  
+
+Pour configurer le compte de stockage pour la connectivité du point de terminaison public,
+
+1. **Recherchez le compte de stockage** : Le nom du compte de stockage est disponible sur la page des propriétés d’Azure Migrate : Découverte et évaluation. Le nom du compte de stockage aura le suffixe *usa*. 
+
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Capture instantanée des paramètres DNS de téléchargement."::: 
+
+2. Accédez au compte de stockage et modifiez les propriétés réseau du compte de stockage pour autoriser l’accès à partir de tous les/autres réseaux. 
+
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Capture instantanée des propriétés réseau du compte de stockage.":::
+
+3. Vous pouvez aussi limiter l’accès à des réseaux sélectionnés et ajouter l’adresse IP publique du client à partir de laquelle vous essayez d’accéder au portail Azure.  
+
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Capture instantanée de l’ajout de l’adresse IP publique du client.":::

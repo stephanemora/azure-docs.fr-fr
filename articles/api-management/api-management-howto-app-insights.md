@@ -7,14 +7,14 @@ author: mikebudzynski
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 08/04/2021
 ms.author: apimpm
-ms.openlocfilehash: 97f4eb34b88b3454d65b65d236833e1256c98671
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3c3647831e871e886f44c74d91f1f2827ac26f4
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564249"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662208"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
@@ -31,15 +31,18 @@ Pour pouvoir utiliser Application Insights, il faut commencer par créer une ins
 
 1. Accédez à votre **instance de service Gestion des API Azure** sur le **Portail Azure**.
 1. Sélectionnez **Application Insights** dans le menu de gauche.
-1. Cliquez sur **+ Ajouter**.  
+1. Sélectionnez **Ajouter**.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Capture d’écran montrant où ajouter une nouvelle connexion":::
 1. Sélectionnez l’instance **Application Insights** créée et indiquez une courte description.
-1. Cliquez sur **Créer**.
+1. Pour activer la [supervision de la disponibilité](../azure-monitor/app/monitor-web-app-availability.md) de votre instance de gestion des API dans Application Insights, cochez la case **Ajouter un moniteur de disponibilité**.
+
+    Ce paramètre valide régulièrement si le point de terminaison du service de gestion des API répond. Les résultats s’affichent dans le volet **Disponibilité** de l’instance Application Insights.
+1. Sélectionnez **Create** (Créer).
 1. Vous venez de créer un enregistreur d’événements Application Insights avec une clé d’instrumentation. Il devrait maintenant apparaître dans la liste.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Capture d’écran montrant où afficher l’enregistreur d’événements Application Insights nouvellement créé avec la clé d’instrumentation":::
 
 > [!NOTE]
-> En arrière-plan, une entité [Enregistreur d’événements](/rest/api/apimanagement/2019-12-01/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
+> En arrière-plan, une entité [Enregistreur d’événements](/rest/api/apimanagement/2020-12-01/logger/create-or-update) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Activer la journalisation Application Insights pour l’API
 
@@ -58,7 +61,7 @@ Pour pouvoir utiliser Application Insights, il faut commencer par créer une ins
 > Le remplacement de la valeur par défaut **0** dans le paramètre **Nombre d’octets de charge utile à consigner** peut réduire considérablement les performances de vos API.
 
 > [!NOTE]
-> En arrière-plan, une entité [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
+> En arrière-plan, une entité [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) nommée 'applicationinsights' est créée au niveau de l’API.
 
 | Nom du paramètre                        | Type de valeur                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -87,13 +90,18 @@ Pour pouvoir utiliser Application Insights, il faut commencer par créer une ins
 
 Application Insights reçoit :
 
-+ un élément de télémétrie *Demande* pour chaque demande entrante (*demande frontale*, *réponse frontale*) ;
-+ un élément de télémétrie *Dépendance* pour chaque demande transmise à un service principal (*demande principale*, *réponse principale*) ;
++ Un élément de télémétrie *Demande* pour chaque demande entrante :
+    + *demande front-end*, *réponse front-end*
++ Un élément de télémétrie *Dépendance* pour chaque demande transférée à un service back-end :
+    + *demande back-end*, *réponse back-end*
 + Un élément de télémétrie *Exception* pour chaque demande ayant échoué :
     + a échoué en raison d’une interruption de la connexion cliente
     + a déclenché une section *on-error* des stratégies d’API
-    + a un code de statut HTTP de réponse de type 4xx ou 5xx.
-+ *Tracez* l’élément de télémétrie, si vous configurez une stratégie [trace](api-management-advanced-policies.md#Trace). Le paramètre `severity` de la stratégie `trace` doit être supérieur ou égal au paramètre `verbosity` de journalisation d’Application Insights.
+    + a un code d’état HTTP de réponse de type 4xx ou 5xx
++ *Tracez* l’élément de télémétrie, si vous configurez une stratégie [trace](api-management-advanced-policies.md#Trace). 
+    + Le paramètre `severity` de la stratégie `trace` doit être supérieur ou égal au paramètre `verbosity` de journalisation d’Application Insights.
+
+Vous pouvez également émettre des métriques personnalisées en configurant la stratégie [`emit-metric`](api-management-advanced-policies.md#emit-metrics).
 
 > [!NOTE]
 > Consultez [Limites d’Application Insights](../azure-monitor/service-limits.md#application-insights) pour plus d’informations sur la taille maximale et le nombre d’événements et de métriques par instance d’Application Insights.

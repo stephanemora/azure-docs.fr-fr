@@ -11,16 +11,17 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 965e7c92e17d5ba689fccc0ee6eb321fe2a36695
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d695f01daa4b30a6e88607929f67a0453b06edf0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138077"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691455"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles de la série HBv2 
 
- 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 L’optimisation des performances des applications de calcul haute performance (HPC)sur AMD EPYC nécessite une approche bien pensée de l’emplacement de la mémoire et du placement du processus. Nous décrivons ci-dessous l’architecture AMD EPYC et son implémentation sur Azure pour les applications HPC. Nous utiliserons le terme **pNUMA** pour faire référence à un domaine NUMA physique et **vNUMA** pour faire référence à un domaine NUMA virtualisé. 
 
 Physiquement, un serveur de la [série HBv2](../../hbv2-series.md) a 2 processeurs EPYC 7742 de 64 cœurs, soit un total de 128 cœurs physiques. Ces 128 cœurs sont divisées en 32 domaines pNUMA (16 par socket), chacun d’eux comprenant 4 cœurs et étant appelé **complexe de cœurs** (ou **CCX**) par AMD. Chaque CCX a son propre cache L3, qui représente la limite pNUMA/vNUMA du système d’exploitation. Quatre CCX adjacents partagent l’accès à deux canaux de DRAM physique. 
@@ -59,7 +60,7 @@ L’épinglage de processus fonctionne sur les machines virtuelles de série HB
 | Prise en charge d’Orchestrator        | CycleCloud, Batch, AKS ; [options de configuration de cluster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
-> Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques). Consultez [ce document](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pour plus d’informations.
+> Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques). Voir [Systèmes d’exploitation invités Windows pris en charge pour Hyper-V dans Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pour obtenir davantage d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: d65367b561ed94c4872ce86edede2043f99cced4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 304d96e9f7566ab80ac71d176fc52ccf3c852b49
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292681"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524326"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Ajouter des connexions S2S à un réseau virtuel : Portail Azure
 
@@ -31,7 +31,7 @@ Cet article s’applique aux réseaux virtuels de Resource Manager qui contienne
 Vérifiez les points suivants :
 
 * Vous n’effectuez pas une nouvelle configuration de connexions coexistantes ExpressRoute/passerelle VPN.
-* Vous disposez d’un réseau virtuel qui a été créé selon le modèle de déploiement Resource Manager avec une connexion existante.
+* Vous disposez d’un réseau virtuel qui a été créé selon le [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md) avec une connexion existante.
 * La passerelle de réseau virtuel de votre réseau virtuel est de type RouteBased. Si vous avez une passerelle VPN de type PolicyBased, vous devez supprimer la passerelle de réseau virtuel et créer une passerelle VPN de type RouteBased.
 * Les plages d’adresses ne se chevauchent pour aucun des réseaux virtuels auxquels ce réseau virtuel se connecte.
 * Vous disposez d’un périphérique VPN compatible et d’une personne capable de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous ne maîtrisez pas la configuration de votre appareil VPN ou les plages d’adresses IP mentionnées dans la configuration de votre réseau local, vous devez contacter une personne qui peut vous fournir ces informations.
