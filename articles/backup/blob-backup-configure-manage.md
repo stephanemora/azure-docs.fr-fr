@@ -2,13 +2,13 @@
 title: Configurer une sauvegarde opérationnelle pour des objets blob Azure
 description: Découvrez comment configurer et gérer une sauvegarde opérationnelle pour des objets blob Azure.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: cb2bc525018b33eb3441a8ed949d3e808c5051d8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/06/2021
+ms.openlocfilehash: b437aa0df073267b07b3e74bc3a778e7aa274031
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562128"
 ---
 # <a name="configure-operational-backup-for-azure-blobs"></a>Configurer une sauvegarde opérationnelle pour des objets blob Azure
 
@@ -27,6 +27,7 @@ Le service Sauvegarde Azure vous permet de configurer facilement une sauvegarde 
 - Cette solution vous permet de conserver vos données à des fins de restauration pendant jusqu’à 360 jours. Toutefois, des durées de conservation longues peuvent allonger l’opération de restauration.
 - Vous pouvez utiliser la solution pour effectuer des restaurations uniquement sur le compte de stockage source et cela peut entraîner un remplacement de données.
 - Si vous supprimez un conteneur du compte de stockage en appelant l’opération Supprimer le conteneur, ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard. En outre, Microsoft recommande d’activer la suppression réversible pour les conteneurs, en plus de la sauvegarde opérationnelle, pour éviter une suppression accidentelle de conteneurs.
+- Vérifiez que le fournisseur **Microsoft.DataProtection** est inscrit auprès de votre abonnement.
 - Pour en savoir plus sur les scénarios, les limitations et la disponibilité pris en charge, consultez la [matrice de prise en charge](blob-backup-support-matrix.md).
 
 ## <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde

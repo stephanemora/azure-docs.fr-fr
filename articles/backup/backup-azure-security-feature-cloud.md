@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les fonctionnalités de sécurité dans
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 29a441db597de5d71ec71dde3f13e0630fabc05e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2ba21b9e7fd864b70ad2916de2053530677438c5
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681282"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113304207"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
@@ -28,7 +28,9 @@ Cet organigramme montre les différentes étapes et états d’un élément de s
 
 ## <a name="enabling-and-disabling-soft-delete"></a>Activation et désactivation de la suppression réversible
 
-La suppression réversible est activée par défaut sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes.  La désactivation de cette fonctionnalité est déconseillée. La seule circonstance où vous devez envisager la désactivation de la suppression réversible est lorsque vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple). Seul le propriétaire du coffre peut désactiver cette fonctionnalité. Si vous désactivez cette fonctionnalité, toutes les suppressions d’éléments protégés à venir entraîneront une suppression immédiate, sans possibilité de restauration. Les données de sauvegarde existant à l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état pendant 14 jours. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement.
+La suppression réversible est activée par défaut sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes.  La désactivation de cette fonctionnalité est déconseillée. La seule circonstance où vous devez envisager la désactivation de la suppression réversible est quand vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple).
+
+Pour désactiver la suppression réversible dans un coffre, vous devez disposer du rôle Collaborateur de sauvegarde pour ce coffre (vous devez disposer des autorisations nécessaires pour exécuter Microsoft.RecoveryServices/Vaults/backupconfig/write sur le coffre). Si vous désactivez cette fonctionnalité, toutes les suppressions d’éléments protégés à venir entraîneront une suppression immédiate, sans possibilité de restauration. Les données de sauvegarde existant à l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état pendant 14 jours. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement.
 
 Il est important de se rappeler qu’une fois la fonctionnalité de suppression réversible désactivée, elle le reste pour tous les types de charge de travail. Par exemple, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
 

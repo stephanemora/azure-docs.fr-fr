@@ -2,26 +2,26 @@
 title: Connecter des instances BareMetal Infrastructure dans Azure
 description: Découvrez comment identifier et interagir avec des instances BareMetal dans le portail Azure ou Azure CLI.
 ms.topic: how-to
-ms.date: 04/06/2021
-ms.openlocfilehash: 5ae1a075254a8bcfd1f5978a5d41190bd34bf84d
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 07/13/2021
+ms.openlocfilehash: b9f5de92ed213d987c7dfac5b3e48f9b565bfff5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576414"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767148"
 ---
 # <a name="connect-baremetal-infrastructure-instances-in-azure"></a>Connecter des instances BareMetal Infrastructure dans Azure
 
-Cet article montre la façon dont le [portail Azure](https://portal.azure.com/) affiche les [instances BareMetal](concepts-baremetal-infrastructure-overview.md). Cet article vous montre également ce que vous pouvez faire dans le portail Azure avec vos instances BareMetal Infrastructure déployées. 
+Cet article vous montre ce que vous pouvez faire dans le [portail Azure](https://portal.azure.com/) avec vos instances BareMetal Infrastructure déployées. 
  
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
-Un fournisseur de ressources Azure pour les instances BareMetal fournit la visibilité des instances dans le portail Azure. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instances BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos instances BareMetal déployées, vous devez inscrire le fournisseur de ressources auprès de votre abonnement. 
+Un fournisseur de ressources Azure pour les instances BareMetal vous permet de voir les instances dans le portail Azure. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instances BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos instances BareMetal déployées, inscrivez le fournisseur de ressources auprès de votre abonnement. 
 
-Vous pouvez inscrire le fournisseur de ressources d’instance BareMetal à l’aide du portail Azure ou d’Azure CLI.
+Vous pouvez inscrire le fournisseur de ressources d’instance BareMetal à l’aide du portail Azure ou de l’interface de ligne de commande Azure CLI.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
  
-Vous devrez répertorier vos abonnements dans le portail Azure, puis double-cliquer sur l’abonnement utilisé pour déployer vos instances BareMetal.
+Vous devrez lister vos abonnements dans le portail Azure, puis double-cliquer sur l’abonnement utilisé pour déployer vos instances BareMetal.
  
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -31,7 +31,7 @@ Vous devrez répertorier vos abonnements dans le portail Azure, puis double-cliq
 
 1. Sélectionnez l’abonnement dans la liste.
 
-1. Sélectionnez **Fournisseurs de ressources** et entrez  **BareMetalInfrastructure** dans la zone de recherche. Le fournisseur de ressources doit être **inscrit**, comme le montre l’image.
+1. Sélectionnez **Fournisseurs de ressources** et entrez **BareMetalInfrastructure** dans la zone de recherche. Le fournisseur de ressources doit être **inscrit**, comme le montre l’image.
  
 >[!NOTE]
 >Si le fournisseur de ressources n’est pas inscrit, sélectionnez **Inscrire**.
@@ -58,13 +58,13 @@ Pour plus d’informations sur les fournisseurs de ressources, consultez [Fourni
 
 ## <a name="baremetal-instances-in-the-azure-portal"></a>Instances BareMetal dans le portail Azure
  
-Lorsque vous envoyez une demande de déploiement d’instance BareMetal, vous spécifiez l’abonnement Azure que vous connectez aux instances BareMetal. Utilisez le même abonnement que celui utilisé pour déployer la couche d’application qui fonctionne sur les instances BareMetal.
+Quand vous envoyez une demande de déploiement d’instance BareMetal, spécifiez l’abonnement Azure que vous connectez aux instances BareMetal. Utilisez le même abonnement que celui utilisé pour déployer la couche d’application qui fonctionne sur les instances BareMetal.
  
-Lors du déploiement de vos instances BareMetal, un nouveau [groupe de ressources Azure](../azure-resource-manager/management/manage-resources-portal.md) est créé dans l’abonnement Azure que vous avez utilisé dans la requête de déploiement. Ce nouveau groupe de ressources répertorie toutes les instances BareMetal que vous avez déployées dans cet abonnement.
+Durant le déploiement de vos instances BareMetal, un nouveau [groupe de ressources Azure](../azure-resource-manager/management/manage-resources-portal.md) est créé dans l’abonnement Azure que vous avez utilisé dans la demande de déploiement. Ce nouveau groupe de ressources liste toutes les instances BareMetal que vous avez déployées dans cet abonnement.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans l’abonnement BareMetal, dans le portail Azure, sélectionnez **Groupes de ressources**.
+1. Dans le portail Azure, dans l’abonnement BareMetal, sélectionnez **Groupes de ressources**.
  
    :::image type="content" source="media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Capture d’écran montrant la liste des groupes de ressources.":::
 
@@ -119,7 +119,7 @@ Les révisions matérielles possibles sont les suivantes :
 >Rev 4.2 est la dernière infrastructure BareMetal rebaptisée qui utilise l’architecture Rev 4 existante. Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure. Elle apporte des améliorations significatives à la latence du réseau entre les machines virtuelles Azure et les instances SAP HANA. Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. Pour plus d’informations, consultez l’article [Infrastructure BareMetal sur Azure](concepts-baremetal-infrastructure-overview.md).
 
  
-En outre, sur le côté droit, vous trouverez le nom du [groupe de placement de proximité Azure](../virtual-machines/co-location.md), qui est créé automatiquement pour chaque instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche d’application. Lorsque vous utilisez le groupe de placement de proximité associé à l’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’instance BareMetal.
+En outre, sur le côté droit, vous trouverez le nom du [groupe de placement de proximité Azure](../virtual-machines/co-location.md), qui est créé automatiquement pour chaque instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche d’application. Utilisez le groupe de placement de proximité associé à l’instance BareMetal pour vous assurer que les machines virtuelles Azure sont déployées près de l’instance BareMetal.
  
 >[!TIP]
 >Pour trouver la couche application dans le même centre de données Azure que Révision 4.x, consultez [Groupes de placement de proximité Azure pour une latence réseau optimale](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
@@ -142,7 +142,7 @@ Vous pouvez vérifier les activités d’une seule instance BareMetal. L’une d
  
 :::image type="content" source="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Capture d’écran montrant les activités de l’instance BareMetal." lightbox="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
  
-Les modifications apportées aux métadonnées de l’instance dans Azure sont également enregistrées dans le journal d’activité. En plus du redémarrage lancé, vous pouvez voir l’activité **Write BareMetallnstances**. Cette activité n’apporte aucune modification à l’instance BareMetal elle-même, mais documente les modifications apportées aux métadonnées de l’unité dans Azure.
+Les modifications apportées aux métadonnées de l’instance dans Azure sont également enregistrées dans le journal d’activité. En plus du redémarrage, vous pouvez voir l’activité **Write BareMetallnstances**. Cette activité n’apporte aucune modification à l’instance BareMetal elle-même, mais documente les modifications apportées aux métadonnées de l’unité dans Azure.
  
 Une autre activité qui est enregistrée est lorsque vous ajoutez ou supprimez une [étiquette](../azure-resource-manager/management/tag-resources.md) à une instance.
  
@@ -152,7 +152,7 @@ Une autre activité qui est enregistrée est lorsque vous ajoutez ou supprimez u
  
 Vous pouvez ajouter des étiquettes Azure à une instance BareMetal ou les supprimer. Les étiquettes sont attribuées de la même façon que lors de l’attribution d’étiquettes aux machines virtuelles. Comme pour les machines virtuelles, les étiquettes existent dans les métadonnées Azure. Les étiquettes ont les mêmes restrictions pour les instances BareMetal que pour les machines virtuelles.
  
-La suppression des étiquettes fonctionne également de la même manière que pour les machines virtuelles. L’application et la suppression d’une étiquette sont répertoriées dans le journal d’activité de l’instance BareMetal.
+La suppression des étiquettes fonctionne également de la même manière que pour les machines virtuelles. L’application et la suppression d’une étiquette sont listées dans le journal d’activité de l’instance BareMetal.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -174,9 +174,16 @@ az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllab
 
 ## <a name="check-properties-of-an-instance"></a>Vérifier les propriétés d’une instance
  
-Lorsque vous acquérez les instances, vous pouvez accéder à la section Propriétés pour afficher les données collectées sur les instances. Les données collectées incluent la connectivité Azure, le serveur principal de stockage, l’ID de circuit ExpressRoute, l’ID de ressource unique et l’ID d’abonnement. Vous utiliserez ces informations dans les demandes de support ou lors de la configuration d’une capture instantanée de stockage.
+Lorsque vous acquérez les instances, vous pouvez accéder à la section Propriétés pour afficher les données collectées sur les instances. Les données collectées incluent :
+- Connectivité Azure
+- Back-end de stockage
+- ID de circuit ExpressRoute
+- ID de ressource unique
+- l'ID d'abonnement. 
+
+Vous utiliserez ces informations dans les demandes de support ou lors de la configuration d’une capture instantanée de stockage.
  
-Vous verrez également un élément d’information critique sur l’adresse IP du stockage NFS. Il isole votre stockage dans votre **locataire** dans la pile d’instances BareMetal. Vous utilisez également cette adresse IP quand vous modifiez le [fichier de configuration pour les sauvegardes de captures instantanées de stockage](../virtual-machines/workloads/sap/hana-backup-restore.md#set-up-storage-snapshots).
+Vous verrez également un élément d’information critique sur l’adresse IP du stockage NFS. Il isole votre stockage dans votre **locataire** dans la pile d’instances BareMetal. Vous utiliserez cette adresse IP quand vous modifierez le [fichier de configuration de l’outil Azure Application Consistent Snapshot](../azure-netapp-files/azacsnap-cmd-ref-configure.md).
  
 :::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="Capture d’écran montrant les paramètres de propriété de l’instance BareMetal." lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
  
@@ -240,6 +247,7 @@ Il faut compter jusqu’à cinq jours ouvrés pour qu’un représentant du supp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les charges de travail :
+Apprenez-en davantage sur les charges de travail pour BareMetal Infrastructure.
 
-- [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](../virtual-machines/workloads/sap/hana-overview-architecture.md)
+> [!div class="nextstepaction"]
+> [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](../virtual-machines/workloads/sap/hana-overview-architecture.md)
