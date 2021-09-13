@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: fad5a625de4b39163c893d1fb35efc68261d0145
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 10f46f5788cd2f17be4b46c2f655fb4e05fed1d9
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525661"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965942"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Utiliser Azure Migrate avec des points de terminaison privés
 
@@ -53,7 +53,7 @@ Pour activer l’accès au réseau public pour le projet Azure Migrate,connecte
 
 ![Capture d’écran montrant la procédure de modification d’un mode d’accès au réseau.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
-### <a name="other-considerations"></a>Autres éléments à prendre en compte
+### <a name="other-considerations"></a>Autres considérations
 
 **Considérations** | **Détails**
 --- | ---
@@ -101,7 +101,7 @@ Cette section décrit comment configurer l’appliance Azure Migrate. Vous l’u
 L’outil Azure Migrate : découverte et évaluation utilise une appliance Azure Migrate légère. L’appliance effectue la détection du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate.
 
 > [!Note]
-> L’option de déploiement d’une appliance à l’aide d’un modèle (OVA pour les serveurs dans un environnement VMware et VHD dans un environnement Hyper-V) n’est pas prise en charge pour les projets Azure Migrate avec une connectivité de point de terminaison privé.
+> Si vous avez déployé une appliance à l’aide d’un modèle (OVA pour les serveurs d’un environnement VMware et VHD pour un environnement Hyper-V), vous pouvez utiliser la même appliance et l’enregistrer dans un projet Azure Migrate avec une connectivité de point de terminaison privée.
 
 Pour configurer l’appliance :
   1. Téléchargez le fichier ZIP qui contient le script du programme d’installation à partir du portail.
@@ -121,7 +121,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Télécharger** | **Valeur de hachage**
     --- | ---
-    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2160648) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2160648) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > Le même script peut être utilisé pour configurer une appliance avec une connectivité de point de terminaison privé pour l’un des scénarios choisis, tels que VMware, Hyper-V, physique ou autre pour déployer une appliance avec la configuration souhaitée.

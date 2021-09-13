@@ -4,13 +4,13 @@ description: Décrit les opérateurs Bicep disponibles pour les déploiements Az
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 143c7881d3f22bf67b3dfabf74ca54825efffc94
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 80fc9e4e1285d86858a476feba30621a7afe1c79
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532287"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221052"
 ---
 # <a name="bicep-operators"></a>Opérateurs Bicep
 
@@ -46,9 +46,10 @@ Les opérateurs d’accesseur sont utilisés pour accéder aux ressources et aux
 
 | Opérateur | Nom | Description |
 | ---- | ---- | ---- |
+| `[]` | [Accesseur d’index](./operators-access.md#index-accessor) | Accéder à un élément d’un tableau ou d’une propriété sur un objet. |
+| `.` | [Accesseur de fonction](./operators-access.md#function-accessor) | Appeler une fonction sur une ressource. |
 | `::` | [Accesseur de ressource imbriquée](./operators-access.md#nested-resource-accessor) | Accédez à une ressource imbriquée à partir de l’extérieur de la ressource parente. |
 | `.` | [Accesseur de propriété](./operators-access.md#property-accessor) | Propriétés d’accès d’un objet. |
-| `.` | [Accesseur de fonction](./operators-access.md#function-accessor) | Appeler une fonction sur une ressource. |
 
 ## <a name="comparison"></a>Comparaison
 

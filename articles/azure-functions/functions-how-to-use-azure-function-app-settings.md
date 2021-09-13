@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 760408d05c5ad8ff621d13697e94522829781308
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: aac032247383fe1e0b1e181c0d78864ecda778e7
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535124"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831367"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
@@ -46,7 +46,7 @@ L’onglet **Paramètres de l’application** conserve les paramètres qui sont 
 
 ![Paramètres de l’application de fonction sur le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 La commande [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) retourne les paramètres d’application existants, comme dans l’exemple suivant :
 
@@ -64,7 +64,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 La cmdlet [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) retourne les paramètres d’application existants, comme dans l’exemple suivant : 
 
@@ -106,7 +106,7 @@ Pour identifier le type de plan utilisé par votre application de fonction, cons
 
 ![Afficher le plan de mise à l’échelle dans le portail](./media/functions-scale/function-app-overview-portal.png)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Exécutez la commande Azure CLI suivante pour connaître le type de votre plan d’hébergement :
 
@@ -120,7 +120,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 Dans l’exemple précédent, remplacez respectivement `<RESOURCE_GROUP>` et `<FUNCTION_APP_NAME>` par le nom du groupe de ressources et celui de l’application de fonction. 
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Exécutez la commande Azure PowerShell suivante pour connaître le type de votre plan d’hébergement :
 
@@ -204,6 +204,52 @@ Utilisez la procédure suivante pour migrer un plan Premium vers un plan Consomm
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
+
+## <a name="get-your-function-access-keys"></a>Récupérer vos clés d’accès aux fonctions
+
+Les fonctions déclenchées par HTTP peuvent généralement être appelées à l’aide d’une URL au format : `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Lorsque l’autorisation d’accès à votre fonction est définie sur une valeur autre que `anonymous`, vous devez également fournir une clé d’accès dans votre demande. La clé d’accès peut être fournie dans l’URL à l’aide de la chaîne de requête `?code=` ou dans l’en-tête de demande. Pour en savoir plus, consultez [Clés d’accès Function](functions-bindings-http-webhook-trigger.md#authorization-keys). Il existe plusieurs façons de récupérer vos clés d’accès. 
+
+# <a name="portal"></a>[Portail](#tab/portal)
+
+1. Connectez-vous au portail Azure, puis recherchez et sélectionnez **Application de fonction**.
+
+1. Sélectionnez la fonction que vous souhaitez vérifier.
+
+1. Dans le menu de navigation gauche, sous **Fonctions**, sélectionnez **Clés d’application**.
+
+    Cela permet de renvoyer les clés d’hôte, qui peuvent être utilisées pour accéder à n’importe quelle fonction dans l’application. Elle renvoie également la clé système, qui donne à toute personne un accès de niveau administrateur à toutes les API d’application de fonction.   
+
+Vous pouvez également appliquer le principe des privilèges minimum en utilisant la clé pour la clé de fonction spécifique uniquement en sélectionnant **Clés de fonction** sous **Développeur** dans votre fonction déclenchée via HTTP. 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Exécutez le script suivant dans Azure Cloud Shell. La sortie correspond à la [clé (d’hôte) par défaut](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) qui peut être utilisée pour accéder à n’importe quelle fonction déclenchée via HTTP dans l’application de fonction.
+
+```azurecli-interactive
+subName='<SUBSCRIPTION_ID>'
+resGroup=AzureFunctionsContainers-rg
+appName=glengagtestdocker
+path=/subscriptions/$subName/resourceGroups/$resGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01
+az rest --method POST --uri $path --query functionKeys.default --output tsv
+```
+
+Dans ce script, remplacez `<SUBSCRIPTION_ID>` et `<APP_NAME>` par l’ID de votre abonnement et le nom de votre application de fonction, respectivement. Ce script s’exécute sur Bash dans Cloud Shell. Il doit être modifié pour s’exécuter dans une invite de commandes Windows.  
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Exécutez le script suivant. La sortie correspond à la [clé (d’hôte) par défaut](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) qui peut être utilisée pour accéder à n’importe quelle fonction déclenchée via HTTP dans l’application de fonction. 
+
+```powershell-interactive
+$subName = '<SUBSCRIPTION_ID>'
+$rGroup = 'AzureFunctionsContainers-rg'
+$appName = '<APP_NAME>'
+$path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
+((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
+```
+
+Dans ce script, remplacez `<SUBSCRIPTION_ID>` et `<APP_NAME>` par l’ID de votre abonnement et le nom de votre application de fonction, respectivement. 
+
+---
 
 ## <a name="platform-features"></a>Fonctionnalités de la plate-forme
 

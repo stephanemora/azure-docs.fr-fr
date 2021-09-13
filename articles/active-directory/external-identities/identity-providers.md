@@ -5,34 +5,36 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 08/30/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fd158c5d19c805fe7b7592904fc42ed3117bef6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ca0592741018f054640b1d695f643695e4782518
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764348"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222148"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fournisseurs d’identité pour les identités externes
 
-> [!NOTE]
-> Certaines des fonctionnalités mentionnées dans cet article sont des fonctionnalités en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Lors du partage de vos applications et ressources avec des utilisateurs externes, Azure AD est le fournisseur d’identité par défaut. Cela signifie que, quand vous invitez des utilisateurs externes qui disposent déjà d’un compte Azure AD ou Microsoft, ceux-ci peuvent se connecter automatiquement sans configuration supplémentaire de votre part.
 
-Outre des comptes Azure AD, la solution External Identities offre un vaste éventail de fournisseurs d’identité.
+La solution External Identities offre un vaste éventail de fournisseurs d’identité.
 
-- **Comptes Microsoft** (préversion) : les utilisateurs invités peuvent utiliser leur compte Microsoft (MSA) personnel pour accepter vos invitations B2B Collaboration. Lors de la configuration d’un flux utilisateur d’inscription en libre-service, vous pouvez ajouter un [Compte Microsoft (préversion)](microsoft-account.md) en tant que fournisseur d’identité autorisé. Aucune configuration supplémentaire n’est nécessaire pour rendre ce fournisseur d’identité disponible pour les flux utilisateur.
+- **Comptes Azure Active Directory** : les utilisateurs invités peuvent utiliser leurs comptes professionnels ou scolaires Azure AD pour échanger vos invitations de collaboration B2B ou compléter vos flux d’utilisateurs d’inscription. [Azure Active Directory](azure-ad-account.md) est l’un des fournisseurs d’identité autorisés par défaut. Aucune configuration supplémentaire n’est nécessaire pour rendre ce fournisseur d’identité disponible pour les flux utilisateur.
 
-- **Code secret à usage unique d’e-mail** (préversion) : lors de l’acceptation d’une invitation ou de l’accès à une ressource partagée, un utilisateur invité peut demander un code temporaire qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter. La fonctionnalité de code secret à usage unique d’e-mail authentifie les utilisateurs invités B2B quand ceux-ci ne peuvent pas s’authentifier par d’autres moyens. Lors de la configuration d’un flux utilisateur d’inscription en libre-service, vous pouvez ajouter un **Code secret à usage unique d’e-mail (préversion)** en tant que fournisseur d’identité autorisé. Une configuration est requise. Consultez [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md).
+- **Comptes Microsoft** : les utilisateurs invités peuvent utiliser leur compte Microsoft (MSA) personnel pour accepter vos invitations B2B Collaboration. Lors de la configuration d’un flux d’utilisateur d’inscription en libre-service, vous pouvez ajouter un [Compte Microsoft](microsoft-account.md) en tant que fournisseur d’identité autorisé. Aucune configuration supplémentaire n’est nécessaire pour rendre ce fournisseur d’identité disponible pour les flux utilisateur.
+
+- **Code secret à usage unique envoyé par e-mail** : lors de l’acceptation d’une invitation ou de l’accès à une ressource partagée, un utilisateur invité peut demander un code temporaire qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter. La fonctionnalité de code secret à usage unique d’e-mail authentifie les utilisateurs invités B2B quand ceux-ci ne peuvent pas s’authentifier par d’autres moyens. Lors de la configuration d’un flux d’utilisateur d’inscription en libre-service, vous pouvez ajouter un **code secret à usage unique envoyé par e-mail** en tant que fournisseur d’identité autorisé. Une configuration est requise. Consultez [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md).
 
 - **Google** : la fédération des services Google permet à des utilisateurs externes de donner suite à des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs propres comptes Gmail. Vous pouvez également utiliser la fédération des services Google dans vos flux d’utilisateurs d’inscription en libre-service. Découvrez comment [ajouter Google comme fournisseur d’identité](google-federation.md).
    > [!IMPORTANT]
-   > **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+   >
+   > - **À partir du 12 juillet 2021**, si les clients B2B d’Azure AD configurent de nouvelles intégrations Google pour une utilisation avec l’inscription en libre-service pour leurs applications métier ou personnalisées, l’authentification avec Google Identities ne fonctionne pas tant que les authentifications ne sont pas déplacées vers les vues Web système. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+   > - **À partir du 30 septembre 30, 2021**, Google [déprécie la prise en charge de la connexion aux vues web intégrée](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue web incorporée et que vous utilisez la fédération Google avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations utilisateur externes](google-federation.md) ou une inscription en libre-service, les utilisateurs de Google Gmail ne peuvent pas s’authentifier. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+
 
 - **Facebook** : lors de la création d’une application, vous pouvez configurer l’inscription en libre-service et activer un fédération Facebook afin que les utilisateurs puissent s’inscrire à votre application en utilisant leurs propres comptes Facebook. Facebook ne peut être utilisé que pour des flux d’utilisateurs d’inscription en libre-service, et n’est pas disponible en tant qu’option de connexion lorsque des utilisateurs donnent suite à des invitations de votre part. Découvrez comment [ajouter Facebook comme fournisseur d’identité](facebook-federation.md).
 

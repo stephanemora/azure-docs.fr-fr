@@ -4,15 +4,15 @@ description: Cet article décrit comment utiliser le contrôle d’accès en fon
 keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/15/2021
+ms.date: 08/26/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4af5a6d105867df7d5c7a00f6fc47bd0032f4336
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 30bc4a306eecf8be3177fb045f9904d775cab9bd
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597410"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215008"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -27,6 +27,7 @@ Dans Azure Automation, l’accès est octroyé en attribuant le rôle Azure ap
 | Propriétaire |Le rôle Propriétaire autorise l’accès à l’ensemble des ressources et actions d’un compte Automation, notamment l’accès aux autres utilisateurs, groupes et applications pour gérer le compte Automation. |
 | Contributeur |Le rôle Collaborateur vous permet de gérer tous les éléments excepté la modification des autorisations d’accès des autres utilisateurs à un compte Automation. |
 | Lecteur |Le rôle Lecteur vous permet d’afficher toutes les ressources d’un compte Automation, mais vous ne pouvez pas y apporter de modifications. |
+| Contributeur Automation | Le rôle Contributeur Automation vous permet de gérer toutes les ressources du compte Automation, excepté la modification des autorisations d’accès des autres utilisateurs à un compte Automation. |
 | Opérateur Automation |Le rôle Opérateur Automation vous permet de voir le nom et les propriétés du runbook, et de créer et gérer des travaux pour tous les runbooks dans un compte Automation. Ce rôle est utile si vous souhaitez protéger vos ressources de compte Automation telles que les ressources d’informations d’identification et les runbooks et empêcher leur affichage ou leur modification, tout en autorisant les membres de votre organisation à exécuter ces runbooks. |
 |Opérateur de travaux Automation|Le rôle Opérateur de travaux Automation vous permet de créer et de gérer des travaux pour tous les runbooks dans un compte Automation.|
 |Opérateur de runbook Automation|Le rôle Opérateur de runbook Automation vous permet de voir le nom et les propriétés d’un runbook.|
@@ -67,6 +68,23 @@ Un lecteur peut afficher toutes les ressources d’un compte Automation, mais il
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Afficher toutes les ressources dans un compte Automation. |
+
+### <a name="automation-contributor"></a>Contributeur Automation
+
+Un contributeur Automation peut gérer toutes les ressources du compte Automation, excepté l’accès. Le tableau suivant présente les autorisations accordées pour le rôle :
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Automation/automationAccounts/*|Créer et gérer les ressources de tous les types sous le compte Automation.|
+|Microsoft.Authorization/*/read|Lire les rôles et les attributions de rôle.|
+|Microsoft.Resources/deployments/*|Créer et gérer les déploiements de groupes de ressources.|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Lire les déploiements de groupes de ressources.|
+|Microsoft.Support/*|Créer et gérer les tickets de support.|
+
+> [!NOTE]
+> Le rôle Contributeur Automation peut être utilisé pour accéder à n’importe quelle ressource à l’aide de l’identité managée, si les autorisations appropriées sont définies sur la ressource cible ou à l’aide d’un compte d’identification. Un compte d’identification Automation est configuré par défaut avec les droits de Contributeur sur l’abonnement. Suivez le principe des privilèges minimum et attribuez avec précaution les seules autorisations nécessaires pour exécuter votre runbook. Par exemple, si le compte Automation est requis uniquement pour démarrer ou arrêter une machine virtuelle Azure, les autorisations affectées au compte d’identification ou à l’identité managée doivent servir uniquement à démarrer ou arrêter la machine virtuelle. De même, si un runbook lit à partir du stockage blob, attribuez des autorisations en lecture seule.
+> 
+> Dans le cadre de l’attribution des autorisations, il est recommandé d’utiliser le contrôle d’accès en fonction du rôle Azure affecté à une identité managée. Passez en revue nos recommandations [relatives aux meilleures pratiques](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md) pour l’utilisation d’une identité managée affectée par le système ou par l’utilisateur, notamment en lien avec la gestion et la gouvernance pendant sa durée de vie.
 
 ### <a name="automation-operator"></a>Opérateur Automation
 

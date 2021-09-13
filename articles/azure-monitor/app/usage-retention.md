@@ -1,42 +1,46 @@
 ---
-title: Analyser la conservation utilisateur de l’application web avec Azure Application Insights
+title: Analyser la conservation utilisateur de l’application web avec Application Insights
 description: Combien d’utilisateurs reviennent vers votre application ?
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 05/03/2017
-ms.reviewer: mbullwin
-ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: de83c898d7a471892f61fa299cdf2091a1f228e7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025609"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532205"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights
 
-La fonction de rétention [d’Azure Application Insights](./app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
+La fonctionnalité de conservation dans [Application Insights](./app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
 
 ## <a name="get-started"></a>Bien démarrer
 
 Si aucune donnée n’apparaît dans l’outil de rétention du portail Application Insights, [découvrez comment prendre en main les outils d’utilisation](usage-overview.md).
 
-## <a name="the-retention-tool"></a>Outil de rétention
+## <a name="the-retention-workbook"></a>Classeur de conservation
 
-![Outil de rétention](./media/usage-retention/retention.png)
+Pour utiliser le classeur de conservation, dans vos ressources Application Insights, accédez à **Utilisation** > **Conservation** et sélectionnez **Classeur d’analyse de conservation**. Ou sous l’onglet **Classeurs**, sélectionnez **Modèles publics**, puis **Analyse de conservation utilisateur** sous *Utilisation*.
 
-1. La barre d’outils permet aux utilisateurs de créer des rapports de rétention, d’ouvrir les rapports de rétention existants, d’enregistrer le rapport de rétention en cours directement ou à un autre emplacement, d’annuler les modifications apportées aux rapports enregistrés, d’actualiser les données du rapport, de partager des rapports par e-mail ou lien direct, et d’accéder à la page de documentation. 
-2. Par défaut, la rétention affiche tous les utilisateurs qui ont effectué une action, puis sont revenus et ont effectué une autre action sur une période donnée. Vous pouvez choisir une combinaison différente d’événements afin de filtrer des activités utilisateur particulières.
-3. Ajoutez un ou plusieurs filtres sur les propriétés. Par exemple, vous pouvez cibler les utilisateurs d’un pays ou d’une région spécifique. Cliquez sur **Mettre à jour** après avoir défini les filtres. 
-4. Le graphique de rétention globale récapitule la rétention utilisateur sur la période sélectionnée. 
-5. La grille affiche le nombre d’utilisateurs conservés en fonction du générateur de requêtes au point 2. Chaque ligne représente une cohorte d’utilisateurs ayant effectué l’un des événements pendant la période de temps indiquée. Chaque cellule de la ligne indique combien de cette cohorte sont revenus au moins une fois pendant une période ultérieure. Certains utilisateurs peuvent revenir pendant plusieurs périodes. 
-6. Les cartes d’aperçu affichent les cinq principaux événements de lancement et les cinq principaux événements renvoyés pour aider les utilisateurs à mieux comprendre leur rapport de rétention. 
+:::image type="content" source="./media/usage-retention/workbooks-gallery.png" alt-text="Capture d’écran de la galerie de classeurs sur les modèles publics" lightbox="./media/usage-retention/workbooks-gallery.png":::
 
-![Passage de la souris sur la fonction de rétention](./media/usage-retention/hover.png)
 
-Les utilisateurs peuvent survoler les cellules de l’outil de rétention pour accéder au bouton Analytics ainsi qu’à des info-bulles qui expliquent la signification de la cellule. Le bouton Analytics redirige les utilisateurs vers l’outil Analytics avec une requête prédéfinie pour générer des utilisateurs à partir de la cellule. 
 
-## <a name="use-business-events-to-track-retention&quot;></a>Utiliser des événements commerciaux pour suivre la rétention
+### <a name="using-the-workbook"></a>Utilisation du classeur
+
+:::image type="content" source="./media/usage-retention/retention.png" alt-text="Capture d’écran du classeur de rétention montrant un graphique en courbes" lightbox="./media/usage-retention/retention.png":::
+
+- Par défaut, la rétention affiche tous les utilisateurs qui ont effectué une action, puis sont revenus et ont effectué une autre action sur une période donnée. Vous pouvez choisir une combinaison différente d’événements afin de filtrer des activités utilisateur particulières.
+- Ajoutez un ou plusieurs filtres sur les propriétés en sélectionnant **Ajouter des filtres**. Par exemple, vous pouvez cibler les utilisateurs d’un pays ou d’une région spécifique. 
+- Le graphique de rétention globale récapitule la rétention utilisateur sur la période sélectionnée. 
+- La grille affiche le nombre d’utilisateurs retenus. Chaque ligne représente une cohorte d’utilisateurs ayant effectué l’un des événements pendant la période de temps indiquée. Chaque cellule de la ligne indique combien de cette cohorte sont revenus au moins une fois pendant une période ultérieure. Certains utilisateurs peuvent revenir pendant plusieurs périodes. 
+- Les cartes d’aperçu affichent les cinq principaux événements de lancement et les cinq principaux événements renvoyés pour aider les utilisateurs à mieux comprendre leur rapport de rétention. 
+
+    :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Capture d’écran du classeur de conservation, montrant le retour de l’utilisateur après le graphique # de semaines" lightbox="./media/usage-retention/retention-2.png":::
+
+## <a name="use-business-events-to-track-retention"></a>Utiliser des événements commerciaux pour suivre la rétention
 
 Pour obtenir l’analyse de rétention la plus utile, mesurez les événements qui représentent des activités commerciales significatives. 
 
@@ -45,7 +49,7 @@ Par exemple, un grand nombre d’utilisateurs peuvent ouvrir une page dans votre
 Il est recommandé de coder les événements personnalisés qui représentent des actions commerciales clés et de les utiliser pour votre analyse de rétention. Pour capturer le résultat du jeu, vous devez écrire une ligne de code pour envoyer un événement personnalisé à Application Insights. Si vous l’écrivez dans le code de page web ou en Node.JS, voici à quoi il ressemble :
 
 ```JavaScript
-    appinsights.trackEvent(&quot;won game");
+    appinsights.trackEvent("won game");
 ```
 
 Ou dans le code de serveur ASP.NET :
@@ -58,6 +62,7 @@ Ou dans le code de serveur ASP.NET :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+- - Pour en savoir plus sur les classeurs, consultez [la vue d’ensemble des classeurs](../visualize/workbooks-overview.md).
 - Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](./api-custom-events-metrics.md#trackevent) ou des [affichages de page](./api-custom-events-metrics.md#page-views).
 - Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.
     - [Utilisateurs, sessions, événements](usage-segmentation.md)

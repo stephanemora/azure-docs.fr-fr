@@ -1,17 +1,17 @@
 ---
 title: États des boutons et des voyants d’Azure Percept Audio
 description: Découvrir les états des boutons et des voyants d’Azure Percept Audio
-author: MrHamlet
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 04ee60d6ebe9c84d77ea7e5ead140f7930b8cfe4
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 15c76d9729f64867d11e8d91be2be3c9c47c531f
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224548"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563449"
 ---
 # <a name="azure-percept-audio-button-and-led-states"></a>États des boutons et des voyants d’Azure Percept Audio
 

@@ -13,18 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7b3db4e47a73cf7b7ad4e4645546d103c1a3c4fc
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: bbd27f7457b01386ddb1b207c10dcab87ffd4cd6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812871"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563558"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
 Le point de terminaison de service de réseau virtuel fournit une connexion sécurisée et directe aux services Azure sur un itinéraire optimisé du réseau principal Azure. Les points de terminaison permettent de sécuriser vos ressources critiques du service Azure pour vos réseaux virtuels uniquement. Les points de terminaison de service permettent aux adresses IP privées du réseau virtuel d'atteindre le point de terminaison d'un service Azure sans qu'une adresse IP publique soit nécessaire sur le réseau virtuel.
 
-Cette fonctionnalité est disponible pour les services et régions Azure suivants. La ressource *Microsoft.\** est entre parenthèses. Activez cette ressource depuis le côté du sous-réseau lors de la configuration des points de terminaison de service pour votre service :
+   >[!NOTE]
+   > Microsoft recommande l’utilisation d’Azure Private Link pour un accès sécurisé et privé aux services hébergés sur la plateforme Azure. Pour plus d’informations, consultez [Azure Private Link](../private-link/private-link-overview.md).  
+
+Des points de terminaison de service sont disponibles pour les services et régions Azure suivants. La ressource *Microsoft.\** est entre parenthèses. Activez cette ressource depuis le côté du sous-réseau lors de la configuration des points de terminaison de service pour votre service :
 
 **Mise à la disposition générale**
 
@@ -150,6 +153,6 @@ Pour consulter les Forums aux questions, consultez les [FAQ sur les points de te
 - [Sécuriser un compte de stockage Azure pour un réseau virtuel](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Sécuriser une base de données Azure SQL Database pour un réseau virtuel](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Sécuriser une instance Azure Synapse Analytics dans un réseau virtuel](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Intégration des services Azure aux réseaux virtuels](virtual-network-for-azure-services.md)
+- [Comparer des points de terminaison privés et des points de terminaison de service](./vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints)
 - [Stratégies de points de terminaison de service de réseau virtuel](./virtual-network-service-endpoint-policies-overview.md)
 - [Modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)

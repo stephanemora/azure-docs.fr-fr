@@ -9,12 +9,12 @@ metadata:
   author: yegu-ms
   ms.author: yegu
   ms.date: 12/16/2019
-  ms.openlocfilehash: 4960c8b24740a16b6bf8e914a3aee9bd8fc1add0
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: a0ace54c73054eba059d268f21526fcaf44e6120
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123428971"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124828792"
 landingContent:
 - title: À propos du cache Azure pour Redis
   linkLists:
@@ -64,6 +64,24 @@ landingContent:
     links:
     - text: Exemples
       url: cache-redis-samples.md
+- title: Bonnes pratiques
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Résilience des connexions
+      url: cache-best-practices-connection.md
+    - text: Gestion des charges des serveurs
+      url: cache-best-practices-server-load.md
+    - text: Gestion de la mémoire
+      url: cache-best-practices-memory-management.md
+    - text: Développement
+      url: cache-best-practices-development.md
+    - text: Mise à l'échelle
+      url: cache-best-practices-scale.md
+    - text: Applications clientes hébergées sur Kubernetes
+      url: cache-best-practices-kubernetes.md
+    - text: Tests de performances
+      url: cache-best-practices-performance.md
 - title: Kits SDK et lignes de commande
   linkLists:
   - linkListType: reference
@@ -84,24 +102,6 @@ landingContent:
       url: /powershell/module/az.rediscache
     - text: Azure CLI
       url: /cli/azure/redis
-- title: Bonnes pratiques
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Résilience des connexions
-      url: cache-best-practices-connection.md
-    - text: Gestion des charges des serveurs
-      url: cache-best-practices-server-load.md
-    - text: Gestion de la mémoire
-      url: cache-best-practices-memory-management.md
-    - text: Développement
-      url: cache-best-practices-development.md
-    - text: Mise à l'échelle
-      url: cache-best-practices-scale.md
-    - text: Applications clientes hébergées sur Kubernetes
-      url: cache-best-practices-kubernetes.md
-    - text: Tests de performances
-      url: cache-best-practices-performance.md
 - title: Dépanner
   linkLists:
   - linkListType: how-to-guide

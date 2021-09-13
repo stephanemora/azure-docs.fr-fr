@@ -1,21 +1,21 @@
 ---
 title: 'Référence : Base de référence de configuration invité d’Azure Policy pour Linux'
 description: Détails de la base de référence Linux sur Azure implémentée via la configuration invité d’Azure Policy.
-ms.date: 08/03/2021
+ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4fe3e374b39c880940fa61b84342d2d8cbf94d12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5d3b360a3a87c08e457e02829d1938193631e74f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562438"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779321"
 ---
 # <a name="linux-security-baseline"></a>Base de référence de sécurité Linux
 
 Cet article décrit en détail les paramètres de configuration des invités Linux, le cas échéant, dans les implémentations suivantes :
 
-- **\[Préversion\] Les machines Linux doivent répondre aux exigences de la base de référence de sécurité Azure Compute** Définition de la configuration Invité d’Azure Policy
+- **\[Préversion\] : les machines Linux doivent répondre aux exigences de la base de référence de sécurité Azure Compute** Définition de la configuration Invité d’Azure Policy
 - **Les vulnérabilités dans la configuration de sécurité sur vos machines doivent être corrigées** dans Azure Security Center
 
 Pour plus d’informations, consultez [Configuration Invité d’Azure Policy](../concepts/guest-configuration.md) et [Vue d’ensemble du benchmark de sécurité Azure (V2)](../../../security/benchmarks/overview.md).

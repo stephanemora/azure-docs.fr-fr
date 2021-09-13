@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/11/2021
+ms.date: 08/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 81a906e6d1a5630ed7b40092d997ba0f81c7220b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 66c9394c446f5fa74662fb39815a4cd6d121c008
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532784"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821570"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
@@ -88,15 +88,21 @@ Si la région de votre service Data Manager est différente de celle de votre d�
 
 StorSimple Data Manager ne collecte ni ne montre aucune information personnelle. Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
-## <a name="known-limitations"></a>Limites connues
+## <a name="known-limitations"></a>Limitations connues
 
-Le service présente actuellement les limites suivantes :
-- Actuellement, le gestionnaire de données StorSimple ne fonctionne pas avec des volumes chiffrés BitLocker. Si vous tentez d’exécuter le service avec un lecteur chiffré, vous constaterez des échecs des travaux.
+StorSimple Data Manager présente les limitations suivantes :
+- Le service ne fonctionne pas avec les volumes chiffrés par BitLocker. Si vous tentez d’exécuter le service avec un lecteur chiffré, vous constaterez des échecs des travaux.
+- Le service ne peut pas copier les données si la capture instantanée StorSimple est corrompue.
 - Un pare-feu ne peut pas être activé sur le compte de stockage où sont stockées les sauvegardes StorSimple. Si vous activez un pare-feu sur le compte de stockage, les tâches échoueront. 
 - Certaines métadonnées de fichiers (dont les ACL) ne sont pas conservées dans les données transformées.
 - Ce service fonctionne uniquement avec des volumes NTFS.
 - Le Gestionnaire de données StorSimple ne prend pas en charge la migration des Disques durs virtuels (VHD). Pour migrer des Disques durs virtuels, vous pouvez utiliser Azure Data Box ou le service Azure File Sync.
 - Les chemins d’accès des fichiers doivent compter moins de 256 caractères, sans quoi le travail échoue.
+- Limitations du transfert d’objets blob :
+  - La taille maximale de fichier prise en charge pour un objet blob est de 4,7 Tio.
+  - Le jeu de sauvegarde le plus récent disponible sera utilisé.
+  - Les métadonnées de fichier ne sont pas téléchargées avec le contenu du fichier.
+  - Les objets blob téléchargés sont du type objet blob de blocs. Par conséquent, tous les disques durs virtuels téléchargés ne peuvent pas être utilisés dans les machines virtuelles Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

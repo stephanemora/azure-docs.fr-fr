@@ -1,5 +1,5 @@
 ---
-title: Notifications par courrier électronique dans PIM - Azure Active Directory | Microsoft Docs
+title: Notifications par e-mail dans Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Explique ce que sont les notifications par e-mail dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 06/30/2021
+ms.date: 08/24/2021
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18aa1e49ad3f87ab3e222f250354c2bc5e2aca16
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 68fac3501cd13dd4766c519185459c9ef89b6299
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563189"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311219"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
@@ -38,6 +38,21 @@ Ces e-mails incluent un préfixe **PIM** dans la ligne Objet. Voici un exemple 
 
 - PIM : Le rôle Lecteur de sauvegarde a été définitivement attribué à Alain Charon
 
+## <a name="email-timing-for-activation-approvals"></a>Chronologie des e-mails pour les approbations d’activation
+
+Lorsque des utilisateurs activent leur rôle et que le paramètre de rôle nécessite une approbation, les approbateurs reçoivent deux e-mails pour chaque approbation :
+
+- Demande d’approbation ou de refus de la demande d’activation de l’utilisateur (envoyée par le moteur d’approbation des demandes)
+- La demande de l’utilisateur est approuvée (envoyée par le moteur d’approbation des demandes)
+
+En outre, les Administrateurs généraux et les Administrateurs de rôle privilégié reçoivent un e-mail pour chaque approbation :
+
+- Le rôle de l’utilisateur est activé (envoyé par Privileged Identity Management)
+
+Les deux premiers e-mails envoyés par le moteur d’approbation des demandes peuvent être retardés. Actuellement, 90 % des e-mails prennent trois à dix minutes, mais pour 1 % des clients, ce délai peut s’avérer plus long, jusqu’à quinze minutes.
+
+Si une demande d’approbation est approuvée dans le portail Azure avant l’envoi du premier e-mail, le premier e-mail n’est plus déclenché et les autres approbateurs ne sont pas avertis par e-mail de la demande d’approbation. Cela peut donner l’impression qu’ils n’ont pas reçu d’e-mail, mais c’est le comportement attendu.
+
 ## <a name="notifications-for-azure-ad-roles"></a>Notifications pour les rôles Azure AD
 
 Privileged Identity Management envoie des e-mails quand les événements suivants se produisent pour des rôles Azure AD :
@@ -46,7 +61,7 @@ Privileged Identity Management envoie des e-mails quand les événements suivant
 - Quand une demande d’activation de rôle privilégié est approuvée
 - Quand Azure AD Privileged Identity Management est activé
 
-Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre rôle, l’événement et le paramètre de notification :
+Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre rôle, l’événement et le paramètre de notification.
 
 | Utilisateur | Une activation d’un rôle est en attente d’approbation | Une demande d’activation de rôle est terminée | PIM est activé |
 | --- | --- | --- | --- |
@@ -77,22 +92,7 @@ Cet e-mail comprend :
 
 La **vue d’ensemble des rôles principaux** liste les cinq rôles principaux de votre organisation en fonction du nombre total d’administrateurs permanents et éligibles pour chaque rôle. Le lien **Entreprendre une action** ouvre [Discovery & Insights](pim-security-wizard.md) où vous pouvez convertir des administrateurs permanents en administrateurs éligibles par lots.
 
-## <a name="email-timing-for-activation-approvals"></a>Chronologie des e-mails pour les approbations d’activation
-
-Lorsque des utilisateurs activent leur rôle et que le paramètre de rôle nécessite une approbation, les approbateurs reçoivent deux e-mails pour chaque approbation :
-
-- Demande d’approbation ou de refus de la demande d’activation de l’utilisateur (envoyée par le moteur d’approbation des demandes)
-- La demande de l’utilisateur est approuvée (envoyée par le moteur d’approbation des demandes)
-
-En outre, les Administrateurs généraux et les Administrateurs de rôle privilégié reçoivent un e-mail pour chaque approbation :
-
-- Le rôle de l’utilisateur est activé (envoyé par Privileged Identity Management)
-
-Les deux premiers e-mails envoyés par le moteur d’approbation des demandes peuvent être retardés. Actuellement, 90 % des e-mails prennent trois à dix minutes, mais pour 1 % des clients, ce délai peut s’avérer plus long, jusqu’à quinze minutes.
-
-Si une demande d’approbation est approuvée dans le portail Azure avant l’envoi du premier e-mail, le premier e-mail n’est plus déclenché et les autres approbateurs ne sont pas avertis par e-mail de la demande d’approbation. Cela peut donner l’impression qu’ils n’ont pas reçu d’e-mail, mais c’est le comportement attendu.
-
-## <a name="pim-emails-for-azure-resource-roles"></a>E-mails PIM pour les rôles de ressources Azure
+## <a name="notifications-for-azure-resource-roles"></a>Notifications pour les rôles de ressources Azure
 
 Privileged Identity Management envoie des e-mails aux propriétaires et administrateurs de l’accès utilisateur quand les événements suivants se produisent pour les rôles de ressources Azure :
 
@@ -113,6 +113,25 @@ Privileged Identity Management envoie des e-mails aux utilisateurs finals quand 
 L’exemple suivant montre un exemple d’e-mail envoyé quand un utilisateur se voit attribuer un rôle de ressource Azure pour l’organisation fictive Contoso.
 
 ![Nouvel e-mail Privileged Identity Management pour les rôles de ressources Azure](./media/pim-email-notifications/email-resources-new.png)
+
+## <a name="notifications-for-privileged-access-groups"></a>Notifications pour les groupes d’accès privilégiés
+
+Privileged Identity Management envoie des e-mails aux propriétaires uniquement lorsque les événements suivants se produisent pour les attributions de groupe d’accès privilégié :
+
+- lorsqu’une attribution de rôle de propriétaire ou de membre est en attente d’approbation
+- lorsqu’un rôle de propriétaire ou de membre est attribué
+- lorsqu’un rôle de propriétaire ou de membre est sur le point d’expirer
+- lorsqu’un rôle de propriétaire ou de membre est éligible pour une extension
+- lorsqu’un rôle de propriétaire ou de membre est renouvelé par l’utilisateur final
+- lorsqu’une requête d’activation de rôle de propriétaire ou de membre est terminée
+
+Privileged Identity Management envoie des e-mails aux utilisateurs finaux uniquement lorsque les événements suivants se produisent pour les attributions de groupe d’accès privilégié :
+
+- lorsqu’un rôle de propriétaire ou de membre est attribué à un utilisateur
+- lorsque le rôle de propriétaire ou de membre d’un utilisateur a expiré
+- lorsque le rôle de propriétaire ou de membre d’un utilisateur a été étendu
+- lorsque la requête d’activation de rôle de propriétaire ou de membre d’un utilisateur est terminée
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

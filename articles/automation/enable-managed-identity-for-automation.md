@@ -3,15 +3,15 @@ title: À l’aide d’une identité managée affectée par le système pour vot
 description: Cet article explique comment configurer une identité managée pour les comptes Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 08/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d381abcc13a5b91d32b4e444e01909c83300e7b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 882a55d017ed23dc7abbc9096e38f70abb41c425
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524645"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214275"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>À l’aide d’une identité managée affectée par le système pour votre compte Azure Automation (préversion)
 
@@ -107,7 +107,7 @@ Pour obtenir une sortie supplémentaire, exécutez : `$output.identity | Conver
 
 Vous trouverez ci-dessous une syntaxe et des exemples d’étapes.
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>Syntaxe
 
 La syntaxe du corps ci-dessous active une identité managée affectée par le système à un compte Automation existant à l’aide de la méthode HTTP **PATCH**. Toutefois, cette syntaxe supprimera toutes les identités managées affectées par l’utilisateur existantes associées au compte Automation.
 
@@ -256,6 +256,8 @@ Procédez comme suit.
 Un compte Automation peut utiliser son identité managée affectée par le système pour obtenir des jetons afin d’accéder à d’autres ressources protégées par Azure AD, comme Azure Key Vault. Ces jetons ne représentent pas un utilisateur spécifique de l’application. Ils représentent plutôt l’application qui accède à la ressource. Dans ce cas, par exemple, le jeton représente un compte Automation.
 
 Avant de pouvoir vous servir de l’identité managée affectée par le système dans le cadre de l’authentification, configurez l’accès de cette identité à la ressource Azure où vous prévoyez de l’utiliser. Pour effectuer cette tâche, attribuez le rôle approprié à cette identité sur la ressource Azure cible.
+
+Suivez le principe des privilèges minimum et attribuez avec précaution les seules autorisations nécessaires pour exécuter votre runbook. Par exemple, si le compte Automation est requis uniquement pour démarrer ou arrêter une machine virtuelle Azure, les autorisations affectées au compte d’identification ou à l’identité managée doivent servir uniquement à démarrer ou arrêter la machine virtuelle. De même, si un runbook lit à partir du stockage d’objets blob, attribuez des autorisations en lecture seule. Cet exemple utilise Azure PowerShell pour montrer comment assigner le contributeur
 
 Cet exemple utilise Azure PowerShell pour montrer comment attribuer le rôle Contributeur dans l’abonnement à la ressource Azure cible. Le rôle Contributeur est utilisé à titre d’exemple et peut ne pas être requis dans votre cas.
 

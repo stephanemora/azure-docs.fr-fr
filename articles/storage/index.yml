@@ -121,7 +121,7 @@ additionalContent:
           links:
             - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               text: Utiliser l’outil en ligne de commande AzCopy
-            - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
+            - url: ./blobs/quickstart-storage-explorer.md
               text: Utiliser l’Explorateur Stockage Azure basé sur l’interface graphique utilisateur
         - title: Contrôle des coûts
           links:

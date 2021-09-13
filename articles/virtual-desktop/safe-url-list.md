@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7206b035724027f346fe49c8834c2fd35ec83af9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 95081b661d4f33577df07420ab194ec48488221a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752960"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768084"
 ---
 # <a name="required-url-list"></a>Liste des URL requises
 
@@ -42,7 +42,7 @@ Pour utiliser l’outil de vérification d’URL obligatoire, vous avez besoin d
 Pour utiliser l’outil de vérification d’URL obligatoire :
 
 1. Ouvrez une invite de commandes en tant qu’administrateur sur votre machine virtuelle.
-2. Exécutez la commande suivante pour remplacer le répertoire par le même dossier que l’agent de build :
+2. Exécutez la commande suivante pour définir le répertoire sur le même dossier que l’agent de build actuel (RDAgent_1.0.2944.1200 dans cet exemple) :
 
     ```console
     cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
@@ -118,8 +118,8 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
 |login.windows.net|443|Se connecter à Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Mises à jour pour le logiciel client OneDrive|oneclient.sfx.ms|
-|*.digicert.com|443|Vérification de la révocation de certificat|Aucun|
-|*.azure-dns.com|443|Résolution d’Azure DNS|Aucun|
+|*.digicert.com|443|Vérification de la révocation de certificat|None|
+|*.azure-dns.com|443|Résolution d’Azure DNS|None|
 |*.azure-dns.net|443|Résolution d’Azure DNS|Aucun|
 
 >[!NOTE]
@@ -152,4 +152,4 @@ Les clients Bureau à distance que vous utilisez doivent avoir accès aux URL su
 >[!IMPORTANT]
 >L’ouverture de ces URL est essentielle pour une expérience client fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service.
 >
->Ces URL correspondent uniquement aux sites client et aux ressources. Cette liste n’inclut pas les URL d’autres services comme Azure Active Directory. Les URL Azure Active Directory se trouvent sous l’ID 56 sur les [URL et les plages d’adresses IP Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+>Ces URL correspondent uniquement aux sites client et aux ressources. Cette liste n’inclut pas les URL d’autres services comme Azure Active Directory. Les URL Azure Active Directory figurent sous l’ID 56, 59 et 125 sur les [URL et les plages d’adresses IP Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

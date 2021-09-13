@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: e37e1126f71585467b4fa25877289d2bbcf8113a
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 878c63b090510124fe03848d4f5aa1b3243f78d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204744"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531686"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution de problèmes : une connexion VPN de site à site Azure cesse de fonctionner
 
@@ -59,7 +59,7 @@ Pour afficher la clé partagée dans l’optique de la connexion VPN Azure, util
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour le modèle de déploiement Azure Resource Manager :
+Pour le [modèle de déploiement Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) :
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>

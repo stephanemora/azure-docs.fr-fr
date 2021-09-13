@@ -229,6 +229,8 @@
           href: core/howto-administer.md
         - name: Gérer les utilisateurs et les rôles
           href: core/howto-manage-users-roles.md
+        - name: Gérer les organisations
+          href: core/howto-create-organizations.md
         - name: Personnaliser l’interface utilisateur de l’application
           href: core/howto-customize-ui.md
         - name: Migrer une application V2 vers V3

@@ -28,18 +28,6 @@ items:
             href: tutorial-data-sources-readiness.md
           - name: Configuration de MSI Azure Purview à grande échelle
             href: tutorial-msi-configuration.md
-      - name: Starter kit
-        items:
-          - name: Analyser les données
-            href: tutorial-scan-data.md
-          - name: Parcourir la page d’accueil et rechercher
-            href: tutorial-asset-search.md
-          - name: Parcourir les éléments et afficher la traçabilité
-            href: tutorial-browse-and-view-lineage.md
-          - name: 'Explorer les jeux de ressources, les éléments, les schémas, les classifications'
-            href: tutorial-schemas-and-classifications.md
-          - name: Créer des termes de glossaire
-            href: tutorial-import-create-glossary-terms.md
       - name: Inscrire et analyser un serveur SQL local
         href: register-scan-on-premises-sql-server.md
       - name: Appeler les API REST pour le catalogue

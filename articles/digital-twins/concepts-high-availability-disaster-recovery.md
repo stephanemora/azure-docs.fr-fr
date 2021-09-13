@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05713c5a27a8b42ce9b6967212bf1414c841788c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 125f3aa1cb3cfec0b7e8ec3cfafebdf2fae53e59
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474574"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771210"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence pour Azure Digital Twins
 
@@ -22,17 +22,17 @@ Cet article décrit les fonctionnalités de haute disponibilité et de récupér
 
 Azure Digital Twins prend en charge les options de fonctionnalité suivantes :
 * *HA intra-région* : redondance intégrée pour assurer le temps de disponibilité du service
-* *DR inter-régions* : basculement vers une région Azure associée géographiquement dans le cas d’une défaillance inattendue du centre de données
+* *DR inter-régions* : basculement vers une région Azure associée géographiquement si une défaillance inattendue du centre de données se produit
 
 Vous pouvez également consulter la section [Meilleures pratiques](#best-practices) pour obtenir des conseils généraux sur la conception de haute disponibilité/récupération d’urgence.
 
 ## <a name="intra-region-ha"></a>Haute disponibilité intra-région
  
-Azure Digital Twins fournit la haute disponibilité intra-région en implémentant des redondances au sein du service. Cela se répercute dans le [contrat SLA du service](https://azure.microsoft.com/support/legal/sla/digital-twins) pour le temps d’activité. **Les développeurs d’une solution Azure Digital Twins peuvent tirer parti de ces fonctionnalités de haute disponibilité sans le moindre effort supplémentaire.** Bien qu’Azure Digital Twins offre une garantie de disponibilité raisonnablement élevée, des défaillances temporaires peuvent toujours se produire comme avec n’importe quelle plateforme informatique distribuée. Des stratégies de nouvelle tentative appropriées doivent être intégrées dans les composants qui interagissent avec une application cloud de manière à gérer les défaillances temporaires.
+Azure Digital Twins fournit la haute disponibilité intra-région en implémentant des redondances au sein du service. Cette fonctionnalité se répercute dans le [contrat SLA du service](https://azure.microsoft.com/support/legal/sla/digital-twins) pour le temps d’activité. **Les développeurs d’une solution Azure Digital Twins peuvent tirer parti de ces fonctionnalités de haute disponibilité sans le moindre effort supplémentaire.** Bien qu’Azure Digital Twins offre une garantie de disponibilité raisonnablement élevée, des défaillances temporaires peuvent toujours se produire comme avec n’importe quelle plateforme informatique distribuée. Des stratégies de nouvelle tentative appropriées doivent être intégrées dans les composants qui interagissent avec une application cloud de manière à gérer les défaillances temporaires.
 
 ## <a name="cross-region-dr"></a>Récupération d’urgence inter-région
 
-Il peut arriver à de rares occasions qu’un centre de données connaisse une interruption prolongée en raison de pannes d’alimentation ou d’autres événements dans la région. Ces événements se produisent rarement et, lors de tels problèmes, la fonction de haute disponibilité intra-région décrite ci-dessus ne peut pas nécessairement s’appliquer dans ces situations. Azure Digital Twins répond à cela avec le basculement initié par Microsoft.
+Il peut arriver à de rares occasions qu’un centre de données connaisse une interruption prolongée en raison de pannes d’alimentation ou d’autres événements dans la région. Ces événements se produisent rarement et, lors de tels problèmes, la fonction de haute disponibilité intra-région décrite ci-dessus ne peut pas nécessairement s’appliquer dans ces situations. Azure Digital Twins répond à ce scénario avec le basculement initié par Microsoft.
 
 Le **basculement initié par Microsoft** est déclenché dans de rares situations pour faire basculer toutes les instances Azure Digital Twins entre une région affectée et la [région géographiquement associée](../best-practices-availability-paired-regions.md). Ce processus représente l’option par défaut (sans aucun moyen pour les utilisateurs d’y renoncer) et ne nécessite aucune intervention de la part de l’utilisateur. Microsoft se réserve le droit de déterminer dans quelles circonstances exercer cette option. Ce mécanisme n’implique pas le consentement de l’utilisateur avant le basculement de l’instance de l’utilisateur.
 
@@ -65,12 +65,12 @@ Pour afficher les événements Service Health...
     :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Capture d’écran du portail Azure montrant la page « Historique des états » avec l’onglet « Mises à jour du problème » en surbrillance. Cet onglet affiche l’état des entrées." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
 
-Notez que les informations affichées dans cet outil ne sont pas spécifiques d’une seule instance Azure Digital. Après avoir utilisé Service Health pour comprendre ce qui se passe avec le service Azure Digital Twins dans une région ou un abonnement sonnés, vous pouvez effectuer une analyse plus poussée à l’aide de l’outil [Resource Health](troubleshoot-resource-health.md) pour explorer des instances spécifiques et voir si elles sont affectées.
+Les informations affichées dans cet outil ne sont pas spécifiques à une seule instance Azure Digital. Après avoir utilisé Service Health pour comprendre ce qui se passe avec le service Azure Digital Twins dans une région ou un abonnement sonnés, vous pouvez effectuer une analyse plus poussée à l’aide de l’outil [Resource Health](troubleshoot-resource-health.md) pour explorer des instances spécifiques et voir si elles sont affectées.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
 Pour connaître les meilleures pratiques en matière de haute disponibilité/récupération d’urgence, consultez les conseils Azure suivants sur cette rubrique : 
-* L’article [Conception d’applications résilientes pour Azure](/azure/architecture/framework/resiliency/overview) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d’activité et de reprise d’activité. 
+* L’article [Concevoir des applications Azure fiables](/azure/architecture/framework/resiliency/app-design) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d’activité et de reprise d’activité. 
 * Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/framework/resiliency/backup-and-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes 
@@ -78,4 +78,4 @@ Pour connaître les meilleures pratiques en matière de haute disponibilité/ré
 En savoir plus sur la prise en main des solutions Azure Digital Twins :
  
 * [Qu’est-ce qu’Azure Digital Twins ?](overview.md)
-* [Démarrage rapide : Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)
+* [Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)

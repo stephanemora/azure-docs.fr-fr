@@ -8,14 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: risverma
-ms.openlocfilehash: cdfb44518c75dbb57d184fa72eb7639fd56f738c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e0fbe4b02ac0cf2978bba69a9e7e6eafb36b0f84
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524331"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697947"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de la série B peuvent être déployées sur une grande variété de types de matériel et de processeur, ce qui permet une allocation de bande passante concurrentielle. Les machines virtuelles de la série B sont idéales pour les charges de travail qui ne nécessitent pas en permanence la totalité des performances du processeur, par exemple les serveurs web, les preuves de concept, les petites bases de données et les environnements de build de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base qui génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès qu’elle a cumulé des crédits, la machine virtuelle peut étendre son niveau de performance en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application réclame des performances de processeur plus élevées.
 

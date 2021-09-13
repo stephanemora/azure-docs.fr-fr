@@ -10,12 +10,12 @@ ms.custom: devx-track-python, has-adal-ref
 author: likebupt
 ms.author: keli19
 ms.date: 06/15/2021
-ms.openlocfilehash: d4ac33619d653b99de32dcd86cf226f217382f43
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: fe98144b204c0baa22bc17972162799b6f341675
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535219"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831358"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -95,7 +95,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 ## <a name="upload-files"></a>Charger des fichiers
 Le module Exécuter un script Python prend en charge le chargement de fichiers à l’aide du [kit SDK Azure Machine Learning Python](/python/api/azureml-core/azureml.core.run%28class%29#upload-file-name--path-or-stream-).
 
-L’exemple suivant montre comment charger un fichier image dans le module Exécuter un script Python :
+L’exemple suivant montre comment charger un fichier image dans l’enregistrement d’exécution dans le module Exécuter un script Python :
 
 ```Python
 
@@ -131,10 +131,50 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-Une fois l’exécution du pipeline terminée, vous pouvez voir un aperçu de l’image dans le panneau droit du module.
+Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu de l’image dans le panneau de droite du module.
 
 > [!div class="mx-imgBorder"]
 > ![Aperçu de l’image chargée](media/module/upload-image-in-python-script.png)
+
+Vous pouvez également charger le fichier dans n’importe quel magasin de données à l’aide du code suivant. Vous pouvez uniquement afficher un aperçu du fichier dans votre compte de stockage.
+```Python
+import pandas as pd
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be None.
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+    from matplotlib import pyplot as plt
+    import os
+
+    plt.plot([1, 2, 3, 4])
+    plt.ylabel('some numbers')
+    img_file = "line.png"
+
+    # Set path
+    path = "./img_folder"
+    os.mkdir(path)
+    plt.savefig(os.path.join(path,img_file))
+
+    # Get current workspace
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+    
+    # Get a named datastore from the current workspace and upload to specified path
+    from azureml.core import Datastore 
+    datastore = Datastore.get(ws, datastore_name='workspacefilestore')
+    datastore.upload(path)
+
+    return dataframe1,
+```
+
 
 ## <a name="how-to-configure-execute-python-script"></a>Comment configurer le module Exécuter un script Python
 

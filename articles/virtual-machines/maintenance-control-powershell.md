@@ -9,16 +9,20 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a56e0e5f3d344f37b689daa0b9dd9f7d3263523
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0ac16882dca7794ede54d440791bed5a28103b9c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672850"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698816"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Le contrôle de maintenance vous permet de décider du moment où appliquer les mises à jour de la plateforme à l’infrastructure hôte de vos machines virtuelles isolées et vos hôtes dédiés Azure. Cette rubrique traite des options de contrôle de maintenance d’Azure PowerShell. Pour plus d’informations sur les avantages du contrôle de maintenance, ses limitations et d’autres options de gestion, consultez [Gestion des mises à jour de plateforme avec le contrôle de maintenance](maintenance-control.md).
+
+Si vous recherchez des informations sur le contrôle de maintenance des groupes identiques, consultez [Contrôle de maintenance pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Activer le module PowerShell
 
@@ -178,7 +182,7 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>Appliquer des mises à jour
 
-Utilisez [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) pour appliquer les mises à jour en attente.
+Utilisez [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) pour appliquer les mises à jour en attente. L’application des appels de mise à jour peut prendre jusqu’à 2 heures.
 
 ### <a name="isolated-vm"></a>Machine virtuelle isolée
 

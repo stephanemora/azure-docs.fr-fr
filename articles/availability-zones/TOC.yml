@@ -51,7 +51,7 @@
                 - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
-              href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité avec Azure (CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md

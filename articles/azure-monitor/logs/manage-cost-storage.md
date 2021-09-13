@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 106648297bf64d650a4db4bf578e8171039378f2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 9967eaa374116ac28bd0db830eed6a4fc2becfa0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122566116"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771789"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -63,9 +63,7 @@ Dans les options de facturation du cluster, la conservation des données est fac
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimation des coûts de gestion de votre environnement 
 
-Si vous n’utilisez pas encore les journaux Azure Monitor, vous pouvez utiliser la [calculatrice de prix Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) pour estimer le coût d’utilisation de Log Analytics. Dans la zone **Rechercher**, entrez « Azure Monitor », puis sélectionnez la vignette Azure Monitor. Faites défiler la page jusqu’à **Azure Monitor**, puis sélectionnez **Log Analytics** dans la liste déroulante **Type**. Ici, vous pouvez entrer le nombre de machines virtuelles et le nombre de gigaoctets de données que vous pensez collecter sur chaque machine virtuelle. En général, 1 à 3 Go de données par mois sont ingérés à partir d’une machine virtuelle Azure standard. Si vous évaluez les journaux Azure Monitor, vous pouvez utiliser les statistiques de données à partir de votre propre environnement. Vous verrez ci-dessous comment déterminer le [nombre de machines virtuelles surveillées](#understanding-nodes-sending-data) et le [volume de données que votre espace de travail ingère](#understanding-ingested-data-volume). 
-
-Si vous n’utilisez pas encore Log Analytics, voici quelques conseils pour l’estimation des volumes de données :
+Si vous n’utilisez pas encore les journaux Azure Monitor, vous pouvez utiliser la [calculatrice de prix Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) pour estimer le coût d’utilisation de Log Analytics. Dans la zone **Rechercher**, entrez « Azure Monitor », puis sélectionnez la vignette Azure Monitor. Faites défiler la page vers **Azure Monitor**, puis développez la section **Log Analytics**. Ici, vous pouvez entrer les Go de données que vous souhaitez collecter. Si vous évaluez les journaux Azure Monitor, vous pouvez utiliser les statistiques de données à partir de votre propre environnement. Vous verrez ci-dessous comment déterminer le [nombre de machines virtuelles surveillées](#understanding-nodes-sending-data) et le [volume de données que votre espace de travail ingère](#understanding-ingested-data-volume). Si vous n’utilisez pas encore Log Analytics, voici quelques conseils pour l’estimation des volumes de données :
 
 1. **Surveillance des machines virtuelles :** avec l’analyse standard activée, 1 à 3 Go de données ingérées par mois et par machine virtuelle surveillée. 
 2. **Surveillance des clusters Azure Kubernetes service (AKS) :** les détails sur les volumes de données attendus pour la surveillance d’un cluster AKS type sont disponibles [ici](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster). Suivez ces [meilleures pratiques](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) pour contrôler les frais de surveillance du cluster AKS. 

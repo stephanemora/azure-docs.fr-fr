@@ -5,15 +5,15 @@ services: api-management
 author: vladvino
 ms.service: api-management
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/23/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 9de42ef1aa7471f489a02af6e1931c0df0252b7f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b647291d6e841f27c278f7753244f7b7b8745056
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746336"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524962"
 ---
 # <a name="connect-to-a-virtual-network-using-azure-api-management"></a>Se connecter à un réseau virtuel à l’aide de Gestion des API Azure
 Avec les réseaux virtuels Azure, vous pouvez placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Vous pouvez ensuite connecter ces réseaux à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter les informations fournies dans [Vue d’ensemble du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -100,9 +100,9 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 
 ### <a name="api-version-2021-01-01-preview"></a>API version 2021-01-01-preview
 
-* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip) Azure Resource Manager
+* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip) Azure Resource Manager
 
-     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
+     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
 ### <a name="api-version-2020-12-01"></a>API version 2020-12-01
 
@@ -126,7 +126,7 @@ Problèmes courants de configuration incorrecte qui peuvent se produire lors du 
     * Pour obtenir des informations de référence, consultez la [table des ports](#required-ports) et la configuration réseau requise.
 
     > [!IMPORTANT]
-    > Si vous envisagez d’utiliser des serveurs DNS personnalisés pour le réseau virtuel, vous devez les configurer **avant** d’y déployer un service Gestion des API. Sinon, vous devez mettre à jour le service Gestion des API chaque fois que vous changez les serveurs DNS en exécutant l’[opération Appliquer une configuration réseau](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates).
+    > Si vous envisagez d’utiliser des serveurs DNS personnalisés pour le réseau virtuel, vous devez les configurer **avant** d’y déployer un service Gestion des API. Sinon, vous devez mettre à jour le service Gestion des API chaque fois que vous changez les serveurs DNS en exécutant l’[opération Appliquer une configuration réseau](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
 
 * **Ports nécessaires pour la Gestion des API :**  
     Vous pouvez contrôler le trafic entrant et sortant dans le sous-réseau où la Gestion des API est déployée à l’aide de [groupes de sécurité réseau][groupes de sécurité réseau]. Si les ports suivants ne sont pas disponibles, Gestion des API risque de ne pas fonctionner correctement et d’être inaccessible. Les ports bloqués sont un autre problème de configuration courant lors de l’utilisation de Gestion des API avec un réseau virtuel.
@@ -195,8 +195,7 @@ Problèmes courants de configuration incorrecte qui peuvent se produire lors du 
   * Activez les [points de terminaison de service][ServiceEndpoints] sur le sous-réseau où le service Gestion des API est déployé pour :
       * Azure SQL
       * Stockage Azure
-      * Azure EventHub
-      * Azure ServiceBus et
+      * Azure EventHub, et
       * Azure KeyVault. 
   
     En activant des points de terminaison directement du sous-réseau délégué Gestion des API vers ces services, vous pouvez utiliser le réseau principal de Microsoft Azure pour un routage optimal du trafic de service. Si vous utilisez des points de terminaison de service avec le service Gestion des API tunnelisé de force, le trafic des services Azure susmentionnés n’est pas tunnelisé de force. L’autre trafic de dépendance du service Gestion des API est tunnelisé de force et ne peut pas être perdu. En cas de perte, le service Gestion des API ne fonctionnerait pas correctement.
@@ -234,7 +233,7 @@ Problèmes courants de configuration incorrecte qui peuvent se produire lors du 
   Pour résoudre les problèmes de connectivité, consultez [Problèmes courants de configuration du réseau](#network-configuration-issues) et corrigez les paramètres réseau requis.
 
 * **Mises à jour incrémentielles :**  
-  Lorsque vous changez votre réseau, consultez [API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus) pour vérifier que le service Gestion des API n’a pas perdu l’accès aux ressources critiques. L’état de connectivité doit être mis à jour toutes les 15 minutes.
+  Lorsque vous changez votre réseau, consultez [API NetworkStatus](/rest/api/apimanagement/2020-12-01/network-status) pour vérifier que le service Gestion des API n’a pas perdu l’accès aux ressources critiques. L’état de connectivité doit être mis à jour toutes les 15 minutes.
 
 * **Liens de navigation de ressources :**  
   Pendant le déploiement sur un sous-réseau de réseau virtuel Resource Manager doté de l’API version 2020-12-01 et versions antérieures, Gestion des API réserve le sous-réseau en créant un lien de navigation de ressource. Si le sous-réseau contient déjà une ressource d’un autre fournisseur, le déploiement **échoue**. De même, lorsque vous supprimez un service Gestion des API ou le déplacez vers un sous-réseau différent, le lien de navigation des ressources est supprimé.
@@ -270,50 +269,52 @@ Les adresses IP sont divisées par **environnement Azure**. Lorsque vous autoris
 |-----------------|-------------------------|---------------|
 | Azure (public)| USA Centre Sud (Global)| 104.214.19.224|
 | Azure (public)| USA Centre Nord (Global)| 52.162.110.80|
-| Azure (public)| Centre-USA Ouest| 52.253.135.58|
-| Azure (public)| Centre de la Corée| 40.82.157.167|
-| Azure (public)| Ouest du Royaume-Uni| 51.137.136.0|
-| Azure (public)| OuJapon Est| 40.81.185.8|
-| Azure (public)| Centre-Nord des États-Unis| 40.81.47.216|
-| Azure (public)| Sud du Royaume-Uni| 51.145.56.125|
-| Azure (public)| Inde Ouest| 40.81.89.24|
-| Azure (public)| USA Est| 52.224.186.99|
-| Azure (public)| Europe Ouest| 51.145.179.78|
-| Azure (public)| Japon Est| 52.140.238.179|
-| Azure (public)| France Centre| 40.66.60.111|
-| Azure (public)| Est du Canada| 52.139.80.117|
-| Azure (public)| Émirats arabes unis Nord| 20.46.144.85|
+| Azure (public)| Centre de l’Australie| 20.37.52.67|
+| Azure (public)| Centre de l’Australie 2| 20.39.99.81|
+| Azure (public)| Australie Est| 20.40.125.155|
+| Azure (public)| Sud-Australie Est| 20.40.160.107|
 | Azure (public)| Brésil Sud| 191.233.24.179|
 | Azure (public)| Brésil Sud-Est| 191.232.18.181|
-| Azure (public)| Asie Sud-Est| 40.90.185.46|
-| Azure (public)| Afrique du Sud Nord| 102.133.130.197|
 | Azure (public)| Centre du Canada| 52.139.20.34|
-| Azure (public)| Corée du Sud| 40.80.232.185|
+| Azure (public)| Est du Canada| 52.139.80.117|
 | Azure (public)| Inde centrale| 13.71.49.1|
-| Azure (public)| USA Ouest| 13.64.39.16|
-| Azure (public)| Sud-Australie Est| 20.40.160.107|
-| Azure (public)| Centre de l’Australie| 20.37.52.67|
-| Azure (public)| Inde Sud| 20.44.33.246|
 | Azure (public)| USA Centre| 13.86.102.66|
-| Azure (public)| Australie Est| 20.40.125.155|
-| Azure (public)| USA Ouest 2| 51.143.127.203|
-| Azure (public)| USA Ouest 3| 20.150.167.160|
-| Azure (public)| USA Est 2 (EUAP)| 52.253.229.253|
 | Azure (public)| EUAP USA Centre| 52.253.159.160|
-| Azure (public)| États-Unis - partie centrale méridionale| 20.188.77.119|
-| Azure (public)| USA Est 2| 20.44.72.3|
-| Azure (public)| Europe Nord| 52.142.95.35|
 | Azure (public)| Asie Est| 52.139.152.27|
+| Azure (public)| USA Est| 52.224.186.99|
+| Azure (public)| USA Est 2| 20.44.72.3|
+| Azure (public)| USA Est 2 (EUAP)| 52.253.229.253|
+| Azure (public)| France Centre| 40.66.60.111|
 | Azure (public)| France Sud| 20.39.80.2|
-| Azure (public)| Suisse Ouest| 51.107.96.8|
-| Azure (public)| Centre de l’Australie 2| 20.39.99.81|
-| Azure (public)| Émirats arabes unis Centre| 20.37.81.41|
-| Azure (public)| Suisse Nord| 51.107.0.91|
-| Azure (public)| Afrique du Sud Ouest| 102.133.0.79|
-| Azure (public)| Allemagne Centre-Ouest| 51.116.96.0|
 | Azure (public)| Allemagne Nord| 51.116.0.0|
+| Azure (public)| Allemagne Centre-Ouest| 51.116.96.0|
+| Azure (public)| Japon Est| 52.140.238.179|
+| Azure (public)| OuJapon Est| 40.81.185.8|
+| Azure (public)| JIO Inde Centre| 20.192.234.160|
+| Azure (public)| JIO Inde Ouest| 20.193.202.160|
+| Azure (public)| Centre de la Corée| 40.82.157.167|
+| Azure (public)| Corée du Sud| 40.80.232.185|
+| Azure (public)| Centre-Nord des États-Unis| 40.81.47.216|
+| Azure (public)| Europe Nord| 52.142.95.35|
 | Azure (public)| Norvège Est| 51.120.2.185|
 | Azure (public)| Norvège Ouest| 51.120.130.134|
+| Azure (public)| Afrique du Sud Nord| 102.133.130.197|
+| Azure (public)| Afrique du Sud Ouest| 102.133.0.79|
+| Azure (public)| États-Unis - partie centrale méridionale| 20.188.77.119|
+| Azure (public)| Inde Sud| 20.44.33.246|
+| Azure (public)| Asie Sud-Est| 40.90.185.46|
+| Azure (public)| Suisse Nord| 51.107.0.91|
+| Azure (public)| Suisse Ouest| 51.107.96.8|
+| Azure (public)| Émirats arabes unis Centre| 20.37.81.41|
+| Azure (public)| Émirats arabes unis Nord| 20.46.144.85|
+| Azure (public)| Sud du Royaume-Uni| 51.145.56.125|
+| Azure (public)| Ouest du Royaume-Uni| 51.137.136.0|
+| Azure (public)| Centre-USA Ouest| 52.253.135.58|
+| Azure (public)| Europe Ouest| 51.145.179.78|
+| Azure (public)| Inde Ouest| 40.81.89.24|
+| Azure (public)| USA Ouest| 13.64.39.16|
+| Azure (public)| USA Ouest 2| 51.143.127.203|
+| Azure (public)| USA Ouest 3| 20.150.167.160|
 | Azure China 21Vianet| Chine Nord (Global)| 139.217.51.16|
 | Azure China 21Vianet| Chine Est (Global)| 139.217.171.176|
 | Azure China 21Vianet| Chine du Nord| 40.125.137.220|

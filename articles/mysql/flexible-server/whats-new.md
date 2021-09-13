@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: c9cf2c790e5dedb25c923718fbbb807b792f48a2
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 74b81b095ef969715313c79c90821a8c8e8aaf1d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597392"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098248"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Nouveautés Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -57,7 +57,7 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
   - Sud-Australie Est
   - Afrique du Sud Nord
   - Asie Est (Hong Kong, R.A.S.)
-  - Inde Centre
+  - Inde centrale
 
 - **Problème connu**
 
@@ -65,6 +65,13 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
   - Impossible de créer un serveur à haute disponibilité dans la même zone dans les régions suivantes : Inde Centre, Asie Est, Corée Centre, Afrique du Sud Nord, Suisse Nord.
   - Dans un scénario rare et après un basculement à haute disponibilité, le serveur principal est en mode read_only. Résolvez le problème en mettant à jour la valeur « read_only » du panneau des paramètres du serveur sur OFF (Désactivé).
   - Après avoir correctement mis à l’échelle le calcul dans le panneau Calcul + stockage, les E/S par seconde sont réinitialisées à la référence SKU par défaut. Les clients peuvent contourner le problème en restaurant les E/S par seconde dans le panneau Calcul + stockage à la valeur souhaitée (précédemment définie) après le déploiement du calcul et la réinitialisation des E/S par seconde qui en résulte.
+  - Lorsque vous essayez d’activer ou de déployer la haute disponibilité dans la même zone, le déploiement échoue dans les régions suivantes 
+      - Inde centrale
+      - Asie Est
+      - Centre de la Corée
+      - Afrique du Sud Nord
+      - Suisse Nord
+
 
 ## <a name="july-2021"></a>Juillet 2021
 

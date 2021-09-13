@@ -8,16 +8,16 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 902c4ef39e85b08cb1d82b7e292f81a99e277d09
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: d008888968f05641786cdfcb73afac1d540b7596
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608420"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769866"
 ---
 # <a name="event-notifications"></a>Notifications d’événement
 
-Dans Azure Digital Twins, plusieurs événements peuvent produire des **notifications**. Celles-ci permettent au back-end de la solution de savoir quand des actions se produisent. Elles sont ensuite [routées](concepts-route-events.md) vers différents emplacements, à l’intérieur et à l’extérieur d’Azure Digital Twins, qui peuvent utiliser ces informations pour prendre des mesures.
+Dans Azure Digital Twins, plusieurs événements peuvent produire des **notifications**. Celles-ci permettent au back-end de la solution de savoir quand des actions se produisent. Ces notifications sont ensuite [routées](concepts-route-events.md) vers différents emplacements, à l’intérieur et à l’extérieur d’Azure Digital Twins, qui peuvent utiliser ces informations pour prendre des mesures.
 
 Plusieurs types de notifications peuvent être générés. En outre, les messages de notification peuvent être différents selon le type d’événement qui les a générés. Cet article donne des détails sur les différents types de messages, ainsi que sur leur aspect.
 
@@ -43,11 +43,11 @@ Les services doivent ajouter un numéro séquentiel à toutes les notifications 
 
 Les notifications émises par Azure Digital Twins pour Event Grid sont automatiquement mises en forme selon le schéma CloudEvents ou le schéma EventGridEvent, en fonction du type de schéma défini dans la rubrique Event Grid. 
 
-Les attributs d’extension des en-têtes sont ajoutés en tant que propriétés dans le schéma Event Grid, à l’intérieur de la charge utile. 
+Les attributs d’extension des en-têtes sont ajoutés en tant que propriétés dans le schéma Event Grid, dans la charge utile. 
 
 ### <a name="event-notification-bodies"></a>Corps des notifications d’événements
 
-Le corps des messages de notification est présenté ici en JSON. Le corps du message peut être sérialisé différemment selon la sérialisation choisie (par exemple, avec JSON, CBOR, Protobuf, etc).
+Le corps des messages de notification est présenté ici en JSON. Le corps du message peut être sérialisé différemment selon le type de sérialisation souhaité (par exemple, avec JSON, CBOR, Protobuf, etc.).
 
 L’ensemble de champs que le corps contient varie en fonction du type de notification.
 
@@ -153,11 +153,11 @@ Voici un exemple de message de notification de cycle de vie :
 }
 ```
 
-Dans le message, le `data` champ contient les données du jumeau numérique affecté, représenté au format JSON. Le schéma est le suivant : *Digital Twins Resource 7.1*.
+Dans le message, le `data` champ contient les données du jumeau numérique affecté, représenté au format JSON. Le schéma *Digital Twins Resource 7.1* est utilisé pour ce champ `data`.
 
 Pour les événements de création, la charge utile `data` reflète l’état du jumeau après la création de la ressource. Par conséquent, elle doit inclure tous les éléments générés par le système, tout comme un appel `GET`.
 
-Voici un exemple de données pour un appareil [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), avec des composants et aucune propriété de niveau supérieur. Les propriétés qui n’ont pas d’utilité pour les appareils (telles que les propriétés signalées) doivent être omises. Il s’agit des informations qui seront placées dans le champ `data` du message de notification du cycle de vie.
+Voici un exemple de données pour un appareil [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), avec des composants et aucune propriété de niveau supérieur. Les propriétés qui n’ont pas d’utilité pour les appareils (telles que les propriétés signalées) doivent être omises. L’objet JSON suivant correspond aux informations qui seront placées dans le champ `data` du message de notification du cycle de vie :
 
 ```json
 {
@@ -242,7 +242,7 @@ Voici les champs du corps d’une notification de modification d’une relation.
 
 Dans le message, le champ `data` contient la charge utile d’une relation, au format JSON. Il utilise le même format qu’une requête `GET` pour une relation via l’[API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
-Voici un exemple de données pour une notification de relation de mise à jour. « La mise à jour d’une relation » signifie que les propriétés de la relation ont changé, de sorte que les données affichent la propriété mise à jour et sa nouvelle valeur. Il s’agit des informations qui seront placées dans le champ `data` du message de notification de la relation du jumeau numérique.
+Voici un exemple de données pour une notification de relation de mise à jour. « La mise à jour d’une relation » signifie que les propriétés de la relation ont changé, de sorte que les données affichent la propriété mise à jour et sa nouvelle valeur. L’objet JSON suivant correspond aux informations qui seront placées dans le champ `data` du message de notification de la relation du jumeau numérique :
 
 ```json
 {
